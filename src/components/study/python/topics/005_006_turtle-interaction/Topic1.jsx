@@ -44,7 +44,7 @@ const Topic1 = () => {
       const nx = Math.max(25, Math.min(295, ship.x + Math.sin(rad) * 18));
       const ny = Math.max(25, Math.min(155, ship.y - Math.cos(rad) * 18));
       setShip((s) => ({ ...s, x: nx, y: ny }));
-      setLastAction(`Thrust Forward -> (${nx.toFixed(0)}, ${ny.toFixed(0)})`);
+      setLastAction(`Thrust Forward → (${nx.toFixed(0)}, ${ny.toFixed(0)})`);
     }
   };
 
@@ -87,7 +87,7 @@ const Topic1 = () => {
             Module 005_006 · Event Handling & Interaction · Topic 1
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
             Screen Event Listening: screen.listen() & Window Focus
           </h1>
 

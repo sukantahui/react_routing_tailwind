@@ -127,7 +127,7 @@ export default function Topic1() {
             Module 001_003 · Operators & Expressions · Topic 1
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Arithmetic Operators in <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400">Python</span>
           </h1>
 
@@ -417,7 +417,7 @@ print(f"{hours_ahead} hours after {hour}:00 is {new_hour}:00 (3:00 AM)")
 a, b = -17, 5
 q = a // b
 r = a % b
-print(f"a = {a}, b = {b} -> quotient = {q}, remainder = {r}")
+print(f"a = {a}, b = {b} → quotient = {q}, remainder = {r}")
 print("Verification (q*b + r) :", q * b + r)    # -17`}
         />
       </section>

@@ -29,7 +29,7 @@ const Topic25 = () => {
       serial: '3C:4D:5E (Unique Device Serial)',
       features: 'Hardware Checksum Offload, Wake-on-LAN (WoL), PXE Boot ROM',
       estCost: '₹1,200 – ₹2,800',
-      simulation: 'PCIe DMA fetches packet -> MAC ASIC appends 00:1A:2B:3C:4D:5E & CRC32 -> PHY transmits 1Gbps differential voltages on Cat6.',
+      simulation: 'PCIe DMA fetches packet → MAC ASIC appends 00:1A:2B:3C:4D:5E & CRC32 → PHY transmits 1Gbps differential voltages on Cat6.',
     },
     {
       id: 'fiber',
@@ -42,7 +42,7 @@ const Topic25 = () => {
       serial: '98:76:54 (Unique Device Serial)',
       features: 'SR-IOV Virtualization (32 VFs), 9KB Jumbo Frames, LACP Teaming',
       estCost: '₹14,000 – ₹28,000 (with Transceivers)',
-      simulation: '10Gbps packet stream -> Interrupt Coalescing batches 32 frames -> Transceivers pulse 850nm laser light with 0% EMI.',
+      simulation: '10Gbps packet stream → Interrupt Coalescing batches 32 frames → Transceivers pulse 850nm laser light with 0% EMI.',
     },
     {
       id: 'wireless',
@@ -55,7 +55,7 @@ const Topic25 = () => {
       serial: '12:AB:CD (Unique Device Serial)',
       features: 'WPA3-Enterprise Cryptography, Target Wake Time (TWT), Beamforming',
       estCost: '₹2,500 – ₹5,500',
-      simulation: 'WPA3 Handshake verified -> 1024-QAM modulates 6GHz radio frequency -> Transmits over airwaves.',
+      simulation: 'WPA3 Handshake verified → 1024-QAM modulates 6GHz radio frequency → Transmits over airwaves.',
     },
     {
       id: 'virtual',
@@ -68,7 +68,7 @@ const Topic25 = () => {
       serial: '89:AB:CD (Generated VM Serial)',
       features: 'VLAN 802.1Q Tagging, Dynamic vCPU Interrupt Steering, Zero Hardware Cost',
       estCost: '₹0 (Software Defined)',
-      simulation: 'Hypervisor kernel memory copy -> Forwards frame across virtual switch trunk directly to adjacent VM.',
+      simulation: 'Hypervisor kernel memory copy → Forwards frame across virtual switch trunk directly to adjacent VM.',
     },
   ];
 
@@ -163,7 +163,7 @@ const Topic25 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             NIC (Network Interface Card)
           </h1>
 

@@ -29,7 +29,7 @@ function getDataSource(tenantId) {
     explanation: "Provides transparent MySQL compatibility without requiring application code changes.",
     hint: "Proxy layer (ShardingSphere, Vitess) intercepts SQL, routes to shards, and merges results transparently.",
     level: "intermediate",
-    codeExample: `// App sends standard SQL -> ShardingSphere Proxy -> Dispatches to Shard 1 & Shard 2 -> Merges -> App`
+    codeExample: `// App sends standard SQL → ShardingSphere Proxy → Dispatches to Shard 1 & Shard 2 → Merges → App`
   },
   {
     question: "What is a 'Shard Key' (Partitioning Key) and why is its selection the most critical architectural decision in a sharded database?",
@@ -88,7 +88,7 @@ await targetDb.query("INSERT INTO pos_orders VALUES (...)");`
     explanation: "Guarantees cross-shard ACID atomicity, but increases commit latency due to multi-round network hops.",
     hint: "Prepare phase (vote) followed by Commit phase across all participating shard nodes.",
     level: "expert",
-    codeExample: `// 2PC Coordinator: Prepare Shard 0 & Shard 1 -> Receive YES -> Commit Shard 0 & Shard 1`
+    codeExample: `// 2PC Coordinator: Prepare Shard 0 & Shard 1 → Receive YES → Commit Shard 0 & Shard 1`
   },
   {
     question: "Why do high-throughput modern distributed architectures avoid Distributed 2PC in favor of Saga patterns or Eventual Consistency?",
@@ -96,7 +96,7 @@ await targetDb.query("INSERT INTO pos_orders VALUES (...)");`
     explanation: "Sagas use local ACID transactions on each shard coupled with compensating transactions.",
     hint: "2PC holds locks across network round-trips, reducing write throughput at scale.",
     level: "expert",
-    codeExample: `// Saga Pattern: Local commit on Shard A -> Publish Event -> Local commit on Shard B`
+    codeExample: `// Saga Pattern: Local commit on Shard A → Publish Event → Local commit on Shard B`
   },
   {
     question: "What is a 'Global Table' (Broadcast Table) in sharded architectures?",
@@ -145,7 +145,7 @@ Shard 1: [Primary B0, Replica B1, Replica B2]`
     explanation: "Powers planetary-scale MySQL deployments at Slack, GitHub, and YouTube.",
     hint: "Open-source distributed MySQL middleware providing VTGate routing and automated live resharding.",
     level: "intermediate",
-    codeExample: `// Client -> VTGate (Distributed Query Router) -> VTTablet (MySQL Manager) -> mysqld`
+    codeExample: `// Client → VTGate (Distributed Query Router) → VTTablet (MySQL Manager) → mysqld`
   },
   {
     question: "What is Apache ShardingSphere and what are its two primary deployment modes?",
@@ -179,7 +179,7 @@ Shard 1: [Primary B0, Replica B1, Replica B2]`
     explanation: "Increases CPU and temporary memory consumption in proxy merge engines.",
     hint: "Proxy fetches top 10 from all nodes and performs an in-memory multi-way merge sort.",
     level: "intermediate",
-    codeExample: `-- Reads top 10 from Shard 0, 1, 2, 3 -> Merges 40 rows -> Returns global top 10.`
+    codeExample: `-- Reads top 10 from Shard 0, 1, 2, 3 → Merges 40 rows → Returns global top 10.`
   },
   {
     question: "How do you handle schema migrations (DDL) across a 100-node sharded MySQL cluster?",
@@ -204,7 +204,7 @@ Shard 1: [Primary B0, Replica B1, Replica B2]`
     explanation: "Shared-nothing sharding dramatically reduces the catastrophic blast radius of hardware outages.",
     hint: "Partitioning crash affects 100% of users; Sharding failure affects only users on that single shard node.",
     level: "basic",
-    codeExample: `-- Node 2 offline -> Only 1/4 of users affected; Shard 0, 1, 3 remain online.`
+    codeExample: `-- Node 2 offline → Only 1/4 of users affected; Shard 0, 1, 3 remain online.`
   },
   {
     question: "What is 'Range-Based Sharding' vs 'Hash-Based Sharding'?",
@@ -216,11 +216,11 @@ Shard 1: [Primary B0, Replica B1, Replica B2]`
   },
   {
     question: "What is 'Directory-Based (Lookup) Sharding'?",
-    shortAnswer: "A centralized lookup database or key-value cache (e.g. Redis) stores a mapping table associating each entity with its specific shard location (e.g. `tenant_reliance -> Shard_03`), enabling dynamic row relocation and custom tiering.",
+    shortAnswer: "A centralized lookup database or key-value cache (e.g. Redis) stores a mapping table associating each entity with its specific shard location (e.g. `tenant_reliance → Shard_03`), enabling dynamic row relocation and custom tiering.",
     explanation: "Provides total routing flexibility at the cost of an initial lookup network hop.",
     hint: "Central lookup service (Redis/MySQL) maps entity IDs to specific shard database nodes.",
     level: "intermediate",
-    codeExample: `// Lookup: Redis.get("tenant_tata") -> Returns "shard-04.fintech.internal"`
+    codeExample: `// Lookup: Redis.get("tenant_tata") → Returns "shard-04.fintech.internal"`
   },
   {
     question: "Why should analytical reporting queries (OLAP) be routed to dedicated Read Replicas or Data Warehouses rather than the Sharded OLTP Cluster?",
@@ -246,7 +246,7 @@ Shard 1: [Primary B0, Replica B1, Replica B2]`
     level: "basic",
     codeExample: `-- Master Sharding Architecture Blueprint:
 # 1. Shard Key: tenant_uuid
-# 2. Routing: CRC32(tenant_uuid) % 16 -> 16 Independent MySQL Nodes
+# 2. Routing: CRC32(tenant_uuid) % 16 → 16 Independent MySQL Nodes
 # 3. High Availability: 3-Node InnoDB Cluster per Shard
 # 4. Global Tables: country_codes, currencies replicated on all shards
 # 5. ID Generation: 64-bit Twitter Snowflake / UUIDv7`

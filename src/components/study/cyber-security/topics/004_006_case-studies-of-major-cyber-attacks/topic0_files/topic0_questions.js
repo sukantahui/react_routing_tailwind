@@ -25,10 +25,10 @@ const threatVectorMapping = {
     hint: "Distinguish between the superficial trigger and the core systemic failure.",
     level: "Moderate",
     codeExample: `/* 5 Whys RCA Example:
- 1. Why was the database dumped? -> Attacker executed SQLi.
- 2. Why did SQLi succeed? -> Input parameter was concatenated directly.
- 3. Why was it concatenated? -> Legacy custom query was not migrated to ORM.
- 4. Why was it missed in review? -> CI/CD SAST pipeline was bypassed for urgent release.
+ 1. Why was the database dumped? → Attacker executed SQLi.
+ 2. Why did SQLi succeed? → Input parameter was concatenated directly.
+ 3. Why was it concatenated? → Legacy custom query was not migrated to ORM.
+ 4. Why was it missed in review? → CI/CD SAST pipeline was bypassed for urgent release.
  5. Root Cause: Lack of enforced automated security gates in deployment pipeline. */`
   },
   {
@@ -191,7 +191,7 @@ function simulateWiperPayload() {
     hint: "Port 445 SMBv1 vulnerability weaponized with an automated worm propagation engine.",
     level: "Moderate",
     codeExample: `// Snort Rule Signature for EternalBlue SMB exploit:
-alert tcp any any -> any 445 (
+alert tcp any any → any 445 (
   msg:"OS-WINDOWS Microsoft Windows SMBv1 EternalBlue exploit attempt";
   flow:to_server,established;
   content:"|FF|SMB|72|"; offset:4; depth:5;

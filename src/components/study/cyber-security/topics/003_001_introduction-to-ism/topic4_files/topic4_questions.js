@@ -56,11 +56,11 @@ Workflow: Containment & CERT-In 6-Hour Escalation
     hint: "Think of an emergency hospital: triage nurse (Tier 1), ER physician (Tier 2), and specialist surgeon (Tier 3).",
     level: "moderate",
     codeExample: `// 24/7 SOC Tiered Escalation Structure:
-[ Tier 1 (Triage) ]       ➔ Analyzes SIEM alert -> Filters false positive -> Escalates in < 15 mins
+[ Tier 1 (Triage) ]       ➔ Analyzes SIEM alert → Filters false positive → Escalates in < 15 mins
         |
-[ Tier 2 (Responder) ]    ➔ Performs memory dump & network isolation -> Neutralizes active payload
+[ Tier 2 (Responder) ]    ➔ Performs memory dump & network isolation → Neutralizes active payload
         |
-[ Tier 3 (Threat Hunter)] ➔ Reverse-engineers ransomware binary -> Builds custom detection rules`
+[ Tier 3 (Threat Hunter)] ➔ Reverse-engineers ransomware binary → Builds custom detection rules`
   },
   {
     question: "What are the distinct responsibilities of the Information Security Officer (ISO) versus the Security Architect?",

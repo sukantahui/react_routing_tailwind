@@ -171,7 +171,7 @@ const Topic4 = () => {
                   BCA BCAC703 • Cyber Security
                 </span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
                 Time-based One-Time Passwords (TOTP) &amp; HMAC-based OTP (HOTP)
               </h1>
             </div>
@@ -221,7 +221,7 @@ const Topic4 = () => {
 
               {/* 6-Digit Display */}
               <div className="bg-slate-900 px-6 py-4 rounded-2xl border border-cyan-500/50 shadow-lg shadow-cyan-950/50 space-y-1">
-                <div className="text-3xl md:text-4xl font-extrabold font-mono text-cyan-300 tracking-wider">
+                <div className="text-xl sm:text-2xl md:text-3xl font-bold font-mono text-cyan-300 tracking-wider">
                   {activeCode.slice(0, 3)} {activeCode.slice(3)}
                 </div>
                 <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">

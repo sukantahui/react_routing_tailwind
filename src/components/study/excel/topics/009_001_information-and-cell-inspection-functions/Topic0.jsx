@@ -40,7 +40,7 @@ export default function Topic0() {
       <div className="max-w-5xl mx-auto space-y-10">
         <header ref={(el) => (sectionsRef.current[0] = el)} className="rounded-3xl p-6 sm:p-10 bg-slate-900 border border-slate-800">
           <span className="px-3 py-1 rounded-full bg-sky-950 text-sky-300 text-xs font-bold uppercase">ISTEXT · Topic 0</span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-300 mt-4">Mastering ISTEXT</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-indigo-300 mt-4">Mastering ISTEXT</h1>
           <p className="text-slate-300 mt-4 text-base sm:text-lg">Returns TRUE if value is text.</p>
         </header>
 

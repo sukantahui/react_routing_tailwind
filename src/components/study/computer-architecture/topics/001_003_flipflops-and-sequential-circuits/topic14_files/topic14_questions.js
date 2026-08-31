@@ -144,7 +144,7 @@ const questions = [
     "explanation": "The minimum clock period T_min must be greater than or equal to the sum of clock-to-Q delay, maximum combinational delay, and capture flip-flop setup time.",
     "hint": "Sum all delays along the critical path to find T_min, then take reciprocal.",
     "level": "basic",
-    "codeExample": "// Example:\n// t_cq = 1ns, t_comb = 3ns, t_su = 1ns -> T_min = 5ns -> f_max = 200 MHz"
+    "codeExample": "// Example:\n// t_cq = 1ns, t_comb = 3ns, t_su = 1ns → T_min = 5ns → f_max = 200 MHz"
   },
   {
     "question": "Why must asynchronous reset deassertion be synchronized with the clock?",
@@ -214,7 +214,7 @@ const questions = [
     "question": "What is a Gray-code FIFO Pointer and why is it used for multi-bit CDC?",
     "shortAnswer": "Gray code ensures only 1 bit transitions at any increment, preventing multi-bit race hazards.",
     "explanation": "If a binary counter transitions from 0111 (7) to 1000 (8), all 4 bits change simultaneously. Different wire delays cause the capture domain to sample intermediate glitch states (e.g. 1111). Gray code guarantees single-bit transitions.",
-    "hint": "Only 1 bit flips between adjacent numbers: 00 -> 01 -> 11 -> 10.",
+    "hint": "Only 1 bit flips between adjacent numbers: 00 → 01 → 11 → 10.",
     "level": "expert",
     "codeExample": "// Binary to Gray conversion:\nassign gray_ptr = bin_ptr ^ (bin_ptr >> 1);"
   },

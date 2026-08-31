@@ -42,7 +42,7 @@ export default function Topic10() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Numeric Literal Enhancement: Underscores (<code className="text-emerald-400">_</code>) for Readability
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -119,7 +119,7 @@ export default function Topic10() {
             <rect x="330" y="40" width="220" height="150" rx="12" fill="url(#gradLexer)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="70" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Javac Lexer Scanner</text>
             <text x="440" y="100" fill="#fdf4ff" fontSize="12" textAnchor="middle">Strips &apos;_&apos; between digits</text>
-            <text x="440" y="125" fill="#fdf4ff" fontSize="11" fontFamily="monospace" textAnchor="middle">_1_000_000 &rarr; 1000000</text>
+            <text x="440" y="125" fill="#fdf4ff" fontSize="11" fontFamily="monospace" textAnchor="middle">_1_000_000 → 1000000</text>
             <text x="440" y="150" fill="#fdf4ff" fontSize="11" textAnchor="middle">Validates boundary rules</text>
             <text x="440" y="175" fill="#e9d5ff" fontSize="10" textAnchor="middle">(Compile-Time Only)</text>
 

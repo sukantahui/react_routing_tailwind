@@ -36,9 +36,9 @@
     },
     {
       "projectId": "PAL_003",
-      "title": "Manacher's Algorithm Array Formatting (S -> #a#b#c#)",
+      "title": "Manacher's Algorithm Array Formatting (S → #a#b#c#)",
       "difficulty": "Beginner",
-      "description": "Manacher's algorithm unifies odd and even length palindromes by inserting delimiter characters `#` between characters and guard boundaries `^` and `$` at the ends (e.g. `'aba'` -> `'^#a#b#a#$'`). This ensures ALL palindromes have odd lengths in the formatted string. In this project, you will build a Manacher String Preprocessor in C.",
+      "description": "Manacher's algorithm unifies odd and even length palindromes by inserting delimiter characters `#` between characters and guard boundaries `^` and `$` at the ends (e.g. `'aba'` → `'^#a#b#a#$'`). This ensures ALL palindromes have odd lengths in the formatted string. In this project, you will build a Manacher String Preprocessor in C.",
       "learningOutcome": "Manacher Preprocessing, Delimiter Padding & Unified Odd-Length Palindrome Mapping",
       "exampleText": "Format string 'aba' for Manacher",
       "exampleOutput": "--- Manacher's String Formatting ---\nOriginal : 'aba'\nFormatted: '^#a#b#a#$'",
@@ -137,7 +137,7 @@
       "description": "Given a list of unique words, find all pairs of distinct indices `(i, j)` such that concatenation `words[i] + words[j]` is a palindrome. Insert reversed words into a Trie. Walk Trie while checking if remaining un-matched suffixes form palindromes in O(N * L^2) time! In this project, you will build Palindromic Pairs Finder in C.",
       "learningOutcome": "Trie Structural Search, Reversed Word Matching & Palindromic Pair Detection",
       "exampleText": "Find palindromic pairs among words",
-      "exampleOutput": "--- Palindromic Pairs of Strings (Trie) ---\nPalindromic Pairs Found: [ (0, 1) -> 'abcd' + 'dcba', (3, 2) -> 's' + 'lls' ]",
+      "exampleOutput": "--- Palindromic Pairs of Strings (Trie) ---\nPalindromic Pairs Found: [ (0, 1) → 'abcd' + 'dcba', (3, 2) → 's' + 'lls' ]",
       "logicExplanation": "1. **Reversed Word Trie**: Store words in reversed Trie.\n2. **Suffix Match**: Search prefixes; if remaining word slice is palindrome, pair forms palindrome.",
       "answerFile": "./answers/answer11.c",
       "codeExplanation": "1. `palindromic_pairs_demo()`: Finds palindromic pairs using Trie."
@@ -242,7 +242,7 @@
       "projectId": "PAL_020",
       "title": "Run-Length Encoding (RLE) String Compression Kernel",
       "difficulty": "Intermediate",
-      "description": "Run-Length Encoding (RLE) compresses strings by replacing consecutive identical characters with character followed by repeat count (e.g. `'aabcccccaaa'` -> `'a2b1c5a3'`). In this project, you will build an RLE Compression Kernel in C in O(N) time.",
+      "description": "Run-Length Encoding (RLE) compresses strings by replacing consecutive identical characters with character followed by repeat count (e.g. `'aabcccccaaa'` → `'a2b1c5a3'`). In this project, you will build an RLE Compression Kernel in C in O(N) time.",
       "learningOutcome": "Lossless Compression Kernels, Consecutive Character Runs & In-Place Buffer Output",
       "exampleText": "Compress 'aabcccccaaa' via RLE",
       "exampleOutput": "--- Run-Length Encoding (RLE) Compression ---\nOriginal  : 'aabcccccaaa'\nCompressed: 'a2b1c5a3'",
@@ -293,7 +293,7 @@
       "description": "The Burrows-Wheeler Transform (BWT) rearranges string characters into runs of similar characters to maximize bzip2 compression ratios. Reconstruct original string using Inverse BWT LF-mapping in O(N) time! In this project, you will build a BWT Compression Kernel in C.",
       "learningOutcome": "Burrows-Wheeler Transform, LF-Mapping Reversibility & Advanced Lossless Compression",
       "exampleText": "BWT Transform 'banana$'",
-      "exampleOutput": "--- Burrows-Wheeler Transform (BWT) & Inverse Kernel ---\nTransformed string 'banana$' -> 'annb$aa' for bzip2 compression.",
+      "exampleOutput": "--- Burrows-Wheeler Transform (BWT) & Inverse Kernel ---\nTransformed string 'banana$' → 'annb$aa' for bzip2 compression.",
       "logicExplanation": "1. **BWT Permutation**: Sort all cyclic rotations of string S; take last column.\n2. **Inverse BWT**: Use LF-mapping (Last-to-First mapping) to reconstruct original string in O(N).",
       "answerFile": "./answers/answer24.c",
       "codeExplanation": "1. `bwt_compression_demo()`: Implements Burrows-Wheeler Transform and Inverse BWT."

@@ -110,9 +110,9 @@ const questions = [
     question: "What is the ultimate golden rule of Latest Event Time Computations?",
     shortAnswer: "'Initialize L_n = E_n; move backward from right to left; for every event i, evaluate all outgoing paths (L_j - d_ij) and select the MINIMUM; L_1 must equal 0; critical events satisfy L_i = E_i!'",
     explanation: "This complete rule captures all backward pass mechanics.",
-    hint: "L_n = E_n -> Backward right to left -> Take MIN at burst nodes -> L_1 = 0 -> S_i = 0.",
+    hint: "L_n = E_n → Backward right to left → Take MIN at burst nodes → L_1 = 0 → S_i = 0.",
     level: "moderate",
-    codeExample: "GoldenRule: L_n = E_n -> L_i = min(L_j - d_ij) -> Verify L_1 === 0 -> IdentifyZeroSlack()."
+    codeExample: "GoldenRule: L_n = E_n → L_i = min(L_j - d_ij) → Verify L_1 === 0 → IdentifyZeroSlack()."
   }
 ];
 

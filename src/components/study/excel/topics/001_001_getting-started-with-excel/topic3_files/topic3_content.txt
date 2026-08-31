@@ -22,7 +22,7 @@ Result: Structured workbook with zero tab name corruption.
 
 [Naihati Logistics Used Range Bloat Elimination]
 Context: A file of 500 rows ballooned to 45 MB because formatting was applied to column Z row 1,000,000.
-Applied: Delete rows 506 to 1048576 &rarr; Save Workbook
+Applied: Delete rows 506 to 1048576 → Save Workbook
 Result: Workbook opens instantly with zero memory lag.
 
 [Shyamnagar Manufacturing Monthly 3D Consolidation]

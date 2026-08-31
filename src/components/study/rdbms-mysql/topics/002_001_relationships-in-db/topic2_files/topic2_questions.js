@@ -98,7 +98,7 @@ const questions = [
   {
     question: "How does `ON DELETE CASCADE` behave in a 1:N relationship?",
     shortAnswer: "Deleting a parent record causes MySQL to automatically and atomically delete ALL corresponding child records in the 1:N table.",
-    explanation: "Useful for master-detail relationships like Order -> Order Items.",
+    explanation: "Useful for master-detail relationships like Order → Order Items.",
     hint: "Automatically deletes all child records.",
     level: "basic",
     codeExample: "CONSTRAINT fk_order_items FOREIGN KEY (order_id)\nREFERENCES orders(order_id) ON DELETE CASCADE"
@@ -112,7 +112,7 @@ const questions = [
   },
   {
     question: "Can a child table in a 1:N relationship participate in another 1:N relationship as a parent?",
-    shortAnswer: "Yes, creating a hierarchical multi-tier cascade (e.g. Department (1) -> Student (N) -> Payment (N)).",
+    shortAnswer: "Yes, creating a hierarchical multi-tier cascade (e.g. Department (1) → Student (N) → Payment (N)).",
     explanation: "Relational modeling supports multi-level parent-child tree graphs.",
     hint: "Multi-tier hierarchical cascades.",
     level: "moderate"
@@ -170,7 +170,7 @@ const questions = [
   },
   {
     question: "Can a single parent table have multiple child tables in independent 1:N relationships?",
-    shortAnswer: "Yes, e.g. `students` (1) -> `student_payments` (N) and `students` (1) -> `student_attendance` (N).",
+    shortAnswer: "Yes, e.g. `students` (1) → `student_payments` (N) and `students` (1) → `student_attendance` (N).",
     explanation: "Standard star/hub relational architecture.",
     hint: "Multiple child tables referencing one parent.",
     level: "basic"
@@ -184,7 +184,7 @@ const questions = [
     codeExample: "CONSTRAINT uq_dept_role UNIQUE (dept_id, role_name)"
   },
   {
-    question: "What is the risk of deeply nested cascading deletes in a multi-tier 1:N schema (e.g. Level 1 -> Level 2 -> Level 3)?",
+    question: "What is the risk of deeply nested cascading deletes in a multi-tier 1:N schema (e.g. Level 1 → Level 2 → Level 3)?",
     shortAnswer: "Deleting a single top-level record can trigger thousands of cascaded lock acquisitions and row deletions, stalling the InnoDB engine and causing transaction timeouts.",
     explanation: "High-volume cascades should be executed in smaller application batches.",
     hint: "Lock escalation and transaction timeouts on large cascades.",

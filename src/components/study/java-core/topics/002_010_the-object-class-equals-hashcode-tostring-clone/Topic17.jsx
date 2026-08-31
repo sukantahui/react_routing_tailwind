@@ -32,7 +32,7 @@ export default function Topic17() {
             Modern Resource Lifecycle
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           The Deprecated <code className="text-rose-400 font-mono">finalize()</code> Method &amp; Modern <code className="text-emerald-400 font-mono">Cleaner</code> Alternatives
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

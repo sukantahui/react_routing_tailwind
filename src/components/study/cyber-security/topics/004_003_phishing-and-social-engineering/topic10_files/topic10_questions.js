@@ -309,7 +309,7 @@ s2-ed25519._domainkey.kolkata-fintech.in. IN TXT "v=DKIM1; k=ed25519; p=11qYAYKx
     question: "Synthesize the mathematical relationship between Alignment Strictness (A_alignment), DKIM Key Strength (S_dkim), DMARC Policy Enforcement (R_dmarc_policy), and Email Spoofing Vulnerability Probability (P_spoof).",
     shortAnswer: "Email spoofing vulnerability is modeled as P_spoof = 1 - e^(- (A_alignment * S_dkim) / R_dmarc_policy); enforcing DMARC `p=reject` with 2048-bit RSA/Ed25519 (R_dmarc_policy = 1000) drives exact-domain spoofing probability to zero.",
     explanation: "Let $A_{\\text{alignment}} \\ge 1.0$ represent the domain alignment factor, $S_{\\text{dkim}} \\ge 1.0$ represent the signature strength requirement, and $R_{\\text{dmarc\\_policy}}$ represent the DMARC enforcement strength (`p=none` = 1.0, `p=quarantine` = 50, `p=reject` = 1000). The spoofing vulnerability probability is: $P_{\\text{spoof}} = 1 - e^{-\\frac{A_{\\text{alignment}} \\times S_{\\text{dkim}}}{R_{\\text{dmarc\\_policy}}}}$. When organizations enforce strict DMARC `p=reject` ($R_{\\text{dmarc\\_policy}} \\to \\infty$), exact-domain spoofing probability collapses to zero.",
-    hint: "Mathematical formula proving that strict DMARC p=reject (R_dmarc_policy -> infinity) eliminates exact-domain spoofing vulnerability.",
+    hint: "Mathematical formula proving that strict DMARC p=reject (R_dmarc_policy → infinity) eliminates exact-domain spoofing vulnerability.",
     level: "expert",
     codeExample: `// Email Spoofing Mathematical Proof:
 // Without DMARC (R_dmarc_policy = 1.0, p=none) ➔ P_spoof = 1 - e^(-16.0) = 100.0% (SPOOFED EMAILS DELIVERED!)

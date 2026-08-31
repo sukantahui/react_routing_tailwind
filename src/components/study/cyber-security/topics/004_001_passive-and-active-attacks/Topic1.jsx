@@ -59,7 +59,7 @@ interface TenGigabitEthernet1/0/1
       detectabilityScore: 14,
       mechanism:
         "A clamp-on magnetic sensor (Hall effect pickup coil) detects alternating electromagnetic fields emitted by current pulses in copper pairs, demodulating raw baseband data without stripping wire insulation.",
-      packetTrace: "[Analog Electromagnetic Signal Demodulated -> 100BASE-TX 4B5B Encoded Bitstream]",
+      packetTrace: "[Analog Electromagnetic Signal Demodulated → 100BASE-TX 4B5B Encoded Bitstream]",
       mitigation: "Shielded Fully Screened Twisted Pair (Cat6A / Cat7 S/FTP) with grounded metallic foil conduits.",
       configCode: `// Physical Infrastructure Shielding Specification:
 // Standard: ISO/IEC 11801 Class EA (Cat6A S/FTP)
@@ -78,7 +78,7 @@ interface TenGigabitEthernet1/0/1
       detectabilityScore: 25,
       mechanism:
         "The OS instructs the NIC to accept all Ethernet frames regardless of whether the destination MAC matches the host. The libpcap engine passes all cleartext payloads into memory for analysis.",
-      packetTrace: "Ethernet II, Src: 00:1a:2b:3c:4d:5e, Dst: 00:5f:4e:3d:2c:1b -> IPv4 -> TCP -> HTTP Payload",
+      packetTrace: "Ethernet II, Src: 00:1a:2b:3c:4d:5e, Dst: 00:5f:4e:3d:2c:1b → IPv4 → TCP → HTTP Payload",
       mitigation: "Dynamic ARP Inspection (DAI), IEEE 802.1X Port Authentication, and switch port isolation (Private VLANs).",
       configCode: `// Linux Command to Enable Promiscuous Sniffing:
 sudo ip link set dev eth0 promisc on
@@ -96,7 +96,7 @@ sudo tcpdump -i eth0 -nn -s 0 -w capture.pcap`
       detectabilityScore: 5,
       mechanism:
         "Wireless card is placed into RFMON mode, capturing all airborne radio beacons, probe requests, EAPOL 4-way handshakes, and data frames across chosen 20/40/80 MHz Wi-Fi channels.",
-      packetTrace: "802.11 RadioTap Header -> EAPOL Key (Type 2: Pairwise, Key MIC: e4f8901b...)",
+      packetTrace: "802.11 RadioTap Header → EAPOL Key (Type 2: Pairwise, Key MIC: e4f8901b...)",
       mitigation: "WPA3-Enterprise with 192-bit CNSA Suite + Opportunistic Wireless Encryption (OWE - RFC 8110).",
       configCode: `# Put wireless interface into passive monitor mode:
 sudo airmon-ng start wlan0
@@ -132,7 +132,7 @@ switch(config)# monitor session 1 destination interface GigabitEthernet1/0/24`
       detectabilityScore: 3,
       mechanism:
         "High-frequency digital signals in HDMI/DisplayPort video cables act as unintended radio transmitters. A software-defined radio (SDR) receives these waves and reconstructs live desktop screens through walls.",
-      packetTrace: "[Demodulated RF Video Signal -> Reconstructed 1920x1080 60Hz Screen Image]",
+      packetTrace: "[Demodulated RF Video Signal → Reconstructed 1920x1080 60Hz Screen Image]",
       mitigation: "TEMPEST-certified Faraday shielded enclosures, ferrite chokes on cables, and fiber-to-the-desktop.",
       configCode: `// TEMPEST Shielding Standard (NATO AMSG 720B / SDIP-27):
 // Zone 0: Sealed copper-mesh Faraday room (<1m emanation zone)
@@ -175,7 +175,7 @@ server {
       mitigation: "Continuous Optical Power Metering (OPM), Armored conduits, and Layer 2 MACsec encryption.",
       configCode: `// Optical Splitter Calculation:
 // Split Ratio: 70/30 (Live Path Loss: -1.8 dB; Monitor Path Loss: -5.8 dB)
-// Transmit Power: 0 dBm -> Received Power: -1.8 dBm (Verify with OPM)`
+// Transmit Power: 0 dBm → Received Power: -1.8 dBm (Verify with OPM)`
     }
   };
 

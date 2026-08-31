@@ -24,9 +24,9 @@ away as it revolves around the point.
 
 2. Polygonal Spiral (Square / Hex Spiral):
    - Created by using an angle slightly larger than a regular polygon angle.
-   - 91° turn -> 4-arm square spiral vortex
-   - 61° turn -> 6-arm hexagonal spiral vortex
-   - 121° turn -> 3-arm triangular spiral vortex
+   - 91° turn → 4-arm square spiral vortex
+   - 61° turn → 6-arm hexagonal spiral vortex
+   - 121° turn → 3-arm triangular spiral vortex
 
 3. Logarithmic / Golden Spiral (Fibonacci):
    - Polar Equation: r = a * e^(b * theta)

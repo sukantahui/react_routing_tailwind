@@ -27,9 +27,9 @@ const questions = [
     question: "What does the browser DevTools Console REPL stand for?",
     shortAnswer: "Read-Eval-Print-Loop: Reads input, evaluates code, prints output, loops for next command.",
     explanation: "The Console REPL executes single or multi-line JavaScript statements within the active page's execution context, allowing instant testing.",
-    hint: "Read -> Eval -> Print -> Loop.",
+    hint: "Read → Eval → Print → Loop.",
     level: "basic",
-    codeExample: "// Type in DevTools console: 10 + 20 -> Outputs 30"
+    codeExample: "// Type in DevTools console: 10 + 20 → Outputs 30"
   },
   {
     question: "What is the 'nomodule' attribute used for on script tags?",
@@ -91,7 +91,7 @@ const questions = [
     question: "How can JavaScript inject another script dynamically at runtime?",
     shortAnswer: "By creating a <script> DOM element, setting its src, and appending it to document.head.",
     explanation: "Dynamic script injection is used by analytics tools, ad networks, and polyfills to load resources conditionally on the fly.",
-    hint: "document.createElement('script') -> appendChild(head).",
+    hint: "document.createElement('script') → appendChild(head).",
     level: "intermediate",
     codeExample: "const s = document.createElement('script');\ns.src = 'widget.js';\ndocument.head.appendChild(s);"
   },

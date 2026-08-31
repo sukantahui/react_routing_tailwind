@@ -57,7 +57,7 @@ const questions = [
     id: 6,
     question: "What is the mathematical security margin of a 256-bit symmetric encryption key compared to a 128-bit key?",
     shortAnswer: "A 256-bit key provides $2^{128}$ times more combinations than a 128-bit key (not double, but $2^{128}$ exponentially larger: $\approx 3.4 \\times 10^{38}$ times harder to brute-force), providing robust security against future quantum attacks (Grover's Algorithm).",
-    explanation: "Grover's quantum algorithm halves symmetric key strength ($2^{256} \\rightarrow 2^{128}$). Therefore, AES-256 provides a 128-bit post-quantum security level, which remains mathematically unbreakable by any foreseeable computer.",
+    explanation: "Grover's quantum algorithm halves symmetric key strength ($2^{256} \→ 2^{128}$). Therefore, AES-256 provides a 128-bit post-quantum security level, which remains mathematically unbreakable by any foreseeable computer.",
     hint: "Every added bit doubles the difficulty; a 256-bit key is exponentially impossible to crack.",
     level: "Moderate",
     codeExample: `// Brute-Force Key Space:

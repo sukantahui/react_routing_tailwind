@@ -123,8 +123,8 @@ const flowFeatureVector = {
     hint: "Malware checks in like clockwork every 60 seconds; humans click links randomly.",
     level: "Basic",
     codeExample: `// IAT Variance Comparison:
-// Human Browsing : IAT = [0.1s, 4.5s, 0.2s, 12.0s, 0.05s] -> High Variance (Normal)
-// Malware Beacon : IAT = [60.01s, 59.98s, 60.02s, 60.00s] -> Near-Zero Variance (Anomalous!)`
+// Human Browsing : IAT = [0.1s, 4.5s, 0.2s, 12.0s, 0.05s] → High Variance (Normal)
+// Malware Beacon : IAT = [60.01s, 59.98s, 60.02s, 60.00s] → Near-Zero Variance (Anomalous!)`
   },
   {
     id: 12,

@@ -140,7 +140,7 @@ const Topic16 = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
-        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
           <span className="block">Simplification Techniques:</span>
           <span className="block text-orange-600 dark:text-orange-400">Step-by-Step Reduction</span>
         </h1>

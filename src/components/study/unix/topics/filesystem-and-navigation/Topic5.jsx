@@ -300,7 +300,7 @@ export default class Topic5 extends Component {
           <div className="mb-8">
             <div className="flex items-center mb-4">
               <span className="text-2xl mr-3">📍</span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
                 Absolute vs Relative Paths with Real-world Folder Trees
               </h1>
             </div>

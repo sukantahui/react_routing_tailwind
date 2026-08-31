@@ -15,7 +15,7 @@ child records referencing that key.
 A. ON DELETE CASCADE:
    • When a parent record is deleted (`DELETE FROM parent WHERE id = 101`), the InnoDB storage engine
      AUTOMATICALLY and ATOMICALLY deletes all child rows where `parent_id = 101`.
-   • Best used for existential / composite relationships (e.g. Orders -> Order Items, Students -> Receipts).
+   • Best used for existential / composite relationships (e.g. Orders → Order Items, Students → Receipts).
 
 B. ON UPDATE CASCADE:
    • When a parent record's Primary Key value is modified (`UPDATE parent SET id = 500 WHERE id = 101`),
@@ -42,7 +42,7 @@ HOW INNODB PROCESSES CASCADES:
 • MySQL InnoDB executes cascading actions directly in the storage engine, bypassing SQL parser overhead.
 
 
-3. MULTI-TIER CASCADING CHAINS (LEVEL 1 -> LEVEL 2 -> LEVEL 3)
+3. MULTI-TIER CASCADING CHAINS (LEVEL 1 → LEVEL 2 → LEVEL 3)
 --------------------------------------------------------------------------------
 Cascade operations can propagate across multiple tiers:
 Department (Parent) ───[CASCADE]───> Student (Child) ───[CASCADE]───> Payment (Grandchild)
@@ -85,7 +85,7 @@ CREATE TABLE order_items (
 
 6. BEST PRACTICES & SUMMARY CHECKLIST
 --------------------------------------------------------------------------------
-[x] Use `ON DELETE CASCADE` for tight existential parent-child entities (e.g. Orders -> Order Items).
+[x] Use `ON DELETE CASCADE` for tight existential parent-child entities (e.g. Orders → Order Items).
 [x] Always combine with `ON UPDATE CASCADE` to keep primary key mutations synchronized.
 [x] Avoid massive multi-tier cascades on high-traffic tables with millions of rows (batch delete in application code instead).
 [x] Ensure foreign key columns in child tables are indexed to speed up cascade lookups.

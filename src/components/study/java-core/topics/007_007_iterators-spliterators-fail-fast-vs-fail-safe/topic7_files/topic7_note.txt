@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. FAIL-SAFE / WEAKLY CONSISTENT:
    - Part of 'java.util.concurrent'.
    - NEVER throw 'ConcurrentModificationException'.
-   - CopyOnWriteArrayList &rarr; immutable Snapshot view.
-   - ConcurrentHashMap &rarr; Weakly Consistent live view.
+   - CopyOnWriteArrayList → immutable Snapshot view.
+   - ConcurrentHashMap → Weakly Consistent live view.
    - Safe for high-concurrency multi-threaded streaming.
 
 ================================================================================

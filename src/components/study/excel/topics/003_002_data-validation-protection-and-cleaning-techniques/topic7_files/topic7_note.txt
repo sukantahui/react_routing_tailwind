@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Diagnosing, tracing, and resolving fatal Circular References, calculation engine locks, and eliminating workbook performance bottlenecks
 
 TEACHER'S ADVICE:
-If you see 'Circular References' in the bottom left status bar, STOP! Your entire spreadsheet has stopped calculating. Go to Formulas -> Error Checking -> Circular References immediately and break the loop.
+If you see 'Circular References' in the bottom left status bar, STOP! Your entire spreadsheet has stopped calculating. Go to Formulas → Error Checking → Circular References immediately and break the loop.
 
 COMMON TRAPS TO AVOID:
-- Ignoring Status Bar Circular Warning: Working in a workbook with an active circular reference means Excel has FROZEN calculations; all other formulas on the sheet stop updating. -> Fix: Immediately check Formulas > Error Checking > Circular References and resolve the loop.
-- Uncontrolled Iterative Divergence: Enabling iterative calculation on a model with explosive non-convergent mathematical formulas causes values to spiral to `#NUM!` or `#DIV/0!`. -> Fix: Incorporate an algebraic debt circularity breaker switch (`=IF(CircularBreaker="OFF", 0, CalcInterest)`).
-- Volatile Formula Proliferation (INDIRECT / OFFSET / TODAY): Overusing volatile functions forces Excel to recalculate 50,000 formulas on EVERY single cell edit anywhere in the workbook. -> Fix: Replace OFFSET with non-volatile INDEX, and replace INDIRECT with static structured references.
+- Ignoring Status Bar Circular Warning: Working in a workbook with an active circular reference means Excel has FROZEN calculations; all other formulas on the sheet stop updating. → Fix: Immediately check Formulas > Error Checking > Circular References and resolve the loop.
+- Uncontrolled Iterative Divergence: Enabling iterative calculation on a model with explosive non-convergent mathematical formulas causes values to spiral to `#NUM!` or `#DIV/0!`. → Fix: Incorporate an algebraic debt circularity breaker switch (`=IF(CircularBreaker="OFF", 0, CalcInterest)`).
+- Volatile Formula Proliferation (INDIRECT / OFFSET / TODAY): Overusing volatile functions forces Excel to recalculate 50,000 formulas on EVERY single cell edit anywhere in the workbook. → Fix: Replace OFFSET with non-volatile INDEX, and replace INDIRECT with static structured references.
 ================================================================================

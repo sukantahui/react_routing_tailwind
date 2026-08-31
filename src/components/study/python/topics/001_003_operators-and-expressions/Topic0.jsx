@@ -156,7 +156,7 @@ export default function Topic0() {
             Module 001_003 · Operators & Expressions · Topic 0
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Introduction to Python <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400">Operators & Expressions</span>
           </h1>
 

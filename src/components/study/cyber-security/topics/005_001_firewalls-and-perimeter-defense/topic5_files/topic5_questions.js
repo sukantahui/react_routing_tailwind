@@ -7,7 +7,7 @@ const questions = [
     hint: "Operates at OSI Layer 7 (Application Layer) and understands high-level application protocols.",
     level: "Basic",
     codeExample: `// Application Proxy Scope:
-// Client -> [Layer 7 Application Proxy (Terminates HTTP/TLS & Inspects SQLi/XSS)] -> Origin Server`
+// Client → [Layer 7 Application Proxy (Terminates HTTP/TLS & Inspects SQLi/XSS)] → Origin Server`
   },
   {
     id: 2,
@@ -27,8 +27,8 @@ const questions = [
     hint: "Forward protects outgoing internal users; Reverse protects incoming backend web servers.",
     level: "Basic",
     codeExample: `// Forward vs Reverse Proxy:
-// Forward Proxy: Internal Employee -> [Forward Proxy (Squid)] -> Public Internet
-// Reverse Proxy: Public Internet   -> [Reverse Proxy (NGINX)] -> Internal Web Server`
+// Forward Proxy: Internal Employee → [Forward Proxy (Squid)] → Public Internet
+// Reverse Proxy: Public Internet   → [Reverse Proxy (NGINX)] → Internal Web Server`
   },
   {
     id: 4,
@@ -54,7 +54,7 @@ const proxyDaemons = {
     level: "Basic",
     codeExample: `// L7 SQLi Inspection Logic:
 // Request: GET /search?id=1%27%20UNION%20SELECT%20password%20FROM%20users--
-// Proxy: Decodes URL -> Matches 'UNION SELECT' -> Returns HTTP 403 Forbidden!`
+// Proxy: Decodes URL → Matches 'UNION SELECT' → Returns HTTP 403 Forbidden!`
   },
   {
     id: 6,
@@ -109,7 +109,7 @@ const proxyDaemons = {
     hint: "Checking the true file format using binary headers rather than trusting the filename extension.",
     level: "Moderate",
     codeExample: `// Magic Byte MIME Validation:
-// If File starts with 0x4D 0x5A ('MZ' - Windows Executable) AND Policy blocks Executables -> Drop Flow!`
+// If File starts with 0x4D 0x5A ('MZ' - Windows Executable) AND Policy blocks Executables → Drop Flow!`
   },
   {
     id: 11,
@@ -130,7 +130,7 @@ const proxyDaemons = {
     hint: "An email proxy that checks sender legitimacy, scans attachments for malware, and blocks spam.",
     level: "Moderate",
     codeExample: `// SMTP Gateway Security Pipeline:
-// Ingress -> [TLS Handshake] -> [SPF / DKIM / DMARC Check] -> [Antivirus Attachment Scan] -> [Spam Scoring] -> Deliver to Inbox`
+// Ingress → [TLS Handshake] → [SPF / DKIM / DMARC Check] → [Antivirus Attachment Scan] → [Spam Scoring] → Deliver to Inbox`
   },
   {
     id: 13,
@@ -140,7 +140,7 @@ const proxyDaemons = {
     hint: "Detects malware exfiltrating stolen data encoded inside DNS queries.",
     level: "Expert",
     codeExample: `// DNS Tunneling Detection Rule:
-// IF Query.Subdomain.Length > 50 AND ShannonEntropy(Query.Subdomain) > 4.5 -> Flag as DNS Tunneling Exfiltration!`
+// IF Query.Subdomain.Length > 50 AND ShannonEntropy(Query.Subdomain) > 4.5 → Flag as DNS Tunneling Exfiltration!`
   },
   {
     id: 14,
@@ -193,9 +193,9 @@ const proxyDaemons = {
     hint: "Demands HTTP 407 authentication so every web request is tied to an authenticated employee username.",
     level: "Moderate",
     codeExample: `// HTTP 407 Challenge Flow:
-// 1. Client -> Proxy: GET http://google.com
-// 2. Proxy -> Client: HTTP/1.1 407 Proxy Authentication Required (Proxy-Authenticate: Negotiate)
-// 3. Client -> Proxy: GET http://google.com (Proxy-Authorization: Kerberos Ticket)`
+// 1. Client → Proxy: GET http://google.com
+// 2. Proxy → Client: HTTP/1.1 407 Proxy Authentication Required (Proxy-Authenticate: Negotiate)
+// 3. Client → Proxy: GET http://google.com (Proxy-Authorization: Kerberos Ticket)`
   },
   {
     id: 19,
@@ -205,7 +205,7 @@ const proxyDaemons = {
     hint: "Scanning outgoing responses to mask credit cards and Aadhaar numbers before they leave the server.",
     level: "Moderate",
     codeExample: `// DLP Aadhaar Masking Regex:
-// Pattern: \b\d{4}\s\d{4}\s\d{4}\b -> Replaced with: "XXXX XXXX " + Last4Digits`
+// Pattern: \b\d{4}\s\d{4}\s\d{4}\b → Replaced with: "XXXX XXXX " + Last4Digits`
   },
   {
     id: 20,
@@ -238,7 +238,7 @@ const proxyDaemons = {
     hint: "Decompresses the zip/brotli stream in RAM to inspect the hidden plaintext underneath.",
     level: "Moderate",
     codeExample: `// Decompression Inspection Pipeline:
-// Compressed HTTP Body -> [zlib decompress in RAM] -> Plaintext JSON -> [SQLi/XSS Regex Engine] -> [Recompress] -> Forward`
+// Compressed HTTP Body → [zlib decompress in RAM] → Plaintext JSON → [SQLi/XSS Regex Engine] → [Recompress] → Forward`
   },
   {
     id: 23,
@@ -280,7 +280,7 @@ const proxyDaemons = {
     level: "Expert",
     codeExample: `// HPP Example:
 // Request: GET /transfer?amount=100&amount=10000
-// Proxy Action: Flags duplicate parameter 'amount' -> Rejects with HTTP 400 Bad Request!`
+// Proxy Action: Flags duplicate parameter 'amount' → Rejects with HTTP 400 Bad Request!`
   },
   {
     id: 27,

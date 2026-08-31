@@ -42,11 +42,11 @@ export default function Topic9() {
             Type Widening &amp; Overload Resolution
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Automatic Type Promotion in Method Overloading Resolution
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          Master the official 4-tier overload resolution hierarchy in Java (JLS §15.12.2): exact matching, primitive widening promotion (<code className="text-emerald-400 font-mono">byte &rarr; short &rarr; int &rarr; long &rarr; float &rarr; double</code>), autoboxing precedence rules, varargs fallbacks, and fee calculation tests in Indian Rupees (₹).
+          Master the official 4-tier overload resolution hierarchy in Java (JLS §15.12.2): exact matching, primitive widening promotion (<code className="text-emerald-400 font-mono">byte → short → int → long → float → double</code>), autoboxing precedence rules, varargs fallbacks, and fee calculation tests in Indian Rupees (₹).
         </p>
       </header>
 
@@ -72,7 +72,7 @@ export default function Topic9() {
               <h3 className="text-sky-400 font-bold text-sm mb-1">Priority 2</h3>
               <p className="text-sky-300 mb-1">Primitive Widening</p>
               <p className="text-slate-300 font-sans leading-relaxed text-xs">
-                <code className="text-sky-300 font-mono">byte/short/char &rarr; int &rarr; long &rarr; float &rarr; double</code> without boxing.
+                <code className="text-sky-300 font-mono">byte/short/char → int → long → float → double</code> without boxing.
               </p>
             </div>
 
@@ -80,7 +80,7 @@ export default function Topic9() {
               <h3 className="text-purple-400 font-bold text-sm mb-1">Priority 3</h3>
               <p className="text-purple-300 mb-1">Autoboxing</p>
               <p className="text-slate-300 font-sans leading-relaxed text-xs">
-                Converts primitive to its wrapper class (<code className="text-purple-300 font-mono">int &rarr; Integer</code>).
+                Converts primitive to its wrapper class (<code className="text-purple-300 font-mono">int → Integer</code>).
               </p>
             </div>
 
@@ -140,19 +140,19 @@ export default function Topic9() {
             {/* Ladder Tier 1: Exact Match */}
             <rect x="30" y="30" width="820" height="45" rx="8" fill="url(#gradP1)" />
             <text x="50" y="58" fill="#ffffff" fontSize="13" fontWeight="bold">PHASE 1: EXACT MATCH</text>
-            <text x="400" y="58" fill="#d1fae5" fontSize="11" fontFamily="monospace">int &rarr; m(int) | String &rarr; m(String)</text>
+            <text x="400" y="58" fill="#d1fae5" fontSize="11" fontFamily="monospace">int → m(int) | String → m(String)</text>
             <text x="780" y="58" fill="#ffffff" fontSize="11" fontWeight="bold">PRIORITY 1</text>
 
             {/* Ladder Tier 2: Primitive Widening */}
             <rect x="30" y="85" width="820" height="45" rx="8" fill="url(#gradP2)" />
             <text x="50" y="113" fill="#ffffff" fontSize="13" fontWeight="bold">PHASE 2: PRIMITIVE WIDENING</text>
-            <text x="400" y="113" fill="#e0f2fe" fontSize="11" fontFamily="monospace">byte/short/char &rarr; int &rarr; long &rarr; float &rarr; double</text>
+            <text x="400" y="113" fill="#e0f2fe" fontSize="11" fontFamily="monospace">byte/short/char → int → long → float → double</text>
             <text x="780" y="113" fill="#ffffff" fontSize="11" fontWeight="bold">PRIORITY 2</text>
 
             {/* Ladder Tier 3: Autoboxing / Unboxing */}
             <rect x="30" y="140" width="820" height="45" rx="8" fill="url(#gradP3)" />
             <text x="50" y="168" fill="#ffffff" fontSize="13" fontWeight="bold">PHASE 3: AUTOBOXING / UNBOXING</text>
-            <text x="400" y="168" fill="#ede9fe" fontSize="11" fontFamily="monospace">int &rarr; Integer | Double &rarr; double | int &rarr; Object</text>
+            <text x="400" y="168" fill="#ede9fe" fontSize="11" fontFamily="monospace">int → Integer | Double → double | int → Object</text>
             <text x="780" y="168" fill="#ffffff" fontSize="11" fontWeight="bold">PRIORITY 3</text>
 
             {/* Ladder Tier 4: Varargs Fallback */}

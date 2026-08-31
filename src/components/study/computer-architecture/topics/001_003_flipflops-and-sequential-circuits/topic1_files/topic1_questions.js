@@ -46,7 +46,7 @@ const questions = [
     "explanation": "A mechanical switch generates electrical noise bounces for 5-20 ms upon contact. Connecting an SPDT switch to an SR Latch locks the latch on the initial transition, providing a single, clean, digital pulse.",
     "hint": "Consider SPDT contact wiping vs electrical bouncing.",
     "level": "moderate",
-    "codeExample": "// Hardware Debounce Circuit:\n// Position A -> S=1, R=0 (Q sets cleanly)\n// Bounce in A -> S floats to 0 (Latch holds Q=1 stably)"
+    "codeExample": "// Hardware Debounce Circuit:\n// Position A → S=1, R=0 (Q sets cleanly)\n// Bounce in A → S floats to 0 (Latch holds Q=1 stably)"
   },
   {
     "question": "What is the quiescent (Memory Hold) input condition for a NOR-based SR Latch?",

@@ -27,7 +27,7 @@ const questions = [
     explanation: "Syntactic parsing determinism in compiler design.",
     hint: "To prevent ambiguity on where variable arguments end and fixed arguments start.",
     level: "basic",
-    codeExample: "// If void m(int... a, int b) existed: m(1, 2, 3); -> Where does 'b' start?"
+    codeExample: "// If void m(int... a, int b) existed: m(1, 2, 3); → Where does 'b' start?"
   },
   {
     question: "How does the Java compiler implement Varargs under the hood?",
@@ -35,7 +35,7 @@ const questions = [
     explanation: "Bytecode array transformation mechanism.",
     hint: "Translates Type... into an array Type[] under the hood.",
     level: "basic",
-    codeExample: "double... fees -> double[] fees"
+    codeExample: "double... fees → double[] fees"
   },
   {
     question: "What is the value of a varargs parameter inside the method when ZERO arguments are passed (`calculateBatchTotal(\"Barrackpore\")`)?",

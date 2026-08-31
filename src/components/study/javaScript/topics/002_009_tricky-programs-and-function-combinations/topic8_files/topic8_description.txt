@@ -35,7 +35,7 @@ const filterTransducer = pred => nextReducer => (acc, val) => pred(val) ? nextRe
 // Basic Combiner Reducer:
 const pushCombiner = (acc, val) => { acc.push(val); return acc; };
 
-// Compose Transducers: (Filter evens -> Double them)
+// Compose Transducers: (Filter evens → Double them)
 const isEven = n => n % 2 === 0;
 const double = n => n * 2;
 

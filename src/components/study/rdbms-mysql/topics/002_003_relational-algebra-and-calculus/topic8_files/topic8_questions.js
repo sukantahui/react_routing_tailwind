@@ -12,7 +12,7 @@ const questions = [
     question: "What is the mathematical 3-step definition of Natural Join ($R \\bowtie S$)?",
     shortAnswer: "1) Cross Product $R \\times S$, 2) Selection on equality of all common attributes: $\\sigma_{R.C_1 = S.C_1 \\land \\dots \\land R.C_k = S.C_k}$, 3) Projection to eliminate duplicate common columns: $\\pi_{\\text{Attrs}(R) \\cup \\text{Attrs}(S)}$.",
     explanation: "Formal derivation of natural join from primitive operators.",
-    hint: "Cross product -> Selection on common columns -> Projection eliminating duplicates.",
+    hint: "Cross product → Selection on common columns → Projection eliminating duplicates.",
     level: "basic"
   },
   {
@@ -131,7 +131,7 @@ const questions = [
   },
   {
     question: "What condition guarantees that decomposing $R(A, B, C)$ into $R_1(A, B)$ and $R_2(B, C)$ is Lossless?",
-    shortAnswer: "The common attribute $B$ MUST be a superkey of either $R_1$ ($B \\rightarrow A$) or $R_2$ ($B \\rightarrow C$).",
+    shortAnswer: "The common attribute $B$ MUST be a superkey of either $R_1$ ($B \→ A$) or $R_2$ ($B \→ C$).",
     explanation: "Theorem for lossless join decomposition.",
     hint: "Common attribute must be a superkey of at least one sub-relation.",
     level: "expert"

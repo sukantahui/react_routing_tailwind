@@ -159,7 +159,7 @@ const questions = [
   {
     question: "What happens if you have an odd number of arguments in LET when declaring variables without a final calculation?",
     shortAnswer: "Excel displays a formula syntax error because every variable name must have a value, followed by a final calculation.",
-    explanation: "LET requires an odd total argument count: (name1, val1, ..., calc) &rarr; 2N + 1 arguments.",
+    explanation: "LET requires an odd total argument count: (name1, val1, ..., calc) → 2N + 1 arguments.",
     hint: "Total arguments must equal 2N + 1 (odd number).",
     level: "moderate",
     codeExample: "Syntax Error: 2N+1 argument rule"
@@ -168,7 +168,7 @@ const questions = [
     question: "How do you combine FILTER and SORT inside LET to extract Top 5 performers?",
     shortAnswer: "=LET(active_data, FILTER(A2:D50, D2:D50>50000), sorted_data, SORT(active_data, 4, -1), TAKE(sorted_data, 5))",
     explanation: "Performs filtering, sorting, and slicing in memory in 3 sequential readable steps.",
-    hint: "Sequential FILTER &rarr; SORT &rarr; TAKE inside LET.",
+    hint: "Sequential FILTER → SORT → TAKE inside LET.",
     level: "advanced",
     codeExample: "=LET(f, FILTER(A2:D50, D2:D50>50k), s, SORT(f, 4, -1), TAKE(s, 5))"
   },
@@ -178,7 +178,7 @@ const questions = [
     explanation: "LET supports local helper closures within the scope of a single formula.",
     hint: "Assigns local in-line LAMBDAs to LET variables.",
     level: "expert",
-    codeExample: "=LET(sqr, LAMBDA(x, x^2), sqr(9)) &rarr; 81"
+    codeExample: "=LET(sqr, LAMBDA(x, x^2), sqr(9)) → 81"
   },
   {
     question: "Why should financial engineers avoid using single letters like `x`, `y`, `z` for all LET variables in production workbooks?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Mastering LET is the bridge that turns messy, unreadable legacy formulas into elegant, high-speed corporate calculation pipelines!",
     hint: "Refactor with LET if sub-calculations repeat or exceed 50 characters.",
     level: "expert",
-    codeExample: "Sukanta Hui Rule: Repeated calculation or >50 chars &rarr; Use LET!"
+    codeExample: "Sukanta Hui Rule: Repeated calculation or >50 chars → Use LET!"
   }
 ];
 

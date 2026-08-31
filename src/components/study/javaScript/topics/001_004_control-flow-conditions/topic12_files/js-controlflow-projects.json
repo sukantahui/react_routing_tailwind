@@ -32,7 +32,7 @@
       "difficulty": "Beginner",
       "description": "Implement a student tax and scholarship tier calculator using the switch(true) idiom to evaluate complex relational boolean expressions in switch statements.",
       "exampleText": "// Evaluating ranges using switch(true):\nfunction getStudentScholarshipTier(score) {\n  switch (true) {\n    case score >= 95:\n      return '100% Full Platinum Scholarship';\n    case score >= 85:\n      return '75% Gold Scholarship';\n    case score >= 75:\n      return '50% Silver Scholarship';\n    case score >= 60:\n      return '25% Bronze Scholarship';\n    default:\n      return 'Standard Enrollment (No Scholarship)';\n  }\n}\ngetStudentScholarshipTier(96);",
-      "exampleOutput": "Score 96 -> Tier: '100% Full Platinum Scholarship'",
+      "exampleOutput": "Score 96 → Tier: '100% Full Platinum Scholarship'",
       "answerFile": "./answers/CTRL002.js",
       "learningOutcome": "Mastering the switch(true) pattern for readable range evaluations and multi-condition matching.",
       "logicExplanation": "1. **How `switch(expr)` Works (ECMA-262 §14.12)**:\nThe switch statement evaluates `expr` and searches for a `case` clause whose expression evaluates to the exact same value using **strict equality (`===`)**.\n2. **The `switch(true)` Idiom**:\nBy setting the switch condition to literal `true`, each `case` statement is evaluated as a boolean expression (`score >= 95 === true`). The first case that evaluates to `true` matches and executes.\n3. **Readability Advantage**: Replaces sprawling `if...else if...else if` chains with clean, aligned column cases.",

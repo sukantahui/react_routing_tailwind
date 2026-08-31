@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Exploring the Visual Basic Editor (VBE): Code Window, Project Explorer, and Properties Window"}
           </h1>
 
@@ -177,7 +177,7 @@ export default function Topic3() {
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Standard Modules (Insert &gt; Module)"}</h3>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Standard Modules (Insert > Module)"}</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The universal home for all general Sub procedures, automation macros, and custom worksheet User-Defined Functions (UDFs)."}</p>
             </div>
             
@@ -291,7 +291,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Exploring_the_Visu"
+            sheetName="EX2404"
             title={"Exploring the Visual Basic Editor (VBE): Code Window, Project Explorer, and Properties Window - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -380,7 +380,7 @@ export default function Topic3() {
                 Step 1: Open VBE &amp; Insert Standard Module
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert &gt; Module</strong>.
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert > Module</strong>.
               </p>
             </div>
 
@@ -447,13 +447,13 @@ export default function Topic3() {
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Writing General Macros Inside Sheet Objects Instead of Modules"}</td>
                   <td className="py-3 px-4">{"Writing general Sub procedures inside `Sheet1 (Code)` prevents them from appearing in the standard Excel Macro Run dialog (Alt + F8)."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always insert a Standard Module (`Insert &gt; Module`) for general automation macros."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always insert a Standard Module (`Insert > Module`) for general automation macros."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Closing Immediate Window & Losing Console"}</td>
                   <td className="py-3 px-4">{"Accidentally closing the debug window and wondering where command output went."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Press `Ctrl + G` or View &gt; Immediate Window."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Press `Ctrl + G` or View > Immediate Window."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">

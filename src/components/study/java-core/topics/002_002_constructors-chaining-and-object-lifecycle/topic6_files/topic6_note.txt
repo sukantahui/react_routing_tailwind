@@ -14,8 +14,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 2. COMPILER RESOLUTION PRIORITY:
    1. Exact type match
-   2. Primitive type widening (int -> long -> double)
-   3. Autoboxing (int -> Integer)
+   2. Primitive type widening (int → long → double)
+   3. Autoboxing (int → Integer)
    4. Varargs (lowest priority)
 
 3. BEST PRACTICE:

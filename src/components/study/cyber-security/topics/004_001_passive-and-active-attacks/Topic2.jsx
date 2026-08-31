@@ -35,7 +35,7 @@ const Topic2 = () => {
       leakageSource: "Unique sequence of HTML, CSS, JavaScript, and image asset download burst sizes.",
       detectabilityScore: 6, // Stealthy passive analysis
       mathematicalModel: "Dynamic Time Warping (DTW) & k-Nearest Neighbors (k-NN) classification on packet vectors.",
-      realWorldPayload: "Inbound Vector: [+512B, +1420B, -512B, +1420B, +1420B, -1024B, ...] -> Match: 94.2% Bank Portal",
+      realWorldPayload: "Inbound Vector: [+512B, +1420B, -512B, +1420B, +1420B, -1024B, ...] → Match: 94.2% Bank Portal",
       mechanism:
         "Every webpage contains a unique combination of images and code files. Even when encrypted inside a VPN or Tor tunnel, downloading `portal.bank-kolkata.in` creates a distinct signature of packet size waterfalls.",
       mitigation: "Tor 514-byte cell padding, Fixed-size packet morphing, and randomized dummy HTTP/2 asset fetching.",
@@ -70,7 +70,7 @@ Host *
       leakageSource: "Variable Bitrate (VBR) audio codecs emit larger packets during complex speech phonemes.",
       detectabilityScore: 12,
       mathematicalModel: "Mel-Frequency Cepstral Coefficients (MFCC) acoustic matching on packet length profiles.",
-      realWorldPayload: "Phoneme 'Aaaa' -> 180B | Phoneme 'Shhh' -> 220B | Silence Gap -> 20B (Spoken phrase reconstructed)",
+      realWorldPayload: "Phoneme 'Aaaa' → 180B | Phoneme 'Shhh' → 220B | Silence Gap → 20B (Spoken phrase reconstructed)",
       mechanism:
         "VBR codecs (Opus/Speex) save bandwidth by compressing silence and expanding complex spoken sounds. Because SRTP encryption does not alter packet lengths, eavesdroppers can reconstruct spoken phrases.",
       mitigation: "Enforcing Constant Bitrate (CBR) audio modes in WebRTC, Asterisk, and SIP gateway configurations.",
@@ -89,7 +89,7 @@ opus_packet_loss_percentage = 10`
       leakageSource: "Volume and transmission frequency spikes between critical command nodes during operations.",
       detectabilityScore: 4,
       mathematicalModel: "Cumulative Sum (CUSUM) change-point detection on packet flow rates (pkts/sec).",
-      realWorldPayload: "Baseline: 200 pkts/min -> Surge: 120,000 pkts/min between Barrackpore Grid & Kolkata HQ at 03:00 AM",
+      realWorldPayload: "Baseline: 200 pkts/min → Surge: 120,000 pkts/min between Barrackpore Grid & Kolkata HQ at 03:00 AM",
       mechanism:
         "Even with 100% AES-256 IPsec encryption, a dramatic increase in packet transmission volume between a power substation and operational headquarters reveals imminent switching commands or incident response.",
       mitigation: "Continuous Constant-Bitrate (CBR) Traffic Padding to maintain a constant flat transmission rate.",
@@ -107,7 +107,7 @@ crypto ipsec profile IPSEC-CBR-PADDING
       leakageSource: "Periodic 2-second segment download burst sizes (e.g. 3 MB for 720p vs 25 MB for 4K).",
       detectabilityScore: 10,
       mathematicalModel: "Periodic peak-to-peak volume matching against public media CDN bitstream profiles.",
-      realWorldPayload: "Burst Volume: 24.8 MB every 4.0s -> Identified 4K UHD Video Stream of Hospital Training Feed",
+      realWorldPayload: "Burst Volume: 24.8 MB every 4.0s → Identified 4K UHD Video Stream of Hospital Training Feed",
       mechanism:
         "Dynamic Adaptive Streaming over HTTP downloads video in chunks. The size of each 2-second burst reveals video resolution and matches specific titles from catalog databases.",
       mitigation: "Uniform chunk size normalization and randomized client-side segment pre-buffering.",
@@ -127,7 +127,7 @@ location /video/ {
       leakageSource: "Default TCP Initial Window Size, Scale factor, TTL values, and DF (Don't Fragment) flags in SYN packets.",
       detectabilityScore: 15,
       mathematicalModel: "TCP SYN Signature Vector Matching (p0f database).",
-      realWorldPayload: "SYN Header: Window=64240, TTL=128, MSS=1460, Scale=8 -> Identified: Windows 11 Enterprise",
+      realWorldPayload: "SYN Header: Window=64240, TTL=128, MSS=1460, Scale=8 → Identified: Windows 11 Enterprise",
       mechanism:
         "Different operating systems format their initial TCP SYN handshake with unique default parameters. A passive observer sniffing the SYN packet identifies the OS without sending a single active probe.",
       mitigation: "TCP Stack Normalization / Scrubbing on Edge Firewalls and Scrubbing Gateways.",
@@ -143,7 +143,7 @@ match in all scrub (no-df random-id min-ttl 64 max-mss 1440 reassemble tcp)`
       leakageSource: "Periodic, deterministic Inter-Arrival Times (IAT) contrasting with bursty human browsing.",
       detectabilityScore: 75,
       mathematicalModel: "Fast Fourier Transform (FFT) spectral density & Autocorrelation coefficient R(k).",
-      realWorldPayload: "IAT Sequence: [60.01s, 59.99s, 60.00s, 60.02s] -> Spectral Peak at f = 0.0167 Hz (C2 Beacon Identified)",
+      realWorldPayload: "IAT Sequence: [60.01s, 59.99s, 60.00s, 60.02s] → Spectral Peak at f = 0.0167 Hz (C2 Beacon Identified)",
       mechanism:
         "Malware beacons contact their Command & Control (C2) server at regular mathematical intervals. Autocorrelation analysis immediately flags this periodic signal amid noisy human background traffic.",
       mitigation: "High-variance sleep jitter (e.g. 50% random interval variance) and randomized payload sizing.",

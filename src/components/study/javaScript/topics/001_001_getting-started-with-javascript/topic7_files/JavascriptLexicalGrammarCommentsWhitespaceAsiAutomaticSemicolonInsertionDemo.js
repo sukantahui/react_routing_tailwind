@@ -39,7 +39,7 @@ console.log("2. Leading Parenthesis / Bracket Collision with ASI:");
 const sampleValue = 42;
 // In un-semicoloned code:
 // const a = 42
-// (function() { ... })() -> Evaluates as: 42(function() { ... }) -> Throws TypeError: 42 is not a function!
+// (function() { ... })() → Evaluates as: 42(function() { ... }) → Throws TypeError: 42 is not a function!
 
 function simulateParenthesisCollision() {
   try {

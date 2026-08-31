@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. FUNCTIONAL INTERFACE CRITERIA:
    - Exactly ONE abstract method.
    - Unlimited default and static methods allowed.
-   - Target for Lambda expressions: '(x, y) -> x + y'.
+   - Target for Lambda expressions: '(x, y) → x + y'.
    - @FunctionalInterface triggers compiler error if >1 abstract method exists.
 
 ================================================================================

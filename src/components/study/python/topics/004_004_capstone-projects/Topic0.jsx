@@ -157,7 +157,7 @@ addopts = "-v --cov=src --cov-report=term-missing"`;
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Project Architecture &amp; <span className="text-teal-400">Clean Directory Layout</span>
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
@@ -605,7 +605,7 @@ addopts = "-v --cov=src --cov-report=term-missing"`;
                   Lab 2: Package Modularity, Layering &amp; __all__ Public Exports
                 </h3>
                 <p className="text-sm text-slate-400">
-                  Enforcing one-directional dependency flows (Models &rarr; Services) and declaring public API symbols via <code className="text-cyan-300 font-mono">__all__</code>.
+                  Enforcing one-directional dependency flows (Models → Services) and declaring public API symbols via <code className="text-cyan-300 font-mono">__all__</code>.
                 </p>
               </div>
               <PythonFileLoader

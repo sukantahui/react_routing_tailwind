@@ -19,13 +19,13 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - The 3 Invariants for Argument Matching:
   1. Count Match  : Number of arguments must match number of parameters.
-  2. Type Match   : Argument type must be assignable (supports widening: int -> double).
+  2. Type Match   : Argument type must be assignable (supports widening: int → double).
   3. Order Match  : Argument types must strictly follow positional sequence.
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
 [✓] Java strictly uses POSITIONAL arguments (no named arguments like Python).
 [✓] Java does not have default parameter values (use method overloading instead).
-[✓] Automatic widening primitive conversion works for arguments (int -> double).
+[✓] Automatic widening primitive conversion works for arguments (int → double).
 [✓] Excessive parameters (> 3) should be bundled into Records or Parameter Objects.
 ================================================================================

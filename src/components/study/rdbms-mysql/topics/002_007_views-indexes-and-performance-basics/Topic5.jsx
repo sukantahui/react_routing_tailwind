@@ -139,7 +139,7 @@ ORDER BY SECURITY_TYPE DESC, TABLE_NAME ASC;`,
               Access Control & Security
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Managing View Security: SQL SECURITY DEFINER vs INVOKER
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

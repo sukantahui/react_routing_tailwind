@@ -20,7 +20,7 @@ in West Bengal (campuses in Barrackpore, Kolkata, and Ichapur).
 
 2. `courses` table:
    - course_id INT AUTO_INCREMENT PRIMARY KEY
-   - department_id INT NOT NULL (FK -> departments.department_id)
+   - department_id INT NOT NULL (FK → departments.department_id)
    - course_name VARCHAR(100) NOT NULL
    - duration_years INT CHECK (duration_years BETWEEN 1 AND 5)
    - total_tuition_fee_inr DECIMAL(10,2) CHECK (total_tuition_fee_inr > 0)
@@ -37,15 +37,15 @@ in West Bengal (campuses in Barrackpore, Kolkata, and Ichapur).
 
 4. `admissions` table:
    - admission_id INT AUTO_INCREMENT PRIMARY KEY
-   - student_id INT NOT NULL UNIQUE (FK -> students.student_id)
-   - course_id INT NOT NULL (FK -> courses.course_id)
+   - student_id INT NOT NULL UNIQUE (FK → students.student_id)
+   - course_id INT NOT NULL (FK → courses.course_id)
    - admission_date DATE DEFAULT (CURDATE())
    - initial_deposit_inr DECIMAL(10,2) CHECK (initial_deposit_inr >= 5000)
    - admission_status ENUM('Provisional', 'Confirmed', 'Cancelled') DEFAULT 'Provisional'
 
 3. CONSTRAINT TESTING RUNBOOK
 --------------------------------------------------------------------------------
-- Test 1: Insert valid department and course -> Success.
-- Test 2: Insert student with duplicate email -> Error 1062 (Duplicate entry).
-- Test 3: Insert admission with initial deposit < ₹5,000 -> Error 3819 (Check constraint violated).
-- Test 4: Delete department with active courses -> Error 1451 (Foreign key constraint fails).
+- Test 1: Insert valid department and course → Success.
+- Test 2: Insert student with duplicate email → Error 1062 (Duplicate entry).
+- Test 3: Insert admission with initial deposit < ₹5,000 → Error 3819 (Check constraint violated).
+- Test 4: Delete department with active courses → Error 1451 (Foreign key constraint fails).

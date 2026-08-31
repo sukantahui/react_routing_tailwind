@@ -53,8 +53,8 @@ WHERE centre_city = 'Barrackpore'
 -- idx_city (centre_city), idx_stream (course_stream), idx_status (admission_status)
 
 -- Query Execution via Index Merge:
--- 1. Scans idx_city -> Retrieves 12,000 PKs for 'Barrackpore'.
--- 2. Scans idx_stream -> Retrieves 8,500 PKs for 'React Fullstack'.
+-- 1. Scans idx_city → Retrieves 12,000 PKs for 'Barrackpore'.
+-- 2. Scans idx_stream → Retrieves 8,500 PKs for 'React Fullstack'.
 -- 3. Intersects PK lists in RAM (Using intersect(idx_city, idx_stream)).
 -- 4. Performs bookmark lookups on the resulting 2 PKs!
 -- Latency: 2.1 ms (5x Slower than Composite Index)`,
@@ -120,7 +120,7 @@ CREATE INDEX idx_optimal_order ON student_registry (
               Multi-Column Indexing
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Single-Column Indexes vs Composite (Multi-Column) Indexes
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

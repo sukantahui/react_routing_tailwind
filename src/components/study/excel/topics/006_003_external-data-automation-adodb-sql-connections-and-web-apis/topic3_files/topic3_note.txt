@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 `CopyFromRecordset` is the fastest method in the entire Excel universe. Never loop through database rows with `While Not rs.EOF`! Just write `Range("A2").CopyFromRecordset rs`, and 100,000 rows will appear on your sheet in half a second.
 
 COMMON TRAPS TO AVOID:
-- Forgetting That CopyFromRecordset Omits Column Headers: `CopyFromRecordset` dumps ONLY the data rows starting at cell A2, leaving row 1 blank without column headers. -> Fix: Always write field headers using the `rs.Fields(i).Name` loop before calling `CopyFromRecordset`.
-- Calling CopyFromRecordset on an Empty Recordset: Calling the method on a recordset with zero rows does not error, but leaves existing old data intact on the sheet. -> Fix: Clear the target sheet first (`ws.Cells.ClearContents`) and check `If Not rs.EOF Then ...`.
-- Reading Recordset After CopyFromRecordset Exhaused Stream: `CopyFromRecordset` advances the recordset cursor to EOF; attempting to read rows afterwards fails. -> Fix: If you need to process rows again, call `rs.MoveFirst`.
+- Forgetting That CopyFromRecordset Omits Column Headers: `CopyFromRecordset` dumps ONLY the data rows starting at cell A2, leaving row 1 blank without column headers. → Fix: Always write field headers using the `rs.Fields(i).Name` loop before calling `CopyFromRecordset`.
+- Calling CopyFromRecordset on an Empty Recordset: Calling the method on a recordset with zero rows does not error, but leaves existing old data intact on the sheet. → Fix: Clear the target sheet first (`ws.Cells.ClearContents`) and check `If Not rs.EOF Then ...`.
+- Reading Recordset After CopyFromRecordset Exhaused Stream: `CopyFromRecordset` advances the recordset cursor to EOF; attempting to read rows afterwards fails. → Fix: If you need to process rows again, call `rs.MoveFirst`.
 ================================================================================

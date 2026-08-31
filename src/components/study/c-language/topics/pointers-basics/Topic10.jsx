@@ -9,7 +9,7 @@ const Topic10 = () => {
     <div className="max-w-5xl mx-auto px-4 py-8 space-y-12 bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
       {/* Header Section */}
       <div className="animate-fade-up" style={{ animationDelay: "0ms" }}>
-        <h1 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
           Accessing Arrays: Pointers vs Indexing
         </h1>
         <p className="text-lg leading-relaxed">

@@ -56,7 +56,7 @@ CREATE TABLE linear_hash_events (
       badge: "Scaling Overhead",
       badgeColor: "cyan",
       sqlSnippet: `-- 💥 STANDARD HASH RESIZING (Extremely Heavy on 50M Rows):
--- Changing partition count from 4 to 5 alters MOD(user_id, 4) -> MOD(user_id, 5).
+-- Changing partition count from 4 to 5 alters MOD(user_id, 4) → MOD(user_id, 5).
 -- ~100% of rows across all 4 files are read, deleted, and rewritten!
 -- Table locks and I/O churn take 45+ minutes!
 
@@ -129,7 +129,7 @@ ALTER TABLE linear_hash_events COALESCE PARTITION 4;
             Topic 5 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">HASH Partitioning</span> &amp; <span className="text-cyan-400">LINEAR HASH</span>: Even Bucket Distribution
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

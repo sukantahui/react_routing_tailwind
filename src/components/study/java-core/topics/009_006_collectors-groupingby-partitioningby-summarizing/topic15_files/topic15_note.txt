@@ -11,11 +11,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - 'R': The final result type produced by the collector (e.g. String, unmodifiable List).
 
 2. THE 5 CORE METHODS OF COLLECTOR:
-   1. 'supplier()'       : 'Supplier<A>' -> Creates new accumulator instance.
-   2. 'accumulator()'    : 'BiConsumer<A, T>' -> Folds an element into the accumulator.
-   3. 'combiner()'       : 'BinaryOperator<A>' -> Combines two partial accumulators (parallel mode).
-   4. 'finisher()'       : 'Function<A, R>' -> Converts accumulator 'A' into final result 'R'.
-   5. 'characteristics()': 'Set<Characteristics>' -> Optimization flags (IDENTITY_FINISH, CONCURRENT, UNORDERED).
+   1. 'supplier()'       : 'Supplier<A>' → Creates new accumulator instance.
+   2. 'accumulator()'    : 'BiConsumer<A, T>' → Folds an element into the accumulator.
+   3. 'combiner()'       : 'BinaryOperator<A>' → Combines two partial accumulators (parallel mode).
+   4. 'finisher()'       : 'Function<A, R>' → Converts accumulator 'A' into final result 'R'.
+   5. 'characteristics()': 'Set<Characteristics>' → Optimization flags (IDENTITY_FINISH, CONCURRENT, UNORDERED).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

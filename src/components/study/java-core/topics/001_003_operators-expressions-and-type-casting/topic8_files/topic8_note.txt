@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - Primitive vs Object Equality:
-  * Primitive '==' : Compares raw bit values in Stack memory (int 5 == int 5 -> true).
+  * Primitive '==' : Compares raw bit values in Stack memory (int 5 == int 5 → true).
   * Object '=='    : Compares Heap memory address / Reference Identity.
   * Object .equals(): Compares logical contents/state (when overridden).
 
@@ -23,8 +23,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   +------------------------------------+-----------+---------------------------+
 
 - The Integer Cache Trap (-128 to 127):
-  * Integer a = 100, b = 100; a == b -> TRUE  (Cached by Integer.valueOf())
-  * Integer c = 200, d = 200; c == d -> FALSE (Different Heap objects!)
+  * Integer a = 100, b = 100; a == b → TRUE  (Cached by Integer.valueOf())
+  * Integer c = 200, d = 200; c == d → FALSE (Different Heap objects!)
   * Golden Rule: NEVER use '==' on Wrapper Objects! Always use .equals().
 
 - Defensive Null-Safe Comparison:

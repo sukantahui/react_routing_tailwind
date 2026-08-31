@@ -74,7 +74,7 @@ const Topic8 = () => {
           <span className="inline-block px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full text-sm font-semibold mb-4">
             Topic 9: sed Mastery
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400">
               Using sed with Files vs Streams
             </span>

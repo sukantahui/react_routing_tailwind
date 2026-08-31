@@ -20,10 +20,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Accidental Causes & Hazards (Bugs):
   1. Missing Counter Update : while (i < 5) without i++!
-  2. Step Direction Error   : for (int i = 0; i < 10; i--) -> diverges!
-  3. Semicolon Trap         : while (i < 5); -> infinite empty loop!
-  4. Numeric Overflow       : for (byte b = 0; b <= 127; b++) -> b wraps to -128!
-  5. Floating-Point Error   : while (d != 1.0) d += 0.1 -> precision error misses 1.0!
+  2. Step Direction Error   : for (int i = 0; i < 10; i--) → diverges!
+  3. Semicolon Trap         : while (i < 5); → infinite empty loop!
+  4. Numeric Overflow       : for (byte b = 0; b <= 127; b++) → b wraps to -128!
+  5. Floating-Point Error   : while (d != 1.0) d += 0.1 → precision error misses 1.0!
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------

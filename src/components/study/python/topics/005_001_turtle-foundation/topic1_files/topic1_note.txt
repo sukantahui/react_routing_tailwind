@@ -28,11 +28,11 @@ Website: https://www.codernaccotax.co.in
 --------------------------------------------------------------------------------
 2. ESSENTIAL POSITION & DISTANCE METHODS
 --------------------------------------------------------------------------------
-  t.pos()              -> Returns current (x, y) tuple (e.g. (150.0, 100.0))
-  t.xcor()             -> Returns current X coordinate as float
-  t.ycor()             -> Returns current Y coordinate as float
-  t.distance(x, y)     -> Returns Euclidean distance sqrt((x2-x1)^2 + (y2-y1)^2)
-  screen.window_width() -> Total pixel width of the window
+  t.pos()              → Returns current (x, y) tuple (e.g. (150.0, 100.0))
+  t.xcor()             → Returns current X coordinate as float
+  t.ycor()             → Returns current Y coordinate as float
+  t.distance(x, y)     → Returns Euclidean distance sqrt((x2-x1)^2 + (y2-y1)^2)
+  screen.window_width() → Total pixel width of the window
   screen.window_height()-> Total pixel height of the window
 
 ================================================================================

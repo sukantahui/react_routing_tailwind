@@ -30,7 +30,7 @@ CREATE USER 'legacy_app'@'10.0.0.%'
     level: "intermediate",
     codeExample: `// Fast-Path handshake telemetry:
 // 1. Client connects with username + scramble token
-// 2. Server checks in-memory SHA2 cache -> MATCH FOUND
+// 2. Server checks in-memory SHA2 cache → MATCH FOUND
 // 3. Server returns OK packet immediately (< 0.5 ms)`
   },
   {

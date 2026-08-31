@@ -283,7 +283,7 @@ const Topic4 = () => {
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
             ISO 19011:2018 Clause 6.4.7 • ISO/IEC 27007 • Sec 65B Indian Evidence Act / BSA 2023 Sec 63
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Audit Evidence Collection & Chain of Custody
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-4xl leading-relaxed">

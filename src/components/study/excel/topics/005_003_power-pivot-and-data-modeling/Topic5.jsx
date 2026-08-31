@@ -71,7 +71,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars)"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic5() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Calendar Table: Power Pivot &gt; Design &gt; Date Table &gt; New | DAX Calculated Table: Dim_Calendar = CALENDAR(DATE(2022,1,1), DATE(2030,12,31))"}
+            {"Calendar Table: Power Pivot > Design > Date Table > New | DAX Calculated Table: Dim_Calendar = CALENDAR(DATE(2022,1,1), DATE(2030,12,31))"}
           </div>
 
           <div className="overflow-x-auto">
@@ -183,7 +183,7 @@ export default function Topic5() {
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Sort by Column Configuration"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Month Name ('April', 'May') must be configured with 'Sort by Column -> MonthNumberOfYear' to prevent alphabetical sorting ('April', 'August', 'December')."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Month Name ('April', 'May') must be configured with 'Sort by Column → MonthNumberOfYear' to prevent alphabetical sorting ('April', 'August', 'December')."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic5() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Date Dimension Engine: Continuous Date Spine -> Extended Attributes (Fiscal Year, Quarter, Month Name, DayOfWeek)"}
+              Visual Dataflow: {"Date Dimension Engine: Continuous Date Spine → Extended Attributes (Fiscal Year, Quarter, Month Name, DayOfWeek)"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Relational Pipeline
@@ -286,7 +286,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Designing_a_dedica"
+            sheetName="EX2206"
             title={"Designing a dedicated Calendar / Date Dimension table (Standard and Fiscal calendars) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic5() {
                 Step 1: Load Data Tables to Data Model
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> &gt; Check <strong>Add this data to the Data Model</strong>.
+                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> > Check <strong>Add this data to the Data Model</strong>.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic5() {
                 Step 2: Open Diagram View &amp; Create 1-to-Many Relationships
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Power Pivot window (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + B + M</kbd>), switch to Diagram View, and drag Primary Keys to Foreign Keys <code className="text-cyan-300 font-mono font-bold">{"Calendar Table: Power Pivot &gt; Design &gt; Date Table &gt; New | DAX Calculated Table: Dim_Calendar = CALENDAR(DATE(2022,1,1), DATE(2030,12,31))"}</code>.
+                Open Power Pivot window (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + B + M</kbd>), switch to Diagram View, and drag Primary Keys to Foreign Keys <code className="text-cyan-300 font-mono font-bold">{"Calendar Table: Power Pivot > Design > Date Table > New | DAX Calculated Table: Dim_Calendar = CALENDAR(DATE(2022,1,1), DATE(2030,12,31))"}</code>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic5() {
                 Step 3: Define Calendar Dimension &amp; Mark as Date Table
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design &gt; Mark as Date Table</strong>.
+                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design > Mark as Date Table</strong>.
               </p>
             </div>
 
@@ -448,13 +448,13 @@ export default function Topic5() {
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Alphabetical Month Sorting Trap"}</td>
                   <td className="py-3 px-4">{"PivotTables displaying months as 'April, August, December, February, January...'"}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Select 'MonthName' column > Home &gt; Sort by Column > Select 'MonthNumber'."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Select 'MonthName' column > Home > Sort by Column > Select 'MonthNumber'."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Forgetting 'Mark as Date Table'"}</td>
                   <td className="py-3 px-4">{"Failing to mark the calendar table prevents DAX from recognizing custom date hierarchies."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Power Pivot > Design &gt; Mark as Date Table > Select Date column."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Power Pivot > Design > Mark as Date Table > Select Date column."}</td>
                 </tr>
                 
               </tbody>
@@ -502,7 +502,7 @@ export default function Topic5() {
                 <span>⚡</span> {"Mark as Date Table"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Mandatory step to activate full DAX Time Intelligence capabilities."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design &gt; Mark as Date Table"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design > Mark as Date Table"}</kbd>
             </div>
             
           </div>

@@ -12,4 +12,4 @@ getAccurateType('Swadeep'); // 'string'
 getAccurateType(42n);       // 'bigint'
 getAccurateType(null);      // 'null' (not 'object'!)
 
-console.log("Expected Result Verified:", "Type checks: string -> 'string', number -> 'number', bigint -> 'bigint', boolean -> 'boolean', undefined -> 'undefined', symbol -> 'symbol', null -> 'null'");
+console.log("Expected Result Verified:", "Type checks: string → 'string', number → 'number', bigint → 'bigint', boolean → 'boolean', undefined → 'undefined', symbol → 'symbol', null → 'null'");

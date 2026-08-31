@@ -32,7 +32,7 @@ const questions = [
     explanation: "Active-Active maximizes hardware utilization and delivers near-zero failover latency.",
     hint: "Active-Active runs all nodes simultaneously; Active-Passive keeps standby nodes idle until failure.",
     level: "basic",
-    codeExample: "// Active-Active: LB -> [NodeA, NodeB]\n// Active-Passive: LB -> NodeA (Primary) | NodeB (Standby on standby sync)"
+    codeExample: "// Active-Active: LB → [NodeA, NodeB]\n// Active-Passive: LB → NodeA (Primary) | NodeB (Standby on standby sync)"
   },
   {
     question: "What is MTBF (Mean Time Between Failures) and MTTR (Mean Time to Repair)?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Eliminates DNS outages as a cause of service downtime.",
     hint: "Global DNS network that automatically routes around crashed data centers using BGP.",
     level: "expert",
-    codeExample: "BGP_Route_Withdrawal(PoP: 'Kolkata_DC_3') -> Users re-routed to 'Mumbai_DC_1'"
+    codeExample: "BGP_Route_Withdrawal(PoP: 'Kolkata_DC_3') → Users re-routed to 'Mumbai_DC_1'"
   },
   {
     question: "How does Immutable Infrastructure (Infrastructure as Code) accelerate MTTR during disasters?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Comprehensive availability audits map dependency graphs to flag un-replicated nodes.",
     hint: "Any single part whose failure crashes the whole system; fixed by adding redundant backups.",
     level: "basic",
-    codeExample: "AuditSPOF() -> DetectSingleUplink() -> DeploySecondaryFiberProvider();"
+    codeExample: "AuditSPOF() → DetectSingleUplink() → DeploySecondaryFiberProvider();"
   },
   {
     question: "What is Write-Ahead Logging (WAL) and Database Journaling in crash recovery availability?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures architectural redundancy, automation, recovery objectives, compliance, and realistic financial budgeting.",
     hint: "Eliminate SPOFs, build Active-Active redundancy, automate health checks, enforce RTO/RPO, budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenAvailabilityRule: EliminateSPOF() -> DeployActiveActive() -> AutomateHealthChecks() -> EnforceRTO_RPO() -> BudgetInRupees(₹);"
+    codeExample: "GoldenAvailabilityRule: EliminateSPOF() → DeployActiveActive() → AutomateHealthChecks() → EnforceRTO_RPO() → BudgetInRupees(₹);"
   }
 ];
 

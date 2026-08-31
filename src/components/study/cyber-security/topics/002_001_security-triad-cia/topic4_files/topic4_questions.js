@@ -104,7 +104,7 @@ const questions = [
     explanation: "Defended by Intel Boot Guard, AMD Hardware Root of Trust, and cryptographic firmware signing.",
     hint: "Malware living in motherboard flash chips that survives hard drive wipes.",
     level: "expert",
-    codeExample: "SPI_Flash_Hook -> Hijack UEFI DXE Phase -> Patch Windows Kernel in Memory"
+    codeExample: "SPI_Flash_Hook → Hijack UEFI DXE Phase → Patch Windows Kernel in Memory"
   },
   {
     question: "What is Mass Assignment Vulnerability in API frameworks and how does it tamper with record state?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Defended by full memory encryption (e.g. AMD SME / Intel TME) and disabling sleep mode.",
     hint: "Physically freezing RAM chips to extract cryptographic keys from memory remnants.",
     level: "expert",
-    codeExample: "MemoryRemanence = FreezeRAM() -> ReadDRAMDump() -> ExtractBitLockerKeys();"
+    codeExample: "MemoryRemanence = FreezeRAM() → ReadDRAMDump() → ExtractBitLockerKeys();"
   },
   {
     question: "What is Race Condition / Dirty Cow (CVE-2016-5195) in Linux kernel memory integrity?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes input validation, cryptographic signatures, supply chain checks, immutable logs, and realistic budgeting.",
     hint: "Enforce AEAD, sign webhooks, use SRI and prepared statements, lock WORM logs, budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenIntegrityDefense: ValidateInput() -> EnforceSRI() -> SignPayloads() -> WORM_Lock() -> BudgetInRupees(₹);"
+    codeExample: "GoldenIntegrityDefense: ValidateInput() → EnforceSRI() → SignPayloads() → WORM_Lock() → BudgetInRupees(₹);"
   }
 ];
 

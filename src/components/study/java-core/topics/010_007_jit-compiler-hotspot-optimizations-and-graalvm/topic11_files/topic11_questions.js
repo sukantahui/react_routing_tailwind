@@ -13,7 +13,7 @@ const topic11_questions = [
     "explanation": "Triggers recompilation or return to interpreter.",
     "hint": "Compiled code is invalidated and marked not to be entered.",
     "level": "Advanced",
-    "codeExample": "made not entrant -> Code invalidated and de-optimized."
+    "codeExample": "made not entrant → Code invalidated and de-optimized."
   }
 ];
 

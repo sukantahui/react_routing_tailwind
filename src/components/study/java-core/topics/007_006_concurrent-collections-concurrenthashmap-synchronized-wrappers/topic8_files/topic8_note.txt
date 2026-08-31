@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. NULL PROHIBITION:
-   - 'put(null, v)' &rarr; throws NullPointerException.
-   - 'put(k, null)' &rarr; throws NullPointerException.
+   - 'put(null, v)' → throws NullPointerException.
+   - 'put(k, null)' → throws NullPointerException.
    - Eliminates 'get(k) == null' ambiguity in multithreading.
    - Prevents race conditions between 'get()' and 'containsKey()'.
    - Shared rule across all JSR-166 concurrent queues and maps.

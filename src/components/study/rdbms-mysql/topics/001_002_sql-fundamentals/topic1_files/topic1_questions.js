@@ -52,7 +52,7 @@ const questions = [
     question: "How do table character sets inherit from the database level?",
     shortAnswer: "If a CREATE TABLE statement does not explicitly specify a character set and collation, it automatically inherits the database's defaults.",
     explanation: "Setting `utf8mb4` and `utf8mb4_0900_ai_ci` at the database level ensures that any new tables or string columns created inside that database will automatically adopt these settings unless explicitly overridden at table or column level.",
-    hint: "Cascading inheritance from database -> table -> column.",
+    hint: "Cascading inheritance from database → table → column.",
     level: "moderate",
     codeExample: "USE app_db;\nCREATE TABLE users (name VARCHAR(50)); -- Automatically uses utf8mb4"
   },
@@ -210,7 +210,7 @@ const questions = [
   {
     question: "Can you create a database with the exact name of a table located in another database?",
     shortAnswer: "Yes, because database names reside in a global server namespace, while table names reside within their respective database namespaces.",
-    explanation: "Namespace hierarchy in MySQL is `server -> database -> table -> column`. A database named `students` can coexist alongside a table named `students` inside another database `college_db` without any naming collision.",
+    explanation: "Namespace hierarchy in MySQL is `server → database → table → column`. A database named `students` can coexist alongside a table named `students` inside another database `college_db` without any naming collision.",
     hint: "Hierarchical namespaces.",
     level: "basic",
     codeExample: "CREATE DATABASE students;\n-- Coexists with college_db.students"

@@ -4,7 +4,7 @@
 const questions = [
   {
     question: "Solve the 2x2 game: A = [[20, 10], [40, 30]]. What is the saddle point and game value?",
-    shortAnswer: "Row Mins: R1 = 10, R2 = 30 -> Maximin = 30; Col Maxs: C1 = 40, C2 = 30 -> Minimax = 30. Saddle point at (A2, B2) with Value of the Game v* = ₹30.",
+    shortAnswer: "Row Mins: R1 = 10, R2 = 30 → Maximin = 30; Col Maxs: C1 = 40, C2 = 30 → Minimax = 30. Saddle point at (A2, B2) with Value of the Game v* = ₹30.",
     explanation: "Standard 2x2 pure saddle point identification.",
     hint: "Saddle at (A2, B2) with v* = ₹30.",
     level: "moderate",
@@ -12,7 +12,7 @@ const questions = [
   },
   {
     question: "Solve the 3x3 game with negative entries: A = [[-10, 15, -20], [5, 25, 10], [-5, 0, -15]]. What are the optimal strategies?",
-    shortAnswer: "Row Mins: [-20, 5, -15] -> Maximin = 5 (Row 2). Col Maxs: [5, 25, 10] -> Minimax = 5 (Col 1). Optimal strategies: (A2, B1) with v* = ₹5.",
+    shortAnswer: "Row Mins: [-20, 5, -15] → Maximin = 5 (Row 2). Col Maxs: [5, 25, 10] → Minimax = 5 (Col 1). Optimal strategies: (A2, B1) with v* = ₹5.",
     explanation: "Step-by-step extraction in the presence of negative payoffs.",
     hint: "Optimal: (A2, B1), v* = ₹5.",
     level: "moderate",
@@ -20,7 +20,7 @@ const questions = [
   },
   {
     question: "Solve the 3x4 rectangular game: A = [[3, 2, 4, 0], [3, 4, 2, 4], [4, 2, 4, 0]]. What is the saddle point?",
-    shortAnswer: "Row Mins: [0, 2, 0] -> Maximin = 2 (Row 2). Col Maxs: [4, 4, 4, 4] -> Minimax = 4. Since Maximin (2) != Minimax (4), NO pure saddle point exists.",
+    shortAnswer: "Row Mins: [0, 2, 0] → Maximin = 2 (Row 2). Col Maxs: [4, 4, 4, 4] → Minimax = 4. Since Maximin (2) != Minimax (4), NO pure saddle point exists.",
     explanation: "Rectangular matrix requiring mixed strategy analysis.",
     hint: "No saddle point exists because Maximin (2) < Minimax (4).",
     level: "expert",
@@ -28,7 +28,7 @@ const questions = [
   },
   {
     question: "Solve the 2x2 game: A = [[40, 40], [20, 40]]. Does it have multiple saddle points?",
-    shortAnswer: "Row Mins: [40, 20] -> Maximin = 40. Col Maxs: [40, 40] -> Minimax = 40. Yes! Two saddle points exist at (A1, B1) and (A1, B2), both yielding v* = ₹40.",
+    shortAnswer: "Row Mins: [40, 20] → Maximin = 40. Col Maxs: [40, 40] → Minimax = 40. Yes! Two saddle points exist at (A1, B1) and (A1, B2), both yielding v* = ₹40.",
     explanation: "Demonstrates alternate optimal pure strategies with identical game value.",
     hint: "Yes, multiple saddle points at (A1, B1) and (A1, B2) with v* = ₹40.",
     level: "expert",
@@ -44,7 +44,7 @@ const questions = [
   },
   {
     question: "Suppose Debangshu in Barrackpore is analyzing a 2x3 bidding matrix: A = [[35, 45, 30], [25, 40, 20]]. Find Debangshu's optimal pure strategy and security floor.",
-    shortAnswer: "Row Mins: [30, 20] -> Maximin = 30. Optimal Strategy: A1, guaranteeing a minimum security floor of ₹30,000.",
+    shortAnswer: "Row Mins: [30, 20] → Maximin = 30. Optimal Strategy: A1, guaranteeing a minimum security floor of ₹30,000.",
     explanation: "Row 1 strictly dominates Row 2 across all columns.",
     hint: "Strategy A1 with security floor ₹30,000.",
     level: "moderate",
@@ -52,7 +52,7 @@ const questions = [
   },
   {
     question: "In a 2x2 game, if A = [[10, -10], [-10, 10]], what are the Row Minima and Column Maxima?",
-    shortAnswer: "Row Mins: [-10, -10] -> Maximin = -10; Col Maxs: [10, 10] -> Minimax = 10.",
+    shortAnswer: "Row Mins: [-10, -10] → Maximin = -10; Col Maxs: [10, 10] → Minimax = 10.",
     explanation: "Classic symmetric non-strictly determined matching pennies game.",
     hint: "Row Mins = [-10, -10], Col Maxs = [10, 10].",
     level: "moderate",
@@ -68,7 +68,7 @@ const questions = [
   },
   {
     question: "Solve the 3x3 game: A = [[12, -8, -2], [6, 7, 3], [-10, -6, 2]]. Find the saddle point.",
-    shortAnswer: "Row Mins: [-8, 3, -10] -> Maximin = 3 (Row 2). Col Maxs: [12, 7, 3] -> Minimax = 3 (Col 3). Saddle point at (A2, B3) with v* = ₹3.",
+    shortAnswer: "Row Mins: [-8, 3, -10] → Maximin = 3 (Row 2). Col Maxs: [12, 7, 3] → Minimax = 3 (Col 3). Saddle point at (A2, B3) with v* = ₹3.",
     explanation: "Cell (2, 3) = 3 is min in row 2 and max in col 3.",
     hint: "Saddle at (A2, B3) with v* = ₹3.",
     level: "moderate",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Numerical Solutions for Pure Strategy & Saddle Point?",
     shortAnswer: "'Solve numerical matrix games systematically: calculate Row Minima horizontally, Column Maxima vertically, extract Maximin and Minimax; if equal, announce the saddle point (A_i*, B_j*) and game value v* in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all numerical resolution steps.",
-    hint: "Row minima -> Col maxima -> Compare Maximin and Minimax -> Announce saddle point and v* in ₹.",
+    hint: "Row minima → Col maxima → Compare Maximin and Minimax → Announce saddle point and v* in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ComputeRowMins() -> ComputeColMaxs() -> MatchMaximinMinimax(₹)."
+    codeExample: "GoldenRule: ComputeRowMins() → ComputeColMaxs() → MatchMaximinMinimax(₹)."
   }
 ];
 

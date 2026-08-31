@@ -79,7 +79,7 @@ const Topic31 = () => {
               "motion-reduce:animate-none"
             )}
           >
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-indigo-400 dark:text-indigo-400">
+            <h1 className="mb-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-indigo-400 dark:text-indigo-400">
               🔗 Using #include for Modular Programming
             </h1>
             <p className="text-xl text-gray-300 dark:text-gray-300">
@@ -406,7 +406,7 @@ const Topic31 = () => {
             <ul className="grid gap-3 sm:grid-cols-2">
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400">✅</span> I understand the
-                difference between <code>#include &lt;&gt;</code> and{" "}
+                difference between <code>#include <></code> and{" "}
                 <code>#include ""</code>.
               </li>
               <li className="flex items-start gap-2">

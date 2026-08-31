@@ -35,7 +35,7 @@ export default class Topic6 extends Component {
 
           {/* HEADER */}
           <div className="p-6 bg-slate-900/70 border border-slate-800 rounded-3xl shadow-xl">
-            <h1 className="text-2xl md:text-3xl font-bold text-sky-300">
+            <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-sky-300">
               {title}
             </h1>
             <p className="text-sm text-slate-400 mt-2">{author}</p>

@@ -25,9 +25,9 @@ const questions = [
     question: "What is the primitive type promotion sequence for integer and floating-point types?",
     shortAnswer: "`byte` $\to$ `short` $\to$ `int` $\to$ `long` $\to$ `float` $\to$ `double`; and `char` $\to$ `int` $\to$ `long` $\to$ `float` $\to$ `double`.",
     explanation: "Widening primitive conversions chart (JLS §5.1.2).",
-    hint: "byte -> short -> int -> long -> float -> double (and char -> int).",
+    hint: "byte → short → int → long → float → double (and char → int).",
     level: "basic",
-    codeExample: "byte b = 1; -> short -> int -> long -> float -> double"
+    codeExample: "byte b = 1; → short → int → long → float → double"
   },
   {
     question: "If a class defines `void test(long x)` and `void test(Integer x)`, which method is invoked when calling `test(10)` with an `int`?",
@@ -51,7 +51,7 @@ const questions = [
     explanation: "Signed vs unsigned primitive conversion restrictions.",
     hint: "No, signed types cannot widen to unsigned char.",
     level: "intermediate",
-    codeExample: "// byte -> char is NOT widening; byte -> int is widening"
+    codeExample: "// byte → char is NOT widening; byte → int is widening"
   },
   {
     question: "What happens when passing `char 'A'` to `processFee()` when no `char` overload exists?",
@@ -75,7 +75,7 @@ const questions = [
     explanation: "Boxing followed by Reference Widening is permitted (JLS §5.1.8).",
     hint: "Yes, int can box to Integer and then widen to Object or Number.",
     level: "advanced",
-    codeExample: "void m(Object o) {} m(10); // int -> Integer -> Object (Valid!)"
+    codeExample: "void m(Object o) {} m(10); // int → Integer → Object (Valid!)"
   },
   {
     question: "What causes a `Compile Error: reference to methodName is ambiguous`?",
@@ -171,7 +171,7 @@ const questions = [
     explanation: "Char to short incompatibility.",
     hint: "No, unsigned char cannot widen to signed short.",
     level: "intermediate",
-    codeExample: "// char -> short is NOT a widening conversion"
+    codeExample: "// char → short is NOT a widening conversion"
   },
   {
     question: "What is 'Poly Expression' resolution introduced in Java 8?",
@@ -179,7 +179,7 @@ const questions = [
     explanation: "Modern Java 8 poly expressions.",
     hint: "Expressions whose types are inferred based on the target type.",
     level: "advanced",
-    codeExample: "executor.submit(() -> System.out.println(\"Hi\"));"
+    codeExample: "executor.submit(() → System.out.println(\"Hi\"));"
   },
   {
     question: "Why should developers avoid creating overloads that rely on complex widening vs boxing distinctions?",

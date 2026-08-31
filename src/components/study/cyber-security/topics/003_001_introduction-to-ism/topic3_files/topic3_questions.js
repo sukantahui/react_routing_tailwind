@@ -6,8 +6,8 @@ const questions = [
     hint: "Think of a bank: losing a physical chair or laptop is minor, but leaking all customer account numbers destroys the bank.",
     level: "basic",
     codeExample: `// Physical Asset vs Information Asset Value:
-Physical Asset (Commodity):   Dell PowerEdge Server -> Value = ₹8,00,000 (Replaceable in 48 hours)
-Information Asset (Capital): Core Customer Banking DB -> Value = ₹50,00,00,000 (Breach causes insolvency!)`
+Physical Asset (Commodity):   Dell PowerEdge Server → Value = ₹8,00,000 (Replaceable in 48 hours)
+Information Asset (Capital): Core Customer Banking DB → Value = ₹50,00,00,000 (Breach causes insolvency!)`
   },
   {
     question: "What is an Information Asset Register (IAR), and why is it mandatory under ISO/IEC 27001 (Control 5.9)?",
@@ -73,7 +73,7 @@ Qualitative Valuation:  Asset Criticality = CRITICAL (Impact: High, Likelihood: 
     codeExample: `// NIST SP 800-88 Sanitization Levels:
 Clear:   $ dd if=/dev/zero of=/dev/sdb bs=1M status=progress (Logical Overwrite)
 Purge:   nvme format /dev/nvme0n1 --namespace-id=1 --ses=2 (Cryptographic Crypto-Erase)
-Destroy: Industrial Drive Shredder -> Mechanically shreds SSD to < 2mm particles`
+Destroy: Industrial Drive Shredder → Mechanically shreds SSD to < 2mm particles`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, why is customer personal data classified as a 'Fiduciary Information Asset'?",
@@ -106,10 +106,10 @@ Penalty: Up to ₹250 Crores for breaching fiduciary trust under Section 33!`
     hint: "Think of airport security: general terminal area (Public), boarding gate (Internal), cockpit (Restricted).",
     level: "basic",
     codeExample: `// 4-Tier Enterprise Classification Scheme:
-Tier 1: Public       -> No encryption required | Freely published online
-Tier 2: Internal     -> Password protected | Employees only
-Tier 3: Confidential -> AES-256 encrypted | Need-to-know access | DLP monitored
-Tier 4: Restricted   -> Hardware HSM keys + mTLS + MFA + DPDP Section 8 protection`
+Tier 1: Public       → No encryption required | Freely published online
+Tier 2: Internal     → Password protected | Employees only
+Tier 3: Confidential → AES-256 encrypted | Need-to-know access | DLP monitored
+Tier 4: Restricted   → Hardware HSM keys + mTLS + MFA + DPDP Section 8 protection`
   },
   {
     question: "What is 'Asset Sprawl', and how does it create critical hidden vulnerabilities in enterprise cloud environments?",
@@ -118,8 +118,8 @@ Tier 4: Restricted   -> Hardware HSM keys + mTLS + MFA + DPDP Section 8 protecti
     hint: "Think of forgotten storage sheds behind a factory that have rusted locks and open windows.",
     level: "moderate",
     codeExample: `// Cloud Asset Sprawl Vulnerability:
-Developer spins up test S3 bucket: 'test-bank-dump-2024' -> Forgets to delete it ->
-Bucket contains real customer database backup -> Publicly readable -> MASSIVE DATA BREACH!`
+Developer spins up test S3 bucket: 'test-bank-dump-2024' → Forgets to delete it ->
+Bucket contains real customer database backup → Publicly readable → MASSIVE DATA BREACH!`
   },
   {
     question: "How do cryptographic keys, API tokens, and digital certificates fit into the Information Asset Register?",
@@ -144,7 +144,7 @@ Lifecycle SLA:  Annual key rotation + 6-hour CERT-In compromise revocation proto
     codeExample: `// Crypto-Shredding / Cryptographic Erasure in Action:
 Data in S3:     Encrypted with AES-256 Key K (10 TB Customer Archive)
 Sanitization:   aws kms schedule-key-deletion --key-id K --pending-window-in-days 7
-Key Destroyed:  DEK Erased from HSM silicon -> Data instantly converted to useless mathematical entropy!`
+Key Destroyed:  DEK Erased from HSM silicon → Data instantly converted to useless mathematical entropy!`
   },
   {
     question: "Synthesizing Information as an Organizational Asset: what is the master governance equation for protecting enterprise information capital?",

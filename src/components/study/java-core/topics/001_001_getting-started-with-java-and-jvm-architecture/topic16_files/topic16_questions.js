@@ -5,7 +5,7 @@ const questions = [
     explanation: "Triggered by calling methods on null (`null.toString()`), accessing fields on null, unboxing null wrapper objects, or taking the length of null.",
     hint: "Attempting to access members of a null reference.",
     level: "basic",
-    codeExample: "String s = null;\n// s.length(); -> Throws NullPointerException"
+    codeExample: "String s = null;\n// s.length(); → Throws NullPointerException"
   },
   {
     question: "What is the 'Helpful NullPointerExceptions' feature introduced in Java 14 (JEP 358)?",
@@ -21,7 +21,7 @@ const questions = [
     explanation: "Java arrays are 0-indexed ($0$ to $length - 1$). Prevent by verifying `index >= 0 && index < arr.length`, or using enhanced for-each loops.",
     hint: "Array index < 0 or >= length.",
     level: "basic",
-    codeExample: "int[] arr = new int[5];\n// int val = arr[5]; -> Throws ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5"
+    codeExample: "int[] arr = new int[5];\n// int val = arr[5]; → Throws ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5"
   },
   {
     question: "What is a `ClassCastException` and how is it safely prevented in modern Java?",
@@ -29,7 +29,7 @@ const questions = [
     explanation: "Using `if (obj instanceof String s)` ensures that the cast only executes if the object is genuinely an instance of String.",
     hint: "Illegal downcast prevented by instanceof.",
     level: "basic",
-    codeExample: "Object obj = Integer.valueOf(10);\n// String s = (String) obj; -> Throws ClassCastException\nif (obj instanceof String s) { System.out.println(s); }"
+    codeExample: "Object obj = Integer.valueOf(10);\n// String s = (String) obj; → Throws ClassCastException\nif (obj instanceof String s) { System.out.println(s); }"
   },
   {
     question: "What is a `StackOverflowError` and what typically causes it in Java programs?",
@@ -77,7 +77,7 @@ const questions = [
     explanation: "Applications should catch `Exception` (and its subclasses), but should generally NOT attempt to catch `Error` (like `OutOfMemoryError` or `StackOverflowError`).",
     hint: "Recoverable application issues (Exception) vs Serious JVM failures (Error).",
     level: "intermediate",
-    codeExample: "// Throwable -> Exception (Checked/Unchecked) and Error (System/JVM)"
+    codeExample: "// Throwable → Exception (Checked/Unchecked) and Error (System/JVM)"
   },
   {
     question: "What is an `IllegalArgumentException`?",
@@ -109,7 +109,7 @@ const questions = [
     explanation: "Java collections use fail-fast iterators with a `modCount`. To safely remove elements during iteration, use `Iterator.remove()` or `Collection.removeIf()`.",
     hint: "Modifying a collection during for-each iteration.",
     level: "intermediate",
-    codeExample: "// Fix: list.removeIf(item -> item.equals(\"expired\"));"
+    codeExample: "// Fix: list.removeIf(item → item.equals(\"expired\"));"
   },
   {
     question: "What is an `UnsupportedOperationException`?",
@@ -117,7 +117,7 @@ const questions = [
     explanation: "`List.of(\"a\", \"b\").add(\"c\")` throws `UnsupportedOperationException` because `List.of()` returns an immutable list.",
     hint: "Attempting to mutate an immutable collection.",
     level: "intermediate",
-    codeExample: "List<String> immutable = List.of(\"A\", \"B\");\n// immutable.add(\"C\"); -> Throws UnsupportedOperationException"
+    codeExample: "List<String> immutable = List.of(\"A\", \"B\");\n// immutable.add(\"C\"); → Throws UnsupportedOperationException"
   },
   {
     question: "How does Java unboxing trigger hidden NullPointerExceptions?",
@@ -133,7 +133,7 @@ const questions = [
     explanation: "Java arrays are covariant (`Object[] arr = new String[5];`). Storing an `Integer` (`arr[0] = 100;`) passes compiler checks but throws ArrayStoreException at runtime.",
     hint: "Array covariance type violation at runtime.",
     level: "advanced",
-    codeExample: "Object[] arr = new String[3];\n// arr[0] = Integer.valueOf(42); -> Throws ArrayStoreException"
+    codeExample: "Object[] arr = new String[3];\n// arr[0] = Integer.valueOf(42); → Throws ArrayStoreException"
   },
   {
     question: "What is `NegativeArraySizeException` in Java?",
@@ -141,7 +141,7 @@ const questions = [
     explanation: "Array sizes in Java must be non-negative integers ($\ge 0$).",
     hint: "Negative array dimension.",
     level: "basic",
-    codeExample: "int size = -1;\n// int[] arr = new int[size]; -> Throws NegativeArraySizeException"
+    codeExample: "int size = -1;\n// int[] arr = new int[size]; → Throws NegativeArraySizeException"
   },
   {
     question: "What is `NoClassDefFoundError` and how does it differ from `ClassNotFoundException`?",
@@ -173,7 +173,7 @@ const questions = [
     explanation: "Methods returning `Optional<User>` communicate clearly in their API signature that a user might not exist, preventing silent null references.",
     hint: "Explicit container for nullable return values.",
     level: "intermediate",
-    codeExample: "Optional<User> user = findById(42);\nuser.ifPresent(u -> System.out.println(u.getName()));"
+    codeExample: "Optional<User> user = findById(42);\nuser.ifPresent(u → System.out.println(u.getName()));"
   },
   {
     question: "How do you defend against `ArrayIndexOutOfBoundsException` when parsing `String[] args` in `main()`?",
@@ -189,7 +189,7 @@ const questions = [
     explanation: "NPE, ArrayIndexOutOfBounds, and ClassCastException are all unchecked RuntimeExceptions representing programmer logic bugs.",
     hint: "RuntimeException subclasses are unchecked.",
     level: "basic",
-    codeExample: "// NullPointerException -> Unchecked\n// IOException -> Checked"
+    codeExample: "// NullPointerException → Unchecked\n// IOException → Checked"
   },
   {
     question: "What is a 'Fail-Fast' vs 'Fail-Safe' iterator behavior regarding runtime errors?",
@@ -209,7 +209,7 @@ const questions = [
   },
   {
     question: "How do you read and interpret a Java Exception Stack Trace?",
-    shortAnswer: "Read from top to bottom: Exception name + message -> Topmost stack frame indicates exact class, method, and line number where the crash occurred.",
+    shortAnswer: "Read from top to bottom: Exception name + message → Topmost stack frame indicates exact class, method, and line number where the crash occurred.",
     explanation: "Example: `at com.example.App.calculate(App.java:42)` tells you line 42 of `App.java` triggered the exception.",
     hint: "Top frame shows exact line of origin.",
     level: "basic",
@@ -237,7 +237,7 @@ const questions = [
     explanation: "Senior engineers don't write fragile code that crashes on nulls or bad indices; they anticipate edge conditions, validate boundaries, and design self-healing architectures.",
     hint: "Fault-tolerant, enterprise-grade resilience.",
     level: "basic",
-    codeExample: "// Resilient Architecture -> Zero Unexpected Production Crashes."
+    codeExample: "// Resilient Architecture → Zero Unexpected Production Crashes."
   }
 ];
 

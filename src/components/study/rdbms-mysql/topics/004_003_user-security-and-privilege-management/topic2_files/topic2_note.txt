@@ -21,10 +21,10 @@ Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
 2. HOST RESOLUTION SORT ORDER (MOST SPECIFIC MATCH FIRST)
 --------------------------------------------------------------------------------
 When a client connects, MySQL searches in-memory `mysql.user` records sorted by:
-1. Exact IP Address (e.g. '192.168.1.50')     -> Priority 1 (Most Specific)
-2. Subnet Mask (e.g. '192.168.1.0/255.255.255.0') -> Priority 2
-3. Wildcard IP Prefix (e.g. '192.168.1.%')    -> Priority 3
-4. Universal Wildcard ('%')                   -> Priority 4 (Least Specific)
+1. Exact IP Address (e.g. '192.168.1.50')     → Priority 1 (Most Specific)
+2. Subnet Mask (e.g. '192.168.1.0/255.255.255.0') → Priority 2
+3. Wildcard IP Prefix (e.g. '192.168.1.%')    → Priority 3
+4. Universal Wildcard ('%')                   → Priority 4 (Least Specific)
 
 3. DNS RESOLUTION & SKIP-NAME-RESOLVE
 --------------------------------------------------------------------------------

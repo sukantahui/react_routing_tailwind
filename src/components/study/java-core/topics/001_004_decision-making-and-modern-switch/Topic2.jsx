@@ -42,7 +42,7 @@ export default function Topic2() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-sky-400">&apos;if-else&apos;</code> Statement for Binary Decision Paths
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -142,7 +142,7 @@ export default function Topic2() {
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="615" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">String result;</text>
             <text x="615" y="122" fill="#e0f2fe" fontSize="10">Assigned in both branches</text>
-            <text x="615" y="142" fill="#a7f3d0" fontSize="10">&rarr; 100% Safe to read after!</text>
+            <text x="615" y="142" fill="#a7f3d0" fontSize="10">→ 100% Safe to read after!</text>
             <text x="720" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               JLS §16 Compiler Guarantee
             </text>

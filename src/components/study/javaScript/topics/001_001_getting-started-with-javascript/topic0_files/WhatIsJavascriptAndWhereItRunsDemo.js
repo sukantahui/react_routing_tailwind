@@ -75,8 +75,8 @@ const studentProfile = {
 const profileAlias = studentProfile;
 profileAlias.skills.push("JavaScript ES2024");
 
-console.log("Stack Primitive Comparison -> studentRoll:", studentRoll, "| copyRoll:", copyRoll);
-console.log("Heap Object Mutation Effect -> Original studentProfile.skills:", studentProfile.skills);
+console.log("Stack Primitive Comparison → studentRoll:", studentRoll, "| copyRoll:", copyRoll);
+console.log("Heap Object Mutation Effect → Original studentProfile.skills:", studentProfile.skills);
 console.log("Are pointers pointing to identical memory address?:", studentProfile === profileAlias);
 
 // ─── 3. SINGLE-THREADED CONCURRENCY & THE EVENT LOOP ─────────────

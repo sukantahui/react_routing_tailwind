@@ -12,7 +12,7 @@ const Topic0 = () => {
         
         {/* ========== HEADER ========== */}
         <header className="text-center space-y-4 animate-[fade-up_0.6s_ease-out] motion-safe:animate-[fade-up_0.6s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Leaky Bucket Algorithm
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">

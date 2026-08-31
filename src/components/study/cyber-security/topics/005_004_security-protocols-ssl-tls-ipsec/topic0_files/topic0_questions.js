@@ -21,7 +21,7 @@ const questions = [
     level: "Basic",
     codeExample: `// Application Layer vs Network Layer:
 // Layer 7 (HTTPS): Encrypts HTTP requests (Aware of GET /api/v1/payroll, cookies, user sessions)
-// Layer 3 (IPsec): Encrypts IP packets (Blind to payload contents; sees only 10.14.0.5 -> 10.14.0.88)`
+// Layer 3 (IPsec): Encrypts IP packets (Blind to payload contents; sees only 10.14.0.5 → 10.14.0.88)`
   },
   {
     id: 3,
@@ -66,7 +66,7 @@ const questions = [
     hint: "AH calculates a checksum on the envelope address; when the post office stamps a new return address (NAT), the checksum breaks.",
     level: "Expert",
     codeExample: `// IPsec AH vs NAT Failure:
-// Sender creates AH ICV covering IP Header (192.168.1.5 -> 10.0.0.1)
+// Sender creates AH ICV covering IP Header (192.168.1.5 → 10.0.0.1)
 // NAT Router translates Source IP to 203.0.113.10
 // Receiver re-calculates AH ICV ➔ CHECKSUM MISMATCH ➔ PACKET DROPPED!`
   },

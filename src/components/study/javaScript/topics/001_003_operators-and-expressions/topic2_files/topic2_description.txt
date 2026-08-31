@@ -17,20 +17,20 @@ Swadeep ran into a famous bug: let userRole = 0; if (userRole == false) { consol
 --------------------------------------------------------------------------------
 1. Strict Equality (===) & Strict Inequality (!==):
 - Compares BOTH Value AND Type without any hidden type conversion.
-- 5 === 5 -> true
-- 5 === "5" -> false (Number vs String)
-- 0 === false -> false
+- 5 === 5 → true
+- 5 === "5" → false (Number vs String)
+- 0 === false → false
 
 2. Loose Equality (==) & Loose Inequality (!=):
 - Performs implicit type coercion if the types differ, trying to force them into common types.
-- 5 == "5" -> true (coerces string to number)
-- 0 == false -> true (coerces false to 0)
-- "" == 0 -> true (coerces empty string to 0)
-- null == undefined -> true
+- 5 == "5" → true (coerces string to number)
+- 0 == false → true (coerces false to 0)
+- "" == 0 → true (coerces empty string to 0)
+- null == undefined → true
 
 3. Relational Comparisons (<, <=, >, >=):
-- Compares numbers mathematically (10 > 5 -> true).
-- If strings are compared, it compares lexicographically by character code ("b" > "a" -> true).
+- Compares numbers mathematically (10 > 5 → true).
+- If strings are compared, it compares lexicographically by character code ("b" > "a" → true).
 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
 --------------------------------------------------------------------------------

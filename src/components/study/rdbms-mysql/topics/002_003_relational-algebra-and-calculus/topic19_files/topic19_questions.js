@@ -60,7 +60,7 @@ const questions = [
   },
   {
     question: "How do you calculate city-wise average student admission fee for cities with >= 2 students?",
-    shortAnswer: "$$\\sigma_{\\text{cnt} \\ge 2}({}_{\\text{city}} \\mathcal{G}_{\\text{COUNT}(*) \\rightarrow \\text{cnt}, \\text{AVG(admission\\_fee)} \\rightarrow \\text{avg\\_fee}}(\\text{Students}))$$.",
+    shortAnswer: "$$\\sigma_{\\text{cnt} \\ge 2}({}_{\\text{city}} \\mathcal{G}_{\\text{COUNT}(*) \→ \\text{cnt}, \\text{AVG(admission\\_fee)} \→ \\text{avg\\_fee}}(\\text{Students}))$$.",
     explanation: "Grouping and aggregate selection.",
     hint: "σ_{cnt >= 2}(_{city} 𝒢_{COUNT(*)->cnt, AVG(fee)->avg}(Students)).",
     level: "basic",

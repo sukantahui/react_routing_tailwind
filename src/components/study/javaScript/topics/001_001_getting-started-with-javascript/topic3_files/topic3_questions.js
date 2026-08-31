@@ -5,7 +5,7 @@ const questions = [
     explanation: "Opening files via file:/// assigns a null origin, triggering browser CORS security blocks whenever scripts attempt to fetch data or import ES modules.",
     hint: "file:// blocks CORS and ES module imports; http:// allows full Web API access.",
     level: "basic",
-    codeExample: "// file:///path/index.html -> Fetch fails with CORS error\n// http://127.0.0.1:5500/index.html -> Fetch succeeds!"
+    codeExample: "// file:///path/index.html → Fetch fails with CORS error\n// http://127.0.0.1:5500/index.html → Fetch succeeds!"
   },
   {
     question: "What is Visual Studio Code (VS Code) and why is it preferred for JavaScript development?",
@@ -77,7 +77,7 @@ const questions = [
     explanation: "DevTools saves your modified files into a selected local folder on your hard drive, allowing live debugging and prototyping without switching back to VS Code.",
     hint: "Persists browser DevTools edits to a local disk folder.",
     level: "advanced",
-    codeExample: "// Sources tab -> Overrides -> Select folder for local persistence"
+    codeExample: "// Sources tab → Overrides → Select folder for local persistence"
   },
   {
     question: "What is the purpose of the .vscode/settings.json file in a team repository?",
@@ -149,7 +149,7 @@ const questions = [
     explanation: "Checking this box guarantees every script and stylesheet is fetched fresh from the server on every reload while debugging.",
     hint: "Forces fresh asset downloads while DevTools is open.",
     level: "basic",
-    codeExample: "// Network tab -> Check 'Disable Cache'"
+    codeExample: "// Network tab → Check 'Disable Cache'"
   },
   {
     question: "What is Git integration in VS Code?",
@@ -187,7 +187,7 @@ const questions = [
     question: "How do you debug asynchronous code with async/await in VS Code debugger?",
     shortAnswer: "Set a breakpoint inside the async function and use 'Step Over' (F10) to trace promise resolution linearly.",
     explanation: "The VS Code debugger pauses before the await expression and resumes at the next line once the promise fulfills, making async debugging intuitive.",
-    hint: "Set breakpoint -> F10 Step Over through await expressions.",
+    hint: "Set breakpoint → F10 Step Over through await expressions.",
     level: "advanced",
     codeExample: "async function load() {\n  const res = await fetch(url); // Breakpoint pauses here\n  const data = await res.json();\n}"
   },

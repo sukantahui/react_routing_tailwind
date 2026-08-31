@@ -70,7 +70,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             INDEX Function Basics: Array, Row Number and Column Number Matrix Access
           </h1>
 
@@ -274,7 +274,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_INDEX_Function_Bas"
+            sheetName="EX1013"
             title="Module 2.5 - INDEX Function Basics: Array, Row Number and Column Number Matrix Access"
             rowsPerPage={25}
             showSheetSelector={true}

@@ -71,7 +71,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Time Value of Money (TVM) principles: Present Value, Future Value, and Interest Rates"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Time_Value_of_Mone"
+            sheetName="EX1201"
             title={"Time Value of Money (TVM) principles: Present Value, Future Value, and Interest Rates - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

@@ -11,7 +11,7 @@ const questions = [
     explanation: "Core JVM memory division.",
     hint: "Reference lives on Stack; array object lives in Heap.",
     level: "basic",
-    codeExample: "int[] arr = new int[5]; // arr on Stack -> array object on Heap"
+    codeExample: "int[] arr = new int[5]; // arr on Stack → array object on Heap"
   },
   {
     question: "What are the default initial values of primitive elements in a newly instantiated array (`new int[5]`)?",
@@ -75,7 +75,7 @@ const questions = [
     explanation: "Standard HotSpot object layout calculation.",
     hint: "16B header + 4000B payload + padding = approx 4,024 bytes.",
     level: "advanced",
-    codeExample: "// Memory: 16B header + 1000*4B = 4016B + 8B padding -> 4024B"
+    codeExample: "// Memory: 16B header + 1000*4B = 4016B + 8B padding → 4024B"
   },
   {
     question: "How does the memory layout of an array of primitives (`int[]`) differ from an array of objects (`Integer[]`)?",
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Fundamental JVM memory understanding for high-performance Java coding.",
     hint: "Stack holds references; Heap holds contiguous zero-initialized array objects.",
     level: "basic",
-    codeExample: "// Summary: Stack (reference) -> Heap (16B header + contiguous zero-initialized slots)"
+    codeExample: "// Summary: Stack (reference) → Heap (16B header + contiguous zero-initialized slots)"
   },
   {
     question: "What is the next topic (Topic 2) in Module 001_006?",

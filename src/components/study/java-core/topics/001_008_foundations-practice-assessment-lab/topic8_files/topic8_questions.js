@@ -19,7 +19,7 @@ const questions = [
     explanation: "Single digit Armstrong property.",
     hint: "Yes, because d^1 = d for any single digit.",
     level: "basic",
-    codeExample: "isArmstrong(7) -> true (7^1 = 7)"
+    codeExample: "isArmstrong(7) → true (7^1 = 7)"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what were all 3-digit Armstrong numbers found in range $[100..999]$?",
@@ -27,7 +27,7 @@ const questions = [
     explanation: "3-digit Armstrong numbers listing.",
     hint: "153, 370, 371, 407.",
     level: "basic",
-    codeExample: "findArmstrongInRange(100, 999) -> [153, 370, 371, 407]"
+    codeExample: "findArmstrongInRange(100, 999) → [153, 370, 371, 407]"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what were all 4-digit Armstrong numbers found in range $[1000..9999]$?",
@@ -35,7 +35,7 @@ const questions = [
     explanation: "4-digit Armstrong numbers listing.",
     hint: "1634, 8208, 9474.",
     level: "basic",
-    codeExample: "findArmstrongInRange(1000, 9999) -> [1634, 8208, 9474]"
+    codeExample: "findArmstrongInRange(1000, 9999) → [1634, 8208, 9474]"
   },
   {
     question: "How do you count the total number of digits $D$ in an integer $N$?",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "2-digit Armstrong vacancy.",
     hint: "No, there are zero 2-digit Armstrong numbers in base 10.",
     level: "basic",
-    codeExample: "findArmstrongInRange(10, 99) -> [] (empty list)"
+    codeExample: "findArmstrongInRange(10, 99) → [] (empty list)"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the digit count of `1634`?",
@@ -147,7 +147,7 @@ const questions = [
     explanation: "500 Armstrong test verification.",
     hint: "False.",
     level: "basic",
-    codeExample: "isArmstrong(500) -> false"
+    codeExample: "isArmstrong(500) → false"
   },
   {
     question: "Can Parallel Streams in Java accelerate finding Armstrong numbers in large ranges?",
@@ -155,7 +155,7 @@ const questions = [
     explanation: "Parallel stream acceleration for range filters.",
     hint: "IntStream.rangeClosed(start, end).parallel().filter(...) uses multi-core CPUs.",
     level: "intermediate",
-    codeExample: "IntStream.rangeClosed(1, 100000).parallel().filter(x -> isArmstrong(x)).boxed().toList();"
+    codeExample: "IntStream.rangeClosed(1, 100000).parallel().filter(x → isArmstrong(x)).boxed().toList();"
   },
   {
     question: "What is a 'Perfect Number' and how does it differ from an Armstrong Number?",
@@ -171,7 +171,7 @@ const questions = [
     explanation: "9474 4-digit Armstrong verification.",
     hint: "True.",
     level: "basic",
-    codeExample: "isArmstrong(9474) -> true"
+    codeExample: "isArmstrong(9474) → true"
   },
   {
     question: "What is an 'Automorphic Number'?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "1000 test output verification.",
     hint: "False.",
     level: "basic",
-    codeExample: "isArmstrong(1000) -> false"
+    codeExample: "isArmstrong(1000) → false"
   },
   {
     question: "Why does the digit extraction loop use `temp /= 10` rather than modifying `n`?",

@@ -31,7 +31,7 @@ const questions = [
   },
   {
     question: "How many page reads are typically required to locate a single row in an indexed table of 10,000,000 records?",
-    shortAnswer: "Only 3 to 4 page reads (Root -> Level 1 Branch -> Level 2 Branch -> Leaf Page).",
+    shortAnswer: "Only 3 to 4 page reads (Root → Level 1 Branch → Level 2 Branch → Leaf Page).",
     explanation: "A B+Tree has a high fan-out (e.g. 1000 pointers per page), keeping tree depth very shallow (3-4 levels).",
     hint: "3 to 4 pages.",
     level: "moderate"

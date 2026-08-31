@@ -85,7 +85,7 @@ const Topic0 = () => {
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
             Arrays in Java: Concept & Memory Representation
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -260,7 +260,7 @@ int[] numbers = {10, 20, 30, 40, 50};`}</code>
         arr[1] = 200;  // Store 200 at offset 1  
         arr[2] = 300;  // Store 300 at offset 2
         
-        // Access: arr[1] -> base address + (1 * 4) bytes
+        // Access: arr[1] → base address + (1 * 4) bytes
         System.out.println(arr[1]);  // Output: 200
     }
 }`}</code>

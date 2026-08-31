@@ -26,15 +26,15 @@ const topic0_questions = [
     explanation: "When 'new' allocates memory, all bytes are zeroed out (0, 0.0, null). Without constructor initialization, calling methods on reference fields throws NullPointerException immediately. Initialization guarantees object validity from the moment of birth.",
     hint: "Memory safety and invariant guarantee at birth.",
     level: "Beginner",
-    codeExample: "// Without constructor: studentName is null -> calling studentName.toUpperCase() throws NullPointerException"
+    codeExample: "// Without constructor: studentName is null → calling studentName.toUpperCase() throws NullPointerException"
   },
   {
     question: "What are the 3 stages in the Object Creation Pipeline in Java?",
-    shortAnswer: "1. Memory Allocation in Eden Space (Zero-Initialization) -> 2. Constructor Execution on 'this' -> 3. Reference Assignment to Stack variable.",
+    shortAnswer: "1. Memory Allocation in Eden Space (Zero-Initialization) → 2. Constructor Execution on 'this' → 3. Reference Assignment to Stack variable.",
     explanation: "First, the 'new' keyword allocates required bytes on the Heap and zero-initializes all fields. Second, the constructor executes on the uninitialized instance using 'this'. Third, the 64-bit Heap address pointer is returned and stored in the caller's Stack frame.",
-    hint: "Allocate -> Initialize -> Assign reference.",
+    hint: "Allocate → Initialize → Assign reference.",
     level: "Intermediate",
-    codeExample: "Student s = new Student(\"Swadeep\"); // 1. new allocates -> 2. Student(...) inits -> 3. 's' receives pointer"
+    codeExample: "Student s = new Student(\"Swadeep\"); // 1. new allocates → 2. Student(...) inits → 3. 's' receives pointer"
   },
   {
     question: "Does a constructor allocate memory on the Heap?",
@@ -42,7 +42,7 @@ const topic0_questions = [
     explanation: "A common interview misconception is that constructors allocate memory. In bytecode, the 'new' instruction allocates memory and pushes the object reference onto the operand stack; 'invokespecial <init>' then calls the constructor to initialize that memory.",
     hint: "'new' allocates memory; the constructor initializes it.",
     level: "Intermediate",
-    codeExample: "// Bytecode: 0: new #2 (Allocates) -> 3: dup -> 4: invokespecial #3 (Constructor Initializes)"
+    codeExample: "// Bytecode: 0: new #2 (Allocates) → 3: dup → 4: invokespecial #3 (Constructor Initializes)"
   },
   {
     question: "What happens if a developer writes NO constructor in a Java class?",
@@ -226,7 +226,7 @@ const topic0_questions = [
     explanation: "The Java compiler detects cyclic constructor calls at compile time and halts with an error, preventing infinite loops during instantiation.",
     hint: "Compiler detects and rejects recursive constructor loops.",
     level: "Beginner",
-    codeExample: "// Compile Error: Demo() { this(); } -> recursive constructor invocation"
+    codeExample: "// Compile Error: Demo() { this(); } → recursive constructor invocation"
   },
   {
     question: "Can a constructor accept varargs (variable-length arguments) as parameters?",
@@ -250,7 +250,7 @@ const topic0_questions = [
     explanation: "At the Barrackpore academy, Sukanta Hui teaches that 90% of software bugs are born at instantiation time when uninitialized or invalid data slips into Heap memory. By establishing strict non-null validation, range checking, and invariant enforcement inside your constructors, your objects stand mathematically pure and bulletproof across the entire enterprise ecosystem.",
     hint: "Objects must never be born in invalid states; constructors establish lifelong truth.",
     level: "Beginner",
-    codeExample: "// Sukanta Hui's Object Genesis Formula:\n// Allocate Memory (new) -> Validate Invariants -> Bind 'this' State -> Safe Publication"
+    codeExample: "// Sukanta Hui's Object Genesis Formula:\n// Allocate Memory (new) → Validate Invariants → Bind 'this' State → Safe Publication"
   }
 ];
 

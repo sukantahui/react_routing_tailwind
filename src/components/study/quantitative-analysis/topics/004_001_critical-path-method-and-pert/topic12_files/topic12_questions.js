@@ -70,7 +70,7 @@ const questions = [
     question: "What are the 5 phases of the Critical Path Analysis (CPA) Working Methodology?",
     shortAnswer: "1. Planning & WBS; 2. Two-Pass Network Scheduling (Forward/Backward); 3. Float & Slack Quantification; 4. Critical Path Isolation; 5. Project Crashing & Cost Optimization in Indian Rupees (₹).",
     explanation: "The complete 5-phase operational engine of project management.",
-    hint: "Planning -> Two-Pass Scheduling -> Floats -> Critical Path -> Crashing in ₹.",
+    hint: "Planning → Two-Pass Scheduling → Floats → Critical Path → Crashing in ₹.",
     level: "moderate",
     codeExample: "CPAPhases: ['Planning', 'Scheduling', 'Floats', 'CriticalPath', 'Crashing'];"
   },
@@ -78,7 +78,7 @@ const questions = [
     question: "What are the Forward Pass equations for Earliest Event Time E_j and Activity Times (ES, EF)?",
     shortAnswer: "E_1 = 0; E_j = max(E_i + d_ij) across all incoming arcs; ES_ij = E_i; EF_ij = ES_ij + d_ij = E_i + d_ij.",
     explanation: "Takes the MAXIMUM at merge nodes because all incoming tasks must complete.",
-    hint: "E_1 = 0 -> E_j = max(E_i + d_ij) -> ES = E_i -> EF = E_i + d_ij.",
+    hint: "E_1 = 0 → E_j = max(E_i + d_ij) → ES = E_i → EF = E_i + d_ij.",
     level: "moderate",
     codeExample: "ForwardPass: E[j] = Math.max(...incoming.map(a => E[a.tail] + a.d));"
   },
@@ -86,7 +86,7 @@ const questions = [
     question: "What are the Backward Pass equations for Latest Event Time L_i and Activity Times (LS, LF)?",
     shortAnswer: "L_n = E_n; L_i = min(L_j - d_ij) across all outgoing arcs; LF_ij = L_j; LS_ij = LF_ij - d_ij = L_j - d_ij; verification: L_1 MUST = 0.",
     explanation: "Takes the MINIMUM at burst nodes to satisfy the most restrictive downstream deadline.",
-    hint: "L_n = E_n -> L_i = min(L_j - d_ij) -> LF = L_j -> LS = L_j - d_ij -> L_1 = 0.",
+    hint: "L_n = E_n → L_i = min(L_j - d_ij) → LF = L_j → LS = L_j - d_ij → L_1 = 0.",
     level: "moderate",
     codeExample: "BackwardPass: L[i] = Math.min(...outgoing.map(a => L[a.head] - a.d));"
   },
@@ -158,9 +158,9 @@ const questions = [
     question: "What is the ultimate golden rule of the entire Critical Path Method & PERT Module?",
     shortAnswer: "'Master the 6 drawing rules with Fulkerson i < j; execute Two-Pass scheduling (Forward max, Backward min); isolate the zero-slack Critical Path avoiding the False-Criticality Trap; optimize duration at T* in Indian Rupees (₹); model R&D uncertainty via PERT 3-time Beta distributions and Z-scores!'",
     explanation: "This master synthesis captures all principles of Module 004_001.",
-    hint: "Two-pass scheduling -> Zero-slack critical path -> Optimal T* crashing in ₹ -> PERT 3-time Z-scores.",
+    hint: "Two-pass scheduling → Zero-slack critical path → Optimal T* crashing in ₹ → PERT 3-time Z-scores.",
     level: "moderate",
-    codeExample: "MasterGoldenRule: PNA() -> TwoPass() -> IsolateCP() -> CrashAtTStar(₹) -> PERT_ZScore()."
+    codeExample: "MasterGoldenRule: PNA() → TwoPass() → IsolateCP() → CrashAtTStar(₹) → PERT_ZScore()."
   }
 ];
 

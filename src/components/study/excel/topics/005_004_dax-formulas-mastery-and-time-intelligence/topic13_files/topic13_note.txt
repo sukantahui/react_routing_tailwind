@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The #1 trap in DAX ranking: If your RANKX returns '1' for every row, you forgot `ALL()`! Always write: `ProductRank := RANKX(ALL(Dim_Product[Name]), [TotalSales])`. Now your products rank 1, 2, 3... perfectly.
 
 COMMON TRAPS TO AVOID:
-- The 'Every Row is Rank 1' Bug (The Classic RANKX Trap): Passing a table without `ALL()` (e.g. `RANKX(Dim_Product, [TotalSales])`) restricts the ranking population to the single row in the pivot, so every product ranks #1 against itself. -> Fix: Always wrap the ranking entity in `ALL()` or `ALLSELECTED()`: `RANKX(ALL(Dim_Product[Name]), [TotalSales])`.
-- Ranking Columns with Identical Values (Ties): Multiple entities with identical sales receiving identical rank numbers. -> Fix: Configure the 5th parameter `[Ties]` as `Dense` or `Skip`, or add secondary decimal tie-breakers.
-- Performance Lag on 500,000 Row RANKX: Running RANKX over massive fact tables. -> Fix: Run RANKX exclusively over Dimension tables (`Dim_Customer`, `Dim_Product`).
+- The 'Every Row is Rank 1' Bug (The Classic RANKX Trap): Passing a table without `ALL()` (e.g. `RANKX(Dim_Product, [TotalSales])`) restricts the ranking population to the single row in the pivot, so every product ranks #1 against itself. → Fix: Always wrap the ranking entity in `ALL()` or `ALLSELECTED()`: `RANKX(ALL(Dim_Product[Name]), [TotalSales])`.
+- Ranking Columns with Identical Values (Ties): Multiple entities with identical sales receiving identical rank numbers. → Fix: Configure the 5th parameter `[Ties]` as `Dense` or `Skip`, or add secondary decimal tie-breakers.
+- Performance Lag on 500,000 Row RANKX: Running RANKX over massive fact tables. → Fix: Run RANKX exclusively over Dimension tables (`Dim_Customer`, `Dim_Product`).
 ================================================================================

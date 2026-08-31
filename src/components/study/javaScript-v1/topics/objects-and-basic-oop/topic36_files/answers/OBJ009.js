@@ -16,5 +16,5 @@ console.log('Entries:', entries);
 
 // Iterating with forEach
 entries.forEach(([key, value]) => {
-    console.log(`${key} -> ${value}`);
+    console.log(`${key} → ${value}`);
 });

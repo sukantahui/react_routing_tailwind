@@ -31,9 +31,9 @@ However, for 2 or 3 branches, modern CPU branch predictors (such as TAGE predict
 4. MODERN JAVA 14+ SWITCH EXPRESSIONS AS THE SYNTHESIS
 Modern Java 14+ switch expressions resolve historical complaints against switch (verbose syntax, accidental fall-through) by providing:
   final int fee = switch (courseCode) {
-      case "JAVA" -> 15000;
-      case "SPRING" -> 22000;
-      default -> 10000;
+      case "JAVA" → 15000;
+      case "SPRING" → 22000;
+      default → 10000;
   };
 This provides the safety of functional expressions combined with $O(1)$ jump table performance.
 

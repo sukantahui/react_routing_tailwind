@@ -46,8 +46,8 @@ WHERE c.department_id = 1;
 
 -- ⚡ BENEFIT:
 -- 1. Exactly ONE database query executed.
--- 2. Network round-trips drop from 51 -> 1.
--- 3. Execution time drops from 185.0 ms -> 2.1 ms (90x faster)!`,
+-- 2. Network round-trips drop from 51 → 1.
+-- 3. Execution time drops from 185.0 ms → 2.1 ms (90x faster)!`,
       resultRows: [
         {
           strategy: "N+1 Lazy Loading Loop",
@@ -241,7 +241,7 @@ WHERE student_id IN (101, 102, 103);
               Application Architecture Tuning
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Identifying and Eliminating N+1 Query Anti-Patterns
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -442,7 +442,7 @@ WHERE student_id IN (101, 102, 103);
                     Total Duration: 185.0 ms · 51 Network RTTs
                   </text>
                   <text x="240" y="295" fill="#fecdd3" fontSize="10" textAnchor="middle">
-                    Holds DB Connection Open for 185ms &rarr; Starves Connection Pool!
+                    Holds DB Connection Open for 185ms → Starves Connection Pool!
                   </text>
                   <text x="240" y="315" fill="#fecdd3" fontSize="10" textAnchor="middle">
                     Severe thread starvation under 500 concurrent users 🚨
@@ -695,7 +695,7 @@ LEFT JOIN enrollments e ON c.course_id = e.course_id
 WHERE c.department_id = 1
 GROUP BY c.course_id, c.course_name, c.department_id;
 
--- Result: Latency dropped from 420 ms -> 3.2 ms (130x faster)!`}
+-- Result: Latency dropped from 420 ms → 3.2 ms (130x faster)!`}
                 </pre>
               </div>
             </div>
@@ -722,7 +722,7 @@ UPDATE fee_receipts
 SET status = 'Reconciled', reconciled_at = NOW() 
 WHERE receipt_id IN (/* 500 receipt IDs passed as array parameter */);
 
--- Result: Execution dropped from 4,200 ms -> 12.0 ms (350x speedup)!`}
+-- Result: Execution dropped from 4,200 ms → 12.0 ms (350x speedup)!`}
                 </pre>
               </div>
             </div>
@@ -758,7 +758,7 @@ WHERE receipt_id IN (/* 500 receipt IDs passed as array parameter */);
                 <span>⚠️</span> Pitfall 2: Multi-Level N+1 Explosions (1 + N + M)
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Nesting loops across 3 entity tiers (Department &rarr; Course &rarr; Student &rarr; Fee) causes an exponential query storm: 10 depts &times; 20 courses &times; 50 students = <strong>10,201 queries</strong> for 1 page view!
+                Nesting loops across 3 entity tiers (Department → Course → Student → Fee) causes an exponential query storm: 10 depts &times; 20 courses &times; 50 students = <strong>10,201 queries</strong> for 1 page view!
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
                 Fix: Use DataLoader batching or MySQL 8.0 JSON aggregation.

@@ -117,7 +117,7 @@ const questions = [
   },
   {
     question: "What is the equivalent relational algebra expression for SQL `SELECT full_name AS student_name FROM students;`?",
-    shortAnswer: "$$\\pi_{\\text{student\\_name}}(\\rho_{(\\text{id}, \\text{student\\_name}, \\text{city}, \\dots)}(\\text{Students}))$$ or generalized projection $$\\pi_{\\text{full\\_name} \\rightarrow \\text{student\\_name}}(\\text{Students})$$.",
+    shortAnswer: "$$\\pi_{\\text{student\\_name}}(\\rho_{(\\text{id}, \\text{student\\_name}, \\text{city}, \\dots)}(\\text{Students}))$$ or generalized projection $$\\pi_{\\text{full\\_name} \→ \\text{student\\_name}}(\\text{Students})$$.",
     explanation: "Attribute renaming in projection.",
     hint: "Generalized projection or rename followed by projection.",
     level: "moderate"

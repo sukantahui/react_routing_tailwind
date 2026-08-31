@@ -42,7 +42,7 @@ export default function Topic11() {
             Capstone Evaluation · Segment 1 Synthesis
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Segment 1 Comprehensive Multiple Choice Question (MCQ) Exam
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -92,7 +92,7 @@ export default function Topic11() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Assessment Results):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore capstone exam, <strong>Swadeep</strong> and <strong>Tuhina</strong> scored <code className="text-emerald-400 font-semibold">100.0% (Grade A &rarr; ₹5,000 award)</code>, while <strong>Debangshu</strong> scored <code className="text-sky-300 font-semibold">85.7% (Grade B &rarr; ₹2,500 award)</code>, demonstrating complete foundational readiness for Object-Oriented Programming (Segment 2)!
+              In our Barrackpore capstone exam, <strong>Swadeep</strong> and <strong>Tuhina</strong> scored <code className="text-emerald-400 font-semibold">100.0% (Grade A → ₹5,000 award)</code>, while <strong>Debangshu</strong> scored <code className="text-sky-300 font-semibold">85.7% (Grade B → ₹2,500 award)</code>, demonstrating complete foundational readiness for Object-Oriented Programming (Segment 2)!
             </p>
           </div>
         </div>

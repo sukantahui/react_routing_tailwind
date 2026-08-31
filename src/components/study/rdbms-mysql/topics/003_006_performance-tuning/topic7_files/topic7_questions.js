@@ -88,7 +88,7 @@ const questions = [
     question: "What is the optimal column ordering in a composite covering index?",
     shortAnswer: "1) Equality `WHERE` columns first, 2) Range `WHERE` / `ORDER BY` columns second, 3) Remaining `SELECT`-only projection columns last.",
     explanation: "Follows the Leftmost Prefix Rule for filtering and sorting while including projection columns at the end to satisfy the covering guarantee.",
-    hint: "Equality columns -> Range/Sort columns -> Projection columns.",
+    hint: "Equality columns → Range/Sort columns → Projection columns.",
     level: "expert"
   },
   {

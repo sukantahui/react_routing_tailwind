@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. FLOW CONTROL RULES:
-   - Success Case: try block runs to completion &rarr; catch skipped &rarr; post-code runs.
-   - Failure Case: try block aborts at failure &rarr; catch runs &rarr; post-code runs.
-   - Uncaught Error: try aborts &rarr; method terminates abruptly &rarr; exception propagates.
+   - Success Case: try block runs to completion → catch skipped → post-code runs.
+   - Failure Case: try block aborts at failure → catch runs → post-code runs.
+   - Uncaught Error: try aborts → method terminates abruptly → exception propagates.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

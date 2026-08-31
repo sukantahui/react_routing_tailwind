@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Switch from `IF` to `IFS`! It is so much cleaner. Just write `=IFS(Score>=90, "A", Score>=80, "B", TRUE, "C")`. Always put `TRUE` at the end as your safety net.
 
 COMMON TRAPS TO AVOID:
-- Reversing Inequality Order in IFS Statements: Placing `B2 > 100000` before `B2 > 1000000` causes all high numbers to trigger the smaller tier first. -> Fix: Order inequalities strictly from most restrictive (highest) to least restrictive.
-- Omitting Final 'TRUE, Default' Catch-All in IFS: IFS returning `#N/A` when no condition matches. -> Fix: Always end IFS formulas with `TRUE, "DefaultValue"`.
-- Using Hardcoded Date Strings ('15/08/2026') in Formulas: Regional date format misinterpretation causing formula errors. -> Fix: Use the `DATE(year, month, day)` function for reliable date construction.
+- Reversing Inequality Order in IFS Statements: Placing `B2 > 100000` before `B2 > 1000000` causes all high numbers to trigger the smaller tier first. → Fix: Order inequalities strictly from most restrictive (highest) to least restrictive.
+- Omitting Final 'TRUE, Default' Catch-All in IFS: IFS returning `#N/A` when no condition matches. → Fix: Always end IFS formulas with `TRUE, "DefaultValue"`.
+- Using Hardcoded Date Strings ('15/08/2026') in Formulas: Regional date format misinterpretation causing formula errors. → Fix: Use the `DATE(year, month, day)` function for reliable date construction.
 ================================================================================

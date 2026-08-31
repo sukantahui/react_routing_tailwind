@@ -17,7 +17,7 @@ mysqlbinlog --stop-datetime="2026-08-25 14:14:59" binlog.000045 | mysql`
     question: "What are the two mandatory steps required to execute Point-in-Time Recovery?",
     shortAnswer: "Step 1: Restore the latest Full Base Backup taken prior to the incident. Step 2: Extract, filter, and replay subsequent transactions from the Binary Logs up to the recovery point using `mysqlbinlog`.",
     explanation: "The base backup restores table schemas and initial row state; replaying binary logs rolls forward all transactions committed between the backup time and the failure time.",
-    hint: "1. Restore Base Backup -> 2. Replay Binary Logs with mysqlbinlog.",
+    hint: "1. Restore Base Backup → 2. Replay Binary Logs with mysqlbinlog.",
     level: "basic",
     codeExample: `# Step 1: Base restore
 mysql -u root -p < base_backup.sql
@@ -227,7 +227,7 @@ SET GLOBAL innodb_flush_log_at_trx_commit = 1;`
     explanation: "Flashback constructs inverse SQL statements to undo accidental data modifications directly on live databases.",
     hint: "Inverts binary log events to roll back transactions backwards.",
     level: "expert",
-    codeExample: `# Flashback concept: Converts INSERT -> DELETE, and DELETE -> INSERT.`
+    codeExample: `# Flashback concept: Converts INSERT → DELETE, and DELETE → INSERT.`
   },
   {
     question: "Why should binary logs be stored on a separate physical disk partition or cloud storage volume from the primary data directory (`/var/lib/mysql`)?",

@@ -6,7 +6,7 @@ const questions = [
     hint: "Think about installing a hidden spare key and secret door so you can re-enter even if the front window is locked.",
     level: "basic",
     codeExample: `// Phase 4 Persistence Objective:
-Reboot Victim Machine -> Persistence Mechanism Fires on Boot -> Auto-Reconnects C2 Beacon to Attacker!`
+Reboot Victim Machine → Persistence Mechanism Fires on Boot → Auto-Reconnects C2 Beacon to Attacker!`
   },
   {
     question: "How do attackers use 'Windows Registry Run Keys' to achieve persistence on Windows operating systems?",
@@ -44,8 +44,8 @@ set jitter "30";    # 30% random variation (Heartbeats occur randomly between 42
     hint: "Contrast wearing a disguise in a room (User-Mode) versus brainwashing the judge and police chief so they don't believe you exist (Kernel-Mode).",
     level: "expert",
     codeExample: `// User-Mode vs Kernel-Mode Execution Rings:
-Ring 3 (User Space):   Task Manager, cmd.exe, Browsers -> User-Mode Hooking (API Interception)
-Ring 0 (Kernel Space): Windows Kernel (ntoskrnl.exe), Device Drivers -> DKOM Process Unlinking (Invisible to OS!)`
+Ring 3 (User Space):   Task Manager, cmd.exe, Browsers → User-Mode Hooking (API Interception)
+Ring 0 (Kernel Space): Windows Kernel (ntoskrnl.exe), Device Drivers → DKOM Process Unlinking (Invisible to OS!)`
   },
   {
     question: "What is a 'UEFI / Firmware Bootkit' (e.g. BlackLotus / CosmicStrand), and why are they considered the ultimate persistence mechanism?",
@@ -54,7 +54,7 @@ Ring 0 (Kernel Space): Windows Kernel (ntoskrnl.exe), Device Drivers -> DKOM Pro
     hint: "Think of a ghost that lives in the house's foundation bricks rather than the furniture, so it survives even if you throw away all the furniture.",
     level: "expert",
     codeExample: `// UEFI Boot Sequence Hijack:
-Power On -> UEFI Firmware executes Bootkit -> Disables Driver Signature Enforcement -> OS Kernel Boots Compromised!`
+Power On → UEFI Firmware executes Bootkit → Disables Driver Signature Enforcement → OS Kernel Boots Compromised!`
   },
   {
     question: "How do adversaries use 'DLL Hijacking' and 'DLL Side-Loading' to execute persistent payloads under legitimate Microsoft-signed executables?",
@@ -65,7 +65,7 @@ Power On -> UEFI Firmware executes Bootkit -> Disables Driver Signature Enforcem
     codeExample: `// DLL Search Order Hijacking:
 Legitimate App: C:\\Program Files\\App\\signed_app.exe
 Attacker Drops: C:\\Program Files\\App\\legit_dependency.dll (Malicious payload)
-Result:         signed_app.exe loads malicious DLL -> EDR sees trusted Microsoft signature executing payload!`
+Result:         signed_app.exe loads malicious DLL → EDR sees trusted Microsoft signature executing payload!`
   },
   {
     question: "What is 'WMI Event Subscription Persistence', and why is it favored by advanced APT threat actors on Windows networks?",
@@ -95,9 +95,9 @@ chmod 600 /root/.ssh/authorized_keys`
     hint: "Think of smuggling secret letters inside postal lookup request envelopes that postal workers pass along without opening.",
     level: "expert",
     codeExample: `// DNS Tunneling Packet Mechanics:
-Victim -> DNS Query: "A1B2C3D4E5.c2.attacker.net" (Base64 Encoded Command Output)
-Target DNS Resolver -> Forwards to Attacker Authoritative Nameserver
-Attacker Nameserver -> Replies with TXT Record: "command=download_sam_database"`
+Victim → DNS Query: "A1B2C3D4E5.c2.attacker.net" (Base64 Encoded Command Output)
+Target DNS Resolver → Forwards to Attacker Authoritative Nameserver
+Attacker Nameserver → Replies with TXT Record: "command=download_sam_database"`
   },
   {
     question: "What are 'Linux Systemd Service Backdoors', and how do they ensure malicious daemons restart automatically on crash or reboot?",
@@ -192,7 +192,7 @@ Section 66:    Dishonest / Fraudulent System Hacking (3 Years Imprisonment + ₹
     level: "expert",
     codeExample: `// EDR Memory Detection Trigger:
 Memory Region: 0x002A0000 | Protection: PAGE_EXECUTE_READWRITE (RWX) | Type: MEM_PRIVATE (Unbacked by Disk DLL)
--> Trigger: Suspicious Injected Shellcode Thread -> EDR Process Terminated!`
+-> Trigger: Suspicious Injected Shellcode Thread → EDR Process Terminated!`
   },
   {
     question: "What is 'Malleable C2 Profile' in Cobalt Strike, and how does it allow adversaries to disguise C2 traffic as legitimate HTTP traffic like Amazon, Netflix, or Google?",
@@ -220,7 +220,7 @@ http-get {
     hint: "Conclude by recognizing how maintaining access models the long-term patience of real-world adversaries to validate enterprise threat hunting.",
     level: "expert",
     codeExample: `// The Persistence Validation Lifecycle:
-Establish_Stealth_Foothold() -> Simulate_C2_Heartbeat() -> Validate_EDR_Detection() -> CLEANUP_AND_HARDEN_SYSTEMS();`
+Establish_Stealth_Foothold() → Simulate_C2_Heartbeat() → Validate_EDR_Detection() → CLEANUP_AND_HARDEN_SYSTEMS();`
   }
 ];
 

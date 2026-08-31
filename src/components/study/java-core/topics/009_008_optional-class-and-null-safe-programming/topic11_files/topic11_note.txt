@@ -14,7 +14,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 2. COMMON USE CASES:
    - Security permissions & role checks.
    - Numerical threshold validation.
-   - Non-empty string validation ('opt.filter(s -> !s.isBlank())').
+   - Non-empty string validation ('opt.filter(s → !s.isBlank())').
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

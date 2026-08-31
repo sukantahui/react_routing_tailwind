@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "Introduced in Java 8, Streams allow developers to write concise queries over in-memory collections similar to SQL queries over database tables.",
     "hint": "Declarative functional pipeline over collections and data sources.",
     "level": "Beginner",
-    "codeExample": "List<String> list = students.stream().filter(s -> s.getScore() > 80).map(Student::getName).toList();"
+    "codeExample": "List<String> list = students.stream().filter(s → s.getScore() > 80).map(Student::getName).toList();"
   },
   {
     "question": "How does declarative stream processing differ fundamentally from imperative loop processing?",
@@ -13,7 +13,7 @@ const topic0_questions = [
     "explanation": "Declarative pipelines improve maintainability, reduce bug surface area, and abstract execution mechanics away from business logic.",
     "hint": "HOW (loops and manual mutations) vs WHAT (functional composition).",
     "level": "Intermediate",
-    "codeExample": "// Declarative:\\nstudents.stream().filter(s -> s.isActive()).forEach(System.out::println);"
+    "codeExample": "// Declarative:\\nstudents.stream().filter(s → s.isActive()).forEach(System.out::println);"
   }
 ];
 

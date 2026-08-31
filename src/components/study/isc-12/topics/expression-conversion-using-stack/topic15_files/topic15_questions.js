@@ -165,7 +165,7 @@ const questions = [
   {
     question: "What is the prefix form of `A-B-C`?",
     shortAnswer: "--ABC",
-    explanation: "Subtraction is left‑associative, but prefix is right‑assoc, so it becomes - - A B C? Actually, we need to check: A-B-C -> (A-B)-C. The prefix is --ABC? Let's see: reverse → C-B-A, postfix-like → CB-A-, reverse → --ABC. Yes.",
+    explanation: "Subtraction is left‑associative, but prefix is right‑assoc, so it becomes - - A B C? Actually, we need to check: A-B-C → (A-B)-C. The prefix is --ABC? Let's see: reverse → C-B-A, postfix-like → CB-A-, reverse → --ABC. Yes.",
     hint: "Left‑assoc but prefix handles differently.",
     level: "advanced",
     codeExample: "--ABC"
@@ -180,7 +180,7 @@ const questions = [
   },
   {
     question: "What is the prefix form of `(A^B)^C`?",
-    shortAnswer: "^ ^ A B C? Actually with parentheses: (A^B)^C → ^ ^ A B C? Let's check: reverse → C^B^A? Need to compute carefully. In prefix, parentheses: (A^B)^C => ^(^AB) C = ^^ABC? Wait, we need to convert correctly: Infix: (A^B)^C. Reverse: C^(B^A). Swap parentheses: C^(B^A). Postfix-like: C B A ^ ^? Actually process: C (operand) -> output; ^ (operator) -> push; B (operand) -> output; ^ (operator) -> pop? No, equal precedence not popped, so push ^; A (operand) -> output; end -> pop ^, ^ -> output: C B A ^ ^. Reverse: ^ ^ A B C. So prefix: ^^ABC. Let's confirm: (A^B)^C = (^AB)^C = ^(^AB)C = ^^ABC. Correct.",
+    shortAnswer: "^ ^ A B C? Actually with parentheses: (A^B)^C → ^ ^ A B C? Let's check: reverse → C^B^A? Need to compute carefully. In prefix, parentheses: (A^B)^C => ^(^AB) C = ^^ABC? Wait, we need to convert correctly: Infix: (A^B)^C. Reverse: C^(B^A). Swap parentheses: C^(B^A). Postfix-like: C B A ^ ^? Actually process: C (operand) → output; ^ (operator) → push; B (operand) → output; ^ (operator) → pop? No, equal precedence not popped, so push ^; A (operand) → output; end → pop ^, ^ → output: C B A ^ ^. Reverse: ^ ^ A B C. So prefix: ^^ABC. Let's confirm: (A^B)^C = (^AB)^C = ^(^AB)C = ^^ABC. Correct.",
     hint: "Parentheses force left‑assoc but prefix still right‑assoc? Actually the result is ^^ABC.",
     level: "expert",
     codeExample: "^^ABC"

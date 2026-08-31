@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. HIERARCHY CONSTRUCTOR DISPATCH:
-   - Invocation order: Child &rarr; Parent &rarr; GrandParent (via super() calls).
-   - Execution order: GrandParent &rarr; Parent &rarr; Child (bodies run top-down).
+   - Invocation order: Child → Parent → GrandParent (via super() calls).
+   - Execution order: GrandParent → Parent → Child (bodies run top-down).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

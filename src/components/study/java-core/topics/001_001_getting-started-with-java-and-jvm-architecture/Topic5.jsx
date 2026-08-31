@@ -35,7 +35,7 @@ export default function Topic5() {
             Core Architecture Layers
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           JDK vs JRE vs JVM: The Core Architectural Trio
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

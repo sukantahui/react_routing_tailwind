@@ -9,7 +9,7 @@ const questions = [
     explanation: "HA provides redundancy and automated recovery with minimal RTO (seconds), whereas restoring backups requires hours of downtime.",
     hint: "HA is continuous uptime with automated failover; backups are offline data recovery copies.",
     level: "basic",
-    codeExample: `# HA Design: Primary (Write) -> Synchronous Standby (Auto-Failover) + Read Replicas`
+    codeExample: `# HA Design: Primary (Write) → Synchronous Standby (Auto-Failover) + Read Replicas`
   },
   {
     question: "What does 'Five Nines' (99.999%) availability represent in terms of allowed annual downtime?",
@@ -47,7 +47,7 @@ const questions = [
     hint: "Added hot standby replica with automated proxy routing to achieve 12-second RTO.",
     level: "moderate",
     codeExample: `# Barrackpore HA Architecture:
-# Primary (Node 1) -> Semi-Sync Standby (Node 2) -> ProxySQL (Auto Failover in 12s)`
+# Primary (Node 1) → Semi-Sync Standby (Node 2) → ProxySQL (Auto Failover in 12s)`
   },
   {
     question: "In Abhronila & Debangshu's Kolkata fintech bank, core banking transactions require an strict RPO = 0 across ₹500 Crores in daily transaction ledgers. What replication architecture is required?",
@@ -65,7 +65,7 @@ SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';`
     explanation: "Scale-up hits physical hardware limits and remains a SPOF; scale-out provides virtually unlimited scaling and built-in fault tolerance.",
     hint: "Scale-up upgrades one machine; scale-out adds more machines.",
     level: "basic",
-    codeExample: `-- Scale-Up: 16 Core / 64GB -> 128 Core / 1TB RAM (Single Node)
+    codeExample: `-- Scale-Up: 16 Core / 64GB → 128 Core / 1TB RAM (Single Node)
 -- Scale-Out: 1 Primary (Writes) + 5 Read Replicas (Reads)`
   },
   {
@@ -91,9 +91,9 @@ SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';`
     hint: "Read scaling uses read replicas; write scaling requires sharding or partitioning.",
     level: "intermediate",
     codeExample: `# Read Scaling Topology:
-# App -> ProxySQL -> Primary (INSERT/UPDATE/DELETE)
-#                 -> Replica 1 (SELECT)
-#                 -> Replica 2 (SELECT)`
+# App → ProxySQL → Primary (INSERT/UPDATE/DELETE)
+#                 → Replica 1 (SELECT)
+#                 → Replica 2 (SELECT)`
   },
   {
     question: "What is the Quorum requirement to prevent split-brain in a MySQL Group Replication cluster of 3 nodes?",
@@ -125,7 +125,7 @@ SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';`
     explanation: "Users reading from a lagging replica might temporarily see data from a few milliseconds or seconds in the past.",
     hint: "Replicas lag slightly but will eventually catch up with the primary.",
     level: "basic",
-    codeExample: `-- Client writes profile photo to Primary -> Reads immediately from Replica -> Photo not visible for 200ms.`
+    codeExample: `-- Client writes profile photo to Primary → Reads immediately from Replica → Photo not visible for 200ms.`
   },
   {
     question: "What is 'Read-Your-Own-Writes' consistency, and how is it implemented in read/write splitting architectures?",
@@ -133,7 +133,7 @@ SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';`
     explanation: "ProxySQL implements this using query rules that stick a session to the primary hostgroup for $N$ seconds after an `INSERT` or `UPDATE`.",
     hint: "Routing a user's reads to the primary for a brief period immediately following a write.",
     level: "intermediate",
-    codeExample: `# ProxySQL Rule: If session wrote data within last 5 seconds -> route reads to Primary.`
+    codeExample: `# ProxySQL Rule: If session wrote data within last 5 seconds → route reads to Primary.`
   },
   {
     question: "What does 'Active-Passive' vs 'Active-Active' mean in database high availability?",
@@ -175,7 +175,7 @@ SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';`
     explanation: "Local HA protects against hardware node failures; cross-region DR protects against entire datacenter destruction.",
     hint: "Replicates across distant regions to survive complete datacenter destruction.",
     level: "intermediate",
-    codeExample: `# Primary DC (Mumbai) -> Local Replicas (HA) + WAN Async Replication -> DR DC (Kolkata)`
+    codeExample: `# Primary DC (Mumbai) → Local Replicas (HA) + WAN Async Replication → DR DC (Kolkata)`
   },
   {
     question: "What is the PACELC Theorem, and how does it extend the CAP Theorem?",
@@ -200,7 +200,7 @@ SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';`
     explanation: "Prevents primary server network saturation when supporting massive read replica farms.",
     hint: "Intermediate replica fans out binlogs to multiple replicas to protect primary network bandwidth.",
     level: "expert",
-    codeExample: `# Primary -> Intermediate Relay Replica -> 20 Edge Read Replicas`
+    codeExample: `# Primary → Intermediate Relay Replica → 20 Edge Read Replicas`
   },
   {
     question: "How do Health Probes (Heartbeats) detect a failed database node?",

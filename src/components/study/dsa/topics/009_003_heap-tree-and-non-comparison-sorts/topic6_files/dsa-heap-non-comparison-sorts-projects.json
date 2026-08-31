@@ -74,7 +74,7 @@
       "projectId": "SORT3_006",
       "title": "Binary Search Tree (BST) TreeSort",
       "difficulty": "Beginner",
-      "description": "TreeSort builds a Binary Search Tree (BST) by inserting all array elements one by one (`O(N log N)` time for balanced BST), then executes an **In-Order Traversal** (`Left -> Root -> Right`) to output elements in sorted order! In this project, you will build BST TreeSort Engine in C.",
+      "description": "TreeSort builds a Binary Search Tree (BST) by inserting all array elements one by one (`O(N log N)` time for balanced BST), then executes an **In-Order Traversal** (`Left → Root → Right`) to output elements in sorted order! In this project, you will build BST TreeSort Engine in C.",
       "learningOutcome": "Binary Search Tree Insertion, In-Order Traversal Properties & Tree-Based Sorting",
       "exampleText": "Sort array via BST In-Order Traversal",
       "exampleOutput": "--- Binary Search Tree (BST) TreeSort ---\nSorted array via BST In-Order Traversal in O(N log N) time.",

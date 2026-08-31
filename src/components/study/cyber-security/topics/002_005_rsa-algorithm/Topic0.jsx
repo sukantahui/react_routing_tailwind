@@ -177,7 +177,7 @@ const Topic0 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_005 • Topic 0 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Introduction to the RSA Algorithm and Asymmetric Security
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
@@ -204,8 +204,8 @@ const Topic0 = () => {
           {/* Mode Switcher Tabs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {[
-              { id: "confidentiality", label: "Mode A: Confidentiality Encryption", sub: "Public (e, N) Encrypts -> Private (d, N) Decrypts" },
-              { id: "signature", label: "Mode B: Digital Signature & Non-Repudiation", sub: "Private (d, N) Signs -> Public (e, N) Verifies" }
+              { id: "confidentiality", label: "Mode A: Confidentiality Encryption", sub: "Public (e, N) Encrypts → Private (d, N) Decrypts" },
+              { id: "signature", label: "Mode B: Digital Signature & Non-Repudiation", sub: "Private (d, N) Signs → Public (e, N) Verifies" }
             ].map((m) => (
               <button
                 key={m.id}

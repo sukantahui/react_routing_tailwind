@@ -91,7 +91,7 @@ const questions = [
     explanation: "Syntactic sugar that translates to standard instantiation and assignment bytecode.",
     hint: "Translates to newarray followed by sequential iastore instructions.",
     level: "advanced",
-    codeExample: "// Bytecode: newarray int -> dup -> iconst_0 -> iconst_1 -> iastore"
+    codeExample: "// Bytecode: newarray int → dup → iconst_0 → iconst_1 → iastore"
   },
   {
     question: "How do you return an inline array directly from a method?",

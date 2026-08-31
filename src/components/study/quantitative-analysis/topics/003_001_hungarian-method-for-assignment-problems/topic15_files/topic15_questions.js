@@ -80,7 +80,7 @@ const questions = [
     explanation: "Always convert to regret first before adding dummy lines.",
     hint: "Convert to regret matrix first, then add ₹0 dummy lines.",
     level: "expert",
-    codeExample: "Sequence: P -> C_regret = max(P)-P -> AddDummyLine(cost=0) -> SolveHungarian."
+    codeExample: "Sequence: P → C_regret = max(P)-P → AddDummyLine(cost=0) → SolveHungarian."
   },
   {
     question: "Suppose Susmita in Ichapur has a 4x4 profit matrix where all entries are multiplied by 2. Does the optimal assignment permutation change?",
@@ -126,9 +126,9 @@ const questions = [
     question: "What is the ultimate golden rule of Maximization Assignment Problems?",
     shortAnswer: "'Identify M_max = max(P); create regret matrix c_ij = M_max - p_ij; balance if needed; solve via 5-step Hungarian method; calculate maximum profit Z* using original rates from the profit matrix in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all logic for maximization assignment problems.",
-    hint: "Find M_max -> Regret c_ij = M_max - p_ij -> Solve Hungarian -> Sum original profits in ₹.",
+    hint: "Find M_max → Regret c_ij = M_max - p_ij → Solve Hungarian → Sum original profits in ₹.",
     level: "moderate",
-    codeExample: "Golden Rule: M_max = max(P) -> C_regret = M_max - P -> Solve -> Z_max in ₹."
+    codeExample: "Golden Rule: M_max = max(P) → C_regret = M_max - P → Solve → Z_max in ₹."
   }
 ];
 

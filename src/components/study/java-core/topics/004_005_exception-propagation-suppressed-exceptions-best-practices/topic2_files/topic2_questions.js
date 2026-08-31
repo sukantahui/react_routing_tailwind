@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "Enterprise systems install global UncaughtExceptionHandlers to log crashes to APM systems before exit.",
     "hint": "JVM invokes UncaughtExceptionHandler, prints stack trace, and terminates the thread.",
     "level": "Intermediate",
-    "codeExample": "Thread.setDefaultUncaughtExceptionHandler((t, e) -> log.error(\"Crash in: \" + t, e));"
+    "codeExample": "Thread.setDefaultUncaughtExceptionHandler((t, e) → log.error(\"Crash in: \" + t, e));"
   }
 ];
 

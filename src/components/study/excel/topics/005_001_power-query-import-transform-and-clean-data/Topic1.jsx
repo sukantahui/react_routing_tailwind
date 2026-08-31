@@ -76,7 +76,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Connecting to Data Sources: Excel, CSV, Folders, Web APIs &amp; SQL Databases
           </h1>
 
@@ -216,7 +216,7 @@ export default function Topic1() {
                 Setting sources to <strong>Organizational</strong> ensures queries execute smoothly while protecting corporate data from untrusted transmission.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Data Source Settings &rarr; Edit Permissions &rarr; Organizational
+                Data Source Settings → Edit Permissions → Organizational
               </div>
             </div>
           </div>
@@ -368,7 +368,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Data_Sources"
+            sheetName="EX2002"
             title="Power Query Connector Registry (Source ID, Connector Type, Location Path, Authentication, Refresh Type, Volume)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -426,7 +426,7 @@ export default function Topic1() {
                 offloading complex date filtering to the database server with zero memory strain on Excel.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Direct SQL Handshake &rarr; Native Query Folding
+                Direct SQL Handshake → Native Query Folding
               </div>
             </div>
 
@@ -493,7 +493,7 @@ export default function Topic1() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Select From Folder Connector</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Go to <strong>Data Tab</strong> &rarr; <strong>Get Data</strong> &rarr; <strong>From File</strong> &rarr; <strong>From Folder</strong> &rarr; Browse to target directory.
+                  Go to <strong>Data Tab</strong> → <strong>Get Data</strong> → <strong>From File</strong> → <strong>From Folder</strong> → Browse to target directory.
                 </p>
               </div>
             </div>
@@ -578,7 +578,7 @@ export default function Topic1() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Formula.Firewall Block</td>
                   <td className="py-3 px-4 text-slate-300">Combining Public and Private sources in one query.</td>
-                  <td className="py-3 px-4 text-slate-400">Review Data Source Settings &rarr; Privacy Levels.</td>
+                  <td className="py-3 px-4 text-slate-400">Review Data Source Settings → Privacy Levels.</td>
                   <td className="py-3 px-4 text-emerald-400">Set all corporate sources to 'Organizational' level.</td>
                 </tr>
               </tbody>

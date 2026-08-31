@@ -67,7 +67,7 @@ const Topic5 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001 · Topic 5</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Sign-Magnitude representation of negative numbers
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -224,10 +224,10 @@ const Topic5 = () => {
           <text x="505" y="65" fill="#7dd3fc" textAnchor="middle" fontWeight="bold" fontSize="14">Successive Radix Hardware</text>
           <rect x="385" y="85" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
           <text x="505" y="110" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Integer Stack: Read Bottom-Up</text>
-          <text x="505" y="135" fill="#94a3b8" textAnchor="middle" fontSize="11">LSB (First Rem) &rarr; MSB (Last Rem)</text>
+          <text x="505" y="135" fill="#94a3b8" textAnchor="middle" fontSize="11">LSB (First Rem) → MSB (Last Rem)</text>
           <rect x="385" y="170" width="240" height="70" rx="8" fill="#1e293b" stroke="#0284c7" />
           <text x="505" y="195" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Fraction Queue: Read Top-Down</text>
-          <text x="505" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">MSB (First Int) &rarr; LSB (Last Int)</text>
+          <text x="505" y="220" fill="#94a3b8" textAnchor="middle" fontSize="11">MSB (First Int) → LSB (Last Int)</text>
 
           <line x1="645" y1="150" x2="745" y2="150" stroke="#22c55e" strokeWidth="3" />
           <polygon points="745,145 760,150 745,155" fill="#22c55e" />

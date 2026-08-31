@@ -133,7 +133,7 @@ const questions = [
     question: "How do you count the number of active mentors per student across all enrolled courses?",
     shortAnswer: "`SELECT s.full_name, COUNT(m.faculty_id) AS total_mentors FROM students s JOIN student_enrollments e ON s.student_id = e.student_id LEFT JOIN enrollment_mentors m ON e.student_id = m.student_id AND e.course_id = m.course_id GROUP BY s.student_id, s.full_name;`.",
     explanation: "Chained aggregation query spanning 3 tables.",
-    hint: "Chained join from students -> enrollments -> mentors with COUNT.",
+    hint: "Chained join from students → enrollments → mentors with COUNT.",
     level: "moderate"
   },
   {

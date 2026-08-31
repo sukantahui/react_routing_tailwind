@@ -21,7 +21,7 @@ export default function Topic9() {
             Creation Method 3
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Creation Method 3: Java 8 Lambda Expressions with <code className="text-emerald-400 font-mono">Runnable</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic9() {
       </section>
 
       <Teacher
-        note="With Java 8 lambdas, you can spin up a background worker in a single line: 'new Thread(() -> sendEmail()).start()'! No extra classes, no boilerplate—just pure readable concurrency! — Sukanta Hui"
+        note="With Java 8 lambdas, you can spin up a background worker in a single line: 'new Thread(() → sendEmail()).start()'! No extra classes, no boilerplate—just pure readable concurrency! — Sukanta Hui"
       />
     </div>
   );

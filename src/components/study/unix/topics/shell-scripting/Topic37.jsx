@@ -57,7 +57,7 @@ const Topic37 = () => {
             "motion-safe:animate-[fadeSlideUp_0.6s_ease-out]"
           )}
         >
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight">
             📟 Example Script: <span className="text-green-400">Checking Exit Status</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 light:text-gray-700 max-w-3xl mx-auto leading-relaxed">
@@ -74,7 +74,7 @@ const Topic37 = () => {
               height="140"
               viewBox="0 0 360 140"
               className="drop-shadow-xl hover:scale-[1.02] transition-transform duration-300"
-              aria-label="Command -> exit code -> 0 success / non-zero failure"
+              aria-label="Command → exit code → 0 success / non-zero failure"
             >
               {/* Command box */}
               <rect x="30" y="50" width="100" height="40" rx="8" fill="#1e293b" stroke="#6b7280" />

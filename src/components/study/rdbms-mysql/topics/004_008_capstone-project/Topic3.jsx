@@ -27,9 +27,9 @@ const Topic3 = () => {
       sqlSnippet: `-- 🔬 FUNCTIONAL DEPENDENCY ANALYSIS:
 -- Relation: StudentCourse (student_id, course_id, student_name, instructor, room)
 -- Dependencies:
--- FD1: student_id &rarr; student_name
--- FD2: course_id &rarr; instructor, room
--- FD3: {student_id, course_id} &rarr; Grade
+-- FD1: student_id → student_name
+-- FD2: course_id → instructor, room
+-- FD3: {student_id, course_id} → Grade
 -- Candidate Key: {student_id, course_id}
 -- Violations: FD1 and FD2 are Partial Dependencies! (Violates 2NF)`,
       explanation: "Functional dependency analysis determines mathematical determinants and identifies partial or transitive anomalies.",
@@ -46,7 +46,7 @@ const Topic3 = () => {
 -- Table 3: Enrollments (student_id, course_id PK, grade) [Full Functional Dependency]
 -- Guaranteed: Lossless Join & Dependency Preserving!`,
       explanation: "Systematically decomposes relations to 1NF (atomic values), 2NF (no partial dependencies), and 3NF (no transitive dependencies).",
-      keyTakeaways: ["1NF guarantees all column values are atomic scalar primitives.","2NF removes partial key dependencies in composite key tables.","3NF removes transitive dependencies (Non-Key &rarr; Non-Key)."]
+      keyTakeaways: ["1NF guarantees all column values are atomic scalar primitives.","2NF removes partial key dependencies in composite key tables.","3NF removes transitive dependencies (Non-Key → Non-Key)."]
     },
     concept3: {
       conceptName: "3. BCNF Rigor",
@@ -54,10 +54,10 @@ const Topic3 = () => {
       badge: "BCNF Strictness",
       badgeColor: "purple",
       sqlSnippet: `-- 🎯 BCNF RULE:
--- In every functional dependency X &rarr; Y, X MUST be a Superkey!
+-- In every functional dependency X → Y, X MUST be a Superkey!
 -- Example: Clinic (doctor_id, patient_id, appointment_slot)
--- FD1: {doctor_id, appointment_slot} &rarr; patient_id
--- FD2: patient_id &rarr; doctor_id (Patient can only see one assigned doctor)
+-- FD1: {doctor_id, appointment_slot} → patient_id
+-- FD2: patient_id → doctor_id (Patient can only see one assigned doctor)
 -- In FD2, patient_id is NOT a superkey! Violates BCNF!
 -- Decomposition: Assign (patient_id PK, doctor_id) and Slots (patient_id, appointment_slot PK)`,
       explanation: "BCNF eliminates anomalies when non-trivial determinants exist that are candidate keys or overlapping candidate keys.",
@@ -97,7 +97,7 @@ CREATE TABLE order_items (
             Topic 3 of 11
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Phase 2: Formal Normalization to 3NF / BCNF & Schema Architecture Mapping
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

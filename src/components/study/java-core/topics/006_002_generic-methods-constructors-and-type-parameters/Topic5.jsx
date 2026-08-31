@@ -21,7 +21,7 @@ export default function Topic5() {
             Generic Constructors
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Generic Constructors: Parameterizing Constructors Independently
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic5() {
       </section>
 
       <Teacher
-        note="Generic constructors allow an ordinary class to accept any type during object creation! Writing '<T>' before the constructor name gives you maximum flexibility! — Sukanta Hui"
+        note="Generic constructors allow an ordinary class to accept any type during object creation! Writing '&lt;T&gt;' before the constructor name gives you maximum flexibility! — Sukanta Hui"
       />
     </div>
   );

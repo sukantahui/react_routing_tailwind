@@ -21,7 +21,7 @@ export default function Topic2() {
             The Collectors Framework
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Collecting to Map: <code className="text-emerald-400 font-mono">Collectors.toMap()</code> & Key Collision Merge Functions
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic2() {
       </section>
 
       <Teacher
-        note="The #1 bug beginners write with Collectors.toMap() is forgetting the merge function! If two objects have the same key, toMap(k, v) crashes with an IllegalStateException! Always provide a merge function like (oldVal, newVal) -> newVal to handle duplicates! — Sukanta Hui"
+        note="The #1 bug beginners write with Collectors.toMap() is forgetting the merge function! If two objects have the same key, toMap(k, v) crashes with an IllegalStateException! Always provide a merge function like (oldVal, newVal) → newVal to handle duplicates! — Sukanta Hui"
       />
     </div>
   );

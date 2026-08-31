@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. JCF ARCHITECTURE:
    - 3 Pillars: Interfaces, Implementations, Algorithms.
-   - Root: 'Iterable<T>' &rarr; 'Collection<E>' &rarr; List, Set, Queue.
+   - Root: 'Iterable<T>' → 'Collection<E>' → List, Set, Queue.
    - 'Map<K, V>' is in an independent hierarchy.
    - All classes reside in 'java.util' (and 'java.util.concurrent').
 

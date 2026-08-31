@@ -21,7 +21,7 @@ export default function Topic3() {
             Target Typing
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">Target Typing</code>: How the Compiler Infers Lambda Types from Context
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic3() {
       </section>
 
       <Teacher
-        note="A lambda is like a liquid: it has no shape of its own until you pour it into a cup (the Target Type)! Whether you pour '() -> \'Hi\'' into a Callable cup or a Supplier cup, Java shapes the lambda to match! — Sukanta Hui"
+        note="A lambda is like a liquid: it has no shape of its own until you pour it into a cup (the Target Type)! Whether you pour '() → \'Hi\'' into a Callable cup or a Supplier cup, Java shapes the lambda to match! — Sukanta Hui"
       />
     </div>
   );

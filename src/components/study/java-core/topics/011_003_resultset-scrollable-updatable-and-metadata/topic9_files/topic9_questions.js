@@ -13,7 +13,7 @@ const topic9_questions = [
     "explanation": "Allows clean functional decomposition of data mapping.",
     "hint": "A functional interface that transforms a single ResultSet row into a domain object.",
     "level": "Intermediate",
-    "codeExample": "RowMapper<Student> mapper = (rs, rowNum) -> new Student(rs.getInt(1), rs.getString(2));"
+    "codeExample": "RowMapper<Student> mapper = (rs, rowNum) → new Student(rs.getInt(1), rs.getString(2));"
   }
 ];
 

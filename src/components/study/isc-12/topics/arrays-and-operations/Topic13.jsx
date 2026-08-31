@@ -105,7 +105,7 @@ export default function Topic13() {
       <main className="max-w-5xl mx-auto px-4 py-12 space-y-12">
         {/* Header */}
         <div className="animate-fadeSlideUp text-center space-y-3">
-          <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
             Row-Major vs Column-Major Storage
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">

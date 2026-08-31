@@ -41,7 +41,7 @@ XA COMMIT 'txn_1001';`
     level: "intermediate",
     codeExample: `// Saga Flow: 
 // 1. Shard 0: Withdraw ₹5,000 (Committed locally!)
-// 2. Shard 1: Deposit ₹5,000 -> FAILS (Account frozen)!
+// 2. Shard 1: Deposit ₹5,000 → FAILS (Account frozen)!
 // 3. Compensation on Shard 0: Refund ₹5,000 (Restores balance)!`
   },
   {
@@ -98,7 +98,7 @@ COMMIT;`
     level: "intermediate",
     codeExample: `CREATE TABLE orders (order_id BIGINT, customer_id INT, PRIMARY KEY(order_id, customer_id));
 CREATE TABLE order_items (item_id BIGINT, customer_id INT, PRIMARY KEY(item_id, customer_id));
--- Both sharded by customer_id -> Local Joins!`
+-- Both sharded by customer_id → Local Joins!`
   },
   {
     question: "What is a 'Global Table' (Broadcast Table) and what type of data belongs in one?",
@@ -163,7 +163,7 @@ SELECT LAST_INSERT_ID();`
     explanation: "Orchestration is easier to monitor; choreography provides looser coupling.",
     hint: "Orchestrated uses a central coordinator service; Choreographed uses decentralized pub/sub events.",
     level: "expert",
-    codeExample: `// Orchestrated: SagaCoordinator -> Calls Shard 0 -> Calls Shard 1 -> Calls Shard 2`
+    codeExample: `// Orchestrated: SagaCoordinator → Calls Shard 0 → Calls Shard 1 → Calls Shard 2`
   },
   {
     question: "What is a 'Compensating Transaction' in a Saga workflow?",
@@ -207,7 +207,7 @@ COMMIT;`
     explanation: "Decouples transaction execution from message publishing.",
     hint: "Tails MySQL binary logs and streams outbox table inserts to Kafka in real time.",
     level: "intermediate",
-    codeExample: `// MySQL Binlog -> Debezium CDC Connector -> Apache Kafka Topic`
+    codeExample: `// MySQL Binlog → Debezium CDC Connector → Apache Kafka Topic`
   },
   {
     question: "Why should `BIGINT UNSIGNED` always be used for Snowflake IDs in MySQL schemas?",
@@ -245,8 +245,8 @@ COMMIT;`
     explanation: "Highlights why distributed locking is avoided in modern high-throughput architectures.",
     hint: "Circular lock dependency across multiple server nodes that local MySQL deadlock detectors cannot see.",
     level: "expert",
-    codeExample: `-- Txn A: Shard 0 (Held) -> Shard 1 (Waiting)
--- Txn B: Shard 1 (Held) -> Shard 0 (Waiting) -> Distributed Deadlock!`
+    codeExample: `-- Txn A: Shard 0 (Held) → Shard 1 (Waiting)
+-- Txn B: Shard 1 (Held) → Shard 0 (Waiting) → Distributed Deadlock!`
   },
   {
     question: "Why should analytical aggregations (`COUNT(*)`, `SUM()`) across an entire sharded cluster be offloaded to OLAP databases?",
@@ -254,7 +254,7 @@ COMMIT;`
     explanation: "Protects transactional database nodes from analytical query exhaustion.",
     hint: "Scatter-gather aggregations overload all shards; stream binlogs to ClickHouse/Snowflake for OLAP.",
     level: "basic",
-    codeExample: `// OLTP Shards -> Debezium CDC -> ClickHouse (Real-time analytics in 20ms)`
+    codeExample: `// OLTP Shards → Debezium CDC → ClickHouse (Real-time analytics in 20ms)`
   },
   {
     question: "What is the 'Idempotency Key' pattern in distributed payment transactions?",
@@ -275,7 +275,7 @@ COMMIT;`
 # 1. Primary Keys: 64-bit Twitter Snowflake (BIGINT UNSIGNED)
 # 2. Joins: Co-Sharded ER Groups on customer_id + Replicated Global Tables
 # 3. Distributed Writes: Transactional Outbox + Debezium CDC + Kafka Sagas
-# 4. Secondary Lookups: Redis GSI cache (email -> customer_id)`
+# 4. Secondary Lookups: Redis GSI cache (email → customer_id)`
   },
   {
     question: "How does ULID compare to UUIDv7 for distributed database identifiers?",

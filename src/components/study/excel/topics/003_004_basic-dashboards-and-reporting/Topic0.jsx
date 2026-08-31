@@ -71,7 +71,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Anatomy of an Executive Dashboard: Grid system, visual hierarchy, and color palettes"}
           </h1>
 
@@ -183,7 +183,7 @@ export default function Topic0() {
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Turn Off Distracting UI Noise"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uncheck View &gt; Gridlines, hide row/column headers, lock zoom to 100%, and containerize cards using subtle border outlines."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uncheck View > Gridlines, hide row/column headers, lock zoom to 100%, and containerize cards using subtle border outlines."}</p>
             </div>
             
           </div>
@@ -286,7 +286,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Anatomy_of_an_Exec"
+            sheetName="EX1501"
             title={"Anatomy of an Executive Dashboard: Grid system, visual hierarchy, and color palettes - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic0() {
                 Step 1: Set Up Clean Presentation Canvas &amp; Hide Gridlines
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View &gt; Gridlines</kbd>, and define the 4-quadrant layout bounds.
+                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View > Gridlines</kbd>, and define the 4-quadrant layout bounds.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic0() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Leaving Default Sheet Gridlines On"}</td>
                   <td className="py-3 px-4">{"Raw Excel cell gridlines make the dashboard look like a messy spreadsheet rather than polished software."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Uncheck View &gt; Gridlines and containerize cards with rounded shapes or subtle borders."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Uncheck View > Gridlines and containerize cards with rounded shapes or subtle borders."}</td>
                 </tr>
                 
               </tbody>
@@ -502,7 +502,7 @@ export default function Topic0() {
                 <span>⚡</span> {"Lock Zoom Level"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Guarantees consistent visual layout across all stakeholder laptops."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"View &gt; Zoom > 100%"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"View > Zoom > 100%"}</kbd>
             </div>
             
           </div>

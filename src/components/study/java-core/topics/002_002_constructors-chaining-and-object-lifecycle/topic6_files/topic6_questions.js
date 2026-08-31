@@ -10,7 +10,7 @@ const topic6_questions = [
   {
     question: "How does the Java compiler resolve which overloaded constructor to invoke?",
     shortAnswer: "Through static compile-time binding by matching the number, types, and order of arguments provided at the 'new' invocation site.",
-    explanation: "If no exact match exists, the compiler applies implicit type widening (e.g. byte -> short -> int -> long -> float -> double) or boxing/unboxing.",
+    explanation: "If no exact match exists, the compiler applies implicit type widening (e.g. byte → short → int → long → float → double) or boxing/unboxing.",
     hint: "Compile-time argument matching with widening/boxing rules.",
     level: "Intermediate",
     codeExample: "new CourseBatch(\"JAVA-1\", \"OOP\"); // Matches (String, String)"
@@ -179,7 +179,7 @@ const topic6_questions = [
     question: "What is constructor overloading resolution order between boxing and widening?",
     shortAnswer: "1. Exact primitive match, 2. Primitive widening, 3. Autoboxing, 4. Autoboxing + Upcasting to Object, 5. Varargs.",
     explanation: "Widening beats boxing; boxing beats varargs.",
-    hint: "Exact -> Widening -> Boxing -> Upcasting -> Varargs.",
+    hint: "Exact → Widening → Boxing → Upcasting → Varargs.",
     level: "Expert",
     codeExample: "// Primitive widening always beats autoboxing"
   },

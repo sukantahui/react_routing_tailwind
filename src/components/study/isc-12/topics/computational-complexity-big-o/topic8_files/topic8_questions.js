@@ -173,7 +173,7 @@ const questions = [
     explanation: "T(n) = T(n/2) + O(1) → O(log n).",
     hint: "Binary search case.",
     level: "intermediate",
-    codeExample: "// T(n) = T(n/2) + 1 -> O(log n)"
+    codeExample: "// T(n) = T(n/2) + 1 → O(log n)"
   },
   {
     question: "How many times can you halve 10^9?",

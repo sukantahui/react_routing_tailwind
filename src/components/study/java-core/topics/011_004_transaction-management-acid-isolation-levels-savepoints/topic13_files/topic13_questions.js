@@ -5,7 +5,7 @@ const topic13_questions = [
     "explanation": "Uncommitted changes can be aborted at any moment.",
     "hint": "Application acts upon data that gets rolled back and never permanently existed.",
     "level": "Beginner",
-    "codeExample": "Tx 1 uncommitted update -> Tx 2 reads dirty data -> Tx 1 rolls back."
+    "codeExample": "Tx 1 uncommitted update → Tx 2 reads dirty data → Tx 1 rolls back."
   },
   {
     "question": "Under which JDBC isolation level can Dirty Reads occur?",

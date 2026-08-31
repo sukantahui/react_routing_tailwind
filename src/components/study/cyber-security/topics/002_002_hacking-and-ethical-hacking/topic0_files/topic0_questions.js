@@ -62,8 +62,8 @@ Annual_Loss_Expectancy_INR = Single_Loss_Expectancy (₹) * Annualized_Rate_of_O
     hint: "Think about how sending an exact 2600 Hz audio tone down a telephone line tricked automated switches.",
     level: "moderate",
     codeExample: `// 2600 Hz In-Band Signaling Reset Concept:
-// 2600 Hz tone transmitted -> Trunk line interprets as "call disconnected / trunk idle"
-// Attacker enters routing trunk -> Dials operator multi-frequency (MF) tones to route international calls free.`
+// 2600 Hz tone transmitted → Trunk line interprets as "call disconnected / trunk idle"
+// Attacker enters routing trunk → Dials operator multi-frequency (MF) tones to route international calls free.`
   },
   {
     question: "Under the Indian Information Technology (IT) Act 2000, what do Sections 43 and 66 define regarding unauthorized computer access?",
@@ -117,12 +117,12 @@ APT Group:     Skill = ELITE, Motivation = Geopolitical/Espionage, Tools = Custo
     hint: "Recall the 6 letters of STRIDE: Spoofing, Tampering, Repudiation, Info Disclosure, DoS, Elevation of Privilege.",
     level: "moderate",
     codeExample: `// STRIDE Threat-to-Defense Mapping:
-Spoofing               --> Enforce Strong Authentication & TLS Certificates
-Tampering              --> Enforce Cryptographic HMACs & Digital Signatures
-Repudiation            --> Enforce Immutable WORM Audit Trails
-Information Disclosure --> Enforce AES-256 Field Level Encryption
-Denial of Service      --> Enforce Anycast Rate-Limiting & Autoscaling
-Elevation of Privilege --> Enforce Role-Based Access Control (RBAC)`
+Spoofing               → Enforce Strong Authentication & TLS Certificates
+Tampering              → Enforce Cryptographic HMACs & Digital Signatures
+Repudiation            → Enforce Immutable WORM Audit Trails
+Information Disclosure → Enforce AES-256 Field Level Encryption
+Denial of Service      → Enforce Anycast Rate-Limiting & Autoscaling
+Elevation of Privilege → Enforce Role-Based Access Control (RBAC)`
   },
   {
     question: "What is 'Buffer Overflow', and how does an ethical hacker identify whether a legacy C/C++ binary is vulnerable to memory corruption?",
@@ -169,10 +169,10 @@ site:example.com ext:sql "CREATE TABLE"`
     hint: "Think of crowdsourcing security testing to ethical researchers worldwide, rewarding them financially per validated bug found.",
     level: "moderate",
     codeExample: `// Bug Bounty Payout Matrix (Typical Indian FinTech Platform):
-Low Severity (Information Disclosure)        --> ₹10,000 - ₹25,000
-Medium Severity (CSRF on Settings)           --> ₹25,000 - ₹75,000
-High Severity (Stored XSS on Admin Panel)    --> ₹75,000 - ₹2,50,000
-Critical Severity (Remote Code Execution)    --> ₹5,00,000 - ₹15,00,000+`
+Low Severity (Information Disclosure)        → ₹10,000 - ₹25,000
+Medium Severity (CSRF on Settings)           → ₹25,000 - ₹75,000
+High Severity (Stored XSS on Admin Panel)    → ₹75,000 - ₹2,50,000
+Critical Severity (Remote Code Execution)    → ₹5,00,000 - ₹15,00,000+`
   },
   {
     question: "What is a 'Honeypot', and how does it assist threat researchers in studying novel hacker tactics?",
@@ -192,7 +192,7 @@ Critical Severity (Remote Code Execution)    --> ₹5,00,000 - ₹15,00,000+`
     hint: "Recall that CVSS scores range from 0.0 to 10.0, where 9.0+ represents a Critical flaw requiring emergency patching.",
     level: "moderate",
     codeExample: `// CVSS v3.1 Vector String Example (Log4Shell CVE-2021-44228):
-CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H  --> Score: 10.0 (CRITICAL)`
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H  → Score: 10.0 (CRITICAL)`
   },
   {
     question: "What is 'Reverse Engineering' in software security, and what tools are used to disassemble compiled binaries?",
@@ -237,9 +237,9 @@ Scanner ------------ RST ------------> Target (Connection Aborted immediately)`
     hint: "Think of inspecting an engine with the hood open and blueprints in hand (white-box) vs testing a car from the driver's seat with no manual (black-box).",
     level: "basic",
     codeExample: `// Testing Methodology Comparison:
-White-Box = Full Access (Source Code + DB Schema + Configs) --> Highest Depth & Completeness;
-Grey-Box  = Partial Access (User-Level Credentials + API Docs) --> Realistic Hybrid Assessment;
-Black-Box = Zero Prior Knowledge (Public IP/Domain only)       --> Real-World Attacker Simulation;`
+White-Box = Full Access (Source Code + DB Schema + Configs) → Highest Depth & Completeness;
+Grey-Box  = Partial Access (User-Level Credentials + API Docs) → Realistic Hybrid Assessment;
+Black-Box = Zero Prior Knowledge (Public IP/Domain only)       → Real-World Attacker Simulation;`
   },
   {
     question: "How does a 'Logic Flaw' differ from a standard syntax or memory corruption vulnerability, and why are logic flaws harder for automated scanners to find?",
@@ -314,8 +314,8 @@ app.get('/api/invoice/:id', async (req, res) => {
     hint: "Remember: SAST reads the code (Static); DAST attacks the running web server (Dynamic).",
     level: "moderate",
     codeExample: `// SAST vs DAST Comparison:
-SAST (Static Analysis):  Input = Source Code (.js/.java/.c) --> Finds code-level flaws early in IDE;
-DAST (Dynamic Analysis): Input = Running URL (http://target.com) --> Validates real runtime exploitability;`
+SAST (Static Analysis):  Input = Source Code (.js/.java/.c) → Finds code-level flaws early in IDE;
+DAST (Dynamic Analysis): Input = Running URL (http://target.com) → Validates real runtime exploitability;`
   },
   {
     question: "What is a 'Rootkit', and why is it considered the most dangerous form of persistence deployed during post-exploitation?",

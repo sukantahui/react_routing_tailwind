@@ -5,7 +5,7 @@ const topic13_questions = [
     "explanation": "Modern context propagation architecture in Java 21+ (JEP 446).",
     "hint": "Immutable context bound to a single execution scope; automatically cleaned up with zero ThreadLocal memory leaks.",
     "level": "Advanced",
-    "codeExample": "ScopedValue.where(USER, \"Swadeep\").run(() -> handleRequest());"
+    "codeExample": "ScopedValue.where(USER, \"Swadeep\").run(() → handleRequest());"
   }
 ];
 

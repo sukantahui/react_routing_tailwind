@@ -34,7 +34,7 @@ const Topic6 = () => {
             "animate-[fadeInUp_0.6s_ease-out] motion-safe:animate-[fadeInUp_0.6s_ease-out]"
           )}
         >
-          <h1 className="text-4xl font-bold text-indigo-700 dark:text-indigo-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-700 dark:text-indigo-400">
             JSTL Core Tags
           </h1>
           <p className="text-lg">
@@ -429,7 +429,7 @@ const Topic6 = () => {
                 {`<c:if test="\${fn:length(cart.items) > 0}">
   You have \${fn:length(cart.items)} items in your cart.
 </c:if>
-String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
+String length: \${fn:length("Hello")} <!-- outputs 5 ──→`}
               </pre>
             </div>
 
@@ -474,7 +474,7 @@ String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
                 Returns the first index of a substring within a string (0-based), or -1 if not found.
               </p>
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
-                {`\${fn:indexOf("Welcome to JSTL", "JSTL")} <!-- outputs 11 -->`}
+                {`\${fn:indexOf("Welcome to JSTL", "JSTL")} <!-- outputs 11 ──→`}
               </pre>
             </div>
 
@@ -491,7 +491,7 @@ String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
                 {`<c:set var="colors" value="\${['red', 'green', 'blue']}" />
 <c:set var="joined" value="\${fn:join(colors, ', ')}" />
-\${joined} <!-- outputs "red, green, blue" -->`}
+\${joined} <!-- outputs "red, green, blue" ──→`}
               </pre>
             </div>
 
@@ -523,7 +523,7 @@ String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
                 Replaces all occurrences of a substring with another string.
               </p>
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
-                {`\${fn:replace("Hello World", "World", "JSTL")} <!-- outputs "Hello JSTL" -->`}
+                {`\${fn:replace("Hello World", "World", "JSTL")} <!-- outputs "Hello JSTL" ──→`}
               </pre>
             </div>
 
@@ -536,9 +536,9 @@ String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
                 <code>fn:substringBefore(string, substring)</code> → String
               </p>
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
-                {`\${fn:substring("JSTL Functions", 0, 4)} <!-- "JSTL" -->
-\${fn:substringAfter("name=John", "=")} <!-- "John" -->
-\${fn:substringBefore("john@example.com", "@")} <!-- "john" -->`}
+                {`\${fn:substring("JSTL Functions", 0, 4)} <!-- "JSTL" ──→
+\${fn:substringAfter("name=John", "=")} <!-- "John" ──→
+\${fn:substringBefore("john@example.com", "@")} <!-- "john" ──→`}
               </pre>
             </div>
 
@@ -550,8 +550,8 @@ String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
                 <code>fn:toUpperCase(string)</code> → String
               </p>
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
-                {`\${fn:toUpperCase("Hello")} <!-- "HELLO" -->
-\${fn:toLowerCase("WORLD")} <!-- "world" -->`}
+                {`\${fn:toUpperCase("Hello")} <!-- "HELLO" ──→
+\${fn:toLowerCase("WORLD")} <!-- "world" ──→`}
               </pre>
             </div>
 
@@ -565,7 +565,7 @@ String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
                 Removes leading and trailing whitespace from a string.
               </p>
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
-                {`\${fn:trim("   Hello   ")} <!-- "Hello" -->`}
+                {`\${fn:trim("   Hello   ")} <!-- "Hello" ──→`}
               </pre>
             </div>
 
@@ -581,7 +581,7 @@ String length: \${fn:length("Hello")} <!-- outputs 5 -->`}
                 <code>&lt;c:out escapeXml="true" /&gt;</code> but usable in EL.
               </p>
               <pre className="bg-white dark:bg-gray-900 p-3 rounded-lg text-sm">
-                {`\${fn:escapeXml("<div>Hello</div>")} <!-- outputs &lt;div&gt;Hello&lt;/div&gt; -->`}
+                {`\${fn:escapeXml("<div>Hello</div>")} <!-- outputs &lt;div&gt;Hello&lt;/div&gt; ──→`}
               </pre>
             </div>
 

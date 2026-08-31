@@ -161,7 +161,7 @@ const questions = [
     explanation: "Eliminates broken formulas caused by static column index shifts.",
     hint: "Structured table references bind dynamically by field name.",
     level: "basic",
-    codeExample: "Ctrl + T &rarr; Use Table[Column] syntax."
+    codeExample: "Ctrl + T → Use Table[Column] syntax."
   },
   {
     question: "How do you perform a cross-sheet lookup in Excel?",
@@ -177,7 +177,7 @@ const questions = [
     explanation: "MATCH always returns the ordinal position index of the matching item.",
     hint: "MATCH returns the relative numerical position index.",
     level: "basic",
-    codeExample: "MATCH(\"Kolkata\", Array, 0) &rarr; 2"
+    codeExample: "MATCH(\"Kolkata\", Array, 0) → 2"
   },
   {
     question: "How do you perform a Case-Sensitive Lookup in Excel?",
@@ -205,11 +205,11 @@ const questions = [
   },
   {
     question: "How do you link a Data Validation dropdown list to a dynamic lookup table?",
-    shortAnswer: "Data &rarr; Data Validation &rarr; List &rarr; Source: `=INDIRECT(\"tbl_Products[SKU]\")` or `=Sheet1!$A$2:$A$50`.",
+    shortAnswer: "Data → Data Validation → List → Source: `=INDIRECT(\"tbl_Products[SKU]\")` or `=Sheet1!$A$2:$A$50`.",
     explanation: "Constrains user input to valid keys, eliminating lookup #N/A typos.",
-    hint: "Data Validation &rarr; List &rarr; Reference Key Column.",
+    hint: "Data Validation → List → Reference Key Column.",
     level: "moderate",
-    codeExample: "Data Validation &rarr; List &rarr; =tbl_Products[SKU]"
+    codeExample: "Data Validation → List → =tbl_Products[SKU]"
   },
   {
     question: "What is the difference between `INDEX(Array, Row, Col)` when Col is omitted on a 1D vertical array?",

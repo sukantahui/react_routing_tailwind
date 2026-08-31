@@ -44,11 +44,11 @@ const questions = [
   },
   {
     question: "What is the complete sequence of network steps a Client executes when you type 'https://www.college.edu' into a browser?",
-    shortAnswer: "1. DNS Query (resolves domain to IP), 2. TCP 3-Way Handshake (SYN -> SYN-ACK -> ACK), 3. TLS 1.3 Cryptographic Handshake (encryption keys exchanged), 4. HTTP GET request dispatch, 5. HTML/CSS/JS response rendering.",
+    shortAnswer: "1. DNS Query (resolves domain to IP), 2. TCP 3-Way Handshake (SYN → SYN-ACK → ACK), 3. TLS 1.3 Cryptographic Handshake (encryption keys exchanged), 4. HTTP GET request dispatch, 5. HTML/CSS/JS response rendering.",
     explanation: "The client orchestrates application, transport, and network layers sequentially to establish encrypted end-to-end sessions in under 100 milliseconds.",
-    hint: "DNS resolution -> TCP Handshake -> TLS Handshake -> HTTP Request -> Render.",
+    hint: "DNS resolution → TCP Handshake → TLS Handshake → HTTP Request → Render.",
     level: "expert",
-    codeExample: "ClientLifecycle: DNS_Lookup() -> TCP_SYN_ACK() -> TLS_KeyExchange() -> HTTP_GET() -> DOM_Render();"
+    codeExample: "ClientLifecycle: DNS_Lookup() → TCP_SYN_ACK() → TLS_KeyExchange() → HTTP_GET() → DOM_Render();"
   },
   {
     question: "What is a Web Client (User Agent) and what are its primary internal engines?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "All 50 workstations in a college lab in Barrackpore share one public IP address (e.g., 103.45.20.1) while maintaining distinct simultaneous web sessions via unique PAT port mappings.",
     hint: "Allows dozens of internal office computers to share a single public Internet IP address.",
     level: "expert",
-    codeExample: "InternalClient(192.168.1.15:52134) -> RouterPAT(103.45.20.1:41002) -> PublicInternet;"
+    codeExample: "InternalClient(192.168.1.15:52134) → RouterPAT(103.45.20.1:41002) → PublicInternet;"
   },
   {
     question: "What is a REST API Client (e.g., Postman, Insomnia, curl)?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes client architecture optimization, financial prudence, and modern endpoint defense against sophisticated cyber threats.",
     hint: "Thin clients for security + Disk encryption on laptops + Zero Trust + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeployThinClients() -> EnforceEncryptionAndEDR() -> AdoptZeroTrust() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeployThinClients() → EnforceEncryptionAndEDR() → AdoptZeroTrust() → BudgetInRupees(₹);"
   }
 ];
 

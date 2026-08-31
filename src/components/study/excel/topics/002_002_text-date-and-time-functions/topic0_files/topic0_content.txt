@@ -46,5 +46,5 @@ Formula Code: =TRIM(CLEAN(PROPER(text))) | =UPPER(text) | =LOWER(text)
 6. PRO TIPS & SHORTCUTS
 • Triple Clean Combo (=TRIM(CLEAN(PROPER(A2)))): The industrial gold standard for one-shot data cleansing.
 • Strip Web Spaces (SUBSTITUTE(A2, CHAR(160), " ")): Replaces stubborn non-breaking web spaces with normal spaces.
-• Paste Values Shortcut (Ctrl + Alt + V -> V): Instantly convert formula transformations into static text.
+• Paste Values Shortcut (Ctrl + Alt + V → V): Instantly convert formula transformations into static text.
 ================================================================================

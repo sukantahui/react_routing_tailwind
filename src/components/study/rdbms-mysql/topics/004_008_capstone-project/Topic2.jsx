@@ -65,9 +65,9 @@ const Topic2 = () => {
       badge: "Workbench Tooling",
       badgeColor: "rose",
       sqlSnippet: `-- 🛠️ MYSQL WORKBENCH MODEL EXPORT CHECKLIST:
--- 1. Create EER Model &rarr; Add Diagram.
+-- 1. Create EER Model → Add Diagram.
 -- 2. Place 15-25 tables with explicit data types and foreign key relationships.
--- 3. Run Forward Engineer Database Wizard &rarr; Generate production SQL script.
+-- 3. Run Forward Engineer Database Wizard → Generate production SQL script.
 -- 4. Export high-resolution PNG/SVG diagram for capstone documentation report.`,
       explanation: "MySQL Workbench EER Modeler automates visual schema design and generates production-ready SQL DDL with relational integrity.",
       keyTakeaways: ["Maintain visual clarity with color-coded subject areas (e.g. Sales, Inventory, Billing).","Synchronize physical MySQL databases with visual models bi-directionally.","Export clean vector diagrams for project submission."]
@@ -88,7 +88,7 @@ const Topic2 = () => {
             Topic 2 of 11
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Phase 1: Business Requirements Gathering & Entity-Relationship Modeling (Crow's Foot EER)
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

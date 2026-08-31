@@ -13,7 +13,7 @@ const Topic10 = () => {
 
         {/* Header Section */}
         <div className="space-y-4 animate-[fade-slide-up_0.6s_cubic-bezier(0.2,0.9,0.4,1.1)] motion-safe:animate-[fade-slide-up_0.6s_cubic-bezier(0.2,0.9,0.4,1.1)]">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-fuchsia-600 to-rose-600 dark:from-fuchsia-400 dark:to-rose-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-fuchsia-600 to-rose-600 dark:from-fuchsia-400 dark:to-rose-400 bg-clip-text text-transparent">
             Process States & State Transition Diagram
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed border-l-4 border-fuchsia-500 pl-4">
@@ -78,7 +78,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
                 </filter>
               </defs>
               
-              {/*<!-- NEW state -->*/}
+              {/*<!-- NEW state ──→*/}
               <g transform="translate(60, 80)" className="cursor-pointer hover:drop-shadow-lg transition" filter="url(#shadow-state)">
                 <rect x="-45" y="-30" width="90" height="60" rx="10" fill="#10b981" className="hover:fill-emerald-500 transition">
                   <animate attributeName="width" values="90;96;90" dur="3s" repeatCount="indefinite" />
@@ -88,7 +88,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
                 <title>Process being created (fork/exec in progress)</title>
               </g>
               
-              {/* <!-- READY state --> */}
+              {/* <!-- READY state → */}
               <g transform="translate(220, 80)" className="cursor-pointer hover:drop-shadow-lg transition" filter="url(#shadow-state)">
                 <rect x="-50" y="-30" width="100" height="60" rx="10" fill="#3b82f6" className="hover:fill-blue-500 transition">
                   <animate attributeName="y" values="80;76;80" dur="2.5s" repeatCount="indefinite" />
@@ -98,7 +98,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
                 <title>Loaded in memory, ready to run</title>
               </g>
               
-              {/* <!-- RUNNING state --> */}
+              {/* <!-- RUNNING state → */}
               <g transform="translate(420, 80)" className="cursor-pointer hover:drop-shadow-lg transition" filter="url(#shadow-state)">
                 <rect x="-55" y="-30" width="110" height="60" rx="10" fill="#f59e0b" className="hover:fill-amber-500 transition">
                   <animate attributeName="height" values="60;66;60" dur="2s" repeatCount="indefinite" />
@@ -108,7 +108,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
                 <title>Process instructions currently being executed</title>
               </g>
               
-              {/* <!-- WAITING state --> */}
+              {/* <!-- WAITING state → */}
               <g transform="translate(420, 200)" className="cursor-pointer hover:drop-shadow-lg transition" filter="url(#shadow-state)">
                 <rect x="-55" y="-30" width="110" height="60" rx="10" fill="#ef4444" className="hover:fill-red-500 transition">
                   <animate attributeName="x" values="420;424;420" dur="3.5s" repeatCount="indefinite" />
@@ -118,7 +118,7 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
                 <title>Process waiting for event (disk, network, user input)</title>
               </g>
               
-              {/* <!-- TERMINATED state --> */}
+              {/* <!-- TERMINATED state → */}
               <g transform="translate(220, 200)" className="cursor-pointer hover:drop-shadow-lg transition" filter="url(#shadow-state)">
                 <rect x="-65" y="-30" width="130" height="60" rx="10" fill="#6b7280" className="hover:fill-gray-500 transition">
                   <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" />
@@ -128,32 +128,32 @@ F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
                 <title>Process finished, waiting for wait() or being cleaned up</title>
               </g>
               
-              {/* <!-- Transition arrows -->
-              <!-- NEW -> READY (admit) --> */}
+              {/* <!-- Transition arrows ──→
+              <!-- NEW → READY (admit) → */}
               <line x1="105" y1="80" x2="165" y2="80" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/>
               <text x="135" y="65" fill="#c026d3" fontSize="10">admit (fork/exec)</text>
               
-              {/* <!-- READY -> RUNNING (dispatch) --> */}
+              {/* <!-- READY → RUNNING (dispatch) → */}
               {/* <line x1="270" y1="80" x2="360" y2="80" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/> */}
               <text x="315" y="65" fill="#c026d3" fontSize="10">dispatch</text>
               
-              {/* <!-- RUNNING -> READY (preempt / time slice) --> */}
+              {/* <!-- RUNNING → READY (preempt / time slice) → */}
               <line x1="420" y1="110" x2="270" y2="110" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)" strokeDasharray="4"/>
               <text x="345" y="125" fill="#c026d3" fontSize="9">time slice expired / preempt</text>
               
-              {/* <!-- RUNNING -> WAITING (I/O request) --> */}
+              {/* <!-- RUNNING → WAITING (I/O request) → */}
               <line x1="420" y1="140" x2="420" y2="170" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/>
               <text x="435" y="155" fill="#c026d3" fontSize="10">I/O request</text>
               
-              {/* <!-- WAITING -> READY (event completion) --> */}
+              {/* <!-- WAITING → READY (event completion) → */}
               <line x1="380" y1="230" x2="275" y2="140" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)" strokeDasharray="4"/>
               <text x="330" y="190" fill="#c026d3" fontSize="9">event completion (I/O done)</text>
               
-              {/* <!-- RUNNING -> TERMINATED (exit) --> */}
+              {/* <!-- RUNNING → TERMINATED (exit) → */}
               <line x1="365" y1="80" x2="290" y2="170" stroke="#c026d3" strokeWidth="2" markerEnd="url(#state-arrow)"/>
               <text x="320" y="135" fill="#c026d3" fontSize="10">exit / kill</text>
               
-              {/* <!-- Additional: from WAITING to TERMINATED (if killed) --> */}
+              {/* <!-- Additional: from WAITING to TERMINATED (if killed) → */}
               <path d="M420,230 L420,250 L280,250" stroke="#c026d3" strokeWidth="1.5" strokeDasharray="3" fill="none" markerEnd="url(#state-arrow)"/>
               <text x="350" y="265" fill="#c026d3" fontSize="9">signal kill</text>
               
@@ -228,7 +228,7 @@ int main() {
         printf("Parent (PID %d) - RUNNING, child PID = %d\\n", getpid(), pid);
         sleep(2);
         printf("Parent waiting for child... (state: SLEEPING while waiting)\\n");
-        wait(NULL);  // Parent blocks -> SLEEPING until child exits
+        wait(NULL);  // Parent blocks → SLEEPING until child exits
         printf("Parent reaped child. Now exiting.\\n");
     }
     return 0;

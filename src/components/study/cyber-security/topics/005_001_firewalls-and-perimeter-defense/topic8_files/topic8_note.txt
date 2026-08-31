@@ -77,14 +77,14 @@ Solution: Private VLANs (PVLANs - RFC 5517):
 
 5. PINHOLE ACCESS CONTROL MATRIX (ONE-WAY DMZ FIREWALL RULES)
 ----------------------------------------------------------------------------------------------------
-  Rule 1 (Ingress WAN -> DMZ):
-    ALLOW: WAN (0.0.0.0/0) -> DMZ_Web (172.16.1.10) Port 443 [TCP]
-  Rule 2 (Admin LAN -> DMZ):
-    ALLOW: Admin_VLAN (10.10.99.0/24) -> DMZ_Bastion (172.16.1.99) Port 22 [TCP - MFA Only]
-  Rule 3 (Database Pinhole DMZ -> LAN DB):
-    ALLOW: DMZ_Web (172.16.1.10) -> Internal_DB (10.10.4.50) Port 5432 [TCP - mTLS Encrypted]
+  Rule 1 (Ingress WAN → DMZ):
+    ALLOW: WAN (0.0.0.0/0) → DMZ_Web (172.16.1.10) Port 443 [TCP]
+  Rule 2 (Admin LAN → DMZ):
+    ALLOW: Admin_VLAN (10.10.99.0/24) → DMZ_Bastion (172.16.1.99) Port 22 [TCP - MFA Only]
+  Rule 3 (Database Pinhole DMZ → LAN DB):
+    ALLOW: DMZ_Web (172.16.1.10) → Internal_DB (10.10.4.50) Port 5432 [TCP - mTLS Encrypted]
   Rule 4 (Default Catch-All Lateral Block):
-    DROP : DMZ (172.16.1.0/24) -> Internal_LAN (10.0.0.0/8) ANY [TCP/UDP] (Strict Default-Deny!)
+    DROP : DMZ (172.16.1.0/24) → Internal_LAN (10.0.0.0/8) ANY [TCP/UDP] (Strict Default-Deny!)
 
 
 6. REGIONAL SOC CASE STUDY: BARRACKPORE MUNICIPAL CITIZEN PORTAL DMZ

@@ -45,7 +45,7 @@ const questions = [
   },
   {
     question: "How is SQL `HAVING` expressed in Relational Algebra?",
-    shortAnswer: "As a Selection operator ($\\sigma$) applied on top of the Grouping operator ($\\mathcal{G}$): $$\\sigma_{\\text{aggregate\\_alias } > \\text{threshold}}({}_{G} \\mathcal{G}_{F(A) \\rightarrow \\text{aggregate\\_alias}}(R))$$.",
+    shortAnswer: "As a Selection operator ($\\sigma$) applied on top of the Grouping operator ($\\mathcal{G}$): $$\\sigma_{\\text{aggregate\\_alias } > \\text{threshold}}({}_{G} \\mathcal{G}_{F(A) \→ \\text{aggregate\\_alias}}(R))$$.",
     explanation: "Relational algebra representation of SQL HAVING.",
     hint: "σ_{condition}(_{G} 𝒢_{F(A)}(R)).",
     level: "moderate"
@@ -73,15 +73,15 @@ const questions = [
   },
   {
     question: "How do you calculate city-wise student count and total admission fee collected in Relational Algebra?",
-    shortAnswer: "$${}_{\\text{city}} \\mathcal{G}_{\\text{COUNT}(*) \\rightarrow \\text{student\\_count}, \\text{SUM(fee)} \\rightarrow \\text{total\\_fee}}(\\text{Students})$$.",
+    shortAnswer: "$${}_{\\text{city}} \\mathcal{G}_{\\text{COUNT}(*) \→ \\text{student\\_count}, \\text{SUM(fee)} \→ \\text{total\\_fee}}(\\text{Students})$$.",
     explanation: "City-wise multi-metric grouping.",
-    hint: "_{city} 𝒢_{COUNT(*) -> count, SUM(fee) -> total}(Students).",
+    hint: "_{city} 𝒢_{COUNT(*) → count, SUM(fee) → total}(Students).",
     level: "basic",
     codeExample: "SELECT city, COUNT(*) AS student_count, SUM(admission_fee) AS total_fee\nFROM students\nGROUP BY city;"
   },
   {
     question: "What is `COUNT(DISTINCT attribute)` and how is it noted in Extended Relational Algebra?",
-    shortAnswer: "It counts unique non-NULL values within each group: $${}_{G} \\mathcal{G}_{\\text{COUNT-DISTINCT}(A) \\rightarrow \\text{unique\\_a}}(R)$$.",
+    shortAnswer: "It counts unique non-NULL values within each group: $${}_{G} \\mathcal{G}_{\\text{COUNT-DISTINCT}(A) \→ \\text{unique\\_a}}(R)$$.",
     explanation: "Distinct value counting in grouping.",
     hint: "COUNT-DISTINCT(A).",
     level: "basic"
@@ -182,9 +182,9 @@ const questions = [
   },
   {
     question: "How do you express: 'Find departments where total salary expense exceeds ₹500,000' in Relational Algebra?",
-    shortAnswer: "$$\\sigma_{\\text{total\\_sal } > 500000}({}_{\\text{dept\\_id}} \\mathcal{G}_{\\text{SUM(salary)} \\rightarrow \\text{total\\_sal}}(\\text{Employees}))$$.",
+    shortAnswer: "$$\\sigma_{\\text{total\\_sal } > 500000}({}_{\\text{dept\\_id}} \\mathcal{G}_{\\text{SUM(salary)} \→ \\text{total\\_sal}}(\\text{Employees}))$$.",
     explanation: "Selection over grouping aggregate.",
-    hint: "σ_{total_sal > 500000}(_{dept_id} 𝒢_{SUM(salary) -> total_sal}(Employees)).",
+    hint: "σ_{total_sal > 500000}(_{dept_id} 𝒢_{SUM(salary) → total_sal}(Employees)).",
     level: "basic"
   },
   {

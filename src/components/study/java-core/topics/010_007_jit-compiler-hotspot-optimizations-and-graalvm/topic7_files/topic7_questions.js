@@ -5,7 +5,7 @@ const topic7_questions = [
     "explanation": "Eliminates heap allocation and GC pause overhead completely.",
     "hint": "Decomposes objects into primitive fields stored in CPU registers/stack slots.",
     "level": "Intermediate",
-    "codeExample": "new Point(x,y) -> Transformed into int x, int y in CPU registers."
+    "codeExample": "new Point(x,y) → Transformed into int x, int y in CPU registers."
   },
   {
     "question": "What JVM flag controls the Scalar Replacement optimization in HotSpot?",

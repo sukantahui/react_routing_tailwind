@@ -62,7 +62,7 @@ To prevent catastrophic memory leaks in C:
 
 5. RADIX TREE (PATRICIA TRIE) OPTIMIZATION
 --------------------------------------------------------------------------------
-When many single-child node chains exist (e.g. "b" -> "a" -> "r" -> "r" -> "a" -> "c" -> "k"),
+When many single-child node chains exist (e.g. "b" → "a" → "r" → "r" → "a" → "c" → "k"),
 Radix Trees compress them into a single node with string label "barrack", saving
 hundreds of unused pointer bytes. Widely used in Linux kernel and IP routing tables.
 

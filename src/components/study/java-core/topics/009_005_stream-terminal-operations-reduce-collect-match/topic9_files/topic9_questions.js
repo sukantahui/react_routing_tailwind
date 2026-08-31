@@ -5,7 +5,7 @@ const topic9_questions = [
     "explanation": "A single false result is sufficient to prove that not all elements match.",
     "hint": "Short-circuits on the first false evaluation.",
     "level": "Beginner",
-    "codeExample": "List.of(2, 4, 5, 8).stream().allMatch(n -> n % 2 == 0); // Stops at 5 and returns false"
+    "codeExample": "List.of(2, 4, 5, 8).stream().allMatch(n → n % 2 == 0); // Stops at 5 and returns false"
   },
   {
     "question": "Why does allMatch() return true on an empty stream while anyMatch() returns false?",
@@ -13,7 +13,7 @@ const topic9_questions = [
     "explanation": "This follows universal vs existential quantifier rules in mathematical logic.",
     "hint": "allMatch tests for absence of counter-examples; anyMatch tests for presence of an example.",
     "level": "Intermediate",
-    "codeExample": "Stream.empty().allMatch(x -> false); // Returns true!\\nStream.empty().anyMatch(x -> true);  // Returns false!"
+    "codeExample": "Stream.empty().allMatch(x → false); // Returns true!\\nStream.empty().anyMatch(x → true);  // Returns false!"
   }
 ];
 

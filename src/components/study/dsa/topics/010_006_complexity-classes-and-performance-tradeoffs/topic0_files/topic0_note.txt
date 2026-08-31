@@ -41,7 +41,7 @@ Merge Sort                O(N log N)         O(N)                Trades auxiliar
 --------------------------------------------------------------------------------
 [✓] Profile before optimizing: use `gprof` or `valgrind --tool=callgrind`.
 [✓] Avoid micro-optimizations that sacrifice code clarity unless on critical loop hot paths.
-[✓] Match the data structure to access patterns: fast lookups -> Hash/Trie; ordered range scans -> BST/B+ Tree.
+[✓] Match the data structure to access patterns: fast lookups → Hash/Trie; ordered range scans → BST/B+ Tree.
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

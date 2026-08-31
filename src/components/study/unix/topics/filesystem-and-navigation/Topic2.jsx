@@ -202,7 +202,7 @@ drwxr-xr-x 2 swadeep swadeep 4096 Jan 14 16:20 Videos`;
           <div className="mb-8">
             <div className="flex items-center mb-4">
               <span className="text-2xl mr-3">⚡</span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
                 pwd, ls, cd – Absolute Mastery
               </h1>
             </div>

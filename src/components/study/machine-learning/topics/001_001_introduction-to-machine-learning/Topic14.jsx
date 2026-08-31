@@ -253,7 +253,7 @@ const Topic14 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Worked Example 1: Student Pass/Fail Prediction
           </h1>
 
@@ -701,7 +701,7 @@ const Topic14 = () => {
                   y&#770;&#8322; = &sigma;(-0.845) = 1 / (1 + e<sup>+0.845</sup>) = 1 / (1 + 2.3280)
                 </p>
                 <p className="font-mono text-rose-400 font-bold">
-                  y&#770;&#8322; &approx; 0.3005 (30.05% Pass Probability &rarr; Correctly Predicts Fail)
+                  y&#770;&#8322; &approx; 0.3005 (30.05% Pass Probability → Correctly Predicts Fail)
                 </p>
               </div>
 

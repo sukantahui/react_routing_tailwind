@@ -19,8 +19,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * WARNING: Shallow copy for object arrays (Student[]) and 2D arrays (int[][]).
 
 - 3. Arrays.copyOf() & Arrays.copyOfRange():
-  * Arrays.copyOf(arr, newLen)        -> Resizes array (pads default or truncates).
-  * Arrays.copyOfRange(arr, from, to) -> Extracts slice for half-open range [from, to).
+  * Arrays.copyOf(arr, newLen)        → Resizes array (pads default or truncates).
+  * Arrays.copyOfRange(arr, from, to) → Extracts slice for half-open range [from, to).
   * Under the hood, both allocate new memory and invoke System.arraycopy()!
 
 2. ESSENTIAL CHECKLIST

@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SWITCH EXPRESSION RULES:
-   - Modern arrow syntax: 'case ACTIVE -> "Active"'.
+   - Modern arrow syntax: 'case ACTIVE → "Active"'.
    - Exhaustiveness: If all constants are covered, no 'default' is needed.
    - Adding new constants triggers compile-time warnings for missing cases.
 

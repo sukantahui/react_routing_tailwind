@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 No investment committee ever accepts a single valuation number. Always present a 2D sensitivity table of WACC vs Terminal Growth. Hide the top-left anchor cell using the custom format `;;;` for a flawless look.
 
 COMMON TRAPS TO AVOID:
-- Reversing Row and Column Input Cells: Selecting WACC as Column Input and Growth Rate as Row Input produces an inverted, nonsensical sensitivity table. -> Fix: Verify: Horizontal top row values match 'Row Input Cell'; Vertical left column values match 'Column Input Cell'.
-- Data Table Automatic Recalculation Lag: Data tables iterate on every keystroke, freezing large financial workbooks. -> Fix: Set Calculation Options to: 'Automatic Except for Data Tables' (Alt + M + X + E).
-- Hardcoding Output Formulas Inside Table: Typing numbers or standard formulas inside the data table range breaks the `=TABLE()` array. -> Fix: Allow Excel to generate the {=TABLE(row, col)} array automatically via What-If Analysis.
+- Reversing Row and Column Input Cells: Selecting WACC as Column Input and Growth Rate as Row Input produces an inverted, nonsensical sensitivity table. → Fix: Verify: Horizontal top row values match 'Row Input Cell'; Vertical left column values match 'Column Input Cell'.
+- Data Table Automatic Recalculation Lag: Data tables iterate on every keystroke, freezing large financial workbooks. → Fix: Set Calculation Options to: 'Automatic Except for Data Tables' (Alt + M + X + E).
+- Hardcoding Output Formulas Inside Table: Typing numbers or standard formulas inside the data table range breaks the `=TABLE()` array. → Fix: Allow Excel to generate the {=TABLE(row, col)} array automatically via What-If Analysis.
 ================================================================================

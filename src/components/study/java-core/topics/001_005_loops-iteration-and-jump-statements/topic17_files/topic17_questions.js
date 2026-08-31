@@ -177,7 +177,7 @@ const questions = [
     question: "What is a Neon Number?",
     shortAnswer: "A number where the sum of digits of its square equals the number itself (e.g. $9^2 = 81 \\to 8 + 1 = 9$).",
     explanation: "Square digit summation test.",
-    hint: "Sum of digits of its square equals the number (9^2 = 81 -> 8+1 = 9).",
+    hint: "Sum of digits of its square equals the number (9^2 = 81 → 8+1 = 9).",
     level: "basic",
     codeExample: "int sq = n * n; return sumDigits(sq) == n;"
   },
@@ -217,7 +217,7 @@ const questions = [
     question: "What is a Spy Number?",
     shortAnswer: "A number where the sum of its digits equals the product of its digits (e.g. $1124 \\to 1+1+2+4 = 8$ and $1 \\times 1 \\times 2 \\times 4 = 8$).",
     explanation: "Dual accumulator (sum and product) test.",
-    hint: "Sum of digits equals product of digits (e.g. 1124 -> sum=8, prod=8).",
+    hint: "Sum of digits equals product of digits (e.g. 1124 → sum=8, prod=8).",
     level: "basic",
     codeExample: "return sumDigits(n) == productDigits(n);"
   },

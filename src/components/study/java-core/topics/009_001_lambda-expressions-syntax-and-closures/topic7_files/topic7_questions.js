@@ -5,7 +5,7 @@ const topic7_questions = [
     "explanation": "Core lexical scoping principles of Java 8 Lambdas (JLS §15.27.2).",
     "hint": "Lambda is lexically scoped; 'this' inside a lambda refers to the enclosing outer class instance, not the lambda.",
     "level": "Intermediate",
-    "codeExample": "Runnable r = () -> System.out.println(this.toString()); // Refers to outer enclosing class!"
+    "codeExample": "Runnable r = () → System.out.println(this.toString()); // Refers to outer enclosing class!"
   }
 ];
 

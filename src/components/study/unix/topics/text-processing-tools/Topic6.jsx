@@ -117,7 +117,7 @@ class Topic6 extends React.Component {
                     staggerDelay(0)
                 )}>
                     <div className="mb-10 transform transition-all duration-500 hover:scale-[1.02]">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-rose-600 dark:from-pink-400 dark:to-rose-400">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-rose-600 dark:from-pink-400 dark:to-rose-400">
                             Topic 6: sed Addressing: Line Numbers, Ranges, and Patterns
                         </h1>
                         <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">

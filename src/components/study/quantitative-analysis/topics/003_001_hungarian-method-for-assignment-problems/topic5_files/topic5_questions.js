@@ -174,9 +174,9 @@ const questions = [
     question: "What is the ultimate golden rule of Unbalanced Assignment Problems?",
     shortAnswer: "'Check matrix shape (m x n); if m != n, add |m - n| dummy rows or columns with ₹0 costs to make it square; execute standard 5-step Hungarian solver; real allocations determine cost, dummy allocations identify idle or outsourced capacity!'",
     explanation: "This complete rule captures all handling of unbalanced assignment problems.",
-    hint: "Check m!=n -> Add ₹0 dummy lines -> Solve Hungarian -> Real cells give cost, dummy cells give idle capacity.",
+    hint: "Check m!=n → Add ₹0 dummy lines → Solve Hungarian → Real cells give cost, dummy cells give idle capacity.",
     level: "moderate",
-    codeExample: "Golden Rule: Check m!=n -> Add Dummy Lines (₹0) -> Solve Square Matrix -> Report Z* & Idle Entities."
+    codeExample: "Golden Rule: Check m!=n → Add Dummy Lines (₹0) → Solve Square Matrix → Report Z* & Idle Entities."
   }
 ];
 

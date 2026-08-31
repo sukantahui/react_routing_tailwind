@@ -83,7 +83,7 @@ const questions = [
     explanation: "Mutations should be separated from boolean query expressions.",
     hint: "Conflates state mutation with decision evaluation.",
     level: "intermediate",
-    codeExample: "// Bad: if (a && ++count > 5) -> Separate assignment from condition!"
+    codeExample: "// Bad: if (a && ++count > 5) → Separate assignment from condition!"
   },
   {
     question: "What is the 'Command-Query Separation' (CQS) principle in conditional logic?",
@@ -107,7 +107,7 @@ const questions = [
     explanation: "Transforms nested positive logic into linear early exits.",
     hint: "Inverts positive requirements into negative guard returns.",
     level: "intermediate",
-    codeExample: "// if (hasId && hasFee) -> if (!hasId || !hasFee) return;"
+    codeExample: "// if (hasId && hasFee) → if (!hasId || !hasFee) return;"
   },
   {
     question: "What is the 'Null Object Pattern' and how does it clean up conditional logic?",
@@ -147,7 +147,7 @@ const questions = [
     explanation: "Modern synthesis of clean conditional design.",
     hint: "Replaces verbose ladders with concise, exhaustive value expressions.",
     level: "basic",
-    codeExample: "final int rate = switch (tier) { case VIP -> 20; default -> 0; };"
+    codeExample: "final int rate = switch (tier) { case VIP → 20; default → 0; };"
   },
   {
     question: "What is the 'Bouncer Pattern' metaphor in programming?",
@@ -179,7 +179,7 @@ const questions = [
     explanation: "Best practice is to split into two descriptive methods: `processStandardOrder()` and `processExpressOrder()`.",
     hint: "Split boolean flag methods into two descriptive methods.",
     level: "advanced",
-    codeExample: "// Anti-pattern: process(boolean isUrgent) -> Split into two methods!"
+    codeExample: "// Anti-pattern: process(boolean isUrgent) → Split into two methods!"
   },
   {
     question: "How do Enums with abstract methods replace conditionals?",

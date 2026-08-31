@@ -159,7 +159,7 @@ export default class Topic9 extends Component {
             </div>
 
             <div className="reveal-section">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-[slideInFromLeft_0.8s_ease-out_forwards]">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 animate-[slideInFromLeft_0.8s_ease-out_forwards]">
                 <span className={isDarkMode ? 'text-blue-300' : 'text-blue-600'}>
                   Topic 1: 
                 </span>

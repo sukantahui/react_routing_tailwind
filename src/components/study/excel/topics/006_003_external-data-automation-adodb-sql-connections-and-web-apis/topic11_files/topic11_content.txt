@@ -10,7 +10,7 @@ Real-world project: Building an automated two-way synchronization tool between E
 It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Two-Way MySQL Sync Engine: Read MySQL -> CopyFromRecordset Staging -> Highlight Modified Rows -> Batch UPDATE MySQL via Transactions
+Operational Architecture: Two-Way MySQL Sync Engine: Read MySQL → CopyFromRecordset Staging → Highlight Modified Rows → Batch UPDATE MySQL via Transactions
 
 3. CORE TECHNICAL MECHANICS
 1. Two-Way Bidirectional Synchronization:

@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "To handle duplicate keys safely, always use the 3-argument version with a merge function.",
     "hint": "Throws IllegalStateException on duplicate keys.",
     "level": "Beginner",
-    "codeExample": "list.stream().collect(Collectors.toMap(User::getId, User::getName, (u1, u2) -> u1)); // Safe merge!"
+    "codeExample": "list.stream().collect(Collectors.toMap(User::getId, User::getName, (u1, u2) → u1)); // Safe merge!"
   },
   {
     "question": "How do you ensure the Map returned by Collectors.toMap() preserves insertion encounter order?",

@@ -42,7 +42,7 @@ export default function Topic17() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Parentheses <code className="text-emerald-400">( )</code> for Controlling Evaluation Order &amp; Code Readability
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -107,8 +107,8 @@ export default function Topic17() {
             <rect x="30" y="40" width="260" height="180" rx="10" fill="url(#gradParenMath)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Arithmetic Override</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
-            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">10 + 5 * 2 &rarr; 20</text>
-            <text x="55" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">(10 + 5) * 2 &rarr; 30</text>
+            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">10 + 5 * 2 → 20</text>
+            <text x="55" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">(10 + 5) * 2 → 30</text>
             <text x="55" y="142" fill="#e0f2fe" fontSize="10">Forces addition before multiply</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Explicit Operator Binding
@@ -118,8 +118,8 @@ export default function Topic17() {
             <rect x="310" y="40" width="260" height="180" rx="10" fill="url(#gradParenString)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. String Concat Fix</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
-            <text x="335" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">&quot;₹&quot; + 10 + 20 &rarr; &quot;₹1020&quot; (BUG)</text>
-            <text x="335" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">&quot;₹&quot; + (10 + 20) &rarr; &quot;₹30&quot;</text>
+            <text x="335" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">&quot;₹&quot; + 10 + 20 → &quot;₹1020&quot; (BUG)</text>
+            <text x="335" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">&quot;₹&quot; + (10 + 20) → &quot;₹30&quot;</text>
             <text x="335" y="142" fill="#d1fae5" fontSize="10">Forces numeric addition first</text>
             <text x="440" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Prevents Text Glitches

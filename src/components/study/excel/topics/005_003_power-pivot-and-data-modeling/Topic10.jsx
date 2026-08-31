@@ -71,7 +71,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Defining Key Performance Indicators (KPIs) with status thresholds in Power Pivot"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic10() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Power Pivot KPI: Home &gt; KPI &gt; New KPI | Base Measure: [TotalRevenue] | Target: Absolute (₹50 Cr) / Measure ([RevenueTarget]) | Status Thresholds (60% / 90%)"}
+            {"Power Pivot KPI: Home > KPI > New KPI | Base Measure: [TotalRevenue] | Target: Absolute (₹50 Cr) / Measure ([RevenueTarget]) | Status Thresholds (60% / 90%)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic10() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Power Pivot KPI Architecture: Base Measure Value vs Target Goal -> Status Threshold Icon Engine"}
+              Visual Dataflow: {"Power Pivot KPI Architecture: Base Measure Value vs Target Goal → Status Threshold Icon Engine"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Relational Pipeline
@@ -286,7 +286,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Defining_Key_Perfo"
+            sheetName="EX2211"
             title={"Defining Key Performance Indicators (KPIs) with status thresholds in Power Pivot - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic10() {
                 Step 1: Load Data Tables to Data Model
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> &gt; Check <strong>Add this data to the Data Model</strong>.
+                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> > Check <strong>Add this data to the Data Model</strong>.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic10() {
                 Step 2: Open Diagram View &amp; Create 1-to-Many Relationships
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Power Pivot window (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + B + M</kbd>), switch to Diagram View, and drag Primary Keys to Foreign Keys <code className="text-cyan-300 font-mono font-bold">{"Power Pivot KPI: Home &gt; KPI &gt; New KPI | Base Measure: [TotalRevenue] | Target: Absolute (₹50 Cr) / Measure ([RevenueTarget]) | Status Thresholds (60% / 90%)"}</code>.
+                Open Power Pivot window (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + B + M</kbd>), switch to Diagram View, and drag Primary Keys to Foreign Keys <code className="text-cyan-300 font-mono font-bold">{"Power Pivot KPI: Home > KPI > New KPI | Base Measure: [TotalRevenue] | Target: Absolute (₹50 Cr) / Measure ([RevenueTarget]) | Status Thresholds (60% / 90%)"}</code>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic10() {
                 Step 3: Define Calendar Dimension &amp; Mark as Date Table
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design &gt; Mark as Date Table</strong>.
+                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design > Mark as Date Table</strong>.
               </p>
             </div>
 
@@ -442,7 +442,7 @@ export default function Topic10() {
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Setting Target to Absolute Number for Sliced Views"}</td>
                   <td className="py-3 px-4">{"Setting target to a static ₹10 Crore means the target is ₹10 Crore whether viewing a single branch or the whole nation."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Set Target Goal to a dynamic measure: `Target: Measure -> [BudgetRevenue]`."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Set Target Goal to a dynamic measure: `Target: Measure → [BudgetRevenue]`."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
@@ -486,7 +486,7 @@ export default function Topic10() {
                 <span>⚡</span> {"New KPI Shortcut"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Launches the native KPI milestone configuration dialog."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Power Pivot > Home &gt; KPI > New KPI"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Power Pivot > Home > KPI > New KPI"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -494,7 +494,7 @@ export default function Topic10() {
                 <span>⚡</span> {"Dynamic Target Measure"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Ensures targets scale dynamically across all filter slices."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Target: Measure -> [TargetMeasure]"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Target: Measure → [TargetMeasure]"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

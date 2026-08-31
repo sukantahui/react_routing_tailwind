@@ -109,7 +109,7 @@ const questions = [
     explanation: "The JVM will continue executing as long as at least one non-daemon user thread is alive, even after the main thread returns.",
     hint: "Daemon vs Non-Daemon thread termination rules.",
     level: "advanced",
-    codeExample: "Thread t = new Thread(() -> doWork());\nt.setDaemon(false);\nt.start(); // Keeps JVM alive"
+    codeExample: "Thread t = new Thread(() → doWork());\nt.setDaemon(false);\nt.start(); // Keeps JVM alive"
   },
   {
     question: "What is the exit code returned to the OS shell when a Java program finishes `main()` normally without exceptions?",
@@ -169,11 +169,11 @@ const questions = [
   },
   {
     question: "How do you programmatically configure a custom UncaughtExceptionHandler for the main thread?",
-    shortAnswer: "`Thread.currentThread().setUncaughtExceptionHandler((thread, throwable) -> { ... });`.",
+    shortAnswer: "`Thread.currentThread().setUncaughtExceptionHandler((thread, throwable) → { ... });`.",
     explanation: "Allows logging errors to files or alerting monitoring systems before process termination.",
     hint: "setUncaughtExceptionHandler on Thread.",
     level: "advanced",
-    codeExample: "Thread.currentThread().setUncaughtExceptionHandler((t, e) -> {\n    System.err.println(\"Logged crash: \" + e.getMessage());\n});"
+    codeExample: "Thread.currentThread().setUncaughtExceptionHandler((t, e) → {\n    System.err.println(\"Logged crash: \" + e.getMessage());\n});"
   },
   {
     question: "What is a 'Shutdown Hook' registered from main?",
@@ -181,7 +181,7 @@ const questions = [
     explanation: "`Runtime.getRuntime().addShutdownHook(new Thread(...))` allows performing cleanup (closing database pools, flushing logs) even on SIGINT (Ctrl+C).",
     hint: "Graceful shutdown handler.",
     level: "advanced",
-    codeExample: "Runtime.getRuntime().addShutdownHook(new Thread(() -> {\n    System.out.println(\"Graceful shutdown cleanup completed!\");\n}));"
+    codeExample: "Runtime.getRuntime().addShutdownHook(new Thread(() → {\n    System.out.println(\"Graceful shutdown cleanup completed!\");\n}));"
   },
   {
     question: "What is the difference between passing program arguments vs passing JVM system properties on the command line?",
@@ -221,7 +221,7 @@ const questions = [
     explanation: "It is a valid private static method, but running `java ClassName` will report that the main method is not public.",
     hint: "Valid method, but invalid external JVM entry point.",
     level: "intermediate",
-    codeExample: "// private static void main -> Cannot be launched by JVM from outside."
+    codeExample: "// private static void main → Cannot be launched by JVM from outside."
   },
   {
     question: "What is the return value of `System.getProperty(\"sun.java.command\")` inside main?",

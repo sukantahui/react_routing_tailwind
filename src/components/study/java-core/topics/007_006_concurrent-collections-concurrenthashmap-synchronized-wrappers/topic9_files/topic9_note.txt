@@ -9,7 +9,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - 'putIfAbsent(k, v)': atomically puts only if absent.
    - 'replace(k, oldVal, newVal)': atomic CAS replace.
    - 'remove(k, val)': removes only if currently mapped to val.
-   - 'computeIfAbsent(k, k -> compute())': atomic lazy creation.
+   - 'computeIfAbsent(k, k → compute())': atomic lazy creation.
    - Eliminates Check-Then-Act race conditions.
 
 ================================================================================

@@ -71,7 +71,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Semi-additive measures: Opening and Closing balances for inventory and banking (CLOSINGBALANCEMONTH)"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Semi_additive_meas"
+            sheetName="EX2313"
             title={"Semi-additive measures: Opening and Closing balances for inventory and banking (CLOSINGBALANCEMONTH) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Power Automate + Office Scripts is pure magic. You can schedule your flow to run every morning at 6:00 AM, process your data, and email the report before you even wake up in the morning.
 
 COMMON TRAPS TO AVOID:
-- Selecting Wrong SharePoint Site / File Location: Hardcoding a personal OneDrive path instead of shared corporate SharePoint Document Library. -> Fix: Store enterprise workbooks in dedicated SharePoint Team Sites for shared tenant access.
-- Concurrent Flow Execution Conflicts (File Lock): Triggering 10 flows simultaneously modifying the same Excel file concurrently. -> Fix: Configure Power Automate concurrency control (Settings > Concurrency = 1) to queue runs sequentially.
-- Script Execution Timeout on Massive Workbooks: Office Scripts has a default execution timeout of 120 seconds in Power Automate. -> Fix: Optimize script algorithms to complete in under 5 seconds using batch array processing.
+- Selecting Wrong SharePoint Site / File Location: Hardcoding a personal OneDrive path instead of shared corporate SharePoint Document Library. → Fix: Store enterprise workbooks in dedicated SharePoint Team Sites for shared tenant access.
+- Concurrent Flow Execution Conflicts (File Lock): Triggering 10 flows simultaneously modifying the same Excel file concurrently. → Fix: Configure Power Automate concurrency control (Settings > Concurrency = 1) to queue runs sequentially.
+- Script Execution Timeout on Massive Workbooks: Office Scripts has a default execution timeout of 120 seconds in Power Automate. → Fix: Optimize script algorithms to complete in under 5 seconds using batch array processing.
 ================================================================================

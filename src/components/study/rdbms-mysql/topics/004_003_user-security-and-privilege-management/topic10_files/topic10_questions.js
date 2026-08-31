@@ -58,7 +58,7 @@ SELECT * FROM orders WHERE order_id = 10 AND IF(SUBSTRING(version(),1,1)='8', SL
     hint: "Payload is stored harmlessly first, then executed dynamically in a secondary query.",
     level: "expert",
     codeExample: `// Registration: Safely stored in DB via prepared statement
-// Admin script later: "UPDATE accounts SET balance = 0 WHERE username = '" + row.username + "'" -> EXPLODES!`
+// Admin script later: "UPDATE accounts SET balance = 0 WHERE username = '" + row.username + "'" → EXPLODES!`
   },
   {
     question: "Why is manual string escaping (such as `addslashes()` or legacy escaping functions) fundamentally unsafe compared to true parameterized queries?",
@@ -67,7 +67,7 @@ SELECT * FROM orders WHERE order_id = 10 AND IF(SUBSTRING(version(),1,1)='8', SL
     hint: "Multibyte character encoding tricks can consume escape characters.",
     level: "expert",
     codeExample: `// Multibyte encoding bypass:
-// Input: %bf%27 -> Escaped: %bf%5c%27 -> Parsed by DB as: [Character]%27 (Active Quote!)`
+// Input: %bf%27 → Escaped: %bf%5c%27 → Parsed by DB as: [Character]%27 (Active Quote!)`
   },
   {
     question: "Can table names and column names be parameterized with `?` placeholders in prepared statements?",
@@ -270,7 +270,7 @@ const [rows] = await connection.execute(sql, ids);`
     hint: "Taint analysis tracks untrusted input flow into raw SQL sinks.",
     level: "intermediate",
     codeExample: `// SAST flags this taint flow:
-// Source: req.body.email -> Sink: db.query(\`... \${req.body.email}\`)`
+// Source: req.body.email → Sink: db.query(\`... \${req.body.email}\`)`
   },
   {
     question: "Can SQL Injection occur in stored procedures?",

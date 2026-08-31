@@ -21,9 +21,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   }
 
 - Edge Case Checklist:
-  * Empty array     : arr.length == 0 -> Throw IllegalArgumentException!
-  * Single element  : arr.length == 1 -> max2 remains NEGATIVE_INFINITY (No 2nd max).
-  * All duplicates  : [10, 10, 10]   -> max2 remains NEGATIVE_INFINITY (No distinct 2nd max).
+  * Empty array     : arr.length == 0 → Throw IllegalArgumentException!
+  * Single element  : arr.length == 1 → max2 remains NEGATIVE_INFINITY (No 2nd max).
+  * All duplicates  : [10, 10, 10]   → max2 remains NEGATIVE_INFINITY (No distinct 2nd max).
   * Integer sum     : Use 'long sum = 0L;' to prevent 32-bit arithmetic overflow!
 
 2. ESSENTIAL CHECKLIST

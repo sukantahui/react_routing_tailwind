@@ -20,10 +20,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 4. Desugaring (TransTypes, Lower):
    - Replaces high-level syntactic sugar with lower-level Java primitives:
-     * Generics -> Raw types with Type Erasure & cast insertions.
-     * Enhanced for-each loop -> Iterators / index loops.
-     * Autoboxing -> `Integer.valueOf()` / `intValue()`.
-     * String concatenation -> `StringBuilder` / `invokedynamic`.
+     * Generics → Raw types with Type Erasure & cast insertions.
+     * Enhanced for-each loop → Iterators / index loops.
+     * Autoboxing → `Integer.valueOf()` / `intValue()`.
+     * String concatenation → `StringBuilder` / `invokedynamic`.
 
 5. Code Generation (Gen):
    - Emits standardized binary .class bytecode with `0xCAFEBABE` header, Constant Pool, and method bytecode arrays.

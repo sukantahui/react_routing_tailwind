@@ -48,7 +48,7 @@ const questions = [
     explanation: "orphanRemoval is more aggressive: as soon as a child is dereferenced from the parent, it's deleted from DB.",
     hint: "Use orphanRemoval for composition (parent owns child lifecycle).",
     level: "expert",
-    codeExample: "@OneToMany(orphanRemoval = true) // remove from collection -> delete from DB"
+    codeExample: "@OneToMany(orphanRemoval = true) // remove from collection → delete from DB"
   },
   {
     question: "How can you avoid the N+1 query problem in one-to-many collections?",

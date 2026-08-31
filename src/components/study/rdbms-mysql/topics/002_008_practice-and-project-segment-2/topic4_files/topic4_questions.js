@@ -124,7 +124,7 @@ const questions = [
     question: "What is the SQL logical execution order for a `SELECT` statement with `GROUP BY`, `HAVING`, and `ORDER BY`?",
     shortAnswer: "1. FROM/JOIN → 2. WHERE → 3. GROUP BY → 4. HAVING → 5. Window Functions → 6. SELECT → 7. DISTINCT → 8. ORDER BY → 9. LIMIT.",
     explanation: "Crucial for understanding why aliases cannot be used in WHERE clauses.",
-    hint: "FROM -> WHERE -> GROUP BY -> HAVING -> WINDOW -> SELECT -> ORDER BY -> LIMIT.",
+    hint: "FROM → WHERE → GROUP BY → HAVING → WINDOW → SELECT → ORDER BY → LIMIT.",
     level: "expert"
   },
   {

@@ -15,7 +15,7 @@ and the Feedback Mechanism:
 1.1 SUPERVISED LEARNING (Direct Feedback from Teacher):
 - Training Corpus: Labeled dataset D = {(x_1, y_1), (x_2, y_2), ..., (x_N, y_N)}
   where x_i in R^d (feature vector) and y_i in Y (ground truth target).
-- Objective: Learn a mapping function h: X -> Y that minimizes empirical risk:
+- Objective: Learn a mapping function h: X → Y that minimizes empirical risk:
     min_w (1/N) * sum_{i=1}^N L(h(x_i; w), y_i)
 - Primary Sub-Tasks:
   1. Regression: Continuous real-valued target (e.g., flat pricing in ₹ Lakhs).

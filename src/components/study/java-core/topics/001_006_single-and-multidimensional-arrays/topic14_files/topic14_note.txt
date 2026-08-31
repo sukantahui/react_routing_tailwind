@@ -13,9 +13,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Rows can be instantiated independently or have varying lengths (ragged arrays).
 
 - Dimensions & Boundaries:
-  * matrix.length       -> Number of ROWS.
-  * matrix[r].length    -> Number of COLUMNS in specific row 'r'.
-  * Element access      -> matrix[r][c] (0 <= r < rows, 0 <= c < cols).
+  * matrix.length       → Number of ROWS.
+  * matrix[r].length    → Number of COLUMNS in specific row 'r'.
+  * Element access      → matrix[r][c] (0 <= r < rows, 0 <= c < cols).
 
 - Matrix Row-Major Traversal:
   for (int r = 0; r < matrix.length; r++) {
@@ -25,8 +25,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   }
 
 - Utilities:
-  * Arrays.deepToString(matrix) -> Recursively prints multidimensional arrays.
-  * Arrays.deepEquals(m1, m2)   -> Deep recursive value equality comparison.
+  * Arrays.deepToString(matrix) → Recursively prints multidimensional arrays.
+  * Arrays.deepEquals(m1, m2)   → Deep recursive value equality comparison.
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------

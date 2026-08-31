@@ -13,7 +13,7 @@ const topic10_questions = [
     "explanation": "Short-circuiting operations can finish processing before inspecting the entire stream source.",
     "hint": "Operations that can finish without inspecting all source elements.",
     "level": "Intermediate",
-    "codeExample": "Stream.iterate(1, n -> n + 1).limit(5).toList(); // Short-circuits infinite generator at 5 elements."
+    "codeExample": "Stream.iterate(1, n → n + 1).limit(5).toList(); // Short-circuits infinite generator at 5 elements."
   }
 ];
 

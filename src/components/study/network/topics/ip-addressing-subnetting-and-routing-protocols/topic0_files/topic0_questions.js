@@ -111,7 +111,7 @@ const questions = [
     explanation: "Example valid: `2001:0:0:0:0:0:0:1` → `2001::1`. Example invalid: `2001:0:0:db8:0:0:0:1` cannot be written as `2001::db8::1` because the reader wouldn't know how many zeros each `::` represents.",
     hint: "Think of `::` as a placeholder for 'one or more groups of zeros'.",
     level: "basic",
-    codeExample: "// Vaild compaction: `fe80:0:0:0:2aa:ff:fe28:9c5a` -> `fe80::2aa:ff:fe28:9c5a`"
+    codeExample: "// Vaild compaction: `fe80:0:0:0:2aa:ff:fe28:9c5a` → `fe80::2aa:ff:fe28:9c5a`"
   },
   {
     question: "Explain the IPv6 header simplification compared to IPv4.",

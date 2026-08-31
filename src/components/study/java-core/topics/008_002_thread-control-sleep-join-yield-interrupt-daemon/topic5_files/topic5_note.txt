@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. DEPRECATED THREAD METHODS:
-   - 'Thread.stop()': Releases all locks immediately mid-operation &rarr; Data corruption!
-   - 'Thread.suspend()': Freezes thread while keeping locks &rarr; Deadlocks!
+   - 'Thread.stop()': Releases all locks immediately mid-operation → Data corruption!
+   - 'Thread.suspend()': Freezes thread while keeping locks → Deadlocks!
    - 'Thread.resume()': Unreliable pair of suspend().
    - Modern Rule: Use Cooperative Cancellation via 'Thread.interrupt()'.
 

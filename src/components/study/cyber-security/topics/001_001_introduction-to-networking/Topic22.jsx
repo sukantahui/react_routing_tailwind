@@ -40,7 +40,7 @@ const Topic22 = () => {
       desc: 'Intelligent multiport bridge that inspects incoming MAC headers and forwards frames directly to the destination port via its CAM Table.',
       role: 'The foundational building block of modern local area networks (LANs).',
       priceRange: '₹3,500 – ₹35,000 (24-port Gigabit)',
-      behavior: 'Reads destination MAC -> Forwards frame exclusively to Port 2 (Recipient).',
+      behavior: 'Reads destination MAC → Forwards frame exclusively to Port 2 (Recipient).',
     },
     {
       id: 'router',
@@ -76,7 +76,7 @@ const Topic22 = () => {
       desc: 'Dedicated perimeter security appliance performing stateful packet inspection, deep packet inspection (DPI), and intrusion prevention (IPS).',
       role: 'Blocks malicious incoming probes, filters unauthorized ports, and terminates secure IPSec VPN tunnels.',
       priceRange: '₹45,000 – ₹5,00,000+ (FortiGate / Cisco Firepower)',
-      behavior: 'Inspects packet payload against Threat Database -> Passes clean packet; Drops malicious exploit.',
+      behavior: 'Inspects packet payload against Threat Database → Passes clean packet; Drops malicious exploit.',
     },
   ];
 
@@ -171,7 +171,7 @@ const Topic22 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Basic Networking Components
           </h1>
 

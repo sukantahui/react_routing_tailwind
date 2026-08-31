@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Configuring the enterprise VBA development environment: enabling the Developer Tab, configuring Trust Center macro security tiers, and establishing Trusted Locations
 
 TEACHER'S ADVICE:
-Before you write any code: 1. Turn on the Developer tab (Options -> Customize Ribbon -> check Developer). 2. In Trust Center, make sure your project folder is added as a 'Trusted Location' so your macros run smoothly without warnings.
+Before you write any code: 1. Turn on the Developer tab (Options → Customize Ribbon → check Developer). 2. In Trust Center, make sure your project folder is added as a 'Trusted Location' so your macros run smoothly without warnings.
 
 COMMON TRAPS TO AVOID:
-- Setting Security to 'Enable all macros' (High Security Risk): Enabling all macros without notification exposes systems to malicious macro viruses in downloaded email attachments. -> Fix: Keep setting on 'Disable VBA with notification' and use Trusted Locations for internal tools.
-- Blocked Internet Macros (Mark of the Web): Windows blocking macros in files downloaded from internet/email ('Microsoft has blocked macros from running'). -> Fix: Right-click `.xlsm` file > Properties > Check 'Unblock' at bottom.
-- Developer Tab Missing on Fresh Office Install: Microsoft hides the Developer tab by default on all new installations. -> Fix: File > Options > Customize Ribbon > Check 'Developer'.
+- Setting Security to 'Enable all macros' (High Security Risk): Enabling all macros without notification exposes systems to malicious macro viruses in downloaded email attachments. → Fix: Keep setting on 'Disable VBA with notification' and use Trusted Locations for internal tools.
+- Blocked Internet Macros (Mark of the Web): Windows blocking macros in files downloaded from internet/email ('Microsoft has blocked macros from running'). → Fix: Right-click `.xlsm` file > Properties > Check 'Unblock' at bottom.
+- Developer Tab Missing on Fresh Office Install: Microsoft hides the Developer tab by default on all new installations. → Fix: File > Options > Customize Ribbon > Check 'Developer'.
 ================================================================================

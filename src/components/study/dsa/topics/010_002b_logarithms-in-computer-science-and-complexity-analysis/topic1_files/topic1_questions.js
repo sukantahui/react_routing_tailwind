@@ -79,7 +79,7 @@ const topic1_questions = [
   {
     question: "Does the base of an exponential function matter in Big-O notation (e.g., is O(2^N) equal to O(3^N))?",
     options: [
-      "Yes, the base matters in exponents because 3^N / 2^N = 1.5^N -> infinity as N -> infinity, so O(2^N) is strictly smaller than O(3^N)",
+      "Yes, the base matters in exponents because 3^N / 2^N = 1.5^N → infinity as N → infinity, so O(2^N) is strictly smaller than O(3^N)",
       "No, base is always ignored in all Big-O expressions",
       "No, because 3^N and 2^N differ only by a constant",
       "Yes, but only for negative numbers"

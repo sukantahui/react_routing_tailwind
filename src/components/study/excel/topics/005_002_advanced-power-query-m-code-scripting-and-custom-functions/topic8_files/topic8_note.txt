@@ -22,4 +22,4 @@ CORE CONCEPTS & INSTRUCTOR REFERENCE:
 
 4. Sukanta Hui's Auditing Principle:
    - Never use `otherwise null` to mask bad data in accounting ledgers.
-   - Build dual-pipeline routing: Clean Data &rarr; Fact Table; Error Data &rarr; Quarantine Audit Table.
+   - Build dual-pipeline routing: Clean Data → Fact Table; Error Data → Quarantine Audit Table.

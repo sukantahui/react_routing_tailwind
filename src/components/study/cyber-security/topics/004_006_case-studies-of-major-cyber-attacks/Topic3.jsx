@@ -120,7 +120,7 @@ const Topic3 = () => {
               <span>•</span>
               <span>Module 004.006 — Topic 3</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
               Case Study 3: Sony Pictures Hack (2014) — Nation-State Cyber Warfare & Extortion
             </h1>
             <p className="text-gray-300 text-sm sm:text-lg max-w-4xl leading-relaxed">

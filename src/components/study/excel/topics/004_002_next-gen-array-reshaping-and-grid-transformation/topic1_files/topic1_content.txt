@@ -17,9 +17,9 @@ Mode 3: Skips both blanks and errors. (Best practice for automated ETL pipelines
 
 3. SCAN DIRECTION MATHEMATICS:
 Row-Major (scan_by_column = FALSE):
-  Index formula: cell[r, c] -> pos = (r - 1) * total_cols + c
+  Index formula: cell[r, c] → pos = (r - 1) * total_cols + c
 Column-Major (scan_by_column = TRUE):
-  Index formula: cell[r, c] -> pos = (c - 1) * total_rows + r
+  Index formula: cell[r, c] → pos = (c - 1) * total_rows + r
 
 4. ADVANCED RECIPES:
 - Distinct Deduplicated List from 2D Matrix:

@@ -21,7 +21,7 @@ export default function Topic2() {
             Symbol Resolution
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Type Parameter Placement: Compiler Symbol Resolution Order
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic2() {
       </section>
 
       <Teacher
-        note="The Java compiler reads code like a book from left to right. By writing '<E>' before 'E pickFirst()', you introduce 'E' to the compiler so it doesn't get confused looking for a class named 'E'! — Sukanta Hui"
+        note="The Java compiler reads code like a book from left to right. By writing '&lt;E&gt;' before 'E pickFirst()', you introduce 'E' to the compiler so it doesn't get confused looking for a class named 'E'! — Sukanta Hui"
       />
     </div>
   );

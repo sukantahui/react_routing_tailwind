@@ -5,7 +5,7 @@ const topic5_questions = [
     "explanation": "Compile-time constants bypass <clinit> initialization.",
     "hint": "Constants assigned in Preparation; non-constants assigned in Initialization.",
     "level": "Intermediate",
-    "codeExample": "final constant -> Preparation; non-final static -> Initialization"
+    "codeExample": "final constant → Preparation; non-final static → Initialization"
   },
   {
     "question": "Where are static variables allocated in modern HotSpot JVMs?",

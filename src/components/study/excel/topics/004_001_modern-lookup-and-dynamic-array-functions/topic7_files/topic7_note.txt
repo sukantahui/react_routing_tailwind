@@ -18,5 +18,5 @@ Core Arguments:
 
 Volatile Calculation Management:
 - Like `RAND()`, `RANDARRAY` is volatile and recalculates on every workbook event (F9).
-- When generating synthetic mock datasets or sample training tables, freeze generated arrays using Copy -> Paste Special -> Values (`Alt + E + S + V`).
+- When generating synthetic mock datasets or sample training tables, freeze generated arrays using Copy → Paste Special → Values (`Alt + E + S + V`).
 - In Monte Carlo risk modeling, leave dynamic to simulate scenario probabilities across revenue, interest rates, and footfall perturbations.

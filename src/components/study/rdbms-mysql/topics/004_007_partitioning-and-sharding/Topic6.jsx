@@ -132,7 +132,7 @@ ALTER TABLE payment_tokens ADD PARTITION PARTITIONS 8;`,
             Topic 6 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">KEY Partitioning</span> &amp; <span className="text-cyan-400">LINEAR KEY</span>: Internal Hash Functions
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

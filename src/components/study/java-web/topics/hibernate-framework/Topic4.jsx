@@ -99,7 +99,7 @@ const Topic4 = () => {
             isInView.intro ? "animate-fadeSlideUp" : "opacity-0 translate-y-8"
           )}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400">
             CRUD Operations
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">

@@ -171,7 +171,7 @@ const questions = [
     explanation: "Row boundary violation.",
     hint: "Throws ArrayIndexOutOfBoundsException because valid rows are 0, 1, 2.",
     level: "basic",
-    codeExample: "// campusFeeGrid[3][0] -> ArrayIndexOutOfBoundsException"
+    codeExample: "// campusFeeGrid[3][0] → ArrayIndexOutOfBoundsException"
   },
   {
     question: "What is the memory overhead of a 2D array `int[1000][10]` in the 64-bit JVM with compressed OOPs?",

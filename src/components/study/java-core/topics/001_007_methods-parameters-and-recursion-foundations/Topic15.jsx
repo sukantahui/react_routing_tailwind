@@ -42,7 +42,7 @@ export default function Topic15() {
             JVM Error Diagnosis &amp; Resilience
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           StackOverflowError: Causes, Infinite Recursion &amp; Prevention
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -129,7 +129,7 @@ export default function Topic15() {
             <text x="55" y="90" fill="#fecdd3" fontSize="10" fontFamily="monospace">Non-defensive: if (n == 0) return 0;</text>
 
             <rect x="45" y="105" width="360" height="30" rx="4" fill="#4c0519" />
-            <text x="55" y="125" fill="#fecdd3" fontSize="10" fontFamily="monospace">Passed -1 &rarr; calls -2 &rarr; calls -3 ...</text>
+            <text x="55" y="125" fill="#fecdd3" fontSize="10" fontFamily="monospace">Passed -1 → calls -2 → calls -3 ...</text>
 
             <rect x="45" y="140" width="360" height="30" rx="4" fill="#881337" />
             <text x="55" y="160" fill="#ffffff" fontSize="10" fontFamily="monospace" fontWeight="bold">10,000+ Frames pushed on Call Stack</text>

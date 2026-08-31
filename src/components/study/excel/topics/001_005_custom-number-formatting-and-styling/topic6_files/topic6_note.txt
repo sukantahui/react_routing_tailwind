@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Embedded conditional format strings execute at native C++ GPU speed with zero recalculation lag. Use them for high-volume operational dashboards.
 
 COMMON TRAPS TO AVOID:
-- Two-Condition Maximum Limit: Excel custom format supports at most 2 explicit bracket conditions plus 1 default fallback. -> Fix: If 4 or more conditions are required, use Excel's Conditional Formatting rule manager.
-- Unsupported Color Names: Using custom names like [Orange] or [Purple] triggers syntax errors. -> Fix: Use standard color names ([Black],[White],[Red],[Green],[Blue],[Yellow],[Magenta],[Cyan]) or [Color1] to [Color56].
-- Condition Order Misconfiguration: Placing [>100] before [>500] catches values >500 in the first condition. -> Fix: Always arrange conditional thresholds in descending (or mutually exclusive) order.
+- Two-Condition Maximum Limit: Excel custom format supports at most 2 explicit bracket conditions plus 1 default fallback. → Fix: If 4 or more conditions are required, use Excel's Conditional Formatting rule manager.
+- Unsupported Color Names: Using custom names like [Orange] or [Purple] triggers syntax errors. → Fix: Use standard color names ([Black],[White],[Red],[Green],[Blue],[Yellow],[Magenta],[Cyan]) or [Color1] to [Color56].
+- Condition Order Misconfiguration: Placing [>100] before [>500] catches values >500 in the first condition. → Fix: Always arrange conditional thresholds in descending (or mutually exclusive) order.
 ================================================================================

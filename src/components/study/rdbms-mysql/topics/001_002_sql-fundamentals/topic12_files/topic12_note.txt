@@ -81,7 +81,7 @@ WHERE order_date >= '2026-07-01 00:00:00'
 5. COMMON PITFALLS & DANGER ZONES
 --------------------------------------------------------------------------------
 1. Reversing Minimum and Maximum Boundary Values:
-   - `WHERE fee BETWEEN 20000 AND 15000` evaluates to `fee >= 20000 AND fee <= 15000` -> Always returns 0 rows!
+   - `WHERE fee BETWEEN 20000 AND 15000` evaluates to `fee >= 20000 AND fee <= 15000` → Always returns 0 rows!
    - Minimum value MUST always precede the maximum value.
 2. The DATETIME 00:00:00 Boundary Exclusion Trap.
 3. Alphabetical string range clipping.

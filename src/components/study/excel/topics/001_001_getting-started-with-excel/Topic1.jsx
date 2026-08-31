@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_001_getting_started_with_excel_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -71,7 +70,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Excel vs Google Sheets vs Other Modern Spreadsheet Engines: Architectural Feature Comparison
           </h1>
 
@@ -462,7 +461,7 @@ export default function Topic1() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">UI-118</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed Grant Named Range</td>
                   <td className="py-2.5 px-3 text-sky-300">Name Box Creation</td>
-                  <td className="py-2.5 px-3 text-amber-300">Select C2:C50 $\rightarrow$ Type `RICE_DATA`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Select C2:C50 → Type `RICE_DATA`</td>
                   <td className="py-2.5 px-3 text-emerald-400">Range Named `RICE_DATA`</td>
                   <td className="py-2.5 px-3 text-slate-300">Simplifies formula syntax readability.</td>
                 </tr>
@@ -478,7 +477,7 @@ export default function Topic1() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">UI-120</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft Executive Full Screen</td>
                   <td className="py-2.5 px-3 text-sky-300">Full Screen Mode</td>
-                  <td className="py-2.5 px-3 text-amber-300">Click Ribbon Options $\rightarrow$ Auto-Hide</td>
+                  <td className="py-2.5 px-3 text-amber-300">Click Ribbon Options → Auto-Hide</td>
                   <td className="py-2.5 px-3 text-emerald-400">100% Grid Screen Area</td>
                   <td className="py-2.5 px-3 text-slate-300">Maximizes workspace for executive dashboards.</td>
                 </tr>

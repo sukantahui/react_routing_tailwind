@@ -22,7 +22,7 @@ export default class Topic9 extends Component {
 
                 {/* Intro */}
                 <section className="motion-safe:animate-[fadeSlideUp_1s_ease-out_forwards]">
-                    <h1 className="text-3xl font-bold text-sky-600 dark:text-sky-400">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-600 dark:text-sky-400">
                         Basic Navigation Commands – pwd, ls, cd
                     </h1>
                     <p className="mt-3 text-slate-600 dark:text-slate-400">

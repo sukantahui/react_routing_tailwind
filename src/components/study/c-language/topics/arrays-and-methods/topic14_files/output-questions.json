@@ -126,7 +126,7 @@
       "question": "What is the output?",
       "codeFile": "C015.c",
       "output": "4 6 8 2",
-      "explanation": "Array left rotated by one: {2,4,6,8} -> {4,6,8,2}."
+      "explanation": "Array left rotated by one: {2,4,6,8} → {4,6,8,2}."
     },
     {
       "id": "C016",
@@ -134,7 +134,7 @@
       "question": "What is the output?",
       "codeFile": "C016.c",
       "output": "8 2 4 6",
-      "explanation": "Array right rotated by one: {2,4,6,8} -> {8,2,4,6}."
+      "explanation": "Array right rotated by one: {2,4,6,8} → {8,2,4,6}."
     },
     {
       "id": "C017",

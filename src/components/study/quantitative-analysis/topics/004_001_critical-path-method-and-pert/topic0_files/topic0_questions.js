@@ -166,9 +166,9 @@ const questions = [
     question: "What is the ultimate golden rule of Project Network Analysis?",
     shortAnswer: "'Decompose into discrete activities; map rigorous precedence topology; compute earliest/latest event times; isolate the zero-slack Critical Path; manage floats to protect the completion deadline and optimize budget in Indian Rupees (₹)!'",
     explanation: "This complete rule captures the entire philosophy of CPM and PERT.",
-    hint: "Decompose activities -> Map precedence -> Calculate E & L times -> Find Critical Path -> Optimize in ₹.",
+    hint: "Decompose activities → Map precedence → Calculate E & L times → Find Critical Path → Optimize in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: WBS() -> MapPrecedence() -> ForwardPass() -> BackwardPass() -> IsolateCriticalPath() -> Optimize(₹)."
+    codeExample: "GoldenRule: WBS() → MapPrecedence() → ForwardPass() → BackwardPass() → IsolateCriticalPath() → Optimize(₹)."
   }
 ];
 

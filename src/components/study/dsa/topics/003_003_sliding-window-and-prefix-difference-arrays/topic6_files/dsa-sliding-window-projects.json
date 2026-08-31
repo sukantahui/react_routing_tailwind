@@ -77,7 +77,7 @@
       "description": "Find the length of the longest substring without duplicate characters. Maintain a Dynamic Sliding Window `[left .. right]` and a character position map `last[char]`. When encountering a repeated character at index `right`, jump `left = last[char] + 1` to restore uniqueness in O(N) time! In this project, you will build a Unique Substring Engine in C.",
       "learningOutcome": "Character Index Map Hashing, Dynamic Window Pointer Jumps & O(N) Substring Search",
       "exampleText": "Input string 'abcabcbb'",
-      "exampleOutput": "--- Longest Substring Without Repeating Characters ---\nString: 'abcabcbb' -> Longest Substring Length = 3",
+      "exampleOutput": "--- Longest Substring Without Repeating Characters ---\nString: 'abcabcbb' → Longest Substring Length = 3",
       "logicExplanation": "1. **Character Map**: Store last seen index of each character.\n2. **Window Jump**: If char seen in current window, set `left = last[char] + 1`.",
       "answerFile": "./answers/answer6.c",
       "codeExplanation": "1. `length_of_longest_substring()`: Computes longest unique substring length in O(N) time."

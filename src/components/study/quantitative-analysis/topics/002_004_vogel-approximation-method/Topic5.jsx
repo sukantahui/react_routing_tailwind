@@ -52,7 +52,7 @@ const Topic5 = () => {
     {
       step: 1,
       title: 'Pass 1: Balance Check & First Line Allocation',
-      details: 'Check: Total Supply (70+90+60 = 220) == Total Demand (60+80+80 = 220) -> Perfectly Balanced!',
+      details: 'Check: Total Supply (70+90+60 = 220) == Total Demand (60+80+80 = 220) → Perfectly Balanced!',
       action: 'Max Penalty is Row 2 (Ichapur) with P = ₹5 (★). Lowest cell in Row 2 is (S2, D1) @ ₹5/ton. Allocate x_21 = min(90, 60) = 60 tons. Column 1 is satisfied and crossed out!',
       allocations: [{ r: 1, c: 0, qty: 60, cost: 5, active: true }],
       activeRows: [0, 1, 2],
@@ -190,7 +190,7 @@ const Topic5 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Complete VAM Procedure
           </h1>
 

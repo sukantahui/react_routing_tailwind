@@ -11,7 +11,7 @@ const questions = [
     explanation: "Primary technical and grammatical reason for return type exclusion.",
     hint: "Caller may discard the return value, making the call site completely ambiguous.",
     level: "basic",
-    codeExample: "// If int m(int) and double m(int) existed: m(10); -> Which one to run?"
+    codeExample: "// If int m(int) and double m(int) existed: m(10); → Which one to run?"
   },
   {
     question: "What is the exact definition of a Method Signature according to JLS §8.4.2?",
@@ -19,7 +19,7 @@ const questions = [
     explanation: "Official Java Language Specification method signature definition.",
     hint: "Signature = Method Name + Parameter Types only.",
     level: "basic",
-    codeExample: "// Declaration: public static int add(int a, int b) -> Signature: add(int, int)"
+    codeExample: "// Declaration: public static int add(int a, int b) → Signature: add(int, int)"
   },
   {
     question: "What happens if you define `int compute(int x)` and `double compute(int x)` in the same Java class?",
@@ -75,7 +75,7 @@ const questions = [
     explanation: "Numerical precision distinction.",
     hint: "Integer ₹18,001 vs Double ₹18,000.75.",
     level: "basic",
-    codeExample: "getFeeAsInteger(101) -> 18001 | getFeeAsDouble(101) -> 18000.75"
+    codeExample: "getFeeAsInteger(101) → 18001 | getFeeAsDouble(101) → 18000.75"
   },
   {
     question: "How does the JVM bytecode represent method descriptors?",
@@ -171,7 +171,7 @@ const questions = [
     explanation: "Tuhina record inquiry.",
     hint: "\"₹15,500.50\".",
     level: "basic",
-    codeExample: "getFeeAsFormattedString(102) -> \"₹15,500.50\""
+    codeExample: "getFeeAsFormattedString(102) → \"₹15,500.50\""
   },
   {
     question: "What would happen if Java allowed return-type overloading inside lambda expressions?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "Database simulation default branch.",
     hint: "₹10,000.00 default fee.",
     level: "basic",
-    codeExample: "queryDatabaseFee(999) -> 10000.00"
+    codeExample: "queryDatabaseFee(999) → 10000.00"
   },
   {
     question: "Can an annotation method in Java be overloaded by return type?",

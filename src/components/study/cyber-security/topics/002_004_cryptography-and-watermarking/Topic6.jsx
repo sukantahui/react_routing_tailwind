@@ -51,7 +51,7 @@ const Topic6 = () => {
     key_length: {
       key: "key_length",
       name: "4. Key Length & Security Margins",
-      symmetricValue: "AES-128 (128 bits) / AES-256 (256 bits) -> Optimal Shannon diffusion",
+      symmetricValue: "AES-128 (128 bits) / AES-256 (256 bits) → Optimal Shannon diffusion",
       asymmetricValue: "RSA-2048 (2048 bits) / RSA-4096 (4096 bits) / ECC-256 (256 bits)",
       ratio: "ECC-256 matches RSA-3072 security with 10x smaller key size",
       technicalVerdict: "Symmetric provides maximum bits of security per byte of key material.",
@@ -211,7 +211,7 @@ const Topic6 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_004 • Topic 6 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Symmetric vs Asymmetric Encryption Comparison
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

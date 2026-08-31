@@ -14,9 +14,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
       - Standard idiom: 'stream.toArray(TypeName[]::new)'.
 
 2. PRIMITIVE STREAMS:
-   - 'IntStream.toArray()' -> returns primitive 'int[]'.
-   - 'LongStream.toArray()' -> returns primitive 'long[]'.
-   - 'DoubleStream.toArray()' -> returns primitive 'double[]'.
+   - 'IntStream.toArray()' → returns primitive 'int[]'.
+   - 'LongStream.toArray()' → returns primitive 'long[]'.
+   - 'DoubleStream.toArray()' → returns primitive 'double[]'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

@@ -32,9 +32,9 @@ SELECT
     ROUND(@@innodb_buffer_pool_size / 1024 / 1024 / 1024, 2) AS size_gb;
 
 -- 2. DEDICATED DATABASE SERVER SIZING GUIDELINE:
--- Server RAM = 64 GB -> Set innodb_buffer_pool_size = 48 GB (75%)
--- Server RAM = 128 GB -> Set innodb_buffer_pool_size = 96 GB (75%)
--- Server RAM = 256 GB -> Set innodb_buffer_pool_size = 192 GB (75%)
+-- Server RAM = 64 GB → Set innodb_buffer_pool_size = 48 GB (75%)
+-- Server RAM = 128 GB → Set innodb_buffer_pool_size = 96 GB (75%)
+-- Server RAM = 256 GB → Set innodb_buffer_pool_size = 192 GB (75%)
 
 -- 3. SHARED APPLICATION SERVER (MySQL + Node.js / Redis):
 -- Set innodb_buffer_pool_size = 25% - 40% of physical RAM!
@@ -162,7 +162,7 @@ WHERE reads.variable_name = 'Innodb_buffer_pool_reads';
               Memory Tuning Guide
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Configuring Buffer Pool Size (innodb_buffer_pool_size) and Tuning Memory Parameters
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -291,7 +291,7 @@ WHERE reads.variable_name = 'Innodb_buffer_pool_reads';
 
                 <rect x="65" y="255" width="445" height="30" rx="4" fill="#0f172a" stroke="#047857" />
                 <text x="287" y="275" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">
-                  8 Independent Instances (6 GB each) &rarr; Zero Mutex Contention ⚡
+                  8 Independent Instances (6 GB each) → Zero Mutex Contention ⚡
                 </text>
 
                 {/* Block 2: Global Buffers (4 GB) */}

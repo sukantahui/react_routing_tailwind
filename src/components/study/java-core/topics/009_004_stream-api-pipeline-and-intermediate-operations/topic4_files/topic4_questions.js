@@ -5,7 +5,7 @@ const topic4_questions = [
     "explanation": "The separation allows clear intent regarding whether keys, values, or entries are being processed.",
     "hint": "Map does not extend Collection; use entrySet(), keySet(), or values().",
     "level": "Beginner",
-    "codeExample": "map.entrySet().stream().filter(e -> e.getValue() > 50).forEach(e -> System.out.println(e.getKey()));"
+    "codeExample": "map.entrySet().stream().filter(e → e.getValue() > 50).forEach(e → System.out.println(e.getKey()));"
   },
   {
     "question": "Does calling list.stream() modify or lock the underlying list?",
@@ -13,7 +13,7 @@ const topic4_questions = [
     "explanation": "Non-interference is a core rule of the Stream API.",
     "hint": "Stream does not copy or lock the collection, but concurrent modification must be avoided.",
     "level": "Intermediate",
-    "codeExample": "// Avoid modifying source during stream execution:\\nlist.stream().forEach(x -> list.add('new')); // Throws ConcurrentModificationException!"
+    "codeExample": "// Avoid modifying source during stream execution:\\nlist.stream().forEach(x → list.add('new')); // Throws ConcurrentModificationException!"
   }
 ];
 

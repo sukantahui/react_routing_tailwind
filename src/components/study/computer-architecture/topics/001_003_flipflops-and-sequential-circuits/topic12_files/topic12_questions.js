@@ -6,7 +6,7 @@ const questions = [
     "explanation": "Analysis starts with known input stimuli and determines the resulting output state Q(t+1). Synthesis starts with the desired sequential state sequence and determines the necessary input signals.",
     "hint": "Think analysis vs synthesis / forward vs reverse mapping.",
     "level": "basic",
-    "codeExample": "// Characteristic: [Inputs, Q(t)] -> Q(t+1)\n// Excitation:     [Q(t), Q(t+1)] -> Inputs"
+    "codeExample": "// Characteristic: [Inputs, Q(t)] → Q(t+1)\n// Excitation:     [Q(t), Q(t+1)] → Inputs"
   },
   {
     "question": "What is the mnemonic shortcut to remember the JK flip-flop excitation table?",
@@ -14,7 +14,7 @@ const questions = [
     "explanation": "For transitions 0->0, 0->1, 1->0, 1->1: J is 0, 1, X, X and K is X, X, 1, 0. This symmetry makes it easy to write down during exams without deriving from scratch.",
     "hint": "Remember 01XX for J and XX10 for K.",
     "level": "basic",
-    "codeExample": "// Q(t)->Q(t+1) | J  K\n// 0 -> 0       | 0  X\n// 0 -> 1       | 1  X\n// 1 -> 0       | X  1\n// 1 -> 1       | X  0"
+    "codeExample": "// Q(t)->Q(t+1) | J  K\n// 0 → 0       | 0  X\n// 0 → 1       | 1  X\n// 1 → 0       | X  1\n// 1 → 1       | X  0"
   },
   {
     "question": "Why is the D flip-flop excitation table the simplest among all flip-flops?",
@@ -38,7 +38,7 @@ const questions = [
     "explanation": "This systematic method works for converting any flip-flop type to any other (e.g., SR to JK, JK to D, D to T) by utilizing Don't-Care conditions in the K-Maps.",
     "hint": "Combine target behavior with available excitation needs.",
     "level": "moderate",
-    "codeExample": "// Conversion Flow:\n// [Target Inputs + Q] -> Q_next -> [Available Inputs via Excitation]"
+    "codeExample": "// Conversion Flow:\n// [Target Inputs + Q] → Q_next → [Available Inputs via Excitation]"
   },
   {
     "question": "Characteristic vs Excitation Analysis Question 6: Explain how Don't-Care (X) conditions in excitation tables simplify combinational synthesis logic.",

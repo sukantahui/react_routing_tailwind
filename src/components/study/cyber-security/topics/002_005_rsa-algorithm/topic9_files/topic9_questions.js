@@ -8,7 +8,7 @@ const questions = [
     codeExample: `// The Man-in-the-Middle Public Key Substitution Attack (Without PKI):
 Client <---> [ Attacker Intercepts & Replaces Public Key ] <---> Server
 Outcome: Attacker decrypts all traffic transparently!
-PKI Defense: Server presents X.509 Certificate signed by Trusted CA -> Client verifies signature!`
+PKI Defense: Server presents X.509 Certificate signed by Trusted CA → Client verifies signature!`
   },
   {
     question: "What are the core functional components of a complete Public Key Infrastructure (PKI)?",
@@ -30,7 +30,7 @@ PKI Defense: Server presents X.509 Certificate signed by Trusted CA -> Client ve
     level: "moderate",
     codeExample: `// CRL vs OCSP Comparison:
 CRL (RFC 5280): Client downloads 5 MB list of ALL revoked certificates (High Latency & Stale Data)
-OCSP (RFC 6960): Client queries: "Is Serial #0x4A7B revoked?" -> CA replies: "Good" (Lightweight & Real-Time)`
+OCSP (RFC 6960): Client queries: "Is Serial #0x4A7B revoked?" → CA replies: "Good" (Lightweight & Real-Time)`
   },
   {
     question: "What is 'OCSP Stapling' (Certificate Status Request / RFC 6066), and how does it resolve the privacy and performance flaws of standard OCSP?",
@@ -64,7 +64,7 @@ End-Entities:  Class 3 DSC Holders (MCA21, e-Tendering, GST, High Court DSCs)`
     codeExample: `// ACME Protocol Automated Lifecycle:
 1. Certbot Agent requests certificate for: api.example.com
 2. ACME CA issues Challenge: "Place token at http://api.example.com/.well-known/acme-challenge/xyz"
-3. Certbot provisions token -> ACME CA verifies via HTTP GET
+3. Certbot provisions token → ACME CA verifies via HTTP GET
 4. ACME CA signs X.509 Certificate and transmits to server (100% AUTOMATED!)`
   },
   {
@@ -93,7 +93,7 @@ End-Entities:  Class 3 DSC Holders (MCA21, e-Tendering, GST, High Court DSCs)`
 2. Video KYC:   Live 20-second video recording displaying physical identity cards
 3. RA Approval: Licensed CA verifies credentials against UIDAI / NSDL databases
 4. Keygen:      RSA-2048 key pair generated directly inside FIPS USB Token
-5. Issuance:    CA signs public key -> DSC loaded into USB Token!`
+5. Issuance:    CA signs public key → DSC loaded into USB Token!`
   },
   {
     question: "What is 'Certificate Transparency' (CT / RFC 6962), and how does it prevent rogue Certificate Authorities from issuing fraudulent SSL certificates in secret?",
@@ -102,9 +102,9 @@ End-Entities:  Class 3 DSC Holders (MCA21, e-Tendering, GST, High Court DSCs)`
     hint: "Think of an immutable public land registry ledger where every new deed must be published openly before it becomes legally valid.",
     level: "expert",
     codeExample: `// Certificate Transparency (CT) Merkle Tree Flow:
-1. CA prepares pre-certificate -> Submits to 3 independent CT Log Servers
-2. CT Logs append certificate to Merkle Tree -> Return Signed Certificate Timestamps (SCTs)
-3. CA embeds SCTs into final X.509 Certificate -> Delivers to domain owner
+1. CA prepares pre-certificate → Submits to 3 independent CT Log Servers
+2. CT Logs append certificate to Merkle Tree → Return Signed Certificate Timestamps (SCTs)
+3. CA embeds SCTs into final X.509 Certificate → Delivers to domain owner
 4. Web Browser: Validates SCTs during TLS Handshake (Rejects unlogged certificates!)`
   },
   {
@@ -115,8 +115,8 @@ End-Entities:  Class 3 DSC Holders (MCA21, e-Tendering, GST, High Court DSCs)`
     level: "moderate",
     codeExample: `// Mutual TLS (mTLS) Handshake Flow:
 1. Client connects to Server
-2. Server presents X.509 Server Certificate -> Client verifies Server CA
-3. Server sends CertificateRequest -> Client presents X.509 Client Certificate
+2. Server presents X.509 Server Certificate → Client verifies Server CA
+3. Server sends CertificateRequest → Client presents X.509 Client Certificate
 4. Server verifies Client Certificate against Internal Private CA Root
 Outcome: 100% Zero-Trust Cryptographic Machine-to-Machine Authentication!`
   },

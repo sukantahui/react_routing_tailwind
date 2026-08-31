@@ -276,44 +276,44 @@ app.get('/api/research/grants', async (req, res) => {
       if (isPayloadMalicious) {
         vulnAstStatus = "AST MUTATED: Injected Boolean OR Clause (Tautology Created)";
         vulnOutcome = "VULNERABILITY EXPLOITED: Authentication Bypassed! Logged in as Merchant Admin!";
-        vulnResponseData = 'HTTP 200 OK -> { "success": true, "token": "JWT_UNAUTHORIZED_ADMIN_SESSION", "account": "Mamata_FinTech_Primary" }';
+        vulnResponseData = 'HTTP 200 OK → { "success": true, "token": "JWT_UNAUTHORIZED_ADMIN_SESSION", "account": "Mamata_FinTech_Primary" }';
       } else {
         vulnAstStatus = "Standard AST";
         vulnOutcome = "Normal Evaluation (No Exploit Triggered)";
-        vulnResponseData = 'HTTP 401 Unauthorized -> { "error": "Invalid credentials" }';
+        vulnResponseData = 'HTTP 401 Unauthorized → { "error": "Invalid credentials" }';
       }
     } else if (activeSandboxScenario === "barrackpore_scada_order_by") {
       vulnExecutedQuery = `SELECT * FROM breaker_telemetry ORDER BY ${customExploitPayload} DESC`;
       if (isPayloadMalicious) {
         vulnAstStatus = "AST MUTATED: Stacked Query / Subquery Injected into ORDER BY";
         vulnOutcome = "VULNERABILITY EXPLOITED: Injected Command Executed on SCADA Database!";
-        vulnResponseData = 'HTTP 200 OK -> Telemetry Logs returned with 5000ms delay (pg_sleep executed!)';
+        vulnResponseData = 'HTTP 200 OK → Telemetry Logs returned with 5000ms delay (pg_sleep executed!)';
       } else {
         vulnAstStatus = "Standard AST";
         vulnOutcome = "Normal Sorted Result Set";
-        vulnResponseData = 'HTTP 200 OK -> [ { "id": 1, "voltage": 220.4, "freq": 50.0 } ]';
+        vulnResponseData = 'HTTP 200 OK → [ { "id": 1, "voltage": 220.4, "freq": 50.0 } ]';
       }
     } else if (activeSandboxScenario === "ichapur_hospital_in_array") {
       vulnExecutedQuery = `SELECT * FROM oncology_records WHERE id IN (${customExploitPayload})`;
       if (isPayloadMalicious) {
         vulnAstStatus = "AST MUTATED: Injected Parenthesis Breakout & OR Condition";
         vulnOutcome = "VULNERABILITY EXPLOITED: All 120,000 Oncology Patient Records Dumped!";
-        vulnResponseData = 'HTTP 200 OK -> [ 120,000 Patient Records Exfiltrated ]';
+        vulnResponseData = 'HTTP 200 OK → [ 120,000 Patient Records Exfiltrated ]';
       } else {
         vulnAstStatus = "Standard AST";
         vulnOutcome = "Matched Single Patient Record";
-        vulnResponseData = 'HTTP 200 OK -> [ { "id": 101, "patient": "Patient_A" } ]';
+        vulnResponseData = 'HTTP 200 OK → [ { "id": 101, "patient": "Patient_A" } ]';
       }
     } else {
       vulnExecutedQuery = `SELECT id, project_name, grant_amount FROM research_grants WHERE department = '${customExploitPayload}'`;
       if (isPayloadMalicious) {
         vulnAstStatus = "AST MUTATED: UNION Branch Created (Result Set Spliced)";
         vulnOutcome = "VULNERABILITY EXPLOITED: System Password Hashes Dumped in Response!";
-        vulnResponseData = 'HTTP 200 OK -> [ { "id": 1, "project_name": "sha256$8f9d2...", "grant_amount": "admin" } ]';
+        vulnResponseData = 'HTTP 200 OK → [ { "id": 1, "project_name": "sha256$8f9d2...", "grant_amount": "admin" } ]';
       } else {
         vulnAstStatus = "Standard AST";
         vulnOutcome = "Department Grants Returned";
-        vulnResponseData = 'HTTP 200 OK -> [ { "id": 10, "project_name": "Quantum Crypto", "grant_amount": "₹45,00,000" } ]';
+        vulnResponseData = 'HTTP 200 OK → [ { "id": 10, "project_name": "Quantum Crypto", "grant_amount": "₹45,00,000" } ]';
       }
     }
 
@@ -325,16 +325,16 @@ app.get('/api/research/grants', async (req, res) => {
 
     if (activeSandboxScenario === "kolkata_upi_auth_bypass") {
       remedExecutedQuery = `SELECT id, password_hash, role FROM merchants WHERE tax_id = $1 [Param: "${customExploitPayload}"]`;
-      remedResponseData = 'HTTP 401 Unauthorized -> { "error": "Invalid credentials" } (Payload checked as literal tax ID; Bcrypt rejected!)';
+      remedResponseData = 'HTTP 401 Unauthorized → { "error": "Invalid credentials" } (Payload checked as literal tax ID; Bcrypt rejected!)';
     } else if (activeSandboxScenario === "barrackpore_scada_order_by") {
       remedExecutedQuery = 'SELECT id, busbar_voltage, grid_frequency, created_at FROM breaker_telemetry ORDER BY created_at DESC (Fallback Column)';
-      remedResponseData = 'HTTP 200 OK -> Telemetry Logs returned safely (Invalid sort string ignored; Fell back to created_at in 1ms)';
+      remedResponseData = 'HTTP 200 OK → Telemetry Logs returned safely (Invalid sort string ignored; Fell back to created_at in 1ms)';
     } else if (activeSandboxScenario === "ichapur_hospital_in_array") {
       remedExecutedQuery = `SELECT id, patient_name, diagnosis FROM oncology_records WHERE id = ANY($1::int[]) [Param: [${customExploitPayload}]]`;
-      remedResponseData = 'HTTP 400 Bad Request / 0 Records -> { "error": "Input does not conform to integer array" } (Zero records leaked!)';
+      remedResponseData = 'HTTP 400 Bad Request / 0 Records → { "error": "Input does not conform to integer array" } (Zero records leaked!)';
     } else {
       remedExecutedQuery = `SELECT id, project_name, grant_amount FROM research_grants WHERE department = $1 [Param: "${customExploitPayload}"]`;
-      remedResponseData = 'HTTP 200 OK -> [] (0 records matched the literal string "Physics\' UNION SELECT...")';
+      remedResponseData = 'HTTP 200 OK → [] (0 records matched the literal string "Physics\' UNION SELECT...")';
     }
 
     return {

@@ -89,12 +89,12 @@ const Topic0 = () => {
             Module 005_005 · Animation & Motion Logic · Topic 0
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
             Frame-Based Animation & Frames Per Second (FPS)
           </h1>
 
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Unravel the core physics and graphics engine loop. Master the 4-stage <span className="text-emerald-400 font-bold">Clear &rarr; Update &rarr; Render &rarr; Flush</span> pipeline, <span className="text-cyan-300 font-semibold">60 FPS pacing budgets (16.6 ms)</span>, and smooth delta-time calculations.
+            Unravel the core physics and graphics engine loop. Master the 4-stage <span className="text-emerald-400 font-bold">Clear → Update → Render → Flush</span> pipeline, <span className="text-cyan-300 font-semibold">60 FPS pacing budgets (16.6 ms)</span>, and smooth delta-time calculations.
           </p>
 
           <div className="flex justify-center gap-4 flex-wrap pt-2">
@@ -349,7 +349,7 @@ const Topic0 = () => {
           <h3 className="text-xl font-semibold text-emerald-400 mb-3">📝 Student Mastery Checklist</h3>
           <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
             {[
-              "I understand the universal 4-stage Game/Animation Loop (Clear -> Update -> Draw -> Flush)",
+              "I understand the universal 4-stage Game/Animation Loop (Clear → Update → Draw → Flush)",
               "I know why 60 FPS requires completing each frame within a 16.6 millisecond budget",
               "I always use `t.clear()` instead of `t.reset()` to erase previous frame geometry",
               "I know how to pace frame timing using delta-time subtraction and `time.sleep()`",

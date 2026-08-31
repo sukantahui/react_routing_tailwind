@@ -34,7 +34,7 @@ const questions = [
     explanation: "Excel reserves all built-in function names and standard cell coordinates (like C2) to prevent namespace ambiguity.",
     hint: "Excel blocks registration of reserved keywords.",
     level: "basic",
-    codeExample: "Name Collision &rarr; 'Name is invalid' error"
+    codeExample: "Name Collision → 'Name is invalid' error"
   },
   {
     question: "How do you export a corporate LAMBDA library without third-party add-ins?",
@@ -66,7 +66,7 @@ const questions = [
     explanation: "If defined names are missing, formulas evaluate to #NAME? in the destination workbook.",
     hint: "Pre-register defined names or copy library sheet.",
     level: "moderate",
-    codeExample: "Missing Defined Names &rarr; #NAME? Error"
+    codeExample: "Missing Defined Names → #NAME? Error"
   },
   {
     question: "What is the recommended versioning strategy for corporate LAMBDA libraries (e.g. Semantic Versioning)?",

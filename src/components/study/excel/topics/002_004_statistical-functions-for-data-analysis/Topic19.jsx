@@ -71,7 +71,7 @@ export default function Topic19() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             LARGE Function (Top N Value Extraction)
           </h1>
 
@@ -271,7 +271,7 @@ export default function Topic19() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic19_LARGE_Function__To"
+            sheetName="EX920"
             title="Module 2.4 - LARGE Function (Top N Value Extraction)"
             rowsPerPage={25}
             showSheetSelector={true}

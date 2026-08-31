@@ -57,7 +57,7 @@ const questions = [
     question: "What is the difference between short-circuit OR (`||`) and eager logical OR (`|`)?",
     shortAnswer: "`||` skips the right operand if the left operand is `true`; `|` always evaluates both sides.",
     explanation: "If the first condition of `||` is `true`, the overall expression is guaranteed to be `true`, so Java skips the second condition for performance and safety.",
-    hint: "Left is true -> || stops evaluating.",
+    hint: "Left is true → || stops evaluating.",
     level: "intermediate",
     codeExample: "boolean passed = (score >= 90) || (++attempts > 3);"
   },

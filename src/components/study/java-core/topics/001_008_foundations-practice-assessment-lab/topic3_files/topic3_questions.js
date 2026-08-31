@@ -9,7 +9,7 @@ const questions = [
     question: "What is Matrix Spiral Traversal?",
     shortAnswer: "An algorithm that visits every element of an $R \\times C$ 2D matrix in clockwise spiral order: Top Row (left $\\to$ right), Right Column (top $\\to$ bottom), Bottom Row (right $\\to$ left), and Left Column (bottom $\\to$ top).",
     explanation: "Core definition of spiral matrix traversal.",
-    hint: "Clockwise traversal: Top -> Right -> Bottom -> Left boundaries.",
+    hint: "Clockwise traversal: Top → Right → Bottom → Left boundaries.",
     level: "basic",
     codeExample: "List<Integer> result = spiralOrderTraversal(matrix);"
   },
@@ -51,13 +51,13 @@ const questions = [
     explanation: "3x4 spiral output verification.",
     hint: "[1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7].",
     level: "basic",
-    codeExample: "spiralOrderTraversal(campusSeating) -> [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]"
+    codeExample: "spiralOrderTraversal(campusSeating) → [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]"
   },
   {
     question: "What are the TWO steps to rotate an $N \\times N$ square matrix by 90 degrees Clockwise IN-PLACE?",
     shortAnswer: "1. **Transpose the Matrix** (Swap `matrix[i][j]` with `matrix[j][i]` across main diagonal). 2. **Reverse each Row horizontally** (Two-pointer swap).",
     explanation: "The 2-step in-place 90-degree clockwise rotation formula.",
-    hint: "Step 1: Transpose matrix -> Step 2: Reverse each row horizontally.",
+    hint: "Step 1: Transpose matrix → Step 2: Reverse each row horizontally.",
     level: "basic",
     codeExample: "// Transpose + Horizontal Row Reversal = 90° Clockwise Rotation"
   },
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Row to column transformation in 90-degree rotation.",
     hint: "Row 0 becomes the rightmost Column 3.",
     level: "basic",
-    codeExample: "row 0: [10, 20, 30, 40] -> col 3: [10, 20, 30, 40]"
+    codeExample: "row 0: [10, 20, 30, 40] → col 3: [10, 20, 30, 40]"
   },
   {
     question: "Can an $R \\times C$ non-square rectangular matrix (e.g. 3x4) be rotated 90 degrees strictly in-place?",
@@ -161,7 +161,7 @@ const questions = [
     question: "What is the 'Transpose of a Matrix' mathematically?",
     shortAnswer: "An operation that flips a matrix over its main diagonal, switching the row and column indices of every element ($A^T[i][j] = A[j][i]$).",
     explanation: "Matrix transpose mathematical definition.",
-    hint: "Flips matrix over diagonal, exchanging rows and columns (A[i][j] -> A[j][i]).",
+    hint: "Flips matrix over diagonal, exchanging rows and columns (A[i][j] → A[j][i]).",
     level: "basic",
     codeExample: "matrix[i][j] <-> matrix[j][i]"
   },
@@ -179,7 +179,7 @@ const questions = [
     explanation: "Corner cell coordinate transformation.",
     hint: "Moved from bottom-right (3, 3) to bottom-left (3, 0).",
     level: "basic",
-    codeExample: "matrix[3][3] (85) -> matrix[3][0] (85)"
+    codeExample: "matrix[3][3] (85) → matrix[3][0] (85)"
   },
   {
     question: "What is the condition to stop the Spiral Matrix Traversal while-loop?",

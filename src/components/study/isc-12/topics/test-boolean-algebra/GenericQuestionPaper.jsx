@@ -135,7 +135,7 @@ export default function GenericQuestionPaper({
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-800 to-purple-800 text-white p-6">
           <div className="text-center">
-            <h1 className="text-3xl font-bold">{organizationDetails?.name || "Question Paper"}</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">{organizationDetails?.name || "Question Paper"}</h1>
             {organizationDetails?.address && (
               <p className="text-sm mt-1 text-gray-300">{organizationDetails.address}</p>
             )}

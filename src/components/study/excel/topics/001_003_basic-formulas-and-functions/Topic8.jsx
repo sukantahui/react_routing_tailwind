@@ -71,7 +71,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Quick Check Quiz: Core Mathematical Functions, BODMAS &amp; Aggregation Foundations
           </h1>
 
@@ -275,7 +275,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Test_Your_Skill"
+            sheetName="Topic8"
             title="Module 1.3 - Quick Check Quiz: Core Mathematical Functions, BODMAS &amp; Aggregation Foundations"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -381,8 +381,8 @@ export default function Topic8() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">QC_Step</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Verification_Method</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula Coverage</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Special &amp;rarr; Formulas</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Dynamic Formulas</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Error Check</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status Bar / Formulas &amp;rarr; Error Checking</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 #DIV/0! or #VALUE! Errors</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula Coverage</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 → Special → Formulas</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Dynamic Formulas</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Error Check</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status Bar / Formulas → Error Checking</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 #DIV/0! or #VALUE! Errors</td></tr>
                   </tbody>
                 </table>
               </div>

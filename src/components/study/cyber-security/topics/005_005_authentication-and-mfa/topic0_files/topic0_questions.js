@@ -146,7 +146,7 @@ const questions = [
     level: "Basic",
     codeExample: `// Signed Accounting Audit Entry:
 // Timestamp: 2026-08-23T14:22:10Z | User: susmita | NAS-IP: 10.14.0.1 | Port: Gi1/0/24
-// Command: "router bgp 65001 -> neighbor 10.14.0.2 shutdown" | HMAC: d8f9b1c2... ✔`
+// Command: "router bgp 65001 → neighbor 10.14.0.2 shutdown" | HMAC: d8f9b1c2... ✔`
   },
   {
     id: 14,

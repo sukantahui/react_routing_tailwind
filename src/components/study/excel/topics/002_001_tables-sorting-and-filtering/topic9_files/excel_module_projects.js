@@ -21,7 +21,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX601",
       "formula": "=IFERROR(XLOOKUP(A4, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX601 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX601.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX101 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX601.",
       "requirements": [
         "Open worksheet tab **EX601** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -45,7 +45,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX602",
       "formula": "=IFERROR(XLOOKUP(A5, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX602 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX602.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX102 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX602.",
       "requirements": [
         "Open worksheet tab **EX602** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -69,7 +69,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX603",
       "formula": "=IFERROR(XLOOKUP(A6, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX603 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX603.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX103 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX603.",
       "requirements": [
         "Open worksheet tab **EX603** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -93,7 +93,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX604",
       "formula": "=IFERROR(XLOOKUP(A7, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX604 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX604.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX104 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX604.",
       "requirements": [
         "Open worksheet tab **EX604** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -117,7 +117,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX605",
       "formula": "=IFERROR(XLOOKUP(A8, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX605 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX605.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX105 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX605.",
       "requirements": [
         "Open worksheet tab **EX605** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -141,7 +141,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX606",
       "formula": "=IFERROR(XLOOKUP(A9, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX606 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX606.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX106 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX606.",
       "requirements": [
         "Open worksheet tab **EX606** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -165,7 +165,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX607",
       "formula": "=IFERROR(XLOOKUP(A10, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX607 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX607.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX107 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX607.",
       "requirements": [
         "Open worksheet tab **EX607** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -189,7 +189,7 @@ export const excelModuleProjectsData = {
       "difficulty": "beginner",
       "sheetName": "EX608",
       "formula": "=IFERROR(XLOOKUP(A11, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX608 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX608.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX108 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX608.",
       "requirements": [
         "Open worksheet tab **EX608** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -213,7 +213,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX609",
       "formula": "=IFERROR(XLOOKUP(A12, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX609 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX609.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX109 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX609.",
       "requirements": [
         "Open worksheet tab **EX609** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -237,7 +237,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX610",
       "formula": "=IFERROR(XLOOKUP(A13, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX610 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX610.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX610.",
       "requirements": [
         "Open worksheet tab **EX610** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -261,7 +261,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX611",
       "formula": "=IFERROR(XLOOKUP(A14, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX611 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX611.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX611.",
       "requirements": [
         "Open worksheet tab **EX611** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -285,7 +285,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX612",
       "formula": "=IFERROR(XLOOKUP(A15, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX612 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX612.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX612.",
       "requirements": [
         "Open worksheet tab **EX612** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -309,7 +309,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX613",
       "formula": "=IFERROR(XLOOKUP(A16, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX613 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX613.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX613.",
       "requirements": [
         "Open worksheet tab **EX613** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -333,7 +333,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX614",
       "formula": "=IFERROR(XLOOKUP(A17, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX614 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX614.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX614.",
       "requirements": [
         "Open worksheet tab **EX614** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -357,7 +357,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX615",
       "formula": "=IFERROR(XLOOKUP(A18, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX615 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX615.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX615.",
       "requirements": [
         "Open worksheet tab **EX615** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -381,7 +381,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX616",
       "formula": "=IFERROR(XLOOKUP(A19, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX616 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX616.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX616.",
       "requirements": [
         "Open worksheet tab **EX616** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -405,7 +405,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX617",
       "formula": "=IFERROR(XLOOKUP(A20, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX617 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX617.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX617.",
       "requirements": [
         "Open worksheet tab **EX617** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -429,7 +429,7 @@ export const excelModuleProjectsData = {
       "difficulty": "intermediate",
       "sheetName": "EX618",
       "formula": "=IFERROR(XLOOKUP(A21, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX618 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX618.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX618.",
       "requirements": [
         "Open worksheet tab **EX618** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -453,7 +453,7 @@ export const excelModuleProjectsData = {
       "difficulty": "advanced",
       "sheetName": "EX619",
       "formula": "=IFERROR(XLOOKUP(A22, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX619 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX619.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX619.",
       "requirements": [
         "Open worksheet tab **EX619** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -477,7 +477,7 @@ export const excelModuleProjectsData = {
       "difficulty": "advanced",
       "sheetName": "EX620",
       "formula": "=IFERROR(XLOOKUP(A23, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX620 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX620.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX620.",
       "requirements": [
         "Open worksheet tab **EX620** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -501,7 +501,7 @@ export const excelModuleProjectsData = {
       "difficulty": "advanced",
       "sheetName": "EX621",
       "formula": "=IFERROR(XLOOKUP(A24, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX621 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX621.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX621.",
       "requirements": [
         "Open worksheet tab **EX621** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -525,7 +525,7 @@ export const excelModuleProjectsData = {
       "difficulty": "advanced",
       "sheetName": "EX622",
       "formula": "=IFERROR(XLOOKUP(A25, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX622 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX622.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX622.",
       "requirements": [
         "Open worksheet tab **EX622** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -549,7 +549,7 @@ export const excelModuleProjectsData = {
       "difficulty": "advanced",
       "sheetName": "EX623",
       "formula": "=IFERROR(XLOOKUP(A26, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX623 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX623.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX623.",
       "requirements": [
         "Open worksheet tab **EX623** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -573,7 +573,7 @@ export const excelModuleProjectsData = {
       "difficulty": "advanced",
       "sheetName": "EX624",
       "formula": "=IFERROR(XLOOKUP(A27, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX624 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX624.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX624.",
       "requirements": [
         "Open worksheet tab **EX624** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",
@@ -597,7 +597,7 @@ export const excelModuleProjectsData = {
       "difficulty": "advanced",
       "sheetName": "EX625",
       "formula": "=IFERROR(XLOOKUP(A28, Data!A:A, Data!C:C), \"Pending Audit\")",
-      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX625 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX625.",
+      "description": "As a Senior Systems Analyst, you are auditing operational data on worksheet EX110 in range B4:E30. Your objective is to structure dynamic formulas, enforce custom number formatting masks, verify underlying float memory, and ensure zero error propagation on tab EX625.",
       "requirements": [
         "Open worksheet tab **EX625** in your master workbook.",
         "Highlight range **B4:E30** and verify column data types.",

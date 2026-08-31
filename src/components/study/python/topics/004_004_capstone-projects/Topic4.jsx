@@ -41,19 +41,19 @@ export default function Topic4() {
   if (commitCategory === "FEAT") {
     calculatedNextVersion = "v1.1.0";
     sampleCommitMessage = "feat(admission): add Barrackpore regional merit grant";
-    semverExplanation = "Minor bump (1.0.0 -> 1.1.0) for new backwards-compatible functionality.";
+    semverExplanation = "Minor bump (1.0.0 → 1.1.0) for new backwards-compatible functionality.";
   } else if (commitCategory === "FIX") {
     calculatedNextVersion = "v1.0.1";
     sampleCommitMessage = "fix(ledger): prevent overpayment balance corruption in atomic transactions";
-    semverExplanation = "Patch bump (1.0.0 -> 1.0.1) for backwards-compatible bug fix.";
+    semverExplanation = "Patch bump (1.0.0 → 1.0.1) for backwards-compatible bug fix.";
   } else if (commitCategory === "DOCS") {
     calculatedNextVersion = "v1.0.0";
     sampleCommitMessage = "docs(readme): add shields.io coverage badge and quickstart guide";
-    semverExplanation = "No version bump (1.0.0 -> 1.0.0) for documentation-only changes.";
+    semverExplanation = "No version bump (1.0.0 → 1.0.0) for documentation-only changes.";
   } else if (commitCategory === "BREAKING") {
     calculatedNextVersion = "v2.0.0";
     sampleCommitMessage = "feat(api)!: migrate student ID schema to UUIDv4 format";
-    semverExplanation = "Major bump (1.0.0 -> 2.0.0) due to breaking change in API/database schema.";
+    semverExplanation = "Major bump (1.0.0 → 2.0.0) due to breaking change in API/database schema.";
   }
 
   const generatedCiSnippet = `# .github/workflows/ci.yml - Production Multi-Platform CI Matrix
@@ -165,7 +165,7 @@ jobs:
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Publishing to GitHub: <span className="text-teal-400">Commits, Releases &amp; CI/CD</span>
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">

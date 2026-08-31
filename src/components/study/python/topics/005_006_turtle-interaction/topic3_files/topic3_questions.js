@@ -223,7 +223,7 @@ const questions = [
     explanation: "This 3-step blueprint guarantees clean, intuitive mouse interaction architecture.",
     hint: "What 3 steps build interactive mouse-driven software in Turtle?",
     level: "basic",
-    codeExample: "# 1. def click(x,y) -> 2. bind screen/turtle.onclick -> 3. mainloop()"
+    codeExample: "# 1. def click(x,y) → 2. bind screen/turtle.onclick → 3. mainloop()"
   },
   {
     question: "How does mouse click handling prepare students for modern web and mobile apps?",

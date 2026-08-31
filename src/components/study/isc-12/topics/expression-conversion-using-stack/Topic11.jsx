@@ -66,7 +66,7 @@ export default function Topic11() {
 
         {/* HEADER */}
         <header className="animate-fadeUp">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
             Rules for Infix to Postfix Conversion
           </h1>
           <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
@@ -216,7 +216,7 @@ export default function Topic11() {
                 <rect x="20" y="20" width="660" height="240" rx="12" fill="#1e293b" opacity="0.05" />
                 <rect x="20" y="20" width="660" height="240" rx="12" fill="none" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="6 4" />
 
-                {/* Flow: infix token -> decision -> stack/output */}
+                {/* Flow: infix token → decision → stack/output */}
                 <g>
                   <text x="350" y="50" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#1e293b" className="dark:fill-gray-200">Conversion Process</text>
 
@@ -233,13 +233,13 @@ export default function Topic11() {
                   <text x="260" y="119" textAnchor="middle" fontSize="12" fill="#f59e0b">Type?</text>
 
                   {/* Branches */}
-                  {/* Operand -> output */}
+                  {/* Operand → output */}
                   <line x1="210" y1="105" x2="150" y2="160" stroke="#22c55e" strokeWidth="2" markerEnd="url(#arrowGreen)" />
                   <text x="160" y="175" fontSize="12" fill="#22c55e">Operand</text>
                   <rect x="100" y="180" width="100" height="30" rx="6" fill="#22c55e" opacity="0.2" />
                   <text x="150" y="200" textAnchor="middle" fontSize="14" fill="#22c55e">Output</text>
 
-                  {/* Operator -> stack */}
+                  {/* Operator → stack */}
                   <line x1="310" y1="105" x2="370" y2="160" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrowYellow)" />
                   <text x="360" y="175" fontSize="12" fill="#f59e0b">Operator</text>
                   <rect x="310" y="180" width="100" height="30" rx="6" fill="#f59e0b" opacity="0.2" />

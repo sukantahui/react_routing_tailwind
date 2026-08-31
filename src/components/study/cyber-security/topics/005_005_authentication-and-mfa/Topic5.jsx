@@ -183,7 +183,7 @@ const Topic5 = () => {
                   BCA BCAC703 • Cyber Security
                 </span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
                 SMS/Email OTPs &amp; Vulnerabilities (SIM Swapping, SS7 Interception)
               </h1>
             </div>

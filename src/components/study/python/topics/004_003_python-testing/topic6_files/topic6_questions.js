@@ -32,7 +32,7 @@ const questions = [
     explanation: "The single most common mocking mistake in Python engineering.",
     hint: "Patch where the function is imported and used, not where it is defined.",
     level: "moderate",
-    codeExample: "# In billing.py: import requests -> Patch: @patch('billing.requests.post')"
+    codeExample: "# In billing.py: import requests → Patch: @patch('billing.requests.post')"
   },
   {
     question: "How do you verify that a mock function was called exactly once with specific arguments?",

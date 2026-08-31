@@ -6,16 +6,16 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SORTED METHOD CONTRACT:
-   - 'Stream<T> sorted()' -> Natural ordering (Requires elements to implement 'Comparable<T>').
-   - 'Stream<T> sorted(Comparator<? super T> comparator)' -> Custom ordering.
+   - 'Stream<T> sorted()' → Natural ordering (Requires elements to implement 'Comparable<T>').
+   - 'Stream<T> sorted(Comparator<? super T> comparator)' → Custom ordering.
    - Intermediate & Fully Stateful operation (requires buffering ALL elements).
 
 2. COMPARATOR FACTORY METHODS:
    - 'Comparator.comparing(Function<T, U> keyExtractor)'
    - 'Comparator.comparingInt()', 'comparingDouble()', 'comparingLong()' (Zero boxing).
-   - '.reversed()' -> Reverses current sorting order.
-   - '.thenComparing(Comparator or Function)' -> Secondary tie-breaker sort.
-   - 'Comparator.nullsFirst(comp)' / 'Comparator.nullsLast(comp)' -> Null safety.
+   - '.reversed()' → Reverses current sorting order.
+   - '.thenComparing(Comparator or Function)' → Secondary tie-breaker sort.
+   - 'Comparator.nullsFirst(comp)' / 'Comparator.nullsLast(comp)' → Null safety.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

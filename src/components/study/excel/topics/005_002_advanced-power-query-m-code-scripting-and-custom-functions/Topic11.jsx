@@ -76,13 +76,13 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
             Documenting &amp; Organizing Complex Enterprise ETL Query Groups
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
             In enterprise production environments, an unorganized Power Query workspace with 50+ flat queries named "Table1" or "Query2" is a catastrophic liability. 
-            Professional data engineering demands structured <strong>Query Grouping</strong> (<code className="text-purple-300 font-mono">01_Parameters</code> &rarr; <code className="text-purple-300 font-mono">05_Facts</code>), 
+            Professional data engineering demands structured <strong>Query Grouping</strong> (<code className="text-purple-300 font-mono">01_Parameters</code> → <code className="text-purple-300 font-mono">05_Facts</code>), 
             decoupling intermediate staging queries (<code className="text-purple-300 font-mono">Enable Load = FALSE</code>), 
             and injecting native <strong>UI Metadata Documentation</strong> (<code className="text-cyan-300 font-mono">Value.ReplaceType</code>) 
             to create audit-ready, maintainable enterprise pipelines!
@@ -126,7 +126,7 @@ export default function Topic11() {
               <br />
               <span className="text-purple-400">Value.ReplaceType</span>(
               <br />
-              &nbsp;&nbsp;<span className="text-sky-300">(amt as number, taxRate as number) =&gt; amt * (1 + taxRate)</span>,
+              &nbsp;&nbsp;<span className="text-sky-300">(amt as number, taxRate as number) => amt * (1 + taxRate)</span>,
               <br />
               &nbsp;&nbsp;<span className="text-purple-400">type function</span> (
               <br />
@@ -250,7 +250,7 @@ export default function Topic11() {
                 <span>3.</span> Visual Directed Acyclic Graph (DAG) Inspection
               </h3>
               <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
-                Power Query provides a built-in topological dependency map via <strong>View &rarr; Query Dependencies</strong>. 
+                Power Query provides a built-in topological dependency map via <strong>View → Query Dependencies</strong>. 
                 Architects use this DAG diagram to spot redundant data source connections, identify circular reference bottlenecks, and verify that privacy firewall boundaries are properly aligned.
               </p>
             </div>
@@ -358,11 +358,11 @@ export default function Topic11() {
 
                 <rect x="15" y="55" width="210" height="40" rx="8" fill="#134e4a" opacity="0.6" stroke="#2dd4bf" strokeWidth="1" />
                 <text x="25" y="75" fill="#5eead4" fontSize="11" fontFamily="monospace" fontStyle="italic">* stg_ERP_Transactions</text>
-                <text x="25" y="88" fill="#99f6e4" fontSize="9">Source &rarr; Filter &rarr; Typecast</text>
+                <text x="25" y="88" fill="#99f6e4" fontSize="9">Source → Filter → Typecast</text>
 
                 <rect x="15" y="105" width="210" height="40" rx="8" fill="#134e4a" opacity="0.6" stroke="#2dd4bf" strokeWidth="1" />
                 <text x="25" y="125" fill="#5eead4" fontSize="11" fontFamily="monospace" fontStyle="italic">* stg_Master_Customers</text>
-                <text x="25" y="138" fill="#99f6e4" fontSize="9">Deduplicate &rarr; fx_CleanGSTIN</text>
+                <text x="25" y="138" fill="#99f6e4" fontSize="9">Deduplicate → fx_CleanGSTIN</text>
 
                 <rect x="15" y="155" width="210" height="40" rx="8" fill="#134e4a" opacity="0.6" stroke="#2dd4bf" strokeWidth="1" />
                 <text x="25" y="175" fill="#5eead4" fontSize="11" fontFamily="monospace" fontStyle="italic">* stg_Branch_Locations</text>
@@ -382,7 +382,7 @@ export default function Topic11() {
                   04_Dimensions &amp; 05_Facts
                 </text>
                 <text x="125" y="48" textAnchor="middle" fill="#bae6fd" fontSize="9">
-                  [Enable Load = TRUE &rarr; VertiPaq Model]
+                  [Enable Load = TRUE → VertiPaq Model]
                 </text>
 
                 {/* Fact Model */}
@@ -437,7 +437,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Query_Organize_Docs"
+            sheetName="EX2112"
             title="Enterprise Query Grouping &amp; Governance Matrix (Query Name, Folder Group, Type, Enable Load, Step Count, Primary Responsibility)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -476,7 +476,7 @@ export default function Topic11() {
                 eliminating 12 redundant duplicate queries.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Numbered Groups &rarr; 100% Audit Compliance &amp; Zero Orphan Queries
+                Numbered Groups → 100% Audit Compliance &amp; Zero Orphan Queries
               </div>
             </div>
 
@@ -494,7 +494,7 @@ export default function Topic11() {
                 Switching the entire 40-table dataset between Development and Production servers now takes a single click in Manage Parameters without touching M code!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                pServerName Switcher &rarr; 1-Click Multi-Environment Deployment
+                pServerName Switcher → 1-Click Multi-Environment Deployment
               </div>
             </div>
 
@@ -512,7 +512,7 @@ export default function Topic11() {
                 Using <code className="text-cyan-300 font-mono">Value.ReplaceType</code>, she equips the function with interactive parameter captions, default 1% and 2% contractor rates, and statutory documentation visible directly in the Power Query UI invoke dialog.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-cyan-300">
-                UI Metadata Dialog &rarr; Zero User Input Errors on TDS Deductions
+                UI Metadata Dialog → Zero User Input Errors on TDS Deductions
               </div>
             </div>
 
@@ -530,7 +530,7 @@ export default function Topic11() {
                 He creates individual staging queries in <code className="text-emerald-300 font-mono">03_Staging</code> with <code className="text-emerald-300 font-mono">Enable Load = FALSE</code> and references them into a single consolidated <code className="text-emerald-300 font-mono">Fact_ConsolidatedLogistics</code> table.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Enable Load: False &rarr; 60% VertiPaq Model Memory Reduction
+                Enable Load: False → 60% VertiPaq Model Memory Reduction
               </div>
             </div>
           </div>
@@ -604,7 +604,7 @@ in
                 Step 3: Verify Lineage in Query Dependencies View
               </h3>
               <p className="text-slate-300 leading-relaxed">
-                Navigate to <strong>View &rarr; Query Dependencies</strong>. Confirm that all data sources branch through intermediate staging nodes and terminate cleanly at the final Fact and Dimension entities.
+                Navigate to <strong>View → Query Dependencies</strong>. Confirm that all data sources branch through intermediate staging nodes and terminate cleanly at the final Fact and Dimension entities.
               </p>
             </div>
           </div>
@@ -641,7 +641,7 @@ in
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">Accidental Staging Load</td>
                   <td className="py-3 px-4">Leaving 'Enable Load' checked on intermediate staging queries.</td>
                   <td className="py-3 px-4">Inflates data model size with redundant tables and confuses end users in visual field lists.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Right-click staging query &rarr; Uncheck 'Enable Load'. Name becomes italicized.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Right-click staging query → Uncheck 'Enable Load'. Name becomes italicized.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-300">Duplicate Query Proliferation</td>
@@ -659,7 +659,7 @@ in
                   <td className="py-3 px-4 font-mono font-bold text-sky-300">Circular Dependency Deadlock</td>
                   <td className="py-3 px-4">Query A references Query B while Query B references Query A.</td>
                   <td className="py-3 px-4">Refresh crashes immediately with a circular dependency error.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Inspect <strong>View &rarr; Query Dependencies</strong> and isolate shared base steps into a staging query.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Inspect <strong>View → Query Dependencies</strong> and isolate shared base steps into a staging query.</td>
                 </tr>
               </tbody>
             </table>

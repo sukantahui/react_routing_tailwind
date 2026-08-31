@@ -30,7 +30,7 @@
         {
           "q": "What is the mandatory ordering of parameters when mixing standard, *args, and **kwargs?",
           "marks": 2,
-          "answer": "Standard Positional -> `*args` (varargs) -> Keyword-Only Parameters -> `**kwargs` (keyword varargs).\n\n```python\ndef handler(req_id, *flags, timeout=30, **headers):\n    pass\n```"
+          "answer": "Standard Positional → `*args` (varargs) → Keyword-Only Parameters → `**kwargs` (keyword varargs).\n\n```python\ndef handler(req_id, *flags, timeout=30, **headers):\n    pass\n```"
         },
         {
           "q": "What is argument unpacking using '*' and '**' at function call sites?",

@@ -32,7 +32,7 @@ export default function Topic13() {
             Restricted Instantiation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Private Constructors: Preventing Instantiation &amp; Singletons
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -88,7 +88,7 @@ export default function Topic13() {
             <rect x="490" y="80" width="380" height="95" rx="6" fill="#064e3b" fillOpacity="0.3" stroke="#10b981" strokeWidth="1" />
             <text x="505" y="105" fill="#a7f3d0" fontSize="10" fontFamily="monospace">CentralAcademicRegistry instance (SINGLETON)</text>
             <text x="505" y="130" fill="#fde047" fontSize="9">Private Constructor ran ONCE on first call</text>
-            <text x="505" y="155" fill="#a7f3d0" fontSize="9">reg1 == reg2 &rarr; true</text>
+            <text x="505" y="155" fill="#a7f3d0" fontSize="9">reg1 == reg2 → true</text>
           </svg>
         </div>
       </section>

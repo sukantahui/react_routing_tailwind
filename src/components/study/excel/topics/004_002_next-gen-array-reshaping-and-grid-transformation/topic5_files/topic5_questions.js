@@ -82,7 +82,7 @@ const questions = [
     explanation: "Unlike CHOOSEROWS which throws #VALUE! for out-of-bounds indices, TAKE gracefully returns all available rows if you ask for more rows than exist.",
     hint: "TAKE caps at the available array boundaries.",
     level: "moderate",
-    codeExample: "=TAKE(A2:D5, 100) &rarr; Returns all 4 rows"
+    codeExample: "=TAKE(A2:D5, 100) → Returns all 4 rows"
   },
   {
     question: "How does TAKE differ from DROP?",

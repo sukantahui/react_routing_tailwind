@@ -76,7 +76,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Overview of Excel 365 Array Manipulation & Reshaping Functions
           </h1>
 
@@ -130,7 +130,7 @@ export default function Topic0() {
                   <th className="py-3 px-4">Function</th>
                   <th className="py-3 px-4">Family / Category</th>
                   <th className="py-3 px-4">Standard Syntax</th>
-                  <th className="py-3 px-4">Input &rarr; Output Shape</th>
+                  <th className="py-3 px-4">Input → Output Shape</th>
                   <th className="py-3 px-4">Primary Purpose</th>
                 </tr>
               </thead>
@@ -139,77 +139,77 @@ export default function Topic0() {
                   <td className="py-3 px-4 font-bold text-sky-300">TOCOL</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Vector Flattening</td>
                   <td className="py-3 px-4 text-amber-300">=TOCOL(array, [ignore], [scan])</td>
-                  <td className="py-3 px-4 font-sans text-emerald-400">2D Matrix &rarr; 1D Column</td>
+                  <td className="py-3 px-4 font-sans text-emerald-400">2D Matrix → 1D Column</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Flattens cross-tab schedules into a single vertical list.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-teal-300">TOROW</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Vector Flattening</td>
                   <td className="py-3 px-4 text-amber-300">=TOROW(array, [ignore], [scan])</td>
-                  <td className="py-3 px-4 font-sans text-emerald-400">2D Matrix &rarr; 1D Row</td>
+                  <td className="py-3 px-4 font-sans text-emerald-400">2D Matrix → 1D Row</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Unpivots multi-column tables into a horizontal banner stream.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-indigo-300">CHOOSEROWS</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Slicing & Subsetting</td>
                   <td className="py-3 px-4 text-amber-300">=CHOOSEROWS(array, r1, [r2]...)</td>
-                  <td className="py-3 px-4 font-sans text-indigo-400">2D Matrix &rarr; Subset Rows</td>
+                  <td className="py-3 px-4 font-sans text-indigo-400">2D Matrix → Subset Rows</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Extracts custom row slices via positive or negative indexes.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-300">CHOOSECOLS</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Slicing & Subsetting</td>
                   <td className="py-3 px-4 text-amber-300">=CHOOSECOLS(array, c1, [c2]...)</td>
-                  <td className="py-3 px-4 font-sans text-indigo-400">2D Matrix &rarr; Reordered Cols</td>
+                  <td className="py-3 px-4 font-sans text-indigo-400">2D Matrix → Reordered Cols</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Extracts and reorders database columns dynamically.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-emerald-300">TAKE</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Boundary Slicing</td>
                   <td className="py-3 px-4 text-amber-300">=TAKE(array, rows, [cols])</td>
-                  <td className="py-3 px-4 font-sans text-emerald-400">2D Matrix &rarr; Boundary Block</td>
+                  <td className="py-3 px-4 font-sans text-emerald-400">2D Matrix → Boundary Block</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Extracts Top N or Bottom N records from tables.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-amber-300">DROP</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Boundary Exclusion</td>
                   <td className="py-3 px-4 text-amber-300">=DROP(array, rows, [cols])</td>
-                  <td className="py-3 px-4 font-sans text-amber-400">2D Matrix &rarr; Trimmed Body</td>
+                  <td className="py-3 px-4 font-sans text-amber-400">2D Matrix → Trimmed Body</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Strips metadata banners, headers, or totals rows.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-orange-300">EXPAND</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Matrix Resizing</td>
                   <td className="py-3 px-4 text-amber-300">=EXPAND(array, rows, [cols], [pad])</td>
-                  <td className="py-3 px-4 font-sans text-orange-400">Small Matrix &rarr; Padded Grid</td>
+                  <td className="py-3 px-4 font-sans text-orange-400">Small Matrix → Padded Grid</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Pads disparate branch tables to identical dimensions.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-cyan-300">WRAPROWS</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Stream Shaping</td>
                   <td className="py-3 px-4 text-amber-300">=WRAPROWS(vector, count, [pad])</td>
-                  <td className="py-3 px-4 font-sans text-cyan-400">1D Vector &rarr; 2D Matrix (Row-wise)</td>
+                  <td className="py-3 px-4 font-sans text-cyan-400">1D Vector → 2D Matrix (Row-wise)</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Wraps continuous text feeds into multi-column tabular rows.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-blue-300">WRAPCOLS</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Stream Shaping</td>
                   <td className="py-3 px-4 text-amber-300">=WRAPCOLS(vector, count, [pad])</td>
-                  <td className="py-3 px-4 font-sans text-blue-400">1D Vector &rarr; 2D Matrix (Col-wise)</td>
+                  <td className="py-3 px-4 font-sans text-blue-400">1D Vector → 2D Matrix (Col-wise)</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Wraps continuous data streams into fixed-height column blocks.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-violet-300">VSTACK</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Array Stacking</td>
                   <td className="py-3 px-4 text-amber-300">=VSTACK(array1, [array2]...)</td>
-                  <td className="py-3 px-4 font-sans text-violet-400">Multiple Tables &rarr; Consolidated Ledger</td>
+                  <td className="py-3 px-4 font-sans text-violet-400">Multiple Tables → Consolidated Ledger</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Appends multiple branch tables vertically into one matrix.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-fuchsia-300">HSTACK</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Array Stacking</td>
                   <td className="py-3 px-4 text-amber-300">=HSTACK(array1, [array2]...)</td>
-                  <td className="py-3 px-4 font-sans text-fuchsia-400">Multiple Columns &rarr; Wide Table</td>
+                  <td className="py-3 px-4 font-sans text-fuchsia-400">Multiple Columns → Wide Table</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Combines separate calculation vectors side-by-side.</td>
                 </tr>
               </tbody>
@@ -244,7 +244,7 @@ export default function Topic0() {
                 Excel's multi-threaded calculation engine processes pointers directly to the source coordinates.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800">
-                <strong>Memory Architecture:</strong> Source Range &rarr; C++ Memory Buffer &rarr; Matrix Transformation Algorithm &rarr; Dynamic Spilled Range.
+                <strong>Memory Architecture:</strong> Source Range → C++ Memory Buffer → Matrix Transformation Algorithm → Dynamic Spilled Range.
               </div>
             </div>
 
@@ -436,7 +436,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Overview"
+            sheetName="EX1701"
             title="Interactive Function Classification Matrix"
             rowsPerPage={15}
             showSheetSelector={true}
@@ -475,7 +475,7 @@ export default function Topic0() {
                 To feed power BI models, Swadeep uses <code className="text-amber-300 font-mono">=TOCOL(B2:E26, 1)</code> to instantly flatten all 100 values into a single vertical column while automatically stripping empty non-trading quarters.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                =UNIQUE(TOCOL(B2:E26, 1)) &rarr; 94 Clean Validated Sales Figures
+                =UNIQUE(TOCOL(B2:E26, 1)) → 94 Clean Validated Sales Figures
               </div>
             </div>
 
@@ -494,7 +494,7 @@ export default function Topic0() {
                 She applies <code className="text-amber-300 font-mono">=CHOOSECOLS(MasterPayroll, 1, 2, 10)</code>, producing an instant masked audit table that self-updates whenever new staff join.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                =CHOOSECOLS(A2:J100, 1, 2, 10) &rarr; Zero Exposure of Internal Allowances
+                =CHOOSECOLS(A2:J100, 1, 2, 10) → Zero Exposure of Internal Allowances
               </div>
             </div>
 
@@ -513,7 +513,7 @@ export default function Topic0() {
                 retaining the master header while stacking hundreds of rows seamlessly.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                =VSTACK(BK_Data, DROP(SH_Data, 1), DROP(NH_Data, 1)) &rarr; 100% Automated Consolidation
+                =VSTACK(BK_Data, DROP(SH_Data, 1), DROP(NH_Data, 1)) → 100% Automated Consolidation
               </div>
             </div>
 
@@ -532,7 +532,7 @@ export default function Topic0() {
                 Debangshu converts a flat 500-item text column into a clean 100-row x 5-column relational transaction table in under 1 millisecond.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                =WRAPROWS(RawLogVector, 5, "NO_DATA") &rarr; Clean Structured Ledger
+                =WRAPROWS(RawLogVector, 5, "NO_DATA") → Clean Structured Ledger
               </div>
             </div>
           </div>
@@ -638,7 +638,7 @@ export default function Topic0() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Spill range obstructed by non-empty cells, merged cells, or table boundaries.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float tag &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float tag → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Delete blocking content or unmerge destination cells.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">

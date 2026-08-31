@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The IF function is the cornerstone of spreadsheet programming. Always provide an explicit third argument (value_if_false) to keep your model clean and professional.
 
 COMMON TRAPS TO AVOID:
-- Returning Literal String "FALSE": Omitting the false argument or typing "FALSE" in quotes creates text strings rather than real Boolean values. -> Fix: Provide an explicit fallback like "" (blank) or 0.
-- Nested Inversion Logic: Reversing logical tests (e.g. using < instead of >=) can invert output branches and corrupt financial calculations. -> Fix: Always trace condition truth tables with edge cases.
-- Comparing Number to String: Writing =IF(A2>"100", ...) treats "100" as text, causing unexpected branch execution. -> Fix: Never quote numbers in logical tests: =IF(A2>100, ...).
+- Returning Literal String "FALSE": Omitting the false argument or typing "FALSE" in quotes creates text strings rather than real Boolean values. → Fix: Provide an explicit fallback like "" (blank) or 0.
+- Nested Inversion Logic: Reversing logical tests (e.g. using < instead of >=) can invert output branches and corrupt financial calculations. → Fix: Always trace condition truth tables with edge cases.
+- Comparing Number to String: Writing =IF(A2>"100", ...) treats "100" as text, causing unexpected branch execution. → Fix: Never quote numbers in logical tests: =IF(A2>100, ...).
 ================================================================================

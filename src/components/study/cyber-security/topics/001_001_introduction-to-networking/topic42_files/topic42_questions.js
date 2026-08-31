@@ -32,7 +32,7 @@ const questions = [
     explanation: "This ensures citizen biometric data is never exposed in cleartext on intermediate telecommunication links or application server memory.",
     hint: "Encrypts biometrics with UIDAI public key inside the physical sensor and sends over mTLS.",
     level: "expert",
-    codeExample: "AadhaarAuth: CaptureBiometric() -> EncryptWithUIDAIKey() -> TransmitOver_mTLS() -> CIDR_Verified(Yes/No)"
+    codeExample: "AadhaarAuth: CaptureBiometric() → EncryptWithUIDAIKey() → TransmitOver_mTLS() → CIDR_Verified(Yes/No)"
   },
   {
     question: "What is a State Data Center (SDC) and MeghRaj (GI Cloud)?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "Prevents corrupt officials or rival contractors from viewing or modifying submitted bids before the legal opening deadline.",
     hint: "Uses Class-3 Digital Signatures and encrypted tender vaults that open only at the official deadline.",
     level: "expert",
-    codeExample: "TenderSubmission: BidData.signWithDSC(VendorPrivateKey) -> EncryptWithDeptKey() -> StoredInTenderVault"
+    codeExample: "TenderSubmission: BidData.signWithDSC(VendorPrivateKey) → EncryptWithDeptKey() → StoredInTenderVault"
   },
   {
     question: "What is an Advanced Persistent Threat (APT) targeting government ministries and how is it mitigated?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "When Susmita applies for a government scheme in Ichapur, the portal verifies her Aadhaar and college marksheets directly from DigiLocker.",
     hint: "OAuth 2.0 digital repository allowing citizens to share digitally signed government documents online.",
     level: "basic",
-    codeExample: "DigiLocker_API: /oauth/token -> BearerToken -> /api/documents/fetchURI -> Returns Digitally Signed PDF"
+    codeExample: "DigiLocker_API: /oauth/token → BearerToken → /api/documents/fetchURI → Returns Digitally Signed PDF"
   },
   {
     question: "What is SCADA Network Isolation in Government Power Grids and Water Treatment Plants?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Used across all ministries in Nabanna (Kolkata) to eliminate lost physical files and accelerate citizen welfare file clearances.",
     hint: "Replaces paper files in government offices with digitally signed electronic notes using USB crypto tokens.",
     level: "basic",
-    codeExample: "eOffice_Approval: FileNote -> SignedWithUSBToken(OfficerDSC) -> CryptographicSignatureAttached -> Approved"
+    codeExample: "eOffice_Approval: FileNote → SignedWithUSBToken(OfficerDSC) → CryptographicSignatureAttached → Approved"
   },
   {
     question: "What is Geo-Fencing (IP Whitelisting) for National Government Web Portals?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Helps district offices across West Bengal identify and clean infected computers before malware can steal confidential government records.",
     hint: "National CERT-In center that detects botnet infections and helps clean government and citizen computers.",
     level: "basic",
-    codeExample: "CSK_Service: Scans national IP subnets -> Alerts District IT Admin of Botnet Infection -> Provides Cleaning Tool"
+    codeExample: "CSK_Service: Scans national IP subnets → Alerts District IT Admin of Botnet Infection → Provides Cleaning Tool"
   },
   {
     question: "What is Data Loss Prevention (DLP) and USB Device Blocking on Civil Secretariat Terminals?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Eliminates the need for rural villagers in Bengal to travel long distances to district government offices.",
     hint: "Village digital centers connected to BharatNet delivering government services to rural citizens.",
     level: "basic",
-    codeExample: "CSC_Kiosk: Village_Citizen -> CSC_Portal -> BharatNet_Uplink -> SDC_Government_Server -> Service_Delivered"
+    codeExample: "CSC_Kiosk: Village_Citizen → CSC_Portal → BharatNet_Uplink → SDC_Government_Server → Service_Delivered"
   },
   {
     question: "What is an Air-Quality & Environmental IoT Monitoring Network in Smart Cities?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Restores vital voice, video, and medical coordination channels in coastal Bengal during severe storm emergencies.",
     hint: "Emergency satellite dishes deployed during cyclones when mobile towers and fiber cables are destroyed.",
     level: "moderate",
-    codeExample: "NDRF_VSAT: Portable_Satellite_Dish -> ISRO_GSAT_Transponder -> Emergency_National_Command_Center"
+    codeExample: "NDRF_VSAT: Portable_Satellite_Dish → ISRO_GSAT_Transponder → Emergency_National_Command_Center"
   },
   {
     question: "What is a Lawful Interception Monitoring (LIM) System in Government Telecom Regulation?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Used exclusively under legal warrant to investigate terrorist threats and severe national security offenses.",
     hint: "Court-authorized hardware monitoring interface at telecom cores for national security investigations.",
     level: "expert",
-    codeExample: "LIM_Gateway: WarrantVerified(CourtID) -> MirrorTargetSession(TargetIP) -> Encrypted_Security_Agency_Feed"
+    codeExample: "LIM_Gateway: WarrantVerified(CourtID) → MirrorTargetSession(TargetIP) → Encrypted_Security_Agency_Feed"
   },
   {
     question: "What is Role-Based Access Control (RBAC) in Land Record Portals (e.g. Banglarbhumi)?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Prevents confidential files from ever being stored on physical local hard drives in district offices in Ichapur.",
     hint: "Runs government computer desktops on central data center servers, streaming screens to cheap thin-clients.",
     level: "moderate",
-    codeExample: "VDI_Client: ThinClient_Desk -> Encrypted_PCoIP_Stream -> Virtual_Desktop_State_Data_Center"
+    codeExample: "VDI_Client: ThinClient_Desk → Encrypted_PCoIP_Stream → Virtual_Desktop_State_Data_Center"
   },
   {
     question: "What is a Sovereign Encryption Key Management Facility in Government Networks?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Ensures national encryption algorithms and root trust anchors remain completely sovereign and free from foreign backdoors.",
     hint: "National facility managing sovereign root encryption keys for government and citizen security.",
     level: "expert",
-    codeExample: "CCA_Root: Signs National Intermediate CAs -> Manages Digital Signature Infrastructure (PKI)"
+    codeExample: "CCA_Root: Signs National Intermediate CAs → Manages Digital Signature Infrastructure (PKI)"
   },
   {
     question: "What is Unified Emergency Response Support System (ERSS - Dial 112) Network Architecture?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Consolidates police (100), fire (101), and ambulance (102) into a single unified emergency network in West Bengal.",
     hint: "Unified emergency 112 network that pinpoints caller GPS location and dispatches nearest police/ambulance.",
     level: "basic",
-    codeExample: "ERSS_112: CitizenCall -> Telecom_Gateway (GPS_Location) -> Emergency_CAD_Server -> Dispatches_Nearest_PCR_Van"
+    codeExample: "ERSS_112: CitizenCall → Telecom_Gateway (GPS_Location) → Emergency_CAD_Server → Dispatches_Nearest_PCR_Van"
   },
   {
     question: "What is DNSSEC Deployment on Government Apex Domains (.gov.in)?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Guarantees that when citizens navigate to `wb.gov.in`, the returned IP address is authentic and untampered.",
     hint: "Adds cryptographic signatures to .gov.in domains to stop hackers from creating fake government clone sites.",
     level: "moderate",
-    codeExample: "DNSSEC_Validation: Query('wb.gov.in') -> Verifies RRSIG with Root .gov.in DNSKEY -> Validated Authentic"
+    codeExample: "DNSSEC_Validation: Query('wb.gov.in') → Verifies RRSIG with Root .gov.in DNSKEY → Validated Authentic"
   },
   {
     question: "What is Municipal E-Challan Smart Traffic Violation Processing?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "Automates traffic enforcement and eliminates manual traffic fine corruption in Kolkata and Barrackpore.",
     hint: "ANPR cameras read license plates, query vehicle databases, and send digital traffic fine SMS automatically.",
     level: "basic",
-    codeExample: "ANPR_Camera -> VehiclePlate('WB02AB1234') -> Vahan_DB -> Generates_EChallan(₹500) -> Sends_SMS"
+    codeExample: "ANPR_Camera → VehiclePlate('WB02AB1234') → Vahan_DB → Generates_EChallan(₹500) → Sends_SMS"
   },
   {
     question: "What is an Immutable WORM Backup for National Identity Vaults?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures national infrastructure hierarchy, cryptographic citizen privacy, critical infrastructure protection, sovereign security compliance, and financial budgeting.",
     hint: "SWAN/BharatNet + Aadhaar mTLS + NCIIPC data diodes + USB blocking EDR + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeploySWAN_BharatNet() -> Enforce_mTLS_PKI() -> ProtectCII_DataDiodes() -> BlockUSB_EDR() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeploySWAN_BharatNet() → Enforce_mTLS_PKI() → ProtectCII_DataDiodes() → BlockUSB_EDR() → BudgetInRupees(₹);"
   }
 ];
 

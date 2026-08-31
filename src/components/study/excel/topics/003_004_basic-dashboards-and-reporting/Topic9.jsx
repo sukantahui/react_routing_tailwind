@@ -71,7 +71,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"In-cell data visualization: Micro-charts with Sparklines (Line, Column, Win/Loss)"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic9() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Insert &gt; Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) -> Format: High Point / Low Point Markers"}
+            {"Insert > Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) → Format: High Point / Low Point Markers"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic9() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"In-Cell Sparkline Pipeline: Multi-Period Numeric Range -> Single-Cell Vector Sparkline"}
+              Visual Dataflow: {"In-Cell Sparkline Pipeline: Multi-Period Numeric Range → Single-Cell Vector Sparkline"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Dashboard Architecture
@@ -286,7 +286,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_In_cell_data_visua"
+            sheetName="EX1510"
             title={"In-cell data visualization: Micro-charts with Sparklines (Line, Column, Win/Loss) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic9() {
                 Step 1: Set Up Clean Presentation Canvas &amp; Hide Gridlines
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View &gt; Gridlines</kbd>, and define the 4-quadrant layout bounds.
+                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View > Gridlines</kbd>, and define the 4-quadrant layout bounds.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic9() {
                 Step 2: Construct KPI Summary Cards &amp; Delta Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Build top KPI summary cards and apply custom Unicode format masks <code className="text-cyan-300 font-mono font-bold">{"Insert &gt; Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) -> Format: High Point / Low Point Markers"}</code>.
+                Build top KPI summary cards and apply custom Unicode format masks <code className="text-cyan-300 font-mono font-bold">{"Insert > Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) → Format: High Point / Low Point Markers"}</code>.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic9() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Hidden Columns Disrupting Sparklines"}</td>
                   <td className="py-3 px-4">{"Hiding historical data columns causes Sparklines to become blank lines."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Sparkline tab > Edit Data &gt; Hidden & Empty Cells > Check 'Show data in hidden rows and columns'."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Sparkline tab > Edit Data > Hidden & Empty Cells > Check 'Show data in hidden rows and columns'."}</td>
                 </tr>
                 
               </tbody>
@@ -572,7 +572,7 @@ export default function Topic9() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Sparklines pack massive context into zero space. Always remember to go to Sparkline -> Axis -> and select 'Same for All Sparklines' so your micro-charts are scaled accurately."}
+            note={"Sparklines pack massive context into zero space. Always remember to go to Sparkline → Axis → and select 'Same for All Sparklines' so your micro-charts are scaled accurately."}
           />
         </div>
       </div>

@@ -85,7 +85,7 @@ CREATE TABLE r2 (
     PRIMARY KEY (a, c),
     FOREIGN KEY (c) REFERENCES r1(c)
 );
--- Note: AB -> C must be enforced via trigger or application logic!`,
+-- Note: AB → C must be enforced via trigger or application logic!`,
     },
     decomp_3nf_dual: {
       title: "4. The 3NF Dual Guarantee (Bernstein Synthesis)",
@@ -180,7 +180,7 @@ CREATE TABLE students (
             Module 002_004 · Database Normalization · Topic 14
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Lossless Join &amp;{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Dependency Preservation Verification
@@ -445,7 +445,7 @@ CREATE TABLE students (
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Step 1: Intersection = Students ∩ Enrollments = { student_id }
 -- Step 2: Closure of { student_id }+ = { student_id, student_name, city } = Students!
--- Step 3: By Heath's Theorem, student_id is a Super Key of Students -> LOSSLESS!`}
+-- Step 3: By Heath's Theorem, student_id is a Super Key of Students → LOSSLESS!`}
               </pre>
             </div>
 

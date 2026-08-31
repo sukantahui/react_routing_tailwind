@@ -10,7 +10,7 @@ const questions = [
     explanation: "Standardizes ingestion across dozens of disparate file formats, cloud platforms, and relational databases.",
     hint: "Bridges external data systems with Power Query.",
     level: "basic",
-    codeExample: "Excel Ribbon &rarr; Data Tab &rarr; Get Data &rarr; Select Connector"
+    codeExample: "Excel Ribbon → Data Tab → Get Data → Select Connector"
   },
   {
     question: "What M function is generated when connecting to a local CSV file?",
@@ -54,11 +54,11 @@ const questions = [
   },
   {
     question: "Where do you manage, edit, and update connection credentials in Excel?",
-    shortAnswer: "Under Data Tab &rarr; Get Data &rarr; Data Source Settings.",
+    shortAnswer: "Under Data Tab → Get Data → Data Source Settings.",
     explanation: "Allows editing file paths, updating passwords, clearing caches, and modifying privacy levels.",
-    hint: "Data &rarr; Get Data &rarr; Data Source Settings.",
+    hint: "Data → Get Data → Data Source Settings.",
     level: "basic",
-    codeExample: "Data &rarr; Data Source Settings"
+    codeExample: "Data → Data Source Settings"
   },
   {
     question: "What are the 3 Data Privacy Levels in Power Query?",
@@ -66,7 +66,7 @@ const questions = [
     explanation: "Public: sharable anywhere; Organizational: shared only within enterprise domain; Private: confidential and isolated from other sources.",
     hint: "Public, Organizational, Private.",
     level: "moderate",
-    codeExample: "Data Source Settings &rarr; Edit Permissions &rarr; Privacy Level"
+    codeExample: "Data Source Settings → Edit Permissions → Privacy Level"
   },
   {
     question: "What causes the 'Formula.Firewall: Query references other queries' error?",
@@ -86,9 +86,9 @@ const questions = [
   },
   {
     question: "How do you extract data from an HTML web table on a public URL?",
-    shortAnswer: "Go to Data &rarr; Get Data &rarr; From Web &rarr; Enter URL &rarr; Select table in Navigator.",
+    shortAnswer: "Go to Data → Get Data → From Web → Enter URL → Select table in Navigator.",
     explanation: "Power Query parses DOM table elements automatically.",
-    hint: "Get Data &rarr; From Web.",
+    hint: "Get Data → From Web.",
     level: "basic",
     codeExample: "= Web.BrowserContents(\"https://codernaccotax.co.in/rates\")"
   },
@@ -110,9 +110,9 @@ const questions = [
   },
   {
     question: "How do you import data from a Microsoft SharePoint Online list?",
-    shortAnswer: "Go to Data &rarr; Get Data &rarr; From Other Sources &rarr; From SharePoint List &rarr; Sign in with Microsoft 365 Organizational Account.",
+    shortAnswer: "Go to Data → Get Data → From Other Sources → From SharePoint List → Sign in with Microsoft 365 Organizational Account.",
     explanation: "Syncs live collaborative lists directly into Excel models.",
-    hint: "Get Data &rarr; From Other Sources &rarr; From SharePoint List.",
+    hint: "Get Data → From Other Sources → From SharePoint List.",
     level: "basic",
     codeExample: "= SharePoint.Tables(\"https://corp.sharepoint.com/sites/Finance\", [ApiVersion=15])"
   },
@@ -122,13 +122,13 @@ const questions = [
     explanation: "Provides live data previews before launching the editor.",
     hint: "Tree-view selection and preview dialog.",
     level: "basic",
-    codeExample: "Navigator &rarr; Select Checkbox &rarr; Click 'Transform Data'"
+    codeExample: "Navigator → Select Checkbox → Click 'Transform Data'"
   },
   {
     question: "Can Power Query connect directly to Microsoft Access database (.accdb) files?",
     shortAnswer: "Yes, using the 'From Microsoft Access Database' connector (`Access.Database`).",
     explanation: "Imports Access tables and queries into Excel without needing MS Access installed.",
-    hint: "Get Data &rarr; From Database &rarr; From Microsoft Access Database.",
+    hint: "Get Data → From Database → From Microsoft Access Database.",
     level: "basic",
     codeExample: "= Access.Database(File.Contents(\"C:\\Data\\Inventory.accdb\"))"
   },
@@ -136,7 +136,7 @@ const questions = [
     question: "How do you connect to a PostgreSQL or MySQL database from Excel Power Query?",
     shortAnswer: "Install the official database driver (Npgsql or MySQL Connector/NET) and select 'From PostgreSQL/MySQL Database'.",
     explanation: "Enables direct native relational querying against open-source SQL engines.",
-    hint: "Install DB driver &rarr; Get Data &rarr; From Database.",
+    hint: "Install DB driver → Get Data → From Database.",
     level: "moderate",
     codeExample: "= PostgreSQL.Database(\"db.corp.in\", \"SalesDB\")"
   },
@@ -144,7 +144,7 @@ const questions = [
     question: "How do you write a custom native SQL query inside the SQL connector dialog?",
     shortAnswer: "Expand 'Advanced options' in the SQL Server connection dialog and paste your custom SQL query statement into the 'SQL statement' box.",
     explanation: "Allows pre-aggregating or filtering on the server before data ingestion.",
-    hint: "Advanced Options &rarr; SQL Statement.",
+    hint: "Advanced Options → SQL Statement.",
     level: "moderate",
     codeExample: "= Sql.Database(\"server\", \"db\", [Query=\"SELECT * FROM Sales WHERE Year=2026\"])"
   },
@@ -168,9 +168,9 @@ const questions = [
     question: "What is a 'Blank Query' in Power Query?",
     shortAnswer: "An empty query created from scratch where analysts can write custom M code, build reusable custom functions, or test API expressions.",
     explanation: "The starting point for advanced M programming.",
-    hint: "Get Data &rarr; From Other Sources &rarr; Blank Query.",
+    hint: "Get Data → From Other Sources → Blank Query.",
     level: "basic",
-    codeExample: "Home Tab &rarr; New Source &rarr; Other Sources &rarr; Blank Query"
+    codeExample: "Home Tab → New Source → Other Sources → Blank Query"
   },
   {
     question: "How do you filter out temporary locked Excel backup files (`~$filename.xlsx`) when importing from a folder?",
@@ -184,9 +184,9 @@ const questions = [
     question: "How do you refresh an individual query without refreshing the entire workbook?",
     shortAnswer: "Right-click the specific query in the 'Queries & Connections' pane on the right of Excel and select 'Refresh'.",
     explanation: "Saves time when testing single data pipeline modifications.",
-    hint: "Right-click query &rarr; Refresh.",
+    hint: "Right-click query → Refresh.",
     level: "basic",
-    codeExample: "Queries & Connections &rarr; Right Click &rarr; Refresh"
+    codeExample: "Queries & Connections → Right Click → Refresh"
   },
   {
     question: "Can Power Query connect to an OData feed (e.g. Microsoft Dynamics 365 or SAP)?",
@@ -198,11 +198,11 @@ const questions = [
   },
   {
     question: "How do you configure a query to refresh automatically in the background every 30 minutes?",
-    shortAnswer: "In the Queries & Connections pane, right-click the query &rarr; Properties &rarr; Check 'Refresh every X minutes' &rarr; Enter 30.",
+    shortAnswer: "In the Queries & Connections pane, right-click the query → Properties → Check 'Refresh every X minutes' → Enter 30.",
     explanation: "Maintains live automated operational dashboards in Excel.",
-    hint: "Query Properties &rarr; Refresh every 30 minutes.",
+    hint: "Query Properties → Refresh every 30 minutes.",
     level: "moderate",
-    codeExample: "Query Properties &rarr; Usage Tab &rarr; Refresh Every 30 Minutes"
+    codeExample: "Query Properties → Usage Tab → Refresh Every 30 Minutes"
   },
   {
     question: "What is the function of the 'Binary' column when using file connectors?",
@@ -218,13 +218,13 @@ const questions = [
     explanation: "Confirms network port 1433 access and firewall rules.",
     hint: "Navigator displays database tables on successful handshake.",
     level: "basic",
-    codeExample: "Successful Handshake &rarr; Navigator Displays Tables"
+    codeExample: "Successful Handshake → Navigator Displays Tables"
   },
   {
     question: "How do you extract data from an Excel Table located within the CURRENT active workbook?",
-    shortAnswer: "Select any cell in the table &rarr; Data Tab &rarr; From Table/Range (`= Excel.CurrentWorkbook(){[Name=\"tbl_Data\"]}[Content]`).",
+    shortAnswer: "Select any cell in the table → Data Tab → From Table/Range (`= Excel.CurrentWorkbook(){[Name=\"tbl_Data\"]}[Content]`).",
     explanation: "Ingests existing worksheet tables into Power Query memory instantly.",
-    hint: "Data Tab &rarr; From Table/Range.",
+    hint: "Data Tab → From Table/Range.",
     level: "basic",
     codeExample: "= Excel.CurrentWorkbook(){[Name=\"tbl_CustomerMaster\"]}[Content]"
   },
@@ -234,7 +234,7 @@ const questions = [
     explanation: "Ensures clean project architecture and team maintainability.",
     hint: "Group into folders: Staging, Dimensions, Facts, Parameters.",
     level: "basic",
-    codeExample: "Right-Click Queries Pane &rarr; New Group"
+    codeExample: "Right-Click Queries Pane → New Group"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Power Query Data Connectors?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Robust data connectors form the bedrock of scalable financial intelligence!",
     hint: "Dedicated Connectors + Folder Batch Ingestion + Parameterized Paths = Bulletproof Pipeline!",
     level: "expert",
-    codeExample: "Rule: Data Ingestion &rarr; Deploy Dynamic Parameterized Connectors!"
+    codeExample: "Rule: Data Ingestion → Deploy Dynamic Parameterized Connectors!"
   }
 ];
 

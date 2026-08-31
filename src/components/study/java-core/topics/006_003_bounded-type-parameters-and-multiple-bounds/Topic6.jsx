@@ -21,7 +21,7 @@ export default function Topic6() {
             Recursive Bounds
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Recursive Type Bounds: <code className="text-purple-400 font-mono">&lt;T extends Comparable&lt;T&gt;&gt;</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic6() {
       </section>
 
       <Teacher
-        note="'<T extends Comparable<T>>' is one of the most elegant concepts in Java! It says: 'T is any class that knows how to compare itself with another T'! That's how Collections.max() works for Strings, Dates, and Integers! — Sukanta Hui"
+        note="'<T extends Comparable&lt;T&gt;>' is one of the most elegant concepts in Java! It says: 'T is any class that knows how to compare itself with another T'! That's how Collections.max() works for Strings, Dates, and Integers! — Sukanta Hui"
       />
     </div>
   );

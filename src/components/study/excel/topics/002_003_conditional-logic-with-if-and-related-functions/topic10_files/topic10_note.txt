@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Standardize on SUMIFS, COUNTIFS, and AVERAGEIFS across all corporate models. Never use the obsolete single-condition SUMIF function.
 
 COMMON TRAPS TO AVOID:
-- SUMIF vs SUMIFS Argument Order Inversion: Legacy SUMIF puts sum_range LAST: SUMIF(crit_range, crit, sum_range). Modern SUMIFS puts sum_range FIRST: SUMIFS(sum_range, crit_range1, crit1). -> Fix: Always use modern SUMIFS and place sum_range as the very first argument.
-- Quoting Comparison Operators in IFS: Writing =SUMIFS(A2:A100, B2:B100, >100) triggers syntax errors because >100 must be a string. -> Fix: Enclose operators in quotes: =SUMIFS(A2:A100, B2:B100, ">100").
-- Concatenating Cell References with Operators: Writing ">B1" treats 'B1' as literal text rather than evaluating the value inside cell B1. -> Fix: Concatenate cell references: `">" & B1`.
+- SUMIF vs SUMIFS Argument Order Inversion: Legacy SUMIF puts sum_range LAST: SUMIF(crit_range, crit, sum_range). Modern SUMIFS puts sum_range FIRST: SUMIFS(sum_range, crit_range1, crit1). → Fix: Always use modern SUMIFS and place sum_range as the very first argument.
+- Quoting Comparison Operators in IFS: Writing =SUMIFS(A2:A100, B2:B100, >100) triggers syntax errors because >100 must be a string. → Fix: Enclose operators in quotes: =SUMIFS(A2:A100, B2:B100, ">100").
+- Concatenating Cell References with Operators: Writing ">B1" treats 'B1' as literal text rather than evaluating the value inside cell B1. → Fix: Concatenate cell references: `">" & B1`.
 ================================================================================

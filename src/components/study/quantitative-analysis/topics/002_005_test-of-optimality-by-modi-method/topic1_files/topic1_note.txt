@@ -47,11 +47,11 @@ STEP 3: COMPUTE OPPORTUNITY COSTS (d_ij) FOR ALL NON-BASIC CELLS
 STEP 4: EVALUATE THE GLOBAL OPTIMALITY CONDITION
 - Check all d_ij values:
     • Case A: If ALL d_ij >= 0 (strictly positive or zero):
-      --> STOP! The current solution is CERTIFIED GLOBALLY OPTIMAL.
-      --> Total minimum cost Z = Sum (c_ij * x_ij) in Indian Rupees (₹).
+      → STOP! The current solution is CERTIFIED GLOBALLY OPTIMAL.
+      → Total minimum cost Z = Sum (c_ij * x_ij) in Indian Rupees (₹).
     • Case B: If at least one d_ij < 0 (negative):
-      --> The current solution is SUB-OPTIMAL and can be improved.
-      --> Proceed immediately to Step 5.
+      → The current solution is SUB-OPTIMAL and can be improved.
+      → Proceed immediately to Step 5.
 
 STEP 5: CLOSED LOOP PIVOTING & TABLEAU UPDATE
 - Select the Entering Cell: The empty cell with the MOST NEGATIVE opportunity cost:
@@ -60,7 +60,7 @@ STEP 5: CLOSED LOOP PIVOTING & TABLEAU UPDATE
   horizontal and vertical segments starting at the entering cell, turning ONLY
   at occupied basic cells, and returning to the entering cell.
 - Assign Alternating Signs: Label loop vertices with alternating signs:
-    Entering Cell (+θ) --> Next Corner (-θ) --> Next (+θ) --> Next (-θ)...
+    Entering Cell (+θ) → Next Corner (-θ) → Next (+θ) → Next (-θ)...
 - Determine Maximum Flow Transfer (θ):
     θ = min { x_ij | cell (i, j) has a (-) sign }
 - Pivot Flow: Add θ to all (+) corners; subtract θ from all (-) corners.
@@ -93,7 +93,7 @@ CASE STUDY 1: Precision Foundry Supply Audit (Debangshu)
 Debangshu in Barrackpore evaluated a 3x3 casting network with an initial NWCR
 cost of Z = ₹2,740.
 Potentials: u = [0, -3, 2], v = [8, 14, 5].
-Evaluations revealed d_33 = -₹6 (most negative). Traced loop: (3,3) -> (3,2) -> (1,2) -> (1,3).
+Evaluations revealed d_33 = -₹6 (most negative). Traced loop: (3,3) → (3,2) → (1,2) → (1,3).
 Pivoting θ = 50 tons dropped total cost from ₹2,740 to ₹2,060 (₹680 savings).
 
 --------------------------------------------------------------------------------

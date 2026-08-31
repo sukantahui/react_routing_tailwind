@@ -56,7 +56,7 @@ const Topic15 = () => {
   const handleComputeClosure = (attr) => {
     setClosureInput(attr);
     if (attr.includes("student_id") && attr.includes("course_id")) {
-      setComputedClosure("{ student_id, course_id, student_name, city, course_title, instructor, fee_inr } -> SUPERKEY / CANDIDATE KEY");
+      setComputedClosure("{ student_id, course_id, student_name, city, course_title, instructor, fee_inr } → SUPERKEY / CANDIDATE KEY");
     } else if (attr.includes("student_id")) {
       setComputedClosure("{ student_id, student_name, city } (Partial Closure)");
     } else if (attr.includes("course_id")) {
@@ -172,7 +172,7 @@ CREATE TABLE enrollments (
             <span>📐</span>
             <span>Relational Normalization Masterclass · Topic 15</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Exceptions and Common Analytical Pitfalls When Formulating Functional Dependencies
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -200,7 +200,7 @@ CREATE TABLE enrollments (
               <div className="text-2xl mb-2">⚡</div>
               <h3 className="text-base font-bold text-teal-300 mb-2">Deterministic Dependencies</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Formal mathematical functional dependencies (X &rarr; Y) prevent partial and transitive leaks.
+                Formal mathematical functional dependencies (X → Y) prevent partial and transitive leaks.
               </p>
               <div className="mt-4 pt-3 border-t border-slate-800 text-xs font-mono text-teal-400">Armstrong Verified</div>
             </div>
@@ -373,10 +373,10 @@ CREATE TABLE enrollments (
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-slate-300">
                 <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                  <strong className="text-teal-400">FD1:</strong> student_id &rarr; student_name, city
+                  <strong className="text-teal-400">FD1:</strong> student_id → student_name, city
                 </div>
                 <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-                  <strong className="text-amber-400">FD2:</strong> course_id &rarr; course_title, instructor, fee_inr
+                  <strong className="text-amber-400">FD2:</strong> course_id → course_title, instructor, fee_inr
                 </div>
               </div>
             </div>
@@ -508,7 +508,7 @@ CREATE TABLE enrollments (
               </div>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 <strong className="text-emerald-200 block mb-1">• Verify Lossless Join via Matrix Decomposition:</strong>
-                Ensure that for any split of R into R1 and R2, <code className="text-emerald-300 font-mono">(R1 &cap; R2) &rarr; R1</code> or <code className="text-emerald-300 font-mono">(R1 &cap; R2) &rarr; R2</code> holds.
+                Ensure that for any split of R into R1 and R2, <code className="text-emerald-300 font-mono">(R1 &cap; R2) → R1</code> or <code className="text-emerald-300 font-mono">(R1 &cap; R2) → R2</code> holds.
               </div>
             </div>
           </div>

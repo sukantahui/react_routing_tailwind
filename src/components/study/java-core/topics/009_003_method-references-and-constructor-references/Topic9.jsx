@@ -21,7 +21,7 @@ export default function Topic9() {
             Refactoring Pipelines
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Refactoring <code className="text-purple-400 font-mono">Complex Lambdas</code> into Declarative <code className="text-emerald-400 font-mono">Method References</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic9() {
       </section>
 
       <Teacher
-        note="Compare the two pipelines in this demo: the verbose lambda version is full of noisy 'record -> record...' clutter, while the method reference version reads like a clean executive summary! That is the power of modern Java! — Sukanta Hui"
+        note="Compare the two pipelines in this demo: the verbose lambda version is full of noisy 'record → record...' clutter, while the method reference version reads like a clean executive summary! That is the power of modern Java! — Sukanta Hui"
       />
     </div>
   );

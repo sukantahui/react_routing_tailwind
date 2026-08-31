@@ -30,17 +30,17 @@ const questions = [
     question: "What is the complete geometric recipe for the 2xn Graphical Method?",
     shortAnswer: "1. Parameterize p1; 2. Plot n linear functions E(p, Bj) between left (a2j) and right (a1j) axes; 3. Draw the Lower Envelope floor; 4. Find the Maximin peak; 5. Extract the 2 intersecting columns to form a 2x2 game.",
     explanation: "5-step recipe for 2xn graphical solution.",
-    hint: "Plot n lines -> Lower envelope -> Maximin peak -> Extract 2x2 submatrix.",
+    hint: "Plot n lines → Lower envelope → Maximin peak → Extract 2x2 submatrix.",
     level: "moderate",
-    codeExample: "recipe2xn: plotLines() -> lowerEnvelope() -> maximinPeak() -> extract2x2();"
+    codeExample: "recipe2xn: plotLines() → lowerEnvelope() → maximinPeak() → extract2x2();"
   },
   {
     question: "What is the complete geometric recipe for the mx2 Graphical Method?",
     shortAnswer: "1. Parameterize q1; 2. Plot m linear functions E(Ai, q) between left (ai2) and right (ai1) axes; 3. Draw the Upper Envelope ceiling; 4. Find the Minimax trough; 5. Extract the 2 intersecting rows to form a 2x2 game.",
     explanation: "5-step recipe for mx2 graphical solution.",
-    hint: "Plot m lines -> Upper envelope -> Minimax trough -> Extract 2x2 submatrix.",
+    hint: "Plot m lines → Upper envelope → Minimax trough → Extract 2x2 submatrix.",
     level: "moderate",
-    codeExample: "recipe_mx2: plotLines() -> upperEnvelope() -> minimaxTrough() -> extract2x2();"
+    codeExample: "recipe_mx2: plotLines() → upperEnvelope() → minimaxTrough() → extract2x2();"
   },
   {
     question: "Why must the intersecting lines forming an optimal interior peak or trough have opposite slope signs?",
@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Graphical Method?",
     shortAnswer: "'Plot linear strategy functions across the 1D probability simplex [0, 1]; construct the Lower Envelope (for 2xn) or Upper Envelope (for mx2); locate the optimal apex (Maximin peak or Minimax trough); extract the 2x2 active submatrix; and report the Game Value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all Graphical Method mechanics.",
-    hint: "Plot lines -> Envelope -> Apex -> Extract 2x2 in ₹.",
+    hint: "Plot lines → Envelope → Apex → Extract 2x2 in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: Plot1DSimplex() -> Envelope() -> Apex() -> Extract2x2(₹)."
+    codeExample: "GoldenRule: Plot1DSimplex() → Envelope() → Apex() → Extract2x2(₹)."
   }
 ];
 

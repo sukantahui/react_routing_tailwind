@@ -32,10 +32,10 @@ to gain authorized administrative sessions.
 +--------------+-------------------------------+------------------------------------------------+
 
 [STACK MEMORY FRAME LAYOUT (Grows Downward from High to Low Memory)]
-  [ High Memory ]  --> [ Return Address (Saved EIP) ]   <-- EXPLOIT TARGET TO OVERWRITE!
+  [ High Memory ]  → [ Return Address (Saved EIP) ]   <-- EXPLOIT TARGET TO OVERWRITE!
                        [ Saved Base Pointer (EBP)   ]
                        [ Stack Canary (fs:0x28)     ]   <-- Compiler defense
-  [ Low Memory  ]  --> [ Local Variables Buffer     ]   <-- Input overflows upwards into EIP
+  [ Low Memory  ]  → [ Local Variables Buffer     ]   <-- Input overflows upwards into EIP
 
 --------------------------------------------------------------------------------
 3. THE 6-STAGE STACK BUFFER OVERFLOW EXPLOITATION LIFECYCLE

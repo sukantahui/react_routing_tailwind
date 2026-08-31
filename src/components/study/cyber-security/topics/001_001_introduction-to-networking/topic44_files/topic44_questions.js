@@ -8,7 +8,7 @@ const questions = [
     explanation: "Provides information-theoretically secure key exchange immune to computational cracking, even by future supercomputers or quantum computers.",
     hint: "Uses single photon physics where any eavesdropping attempt disturbs quantum states and alerts users.",
     level: "expert",
-    codeExample: "QKD_BB84: Alice sends polarized photons -> Bob measures in random bases -> If QBER > 11% abort; else distill secret AES-256 key."
+    codeExample: "QKD_BB84: Alice sends polarized photons → Bob measures in random bases → If QBER > 11% abort; else distill secret AES-256 key."
   },
   {
     question: "What is 'Q-Day' and what is Post-Quantum Cryptography (PQC)?",
@@ -32,7 +32,7 @@ const questions = [
     explanation: "Light travels ~47% faster in the vacuum of space than through glass optical fiber cores.",
     hint: "Low-orbit satellites using optical lasers in space to route internet faster than undersea cables.",
     level: "expert",
-    codeExample: "SpaceMeshRouting: GroundTerminal_Kolkata -> Sat_A --Laser_ISL (Space Vacuum)--> Sat_B -> GroundTerminal_London"
+    codeExample: "SpaceMeshRouting: GroundTerminal_Kolkata → Sat_A --Laser_ISL (Space Vacuum)--> Sat_B → GroundTerminal_London"
   },
   {
     question: "What is AI-Native Intent-Based Networking (IBN)?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "Eliminates wireless dead zones in dense urban street canyons across Kolkata.",
     hint: "Smart metamaterial wallpaper that reflects and directs 6G radio beams around walls and corners.",
     level: "expert",
-    codeExample: "RIS_Array: incomingBeam(300GHz) -> DynamicPhaseShiftMatrix -> reflectedBeamDirectedToMobileUser"
+    codeExample: "RIS_Array: incomingBeam(300GHz) → DynamicPhaseShiftMatrix → reflectedBeamDirectedToMobileUser"
   },
   {
     question: "What is Quantum Entanglement Swapping and how will Quantum Repeaters build a global Quantum Internet?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Provides 100% voice and SOS text coverage across remote forests, deserts, and maritime waters in West Bengal.",
     hint: "Satellites connecting directly to standard mobile phones anywhere on Earth without special hardware.",
     level: "moderate",
-    codeExample: "DirectToCell: Unmodified_Phone -> (Standard 3GPP 5G NR Band) -> LEO_Satellite -> Telecom_Core"
+    codeExample: "DirectToCell: Unmodified_Phone → (Standard 3GPP 5G NR Band) → LEO_Satellite → Telecom_Core"
   },
   {
     question: "What is Quantum Random Number Generation (QRNG) in hardware cryptography?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Enables smart city traffic cameras in Kolkata to detect road accidents in real time without saturating long-haul fiber pipes.",
     hint: "Placing small data centers near cell towers to process data locally with ultra-low latency.",
     level: "basic",
-    codeExample: "MEC_Architecture: UserDevice -> 5G_Cell_Tower -> Local_MEC_AI_Node (3ms Latency) -> Response"
+    codeExample: "MEC_Architecture: UserDevice → 5G_Cell_Tower → Local_MEC_AI_Node (3ms Latency) → Response"
   },
   {
     question: "What is Post-Quantum TLS 1.3 Key Encapsulation (X25519 + Kyber768)?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Compels immediate migration to Post-Quantum Cryptography (PQC) for all long-lived confidential government records in West Bengal.",
     hint: "Hackers steal and save encrypted files today to decrypt them with future quantum computers.",
     level: "basic",
-    codeExample: "HNDL_Defense: MigrateToPQC_Immediately() -> EncryptWith_MLKEM_Kyber() -> NeutralizeFutureDecryption;"
+    codeExample: "HNDL_Defense: MigrateToPQC_Immediately() → EncryptWith_MLKEM_Kyber() → NeutralizeFutureDecryption;"
   },
   {
     question: "What is Space-Air-Ground Integrated Network (SAGIN)?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "India leads the world in native IPv6 deployment, with telecom providers routing over 85% of traffic natively on IPv6.",
     hint: "Running core networks on pure IPv6 while translating legacy IPv4 traffic smoothly at the edges.",
     level: "basic",
-    codeExample: "464XLAT: IPv4_App -> CLAT (Translates to IPv6) -> IPv6_Only_ISP_Core -> PLAT (Translates to IPv4 Web)"
+    codeExample: "464XLAT: IPv4_App → CLAT (Translates to IPv6) → IPv6_Only_ISP_Core → PLAT (Translates to IPv4 Web)"
   },
   {
     question: "What is Sovereign AI Cyber Defense in Autonomous Network Security?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "Protects critical national infrastructure and communication backbones from automated foreign cyber weapon strikes in Kolkata.",
     hint: "AI security system that detects and blocks cyber attacks automatically in milliseconds.",
     level: "basic",
-    codeExample: "AutonomousDefense: DetectZeroDayAttack() -> GenerateDynamicP4Filter() -> DeployToEdgeSwitches(15ms);"
+    codeExample: "AutonomousDefense: DetectZeroDayAttack() → GenerateDynamicP4Filter() → DeployToEdgeSwitches(15ms);"
   },
   {
     question: "What is the ultimate golden rule for understanding, engineering, and pioneering the Future of Computer Networking?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes quantum physical security, post-quantum resilience, terahertz and space networking, programmable silicon, AI autonomy, and financial research budgeting.",
     hint: "QKD + Post-Quantum Cryptography + 6G Space Lasers + P4 programmable silicon + AI intent + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeployQKD_PQC() -> Build6G_LaserSpaceMesh() -> ProgramSiliconWithP4() -> AutomateWithAIIntent() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeployQKD_PQC() → Build6G_LaserSpaceMesh() → ProgramSiliconWithP4() → AutomateWithAIIntent() → BudgetInRupees(₹);"
   }
 ];
 

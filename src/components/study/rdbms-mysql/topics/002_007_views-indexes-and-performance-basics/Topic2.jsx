@@ -119,7 +119,7 @@ ORDER BY gross_tuition_inr DESC;`,
               Query Execution & Optimization
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Querying Views as Virtual Tables
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -270,7 +270,7 @@ ORDER BY gross_tuition_inr DESC;`,
                   <text x="425" y="128" fill="#a5b4fc" fontSize="9" textAnchor="middle font-mono">Internal: SELECT id, name, city FROM base_students WHERE status = 'ACTIVE'</text>
                 </g>
 
-                {/* Flow Arrow Caller -> View */}
+                {/* Flow Arrow Caller → View */}
                 <path d="M 425 60 L 425 90" stroke="#38bdf8" strokeWidth="2" />
 
                 {/* Bottom: Base Table B-Tree Index */}
@@ -285,7 +285,7 @@ ORDER BY gross_tuition_inr DESC;`,
                   </text>
                 </g>
 
-                {/* Flow Arrow View -> B-Tree */}
+                {/* Flow Arrow View → B-Tree */}
                 <path d="M 425 140 L 425 170" stroke="#10b981" strokeWidth="2" />
               </svg>
             </div>

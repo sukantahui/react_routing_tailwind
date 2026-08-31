@@ -70,7 +70,7 @@ export default function Topic24() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-emerald-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-emerald-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Test Your Skill: VLOOKUP, HLOOKUP, INDEX-MATCH &amp; XLOOKUP
           </h1>
 
@@ -303,7 +303,7 @@ export default function Topic24() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic20_Test_Your_Skill"
+            sheetName="EX1025"
             title="Module 2.5 Assessment Candidate Scorecard (Candidate ID, Candidate Name, Exam Branch, VLOOKUP Score, INDEX-MATCH Score, XLOOKUP Score, Total Score, Qualification)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -340,7 +340,7 @@ export default function Topic24() {
                 Candidate <strong>Swadeep Banerjee</strong> presents a 3-tier commercial tariff model featuring Boolean multi-condition XLOOKUP, two-way matrix resolution, and dynamic spill vectors, earning the Gold Medal of Relational Data Architecture.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Score: 98/100 &rarr; Principal Relational Data Specialist
+                Score: 98/100 → Principal Relational Data Specialist
               </div>
             </div>
 
@@ -357,7 +357,7 @@ export default function Topic24() {
                 Candidate <strong>Tuhina Mukherjee</strong> refactors an error-prone nested IF structure into a streamlined Boolean array XLOOKUP, evaluating region, customer tier, and volume bracket in a single cell formula.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Score: 94/100 &rarr; Certified Advanced Lookup Specialist
+                Score: 94/100 → Certified Advanced Lookup Specialist
               </div>
             </div>
 
@@ -374,7 +374,7 @@ export default function Topic24() {
                 Candidate <strong>Abhronila Das</strong> models a 2D tariff grid using nested MATCH functions inside INDEX, allowing dynamic pricing extraction without hardcoding column offsets.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Score: 92/100 &rarr; Certified Matrix Architecture Specialist
+                Score: 92/100 → Certified Matrix Architecture Specialist
               </div>
             </div>
 
@@ -391,7 +391,7 @@ export default function Topic24() {
                 Candidate <strong>Debangshu Roy</strong> diagnoses #N/A errors caused by non-breaking whitespace and type mismatches, writing an automated <code className="text-amber-300 font-mono">TRIM(CLEAN(...))</code> left-lookup to retrieve supplier records.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                Score: 90/100 &rarr; Certified Data Hygiene Specialist
+                Score: 90/100 → Certified Data Hygiene Specialist
               </div>
             </div>
           </div>

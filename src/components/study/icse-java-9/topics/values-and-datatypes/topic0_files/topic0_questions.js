@@ -152,7 +152,7 @@ const questions = [
         explanation: "From Java 8 onwards, lambda expressions can capture only final or effectively final local variables. It allows cleaner code without explicit final keyword.",
         hint: "If you can add `final` to a variable without causing an error, it's effectively final.",
         level: "advanced",
-        codeExample: "int x = 10; // effectively final if never reassigned\nRunnable r = () -> System.out.println(x); // allowed"
+        codeExample: "int x = 10; // effectively final if never reassigned\nRunnable r = () → System.out.println(x); // allowed"
     },
     {
         question: "What is the memory location of local, instance, and static variables?",

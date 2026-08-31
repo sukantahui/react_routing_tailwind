@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on mastering Financial Functions in Excel! You now command the quantitative tools used by top investment bankers, private equity partners, and corporate CFOs worldwide. Build with rigor and precision.
 
 COMMON TRAPS TO AVOID:
-- Breaking Balance Sheet Linkages: Hardcoding cash balances to force balance sheets to balance destroys model integrity. -> Fix: Cash must flow strictly from the Cash Flow Statement ending balance.
-- Unbounded Terminal Perpetuity Formulas: Writing terminal value formulas without bounding checks produces nonsensical negative valuations when WACC < g. -> Fix: Ensure WACC > g and include validation flags.
-- Incomplete Sign Discipline Across Statements: Mixing negative and positive signs inconsistently between Cash Flow and Balance Sheet statements. -> Fix: Enforce strict accounting sign discipline across all financial statements.
+- Breaking Balance Sheet Linkages: Hardcoding cash balances to force balance sheets to balance destroys model integrity. → Fix: Cash must flow strictly from the Cash Flow Statement ending balance.
+- Unbounded Terminal Perpetuity Formulas: Writing terminal value formulas without bounding checks produces nonsensical negative valuations when WACC < g. → Fix: Ensure WACC > g and include validation flags.
+- Incomplete Sign Discipline Across Statements: Mixing negative and positive signs inconsistently between Cash Flow and Balance Sheet statements. → Fix: Enforce strict accounting sign discipline across all financial statements.
 ================================================================================

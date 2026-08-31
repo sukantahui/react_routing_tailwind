@@ -42,7 +42,7 @@ Computes a single scalar aggregate row over the entire relation $R$.
   `SELECT city, COUNT(*) AS student_count, AVG(admission_fee) AS avg_fee`
   `FROM students GROUP BY city;`
 • Filtering on Aggregates (Selection over Grouping):
-  $$\sigma_{\text{avg\_fee} > 4000}({}_{\text{city}} \mathcal{G}_{\text{AVG}(\text{admission\_fee}) \rightarrow \text{avg\_fee}}(\text{Students}))$$
+  $$\sigma_{\text{avg\_fee} > 4000}({}_{\text{city}} \mathcal{G}_{\text{AVG}(\text{admission\_fee}) → \text{avg\_fee}}(\text{Students}))$$
   SQL: `HAVING avg_fee > 4000` (Applied AFTER grouping).
 
 
@@ -50,14 +50,14 @@ Computes a single scalar aggregate row over the entire relation $R$.
 --------------------------------------------------------------------------------
 CASE 1: Mamata's City-Wise Revenue Summary
 -- Relational Algebra:
--- ${}_{\text{city}} \mathcal{G}_{\text{COUNT}(*) \rightarrow \text{total\_students}, \text{SUM(fee)} \rightarrow \text{total\_revenue}, \text{AVG(fee)} \rightarrow \text{avg\_fee}}(\text{Students})$
+-- ${}_{\text{city}} \mathcal{G}_{\text{COUNT}(*) → \text{total\_students}, \text{SUM(fee)} → \text{total\_revenue}, \text{AVG(fee)} → \text{avg\_fee}}(\text{Students})$
 SELECT city, COUNT(*) AS total_students, SUM(admission_fee) AS total_revenue, AVG(admission_fee) AS avg_fee
 FROM students
 GROUP BY city;
 
 CASE 2: Debangshu's Top Course Enrollment Filter (HAVING)
 -- Relational Algebra:
--- $\sigma_{\text{enroll\_count} \ge 2}({}_{\text{course\_id}} \mathcal{G}_{\text{COUNT}(*) \rightarrow \text{enroll\_count}}(\text{Enrollments}))$
+-- $\sigma_{\text{enroll\_count} \ge 2}({}_{\text{course\_id}} \mathcal{G}_{\text{COUNT}(*) → \text{enroll\_count}}(\text{Enrollments}))$
 SELECT course_id, COUNT(*) AS enroll_count
 FROM enrollments
 GROUP BY course_id

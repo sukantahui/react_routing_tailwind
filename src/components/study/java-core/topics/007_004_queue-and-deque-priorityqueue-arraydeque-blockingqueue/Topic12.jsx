@@ -21,7 +21,7 @@ export default function Topic12() {
             LIFO Stack
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Using <code className="text-emerald-400 font-mono">ArrayDeque</code> as a High-Speed LIFO Stack: <code className="text-emerald-400 font-mono">push()</code>, <code className="text-sky-400 font-mono">pop()</code> &amp; <code className="text-amber-400 font-mono">peek()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic12() {
       </section>
 
       <Teacher
-        note="Whenever you build an undo-redo engine, syntax validator, or depth-first search, always declare 'Deque<T> stack = new ArrayDeque<>()'! It gives you pure LIFO stack semantics with incredible speed! — Sukanta Hui"
+        note="Whenever you build an undo-redo engine, syntax validator, or depth-first search, always declare 'Deque&lt;T&gt; stack = new ArrayDeque&lt;&gt;()'! It gives you pure LIFO stack semantics with incredible speed! — Sukanta Hui"
       />
     </div>
   );

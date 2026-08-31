@@ -179,7 +179,7 @@ const Topic27 = () => {
         <header className="mb-8 md:mb-12 text-center animate-[fadeIn_0.8s_ease-out]">
           <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full text-white">
             <span className="text-xl">🔑</span>
-            <h1 className="text-2xl md:text-4xl font-bold">
+            <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold">
               Understanding Keys in List Rendering
             </h1>
           </div>

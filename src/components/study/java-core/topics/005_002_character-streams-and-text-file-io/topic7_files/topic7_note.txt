@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. BRIDGE ARCHITECTURE:
-   - 'InputStreamReader' : InputStream (Bytes) &rarr; Reader (Chars).
-   - 'OutputStreamWriter': Writer (Chars) &rarr; OutputStream (Bytes).
+   - 'InputStreamReader' : InputStream (Bytes) → Reader (Chars).
+   - 'OutputStreamWriter': Writer (Chars) → OutputStream (Bytes).
    - Always supply 'StandardCharsets.UTF_8' as the 2nd constructor parameter.
    - Core mechanism used by 'new Scanner(System.in)' and 'new BufferedReader(new InputStreamReader(System.in))'.
 

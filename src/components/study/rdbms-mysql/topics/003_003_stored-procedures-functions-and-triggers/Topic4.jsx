@@ -148,7 +148,7 @@ BEGIN
             SET p_status_code = 'ERR_STUDENT_NOT_FOUND';
             SET p_message = 'Student ID does not exist in academy registry.';
         ELSE
-            -- All validations passed -> Execute payment insert:
+            -- All validations passed → Execute payment insert:
             INSERT INTO fee_payments (student_id, amount_paid_inr, payment_date)
             VALUES (p_student_id, p_payment_amount, CURRENT_DATE());
             
@@ -221,7 +221,7 @@ FROM students;
               Conditional Control Flow
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Control Flow Statements: IF ... THEN ... ELSEIF ... ELSE
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

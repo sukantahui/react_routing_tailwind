@@ -27,7 +27,7 @@ const Topic4 = () => {
       defenseMechanism: 'Multi-Path Global Meshing + Encrypted Optical Line Cards (OTN Layer 1 Encryption)',
       estBudget: '₹14,50,000 (Encrypted High-Capacity Dark Fiber Optical Transceiver Cluster)',
       desc: 'The concrete physical geography anchoring cyberspace, comprising real glass cables, servers, and satellites.',
-      simResult: 'Undersea cable cut detected in Bay of Bengal -> Optical protection switch autonomously reroutes 100 Gbps traffic via Western Indian Ocean in 18ms.',
+      simResult: 'Undersea cable cut detected in Bay of Bengal → Optical protection switch autonomously reroutes 100 Gbps traffic via Western Indian Ocean in 18ms.',
     },
     {
       id: 'logical-layer',
@@ -38,7 +38,7 @@ const Topic4 = () => {
       defenseMechanism: 'BGP RPKI (Resource Public Key Infrastructure) + DNSSEC Cryptographic Zone Signing',
       estBudget: '₹4,50,000 (RPKI Validator Appliance & DNSSEC Signing Gateway)',
       desc: 'The software protocol abstraction that routes packets globally across sovereign boundaries.',
-      simResult: 'Rogue foreign AS advertises malicious BGP route -> RPKI validator flags ROA Mismatch (Invalid) -> Drops bogus route in 4.2ms.',
+      simResult: 'Rogue foreign AS advertises malicious BGP route → RPKI validator flags ROA Mismatch (Invalid) → Drops bogus route in 4.2ms.',
     },
     {
       id: 'persona-cognitive-layer',
@@ -49,7 +49,7 @@ const Topic4 = () => {
       defenseMechanism: 'FIDO2 Hardware-Bound MFA + Continuous Phishing Simulation & Security Culture Training',
       estBudget: '₹2,80,000 (FIDO2 Hardware Security Keys & Cognitive Awareness Platform)',
       desc: 'The human users and digital accounts that interact with computer systems, forming the ultimate target.',
-      simResult: 'Attacker launches targeted spear-phishing with deepfake audio -> FIDO2 token refuses credential handoff -> Attack severed instantly.',
+      simResult: 'Attacker launches targeted spear-phishing with deepfake audio → FIDO2 token refuses credential handoff → Attack severed instantly.',
     },
     {
       id: 'sovereign-governance',
@@ -60,7 +60,7 @@ const Topic4 = () => {
       defenseMechanism: 'Mandatory 6-Hour Incident Reporting + Sovereign Data Localization + MLAT Cooperation',
       estBudget: '₹3,50,000 (CERT-In Regulatory Compliance & Log Vault Archiving System)',
       desc: 'The legal and regulatory framework governing digital behavior and asserting sovereign jurisdiction.',
-      simResult: 'Cross-border database intrusion detected -> Incident logged with forensic chain-of-custody -> CERT-In notified within 6 hours.',
+      simResult: 'Cross-border database intrusion detected → Incident logged with forensic chain-of-custody → CERT-In notified within 6 hours.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic4 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Cyber Space
           </h1>
 

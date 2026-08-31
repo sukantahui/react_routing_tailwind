@@ -627,7 +627,7 @@ export default function QuizEngine({
                   <BookOpen size={13} />
                   <span>Module Assessment Hub</span>
                 </div>
-                <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+                <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
                   {title}
                 </h1>
                 <div className="flex items-center gap-3 mt-2 text-xs text-slate-300">
@@ -849,7 +849,7 @@ export default function QuizEngine({
               )}
             </div>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug">
+            <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
               {title}
             </h1>
 

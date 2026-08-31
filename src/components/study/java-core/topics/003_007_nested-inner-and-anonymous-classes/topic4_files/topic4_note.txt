@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SHADOWING DISAMBIGUATION:
-   - 'name'                 &rarr; Local variable / parameter.
-   - 'this.name'            &rarr; Inner class instance variable.
-   - 'OuterClass.this.name' &rarr; Enclosing Outer class instance variable.
+   - 'name'                 → Local variable / parameter.
+   - 'this.name'            → Inner class instance variable.
+   - 'OuterClass.this.name' → Enclosing Outer class instance variable.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

@@ -42,7 +42,7 @@ export default function Topic15() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Printing 2D Visual Patterns: Triangles, Centered Pyramids &amp; Diamonds
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -130,8 +130,8 @@ export default function Topic15() {
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Space Alignment</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#451a03" />
             <text x="335" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">spaces = (N - r)</text>
-            <text x="335" y="122" fill="#fef3c7" fontSize="10">Row 1 &rarr; 3 spaces</text>
-            <text x="335" y="142" fill="#fef3c7" fontSize="10">Row 4 &rarr; 0 spaces</text>
+            <text x="335" y="122" fill="#fef3c7" fontSize="10">Row 1 → 3 spaces</text>
+            <text x="335" y="142" fill="#fef3c7" fontSize="10">Row 4 → 0 spaces</text>
             <text x="440" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               Horizontal Shift
             </text>

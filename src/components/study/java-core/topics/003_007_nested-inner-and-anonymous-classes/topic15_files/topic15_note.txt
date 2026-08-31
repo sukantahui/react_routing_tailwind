@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. PERFORMANCE RULES:
    - Non-static inner: +8 bytes per object (this$0 pointer).
    - Static nested: Zero extra pointer overhead.
-   - High volume (1M+ nodes) &rarr; ALWAYS use static nested classes.
+   - High volume (1M+ nodes) → ALWAYS use static nested classes.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

@@ -13,7 +13,7 @@ const topic12_questions = [
     "explanation": "Aspect-Oriented Programming (AOP) mechanism in Spring.",
     "hint": "Wraps target beans to intercept method calls for transaction begin/commit/rollback.",
     "level": "Intermediate",
-    "codeExample": "Proxy intercepts method -> begins tx -> delegates -> commits tx."
+    "codeExample": "Proxy intercepts method → begins tx → delegates → commits tx."
   }
 ];
 

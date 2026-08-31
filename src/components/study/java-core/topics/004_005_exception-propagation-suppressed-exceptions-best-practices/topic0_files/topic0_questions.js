@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "Allows low-level errors to be handled centrally at higher architectural layers.",
     "hint": "Unhandled exceptions bubble up the call stack, popping stack frames until caught.",
     "level": "Beginner",
-    "codeExample": "// Level3 (fails) -> Level2 (propagates) -> Level1 (catches)"
+    "codeExample": "// Level3 (fails) → Level2 (propagates) → Level1 (catches)"
   }
 ];
 

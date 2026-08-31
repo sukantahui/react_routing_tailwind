@@ -40,7 +40,7 @@ const Topic14 = () => {
     <div className="dark min-h-screen bg-gray-950 text-gray-100 font-sans leading-relaxed p-6 md:p-10">
       <div className="max-w-5xl mx-auto space-y-12">
         <header className="text-center space-y-4 animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-indigo-600 bg-clip-text text-transparent">
             MVC Architecture with Servlets and JSP
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">

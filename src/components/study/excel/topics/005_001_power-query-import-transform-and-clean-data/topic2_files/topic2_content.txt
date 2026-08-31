@@ -7,10 +7,10 @@ Topic 2: The Power Query Editor interface: Queries pane, Applied Steps, and Form
 
 1. UI NAVIGATION SHORTCUTS & PATHS:
 - Launch Editor: Alt + F12
-- Advanced Editor: Home &rarr; Advanced Editor
+- Advanced Editor: Home → Advanced Editor
 - Rename Step: Select step + F2
-- Show Formula Bar: View &rarr; Check [X] Formula Bar
-- Query Dependencies: View &rarr; Query Dependencies
+- Show Formula Bar: View → Check [X] Formula Bar
+- Query Dependencies: View → Query Dependencies
 
 2. M STEP ASSIGNMENT PATTERN:
 - #\"Step Name\" = Function(#\"Prior Step\", [Options])

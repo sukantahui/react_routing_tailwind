@@ -29,7 +29,7 @@ const Topic30 = () => {
       contentionRatio: '1:1 (100% Dedicated Unshared)',
       estCost: '₹15,000 – ₹25,000 / month',
       desc: 'Dedicated enterprise internet for mid-sized corporate offices and factories in Barrackpore.',
-      floodSimulation: 'Normal load = 45 Mbps (45% capacity). 250 Mbps Volumetric UDP Flood -> Pipe saturates at 100%, dropping legitimate packets.',
+      floodSimulation: 'Normal load = 45 Mbps (45% capacity). 250 Mbps Volumetric UDP Flood → Pipe saturates at 100%, dropping legitimate packets.',
     },
     {
       id: 'ftth-300',
@@ -42,7 +42,7 @@ const Topic30 = () => {
       contentionRatio: '1:8 (Shared Neighborhood Fiber)',
       estCost: '₹999 – ₹1,499 / month',
       desc: 'Consumer and small business fiber connection; high download but asymmetric and shared during evening peak hours.',
-      floodSimulation: 'Peak-hour neighborhood contention -> Throughput drops to 140 Mbps; Fair Usage Policy (FUP) limits upload bursts.',
+      floodSimulation: 'Peak-hour neighborhood contention → Throughput drops to 140 Mbps; Fair Usage Policy (FUP) limits upload bursts.',
     },
     {
       id: 'ill-1000',
@@ -163,7 +163,7 @@ const Topic30 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Bandwidth
           </h1>
 

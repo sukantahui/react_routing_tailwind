@@ -68,7 +68,7 @@ const Topic4 = () => {
         className="section-animate max-w-5xl mx-auto px-6 py-12 md:py-16"
         style={{ animationDelay: '0.1s' }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
           Interface vs Abstract Class
         </h1>
         <p className="text-xl mt-4 leading-relaxed text-gray-600 dark:text-gray-300">

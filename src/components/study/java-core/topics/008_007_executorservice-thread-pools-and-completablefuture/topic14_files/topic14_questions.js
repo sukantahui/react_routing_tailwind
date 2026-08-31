@@ -5,7 +5,7 @@ const topic14_questions = [
     "explanation": "Monadic asynchronous composition in CompletionStage.",
     "hint": "thenCompose is the async flatMap that flattens nested CompletableFuture<CompletableFuture<T>> into CompletableFuture<T>.",
     "level": "Intermediate",
-    "codeExample": "CompletableFuture<User> future = fetchUserId().thenCompose(id -> fetchUserProfile(id));"
+    "codeExample": "CompletableFuture<User> future = fetchUserId().thenCompose(id → fetchUserProfile(id));"
   }
 ];
 

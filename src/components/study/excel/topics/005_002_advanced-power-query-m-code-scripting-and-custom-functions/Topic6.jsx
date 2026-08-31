@@ -76,7 +76,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Web Scraping &amp; REST API Data Ingestion with Power Query: Web.Contents &amp; Json.Document
           </h1>
 
@@ -380,7 +380,7 @@ JsonPayload = Json.Document(Response)`}
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Web_API_Ingestion"
+            sheetName="EX2107"
             title="REST API Foreign Exchange Rate Feed (Target Currency Code, Currency Name, Base Currency USD Rate, Inverse Rate INR, Last Updated Timestamp, Ingestion Pipeline)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -417,7 +417,7 @@ JsonPayload = Json.Document(Response)`}
                 Financial Analyst <strong>Swadeep Banerjee</strong> integrates live exchange rates via <code className="text-teal-300 font-mono">Web.Contents</code> and <code className="text-teal-300 font-mono">Json.Document</code>, automatically converting multi-currency sales into standardized INR ledgers.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Web.Contents + Json.Document &rarr; Live Daily FX Ingestion
+                Web.Contents + Json.Document → Live Daily FX Ingestion
               </div>
             </div>
 
@@ -434,7 +434,7 @@ JsonPayload = Json.Document(Response)`}
                 Senior Accountant <strong>Tuhina Mukherjee</strong> refactors API queries to use <code className="text-emerald-300 font-mono">RelativePath</code> and <code className="text-emerald-300 font-mono">Query</code>, resolving the 'Dynamic Data Source' error and enabling automated 6:00 AM daily cloud refreshes.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                RelativePath Compliance &rarr; 100% Scheduled Refresh Success
+                RelativePath Compliance → 100% Scheduled Refresh Success
               </div>
             </div>
 
@@ -451,7 +451,7 @@ JsonPayload = Json.Document(Response)`}
                 ERP Lead <strong>Abhronila Sengupta</strong> extracts raw material steel pricing index tables published on trade association websites using <code className="text-indigo-300 font-mono">Web.Page(Web.Contents(...))</code>, updating procurement cost benchmarks dynamically.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Web.Page &rarr; Automated Commodity Market HTML Table Scraping
+                Web.Page → Automated Commodity Market HTML Table Scraping
               </div>
             </div>
 
@@ -468,7 +468,7 @@ JsonPayload = Json.Document(Response)`}
                 Operations Lead <strong>Debangshu Ghosh</strong> applies <code className="text-fuchsia-300 font-mono">ManualStatusHandling = {400, 404, 500}</code> on GST portal API checks, logging invalid GSTIN tax identification numbers without aborting the batch pipeline.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                ManualStatusHandling &rarr; Non-Blocking HTTP Error Logging
+                ManualStatusHandling → Non-Blocking HTTP Error Logging
               </div>
             </div>
           </div>

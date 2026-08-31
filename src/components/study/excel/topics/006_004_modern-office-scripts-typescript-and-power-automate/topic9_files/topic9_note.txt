@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Cloud Triggers: When a new response is submitted (Forms) -> Run Script (Append Row) | When a new email arrives (Outlook) -> Run Script | Recurrence (Daily 06:00)
+Cloud Triggers: When a new response is submitted (Forms) → Run Script (Append Row) | When a new email arrives (Outlook) → Run Script | Recurrence (Daily 06:00)
 
 PRIMARY CONCEPT:
 Triggering automated Excel cloud workflows from diverse event sources: Microsoft Forms submissions, incoming Outlook emails, Webhooks, and recurring scheduled timers
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Connect a Microsoft Form to an Office Script! Anyone in your company can fill out a form on their mobile phone, and the data automatically appears inside your master Excel spreadsheet 2 seconds later.
 
 COMMON TRAPS TO AVOID:
-- Missing 'Get Response Details' Action After Forms Trigger: The 'When a response is submitted' trigger returns only a Response ID; forgetting the 'Get response details' action leaves fields blank. -> Fix: Always follow Forms trigger with 'Get response details' action.
-- Infinite Loop Triggered on Email Reply: Triggering on email arrival, sending an automated reply, and triggering on your own reply. -> Fix: Add strict subject/sender trigger conditions (e.g. `Subject contains [EXPENSE]`).
-- Time Zone Offsets on Scheduled Cloud Timers: Power Automate timers default to UTC; scheduling 09:00 AM UTC runs at 02:30 PM IST. -> Fix: Explicitly set Time Zone to `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`.
+- Missing 'Get Response Details' Action After Forms Trigger: The 'When a response is submitted' trigger returns only a Response ID; forgetting the 'Get response details' action leaves fields blank. → Fix: Always follow Forms trigger with 'Get response details' action.
+- Infinite Loop Triggered on Email Reply: Triggering on email arrival, sending an automated reply, and triggering on your own reply. → Fix: Add strict subject/sender trigger conditions (e.g. `Subject contains [EXPENSE]`).
+- Time Zone Offsets on Scheduled Cloud Timers: Power Automate timers default to UTC; scheduling 09:00 AM UTC runs at 02:30 PM IST. → Fix: Explicitly set Time Zone to `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`.
 ================================================================================

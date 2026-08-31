@@ -22,8 +22,8 @@ Receiver (Bob):
     hint: "Think of stamping a summary barcode ticket on a heavy shipping container rather than stamping every individual brick inside.",
     level: "moderate",
     codeExample: `// Hash-then-Sign Paradigm:
-Raw File: 4.5 GB Medical Dataset -> SHA-256 Digest: 32 Bytes
-Signature Operation: RSA_Sign( 32_Byte_Digest, PrivateKey ) -> Takes 2.1 Milliseconds!`
+Raw File: 4.5 GB Medical Dataset → SHA-256 Digest: 32 Bytes
+Signature Operation: RSA_Sign( 32_Byte_Digest, PrivateKey ) → Takes 2.1 Milliseconds!`
   },
   {
     question: "What catastrophic vulnerability caused the famous 'Sony PlayStation 3' (PS3) ECDSA Private Key Recovery disaster in 2010?",
@@ -76,8 +76,8 @@ Hardware Standard: 2048-bit RSA / ECC on FIPS 140-2 Level 2 Crypto USB Token.`
     hint: "Think about why a shared metal key used by two business partners cannot prove which partner locked the door.",
     level: "moderate",
     codeExample: `// HMAC vs Digital Signature Non-Repudiation:
-HMAC (Symmetric):   Shared Key K held by Alice & Bob -> Bob could have forged Tag -> REPUDIABLE!
-Digital Signature:  Private Key held ONLY by Alice   -> Bob CANNOT forge Signature -> NON-REPUDIABLE!`
+HMAC (Symmetric):   Shared Key K held by Alice & Bob → Bob could have forged Tag → REPUDIABLE!
+Digital Signature:  Private Key held ONLY by Alice   → Bob CANNOT forge Signature → NON-REPUDIABLE!`
   },
   {
     question: "What is an 'X.509 Digital Certificate', and what are its core fields defined under the RFC 5280 standard?",
@@ -104,8 +104,8 @@ Certificate:
     hint: "Think of the store cashier providing a pre-printed, certified fresh bank receipt rather than calling the bank for every customer in line.",
     level: "expert",
     codeExample: `// OCSP Stapling Flow:
-1. Web Server queries CA OCSP Responder every 1 hour -> Receives Cached Signed Status: "GOOD"
-2. User Mamata connects to Bank -> Server sends [ X.509 Certificate ] + [ Stapled OCSP Response ]
+1. Web Server queries CA OCSP Responder every 1 hour → Receives Cached Signed Status: "GOOD"
+2. User Mamata connects to Bank → Server sends [ X.509 Certificate ] + [ Stapled OCSP Response ]
 3. Mamata's browser verifies CA Signature on OCSP token in 0.1ms (Zero CA Network Call needed!)`
   },
   {
@@ -128,7 +128,7 @@ Certificate:
     codeExample: `// (3, 5) Threshold Signature Scheme:
 Total Key Shares: 5 (Held by Mamata, Mahima, Debangshu, Abhronila, Susmita)
 Threshold t = 3: Any 3 shares can mathematically reconstruct the valid ECDSA signature!
-Compromised Nodes: Attacker steals 2 shares -> ZERO ability to forge signatures!`
+Compromised Nodes: Attacker steals 2 shares → ZERO ability to forge signatures!`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, how do Digital Signatures provide legally binding audit trails for 'Data Principal Consent Artifacts'?",
@@ -155,7 +155,7 @@ Compromised Nodes: Attacker steals 2 shares -> ZERO ability to forge signatures!
     codeExample: `// Lattice Reduction Attack on Biased ECDSA (LLL Algorithm):
 Input: 150 ECDSA Signatures with 1-bit Nonce Bias (k < 2^255)
 Matrix Formulation: Build (n+2)-dimensional lattice matrix L
-Action: Run LLL / BKZ Lattice Reduction -> Shortest Vector yields Private Key d!`
+Action: Run LLL / BKZ Lattice Reduction → Shortest Vector yields Private Key d!`
   },
   {
     question: "What is 'Forward-Secure Digital Signatures', and how do evolving private keys protect past signatures even if the current private key is stolen?",
@@ -164,9 +164,9 @@ Action: Run LLL / BKZ Lattice Reduction -> Shortest Vector yields Private Key d!
     hint: "Think of a secret diary where yesterday's page automatically turns into indestructible stone that can never be modified.",
     level: "expert",
     codeExample: `// Forward-Secure Signature Key Evolution:
-Time T=0: K_priv_0 used to sign -> Key evolves: K_priv_1 = SHA256( K_priv_0 ) -> K_priv_0 is WIPED!
-Time T=1: K_priv_1 used to sign -> Key evolves: K_priv_2 = SHA256( K_priv_1 ) -> K_priv_1 is WIPED!
-// Attacker steals K_priv_2 -> Cannot reverse SHA-256 to forge signatures for T=0 or T=1!`
+Time T=0: K_priv_0 used to sign → Key evolves: K_priv_1 = SHA256( K_priv_0 ) → K_priv_0 is WIPED!
+Time T=1: K_priv_1 used to sign → Key evolves: K_priv_2 = SHA256( K_priv_1 ) → K_priv_1 is WIPED!
+// Attacker steals K_priv_2 → Cannot reverse SHA-256 to forge signatures for T=0 or T=1!`
   },
   {
     question: "What is the 'Post-Quantum Digital Signature' standard (NIST FIPS 204 / ML-DSA), and what lattice problem guarantees its security?",
@@ -187,9 +187,9 @@ Security: 128-bit Post-Quantum Security Margin (100% Resistant to Shor's Algorit
     hint: "Think of an open public municipal registry where every new building permit must be published on a public bulletin board before construction can begin.",
     level: "expert",
     codeExample: `// Certificate Transparency (CT) Validation:
-CA issues Certificate -> Publishes to Google / Cloudflare Public CT Merkle Log
+CA issues Certificate → Publishes to Google / Cloudflare Public CT Merkle Log
 Log returns: Signed Certificate Timestamp (SCT)
-Browser connects -> Checks for valid SCT proof -> Connection ALLOWED only if logged in public Merkle Tree!`
+Browser connects → Checks for valid SCT proof → Connection ALLOWED only if logged in public Merkle Tree!`
   },
   {
     question: "Synthesizing Message Integrity and Digital Signatures: what is the master architecture for deploying digital signatures across enterprise banking and cloud infrastructure?",

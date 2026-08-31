@@ -95,7 +95,7 @@ WHERE s.dept_id = (
     WHERE first_name = 'Mamata' 
     LIMIT 1
 )
-AND s.first_name <> 'Mamata'
+AND s.first_name &lt;&gt; 'Mamata'
 ORDER BY s.first_name ASC;`,
       resultRows: [
         { id: "STU-102", name: "Susmita Sen", dept: "Computer Science", score: "88.00%", benchmark: "Same Dept (CS)", variance: "Peer Match", status: "Department Peer" },
@@ -109,7 +109,7 @@ ORDER BY s.first_name ASC;`,
       badgeColor: "rose",
       sqlQuery: `-- Discovering the 2nd highest exam score in the academy:
 -- Inner Nested Query 1: Computes global MAX(exam_score_pct) = 96.20%.
--- Inner Nested Query 2: Computes MAX(exam_score_pct) strictly less than 96.20% -> 94.50%.
+-- Inner Nested Query 2: Computes MAX(exam_score_pct) strictly less than 96.20% → 94.50%.
 -- Outer Query: Matches students scoring exactly 94.50%.
 
 SELECT 
@@ -162,7 +162,7 @@ WHERE s.exam_score_pct = (
               Scalar Comparison Logic
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Single-Row Subqueries with Comparison Operators
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

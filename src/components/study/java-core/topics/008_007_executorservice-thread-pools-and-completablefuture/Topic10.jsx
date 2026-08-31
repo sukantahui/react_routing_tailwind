@@ -21,7 +21,7 @@ export default function Topic10() {
             Future&lt;T&gt; Management
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Managing <code className="text-emerald-400 font-mono">Future&lt;T&gt;</code>: Bounded <code className="text-sky-400 font-mono">get()</code>, <code className="text-amber-400 font-mono">isDone()</code> &amp; <code className="text-rose-400 font-mono">cancel()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -42,7 +42,7 @@ export default function Topic10() {
 
       <section className="space-y-4">
         <FAQTemplate
-          title="Future<T> FAQs"
+          title="Future&lt;T&gt; FAQs"
           questions={questions}
         />
       </section>
@@ -50,7 +50,7 @@ export default function Topic10() {
       <section className="space-y-4">
         <PlainTextPrint
           content={noteText}
-          title="Module 008_007 Topic 10: Future<T> Management"
+          title="Module 008_007 Topic 10: Future&lt;T&gt; Management"
           stampEnabled={true}
           showDownload={true}
           downloadButtonText="Download Printable Note"

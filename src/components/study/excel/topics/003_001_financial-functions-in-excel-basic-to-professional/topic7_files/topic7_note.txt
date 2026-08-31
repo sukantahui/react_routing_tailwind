@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 XIRR is the gold standard of real-world investment performance. If you ever calculate returns for mutual funds, private equity, or real estate, XIRR is the ONLY function to use.
 
 COMMON TRAPS TO AVOID:
-- First Cash Flow Must Be Negative: If the first cash flow in the schedule is positive, XIRR returns a fatal #NUM! error. -> Fix: Ensure the initial investment at Date 0 is entered as a negative number (-).
-- Dates Must Be True Excel Date Serials: Using text-formatted dates causes XIRR to return #VALUE!. -> Fix: Verify that dates are genuine serial numbers (ISNUMBER(DateCell) = TRUE).
-- Convergence Failure (#NUM!) on Extreme Cash Flows: Extremely volatile cash flows may fail to converge within Excel's 100-iteration limit. -> Fix: Provide a realistic seed value in the optional `[guess]` argument (e.g. 0.20 or -0.10).
+- First Cash Flow Must Be Negative: If the first cash flow in the schedule is positive, XIRR returns a fatal #NUM! error. → Fix: Ensure the initial investment at Date 0 is entered as a negative number (-).
+- Dates Must Be True Excel Date Serials: Using text-formatted dates causes XIRR to return #VALUE!. → Fix: Verify that dates are genuine serial numbers (ISNUMBER(DateCell) = TRUE).
+- Convergence Failure (#NUM!) on Extreme Cash Flows: Extremely volatile cash flows may fail to converge within Excel's 100-iteration limit. → Fix: Provide a realistic seed value in the optional `[guess]` argument (e.g. 0.20 or -0.10).
 ================================================================================

@@ -158,7 +158,7 @@ const topic14_questions = [
   },
   {
     question: "What is a 'State Transition Matrix' and how does a setter enforce it?",
-    shortAnswer: "A lookup table or conditional check specifying which status changes are legal (e.g. NEW -> PROCESSING is valid; CANCELLED -> DELIVERED is invalid).",
+    shortAnswer: "A lookup table or conditional check specifying which status changes are legal (e.g. NEW → PROCESSING is valid; CANCELLED → DELIVERED is invalid).",
     explanation: "Finite State Machines enforce lifecycle transitions. A setter like 'transitionStatus(newStatus)' checks if the requested transition is in the allowed set and rejects illegal jumps.",
     hint: "State machine lifecycle transition enforcement.",
     level: "Intermediate",
@@ -250,7 +250,7 @@ const topic14_questions = [
     explanation: "At the Barrackpore academy, Sukanta Hui emphasizes that software bugs cost millions because bad data slips into databases undetected. By placing strict sanitization, range checks, and state transition guards inside your mutators, your systems run resilient, secure, and rock-solid.",
     hint: "Inspect every passport, sanitize every crate, defend your domain.",
     level: "Beginner",
-    codeExample: "// Sukanta Hui's Setter Guard Pattern:\n// 1. Objects.requireNonNull -> 2. Sanitize/Trim -> 3. Range/Format Check -> 4. Invariant Guard -> 5. Assign"
+    codeExample: "// Sukanta Hui's Setter Guard Pattern:\n// 1. Objects.requireNonNull → 2. Sanitize/Trim → 3. Range/Format Check → 4. Invariant Guard → 5. Assign"
   }
 ];
 

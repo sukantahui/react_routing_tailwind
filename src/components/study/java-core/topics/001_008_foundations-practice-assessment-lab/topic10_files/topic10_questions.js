@@ -95,7 +95,7 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was Swadeep's discounted net fee after 15% merit waiver and 18% GST on ₹20,000 base fee?",
-    shortAnswer: "Base: ₹20,000 &rarr; 15% discount: ₹17,000 &rarr; +18% GST: **₹20,060.00**.",
+    shortAnswer: "Base: ₹20,000 → 15% discount: ₹17,000 → +18% GST: **₹20,060.00**.",
     explanation: "Swadeep billing fee breakdown.",
     hint: "₹20,060.00.",
     level: "basic",
@@ -123,7 +123,7 @@ const questions = [
     explanation: "Default branch requirement in switch statements.",
     hint: "A default branch is mandatory in all switch statements.",
     level: "basic",
-    codeExample: "switch(x) { ... default -> throw new AssertionError(); }"
+    codeExample: "switch(x) { ... default → throw new AssertionError(); }"
   },
   {
     question: "What is the rule for grouping `import` statements in Google Java Style?",
@@ -159,7 +159,7 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was Tuhina's net fee for ₹25,000 base fee with 96.0% score?",
-    shortAnswer: "**₹23,600.00** (₹25,000 &rarr; 15% discount: ₹21,250 &rarr; +18% GST: ₹23,600.00).",
+    shortAnswer: "**₹23,600.00** (₹25,000 → 15% discount: ₹21,250 → +18% GST: ₹23,600.00).",
     explanation: "Tuhina billing fee calculation.",
     hint: "₹23,600.00.",
     level: "basic",

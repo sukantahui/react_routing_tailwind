@@ -43,7 +43,7 @@ THE 8 MASTER EQUIVALENCE RULES:
 STEP 1: Split all conjunctive Selection predicates into individual cascades ($\sigma_{c_1}(\dots)$).
 STEP 2: Push each Selection condition down the query tree as far as possible towards leaf tables.
 STEP 3: Reorder the leaf nodes so the relations with the most restrictive selections are evaluated first.
-STEP 4: Combine Cartesian products followed by selection into Equijoins ($\sigma_\theta(R \times S) \rightarrow R \bowtie_\theta S$).
+STEP 4: Combine Cartesian products followed by selection into Equijoins ($\sigma_\theta(R \times S) → R \bowtie_\theta S$).
 STEP 5: Push Projections down to eliminate unneeded non-join attributes immediately after table scans.
 
 

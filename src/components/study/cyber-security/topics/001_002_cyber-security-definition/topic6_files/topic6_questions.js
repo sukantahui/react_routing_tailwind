@@ -40,7 +40,7 @@ const questions = [
     explanation: "Allows security analysts in Jadavpur to map defensive detection coverage directly against real-world APT techniques.",
     hint: "A giant periodic table of hacker tactics and techniques used to test and grade enterprise defenses.",
     level: "moderate",
-    codeExample: "MITRE_ATTACK: Tactic 'Initial Access' -> Technique 'T1566 Phishing' -> Sub-Technique 'T1566.001 Spearphishing Attachment'"
+    codeExample: "MITRE_ATTACK: Tactic 'Initial Access' → Technique 'T1566 Phishing' → Sub-Technique 'T1566.001 Spearphishing Attachment'"
   },
   {
     question: "What is the cost in Indian Rupees (₹) for a Commercial Cyber Threat Intelligence (CTI) Feed Subscription?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "Democratizes military-grade cyber extortion, allowing low-skilled criminals to launch devastating multi-crore attacks across West Bengal.",
     hint: "Criminal subscription model where virus creators rent out ransomware to amateur hackers for a cut of profits.",
     level: "basic",
-    codeExample: "RaaS_Ecosystem: CoreDeveloper(Writes Ransomware) <--> Affiliate(Breaches Network) -> 80%/20% Profit Split"
+    codeExample: "RaaS_Ecosystem: CoreDeveloper(Writes Ransomware) <--> Affiliate(Breaches Network) → 80%/20% Profit Split"
   },
   {
     question: "What is Hacktivism and how do hacktivist threat actors operate?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "Zero-click iOS and Android exploits sell for upwards of ₹15 to ₹25 Crore on international broker markets.",
     hint: "Brokers who buy secret unpatched software bugs for millions of dollars and sell them to governments or hackers.",
     level: "expert",
-    codeExample: "ZeroDayMarket: iOS Zero-Click RCE Exploit -> Sold for ₹20 Crore to Intelligence Contractors"
+    codeExample: "ZeroDayMarket: iOS Zero-Click RCE Exploit → Sold for ₹20 Crore to Intelligence Contractors"
   },
   {
     question: "What is a Drive-by Download in web-based attack vectors?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Prevented by keeping browsers strictly updated and using browser isolation sandboxes in Kolkata.",
     hint: "Getting infected with a virus just by opening a web page without clicking anything.",
     level: "basic",
-    codeExample: "DriveByDownload: MaliciousIframe -> ExploitsBrowserVulnerability -> InjectsShellcodeInRAM"
+    codeExample: "DriveByDownload: MaliciousIframe → ExploitsBrowserVulnerability → InjectsShellcodeInRAM"
   },
   {
     question: "What is Typosquatting & Software Supply Chain Dependency Confusion?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "Defended via private artifact repository mirrors and strict package hash lockfiles in Barrackpore.",
     hint: "Publishing fake software libraries with misspelled names so developers accidentally install malware.",
     level: "moderate",
-    codeExample: "Typosquatting: Attacker uploads 'loddash' containing reverse shell -> Developer runs `npm install loddash`"
+    codeExample: "Typosquatting: Attacker uploads 'loddash' containing reverse shell → Developer runs `npm install loddash`"
   },
   {
     question: "What is Lateral Movement in the Cyber Threat Landscape?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Prevented by internal 802.1Q VLAN microsegmentation and disabling SMBv1 in Ichapur.",
     hint: "An attacker hopping from one computer to another inside the company network to reach the main database.",
     level: "moderate",
-    codeExample: "LateralMovement: Compromise(Receptionist_PC) -> DumpLSASS_Credentials() -> SSH_To_Core_Database_Server"
+    codeExample: "LateralMovement: Compromise(Receptionist_PC) → DumpLSASS_Credentials() → SSH_To_Core_Database_Server"
   },
   {
     question: "What is Kerberoasting in Active Directory domain attacks?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "Defended by using Group Managed Service Accounts (gMSA) with 128-character complex passwords in Kolkata.",
     hint: "Requesting encrypted service tickets from a domain controller and cracking them offline to get admin passwords.",
     level: "expert",
-    codeExample: "Kerberoasting: RequestServiceTicket(SPN = 'MSSQLSvc/db01') -> ExtractTGS_Hash() -> Offline_Hashcat_Crack"
+    codeExample: "Kerberoasting: RequestServiceTicket(SPN = 'MSSQLSvc/db01') → ExtractTGS_Hash() → Offline_Hashcat_Crack"
   },
   {
     question: "What is Data Exfiltration over DNS (DNS Tunneling)?",
@@ -184,7 +184,7 @@ const questions = [
     explanation: "Bypasses technical spam filters because the email originates from a legitimate, compromised vendor mailbox in Barrackpore.",
     hint: "Hackers hijack a supplier's real email thread to send fake updated bank account details for invoice payments.",
     level: "moderate",
-    codeExample: "InvoiceFraud: Compromised_Vendor_Email -> 'Please send payment to our new SBI account' -> Funds_Diverted"
+    codeExample: "InvoiceFraud: Compromised_Vendor_Email → 'Please send payment to our new SBI account' → Funds_Diverted"
   },
   {
     question: "What is Man-in-the-Browser (MitB) Attack?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Renders standard two-factor SMS OTPs ineffective unless out-of-band transaction details confirmation is enforced in Kolkata.",
     hint: "A virus inside your browser that quietly changes bank transfer account numbers as you click Submit.",
     level: "expert",
-    codeExample: "MitB_Action: Intercept_Form_Submit() -> Replace(DestinationAccount = 'Criminal_Account') -> SubmitToBank"
+    codeExample: "MitB_Action: Intercept_Form_Submit() → Replace(DestinationAccount = 'Criminal_Account') → SubmitToBank"
   },
   {
     question: "What is Spear-Phishing vs Whaling?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Whaling emails reference real company board members and financial terms to establish false authenticity in Ichapur.",
     hint: "Spear-phishing targets specific employees; Whaling targets top CEOs and CFOs.",
     level: "basic",
-    codeExample: "Whaling_Target: CEO / CFO -> Personalized pretexting referencing current company merger discussions."
+    codeExample: "Whaling_Target: CEO / CFO → Personalized pretexting referencing current company merger discussions."
   },
   {
     question: "What is Shadow Copy Deletion in Ransomware execution scripts?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Proactively discovers stealth adversaries in Barrackpore before automated alarms trigger.",
     hint: "Creating a theory of how hackers might be hiding in your network and searching server logs to prove it.",
     level: "expert",
-    codeExample: "HuntingHypothesis: 'An adversary has established WMI persistence' -> QuerySIEM(Process = 'wmic.exe /create');"
+    codeExample: "HuntingHypothesis: 'An adversary has established WMI persistence' → QuerySIEM(Process = 'wmic.exe /create');"
   },
   {
     question: "What is Reverse Engineering of Malware in Threat Intelligence labs?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "Students in Jadavpur analyze live malware samples to generate national cyber threat signatures.",
     hint: "Taking apart a virus in a secure lab to see how it works and extract its secret server addresses.",
     level: "expert",
-    codeExample: "MalwareAnalysis: Disassemble(trojan.bin) -> Extract(C2_IP = '203.0.113.88') -> Generate_YARA_Rule();"
+    codeExample: "MalwareAnalysis: Disassemble(trojan.bin) → Extract(C2_IP = '203.0.113.88') → Generate_YARA_Rule();"
   },
   {
     question: "What is Cyber Threat Profiling and Actor Attribution Confidence Scoring?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes actor profiling, advanced CTI frameworks, proactive behavioral hunting, and financial procurement budgeting.",
     hint: "Taxonomy + Pyramid of Pain + MITRE ATT&CK TTPs + IoAs + CTI budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ProfileThreatActors() -> MasterPyramidOfPain() -> MapMITRE_TTPs() -> HuntWithIoAs() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: ProfileThreatActors() → MasterPyramidOfPain() → MapMITRE_TTPs() → HuntWithIoAs() → BudgetInRupees(₹);"
   }
 ];
 

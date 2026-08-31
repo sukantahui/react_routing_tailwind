@@ -1,20 +1,20 @@
 ================================================================================
 CODER & ACCOTAX - JAVA CORE COMPLETE ROADMAP
 MODULE 001_003: Operators, Expressions, Precedence & Type Casting
-TOPIC 18: Automatic Type Promotion Rules in Expressions (byte/short/char -> int)
+TOPIC 18: Automatic Type Promotion Rules in Expressions (byte/short/char → int)
 Educator: Sukanta Hui | Barrackpore, West Bengal
 ================================================================================
 
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - Unary Numeric Promotion (JLS §5.6.1):
-  * If operand is byte, short, or char -> Automatically promoted to 'int'.
+  * If operand is byte, short, or char → Automatically promoted to 'int'.
   * Applies to: +x, -x, ~x, array indices, shift distances.
 
 - Binary Numeric Promotion Hierarchy (JLS §5.6.2):
-  1. If any operand is 'double' -> Other promoted to 'double'
-  2. Else if any operand is 'float' -> Other promoted to 'float'
-  3. Else if any operand is 'long'   -> Other promoted to 'long'
+  1. If any operand is 'double' → Other promoted to 'double'
+  2. Else if any operand is 'float' → Other promoted to 'float'
+  3. Else if any operand is 'long'   → Other promoted to 'long'
   4. OTHERWISE: BOTH operands are promoted to 'int'!
 
 - The 'byte + byte' Compilation Trap:

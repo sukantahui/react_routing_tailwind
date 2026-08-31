@@ -10,7 +10,7 @@ Introduction to What-If Analysis and Sensitivity Modeling in Decision Making is 
 It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: What-If Decision Framework: Assumptions (Variables) -> Financial Logic Engine -> Sensitivity Outputs (KPIs)
+Operational Architecture: What-If Decision Framework: Assumptions (Variables) → Financial Logic Engine → Sensitivity Outputs (KPIs)
 
 3. CORE TECHNICAL MECHANICS
 1. Deterministic vs Probabilistic Modeling:

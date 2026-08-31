@@ -6,8 +6,8 @@ const questions = [
     hint: "Think of digital transformation expanding the attack surface while regulatory fines and ransomware costs skyrocket.",
     level: "basic",
     codeExample: `// The Cost of Inaction vs Proactive ISM:
-Unmanaged Enterprise: Data breach occurs -> ₹250 Cr DPDP Fine + 14 Days Downtime + Brand Destruction
-ISM Governed Enterprise: Risk treatment -> 24/7 SOC detection in < 15 mins -> 100% Resilience`
+Unmanaged Enterprise: Data breach occurs → ₹250 Cr DPDP Fine + 14 Days Downtime + Brand Destruction
+ISM Governed Enterprise: Risk treatment → 24/7 SOC detection in < 15 mins → 100% Resilience`
   },
   {
     question: "What is 'Annual Loss Expectancy' (ALE), and how is it quantitatively calculated in enterprise ISM risk management?",
@@ -62,8 +62,8 @@ Indirect Costs: 20% Customer Churn + Stock Price Plunge (-15%) + B2B Contract Ca
     hint: "Think of how an official food safety certificate attracts high-paying restaurant customers.",
     level: "moderate",
     codeExample: `// ISM as a Revenue Accelerator:
-Without ISO 27001: Enterprise client blocks vendor contract -> ₹10 Crore deal lost!
-With Active ISMS:   Vendor passes security assessment instantly -> ₹10 Crore deal signed in 14 days!`
+Without ISO 27001: Enterprise client blocks vendor contract → ₹10 Crore deal lost!
+With Active ISMS:   Vendor passes security assessment instantly → ₹10 Crore deal signed in 14 days!`
   },
   {
     question: "What is 'Shadow IT', and why is it a severe risk driver that necessitates enterprise-wide Information Security Management?",
@@ -72,7 +72,7 @@ With Active ISMS:   Vendor passes security assessment instantly -> ₹10 Crore d
     hint: "Think of employees sneaking uninspected private machinery into a factory.",
     level: "basic",
     codeExample: `// Shadow IT Example & Mitigation:
-Risk: Employee uploads customer database to unapproved public AI tool -> Data Leaked!
+Risk: Employee uploads customer database to unapproved public AI tool → Data Leaked!
 ISM Defense: CASB (Cloud Access Security Broker) monitors cloud traffic + Enforces Acceptable Use Policy.`
   },
   {
@@ -105,7 +105,7 @@ ISM Defense: Vendor Security Assessments, Contractual SLAs, and Zero Trust API T
     level: "moderate",
     codeExample: `// Cyber Insurance Underwriting Prerequisites:
 Required Controls:  Mandatory MFA + Immutable Backups + 24/7 EDR + ISO 27001 Compliance
-Failure Outcome:   If controls are missing during a claim investigation -> 100% CLAIM DENIAL!`
+Failure Outcome:   If controls are missing during a claim investigation → 100% CLAIM DENIAL!`
   },
   {
     question: "Under the Information Technology Act 2000 Section 43A, what constitutes 'Reasonable Security Practices and Procedures' (SPDI Rules)?",

@@ -34,15 +34,15 @@ Layer 1 (Physical)| 1000BASE-T, 10G-LR, NRZ, QAM-1024 | Electrical Voltage / Opt
 3. TCP CONNECTION STATE MACHINE & HANDSHAKE FLOW
 --------------------------------------------------------------------------------
 The TCP 3-Way Handshake:
-1. Client -> Server: `SYN (seq=x)` [State: SYN_SENT]
-2. Server -> Client: `SYN-ACK (seq=y, ack=x+1)` [State: SYN_RCVD]
-3. Client -> Server: `ACK (ack=y+1)` [State: ESTABLISHED]
+1. Client → Server: `SYN (seq=x)` [State: SYN_SENT]
+2. Server → Client: `SYN-ACK (seq=y, ack=x+1)` [State: SYN_RCVD]
+3. Client → Server: `ACK (ack=y+1)` [State: ESTABLISHED]
 
 The TCP 4-Way Teardown:
-1. Host A -> Host B: `FIN (seq=u)` [State: FIN_WAIT_1]
-2. Host B -> Host A: `ACK (ack=u+1)` [State: CLOSE_WAIT]
-3. Host B -> Host A: `FIN (seq=v)` [State: LAST_ACK]
-4. Host A -> Host B: `ACK (ack=v+1)` [State: TIME_WAIT -> CLOSED after 2MSL]
+1. Host A → Host B: `FIN (seq=u)` [State: FIN_WAIT_1]
+2. Host B → Host A: `ACK (ack=u+1)` [State: CLOSE_WAIT]
+3. Host B → Host A: `FIN (seq=v)` [State: LAST_ACK]
+4. Host A → Host B: `ACK (ack=v+1)` [State: TIME_WAIT → CLOSED after 2MSL]
 
 --------------------------------------------------------------------------------
 4. FOUR REAL-WORLD BENGAL CASE STUDIES

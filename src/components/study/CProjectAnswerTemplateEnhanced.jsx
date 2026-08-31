@@ -60,7 +60,7 @@ const isCCode = (answer = "") => {
 };
 
 /**
- * Extract clean filename from answerFile property (e.g. "./answers/answer1.c" -> "answer1.c")
+ * Extract clean filename from answerFile property (e.g. "./answers/answer1.c" → "answer1.c")
  */
 const getFileName = (project) => {
   if (project?.answerFile) {
@@ -195,7 +195,7 @@ export default function CProjectAnswerTemplateEnhanced({ data }) {
   const [onlyBookmarks, setOnlyBookmarks] = useState(false);
   const [onlyCompleted, setOnlyCompleted] = useState(false);
 
-  // Expanded answers state: map of projectId -> boolean
+  // Expanded answers state: map of projectId → boolean
   const [visibleAnswers, setVisibleAnswers] = useState({});
 
   // Student progress state: map of completed project IDs
@@ -370,7 +370,7 @@ export default function CProjectAnswerTemplateEnhanced({ data }) {
 
           {/* Main Title & Description */}
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-indigo-200 tracking-tight">
+            <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-indigo-200 tracking-tight">
               {projectCategory}
             </h1>
             <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">

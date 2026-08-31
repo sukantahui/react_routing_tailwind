@@ -115,7 +115,7 @@ const questions = [
     explanation: "Standard JVM memory architecture.",
     hint: "Reference on Stack; array object on Heap.",
     level: "basic",
-    codeExample: "int[] ref = new int[5]; // 'ref' on Stack -> object on Heap"
+    codeExample: "int[] ref = new int[5]; // 'ref' on Stack → object on Heap"
   },
   {
     question: "Can an array of an Object type (e.g. `Object[]`) hold mixed types?",

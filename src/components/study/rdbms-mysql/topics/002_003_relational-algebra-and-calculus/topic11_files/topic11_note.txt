@@ -18,10 +18,10 @@ $$\pi_{F_1, F_2, \dots, F_n}(R)$$
 where each $F_i$ is either:
 1. An existing attribute name: $A_i$
 2. An expression involving arithmetic operators, constants, and attributes:
-   - Arithmetic: $\text{salary} \times 1.10 \rightarrow \text{new\_salary}$
-   - Discount Calculation: $\text{fee} - \text{discount} \rightarrow \text{net\_payable}$
-   - String Concatenation: $\text{CONCAT}(\text{first\_name}, \text{' '}, \text{last\_name}) \rightarrow \text{full\_name}$
-   - Date Calculation: $\text{DATEDIFF}(\text{CURRENT\_DATE}, \text{dob}) / 365.25 \rightarrow \text{age}$
+   - Arithmetic: $\text{salary} \times 1.10 → \text{new\_salary}$
+   - Discount Calculation: $\text{fee} - \text{discount} → \text{net\_payable}$
+   - String Concatenation: $\text{CONCAT}(\text{first\_name}, \text{' '}, \text{last\_name}) → \text{full\_name}$
+   - Date Calculation: $\text{DATEDIFF}(\text{CURRENT\_DATE}, \text{dob}) / 365.25 → \text{age}$
 
 
 2. WHY EXTENDED RELATIONAL ALGEBRA IS NECESSARY
@@ -45,7 +45,7 @@ where each $F_i$ is either:
 --------------------------------------------------------------------------------
 CASE 1: Mamata's Fee with 18% GST and Early Bird Discount
 -- Relational Algebra:
--- $\pi_{\text{student\_id, full\_name, fee, fee} \times 0.18 \rightarrow \text{gst, fee} \times 1.18 \rightarrow \text{total\_fee}}(\text{Students})$
+-- $\pi_{\text{student\_id, full\_name, fee, fee} \times 0.18 → \text{gst, fee} \times 1.18 → \text{total\_fee}}(\text{Students})$
 SELECT student_id, full_name, admission_fee,
        ROUND(admission_fee * 0.18, 2) AS gst_amount,
        ROUND(admission_fee * 1.18, 2) AS total_fee_with_gst
@@ -53,7 +53,7 @@ FROM students;
 
 CASE 2: Debangshu's Student Age Calculation
 -- Relational Algebra:
--- $\pi_{\text{full\_name, TIMESTAMPDIFF(YEAR, dob, CURRENT\_DATE)} \rightarrow \text{age}}(\text{Students})$
+-- $\pi_{\text{full\_name, TIMESTAMPDIFF(YEAR, dob, CURRENT\_DATE)} → \text{age}}(\text{Students})$
 SELECT full_name, dob, TIMESTAMPDIFF(YEAR, dob, CURDATE()) AS age_in_years
 FROM students;
 

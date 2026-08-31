@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Transactions are the mark of a true software engineer. When you update a database, always wrap it: `conn.BeginTrans`. If everything works, `conn.CommitTrans`. If anything fails, `conn.RollbackTrans`. Your data will NEVER be corrupted.
 
 COMMON TRAPS TO AVOID:
-- Omitting RollbackTrans on Error (Database Lockup): Error occurs inside a transaction without calling `RollbackTrans`, leaving table rows locked on the database server. -> Fix: Always place `conn.RollbackTrans` inside the structured error handler block.
-- Long-Running Transactions Holding Locks: Pausing a transaction with a `MsgBox` while holding active database table locks blocks other corporate users. -> Fix: Perform all user confirmations BEFORE calling `conn.BeginTrans`; execute SQL in milliseconds and commit immediately.
-- Calling CommitTrans When BeginTrans Failed: Calling `CommitTrans` on an uninitialized transaction throws runtime error. -> Fix: Track transaction state with a Boolean flag (`inTransaction = True`).
+- Omitting RollbackTrans on Error (Database Lockup): Error occurs inside a transaction without calling `RollbackTrans`, leaving table rows locked on the database server. → Fix: Always place `conn.RollbackTrans` inside the structured error handler block.
+- Long-Running Transactions Holding Locks: Pausing a transaction with a `MsgBox` while holding active database table locks blocks other corporate users. → Fix: Perform all user confirmations BEFORE calling `conn.BeginTrans`; execute SQL in milliseconds and commit immediately.
+- Calling CommitTrans When BeginTrans Failed: Calling `CommitTrans` on an uninitialized transaction throws runtime error. → Fix: Track transaction state with a Boolean flag (`inTransaction = True`).
 ================================================================================

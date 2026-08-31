@@ -40,8 +40,8 @@ Key Insight: Even a 1-billion row database requires only **3 to 4 page hops** to
 --------------------------------------------------------------------------------
 1. Point Lookup (Equality Search: `WHERE student_id = 45012`):
    - Binary search within the Root Page to find the appropriate child branch pointer.
-   - Hop to Intermediate Branch Page -> Binary search to find child leaf pointer.
-   - Hop to Leaf Page -> Binary search to pinpoint exact row.
+   - Hop to Intermediate Branch Page → Binary search to find child leaf pointer.
+   - Hop to Leaf Page → Binary search to pinpoint exact row.
    - Total Cost: 3 Page Reads ($O(\log N)$).
 
 2. Range Scan (`WHERE fee_paid_inr BETWEEN 20000 AND 30000`):

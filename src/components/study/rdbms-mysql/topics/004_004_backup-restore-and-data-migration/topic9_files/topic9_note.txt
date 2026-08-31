@@ -40,7 +40,7 @@ B. Client-Side Import (LOAD DATA LOCAL INFILE):
 4. THE MYSQLIMPORT COMMAND-LINE UTILITY
 --------------------------------------------------------------------------------
 `mysqlimport` is a multi-threaded CLI utility that wraps `LOAD DATA INFILE`:
-- File naming convention: File basename MUST match target table name (e.g. `orders.csv` -> `orders` table).
+- File naming convention: File basename MUST match target table name (e.g. `orders.csv` → `orders` table).
 
 A. Parallel Multi-Threaded Import:
    mysqlimport -u root -p \\

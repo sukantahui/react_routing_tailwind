@@ -40,7 +40,7 @@ D. n:m Many-to-Many Relationship Tool:
 3. STEP-BY-STEP REVERSE ENGINEERING WORKFLOW
 --------------------------------------------------------------------------------
 Step 1: Open MySQL Workbench and connect to your local MySQL server (localhost:3306).
-Step 2: Navigate to top menu: `Database` -> `Reverse Engineer...` (Ctrl + R).
+Step 2: Navigate to top menu: `Database` → `Reverse Engineer...` (Ctrl + R).
 Step 3: Select your connection profile and click `Next`.
 Step 4: Select the target database schema (e.g. `college_db`) and click `Next`.
 Step 5: Select table objects to import and click `Execute`.
@@ -63,7 +63,7 @@ CASE 2: Debangshu's Kolkata E-Commerce Forward Engineering Migration
 1. Confusing Identifying (Solid) vs Non-Identifying (Dashed) Lines:
    - Using the Solid line tool mistakenly promotes parent foreign keys into the child's primary key!
 2. Overlapping Relationship Lines:
-   - Auto-generated layouts often overlap lines; use Workbench's `Arrange` -> `Autolayout` or manually drag tables.
+   - Auto-generated layouts often overlap lines; use Workbench's `Arrange` → `Autolayout` or manually drag tables.
 3. Engine Mismatch:
    - Ensure the diagram's default storage engine is set to `InnoDB`; MyISAM does not enforce foreign keys.
 

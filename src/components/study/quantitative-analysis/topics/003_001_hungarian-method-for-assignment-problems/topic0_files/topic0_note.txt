@@ -34,10 +34,10 @@ Where:
 --------------------------------------------------------------------------------
 1. COMBINATORIAL FACTORIAL EXPLOSION (n!):
    An n x n assignment problem has n! (n factorial) possible one-to-one pairings.
-   • n = 4  --> 4! = 24 combinations
-   • n = 5  --> 5! = 120 combinations
-   • n = 10 --> 10! = 3,628,800 combinations
-   • n = 20 --> 20! ≈ 2.43 x 10^18 combinations (impossible to brute-force!).
+   • n = 4  → 4! = 24 combinations
+   • n = 5  → 5! = 120 combinations
+   • n = 10 → 10! = 3,628,800 combinations
+   • n = 20 → 20! ≈ 2.43 x 10^18 combinations (impossible to brute-force!).
 
 2. SEVERE BASIS DEGENERACY IN SIMPLEX:
    A standard transportation basic feasible solution requires m + n - 1 = 2n - 1

@@ -8,7 +8,7 @@ export default class Topic4 extends Component {
         <div className="max-w-4xl mx-auto space-y-8">
 
           {/* TITLE */}
-          <h1 className="text-2xl md:text-3xl font-bold text-sky-300">
+          <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-sky-300">
             Using Browser DevTools: Breakpoints, Stepping, Watch & Call Stack
           </h1>
 

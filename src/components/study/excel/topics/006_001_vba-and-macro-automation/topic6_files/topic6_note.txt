@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 If you remember only one line of VBA code for the rest of your life, make it this: `lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row`. It automatically finds the bottom of your data every single time.
 
 COMMON TRAPS TO AVOID:
-- Finding Last Row with UsedRange.Rows.Count (Unreliable): `UsedRange` does not reset when rows are deleted, returning phantom last row counts. -> Fix: Always use `ws.Cells(ws.Rows.Count, "A").End(xlUp).Row`.
-- Using .Text Instead of .Value / .Value2: Reading `.Text` returns the formatted display string (e.g. "$ 10.00" or "###" if column is narrow) instead of the true underlying number. -> Fix: Always read and write `.Value` or `.Value2`.
-- SpecialCells Crashing on Empty Sets: Calling `SpecialCells(xlCellTypeFormulas)` on a sheet with zero formulas throws a fatal runtime error 1004. -> Fix: Wrap SpecialCells calls inside `On Error Resume Next` and check `If Not rng Is Nothing Then`.
+- Finding Last Row with UsedRange.Rows.Count (Unreliable): `UsedRange` does not reset when rows are deleted, returning phantom last row counts. → Fix: Always use `ws.Cells(ws.Rows.Count, "A").End(xlUp).Row`.
+- Using .Text Instead of .Value / .Value2: Reading `.Text` returns the formatted display string (e.g. "$ 10.00" or "###" if column is narrow) instead of the true underlying number. → Fix: Always read and write `.Value` or `.Value2`.
+- SpecialCells Crashing on Empty Sets: Calling `SpecialCells(xlCellTypeFormulas)` on a sheet with zero formulas throws a fatal runtime error 1004. → Fix: Wrap SpecialCells calls inside `On Error Resume Next` and check `If Not rng Is Nothing Then`.
 ================================================================================

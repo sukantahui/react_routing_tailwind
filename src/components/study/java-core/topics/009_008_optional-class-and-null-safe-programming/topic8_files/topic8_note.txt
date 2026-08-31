@@ -15,7 +15,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 2. RULE OF THUMB:
    - Use 'orElse(val)' ONLY for pre-existing constants or cheap literals.
-   - Use 'orElseGet(() -> compute())' whenever the fallback involves:
+   - Use 'orElseGet(() → compute())' whenever the fallback involves:
      * Calling another method.
      * Creating new objects on heap ('new Student()').
      * Accessing databases, files, or network services.

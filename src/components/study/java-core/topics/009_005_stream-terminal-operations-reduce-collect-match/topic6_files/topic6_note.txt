@@ -9,8 +9,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Sum: '.reduce(0, Integer::sum)' or '.reduce(0.0, Double::sum)'
    - Min: '.reduce(BinaryOperator.minBy(Comparator))'
    - Max: '.reduce(BinaryOperator.maxBy(Comparator))'
-   - Product: '.reduce(1, (a, b) -> a * b)'
-   - String Concatenation: '.reduce("", (a, b) -> a + b)'
+   - Product: '.reduce(1, (a, b) → a * b)'
+   - String Concatenation: '.reduce("", (a, b) → a + b)'
 
 2. WHEN TO PREFER SPECIALIZED APIS OVER REDUCE:
    - Numeric Sum/Average: Prefer 'IntStream.sum()' / 'average()' (faster, unboxed).

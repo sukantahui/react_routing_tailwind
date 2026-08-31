@@ -13,7 +13,7 @@ const topic14_questions = [
     "explanation": "Standard binary arithmetic operation in the JVM instruction set.",
     "hint": "Pops top two integers, adds them, and pushes the sum.",
     "level": "Beginner",
-    "codeExample": "iload_1 -> iload_2 -> iadd -> istore_3"
+    "codeExample": "iload_1 → iload_2 → iadd → istore_3"
   }
 ];
 

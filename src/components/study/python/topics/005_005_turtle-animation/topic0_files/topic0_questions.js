@@ -19,7 +19,7 @@ const questions = [
   },
   {
     question: "What are the 4 fundamental stages of a standard Game / Animation Loop?",
-    shortAnswer: "1. Clear Previous Frame -> 2. Update Kinematic State -> 3. Render Geometry -> 4. Flush Buffer & Sleep `dt`.",
+    shortAnswer: "1. Clear Previous Frame → 2. Update Kinematic State → 3. Render Geometry → 4. Flush Buffer & Sleep `dt`.",
     explanation: "This 4-stage pipeline is universal across Turtle graphics, PyGame, Unity, and Unreal Engine.",
     hint: "What 4 steps happen on every tick of an animation loop?",
     level: "basic",

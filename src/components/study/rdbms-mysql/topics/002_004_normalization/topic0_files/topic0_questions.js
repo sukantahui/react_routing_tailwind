@@ -38,7 +38,7 @@ const questions = [
   },
   {
     question: "What mathematical concept serves as the foundational cornerstone for 1NF, 2NF, 3NF, and BCNF?",
-    shortAnswer: "Functional Dependencies (denoted as $X \\rightarrow Y$).",
+    shortAnswer: "Functional Dependencies (denoted as $X \→ Y$).",
     explanation: "Theoretical underpinning of relational normalization.",
     hint: "Functional Dependencies (X → Y).",
     level: "basic"
@@ -73,14 +73,14 @@ const questions = [
   },
   {
     question: "What is Boyce-Codd Normal Form (BCNF)?",
-    shortAnswer: "A relation is in BCNF if for every non-trivial functional dependency $X \\rightarrow Y$, the determinant $X$ is a super key.",
+    shortAnswer: "A relation is in BCNF if for every non-trivial functional dependency $X \→ Y$, the determinant $X$ is a super key.",
     explanation: "Definition of BCNF (Strict 3.5NF).",
     hint: "For every non-trivial FD X → Y, X must be a super key.",
     level: "moderate"
   },
   {
     question: "What is the difference between 3NF and BCNF?",
-    shortAnswer: "In 3NF, $X \\rightarrow Y$ is allowed if $X$ is a super key OR $Y$ is a prime attribute. BCNF strictly requires $X$ to be a super key, removing the prime attribute exception.",
+    shortAnswer: "In 3NF, $X \→ Y$ is allowed if $X$ is a super key OR $Y$ is a prime attribute. BCNF strictly requires $X$ to be a super key, removing the prime attribute exception.",
     explanation: "Comparison of 3NF condition vs BCNF condition.",
     hint: "3NF allows Y to be a prime attribute; BCNF strictly requires X to be a super key.",
     level: "moderate"

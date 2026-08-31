@@ -588,7 +588,7 @@
           "steps": [
             {
               "step": 1,
-              "action": "List minterms: 2,3,4,5,7 -> 0s: 0,1,6.",
+              "action": "List minterms: 2,3,4,5,7 → 0s: 0,1,6.",
               "expression": "",
               "law": "Truth table"
             },

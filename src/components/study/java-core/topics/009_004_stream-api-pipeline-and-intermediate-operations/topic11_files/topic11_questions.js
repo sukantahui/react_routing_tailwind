@@ -5,7 +5,7 @@ const topic11_questions = [
     "explanation": "Stateless operations (filter, map) can handle infinite streams if bounded by limit(); sorted() requires a finite bounded stream.",
     "hint": "sorted() must buffer every single element before it can determine what comes first.",
     "level": "Intermediate",
-    "codeExample": "// Crashing example:\\nStream.iterate(1, n -> n + 1).sorted().limit(5).toList(); // OutOfMemoryError!"
+    "codeExample": "// Crashing example:\\nStream.iterate(1, n → n + 1).sorted().limit(5).toList(); // OutOfMemoryError!"
   },
   {
     "question": "How does distinct() maintain state internally during stream execution?",

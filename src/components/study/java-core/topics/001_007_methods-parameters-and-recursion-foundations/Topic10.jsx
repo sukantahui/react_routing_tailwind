@@ -42,11 +42,11 @@ export default function Topic10() {
             Variable-Arity Methods
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Variable Arguments (Varargs - <code className="text-emerald-400 font-mono">Type... varName</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          Master dynamic argument lists in Java (JLS §8.4.1): syntax rules, internal array translation (<code className="text-sky-300 font-mono">Type... &rarr; Type[]</code>), the single-last-parameter constraint, zero-argument safety, and batch fee summation in Indian Rupees (₹).
+          Master dynamic argument lists in Java (JLS §8.4.1): syntax rules, internal array translation (<code className="text-sky-300 font-mono">Type... → Type[]</code>), the single-last-parameter constraint, zero-argument safety, and batch fee summation in Indian Rupees (₹).
         </p>
       </header>
 

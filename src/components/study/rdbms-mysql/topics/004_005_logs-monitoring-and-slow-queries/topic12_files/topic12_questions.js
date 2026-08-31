@@ -10,7 +10,7 @@ const questions = [
     hint: "Prometheus mysqld_exporter, Grafana, and Percona PMM.",
     level: "basic",
     codeExample: `# Architecture:
-# MySQL (3306) -> mysqld_exporter (9104) -> Prometheus (9090) -> Grafana (3000)`
+# MySQL (3306) → mysqld_exporter (9104) → Prometheus (9090) → Grafana (3000)`
   },
   {
     question: "What default TCP network port is used by Prometheus `mysqld_exporter` to expose MySQL metrics?",
@@ -137,7 +137,7 @@ for: 2m`
     explanation: "Pre-configured dashboards with over 40 production charts covering QPS, replication, memory, locks, and I/O.",
     hint: "Grafana Dashboard ID 7362 or 14057.",
     level: "basic",
-    codeExample: `# In Grafana UI: Dashboards -> Import -> Enter ID 7362`
+    codeExample: `# In Grafana UI: Dashboards → Import → Enter ID 7362`
   },
   {
     question: "What is Percona PMM Advisor and what does it do?",
@@ -247,7 +247,7 @@ for: 30s`
     explanation: "Prevents false-positive PagerDuty alarms during planned restarts and schema migrations.",
     hint: "Create a Silence in Alertmanager UI during scheduled maintenance.",
     level: "basic",
-    codeExample: `# In Alertmanager UI: New Silence -> instance=mysql-master-01:9104`
+    codeExample: `# In Alertmanager UI: New Silence → instance=mysql-master-01:9104`
   },
   {
     question: "What is the primary advantage of Percona PMM over standalone Prometheus/Grafana?",

@@ -5,7 +5,7 @@ const topic8_questions = [
     "explanation": "Classic Java multi-threading interview conceptual question.",
     "hint": "Yes, because ClassName.class and 'this' are two completely separate lock objects in memory.",
     "level": "Intermediate",
-    "codeExample": "// Thread 1 holds 'this' lock | Thread 2 holds 'MyClass.class' lock -> Run in parallel!"
+    "codeExample": "// Thread 1 holds 'this' lock | Thread 2 holds 'MyClass.class' lock → Run in parallel!"
   }
 ];
 

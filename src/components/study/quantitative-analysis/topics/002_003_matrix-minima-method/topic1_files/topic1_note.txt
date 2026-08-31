@@ -194,10 +194,10 @@ Total Freight Expense Z = (30 × ₹3) + (40 × ₹4) + (30 × ₹5) = ₹90 + �
 ================================================================================
 
 Tie-Breaking Protocol:
-- Tier 1: Maximum Allocation Volume -> max { min(S_i, D_j) }
+- Tier 1: Maximum Allocation Volume → max { min(S_i, D_j) }
   Allocating 60 units at ₹2 saves far more than allocating 10 units at ₹2.
-- Tier 2: Greatest Line Capacity -> choose row/col with larger remaining capacity.
-- Tier 3: Arbitrary Selection -> mathematically valid and preserves basis.
+- Tier 2: Greatest Line Capacity → choose row/col with larger remaining capacity.
+- Tier 3: Arbitrary Selection → mathematically valid and preserves basis.
 
 Degeneracy (S_k == D_l):
 - Occurs when an assignment zeroes out both a supply and a demand line simultaneously.

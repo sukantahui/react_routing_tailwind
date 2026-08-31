@@ -177,7 +177,7 @@ const Topic12 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/80 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
             <span>🛡️ Module 005_004 • Topic 12 (Capstone)</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             End-to-End Cryptographic Protocol Verification Case Study
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">

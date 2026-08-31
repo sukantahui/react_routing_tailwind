@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on reaching DAX mastery! If you master `CALCULATE`, `SUMX`, and `DIVIDE`, you can build financial analytics for a Fortune 500 company. Always create Measures, never use the division slash, and mark your Date table!
 
 COMMON TRAPS TO AVOID:
-- Using Division Slash (/) Instead of DIVIDE(): Dividing by zero returning ugly `#ERROR` across subtotal rows. -> Fix: Always use `=DIVIDE(Numerator, Denominator, 0)` in DAX.
-- Confusing Calculated Columns with Explicit Measures: Creating 50 calculated columns consuming gigabytes of RAM instead of lightweight explicit DAX measures. -> Fix: Create explicit DAX Measures for all aggregations.
-- Time Intelligence on Non-Standard Date Table: Calling `DATESYTD` on a date table with missing dates or duplicate timestamps producing invalid metrics. -> Fix: Ensure continuous, contiguous Date table marked as official Date Table.
+- Using Division Slash (/) Instead of DIVIDE(): Dividing by zero returning ugly `#ERROR` across subtotal rows. → Fix: Always use `=DIVIDE(Numerator, Denominator, 0)` in DAX.
+- Confusing Calculated Columns with Explicit Measures: Creating 50 calculated columns consuming gigabytes of RAM instead of lightweight explicit DAX measures. → Fix: Create explicit DAX Measures for all aggregations.
+- Time Intelligence on Non-Standard Date Table: Calling `DATESYTD` on a date table with missing dates or duplicate timestamps producing invalid metrics. → Fix: Ensure continuous, contiguous Date table marked as official Date Table.
 ================================================================================

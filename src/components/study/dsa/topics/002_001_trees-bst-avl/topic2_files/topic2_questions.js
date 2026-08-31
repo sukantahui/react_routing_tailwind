@@ -9,11 +9,11 @@ const questions = [
       "All leaf nodes must be located on the same horizontal level"
     ],
     answer: "For every node N, all keys in its left subtree are strictly less than N.data, and all keys in its right subtree are strictly greater than N.data",
-    explanation: "This invariant must hold recursively for every single node in the tree. Because of this property, an Inorder Traversal (Left -> Root -> Right) always produces keys in strictly ascending sorted order."
+    explanation: "This invariant must hold recursively for every single node in the tree. Because of this property, an Inorder Traversal (Left → Root → Right) always produces keys in strictly ascending sorted order."
   },
   {
     id: 2,
-    question: "What does an Inorder Traversal (Left -> Root -> Right) of a valid Binary Search Tree produce?",
+    question: "What does an Inorder Traversal (Left → Root → Right) of a valid Binary Search Tree produce?",
     options: [
       "Keys sorted in strictly ascending non-decreasing order",
       "Keys sorted in strictly descending order",
@@ -217,7 +217,7 @@ const questions = [
   },
   {
     id: 19,
-    question: "Why must a whole-tree deallocation function `freeTree(root)` use Post-Order Traversal (Left -> Right -> Root)?",
+    question: "Why must a whole-tree deallocation function `freeTree(root)` use Post-Order Traversal (Left → Right → Root)?",
     options: [
       "It ensures both child subtrees are completely freed before the parent node memory holding their pointers is deallocated",
       "Pre-order traversal is not supported by standard C recursion",

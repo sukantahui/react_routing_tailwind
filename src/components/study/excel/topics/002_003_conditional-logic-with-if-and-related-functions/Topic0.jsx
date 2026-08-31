@@ -71,12 +71,12 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Understanding Excel's native Boolean data type (TRUE/FALSE), comparison operators (=, <>, <, <=, >, >=), and type interrogation functions (ISBLANK, ISNUMBER, ISTEXT)"}. Master the complete syntax, formulas, operational mechanics, and enterprise decision modeling frameworks.
+            {"Understanding Excel's native Boolean data type (TRUE/FALSE), comparison operators (=, &lt;&gt;, <, <=, >, >=), and type interrogation functions (ISBLANK, ISNUMBER, ISTEXT)"}. Master the complete syntax, formulas, operational mechanics, and enterprise decision modeling frameworks.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,7 +113,7 @@ export default function Topic0() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"=A2 &gt; B2 | =ISBLANK(cell) | =ISNUMBER(cell) | =ISTEXT(cell) | =ISLOGICAL(cell)"}
+            {"=A2 > B2 | =ISBLANK(cell) | =ISNUMBER(cell) | =ISTEXT(cell) | =ISLOGICAL(cell)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -286,7 +286,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Boolean_fundamenta"
+            sheetName="EX801"
             title={"Boolean fundamentals in Excel: TRUE, FALSE, comparison operators, and ISBLANK/ISNUMBER - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic0() {
                 Step 2: Enter Core Decision Formula
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the target calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=A2 &gt; B2 | =ISBLANK(cell) | =ISNUMBER(cell) | =ISTEXT(cell) | =ISLOGICAL(cell)"}</code>.
+                In the target calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=A2 > B2 | =ISBLANK(cell) | =ISNUMBER(cell) | =ISTEXT(cell) | =ISLOGICAL(cell)"}</code>.
               </p>
             </div>
 

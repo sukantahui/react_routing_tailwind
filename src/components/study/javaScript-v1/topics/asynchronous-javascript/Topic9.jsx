@@ -37,7 +37,7 @@ const Topic9 = () => {
           "animate-[fadeInUp_0.6s_ease-out] motion-safe:animate-[fadeInUp_0.6s_ease-out]"
         )}
       >
-        <h1 className="text-4xl font-bold mb-3 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
           Topic 9: How Subscribe is Born
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">

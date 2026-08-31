@@ -95,7 +95,7 @@ const Topic14 = () => {
     if (quizAnswer.trim() === "200") {
       setQuizFeedback({
         correct: true,
-        msg: "🎉 Correct! T_min = t_cq + t_comb + t_su = 1.2ns + 2.6ns + 1.2ns = 5.0ns -> f_max = 1 / 5ns = 200 MHz!"
+        msg: "🎉 Correct! T_min = t_cq + t_comb + t_su = 1.2ns + 2.6ns + 1.2ns = 5.0ns → f_max = 1 / 5ns = 200 MHz!"
       });
     } else {
       setQuizFeedback({
@@ -160,7 +160,7 @@ const Topic14 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 14</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Flip-Flop Timing Parameters, Clock Skew &amp; Metastability Elimination
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -610,7 +610,7 @@ const Topic14 = () => {
                           />
                           <circle cx={xTrans + 7.5} cy="125" r="4" fill="#10b981" />
                           <text x={xTrans + 7.5} y="100" fill="#10b981" textAnchor="middle" fontSize="9" fontWeight="bold">
-                            Data 0&rarr;1 at {dataArrivalTimeNs.toFixed(1)}ns
+                            Data 0→1 at {dataArrivalTimeNs.toFixed(1)}ns
                           </text>
                         </>
                       );
@@ -705,7 +705,7 @@ const Topic14 = () => {
                         <text x="125" y="60" fill="#f43f5e" textAnchor="middle" fontWeight="bold" fontSize="9">SYNC_FF1</text>
                         <text x="125" y="75" fill="#94a3b8" textAnchor="middle" fontSize="8">(Absorber)</text>
 
-                        {/* Wire FF1 -> FF2 */}
+                        {/* Wire FF1 → FF2 */}
                         <line x1="160" y1="70" x2="210" y2="70" stroke="#a855f7" strokeWidth="2" strokeDasharray="3 2" />
                         <text x="185" y="62" fill="#a855f7" textAnchor="middle" fontSize="8">Resolves</text>
 

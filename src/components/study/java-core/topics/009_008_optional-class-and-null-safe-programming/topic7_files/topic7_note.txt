@@ -12,7 +12,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Common in Spring Boot / Jakarta EE service layers.
    - Maps database repository misses directly into HTTP 404 / 400 custom domain exceptions.
    - Example:
-     'userRepo.findById(id).orElseThrow(() -> new UserNotFoundException(id));'
+     'userRepo.findById(id).orElseThrow(() → new UserNotFoundException(id));'
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

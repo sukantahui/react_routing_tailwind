@@ -48,7 +48,7 @@ const questions = [
     explanation: "Cascading dominance effect across successive elimination passes.",
     hint: "Deleting columns can create new row dominances.",
     level: "expert",
-    codeExample: "CascadingDominance: ColDeletion -> NewRowDominance."
+    codeExample: "CascadingDominance: ColDeletion → NewRowDominance."
   },
   {
     question: "What probability is assigned to an eliminated dominated strategy in the full strategy vectors p* and q*?",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Principle of Dominance Module?",
     shortAnswer: "'Prune smaller rows for Player A and larger columns for Player B; break deadlocks using convex combinations; cascade reductions to reach 2x2 or 1x1 while preserving the Value of the Game in Indian Rupees (₹)!'",
     explanation: "This master synthesis captures all foundational principles of Module 005_003.",
-    hint: "Delete smaller rows, larger cols -> Convex combinations for deadlocks -> Preserve game value in ₹.",
+    hint: "Delete smaller rows, larger cols → Convex combinations for deadlocks → Preserve game value in ₹.",
     level: "moderate",
-    codeExample: "MasterGoldenRule: PruneSmallerRows() -> PruneLargerCols() -> BreakDeadlocks(Convex) -> PreserveVStar(₹)."
+    codeExample: "MasterGoldenRule: PruneSmallerRows() → PruneLargerCols() → BreakDeadlocks(Convex) → PreserveVStar(₹)."
   }
 ];
 

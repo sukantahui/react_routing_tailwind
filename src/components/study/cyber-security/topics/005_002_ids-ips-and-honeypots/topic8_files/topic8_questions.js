@@ -7,8 +7,8 @@ const questions = [
     hint: "A fake trap server that has no real users; anyone who touches it is an attacker.",
     level: "Basic",
     codeExample: `// The Honeypot Concept:
-// Production Server : Has 10,000 real users -> 99.9% clean traffic, 0.1% attacks (High False Alarms)
-// Decoy Honeypot    : Has 0 real users     -> 100% of connections are ATTACKS! (0% False Alarms)`
+// Production Server : Has 10,000 real users → 99.9% clean traffic, 0.1% attacks (High False Alarms)
+// Decoy Honeypot    : Has 0 real users     → 100% of connections are ATTACKS! (0% False Alarms)`
   },
   {
     id: 2,
@@ -72,8 +72,8 @@ const questions = [
     hint: "Enticement is setting a passive trap (legal); Entrapment is forcing or tricking someone into committing a crime (illegal).",
     level: "Moderate",
     codeExample: `// Legal Assessment:
-// Passive Honeyport Listener on Port 22 -> 100% LEGAL ENTICEMENT (Admissible in Indian Courts)
-// Coercing an individual via chat to hack a target -> ILLEGAL ENTRAPMENT`
+// Passive Honeyport Listener on Port 22 → 100% LEGAL ENTICEMENT (Admissible in Indian Courts)
+// Coercing an individual via chat to hack a target → ILLEGAL ENTRAPMENT`
   },
   {
     id: 8,
@@ -83,9 +83,9 @@ const questions = [
     hint: "Blocking all outbound traffic from the honeypot so hackers cannot use it to attack other computers.",
     level: "Moderate",
     codeExample: `// Honeynet Egress Containment Rule:
-// ALLOW: Ingress any -> Honeypot (All ports)
-// BLOCK: Honeypot -> Internal Production VLANs (10.0.0.0/8) [DROP & LOG]
-// RATE-LIMIT: Honeypot -> External Internet (Max 5 pkts/sec, TCP RST injection)`
+// ALLOW: Ingress any → Honeypot (All ports)
+// BLOCK: Honeypot → Internal Production VLANs (10.0.0.0/8) [DROP & LOG]
+// RATE-LIMIT: Honeypot → External Internet (Max 5 pkts/sec, TCP RST injection)`
   },
   {
     id: 9,
@@ -125,8 +125,8 @@ const questions = [
     hint: "Production honeypots catch intruders in your company; Research honeypots study hackers globally.",
     level: "Basic",
     codeExample: `// Honeypot Categories:
-// Production Honeypot: Deployed on 10.10.5.0/24 -> Generates internal breach alerts for SOC.
-// Research Honeypot  : Deployed on Public IP -> Collects new malware variants for antivirus research.`
+// Production Honeypot: Deployed on 10.10.5.0/24 → Generates internal breach alerts for SOC.
+// Research Honeypot  : Deployed on Public IP → Collects new malware variants for antivirus research.`
   },
   {
     id: 13,
@@ -163,13 +163,13 @@ const questions = [
   {
     id: 16,
     question: "What is 'Honey-DNS / Sinkhole Detection' in enterprise DNS infrastructure?",
-    shortAnswer: "Creating fake internal DNS records (e.g. `secret-vault.corp.local` -> 10.10.99.250) that have no legitimate use; any DNS query for that hostname immediately identifies a compromised internal host performing reconnaissance.",
+    shortAnswer: "Creating fake internal DNS records (e.g. `secret-vault.corp.local` → 10.10.99.250) that have no legitimate use; any DNS query for that hostname immediately identifies a compromised internal host performing reconnaissance.",
     explanation: "Attackers run automated Active Directory DNS enumeration scripts. The moment their script queries the non-existent honey-record, the DNS server logs the exact source IP of the compromised workstation.",
     hint: "Creating fake internal website addresses; any computer that searches for them is compromised.",
     level: "Basic",
     codeExample: `// Honey DNS Record:
-// Zone: corp.local | Record: db-crownjewels.corp.local -> 10.10.99.50 (Honey-IP)
-// Alert Trigger: DNS Query for db-crownjewels -> Source IP flagged for immediate isolation!`
+// Zone: corp.local | Record: db-crownjewels.corp.local → 10.10.99.50 (Honey-IP)
+// Alert Trigger: DNS Query for db-crownjewels → Source IP flagged for immediate isolation!`
   },
   {
     id: 17,

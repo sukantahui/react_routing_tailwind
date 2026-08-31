@@ -115,7 +115,7 @@ mysql -u root -p kolkata_bank < kyc_only.sql
 -- ⏱️ 2. TRACK REAL-TIME RESTORE THROUGHPUT & ETA WITH pv (Pipe Viewer):
 pv /backups/bank_dump.sql | mysql -u root -p kolkata_bank
 -- Telemetry Output:
--- 4.12GiB 0:03:15 [24.5MiB/s] [=================>   ] 62% ETA 0:01:58`,
+-- 4.12GiB 0:03:15 [24.5MiB/s] [===============═→   ] 62% ETA 0:01:58`,
       explanation:
         "Using sed allows DBAs to extract and restore a single accidentally dropped table in seconds without restoring the entire 100GB file. Pipe Viewer (pv) provides real-time throughput metrics and accurate ETA tracking for management reporting.",
       keyTakeaways: [
@@ -140,7 +140,7 @@ pv /backups/bank_dump.sql | mysql -u root -p kolkata_bank
             Topic 4 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Restoring Databases from <span className="text-emerald-400">mysqldump</span> &amp; <span className="text-cyan-400">Foreign Key Checks</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

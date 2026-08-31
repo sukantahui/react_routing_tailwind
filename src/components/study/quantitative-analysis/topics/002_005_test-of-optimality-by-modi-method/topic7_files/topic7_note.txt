@@ -25,8 +25,8 @@ strictly prohibited.
 RULE 3: CONSERVATION OF FLOW (+θ - θ = 0)
 Because every row and column involved in the loop contains exactly one (+θ) vertex
 and exactly one (-θ) vertex:
-    Net Change in Row Supply:     +θ - θ = 0  --> Supply S_i perfectly conserved!
-    Net Change in Column Demand:  +θ - θ = 0  --> Demand D_j perfectly conserved!
+    Net Change in Row Supply:     +θ - θ = 0  → Supply S_i perfectly conserved!
+    Net Change in Column Demand:  +θ - θ = 0  → Demand D_j perfectly conserved!
 
 --------------------------------------------------------------------------------
 2. DETERMINING THE MAXIMUM TRANSFER QUANTITY THETA (θ)
@@ -57,10 +57,10 @@ If two or more minus corners share the same minimum value (e.g. both have x = 40
 --------------------------------------------------------------------------------
 Consider the 3x3 Foundry Problem with Entering Cell (2, 1) [d_21 = -₹8]:
 Loop Corners and Initial Allocations:
-  • Corner 1: Cell (2, 1) [Enter]  --> Sign: (+θ), Initial alloc = 0
-  • Corner 2: Cell (1, 1) [Basic]  --> Sign: (-θ), Initial alloc = 60
-  • Corner 3: Cell (1, 2) [Basic]  --> Sign: (+θ), Initial alloc = 10
-  • Corner 4: Cell (2, 2) [Basic]  --> Sign: (-θ), Initial alloc = 70
+  • Corner 1: Cell (2, 1) [Enter]  → Sign: (+θ), Initial alloc = 0
+  • Corner 2: Cell (1, 1) [Basic]  → Sign: (-θ), Initial alloc = 60
+  • Corner 3: Cell (1, 2) [Basic]  → Sign: (+θ), Initial alloc = 10
+  • Corner 4: Cell (2, 2) [Basic]  → Sign: (-θ), Initial alloc = 70
 
 CALCULATING THETA (θ):
 Minus corners are at Cell (1, 1) [alloc = 60] and Cell (2, 2) [alloc = 70].

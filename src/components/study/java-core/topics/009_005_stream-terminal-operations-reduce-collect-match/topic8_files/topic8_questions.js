@@ -5,7 +5,7 @@ const topic8_questions = [
     "explanation": "Because an empty stream contains zero elements, there cannot be 'at least one' matching element.",
     "hint": "Returns false on empty stream.",
     "level": "Beginner",
-    "codeExample": "List.of().stream().anyMatch(x -> true); // false"
+    "codeExample": "List.of().stream().anyMatch(x → true); // false"
   },
   {
     "question": "What is the computational complexity of anyMatch() in best vs worst case?",

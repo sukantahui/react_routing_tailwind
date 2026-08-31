@@ -80,7 +80,7 @@ const questions = [
     explanation: "Defended using Resource Public Key Infrastructure (RPKI) and Route Origin Authorizations (ROAs) in Kolkata.",
     hint: "A rogue network falsely claims it owns your IP address, stealing your internet traffic.",
     level: "expert",
-    codeExample: "BGP_Hijack: Rogue_AS.advertise('198.51.100.0/24') -> GlobalTrafficRedirected -> InterceptedByAttacker"
+    codeExample: "BGP_Hijack: Rogue_AS.advertise('198.51.100.0/24') → GlobalTrafficRedirected → InterceptedByAttacker"
   },
   {
     question: "What is Domain Name System (DNS) Cache Poisoning and how does DNSSEC secure cyberspace?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Threat intelligence teams in Kolkata monitor dark web forums to detect leaked corporate credentials before public disclosure.",
     hint: "Encrypted hidden websites accessible only through Tor, where hackers trade stolen passwords and tools.",
     level: "basic",
-    codeExample: "DarkWeb_Monitoring: ScrapeTorForums() -> DetectLeakedCompanyCredentials() -> ForcePasswordReset();"
+    codeExample: "DarkWeb_Monitoring: ScrapeTorForums() → DetectLeakedCompanyCredentials() → ForcePasswordReset();"
   },
   {
     question: "What is Cyber Sovereignty and how do nations enforce digital boundaries?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "Targets the human brain (wetware) as the ultimate operating system to compromise in modern hybrid conflicts.",
     hint: "Using fake news and AI deepfakes to manipulate human opinions and elections online.",
     level: "expert",
-    codeExample: "CognitiveWarfare: Deploy_AI_Botnet() -> AmplifyPolarizingNarratives() -> ManipulateElectoralBehavior();"
+    codeExample: "CognitiveWarfare: Deploy_AI_Botnet() → AmplifyPolarizingNarratives() → ManipulateElectoralBehavior();"
   },
   {
     question: "What is Low Earth Orbit (LEO) Satellite Megaconstellation routing in modern Cyberspace?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Provides resilient cyberspace connectivity to remote medical stations in the Sundarbans of West Bengal.",
     hint: "Thousands of satellites in space connected by lasers, beaming fast internet to remote areas.",
     level: "moderate",
-    codeExample: "LEO_Routing: GroundStation -> KaBand_Uplink -> Satellite_Mesh(100G_Laser_ISL) -> Remote_Destination"
+    codeExample: "LEO_Routing: GroundStation → KaBand_Uplink → Satellite_Mesh(100G_Laser_ISL) → Remote_Destination"
   },
   {
     question: "What is Shodan and Censys in Cyberspace Reconnaissance?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Used by security researchers in Kolkata to discover accidentally exposed industrial routers before attackers exploit them.",
     hint: "Search engines that scan and list every internet-connected device, webcam, and server in the world.",
     level: "basic",
-    codeExample: "Shodan_Query: 'org:\"Hospital Corp\" port:445 os:\"Windows Server 2008\"' -> Reveals unpatched SMB ports"
+    codeExample: "Shodan_Query: 'org:\"Hospital Corp\" port:445 os:\"Windows Server 2008\"' → Reveals unpatched SMB ports"
   },
   {
     question: "What is Air-Gapped Network Segmentation and why is it detached from public Cyberspace?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "An accidental BGP leak by a small ISP in 2019 knocked out major European cloud services for 2 hours.",
     hint: "BGP Leak is an accidental router misconfiguration; BGP Hijack is a deliberate, malicious attack.",
     level: "expert",
-    codeExample: "BGP_Leak: Accidental_Import_Rule -> Advertised_To_Global_Peers -> 2-Hour Global Service Outage"
+    codeExample: "BGP_Leak: Accidental_Import_Rule → Advertised_To_Global_Peers → 2-Hour Global Service Outage"
   },
   {
     question: "What is Cross-Border Jurisdictional Conflict in Cyberspace law enforcement?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures full three-layer architecture, transnational realities, cognitive defense, and financial procurement budgeting.",
     hint: "Defend Physical cables + Secure Logical protocols + Train Persona humans + Budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: SecurePhysicalLayer() -> HardenedLogicalLayer() -> EducateCognitivePersona() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: SecurePhysicalLayer() → HardenedLogicalLayer() → EducateCognitivePersona() → BudgetInRupees(₹);"
   }
 ];
 

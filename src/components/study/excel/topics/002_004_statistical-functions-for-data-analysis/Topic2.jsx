@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Revision: MIN Function
           </h1>
 
@@ -271,7 +271,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Revision__MIN_Func"
+            sheetName="EX903"
             title="Module 2.4 - Revision: MIN Function"
             rowsPerPage={25}
             showSheetSelector={true}

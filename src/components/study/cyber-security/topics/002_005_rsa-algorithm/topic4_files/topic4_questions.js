@@ -94,8 +94,8 @@ Attacker:  M = integer_cube_root( 1,000,000,000 ) = 1000 (RECOVERED INSTANTLY!)`
     hint: "Remember how Indian cyber regulations mandate modern padding schemes to prevent padding oracle breaches.",
     level: "basic",
     codeExample: `// Indian IT Act 43A Compliance Standard:
-Legacy PKCS#1 v1.5:  Vulnerable to Bleichenbacher Oracle -> Non-Compliant under Section 43A!
-Modern PKCS#1 v2.2:  RSA-OAEP (Encryption) + RSA-PSS (Signatures) -> 100% Statutory Compliance!`
+Legacy PKCS#1 v1.5:  Vulnerable to Bleichenbacher Oracle → Non-Compliant under Section 43A!
+Modern PKCS#1 v2.2:  RSA-OAEP (Encryption) + RSA-PSS (Signatures) → 100% Statutory Compliance!`
   },
   {
     question: "What is a 'Chosen-Ciphertext Attack' (CCA2 / Bleichenbacher Million Message Attack) on RSA, and how does padding verification prevent it?",
@@ -106,8 +106,8 @@ Modern PKCS#1 v2.2:  RSA-OAEP (Encryption) + RSA-PSS (Signatures) -> 100% Statut
     codeExample: `// Bleichenbacher Oracle Feedback Loop:
 Attacker submits: C' = (C * s^e) mod N
 Server Response:  "Bad Padding" (Leaks top bits of plaintext M!)
-Attacker Iterates: 1,000,000 queries -> Full Plaintext Extracted!
-OAEP Defense:     Verifies SHA256 integrity tag -> Returns uniform constant-time error -> ATTACK DEFEATED!`
+Attacker Iterates: 1,000,000 queries → Full Plaintext Extracted!
+OAEP Defense:     Verifies SHA256 integrity tag → Returns uniform constant-time error → ATTACK DEFEATED!`
   },
   {
     question: "What is the computational throughput limitation of RSA Encryption and Decryption compared to Symmetric AES-256-GCM?",
@@ -141,7 +141,7 @@ Total Operations: 16 Squarings + 1 Multiplication = 17 Operations!`
     level: "moderate",
     codeExample: `// DPDP Act 2023 Envelope Encryption Architecture:
 1. Plaintext Data: Customer Aadhaar & Medical Records
-2. Local AES DEK:   DEK = CSPRNG( 256 bits ) -> Encrypts Data at 8.4 GB/s
+2. Local AES DEK:   DEK = CSPRNG( 256 bits ) → Encrypts Data at 8.4 GB/s
 3. Master RSA Key: C_dek = RSA_OAEP_Encrypt( DEK, Hospital_HSM_PublicKey )
 4. Storage:        Stores ( Ciphertext_Data + C_dek ) on Cloud DB (100% DPDP Compliant!)`
   },
@@ -155,7 +155,7 @@ Total Operations: 16 Squarings + 1 Multiplication = 17 Operations!`
 C1 = M^3 mod N1,  C2 = M^3 mod N2,  C3 = M^3 mod N3
 Attacker applies CRT: C_combined = M^3 mod (N1 * N2 * N3)
 Since M^3 < N1*N2*N3: C_combined = M^3 (Exact Integer!)
-Attacker Computes:   M = integer_cube_root( C_combined ) -> PLAIN TEXT RECOVERED!`
+Attacker Computes:   M = integer_cube_root( C_combined ) → PLAIN TEXT RECOVERED!`
   },
   {
     question: "Synthesizing RSA Encryption and Decryption: what is the master algorithmic lifecycle of a production RSA cryptographic transaction?",
@@ -169,7 +169,7 @@ Attacker Computes:   M = integer_cube_root( C_combined ) -> PLAIN TEXT RECOVERED
 3. Receiver: C_blind = ( C * (r^e mod N) ) mod N
 4. Receiver: EM_blind = RSA_CRT_Decrypt( C_blind, d_p, d_q, q_inv )
 5. Receiver: EM = ( EM_blind * r^(-1) ) mod N
-6. Receiver: M = OAEP_Decode( EM, SHA256 ) -> 100% SECURE PLAINTEXT RESTORED!`
+6. Receiver: M = OAEP_Decode( EM, SHA256 ) → 100% SECURE PLAINTEXT RESTORED!`
   }
 ];
 

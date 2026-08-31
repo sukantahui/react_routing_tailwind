@@ -47,7 +47,7 @@ const questions = [
     question: "What is the general golden rule for column ordering when designing a composite index?",
     shortAnswer: "Place Equality filter columns first (`col = value`), followed by High-Cardinality columns, followed by Range filter columns (`>`, `<`, `BETWEEN`), and finally `ORDER BY` sorting columns.",
     explanation: "Maximizes index pruning before reaching range and sort operations.",
-    hint: "Equality columns first -> Range columns -> Sorting columns.",
+    hint: "Equality columns first → Range columns → Sorting columns.",
     level: "expert"
   },
   {

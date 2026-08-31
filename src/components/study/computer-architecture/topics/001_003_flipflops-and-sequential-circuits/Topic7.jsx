@@ -30,12 +30,12 @@ const Topic7 = () => {
   // Compute flip-flop response whenever S, R, or CLK changes
   useEffect(() => {
     if (!clkInput) {
-      // Clock is LOW (0) -> Inactive / Memory Hold
+      // Clock is LOW (0) → Inactive / Memory Hold
       setIsInvalid(false);
       return;
     }
 
-    // Clock is HIGH (1) -> Active evaluation
+    // Clock is HIGH (1) → Active evaluation
     if (sInput && rInput) {
       // FORBIDDEN / INVALID STATE
       setIsInvalid(true);
@@ -52,7 +52,7 @@ const Topic7 = () => {
       setQState(false);
       setQBarState(true);
     } else {
-      // S=0, R=0 -> Memory Hold
+      // S=0, R=0 → Memory Hold
       setIsInvalid(false);
     }
   }, [sInput, rInput, clkInput]);
@@ -106,7 +106,7 @@ const Topic7 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 7</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Clocked SR Flip-Flop: Internal Structure, Clock Gating &amp; Invalid State Analysis
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -159,7 +159,7 @@ const Topic7 = () => {
                   An unclocked SR latch is <strong className="text-rose-300">asynchronous</strong>: any electrical glitch or noise spike on the S or R wire immediately alters stored memory.
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  CLK = 0 &rarr; Memory Isolated &amp; Frozen · CLK = 1 &rarr; Active Latch Update
+                  CLK = 0 → Memory Isolated &amp; Frozen · CLK = 1 → Active Latch Update
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   By gating inputs S and R through two input NAND gates controlled by <code className="text-teal-300 font-mono">CLK</code>, the CPU ensures memory changes occur <strong>only during precise clock intervals</strong>.
@@ -183,7 +183,7 @@ const Topic7 = () => {
                     <strong className="text-slate-200">Logical Contradiction:</strong> Outputs Q and Q̄ are mathematically defined to be complements (Q ≠ Q̄). But when S=1, R=1, both Q and Q̄ are forced to <strong>1 simultaneously</strong>!
                   </li>
                   <li>
-                    <strong className="text-slate-200">Metastable Race Condition:</strong> When CLK falls back from 1 &rarr; 0, both cross-coupled gates race to pull their outputs to 0. Due to microscopic silicon delays, the latch oscillates unpredictably and settles on a random bit!
+                    <strong className="text-slate-200">Metastable Race Condition:</strong> When CLK falls back from 1 → 0, both cross-coupled gates race to pull their outputs to 0. Due to microscopic silicon delays, the latch oscillates unpredictably and settles on a random bit!
                   </li>
                 </ul>
               </div>
@@ -511,7 +511,7 @@ const Topic7 = () => {
                   <table className="w-full text-left text-xs font-mono">
                     <thead className="bg-slate-900 border-b border-slate-800 text-slate-400">
                       <tr>
-                        <th className="p-2">Q(t) &rarr; Q(t+1)</th>
+                        <th className="p-2">Q(t) → Q(t+1)</th>
                         <th className="p-2">S</th>
                         <th className="p-2">R</th>
                         <th className="p-2">Synthesis Condition</th>
@@ -519,25 +519,25 @@ const Topic7 = () => {
                     </thead>
                     <tbody className="divide-y divide-slate-800/60 text-slate-300">
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">0 &rarr; 0</td>
+                        <td className="p-2 font-bold text-teal-400">0 → 0</td>
                         <td className="p-2">0</td>
                         <td className="p-2 text-amber-400">X (Don't Care)</td>
                         <td className="p-2 text-slate-500">Hold 0 or Reset</td>
                       </tr>
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">0 &rarr; 1</td>
+                        <td className="p-2 font-bold text-teal-400">0 → 1</td>
                         <td className="p-2 text-emerald-400 font-bold">1</td>
                         <td className="p-2">0</td>
                         <td className="p-2 text-slate-500">Set required</td>
                       </tr>
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">1 &rarr; 0</td>
+                        <td className="p-2 font-bold text-teal-400">1 → 0</td>
                         <td className="p-2">0</td>
                         <td className="p-2 text-rose-400 font-bold">1</td>
                         <td className="p-2 text-slate-500">Reset required</td>
                       </tr>
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">1 &rarr; 1</td>
+                        <td className="p-2 font-bold text-teal-400">1 → 1</td>
                         <td className="p-2 text-amber-400">X (Don't Care)</td>
                         <td className="p-2">0</td>
                         <td className="p-2 text-slate-500">Hold 1 or Set</td>

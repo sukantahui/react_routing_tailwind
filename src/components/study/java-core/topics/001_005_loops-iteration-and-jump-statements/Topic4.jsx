@@ -42,7 +42,7 @@ export default function Topic4() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Entry-Controlled <code className="text-emerald-400">&apos;while&apos;</code> Loops: Syntax, Condition Validation &amp; Use Cases
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -117,8 +117,8 @@ export default function Topic4() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Pre-Test Gatekeeper</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#451a03" />
             <text x="55" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">while (balance &gt;= fee)</text>
-            <text x="55" y="122" fill="#fef3c7" fontSize="10">true &rarr; enter body</text>
-            <text x="55" y="142" fill="#fca5a5" fontSize="10">false &rarr; 0 executions (EXIT)!</text>
+            <text x="55" y="122" fill="#fef3c7" fontSize="10">true → enter body</text>
+            <text x="55" y="142" fill="#fca5a5" fontSize="10">false → 0 executions (EXIT)!</text>
             <text x="160" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               Entry Gatekeeper
             </text>

@@ -23,7 +23,7 @@ const Topic8 = () => {
       title: "1. Local Port Forwarding (-L)",
       command: "ssh -L 5432:10.14.0.88:5432 susmita@bastion.barrackpore.gov.in",
       clientPort: "127.0.0.1:5432 (Listening on Client)",
-      tunnelPath: "Client ──(Encrypted SSH on Port 22)──> Bastion (198.51.100.10)",
+      tunnelPath: "Client ──(Encrypted SSH on Port 22)──→ Bastion (198.51.100.10)",
       targetDestination: "10.14.0.88:5432 (Internal PostgreSQL DB)",
       useCase: "Accessing private backend databases and microservices directly from local admin tools",
       flowDirection: "Inbound Local ➔ Outbound Remote Target",
@@ -33,7 +33,7 @@ const Topic8 = () => {
       title: "2. Remote Port Forwarding (-R)",
       command: "ssh -R 8080:localhost:3000 debangshu@public-relay.kolkata.gov.in",
       clientPort: "localhost:3000 (Developer Local Web Server)",
-      tunnelPath: "Remote Relay ──(Encrypted SSH on Port 22)──> Local Client Machine",
+      tunnelPath: "Remote Relay ──(Encrypted SSH on Port 22)──→ Local Client Machine",
       targetDestination: "0.0.0.0:8080 (Listening on Remote Server)",
       useCase: "Exposing a local web server running behind NAT/firewall to external internet testers",
       flowDirection: "Inbound Remote Gateway ➔ Piped back to Local Port",
@@ -43,7 +43,7 @@ const Topic8 = () => {
       title: "3. Dynamic SOCKS5 Proxy (-D)",
       command: "ssh -D 1080 mamata@bastion.kolkata.gov.in",
       clientPort: "127.0.0.1:1080 (Local SOCKS5 Proxy)",
-      tunnelPath: "Browser ──(SOCKS5 on 1080)──> SSH Client ──(Encrypted Tunnel)──> Remote Server",
+      tunnelPath: "Browser ──(SOCKS5 on 1080)──→ SSH Client ──(Encrypted Tunnel)──→ Remote Server",
       targetDestination: "Arbitrary Internal Intranet URLs (*.internal.kolkata.gov.in)",
       useCase: "Browsing entire internal intranets securely without mapping static individual ports",
       flowDirection: "Dynamic Multi-Host Application Routing",
@@ -53,7 +53,7 @@ const Topic8 = () => {
       title: "4. ProxyJump Bastion (-J)",
       command: "ssh -J susmita@bastion.barrackpore.gov.in debangshu@10.14.0.88",
       clientPort: "Local OpenSSH Client",
-      tunnelPath: "Client ──(TCP Pipe through Bastion)──> End-to-End Encrypted to 10.14.0.88",
+      tunnelPath: "Client ──(TCP Pipe through Bastion)──→ End-to-End Encrypted to 10.14.0.88",
       targetDestination: "10.14.0.88 (Target Backend SSH Server)",
       useCase: "Multi-hop secure access without exposing private keys or agent sockets to intermediate bastions",
       flowDirection: "End-to-End Encrypted Tunnel through Transparent Proxy",
@@ -237,7 +237,7 @@ const Topic8 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/80 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
             <span>🛡️ Module 005_004 • Topic 8</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Secure Shell (SSH-2): Architecture &amp; Port Forwarding
           </h1>
           <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">

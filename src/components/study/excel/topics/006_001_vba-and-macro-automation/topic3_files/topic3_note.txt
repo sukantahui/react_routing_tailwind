@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Master these three VBE shortcuts: Alt + F11 (open editor), F8 (step through code line-by-line), and Ctrl + G (Immediate Window). You will debug macros 10x faster than anyone else.
 
 COMMON TRAPS TO AVOID:
-- Writing General Macros Inside Sheet Objects Instead of Modules: Writing general Sub procedures inside `Sheet1 (Code)` prevents them from appearing in the standard Excel Macro Run dialog (Alt + F8). -> Fix: Always insert a Standard Module (`Insert > Module`) for general automation macros.
-- Closing Immediate Window & Losing Console: Accidentally closing the debug window and wondering where command output went. -> Fix: Press `Ctrl + G` or View > Immediate Window.
-- Forgetting Breakpoints Left in Code: Leaving red margin break points causes workbook to halt execution when other users run macros. -> Fix: Debug > Clear All Breakpoints (Ctrl + Shift + F9) before releasing workbooks.
+- Writing General Macros Inside Sheet Objects Instead of Modules: Writing general Sub procedures inside `Sheet1 (Code)` prevents them from appearing in the standard Excel Macro Run dialog (Alt + F8). → Fix: Always insert a Standard Module (`Insert > Module`) for general automation macros.
+- Closing Immediate Window & Losing Console: Accidentally closing the debug window and wondering where command output went. → Fix: Press `Ctrl + G` or View > Immediate Window.
+- Forgetting Breakpoints Left in Code: Leaving red margin break points causes workbook to halt execution when other users run macros. → Fix: Debug > Clear All Breakpoints (Ctrl + Shift + F9) before releasing workbooks.
 ================================================================================

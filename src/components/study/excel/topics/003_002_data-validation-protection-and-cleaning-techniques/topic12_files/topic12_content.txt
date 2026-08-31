@@ -14,7 +14,7 @@ Operational Architecture: Procurement Request Portal: Multi-Tier Cascading Menus
 
 3. CORE TECHNICAL MECHANICS
 1. Multi-Field Validation Stack:
-   Department (Dropdown) -> Expense Category (Cascading) -> Item Description (Text length >= 10) -> Quantity (Whole number > 0) -> Estimated Unit Cost (Decimal > 0).
+   Department (Dropdown) → Expense Category (Cascading) → Item Description (Text length >= 10) → Quantity (Whole number > 0) → Estimated Unit Cost (Decimal > 0).
 
 2. Real-Time Duplicate PO Detection:
    Applies `=COUNTIF(PO_Range, PO_Cell) <= 1` to prevent duplicate purchase order generation in high-volume shared requisition sheets.

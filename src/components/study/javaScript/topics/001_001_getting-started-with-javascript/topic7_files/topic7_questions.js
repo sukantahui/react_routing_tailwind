@@ -21,7 +21,7 @@ const questions = [
     explanation: "Includes return, throw, break, continue, yield, and postfix ++/-- operators. If a newline appears, ASI inserts a semicolon immediately.",
     hint: "return, throw, break, continue, yield, postfix ++/--.",
     level: "advanced",
-    codeExample: "// 'throw\n new Error()' -> SyntaxError because ASI inserts ';' after throw"
+    codeExample: "// 'throw\n new Error()' → SyntaxError because ASI inserts ';' after throw"
   },
   {
     question: "What happens when a statement starting with '(' or '[' follows a line without a semicolon?",
@@ -77,7 +77,7 @@ const questions = [
     explanation: "/* outer /* inner */ outer */ will fail because the first */ terminates the comment, leaving the trailing 'outer */' as invalid syntax.",
     hint: "Nested /* ... */ comments are illegal in JavaScript syntax.",
     level: "intermediate",
-    codeExample: "/* Outer comment /* Inner comment */ Still comment? NO -> SyntaxError */"
+    codeExample: "/* Outer comment /* Inner comment */ Still comment? NO → SyntaxError */"
   },
   {
     question: "What are Contextual Keywords in JavaScript?",
@@ -109,7 +109,7 @@ const questions = [
     explanation: "The postfix ++ operator cannot have a LineTerminator between the identifier and ++. Prefix ++ on next line (++x) is valid.",
     hint: "Postfix ++ cannot be separated from variable by a newline.",
     level: "expert",
-    codeExample: "// x\n// ++ -> ASI inserts ';' making it: x; ++ (SyntaxError)"
+    codeExample: "// x\n// ++ → ASI inserts ';' making it: x; ++ (SyntaxError)"
   },
   {
     question: "What are Shebang / Hashbang (#!) comments in JavaScript (ES2023)?",
@@ -123,9 +123,9 @@ const questions = [
     question: "What is the tokenization phase in the JavaScript compilation pipeline?",
     shortAnswer: "The first phase where the Lexer scans raw source characters and breaks them into discrete syntactic tokens.",
     explanation: "Tokens (Identifiers, Keywords, Numbers, Strings, Punctuators) are then passed to the Parser to construct the Abstract Syntax Tree (AST).",
-    hint: "Source Code -> Lexer (Tokens) -> Parser (AST) -> Bytecode.",
+    hint: "Source Code → Lexer (Tokens) → Parser (AST) → Bytecode.",
     level: "advanced",
-    codeExample: "// 'let x = 10' -> [KEYWORD: let, IDENTIFIER: x, PUNCTUATOR: =, NUMBER: 10]"
+    codeExample: "// 'let x = 10' → [KEYWORD: let, IDENTIFIER: x, PUNCTUATOR: =, NUMBER: 10]"
   },
   {
     question: "What is an Abstract Syntax Tree (AST)?",

@@ -197,7 +197,7 @@ const questions = [
     explanation: "You can obtain the JDBC connection from Hibernate via session.doWork(Connection). But mixing raw JDBC can bypass Hibernate's cache and may cause inconsistencies. If you must, ensure both share the same transaction by committing via Hibernate.",
     hint: "Better to perform all operations through Hibernate unless you have special needs.",
     level: "advanced",
-    codeExample: "session.doWork(connection -> { // raw JDBC work }); // participates in current tx"
+    codeExample: "session.doWork(connection → { // raw JDBC work }); // participates in current tx"
   },
   {
     question: "What does hibernate.transaction.auto_close_session do?",

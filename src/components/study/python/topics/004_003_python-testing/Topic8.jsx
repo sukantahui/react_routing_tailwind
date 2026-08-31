@@ -67,7 +67,7 @@ def test_mamata_top_merit_waiver():
 # FAILED: NameError: name 'calculate_waiver' is not defined`
     : activeTddStep === "GREEN"
     ? `# 🟢 STEP 2: Write the MINIMUM code to turn the test green!
-def calculate_waiver(score: float, base_fee: float) -> float:
+def calculate_waiver(score: float, base_fee: float) → float:
     if score >= 90.0:
         return base_fee * 0.80  # Minimum direct code
     return base_fee
@@ -84,7 +84,7 @@ from typing import Final
 TOP_MERIT_THRESHOLD: Final[float] = 90.0
 TOP_MERIT_DISCOUNT_PCT: Final[float] = 0.20
 
-def calculate_waiver(score: float, base_fee: float) -> float:
+def calculate_waiver(score: float, base_fee: float) → float:
     """Calculates final net tuition after applying institutional merit rules."""
     if base_fee <= 0:
         raise ValueError("Base tuition fee must be positive.")
@@ -166,7 +166,7 @@ def test_mamata_top_merit_waiver():
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Test-Driven Development (<span className="text-teal-400">TDD</span>) Workflow
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
@@ -650,8 +650,8 @@ def test_mamata_top_merit_waiver():
                 Writing production code before having a failing test violates Law 1 of TDD, creating untestable code and missing the design feedback of test-first.
               </p>
               <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
-                # ANTI-PATTERN: Implement engine &rarr; write test later{'\n'}
-                # BEST PRACTICE: Write failing test &rarr; write code to pass
+                # ANTI-PATTERN: Implement engine → write test later{'\n'}
+                # BEST PRACTICE: Write failing test → write code to pass
               </pre>
             </div>
 
@@ -664,8 +664,8 @@ def test_mamata_top_merit_waiver():
                 Stopping as soon as tests turn green without cleaning duplication and naming creates accumulated technical debt and messy codebases.
               </p>
               <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
-                # ANTI-PATTERN: Red &rarr; Green &rarr; Red &rarr; Green{'\n'}
-                # BEST PRACTICE: Red &rarr; Green &rarr; Refactor &rarr; Red &rarr; Green
+                # ANTI-PATTERN: Red → Green → Red → Green{'\n'}
+                # BEST PRACTICE: Red → Green → Refactor → Red → Green
               </pre>
             </div>
 
@@ -679,7 +679,7 @@ def test_mamata_top_merit_waiver():
               </p>
               <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
                 # ANTI-PATTERN: Testing 10 interacting features in 1 test{'\n'}
-                # BEST PRACTICE: Test 0 cases &rarr; 1 case &rarr; multiple &rarr; edge
+                # BEST PRACTICE: Test 0 cases → 1 case → multiple → edge
               </pre>
             </div>
 

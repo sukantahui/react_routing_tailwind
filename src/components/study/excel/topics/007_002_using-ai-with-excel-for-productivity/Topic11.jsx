@@ -71,7 +71,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic11() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"}
+            {"AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"}
           </div>
 
           <div className="overflow-x-auto">
@@ -286,7 +286,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Real_world_project"
+            sheetName="EX2912"
             title={"Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic11() {
                 Step 2: Construct Structured Natural Language Prompt
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Formulate prompt with bracketed columns: <code className="text-cyan-300 font-mono font-bold">{"AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"}</code>.
+                Formulate prompt with bracketed columns: <code className="text-cyan-300 font-mono font-bold">{"AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"}</code>.
               </p>
             </div>
 

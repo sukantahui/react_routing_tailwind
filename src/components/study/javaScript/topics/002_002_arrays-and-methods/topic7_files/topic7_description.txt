@@ -37,7 +37,7 @@ labStudents.forEach((student, index) => {
 
 // 2. entries() with for...of
 for (let [idx, val] of labStudents.entries()) {
-  console.log(`Index ${idx} -> ${val}`);
+  console.log(`Index ${idx} → ${val}`);
 }
 
 Teacher's Note on Example 1:

@@ -114,7 +114,7 @@ const questions = [
     explanation: "Staging queries process data in RAM without loading to the final model.",
     hint: "Disabling Enable Load prevents data model bloat.",
     level: "basic",
-    codeExample: "stg_ERP_Extract &rarr; Uncheck 'Enable Load' (Italicized font)"
+    codeExample: "stg_ERP_Extract → Uncheck 'Enable Load' (Italicized font)"
   },
   {
     question: "How do you attach custom UI documentation metadata to a user-defined M function?",
@@ -128,9 +128,9 @@ const questions = [
     question: "What is the purpose of the Power Query Query Dependencies view?",
     shortAnswer: "It displays a graphical Directed Acyclic Graph (DAG) of all queries, parameters, staging steps, and external data sources to verify architectural lineage and privacy firewall boundaries.",
     explanation: "Topological data lineage visualization tool.",
-    hint: "View &rarr; Query Dependencies shows the complete graphical ETL lineage DAG.",
+    hint: "View → Query Dependencies shows the complete graphical ETL lineage DAG.",
     level: "basic",
-    codeExample: "View &rarr; Query Dependencies"
+    codeExample: "View → Query Dependencies"
   },
   {
     question: "How does `Table.StopFolding` differ from `Table.Buffer`?",
@@ -162,7 +162,7 @@ const questions = [
     explanation: "Enforces logical ETL processing sequence and deterministic sorting in the UI.",
     hint: "Use numerical prefixes (01_, 02_, 03_) on all folder names.",
     level: "basic",
-    codeExample: "01_Parameters &rarr; 02_Functions &rarr; 03_Staging &rarr; 04_Dimensions &rarr; 05_Facts"
+    codeExample: "01_Parameters → 02_Functions → 03_Staging → 04_Dimensions → 05_Facts"
   },
   {
     question: "How do you dynamically detect and remove shifted banner headers in raw worksheets?",
@@ -178,7 +178,7 @@ const questions = [
     explanation: "Enforces data privacy boundaries between private and external queries.",
     hint: "Align Privacy Levels or stage data sources in separate intermediate queries.",
     level: "advanced",
-    codeExample: "Data Source Settings &rarr; Set all sources to 'Organizational'"
+    codeExample: "Data Source Settings → Set all sources to 'Organizational'"
   },
   {
     question: "How do you sanitize dirty numeric strings containing currency symbols without throwing errors?",
@@ -202,7 +202,7 @@ const questions = [
     explanation: "Buffers must always be scoped once in the outer query before invoking functions.",
     hint: "Buffer once in the outer scope, never inside row-by-row function loops.",
     level: "expert",
-    codeExample: "Buffer in outer query &rarr; Pass reference to function"
+    codeExample: "Buffer in outer query → Pass reference to function"
   },
   {
     question: "How does `List.Contains` perform against a `List.Buffer` vs an unbuffered table column?",
@@ -218,7 +218,7 @@ const questions = [
     explanation: "Graceful query lifecycle management without breaking production dependencies.",
     hint: "Archive in a `99_Deprecated` folder with disabled load and retirement notices.",
     level: "basic",
-    codeExample: "99_Deprecated_Queries &rarr; stg_OldPipeline_Retire2026 (Enable Load: False)"
+    codeExample: "99_Deprecated_Queries → stg_OldPipeline_Retire2026 (Enable Load: False)"
   },
   {
     question: "How do you verify data reconciliation between consolidated totals and individual branch reports?",
@@ -230,11 +230,11 @@ const questions = [
   },
   {
     question: "How do you export an enterprise Power Query pipeline as a reusable Power BI Template (.pbit)?",
-    shortAnswer: "Navigate to `File &rarr; Export &rarr; Power BI Template (.pbit)`; users will be prompted for connection parameters when opening the template.",
+    shortAnswer: "Navigate to `File → Export → Power BI Template (.pbit)`; users will be prompted for connection parameters when opening the template.",
     explanation: "Package enterprise ETL architectures for multi-client deployment.",
     hint: "Export as .pbit with parameterized connection prompts.",
     level: "moderate",
-    codeExample: "File &rarr; Export &rarr; Power BI Template (.pbit)"
+    codeExample: "File → Export → Power BI Template (.pbit)"
   },
   {
     question: "What is the ultimate golden rule of an Enterprise Power Query Architect?",

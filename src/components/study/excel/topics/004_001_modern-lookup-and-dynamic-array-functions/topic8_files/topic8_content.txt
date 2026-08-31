@@ -8,7 +8,7 @@ In legacy Excel, creating a search-filtered distinct dropdown list required VBA 
 
 2. The Modern 3-Tier Dynamic Array Pipeline:
 Because dynamic array functions return arrays in memory, they compose seamlessly into functional data processing pipelines.
-- Pipeline Structure: Raw Data -> FILTER (Filter conditions) -> UNIQUE (Deduplicate) -> SORT (Alphabetize) -> UI Component (Spilled list / Data Validation Dropdown).
+- Pipeline Structure: Raw Data → FILTER (Filter conditions) → UNIQUE (Deduplicate) → SORT (Alphabetize) → UI Component (Spilled list / Data Validation Dropdown).
 
 3. Search Box Dynamic Pattern:
 By incorporating `(SearchBox="") + ISNUMBER(SEARCH(SearchBox, TargetColumn))`, the pipeline provides a live, non-destructive search box. If the search cell is blank, the entire deduplicated roster is shown; when text is typed, the list contracts in real time.

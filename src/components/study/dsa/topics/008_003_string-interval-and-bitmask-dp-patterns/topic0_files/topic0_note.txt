@@ -12,7 +12,7 @@ Given strings S1 of length M and S2 of length N:
 • Transitions:
     - If S1[i-1] == S2[j-1]: `dp[i][j] = 1 + dp[i-1][j-1]`
     - If S1[i-1] != S2[j-1]: `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`
-• Space Optimization: Two 1D row arrays `prev[]` and `curr[]` of size N + 1 -> O(N) space.
+• Space Optimization: Two 1D row arrays `prev[]` and `curr[]` of size N + 1 → O(N) space.
 
 2. STRING DP: EDIT DISTANCE (LEVENSHTEIN)
 --------------------------------------------------------------------------------

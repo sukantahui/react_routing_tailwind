@@ -29,12 +29,12 @@ cryptographic competition between cryptanalysts and computing power:
 
 * SPECIFICATIONS:
   - Block Size: 64 bits (8 bytes).
-  - Key Size: 64 bits nominal (8 parity bits discarded -> 56 bits effective entropy = 2^56 keys).
+  - Key Size: 64 bits nominal (8 parity bits discarded → 56 bits effective entropy = 2^56 keys).
   - Rounds: 16 Feistel rounds.
   - Round Function F:
     1. Expansion Permutation (E-Box): Expands 32-bit Right half to 48 bits.
     2. XOR with 48-bit Round SubKey.
-    3. Eight S-Boxes (6 bits in -> 4 bits out): Provides non-linear Confusion.
+    3. Eight S-Boxes (6 bits in → 4 bits out): Provides non-linear Confusion.
     4. P-Box (32-bit Permutation): Provides Diffusion.
 
 * WHY DES DIED:

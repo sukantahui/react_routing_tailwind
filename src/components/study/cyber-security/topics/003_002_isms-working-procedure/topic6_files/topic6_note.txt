@@ -114,7 +114,7 @@ SCENARIO 4 : INCIDENT PLAYBOOK & CERT-In ESCALATION LAB (JADAVPUR UNIVERSITY)
 * COMMON BEGINNER IR PITFALLS:
   - Rebooting infected machines immediately (Destroys all volatile forensic RAM evidence).
   - Discussing active breaches on corporate email (Allows the attacker to read your containment plans).
-  - Concealing data breaches (Violates DPDP Act Section 8(6) -> triggers ₹250 Cr statutory fines).
+  - Concealing data breaches (Violates DPDP Act Section 8(6) → triggers ₹250 Cr statutory fines).
   - Failing to maintain Chain of Custody (Renders digital evidence inadmissible in court).
 
 --------------------------------------------------------------------------------

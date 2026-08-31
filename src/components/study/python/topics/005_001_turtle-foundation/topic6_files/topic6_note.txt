@@ -11,11 +11,11 @@ Website: https://www.codernaccotax.co.in
 1. ROTATION COMMANDS & CONVENTIONS
 --------------------------------------------------------------------------------
   1. Relative Rotations:
-     - t.left(angle) / t.lt(angle)   -> Rotates counter-clockwise by 'angle' degrees
-     - t.right(angle) / t.rt(angle) -> Rotates clockwise by 'angle' degrees
+     - t.left(angle) / t.lt(angle)   → Rotates counter-clockwise by 'angle' degrees
+     - t.right(angle) / t.rt(angle) → Rotates clockwise by 'angle' degrees
 
   2. Absolute Orientation:
-     - t.setheading(angle) / t.seth(angle) -> Sets orientation directly (0° East, 90° North, 180° West, 270° South)
+     - t.setheading(angle) / t.seth(angle) → Sets orientation directly (0° East, 90° North, 180° West, 270° South)
 
   3. The Regular Polygon Exterior Angle Formula:
      - turn_angle = 360° / N
@@ -29,8 +29,8 @@ Website: https://www.codernaccotax.co.in
 --------------------------------------------------------------------------------
 2. ANGLE MODES
 --------------------------------------------------------------------------------
-  - screen.degrees() -> Default mode (full circle is 360.0 degrees)
-  - screen.radians() -> Changes mode so full circle is 2*pi (6.28318...) radians
+  - screen.degrees() → Default mode (full circle is 360.0 degrees)
+  - screen.radians() → Changes mode so full circle is 2*pi (6.28318...) radians
 
 ================================================================================
        END OF STUDY NOTE • TOPIC 6: ROTATION CONTROL

@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. DINING PHILOSOPHERS:
    - 5 philosophers need 2 chopsticks to eat.
-   - Naive algorithm: All grab left chopstick &rarr; Deadlock!
+   - Naive algorithm: All grab left chopstick → Deadlock!
    - Dijkstra's Solution: Resource Hierarchy (Global Ordering).
    - Always acquire smaller indexed chopstick first: 'min(left, right)'.
    - Breaks Circular Wait condition.

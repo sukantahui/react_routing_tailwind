@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Pivot Table & Slicer Interactive Summary Assessment"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic4() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Pivot Architecture: Insert &gt; PivotTable | Fields: Rows, Columns, Values, Filters | Value Field Settings: Sum, Average, % of Column Total | Slicers & Timelines"}
+            {"Pivot Architecture: Insert > PivotTable | Fields: Rows, Columns, Values, Filters | Value Field Settings: Sum, Average, % of Column Total | Slicers & Timelines"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic4() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Pivot Table Multidimensional Aggregation Pipeline: Source Table -> Field List Matrix -> Value Field Calculation -> Slicer Controlled Report"}
+              Visual Dataflow: {"Pivot Table Multidimensional Aggregation Pipeline: Source Table → Field List Matrix → Value Field Calculation → Slicer Controlled Report"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Assessment Pipeline
@@ -286,7 +286,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Pivot_Table___Slic"
+            sheetName="EX3105"
             title={"Pivot Table & Slicer Interactive Summary Assessment - Assessment Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic4() {
                 Step 1: Understand Schema &amp; Requirements
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Pivot Architecture: Insert &gt; PivotTable | Fields: Rows, Columns, Values, Filters | Value Field Settings: Sum, Average, % of Column Total | Slicers & Timelines"}</code>.
+                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Pivot Architecture: Insert > PivotTable | Fields: Rows, Columns, Values, Filters | Value Field Settings: Sum, Average, % of Column Total | Slicers & Timelines"}</code>.
               </p>
             </div>
 
@@ -502,7 +502,7 @@ export default function Topic4() {
                 <span>⚡</span> {"Show Values As %"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Generates instant percentage share metrics."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Value Field Settings &gt; Show Values As > % of Total"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Value Field Settings > Show Values As > % of Total"}</kbd>
             </div>
             
           </div>

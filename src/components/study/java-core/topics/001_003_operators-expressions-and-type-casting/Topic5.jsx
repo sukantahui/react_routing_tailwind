@@ -42,7 +42,7 @@ export default function Topic5() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Unary Operators: <code className="text-rose-400">+</code>, <code className="text-rose-400">-</code>, <code className="text-rose-400">!</code>, <code className="text-rose-400">~</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -118,9 +118,9 @@ export default function Topic5() {
             <rect x="310" y="40" width="260" height="180" rx="10" fill="url(#gradUnaryNot)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Logical NOT (!)</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
-            <text x="335" y="105" fill="#a7f3d0" fontSize="12" fontFamily="monospace">!true  &rarr; false</text>
-            <text x="335" y="125" fill="#a7f3d0" fontSize="12" fontFamily="monospace">!false &rarr; true</text>
-            <text x="335" y="145" fill="#d1fae5" fontSize="10">!!flag &rarr; restores original</text>
+            <text x="335" y="105" fill="#a7f3d0" fontSize="12" fontFamily="monospace">!true  → false</text>
+            <text x="335" y="125" fill="#a7f3d0" fontSize="12" fontFamily="monospace">!false → true</text>
+            <text x="335" y="145" fill="#d1fae5" fontSize="10">!!flag → restores original</text>
             <text x="440" y="195" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Booleans Only (No !0 in Java)
             </text>
@@ -129,8 +129,8 @@ export default function Topic5() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradBitwiseNot)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Bitwise NOT (~)</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#451a03" />
-            <text x="615" y="105" fill="#fde68a" fontSize="12" fontFamily="monospace">~0  &rarr; -1</text>
-            <text x="615" y="125" fill="#fde68a" fontSize="12" fontFamily="monospace">~5  &rarr; -6</text>
+            <text x="615" y="105" fill="#fde68a" fontSize="12" fontFamily="monospace">~0  → -1</text>
+            <text x="615" y="125" fill="#fde68a" fontSize="12" fontFamily="monospace">~5  → -6</text>
             <text x="615" y="145" fill="#fef3c7" fontSize="10">Formula: ~x = -(x + 1)</text>
             <text x="720" y="195" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               Flips All 32 Binary Bits
@@ -138,7 +138,7 @@ export default function Topic5() {
 
             {/* Bottom Caption */}
             <text x="440" y="255" fill="#94a3b8" fontSize="12" textAnchor="middle">
-              Right-to-Left Associativity: `- - -10` evaluates as `-(-(-(10)))` &rarr; `-10`.
+              Right-to-Left Associativity: `- - -10` evaluates as `-(-(-(10)))` → `-10`.
             </text>
           </svg>
         </div>
@@ -166,28 +166,28 @@ export default function Topic5() {
                 <td className="p-3 font-mono font-bold text-sky-300">+</td>
                 <td className="p-3">Unary Plus</td>
                 <td className="p-3">Numeric (byte..double)</td>
-                <td className="p-3 font-mono text-emerald-400">+5 &rarr; 5</td>
+                <td className="p-3 font-mono text-emerald-400">+5 → 5</td>
                 <td className="p-3 text-xs">Performs unary numeric promotion on byte, short, char to int</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">-</td>
                 <td className="p-3">Unary Minus</td>
                 <td className="p-3">Numeric (byte..double)</td>
-                <td className="p-3 font-mono text-emerald-400">-5000 &rarr; -5000</td>
+                <td className="p-3 font-mono text-emerald-400">-5000 → -5000</td>
                 <td className="p-3 text-xs">Negates arithmetic value; negating Integer.MIN_VALUE overflows back</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">!</td>
                 <td className="p-3">Logical NOT</td>
                 <td className="p-3">boolean, Boolean</td>
-                <td className="p-3 font-mono text-emerald-400">!true &rarr; false</td>
+                <td className="p-3 font-mono text-emerald-400">!true → false</td>
                 <td className="p-3 text-xs">Strictly for booleans; cannot be applied to integers in Java</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">~</td>
                 <td className="p-3">Bitwise NOT</td>
                 <td className="p-3">Integral (byte..long)</td>
-                <td className="p-3 font-mono text-emerald-400">~5 &rarr; -6</td>
+                <td className="p-3 font-mono text-emerald-400">~5 → -6</td>
                 <td className="p-3 text-xs">Inverts all bits in two&apos;s complement; formula ~x = -(x + 1)</td>
               </tr>
             </tbody>

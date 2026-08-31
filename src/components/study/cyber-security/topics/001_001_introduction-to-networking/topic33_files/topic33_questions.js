@@ -184,7 +184,7 @@ const questions = [
     explanation: "The sender never learns why packets are dropping, causing TCP connections to freeze during large data transfers.",
     hint: "Blocking ICMP Fragmentation Needed messages creates a Black Hole connection freeze.",
     level: "expert",
-    codeExample: "PMTUD_BlackHole: Packet_1500B dropped at Router (MTU 1400); ICMP_Blocked -> Connection Freezes;"
+    codeExample: "PMTUD_BlackHole: Packet_1500B dropped at Router (MTU 1400); ICMP_Blocked → Connection Freezes;"
   },
   {
     question: "What is an IPv6 Flow Label and how does it optimize routing performance?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Multi-path routing across unequal-delay links in Kolkata can cause packet reordering, cutting application throughput by 50%.",
     hint: "Packets arriving out of order trick TCP into thinking data was lost, reducing speed.",
     level: "expert",
-    codeExample: "Receiver: Received Packet 3 before Packet 2 -> Emits Duplicate ACK for Packet 1;"
+    codeExample: "Receiver: Received Packet 3 before Packet 2 → Emits Duplicate ACK for Packet 1;"
   },
   {
     question: "What is the Identification field (16 bits) in an IPv4 header used for?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures packet structure, fragmentation dynamics, hardware capture engineering, cyber security inspection, and financial budgeting.",
     hint: "Encapsulation hierarchy + MSS clamping + Hardware TAPs + DPI security + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: MasterEncapsulation() -> EnforceMSSClamping() -> DeployHardwareTAPs() -> EnableDPI() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: MasterEncapsulation() → EnforceMSSClamping() → DeployHardwareTAPs() → EnableDPI() → BudgetInRupees(₹);"
   }
 ];
 

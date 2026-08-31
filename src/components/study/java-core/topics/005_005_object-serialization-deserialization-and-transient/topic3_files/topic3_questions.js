@@ -5,7 +5,7 @@ const topic3_questions = [
     "explanation": "Strict FIFO sequence must be preserved when reading mixed primitive/object streams.",
     "hint": "Throws StreamCorruptedException or ClassCastException; items must be read in exact FIFO order.",
     "level": "Intermediate",
-    "codeExample": "oos.writeInt(1); oos.writeObject(obj); -> ois.readInt(); (MyObj) ois.readObject();"
+    "codeExample": "oos.writeInt(1); oos.writeObject(obj); → ois.readInt(); (MyObj) ois.readObject();"
   }
 ];
 

@@ -24,7 +24,7 @@ const questions = [
     explanation: "Common pattern: use Hibernate for CRUD, fallback to JDBC for bulk operations or complex reporting queries. Ensure both use the same DataSource to avoid locking issues.",
     hint: "Spring's JdbcTemplate can work alongside Hibernate SessionFactory.",
     level: "expert",
-    codeExample: "// Get raw connection from Hibernate session\nSession session = entityManager.unwrap(Session.class);\nsession.doWork(connection -> { /* JDBC code */ });"
+    codeExample: "// Get raw connection from Hibernate session\nSession session = entityManager.unwrap(Session.class);\nsession.doWork(connection → { /* JDBC code */ });"
   },
   {
     question: "What is the role of @Transactional in Spring Data JPA compared to manual JDBC transactions?",

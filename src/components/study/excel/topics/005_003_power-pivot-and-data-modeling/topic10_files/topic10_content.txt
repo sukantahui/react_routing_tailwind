@@ -35,7 +35,7 @@ Operational Architecture: Power Pivot KPI: Home > KPI > New KPI | Base Measure: 
 5. TROUBLESHOOTING & COMMON ERRORS
 • Setting Target to Absolute Number for Sliced Views:
   Root Cause: Setting target to a static ₹10 Crore means the target is ₹10 Crore whether viewing a single branch or the whole nation.
-  Diagnostic Fix: Set Target Goal to a dynamic measure: `Target: Measure -> [BudgetRevenue]`.
+  Diagnostic Fix: Set Target Goal to a dynamic measure: `Target: Measure → [BudgetRevenue]`.
 • Reversed Thresholds for Cost Metrics:
   Root Cause: Showing green traffic lights when departmental expenses exceed budget limits.
   Diagnostic Fix: Select the inverted status icon pattern (Lower is Better) in KPI setup.
@@ -45,6 +45,6 @@ Operational Architecture: Power Pivot KPI: Home > KPI > New KPI | Base Measure: 
 
 6. PRO TIPS & SHORTCUTS
 • New KPI Shortcut (Power Pivot > Home > KPI > New KPI): Launches the native KPI milestone configuration dialog.
-• Dynamic Target Measure (Target: Measure -> [TargetMeasure]): Ensures targets scale dynamically across all filter slices.
+• Dynamic Target Measure (Target: Measure → [TargetMeasure]): Ensures targets scale dynamically across all filter slices.
 • Choose Icon Graphic (Select Traffic Lights, Stars, or Flags): Customizes visual presentation for executive scorecards.
 ================================================================================

@@ -158,7 +158,7 @@ const questions = [
   },
   {
     question: "What referential action should link `shopping_cart` to `users` vs `orders` to `users`?",
-    shortAnswer: "`shopping_cart` -> `users` should use `CASCADE` (ephemeral); `orders` -> `users` should use `RESTRICT` (financial ledger).",
+    shortAnswer: "`shopping_cart` → `users` should use `CASCADE` (ephemeral); `orders` → `users` should use `RESTRICT` (financial ledger).",
     explanation: "Differentiates temporary session state from permanent financial records.",
     hint: "CASCADE for shopping carts; RESTRICT for orders.",
     level: "moderate"

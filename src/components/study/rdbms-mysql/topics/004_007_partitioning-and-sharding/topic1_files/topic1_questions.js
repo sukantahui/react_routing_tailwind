@@ -9,7 +9,7 @@ const questions = [
     explanation: "Acts as a traffic router between the MySQL SQL parser and individual partition tablespaces.",
     hint: "Proxy storage handler that routes SQL operations to individual partition storage engine handlers.",
     level: "basic",
-    codeExample: `// SQL Query -> ha_partition (Evaluates Partition Function) -> ha_innobase (Target Partition)`
+    codeExample: `// SQL Query → ha_partition (Evaluates Partition Function) → ha_innobase (Target Partition)`
   },
   {
     question: "How does the storage engine process an `INSERT` statement into a partitioned table?",
@@ -18,7 +18,7 @@ const questions = [
     hint: "Evaluates partition expression, identifies partition ID, and calls write_row on that partition's handler.",
     level: "intermediate",
     codeExample: `INSERT INTO sales_records (order_id, order_date, amount) VALUES (101, '2025-04-12', 4500.00);
--- ha_partition evaluates YEAR('2025-04-12') = 2025 -> Writes to p2025.ibd`
+-- ha_partition evaluates YEAR('2025-04-12') = 2025 → Writes to p2025.ibd`
   },
   {
     question: "What exact internal steps occur when an `UPDATE` modifies a row's partition key column to a value belonging to a different partition?",

@@ -88,7 +88,7 @@ class Topic1 extends React.Component {
                     staggerDelay(0)
                 )}>
                     <div className="mb-10 transform transition-all duration-500 hover:scale-[1.02]">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
                             Topic 1: Regular Expressions Basics for Text Filtering
                         </h1>
                         <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">

@@ -109,9 +109,9 @@ Change: 2024-01-18 11:20:00.000000000 +0530`,
       {
         title: "Symbolic Link",
         command: "ls -l latest_report",
-        output: "lrwxrwxrwx 1 swadeep students 15 Jan 19 16:30 latest_report -> report_jan_2024.pdf",
+        output: "lrwxrwxrwx 1 swadeep students 15 Jan 19 16:30 latest_report → report_jan_2024.pdf",
         statCommand: "stat latest_report",
-        statOutput: `  File: latest_report -> report_jan_2024.pdf
+        statOutput: `  File: latest_report → report_jan_2024.pdf
   Size: 15        	Blocks: 0          IO Block: 4096   symbolic link
 Device: 801h/2049d	Inode: 123460      Links: 1
 Access: (0777/lrwxrwxrwx)  Uid: ( 1000/ swadeep)   Gid: ( 1001/ students)
@@ -201,7 +201,7 @@ Change: 2024-01-19 16:30:00.000000000 +0530`,
         <div className="container mx-auto px-4 py-12 max-w-6xl">
           {/* Header Section */}
           <header className={clsx(sectionAnimation, "mb-12 text-center")}>
-            <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Topic 3: Checking Permissions with ls -l and stat
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">

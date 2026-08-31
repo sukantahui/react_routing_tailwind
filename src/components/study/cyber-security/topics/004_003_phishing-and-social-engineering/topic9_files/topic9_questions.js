@@ -29,7 +29,7 @@ const questions = [
     codeExample: `// LSB Steganography Pixel Encoding:
 // Original Red Byte : 11010110 (214)
 // Secret Bit to Hide: 1
-// Modified Red Byte : 11010111 (215) -> Visual difference: 0.39% (Completely Imperceptible!)`
+// Modified Red Byte : 11010111 (215) → Visual difference: 0.39% (Completely Imperceptible!)`
   },
   {
     question: "How do Insiders use 'Shadow Copy Deletion' and Volume Shadow Manipulation to Execute Irrecoverable Ransomware/Sabotage?",
@@ -321,7 +321,7 @@ dd if=/dev/urandom of=/dev/sda bs=1M count=10
     question: "Synthesize the mathematical relationship between Exfiltration Data Volume (V_data), Privileged Authorization Score (P_privilege), PAW & DAM Controls Hardening (R_paw_controls), and Exfiltration/Sabotage Breach Probability (P_sabotage).",
     shortAnswer: "Exfiltration/Sabotage breach probability is modeled as P_sabotage = 1 - e^(- (V_data * P_privilege) / R_paw_controls); deploying PAWs, DAM, DNS entropy filters, and immutable WORM backups (R_paw_controls = 1000) reduces breach probability below 1.5%.",
     explanation: "Let $V_{\\text{data}} \\ge 1.0$ represent the exfiltration data volume score (500,000 records = 4.0), $P_{\\text{privilege}} \\ge 1.0$ represent the privileged access level (Domain Admin / Root = 4.0), and $R_{\\text{paw\\_controls}}$ represent the privileged hardening controls strength (Privileged Access Workstations with zero internet egress, Database Activity Monitoring, DNS query entropy analysis, immutable WORM backups). The breach probability is: $P_{\\text{sabotage}} = 1 - e^{-\\frac{V_{\\text{data}} \\times P_{\\text{privilege}}}{R_{\\text{paw\\_controls}}}}$. When organizations enforce strict PAW workstations and DAM controls ($R_{\\text{paw\\_controls}} \\to \\infty$), exfiltration and sabotage breach probability collapses to zero.",
-    hint: "Mathematical formula proving that PAW workstations, DAM filters, and immutable WORM backups (R_paw_controls -> infinity) drive sabotage probability to zero.",
+    hint: "Mathematical formula proving that PAW workstations, DAM filters, and immutable WORM backups (R_paw_controls → infinity) drive sabotage probability to zero.",
     level: "expert",
     codeExample: `// Exfiltration & Sabotage Mathematical Proof:
 // V_data = 4.0 (500,000 Records) | P_privilege = 4.0 (Root DBA Standing Privilege)

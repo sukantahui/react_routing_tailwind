@@ -107,7 +107,7 @@ const questions = [
     explanation: "Negative key handling in HashMap.",
     hint: "1 time.",
     level: "basic",
-    codeExample: "mapResults.get(-50) -> 1"
+    codeExample: "mapResults.get(-50) → 1"
   },
   {
     question: "What happens if a negative number is passed to `countFrequencyDirectAddress(nums, 10)` without guards?",
@@ -139,7 +139,7 @@ const questions = [
     explanation: "Stream API groupingBy frequency collector.",
     hint: "Collectors.groupingBy(Function.identity(), Collectors.counting()).",
     level: "intermediate",
-    codeExample: "Map<Integer, Long> f = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(e -> e, Collectors.counting()));"
+    codeExample: "Map<Integer, Long> f = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(e → e, Collectors.counting()));"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the most frequent course enrollment ID?",
@@ -159,11 +159,11 @@ const questions = [
   },
   {
     question: "How does `Map.compute()` and `Map.computeIfPresent()` help in frequency counting?",
-    shortAnswer: "`map.compute(key, (k, v) -> (v == null) ? 1 : v + 1);` atomically updates the frequency count inside concurrent or standard maps.",
+    shortAnswer: "`map.compute(key, (k, v) → (v == null) ? 1 : v + 1);` atomically updates the frequency count inside concurrent or standard maps.",
     explanation: "Map compute API method usage.",
-    hint: "map.compute(key, (k, v) -> (v == null) ? 1 : v + 1).",
+    hint: "map.compute(key, (k, v) → (v == null) ? 1 : v + 1).",
     level: "intermediate",
-    codeExample: "map.compute(x, (k, v) -> (v == null) ? 1 : v + 1);"
+    codeExample: "map.compute(x, (k, v) → (v == null) ? 1 : v + 1);"
   },
   {
     question: "What is the memory size of `new int[256]` used for ASCII frequency counting?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "LinkedHashMap entry iteration complexity.",
     hint: "O(U) time where U is number of unique keys.",
     level: "basic",
-    codeExample: "mapResults.forEach((k, v) -> ...);"
+    codeExample: "mapResults.forEach((k, v) → ...);"
   },
   {
     question: "What happens if max element $K$ in Direct Address array is $10^9$?",

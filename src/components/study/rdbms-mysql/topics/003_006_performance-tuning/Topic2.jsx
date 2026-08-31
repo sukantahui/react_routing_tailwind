@@ -31,9 +31,9 @@ FROM student_ledgers
 WHERE student_id = 101;
 
 -- 📋 Real Execution Output:
--- -> Rows fetched before execution  (cost=0.00..0.00 rows=1) 
+-- → Rows fetched before execution  (cost=0.00..0.00 rows=1) 
 --    (actual time=0.000..0.000 rows=1 loops=1)
--- -> Point lookup on student_ledgers using PRIMARY (student_id=101)  
+-- → Point lookup on student_ledgers using PRIMARY (student_id=101)  
 --    (cost=1.00 rows=1) (actual time=0.021..0.038 rows=1 loops=1)`,
       resultRows: [
         { node: "Point lookup on PRIMARY", estimatedCost: "cost=1.00", estimatedRows: "rows=1", actualFirstRow: "0.021 ms", actualAllRows: "0.038 ms", actualRowsPerLoop: "1", loops: "1", totalTime: "0.038 ms ⚡", status: "Optimal Const Fetch ✅" },
@@ -53,10 +53,10 @@ JOIN enrollments e ON s.student_id = e.student_id
 WHERE s.city = 'Barrackpore';
 
 -- 📋 Real Execution Output:
--- -> Nested loop inner join  (cost=28.40 rows=240) (actual time=0.082..1.850 rows=240 loops=1)
---     -> Index lookup on s using idx_city (city='Barrackpore')  (cost=12.20 rows=120) 
+-- → Nested loop inner join  (cost=28.40 rows=240) (actual time=0.082..1.850 rows=240 loops=1)
+--     → Index lookup on s using idx_city (city='Barrackpore')  (cost=12.20 rows=120) 
 --        (actual time=0.045..0.210 rows=120 loops=1)
---     -> Index lookup on e using idx_student_id (student_id=s.student_id)  (cost=0.13 rows=2) 
+--     → Index lookup on e using idx_student_id (student_id=s.student_id)  (cost=0.13 rows=2) 
 --        (actual time=0.008..0.012 rows=2 loops=120)`,
       resultRows: [
         { node: "Root: Nested loop join", estimatedCost: "cost=28.40", estimatedRows: "rows=240", actualFirstRow: "0.082 ms", actualAllRows: "1.850 ms", actualRowsPerLoop: "240", loops: "1", totalTime: "1.850 ms", status: "Total Query Time ✅" },
@@ -75,7 +75,7 @@ EXPLAIN ANALYZE
 SELECT * FROM exam_submissions WHERE evaluation_status = 'PENDING';
 
 -- 📋 Discrepancy in Execution Metrics:
--- -> Table scan on exam_submissions  (cost=1.25 rows=5) (actual time=0.095..48.350 rows=52400 loops=1)
+-- → Table scan on exam_submissions  (cost=1.25 rows=5) (actual time=0.095..48.350 rows=52400 loops=1)
 --    Filter: (exam_submissions.evaluation_status = 'PENDING')  
 --    (cost=1.25 rows=5) (actual time=0.090..44.120 rows=52400 loops=1)
 
@@ -101,10 +101,10 @@ GROUP BY city
 ORDER BY AVG(score) DESC;
 
 -- 📋 Real Execution Output:
--- -> Sort: AVG(score) DESC  (actual time=14.200..14.280 rows=15 loops=1)
---     -> Table scan on <temporary>  (actual time=12.100..12.120 rows=15 loops=1)
---         -> Aggregate using temporary table  (actual time=11.800..12.050 rows=15 loops=1)
---             -> Table scan on student_scores  (cost=1200.00 rows=10000) 
+-- → Sort: AVG(score) DESC  (actual time=14.200..14.280 rows=15 loops=1)
+--     → Table scan on <temporary>  (actual time=12.100..12.120 rows=15 loops=1)
+--         → Aggregate using temporary table  (actual time=11.800..12.050 rows=15 loops=1)
+--             → Table scan on student_scores  (cost=1200.00 rows=10000) 
 --                (actual time=0.080..8.450 rows=10000 loops=1)`,
       resultRows: [
         { node: "Sort: AVG(score) DESC", estimatedCost: "Filesort", estimatedRows: "rows=15", actualFirstRow: "14.200 ms", actualAllRows: "14.280 ms", actualRowsPerLoop: "15", loops: "1", totalTime: "14.280 ms", status: "High Startup Time ⏳" },
@@ -142,7 +142,7 @@ ORDER BY AVG(score) DESC;
               Real Profiling
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             EXPLAIN ANALYZE: Real Execution Metrics
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

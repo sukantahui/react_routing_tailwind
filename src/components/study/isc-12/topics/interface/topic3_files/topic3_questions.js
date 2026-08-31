@@ -220,7 +220,7 @@ const questions = [
     question: "What is the 'forEach' default method in Iterable?",
     shortAnswer: "A default method that iterates over elements and applies an action.",
     explanation: "It simplified iteration before enhanced for-loop existed? Actually, it's for functional-style iteration.",
-    hint: "Used with lambda expressions: list.forEach(item -> System.out.println(item));",
+    hint: "Used with lambda expressions: list.forEach(item → System.out.println(item));",
     level: "intermediate",
     codeExample: "default void forEach(Consumer<? super T> action) { for (T t : this) action.accept(t); }"
   },

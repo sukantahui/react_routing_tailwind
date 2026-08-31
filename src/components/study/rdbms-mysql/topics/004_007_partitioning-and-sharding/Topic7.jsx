@@ -146,7 +146,7 @@ WHERE region_name = 'Kolkata' AND user_uuid = '3e11fa47-0b1a-4f5e-8b9a-123456789
             Topic 7 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Composite Partitioning</span> (Subpartitioning): <span className="text-cyan-400">RANGE-HASH</span> &amp; LIST-KEY
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

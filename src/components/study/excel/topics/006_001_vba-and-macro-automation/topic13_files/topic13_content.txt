@@ -10,7 +10,7 @@ Real-world project: Building an automated one-click workbook report generator an
 It provides the core protocols required to eliminate manual repetitive tasks, manipulate Excel objects programmatically, and build enterprise-grade automation tools.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Automated Report Engine: Clear Staging -> Ingest Multi-Sheet Data -> Calculate Metrics -> Apply Formatting -> Export PDF & Email
+Operational Architecture: Automated Report Engine: Clear Staging → Ingest Multi-Sheet Data → Calculate Metrics → Apply Formatting → Export PDF & Email
 
 3. CORE TECHNICAL MECHANICS
 1. End-to-End Modular Architecture:

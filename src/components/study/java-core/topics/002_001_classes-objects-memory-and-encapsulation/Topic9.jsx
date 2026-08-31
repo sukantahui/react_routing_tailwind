@@ -42,7 +42,7 @@ export default function Topic9() {
             Single-Use Invocations &amp; Memory Dynamics
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Anonymous Objects: Creation and Valid Use Cases
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -102,7 +102,7 @@ export default function Topic9() {
       {/* Section 2: Semantic Visual Diagram */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
-          <span>⚙️</span> Anonymous Object Memory Lifecycle: Creation &rarr; Execution &rarr; Immediate GC
+          <span>⚙️</span> Anonymous Object Memory Lifecycle: Creation → Execution → Immediate GC
         </h2>
         <p className="text-sm md:text-base text-slate-400 leading-relaxed">
           Visualizing how the JVM manages Stack operand evaluation, Heap allocation in Eden, and instantaneous Garbage Collection eligibility upon statement completion:
@@ -155,7 +155,7 @@ export default function Topic9() {
             <text x="50" y="208" fill="#fef08a" fontSize="9" fontFamily="monospace">1. new &amp; dup (Pushes 0x4517D9A3)</text>
             <text x="50" y="224" fill="#fef08a" fontSize="9" fontFamily="monospace">2. invokespecial &lt;init&gt;</text>
             <text x="50" y="240" fill="#fef08a" fontSize="9" fontFamily="monospace">3. invokevirtual dispatchSms</text>
-            <text x="50" y="256" fill="#f87171" fontSize="8">&rarr; Semicolon pops reference!</text>
+            <text x="50" y="256" fill="#f87171" fontSize="8">→ Semicolon pops reference!</text>
 
             {/* Middle Box: Target Anonymous Heap Object */}
             <rect x="345" y="25" width="310" height="260" rx="10" fill="#0f172a" stroke="#f59e0b" strokeWidth="2" />

@@ -96,7 +96,7 @@ const questions = [
     explanation: "If a merchant's database in Barrackpore is hacked, the attacker acquires meaningless tokens that cannot be reversed without the isolated vault.",
     hint: "Swapping real card numbers with random surrogate tokens.",
     level: "moderate",
-    codeExample: "String token = tokenVault.tokenize(realCardNumber); // e.g. '9482-1049-5501-9921' -> 'tok_8f93a10c'"
+    codeExample: "String token = tokenVault.tokenize(realCardNumber); // e.g. '9482-1049-5501-9921' → 'tok_8f93a10c'"
   },
   {
     question: "What is Crypto-Shredding (Cryptographic Erasure)?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Used to allow SCADA telemetry out of a power grid while preventing any incoming command or reverse leak.",
     hint: "Physical one-way optical fiber that guarantees data cannot travel in the reverse direction.",
     level: "expert",
-    codeExample: "DataDiodeDirection = TransmitOnly_LED -> SingleFiberStrand -> ReceiveOnly_Photodetector;"
+    codeExample: "DataDiodeDirection = TransmitOnly_LED → SingleFiberStrand → ReceiveOnly_Photodetector;"
   },
   {
     question: "What is Data Ingress vs Data Egress filtering in firewall security?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes lifecycle data encryption, strict access governance, zero trust policies, and enterprise procurement budgeting.",
     hint: "Encrypt in all 3 states, enforce least privilege and ABAC, and budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ClassifyData() -> Encrypt(Rest, Transit, Use) -> EnforceABAC() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: ClassifyData() → Encrypt(Rest, Transit, Use) → EnforceABAC() → BudgetInRupees(₹);"
   }
 ];
 

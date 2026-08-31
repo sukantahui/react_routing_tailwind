@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never write passwords in your VBA code! If you are connecting to SQL Server, use `Trusted_Connection=Yes;` so it uses your Windows login. If you must use passwords, prompt the user or load it from an environment variable.
 
 COMMON TRAPS TO AVOID:
-- Committing Plaintext Passwords to Shared Network Drives: Saving an `.xlsm` file with master database administrative credentials in a shared public folder. -> Fix: Never store plaintext credentials in code; use Windows Authentication or prompt dynamically.
-- Using 'sa' or Root Administrative Accounts in Spreadsheets: Connecting Excel using the database 'root' superuser account. -> Fix: Create dedicated restricted database users with `SELECT` and `INSERT` permissions only on specific tables.
-- Leaving VBA Project Unprotected with Stored Strings: Leaving connection strings readable in unlocked VBE code windows. -> Fix: Lock the VBA Project with a strong password (Tools > VBAProject Properties > Protection).
+- Committing Plaintext Passwords to Shared Network Drives: Saving an `.xlsm` file with master database administrative credentials in a shared public folder. → Fix: Never store plaintext credentials in code; use Windows Authentication or prompt dynamically.
+- Using 'sa' or Root Administrative Accounts in Spreadsheets: Connecting Excel using the database 'root' superuser account. → Fix: Create dedicated restricted database users with `SELECT` and `INSERT` permissions only on specific tables.
+- Leaving VBA Project Unprotected with Stored Strings: Leaving connection strings readable in unlocked VBE code windows. → Fix: Lock the VBA Project with a strong password (Tools > VBAProject Properties > Protection).
 ================================================================================

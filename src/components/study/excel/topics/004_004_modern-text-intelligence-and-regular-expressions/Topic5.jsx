@@ -76,14 +76,14 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Cleaning, Masking, and Reformatting Text with REGEXREPLACE
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
             Corporate data pipelines frequently require sanitizing unstructured text: masking confidential 
             statutory identifiers (such as 12-digit Indian Aadhaar and 16-digit credit card numbers) for GDPR/data privacy compliance, 
-            stripping noisy web tags (<code className="text-amber-300 font-mono">&lt;p&gt;, &lt;b&gt;</code>), and reformatting 
+            stripping noisy web tags (<code className="text-amber-300 font-mono"><p>, <b></code>), and reformatting 
             date strings into SQL standard format. The <code className="text-purple-300 font-mono font-bold">REGEXREPLACE</code> function 
             performs all these transformations in a single pass using powerful <strong>Capturing Group Backreferences</strong> 
             (<code className="text-emerald-300 font-mono font-bold">$1, $2, $3</code>)!
@@ -201,7 +201,7 @@ export default function Topic5() {
                 captures Day ($1), Month ($2), and Year ($3). Replacing with <code className="text-emerald-300 font-mono">"$3-$2-$1"</code> converts it to SQL standard <code className="text-emerald-300 font-mono">2026-08-26</code> in 1 step!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                Pattern: ^(\d{"{2}"})/(\d{"{2}"})/(\d{"{4}"})$ &rarr; Replacement: "$3-$2-$1"
+                Pattern: ^(\d{"{2}"})/(\d{"{2}"})/(\d{"{4}"})$ → Replacement: "$3-$2-$1"
               </div>
             </div>
 
@@ -224,10 +224,10 @@ export default function Topic5() {
               <span className="text-amber-400">💡</span> Instant HTML & XML Tag Stripping
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              Convert raw web-scraped reviews containing tags like <code className="text-rose-400 font-mono">&lt;p&gt;Great &lt;b&gt;Service&lt;/b&gt;&lt;/p&gt;</code> into clean plain text:
+              Convert raw web-scraped reviews containing tags like <code className="text-rose-400 font-mono"><p>Great <b>Service</b></p></code> into clean plain text:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                =TRIM(REGEXREPLACE(D5, "&lt;[^&gt;]+&gt;", ""))
+                =TRIM(REGEXREPLACE(D5, "<[^>]+>", ""))
               </code>
             </p>
           </div>
@@ -272,7 +272,7 @@ export default function Topic5() {
 
                 <rect y="50" width="200" height="42" rx="4" fill="#1E293B" stroke="#334155" />
                 <text x="10" y="66" fill="#94A3B8" fontSize="8" fontFamily="sans-serif">Messy HTML Feedback:</text>
-                <text x="10" y="82" fill="#38BDF8" fontSize="8.5" fontFamily="monospace">"&lt;p&gt;Great &lt;b&gt;Product&lt;/b&gt;&lt;/p&gt;"</text>
+                <text x="10" y="82" fill="#38BDF8" fontSize="8.5" fontFamily="monospace">"<p>Great <b>Product</b></p>"</text>
 
                 <rect y="100" width="200" height="42" rx="4" fill="#1E293B" stroke="#334155" />
                 <text x="10" y="116" fill="#94A3B8" fontSize="8" fontFamily="sans-serif">Unstandardized Date:</text>
@@ -300,7 +300,7 @@ export default function Topic5() {
                 <text x="10" y="32" fill="#A7F3D0" fontSize="8" fontFamily="sans-serif">Replacement: "XXXX-XXXX-$1"</text>
 
                 <rect y="50" width="220" height="42" rx="4" fill="#0369A1" fillOpacity="0.3" stroke="#38BDF8" />
-                <text x="10" y="66" fill="#BAE6FD" fontSize="8.5" fontWeight="bold" fontFamily="monospace">&lt;[^&gt;]+&gt;</text>
+                <text x="10" y="66" fill="#BAE6FD" fontSize="8.5" fontWeight="bold" fontFamily="monospace"><[^>]+></text>
                 <text x="10" y="82" fill="#FDE047" fontSize="8" fontFamily="sans-serif">Replacement: "" (Delete Tag)</text>
 
                 <rect y="100" width="220" height="42" rx="4" fill="#065F46" fillOpacity="0.3" stroke="#10B981" />
@@ -372,7 +372,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_REGEXREPLACE"
+            sheetName="EX1906"
             title="Text Cleansing, Masking & Reformatting Dataset (Record ID, Raw Text, Masked Output, Goal Description)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -426,11 +426,11 @@ export default function Topic5() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Systems Engineer <strong>Tuhina Mukherjee</strong> sanitizes customer web portal comments: 
-                <code className="text-amber-300 font-mono">=TRIM(REGEXREPLACE(B5, "&lt;[^&gt;]+&gt;", ""))</code>, 
+                <code className="text-amber-300 font-mono">=TRIM(REGEXREPLACE(B5, "<[^>]+>", ""))</code>, 
                 converting rich text into clean plain text for AI sentiment analysis.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Strips: &lt;p&gt;, &lt;b&gt;, &lt;span&gt; tags instantly in pure RAM
+                Strips: <p>, <b>, <span> tags instantly in pure RAM
               </div>
             </div>
 
@@ -449,7 +449,7 @@ export default function Topic5() {
                 producing ISO 8601 strings (<code className="text-emerald-300 font-mono">YYYY-MM-DD</code>) for automated SQL bulk inserts.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Transforms: "26/08/2026" &rarr; "2026-08-26"
+                Transforms: "26/08/2026" → "2026-08-26"
               </div>
             </div>
 
@@ -576,9 +576,9 @@ export default function Topic5() {
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Greedy Tag Over-Deletion</td>
-                  <td className="py-3 px-4 text-slate-300">Used <code className="text-rose-300 font-mono">&lt;.*&gt;</code> which deleted all text between the first and last HTML tag.</td>
+                  <td className="py-3 px-4 text-slate-300">Used <code className="text-rose-300 font-mono"><.*></code> which deleted all text between the first and last HTML tag.</td>
                   <td className="py-3 px-4 text-slate-400">Entire sentence disappears.</td>
-                  <td className="py-3 px-4 text-emerald-400">Use <code className="text-emerald-400 font-mono">&lt;[^&gt;]+&gt;</code> or lazy <code className="text-emerald-400 font-mono">&lt;.*?&gt;</code>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Use <code className="text-emerald-400 font-mono"><[^>]+></code> or lazy <code className="text-emerald-400 font-mono"><.*?></code>.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#VALUE!</td>

@@ -13,7 +13,7 @@ AUTHOR & MENTOR: SUKANTA HUI
   state secretariats, and 700+ district collectorates across India.
 • State Wide Area Network (SWAN - e.g. WBSWAN):
   Dedicated Closed User Group (CUG) vertical hierarchy linking State Headquarters (SHQ) ->
-  District Headquarters (DHQ) -> Block Headquarters (BHQ) -> Gram Panchayats.
+  District Headquarters (DHQ) → Block Headquarters (BHQ) → Gram Panchayats.
 • BharatNet Rural Optical Broadband:
   Connecting over 250,000 rural Gram Panchayats with GPON optical splitters to deliver
   digital land records, birth certificates, and social welfare pensions locally.

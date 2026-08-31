@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The Waterfall chart is the language of CFOs. Always format your starting and ending pillars in Navy Blue, positive gains in Green, and negative expenses in Red. It tells a complete financial story in 5 seconds.
 
 COMMON TRAPS TO AVOID:
-- Forgetting to 'Set as Total' on Ending Milestone Bars: Leaving Net Income or Subtotals as floating variance bars causes them to stack on top of expenses rather than anchoring to the baseline. -> Fix: Right-click the subtotal column > select 'Set as Total'.
-- Inconsistent Sign Input Convention: Entering expense items as positive numbers causes the Waterfall chart to display cost additions as green increases rather than red subtractions. -> Fix: Enter expenses as negative numbers (-) in the data table.
-- Selecting Unsupported Waterfall Chart Options: Attempting to create a native PivotChart Waterfall (Excel does not support Waterfall charts directly on PivotTables). -> Fix: Link a standard formula range to the PivotTable output and build the Waterfall chart from that range.
+- Forgetting to 'Set as Total' on Ending Milestone Bars: Leaving Net Income or Subtotals as floating variance bars causes them to stack on top of expenses rather than anchoring to the baseline. → Fix: Right-click the subtotal column > select 'Set as Total'.
+- Inconsistent Sign Input Convention: Entering expense items as positive numbers causes the Waterfall chart to display cost additions as green increases rather than red subtractions. → Fix: Enter expenses as negative numbers (-) in the data table.
+- Selecting Unsupported Waterfall Chart Options: Attempting to create a native PivotChart Waterfall (Excel does not support Waterfall charts directly on PivotTables). → Fix: Link a standard formula range to the PivotTable output and build the Waterfall chart from that range.
 ================================================================================

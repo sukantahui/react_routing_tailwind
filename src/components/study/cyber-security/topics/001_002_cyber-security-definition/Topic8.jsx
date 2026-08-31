@@ -27,7 +27,7 @@ const Topic8 = () => {
       defensiveControl: 'Unidirectional Optical Hardware Data Diodes + Analog Mechanical Speed Governors',
       estBudget: '₹12,50,000 (Military-Grade Hardware Optical Data Diode & PLC Code Verification)',
       desc: 'The historic milestone proving software code can cause severe physical kinetic destruction to industrial machinery.',
-      simResult: 'State-sponsored LNK worm attempts PLC frequency alteration (1410 Hz) -> Optical data diode blocks return command -> Mechanical governor locks speed -> Zero damage.',
+      simResult: 'State-sponsored LNK worm attempts PLC frequency alteration (1410 Hz) → Optical data diode blocks return command → Mechanical governor locks speed → Zero damage.',
     },
     {
       id: 'ukraine-power-grid',
@@ -38,7 +38,7 @@ const Topic8 = () => {
       defensiveControl: 'SCADA Air-Gapped Microsegmentation + Out-of-Band Manual Breaker Interlocks',
       estBudget: '₹16,50,000 (24/7 Sovereign SCADA Managed Detection & Response - MDR)',
       desc: 'Demonstrates how adversaries weaponize industrial protocols to cause widespread civilian power blackouts.',
-      simResult: 'Adversary injects unauthorized IEC-60870-5-104 breaker open packet -> SCADA intrusion engine drops packet in 18ms -> Power grid maintains 100% stability.',
+      simResult: 'Adversary injects unauthorized IEC-60870-5-104 breaker open packet → SCADA intrusion engine drops packet in 18ms → Power grid maintains 100% stability.',
     },
     {
       id: 'satellite-jamming-wiper',
@@ -49,7 +49,7 @@ const Topic8 = () => {
       defensiveControl: 'Direct Sequence Spread Spectrum (DSSS) + Cryptographic Secure Boot Hardware Checks',
       estBudget: '₹8,50,000 (Jam-Resistant Military Satellite Transceiver & SPI Firmware Lock)',
       desc: 'Attacks targeting space communication networks that blind tactical military command centers.',
-      simResult: 'Malicious firmware update broadcast to satellite modem -> Hardware secure boot validates RSA-4096 signature -> Rejects unsigned wiper in 45ms.',
+      simResult: 'Malicious firmware update broadcast to satellite modem → Hardware secure boot validates RSA-4096 signature → Rejects unsigned wiper in 45ms.',
     },
     {
       id: 'tallinn-manual-audit',
@@ -60,7 +60,7 @@ const Topic8 = () => {
       defensiveControl: 'Article 51 Sovereign Self-Defense Posture + All-Source Attribution Intelligence',
       estBudget: '₹4,80,000 (SCADA Cyber Range Warfare Simulator & Legal Compliance Engine)',
       desc: 'Governs the legal justification for military retaliation following catastrophic state-sponsored cyber attacks.',
-      simResult: 'Adversary cyber attack triggers physical transformer fire -> All-Source SIGINT/HUMINT confirms state actor -> Triggers Article 51 legal response.',
+      simResult: 'Adversary cyber attack triggers physical transformer fire → All-Source SIGINT/HUMINT confirms state actor → Triggers Article 51 legal response.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic8 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Cyber Warfare
           </h1>
 

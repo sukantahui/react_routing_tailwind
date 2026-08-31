@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. MANUAL THREAD ANTI-PATTERN:
    - 'new Thread().start()' allocates ~1 MB native stack per thread.
-   - Unbounded thread creation &rarr; 'OutOfMemoryError: unable to create native thread'.
+   - Unbounded thread creation → 'OutOfMemoryError: unable to create native thread'.
    - Severe CPU context-switch degradation.
    - Zero worker reuse (threads die upon completion).
    - Solution: Managed Thread Pools via ExecutorService!

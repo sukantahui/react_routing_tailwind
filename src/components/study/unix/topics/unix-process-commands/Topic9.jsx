@@ -18,7 +18,7 @@ const Topic9 = () => {
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <div className="text-center space-y-4 animate-[fadeSlideUp_0.6s_ease-out] motion-safe:animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
             Foreground vs Background Processes
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -151,7 +151,7 @@ const Topic9 = () => {
           </div>
         </div>
 
-        {/* <!-- Common Pitfalls --> */}
+        {/* <!-- Common Pitfalls → */}
         <div className="rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-800 p-6 shadow-lg transition-all duration-300 hover:shadow-xl animate-[fadeSlideUp_0.5s_ease-out_0.3s] motion-safe:animate-[fadeSlideUp_0.5s_ease-out_0.3s] [animation-fill-mode:forwards]">
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 border-l-4 border-red-500 pl-4 mb-4">
             Common Pitfalls

@@ -44,7 +44,7 @@ export default class Topic0 extends Component {
 
         {/* ================= TITLE ================= */}
         <header className={`space-y-3 ${fadeIn}`}>
-          <h1 className="text-2xl md:text-3xl font-bold tracking-wide text-sky-600 dark:text-sky-400">
+          <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-wide text-sky-600 dark:text-sky-400">
             What is Java and Where It Is Used
           </h1>
           <p className="max-w-3xl text-sm md:text-base leading-relaxed text-slate-600 dark:text-slate-400">

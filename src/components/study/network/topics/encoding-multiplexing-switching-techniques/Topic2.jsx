@@ -21,7 +21,7 @@ const Topic2 = () => {
         
         {/* Header */}
         <div className="space-y-4 animate-[fadeSlideUp_0.5s_ease-out_forwards]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-400 dark:to-orange-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-400 dark:to-orange-400 bg-clip-text text-transparent">
             Switching: Circuit, Packet, Message
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">

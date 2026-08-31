@@ -32,7 +32,7 @@ The Famous ASI Return Trap:
 Never put a line break between return and the value you are returning!
 - Wrong:
   return
-  500; // Becomes 'return;' -> returns undefined
+  500; // Becomes 'return;' → returns undefined
 - Right:
   return 500;
 

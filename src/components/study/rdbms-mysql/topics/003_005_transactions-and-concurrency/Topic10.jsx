@@ -109,7 +109,7 @@ UPDATE student_ledgers SET balance = 20000 WHERE student_id = 101;
 -- Session 2 (DBA attempting DDL Schema Alteration):
 -- ALTER TABLE student_ledgers ADD COLUMN discount DECIMAL(5,2);
 -- ⚡ DBA query checks Table-Level IX flag in O(1) instant time!
--- Sees IX flag active -> Knows rows are actively locked without scanning millions of rows!
+-- Sees IX flag active → Knows rows are actively locked without scanning millions of rows!
 -- 🛑 ALTER TABLE waits until Session 1 COMMITs!`,
       resultRows: [
         { transaction: "Session 1 (DML Update)", lockGranularity: "Table IX + Row X-Lock", lockMode: "Intention Exclusive (IX)", concurrencyImpact: "Allows Concurrent DMLs", latency: "0.002s ⚡", status: "IX Active 🌉" },
@@ -146,7 +146,7 @@ UPDATE student_ledgers SET balance = 20000 WHERE student_id = 101;
               Lock Granularity
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Lock Granularity: Table vs Row Locks
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

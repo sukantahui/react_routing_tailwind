@@ -13,7 +13,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Purpose  : Token-based parsing of primitive types & strings from input streams.
 
 - Standard Tokenization Model:
-  * Default Delimiter: Whitespace (spaces, tabs, newlines -> matching \\s+).
+  * Default Delimiter: Whitespace (spaces, tabs, newlines → matching \\s+).
   * scanner.next()        : Reads next whitespace-delimited word.
   * scanner.nextInt()     : Reads and parses next 32-bit integer.
   * scanner.nextDouble()  : Reads and parses floating-point double.

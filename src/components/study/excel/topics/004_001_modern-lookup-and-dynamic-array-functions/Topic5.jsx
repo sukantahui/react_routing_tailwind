@@ -77,7 +77,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Multi-Level Custom Sorting with SORTBY Based on Auxiliary Columns
           </h1>
 
@@ -316,7 +316,7 @@ export default function Topic5() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic5_SortBy_MultiLevel"
+              sheetName="EX1606"
               title="Employee Compensation & Hierarchy Register"
               rowsPerPage={10}
               showSheetSelector={true}
@@ -360,7 +360,7 @@ export default function Topic5() {
                 <span className="text-xs px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Shyamnagar Annual Review</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong>Tuhina Mukherjee</strong> sorts staff by performance grade where <code className="text-amber-300">"A+" &gt; "A" &gt; "B+" &gt; "B"</code>:
+                <strong>Tuhina Mukherjee</strong> sorts staff by performance grade where <code className="text-amber-300">"A+" > "A" > "B+" > "B"</code>:
               </p>
               <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-emerald-400 border border-slate-800">
                 =SORTBY(A2:G11, MATCH(G2:G11, {"A+","A","B+","B"}, 0), 1)

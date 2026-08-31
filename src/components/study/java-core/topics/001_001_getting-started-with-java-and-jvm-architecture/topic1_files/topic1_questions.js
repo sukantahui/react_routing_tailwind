@@ -13,7 +13,7 @@ const questions = [
     explanation: "The team discovered that 'Oak' was already registered by Oak Technology. During a brainstorming session, 'Java' (inspired by Java coffee) was selected for its distinctiveness.",
     hint: "A coffee brand name inspired the final choice.",
     level: "basic",
-    codeExample: "// Oak (1991) -> Trademark conflict -> Java (1995)"
+    codeExample: "// Oak (1991) → Trademark conflict → Java (1995)"
   },
   {
     question: "What were the primary landmark features introduced in Java 5 (J2SE 5.0) in 2004?",
@@ -27,9 +27,9 @@ const questions = [
     question: "Why is Java 8 considered the most impactful paradigm shift in Java's history?",
     shortAnswer: "It introduced Functional Programming paradigms with Lambda Expressions and the Stream API.",
     explanation: "Java 8 (March 2014) transitioned Java from purely imperative OOP to multi-paradigm programming, introducing Lambdas, Stream pipelines, default interface methods, Optional, and the modern java.time API.",
-    hint: "Think about (a, b) -> a + b and list.stream().filter().",
+    hint: "Think about (a, b) → a + b and list.stream().filter().",
     level: "intermediate",
-    codeExample: "list.stream().filter(x -> x > 10).forEach(System.out::println);"
+    codeExample: "list.stream().filter(x → x > 10).forEach(System.out::println);"
   },
   {
     question: "What is Project Jigsaw and in which Java version was it released?",
@@ -77,7 +77,7 @@ const questions = [
     explanation: "Virtual Threads (JEP 444) decouple Java threads from expensive 1:1 OS kernel threads, allowing developers to write simple synchronous blocking code that scales to millions of concurrent requests.",
     hint: "Millions of threads without high RAM consumption.",
     level: "expert",
-    codeExample: "try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {\n    executor.submit(() -> fetchHttpData());\n}"
+    codeExample: "try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {\n    executor.submit(() → fetchHttpData());\n}"
   },
   {
     question: "What was the purpose of Applets in Java 1.0 and why were they deprecated and removed?",
@@ -189,7 +189,7 @@ const questions = [
     explanation: "Prior to Java 7, switch only supported integers, characters, and enums. Java 7 added support for String matching based on hashcode and equals().",
     hint: "Allowed switch(\"admin\") { case \"admin\": ... }",
     level: "basic",
-    codeExample: "String role = \"ADMIN\";\nswitch (role) {\n    case \"ADMIN\" -> System.out.println(\"Full Access\");\n}"
+    codeExample: "String role = \"ADMIN\";\nswitch (role) {\n    case \"ADMIN\" → System.out.println(\"Full Access\");\n}"
   },
   {
     question: "What are Foreign Function & Memory APIs (Project Panama) in modern Java?",

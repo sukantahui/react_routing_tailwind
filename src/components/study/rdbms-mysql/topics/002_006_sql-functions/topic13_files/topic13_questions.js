@@ -178,7 +178,7 @@ const questions = [
   },
   {
     question: "What is the execution order of `FROM`, `WHERE`, `GROUP BY`, `HAVING`, `SELECT`, and `ORDER BY` when multi-column grouping is involved?",
-    shortAnswer: "1. FROM -> 2. WHERE -> 3. GROUP BY (multi-col) -> 4. HAVING -> 5. SELECT -> 6. ORDER BY -> 7. LIMIT.",
+    shortAnswer: "1. FROM → 2. WHERE → 3. GROUP BY (multi-col) → 4. HAVING → 5. SELECT → 6. ORDER BY → 7. LIMIT.",
     explanation: "Multi-column grouping happens at stage 3, followed by group filtering at stage 4 and projection at stage 5.",
     hint: "WHERE runs before GROUP BY; HAVING runs after GROUP BY; SELECT runs after HAVING.",
     level: "basic"

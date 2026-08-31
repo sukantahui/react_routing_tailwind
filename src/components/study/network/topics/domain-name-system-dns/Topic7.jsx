@@ -22,7 +22,7 @@ const Topic7 = () => {
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-12">
         {/* Header */}
         <div className="mb-12 text-center animate-[fadeUp_0.6s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
             CNAME Record (Canonical Name)
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
@@ -174,7 +174,7 @@ const Topic7 = () => {
             <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-2xl">
               <h3 className="text-xl font-bold text-red-700 dark:text-red-300 mb-3">⚠️ Common Pitfalls</h3>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong>CNAME at apex:</strong> Trying to set CNAME on the bare domain {`(e.g., example.com -> alias)`}.</li>
+                <li><strong>CNAME at apex:</strong> Trying to set CNAME on the bare domain {`(e.g., example.com → alias)`}.</li>
                 <li><strong>CNAME with other records:</strong> Adding A or MX record alongside CNAME — causes unpredictable behavior.</li>
                 <li><strong>Forgotten trailing dot:</strong> <code>example.com CNAME google.com</code> (relative) vs <code>google.com.</code> (FQDN).</li>
                 <li><strong>Circular CNAME chains:</strong> A → B → A creates a loop; resolves time out.</li>

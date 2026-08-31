@@ -76,7 +76,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Merging Queries: Relational Joins &amp; Exception Hunting at Scale
           </h1>
 
@@ -369,7 +369,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Merge_Joins"
+            sheetName="EX2012"
             title="Relational Join Master Dataset (Transaction ID, Customer ID, Enriched Customer Name, Branch City, Amount INR, Join Status)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -406,7 +406,7 @@ export default function Topic11() {
                 Financial Analyst <strong>Swadeep Banerjee</strong> enriches 100,000 POS sales rows with Customer Name and GSTIN using <code className="text-teal-300 font-mono">JoinKind.LeftOuter</code> in 1.8 seconds, replacing 200,000 fragile VLOOKUP formulas.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Left Outer Join &rarr; Replaces 200k Fragile Worksheet Formulas
+                Left Outer Join → Replaces 200k Fragile Worksheet Formulas
               </div>
             </div>
 
@@ -423,7 +423,7 @@ export default function Topic11() {
                 Senior Auditor <strong>Tuhina Mukherjee</strong> merges ERP expense disbursements against the Approved Vendor Master with <code className="text-rose-400 font-mono">JoinKind.LeftAnti</code>, instantly isolating 14 unapproved vendor payments worth ₹ 820,000!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-rose-300">
-                Left Anti Join &rarr; Surfaced ₹ 820k in Unapproved Disbursements
+                Left Anti Join → Surfaced ₹ 820k in Unapproved Disbursements
               </div>
             </div>
 
@@ -440,7 +440,7 @@ export default function Topic11() {
                 ERP Lead <strong>Abhronila Sengupta</strong> deduplicates the Product Dimension key before merging, preventing a ₹ 62M revenue duplication bug caused by multiple vendor records sharing the same SKU.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Table.Distinct(Dim_Products) &rarr; Zero Row Explosion
+                Table.Distinct(Dim_Products) → Zero Row Explosion
               </div>
             </div>
 
@@ -457,7 +457,7 @@ export default function Topic11() {
                 Operations Lead <strong>Debangshu Ghosh</strong> wraps a 50,000-row Item Master in <code className="text-amber-300 font-mono">Table.Buffer</code>, cutting local merge refresh duration from 3 minutes down to 4.2 seconds!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Table.Buffer(Item_Master) &rarr; 4.2s Refresh vs 3 Minutes
+                Table.Buffer(Item_Master) → 4.2s Refresh vs 3 Minutes
               </div>
             </div>
           </div>
@@ -499,7 +499,7 @@ export default function Topic11() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Select Tables &amp; Matching Key Columns</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Go to <strong>Home Tab &rarr; Merge Queries</strong> &rarr; Select primary table and lookup table &rarr; Click matching key columns in both tables.
+                  Go to <strong>Home Tab → Merge Queries</strong> → Select primary table and lookup table → Click matching key columns in both tables.
                 </p>
               </div>
             </div>
@@ -523,7 +523,7 @@ export default function Topic11() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 4: Expand or Aggregate Merged Columns</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Click the Expand icon &rarr; Uncheck 'Use original column name as prefix' &rarr; Select desired dimension attributes!
+                  Click the Expand icon → Uncheck 'Use original column name as prefix' → Select desired dimension attributes!
                 </p>
               </div>
             </div>

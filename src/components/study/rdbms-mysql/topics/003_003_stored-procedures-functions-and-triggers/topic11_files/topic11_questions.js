@@ -38,7 +38,7 @@ const questions = [
   },
   {
     question: "How do student events for Mamata, Susmita, Abhronila, and Debangshu illustrate the 3 trigger event types?",
-    shortAnswer: "1. `INSERT`: Mamata enrolls -> Increment department count; 2. `UPDATE`: Susmita's grade changes -> Record old & new score in audit log; 3. `DELETE`: Debangshu withdraws -> Archive record to `deleted_students_archive`.",
+    shortAnswer: "1. `INSERT`: Mamata enrolls → Increment department count; 2. `UPDATE`: Susmita's grade changes → Record old & new score in audit log; 3. `DELETE`: Debangshu withdraws → Archive record to `deleted_students_archive`.",
     explanation: "Real-world demonstrations of INSERT, UPDATE, and DELETE triggers.",
     hint: "INSERT increments count + UPDATE logs score revisions + DELETE archives history.",
     level: "basic"

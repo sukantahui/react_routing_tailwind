@@ -227,7 +227,7 @@ const questions = [
     explanation: "Mastery of dynamic array instantiation mechanics in Java.",
     hint: "Dynamic heap allocation with guaranteed type-safe zero-initialization.",
     level: "basic",
-    codeExample: "// Summary: new Type[n] -> dynamic contiguous heap allocation + zero-initialization"
+    codeExample: "// Summary: new Type[n] → dynamic contiguous heap allocation + zero-initialization"
   },
   {
     question: "What is the next topic (Topic 4) in Module 001_006?",

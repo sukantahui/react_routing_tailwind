@@ -42,7 +42,7 @@ const Topic7 = () => {
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <header className="text-center space-y-4 animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
             Servlet Annotations
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">

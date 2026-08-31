@@ -19,7 +19,7 @@ Abhronila was cloning a complex graph data structure where nodes referenced each
 Objects with cyclic references (`a.self = a`) cause infinite loops in `JSON.stringify` and naive deep-clone functions.
 
 2. The WeakMap Graph Tracking Pattern:
-- Maintain a `WeakMap` of `(originalObject -> clonedObject)`.
+- Maintain a `WeakMap` of `(originalObject → clonedObject)`.
 - Before cloning an object, check `if (hashTable.has(obj)) return hashTable.get(obj)`.
 - Instantly resolves circular references and preserves graph topology in O(N) linear time.
 

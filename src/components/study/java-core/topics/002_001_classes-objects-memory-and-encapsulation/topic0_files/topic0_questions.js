@@ -59,7 +59,7 @@ const questions = [
     explanation: "Invariant protection verification.",
     hint: "Safely rejected due to balance invariant check.",
     level: "basic",
-    codeExample: "swadeepAccount.withdraw(50000.0) -> false (Insufficient balance)"
+    codeExample: "swadeepAccount.withdraw(50000.0) → false (Insufficient balance)"
   },
   {
     question: "What is an 'Invariant' in software architecture?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "Stack vs Heap object memory layout.",
     hint: "Reference variable on Stack; Object instance on Heap.",
     level: "basic",
-    codeExample: "// Stack [swadeepAccount: 0x4A2B] -> Heap [BankAccount instance at 0x4A2B]"
+    codeExample: "// Stack [swadeepAccount: 0x4A2B] → Heap [BankAccount instance at 0x4A2B]"
   },
   {
     question: "What is 'Coupling' and how does OOP promote Loose Coupling?",

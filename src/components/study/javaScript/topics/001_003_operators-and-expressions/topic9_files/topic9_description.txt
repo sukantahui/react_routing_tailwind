@@ -16,7 +16,7 @@ Swadeep wanted to know if a property existed inside an object without reading it
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
 1. The in Operator:
-Tests whether a specified property key exists in an object or its prototype chain: `'name' in obj` -> true.
+Tests whether a specified property key exists in an object or its prototype chain: `'name' in obj` → true.
 
 2. The delete Operator:
 Removes a property from an object: `delete obj.prop`.

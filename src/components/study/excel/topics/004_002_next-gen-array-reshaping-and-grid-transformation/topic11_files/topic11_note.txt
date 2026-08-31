@@ -14,7 +14,7 @@ Syntax: =TRANSPOSE(array)
 
 Argument 1: array (Required)
   The 2D matrix, range, or 1D vector whose orientation is to be rotated.
-  Swaps row and column coordinates: (M x N) &rarr; (N x M).
+  Swaps row and column coordinates: (M x N) → (N x M).
 
 2. CORE ENTERPRISE USE CASES
 --------------------------------------------------------------------------------

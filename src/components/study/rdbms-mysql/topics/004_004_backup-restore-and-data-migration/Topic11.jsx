@@ -74,7 +74,7 @@ util.checkForServerUpgrade({
 // 1. Checks reserved keywords (RANK, MEMBER, SYSTEM, LEAD).
 // 2. Checks obsolete SQL modes & zero-dates ('0000-00-00').
 // 3. Checks legacy MyISAM system tables.
-// 4. Verifies utf8mb3 -> utf8mb4 conversion prerequisites.`,
+// 4. Verifies utf8mb3 → utf8mb4 conversion prerequisites.`,
       explanation:
         "MySQL Shell's util.checkForServerUpgrade() is mandatory before upgrading from MySQL 5.7 to 8.0 or 8.4 LTS. It detects reserved keyword collisions, invalid default values, and legacy table formats before migration begins.",
       keyTakeaways: [
@@ -150,7 +150,7 @@ ALTER USER 'app_user'@'%' IDENTIFIED WITH caching_sha2_password BY 'SecurePass#2
             Topic 11 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Database Migration Strategies: <span className="text-emerald-400">Cross-Server</span> &amp; <span className="text-cyan-400">Cloud Cutover</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -313,7 +313,7 @@ ALTER USER 'app_user'@'%' IDENTIFIED WITH caching_sha2_password BY 'SecurePass#2
                   Case 1: Mamata &amp; Susmita – Fixing 'rank' Keyword Conflict in Barrackpore
                 </h3>
                 <span className="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800">
-                  5.7 &rarr; 8.0 Fixed
+                  5.7 → 8.0 Fixed
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

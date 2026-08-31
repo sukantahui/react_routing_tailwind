@@ -200,7 +200,7 @@ const questions = [
     explanation: "Analysts expand the 'Ethernet II' header in Wireshark to verify physical MAC addresses and investigate ARP or VLAN anomalies.",
     hint: "Shows Ethernet II header with Source/Dest MAC, VLAN tags, and EtherType in Wireshark.",
     level: "basic",
-    codeExample: "Wireshark_Tree: Frame 1 -> Ethernet II (Src: 00:1a:2b, Dst: 00:50:56, Type: IPv4) -> IPv4 -> TCP"
+    codeExample: "Wireshark_Tree: Frame 1 → Ethernet II (Src: 00:1a:2b, Dst: 00:50:56, Type: IPv4) → IPv4 → TCP"
   },
   {
     question: "What is Port-Based Network Access Control (IEEE 802.1X) and how does it control frame forwarding?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures frame structure, VLAN security, hardware encryption, error detection, and financial infrastructure budgeting.",
     hint: "64-1518B boundaries + Native VLAN tagging + MACsec encryption + CRC verification + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: EnforceFrameBoundaries() -> MitigateVLANHopping() -> DeployMACsec() -> VerifyCRC32() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: EnforceFrameBoundaries() → MitigateVLANHopping() → DeployMACsec() → VerifyCRC32() → BudgetInRupees(₹);"
   }
 ];
 

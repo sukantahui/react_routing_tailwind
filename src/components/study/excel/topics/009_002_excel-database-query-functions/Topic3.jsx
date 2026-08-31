@@ -40,7 +40,7 @@ export default function Topic3() {
       <div className="max-w-5xl mx-auto space-y-10">
         <header ref={(el) => (sectionsRef.current[0] = el)} className="rounded-3xl p-6 sm:p-10 bg-slate-900 border border-slate-800">
           <span className="px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 text-xs font-bold uppercase">DAVERAGE · Topic 3</span>
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 mt-4">Mastering DAVERAGE</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 mt-4">Mastering DAVERAGE</h1>
           <p className="text-slate-300 mt-4 text-base sm:text-lg">Averages values matching criteria table.</p>
         </header>
 

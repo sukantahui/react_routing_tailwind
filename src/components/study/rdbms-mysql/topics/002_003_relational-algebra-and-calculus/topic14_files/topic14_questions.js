@@ -52,7 +52,7 @@ const questions = [
   },
   {
     question: "How is a Cartesian Product followed by a Selection condition transformed in an optimized query tree?",
-    shortAnswer: "It is combined into an Equijoin or Theta Join operator node: $$\\sigma_{\\text{R.id = S.id}}(R \\times S) \\rightarrow R \\bowtie_{\\text{R.id = S.id}} S$$.",
+    shortAnswer: "It is combined into an Equijoin or Theta Join operator node: $$\\sigma_{\\text{R.id = S.id}}(R \\times S) \→ R \\bowtie_{\\text{R.id = S.id}} S$$.",
     explanation: "Join fusion optimization rule.",
     hint: "σ_θ(R × S) becomes R ⨝_θ S.",
     level: "basic"
@@ -68,7 +68,7 @@ const questions = [
     question: "How do you construct a Query Tree for: $\\pi_{\\text{name}}(\\sigma_{\\text{city='Kolkata'}}(\\text{Students}))$?",
     shortAnswer: "Leaf node `Students` ➔ Child of Selection `σ_{city='Kolkata'}` ➔ Child of Root Projection `π_{name}`.",
     explanation: "Unary pipeline construction.",
-    hint: "Students -> σ_{city='Kolkata'} -> π_{name}.",
+    hint: "Students → σ_{city='Kolkata'} → π_{name}.",
     level: "basic"
   },
   {

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Understanding the difference between REPLACE (position-based) and SUBSTITUTE (content-based) is a classic interview question. Master both for agile text engineering.
 
 COMMON TRAPS TO AVOID:
-- SUBSTITUTE Case-Sensitivity Mismatch: SUBSTITUTE("Kolkata", "k", "X") fails to replace capital 'K' because SUBSTITUTE is strictly case-sensitive. -> Fix: Ensure exact case match or nest UPPER()/LOWER() transformations.
-- REPLACE Index Boundary Calculation Error: Miscalculating start_num or num_chars replaces the wrong characters without warning. -> Fix: Use FIND() inside REPLACE() to calculate dynamic starting positions.
-- Accidental Global Overwrite: Omitting the optional instance_num parameter in SUBSTITUTE replaces ALL instances of target string. -> Fix: Specify instance_num (e.g. 1 or 2) when only a specific occurrence should change.
+- SUBSTITUTE Case-Sensitivity Mismatch: SUBSTITUTE("Kolkata", "k", "X") fails to replace capital 'K' because SUBSTITUTE is strictly case-sensitive. → Fix: Ensure exact case match or nest UPPER()/LOWER() transformations.
+- REPLACE Index Boundary Calculation Error: Miscalculating start_num or num_chars replaces the wrong characters without warning. → Fix: Use FIND() inside REPLACE() to calculate dynamic starting positions.
+- Accidental Global Overwrite: Omitting the optional instance_num parameter in SUBSTITUTE replaces ALL instances of target string. → Fix: Specify instance_num (e.g. 1 or 2) when only a specific occurrence should change.
 ================================================================================

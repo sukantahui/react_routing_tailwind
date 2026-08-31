@@ -42,7 +42,7 @@ A 48-bit MAC address consists of 12 hexadecimal characters (e.g., 00:1A:2B:3C:4D
 --------------------------------------------------------------------------------
 Switches maintain a Content Addressable Memory (CAM) table mapping MAC addresses to
 physical switch ports:
-1. Learning: Switch inspects the Source MAC of incoming frames and records [MAC -> Ingress Port].
+1. Learning: Switch inspects the Source MAC of incoming frames and records [MAC → Ingress Port].
 2. Forwarding: If the Destination MAC exists in the CAM table, the frame is forwarded
    directly to the learned port.
 3. Unknown Unicast Flooding: If the Destination MAC is unlearned, the frame is flooded

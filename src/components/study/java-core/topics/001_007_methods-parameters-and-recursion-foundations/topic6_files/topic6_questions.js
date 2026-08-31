@@ -243,7 +243,7 @@ const questions = [
     explanation: "Functional immutability paradigms in Java.",
     hint: "Transforms data via pure functions without in-place mutation.",
     level: "advanced",
-    codeExample: "List<Double> discounted = fees.stream().map(f -> f * 0.9).toList();"
+    codeExample: "List<Double> discounted = fees.stream().map(f → f * 0.9).toList();"
   }
 ];
 

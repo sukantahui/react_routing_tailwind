@@ -230,7 +230,7 @@ const questions = [
     hint: "Generates discrete bell-shaped noise centered at zero using simple integer bit additions without floating-point math.",
     level: "Expert",
     codeExample: `// Centered Binomial Distribution (eta=2):
-// noise_sample = (bit0 + bit1) - (bit2 + bit3) -> Values in {-2, -1, 0, 1, 2}`
+// noise_sample = (bit0 + bit1) - (bit2 + bit3) → Values in {-2, -1, 0, 1, 2}`
   },
   {
     id: 22,

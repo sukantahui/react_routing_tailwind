@@ -90,7 +90,7 @@ activity within 80 milliseconds, triggering an immediate switch port shutdown be
 --------------------------------------------------------------------------------
 [ ] Mapped the differences between the public Internet and private Intranets.
 [ ] Listed RFC 1918 private address ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16).
-[ ] Designed a 3-tier DMZ perimeter architecture (Untrusted -> DMZ -> Trusted Intranet).
+[ ] Designed a 3-tier DMZ perimeter architecture (Untrusted → DMZ → Trusted Intranet).
 [ ] Analyzed Split-Horizon DNS and Network Address Translation (NAT/PAT).
 [ ] Evaluated Lateral Movement, Air-Gap breaches, and Zero Trust Network Access (ZTNA).
 [ ] Formulated realistic perimeter firewall and DMZ hardware budgets in Indian Rupees (₹).

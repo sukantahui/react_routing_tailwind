@@ -11,7 +11,7 @@ const questions = [
     explanation: "Core definition of a palindrome.",
     hint: "Sequence that reads the same forwards and backwards.",
     level: "basic",
-    codeExample: "isIntegerPalindrome(12321) -> true"
+    codeExample: "isIntegerPalindrome(12321) → true"
   },
   {
     question: "Why are negative numbers (e.g. `-121`) never palindromes?",
@@ -83,13 +83,13 @@ const questions = [
     explanation: "String palindrome test output.",
     hint: "False.",
     level: "basic",
-    codeExample: "isStringPalindromeTwoPointer(\"Barrackpore\") -> false"
+    codeExample: "isStringPalindromeTwoPointer(\"Barrackpore\") → false"
   },
   {
     question: "What are the Base Cases for Recursive String Palindrome verification?",
     shortAnswer: "1. `left >= right` $\\to$ return `true` (pointers have crossed with zero mismatches). 2. `charAt(left) != charAt(right)` $\\to$ return `false` (mismatch found).",
     explanation: "Recursive palindrome base cases.",
-    hint: "Pointers meet/cross -> true; mismatch -> false.",
+    hint: "Pointers meet/cross → true; mismatch → false.",
     level: "basic",
     codeExample: "if (left >= right) return true; if (charAt(left) != charAt(right)) return false;"
   },
@@ -107,7 +107,7 @@ const questions = [
     explanation: "Malayalam palindrome verification.",
     hint: "True.",
     level: "basic",
-    codeExample: "isStringPalindromeRecursive(\"Malayalam\", 0, 8) -> true"
+    codeExample: "isStringPalindromeRecursive(\"Malayalam\", 0, 8) → true"
   },
   {
     question: "Why is `s.equals(new StringBuilder(s).reverse().toString())` considered suboptimal for large strings?",
@@ -123,7 +123,7 @@ const questions = [
     explanation: "Single character trivial palindrome.",
     hint: "Yes, single characters and single digits are trivially palindromes.",
     level: "basic",
-    codeExample: "isIntegerPalindrome(7) -> true | isStringPalindromeTwoPointer(\"A\") -> true"
+    codeExample: "isIntegerPalindrome(7) → true | isStringPalindromeTwoPointer(\"A\") → true"
   },
   {
     question: "Is an empty string `\"\"` considered a valid palindrome?",
@@ -131,7 +131,7 @@ const questions = [
     explanation: "Empty string palindrome convention.",
     hint: "Yes, empty strings are valid palindromes by convention.",
     level: "basic",
-    codeExample: "isStringPalindromeTwoPointer(\"\") -> true"
+    codeExample: "isStringPalindromeTwoPointer(\"\") → true"
   },
   {
     question: "What is a 'Palindromic Substring'?",
@@ -163,13 +163,13 @@ const questions = [
     explanation: "Non-palindromic number test.",
     hint: "False.",
     level: "basic",
-    codeExample: "isIntegerPalindrome(1000021) -> false"
+    codeExample: "isIntegerPalindrome(1000021) → false"
   },
   {
     question: "Can a linked list be checked for palindromic structure in $O(N)$ time and $O(1)$ space?",
     shortAnswer: "YES! Find the middle node using slow/fast pointers, reverse the second half of the linked list in-place, compare the two halves, and restore the list.",
     explanation: "Palindromic linked list verification technique.",
-    hint: "Find middle with fast/slow pointers -> reverse second half -> compare.",
+    hint: "Find middle with fast/slow pointers → reverse second half → compare.",
     level: "advanced",
     codeExample: "// ListNode fast = head, slow = head; ... reverse(slow);"
   },
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Phrase palindrome test verification.",
     hint: "True.",
     level: "basic",
-    codeExample: "isStringPalindromeTwoPointer(\"Was it a car or a cat I saw?\") -> true"
+    codeExample: "isStringPalindromeTwoPointer(\"Was it a car or a cat I saw?\") → true"
   },
   {
     question: "How can Bit Manipulation verify if any permutation of a String can form a Palindrome?",
@@ -219,7 +219,7 @@ const questions = [
     explanation: "9-digit palindrome verification.",
     hint: "True.",
     level: "basic",
-    codeExample: "isIntegerPalindrome(123454321) -> true"
+    codeExample: "isIntegerPalindrome(123454321) → true"
   },
   {
     question: "What is the ultimate takeaway of Module 001_008 Topic 2 for Java developers?",

@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Standard compiler name clash diagnostic under type erasure.",
     "hint": "Both signatures erase to 'print(List)', producing a method name/parameter clash in bytecode.",
     "level": "Intermediate",
-    "codeExample": "// void process(List<String> a) and void process(List<Integer> b) -> Compile error: name clash"
+    "codeExample": "// void process(List<String> a) and void process(List<Integer> b) → Compile error: name clash"
   }
 ];
 

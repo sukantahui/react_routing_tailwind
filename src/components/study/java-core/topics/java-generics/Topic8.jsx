@@ -310,7 +310,7 @@ public class Main {
 }`;
 
   const multipleBoundsExample = `// Multiple Bounds with Interfaces
-public class ComparableContainer<T extends Number & Comparable<T>> {
+public class ComparableContainer<T extends Number & Comparable&lt;T&gt;> {
     private T value1;
     private T value2;
     
@@ -424,7 +424,7 @@ public class StatisticsCalculator {
     }
     
     // Method with multiple bounds
-    public static <T extends Comparable<T> & Number> T findMax(T[] array) {
+    public static <T extends Comparable&lt;T&gt; & Number> T findMax(T[] array) {
         if (array == null || array.length == 0) return null;
         
         T max = array[0];
@@ -458,12 +458,12 @@ public class StatisticsCalculator {
   const commonMistakesCode = `// ❌ COMMON MISTAKES - Bounded Type Parameters
 
 // Mistake 1: Wrong bound syntax
-public class WrongSyntax1<T implements Comparable<T>> {  // ❌ WRONG
+public class WrongSyntax1<T implements Comparable&lt;T&gt;> {  // ❌ WRONG
     // Should use 'extends' for interfaces too
 }
 
 // ✅ CORRECT
-public class CorrectSyntax1<T extends Comparable<T>> {  // ✅ CORRECT
+public class CorrectSyntax1<T extends Comparable&lt;T&gt;> {  // ✅ CORRECT
     // This is the right way
 }
 
@@ -490,7 +490,7 @@ public class Mistake3 {
 }
 
 // Mistake 4: Overly restrictive bounds
-public class Library<T extends Book & Printable & Comparable<T> & Cloneable> {
+public class Library<T extends Book & Printable & Comparable&lt;T&gt; & Cloneable> {
     // ❌ Too many bounds - makes class hard to use
     // Very few types will satisfy all these constraints
 }
@@ -559,7 +559,7 @@ public class Library<T extends Book & Printable> {
               </svg>
             </div>
             <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                 Bounded Type Parameters in Java Generics
               </h1>
               <p className="mt-3 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">

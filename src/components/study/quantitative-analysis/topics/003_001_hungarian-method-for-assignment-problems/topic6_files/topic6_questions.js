@@ -166,9 +166,9 @@ const questions = [
     question: "What is the ultimate golden rule of Adding Dummy Rows or Columns?",
     shortAnswer: "'If rows < cols, add (cols - rows) dummy rows with ₹0 rates; if cols < rows, add (rows - cols) dummy columns with ₹0 rates; apply Big-M to prohibited dummy cells; solve the square matrix; real cells give cost, dummy cells give idle or outsourced capacity!'",
     explanation: "This complete rule captures all structural and operational aspects of dummy balancing.",
-    hint: "Rows < Cols -> Dummy Rows (₹0); Cols < Rows -> Dummy Cols (₹0); Big-M for non-outsourced.",
+    hint: "Rows < Cols → Dummy Rows (₹0); Cols < Rows → Dummy Cols (₹0); Big-M for non-outsourced.",
     level: "moderate",
-    codeExample: "Golden Rule: DimCheck -> Add Dummy Lines (₹0) -> Big-M Barriers -> Solve Square Matrix."
+    codeExample: "Golden Rule: DimCheck → Add Dummy Lines (₹0) → Big-M Barriers → Solve Square Matrix."
   }
 ];
 

@@ -7,7 +7,7 @@ const questions = [
     level: "basic",
     codeExample: `// The OSINT Spectrum:
 Public Source:     https://github.com/kolkata-org/public-repo (Anyone can view)
-OSINT Technique:   Trufflehog scans public commits for exposed API keys -> 100% Legal Public Data!`
+OSINT Technique:   Trufflehog scans public commits for exposed API keys → 100% Legal Public Data!`
   },
   {
     question: "What is 'Maltego', and how does it use 'Transforms' to map complex relationships between domains, IP addresses, and people?",
@@ -66,7 +66,7 @@ sherlock debangshu_dev
     hint: "Remember the 5 intelligence steps: Plan, Collect, Process, Analyze, and Disseminate.",
     level: "moderate",
     codeExample: `// OSINT Intelligence Cycle:
-Planning (Scope Definition) -> Collection (Tooling Scrapes) -> Processing (Filtering JSON) -> Analysis (Correlation) -> Dissemination (Report)`
+Planning (Scope Definition) → Collection (Tooling Scrapes) → Processing (Filtering JSON) → Analysis (Correlation) → Dissemination (Report)`
   },
   {
     question: "What is 'Spiderfoot', and how does it automate multi-source OSINT reconnaissance for enterprise red teams?",
@@ -171,7 +171,7 @@ route-views> show ip bgp 203.0.113.0/24
 // Output:
 BGP routing table entry for 203.0.113.0/24
 Paths: (3 available, best #1)
-  AS-Path: 1299 6453 13335 (Routes through Telia Carrier -> Tata Communications -> Target ASN)`
+  AS-Path: 1299 6453 13335 (Routes through Telia Carrier → Tata Communications → Target ASN)`
   },
   {
     question: "What is 'EXIF Data' in photography OSINT, and how can a simple smartphone photo leak the exact geographical location of a corporate facility?",

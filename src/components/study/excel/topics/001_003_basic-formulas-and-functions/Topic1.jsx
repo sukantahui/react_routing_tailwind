@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Core Arithmetic Operations: Addition (+), Subtraction (-), Multiplication (*), Division (/) and Powers (^)
           </h1>
 
@@ -281,7 +281,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Relative__absolute"
+            sheetName="Topic1"
             title="Module 1.3 - Core Arithmetic Operations: Addition (+), Subtraction (-), Multiplication (*), Division (/) and Powers (^)"
             rowsPerPage={25}
             showSheetSelector={true}

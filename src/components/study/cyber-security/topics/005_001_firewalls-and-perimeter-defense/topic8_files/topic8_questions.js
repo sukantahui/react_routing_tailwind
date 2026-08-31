@@ -72,12 +72,12 @@ const dmzAssets = {
     id: 7,
     question: "What is a 'Database Pinhole' in DMZ-to-LAN firewall policies and what security controls must govern it?",
     shortAnswer: "A tightly scoped firewall rule permitting a DMZ web application server to connect exclusively to the database server's specific IP on its database port (e.g. TCP 5432) using encrypted mutual TLS (mTLS).",
-    explanation: "The pinhole rule must never use wildcards or subnet ranges. It must specify single `/32` host IPs: `ALLOW 172.16.1.10 -> 10.10.4.50:5432`. Connections must enforce mTLS client certificates so that an attacker without the certificate cannot query the database even if they gain shell access on the web server.",
+    explanation: "The pinhole rule must never use wildcards or subnet ranges. It must specify single `/32` host IPs: `ALLOW 172.16.1.10 → 10.10.4.50:5432`. Connections must enforce mTLS client certificates so that an attacker without the certificate cannot query the database even if they gain shell access on the web server.",
     hint: "A strictly restricted opening allowing only the web server IP to reach the database IP on one port with mTLS.",
     level: "Moderate",
     codeExample: `// Database Pinhole Policy:
-// ALLOW: host 172.16.1.10 -> host 10.10.4.50 eq 5432 Proto: TCP (mTLS Enforced)
-// DROP : 172.16.1.0/24   -> 10.0.0.0/8 ANY (Blocks all other lateral traffic)`
+// ALLOW: host 172.16.1.10 → host 10.10.4.50 eq 5432 Proto: TCP (mTLS Enforced)
+// DROP : 172.16.1.0/24   → 10.0.0.0/8 ANY (Blocks all other lateral traffic)`
   },
   {
     id: 8,
@@ -143,7 +143,7 @@ const dmzAssets = {
     hint: "Two separate DMZ tiers: one for web presentation, and a second for application middleware.",
     level: "Expert",
     codeExample: `// Dual-DMZ Layout:
-// [Internet] -> (FW 1) -> [DMZ 1: Web Proxies] -> (FW 2) -> [DMZ 2: App Logic] -> (FW 3) -> [Internal Data Vault]`
+// [Internet] → (FW 1) → [DMZ 1: Web Proxies] → (FW 2) → [DMZ 2: App Logic] → (FW 3) → [Internal Data Vault]`
   },
   {
     id: 14,
@@ -240,9 +240,9 @@ const pamAuditRecord = {
     hint: "Blocking DMZ servers from opening outbound connections to the Internet stops reverse shells.",
     level: "Moderate",
     codeExample: `// DMZ Egress Lockdown Rule:
-// ALLOW: DMZ_Servers -> Internal_NTP (UDP 123)
-// ALLOW: DMZ_Servers -> Internal_DNS (UDP 53)
-// DROP : DMZ_Servers -> Internet (ANY:ANY) (Blocks reverse shells!)`
+// ALLOW: DMZ_Servers → Internal_NTP (UDP 123)
+// ALLOW: DMZ_Servers → Internal_DNS (UDP 53)
+// DROP : DMZ_Servers → Internet (ANY:ANY) (Blocks reverse shells!)`
   },
   {
     id: 22,
@@ -263,7 +263,7 @@ const pamAuditRecord = {
     level: "Expert",
     codeExample: `// Enforcing SELinux:
 // sudo setenforce 1
-// getenforce -> Outputs: Enforcing`
+// getenforce → Outputs: Enforcing`
   },
   {
     id: 24,

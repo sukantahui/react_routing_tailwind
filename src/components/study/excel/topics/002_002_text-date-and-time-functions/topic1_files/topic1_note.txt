@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Positional substring extraction is the bedrock of legacy Excel ETL. Always use dynamic delimiter math (FIND/SEARCH) rather than hardcoded character lengths.
 
 COMMON TRAPS TO AVOID:
-- Hardcoded Number of Characters: Assuming all first names or tokens have the same length causes truncation (e.g. LEFT(A2, 5) truncates 'Abhronila'). -> Fix: Dynamically calculate length using =LEFT(A2, FIND(" ", A2)-1).
-- FIND() #VALUE! Failure on Missing Delimiter: If the searched character does not exist in the string, FIND() returns a fatal #VALUE! error. -> Fix: Wrap with IFERROR() or use SEARCH() with error trapping.
-- Extracted Digits Stored as Text: LEFT/RIGHT/MID always return text strings, causing SUM() on extracted numbers to return 0. -> Fix: Coerce extracted numeric strings to true numbers using double unary: =--RIGHT(A2, 4) or VALUE().
+- Hardcoded Number of Characters: Assuming all first names or tokens have the same length causes truncation (e.g. LEFT(A2, 5) truncates 'Abhronila'). → Fix: Dynamically calculate length using =LEFT(A2, FIND(" ", A2)-1).
+- FIND() #VALUE! Failure on Missing Delimiter: If the searched character does not exist in the string, FIND() returns a fatal #VALUE! error. → Fix: Wrap with IFERROR() or use SEARCH() with error trapping.
+- Extracted Digits Stored as Text: LEFT/RIGHT/MID always return text strings, causing SUM() on extracted numbers to return 0. → Fix: Coerce extracted numeric strings to true numbers using double unary: =--RIGHT(A2, 4) or VALUE().
 ================================================================================

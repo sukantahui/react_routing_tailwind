@@ -76,7 +76,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Cleaning &amp; Profiling Data: Column Quality, Column Distribution &amp; Column Profile
           </h1>
 
@@ -171,27 +171,27 @@ export default function Topic3() {
               <tbody className="divide-y divide-slate-800/60 font-mono text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-teal-400 font-sans">Column Quality</td>
-                  <td className="py-3 px-4 text-teal-300">View &rarr; Column quality</td>
+                  <td className="py-3 px-4 text-teal-300">View → Column quality</td>
                   <td className="py-3 px-4 text-rose-400 font-sans">Red bar (Type conversion failure)</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Hover &rarr; Keep Errors / Replace Errors.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Hover → Keep Errors / Replace Errors.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-sky-400 font-sans">Column Distribution</td>
-                  <td className="py-3 px-4 text-sky-300">View &rarr; Column distribution</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Distinct &lt; Total Rows on Primary Key</td>
+                  <td className="py-3 px-4 text-sky-300">View → Column distribution</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Distinct < Total Rows on Primary Key</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Apply 'Remove Duplicates' on ID field.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">Column Profile</td>
-                  <td className="py-3 px-4 text-emerald-300">View &rarr; Column profile</td>
+                  <td className="py-3 px-4 text-emerald-300">View → Column profile</td>
                   <td className="py-3 px-4 text-indigo-400 font-sans">Outlier categories in bar chart</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Apply 'Replace Values' or 'Filter Rows'.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-400 font-sans">Monospaced Font</td>
-                  <td className="py-3 px-4 text-purple-300">View &rarr; Monospaced</td>
+                  <td className="py-3 px-4 text-purple-300">View → Monospaced</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">Trailing space misalignments</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Apply Transform &rarr; Trim / Clean.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Apply Transform → Trim / Clean.</td>
                 </tr>
               </tbody>
             </table>
@@ -391,7 +391,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Data_Profiling"
+            sheetName="EX2004"
             title="Data Profiling & Quality Metrics (Column Name, Total Count, Valid %, Error %, Empty %, Distinct Count, Unique Count)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -430,7 +430,7 @@ export default function Topic3() {
                 isolating the 410 malformed tax records into an audit remediation queue in 1 click!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Keep Errors &rarr; Instant 410 Bad Record Quarantine
+                Keep Errors → Instant 410 Bad Record Quarantine
               </div>
             </div>
 
@@ -449,7 +449,7 @@ export default function Topic3() {
                 preventing a catastrophic cartesian multiplication during table merges!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Distinct == Unique == Rows &rarr; Valid Star Schema Key
+                Distinct == Unique == Rows → Valid Star Schema Key
               </div>
             </div>
 
@@ -467,7 +467,7 @@ export default function Topic3() {
                 She discovers that 'Kolkata ' and 'Kolkata' were splitting regional totals into two separate buckets, fixing it instantly with <code className="text-indigo-300 font-mono">Text.Trim</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Text.Clean + Text.Trim &rarr; 100% Clean City Buckets
+                Text.Clean + Text.Trim → 100% Clean City Buckets
               </div>
             </div>
 
@@ -485,7 +485,7 @@ export default function Topic3() {
                 The Column Profile bar chart flags two invoices booked at ₹ 9,800,000 instead of ₹ 98,000, preventing a ₹ 9.7M executive reporting error!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Entire Dataset Profiling &rarr; Flagged ₹ 9.7M Outlier
+                Entire Dataset Profiling → Flagged ₹ 9.7M Outlier
               </div>
             </div>
           </div>
@@ -589,19 +589,19 @@ export default function Topic3() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Top 1000 Sampling Blind Spot</td>
                   <td className="py-3 px-4 text-slate-300">Profiling only evaluates the first 1,000 rows by default; errors in row 5,000 remain hidden.</td>
                   <td className="py-3 px-4 text-slate-400">Status bar reads: 'Profiling based on top 1000 rows'.</td>
-                  <td className="py-3 px-4 text-emerald-400">Click status bar &rarr; Switch to 'Column profiling based on entire data set'.</td>
+                  <td className="py-3 px-4 text-emerald-400">Click status bar → Switch to 'Column profiling based on entire data set'.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">False-Clean Text Numbers</td>
                   <td className="py-3 px-4 text-slate-300">Numbers stored as text show 100% Green Valid bar but fail in DAX math calculations.</td>
                   <td className="py-3 px-4 text-slate-400">Icon badge shows 'ABC' instead of '1.2' or '123'.</td>
-                  <td className="py-3 px-4 text-emerald-400">Click type icon &rarr; Change Data Type to Decimal Number.</td>
+                  <td className="py-3 px-4 text-emerald-400">Click type icon → Change Data Type to Decimal Number.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Cartesian Merge Explosion</td>
-                  <td className="py-3 px-4 text-slate-300">Merging on a key where Distinct &lt; Total Rows on the dimension side.</td>
+                  <td className="py-3 px-4 text-slate-300">Merging on a key where Distinct < Total Rows on the dimension side.</td>
                   <td className="py-3 px-4 text-slate-400">Output table row count multiplies uncontrollably after Merge.</td>
-                  <td className="py-3 px-4 text-emerald-400">Select key column on dimension query &rarr; Apply 'Remove Duplicates'.</td>
+                  <td className="py-3 px-4 text-emerald-400">Select key column on dimension query → Apply 'Remove Duplicates'.</td>
                 </tr>
               </tbody>
             </table>
@@ -651,7 +651,7 @@ export default function Topic3() {
                 <span>Audit Documentation</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Right-click Column Profile &rarr; Copy to paste statistical tables into Excel reports.
+                Right-click Column Profile → Copy to paste statistical tables into Excel reports.
               </p>
             </div>
 

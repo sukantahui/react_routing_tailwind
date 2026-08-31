@@ -8,7 +8,7 @@ const questions = [
     codeExample: `// Morris Worm fingerd Exploit Vector:
 // The UNIX finger daemon used the unsafe gets() function into a 512-byte buffer:
 char buf[512];
-gets(buf); // No length check -> Morris sent 536 bytes to overwrite return address to shellcode.`
+gets(buf); // No length check → Morris sent 536 bytes to overwrite return address to shellcode.`
   },
   {
     question: "Who was John Draper ('Captain Crunch'), and how did his 1970s discovery shape the 'Phone Phreaking' subculture?",
@@ -17,8 +17,8 @@ gets(buf); // No length check -> Morris sent 536 bytes to overwrite return addre
     hint: "Think about the cereal toy whistle that produced the 2600 Hz tone.",
     level: "basic",
     codeExample: `// Phone Phreaking In-Band Signaling Principle:
-2600 Hz Tone Broadcasted -> Trunk interprets as "Customer Hung Up / Line Idle"
-Operator Trunk Enters Listening State -> Multi-Frequency (MF) tones routed call free.`
+2600 Hz Tone Broadcasted → Trunk interprets as "Customer Hung Up / Line Idle"
+Operator Trunk Enters Listening State → Multi-Frequency (MF) tones routed call free.`
   },
   {
     question: "What was the central ideological argument of 'The Conscience of a Hacker' (The Hacker Manifesto) written by Loyd Blankenship ('The Mentor') in 1986?",
@@ -90,8 +90,8 @@ Post-2010: Cyber attacks manipulate SCADA controllers to destroy physical turbin
     hint: "Think about the landmark 2009 attack on Google that prompted the invention of Zero Trust (BeyondCorp).",
     level: "expert",
     codeExample: `// BeyondCorp Zero Trust Mandate (Post-Aurora):
-// Old Castle-and-Moat: "User is inside corporate office LAN -> Implicitly Trusted"
-// BeyondCorp Zero Trust: "Location does not matter -> Every device, user, and packet must be authenticated via mTLS & FIDO2"`
+// Old Castle-and-Moat: "User is inside corporate office LAN → Implicitly Trusted"
+// BeyondCorp Zero Trust: "Location does not matter → Every device, user, and packet must be authenticated via mTLS & FIDO2"`
   },
   {
     question: "How did the 'Ransomware-as-a-Service' (RaaS) business model in the late 2010s accelerate the frequency of global extortion attacks?",
@@ -111,9 +111,9 @@ Core_RaaS_Developers  = ₹2,00,00,000 (20% for providing malware and Tor infras
     hint: "Recall that double extortion combines data encryption with the threat of public data leakage.",
     level: "moderate",
     codeExample: `// Double Extortion Workflow:
-Stage 1: Exfiltrate 500 GB Customer Database -> Transferred to Mega.nz / Tor server
-Stage 2: Deploy LockBit Ransomware -> Encrypt local virtual machines
-Stage 3: Extortion Demand -> "Pay ₹5 Crores for decryptor OR we leak all customer Aadhaar cards online"`
+Stage 1: Exfiltrate 500 GB Customer Database → Transferred to Mega.nz / Tor server
+Stage 2: Deploy LockBit Ransomware → Encrypt local virtual machines
+Stage 3: Extortion Demand → "Pay ₹5 Crores for decryptor OR we leak all customer Aadhaar cards online"`
   },
   {
     question: "How did the 1983 Hollywood movie 'WarGames' influence both public perception and United States federal cyber legislation?",
@@ -122,7 +122,7 @@ Stage 3: Extortion Demand -> "Pay ₹5 Crores for decryptor OR we leak all custo
     hint: "Remember the 1983 movie where a student plays 'Global Thermonuclear War' with a military supercomputer.",
     level: "basic",
     codeExample: `// Cultural-to-Legal Timeline:
-1983: WarGames released in theaters -> Depicts wardialing & backdoor password exploitation
+1983: WarGames released in theaters → Depicts wardialing & backdoor password exploitation
 1984: National Security Decision Directive 145 signed by President Reagan
 1986: US Congress enacts Computer Fraud and Abuse Act (18 U.S.C. § 1030)`
   },
@@ -171,7 +171,7 @@ for (int num = 0; num <= 9999; num++) {
     hint: "Consider how bug bounty platforms provide legal safe harbor and monetary rewards to security researchers.",
     level: "basic",
     codeExample: `// Modern Bug Bounty Paradigm:
-Independent Researcher -> Discovers Zero-Day -> Submits to HackerOne -> Receives Safe Harbor & ₹5,00,000 Bounty -> Vendor Patches Software (Win-Win)`
+Independent Researcher → Discovers Zero-Day → Submits to HackerOne → Receives Safe Harbor & ₹5,00,000 Bounty → Vendor Patches Software (Win-Win)`
   },
   {
     question: "What role did early underground hacker e-zines like 'Phrack' and '2600: The Hacker Quarterly' play in technical knowledge dissemination?",
@@ -200,8 +200,8 @@ Defensive AI: Real-time User & Entity Behavior Analytics (UEBA) + Automated SIEM
     hint: "Recall how injecting a backdoor into a trusted software update gave attackers access to 18,000 global enterprises.",
     level: "expert",
     codeExample: `// Software Supply Chain Threat Vector:
-Vendor Source Code Clean -> Attacker Injects Backdoor into Build Server (MSBuild) -> 
-Compiler Output Signed with Valid Vendor Certificate -> Distributed via Official Auto-Update to 18,000 Customers`
+Vendor Source Code Clean → Attacker Injects Backdoor into Build Server (MSBuild) → 
+Compiler Output Signed with Valid Vendor Certificate → Distributed via Official Auto-Update to 18,000 Customers`
   },
   {
     question: "Under Indian cybersecurity history, when was the Information Technology Act passed, and how did the 2008 Amendment expand hacking definitions?",

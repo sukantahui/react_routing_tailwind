@@ -72,7 +72,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Combining FILTER, UNIQUE, and SORT for Automated Alphabetical Searchable Lists
           </h1>
 
@@ -311,7 +311,7 @@ export default function Topic8() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic8_Filter_Unique_Sort"
+              sheetName="EX1609"
               title="Master Trainer & Center Activity Register"
               rowsPerPage={10}
               showSheetSelector={true}

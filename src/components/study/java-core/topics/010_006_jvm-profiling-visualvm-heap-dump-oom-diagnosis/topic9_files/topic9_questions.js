@@ -5,7 +5,7 @@ const topic9_questions = [
     "explanation": "Essential for distinguishing between multiple running services.",
     "hint": "Prints the full package name or JAR file path.",
     "level": "Beginner",
-    "codeExample": "jps -l -> 14920 com.company.payment.PaymentApplication"
+    "codeExample": "jps -l → 14920 com.company.payment.PaymentApplication"
   },
   {
     "question": "Why might jps fail to list a running Java process on a Linux server?",

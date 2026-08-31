@@ -122,7 +122,7 @@ CREATE INDEX idx_branch_score_covering ON enrollments (branch_id, student_id, ex
               Performance Engineering
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Debugging Slow Queries & Identifying Missing Indexes
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

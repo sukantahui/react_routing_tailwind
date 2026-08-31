@@ -170,7 +170,7 @@ const questions = [
     level: "basic"
   },
   {
-    question: "What is the order of execution when an error occurs: Trigger -> Procedure Handler?",
+    question: "What is the order of execution when an error occurs: Trigger → Procedure Handler?",
     shortAnswer: "If a trigger raises an error via `SIGNAL`, the procedure's active handler catches the exception raised by the trigger.",
     explanation: "Cross-routine exception propagation.",
     hint: "The procedure handler catches exceptions raised by internal triggers.",

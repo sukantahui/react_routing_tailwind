@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. FIELD SHADOWING IN INHERITANCE:
    - Fields are NOT polymorphic and are NEVER overridden.
    - If Child declares 'int fee = 200;', it shadows Parent 'int fee = 100;'.
-   - 'this.fee' &rarr; Child's field (200).
-   - 'super.fee' &rarr; Parent's field (100).
+   - 'this.fee' → Child's field (200).
+   - 'super.fee' → Parent's field (100).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

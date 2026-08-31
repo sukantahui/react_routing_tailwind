@@ -31,11 +31,11 @@ technical maintenance task—it is a vital corporate survival strategy and board
 
   * SINGLE LOSS EXPECTANCY (SLE):
     $$SLE = \text{Asset Value (AV)} \times \text{Exposure Factor (EF)}$$
-    Example: ₹10 Crore database with 30% exposure -> SLE = ₹3,00,00,000.
+    Example: ₹10 Crore database with 30% exposure → SLE = ₹3,00,00,000.
 
   * ANNUAL LOSS EXPECTANCY (ALE):
     $$ALE = SLE \times \text{Annual Rate of Occurrence (ARO)}$$
-    Example: SLE of ₹3 Cr occurring once every 3 years (ARO = 0.33) -> ALE = ₹1,00,00,000 / year.
+    Example: SLE of ₹3 Cr occurring once every 3 years (ARO = 0.33) → ALE = ₹1,00,00,000 / year.
 
   * RETURN ON SECURITY INVESTMENT (ROSI):
     $$\text{ROSI} = \frac{(ALE_{\text{unmitigated}} - ALE_{\text{mitigated}}) - \text{Cost of Control}}{\text{Cost of Control}} \times 100\%$$

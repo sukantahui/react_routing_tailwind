@@ -104,7 +104,7 @@ const Topic0 = () => {
                 <section className="mb-16 animate-[fadeIn_0.8s_ease-out]">
                     <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 p-8 md:p-12">
                         <div className="relative z-10 max-w-3xl">
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-blue-700 to-purple-700 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
                                 Welcome to React!
                             </h2>
                             <p className="text-xl mb-8 text-gray-700 dark:text-gray-300 leading-relaxed">

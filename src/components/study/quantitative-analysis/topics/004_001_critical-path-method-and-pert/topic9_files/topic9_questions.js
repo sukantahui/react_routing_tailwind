@@ -110,9 +110,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Critical Path in CPM/PERT?",
     shortAnswer: "'The Critical Path is the LONGEST sequence of zero-slack tasks connecting start to sink; it dictates the MINIMUM completion time; manage subcritical paths vigilantly, and crash only critical paths in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all critical path principles.",
-    hint: "Longest zero-slack path -> Dictates minimum project duration -> Monitor subcritical paths -> Crash only critical tasks in ₹.",
+    hint: "Longest zero-slack path → Dictates minimum project duration → Monitor subcritical paths → Crash only critical tasks in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: LongestZeroSlackPath() -> DictatesMinDuration() -> MonitorNearCritical() -> CrashInRupees(₹)."
+    codeExample: "GoldenRule: LongestZeroSlackPath() → DictatesMinDuration() → MonitorNearCritical() → CrashInRupees(₹)."
   }
 ];
 

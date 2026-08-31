@@ -193,7 +193,7 @@ const Topic8 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Course Module 3: Information Security Management • Module 003_003 • Topic 8 of 14
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Calculating Single Loss Expectancy (SLE) and Annual Loss Expectancy (ALE)
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
@@ -557,7 +557,7 @@ const Topic8 = () => {
 
                   <line x1="250" y1="65" x2="250" y2="95" stroke="#6366f1" strokeWidth="1.5" />
 
-                  {/* Left Branch: YES -> APPROVED */}
+                  {/* Left Branch: YES → APPROVED */}
                   <line x1="170" y1="135" x2="100" y2="135" stroke="#10b981" strokeWidth="1.5" />
                   <line x1="100" y1="135" x2="100" y2="195" stroke="#10b981" strokeWidth="1.5" />
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
@@ -566,7 +566,7 @@ const Topic8 = () => {
                     <text x="100" y="230" fill="#34d399" font-family="monospace" textAnchor="middle" fontSize="6.5">APPROVED BY CFO</text>
                   </g>
 
-                  {/* Right Branch: NO -> REJECTED */}
+                  {/* Right Branch: NO → REJECTED */}
                   <line x1="330" y1="135" x2="400" y2="135" stroke="#ef4444" strokeWidth="1.5" />
                   <line x1="400" y1="135" x2="400" y2="195" stroke="#ef4444" strokeWidth="1.5" />
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">

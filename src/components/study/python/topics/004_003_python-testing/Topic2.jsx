@@ -170,7 +170,7 @@ ${
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Built-in <span className="text-teal-400">unittest Framework</span>: TestCase &amp; Lifecycle
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">

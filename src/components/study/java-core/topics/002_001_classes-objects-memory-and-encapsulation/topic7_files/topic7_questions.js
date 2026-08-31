@@ -42,7 +42,7 @@ const topic7_questions = [
     explanation: "From the moment the ClassLoader loads the bytecode into Metaspace to the moment the Garbage Collector sweeps its memory block in Eden/Tenured generation, the object passes through these 8 distinct stages.",
     hint: "From birth in Metaspace/Eden to death in GC sweep.",
     level: "Intermediate",
-    codeExample: "// Lifecycle sequence: ClassLoad -> HeapAlloc -> ZeroInit -> FieldInit -> InstanceBlock -> Constructor -> InUse -> GC"
+    codeExample: "// Lifecycle sequence: ClassLoad → HeapAlloc → ZeroInit → FieldInit → InstanceBlock → Constructor → InUse → GC"
   },
   {
     question: "Can an instance variable be declared 'final' and left without an explicit initializer?",
@@ -63,7 +63,7 @@ const topic7_questions = [
   {
     question: "What happens if an instance variable has both an inline initializer and an assignment in the constructor?",
     shortAnswer: "The inline initializer executes first (Stage 4), and then the constructor assignment overrides it (Stage 6).",
-    explanation: "Textual inline assignments ('int score = 50;') run before the constructor body. If the constructor assigns 'this.score = 90;', the field transitions from 0 (zero-init) -> 50 (inline init) -> 90 (constructor).",
+    explanation: "Textual inline assignments ('int score = 50;') run before the constructor body. If the constructor assigns 'this.score = 90;', the field transitions from 0 (zero-init) → 50 (inline init) → 90 (constructor).",
     hint: "Constructor has the final say during initialization.",
     level: "Beginner",
     codeExample: "class Exam {\n    int marks = 50; // Evaluated first\n    Exam(int m) { this.marks = m; } // Overrides 50 with m\n}"
@@ -142,11 +142,11 @@ const topic7_questions = [
   },
   {
     question: "In what order are instance variables initialized if a subclass extends a superclass?",
-    shortAnswer: "Superclass static -> Subclass static -> Superclass instance/constructor -> Subclass instance/constructor.",
+    shortAnswer: "Superclass static → Subclass static → Superclass instance/constructor → Subclass instance/constructor.",
     explanation: "When creating a subclass instance: 1. Super static inits, 2. Sub static inits, 3. Super instance fields and super constructor, 4. Sub instance fields and sub constructor.",
     hint: "Parent is born before Child at both class and instance levels.",
     level: "Intermediate",
-    codeExample: "// Super instance fields -> Super constructor -> Sub instance fields -> Sub constructor"
+    codeExample: "// Super instance fields → Super constructor → Sub instance fields → Sub constructor"
   },
   {
     question: "Why should you avoid calling overridable (non-final, non-private) methods inside a constructor?",
@@ -250,7 +250,7 @@ const topic7_questions = [
     explanation: "At the Barrackpore academy, Sukanta Hui instills that every instance variable is a component of an entity's identity. By ensuring fields are born in validated states and keeping instance scopes clean, you guarantee system stability and high-performance GC throughput.",
     hint: "Purity at birth, vigilance in life, grace in recycling.",
     level: "Beginner",
-    codeExample: "// Sukanta Hui's Clean Entity Pattern: Validated constructor -> Guarded mutations -> Clean GC exit"
+    codeExample: "// Sukanta Hui's Clean Entity Pattern: Validated constructor → Guarded mutations → Clean GC exit"
   }
 ];
 

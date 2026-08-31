@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Treemap and Sunburst charts for hierarchical data breakdown"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic6() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Hierarchical Charts: Insert &gt; Hierarchy Chart &gt; Treemap (Nested Rectangles) | Sunburst (Concentric Rings)"}
+            {"Hierarchical Charts: Insert > Hierarchy Chart > Treemap (Nested Rectangles) | Sunburst (Concentric Rings)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic6() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Hierarchical Data Decomposition: Multi-Level Category Hierarchy -> Proportional Area Mapping"}
+              Visual Dataflow: {"Hierarchical Data Decomposition: Multi-Level Category Hierarchy → Proportional Area Mapping"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Dashboard Architecture
@@ -286,7 +286,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Treemap_and_Sunbur"
+            sheetName="EX1507"
             title={"Treemap and Sunburst charts for hierarchical data breakdown - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -345,7 +345,7 @@ export default function Topic6() {
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Debangshu Roy: Regional Freight Volume Distribution Sunburst"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Visualizes shipping tonnage distribution from State -> City -> Depot using multi-ring Sunburst concentric charts."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Visualizes shipping tonnage distribution from State → City → Depot using multi-ring Sunburst concentric charts."}</p>
             </div>
             
           </div>
@@ -375,7 +375,7 @@ export default function Topic6() {
                 Step 1: Set Up Clean Presentation Canvas &amp; Hide Gridlines
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View &gt; Gridlines</kbd>, and define the 4-quadrant layout bounds.
+                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View > Gridlines</kbd>, and define the 4-quadrant layout bounds.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic6() {
                 Step 2: Construct KPI Summary Cards &amp; Delta Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Build top KPI summary cards and apply custom Unicode format masks <code className="text-cyan-300 font-mono font-bold">{"Hierarchical Charts: Insert &gt; Hierarchy Chart &gt; Treemap (Nested Rectangles) | Sunburst (Concentric Rings)"}</code>.
+                Build top KPI summary cards and apply custom Unicode format masks <code className="text-cyan-300 font-mono font-bold">{"Hierarchical Charts: Insert > Hierarchy Chart > Treemap (Nested Rectangles) | Sunburst (Concentric Rings)"}</code>.
               </p>
             </div>
 
@@ -486,7 +486,7 @@ export default function Topic6() {
                 <span>⚡</span> {"Treemap for Size Comparison"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Best for comparing proportional metric volumes across many categories."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Insert &gt; Hierarchy > Treemap"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Insert > Hierarchy > Treemap"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -494,7 +494,7 @@ export default function Topic6() {
                 <span>⚡</span> {"Sunburst for Deep Structure"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Best for showing multi-level organizational or taxonomic depth."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Insert &gt; Hierarchy > Sunburst"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Insert > Hierarchy > Sunburst"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -502,7 +502,7 @@ export default function Topic6() {
                 <span>⚡</span> {"Sort Before Plotting"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Guarantees clean, unbroken hierarchical tile grouping."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data &gt; Sort Ascending by Parent Category"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data > Sort Ascending by Parent Category"}</kbd>
             </div>
             
           </div>

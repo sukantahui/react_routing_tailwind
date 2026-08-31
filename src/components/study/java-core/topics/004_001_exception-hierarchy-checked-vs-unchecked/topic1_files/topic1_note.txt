@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. HIERARCHY BREAKDOWN:
-   - 'Object' &rarr; 'Throwable' (Root).
+   - 'Object' → 'Throwable' (Root).
    - Branch A: 'Error' (JVM hardware/RAM failure - unrecoverable).
    - Branch B: 'Exception' (Application conditions - recoverable).
      - Checked: Subclasses of Exception (compile-time enforced).

@@ -42,7 +42,7 @@ export default function Topic0() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Concept of Control Flow &amp; Conditional Branching in Software
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -62,7 +62,7 @@ export default function Topic0() {
           <p>
             The <strong>Böhm-Jacopini Theorem (1966)</strong> established that any computable algorithm can be expressed using only three canonical control structures:
             <br />
-            <strong>1. Sequence:</strong> Linear execution of statements (A &rarr; B &rarr; C).
+            <strong>1. Sequence:</strong> Linear execution of statements (A → B → C).
             <br />
             <strong>2. Selection (Branching):</strong> Diverting execution based on a boolean predicate (<code className="text-sky-300 font-mono">if</code>, <code className="text-sky-300 font-mono">if-else</code>, <code className="text-indigo-300 font-mono">switch</code>).
             <br />

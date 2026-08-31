@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "Pioneered by the Sun HotSpot research team.",
     "hint": "Combines zero startup delay (Interpreter) with peak peak performance (JIT).",
     "level": "Beginner",
-    "codeExample": "Startup -> Interpreter; Hot Spots -> JIT Native Compilation"
+    "codeExample": "Startup → Interpreter; Hot Spots → JIT Native Compilation"
   },
   {
     "question": "Where does the JVM store JIT-compiled native machine code in memory?",

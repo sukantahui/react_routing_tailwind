@@ -10,10 +10,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 - Switch as an Expression (JLS §15.28):
   * Produces a value that can be assigned directly:
     final double discount = switch (category) {
-        case MERIT_SCHOLAR       -> 0.50;
-        case BPL_EWS             -> 0.75;
-        case CORPORATE_SPONSORED -> 0.20;
-        case GENERAL             -> 0.00;
+        case MERIT_SCHOLAR       → 0.50;
+        case BPL_EWS             → 0.75;
+        case CORPORATE_SPONSORED → 0.20;
+        case GENERAL             → 0.00;
     }; // Mandatory trailing semicolon on assignment!
 
 - Strict Exhaustiveness Rule:

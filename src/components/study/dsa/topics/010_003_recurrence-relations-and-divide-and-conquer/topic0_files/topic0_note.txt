@@ -19,13 +19,13 @@ Where:
 Case 1: Leaves Dominate (Cost grows polynomially slower than leaf count)
   If f(n) = O(n^(p - eps)) for some eps > 0:
     T(n) = Θ(n^p) = Θ(n^(log_b a))
-  Example: Strassen's Matrix Mult T(n) = 7T(n/2) + O(n^2) -> Θ(n^(log2 7)) = Θ(n^2.807)
+  Example: Strassen's Matrix Mult T(n) = 7T(n/2) + O(n^2) → Θ(n^(log2 7)) = Θ(n^2.807)
 
 Case 2: Balanced Work (Work is evenly distributed across all tree levels)
   If f(n) = Θ(n^p * log^k(n)) for some k >= 0:
     T(n) = Θ(n^p * log^(k+1)(n)) = Θ(n^(log_b a) * log^(k+1)(n))
-  Example: Merge Sort T(n) = 2T(n/2) + O(n) (k=0) -> Θ(n log n)
-  Example: Binary Search T(n) = T(n/2) + O(1) -> Θ(log n)
+  Example: Merge Sort T(n) = 2T(n/2) + O(n) (k=0) → Θ(n log n)
+  Example: Binary Search T(n) = T(n/2) + O(1) → Θ(log n)
 
 Case 3: Root Dominates (Cost at root grows polynomially faster than leaf count)
   If f(n) = Ω(n^(p + eps)) for some eps > 0 AND regularity condition a*f(n/b) <= c*f(n) holds:

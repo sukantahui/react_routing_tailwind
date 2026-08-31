@@ -187,7 +187,7 @@ const questions = [
     explanation: "Standard sum of first $N$ natural numbers.",
     hint: "N(N+1)/2 total numbers.",
     level: "basic",
-    codeExample: "// N=4 -> 10 total numbers"
+    codeExample: "// N=4 → 10 total numbers"
   },
   {
     question: "What happens if you accidentally write `floydCounter` without incrementing (`floydCounter` instead of `floydCounter++`)?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Missing counter mutation.",
     hint: "Prints 1 repeatedly across all coordinates.",
     level: "basic",
-    codeExample: "// Bug: print(floydCounter); -> prints 1 everywhere"
+    codeExample: "// Bug: print(floydCounter); → prints 1 everywhere"
   },
   {
     question: "Can Pascal's Triangle be computed using a 2D Array `int[][] pascal` in $O(N^2)$ space?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "Bridges basic loops to advanced algorithmic design.",
     hint: "Bridges loop counting to mathematical recurrence relations.",
     level: "basic",
-    codeExample: "// Floyd -> Sequential Count | Pascal -> Binomial Recurrence"
+    codeExample: "// Floyd → Sequential Count | Pascal → Binomial Recurrence"
   },
   {
     question: "How do you print a Numerical Hollow Box (e.g. 1 1 1 1 / 1 0 0 1 / 1 1 1 1)?",

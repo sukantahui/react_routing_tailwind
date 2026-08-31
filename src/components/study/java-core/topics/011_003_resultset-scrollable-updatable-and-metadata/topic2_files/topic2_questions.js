@@ -13,7 +13,7 @@ const topic2_questions = [
     "explanation": "Named column getters are immune to column order refactoring.",
     "hint": "Query refactoring or column reordering causes silent data corruption or type errors.",
     "level": "Intermediate",
-    "codeExample": "SELECT name, id -> rs.getInt(1) fails because index 1 is now name."
+    "codeExample": "SELECT name, id → rs.getInt(1) fails because index 1 is now name."
   }
 ];
 

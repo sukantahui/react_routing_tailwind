@@ -21,7 +21,7 @@ export default function Topic13() {
             Atomic Method Suite
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           The Atomic Method Suite: <code className="text-emerald-400 font-mono">compareAndSet</code> &amp; Functional <code className="text-sky-400 font-mono">updateAndGet()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic13() {
       </section>
 
       <Teacher
-        note="In Java 8+, you don't even have to write CAS while-loops anymore! Just pass a lambda to 'updateAndGet(x -> x * 2)' and Java will retry automatically until your atomic calculation succeeds! — Sukanta Hui"
+        note="In Java 8+, you don't even have to write CAS while-loops anymore! Just pass a lambda to 'updateAndGet(x → x * 2)' and Java will retry automatically until your atomic calculation succeeds! — Sukanta Hui"
       />
     </div>
   );

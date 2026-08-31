@@ -44,7 +44,7 @@ const questions = [
   },
   {
     question: "Suppose a 2x2 matrix is [[10, 20], [30, 40]]. Find the saddle point and the value of the game in ₹.",
-    shortAnswer: "Row Mins: [10, 30] -> Maximin = 30; Col Maxs: [30, 40] -> Minimax = 30. Saddle point is at (A2, B1) with Value of the Game = ₹30.",
+    shortAnswer: "Row Mins: [10, 30] → Maximin = 30; Col Maxs: [30, 40] → Minimax = 30. Saddle point is at (A2, B1) with Value of the Game = ₹30.",
     explanation: "Cell (2,1) is min in row 2 (30 <= 40) and max in col 1 (30 >= 10).",
     hint: "Saddle point at (A2, B1) with value ₹30.",
     level: "moderate",
@@ -52,7 +52,7 @@ const questions = [
   },
   {
     question: "Suppose a 2x2 matrix is [[20, -10], [-5, 30]]. Does a saddle point exist?",
-    shortAnswer: "Row Mins: [-10, -5] -> Maximin = -5. Col Maxs: [20, 30] -> Minimax = 20. Since -5 != 20 (Maximin < Minimax), NO saddle point exists.",
+    shortAnswer: "Row Mins: [-10, -5] → Maximin = -5. Col Maxs: [20, 30] → Minimax = 20. Since -5 != 20 (Maximin < Minimax), NO saddle point exists.",
     explanation: "Non-strictly determined game requiring mixed strategies.",
     hint: "No, Maximin (-5) < Minimax (20).",
     level: "moderate",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Saddle Point in Game Theory?",
     shortAnswer: "'A Saddle Point is the unshakeable equilibrium where Maximin = Minimax = v*; it is simultaneously the minimum in its row and the maximum in its column; neither player can benefit by deviating unilaterally in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all saddle point mechanics.",
-    hint: "Maximin = Minimax = v* -> Min in row & Max in col -> Stable Nash equilibrium in ₹.",
+    hint: "Maximin = Minimax = v* → Min in row & Max in col → Stable Nash equilibrium in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CheckMaximinEqualsMinimax() -> LocateRowMinColMax() -> VerifyNashStability(v*, ₹)."
+    codeExample: "GoldenRule: CheckMaximinEqualsMinimax() → LocateRowMinColMax() → VerifyNashStability(v*, ₹)."
   }
 ];
 

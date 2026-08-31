@@ -21,7 +21,7 @@ export default function Topic0() {
             Bounded Generics
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Why Bounded Types are Necessary: Restricting Subtype Hierarchies
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic0() {
       </section>
 
       <Teacher
-        note="Without bounds, '<T>' is treated as pure java.lang.Object! By writing '<T extends Number>', you tell Java: 'T is guaranteed to be a number', allowing you to call 'doubleValue()' or 'intValue()' directly! — Sukanta Hui"
+        note="Without bounds, '&lt;T&gt;' is treated as pure java.lang.Object! By writing '<T extends Number>', you tell Java: 'T is guaranteed to be a number', allowing you to call 'doubleValue()' or 'intValue()' directly! — Sukanta Hui"
       />
     </div>
   );

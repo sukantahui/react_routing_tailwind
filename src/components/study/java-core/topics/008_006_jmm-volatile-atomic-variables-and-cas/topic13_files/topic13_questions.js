@@ -5,7 +5,7 @@ const topic13_questions = [
     "explanation": "Java 8 functional enhancements to java.util.concurrent.atomic.",
     "hint": "Encapsulates the CAS retry loop internally using a lambda expression.",
     "level": "Intermediate",
-    "codeExample": "atomicInt.updateAndGet(x -> Math.min(x + 10, MAX_LIMIT));"
+    "codeExample": "atomicInt.updateAndGet(x → Math.min(x + 10, MAX_LIMIT));"
   }
 ];
 

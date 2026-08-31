@@ -21,7 +21,7 @@ export default function Topic3() {
             Type Inference
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Invoking Generic Methods: Explicit Type Witness vs Compiler Type Inference
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic3() {
       </section>
 
       <Teacher
-        note="Most of the time, the Java compiler automatically figures out the generic type for you! But if you need to force a common parent type like Number, you can explicitly pass the type witness: 'MyClass.<Number>coalesce(10, 20.5)'! — Sukanta Hui"
+        note="Most of the time, the Java compiler automatically figures out the generic type for you! But if you need to force a common parent type like Number, you can explicitly pass the type witness: 'MyClass.&lt;Number&gt;coalesce(10, 20.5)'! — Sukanta Hui"
       />
     </div>
   );

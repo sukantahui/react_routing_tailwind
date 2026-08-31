@@ -10,8 +10,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - 'clazz.getDeclaredFields()': Returns all fields declared in the class (private, protected, public).
 
 2. FIELD ACCESS & MUTATION:
-   - Read: 'field.get(Object obj)' -> Returns field value as 'Object' (auto-boxes primitives).
-   - Write: 'field.set(Object obj, Object value)' -> Mutates the field value.
+   - Read: 'field.get(Object obj)' → Returns field value as 'Object' (auto-boxes primitives).
+   - Write: 'field.set(Object obj, Object value)' → Mutates the field value.
    - Primitive getters/setters: 'getInt()', 'setInt()', 'getDouble()', 'setDouble()' (zero boxing).
 
 ================================================================================

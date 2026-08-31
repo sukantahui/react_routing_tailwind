@@ -97,7 +97,7 @@ JOIN (
 -- 📋 EXPLAIN Output for Subquery:
 -- key = 'idx_status_reg_id'
 -- Extra = 'Using index' ⚡
--- Latency drops from 450 ms -> 4.2 ms (100x faster)!`,
+-- Latency drops from 450 ms → 4.2 ms (100x faster)!`,
       resultRows: [
         {
           patternName: "Standard Pagination (LIMIT 100k, 20)",
@@ -235,7 +235,7 @@ WHERE city = 'Kolkata';
               Index Optimization Mastery
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Covering Index Strategy: Eliminating Disk Reads with Index-Only Access
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -731,7 +731,7 @@ WHERE city = 'Kolkata';
 CREATE INDEX idx_customer_orders_cov 
 ON customer_orders (customer_id, order_date DESC, total_amount_inr, status);
 
--- Result: Extra = 'Using index' ⚡ (Zero base table reads; latency drops from 28 ms -> 0.4 ms!)`}
+-- Result: Extra = 'Using index' ⚡ (Zero base table reads; latency drops from 28 ms → 0.4 ms!)`}
                 </pre>
               </div>
             </div>

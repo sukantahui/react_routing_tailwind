@@ -31,7 +31,7 @@ Key Clauses:
 2. `ORDER BY`: Sorts elements alphabetically, numerically, or chronologically
    *inside* the concatenated string.
 3. `SEPARATOR`: Customizes the delimiter string (default is `,`).
-   Examples: `SEPARATOR '; '`, `SEPARATOR ' | '`, `SEPARATOR ' -> '`.
+   Examples: `SEPARATOR '; '`, `SEPARATOR ' | '`, `SEPARATOR ' → '`.
 
 3. EXAMPLES IN ACTION
 --------------------------------------------------------------------------------

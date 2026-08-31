@@ -27,8 +27,8 @@ ISO 27001 ISMS:      "Board-approved policy + Risk Register + 93 Annex A Control
     hint: "Remember the management system clauses (4-10) and the control catalog (Annex A).",
     level: "moderate",
     codeExample: `// ISO/IEC 27001:2022 ISMS Structure:
-Part 1: Clauses 4-10 -> Governance & Management Framework (Mandatory for ALL certified firms)
-Part 2: Annex A      -> 93 Reference Controls across 4 Themes:
+Part 1: Clauses 4-10 → Governance & Management Framework (Mandatory for ALL certified firms)
+Part 2: Annex A      → 93 Reference Controls across 4 Themes:
                         - Organizational (37 controls)
                         - People (8 controls)
                         - Physical (14 controls)
@@ -41,8 +41,8 @@ Part 2: Annex A      -> 93 Reference Controls across 4 Themes:
     hint: "Think of buying an expensive vault for gold bars while using a simple locked cabinet for office paper.",
     level: "moderate",
     codeExample: `// Risk-Based ISMS Decision Logic:
-Asset: Customer Aadhaar Database -> Risk: ₹250 Cr DPDP Breach -> Control: AES-256-GCM + HSM + FIDO2 MFA (High Investment)
-Asset: Internal Canteen Menu   -> Risk: ₹0 Financial Loss     -> Control: Standard File Permission (Zero Cost)`
+Asset: Customer Aadhaar Database → Risk: ₹250 Cr DPDP Breach → Control: AES-256-GCM + HSM + FIDO2 MFA (High Investment)
+Asset: Internal Canteen Menu   → Risk: ₹0 Financial Loss     → Control: Standard File Permission (Zero Cost)`
   },
   {
     question: "How does an ISMS establish a legal 'Safe Harbor' defense under Section 43A and Section 85 of the Indian Information Technology Act 2000?",
@@ -53,7 +53,7 @@ Asset: Internal Canteen Menu   -> Risk: ₹0 Financial Loss     -> Control: Stan
     codeExample: `// Legal Safe Harbor via ISMS:
 Legal Challenge: Cyber breach occurs; prosecutor alleges corporate negligence under IT Act Sec 43A & Sec 85.
 Evidence Presented: Certified ISO/IEC 27001:2022 ISMS + Audited Statement of Applicability + CAPA Logs
-Judicial Verdict: Enterprise maintained statutory "Reasonable Security Practices" -> Directors Protected!`
+Judicial Verdict: Enterprise maintained statutory "Reasonable Security Practices" → Directors Protected!`
   },
   {
     question: "What are the three operational dimensions integrated by an ISMS (The Golden Triangle)?",
@@ -128,9 +128,9 @@ ISMS (The Strategic Umbrella):  Board Governance + Risk Policy + ISO 27001 Certi
     hint: "Think of writing a thick rulebook that everyone signs but nobody actually follows.",
     level: "moderate",
     codeExample: `// ISMS Anti-Patterns (Failure Modes):
-Anti-Pattern 1: "Shelfware Policies" -> 500-page policy document written in 2020 and never opened again.
-Anti-Pattern 2: "IT Silo"            -> CISO has no board access and reports to Junior IT Manager.
-Anti-Pattern 3: "Tick-Box Audit"     -> Faking audit logs 2 days before the external ISO auditor arrives!`
+Anti-Pattern 1: "Shelfware Policies" → 500-page policy document written in 2020 and never opened again.
+Anti-Pattern 2: "IT Silo"            → CISO has no board access and reports to Junior IT Manager.
+Anti-Pattern 3: "Tick-Box Audit"     → Faking audit logs 2 days before the external ISO auditor arrives!`
   },
   {
     question: "Synthesizing What is an ISMS: what is the master equation of ISMS enterprise resilience?",

@@ -164,7 +164,7 @@ SET NAMES 'utf8mb4';
               Character Sets
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Understanding Character Sets: ASCII, Latin1, UTF-8 (utf8mb3) vs utf8mb4 (Full Unicode / Emojis)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -268,16 +268,16 @@ SET NAMES 'utf8mb4';
                 </text>
                 <line x1="20" y1="85" x2="220" y2="85" stroke="#334155" />
                 <rect x="35" y="105" width="170" height="40" rx="4" fill="#1e293b" stroke="#334155" />
-                <text x="45" y="128" fill="#e2e8f0" fontSize="11" fontWeight="bold">'A' &rarr; 1 Byte (0x41)</text>
+                <text x="45" y="128" fill="#e2e8f0" fontSize="11" fontWeight="bold">'A' → 1 Byte (0x41)</text>
 
                 <rect x="35" y="155" width="170" height="40" rx="4" fill="#1e293b" stroke="#be123c" />
-                <text x="45" y="178" fill="#f87171" fontSize="10" fontWeight="bold">'é' &rarr; ❌ Unsupported</text>
+                <text x="45" y="178" fill="#f87171" fontSize="10" fontWeight="bold">'é' → ❌ Unsupported</text>
 
                 <rect x="35" y="205" width="170" height="40" rx="4" fill="#1e293b" stroke="#be123c" />
-                <text x="45" y="228" fill="#f87171" fontSize="10" fontWeight="bold">'₹' &rarr; ❌ Unsupported</text>
+                <text x="45" y="228" fill="#f87171" fontSize="10" fontWeight="bold">'₹' → ❌ Unsupported</text>
 
                 <rect x="35" y="255" width="170" height="40" rx="4" fill="#1e293b" stroke="#be123c" />
-                <text x="45" y="278" fill="#f87171" fontSize="10" fontWeight="bold">'🚀' &rarr; ❌ Unsupported</text>
+                <text x="45" y="278" fill="#f87171" fontSize="10" fontWeight="bold">'🚀' → ❌ Unsupported</text>
 
                 {/* Latin1 Column */}
                 <rect x="250" y="40" width="200" height="280" rx="8" fill="#0f172a" stroke="#0ea5e9" strokeWidth="1.5" />
@@ -286,16 +286,16 @@ SET NAMES 'utf8mb4';
                 </text>
                 <line x1="250" y1="85" x2="450" y2="85" stroke="#334155" />
                 <rect x="265" y="105" width="170" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="275" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'A' &rarr; 1 Byte (0x41)</text>
+                <text x="275" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'A' → 1 Byte (0x41)</text>
 
                 <rect x="265" y="155" width="170" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="275" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'é' &rarr; 1 Byte (0xE9)</text>
+                <text x="275" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'é' → 1 Byte (0xE9)</text>
 
                 <rect x="265" y="205" width="170" height="40" rx="4" fill="#1e293b" stroke="#be123c" />
-                <text x="275" y="228" fill="#f87171" fontSize="10" fontWeight="bold">'₹' &rarr; ❌ Unsupported</text>
+                <text x="275" y="228" fill="#f87171" fontSize="10" fontWeight="bold">'₹' → ❌ Unsupported</text>
 
                 <rect x="265" y="255" width="170" height="40" rx="4" fill="#1e293b" stroke="#be123c" />
-                <text x="275" y="278" fill="#f87171" fontSize="10" fontWeight="bold">'🚀' &rarr; ❌ Unsupported</text>
+                <text x="275" y="278" fill="#f87171" fontSize="10" fontWeight="bold">'🚀' → ❌ Unsupported</text>
 
                 {/* utf8mb3 Column */}
                 <rect x="480" y="40" width="210" height="280" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="1.5" />
@@ -304,16 +304,16 @@ SET NAMES 'utf8mb4';
                 </text>
                 <line x1="480" y1="85" x2="690" y2="85" stroke="#334155" />
                 <rect x="495" y="105" width="180" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="505" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'A' &rarr; 1 Byte (0x41)</text>
+                <text x="505" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'A' → 1 Byte (0x41)</text>
 
                 <rect x="495" y="155" width="180" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="505" y="178" fill="#a7f3d0" fontSize="11" fontWeight="bold">'é' &rarr; 2 Bytes (C3 A9)</text>
+                <text x="505" y="178" fill="#a7f3d0" fontSize="11" fontWeight="bold">'é' → 2 Bytes (C3 A9)</text>
 
                 <rect x="495" y="205" width="180" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="505" y="228" fill="#a7f3d0" fontSize="11" fontWeight="bold">'₹' &rarr; 3 Bytes (E2 82 B9)</text>
+                <text x="505" y="228" fill="#a7f3d0" fontSize="11" fontWeight="bold">'₹' → 3 Bytes (E2 82 B9)</text>
 
                 <rect x="495" y="255" width="180" height="40" rx="4" fill="#1e293b" stroke="#be123c" />
-                <text x="505" y="278" fill="#f87171" fontSize="9" fontWeight="bold">'🚀' &rarr; ❌ Error 1366 Crash!</text>
+                <text x="505" y="278" fill="#f87171" fontSize="9" fontWeight="bold">'🚀' → ❌ Error 1366 Crash!</text>
 
                 {/* utf8mb4 Column */}
                 <rect x="720" y="40" width="210" height="280" rx="8" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
@@ -322,16 +322,16 @@ SET NAMES 'utf8mb4';
                 </text>
                 <line x1="720" y1="85" x2="930" y2="85" stroke="#334155" />
                 <rect x="735" y="105" width="180" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="745" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'A' &rarr; 1 Byte (0x41)</text>
+                <text x="745" y="128" fill="#a7f3d0" fontSize="11" fontWeight="bold">'A' → 1 Byte (0x41)</text>
 
                 <rect x="735" y="155" width="180" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="745" y="178" fill="#a7f3d0" fontSize="11" fontWeight="bold">'é' &rarr; 2 Bytes (C3 A9)</text>
+                <text x="745" y="178" fill="#a7f3d0" fontSize="11" fontWeight="bold">'é' → 2 Bytes (C3 A9)</text>
 
                 <rect x="735" y="205" width="180" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="745" y="228" fill="#a7f3d0" fontSize="11" fontWeight="bold">'₹' &rarr; 3 Bytes (E2 82 B9)</text>
+                <text x="745" y="228" fill="#a7f3d0" fontSize="11" fontWeight="bold">'₹' → 3 Bytes (E2 82 B9)</text>
 
                 <rect x="735" y="255" width="180" height="40" rx="4" fill="#1e293b" stroke="#047857" />
-                <text x="745" y="278" fill="#34d399" fontSize="10" fontWeight="bold">'🚀' &rarr; 4 Bytes (F0 9F 9A 80) ✅</text>
+                <text x="745" y="278" fill="#34d399" fontSize="10" fontWeight="bold">'🚀' → 4 Bytes (F0 9F 9A 80) ✅</text>
               </svg>
             </div>
           </div>

@@ -43,7 +43,7 @@ export default function Topic7() {
             State Initialization &amp; Object Lifecycle
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Instance Variables: Default Initialization Values and Object Lifecycle
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -79,7 +79,7 @@ export default function Topic7() {
             <div className="p-4 bg-slate-950 rounded-xl border border-purple-500/30">
               <h3 className="text-purple-400 font-bold text-sm mb-1">Booleans &amp; Chars</h3>
               <p className="text-slate-300 font-sans text-xs">
-                <code className="text-purple-300">boolean</code> &rarr; <code className="text-purple-200 font-bold">false</code>, <code className="text-purple-300">char</code> &rarr; <code className="text-purple-200 font-bold">&apos;\u0000&apos;</code>.
+                <code className="text-purple-300">boolean</code> → <code className="text-purple-200 font-bold">false</code>, <code className="text-purple-300">char</code> → <code className="text-purple-200 font-bold">&apos;\u0000&apos;</code>.
               </p>
             </div>
 
@@ -242,7 +242,7 @@ export default function Topic7() {
               <span>📌</span> Initialization Order Sequence
             </h3>
             <p className="text-slate-300 leading-relaxed">
-              Default Zero-Init &rarr; Explicit inline field initializers (in code order) &rarr; Instance initializer blocks (<code className="text-emerald-300 font-mono">&#123; ... &#125;</code>) &rarr; Constructor body (<code className="text-emerald-300 font-mono">&lt;init&gt;</code>).
+              Default Zero-Init → Explicit inline field initializers (in code order) → Instance initializer blocks (<code className="text-emerald-300 font-mono">&#123; ... &#125;</code>) → Constructor body (<code className="text-emerald-300 font-mono">&lt;init&gt;</code>).
             </p>
           </div>
 

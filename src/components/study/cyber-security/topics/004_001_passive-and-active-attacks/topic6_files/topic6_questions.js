@@ -6,8 +6,8 @@ const questions = [
     hint: "Photocopying a valid cinema ticket: the barcode is authentic, but it gets used twice.",
     level: "basic",
     codeExample: `// Replay Attack Threat Flow:
-// Time 1: Mamata -> Bank: Encrypt("Transfer ₹50,000 to Debangshu") [Executed]
-// Time 2: Attacker -> Bank: Encrypt("Transfer ₹50,000 to Debangshu") [Replayed & Executed AGAIN!]`
+// Time 1: Mamata → Bank: Encrypt("Transfer ₹50,000 to Debangshu") [Executed]
+// Time 2: Attacker → Bank: Encrypt("Transfer ₹50,000 to Debangshu") [Replayed & Executed AGAIN!]`
   },
   {
     question: "How does a Cryptographic Nonce (Number Used Once) prevent Replay Attacks?",
@@ -62,9 +62,9 @@ if (seq > max_seq) {
     hint: "Blocking the mailbox while grabbing the letter, handing the owner a replacement, and keeping the spare key.",
     level: "expert",
     codeExample: `// Rolljam Exploitation Sequence:
-// Press 1: Keyfob sends Code_101 -> Jammer blocks car, captures Code_101
-// Press 2: Keyfob sends Code_102 -> Jammer captures Code_102, transmits Code_101 (Car unlocks)
-// Later   : Attacker transmits captured Code_102 -> Car accepts valid rolling code!`
+// Press 1: Keyfob sends Code_101 → Jammer blocks car, captures Code_101
+// Press 2: Keyfob sends Code_102 → Jammer captures Code_102, transmits Code_101 (Car unlocks)
+// Later   : Attacker transmits captured Code_102 → Car accepts valid rolling code!`
   },
   {
     question: "How does Kerberos utilize Authenticator Timestamps to defeat Ticket Replay Attacks?",
@@ -107,8 +107,8 @@ makestep 1.0 3`
     level: "expert",
     codeExample: `// Bloom Filter Nonce Lookup:
 // Hashes: h1 = Murmur3(nonce), h2 = FNV1a(nonce), h3 = CityHash(nonce)
-// If BitArray[h1] == 1 AND BitArray[h2] == 1 AND BitArray[h3] == 1 -> Possible Duplicate!
-// Else -> Guaranteed Fresh! Insert and proceed.`
+// If BitArray[h1] == 1 AND BitArray[h2] == 1 AND BitArray[h3] == 1 → Possible Duplicate!
+// Else → Guaranteed Fresh! Insert and proceed.`
   },
   {
     question: "How does DNP3 Secure Authentication (SAv5) prevent SCADA command replay attacks on electrical power grids?",
@@ -117,8 +117,8 @@ makestep 1.0 3`
     hint: "A high-voltage switch that checks the serial number and timestamp of every command before throwing the lever.",
     level: "expert",
     codeExample: `// DNP3 SAv5 Anti-Replay Challenge Struct:
-// Outstation -> Master: Challenge(SequenceNumber=402, Nonce=0x8a9e...4e1b)
-// Master -> Outstation: Response(HMAC_K(SeqNum || Nonce || Command="TRIP_BREAKER_14"))`
+// Outstation → Master: Challenge(SequenceNumber=402, Nonce=0x8a9e...4e1b)
+// Master → Outstation: Response(HMAC_K(SeqNum || Nonce || Command="TRIP_BREAKER_14"))`
   },
   {
     question: "What is an HTTP Idempotency Key (RFC 9440), and how does it prevent duplicate financial charge replays in REST APIs?",
@@ -245,8 +245,8 @@ disable monitor # Disables vulnerable monlist command`
     hint: "Stamping the expiration date directly inside the encrypted seal so old tickets cannot be reused years later.",
     level: "expert",
     codeExample: `// Denning-Sacco Anti-Replay Fix:
-// Flawed Message 3: Ticket_B = E_Kb( SessionKey, Alice_ID ) -> Vulnerable to replay forever!
-// Patched Message 3: Ticket_B = E_Kb( SessionKey, Alice_ID, Timestamp_T ) -> Drops expired tickets!`
+// Flawed Message 3: Ticket_B = E_Kb( SessionKey, Alice_ID ) → Vulnerable to replay forever!
+// Patched Message 3: Ticket_B = E_Kb( SessionKey, Alice_ID, Timestamp_T ) → Drops expired tickets!`
   },
   {
     question: "What is an SSDP / UPnP Replay Attack on Smart Home and IoT Devices?",

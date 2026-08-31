@@ -10,7 +10,7 @@ Designing a dynamic Loan Amortization Schedule with extra payment simulation is 
 It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Dynamic Schedule Engine: Beginning Balance -> Scheduled PMT -> Extra Prepayment -> Interest -> Principal -> Ending Balance
+Operational Architecture: Dynamic Schedule Engine: Beginning Balance → Scheduled PMT → Extra Prepayment → Interest → Principal → Ending Balance
 
 3. CORE TECHNICAL MECHANICS
 1. Self-Liquidating Schedule Logic:

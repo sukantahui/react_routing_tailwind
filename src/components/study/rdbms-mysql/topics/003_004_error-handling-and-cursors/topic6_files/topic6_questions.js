@@ -33,7 +33,7 @@ const questions = [
     question: "What is the 'Log-and-Rethrow' design pattern in database architecture?",
     shortAnswer: "An exception handler catches an error, executes transaction rollback, writes rich telemetry to an audit table, and then re-throws the error via `RESIGNAL;` to alert the client.",
     explanation: "Standard enterprise observability pattern.",
-    hint: "Catch -> Rollback -> Log Telemetry -> Re-throw via RESIGNAL.",
+    hint: "Catch → Rollback → Log Telemetry → Re-throw via RESIGNAL.",
     level: "expert"
   },
   {
@@ -89,7 +89,7 @@ const questions = [
     question: "Can an `EXIT HANDLER FOR SQLEXCEPTION` execute `ROLLBACK;` and then `RESIGNAL;`?",
     shortAnswer: "YES; this is the authoritative enterprise recovery idiom: `BEGIN ROLLBACK; INSERT INTO log ...; RESIGNAL; END;`.",
     explanation: "Standard rollback and re-throw idiom.",
-    hint: "Yes: ROLLBACK -> Log -> RESIGNAL.",
+    hint: "Yes: ROLLBACK → Log → RESIGNAL.",
     level: "basic"
   },
   {
@@ -208,7 +208,7 @@ const questions = [
     question: "What is the senior architect's summary rule for Propagating and Modifying Exceptions with RESIGNAL?",
     shortAnswer: "Use `RESIGNAL` to implement clean multi-tier exception architectures: always catch fatal errors with `EXIT HANDLER FOR SQLEXCEPTION`; execute `ROLLBACK;` and write telemetry to your audit log first; and then execute `RESIGNAL;` (bare or sanitized via `SQLSTATE '45000'`) to ensure client applications never suffer from silent data corruption.",
     explanation: "Authoritative architectural best practices for RESIGNAL exception propagation.",
-    hint: "Catch -> Rollback -> Telemetry Log -> RESIGNAL (bare or transformed to Class 45).",
+    hint: "Catch → Rollback → Telemetry Log → RESIGNAL (bare or transformed to Class 45).",
     level: "expert"
   }
 ];

@@ -24,7 +24,7 @@ PARTITIONS 4;`
     explanation: "Guarantees mathematically uniform distribution across all $N$ partition files.",
     hint: "Partition ID = MOD(ABS(expr), N).",
     level: "basic",
-    codeExample: `-- If user_id = 105 and PARTITIONS 4: MOD(105, 4) = 1 -> Routes to Partition 1 (p1).`
+    codeExample: `-- If user_id = 105 and PARTITIONS 4: MOD(105, 4) = 1 → Routes to Partition 1 (p1).`
   },
   {
     question: "What is LINEAR HASH Partitioning and what mathematical algorithm powers it?",
@@ -176,7 +176,7 @@ WHERE TABLE_NAME = 'user_logs';`
     explanation: "Prevents negative array index errors in internal partition routing.",
     hint: "MySQL takes the absolute value before applying modulo.",
     level: "basic",
-    codeExample: `-- -105 -> ABS(-105) = 105 -> MOD(105, 4) = 1 (routes to p1).`
+    codeExample: `-- -105 → ABS(-105) = 105 → MOD(105, 4) = 1 (routes to p1).`
   },
   {
     question: "How do you detect Data Skew across partitions in a HASH partitioned table?",

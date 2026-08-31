@@ -69,7 +69,7 @@ const Topic2 = () => {
             Module 005_005 · Animation & Motion Logic · Topic 2
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
             Eliminating Flickering in Turtle Animations
           </h1>
 

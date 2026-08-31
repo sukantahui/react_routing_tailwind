@@ -42,7 +42,7 @@ export default function Topic3() {
             Algorithmic Lab 3 · 2D Matrices
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Matrix Spiral Traversal &amp; In-Place 90-Degree Clockwise Rotation
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -64,7 +64,7 @@ export default function Topic3() {
               <h3 className="text-sky-400 font-bold text-sm mb-2">1. Spiral Order Traversal</h3>
               <p className="text-sky-300 mb-1">4 Pointers: top, bottom, left, right</p>
               <p className="text-xs text-slate-300 font-sans leading-relaxed">
-                Visits cells in clockwise spiral boundaries. Top (left&rarr;right), Right (top&rarr;bottom), Bottom (right&rarr;left, guarded by <code className="text-slate-300 font-mono">top &lt;= bottom</code>), Left (bottom&rarr;top, guarded by <code className="text-slate-300 font-mono">left &lt;= right</code>).
+                Visits cells in clockwise spiral boundaries. Top (left→right), Right (top→bottom), Bottom (right→left, guarded by <code className="text-slate-300 font-mono">top &lt;= bottom</code>), Left (bottom→top, guarded by <code className="text-slate-300 font-mono">left &lt;= right</code>).
               </p>
             </div>
 
@@ -118,16 +118,16 @@ export default function Topic3() {
             <text x="225" y="55" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">1. SPIRAL ORDER (4 Boundary Pointers)</text>
 
             <rect x="45" y="70" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="92" fill="#bae6fd" fontSize="10" fontFamily="monospace">1. Top Row     : left &rarr; right | top++</text>
+            <text x="55" y="92" fill="#bae6fd" fontSize="10" fontFamily="monospace">1. Top Row     : left → right | top++</text>
 
             <rect x="45" y="110" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="132" fill="#bae6fd" fontSize="10" fontFamily="monospace">2. Right Column: top &rarr; bottom  | right--</text>
+            <text x="55" y="132" fill="#bae6fd" fontSize="10" fontFamily="monospace">2. Right Column: top → bottom  | right--</text>
 
             <rect x="45" y="150" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">3. Bottom Row  : right &rarr; left | bottom-- (if top&lt;=bot)</text>
+            <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">3. Bottom Row  : right → left | bottom-- (if top&lt;=bot)</text>
 
             <rect x="45" y="190" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="212" fill="#bae6fd" fontSize="10" fontFamily="monospace">4. Left Column : bottom &rarr; top  | left++ (if left&lt;=rt)</text>
+            <text x="55" y="212" fill="#bae6fd" fontSize="10" fontFamily="monospace">4. Left Column : bottom → top  | left++ (if left&lt;=rt)</text>
 
             {/* Right Panel: 90° In-Place Rotation (2 Steps) */}
             <rect x="450" y="30" width="400" height="215" rx="10" fill="#0f172a" stroke="#8b5cf6" strokeWidth="1.5" />

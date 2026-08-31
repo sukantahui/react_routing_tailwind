@@ -196,7 +196,7 @@ SELECT COUNT(*) FROM kolkata_retail.orders;`
     explanation: "For extreme restore performance, some tools drop secondary indexes before bulk loading and rebuild them in a single sorted pass afterwards.",
     hint: "Updating secondary indexes during insert adds significant CPU and random I/O overhead.",
     level: "intermediate",
-    codeExample: `-- Bulk load into PK-only table -> Recreate secondary indexes in sorted pass`
+    codeExample: `-- Bulk load into PK-only table → Recreate secondary indexes in sorted pass`
   },
   {
     question: "How do you restore a `mysqldump` file over an SSL/TLS encrypted connection to a remote cloud database (e.g. AWS RDS / Google Cloud SQL)?",

@@ -28,21 +28,21 @@ across distribution centers in Barrackpore, Kolkata, and Ichapur.
 3. `categories` (Hierarchical Category Tree)
    - `category_id` INT AUTO_INCREMENT PRIMARY KEY
    - `category_name` VARCHAR(100) NOT NULL
-   - `parent_category_id` INT NULL (FK -> categories)
+   - `parent_category_id` INT NULL (FK → categories)
 
 4. `products` (Catalog Master)
    - `product_id` INT AUTO_INCREMENT PRIMARY KEY
    - `sku_code` VARCHAR(30) NOT NULL UNIQUE
    - `product_name` VARCHAR(255) NOT NULL
-   - `category_id` INT NOT NULL (FK -> categories)
+   - `category_id` INT NOT NULL (FK → categories)
    - `cost_price_inr` DECIMAL(10,2) NOT NULL
    - `selling_price_inr` DECIMAL(10,2) NOT NULL
    - `min_reorder_level` INT NOT NULL DEFAULT 10
 
 5. `warehouse_inventory` (Multi-Warehouse Stock Ledger)
    - `inventory_id` BIGINT AUTO_INCREMENT PRIMARY KEY
-   - `warehouse_id` INT NOT NULL (FK -> warehouses)
-   - `product_id` INT NOT NULL (FK -> products)
+   - `warehouse_id` INT NOT NULL (FK → warehouses)
+   - `product_id` INT NOT NULL (FK → products)
    - `quantity_on_hand` INT NOT NULL DEFAULT 0
    - `quantity_reserved` INT NOT NULL DEFAULT 0
    - UNIQUE KEY `uq_warehouse_product` (`warehouse_id`, `product_id`)
@@ -59,7 +59,7 @@ across distribution centers in Barrackpore, Kolkata, and Ichapur.
 7. `customer_orders` (Order Header)
    - `order_id` BIGINT AUTO_INCREMENT PRIMARY KEY
    - `order_number` VARCHAR(30) NOT NULL UNIQUE
-   - `customer_id` BIGINT NOT NULL (FK -> customers)
+   - `customer_id` BIGINT NOT NULL (FK → customers)
    - `order_date` DATETIME NOT NULL
    - `order_status` ENUM('PENDING', 'PROCESSING', 'SHIPPED', 'DELIVERED', 'CANCELLED') DEFAULT 'PENDING'
    - `gross_total_inr` DECIMAL(12,2) NOT NULL
@@ -68,8 +68,8 @@ across distribution centers in Barrackpore, Kolkata, and Ichapur.
 
 8. `order_items` (Order Lines - 1NF Itemized Details)
    - `order_item_id` BIGINT AUTO_INCREMENT PRIMARY KEY
-   - `order_id` BIGINT NOT NULL (FK -> customer_orders)
-   - `product_id` INT NOT NULL (FK -> products)
+   - `order_id` BIGINT NOT NULL (FK → customer_orders)
+   - `product_id` INT NOT NULL (FK → products)
    - `quantity` INT NOT NULL
    - `unit_price_at_sale_inr` DECIMAL(10,2) NOT NULL (Price Snapshot!)
    - `subtotal_inr` DECIMAL(12,2) NOT NULL

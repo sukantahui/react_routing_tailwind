@@ -53,7 +53,7 @@ END //
 
 DELIMITER ;
 
--- Insert Payment -> Audit record generated automatically with zero app code:
+-- Insert Payment → Audit record generated automatically with zero app code:
 INSERT INTO fee_payments (student_id, amount_paid_inr, payment_mode) 
 VALUES (101, 15000.00, 'UPI_RAZORPAY');`,
       resultRows: [
@@ -185,7 +185,7 @@ VALUES ('Mamata', '098300-11223', '  MAMATA@BKP.EDU  ');
               Enterprise Patterns
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Real-World Trigger Use Cases: Audit Logs &amp; Validation
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

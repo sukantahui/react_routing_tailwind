@@ -10,7 +10,7 @@ Automating PowerPoint from Excel VBA: Generating executive slide decks dynamical
 It provides the core protocols required to construct custom GUI forms, automate cross-application reporting decks, and deploy enterprise add-ins.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: PowerPoint Automation: Set pptApp = CreateObject("PowerPoint.Application") | Set pres = pptApp.Presentations.Add | pres.Slides.AddSlide | chartObj.CopyPicture -> Slide.Shapes.Paste
+Operational Architecture: PowerPoint Automation: Set pptApp = CreateObject("PowerPoint.Application") | Set pres = pptApp.Presentations.Add | pres.Slides.AddSlide | chartObj.CopyPicture → Slide.Shapes.Paste
 
 3. CORE TECHNICAL MECHANICS
 1. Cross-Application COM Interoperability:

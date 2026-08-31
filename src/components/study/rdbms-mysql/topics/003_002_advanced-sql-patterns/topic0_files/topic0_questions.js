@@ -193,7 +193,7 @@ const questions = [
   {
     question: "Can Window Functions be combined with `DISTINCT` in the main query?",
     shortAnswer: "YES; `DISTINCT` is evaluated *after* Window Functions, deduplicating the final projected rows.",
-    explanation: "Execution order: Window Functions -> SELECT -> DISTINCT.",
+    explanation: "Execution order: Window Functions → SELECT → DISTINCT.",
     hint: "Yes, DISTINCT evaluates after Window Functions.",
     level: "moderate"
   },

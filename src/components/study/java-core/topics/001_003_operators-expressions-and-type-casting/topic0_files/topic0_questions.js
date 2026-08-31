@@ -35,7 +35,7 @@ const questions = [
     explanation: "Unlike C/C++ where operand evaluation order is undefined/compiler-dependent, Java guarantees that the left-hand operand is completely evaluated before any part of the right-hand operand is evaluated.",
     hint: "Strict Left-to-Right evaluation guarantee.",
     level: "intermediate",
-    codeExample: "int x = 5;\nint result = (x = 10) + (x * 2); // (x = 10) evaluates first -> 10 + 20 = 30"
+    codeExample: "int x = 5;\nint result = (x = 10) + (x * 2); // (x = 10) evaluates first → 10 + 20 = 30"
   },
   {
     question: "What is Operator Precedence in Java?",
@@ -139,7 +139,7 @@ const questions = [
     explanation: "In `5 + 2.5`, `5` is promoted to `5.0` (double), and the addition yields `7.5` of type `double`.",
     hint: "Widening promotion automatically converts narrower types.",
     level: "basic",
-    codeExample: "double total = 100 + 15.5; // 100 becomes 100.0 -> total is 115.5"
+    codeExample: "double total = 100 + 15.5; // 100 becomes 100.0 → total is 115.5"
   },
   {
     question: "What is an lvalue and rvalue concept in Java expression assignments?",

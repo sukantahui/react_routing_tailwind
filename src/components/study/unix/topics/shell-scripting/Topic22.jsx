@@ -55,7 +55,7 @@ const Topic22 = () => {
             </svg>
           </div>
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 dark:from-violet-400 dark:to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-violet-600 to-purple-600 dark:from-violet-400 dark:to-purple-400 bg-clip-text text-transparent">
               Topic 22: Command-line Option Parsing with getopts
             </h1>
             <p className="text-gray-600 dark:text-gray-400 mt-2">

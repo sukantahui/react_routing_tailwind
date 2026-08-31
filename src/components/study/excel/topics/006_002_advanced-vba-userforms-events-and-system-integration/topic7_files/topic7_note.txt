@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Connecting Excel to Outlook is the ultimate executive crowd-pleaser. You click one button, Excel generates 20 customized PDF reports, creates 20 personalized emails in Outlook, attaches the PDFs, and sends them out in 5 seconds.
 
 COMMON TRAPS TO AVOID:
-- Using .Send Instead of .Display During Development: Calling `.Send` immediately fires emails out to real corporate executives while testing buggy code! -> Fix: Always use `.Display` during development to preview emails safely on screen; switch to `.Send` only after final sign-off.
-- Exporting Multi-Page Split PDFs (Ugly Layout): Failing to configure Page Setup before PDF export causes orphan column splits. -> Fix: Configure `ws.PageSetup.FitToPagesWide = 1` and `FitToPagesTall = 1` prior to exporting.
-- Emailing Locked Attachment Files: Trying to attach a PDF while it is still being written or locked by Adobe Acrobat. -> Fix: Verify file exists and is unlocked before calling `.Attachments.Add`.
+- Using .Send Instead of .Display During Development: Calling `.Send` immediately fires emails out to real corporate executives while testing buggy code! → Fix: Always use `.Display` during development to preview emails safely on screen; switch to `.Send` only after final sign-off.
+- Exporting Multi-Page Split PDFs (Ugly Layout): Failing to configure Page Setup before PDF export causes orphan column splits. → Fix: Configure `ws.PageSetup.FitToPagesWide = 1` and `FitToPagesTall = 1` prior to exporting.
+- Emailing Locked Attachment Files: Trying to attach a PDF while it is still being written or locked by Adobe Acrobat. → Fix: Verify file exists and is unlocked before calling `.Attachments.Add`.
 ================================================================================

@@ -10,7 +10,7 @@ Best practices for debugging and auditing AI-generated formulas and VBA code is 
 It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) -> Evaluate Formula Tool (Alt+M+V) -> Trace Precedents (Ctrl+[) -> Error Bounds Testing
+Operational Architecture: Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) → Evaluate Formula Tool (Alt+M+V) → Trace Precedents (Ctrl+[) → Error Bounds Testing
 
 3. CORE TECHNICAL MECHANICS
 1. Formula Decomposition (Evaluate Formula `Alt + M + V`):

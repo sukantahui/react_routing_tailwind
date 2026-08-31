@@ -78,7 +78,7 @@ Next Review Date:2027-08-23 (Annual Mandatory Governance Cycle)`
 Exhibit 1: Board-Signed Information Security Policy (POL-SEC-01)
 Exhibit 2: Dynamic Data Masking Technical Standard (STD-DATA-04)
 Exhibit 3: 6-Hour Incident Escalation SOP (SOP-INC-01)
-Judicial Ruling: Corporate entity maintained certified reasonable security practices -> Lawsuit dismissed!`
+Judicial Ruling: Corporate entity maintained certified reasonable security practices → Lawsuit dismissed!`
   },
   {
     question: "What documented policies and procedures are explicitly required under Section 8 of the Indian Digital Personal Data Protection (DPDP) Act 2023?",

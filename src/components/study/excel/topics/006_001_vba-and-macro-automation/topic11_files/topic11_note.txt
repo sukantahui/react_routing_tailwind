@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never let your users see the yellow 'Debug' error screen! Put `On Error GoTo ErrHandler` at the top of your macro, put `Exit Sub` before the label, and display a polite message like: 'Could not find file. Please check folder path.'
 
 COMMON TRAPS TO AVOID:
-- Omitting 'Exit Sub' Before Error Handler Label: Leaving out `Exit Sub` causes the error handler code to run every single time the macro runs, even when there was NO error! -> Fix: Always place `Exit Sub` immediately before the `ErrorHandler:` label.
-- Overusing 'On Error Resume Next' Everywhere: Blinded by `Resume Next`, the macro silently ignores corrupted data, leading to catastrophic incorrect financial statements. -> Fix: Use `On Error Resume Next` strictly for single targeted lines, followed immediately by `On Error GoTo 0`.
-- Leaving ScreenUpdating Disabled on Crash: Crash occurs before error handler, leaving screen updating off. -> Fix: Put UI reset code inside the ErrorHandler block.
+- Omitting 'Exit Sub' Before Error Handler Label: Leaving out `Exit Sub` causes the error handler code to run every single time the macro runs, even when there was NO error! → Fix: Always place `Exit Sub` immediately before the `ErrorHandler:` label.
+- Overusing 'On Error Resume Next' Everywhere: Blinded by `Resume Next`, the macro silently ignores corrupted data, leading to catastrophic incorrect financial statements. → Fix: Use `On Error Resume Next` strictly for single targeted lines, followed immediately by `On Error GoTo 0`.
+- Leaving ScreenUpdating Disabled on Crash: Crash occurs before error handler, leaving screen updating off. → Fix: Put UI reset code inside the ErrorHandler block.
 ================================================================================

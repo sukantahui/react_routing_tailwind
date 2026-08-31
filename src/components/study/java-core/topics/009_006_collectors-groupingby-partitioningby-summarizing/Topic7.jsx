@@ -21,7 +21,7 @@ export default function Topic7() {
             The Collectors Framework
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Multi-Level Grouping: <code className="text-emerald-400 font-mono">Map&lt;K1, Map&lt;K2, List&lt;V&gt;&gt;&gt;</code> Nested Pipelines
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic7() {
       </section>
 
       <Teacher
-        note="Multi-level grouping is achieved by passing another groupingBy() collector as the downstream argument to the outer groupingBy()! This creates a nested hierarchy like Center -> Course -> List of Students! — Sukanta Hui"
+        note="Multi-level grouping is achieved by passing another groupingBy() collector as the downstream argument to the outer groupingBy()! This creates a nested hierarchy like Center → Course → List of Students! — Sukanta Hui"
       />
     </div>
   );

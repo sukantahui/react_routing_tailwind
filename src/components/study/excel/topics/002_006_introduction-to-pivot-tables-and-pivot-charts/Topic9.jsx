@@ -71,7 +71,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Time-series filtering with Timelines"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Time_series_filter"
+            sheetName="EX1110"
             title={"Time-series filtering with Timelines - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -395,7 +395,7 @@ export default function Topic9() {
                 Step 3: Set Value Field Settings &amp; Number Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Right-click any value cell &gt; Value Field Settings &gt; Number Format, and apply standard currency/accounting masks.
+                Right-click any value cell > Value Field Settings > Number Format, and apply standard currency/accounting masks.
               </p>
             </div>
 

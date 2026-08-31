@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Golden Rule of Financial Modeling: NEVER wrap a lookup in IFERROR during development! Use IFNA instead. IFERROR hides misspelled functions and broken #REF! formulas from your view.
 
 COMMON TRAPS TO AVOID:
-- Masking Structural #REF! / #NAME? Bugs with IFERROR: Wrapping an entire formula in IFERROR hides deleted column references (#REF!) or misspelled function names (#NAME?), obscuring critical model bugs. -> Fix: Use IFNA() for lookup formulas so structural errors (#REF!) remain visible during audit reviews.
-- Blank Fallback Disrupts Downstream Math: Returning "" (text) as fallback causes downstream =SUM(A1:A5) to ignore cells, but =A1+A2 triggers a fatal #VALUE! error. -> Fix: Return numeric 0 if the column will be used in downstream arithmetic.
-- Overusing IFERROR During Formula Development: Wrapping unverified formulas in IFERROR makes debugging formula logic impossible. -> Fix: Build and test the core formula first; apply error handling only after verifying logic.
+- Masking Structural #REF! / #NAME? Bugs with IFERROR: Wrapping an entire formula in IFERROR hides deleted column references (#REF!) or misspelled function names (#NAME?), obscuring critical model bugs. → Fix: Use IFNA() for lookup formulas so structural errors (#REF!) remain visible during audit reviews.
+- Blank Fallback Disrupts Downstream Math: Returning "" (text) as fallback causes downstream =SUM(A1:A5) to ignore cells, but =A1+A2 triggers a fatal #VALUE! error. → Fix: Return numeric 0 if the column will be used in downstream arithmetic.
+- Overusing IFERROR During Formula Development: Wrapping unverified formulas in IFERROR makes debugging formula logic impossible. → Fix: Build and test the core formula first; apply error handling only after verifying logic.
 ================================================================================

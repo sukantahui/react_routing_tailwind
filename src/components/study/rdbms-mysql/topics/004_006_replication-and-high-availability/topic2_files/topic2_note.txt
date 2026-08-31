@@ -22,11 +22,11 @@ Client Latency        0ms replication latency overhead  Network Round-Trip Time 
 2. LOSSLESS SEMI-SYNC WAIT POINTS: AFTER_SYNC VS AFTER_COMMIT
 --------------------------------------------------------------------------------
 1. `AFTER_SYNC` (MySQL 8.0 Default / Recommended):
-   - Flow: Prepare in InnoDB -> Flush to Binlog -> Send to Replica -> WAIT FOR REPLICA ACK -> Commit in InnoDB -> Return to Client.
+   - Flow: Prepare in InnoDB → Flush to Binlog → Send to Replica → WAIT FOR REPLICA ACK → Commit in InnoDB → Return to Client.
    - Benefit: Other concurrent sessions cannot see the data until it is safely acknowledged by the replica (Lossless!).
 
 2. `AFTER_COMMIT` (Legacy Semi-Sync):
-   - Flow: Prepare in InnoDB -> Flush to Binlog -> Commit in InnoDB -> Send to Replica -> WAIT FOR REPLICA ACK -> Return to Client.
+   - Flow: Prepare in InnoDB → Flush to Binlog → Commit in InnoDB → Send to Replica → WAIT FOR REPLICA ACK → Return to Client.
    - Flaw: If Source crashes while waiting for ACK, other sessions already saw data that was never replicated (Phantom Reads!).
 
 3. CONFIGURATION RUNBOOK FOR MYSQL 8.0

@@ -14,9 +14,9 @@
 const topic12_questions = [
   {
     question: "What are the 4 Access Modifiers in Java and their visibility order from most restrictive to least restrictive?",
-    shortAnswer: "1. private (most restrictive) -> 2. default (package-private) -> 3. protected -> 4. public (least restrictive).",
+    shortAnswer: "1. private (most restrictive) → 2. default (package-private) → 3. protected → 4. public (least restrictive).",
     explanation: "Java controls member visibility through these 4 tiers. Private restricts to the same class; default extends to the same package; protected extends to subclasses across packages; public extends globally.",
-    hint: "Private -> Default -> Protected -> Public.",
+    hint: "Private → Default → Protected → Public.",
     level: "Beginner",
     codeExample: "private int a; // Class\nint b;         // Package\nprotected int c; // Package + Subclass\npublic int d;    // World"
   },
@@ -210,7 +210,7 @@ const topic12_questions = [
     explanation: "If the class is declared 'public', the generated default constructor is 'public'. If the class is package-private, the generated default constructor is package-private.",
     hint: "Matches the visibility of the class declaration.",
     level: "Intermediate",
-    codeExample: "// 'public class Student {}' -> Compiler generates: 'public Student() {}'"
+    codeExample: "// 'public class Student {}' → Compiler generates: 'public Student() {}'"
   },
   {
     question: "What is 'Friendly' access in legacy Java terminology?",
@@ -242,15 +242,15 @@ const topic12_questions = [
     explanation: "Always start by declaring fields and helper methods 'private'. Only escalate to package-private if collaborating within the package, protected if designed for extension, and public for exported APIs.",
     hint: "Start at Private and escalate only when strictly necessary.",
     level: "Beginner",
-    codeExample: "1. private -> 2. package-private -> 3. protected -> 4. public"
+    codeExample: "1. private → 2. package-private → 3. protected → 4. public"
   },
   {
     question: "What is Sukanta Hui's Concentric Circle Hierarchy for Access Modifiers?",
     shortAnswer: "Visualize 4 concentric rings: Private is the inner sanctum, Default is your local village (package), Protected is your extended family (subclasses), and Public is the global highway.",
     explanation: "At the Barrackpore academy, Sukanta Hui teaches this mental model to ensure students never hesitate on access control. Keep your inner sanctum guarded, collaborate freely in your village, share heritage with your family, and open only official gates to the highway.",
-    hint: "Inner Sanctum -> Village -> Family -> Highway.",
+    hint: "Inner Sanctum → Village → Family → Highway.",
     level: "Beginner",
-    codeExample: "// Sukanta Hui's Hierarchy:\n// Private (Sanctum) -> Default (Village) -> Protected (Family) -> Public (Highway)"
+    codeExample: "// Sukanta Hui's Hierarchy:\n// Private (Sanctum) → Default (Village) → Protected (Family) → Public (Highway)"
   }
 ];
 

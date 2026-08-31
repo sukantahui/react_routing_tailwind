@@ -42,7 +42,7 @@ export default function Topic0() {
             Segment 1 Foundations Capstone Lab
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Review of Segment 1 Core Concepts: JVM, Datatypes, Control Flow, Arrays &amp; Methods
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -92,7 +92,7 @@ export default function Topic0() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Capstone Ledger):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> (91.25% &rarr; ₹20,060 net fee), <strong>Tuhina</strong> (95.00% &rarr; ₹23,600 net fee), <strong>Abhronila</strong> (84.75% &rarr; ₹19,116 net fee), and <strong>Debangshu</strong> (79.75% &rarr; ₹16,815 net fee) processed academic grades via enhanced switch expressions, multi-tier tuition invoicing in Indian Rupees (<code className="text-emerald-400 font-semibold">₹79,591.00 Total Revenue</code>), and recursive loyalty points.
+              In our Barrackpore laboratory, <strong>Swadeep</strong> (91.25% → ₹20,060 net fee), <strong>Tuhina</strong> (95.00% → ₹23,600 net fee), <strong>Abhronila</strong> (84.75% → ₹19,116 net fee), and <strong>Debangshu</strong> (79.75% → ₹16,815 net fee) processed academic grades via enhanced switch expressions, multi-tier tuition invoicing in Indian Rupees (<code className="text-emerald-400 font-semibold">₹79,591.00 Total Revenue</code>), and recursive loyalty points.
             </p>
           </div>
         </div>

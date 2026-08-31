@@ -25,7 +25,7 @@ const Topic0 = () => {
       badge: "Wire Protocol",
       badgeColor: "emerald",
       sqlSnippet: `-- 🌐 MYSQL CLIENT-SERVER PROTOCOL LIFECYCLE:
--- 1. TCP 3-Way Handshake (SYN &rarr; SYN-ACK &rarr; ACK) [Port 3306]
+-- 1. TCP 3-Way Handshake (SYN → SYN-ACK → ACK) [Port 3306]
 -- 2. Initial Handshake Packet from Server (Server version, auth plugin, capabilities)
 -- 3. Handshake Response Packet from Client (Username, encrypted password, database)
 -- 4. AuthSwitch / Authentication Confirmation (OK Packet / ERR Packet)
@@ -91,7 +91,7 @@ const Topic0 = () => {
             Topic 0 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Overview of Application-to-Database Communication Protocols
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

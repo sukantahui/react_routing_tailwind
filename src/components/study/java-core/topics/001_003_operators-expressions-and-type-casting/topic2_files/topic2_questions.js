@@ -83,7 +83,7 @@ const questions = [
     explanation: "`idiv` performs integer division with truncation; `ddiv` executes hardware IEEE 754 floating-point division.",
     hint: "idiv vs ddiv in bytecode.",
     level: "advanced",
-    codeExample: "// int a / b -> idiv\n// double a / b -> ddiv"
+    codeExample: "// int a / b → idiv\n// double a / b → ddiv"
   },
   {
     question: "What happens when you divide `0 / 5` in Java?",

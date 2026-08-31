@@ -20,7 +20,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
      - Must progress MONOTONICALLY towards the Base Case.
 
 - The Fatal Failure Mode:
-  * Missing or unreachable base case -> Infinite Recursion -> StackOverflowError!
+  * Missing or unreachable base case → Infinite Recursion → StackOverflowError!
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------

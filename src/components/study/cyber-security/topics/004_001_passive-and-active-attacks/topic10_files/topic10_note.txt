@@ -76,7 +76,7 @@ forge identities, and exhaust resources.
 ================================================================================
 5. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
 ================================================================================
-  [✔] Active defense operates across an active feedback loop: Detect -> Verify -> Contain -> Recover.
+  [✔] Active defense operates across an active feedback loop: Detect → Verify → Contain → Recover.
   [✔] AEAD (AES-GCM) uses GHASH polynomial verification to make in-flight data tampering impossible.
   [✔] FIDO2 WebAuthn uses domain-bound asymmetric cryptography to eliminate password phishing.
   [✔] Dynamic ARP Inspection (DAI) + DHCP Snooping stops ARP cache poisoning at the switch level.

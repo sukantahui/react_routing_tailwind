@@ -131,7 +131,7 @@ SET GLOBAL general_log = 'OFF';
             Topic 2 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           The General Query Log: <span className="text-emerald-400">Overhead</span> &amp; <span className="text-cyan-400">Forensics</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

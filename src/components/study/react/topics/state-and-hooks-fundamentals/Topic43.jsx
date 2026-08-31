@@ -96,7 +96,7 @@ const Topic43 = () => {
         <div 
           className="mb-8 animate-[fadeIn_0.8s_ease-out]"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             Intro to <span className="text-blue-600 dark:text-blue-400">Lifting State Up</span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -366,7 +366,7 @@ const Topic43 = () => {
                           <span>100°C</span>
                         </div>
                         <div className="mt-4 text-center">
-                          <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">
+                          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400">
                             {celsius.toFixed(1)}°C
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
@@ -405,7 +405,7 @@ const Topic43 = () => {
                           <span>212°F</span>
                         </div>
                         <div className="mt-4 text-center">
-                          <div className="text-4xl font-bold text-green-600 dark:text-green-400">
+                          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400">
                             {fahrenheit.toFixed(1)}°F
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">

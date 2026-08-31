@@ -5,7 +5,7 @@ const topic5_questions = [
     "explanation": "Core lazy factory evaluation pattern in java.util.function.",
     "hint": "Takes zero arguments, returns T; defers execution on-demand for lazy evaluation.",
     "level": "Intermediate",
-    "codeExample": "Supplier<Double> random = () -> Math.random(); Double val = random.get();"
+    "codeExample": "Supplier<Double> random = () → Math.random(); Double val = random.get();"
   }
 ];
 

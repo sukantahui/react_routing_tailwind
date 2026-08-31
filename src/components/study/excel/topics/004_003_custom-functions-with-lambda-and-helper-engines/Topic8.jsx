@@ -76,7 +76,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Column-by-Column Matrix Processing & Metric Synthesis with BYCOL
           </h1>
 
@@ -195,7 +195,7 @@ export default function Topic8() {
                 and assembled into a <code className="text-emerald-300 font-mono">(1 x N)</code> horizontal row output.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                (M x N) Matrix &rarr; BYCOL &rarr; (1 x N) Horizontal Row Vector
+                (M x N) Matrix → BYCOL → (1 x N) Horizontal Row Vector
               </div>
             </div>
 
@@ -206,9 +206,9 @@ export default function Topic8() {
               <p className="leading-relaxed">
                 Remember the fundamental dimensional difference: 
                 <br />
-                • <code className="text-sky-300 font-mono">BYROW</code> slices across rows &rarr; returns a <strong>vertical column vector</strong> (M x 1).
+                • <code className="text-sky-300 font-mono">BYROW</code> slices across rows → returns a <strong>vertical column vector</strong> (M x 1).
                 <br />
-                • <code className="text-emerald-300 font-mono">BYCOL</code> slices down columns &rarr; returns a <strong>horizontal row vector</strong> (1 x N).
+                • <code className="text-emerald-300 font-mono">BYCOL</code> slices down columns → returns a <strong>horizontal row vector</strong> (1 x N).
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
                 BYCOL (Horizontal Row) vs BYROW (Vertical Column)
@@ -377,7 +377,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_BYCOL"
+            sheetName="EX1809"
             title="Multi-Branch Sales Performance Matrix (Barrackpore, Shyamnagar, Ichapur, Naihati Hubs)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -416,7 +416,7 @@ export default function Topic8() {
                 The formula calculates the average monthly sales across all 4 branch units in a single horizontal spilled row.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =BYCOL(C5:F8, ...) &rarr; Returns [₹118k, ₹129k, ₹141k, ₹155k]
+                Formula: =BYCOL(C5:F8, ...) → Returns [₹118k, ₹129k, ₹141k, ₹155k]
               </div>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic8() {
                 extracting the record output for each monthly production column in 1 operation.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =BYCOL(Data, LAMBDA(c, MAX(c))) &rarr; Monthly Peak Vector
+                Formula: =BYCOL(Data, LAMBDA(c, MAX(c))) → Monthly Peak Vector
               </div>
             </div>
 
@@ -469,7 +469,7 @@ export default function Topic8() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Internal Auditor <strong>Debangshu Ghosh</strong> verifies departmental expense caps: 
-                <code className="text-amber-300 font-mono">=BYCOL(ExpenseGrid, LAMBDA(c, IF(SUM(c)&gt;500000, "OVER BUDGET", "APPROVED")))</code>, 
+                <code className="text-amber-300 font-mono">=BYCOL(ExpenseGrid, LAMBDA(c, IF(SUM(c)>500000, "OVER BUDGET", "APPROVED")))</code>, 
                 flagging budget overruns per column instantly.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
@@ -639,7 +639,7 @@ export default function Topic8() {
                 <span>AND Checks</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Test 100% compliance: <code className="text-purple-300 font-mono">=BYCOL(Tolerances, LAMBDA(c, AND(c&gt;=95)))</code>.
+                Test 100% compliance: <code className="text-purple-300 font-mono">=BYCOL(Tolerances, LAMBDA(c, AND(c>=95)))</code>.
               </p>
             </div>
 

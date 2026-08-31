@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Minimax Principle in Game Theory?",
     shortAnswer: "'The Minimax Principle is Player B’s loss-capping criterion: find the column maxima (max_i a_ij) vertically, then take their minimum (min_j) horizontally; this guarantees that Player B concedes at most v_upper in Indian Rupees (₹) regardless of opponent actions!'",
     explanation: "This complete rule captures all Minimax mechanics.",
-    hint: "Column maxima vertically -> Minimize horizontally -> Guaranteed ceiling v_upper in ₹.",
+    hint: "Column maxima vertically → Minimize horizontally → Guaranteed ceiling v_upper in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ColumnMaxima() -> MinimizeLiabilityCeiling() -> GuaranteeVUpper(₹)."
+    codeExample: "GoldenRule: ColumnMaxima() → MinimizeLiabilityCeiling() → GuaranteeVUpper(₹)."
   }
 ];
 

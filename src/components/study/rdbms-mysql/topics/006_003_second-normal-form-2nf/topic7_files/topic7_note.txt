@@ -15,7 +15,7 @@ Level: Intermediate | Estimated Study Time: 4 Hours
 --------------------------------------------------------------------------------
 - Core Concept: Relational normalization ensures that data dependencies are modeled
   strictly according to business invariants, preventing update, deletion, and insertion anomalies.
-- Formal Rule: 1. Partial Functional Dependency (X -> Y where X ⊂ Candidate Key)
+- Formal Rule: 1. Partial Functional Dependency (X → Y where X ⊂ Candidate Key)
 - Decomposition Strategy: Split into Students (student_id PK), Courses (course_id PK), and Enrollments (student_id, course_id PK).
 
 3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION

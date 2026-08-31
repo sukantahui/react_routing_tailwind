@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. EXECUTORS FACTORY TRAPS:
-   - 'newFixedThreadPool(n)': Unbounded queue &rarr; Heap OutOfMemoryError.
-   - 'newCachedThreadPool()': Unbounded thread count &rarr; Native thread OOM crash.
+   - 'newFixedThreadPool(n)': Unbounded queue → Heap OutOfMemoryError.
+   - 'newCachedThreadPool()': Unbounded thread count → Native thread OOM crash.
    - 'newSingleThreadExecutor()': Unbounded queue.
    - Production Best Practice: Instantiate 'ThreadPoolExecutor' with explicit bounded queues!
 

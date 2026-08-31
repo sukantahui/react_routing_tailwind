@@ -21,7 +21,7 @@ export default function Topic4() {
             Multiple Bounds
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Multiple Bounds Syntax: <code className="text-emerald-400 font-mono">&lt;T extends ClassA &amp; InterfaceB &amp; InterfaceC&gt;</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic4() {
       </section>
 
       <Teacher
-        note="If your generic method needs an object that is both a Number AND Comparable (like Integer or Double), use an ampersand: '<T extends Number & Comparable<T>>'! This lets you do math AND compare! — Sukanta Hui"
+        note="If your generic method needs an object that is both a Number AND Comparable (like Integer or Double), use an ampersand: '<T extends Number & Comparable&lt;T&gt;>'! This lets you do math AND compare! — Sukanta Hui"
       />
     </div>
   );

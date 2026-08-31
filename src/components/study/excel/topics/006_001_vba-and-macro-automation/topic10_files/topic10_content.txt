@@ -44,7 +44,7 @@ Operational Architecture: VBA High-Speed Optimization Engine: Application.Screen
   Diagnostic Fix: Use a Variant array to write all 100,000 rows in a single 1-line assignment: `Range("A1:E100000").Value2 = arr`.
 
 6. PRO TIPS & SHORTCUTS
-• Speed Optimization Wrapper (Turn Big 4 OFF at start -> ON at end): The standard professional template for every production macro.
-• RAM Variant Array (arr = Range.Value2 -> Process -> Range.Value2 = arr): The fastest possible way to manipulate large data in Excel.
+• Speed Optimization Wrapper (Turn Big 4 OFF at start → ON at end): The standard professional template for every production macro.
+• RAM Variant Array (arr = Range.Value2 → Process → Range.Value2 = arr): The fastest possible way to manipulate large data in Excel.
 • Restore in Error Block (CleanUp: Application.ScreenUpdating = True): Guarantees Excel UI is never left in a frozen state.
 ================================================================================

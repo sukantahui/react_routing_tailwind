@@ -16,10 +16,10 @@ const questions = [
     explanation: "Legacy `OFFSET` recalculated on every single worksheet click, slowing workbooks down. `=$J$2#` calculates only when source data changes.",
     hint: "Non-volatile and requires no complex OFFSET formulas.",
     level: "basic",
-    codeExample: "// Legacy: =OFFSET($A$2,0,0,COUNTA($A:$A)-1,1) -> Modern: =$J$2#"
+    codeExample: "// Legacy: =OFFSET($A$2,0,0,COUNTA($A:$A)-1,1) → Modern: =$J$2#"
   },
   {
-    question: "How do you build a cascading dependent dropdown (e.g. Region -> Branch) without using the INDIRECT function?",
+    question: "How do you build a cascading dependent dropdown (e.g. Region → Branch) without using the INDIRECT function?",
     shortAnswer: "Use FILTER to create a dependent spilled array in cell L2 (=SORT(UNIQUE(FILTER(BranchCol, RegionCol=J1)))), then point the Branch dropdown to =$L$2#.",
     explanation: "When Region changes in J1, the formula in L2 updates its spilled array, and the Branch dropdown bound to `=$L$2#` reflects the new branches immediately.",
     hint: "Filter the secondary list by the primary dropdown and bind with #.",
@@ -48,7 +48,7 @@ const questions = [
     explanation: "Because `UNIQUE` and `SORT` expand dynamically, the dropdown menu stays 100% synchronized with live records.",
     hint: "Dropdown choices expand automatically as data grows.",
     level: "basic",
-    codeExample: "// Add new student -> Dropdown expands automatically"
+    codeExample: "// Add new student → Dropdown expands automatically"
   },
   {
     question: "How does Auto-Complete Search work inside Data Validation dropdowns in Excel 365?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Excel 365 natively includes searchable dropdown menus when bound to dynamic arrays, eliminating manual scrolling through long lists.",
     hint: "Excel 365 automatically filters dropdowns as you type.",
     level: "moderate",
-    codeExample: "// Type 'Bar' -> Dropdown shows only 'Barrackpore'"
+    codeExample: "// Type 'Bar' → Dropdown shows only 'Barrackpore'"
   },
   {
     question: "What error occurs in Data Validation if you omit the '#' operator (e.g. typing =$J$2 instead of =$J$2#)?",
@@ -67,9 +67,9 @@ const questions = [
     codeExample: "// =$J$2 shows 1 item; =$J$2# shows all spilled items"
   },
   {
-    question: "How do you create a dynamic multi-level cascading hierarchy (State -> District -> Center -> Course)?",
+    question: "How do you create a dynamic multi-level cascading hierarchy (State → District → Center → Course)?",
     shortAnswer: "Chain multiple sequential FILTER formulas across dedicated calculation cells, each filtering by the previous dropdown cell.",
-    explanation: "State dropdown -> District formula in M2 -> Center formula in N2 -> Course formula in O2, with each dropdown pointing to its respective origin cell `#`.",
+    explanation: "State dropdown → District formula in M2 → Center formula in N2 → Course formula in O2, with each dropdown pointing to its respective origin cell `#`.",
     hint: "Chain multiple dependent spilled formulas pointing to previous dropdown cells.",
     level: "expert",
     codeExample: "=SORT(UNIQUE(FILTER(Centers, (StateCol=J1)*(DistrictCol=J2))))"
@@ -240,7 +240,7 @@ const questions = [
     explanation: "In corporate financial and ERP dashboards across Barrackpore and Kolkata, `=$OriginCell#` ensures input forms remain 100% reliable, elegant, and maintenance-free.",
     hint: "It delivers application-grade data validation with zero code maintenance.",
     level: "expert",
-    codeExample: "// Modern UX: Raw Data -> SORT(UNIQUE(FILTER())) -> Data Validation =$J$2#"
+    codeExample: "// Modern UX: Raw Data → SORT(UNIQUE(FILTER())) → Data Validation =$J$2#"
   }
 ];
 

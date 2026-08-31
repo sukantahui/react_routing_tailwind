@@ -266,15 +266,15 @@ def inspect_tcp_protocol_packet(packet):
         
         # 1. Detect Malformed TCP Flag Combinations (NULL, XMAS, SYN+FIN)
         if flags == 0:
-            print(f"[!] NULL SCAN DETECTED from {src_ip} -> Dropping packet!")
+            print(f"[!] NULL SCAN DETECTED from {src_ip} → Dropping packet!")
             return "DROP_NULL"
         elif flags == 0x29: # SYN+FIN+PSH
-            print(f"[!] XMAS SCAN DETECTED from {src_ip} -> Dropping packet!")
+            print(f"[!] XMAS SCAN DETECTED from {src_ip} → Dropping packet!")
             return "DROP_XMAS"
             
         # 2. Check for TCP SYN-ACK without valid session state
         if flags == "SA": # SYN-ACK
-            print(f"[*] Inspecting SYN-ACK from {src_ip} -> Verifying against state table...")
+            print(f"[*] Inspecting SYN-ACK from {src_ip} → Verifying against state table...")
             
     return "FORWARD_PACKET"
 

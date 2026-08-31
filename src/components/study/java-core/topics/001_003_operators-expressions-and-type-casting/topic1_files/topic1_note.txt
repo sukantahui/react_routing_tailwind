@@ -29,9 +29,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * 7.5 % 2.0 = 1.5 (Supported on float and double).
 
 - Division by Zero:
-  * Integer Division by Zero (10 / 0)    --> Throws ArithmeticException: / by zero
-  * Floating Division by Zero (10.0 / 0) --> Yields Double.POSITIVE_INFINITY
-  * Indeterminate Division (0.0 / 0.0)   --> Yields Double.NaN
+  * Integer Division by Zero (10 / 0)    → Throws ArithmeticException: / by zero
+  * Floating Division by Zero (10.0 / 0) → Yields Double.POSITIVE_INFINITY
+  * Indeterminate Division (0.0 / 0.0)   → Yields Double.NaN
 
 - Odd/Even Verification:
   * Even : (num % 2 == 0)

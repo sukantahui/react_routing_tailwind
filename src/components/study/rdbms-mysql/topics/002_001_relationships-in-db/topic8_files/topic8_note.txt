@@ -14,13 +14,13 @@ architectural decision that directly impacts data integrity, application behavio
 BUSINESS SCENARIO CLASSIFICATION:
 1. Existential / Master-Detail Composition (USE CASCADE):
    - Child entity cannot exist without parent.
-   - Example: Order -> Order Items, Post -> Comments, Student -> Verification Documents.
+   - Example: Order → Order Items, Post → Comments, Student → Verification Documents.
 2. Financial, Legal & Compliance Audit Ledgers (USE RESTRICT):
    - Child records have permanent financial, tax, or legal retention value.
-   - Example: Customer -> Invoices, Student -> Payment Receipts, Product -> Order History.
+   - Example: Customer → Invoices, Student → Payment Receipts, Product → Order History.
 3. Advisory / Optional Allocations (USE SET NULL):
    - Child records exist independently; parent pointer is purely advisory.
-   - Example: Student -> Assigned Mentor, Employee -> Assigned Office Desk/Locker, Post -> Category.
+   - Example: Student → Assigned Mentor, Employee → Assigned Office Desk/Locker, Post → Category.
 
 
 2. COMPREHENSIVE DECISION TREE

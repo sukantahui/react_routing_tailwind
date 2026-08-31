@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Microsoft Copilot & Generative AI Architecture is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how semantic grounding, Microsoft Graph context, and structured table requirements operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Spreadsheet Prompt Engineering & Precision regarding schema anchoring, bracketed column references, and edge-case constraint rules (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Spreadsheet Prompt Engineering & Precision is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how schema anchoring, bracketed column references, and edge-case constraint rules operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Advanced Formula Synthesis & Regular Expressions regarding LET functions, dynamic array pipelines, and REGEXEXTRACT patterns (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Advanced Formula Synthesis & Regular Expressions is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how LET functions, dynamic array pipelines, and REGEXEXTRACT patterns operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Conversational Data Analysis & AI Visualizations regarding natural language queries, automated statistical insight cards, and pivot charts (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Conversational Data Analysis & AI Visualizations is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how natural language queries, automated statistical insight cards, and pivot charts operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage AI Data Cleansing & LLM API Integration regarding entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering AI Data Cleansing & LLM API Integration is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Enterprise Governance, Ethics & Auditing regarding Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Enterprise Governance, Ethics & Auditing is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Microsoft Copilot & Generative AI Architecture regarding semantic grounding, Microsoft Graph context, and structured table requirements (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Microsoft Copilot & Generative AI Architecture is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how semantic grounding, Microsoft Graph context, and structured table requirements operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Spreadsheet Prompt Engineering & Precision regarding schema anchoring, bracketed column references, and edge-case constraint rules (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Spreadsheet Prompt Engineering & Precision is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how schema anchoring, bracketed column references, and edge-case constraint rules operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Advanced Formula Synthesis & Regular Expressions regarding LET functions, dynamic array pipelines, and REGEXEXTRACT patterns (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Advanced Formula Synthesis & Regular Expressions is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how LET functions, dynamic array pipelines, and REGEXEXTRACT patterns operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Conversational Data Analysis & AI Visualizations regarding natural language queries, automated statistical insight cards, and pivot charts (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Conversational Data Analysis & AI Visualizations is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how natural language queries, automated statistical insight cards, and pivot charts operates within Excel's AI and Copilot productivity architecture.",
     "level": "basic",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage AI Data Cleansing & LLM API Integration regarding entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering AI Data Cleansing & LLM API Integration is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Enterprise Governance, Ethics & Auditing regarding Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Enterprise Governance, Ethics & Auditing is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Microsoft Copilot & Generative AI Architecture regarding semantic grounding, Microsoft Graph context, and structured table requirements (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Microsoft Copilot & Generative AI Architecture is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how semantic grounding, Microsoft Graph context, and structured table requirements operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Spreadsheet Prompt Engineering & Precision regarding schema anchoring, bracketed column references, and edge-case constraint rules (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Spreadsheet Prompt Engineering & Precision is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how schema anchoring, bracketed column references, and edge-case constraint rules operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Advanced Formula Synthesis & Regular Expressions regarding LET functions, dynamic array pipelines, and REGEXEXTRACT patterns (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Advanced Formula Synthesis & Regular Expressions is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how LET functions, dynamic array pipelines, and REGEXEXTRACT patterns operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Conversational Data Analysis & AI Visualizations regarding natural language queries, automated statistical insight cards, and pivot charts (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Conversational Data Analysis & AI Visualizations is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how natural language queries, automated statistical insight cards, and pivot charts operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage AI Data Cleansing & LLM API Integration regarding entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering AI Data Cleansing & LLM API Integration is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Enterprise Governance, Ethics & Auditing regarding Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Enterprise Governance, Ethics & Auditing is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Microsoft Copilot & Generative AI Architecture regarding semantic grounding, Microsoft Graph context, and structured table requirements (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Microsoft Copilot & Generative AI Architecture is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how semantic grounding, Microsoft Graph context, and structured table requirements operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Spreadsheet Prompt Engineering & Precision regarding schema anchoring, bracketed column references, and edge-case constraint rules (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Spreadsheet Prompt Engineering & Precision is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how schema anchoring, bracketed column references, and edge-case constraint rules operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Advanced Formula Synthesis & Regular Expressions regarding LET functions, dynamic array pipelines, and REGEXEXTRACT patterns (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Advanced Formula Synthesis & Regular Expressions is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how LET functions, dynamic array pipelines, and REGEXEXTRACT patterns operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Conversational Data Analysis & AI Visualizations regarding natural language queries, automated statistical insight cards, and pivot charts (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Conversational Data Analysis & AI Visualizations is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how natural language queries, automated statistical insight cards, and pivot charts operates within Excel's AI and Copilot productivity architecture.",
     "level": "moderate",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage AI Data Cleansing & LLM API Integration regarding entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering AI Data Cleansing & LLM API Integration is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Enterprise Governance, Ethics & Auditing regarding Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Enterprise Governance, Ethics & Auditing is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Microsoft Copilot & Generative AI Architecture regarding semantic grounding, Microsoft Graph context, and structured table requirements (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Microsoft Copilot & Generative AI Architecture is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how semantic grounding, Microsoft Graph context, and structured table requirements operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Spreadsheet Prompt Engineering & Precision regarding schema anchoring, bracketed column references, and edge-case constraint rules (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Spreadsheet Prompt Engineering & Precision is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how schema anchoring, bracketed column references, and edge-case constraint rules operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Advanced Formula Synthesis & Regular Expressions regarding LET functions, dynamic array pipelines, and REGEXEXTRACT patterns (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Advanced Formula Synthesis & Regular Expressions is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how LET functions, dynamic array pipelines, and REGEXEXTRACT patterns operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Conversational Data Analysis & AI Visualizations regarding natural language queries, automated statistical insight cards, and pivot charts (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Conversational Data Analysis & AI Visualizations is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how natural language queries, automated statistical insight cards, and pivot charts operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage AI Data Cleansing & LLM API Integration regarding entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering AI Data Cleansing & LLM API Integration is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how entity extraction, Power Query REST calls, OpenAI/Claude APIs, and custom UDFs operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   },
   {
     "question": "In the context of Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, how does Excel manage Enterprise Governance, Ethics & Auditing regarding Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an AI-powered customer feedback sentiment analysis and summarization dashboard, mastering Enterprise Governance, Ethics & Auditing is critical for maximizing productivity in modern spreadsheets. Excel combines Large Language Models with structured table grounding, custom REST API connectors, and formula auditing tools, ensuring that AI-generated calculations, automated data cleaning, and executive sentiment dashboards execute with certified enterprise security and mathematical rigor.",
     "hint": "Think about how Zero Data Retention, PII privacy protection, Evaluate Formula (Alt+M+V), and debugging operates within Excel's AI and Copilot productivity architecture.",
     "level": "advanced",
-    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard"
+    "codeExample": "AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard"
   }
 ];
 

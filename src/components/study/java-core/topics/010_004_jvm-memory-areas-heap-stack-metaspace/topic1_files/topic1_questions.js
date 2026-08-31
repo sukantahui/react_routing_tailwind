@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Crucial for application servers reloading web applications.",
     "hint": "Yes, reclaimed during Full GC when ClassLoaders become dead.",
     "level": "Intermediate",
-    "codeExample": "Dead ClassLoader -> Metaspace metadata unloads during Full GC."
+    "codeExample": "Dead ClassLoader → Metaspace metadata unloads during Full GC."
   },
   {
     "question": "What JVM flag sets the upper limit on Metaspace memory to prevent memory exhaustion?",

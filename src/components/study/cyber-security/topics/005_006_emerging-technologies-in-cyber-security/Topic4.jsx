@@ -23,13 +23,13 @@ const Topic4 = () => {
       return {
         block0: { hash: "00a89f... (Genesis)", valid: true },
         block1: {
-          tx: "Tx1: ₹50,00,000 Susmita -> Attacker (TAMPERED 🚨)",
+          tx: "Tx1: ₹50,00,000 Susmita → Attacker (TAMPERED 🚨)",
           prevHash: "00a89f...",
           hash: "7f8b91... (Difficulty Broken ❌)",
           valid: false
         },
         block2: {
-          tx: "Tx2: ₹12,00,000 Treasury -> Contractor",
+          tx: "Tx2: ₹12,00,000 Treasury → Contractor",
           prevHash: "00b42c... (MISMATCH WITH BLOCK 1! ❌)",
           hash: "9e41d2...",
           valid: false
@@ -42,13 +42,13 @@ const Topic4 = () => {
       return {
         block0: { hash: "00a89f... (Genesis)", valid: true },
         block1: {
-          tx: "Tx1: ₹5,00,000 Susmita -> Debangshu",
+          tx: "Tx1: ₹5,00,000 Susmita → Debangshu",
           prevHash: "00a89f...",
           hash: "00b42c... (PoW Valid ✔)",
           valid: true
         },
         block2: {
-          tx: "Tx2: ₹12,00,000 Treasury -> Contractor",
+          tx: "Tx2: ₹12,00,000 Treasury → Contractor",
           prevHash: "00b42c...",
           hash: "00d71a... (PoW Valid ✔)",
           valid: true
@@ -148,7 +148,7 @@ const Topic4 = () => {
                   BCA BCAC703 • Cyber Security
                 </span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
                 Blockchain Technology in Cyber Security: Decentralization &amp; Immutability
               </h1>
             </div>

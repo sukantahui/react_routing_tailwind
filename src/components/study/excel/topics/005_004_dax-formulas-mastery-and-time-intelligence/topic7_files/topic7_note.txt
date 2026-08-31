@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Do not create 3 different calendar tables! Create ONE Calendar table, link OrderDate (Active - solid line) and ShipDate (Inactive - dotted line). Then write: `SalesByShipDate := CALCULATE([TotalSales], USERELATIONSHIP(Fact[ShipDate], Calendar[Date]))`. Pure elegance.
 
 COMMON TRAPS TO AVOID:
-- Using USERELATIONSHIP Outside of CALCULATE: Writing `USERELATIONSHIP()` as a standalone measure throws a DAX syntax error. -> Fix: USERELATIONSHIP can ONLY be passed as a filter argument inside `CALCULATE()`.
-- Duplicating 5 Calendar Tables (Anti-Pattern): Creating `Calendar_Order`, `Calendar_Ship`, `Calendar_Pay` tables bloats the model and fragments slicers. -> Fix: Use 1 Master Calendar table with inactive relationships and `USERELATIONSHIP()`.
-- Data Type Mismatch on Inactive Relationship Keys: Key data types differing between foreign and primary keys breaks activation. -> Fix: Ensure both key columns share identical data types in Power Query.
+- Using USERELATIONSHIP Outside of CALCULATE: Writing `USERELATIONSHIP()` as a standalone measure throws a DAX syntax error. → Fix: USERELATIONSHIP can ONLY be passed as a filter argument inside `CALCULATE()`.
+- Duplicating 5 Calendar Tables (Anti-Pattern): Creating `Calendar_Order`, `Calendar_Ship`, `Calendar_Pay` tables bloats the model and fragments slicers. → Fix: Use 1 Master Calendar table with inactive relationships and `USERELATIONSHIP()`.
+- Data Type Mismatch on Inactive Relationship Keys: Key data types differing between foreign and primary keys breaks activation. → Fix: Ensure both key columns share identical data types in Power Query.
 ================================================================================

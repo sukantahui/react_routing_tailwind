@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Maximin Principle in Game Theory?",
     shortAnswer: "'The Maximin Principle is Player A’s pessimistic security criterion: find the row minima (min_j a_ij) horizontally, then take their maximum (max_i) vertically; this guarantees a minimum payoff floor of v_lower in Indian Rupees (₹) regardless of opponent actions!'",
     explanation: "This complete rule captures all Maximin mechanics.",
-    hint: "Row minima horizontally -> Maximize vertically -> Guaranteed floor v_lower in ₹.",
+    hint: "Row minima horizontally → Maximize vertically → Guaranteed floor v_lower in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: RowMinima() -> MaximizeSecurityFloor() -> GuaranteeVLower(₹)."
+    codeExample: "GoldenRule: RowMinima() → MaximizeSecurityFloor() → GuaranteeVLower(₹)."
   }
 ];
 

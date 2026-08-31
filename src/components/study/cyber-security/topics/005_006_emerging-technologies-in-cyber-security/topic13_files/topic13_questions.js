@@ -49,7 +49,7 @@ const questions = [
     hint: "The AI hot-patches vulnerabilities in 250ms and writes a tamper-proof audit hash to the blockchain.",
     level: "Expert",
     codeExample: `// Autonomous Audit Trail:
-// AI synthesizes patch -> Injects via eBPF in 220ms -> Anchors transaction hash 0x9f8a... to Blockchain Ledger.`
+// AI synthesizes patch → Injects via eBPF in 220ms → Anchors transaction hash 0x9f8a... to Blockchain Ledger.`
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const questions = [
     hint: "Pluggable cryptographic architecture allowing algorithms to be swapped via configuration in minutes.",
     level: "Basic",
     codeExample: `// Crypto-Agility Swap:
-// Config change: default_kem = "ML-KEM-1024" -> Deployed across 1,000 Kubernetes pods in 120 seconds.`
+// Config change: default_kem = "ML-KEM-1024" → Deployed across 1,000 Kubernetes pods in 120 seconds.`
   },
   {
     id: 8,
@@ -79,7 +79,7 @@ const questions = [
     hint: "Evaluates risk continuously on every transaction, instantly revoking tokens upon suspicious behavior.",
     level: "Moderate",
     codeExample: `// CAE Instant Revocation:
-// Stolen token used from unknown ASN -> PEP triggers CAE webhook -> Token revoked across all microservices in 150ms ✔`
+// Stolen token used from unknown ASN → PEP triggers CAE webhook → Token revoked across all microservices in 150ms ✔`
   },
   {
     id: 9,
@@ -101,7 +101,7 @@ const questions = [
     hint: "Continuously changing IP addresses and memory layouts so attacker exploit payloads miss their targets.",
     level: "Moderate",
     codeExample: `// MTD Attack Invalidation:
-// Bot crafts exploit for IP 10.0.1.5:8080 -> At T+60s, container migrates to 10.0.9.12:9443 -> Exploit packets dropped!`
+// Bot crafts exploit for IP 10.0.1.5:8080 → At T+60s, container migrates to 10.0.9.12:9443 → Exploit packets dropped!`
   },
   {
     id: 11,
@@ -111,7 +111,7 @@ const questions = [
     hint: "Runs sandboxed code inside the Linux kernel for line-rate packet inspection and instant threat blocking.",
     level: "Expert",
     codeExample: `// eBPF Observability:
-// Hooks sys_enter_execve -> Detects unauthorized reverse shell spawning -> Kills process in 30 microseconds.`
+// Hooks sys_enter_execve → Detects unauthorized reverse shell spawning → Kills process in 30 microseconds.`
   },
   {
     id: 12,
@@ -121,7 +121,7 @@ const questions = [
     hint: "Randomly varying laser pulse intensities to detect selective multi-photon beam splitting by eavesdroppers.",
     level: "Expert",
     codeExample: `// Decoy State Verification:
-// If Eve intercepts: Transmittance(Decoy) / Transmittance(Signal) deviates from Poisson model -> EAVESDROPPER DETECTED 🚨`
+// If Eve intercepts: Transmittance(Decoy) / Transmittance(Signal) deviates from Poisson model → EAVESDROPPER DETECTED 🚨`
   },
   {
     id: 13,
@@ -151,7 +151,7 @@ const questions = [
     hint: "Autonomous software testing enterprise defenses 24/7/365 to verify controls and playbooks.",
     level: "Basic",
     codeExample: `// CART Validation:
-// Automated test: Attempts lateral SMB scan -> Validates micro-segmentation dropped packets in 50ms ✔`
+// Automated test: Attempts lateral SMB scan → Validates micro-segmentation dropped packets in 50ms ✔`
   },
   {
     id: 16,
@@ -233,7 +233,7 @@ const questions = [
     hint: "Mandates Level 5 PQC adoption by 2026-2030 and complete ban on RSA/ECC by 2033.",
     level: "Basic",
     codeExample: `// CNSA 2.0 Timeline:
-// 2024: NIST Standards Finalized ✔ -> 2026: Deployment Begins -> 2030: Mandatory -> 2033: Legacy Banned`
+// 2024: NIST Standards Finalized ✔ → 2026: Deployment Begins → 2030: Mandatory → 2033: Legacy Banned`
   },
   {
     id: 24,

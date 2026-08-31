@@ -7,8 +7,8 @@ Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
 
 1. FORMAL GRAMMAR AND THE DANGLING ELSE SPECIFICATION (JLS §14.5)
 The Dangling Else problem is a classic context-free grammar ambiguity in computer science. In an ambiguous grammar with production rules:
-  S -> if E then S
-  S -> if E then S else S
+  S → if E then S
+  S → if E then S else S
 The string `if E1 then if E2 then S1 else S2` has two distinct parse trees.
 To resolve this ambiguity unambiguously, the Java Language Specification (JLS §14.5) splits statements into two non-terminals:
 1. `Statement`: Can end with an unclosed `if` statement.

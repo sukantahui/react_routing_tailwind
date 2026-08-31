@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 To calculate % of Total: Write `DIVIDE([TotalSales], CALCULATE([TotalSales], ALLSELECTED(Dim_Product)))`. Now when users slice by Region or Year, the percentages will beautifully sum to exactly 100% every time.
 
 COMMON TRAPS TO AVOID:
-- Using ALL() When ALLSELECTED() is Required: Using `ALL()` causes '% of Total' to divide by national sales even when the user explicitly filtered for 'Eastern Region', displaying 3.2% instead of 25.0%. -> Fix: Use `ALLSELECTED()` so percentages sum to 100% of the active slicer selection.
-- Passing Table to ALL() Instead of Column: Writing `ALL(Fact_Sales)` wipes filters across all dimensions, which is much slower than stripping a single column `ALL(Dim_Product[Category])`. -> Fix: Target specific dimension columns: `ALL(Dim_Product[Category])`.
-- Division by Zero on Empty Categories: Missing safe division wrap. -> Fix: Always wrap in `=DIVIDE(Numerator, Denominator, 0)`.
+- Using ALL() When ALLSELECTED() is Required: Using `ALL()` causes '% of Total' to divide by national sales even when the user explicitly filtered for 'Eastern Region', displaying 3.2% instead of 25.0%. → Fix: Use `ALLSELECTED()` so percentages sum to 100% of the active slicer selection.
+- Passing Table to ALL() Instead of Column: Writing `ALL(Fact_Sales)` wipes filters across all dimensions, which is much slower than stripping a single column `ALL(Dim_Product[Category])`. → Fix: Target specific dimension columns: `ALL(Dim_Product[Category])`.
+- Division by Zero on Empty Categories: Missing safe division wrap. → Fix: Always wrap in `=DIVIDE(Numerator, Denominator, 0)`.
 ================================================================================

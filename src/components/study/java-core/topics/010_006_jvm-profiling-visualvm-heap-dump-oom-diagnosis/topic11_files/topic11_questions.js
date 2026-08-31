@@ -5,7 +5,7 @@ const topic11_questions = [
     "explanation": "Classic GC thrashing pattern.",
     "hint": "Indicates a severe memory leak and imminent OutOfMemoryError.",
     "level": "Intermediate",
-    "codeExample": "jstat: O=99.8%, FGC=45, FGCT=120.5s -> Memory Leak Alert!"
+    "codeExample": "jstat: O=99.8%, FGC=45, FGCT=120.5s → Memory Leak Alert!"
   },
   {
     "question": "What does the command 'jstat -gcutil 4820 1000 10' do?",

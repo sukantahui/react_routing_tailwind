@@ -42,7 +42,7 @@ export default function Topic14() {
             Multidimensional Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Two-Dimensional (2D) Arrays: Declaration, Heap Architecture &amp; Matrix Visualization
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -119,9 +119,9 @@ export default function Topic14() {
             <rect x="30" y="40" width="220" height="180" rx="10" fill="url(#gradOuter2D)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="140" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">OUTER ARRAY (Rows)</text>
             <rect x="45" y="80" width="190" height="120" rx="6" fill="#0c4a6e" />
-            <text x="55" y="105" fill="#bae6fd" fontSize="11" fontFamily="monospace">[0] &rarr; 0x10A0 (Barrackpore)</text>
-            <text x="55" y="135" fill="#bae6fd" fontSize="11" fontFamily="monospace">[1] &rarr; 0x20B0 (Naihati)</text>
-            <text x="55" y="165" fill="#bae6fd" fontSize="11" fontFamily="monospace">[2] &rarr; 0x30C0 (Shyamnagar)</text>
+            <text x="55" y="105" fill="#bae6fd" fontSize="11" fontFamily="monospace">[0] → 0x10A0 (Barrackpore)</text>
+            <text x="55" y="135" fill="#bae6fd" fontSize="11" fontFamily="monospace">[1] → 0x20B0 (Naihati)</text>
+            <text x="55" y="165" fill="#bae6fd" fontSize="11" fontFamily="monospace">[2] → 0x30C0 (Shyamnagar)</text>
             <text x="140" y="195" fill="#f0f9ff" fontSize="10" textAnchor="middle" fontWeight="bold">
               matrix.length = 3 Rows
             </text>

@@ -73,7 +73,7 @@ const Topic4 = () => {
             Module 005_002 · Turtle Design & Aesthetic Customization · Topic 4
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
             Canvas Design & <span className="font-mono">Screen()</span> Window Customization
           </h1>
 

@@ -27,7 +27,7 @@ const Topic42 = () => {
       latencySla: 'Sub-1.2s Authentication Response • Zero Cleartext Biometric Exposure',
       estHardwareBudget: '₹1,85,000 (Certified Biometric Scanner Cluster & Micro-ATM Nodes)',
       desc: 'Encrypted citizen identity verification authenticating fingerprints against national biometric repositories.',
-      simResult: 'Sensor captures fingerprint -> Encrypts with UIDAI 2048-bit key -> Transmits over mTLS -> CIDR confirms "Auth: MATCH (0x00)" in 850ms.',
+      simResult: 'Sensor captures fingerprint → Encrypts with UIDAI 2048-bit key → Transmits over mTLS → CIDR confirms "Auth: MATCH (0x00)" in 850ms.',
     },
     {
       id: 'swan-hierarchy',
@@ -38,7 +38,7 @@ const Topic42 = () => {
       latencySla: '4 Mbps Dedicated Bandwidth per Block • 99.9% High Availability SLA',
       estHardwareBudget: '₹2,75,000 (District Collectorate Dual-WAN Router & UTM Firewall Stack)',
       desc: 'Vertical government intranet routing civil administration files from village panchayats to the State Secretariat.',
-      simResult: 'BDO officer digitally signs mutation note -> SWAN routes packet across DHQ to Nabanna SDC -> Ledger updated in 1.4s.',
+      simResult: 'BDO officer digitally signs mutation note → SWAN routes packet across DHQ to Nabanna SDC → Ledger updated in 1.4s.',
     },
     {
       id: 'digilocker-api',
@@ -49,7 +49,7 @@ const Topic42 = () => {
       latencySla: '&lt; 800 ms Document Fetch • Instant Legal Digital Authenticity Verification',
       estHardwareBudget: '₹3,50,000 (State Department OAuth API Gateway & Key Vault Cluster)',
       desc: 'API-driven citizen document sharing eliminating physical paperwork and counterfeit certificates.',
-      simResult: 'Police scans citizen QR code -> Calls DigiLocker API with OAuth 2.0 -> Fetches digitally signed RC PDF in 620ms.',
+      simResult: 'Police scans citizen QR code → Calls DigiLocker API with OAuth 2.0 → Fetches digitally signed RC PDF in 620ms.',
     },
     {
       id: 'apt-defense',
@@ -60,7 +60,7 @@ const Topic42 = () => {
       latencySla: 'Zero Inbound Cyber Attack Surface • Continuous One-Way Telemetry Stream',
       estHardwareBudget: '₹18,50,000 (Military-Grade Hardware Optical Data Diode & Perimeter NGFW)',
       desc: 'Physically guarantees that power grid telemetry flows out without allowing any inbound cyber warfare intrusion.',
-      simResult: 'Adversary launches reverse shell attack from external network -> Data diode physically blocks inbound light pulses -> Power grid stays safe.',
+      simResult: 'Adversary launches reverse shell attack from external network → Data diode physically blocks inbound light pulses → Power grid stays safe.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic42 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Networking in Government
           </h1>
 

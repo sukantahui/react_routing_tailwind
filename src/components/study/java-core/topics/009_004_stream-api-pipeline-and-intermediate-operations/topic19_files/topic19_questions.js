@@ -5,7 +5,7 @@ const topic19_questions = [
     "explanation": "Sorting 1,000 filtered items is orders of magnitude faster and consumes much less memory than sorting 1,000,000 unfiltered items.",
     "hint": "Early filtering drastically reduces downstream processing and memory buffers.",
     "level": "Intermediate",
-    "codeExample": "// Good: filter then map\\nstream.filter(s -> s.isActive()).map(s -> heavyDtoTransform(s))"
+    "codeExample": "// Good: filter then map\\nstream.filter(s → s.isActive()).map(s → heavyDtoTransform(s))"
   },
   {
     "question": "What is a 'Pipeline Barrier' in stream execution architecture?",

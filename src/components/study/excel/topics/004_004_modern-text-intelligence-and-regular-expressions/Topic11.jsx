@@ -76,7 +76,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Parsing Semi-Structured Log Files, Invoice Text Blocks & ERP Export Strings
           </h1>
 
@@ -101,7 +101,7 @@ export default function Topic11() {
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Lookbehind Extraction:</strong> Pulls keys like (?&lt;=INV_NO=)[A-Z0-9-]+</span>
+              <span><strong>Lookbehind Extraction:</strong> Pulls keys like (?<=INV_NO=)[A-Z0-9-]+</span>
             </div>
           </div>
         </header>
@@ -157,7 +157,7 @@ export default function Topic11() {
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">Lookbehind Isolator</td>
-                  <td className="py-3 px-4 text-emerald-300">REGEXEXTRACT(A2, "(?&lt;=KEY=)\\w+")</td>
+                  <td className="py-3 px-4 text-emerald-300">REGEXEXTRACT(A2, "(?<=KEY=)\\w+")</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">...; UID=swadeep_88; ...</td>
                   <td className="py-3 px-4 text-amber-300 font-bold">Isolated Value String</td>
                 </tr>
@@ -190,7 +190,7 @@ export default function Topic11() {
               <p className="leading-relaxed">
                 In arbitrary ERP strings like <code className="text-sky-300 font-mono">TXN_ID=9921; STATUS=SUCCESS; AMT=45000.50</code>, 
                 you can extract the amount without key markers by deploying positive lookbehind: 
-                <code className="text-emerald-300 font-mono">=NUMBERVALUE(REGEXEXTRACT(A2, "(?&lt;=AMT=)[0-9.]+"))</code>!
+                <code className="text-emerald-300 font-mono">=NUMBERVALUE(REGEXEXTRACT(A2, "(?<=AMT=)[0-9.]+"))</code>!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
                 Pulls Clean Numeric Amount with Zero String Trimming
@@ -255,7 +255,7 @@ export default function Topic11() {
               {/* Raw Ingestion Data (Header) */}
               <rect x="25" y="25" width="800" height="50" rx="8" fill="#1E1B4B" stroke="#6366F1" strokeWidth="1.5" />
               <text x="425" y="55" fill="#E0E7FF" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                "[2026-08-26 14:30:00] [WARN] [User: swadeep.b] [IP: 192.168.1.50] DB Latency &gt; 500ms"
+                "[2026-08-26 14:30:00] [WARN] [User: swadeep.b] [IP: 192.168.1.50] DB Latency > 500ms"
               </text>
 
               {/* Extraction Box (Left) */}
@@ -341,7 +341,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Log_Parsing"
+            sheetName="EX1912"
             title="Semi-Structured Log & Invoice Parsing Dataset (Log ID, Raw Log Text, Parsed Timestamp, Level, User, Event Message)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -380,7 +380,7 @@ export default function Topic11() {
                 Spills Timestamp, Level, User, and Event message across 4 columns in 1 single formula!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =REGEXEXTRACT(LogLine, "^\\[([^\\]]+)\\]...", 2) &rarr; 4 Spilled Columns
+                Formula: =REGEXEXTRACT(LogLine, "^\\[([^\\]]+)\\]...", 2) → 4 Spilled Columns
               </div>
             </div>
 
@@ -399,7 +399,7 @@ export default function Topic11() {
                 converting single-line JSON-like strings into clean 2-column key-value tables.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                TEXTSPLIT(Payload, ": ", " | ") &rarr; Key-Value Relational Matrix
+                TEXTSPLIT(Payload, ": ", " | ") → Key-Value Relational Matrix
               </div>
             </div>
 
@@ -418,7 +418,7 @@ export default function Topic11() {
                 converting pipe-separated records into relational table rows with zero helper columns.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Parses "1001|Swadeep|Barrackpore|45000" &rarr; 4 Relational Columns
+                Parses "1001|Swadeep|Barrackpore|45000" → 4 Relational Columns
               </div>
             </div>
 
@@ -433,7 +433,7 @@ export default function Topic11() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Web Systems Lead <strong>Debangshu Ghosh</strong> isolates API response codes: 
-                <code className="text-amber-300 font-mono">=REGEXEXTRACT(Response, "(?&lt;=\"status\":\s*\")[^\"]+")</code>, 
+                <code className="text-amber-300 font-mono">=REGEXEXTRACT(Response, "(?<=\"status\":\s*\")[^\"]+")</code>, 
                 extracting status tokens (`SUCCESS`, `FAILED`) without parsing full JSON trees.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
@@ -589,11 +589,11 @@ export default function Topic11() {
 
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
               <div className="flex items-center gap-2 text-white font-bold">
-                <span className="text-sky-400 font-mono font-bold">Lookbehind (?&lt;=)</span>
+                <span className="text-sky-400 font-mono font-bold">Lookbehind (?<=)</span>
                 <span>Zero Helper Columns</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Extract values: <code className="text-sky-300 font-mono">=REGEXEXTRACT(A2, "(?&lt;=ID=)\w+")</code>.
+                Extract values: <code className="text-sky-300 font-mono">=REGEXEXTRACT(A2, "(?<=ID=)\w+")</code>.
               </p>
             </div>
 
@@ -646,7 +646,7 @@ export default function Topic11() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Examine positive lookbehind:</strong> How does <code className="text-emerald-300 font-mono">(?&lt;=KEY=)</code> isolate values in arbitrary position strings without including the key name in the extracted result?
+                <strong>Examine positive lookbehind:</strong> How does <code className="text-emerald-300 font-mono">(?<=KEY=)</code> isolate values in arbitrary position strings without including the key name in the extracted result?
               </p>
             </div>
 

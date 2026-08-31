@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never type dates as text! When building financial models, always construct dates with =DATE(year, month, day) to eliminate regional format bugs between US and UK systems.
 
 COMMON TRAPS TO AVOID:
-- Text Date Entry Trap: Entering dates as text strings ('27.08.2026') causes date math and sorting to fail. -> Fix: Always construct dates using =DATE(year, month, day) or enter valid system date formats.
-- TODAY() Volatility Lag: Overusing TODAY() in 100,000 cells forces continuous worksheet recalculation on every keystroke. -> Fix: Use static timestamps (Ctrl + ;) where fixed transaction dates are required.
-- The 1900 Leap Year Bug: Excel intentionally treats 1900 as a leap year for legacy Lotus 1-2-3 compatibility. -> Fix: Avoid calculating historical dates prior to March 1, 1900.
+- Text Date Entry Trap: Entering dates as text strings ('27.08.2026') causes date math and sorting to fail. → Fix: Always construct dates using =DATE(year, month, day) or enter valid system date formats.
+- TODAY() Volatility Lag: Overusing TODAY() in 100,000 cells forces continuous worksheet recalculation on every keystroke. → Fix: Use static timestamps (Ctrl + ;) where fixed transaction dates are required.
+- The 1900 Leap Year Bug: Excel intentionally treats 1900 as a leap year for legacy Lotus 1-2-3 compatibility. → Fix: Avoid calculating historical dates prior to March 1, 1900.
 ================================================================================

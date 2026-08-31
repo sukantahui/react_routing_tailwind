@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. LINKEDLIST PERFORMANCE:
-   - addFirst() / addLast() &rarr; O(1) instant pointer update.
-   - removeFirst() / removeLast() &rarr; O(1).
-   - get(i) / set(i, val) &rarr; O(n) linear pointer traversal.
+   - addFirst() / addLast() → O(1) instant pointer update.
+   - removeFirst() / removeLast() → O(1).
+   - get(i) / set(i, val) → O(n) linear pointer traversal.
    - node(i) helper traverses from nearest end (first or last).
 
 ================================================================================

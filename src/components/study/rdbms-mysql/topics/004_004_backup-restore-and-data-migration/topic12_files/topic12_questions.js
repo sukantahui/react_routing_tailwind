@@ -24,9 +24,9 @@ const questions = [
     question: "What are the 6 chronological steps in the definitive Disaster Recovery Runbook for recovering from an accidental `DROP DATABASE`?",
     shortAnswer: "1. Incident Triage & Log Rotation (`FLUSH BINARY LOGS`); 2. Retrieve Base Backup & Binlog Archives; 3. Provision Staging Host & Restore Base; 4. Pinpoint Pre-Disaster Coordinate; 5. Replay Binary Logs to Safe Position; 6. Verify Parity & Cutover DNS.",
     explanation: "This systematic runbook guarantees predictable, stress-free recovery under intense production outage pressure.",
-    hint: "1. Triage -> 2. Retrieve -> 3. Restore Base -> 4. Pinpoint Pos -> 5. Replay -> 6. Cutover.",
+    hint: "1. Triage → 2. Retrieve → 3. Restore Base → 4. Pinpoint Pos → 5. Replay → 6. Cutover.",
     level: "basic",
-    codeExample: `# 1. FLUSH BINARY LOGS -> 2. Download Base -> 3. xtrabackup --copy-back -> 4. grep DROP -> 5. mysqlbinlog -> 6. Route53 switch`
+    codeExample: `# 1. FLUSH BINARY LOGS → 2. Download Base → 3. xtrabackup --copy-back → 4. grep DROP → 5. mysqlbinlog → 6. Route53 switch`
   },
   {
     question: "How do you find the exact byte position where the `DROP DATABASE` command started inside `binlog.000105`?",
@@ -35,7 +35,7 @@ const questions = [
     hint: "Grep for DROP DATABASE and note the starting '# at <pos>' header.",
     level: "intermediate",
     codeExample: `mysqlbinlog --base64-output=DECODE-ROWS -v binlog.000105 | grep -C 5 "DROP DATABASE"
-# Result: # at 849201 -> DROP DATABASE \`kolkata_retail\``
+# Result: # at 849201 → DROP DATABASE \`kolkata_retail\``
   },
   {
     question: "In Mamata & Susmita's Barrackpore retail store, a deployment script dropped `barrackpore_store` at 15:45:00 on Tuesday. How did Mamata achieve a 20-minute RTO with 0 seconds RPO?",
@@ -125,7 +125,7 @@ REVOKE DROP ON kolkata_retail.* FROM 'app_user'@'%';`
     hint: "Enables instant traffic redirection to the new primary without code deployments.",
     level: "basic",
     codeExample: `# Route53 CNAME switch:
-# db.kolkata.internal -> staging-primary.internal`
+# db.kolkata.internal → staging-primary.internal`
   },
   {
     question: "What happens if you accidentally specify a `--stop-position` that is AFTER the `DROP DATABASE` statement in `mysqlbinlog`?",
@@ -211,7 +211,7 @@ SET GLOBAL innodb_flush_log_at_trx_commit = 1;`
     hint: "Rejects UPDATE and DELETE queries that lack key-based WHERE clauses.",
     level: "basic",
     codeExample: `SET sql_safe_updates = 1;
--- UPDATE orders SET status = 'CANCELLED'; -> ERROR: You are using safe update mode!`
+-- UPDATE orders SET status = 'CANCELLED'; → ERROR: You are using safe update mode!`
   },
   {
     question: "How do you archive all restored binary log replay commands to a forensic audit log?",
@@ -227,7 +227,7 @@ SET GLOBAL innodb_flush_log_at_trx_commit = 1;`
     explanation: "Binary log chains must be strictly continuous and unbroken for successful PITR.",
     hint: "Missing binary logs break transaction continuity and cause replay failures.",
     level: "expert",
-    codeExample: `-- Binary log sequence MUST be strictly continuous: 100 -> 101 -> 102 -> 103.`
+    codeExample: `-- Binary log sequence MUST be strictly continuous: 100 → 101 → 102 → 103.`
   },
   {
     question: "How do you confirm that all database users and permissions are restored on the new primary instance?",

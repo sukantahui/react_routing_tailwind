@@ -123,7 +123,7 @@ const questions = [
     explanation: "The infamous fall-through behavior of traditional switch.",
     hint: "Falls through into subsequent cases.",
     level: "basic",
-    codeExample: "case 1: step1(); // No break -> falls into case 2!"
+    codeExample: "case 1: step1(); // No break → falls into case 2!"
   },
   {
     question: "What bytecode instruction is generated when `case` labels are dense integers (e.g. 1, 2, 3, 4)?",

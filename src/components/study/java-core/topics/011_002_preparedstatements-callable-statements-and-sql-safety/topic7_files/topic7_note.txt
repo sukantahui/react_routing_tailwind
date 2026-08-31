@@ -6,10 +6,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. CRUD SUMMARY:
-   - CREATE &rarr; 'pstmt.executeUpdate()' (Returns 1 on successful insert).
-   - READ   &rarr; 'pstmt.executeQuery()'   (Returns ResultSet; iterate with 'rs.next()').
-   - UPDATE &rarr; 'pstmt.executeUpdate()' (Returns count of updated rows).
-   - DELETE &rarr; 'pstmt.executeUpdate()' (Returns count of deleted rows).
+   - CREATE → 'pstmt.executeUpdate()' (Returns 1 on successful insert).
+   - READ   → 'pstmt.executeQuery()'   (Returns ResultSet; iterate with 'rs.next()').
+   - UPDATE → 'pstmt.executeUpdate()' (Returns count of updated rows).
+   - DELETE → 'pstmt.executeUpdate()' (Returns count of deleted rows).
 
 2. IDEMPOTENCY:
    - Updates and Deletes return '0' if no matching rows met the WHERE criteria.

@@ -32,7 +32,7 @@ of Project Network Analysis:
   - The 6 Golden Drawing Rules; diagnosing Dangling, Looping, and Duplicate Node Pairs.
 
 • TOPIC 5: WORKING METHODOLOGY OF CRITICAL PATH ANALYSIS
-  - 5-phase engine: Planning -> Two-Pass Sched -> Floats -> Critical Path -> Crashing in ₹.
+  - 5-phase engine: Planning → Two-Pass Sched → Floats → Critical Path → Crashing in ₹.
 
 • TOPIC 6: EARLIEST EVENT TIMES (FORWARD PASS)
   - E_1 = 0; E_j = max(E_i + d_ij); ES = E_i; EF = E_i + d_ij.

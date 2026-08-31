@@ -174,7 +174,7 @@
       "learningOutcome": "In-Place Index Permutations, Permutation Cycle Following & Zero Auxiliary RAM",
       "exampleText": "Permute array according to custom index map in-place",
       "exampleOutput": "--- In-Place Cycle Sorting for Custom Index Permutations ---\nPermuted array elements in-place to target index map in O(N) memory writes.",
-      "logicExplanation": "1. **Cycle Traversal**: Follow permutation chain `i -> target_idx[i] -> ...`.\n2. **In-Place Swap**: Swap element to correct target index until cycle closes.",
+      "logicExplanation": "1. **Cycle Traversal**: Follow permutation chain `i → target_idx[i] → ...`.\n2. **In-Place Swap**: Swap element to correct target index until cycle closes.",
       "answerFile": "./answers/answer14.c",
       "codeExplanation": "1. `cycle_sort_permutation_demo()`: Solves In-Place Cycle Sorting for Custom Index Permutations."
     },
@@ -222,7 +222,7 @@
       "learningOutcome": "Partial Ordering vs Total Ordering, DAG Dependency Networks & Topological Sort Audits",
       "exampleText": "Audit topological partial ordering vs comparison total ordering",
       "exampleOutput": "--- Topological Sorting vs Comparison Sorting Decision Audit ---\nAudited DAG dependency sorting vs comparison total ordering.",
-      "logicExplanation": "1. **Total Order**: Comparison sorting orders all pairs `(u, v)`.\n2. **Partial Order**: Topological sorting orders only directed edge dependencies `u -> v`.",
+      "logicExplanation": "1. **Total Order**: Comparison sorting orders all pairs `(u, v)`.\n2. **Partial Order**: Topological sorting orders only directed edge dependencies `u → v`.",
       "answerFile": "./answers/answer18.c",
       "codeExplanation": "1. `topo_vs_comparison_sort_demo()`: Solves Topological Sorting vs Comparison Sorting Decision Audit."
     },

@@ -11,7 +11,7 @@ const questions = [
     explanation: "Core definition and class hierarchy of StackOverflowError.",
     hint: "VirtualMachineError thrown when Call Stack memory is exhausted.",
     level: "basic",
-    codeExample: "// java.lang.Object -> Throwable -> Error -> VirtualMachineError -> StackOverflowError"
+    codeExample: "// java.lang.Object → Throwable → Error → VirtualMachineError → StackOverflowError"
   },
   {
     question: "Is `StackOverflowError` an Exception or an Error?",
@@ -43,7 +43,7 @@ const questions = [
     explanation: "Defensive base case demonstration.",
     hint: "Terminated safely returning 0.",
     level: "basic",
-    codeExample: "safeDefensiveSum(-5, 0, 100) -> 0"
+    codeExample: "safeDefensiveSum(-5, 0, 100) → 0"
   },
   {
     question: "What is a 'Depth Guard' in recursive programming?",
@@ -75,7 +75,7 @@ const questions = [
     explanation: "Iterative large-scale summation calculation.",
     hint: "5,000,050,000.",
     level: "basic",
-    codeExample: "iterativeSafeSum(100_000) -> 5000050000L"
+    codeExample: "iterativeSafeSum(100_000) → 5000050000L"
   },
   {
     question: "Approximately how many stack frames can a standard 64-bit JVM hold with the default 1MB stack size (`-Xss1m`)?",
@@ -102,7 +102,7 @@ const questions = [
     codeExample: "// Larger -Xss consumes more RAM per thread, limiting thread scalability"
   },
   {
-    question: "Can an indirect mutual recursion loop cause `StackOverflowError` (e.g. `A() -> B() -> A()`)?",
+    question: "Can an indirect mutual recursion loop cause `StackOverflowError` (e.g. `A() → B() → A()`)?",
     shortAnswer: "YES! If Method A calls Method B and Method B calls Method A without a base case, both methods push frames alternately until stack exhaustion.",
     explanation: "Indirect mutual recursion loop.",
     hint: "Yes, mutual recursive loops push frames alternately until stack overflow.",
@@ -187,7 +187,7 @@ const questions = [
     explanation: "Heap vs Stack memory error distinction.",
     hint: "OutOfMemoryError is for Heap; StackOverflowError is for Call Stack.",
     level: "basic",
-    codeExample: "// Heap exhausted -> OutOfMemoryError | Stack exhausted -> StackOverflowError"
+    codeExample: "// Heap exhausted → OutOfMemoryError | Stack exhausted → StackOverflowError"
   },
   {
     question: "Can a `finally` block execute if a `StackOverflowError` occurs inside `try`?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Stream API iterative pipeline alternative.",
     hint: "Stream.iterate() processes sequences iteratively without recursive frames.",
     level: "intermediate",
-    codeExample: "Stream.iterate(1, n -> n + 1).limit(100000).mapToLong(i -> i).sum();"
+    codeExample: "Stream.iterate(1, n → n + 1).limit(100000).mapToLong(i → i).sum();"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the safe depth limit set in `safeDefensiveSum(100, 0, 50)`?",
@@ -243,7 +243,7 @@ const questions = [
     explanation: "Trampoline pattern in functional programming.",
     hint: "Evaluates recursive steps in an iterative loop on the Heap using thunks.",
     level: "advanced",
-    codeExample: "Trampoline<Long> fact(int n, long acc) { return n <= 1 ? done(acc) : more(() -> fact(n - 1, acc * n)); }"
+    codeExample: "Trampoline<Long> fact(int n, long acc) { return n <= 1 ? done(acc) : more(() → fact(n - 1, acc * n)); }"
   }
 ];
 

@@ -32,7 +32,7 @@ export default function Topic14() {
             Design Principle
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Loose Coupling: Programming to an Interface, Not an Implementation
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -74,7 +74,7 @@ export default function Topic14() {
 
       {/* Section 4: Teacher's Note */}
       <Teacher
-        note="Always declare 'List<String> trainees = new ArrayList<>();' rather than 'ArrayList<String> trainees'! Programming to the List interface lets you swap to LinkedList or Vector without changing the rest of your app. — Sukanta Hui"
+        note="Always declare 'List<String> trainees = new ArrayList&lt;&gt;();' rather than 'ArrayList<String> trainees'! Programming to the List interface lets you swap to LinkedList or Vector without changing the rest of your app. — Sukanta Hui"
       />
     </div>
   );

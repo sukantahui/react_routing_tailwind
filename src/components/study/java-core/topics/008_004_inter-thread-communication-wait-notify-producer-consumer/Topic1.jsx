@@ -21,7 +21,7 @@ export default function Topic1() {
             Object Signaling API
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           The <code className="text-emerald-400 font-mono">java.lang.Object</code> Signaling API: <code className="text-sky-400 font-mono">wait()</code>, <code className="text-amber-400 font-mono">notify()</code> &amp; <code className="text-purple-400 font-mono">notifyAll()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

@@ -68,7 +68,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Converting Data Ranges into Excel Tables (Ctrl + T) & ListObjects Engine
           </h1>
 
@@ -300,7 +300,7 @@ export default function Topic0() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Shortcut Ctrl + T -&gt; Name: tblEmployees</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Shortcut Ctrl + T → Name: tblEmployees</div>
                 <div className="text-emerald-400 font-semibold">Result: Instant table conversion with dynamic headers.</div>
                 <div className="text-slate-400 text-[11px]">Tables automatically format numbers and propagate formulas across rows.</div>
               </div>
@@ -344,7 +344,7 @@ export default function Topic0() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Table Design -&gt; Table Styles -&gt; Dark 2</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Table Design → Table Styles → Dark 2</div>
                 <div className="text-emerald-400 font-semibold">Result: Boardroom-ready data presentation.</div>
                 <div className="text-slate-400 text-[11px]">Zebra striping improves readability across wide data sets.</div>
               </div>
@@ -366,7 +366,7 @@ export default function Topic0() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Table Design -&gt; Total Row Checkbox</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Table Design → Total Row Checkbox</div>
                 <div className="text-emerald-400 font-semibold">Result: Automated cost summary row at bottom.</div>
                 <div className="text-slate-400 text-[11px]">Total row uses SUBTOTAL to calculate visible rows only.</div>
               </div>
@@ -462,7 +462,7 @@ export default function Topic0() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Formula Not Auto-Filling Down Column</td>
                   <td className="py-3 px-4 text-slate-300">Auto-fill option disabled in Excel AutoCorrect options.</td>
-                  <td className="py-3 px-4 text-amber-300">File -&gt; Options -&gt; Proofing -&gt; AutoCorrect.</td>
+                  <td className="py-3 px-4 text-amber-300">File → Options → Proofing → AutoCorrect.</td>
                   <td className="py-3 px-4 text-emerald-400 font-medium">Enable 'Fill formulas in tables on entry'.</td>
                 </tr>
               </tbody>

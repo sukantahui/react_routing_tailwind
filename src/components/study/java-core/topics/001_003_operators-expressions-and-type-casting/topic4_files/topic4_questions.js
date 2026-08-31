@@ -153,7 +153,7 @@ const questions = [
     question: "What is the result of `1 + 2 + \"3\" + 4 + 5` in Java?",
     shortAnswer: "`\"3345\"`.",
     explanation: "`1 + 2` evaluates to integer `3`. `3 + \"3\"` concatenates to `\"33\"`. `\"33\" + 4` becomes `\"334\"`. `\"334\" + 5` becomes `\"3345\"`.",
-    hint: "Step by step: (1+2=3) -> \"33\" -> \"334\" -> \"3345\".",
+    hint: "Step by step: (1+2=3) → \"33\" → \"334\" → \"3345\".",
     level: "intermediate",
     codeExample: "String s = 1 + 2 + \"3\" + 4 + 5; // \"3345\""
   },

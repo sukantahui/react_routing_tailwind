@@ -42,7 +42,7 @@ export default function Topic5() {
             Core JVM Memory Semantics
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Pass-by-Value in Java: Primitives vs. Object References
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -139,18 +139,18 @@ export default function Topic5() {
             {/* Caller Stack */}
             <rect x="475" y="70" width="160" height="40" rx="6" fill="#1e293b" />
             <text x="555" y="88" fill="#ffffff" fontSize="9" textAnchor="middle">Caller: swadeep</text>
-            <text x="555" y="102" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x50A0 &rarr;</text>
+            <text x="555" y="102" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x50A0 →</text>
 
             {/* Method Stack */}
             <rect x="475" y="120" width="160" height="40" rx="6" fill="#1e293b" />
             <text x="555" y="138" fill="#ffffff" fontSize="9" textAnchor="middle">Method: student</text>
-            <text x="555" y="152" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x50A0 &rarr;</text>
+            <text x="555" y="152" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x50A0 →</text>
 
             {/* Shared Heap Object */}
             <rect x="665" y="70" width="170" height="90" rx="8" fill="url(#gradObj)" />
             <text x="750" y="95" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">Heap: StudentRecord</text>
             <text x="750" y="118" fill="#d1fae5" fontSize="10" textAnchor="middle">Swadeep</text>
-            <text x="750" y="138" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹18,000 &rarr; ₹15,000</text>
+            <text x="750" y="138" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹18,000 → ₹15,000</text>
 
             <text x="655" y="195" fill="#a7f3d0" fontSize="10" textAnchor="middle">Address pointer is copied by value.</text>
             <text x="655" y="215" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">Both mutate the SAME Heap instance!</text>

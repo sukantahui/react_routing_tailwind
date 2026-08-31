@@ -1,7 +1,7 @@
 ================================================================================
 CODER & ACCOTAX - JAVA CORE DEEP TECHNICAL MANUAL
 MODULE 001_003: Operators, Expressions, Precedence & Type Casting
-TOPIC 18: Automatic Type Promotion Rules in Expressions (byte/short/char -> int)
+TOPIC 18: Automatic Type Promotion Rules in Expressions (byte/short/char → int)
 Educator: Sukanta Hui | Location: Barrackpore, West Bengal, India
 ================================================================================
 

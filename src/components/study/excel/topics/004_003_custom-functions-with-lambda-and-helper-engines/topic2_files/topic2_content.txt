@@ -17,7 +17,7 @@ Name Manager stores key-value pairs in the workbook binary dictionary:
 - In nested higher-order functions: =BYROW(Matrix, FX_ROW_SUM)
 
 3. ERROR DIAGNOSTICS:
-- Unregistered Name &rarr; #NAME?
-- Trailing args in 'Refers to' &rarr; Static value stored instead of callable function
-- Missing required non-optional argument &rarr; #VALUE!
+- Unregistered Name → #NAME?
+- Trailing args in 'Refers to' → Static value stored instead of callable function
+- Missing required non-optional argument → #VALUE!
 ================================================================================

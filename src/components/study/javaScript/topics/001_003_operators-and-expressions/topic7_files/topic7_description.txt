@@ -19,8 +19,8 @@ Swadeep received a form input as a string: let input = "450";. He wanted to conv
 An operator that takes exactly one operand.
 
 2. Essential Unary Operators:
-- Unary Plus (+): Converts the operand into a Number (e.g. +"42" -> 42).
-- Unary Negation (-): Converts to number and negates the sign (e.g. -5 -> -5).
+- Unary Plus (+): Converts the operand into a Number (e.g. +"42" → 42).
+- Unary Negation (-): Converts to number and negates the sign (e.g. -5 → -5).
 - Logical NOT (!): Inverts truthiness into a boolean.
 - Bitwise NOT (~): Inverts bitwise representation (~x equals -(x + 1)).
 - typeof: Returns the string type of the operand.

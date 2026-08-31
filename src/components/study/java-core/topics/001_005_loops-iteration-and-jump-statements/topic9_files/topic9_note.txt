@@ -32,7 +32,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------
-[✓] Initializer check: Sums -> 0 | Products -> 1 | Counters -> 0.
+[✓] Initializer check: Sums → 0 | Products → 1 | Counters → 0.
 [✓] Min/Max check: Initialize min with MAX_VALUE and max with MIN_VALUE.
 [✓] Overflow check: Use 'long' for large financial totals or factorials (max 20!).
 [✓] String accumulator check: Use StringBuilder instead of String +=.

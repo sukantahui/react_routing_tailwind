@@ -96,7 +96,7 @@ const Topic1 = () => {
         <section className="mb-16 animate-[fadeIn_0.8s_ease-out]">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 p-8 md:p-12 border border-gray-700">
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 The Great Debate: Library vs Framework
               </h2>
               <p className="text-xl mb-8 text-gray-300 leading-relaxed">

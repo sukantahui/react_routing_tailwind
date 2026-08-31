@@ -21,7 +21,7 @@ export default function Topic0() {
             Legacy Limitations
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Limitations of Legacy <code className="text-rose-400 font-mono">java.io.File</code>: Why Java 7+ Introduced NIO.2
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

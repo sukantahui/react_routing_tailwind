@@ -71,7 +71,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic12() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"}
+            {"Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"}
           </div>
 
           <div className="overflow-x-auto">
@@ -286,7 +286,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Real_world_project"
+            sheetName="EX2813"
             title={"Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic12() {
                 Step 2: Reference Data via xl() &amp; Build Python Logic
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Ingest ranges: <code className="text-cyan-300 font-mono font-bold">{"Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"}</code>.
+                Ingest ranges: <code className="text-cyan-300 font-mono font-bold">{"Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"}</code>.
               </p>
             </div>
 

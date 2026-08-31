@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "Guarantees graceful continuation rather than abrupt process termination.",
     "hint": "Statements after the failure in try are skipped; catch executes; execution continues after catch.",
     "level": "Beginner",
-    "codeExample": "// Flow: try_step1 -> try_step2 (fails) -> catch_block -> post_statements"
+    "codeExample": "// Flow: try_step1 → try_step2 (fails) → catch_block → post_statements"
   }
 ];
 

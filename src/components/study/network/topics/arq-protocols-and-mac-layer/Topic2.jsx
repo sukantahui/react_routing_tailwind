@@ -30,7 +30,7 @@ const SelectiveRepeatARQ = () => {
       <div className="max-w-5xl mx-auto px-4 py-8 md:py-12 space-y-10">
         {/* Header */}
         <section className="reveal-section" style={{ animation: "fadeSlideUp 0.6s ease forwards" }}>
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-700 to-pink-600 dark:from-purple-400 dark:to-pink-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-700 to-pink-600 dark:from-purple-400 dark:to-pink-300 bg-clip-text text-transparent">
             Selective Repeat ARQ
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-3 border-l-4 border-purple-500 pl-4">

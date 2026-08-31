@@ -83,7 +83,7 @@ const questions = [
     explanation: "In `a + 5 > b * 2`, the addition `a + 5` and multiplication `b * 2` evaluate before the `>` comparison.",
     hint: "Arithmetic evaluates before relational comparison.",
     level: "basic",
-    codeExample: "boolean test = 5 + 3 > 2 * 3; // (8 > 6) -> true"
+    codeExample: "boolean test = 5 + 3 > 2 * 3; // (8 > 6) → true"
   },
   {
     question: "What is the difference in precedence between ordering operators (`<`, `>`, `<=`, `>=`) and equality operators (`==`, `!=`)?",
@@ -91,7 +91,7 @@ const questions = [
     explanation: "In `a < b == c < d`, `a < b` and `c < d` evaluate first, and their boolean results are compared with `==`.",
     hint: "Ordering (<, >) precedes equality (==, !=).",
     level: "intermediate",
-    codeExample: "boolean check = 5 < 10 == 3 < 8; // (true == true) -> true"
+    codeExample: "boolean check = 5 < 10 == 3 < 8; // (true == true) → true"
   },
   {
     question: "What is the result of chaining relational comparisons like `1 < x < 10` in Java?",

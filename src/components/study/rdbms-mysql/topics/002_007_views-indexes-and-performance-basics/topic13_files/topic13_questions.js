@@ -185,7 +185,7 @@ const questions = [
   },
   {
     question: "What is the recommended workflow before dropping an index in a production database?",
-    shortAnswer: "1. Mark index `INVISIBLE` -> 2. Monitor application performance for 24-48 hours -> 3. If no regressions occur, run `DROP INDEX`.",
+    shortAnswer: "1. Mark index `INVISIBLE` → 2. Monitor application performance for 24-48 hours → 3. If no regressions occur, run `DROP INDEX`.",
     explanation: "Invisible indexes allow risk-free testing of index decommissions.",
     hint: "Make INVISIBLE first, monitor for regressions, then permanently DROP.",
     level: "expert"

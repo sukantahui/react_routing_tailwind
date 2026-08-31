@@ -57,7 +57,7 @@ const Topic6 = () => {
       name: "The Painter's Algorithm Layering",
       returnType: "Z-Index Hierarchy",
       purpose: "Background layers rendered first; foreground layers painted sequentially on top.",
-      usage: "Sky -> Mountains -> Hills -> Cottage -> UI Header"
+      usage: "Sky → Mountains → Hills → Cottage → UI Header"
     }
   ];
 
@@ -74,7 +74,7 @@ const Topic6 = () => {
             Module 005_002 · Turtle Design & Aesthetic Customization · Topic 6
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">
             Combining Geometric Fills for Complex Vector Art
           </h1>
 

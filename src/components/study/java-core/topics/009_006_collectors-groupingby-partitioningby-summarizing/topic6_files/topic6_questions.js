@@ -9,11 +9,11 @@ const topic6_questions = [
   },
   {
     "question": "How do you group by multiple fields (e.g. Center AND Course) in single-level grouping?",
-    "shortAnswer": "By creating and returning a Java Record (or composite key class) with value-based equals and hashCode from the classifier function: groupingBy(s -> new CenterCourse(s.center(), s.course())).",
+    "shortAnswer": "By creating and returning a Java Record (or composite key class) with value-based equals and hashCode from the classifier function: groupingBy(s → new CenterCourse(s.center(), s.course())).",
     "explanation": "Java records provide automatic value equality, making them perfect composite grouping keys.",
     "hint": "Use a Java record as a composite key in the classifier function.",
     "level": "Intermediate",
-    "codeExample": "record BranchCourse(String branch, String course) {}\\nstream.collect(groupingBy(s -> new BranchCourse(s.getBranch(), s.getCourse())));"
+    "codeExample": "record BranchCourse(String branch, String course) {}\\nstream.collect(groupingBy(s → new BranchCourse(s.getBranch(), s.getCourse())));"
   }
 ];
 

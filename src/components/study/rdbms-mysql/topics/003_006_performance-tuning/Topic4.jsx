@@ -133,7 +133,7 @@ EXPLAIN SELECT * FROM student_records WHERE city = 'Barrackpore' OR age = 22;
               Access Methods
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Understanding Access Types (type)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -506,7 +506,7 @@ EXPLAIN SELECT * FROM student_records WHERE city = 'Barrackpore' OR age = 22;
 {`-- The Performance Tuning Fix:
 ALTER TABLE students ADD INDEX idx_city_category (city, category);
 
--- Upgrades execution from index_merge -> ref!
+-- Upgrades execution from index_merge → ref!
 EXPLAIN SELECT * FROM students WHERE city = 'Barrackpore' AND category = 'General';`}
               </pre>
             </div>

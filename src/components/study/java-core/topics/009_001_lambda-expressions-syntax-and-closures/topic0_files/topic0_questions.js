@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "Foundational philosophy of Java 8 functional programming revolution.",
     "hint": "Treats code/behavior as data (behavior parameterization) without abandoning OOP classes and objects.",
     "level": "Beginner",
-    "codeExample": "list.filter(mark -> mark >= 50); // Lambda passed as behavior parameter"
+    "codeExample": "list.filter(mark → mark >= 50); // Lambda passed as behavior parameter"
   }
 ];
 

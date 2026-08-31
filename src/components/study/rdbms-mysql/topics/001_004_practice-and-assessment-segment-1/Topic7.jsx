@@ -155,7 +155,7 @@ LIMIT 10 OFFSET 20; -- Page 3 (Rows 21 to 30) with deterministic tie-breaker!`,
 -- Error 1175 (Safe Mode): UPDATE/DELETE without KEY column in WHERE
 
 -- PRODUCTION PR STANDARDS:
--- 1. Zero SELECT * -> Explicit column projections only.
+-- 1. Zero SELECT * → Explicit column projections only.
 -- 2. Named constraints (CONSTRAINT fk_...) on all Foreign Keys.
 -- 3. Capitalized SQL keywords with 4-space clause indentation.`,
       examQuestions: [
@@ -205,7 +205,7 @@ LIMIT 10 OFFSET 20; -- Page 3 (Rows 21 to 30) with deterministic tie-breaker!`,
               Segment 1 Final Capstone Exam
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Segment 1 Final Exam &amp; Knowledge Check
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

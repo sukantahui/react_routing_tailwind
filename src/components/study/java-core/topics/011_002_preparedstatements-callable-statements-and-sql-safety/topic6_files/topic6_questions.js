@@ -5,7 +5,7 @@ const topic6_questions = [
     "explanation": "Known as Plan Cache Pollution.",
     "hint": "Floods the database Plan Cache with thousands of single-use execution plans.",
     "level": "Intermediate",
-    "codeExample": "WHERE id = 101 vs WHERE id = 102 -> Two separate query plans in cache!"
+    "codeExample": "WHERE id = 101 vs WHERE id = 102 → Two separate query plans in cache!"
   },
   {
     "question": "What is the primary defense recommended by OWASP for preventing SQL Injection in Java?",

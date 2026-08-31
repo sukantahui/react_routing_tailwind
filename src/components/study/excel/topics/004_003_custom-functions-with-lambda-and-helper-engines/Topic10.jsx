@@ -76,7 +76,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Accumulator Algorithms: Running Balances & Progressive Totals with SCAN
           </h1>
 
@@ -198,11 +198,11 @@ export default function Topic10() {
               <p className="leading-relaxed">
                 SCAN operates as a formal finite-state machine. Given seed <code className="text-amber-300 font-mono">s₀</code> and input sequence <code className="text-cyan-300 font-mono">[x₁, x₂, ... xₙ]</code>:
                 <br />
-                • <code className="text-emerald-300 font-mono">s₁ = f(s₀, x₁)</code> &rarr; Spills to Cell 1
+                • <code className="text-emerald-300 font-mono">s₁ = f(s₀, x₁)</code> → Spills to Cell 1
                 <br />
-                • <code className="text-emerald-300 font-mono">s₂ = f(s₁, x₂)</code> &rarr; Spills to Cell 2
+                • <code className="text-emerald-300 font-mono">s₂ = f(s₁, x₂)</code> → Spills to Cell 2
                 <br />
-                • <code className="text-emerald-300 font-mono">sₙ = f(sₙ₋₁, xₙ)</code> &rarr; Spills to Cell N
+                • <code className="text-emerald-300 font-mono">sₙ = f(sₙ₋₁, xₙ)</code> → Spills to Cell N
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
                 Pure Recurrence Relation Evaluated in Contiguous RAM
@@ -388,7 +388,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_SCAN"
+            sheetName="EX1811"
             title="Corporate Bank Account Ledger (Txn ID, Description, Category, Net Amount ₹)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -427,7 +427,7 @@ export default function Topic10() {
                 Computes the entire bank running balance in 3ms and completely prevents broken formula references.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =SCAN(50000, D5:D20000, ...) &rarr; 20,000 Balances Spilled
+                Formula: =SCAN(50000, D5:D20000, ...) → 20,000 Balances Spilled
               </div>
             </div>
 
@@ -465,7 +465,7 @@ export default function Topic10() {
                 ensuring real-time stock visibility and safety reorder alerts.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =SCAN(1500, Movements, ...) &rarr; Real-Time Inventory Ledger
+                Formula: =SCAN(1500, Movements, ...) → Real-Time Inventory Ledger
               </div>
             </div>
 
@@ -550,7 +550,7 @@ export default function Topic10() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 4: Press Enter & Verify Progressive Column Spill</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Press Enter. The 6 running balances spill down <code className="text-emerald-300 font-mono">E5:E10</code>: ₹65,000 &rarr; ₹57,000 &rarr; ₹79,000 &rarr; ₹67,000 &rarr; ₹97,000 &rarr; ₹92,000!
+                  Press Enter. The 6 running balances spill down <code className="text-emerald-300 font-mono">E5:E10</code>: ₹65,000 → ₹57,000 → ₹79,000 → ₹67,000 → ₹97,000 → ₹92,000!
                 </p>
               </div>
             </div>

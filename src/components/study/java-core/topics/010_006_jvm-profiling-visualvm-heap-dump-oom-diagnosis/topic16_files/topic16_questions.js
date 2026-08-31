@@ -5,7 +5,7 @@ const topic16_questions = [
     "explanation": "Object X is the exclusive gateway keeping Object Y alive.",
     "hint": "Every path from GC Roots to Y goes through X.",
     "level": "Advanced",
-    "codeExample": "GC Root -> X -> Y (X dominates Y; removing X frees Y)"
+    "codeExample": "GC Root → X → Y (X dominates Y; removing X frees Y)"
   },
   {
     "question": "How do you use the Dominator Tree in MAT to find the root cause of a memory leak?",
@@ -13,7 +13,7 @@ const topic16_questions = [
     "explanation": "Drilling down into the top dominator exposes the leaking collection.",
     "hint": "Sort descending by Retained Heap to find the top hoarding object.",
     "level": "Intermediate",
-    "codeExample": "Sort Dominator Tree by Retained Heap -> Expand top row."
+    "codeExample": "Sort Dominator Tree by Retained Heap → Expand top row."
   }
 ];
 

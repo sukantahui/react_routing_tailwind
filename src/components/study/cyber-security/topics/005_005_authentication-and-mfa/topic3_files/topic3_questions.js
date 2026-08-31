@@ -7,8 +7,8 @@ const questions = [
     hint: "Requires two or more distinct factor categories (Knowledge, Possession, Inherence).",
     level: "Basic",
     codeExample: `// True MFA vs Multi-Step 1FA:
-// Multi-Step 1FA: Password (Knowledge) + PIN (Knowledge) -> Same domain ❌
-// True 2FA      : Password (Knowledge) + TOTP Token (Possession) -> Distinct domains ✔`
+// Multi-Step 1FA: Password (Knowledge) + PIN (Knowledge) → Same domain ❌
+// True 2FA      : Password (Knowledge) + TOTP Token (Possession) → Distinct domains ✔`
   },
   {
     id: 2,
@@ -30,8 +30,8 @@ const questions = [
     hint: "Both credentials are knowledge factors; compromising one mechanism allows compromising both.",
     level: "Basic",
     codeExample: `// Flawed Multi-Step Flow:
-// Step 1: Enter Password -> "Kolkata#2026" (Knowledge)
-// Step 2: Enter Security Question -> "St. Xavier's" (Knowledge)
+// Step 1: Enter Password → "Kolkata#2026" (Knowledge)
+// Step 2: Enter Security Question → "St. Xavier's" (Knowledge)
 // Result: 1FA only! Vulnerable to single-point phishing compromise.`
   },
   {
@@ -54,10 +54,10 @@ const questions = [
     hint: "Bombarding a user with push notifications until they inadvertently tap 'Approve'.",
     level: "Moderate",
     codeExample: `// MFA Prompt Bombing Sequence:
-// 02:15 AM - Push 1 sent -> Denied
-// 02:16 AM - Push 2 sent -> Ignored
+// 02:15 AM - Push 1 sent → Denied
+// 02:16 AM - Push 2 sent → Ignored
 // ...
-// 02:28 AM - Push 42 sent -> User taps "Approve" to silence alarm -> ACCOUNT BREACHED! 🚨`
+// 02:28 AM - Push 42 sent → User taps "Approve" to silence alarm → ACCOUNT BREACHED! 🚨`
   },
   {
     id: 6,
@@ -79,8 +79,8 @@ const questions = [
     hint: "Proxies phishing traffic to the real server, stealing the final authenticated session cookie.",
     level: "Expert",
     codeExample: `// AitM Flow (Evilginx):
-// Victim -> [Fake Phishing Proxy: bank-login.net] -> [Real Bank: bank.com]
-// Victim enters Password + TOTP -> Proxy forwards to real bank -> Real bank issues Session Cookie -> Proxy intercepts cookie!`
+// Victim → [Fake Phishing Proxy: bank-login.net] → [Real Bank: bank.com]
+// Victim enters Password + TOTP → Proxy forwards to real bank → Real bank issues Session Cookie → Proxy intercepts cookie!`
   },
   {
     id: 8,
@@ -90,8 +90,8 @@ const questions = [
     hint: "Hardware key binds authentication directly to the exact browser domain in the URL bar.",
     level: "Expert",
     codeExample: `// Cryptographic Origin Binding:
-// Client on 'attacker-phish.net' -> Hardware key signs: { origin: 'https://attacker-phish.net', challenge: '...' }
-// Real server 'bank.com' checks signature -> Origin mismatch ('attacker-phish.net' !== 'bank.com') -> REJECTED ❌`
+// Client on 'attacker-phish.net' → Hardware key signs: { origin: 'https://attacker-phish.net', challenge: '...' }
+// Real server 'bank.com' checks signature → Origin mismatch ('attacker-phish.net' !== 'bank.com') → REJECTED ❌`
   },
   {
     id: 9,
@@ -117,7 +117,7 @@ if (transactionAmount > 500000 || isImpossibleTraveler) {
     codeExample: `// SIM Swap Attack:
 // 1. Attacker bribes telecom agent with ₹5,000 to assign Susmita's phone number to new SIM.
 // 2. Attacker clicks "Forgot Password" on bank.
-// 3. Bank sends SMS OTP -> Delivered to attacker's phone! ❌`
+// 3. Bank sends SMS OTP → Delivered to attacker's phone! ❌`
   },
   {
     id: 11,
@@ -126,8 +126,8 @@ if (transactionAmount > 500000 || isImpossibleTraveler) {
     explanation: "OOB authentication ensures that compromising the user's primary network connection (e.g., a compromised Wi-Fi router) does not compromise the secondary authentication pathway.",
     hint: "In-band uses the same channel; Out-of-Band uses an independent communication channel.",
     level: "Moderate",
-    codeExample: `// In-Band: PC Browser -> Sends Password + PIN over same Ethernet cable.
-// Out-of-Band: PC Browser sends Password -> Server sends encrypted Push Notification over 5G cellular to Mobile App.`
+    codeExample: `// In-Band: PC Browser → Sends Password + PIN over same Ethernet cable.
+// Out-of-Band: PC Browser sends Password → Server sends encrypted Push Notification over 5G cellular to Mobile App.`
   },
   {
     id: 12,
@@ -138,7 +138,7 @@ if (transactionAmount > 500000 || isImpossibleTraveler) {
     level: "Moderate",
     codeExample: `// Backup Codes Array:
 // ["8f92-a1b4", "3c78-99e2", "01fa-45cd"]
-// When "8f92-a1b4" is used -> Server marks status as "REDEEMED" and prevents re-use.`
+// When "8f92-a1b4" is used → Server marks status as "REDEEMED" and prevents re-use.`
   },
   {
     id: 13,
@@ -190,7 +190,7 @@ const valid = (
     codeExample: `// Session Token Theft:
 // 1. User completes high-assurance FIDO2 MFA.
 // 2. Server sets cookie: "session_id=9f8a7c2b...".
-// 3. LummaC2 infostealer malware extracts cookie -> Attacker injects cookie into their browser -> Full access without MFA!`
+// 3. LummaC2 infostealer malware extracts cookie → Attacker injects cookie into their browser → Full access without MFA!`
   },
   {
     id: 17,
@@ -211,9 +211,9 @@ const valid = (
     hint: "Tricks a victim into entering an attacker's device code on the legitimate corporate portal.",
     level: "Expert",
     codeExample: `// Device Code Phishing:
-// 1. Attacker runs: az login --use-device-code -> Gets code: 'BCA-703'
+// 1. Attacker runs: az login --use-device-code → Gets code: 'BCA-703'
 // 2. Attacker emails victim: "Please verify device at microsoft.com/devicelogin with code BCA-703"
-// 3. Victim enters code and completes MFA -> Attacker CLI gets full Azure AD admin token!`
+// 3. Victim enters code and completes MFA → Attacker CLI gets full Azure AD admin token!`
   },
   {
     id: 19,
@@ -235,7 +235,7 @@ const valid = (
     hint: "Dedicated tamper-resistant hardware storing and calculating cryptographic MFA keys.",
     level: "Moderate",
     codeExample: `// HSM Key Operation:
-// Server sends challenge to HSM -> HSM signs challenge internally with master private key -> Returns signature.
+// Server sends challenge to HSM → HSM signs challenge internally with master private key → Returns signature.
 // Master private key NEVER leaves the secure physical boundary of the HSM chip.`
   },
   {
@@ -258,7 +258,7 @@ const valid = (
     codeExample: `// Haversine Velocity Check:
 // Login 1: Barrackpore (22.76°N, 88.36°E) at 10:00 IST
 // Login 2: Frankfurt (50.11°N, 8.68°E) at 10:30 IST (Distance = 7,200 km)
-// Velocity = 7,200 km / 0.5 hr = 14,400 km/h (> 900 km/h limit) -> TRIGGER LOCKOUT! 🚨`
+// Velocity = 7,200 km / 0.5 hr = 14,400 km/h (> 900 km/h limit) → TRIGGER LOCKOUT! 🚨`
   },
   {
     id: 23,
@@ -268,8 +268,8 @@ const valid = (
     hint: "Passkeys sync across cloud devices for convenience; device-bound passkeys remain locked to one hardware chip.",
     level: "Expert",
     codeExample: `// Synced vs Device-Bound Passkey:
-// Synced Passkey        : Stored in iCloud/Google Keychain -> Accessible on iPhone, iPad, Mac.
-// Device-Bound Passkey : Stored on YubiKey AAL3 hardware -> Private key CANNOT be copied or synced.`
+// Synced Passkey        : Stored in iCloud/Google Keychain → Accessible on iPhone, iPad, Mac.
+// Device-Bound Passkey : Stored on YubiKey AAL3 hardware → Private key CANNOT be copied or synced.`
   },
   {
     id: 24,
@@ -279,7 +279,7 @@ const valid = (
     hint: "Machine APIs require non-interactive mTLS or OAuth client credentials, not human push prompts.",
     level: "Moderate",
     codeExample: `// Machine-to-Machine Authentication:
-// Service A -> Sends Client X.509 Certificate (mTLS) + Signed JWT Assertion -> Service B verifies cryptographically.`
+// Service A → Sends Client X.509 Certificate (mTLS) + Signed JWT Assertion → Service B verifies cryptographically.`
   },
   {
     id: 25,
@@ -301,7 +301,7 @@ const valid = (
     hint: "Manipulating authentication to force the server to accept a weaker secondary factor like SMS.",
     level: "Moderate",
     codeExample: `// Downgrade Attack:
-// Attacker clicks "Hardware key not available? Try SMS OTP instead" -> Server falls back to phishable SMS channel ❌
+// Attacker clicks "Hardware key not available? Try SMS OTP instead" → Server falls back to phishable SMS channel ❌
 // Hardened Policy: Fallback to weaker factors is strictly disabled ✔`
   },
   {
@@ -312,8 +312,8 @@ const valid = (
     hint: "Continuously monitors session risk and revokes access dynamically rather than checking only at login.",
     level: "Expert",
     codeExample: `// CARTA Session Monitoring:
-// 10:00 - User logs in with MFA (Risk: 5/100 -> Pass)
-// 10:25 - User disables endpoint antivirus -> Risk jumps to 85/100 -> CARTA instantly revokes active JWT session!`
+// 10:00 - User logs in with MFA (Risk: 5/100 → Pass)
+// 10:25 - User disables endpoint antivirus → Risk jumps to 85/100 → CARTA instantly revokes active JWT session!`
   },
   {
     id: 28,
@@ -324,7 +324,7 @@ const valid = (
     level: "Moderate",
     codeExample: `// Infostealer Action:
 // Target file: %LocalAppData%\\Google\\Chrome\\User Data\\Default\\Network\\Cookies
-// Extracts: session_token for banking portal -> Exfiltrates to Telegram C2 channel.`
+// Extracts: session_token for banking portal → Exfiltrates to Telegram C2 channel.`
   },
   {
     id: 29,

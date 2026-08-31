@@ -39,7 +39,7 @@ public class LifecycleServlet extends HttpServlet {
     }
 }`;
 
-const webXmlSnippet = `<!-- web.xml configuration for LifecycleServlet -->
+const webXmlSnippet = `<!-- web.xml configuration for LifecycleServlet ──→
 <servlet>
     <servlet-name>LifecycleServlet</servlet-name>
     <servlet-class>com.example.LifecycleServlet</servlet-class>
@@ -47,7 +47,7 @@ const webXmlSnippet = `<!-- web.xml configuration for LifecycleServlet -->
         <param-name>dbUrl</param-name>
         <param-value>jdbc:mysql://localhost:3306/school</param-value>
     </init-param>
-    <load-on-startup>1</load-on-startup> <!-- Load on container start -->
+    <load-on-startup>1</load-on-startup> <!-- Load on container start ──→
 </servlet>
 <servlet-mapping>
     <servlet-name>LifecycleServlet</servlet-name>
@@ -321,7 +321,7 @@ export default function Topic0() {
       <div className="max-w-5xl mx-auto px-5 py-10 space-y-12">
         {/* HEADER SECTION */}
         <div className="text-center animate-fadeSlideUp">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
             Servlet Lifecycle
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">

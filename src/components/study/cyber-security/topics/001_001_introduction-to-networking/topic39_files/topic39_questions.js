@@ -32,7 +32,7 @@ const questions = [
     explanation: "Virtual Payment Addresses (VPAs, e.g. `user@upi`) decouple mobile numbers from underlying bank account and IFSC details.",
     hint: "NPCI switch links remitter and beneficiary banks over mTLS to settle funds in under 1.5 seconds.",
     level: "moderate",
-    codeExample: "UPI_Transaction: RemitterApp -> RemitterBank -> NPCI_Switch -> BeneficiaryBank (Settled in 1.2s)"
+    codeExample: "UPI_Transaction: RemitterApp → RemitterBank → NPCI_Switch → BeneficiaryBank (Settled in 1.2s)"
   },
   {
     question: "What is PCI-DSS (Payment Card Industry Data Security Standard) Cardholder Data Environment (CDE) segmentation?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "Segmenting the CDE reduces security compliance audit scope and prevents standard office PCs from accessing sensitive cardholder data.",
     hint: "Isolates cardholder data systems into a secure firewall zone to meet global payment standards.",
     level: "expert",
-    codeExample: "Firewall: Block Office_LAN -> Cardholder_Data_Environment (CDE) except on Port 443 with mTLS + MFA;"
+    codeExample: "Firewall: Block Office_LAN → Cardholder_Data_Environment (CDE) except on Port 443 with mTLS + MFA;"
   },
   {
     question: "What is SWIFT (Society for Worldwide Interbank Financial Telecommunication) and how is SWIFTNet secured?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "RBI guidelines in India mandate tokenization for all online merchant checkout cards (e.g. Amazon, Flipkart).",
     hint: "Replaces real credit card numbers with unique dummy tokens for online shopping.",
     level: "basic",
-    codeExample: "Tokenization: Real_PAN (4111222233334444) -> Token_Vault -> Merchant_Token (9842103948172039)"
+    codeExample: "Tokenization: Real_PAN (4111222233334444) → Token_Vault → Merchant_Token (9842103948172039)"
   },
   {
     question: "What is an Automated Clearing House (ACH) / NACH in banking networking?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "NACH processes millions of interbank mandate transactions in scheduled nightly batches across bank servers in India.",
     hint: "NPCI batch processing network for high-volume recurring payments like salaries and loan EMIs.",
     level: "moderate",
-    codeExample: "NACH_Batch: 50,000 Salary Credit Records -> Sent to NPCI Clearing House -> Settled overnight"
+    codeExample: "NACH_Batch: 50,000 Salary Credit Records → Sent to NPCI Clearing House → Settled overnight"
   },
   {
     question: "How do Bank Branch SD-WAN routers maintain 99.99% uptime with 4G/5G failover?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Protects online netbanking portals in Kolkata from being knocked offline by extortionist botnets.",
     hint: "Cloud network that absorbs and filters massive DDoS attacks to keep Internet banking online.",
     level: "expert",
-    codeExample: "BGP_DDoS_Scrubbing: Malicious_Flood_500Gbps -> Cloud_Scrubber (Cleaned) -> Bank_Portal (2 Gbps Clean)"
+    codeExample: "BGP_DDoS_Scrubbing: Malicious_Flood_500Gbps → Cloud_Scrubber (Cleaned) → Bank_Portal (2 Gbps Clean)"
   },
   {
     question: "What is PIN Translation in ATM Interbank Switching?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Brings doorstep banking to remote villages across West Bengal without requiring physical brick-and-mortar bank branches.",
     hint: "Handheld biometric terminal allowing rural villagers to withdraw cash using Aadhaar fingerprints.",
     level: "basic",
-    codeExample: "AePS_Transaction: MicroATM -> Encrypted_Biometric_Payload -> UIDAI_Auth -> NPCI_Switch -> CBS_Ledger"
+    codeExample: "AePS_Transaction: MicroATM → Encrypted_Biometric_Payload → UIDAI_Auth → NPCI_Switch → CBS_Ledger"
   },
   {
     question: "What is a Bank DMZ Reverse Proxy and why are Direct Database Connections blocked from Mobile Banking Apps?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Direct Internet connections to core bank databases are an intolerable risk that violates banking regulatory mandates.",
     hint: "Stops mobile apps from touching the database directly by terminating connections in a screened DMZ proxy.",
     level: "expert",
-    codeExample: "MobileApp -> (TLS 1.3 + App_Cert) -> DMZ_API_Gateway -> (Private RPC) -> Core_Banking_DB"
+    codeExample: "MobileApp → (TLS 1.3 + App_Cert) → DMZ_API_Gateway → (Private RPC) → Core_Banking_DB"
   },
   {
     question: "What is Fraud Management System (FMS) Real-Time Scoring in banking payment switches?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Even if an attacker compromises a user's web browser session, they cannot authorize a money transfer without the out-of-band mobile OTP.",
     hint: "Sends transaction verification codes through a separate mobile SMS channel for two-factor security.",
     level: "basic",
-    codeExample: "OTP_Gateway: generateTOTP(6Digits) -> SMPP_Telecom_Link -> User_Mobile (Valid 3 mins)"
+    codeExample: "OTP_Gateway: generateTOTP(6Digits) → SMPP_Telecom_Link → User_Mobile (Valid 3 mins)"
   },
   {
     question: "What is Data Leakage Prevention (DLP) on Core Banking Workstations?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "DUKPT eliminates the danger of an attacker sniffing keys from retail POS machines in shopping malls across Kolkata.",
     hint: "Derives a brand-new encryption key for every single card transaction (DUKPT).",
     level: "expert",
-    codeExample: "DUKPT: BaseDerivationKey + CurrentTransactionCounter -> Unique_Session_Key_Per_Swipe"
+    codeExample: "DUKPT: BaseDerivationKey + CurrentTransactionCounter → Unique_Session_Key_Per_Swipe"
   },
   {
     question: "What is the role of National Financial Switch (NFS) operated by NPCI?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Allows an SBI account holder to withdraw cash from an HDFC Bank ATM anywhere in West Bengal.",
     hint: "NPCI network that connects all ATMs in India so you can use any bank's ATM card anywhere.",
     level: "basic",
-    codeExample: "NFS_Routing: SBI_Card_at_HDFC_ATM -> HDFC_Switch -> NPCI_NFS -> SBI_Core_Bank -> Approved"
+    codeExample: "NFS_Routing: SBI_Card_at_HDFC_ATM → HDFC_Switch → NPCI_NFS → SBI_Core_Bank → Approved"
   },
   {
     question: "What is Endpoint Detection and Response (EDR) on Banking Teller Terminals?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes regulatory compliance, hardware cryptography, payment switch interoperability, WAN high availability, and financial procurement budgeting.",
     hint: "PCI-DSS segmentation + Payment HSMs + mTLS payment APIs + Zero-trust SD-WAN + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: SegmentCardholderCDE() -> DeployPaymentHSMs() -> Enforce_mTLS_PaymentAPIs() -> BuildZeroTrustSDWAN() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: SegmentCardholderCDE() → DeployPaymentHSMs() → Enforce_mTLS_PaymentAPIs() → BuildZeroTrustSDWAN() → BudgetInRupees(₹);"
   }
 ];
 

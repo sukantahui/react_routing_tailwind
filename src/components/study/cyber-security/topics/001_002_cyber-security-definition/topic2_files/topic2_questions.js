@@ -16,7 +16,7 @@ const questions = [
     explanation: "Without robust cybersecurity, public confidence in digital banking would collapse, forcing the economy back into cash dependency.",
     hint: "Ensures citizens trust digital money transfers by stopping theft and fraud in real time.",
     level: "basic",
-    codeExample: "PaymentTrust: Transaction(₹5,000) -> Encrypted_mTLS -> RealTime_FMS_Score(Safe) -> InstantSettlementIn1.2s"
+    codeExample: "PaymentTrust: Transaction(₹5,000) → Encrypted_mTLS → RealTime_FMS_Score(Safe) → InstantSettlementIn1.2s"
   },
   {
     question: "What is the Geopolitical & National Security importance of Cyber Security?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "Upholds Article 21 of the Indian Constitution (Right to Privacy - Puttaswamy judgment) by ensuring personal digital data remains confidential.",
     hint: "Protects personal photos, messages, and medical data from being stolen or used for extortion.",
     level: "basic",
-    codeExample: "PrivacyShield: PersonalData.encryptWithAES256() -> RestrictAccessWithRBAC() -> ZeroUnauthorizedSurveillance"
+    codeExample: "PrivacyShield: PersonalData.encryptWithAES256() → RestrictAccessWithRBAC() → ZeroUnauthorizedSurveillance"
   },
   {
     question: "Why is Cyber Security critical for maintaining Shareholder Value and Brand Equity?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "Protects confidential board meeting deliberations and merger-and-acquisition plans from hostile leaks.",
     hint: "Protects CEOs and executives from having their phones tapped and private discussions blackmailed.",
     level: "moderate",
-    codeExample: "ExecutiveProtection: MobileDevice(Encrypted + AntiSpyware) -> Communications(Signal/EncryptedVOIP)"
+    codeExample: "ExecutiveProtection: MobileDevice(Encrypted + AntiSpyware) → Communications(Signal/EncryptedVOIP)"
   },
   {
     question: "What is the importance of Cyber Security for National Smart Grid & Clean Energy Transitions?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "Enables India's transition to 500 GW of renewable energy by guaranteeing the cyber resilience of distributed energy controllers.",
     hint: "Protects solar and wind smart power inverters from being hacked and knocking out the electric grid.",
     level: "expert",
-    codeExample: "SmartGrid_Security: Microgrid_Inverter -> Authenticated_DNP3_Protocol -> Central_Grid_Load_Balancer"
+    codeExample: "SmartGrid_Security: Microgrid_Inverter → Authenticated_DNP3_Protocol → Central_Grid_Load_Balancer"
   },
   {
     question: "How does Cyber Security protect Autonomous Vehicles and Intelligent Transportation Systems (ITS)?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Ensures AI diagnostic models in Jadavpur remain accurate and untampered by malicious training inputs.",
     hint: "Protects AI models from data poisoning and prevents competitors from stealing AI model weights.",
     level: "expert",
-    codeExample: "AI_Security: ValidateTrainingDataIntegrity() -> EncryptModelWeights(AES256) -> SanitizeInferenceInputs();"
+    codeExample: "AI_Security: ValidateTrainingDataIntegrity() → EncryptModelWeights(AES256) → SanitizeInferenceInputs();"
   },
   {
     question: "How does Cyber Security maintain Judicial & Legal System Integrity?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "Guarantees that digital evidence presented in Calcutta High Court is legally authentic, untampered, and admissible.",
     hint: "Ensures court evidence and digital legal case files cannot be tampered with or deleted.",
     level: "moderate",
-    codeExample: "DigitalEvidence: CaseFile -> SHA256_Hash -> BlockchainTimestamped() -> AdmissibleInCourt"
+    codeExample: "DigitalEvidence: CaseFile → SHA256_Hash → BlockchainTimestamped() → AdmissibleInCourt"
   },
   {
     question: "Why is Cyber Security critical for Aerospace and Satellite Ground Stations?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Guarantees that ISRO communication and weather satellites in India remain under authorized national control.",
     hint: "Protects satellite command signals from being hijacked or jammed by hostile foreign actors.",
     level: "expert",
-    codeExample: "SatelliteLink: UplinkCommand.signWithMilitaryKey() -> DirectSequenceSpreadSpectrum(DSSS) -> Spacecraft"
+    codeExample: "SatelliteLink: UplinkCommand.signWithMilitaryKey() → DirectSequenceSpreadSpectrum(DSSS) → Spacecraft"
   },
   {
     question: "What is Cyber Hygiene and why is individual user hygiene of massive organizational importance?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Protects citizens across West Bengal from fraudulent debt collection and ruined credit scores.",
     hint: "Stops criminals from using your stolen Aadhaar or PAN details to take out bank loans in your name.",
     level: "basic",
-    codeExample: "IdentityShield: MaskedAadhaar('XXXX-XXXX-1234') -> Biometric_Lock_Enabled -> Prevents_Fraudulent_Loans"
+    codeExample: "IdentityShield: MaskedAadhaar('XXXX-XXXX-1234') → Biometric_Lock_Enabled → Prevents_Fraudulent_Loans"
   },
   {
     question: "What is the importance of Cyber Security in Cloud Multi-Tenancy Architecture?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "Allows competing commercial banks to safely share physical cloud hardware in Kolkata with zero data cross-contamination.",
     hint: "Ensures other companies sharing the same cloud server cannot look into your private databases.",
     level: "expert",
-    codeExample: "HypervisorIsolation: DedicatedMemoryPageTable + KPTI (Kernel Page Table Isolation) -> Zero VM Cross-Bleed"
+    codeExample: "HypervisorIsolation: DedicatedMemoryPageTable + KPTI (Kernel Page Table Isolation) → Zero VM Cross-Bleed"
   },
   {
     question: "Why is Cyber Security critical for Maritime Shipping and Port Automation?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Protects millions of developers worldwide from downloading backdoored libraries (e.g. the XZ Utils backdoor incident).",
     hint: "Stops hackers from injecting malware into open-source software libraries used by millions.",
     level: "expert",
-    codeExample: "OSS_Security: git commit -S -m 'Secure release' -> Verifies GPG signature -> Sigstore Verified"
+    codeExample: "OSS_Security: git commit -S -m 'Secure release' → Verifies GPG signature → Sigstore Verified"
   },
   {
     question: "What is the economic multiplier effect of a strong National Cyber Security Posture?",
@@ -184,7 +184,7 @@ const questions = [
     explanation: "Positions West Bengal as a preferred destination for global FinTech and semiconductor R&D investments.",
     hint: "Countries with strong cyber security attract billions in foreign tech investments and startup jobs.",
     level: "basic",
-    codeExample: "EconomicMultiplier: StrongCyberPosture -> AttractsForeignTechFDI -> AcceleratesGDPGrowth"
+    codeExample: "EconomicMultiplier: StrongCyberPosture → AttractsForeignTechFDI → AcceleratesGDPGrowth"
   },
   {
     question: "Why is Cyber Security essential for Telecommunications & 5G/6G Mobile Networks?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Guarantees that emergency calls (112) and banking SMS OTPs in Kolkata are delivered reliably and securely.",
     hint: "Protects mobile cell towers and core networks so phone calls and mobile internet never go down.",
     level: "moderate",
-    codeExample: "5G_Security: ZeroTrustCoreNetwork + SUPI_Encryption (Subscription Concealed Identifier) -> Anti-IMSI-Catcher"
+    codeExample: "5G_Security: ZeroTrustCoreNetwork + SUPI_Encryption (Subscription Concealed Identifier) → Anti-IMSI-Catcher"
   },
   {
     question: "What is the importance of Cyber Security for Educational Institutions & Student Records?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Preserves the academic integrity of university degrees issued across institutions in Jadavpur.",
     hint: "Protects exam papers from leaking and prevents student marksheets from being altered.",
     level: "basic",
-    codeExample: "TranscriptsVault: StudentMarksheet -> CryptographicallySignedPDF -> StoredInDigiLocker"
+    codeExample: "TranscriptsVault: StudentMarksheet → CryptographicallySignedPDF → StoredInDigiLocker"
   },
   {
     question: "How does Cyber Security prevent Corporate Industrial Sabotage?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Protects pharmaceutical manufacturing laboratories in Barrackpore from tainted drug batches caused by cyber manipulation.",
     hint: "Stops competitors or hackers from secretly changing chemical recipes or ruining factory machines.",
     level: "expert",
-    codeExample: "IndustrialDefense: PLC_Firmware.verifyHash() -> ContinuousTelemetryMonitoring() -> AlarmsOnAnomaly"
+    codeExample: "IndustrialDefense: PLC_Firmware.verifyHash() → ContinuousTelemetryMonitoring() → AlarmsOnAnomaly"
   },
   {
     question: "What is the role of Cyber Security in Crisis Management and Natural Disaster Response?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "Guarantees that a customer's ₹5,00,000 savings balance in Ichapur cannot be maliciously modified to ₹0.",
     hint: "Ensures bank account balances can never be secretly edited or erased in the database.",
     level: "basic",
-    codeExample: "LedgerImmutability: WriteAheadLog + CryptographicMerkleTreeVerification -> TamperingDetectedInstantly"
+    codeExample: "LedgerImmutability: WriteAheadLog + CryptographicMerkleTreeVerification → TamperingDetectedInstantly"
   },
   {
     question: "What is the difference between Compliance-Driven Security and Risk-Driven Security?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes societal value, economic stability, national sovereignty, human safety, and financial procurement budgeting.",
     hint: "Cyber security is the bedrock of modern civilization protecting life, wealth, and innovation in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ProtectDigitalCivilization() -> DefendSovereignty() -> SecureEconomicProsperity() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: ProtectDigitalCivilization() → DefendSovereignty() → SecureEconomicProsperity() → BudgetInRupees(₹);"
   }
 ];
 

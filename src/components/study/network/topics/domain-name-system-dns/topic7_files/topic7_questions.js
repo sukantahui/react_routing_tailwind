@@ -29,7 +29,7 @@ const questions = [
   {
     question: "Can a CNAME point to another CNAME? How many hops are allowed?",
     shortAnswer: "Yes, CNAME chaining is allowed. Most resolvers limit to 10-20 hops to prevent infinite loops.",
-    explanation: "You can have www -> alias1 -> alias2 -> actual domain. Each hop adds resolution time. Resolvers implement a maximum (e.g., BIND default 16) to avoid chasing loops. Exceeding the limit results in an error (e.g., 'CNAME loop' or SERVFAIL).",
+    explanation: "You can have www → alias1 → alias2 → actual domain. Each hop adds resolution time. Resolvers implement a maximum (e.g., BIND default 16) to avoid chasing loops. Exceeding the limit results in an error (e.g., 'CNAME loop' or SERVFAIL).",
     hint: "What could cause an infinite CNAME loop? Two CNAMEs pointing to each other.",
     level: "expert",
     codeExample: "dig +trace www.example.com  # Shows multiple CNAME steps"

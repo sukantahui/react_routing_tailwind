@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. LIVE STATE TRANSITIONS:
-   - NEW &rarr; start() &rarr; RUNNABLE.
-   - RUNNABLE &rarr; sleep(t) &rarr; TIMED_WAITING.
-   - TIMED_WAITING &rarr; wait() &rarr; WAITING.
-   - WAITING &rarr; notify() &rarr; BLOCKED / RUNNABLE.
-   - RUNNABLE &rarr; exit run() &rarr; TERMINATED.
+   - NEW → start() → RUNNABLE.
+   - RUNNABLE → sleep(t) → TIMED_WAITING.
+   - TIMED_WAITING → wait() → WAITING.
+   - WAITING → notify() → BLOCKED / RUNNABLE.
+   - RUNNABLE → exit run() → TERMINATED.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

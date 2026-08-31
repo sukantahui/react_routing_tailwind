@@ -16,7 +16,7 @@ const questions = [
     explanation: "Four octets of 8 bits each ($4 \\times 8 = 32$ bits) allow a total address space of $2^{32} \\approx 4,294,967,296$ unique IPv4 addresses.",
     hint: "Four octets separated by dots (e.g. 192.168.1.1), each ranging from 0 to 255.",
     level: "basic",
-    codeExample: "DottedDecimal: '192.168.1.1' -> Binary: '11000000.10101000.00000001.00000001';"
+    codeExample: "DottedDecimal: '192.168.1.1' → Binary: '11000000.10101000.00000001.00000001';"
   },
   {
     question: "What were the original Classful IPv4 network classes (A, B, C, D, E) and their default subnet masks?",
@@ -44,7 +44,7 @@ const questions = [
   },
   {
     question: "What are the rules for abbreviating and compressing IPv6 addresses?",
-    shortAnswer: "1. Leading zeros in any 16-bit hex group can be omitted (e.g. `0db8` -> `db8`), and 2. A single contiguous sequence of all-zero groups can be replaced with a double-colon `::` (allowed only ONCE per address).",
+    shortAnswer: "1. Leading zeros in any 16-bit hex group can be omitted (e.g. `0db8` → `db8`), and 2. A single contiguous sequence of all-zero groups can be replaced with a double-colon `::` (allowed only ONCE per address).",
     explanation: "For example, `2001:0db8:0000:0000:0000:0000:1428:57ab` compresses cleanly to `2001:db8::1428:57ab`.",
     hint: "Drop leading zeros in groups, and replace one run of zero groups with ::",
     level: "moderate",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "PAT modifies the Layer 3 IP header and Layer 4 Port header, tracking connections in a state table so incoming responses return to the correct local PC.",
     hint: "PAT allows an entire office of computers to share one public IP address.",
     level: "moderate",
-    codeExample: "PAT_Mapping: '192.168.1.15:52134' -> Router rewrites -> '103.25.10.4:41002';"
+    codeExample: "PAT_Mapping: '192.168.1.15:52134' → Router rewrites → '103.25.10.4:41002';"
   },
   {
     question: "What is IP Address Spoofing in Cyber Security attacks?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "Longest prefix match ensures packets are forwarded along the most specific path available in the routing table.",
     hint: "Router chooses the route with the most specific (longest) subnet prefix.",
     level: "expert",
-    codeExample: "Routes = ['10.0.0.0/16', '10.0.1.0/24', '10.0.1.0/28']; Destination = '10.0.1.5' -> Selects /28;"
+    codeExample: "Routes = ['10.0.0.0/16', '10.0.1.0/24', '10.0.1.0/28']; Destination = '10.0.1.5' → Selects /28;"
   },
   {
     question: "What is the ultimate golden rule for designing, managing, and securing IP Addresses in an enterprise network?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes modern IP address engineering, scalability, global routing security, and financial infrastructure planning.",
     hint: "Hierarchical VLSM + RFC 1918 private subnets + PAT firewalls + Dual-Stack IPv6 + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: HierarchicalVLSM() -> PrivateSubnetsAndPAT() -> DualStackIPv6() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: HierarchicalVLSM() → PrivateSubnetsAndPAT() → DualStackIPv6() → BudgetInRupees(₹);"
   }
 ];
 

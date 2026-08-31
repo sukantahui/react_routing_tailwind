@@ -39,7 +39,7 @@ const questions = [
   },
   {
     question: "How many `JOIN` operations are required to fetch data from both master entities in an M:N relationship?",
-    shortAnswer: "TWO `JOIN` operations: Parent A -> Junction Table -> Parent B.",
+    shortAnswer: "TWO `JOIN` operations: Parent A → Junction Table → Parent B.",
     explanation: "Must traverse through the intermediate bridge table.",
     hint: "Two sequential JOIN operations.",
     level: "basic",

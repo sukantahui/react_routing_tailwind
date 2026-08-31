@@ -147,7 +147,7 @@ const questions = [
     explanation: "Switch expression yield vs method return.",
     hint: "return exits the method; yield supplies the switch expression value.",
     level: "advanced",
-    codeExample: "return switch(tier) { case GOLD -> 0.15; case SILVER -> 0.10; };"
+    codeExample: "return switch(tier) { case GOLD → 0.15; case SILVER → 0.10; };"
   },
   {
     question: "In the Coder & AccoTax Barrackpore fee system, what did Guard Clause 2 in `calculateInstallment()` check?",
@@ -227,7 +227,7 @@ const questions = [
     explanation: "Mastery of return statements and guard clauses.",
     hint: "Guard clauses at method start eliminate nesting; return terminates the method instantly.",
     level: "basic",
-    codeExample: "// Summary: Guard Clauses -> Clean Happy Path -> Final Return"
+    codeExample: "// Summary: Guard Clauses → Clean Happy Path → Final Return"
   },
   {
     question: "What is the next topic (Topic 5) in Module 001_007?",
@@ -239,11 +239,11 @@ const questions = [
   },
   {
     question: "Can a `return` statement return an anonymous class or lambda expression in Java?",
-    shortAnswer: "YES! Returning a functional interface implementation (e.g. `return (a, b) -> a + b;`) or an anonymous instance is standard in functional Java.",
+    shortAnswer: "YES! Returning a functional interface implementation (e.g. `return (a, b) → a + b;`) or an anonymous instance is standard in functional Java.",
     explanation: "Functional programming return types.",
     hint: "Yes, returning lambdas or anonymous classes is completely legal.",
     level: "intermediate",
-    codeExample: "public Comparator<Student> byFee() { return (s1, s2) -> Double.compare(s1.fee, s2.fee); }"
+    codeExample: "public Comparator<Student> byFee() { return (s1, s2) → Double.compare(s1.fee, s2.fee); }"
   }
 ];
 

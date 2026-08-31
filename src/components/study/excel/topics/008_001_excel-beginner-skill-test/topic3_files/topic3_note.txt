@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never use 3D charts! Keep your charts clean, simple, and 2D. Delete the gray gridlines, delete the redundant legend, and make your chart title bold. It will look like a McKinsey presentation.
 
 COMMON TRAPS TO AVOID:
-- Using 3D Charts or Exploding Pie Charts: 3D perspective distorts visual proportions and misleads executive decision makers. -> Fix: Always use clean 2D Clustered Column, Bar, or Line charts.
-- Leaving Redundant Legends on Single-Series Charts: Displaying a legend saying 'Series 1' when chart title already explains data. -> Fix: Delete legend on single-series charts to maximize chart canvas area.
-- Truncated Axis Labels Due to Overcrowding: Trying to fit 30 monthly labels horizontally causing angled unreadable text. -> Fix: Switch to a horizontal Bar chart for high-cardinality category comparisons.
+- Using 3D Charts or Exploding Pie Charts: 3D perspective distorts visual proportions and misleads executive decision makers. → Fix: Always use clean 2D Clustered Column, Bar, or Line charts.
+- Leaving Redundant Legends on Single-Series Charts: Displaying a legend saying 'Series 1' when chart title already explains data. → Fix: Delete legend on single-series charts to maximize chart canvas area.
+- Truncated Axis Labels Due to Overcrowding: Trying to fit 30 monthly labels horizontally causing angled unreadable text. → Fix: Switch to a horizontal Bar chart for high-cardinality category comparisons.
 ================================================================================

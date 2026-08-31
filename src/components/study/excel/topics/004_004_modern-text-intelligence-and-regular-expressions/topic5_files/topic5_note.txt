@@ -22,7 +22,7 @@ Core Mechanics:
 • Masking Aadhaar: =REGEXREPLACE(A2, "^\d{4}-\d{4}-(\d{4})$", "XXXX-XXXX-$1")
 • Masking Credit Cards: =REGEXREPLACE(A2, "^\d{4}-\d{4}-\d{4}-(\d{4})$", "XXXX-XXXX-XXXX-$1")
 • Stripping HTML Tags: =REGEXREPLACE(A2, "<[^>]+>", "")
-• Reordering Dates (DD/MM/YYYY &rarr; YYYY-MM-DD): =REGEXREPLACE(A2, "^(\d{2})/(\d{2})/(\d{4})$", "$3-$2-$1")
+• Reordering Dates (DD/MM/YYYY → YYYY-MM-DD): =REGEXREPLACE(A2, "^(\d{2})/(\d{2})/(\d{4})$", "$3-$2-$1")
 • Normalizing Excess Whitespace: =TRIM(REGEXREPLACE(A2, "\s+", " "))
 
 3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI

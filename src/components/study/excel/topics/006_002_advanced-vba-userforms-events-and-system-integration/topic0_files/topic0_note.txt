@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Workbook events are incredible for enterprise governance. You can make Excel say 'Welcome Swadeep!' on open, automatically refresh your SQL tables, and block the user from saving if they forgot to fill in cell A1.
 
 COMMON TRAPS TO AVOID:
-- Writing Workbook Events in Standard Modules (Fails): Placing `Private Sub Workbook_Open()` in Module1 causes it to be ignored completely. -> Fix: Double-click `ThisWorkbook` in Project Explorer and write event procedures there.
-- Infinite Loop Triggered Inside BeforeSave: Calling `ThisWorkbook.Save` inside `Workbook_BeforeSave` triggers an infinite recursive save loop. -> Fix: Do not call `.Save` inside BeforeSave; or wrap in `Application.EnableEvents = False`.
-- Trapping Users with Un-closable Workbooks: Setting `Cancel = True` unconditionally in `Workbook_BeforeClose` prevents anyone from ever closing the file. -> Fix: Ensure `Cancel = True` executes ONLY when explicit error conditions are met.
+- Writing Workbook Events in Standard Modules (Fails): Placing `Private Sub Workbook_Open()` in Module1 causes it to be ignored completely. → Fix: Double-click `ThisWorkbook` in Project Explorer and write event procedures there.
+- Infinite Loop Triggered Inside BeforeSave: Calling `ThisWorkbook.Save` inside `Workbook_BeforeSave` triggers an infinite recursive save loop. → Fix: Do not call `.Save` inside BeforeSave; or wrap in `Application.EnableEvents = False`.
+- Trapping Users with Un-closable Workbooks: Setting `Cancel = True` unconditionally in `Workbook_BeforeClose` prevents anyone from ever closing the file. → Fix: Ensure `Cancel = True` executes ONLY when explicit error conditions are met.
 ================================================================================

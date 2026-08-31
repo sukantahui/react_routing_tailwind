@@ -152,7 +152,7 @@ const questions = [
     explanation: "Users can freely type into J1 and select dropdowns in J2:J3 while the core equation remains locked and protected.",
     hint: "Lock the formula cell, unlock input cells, and protect the sheet.",
     level: "moderate",
-    codeExample: "// Format Cells > Protection > Unlock J1:J3, Lock A6 -> Protect Sheet"
+    codeExample: "// Format Cells > Protection > Unlock J1:J3, Lock A6 → Protect Sheet"
   },
   {
     question: "What happens if a user enters special regex characters in the search box?",
@@ -184,7 +184,7 @@ const questions = [
     explanation: "Setting defaults in the input cells displays all records with zero code.",
     hint: "Default input states provide instant full-table views.",
     level: "moderate",
-    codeExample: "// J1 = '' (blank), J2 = 'All' -> displays entire master table"
+    codeExample: "// J1 = '' (blank), J2 = 'All' → displays entire master table"
   },
   {
     question: "How do you extract distinct officers present in the currently filtered search results?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Pasting values captures the exact filtered records for external distribution.",
     hint: "Copy A6# and paste into CSV export.",
     level: "basic",
-    codeExample: "// Copy A6# -> Paste Values -> Save as CSV"
+    codeExample: "// Copy A6# → Paste Values → Save as CSV"
   },
   {
     question: "Why is the master search portal considered a flagship milestone in modern spreadsheet engineering?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Building this portal proves that modern formula-driven Excel can deliver desktop-application performance and interactivity with zero code maintenance.",
     hint: "It combines all dynamic array concepts into an enterprise-grade interactive tool.",
     level: "expert",
-    codeExample: "// Flagship Pipeline: UI Controls -> LET -> FILTER -> SORT -> Dynamic Presentation Grid"
+    codeExample: "// Flagship Pipeline: UI Controls → LET → FILTER → SORT → Dynamic Presentation Grid"
   },
   {
     question: "How do you format the search portal for high-contrast executive dark mode presentation?",

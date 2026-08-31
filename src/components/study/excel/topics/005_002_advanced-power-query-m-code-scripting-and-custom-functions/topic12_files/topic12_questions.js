@@ -10,7 +10,7 @@ const questions = [
     explanation: "End-to-end automated enterprise ETL pipeline with schema resilience and quarantine routing.",
     hint: "Consolidates multi-branch sales data automatically while isolating schema deviations.",
     level: "basic",
-    codeExample: "Folder.Files(pBranchDropFolder) &rarr; Schema Validation &rarr; Fact_ConsolidatedSales"
+    codeExample: "Folder.Files(pBranchDropFolder) → Schema Validation → Fact_ConsolidatedSales"
   },
   {
     question: "Why should you use parameter-driven folder paths in a multi-branch consolidation pipeline?",
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Prevents memory bloat and reporting visual canvas clutter.",
     hint: "Staging queries process data in RAM without loading to the final reporting model.",
     level: "basic",
-    codeExample: "stg_BranchFiles (Enable Load: False) &rarr; Fact_ConsolidatedSales (Enable Load: True)"
+    codeExample: "stg_BranchFiles (Enable Load: False) → Fact_ConsolidatedSales (Enable Load: True)"
   },
   {
     question: "How do you validate that every branch has submitted their daily sales file on time?",
@@ -158,11 +158,11 @@ const questions = [
   },
   {
     question: "How do you benchmark pipeline execution time in Power BI Desktop?",
-    shortAnswer: "Enable Power Query Diagnostics (`Tools &rarr; Start Diagnostics`), refresh the consolidation pipeline, and analyze `Exclusive Duration` and `Memory (KB)` in the generated diagnostics table.",
+    shortAnswer: "Enable Power Query Diagnostics (`Tools → Start Diagnostics`), refresh the consolidation pipeline, and analyze `Exclusive Duration` and `Memory (KB)` in the generated diagnostics table.",
     explanation: "Empirical performance profiling of enterprise ETL queries.",
     hint: "Use Query Diagnostics to measure duration and memory consumption per step.",
     level: "moderate",
-    codeExample: "Tools &rarr; Start Diagnostics &rarr; Refresh Pipeline &rarr; Stop Diagnostics"
+    codeExample: "Tools → Start Diagnostics → Refresh Pipeline → Stop Diagnostics"
   },
   {
     question: "How does `Table.AddIndexColumn` help in maintaining global transaction lineage?",
@@ -224,9 +224,9 @@ const questions = [
     question: "How can this Power Query pipeline be converted into a reusable Power BI Template (.pbit)?",
     shortAnswer: "Export the model as a `.pbit` file; upon opening, users are prompted for parameters (`pSalesDropPath`, `pFiscalYear`), generating the entire pipeline instantly for any client.",
     explanation: "Rapid deployment and institutional reusability.",
-    hint: "File &rarr; Export &rarr; Power BI Template (.pbit) with parameterized configuration prompts.",
+    hint: "File → Export → Power BI Template (.pbit) with parameterized configuration prompts.",
     level: "moderate",
-    codeExample: "File &rarr; Export &rarr; Power BI Template (.pbit)"
+    codeExample: "File → Export → Power BI Template (.pbit)"
   },
   {
     question: "What are the key KPIs tracked in the final executive dashboard powered by this pipeline?",

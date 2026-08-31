@@ -66,7 +66,7 @@ const Topic0 = () => {
             Module 005_003 · Turtle Patterns & Geometric Mathematics · Topic 0
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-emerald-400 bg-clip-text text-transparent">
             Using Loops for Repetitive Geometric Structures
           </h1>
 

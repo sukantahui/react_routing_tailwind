@@ -231,7 +231,7 @@ const questions = [
     explanation: "This 3-step blueprint guarantees butter-smooth, arcade-grade multi-key control.",
     hint: "What 3 steps build professional multi-key flight controls in Turtle?",
     level: "basic",
-    codeExample: "# 1. Key dict -> 2. onkeypress/onkeyrelease pairs -> 3. 60 FPS loop"
+    codeExample: "# 1. Key dict → 2. onkeypress/onkeyrelease pairs → 3. 60 FPS loop"
   },
   {
     question: "How does key state dictionary tracking prepare developers for game development in PyGame and Unity?",

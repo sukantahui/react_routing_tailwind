@@ -42,7 +42,7 @@ export default function Topic17() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Solving Number-Based Loop Problems: Primes, Armstrong, Palindromes &amp; Fibonacci
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -120,7 +120,7 @@ export default function Topic17() {
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">for (i=2; i*i &lt;= N; i++)</text>
             <text x="55" y="122" fill="#bae6fd" fontSize="11" fontFamily="monospace">if (N % i == 0) break;</text>
-            <text x="55" y="142" fill="#d1fae5" fontSize="10">Tests up to &radic;N &rarr; Fast O(&radic;N)!</text>
+            <text x="55" y="142" fill="#d1fae5" fontSize="10">Tests up to &radic;N → Fast O(&radic;N)!</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Divisibility Gate
             </text>

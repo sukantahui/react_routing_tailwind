@@ -58,10 +58,10 @@ FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
 IGNORE 1 LINES
 (product_id, title, @raw_price, @dummy_notes, @raw_date)
 SET 
-  -- 1. Clean Rupee currency formatting ('₹1,250.00' -> 1250.00):
+  -- 1. Clean Rupee currency formatting ('₹1,250.00' → 1250.00):
   price = CAST(REPLACE(REPLACE(@raw_price, '₹', ''), ',', '') AS DECIMAL(10,2)),
   -- 2. Discard unwanted notes column (mapped to @dummy_notes):
-  -- 3. Transform date format ('25-08-2026' -> '2026-08-25'):
+  -- 3. Transform date format ('25-08-2026' → '2026-08-25'):
   created_at = STR_TO_DATE(@raw_date, '%d-%m-%Y');`,
       explanation:
         "Mapping CSV columns to user variables (@var) enables inline data scrubbing, currency formatting, date parsing, and discarding unwanted columns (@dummy) directly inside the import engine without intermediate ETL scripts.",
@@ -140,7 +140,7 @@ mysqlimport -u root -p \\
             Topic 9 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           High-Performance Bulk Data Import: <span className="text-emerald-400">LOAD DATA INFILE</span> &amp; <span className="text-cyan-400">mysqlimport</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

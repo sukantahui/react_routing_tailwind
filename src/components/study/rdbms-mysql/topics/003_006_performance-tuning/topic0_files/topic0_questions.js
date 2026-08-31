@@ -5,7 +5,7 @@ const questions = [
     question: "What are the primary stages in the MySQL query execution lifecycle?",
     shortAnswer: "1. Connection & Authentication, 2. Lexical Parsing & Syntax Analysis, 3. Preprocessing (Semantic Analysis), 4. Cost-Based Optimization (CBO), 5. Execution Engine, and 6. Storage Engine Handler API retrieval.",
     explanation: "Complete sequence of query processing stages inside MySQL.",
-    hint: "Connection -> Parser -> Preprocessor -> Optimizer -> Executor -> Storage Engine.",
+    hint: "Connection → Parser → Preprocessor → Optimizer → Executor → Storage Engine.",
     level: "basic"
   },
   {

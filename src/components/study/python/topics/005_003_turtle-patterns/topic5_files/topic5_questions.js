@@ -23,7 +23,7 @@ const questions = [
     explanation: "This matches Python Turtle's default `colormode(1.0)` perfectly.",
     hint: "Do colorsys functions use 0-255 integers or 0.0-1.0 floats?",
     level: "basic",
-    codeExample: "# Accepts [0.0, 1.0] floats -> Returns (r, g, b) in [0.0, 1.0]"
+    codeExample: "# Accepts [0.0, 1.0] floats → Returns (r, g, b) in [0.0, 1.0]"
   },
   {
     question: "How do you calculate a continuous hue transition across a loop of N steps?",
@@ -127,7 +127,7 @@ const questions = [
     explanation: "Vertical bar rendering with interpolated RGB values produces sky gradients.",
     hint: "How do vertical bars create smooth sky gradients?",
     level: "moderate",
-    codeExample: "# Sunset gradient: orange -> purple -> indigo"
+    codeExample: "# Sunset gradient: orange → purple → indigo"
   },
   {
     question: "How do you apply a radial color gradient to a filled regular polygon?",
@@ -154,7 +154,7 @@ const questions = [
     codeExample: "hue = 0.5 + 0.3 * math.sin(i * 0.05)"
   },
   {
-    question: "How do you draw a fire simulation gradient (black -> red -> orange -> yellow -> white)?",
+    question: "How do you draw a fire simulation gradient (black → red → orange → yellow → white)?",
     shortAnswer: "Define keyframe color stops `[(0.0, black), (0.25, red), (0.5, orange), (0.75, yellow), (1.0, white)]` and piecewise lerp between them.",
     explanation: "Multi-stop color ramp interpolation generates thermal and fire palettes.",
     hint: "What color sequence represents blackbody thermal radiation?",

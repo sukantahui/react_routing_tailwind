@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Mathematical Rounding Functions: ROUND, ROUNDUP, ROUNDDOWN, INT and TRUNC Precision Control
           </h1>
 
@@ -133,7 +133,7 @@ export default function Topic4() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">ROUNDUP(num, dec)</td>
                   <td className="py-3 px-4 text-teal-400">Ceiling Round</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Billing</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Always rounds up away from zero (e.g. 4.01 &amp;rarr; 5.0).</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Always rounds up away from zero (e.g. 4.01 → 5.0).</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">INT(num) vs TRUNC</td>
@@ -275,7 +275,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_AutoSum_and_quick_"
+            sheetName="Topic4"
             title="Module 1.3 - Mathematical Rounding Functions: ROUND, ROUNDUP, ROUNDDOWN, INT and TRUNC Precision Control"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -524,13 +524,13 @@ export default function Topic4() {
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 =ROUND(num, -3)
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Round to nearest thousand (e.g. 45,670 &amp;rarr; 46,000).</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Round to nearest thousand (e.g. 45,670 → 46,000).</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 =MROUND(num, 5)
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Round to nearest multiple of 5 (e.g. 23 &amp;rarr; 25).</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Round to nearest multiple of 5 (e.g. 23 → 25).</p>
             </div>
           </div>
         </section>

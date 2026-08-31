@@ -30,7 +30,7 @@ const Topic3 = () => {
             <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300 mb-4">
               Topic 3 • Comparison
             </span>
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
               NFS vs SMB: A Head-to-Head Comparison
             </h1>
             <p className="mt-4 text-xl text-gray-600 dark:text-gray-300 max-w-3xl leading-relaxed">

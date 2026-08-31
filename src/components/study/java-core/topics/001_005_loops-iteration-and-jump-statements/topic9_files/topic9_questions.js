@@ -151,7 +151,7 @@ const questions = [
   },
   {
     question: "How does Java 8 Streams simplify sum and product accumulation?",
-    shortAnswer: "Using `IntStream.of(arr).sum()` or `IntStream.of(arr).reduce(1, (a, b) -> a * b)`.",
+    shortAnswer: "Using `IntStream.of(arr).sum()` or `IntStream.of(arr).reduce(1, (a, b) → a * b)`.",
     explanation: "Declarative reduction operations.",
     hint: "stream.sum() or stream.reduce().",
     level: "intermediate",

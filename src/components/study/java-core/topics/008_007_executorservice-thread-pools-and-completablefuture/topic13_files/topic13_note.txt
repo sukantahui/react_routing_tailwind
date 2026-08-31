@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. CALLBACK OPERATORS:
-   - 'thenApply(Function)': Transforms input &rarr; output (map equivalent).
+   - 'thenApply(Function)': Transforms input → output (map equivalent).
    - 'thenAccept(Consumer)': Consumes value; returns Void.
    - 'thenRun(Runnable)': Ignores value; runs side-effect action.
    - Async variants: 'thenApplyAsync()' dispatches callback to a separate thread pool.

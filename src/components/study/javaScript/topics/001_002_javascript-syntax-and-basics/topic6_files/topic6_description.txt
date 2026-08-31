@@ -16,7 +16,7 @@ Tuhina asked during our afternoon doubt session: 'Sir, both null and undefined m
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
 1. Undefined (The Engine's Default):
-- When a variable is declared without a value: let x; -> x is undefined.
+- When a variable is declared without a value: let x; → x is undefined.
 - When a function doesn't return anything, it returns undefined.
 
 2. Null (The Developer's Choice):
@@ -28,8 +28,8 @@ Tuhina asked during our afternoon doubt session: 'Sir, both null and undefined m
 - Strict Equality: null === undefined is false (different types!).
 
 4. The typeof Quirks:
-- typeof undefined -> "undefined"
-- typeof null -> "object" (Historic bug in the original C implementation of JS in 1995!).
+- typeof undefined → "undefined"
+- typeof null → "object" (Historic bug in the original C implementation of JS in 1995!).
 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
 --------------------------------------------------------------------------------

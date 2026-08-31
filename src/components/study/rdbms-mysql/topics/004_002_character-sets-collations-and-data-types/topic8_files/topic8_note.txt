@@ -1,6 +1,6 @@
 ================================================================================
 RDBMS MySQL Course - Module 004_002: Character Sets, Collations, JSON & Spatial Types
-Topic 8: JSON Path Operators: -> (Extract) and ->> (Extract & Unquote)
+Topic 8: JSON Path Operators: → (Extract) and ->> (Extract & Unquote)
 Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
 ================================================================================
 

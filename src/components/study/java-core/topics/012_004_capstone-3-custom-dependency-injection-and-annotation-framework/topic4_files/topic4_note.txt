@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. CYCLE DETECTION ALGORITHM:
    - Maintain 'Set<Class<?>> currentlyInCreation'.
-   - Before instantiating bean, call 'add(clazz)'. If returns false -> circular cycle!
+   - Before instantiating bean, call 'add(clazz)'. If returns false → circular cycle!
    - In finally block, call 'remove(clazz)' once bean is fully initialized.
 
 ================================================================================

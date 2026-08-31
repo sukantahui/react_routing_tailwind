@@ -46,7 +46,7 @@ const questions = [
     question: "Why is Machine Learning critical for medical image pathology (such as detecting cancer lesions in CT scans)?",
     shortAnswer: "Subtle pixel intensity gradients, fuzzy cell boundaries, and tissue artifacts cannot be captured by static geometric rules.",
     explanation: "Tumors and lesions do not conform to rigid geometric circles or squares; they exhibit irregular margins, subtle contrast variations, and overlapping healthy tissue that require multi-layer hierarchical feature representation learned by Convolutional Neural Networks.",
-    hint: "Think about hierarchical feature extraction: edges -> textures -> motifs -> anatomical lesions.",
+    hint: "Think about hierarchical feature extraction: edges → textures → motifs → anatomical lesions.",
     level: "Moderate",
     codeExample: "model = ResNet50(weights='imagenet') # Hierarchical feature extractor"
   },
@@ -120,7 +120,7 @@ const questions = [
     explanation: "In traditional ML, engineers hand-crafted features. In Deep Learning (e.g., CNNs, Transformers), lower layers learn low-level primitives (edges, phonemes) while deeper layers automatically compose them into high-level abstract concepts (faces, semantics).",
     hint: "Automatic hierarchical representation learning.",
     level: "Expert",
-    codeExample: "# Conv Layer 1: Edges -> Conv Layer 2: Textures -> Conv Layer 3: Object Parts"
+    codeExample: "# Conv Layer 1: Edges → Conv Layer 2: Textures → Conv Layer 3: Object Parts"
   },
   {
     id: 14,
@@ -273,7 +273,7 @@ const questions = [
     explanation: "In every domain where human perception, non-linear optimization, pattern recognition, and high-dimensional decisions occur, Machine Learning automates what was previously impossible with handcrafted code, unlocking unprecedented efficiency and innovation across science, medicine, and business.",
     hint: "Automated, scalable predictive intelligence learned from data.",
     level: "Basic",
-    codeExample: "# The Paradigm: Empirical Experience -> Optimization -> Continuous Intelligence"
+    codeExample: "# The Paradigm: Empirical Experience → Optimization → Continuous Intelligence"
   }
 ];
 

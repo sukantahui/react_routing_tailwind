@@ -71,7 +71,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Security best practices: Managing database credentials securely in VBA"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Security_best_prac"
+            sheetName="EX2611"
             title={"Security best practices: Managing database credentials securely in VBA - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

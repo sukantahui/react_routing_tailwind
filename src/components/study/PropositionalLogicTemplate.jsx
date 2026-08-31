@@ -538,7 +538,7 @@ const renderQuestionForPrint = (q, idx) => {
       {/* On‑screen interactive view (filtered when search is active) */}
       <div>
         <div className="text-center border-b border-gray-700 pb-6 mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{data.title}</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{data.title}</h1>
           <p className="text-sm text-gray-400 mt-1">Paper ID: {data.paperId}</p>
           <div className="flex justify-center gap-6 mt-3 text-sm text-gray-400">
             <span>⏱️ {data.duration}</span>

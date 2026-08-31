@@ -3,9 +3,9 @@ const questions = [
     question: "What are the 5 major phases of the Java Compiler (javac) when transforming .java into .class?",
     shortAnswer: "Lexical Analysis (Scanner), Syntax Analysis (Parser/AST), Semantic Analysis (Type Checking), Desugaring, and Bytecode Generation.",
     explanation: "javac tokenizes text, builds an Abstract Syntax Tree, validates types and definite assignment, unwraps syntactic sugar, and generates binary bytecode.",
-    hint: "Scan -> Parse -> Type Check -> Desugar -> Emit Bytecode.",
+    hint: "Scan → Parse → Type Check → Desugar → Emit Bytecode.",
     level: "advanced",
-    codeExample: "// javac phases: Lexer -> Parser (AST) -> Type Checker -> Lowering -> Gen (.class)"
+    codeExample: "// javac phases: Lexer → Parser (AST) → Type Checker → Lowering → Gen (.class)"
   },
   {
     question: "What is an Abstract Syntax Tree (AST) in javac?",
@@ -21,7 +21,7 @@ const questions = [
     explanation: "Desugaring converts modern syntax conveniences into simpler constructs that the JVM bytecode instruction set directly understands.",
     hint: "Converting syntactic sugar into low-level bytecode structures.",
     level: "advanced",
-    codeExample: "// for(String s : list) -> Rewritten to while(it.hasNext()) iterator loop."
+    codeExample: "// for(String s : list) → Rewritten to while(it.hasNext()) iterator loop."
   },
   {
     question: "How does javac implement Generics via 'Type Erasure' during compilation?",
@@ -37,7 +37,7 @@ const questions = [
     explanation: "Unlike instance fields which receive default zero/null values, local variables MUST be explicitly initialized before access, otherwise javac emits a compilation error.",
     hint: "Local variables must be initialized before reading.",
     level: "basic",
-    codeExample: "int x;\n// System.out.println(x); -> Compile error: variable x might not have been initialized!"
+    codeExample: "int x;\n// System.out.println(x); → Compile error: variable x might not have been initialized!"
   },
   {
     question: "How does javac transform string concatenation with the '+' operator in modern Java (Java 9+)?",
@@ -85,7 +85,7 @@ const questions = [
     explanation: "The compiler recognizes arrays and lowers the for-each syntax into an index-based counter loop, avoiding Iterator object creation.",
     hint: "Array for-each becomes standard index-based loop.",
     level: "intermediate",
-    codeExample: "// for (int n : arr) -> for (int i = 0; i < arr.length; i++) { int n = arr[i]; }"
+    codeExample: "// for (int n : arr) → for (int i = 0; i < arr.length; i++) { int n = arr[i]; }"
   },
   {
     question: "How does javac translate an 'enhanced for loop' over an Iterable / Collection?",
@@ -93,7 +93,7 @@ const questions = [
     explanation: "Any object implementing `java.lang.Iterable` is desugared into `Iterator it = collection.iterator(); while(it.hasNext()) { ... }`.",
     hint: "Uses the java.util.Iterator interface.",
     level: "basic",
-    codeExample: "// for (String s : list) -> Iterator it = list.iterator(); while(it.hasNext())"
+    codeExample: "// for (String s : list) → Iterator it = list.iterator(); while(it.hasNext())"
   },
   {
     question: "What is Autoboxing and how is it desugared during compilation?",
@@ -205,7 +205,7 @@ const questions = [
     explanation: "An enum is syntactic sugar: javac generates private constructors and static initialization blocks that instantiate all enum constants into an array.",
     hint: "Desugared into a final class extending java.lang.Enum.",
     level: "advanced",
-    codeExample: "// enum Day { MON } -> final class Day extends Enum<Day> { public static final Day MON; }"
+    codeExample: "// enum Day { MON } → final class Day extends Enum<Day> { public static final Day MON; }"
   },
   {
     question: "What is the `-classpath` (or `-cp`) option in javac?",
@@ -229,7 +229,7 @@ const questions = [
     explanation: "javac automatically generates the canonical constructor, getter methods matching component names, `equals()`, `hashCode()`, and `toString()`.",
     hint: "Compiler automatically generates all boilerplate methods.",
     level: "intermediate",
-    codeExample: "// record Point(int x, int y) {} -> Final class with x(), y(), equals(), hashCode()"
+    codeExample: "// record Point(int x, int y) {} → Final class with x(), y(), equals(), hashCode()"
   },
   {
     question: "Why is understanding the javac compilation pipeline essential for clean code mastery?",
@@ -237,7 +237,7 @@ const questions = [
     explanation: "Knowing what happens during compilation helps you avoid performance traps with boxing, design clean generic architectures, and debug complex build errors with confidence.",
     hint: "Transforms abstract syntax into tangible understanding.",
     level: "basic",
-    codeExample: "// Source Code -> [javac Pipeline] -> Robust Portable Bytecode."
+    codeExample: "// Source Code → [javac Pipeline] → Robust Portable Bytecode."
   }
 ];
 

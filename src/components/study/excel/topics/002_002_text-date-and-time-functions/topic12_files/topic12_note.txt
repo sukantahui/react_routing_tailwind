@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Building an error-free payroll timesheet engine is the ultimate test of Excel time arithmetic. Master MIN, MAX, and MOD to calculate wages with zero discrepancies.
 
 COMMON TRAPS TO AVOID:
-- Missing Break Subtraction: Failing to deduct mandatory 30-minute unpaid lunch breaks inflates payroll liabilities by 6.25%. -> Fix: Embed automatic break deduction formulas into gross hour calculations.
-- Overtime Rate Double Multiplier Bug: Applying 1.5x overtime multiplier directly to total hours rather than only hours exceeding 8. -> Fix: Use `=(RegularHours * BaseRate) + (OvertimeHours * BaseRate * 1.5)`.
-- Decimal vs Clock Minute Confusion: Treating '8.30' as 8 hours 30 minutes in decimal math (0.30 of an hour is 18 minutes, not 30). -> Fix: Always convert time using serial fraction math `* 24` so 8:30 displays as 8.50 decimal hours.
+- Missing Break Subtraction: Failing to deduct mandatory 30-minute unpaid lunch breaks inflates payroll liabilities by 6.25%. → Fix: Embed automatic break deduction formulas into gross hour calculations.
+- Overtime Rate Double Multiplier Bug: Applying 1.5x overtime multiplier directly to total hours rather than only hours exceeding 8. → Fix: Use `=(RegularHours * BaseRate) + (OvertimeHours * BaseRate * 1.5)`.
+- Decimal vs Clock Minute Confusion: Treating '8.30' as 8 hours 30 minutes in decimal math (0.30 of an hour is 18 minutes, not 30). → Fix: Always convert time using serial fraction math `* 24` so 8:30 displays as 8.50 decimal hours.
 ================================================================================

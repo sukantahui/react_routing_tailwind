@@ -32,7 +32,7 @@ export default function Topic9() {
             Object Duplication &amp; Cloning
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Copy Constructor: Deep Cloning and Defensive State Duplication
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -71,16 +71,16 @@ export default function Topic9() {
             <text x="220" y="60" fill="#38bdf8" fontSize="12" fontWeight="bold" textAnchor="middle">ORIGINAL OBJECT (HEAP)</text>
             <rect x="50" y="80" width="340" height="130" rx="6" fill="#1e293b" />
             <text x="65" y="105" fill="#e0f2fe" fontSize="10" fontFamily="monospace">studentName: &quot;Swadeep&quot; (Immutable)</text>
-            <text x="65" y="130" fill="#fde047" fontSize="10" fontFamily="monospace">address: 0x88AA &rarr; [Station Rd, Barrackpore]</text>
-            <text x="65" y="155" fill="#fde047" fontSize="10" fontFamily="monospace">courses: 0x99BB &rarr; [Core Java, DSA]</text>
+            <text x="65" y="130" fill="#fde047" fontSize="10" fontFamily="monospace">address: 0x88AA → [Station Rd, Barrackpore]</text>
+            <text x="65" y="155" fill="#fde047" fontSize="10" fontFamily="monospace">courses: 0x99BB → [Core Java, DSA]</text>
 
             {/* Box 2: Deep Cloned Object */}
             <rect x="490" y="30" width="380" height="200" rx="8" fill="#0f172a" stroke="#10b981" strokeWidth="2" />
             <text x="680" y="60" fill="#34d399" fontSize="12" fontWeight="bold" textAnchor="middle">DEEP CLONED OBJECT (HEAP)</text>
             <rect x="510" y="80" width="340" height="130" rx="6" fill="#064e3b" fillOpacity="0.3" stroke="#10b981" strokeWidth="1" />
             <text x="525" y="105" fill="#a7f3d0" fontSize="10" fontFamily="monospace">studentName: &quot;Swadeep&quot;</text>
-            <text x="525" y="130" fill="#a7f3d0" fontSize="10" fontFamily="monospace">address: 0x11CC &rarr; [Station Rd, Shyamnagar]</text>
-            <text x="525" y="155" fill="#a7f3d0" fontSize="10" fontFamily="monospace">courses: 0x22DD &rarr; [Core Java, DSA, Spring]</text>
+            <text x="525" y="130" fill="#a7f3d0" fontSize="10" fontFamily="monospace">address: 0x11CC → [Station Rd, Shyamnagar]</text>
+            <text x="525" y="155" fill="#a7f3d0" fontSize="10" fontFamily="monospace">courses: 0x22DD → [Core Java, DSA, Spring]</text>
             <text x="680" y="195" fill="#fde047" fontSize="9" fontWeight="bold" textAnchor="middle">✔ Completely Independent Memory Addresses!</text>
           </svg>
         </div>

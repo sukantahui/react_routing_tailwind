@@ -103,14 +103,14 @@ const questions = [
   },
   {
     question: "How do you calculate the exact physical disk storage required for `VARCHAR(100)` storing the 7-character string `'Kolkata'` in `utf8mb4`?",
-    shortAnswer: "**8 Bytes total**:\n- 7 Bytes for ASCII characters `'Kolkata'` (1 byte per char)\n- 1 Byte for the length prefix ($100 \\times 4 = 400\\text{ bytes max} > 255$, so 2 bytes prefix if max exceeds 255; since $100 \\times 4 = 400 > 255$, it uses 2 bytes prefix &rarr; total 9 bytes).",
+    shortAnswer: "**8 Bytes total**:\n- 7 Bytes for ASCII characters `'Kolkata'` (1 byte per char)\n- 1 Byte for the length prefix ($100 \\times 4 = 400\\text{ bytes max} > 255$, so 2 bytes prefix if max exceeds 255; since $100 \\times 4 = 400 > 255$, it uses 2 bytes prefix → total 9 bytes).",
     explanation: "Demonstrates how length prefix is determined by column definition.",
     hint: "Payload bytes + 2-byte length prefix (since 100 * 4 = 400 > 255).",
     level: "expert"
   },
   {
     question: "What is the difference between `VARCHAR(255)` in `latin1` vs `utf8mb4` regarding length prefix storage?",
-    shortAnswer: "- `VARCHAR(255) latin1`: Max bytes $= 255 \\times 1 = 255$ &rarr; Uses **1-byte length prefix**.\n- `VARCHAR(255) utf8mb4`: Max bytes $= 255 \\times 4 = 1020$ &rarr; Uses **2-byte length prefix**.",
+    shortAnswer: "- `VARCHAR(255) latin1`: Max bytes $= 255 \\times 1 = 255$ → Uses **1-byte length prefix**.\n- `VARCHAR(255) utf8mb4`: Max bytes $= 255 \\times 4 = 1020$ → Uses **2-byte length prefix**.",
     explanation: "Because the max potential byte length exceeds 255 bytes in utf8mb4.",
     hint: "latin1 uses a 1-byte prefix; utf8mb4 uses a 2-byte prefix because max bytes > 255.",
     level: "expert"

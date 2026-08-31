@@ -37,5 +37,5 @@ after an executable statement throws `Error 1064 (Syntax Error)`.
 
 CRITICAL RULES OF SELECT ... INTO:
 - EXACTLY 1 ROW: The query must return exactly 1 physical row.
-- Zero rows returned -> Throws `Error 1329 (02000): No data - zero rows fetched`.
-- Multiple rows returned -> Throws `Error 1172 (42000): Result consisted of more than one row`.
+- Zero rows returned → Throws `Error 1329 (02000): No data - zero rows fetched`.
+- Multiple rows returned → Throws `Error 1172 (42000): Result consisted of more than one row`.

@@ -126,9 +126,9 @@ const questions = [
     question: "What is the ultimate golden rule of Determining the Optimal Assignment?",
     shortAnswer: "'Translate boxed zero coordinates [0] into 1-to-1 pairings; look up original rates in Indian Rupees (₹); sum original rates to get Z*; verify zero duality gap via Strong Duality; document idle or outsourced capacity!'",
     explanation: "This complete rule captures all final delivery requirements.",
-    hint: "Translate [0] coordinates -> Lookup original rates in ₹ -> Sum Z* -> Verify Strong Duality -> Document idle/outsourced.",
+    hint: "Translate [0] coordinates → Lookup original rates in ₹ → Sum Z* → Verify Strong Duality → Document idle/outsourced.",
     level: "moderate",
-    codeExample: "Golden Rule: TranslateCoordinates() -> LookupOrigRates(₹) -> Sum(Z*) -> VerifyDuality() -> Report."
+    codeExample: "Golden Rule: TranslateCoordinates() → LookupOrigRates(₹) → Sum(Z*) → VerifyDuality() → Report."
   }
 ];
 

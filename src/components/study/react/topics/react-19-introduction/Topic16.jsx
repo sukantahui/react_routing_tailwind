@@ -109,7 +109,7 @@ const Topic16 = () => {
       {/* Header Section */}
       <header className="max-w-6xl mx-auto mb-12">
         <div className={`${animationClass} opacity-0`}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400">
             Component Naming & File Structure
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">

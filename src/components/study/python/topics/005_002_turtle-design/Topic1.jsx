@@ -65,7 +65,7 @@ const Topic1 = () => {
             Module 005_002 · Turtle Design & Aesthetic Customization · Topic 1
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-400 via-sky-300 to-teal-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-400 via-sky-300 to-teal-300 bg-clip-text text-transparent">
             Line Thickness, <span className="font-mono">pensize()</span> & Cursor Scaling
           </h1>
 

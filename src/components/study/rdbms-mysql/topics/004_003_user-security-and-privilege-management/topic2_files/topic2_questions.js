@@ -27,7 +27,7 @@ const questions = [
     question: "In what order does MySQL evaluate matching accounts when a client connects?",
     shortAnswer: "MySQL sorts matching accounts from **most specific to most general**:\n1. Exact IP Address (e.g. `'192.168.1.50'`)\n2. Subnet Mask (e.g. `'192.168.1.0/255.255.255.0'`)\n3. Prefix Wildcard (e.g. `'192.168.1.%'`)\n4. Universal Wildcard (`'%'`)\n5. Anonymous accounts (`''@'...'`)",
     explanation: "Guarantees that specific host grants take precedence over broad wildcards.",
-    hint: "Exact IP first -> Subnet -> Prefix wildcard -> % wildcard last.",
+    hint: "Exact IP first → Subnet → Prefix wildcard → % wildcard last.",
     level: "expert"
   },
   {

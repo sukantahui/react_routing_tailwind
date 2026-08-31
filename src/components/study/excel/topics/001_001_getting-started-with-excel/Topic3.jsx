@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Understanding Workbooks, Worksheets, Rows, Columns and Grid Coordinate Limits
           </h1>
 
@@ -470,7 +470,7 @@ export default function Topic3() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">CA-119</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Blank Cell Cleanup</td>
                   <td className="py-2.5 px-3 text-sky-300">Go To Special Blanks</td>
-                  <td className="py-2.5 px-3 text-amber-300">F5 $\rightarrow$ Special $\rightarrow$ Blanks</td>
+                  <td className="py-2.5 px-3 text-amber-300">F5 → Special → Blanks</td>
                   <td className="py-2.5 px-3 text-emerald-400">All Blank Cells Selected</td>
                   <td className="py-2.5 px-3 text-slate-300">Batch selects missing data cells for instant fill.</td>
                 </tr>

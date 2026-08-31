@@ -16,7 +16,7 @@ const questions = [
     explanation: "The SemVer versioning specification.",
     hint: "MAJOR = breaking changes, MINOR = new features, PATCH = bug fixes.",
     level: "basic",
-    codeExample: "# 1.0.0 -> 1.0.1 (Fix) -> 1.1.0 (Feature) -> 2.0.0 (Breaking change)"
+    codeExample: "# 1.0.0 → 1.0.1 (Fix) → 1.1.0 (Feature) → 2.0.0 (Breaking change)"
   },
   {
     question: "What is the role of GitHub Actions in a modern Python CI/CD pipeline?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Branching strategies comparison in modern software engineering.",
     hint: "Trunk-Based uses short-lived branches merged quickly into main; Git Flow uses multiple long-lived branches.",
     level: "moderate",
-    codeExample: "# Trunk-Based: feature-branch -> PR -> main (Fast CI/CD rhythm)"
+    codeExample: "# Trunk-Based: feature-branch → PR → main (Fast CI/CD rhythm)"
   },
   {
     question: "How do you create and push an annotated Git release tag to GitHub?",

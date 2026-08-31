@@ -90,7 +90,7 @@ const questions = [
     explanation: "Anchors enforce full-string conformity.",
     hint: "Causes false positives by matching partial substrings.",
     level: "basic",
-    codeExample: "Without anchors: 'XYZABCDE1234F999' &rarr; TRUE (False Positive!)"
+    codeExample: "Without anchors: 'XYZABCDE1234F999' → TRUE (False Positive!)"
   },
   {
     question: "How do you validate an International IBAN bank account number format?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Blank cells evaluate to empty strings.",
     hint: "Returns FALSE for non-empty patterns.",
     level: "basic",
-    codeExample: "Empty Cell &rarr; Returns FALSE"
+    codeExample: "Empty Cell → Returns FALSE"
   },
   {
     question: "How do you validate an IPv4 address (e.g. 192.168.1.1) using REGEXTEST?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Catching bad data at the door prevents compliance fines, broken downstream lookups, and audit rejections!",
     hint: "Validate at entry with REGEXTEST + Conditional Formatting + Anchors (^$)!",
     level: "expert",
-    codeExample: "Rule: Quality at the Door &rarr; Deploy REGEXTEST Validation!"
+    codeExample: "Rule: Quality at the Door → Deploy REGEXTEST Validation!"
   }
 ];
 

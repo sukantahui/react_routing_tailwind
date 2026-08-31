@@ -126,9 +126,9 @@ const questions = [
     question: "What is the ultimate golden rule of Activity Modeling in CPM/PERT?",
     shortAnswer: "'Define discrete work with finite time (d) and cost in Indian Rupees (₹); classify predecessors, successors, concurrent, critical, and dummy tasks; compute ES, EF, LS, LF to isolate floats!'",
     explanation: "This complete rule captures all aspects of activity analysis.",
-    hint: "Define discrete tasks -> Map dependencies -> Differentiate critical vs dummy -> Compute ES/EF/LS/LF.",
+    hint: "Define discrete tasks → Map dependencies → Differentiate critical vs dummy → Compute ES/EF/LS/LF.",
     level: "moderate",
-    codeExample: "GoldenRule: DefineTask() -> ClassifyPrecedence() -> ComputeTimes(ES,EF,LS,LF) -> CalculateFloats()."
+    codeExample: "GoldenRule: DefineTask() → ClassifyPrecedence() → ComputeTimes(ES,EF,LS,LF) → CalculateFloats()."
   }
 ];
 

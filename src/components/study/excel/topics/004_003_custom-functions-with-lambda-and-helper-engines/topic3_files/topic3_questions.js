@@ -34,7 +34,7 @@ const questions = [
     explanation: "Structuring comments with parameter definitions and return descriptions provides standard software-grade documentation.",
     hint: "Structured summary, parameter descriptions, and return type.",
     level: "moderate",
-    codeExample: "Comment: 'FX_GST(amount, [rate]) -> Returns HSTACK(Net, CGST, SGST, Gross)'"
+    codeExample: "Comment: 'FX_GST(amount, [rate]) → Returns HSTACK(Net, CGST, SGST, Gross)'"
   },
   {
     question: "How does the Advanced Formula Environment (AFE) add-in enhance LAMBDA documentation?",
@@ -74,7 +74,7 @@ const questions = [
     explanation: "Name Manager allows instant updating of comment strings without breaking existing worksheet formulas.",
     hint: "Edit the Comment field in Name Manager (Ctrl+F3).",
     level: "basic",
-    codeExample: "Ctrl+F3 &rarr; Select &rarr; Edit Comment &rarr; Save"
+    codeExample: "Ctrl+F3 → Select → Edit Comment → Save"
   },
   {
     question: "What character limit applies to the Comment text box in Excel Name Manager?",

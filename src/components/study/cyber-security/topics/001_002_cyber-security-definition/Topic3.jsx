@@ -27,7 +27,7 @@ const Topic3 = () => {
       enforcementSLA: '100% Zero Cleartext Exposure • Granular Need-to-Know Access Controls',
       estBudget: '₹4,50,000 (Database Cryptographic Gateway & KMS Encryption Licenses)',
       desc: 'Guarantees that sensitive data remains hidden from unauthorized eyes across storage and transmission.',
-      simResult: 'Adversary executes unauthorized SQL dump -> AES-256-GCM field encryption returns high-entropy ciphertext -> Zero PII leaked.',
+      simResult: 'Adversary executes unauthorized SQL dump → AES-256-GCM field encryption returns high-entropy ciphertext → Zero PII leaked.',
     },
     {
       id: 'integrity-seal',
@@ -38,7 +38,7 @@ const Topic3 = () => {
       enforcementSLA: '100% Tamper Detection • Non-Repudiable Digital Signatures on All Lab PDFs',
       estBudget: '₹1,80,000 (PKI Digital Signature Appliance & Timestamping Server)',
       desc: 'Guarantees that information has never been modified, fabricated, or forged during its entire lifecycle.',
-      simResult: 'Adversary alters patient lab report value -> SHA-256 hash mismatch alerts verification portal -> Flags "DOCUMENT TAMPERED" in 14ms.',
+      simResult: 'Adversary alters patient lab report value → SHA-256 hash mismatch alerts verification portal → Flags "DOCUMENT TAMPERED" in 14ms.',
     },
     {
       id: 'availability-five-nines',
@@ -49,7 +49,7 @@ const Topic3 = () => {
       enforcementSLA: 'Five Nines (99.999%) Uptime • Sub-15s Automated Disaster Recovery Failover',
       estBudget: '₹8,50,000 (Redundant Dual-Uplink Server Cluster & Anti-DDoS Scrubbing)',
       desc: 'Guarantees that authorized users have uninterrupted, instant access to vital emergency services.',
-      simResult: 'DDoS botnet floods 40 Gbps traffic -> Cloud scrubber filters malicious packets -> Dispatch servers maintain 99.999% uptime with 0 drops.',
+      simResult: 'DDoS botnet floods 40 Gbps traffic → Cloud scrubber filters malicious packets → Dispatch servers maintain 99.999% uptime with 0 drops.',
     },
     {
       id: 'parkerian-utility-possession',
@@ -60,7 +60,7 @@ const Topic3 = () => {
       enforcementSLA: 'Strict Physical Key Possession • Guaranteed Decodable Data Utility (RTO < 15 min)',
       estBudget: '₹6,50,000 (Hardware HSM Master Key Appliance & Immutable Storage)',
       desc: 'Extends the CIA Triad by ensuring data media custody (Possession) and usable file readability (Utility).',
-      simResult: 'Storage ransomware encrypts files -> Immutable WORM snapshot rolls back in 8 minutes -> Key verified in HSM -> 100% File Utility restored.',
+      simResult: 'Storage ransomware encrypts files → Immutable WORM snapshot rolls back in 8 minutes → Key verified in HSM → 100% File Utility restored.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic3 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Goals of Cyber Security
           </h1>
 

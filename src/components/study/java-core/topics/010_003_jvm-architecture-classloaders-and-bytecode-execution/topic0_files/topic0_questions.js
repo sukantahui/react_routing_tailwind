@@ -13,7 +13,7 @@ const topic0_questions = [
     "explanation": "Combines fast startup (Interpreter) with peak performance (JIT).",
     "hint": "Interprets and JIT-compiles bytecode into native CPU instructions.",
     "level": "Intermediate",
-    "codeExample": "Interpreter -> JIT Compiler (C1/C2) -> Native CPU Execution"
+    "codeExample": "Interpreter → JIT Compiler (C1/C2) → Native CPU Execution"
   }
 ];
 

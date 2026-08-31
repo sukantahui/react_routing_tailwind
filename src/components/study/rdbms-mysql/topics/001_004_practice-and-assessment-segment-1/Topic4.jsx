@@ -100,7 +100,7 @@ SELECT * FROM students WHERE balance_fee = NULL;
 -- Bug B: Ambiguous Operator Precedence without Parentheses:
 SELECT * FROM students 
 WHERE city = 'Kolkata' OR city = 'Barrackpore' AND age > 20;
--- Evaluates as: Kolkata OR (Barrackpore AND age > 20) -> returns teenagers from Kolkata!`,
+-- Evaluates as: Kolkata OR (Barrackpore AND age > 20) → returns teenagers from Kolkata!`,
       fixedSnippet: `-- ⚡ FIXED SEMANTIC LOGIC:
 
 -- Fix A: Use IS NULL or IS NOT NULL:
@@ -176,7 +176,7 @@ SELECT * FROM students; -- Table located successfully! ✅`,
               Error Debugging Guide
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Common SQL Beginner Errors and How to Debug Them
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -262,7 +262,7 @@ SELECT * FROM students; -- Table located successfully! ✅`,
               <h3 className="text-base font-bold text-cyan-300">
                 Figure 4.1: SQL Execution &amp; Error Diagnostic Checkpoints
               </h3>
-              <span className="text-xs text-slate-400 font-mono">Parser &rarr; Catalog &rarr; InnoDB Engine</span>
+              <span className="text-xs text-slate-400 font-mono">Parser → Catalog → InnoDB Engine</span>
             </div>
 
             <div className="w-full overflow-x-auto bg-slate-950 p-4 rounded-xl border border-slate-800">

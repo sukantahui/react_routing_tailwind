@@ -21,7 +21,7 @@ export default function Topic4() {
             O(1) Performance
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           HashSet Performance: <code className="text-emerald-400 font-mono">O(1)</code> Constant Time <code className="text-emerald-400 font-mono">add()</code>, <code className="text-sky-400 font-mono">remove()</code> &amp; <code className="text-amber-400 font-mono">contains()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

@@ -231,7 +231,7 @@ const questions = [
     explanation: "Setting canvas properties first establishes the design theme before vector rendering begins.",
     hint: "Why should background be configured before foreground?",
     level: "basic",
-    codeExample: "# Setup -> bgcolor -> draw geometry -> done"
+    codeExample: "# Setup → bgcolor → draw geometry → done"
   },
   {
     question: "What is the summary golden rule of canvas window design?",
@@ -239,7 +239,7 @@ const questions = [
     explanation: "This guarantees professional presentation and prevents hardcoded boundary clipping on different screen resolutions.",
     hint: "What sequence guarantees clean window presentation?",
     level: "basic",
-    codeExample: "# 1. screen.setup() -> 2. screen.title() -> 3. screen.bgcolor()"
+    codeExample: "# 1. screen.setup() → 2. screen.title() → 3. screen.bgcolor()"
   }
 ];
 

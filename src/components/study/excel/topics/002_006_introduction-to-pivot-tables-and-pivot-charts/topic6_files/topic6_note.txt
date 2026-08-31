@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Remember the Golden Rule of Calculated Fields: Excel calculates the sum of the components first, then applies the formula. Never use Calculated Fields for Unit Price * Quantity; calculate that in the source table.
 
 COMMON TRAPS TO AVOID:
-- Multiplication Order of Operations Bug: Creating a Calculated Field `='Unit Price' * 'Quantity'` calculates `=SUM(UnitPrice) * SUM(Qty)`, producing wildly inflated numbers. -> Fix: Calculate `Price * Qty` in a source table helper column first, then sum that column in the pivot.
-- Calculated Items Disable Date Grouping: Adding a Calculated Item to any field disables date grouping across the entire PivotTable. -> Fix: Avoid Calculated Items; use Calculated Fields or Power Pivot DAX measures instead.
-- Data Model Incompatibility: Calculated Fields and Items are disabled in PivotTables connected to the Excel Data Model (Power Pivot). -> Fix: In Data Model pivots, create DAX Explicit Measures instead.
+- Multiplication Order of Operations Bug: Creating a Calculated Field `='Unit Price' * 'Quantity'` calculates `=SUM(UnitPrice) * SUM(Qty)`, producing wildly inflated numbers. → Fix: Calculate `Price * Qty` in a source table helper column first, then sum that column in the pivot.
+- Calculated Items Disable Date Grouping: Adding a Calculated Item to any field disables date grouping across the entire PivotTable. → Fix: Avoid Calculated Items; use Calculated Fields or Power Pivot DAX measures instead.
+- Data Model Incompatibility: Calculated Fields and Items are disabled in PivotTables connected to the Excel Data Model (Power Pivot). → Fix: In Data Model pivots, create DAX Explicit Measures instead.
 ================================================================================

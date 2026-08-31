@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Introduced in Java 9 to modernize Matcher functional text pipelines.",
     "hint": "Allows computing replacement text dynamically using lambda expressions.",
     "level": "Intermediate",
-    "codeExample": "String res = m.replaceAll(mr -> mr.group().toUpperCase());"
+    "codeExample": "String res = m.replaceAll(mr → mr.group().toUpperCase());"
   }
 ];
 

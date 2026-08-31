@@ -76,7 +76,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 via-orange-300 to-yellow-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-400 via-orange-300 to-yellow-300 bg-clip-text text-transparent leading-tight">
             Excluding Headers, Totals & Metadata Rows/Columns with DROP
           </h1>
 
@@ -195,7 +195,7 @@ export default function Topic6() {
                 you strip the top 2 title lines and bottom 2 subtotal lines in a single C++ memory cycle.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-amber-300">
-                Raw: [Banner 1, Banner 2, Hdr, Row1..RowN, Subtotal, Footer] &rarr; Pure Body: [Row1..RowN]
+                Raw: [Banner 1, Banner 2, Hdr, Row1..RowN, Subtotal, Footer] → Pure Body: [Row1..RowN]
               </div>
             </div>
 
@@ -369,7 +369,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_DROP"
+            sheetName="EX1707"
             title="Raw Monthly Financial Report (Metadata Banners & Footer Totals)"
             rowsPerPage={12}
             showSheetSelector={true}
@@ -407,7 +407,7 @@ export default function Topic6() {
                 Applying <code className="text-emerald-300 font-mono">=DROP(DROP(A1:E12, 2), -2)</code> extracts only valid customer invoice records for tax reconciliation.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                Formula: =DROP(DROP(A1:E12, 2), -2) &rarr; Pure 8-Invoice Body
+                Formula: =DROP(DROP(A1:E12, 2), -2) → Pure 8-Invoice Body
               </div>
             </div>
 
@@ -426,7 +426,7 @@ export default function Topic6() {
                 she preserves the master column titles while appending clean data rows from other campuses.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =VSTACK(T1, DROP(T2, 1), DROP(T3, 1)) &rarr; Clean Consolidated Stack
+                Formula: =VSTACK(T1, DROP(T2, 1), DROP(T3, 1)) → Clean Consolidated Stack
               </div>
             </div>
 
@@ -444,7 +444,7 @@ export default function Topic6() {
                 She writes <code className="text-amber-300 font-mono">=SUM(DROP(DROP(NetColumn, 1), -1))</code> to sum only genuine invoice rows in memory.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =SUM(DROP(DROP(NetCol, 1), -1)) &rarr; Verified Clean Total
+                Formula: =SUM(DROP(DROP(NetCol, 1), -1)) → Verified Clean Total
               </div>
             </div>
 
@@ -463,7 +463,7 @@ export default function Topic6() {
                 he drops the handshake metadata and structures the transaction stream into a clean 5-column ledger.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =WRAPROWS(DROP(Logs, 4), 5) &rarr; Clean Relational Ingestion
+                Formula: =WRAPROWS(DROP(Logs, 4), 5) → Clean Relational Ingestion
               </div>
             </div>
           </div>
@@ -569,7 +569,7 @@ export default function Topic6() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#CALC! (Excessive Drop)</td>
                   <td className="py-3 px-4 text-slate-300">Count of dropped rows &ge; total rows in array (empty output).</td>
                   <td className="py-3 px-4 text-slate-400">Check rows argument against <code className="text-amber-300 font-mono">ROWS(array)</code>.</td>
-                  <td className="py-3 px-4 text-emerald-400">Ensure rows dropped is strictly &lt; total array rows.</td>
+                  <td className="py-3 px-4 text-emerald-400">Ensure rows dropped is strictly < total array rows.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Dropped Real Data</td>
@@ -580,7 +580,7 @@ export default function Topic6() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by existing values or merged cells.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow multi-column spill.</td>
                 </tr>
               </tbody>

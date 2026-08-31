@@ -65,7 +65,7 @@ warhead designed exclusively for industrial control systems:
   |                                 | Injects malicious Organization Block `OB35` into PLC memory.|
   +---------------------------------+-------------------------------------------------------------+
   | LEVEL 0: PHYSICAL MACHINERY     | IR-1 Aluminium Centrifuges & Variable Frequency Drives.     |
-  |                                 | Spins rotors out of safe resonance -> Physical destruction. |
+  |                                 | Spins rotors out of safe resonance → Physical destruction. |
   +-----------------------------------------------------------------------------------------------+
 
   THE DLL MAN-IN-THE-MIDDLE (`s7otbxdx.dll`):

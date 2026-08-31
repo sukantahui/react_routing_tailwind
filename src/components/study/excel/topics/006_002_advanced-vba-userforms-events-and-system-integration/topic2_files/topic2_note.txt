@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 UserForms turn Excel into real desktop software! Always rename your controls (e.g. `txtName` instead of `TextBox1`) and configure Tab Order so users can type and press Tab smoothly without touching the mouse.
 
 COMMON TRAPS TO AVOID:
-- Leaving Default Control Names (TextBox1, CommandButton1): Writing code with `TextBox1.Text` and `CommandButton1_Click` makes maintenance a nightmare across 20 fields. -> Fix: Rename every control immediately in the Properties window (`txtName`, `btnSave`).
-- Chaotic Tab Order Frustrating Operators: Pressing Tab jumping randomly between field 1 and field 8 because TabIndex was not configured. -> Fix: Right-click UserForm > Tab Order > arrange fields in logical top-to-bottom sequence.
-- Overcrowding UserForm with Clashing Colors: Using bright neon backgrounds and mismatched font sizes. -> Fix: Follow clean corporate UI standards (Segoe UI / Inter, subtle gray borders, standard 8pt grid padding).
+- Leaving Default Control Names (TextBox1, CommandButton1): Writing code with `TextBox1.Text` and `CommandButton1_Click` makes maintenance a nightmare across 20 fields. → Fix: Rename every control immediately in the Properties window (`txtName`, `btnSave`).
+- Chaotic Tab Order Frustrating Operators: Pressing Tab jumping randomly between field 1 and field 8 because TabIndex was not configured. → Fix: Right-click UserForm > Tab Order > arrange fields in logical top-to-bottom sequence.
+- Overcrowding UserForm with Clashing Colors: Using bright neon backgrounds and mismatched font sizes. → Fix: Follow clean corporate UI standards (Segoe UI / Inter, subtle gray borders, standard 8pt grid padding).
 ================================================================================

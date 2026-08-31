@@ -52,7 +52,7 @@ const questions = [
     hint: "Because it is a real computer, novel zero-day viruses can run completely, allowing scientists to record them.",
     level: "Moderate",
     codeExample: `// High-Interaction Kernel Capture:
-// Zero-Day Kernel Exploit (e.g. Dirty Pipe) executes on real kernel -> eBPF records ring-0 privilege escalation in real time!`
+// Zero-Day Kernel Exploit (e.g. Dirty Pipe) executes on real kernel → eBPF records ring-0 privilege escalation in real time!`
   },
   {
     id: 6,
@@ -120,7 +120,7 @@ const questions = [
     level: "Basic",
     codeExample: `// Attacker Fingerprinting Test:
 // Attacker types: cat /proc/sys/kernel/random/entropy_avail
-// Low-Interaction: "bash: cat: /proc/sys/kernel/random/entropy_avail: No such file" -> FAKE HONEYPOT DETECTED!`
+// Low-Interaction: "bash: cat: /proc/sys/kernel/random/entropy_avail: No such file" → FAKE HONEYPOT DETECTED!`
   },
   {
     id: 12,
@@ -283,8 +283,8 @@ const certInHighInteractionLog = {
     hint: "Measuring typing speed between letters to see if a human hacker is typing or a computer script is pasting.",
     level: "Expert",
     codeExample: `// Keystroke Timing Analysis:
-// Timing = [120ms, 180ms, 95ms, 210ms] -> Confirmed Live Human Hacker!
-// Timing = [0.1ms, 0.1ms, 0.1ms, 0.1ms] -> Automated Bot Script!`
+// Timing = [120ms, 180ms, 95ms, 210ms] → Confirmed Live Human Hacker!
+// Timing = [0.1ms, 0.1ms, 0.1ms, 0.1ms] → Automated Bot Script!`
   },
   {
     id: 27,

@@ -9,7 +9,7 @@ const questions = [
     explanation: "Excel Tables convert static cell coordinates into dynamic relational entities with self-expanding ranges.",
     hint: "Auto-expansion and automatic formula propagation.",
     level: "basic",
-    codeExample: "Ctrl + T &rarr; Create Table &rarr; Name: tbl_MasterData"
+    codeExample: "Ctrl + T → Create Table → Name: tbl_MasterData"
   },
   {
     question: "How do structured table references (`[@Gross] * 0.18`) improve formula reliability over `$E$2 * 0.18`?",
@@ -33,7 +33,7 @@ const questions = [
     explanation: "Allows adding multiple sorting levels (e.g. Branch, Department, Sales Descending).",
     hint: "Alt + D + S opens the Sort dialog.",
     level: "basic",
-    codeExample: "Alt + D + S &rarr; Add Level &rarr; Configure Sort Order"
+    codeExample: "Alt + D + S → Add Level → Configure Sort Order"
   },
   {
     question: "What is the difference between sorting by values vs sorting by cell color or font color?",
@@ -41,7 +41,7 @@ const questions = [
     explanation: "Useful for reviewing conditionally formatted exceptions or audit flags.",
     hint: "Sort on 'Cell Color' to pull flagged rows to the top.",
     level: "basic",
-    codeExample: "Sort On: Cell Color &rarr; Order: Red Fill On Top"
+    codeExample: "Sort On: Cell Color → Order: Red Fill On Top"
   },
   {
     question: "How does AutoFilter wildcard `*` differ from `?`?",
@@ -65,7 +65,7 @@ const questions = [
     explanation: "Handles disjoint criteria across multiple fields that AutoFilter cannot model in one step.",
     hint: "Advanced Filter handles multi-row criteria ranges and separate destination extraction.",
     level: "moderate",
-    codeExample: "Data &rarr; Advanced Filter &rarr; Criteria Range &rarr; Copy to location"
+    codeExample: "Data → Advanced Filter → Criteria Range → Copy to location"
   },
   {
     question: "How is OR logic represented in an Advanced Filter criteria table?",
@@ -77,11 +77,11 @@ const questions = [
   },
   {
     question: "How do you extract a unique list of distinct records using Advanced Filter?",
-    shortAnswer: "Data &rarr; Advanced &rarr; Check 'Unique records only' &rarr; Copy to another location.",
+    shortAnswer: "Data → Advanced → Check 'Unique records only' → Copy to another location.",
     explanation: "Deduplicates records without altering the original source data table.",
     hint: "Check 'Unique records only' in Advanced Filter.",
     level: "basic",
-    codeExample: "Advanced Filter &rarr; Copy to &rarr; Unique records only = TRUE"
+    codeExample: "Advanced Filter → Copy to → Unique records only = TRUE"
   },
   {
     question: "What is an Excel Table Slicer?",
@@ -89,15 +89,15 @@ const questions = [
     explanation: "Slicers provide clear visual indication of active filter criteria.",
     hint: "Insert Slicers from Table Design to create button-based visual filters.",
     level: "basic",
-    codeExample: "Table Design &rarr; Insert Slicer &rarr; [Department]"
+    codeExample: "Table Design → Insert Slicer → [Department]"
   },
   {
     question: "How do you format Slicer buttons into a multi-column horizontal toolbar?",
-    shortAnswer: "Select Slicer &rarr; Slicer ribbon tab &rarr; Buttons group &rarr; Increase 'Columns' to 4 or 5.",
+    shortAnswer: "Select Slicer → Slicer ribbon tab → Buttons group → Increase 'Columns' to 4 or 5.",
     explanation: "Creates a sleek horizontal dashboard filter ribbon.",
     hint: "Change Slicer Columns count on the Slicer ribbon tab.",
     level: "basic",
-    codeExample: "Slicer Ribbon &rarr; Columns = 4"
+    codeExample: "Slicer Ribbon → Columns = 4"
   },
   {
     question: "How do you toggle the Table Total Row using a keyboard shortcut?",
@@ -133,11 +133,11 @@ const questions = [
   },
   {
     question: "How do you convert an Excel Table back to a normal range without losing formatting?",
-    shortAnswer: "Right-click Table &rarr; Table &rarr; Convert to Range &rarr; Click 'Yes'.",
+    shortAnswer: "Right-click Table → Table → Convert to Range → Click 'Yes'.",
     explanation: "Preserves cell formats, fills, and values while removing structured table features.",
-    hint: "Right-click &rarr; Table &rarr; Convert to Range.",
+    hint: "Right-click → Table → Convert to Range.",
     level: "basic",
-    codeExample: "Right-click &rarr; Table &rarr; Convert to Range"
+    codeExample: "Right-click → Table → Convert to Range"
   },
   {
     question: "Why should you avoid blank rows and blank columns inside structured tables?",
@@ -149,27 +149,27 @@ const questions = [
   },
   {
     question: "How do you select an entire table column's data with one click?",
-    shortAnswer: "Hover over the top edge of the column header until a black downward arrow appears &rarr; Click once.",
+    shortAnswer: "Hover over the top edge of the column header until a black downward arrow appears → Click once.",
     explanation: "Rapid column data body selection.",
     hint: "Click the column header's top border when the downward arrow cursor appears.",
     level: "basic",
-    codeExample: "Downward Arrow Cursor &rarr; 1 Click"
+    codeExample: "Downward Arrow Cursor → 1 Click"
   },
   {
     question: "How do you select an entire table including headers and total row with a shortcut?",
-    shortAnswer: "Click inside table &rarr; Press `Ctrl + A` twice.",
+    shortAnswer: "Click inside table → Press `Ctrl + A` twice.",
     explanation: "Pressing Ctrl+A once selects the data body; pressing Ctrl+A again selects headers and totals.",
     hint: "Ctrl + A twice inside a table.",
     level: "basic",
-    codeExample: "Ctrl + A (Data) &rarr; Ctrl + A (Headers + Totals)"
+    codeExample: "Ctrl + A (Data) → Ctrl + A (Headers + Totals)"
   },
   {
     question: "How do you rename an Excel Table to a meaningful name?",
-    shortAnswer: "Click inside Table &rarr; Table Design tab &rarr; Type new name in 'Table Name' box (top-left) &rarr; Enter.",
+    shortAnswer: "Click inside Table → Table Design tab → Type new name in 'Table Name' box (top-left) → Enter.",
     explanation: "Descriptive table names (e.g. `tbl_BranchSales`) make formulas self-documenting.",
-    hint: "Table Design &rarr; Table Name box.",
+    hint: "Table Design → Table Name box.",
     level: "basic",
-    codeExample: "Table Design &rarr; Table Name = tbl_BranchSales"
+    codeExample: "Table Design → Table Name = tbl_BranchSales"
   },
   {
     question: "What is the difference between SUBTOTAL function code 9 and 109?",
@@ -181,27 +181,27 @@ const questions = [
   },
   {
     question: "How do you create a dynamic Top 5 filter on a table column?",
-    shortAnswer: "AutoFilter arrow &rarr; Number Filters &rarr; Top 10... &rarr; Set count to 5.",
+    shortAnswer: "AutoFilter arrow → Number Filters → Top 10... → Set count to 5.",
     explanation: "Quickly isolates the highest 5 values in the dataset.",
-    hint: "Number Filters &rarr; Top 10 &rarr; Change 10 to 5.",
+    hint: "Number Filters → Top 10 → Change 10 to 5.",
     level: "basic",
-    codeExample: "Number Filters &rarr; Top 10 &rarr; Top 5 Items"
+    codeExample: "Number Filters → Top 10 → Top 5 Items"
   },
   {
     question: "How do you filter date columns by 'This Quarter' or 'Next Month'?",
-    shortAnswer: "AutoFilter arrow &rarr; Date Filters &rarr; Select 'This Quarter' or 'Next Month'.",
+    shortAnswer: "AutoFilter arrow → Date Filters → Select 'This Quarter' or 'Next Month'.",
     explanation: "Excel automatically detects date data types and provides dynamic rolling time filters.",
     hint: "Use Date Filters submenu on date columns.",
     level: "basic",
-    codeExample: "Date Filters &rarr; This Quarter"
+    codeExample: "Date Filters → This Quarter"
   },
   {
     question: "How do you hide disabled Slicer buttons that have no matching data?",
-    shortAnswer: "Right-click Slicer &rarr; Slicer Settings &rarr; Check 'Hide items with no data'.",
+    shortAnswer: "Right-click Slicer → Slicer Settings → Check 'Hide items with no data'.",
     explanation: "Prevents greyed-out inactive buttons from cluttering the interface.",
-    hint: "Slicer Settings &rarr; Hide items with no data.",
+    hint: "Slicer Settings → Hide items with no data.",
     level: "moderate",
-    codeExample: "Slicer Settings &rarr; Hide items with no data = TRUE"
+    codeExample: "Slicer Settings → Hide items with no data = TRUE"
   },
   {
     question: "Why should you never hardcode cell references (like `E2`) in calculated table columns?",
@@ -221,11 +221,11 @@ const questions = [
   },
   {
     question: "How do you group multiple Slicers together for dashboard management?",
-    shortAnswer: "Hold `Ctrl` and select all slicers &rarr; Slicer ribbon &rarr; Align / Group.",
+    shortAnswer: "Hold `Ctrl` and select all slicers → Slicer ribbon → Align / Group.",
     explanation: "Allows moving and formatting all slicers as a unified navigation toolbar.",
-    hint: "Ctrl-click slicers &rarr; Slicer tab &rarr; Group.",
+    hint: "Ctrl-click slicers → Slicer tab → Group.",
     level: "basic",
-    codeExample: "Ctrl-click &rarr; Slicer &rarr; Group"
+    codeExample: "Ctrl-click → Slicer → Group"
   },
   {
     question: "What happens when an Excel Table is used as the data source for a PivotTable?",

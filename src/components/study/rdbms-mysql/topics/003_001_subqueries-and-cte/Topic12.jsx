@@ -75,7 +75,7 @@ WITH RECURSIVE StringTokenizer AS (
         CAST(SUBSTRING_INDEX(remaining_str, ',', 1) AS CHAR(100)),
         CAST(SUBSTRING(remaining_str, LENGTH(SUBSTRING_INDEX(remaining_str, ',', 1)) + 2) AS CHAR(255))
     FROM StringTokenizer
-    WHERE remaining_str <> ''
+    WHERE remaining_str &lt;&gt; ''
 )
 SELECT student_id, TRIM(single_hobby) AS atomic_hobby_1nf
 FROM StringTokenizer
@@ -179,7 +179,7 @@ WHERE i.invoice_num IS NULL;`,
               Time-Series & Series Engineering
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Generating Sequences, Number Series & Dates
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

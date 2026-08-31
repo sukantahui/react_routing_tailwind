@@ -7,7 +7,7 @@ const questions = [
     level: "basic",
     codeExample: `// Masquerade Attack Model:
 // Legitimate Entity : IP = 192.168.1.10, MAC = 00:1A:2B:3C:4D:5E (Admin Mamata)
-// Masquerader Actor  : Attacker clones MAC and forges IP -> Sends 'GRANT_ROOT_ACCESS'`
+// Masquerader Actor  : Attacker clones MAC and forges IP → Sends 'GRANT_ROOT_ACCESS'`
   },
   {
     question: "How does IP Address Spoofing operate, and why is it primarily restricted to UDP or blind TCP attacks?",
@@ -108,7 +108,7 @@ server {
     codeExample: `// RPKI ROA Validation Rule:
 // Route: 103.25.10.0/24 advertised by AS65000 (Attacker)
 // ROA Record: 103.25.10.0/24 authorized exclusively for AS13335 (Kolkata Bank)
-// BGP State: INVALID -> Route rejected at global tier-1 exchange points!`
+// BGP State: INVALID → Route rejected at global tier-1 exchange points!`
   },
   {
     question: "How does FIDO2 / WebAuthn passwordless authentication eliminate phishing and credential-harvesting masquerades?",
@@ -276,7 +276,7 @@ IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!`
     level: "moderate",
     codeExample: `// IDN Homograph Example:
 // Legitimate: https://bank.in (ASCII 0x6F for 'o')
-// Masquerade: https://bаnk.in (Cyrillic 0xD0 0xB0 for 'а' -> Punycode: xn--bnk-7cd.in)`
+// Masquerade: https://bаnk.in (Cyrillic 0xD0 0xB0 for 'а' → Punycode: xn--bnk-7cd.in)`
   },
   {
     question: "What is Port Security Sticky MAC configuration on enterprise switches?",

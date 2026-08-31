@@ -8,7 +8,7 @@ const questions = [
     level: "Basic",
     codeExample: `// Default-Deny (Positive Security Model):
 // 1. Block EVERYTHING by default
-// 2. Add explicit rule: ALLOW Finance-Users -> SAP-Server (Port 443)
+// 2. Add explicit rule: ALLOW Finance-Users → SAP-Server (Port 443)
 // 3. Final Rule: DROP ANY ANY (Implicit Catch-All)`
   },
   {
@@ -19,8 +19,8 @@ const questions = [
     hint: "Rules execute in order; the first matching rule takes action and stops the scan.",
     level: "Basic",
     codeExample: `// Rule Ordering Critical Example:
-// Line 1: PERMIT Source: 10.10.1.0/24 -> Dest: ANY (Broad Allow)
-// Line 2: DENY   Source: 10.10.1.50   -> Dest: ANY (SHADOWED! Host 10.10.1.50 is NEVER blocked!)`
+// Line 1: PERMIT Source: 10.10.1.0/24 → Dest: ANY (Broad Allow)
+// Line 2: DENY   Source: 10.10.1.50   → Dest: ANY (SHADOWED! Host 10.10.1.50 is NEVER blocked!)`
   },
   {
     id: 3,
@@ -30,8 +30,8 @@ const questions = [
     hint: "A broad rule higher up prevents a specific rule lower down from ever being reached.",
     level: "Moderate",
     codeExample: `// Shadowing Anomaly Detection:
-// Rule 5 : ACCEPT Source: 192.168.1.0/24 -> Dest: ANY
-// Rule 12: DROP   Source: 192.168.1.99   -> Dest: ANY [SHADOWED: 100% Dead Code!]`
+// Rule 5 : ACCEPT Source: 192.168.1.0/24 → Dest: ANY
+// Rule 12: DROP   Source: 192.168.1.99   → Dest: ANY [SHADOWED: 100% Dead Code!]`
   },
   {
     id: 4,
@@ -41,8 +41,8 @@ const questions = [
     hint: "Two rules doing the exact same thing on the same traffic.",
     level: "Basic",
     codeExample: `// Redundancy Anomaly Example:
-// Rule 20: ACCEPT Source: 10.10.1.50 -> Dest: 172.16.1.10:443
-// Rule 45: ACCEPT Source: 10.10.1.50 -> Dest: 172.16.1.10:443 [REDUNDANT: Exact Duplicate]`
+// Rule 20: ACCEPT Source: 10.10.1.50 → Dest: 172.16.1.10:443
+// Rule 45: ACCEPT Source: 10.10.1.50 → Dest: 172.16.1.10:443 [REDUNDANT: Exact Duplicate]`
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const questions = [
     hint: "An old rule left behind for a server that was turned off years ago.",
     level: "Moderate",
     codeExample: `// Orphaned Rule Risk:
-// Rule 72: ALLOW ANY -> 10.10.4.80:8080 (Old staging database turned off in 2022!)
+// Rule 72: ALLOW ANY → 10.10.4.80:8080 (Old staging database turned off in 2022!)
 // Fix: Automated quarterly audit flagging rules with 0 packet hits over 90 days.`
   },
   {
@@ -63,8 +63,8 @@ const questions = [
     hint: "Conflicting rules where the outcome changes depending on which one is placed above the other.",
     level: "Expert",
     codeExample: `// Correlation Conflict:
-// Rule 1: PERMIT 10.10.1.0/24 -> 172.16.1.10:80
-// Rule 2: DENY   10.10.1.50   -> ANY:ANY
+// Rule 1: PERMIT 10.10.1.0/24 → 172.16.1.10:80
+// Rule 2: DENY   10.10.1.50   → ANY:ANY
 // Conflict: Does 10.10.1.50 have access to 172.16.1.10:80? (Depends on ordering!)`
   },
   {
@@ -75,7 +75,7 @@ const questions = [
     hint: "At the very end of the rule list.",
     level: "Basic",
     codeExample: `// Final Implicit Deny Rule:
-// Line 999: DROP Source: ANY -> Destination: ANY Protocol: ANY Port: ANY`
+// Line 999: DROP Source: ANY → Destination: ANY Protocol: ANY Port: ANY`
   },
   {
     id: 8,
@@ -85,7 +85,7 @@ const questions = [
     hint: "Placing the most frequently used rules at the top to save CPU comparisons.",
     level: "Moderate",
     codeExample: `// CPU Optimization:
-// Line 1: Permit HTTPS (Matches 900,000 packets/sec -> Evaluated in 1 comparison!)
+// Line 1: Permit HTTPS (Matches 900,000 packets/sec → Evaluated in 1 comparison!)
 // Line 2: Permit DNS   (Matches 80,000 packets/sec)
 // Line 3: Permit SSH   (Matches 2,000 packets/sec)`
   },
@@ -104,12 +104,12 @@ const questions = [
     id: 10,
     question: "What is the danger of using 'ANY' in the Service/Port field of a firewall permit rule?",
     shortAnswer: "Specifying 'Service: ANY' permits all 65,535 TCP and UDP ports, allowing attackers to tunnel unauthorized protocols (SSH, RDP, BitTorrent, malware C2) through the open rule.",
-    explanation: "A rule like `ALLOW 10.10.1.0/24 -> 172.16.1.10 ANY` was intended only for web browsing, but it inadvertently allows all ports. Attackers can connect to hidden management ports (SSH port 22, RDP port 3389) or database ports on that server.",
+    explanation: "A rule like `ALLOW 10.10.1.0/24 → 172.16.1.10 ANY` was intended only for web browsing, but it inadvertently allows all ports. Attackers can connect to hidden management ports (SSH port 22, RDP port 3389) or database ports on that server.",
     hint: "Opening all 65,535 ports instead of specifying only the required business port.",
     level: "Basic",
     codeExample: `// Dangerous Overly Broad Rule vs Hardened Rule:
-// BAD : ALLOW 10.10.1.0/24 -> 172.16.1.10 Port: ANY (65,535 ports open!)
-// GOOD: ALLOW 10.10.1.0/24 -> 172.16.1.10 Port: 443 Proto: TCP (Strictly HTTPS only)`
+// BAD : ALLOW 10.10.1.0/24 → 172.16.1.10 Port: ANY (65,535 ports open!)
+// GOOD: ALLOW 10.10.1.0/24 → 172.16.1.10 Port: 443 Proto: TCP (Strictly HTTPS only)`
   },
   {
     id: 11,
@@ -147,7 +147,7 @@ const ruleMetadata = {
     codeExample: `// Well-Documented Firewall Rule:
 // Rule: Allow-UPI-Switch
 // Description: "Approved by Change Ticket #CHG-2026-8812; Admin: Sukanta Hui; Owner: Mamata"
-// Action: ALLOW Source: 10.10.1.50 -> Dest: 203.0.113.10 Port: 443`
+// Action: ALLOW Source: 10.10.1.50 → Dest: 203.0.113.10 Port: 443`
   },
   {
     id: 14,
@@ -164,13 +164,13 @@ const ruleMetadata = {
     id: 15,
     question: "How does the 'Default-Deny' philosophy apply to Egress (Outbound) traffic leaving an enterprise network?",
     shortAnswer: "By blocking all outbound traffic by default and permitting only specific business applications (e.g. HTTPS to approved SaaS via proxy, DNS to internal resolvers), blocking unauthorized outbound ports.",
-    explanation: "Many organizations enforce Default-Deny on ingress but leave egress wide open (`ALLOW Internal -> ANY:ANY`). If malware infects an internal PC, open egress allows the malware to connect to external C2 servers on port 4444 or exfiltrate data. Egress Default-Deny halts the malware.",
+    explanation: "Many organizations enforce Default-Deny on ingress but leave egress wide open (`ALLOW Internal → ANY:ANY`). If malware infects an internal PC, open egress allows the malware to connect to external C2 servers on port 4444 or exfiltrate data. Egress Default-Deny halts the malware.",
     hint: "Blocking all outbound connections by default stops malware from calling home.",
     level: "Basic",
     codeExample: `// Egress Default-Deny Policy:
-// ALLOW: Internal_Workstations -> DMZ_Proxy (Port 8080)
-// ALLOW: Internal_Workstations -> Internal_DNS (Port 53)
-// DROP : Internal_Workstations -> ANY Internet IP (Default-Deny Egress!)`
+// ALLOW: Internal_Workstations → DMZ_Proxy (Port 8080)
+// ALLOW: Internal_Workstations → Internal_DNS (Port 53)
+// DROP : Internal_Workstations → ANY Internet IP (Default-Deny Egress!)`
   },
   {
     id: 16,
@@ -180,9 +180,9 @@ const ruleMetadata = {
     hint: "Organizing rules into separate tables based on source and destination zones.",
     level: "Moderate",
     codeExample: `// Zone-Based Policy Separation:
-// [WAN -> DMZ Policy Table]  : 12 Rules (Public Web/DNS)
-// [DMZ -> LAN Policy Table]  : 4 Rules (Database Pinholes only)
-// [LAN -> WAN Policy Table]  : 8 Rules (Egress Proxy Whitelists)`
+// [WAN → DMZ Policy Table]  : 12 Rules (Public Web/DNS)
+// [DMZ → LAN Policy Table]  : 4 Rules (Database Pinholes only)
+// [LAN → WAN Policy Table]  : 8 Rules (Egress Proxy Whitelists)`
   },
   {
     id: 17,
@@ -192,8 +192,8 @@ const ruleMetadata = {
     hint: "Never open SSH or RDP to the entire world; require VPN and MFA.",
     level: "Basic",
     codeExample: `// Dangerous Rule vs Secure Policy:
-// DANGEROUS: ALLOW 0.0.0.0/0 -> 10.10.1.5:22 (SSH Open to entire world!)
-// SECURE   : ALLOW Admin_VPN_Subnet (10.10.99.0/24) -> 172.16.1.99:22 (Bastion Only + MFA)`
+// DANGEROUS: ALLOW 0.0.0.0/0 → 10.10.1.5:22 (SSH Open to entire world!)
+// SECURE   : ALLOW Admin_VPN_Subnet (10.10.99.0/24) → 172.16.1.99:22 (Bastion Only + MFA)`
   },
   {
     id: 18,
@@ -203,8 +203,8 @@ const ruleMetadata = {
     hint: "Making a rule too broad just to quickly fix a connection problem.",
     level: "Moderate",
     codeExample: `// Rule Generalization Flaw:
-// Original: ALLOW 10.10.1.50 -> 172.16.1.10/32:443 (Single Host)
-// General : ALLOW 10.10.1.50 -> 172.16.0.0/16:443 (65,536 Hosts Exposed!)`
+// Original: ALLOW 10.10.1.50 → 172.16.1.10/32:443 (Single Host)
+// General : ALLOW 10.10.1.50 → 172.16.0.0/16:443 (65,536 Hosts Exposed!)`
   },
   {
     id: 19,
@@ -214,7 +214,7 @@ const ruleMetadata = {
     hint: "Granting only the absolute minimum permissions needed to do the job.",
     level: "Basic",
     codeExample: `// Principle of Least Privilege Rule:
-// ALLOW Source: 172.16.1.10/32 -> Dest: 10.10.4.50/32 Proto: TCP Port: 5432 ONLY`
+// ALLOW Source: 172.16.1.10/32 → Dest: 10.10.4.50/32 Proto: TCP Port: 5432 ONLY`
   },
   {
     id: 20,
@@ -224,7 +224,7 @@ const ruleMetadata = {
     hint: "Testing firewall rule changes automatically in code pipelines before applying them.",
     level: "Expert",
     codeExample: `// CI/CD Pipeline Rule Validation:
-// git push -> [Run Rule Linter] -> Check Shadowing (0 Found) -> Check Any/Any (0 Found) -> [Apply to Firewall]`
+// git push → [Run Rule Linter] → Check Shadowing (0 Found) → Check Any/Any (0 Found) → [Apply to Firewall]`
   },
   {
     id: 21,
@@ -234,7 +234,7 @@ const ruleMetadata = {
     hint: "Opening thousands of high ports instead of specific individual service ports.",
     level: "Moderate",
     codeExample: `// Port Range Flaw:
-// BAD: ALLOW ANY -> 10.10.4.50 Ports: 1024-65535 (Exposes 64,512 high ports!)`
+// BAD: ALLOW ANY → 10.10.4.50 Ports: 1024-65535 (Exposes 64,512 high ports!)`
   },
   {
     id: 22,
@@ -244,7 +244,7 @@ const ruleMetadata = {
     hint: "Requiring two-person approval and change tickets before any firewall rule can be edited.",
     level: "Basic",
     codeExample: `// Four-Eyes Principle:
-// Engineer Mamata drafts rule change -> Security Lead Sukanta Hui approves -> Automated push to firewall`
+// Engineer Mamata drafts rule change → Security Lead Sukanta Hui approves → Automated push to firewall`
   },
   {
     id: 23,
@@ -254,8 +254,8 @@ const ruleMetadata = {
     hint: "Blocking smart cameras and sensors from talking to the Internet entirely.",
     level: "Basic",
     codeExample: `// IoT Subnet Egress Lockdown:
-// ALLOW: IoT_CCTV_VLAN (10.10.80.0/24) -> NVR_Server (10.10.80.10:554)
-// DROP : IoT_CCTV_VLAN -> ANY (Zero Internet access permitted!)`
+// ALLOW: IoT_CCTV_VLAN (10.10.80.0/24) → NVR_Server (10.10.80.10:554)
+// DROP : IoT_CCTV_VLAN → ANY (Zero Internet access permitted!)`
   },
   {
     id: 24,
@@ -292,10 +292,10 @@ const fwChangeLog = {
     hint: "Dropping spoofed private and loopback IPs at the top of the rule list.",
     level: "Basic",
     codeExample: `// Bogon Drop Rules at Top of Rule Base:
-// Line 1: DROP Source: 10.0.0.0/8      -> Ingress Interface: WAN
-// Line 2: DROP Source: 172.16.0.0/12   -> Ingress Interface: WAN
-// Line 3: DROP Source: 192.168.0.0/16  -> Ingress Interface: WAN
-// Line 4: DROP Source: 127.0.0.0/8     -> Ingress Interface: WAN`
+// Line 1: DROP Source: 10.0.0.0/8      → Ingress Interface: WAN
+// Line 2: DROP Source: 172.16.0.0/12   → Ingress Interface: WAN
+// Line 3: DROP Source: 192.168.0.0/16  → Ingress Interface: WAN
+// Line 4: DROP Source: 127.0.0.0/8     → Ingress Interface: WAN`
   },
   {
     id: 27,
@@ -305,7 +305,7 @@ const fwChangeLog = {
     hint: "Dropping traffic from foreign countries where your organization has no users.",
     level: "Basic",
     codeExample: `// Geo-IP Firewall Rule:
-// Line 5: DROP Source: Country_NOT_IN(['IN']) -> Dest: ANY Port: ANY`
+// Line 5: DROP Source: Country_NOT_IN(['IN']) → Dest: ANY Port: ANY`
   },
   {
     id: 28,
@@ -315,7 +315,7 @@ const fwChangeLog = {
     hint: "Requiring two engineers to review and approve every rule change.",
     level: "Moderate",
     codeExample: `// Four-Eyes Workflow:
-// Step 1: Admin Mahima submits rule change -> Step 2: Security Lead Sukanta Hui reviews & approves -> Step 3: Rule deployed`
+// Step 1: Admin Mahima submits rule change → Step 2: Security Lead Sukanta Hui reviews & approves → Step 3: Rule deployed`
   },
   {
     id: 29,
@@ -328,7 +328,7 @@ const fwChangeLog = {
 // object-group network DMZ_Web_Servers
 //   host 172.16.1.10
 //   host 172.16.1.11
-// Rule: ALLOW DMZ_Web_Servers -> DB_Server:5432 (1 Rule instead of 50!)`
+// Rule: ALLOW DMZ_Web_Servers → DB_Server:5432 (1 Rule instead of 50!)`
   },
   {
     id: 30,

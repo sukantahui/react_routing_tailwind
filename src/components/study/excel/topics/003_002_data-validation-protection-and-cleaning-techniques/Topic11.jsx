@@ -71,7 +71,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world case study: Designing a tamper-proof corporate budget entry template"}
           </h1>
 
@@ -173,7 +173,7 @@ export default function Topic11() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Multi-Layered Defense-in-Depth"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Layer 1: Data validation on inputs (Numbers > 0, Dates in FY 2026-27); Layer 2: Dependent dropdowns for Cost Center -> Expense Account; Layer 3: Cell protection locking formulas; Layer 4: Workbook structure encryption."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Layer 1: Data validation on inputs (Numbers > 0, Dates in FY 2026-27); Layer 2: Dependent dropdowns for Cost Center → Expense Account; Layer 3: Cell protection locking formulas; Layer 4: Workbook structure encryption."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
@@ -286,7 +286,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Real_world_case_st"
+            sheetName="EX1312"
             title={"Real-world case study: Designing a tamper-proof corporate budget entry template - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

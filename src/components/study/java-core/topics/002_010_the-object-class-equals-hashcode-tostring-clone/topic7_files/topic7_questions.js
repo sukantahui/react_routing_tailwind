@@ -5,7 +5,7 @@ const topic7_questions = [
     explanation: "Never override equals() without overriding hashCode() using the same fields.",
     hint: "Equal objects MUST have equal hashCodes.",
     level: "Intermediate",
-    codeExample: "// If a.equals(b) == true -> a.hashCode() == b.hashCode() is MANDATORY!"
+    codeExample: "// If a.equals(b) == true → a.hashCode() == b.hashCode() is MANDATORY!"
   }
 ];
 

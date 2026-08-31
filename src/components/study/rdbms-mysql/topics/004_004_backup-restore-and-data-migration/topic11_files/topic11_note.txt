@@ -9,7 +9,7 @@ A. Cross-Server Migration:
    - Moving between hardware servers or datacenters on identical MySQL versions.
    - Fastest method: Physical replication or Percona XtraBackup streaming.
 
-B. Cross-Version Upgrade Migration (e.g. MySQL 5.7 -> 8.0 -> 8.4 LTS):
+B. Cross-Version Upgrade Migration (e.g. MySQL 5.7 → 8.0 → 8.4 LTS):
    - Mandatory pre-upgrade validation with `util.checkForServerUpgrade()`.
    - Requires logical export/import to upgrade data dictionary and system tables.
    - Collation upgrade to `utf8mb4_0900_ai_ci` and auth plugin transition.

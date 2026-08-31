@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never use standard SUM for Inventory or Bank Balances! If you have ₹10 Lakhs in January and ₹10 Lakhs in February, you have ₹10 Lakhs—not ₹20 Lakhs! Always use CLOSINGBALANCEMONTH.
 
 COMMON TRAPS TO AVOID:
-- Summing Bank Balances Across Months (Fatal Accounting Error): Using standard `=SUM(Bank[Balance])` adds January ₹10L + February ₹10L = ₹20L (inventing money that does not exist). -> Fix: Always use semi-additive DAX: `CLOSINGBALANCEMONTH([BankBalance], Dim_Calendar[Date])`.
-- Blank Closing Balance on Incomplete Months: If current month has no transactions on the 31st, `CLOSINGBALANCEMONTH` can return blank. -> Fix: Use `CALCULATE([Balance], LASTNONBLANK(Dim_Calendar[Date], [Balance]))` to find the true last active day.
-- Confusing Opening Balance with Closing Balance of Prior Month: Opening balance of March is mathematically identical to closing balance of February. -> Fix: undefined
+- Summing Bank Balances Across Months (Fatal Accounting Error): Using standard `=SUM(Bank[Balance])` adds January ₹10L + February ₹10L = ₹20L (inventing money that does not exist). → Fix: Always use semi-additive DAX: `CLOSINGBALANCEMONTH([BankBalance], Dim_Calendar[Date])`.
+- Blank Closing Balance on Incomplete Months: If current month has no transactions on the 31st, `CLOSINGBALANCEMONTH` can return blank. → Fix: Use `CALCULATE([Balance], LASTNONBLANK(Dim_Calendar[Date], [Balance]))` to find the true last active day.
+- Confusing Opening Balance with Closing Balance of Prior Month: Opening balance of March is mathematically identical to closing balance of February. → Fix: undefined
 ================================================================================

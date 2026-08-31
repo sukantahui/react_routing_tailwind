@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. RETURN WITH FINALLY:
    - Does finally execute on 'return'? YES!
-   - Sequence: Return value evaluated &rarr; finally executes &rarr; method returns.
+   - Sequence: Return value evaluated → finally executes → method returns.
    - Guaranteed cleanup even with multiple early return paths.
 
 ================================================================================

@@ -16,7 +16,7 @@ const Topic9 = () => {
       <div className="max-w-6xl mx-auto px-4 py-12 md:py-16 space-y-12">
         {/* Title Section */}
         <section className="text-center space-y-4 animate-[fadeSlideUp_0.6s_ease-out_forwards]">
-          <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
             NS Record (Name Server)
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -58,7 +58,7 @@ const Topic9 = () => {
                 <text x="10" y="55" fill="#6B7280" fontSize="8">"ask .com TLD"</text>
               </g>
               
-              {/* Arrow Root -> TLD */}
+              {/* Arrow Root → TLD */}
               <line x1="215" y1="45" x2="215" y2="75" stroke="#F59E0B" strokeWidth="2" />
               
               {/* TLD (.com) */}
@@ -69,7 +69,7 @@ const Topic9 = () => {
                 <text x="5" y="72" fill="#6B7280" fontSize="8">NS: ns2.example.com</text>
               </g>
               
-              {/* Arrow TLD -> Authoritative */}
+              {/* Arrow TLD → Authoritative */}
               <line x1="215" y1="115" x2="215" y2="145" stroke="#10B981" strokeWidth="2" />
               
               {/* Authoritative */}

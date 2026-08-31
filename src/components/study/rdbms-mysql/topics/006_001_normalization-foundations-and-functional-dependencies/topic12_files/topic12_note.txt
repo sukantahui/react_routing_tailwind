@@ -9,26 +9,26 @@ TOPIC 12: LOSSLESS-JOIN (NON-LOSS) DECOMPOSITION: MATHEMATICAL CONDITION AND MAT
 This topic provides an exhaustive theoretical and practical deep-dive into:
 "Lossless-Join (Non-Loss) Decomposition: Mathematical Condition and Matrix Testing Algorithm".
 In relational database engineering, understanding the mechanics of data redundancy,
-functional dependencies (X -> Y), and modification anomalies is the primary prerequisite
+functional dependencies (X → Y), and modification anomalies is the primary prerequisite
 for architecting fault-tolerant OLTP database systems.
 
 2. FORMAL RELATIONAL DEFINITION & MATHEMATICAL FOUNDATIONS
 --------------------------------------------------------------------------------
 A functional dependency is a formal constraint between two sets of attributes X and Y
 in a relation schema R, denoted as:
-    X -> Y  ("X functionally determines Y" or "Y is functionally dependent on X")
+    X → Y  ("X functionally determines Y" or "Y is functionally dependent on X")
 
 Mathematical Definition:
 For any valid legal relation state r(R), for all pairs of tuples t1, t2 in r(R):
     If t1[X] = t2[X], then t1[Y] MUST equal t2[Y].
 
 Properties & Axioms (Armstrong's Inference Rules):
-1. Reflexivity: If Y is a subset of X, then X -> Y (Trivial dependency).
-2. Augmentation: If X -> Y, then XZ -> YZ for any attribute set Z.
-3. Transitivity: If X -> Y and Y -> Z, then X -> Z.
-4. Union: If X -> Y and X -> Z, then X -> YZ.
-5. Decomposition: If X -> YZ, then X -> Y and X -> Z.
-6. Pseudotransitivity: If X -> Y and WY -> Z, then WX -> Z.
+1. Reflexivity: If Y is a subset of X, then X → Y (Trivial dependency).
+2. Augmentation: If X → Y, then XZ → YZ for any attribute set Z.
+3. Transitivity: If X → Y and Y → Z, then X → Z.
+4. Union: If X → Y and X → Z, then X → YZ.
+5. Decomposition: If X → YZ, then X → Y and X → Z.
+6. Pseudotransitivity: If X → Y and WY → Z, then WX → Z.
 
 3. REAL-WORLD DATA ANOMALIES & BEFORE-VS-AFTER TABLES
 --------------------------------------------------------------------------------

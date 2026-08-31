@@ -76,7 +76,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-rose-400 via-amber-300 to-teal-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-rose-400 via-amber-300 to-teal-300 bg-clip-text text-transparent leading-tight">
             Error Handling in M: try...otherwise Constructs &amp; Step-Level Validation
           </h1>
 
@@ -125,12 +125,12 @@ export default function Topic8() {
             <div>
               <span className="text-slate-500">// Pattern 1: Compact Fallback Evaluation</span>
               <br />
-              <span className="text-purple-400">try</span> &lt;guarded_expression&gt; <span className="text-purple-400">otherwise</span> &lt;default_fallback_value&gt;
+              <span className="text-purple-400">try</span> <guarded_expression> <span className="text-purple-400">otherwise</span> <default_fallback_value>
             </div>
             <div className="pt-2 border-t border-slate-800/60">
               <span className="text-slate-500">// Pattern 2: Deep Diagnostic Inspection Record</span>
               <br />
-              <span className="text-purple-400">try</span> &lt;guarded_expression&gt; &rarr;&nbsp;
+              <span className="text-purple-400">try</span> <guarded_expression> →&nbsp;
               <span className="text-amber-300">[ HasError = true/false, Value = any, Error = [ Reason="...", Message="...", Detail="..." ] ]</span>
             </div>
           </div>
@@ -336,7 +336,7 @@ export default function Topic8() {
                   Stream A: Production Fact Table (Table.RemoveRowsWithErrors)
                 </text>
                 <text x="225" y="50" textAnchor="middle" fill="#d1fae5" fontSize="12">
-                  9,940 Clean Verified Transactions &rarr; Loaded to Power Pivot Model
+                  9,940 Clean Verified Transactions → Loaded to Power Pivot Model
                 </text>
                 <rect x="30" y="62" width="390" height="22" rx="6" fill="#064e3b" opacity="0.6" />
                 <text x="225" y="77" textAnchor="middle" fill="#a7f3d0" fontSize="11" fontWeight="bold">
@@ -351,7 +351,7 @@ export default function Topic8() {
                   Stream B: Quarantine Audit Log (Table.SelectRowsWithErrors)
                 </text>
                 <text x="225" y="50" textAnchor="middle" fill="#ffe4e6" fontSize="12">
-                  60 Corrupt Records Isolated &rarr; Logged with Error[Message] &amp; [Reason]
+                  60 Corrupt Records Isolated → Logged with Error[Message] &amp; [Reason]
                 </text>
                 <rect x="30" y="62" width="390" height="22" rx="6" fill="#881337" opacity="0.6" />
                 <text x="225" y="77" textAnchor="middle" fill="#fecdd3" fontSize="11" fontWeight="bold">
@@ -395,7 +395,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Error_Handling"
+            sheetName="EX2109"
             title="ETL Error Handling &amp; Sanitization Matrix (Transaction ID, Customer Name, Raw Amount, Validation Rule, Try-Otherwise Result, Audit Flag)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -433,7 +433,7 @@ export default function Topic8() {
                 Using <code className="text-rose-300 font-mono">try Number.FromText([Amount]) otherwise 0.00</code>, he eliminates all <code className="text-rose-300 font-mono">DataFormat.Error</code> exceptions without manual cell editing.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-rose-300">
-                try Number.FromText([Amt]) otherwise 0.00 &rarr; Zero Pipeline Halts
+                try Number.FromText([Amt]) otherwise 0.00 → Zero Pipeline Halts
               </div>
             </div>
 
@@ -451,7 +451,7 @@ export default function Topic8() {
                 Invalid rows are caught via structured <code className="text-amber-300 font-mono">try</code> records, generating a daily exception list for the billing desk.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                try fxValidateGST([GSTIN]) &rarr; Expand [Error][Message]
+                try fxValidateGST([GSTIN]) → Expand [Error][Message]
               </div>
             </div>
 
@@ -469,7 +469,7 @@ export default function Topic8() {
                 She compares table headers against a master list using <code className="text-teal-300 font-mono">List.Difference</code>, throwing an immediate custom exception if mandatory fields are missing.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                List.Difference &rarr; error Error.Record("Schema.MissingCol")
+                List.Difference → error Error.Record("Schema.MissingCol")
               </div>
             </div>
 
@@ -488,7 +488,7 @@ export default function Topic8() {
                 He replaces the calculation with safe conditional logic, protecting executive KPI dashboards from computation crashes.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                if [Km]=0 or [Km]=null then 0 else [Cost]/[Km] &rarr; Safe KPI
+                if [Km]=0 or [Km]=null then 0 else [Cost]/[Km] → Safe KPI
               </div>
             </div>
           </div>

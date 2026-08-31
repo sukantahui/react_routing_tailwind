@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic1() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"}
+            {"Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic1() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Phase 1 ETL Ingestion Pipeline: Heterogeneous Sources -> M-Code Transformation Engine -> Clean Relational Staging Tables"}
+              Visual Dataflow: {"Phase 1 ETL Ingestion Pipeline: Heterogeneous Sources → M-Code Transformation Engine → Clean Relational Staging Tables"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Assessment Pipeline
@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Phase_1__Automated"
+            sheetName="EX3302"
             title={"Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline - Assessment Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic1() {
                 Step 1: Understand Schema &amp; Requirements
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"}</code>.
+                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"}</code>.
               </p>
             </div>
 
@@ -494,7 +494,7 @@ export default function Topic1() {
                 <span>⚡</span> {"Folder Combine"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Automatically combines all files in a directory."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Get Data &gt; From File &gt; From Folder"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Get Data > From File > From Folder"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

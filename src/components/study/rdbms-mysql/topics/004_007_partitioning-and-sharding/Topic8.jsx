@@ -27,12 +27,12 @@ const Topic8 = () => {
       badgeColor: "emerald",
       sqlSnippet: `-- ⚡ 1. INSTANT 5ms DROP (Deletes Physical File & Schema Definition):
 ALTER TABLE financial_ledger DROP PARTITION p2022_01;
--- -> Unlinks financial_ledger#p#p2022_01.ibd at the OS filesystem level!
--- -> Zero undo logs, zero redo log saturation, zero row-lock waits!
+-- → Unlinks financial_ledger#p#p2022_01.ibd at the OS filesystem level!
+-- → Zero undo logs, zero redo log saturation, zero row-lock waits!
 
 -- 📦 2. TRUNCATE PARTITION (Deletes Rows, Preserves Schema Boundaries):
 ALTER TABLE financial_ledger TRUNCATE PARTITION p2025_08;
--- -> Empties all records inside p2025_08 instantly for clean reuse!
+-- → Empties all records inside p2025_08 instantly for clean reuse!
 
 -- 💥 3. SLOW TRADITIONAL DELETE (Avoid in Production!):
 -- DELETE FROM financial_ledger WHERE order_date < '2022-02-01'; (Takes 45 mins!)`,
@@ -104,7 +104,7 @@ SET SESSION lock_wait_timeout = 5;
 
 -- Execute partition drop safely:
 ALTER TABLE financial_ledger DROP PARTITION p2022_01;
--- -> If lock cannot be acquired within 5s, DDL aborts safely without stalling billing!`,
+-- → If lock cannot be acquired within 5s, DDL aborts safely without stalling billing!`,
       explanation:
         "Partition DDL requires an exclusive Metadata Lock (MDL). Setting a short lock_wait_timeout prevents long-running analytical queries from causing a lock queue cascade that stalls production transactions.",
       keyTakeaways: [
@@ -129,7 +129,7 @@ ALTER TABLE financial_ledger DROP PARTITION p2022_01;
             Topic 8 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Managing Partitions</span>: ADD, DROP, <span className="text-cyan-400">TRUNCATE</span> &amp; REORGANIZE
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

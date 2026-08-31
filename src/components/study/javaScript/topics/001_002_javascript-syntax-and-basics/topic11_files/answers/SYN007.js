@@ -13,6 +13,6 @@ convertValue(undefined);
 convertValue([]);
 convertValue([10]);
 
-console.log("Expected Result Verified:", "null -> Number: 0, String: 'null', Boolean: false
-undefined -> Number: NaN, String: 'undefined', Boolean: false
-[] -> Number: 0, String: '', Boolean: true");
+console.log("Expected Result Verified:", "null → Number: 0, String: 'null', Boolean: false
+undefined → Number: NaN, String: 'undefined', Boolean: false
+[] → Number: 0, String: '', Boolean: true");

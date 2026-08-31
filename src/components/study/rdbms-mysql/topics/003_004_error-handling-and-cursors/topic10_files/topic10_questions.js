@@ -86,7 +86,7 @@ const questions = [
     level: "expert"
   },
   {
-    question: "Can you declare a 3-tier nested cursor (e.g. Faculty -> Department -> Student)?",
+    question: "Can you declare a 3-tier nested cursor (e.g. Faculty → Department → Student)?",
     shortAnswer: "YES; by nesting three `BEGIN ... END` blocks, each with its own cursor, local variables, and scoped `NOT FOUND` handler.",
     explanation: "3-tier cursor nesting.",
     hint: "Yes, by creating three nested BEGIN...END blocks.",

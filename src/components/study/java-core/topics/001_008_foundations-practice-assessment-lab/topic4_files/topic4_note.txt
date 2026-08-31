@@ -20,7 +20,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Set Mismatch (One Duplicate + One Missing in 1..N):
   * Negative Index Marking :
-    - Check if nums[abs(val) - 1] < 0 -> duplicate found!
+    - Check if nums[abs(val) - 1] < 0 → duplicate found!
     - Otherwise negate nums[abs(val) - 1] = -nums[abs(val) - 1].
     - Index with positive number identifies missing value.
     - Restore array signs: nums[i] = Math.abs(nums[i]).

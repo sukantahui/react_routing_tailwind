@@ -70,7 +70,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             The 4-Section Syntax Architecture: Positive ; Negative ; Zero ; Text
           </h1>
 
@@ -129,7 +129,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Displays significant digits only; suppresses non-significant leading and trailing zeros.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: #,##0.## | Input: 12.5 -&gt; Display: 12.5 | Input: 0.85 -&gt; Display: 0.85
+                Format: #,##0.## | Input: 12.5 → Display: 12.5 | Input: 0.85 → Display: 0.85
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Use for standard numbers, currency, and quantities where you do not want unsightly leading zeros (e.g. displaying 45 instead of 00045).
@@ -148,7 +148,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Displays significant digits AND forces display of zeros if the input has fewer digits than specified in the format mask.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: 00000 | Input: 45 -&gt; Display: 00045 | Format: 0.00 | Input: 12.5 -&gt; Display: 12.50
+                Format: 00000 | Input: 45 → Display: 00045 | Format: 0.00 | Input: 12.5 → Display: 12.50
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Use for fixed-width serial numbers, Employee IDs, PIN codes, and currency cents/paise where two decimal places are strictly mandatory.
@@ -167,7 +167,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Leaves an invisible space for insignificant zeros on either side of the decimal point so decimals line up vertically in tables without displaying zeros.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: ???.??? | Input: 12.5 -&gt; Display: &#39; 12.5  &#39; | Input: 145.75 -&gt; Display: &#39;145.75 &#39;
+                Format: ???.??? | Input: 12.5 → Display: &#39; 12.5  &#39; | Input: 145.75 → Display: &#39;145.75 &#39;
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Use in financial invoices, printed balance sheets, and fraction lists (?/?) to ensure clean vertical decimal point alignment.
@@ -186,7 +186,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Defines the exact boundary between whole integer positions and fractional decimal places.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: #,##0.00 | Input: 1234.5 -&gt; Display: 1,234.50
+                Format: #,##0.00 | Input: 1234.5 → Display: 1,234.50
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Determines how many decimal places to round visually (e.g. .0 for 1 decimal, .00 for 2 decimals, .000 for 3 decimals).
@@ -205,7 +205,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> 1. Group Separator: Placed between digit tokens (e.g. #,##0), inserts standard thousands commas. 2. Scaling Operator: Placed at the end (trailing comma), divides display by 1,000 per comma.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Group: #,##0 (1,000,000) | 1 Trailing Comma: #,##0,&quot; K&quot; (1,000 -&gt; 1 K) | 2 Trailing Commas: #,##0.0,,&quot; M&quot; (15,000,000 -&gt; 15.0 M)
+                Group: #,##0 (1,000,000) | 1 Trailing Comma: #,##0,&quot; K&quot; (1,000 → 1 K) | 2 Trailing Commas: #,##0.0,,&quot; M&quot; (15,000,000 → 15.0 M)
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Essential for financial legibility and compressing large multi-million metrics into executive dashboard KPIs.
@@ -262,7 +262,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Repeats the immediately following character across the remaining width of the column.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: ₹* #,##0.00 -&gt; Places ₹ on far left edge, fills with spaces, and aligns 1,250.00 on far right edge.
+                Format: ₹* #,##0.00 → Places ₹ on far left edge, fills with spaces, and aligns 1,250.00 on far right edge.
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Standard accounting report format that prevents check-fraud alterations and creates clean tabular borders.
@@ -281,7 +281,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Represents whatever text string is entered into the cell, allowing text decoration and prefixing.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: &quot;Vendor: &quot;@ -&gt; Input: &#39;Tata Motors&#39; -&gt; Display: &#39;Vendor: Tata Motors&#39;
+                Format: &quot;Vendor: &quot;@ → Input: &#39;Tata Motors&#39; → Display: &#39;Vendor: Tata Motors&#39;
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Applies automated labels, prefixes, or suffix tags to text cells while preserving pure string data.
@@ -300,7 +300,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Forces the immediately following single character to display as a plain literal symbol instead of a formatting command.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: \#000 -&gt; Display: #045 | Format: \X\X\X-0000 -&gt; Display: XXX-1234
+                Format: \#000 → Display: #045 | Format: \X\X\X-0000 → Display: XXX-1234
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Displays special symbols like #, ?, *, @, or X without confusing Excel&#39;s formatting engine.
@@ -319,7 +319,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Encloses arbitrary text strings to display alongside numbers without breaking mathematical calculations.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: #,##0.00&quot; KG&quot; | Input: 45.5 -&gt; Display: 45.50 KG (SUM formula still works!)
+                Format: #,##0.00&quot; KG&quot; | Input: 45.5 → Display: 45.50 KG (SUM formula still works!)
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Attaches engineering units (KG, MT, Sq.Ft., Liters, Units, Hrs) while keeping cells 100% numeric for arithmetic.
@@ -376,7 +376,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Square brackets around time tokens instruct Excel to display total cumulative elapsed duration without rolling over after 24 hours.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: [h]:mm:ss | 1.5 days -&gt; Display: 36:00:00 (Standard hh:mm displays incorrect 12:00)
+                Format: [h]:mm:ss | 1.5 days → Display: 36:00:00 (Standard hh:mm displays incorrect 12:00)
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Critical for payroll timesheets, factory machine run-time logs, SLA tracking, and project durations.
@@ -395,7 +395,7 @@ export default function Topic1() {
                 <strong>Meaning:</strong> Three consecutive semicolons suppress display of positive numbers, negative numbers, zero values, and text strings.
               </p>
               <div className="p-1.5 rounded bg-slate-900 border border-slate-800 font-mono text-[10px] text-emerald-300 overflow-x-auto">
-                Format: ;;; -&gt; Cell appears completely empty on screen, but Formula Bar and calculations remain 100% active.
+                Format: ;;; → Cell appears completely empty on screen, but Formula Bar and calculations remain 100% active.
               </div>
               <p className="text-slate-400 text-[10px] italic">
                 <strong>When to use:</strong> Hides sensitive calculation constants, dynamic dashboard button values, and Data Table header formulas.
@@ -853,7 +853,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Four_Section_Syntax"
+            sheetName="Topic1"
             title="Custom Number Formatting & Presentation Suite"
             rowsPerPage={12}
             showSheetSelector={true}

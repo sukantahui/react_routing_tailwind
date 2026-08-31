@@ -110,9 +110,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Payoff Matrix in Game Theory?",
     shortAnswer: "'A Payoff Matrix coordinates m row strategies of Player A with n column strategies of Player B; find Row Minima and Column Maxima; Maximin is the lower value and Minimax is the upper value; Maximin <= Minimax strictly; if equal, a saddle point exists in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all payoff matrix analysis mechanics.",
-    hint: "Row min -> Col max -> Maximin <= Minimax -> Saddle point if equal in ₹.",
+    hint: "Row min → Col max → Maximin <= Minimax → Saddle point if equal in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: BuildMatrix(m, n) -> RowMin() -> ColMax() -> CompareMaximinMinimax(₹)."
+    codeExample: "GoldenRule: BuildMatrix(m, n) → RowMin() → ColMax() → CompareMaximinMinimax(₹)."
   }
 ];
 

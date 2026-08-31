@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. RESIZING MECHANICS:
    - Capacity doubles (oldCap &times; 2).
    - Bit test: '(e.hash & oldCap) == 0'.
-   - If 0 &rarr; stays at original bucket 'j'.
-   - If != 0 &rarr; moves to high bucket 'j + oldCap'.
+   - If 0 → stays at original bucket 'j'.
+   - If != 0 → moves to high bucket 'j + oldCap'.
    - Preserves original node order (prevents Java 7 circular loop bugs).
 
 ================================================================================

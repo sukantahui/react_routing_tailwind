@@ -42,7 +42,7 @@ export default function Topic12() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Shift Operators: Left Shift (<code className="text-sky-400">&lt;&lt;</code>), Signed Right (<code className="text-sky-400">&gt;&gt;</code>), Unsigned Right (<code className="text-sky-400">&gt;&gt;&gt;</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -111,7 +111,7 @@ export default function Topic12() {
             <rect x="30" y="40" width="260" height="180" rx="10" fill="url(#gradLeftShift)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Left Shift (&lt;&lt;)</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
-            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">5 &lt;&lt; 2 &rarr; 20</text>
+            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">5 &lt;&lt; 2 → 20</text>
             <text x="55" y="122" fill="#e0f2fe" fontSize="10">Formula: a * 2^s (5 * 4 = 20)</text>
             <text x="55" y="142" fill="#e0f2fe" fontSize="10">Fills vacated right with 0s</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
@@ -122,7 +122,7 @@ export default function Topic12() {
             <rect x="310" y="40" width="260" height="180" rx="10" fill="url(#gradSignedShift)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Signed Right (&gt;&gt;)</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#451a03" />
-            <text x="335" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">-40 &gt;&gt; 2 &rarr; -10</text>
+            <text x="335" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">-40 &gt;&gt; 2 → -10</text>
             <text x="335" y="122" fill="#fef3c7" fontSize="10">Sign Extension: Fills with MSB</text>
             <text x="335" y="142" fill="#fef3c7" fontSize="10">Negative numbers stay negative</text>
             <text x="440" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
@@ -133,7 +133,7 @@ export default function Topic12() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradUnsignedShift)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Unsigned Right (&gt;&gt;&gt;)</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#3b0764" />
-            <text x="615" y="102" fill="#e9d5ff" fontSize="11" fontFamily="monospace">-1 &gt;&gt;&gt; 1 &rarr; 2147483647</text>
+            <text x="615" y="102" fill="#e9d5ff" fontSize="11" fontFamily="monospace">-1 &gt;&gt;&gt; 1 → 2147483647</text>
             <text x="615" y="122" fill="#f3e8ff" fontSize="10">Zero Extension: Always fills 0s</text>
             <text x="615" y="142" fill="#f3e8ff" fontSize="10">Yields positive Integer.MAX_VALUE</text>
             <text x="720" y="190" fill="#faf5ff" fontSize="11" textAnchor="middle" fontWeight="bold">

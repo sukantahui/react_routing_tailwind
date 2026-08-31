@@ -42,7 +42,7 @@ const StopAndWaitARQ = () => {
           className="reveal-section transition-all duration-300"
           style={{ animation: "fadeSlideUp 0.6s ease forwards", animationDelay: "0s" }}
         >
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 to-teal-600 dark:from-blue-400 dark:to-teal-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-700 to-teal-600 dark:from-blue-400 dark:to-teal-300 bg-clip-text text-transparent">
             Stop-and-Wait ARQ
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-3 border-l-4 border-blue-500 pl-4">

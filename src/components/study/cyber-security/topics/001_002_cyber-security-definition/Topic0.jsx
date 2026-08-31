@@ -27,7 +27,7 @@ const Topic0 = () => {
       slaLatency: '100% Data Integrity • Zero Unauthorized Disclosures • 99.999% Service Uptime',
       estBudget: '₹2,10,000 (Database Encryption Licenses & Multi-AZ Disaster Recovery)',
       desc: 'The foundational security triad balancing secrecy, accuracy, and accessibility across all information assets.',
-      simResult: 'Simulated SQL injection attempt detected -> SHA-256 hash mismatch alerts admin -> WAF blocks query -> CIA Triad upheld in 18ms.',
+      simResult: 'Simulated SQL injection attempt detected → SHA-256 hash mismatch alerts admin → WAF blocks query → CIA Triad upheld in 18ms.',
     },
     {
       id: 'defense-in-depth',
@@ -38,7 +38,7 @@ const Topic0 = () => {
       slaLatency: 'Sub-15s Automated Threat Containment • Zero Production Disruption',
       estBudget: '₹3,50,000 (Next-Gen Firewall Cluster & 100 Endpoint EDR Agents)',
       desc: 'Eliminates single points of security failure by forcing attackers to breach multiple independent defensive layers.',
-      simResult: 'Phishing macro attempts execution -> Endpoint EDR isolates laptop process -> Firewall drops outbound C2 beacon in 4.2 seconds.',
+      simResult: 'Phishing macro attempts execution → Endpoint EDR isolates laptop process → Firewall drops outbound C2 beacon in 4.2 seconds.',
     },
     {
       id: 'zero-trust',
@@ -49,7 +49,7 @@ const Topic0 = () => {
       slaLatency: 'Sub-100ms Dynamic Policy Evaluation • Zero Implicit Trust Zones',
       estBudget: '₹4,20,000 (Zero-Trust Network Access - ZTNA & Hardware Security Keys)',
       desc: 'Modern security paradigm eliminating the concept of a trusted internal LAN, verifying every single connection request.',
-      simResult: 'Employee logs in from foreign IP -> Zero Trust engine flags anomalous geolocation -> Prompts for FIDO2 Hardware Key -> Blocks breach.',
+      simResult: 'Employee logs in from foreign IP → Zero Trust engine flags anomalous geolocation → Prompts for FIDO2 Hardware Key → Blocks breach.',
     },
     {
       id: 'kill-chain-defense',
@@ -60,7 +60,7 @@ const Topic0 = () => {
       slaLatency: 'Early-Stage Kill Chain Neutralization • Zero Data Exfiltration',
       estBudget: '₹1,80,000 (Threat Intelligence SIEM Feeds & Sandboxing Appliance)',
       desc: 'Structured framework breaking down multi-stage adversary attacks to sever intrusions before harm occurs.',
-      simResult: 'Reconnaissance port scan detected -> SIEM correlates suspicious PowerShell execution -> Quarantines host at Step 3 (Delivery).',
+      simResult: 'Reconnaissance port scan detected → SIEM correlates suspicious PowerShell execution → Quarantines host at Step 3 (Delivery).',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic0 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Introduction to Cyber Security
           </h1>
 

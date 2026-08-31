@@ -70,7 +70,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Practice Lab: 15 MCQs and 10 Custom Formatting Practical Workbook Challenges
           </h1>
 
@@ -543,7 +543,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Formatting_Lab"
+            sheetName="Topic13"
             title="Custom Number Formatting & Presentation Suite"
             rowsPerPage={12}
             showSheetSelector={true}

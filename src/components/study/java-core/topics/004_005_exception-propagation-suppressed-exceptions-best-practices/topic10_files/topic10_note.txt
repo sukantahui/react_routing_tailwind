@@ -13,7 +13,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Exception chaining: Wrap low-level errors into domain exceptions with cause.
    - Avoid 'Log & Throw', 'Swallow & Ignore', and 'Catch Throwable' anti-patterns.
    - Document all exceptions with '@throws' in Javadoc.
-   - Multi-tier architecture: Repo &rarr; Service (Wrap) &rarr; Controller (Log once).
+   - Multi-tier architecture: Repo → Service (Wrap) → Controller (Log once).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

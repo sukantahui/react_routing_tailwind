@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Formatting is your first impression. Never leave columns showing `###`! Right-align your numbers, use `dd-mmm-yyyy` for dates, and put a double-underline under your total row. It makes you look like an elite professional.
 
 COMMON TRAPS TO AVOID:
-- Truncated Cell Content (### Display Bug): Narrow columns hiding numbers as `###`. -> Fix: Press `Alt + H + O + I` to auto-fit all column widths.
-- Centering Numerical Data Columns: Centering numbers impairs rapid visual decimal alignment for accountants. -> Fix: Right-align numbers; left-align text; center dates and codes.
-- Using Bright Neon Background Fills: Unprofessional eye-straining colors in business reports. -> Fix: Use curated corporate palettes (Navy `#0f172a`, Slate `#1e293b`, subtle gray `#f8fafc`).
+- Truncated Cell Content (### Display Bug): Narrow columns hiding numbers as `###`. → Fix: Press `Alt + H + O + I` to auto-fit all column widths.
+- Centering Numerical Data Columns: Centering numbers impairs rapid visual decimal alignment for accountants. → Fix: Right-align numbers; left-align text; center dates and codes.
+- Using Bright Neon Background Fills: Unprofessional eye-straining colors in business reports. → Fix: Use curated corporate palettes (Navy `#0f172a`, Slate `#1e293b`, subtle gray `#f8fafc`).
 ================================================================================

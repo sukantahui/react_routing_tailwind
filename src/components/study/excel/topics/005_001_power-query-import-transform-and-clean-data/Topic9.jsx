@@ -76,7 +76,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Pivoting Columns &amp; Custom Aggregations in Power Query
           </h1>
 
@@ -195,11 +195,11 @@ export default function Topic9() {
               </h3>
               <p className="leading-relaxed">
                 When raw data is stored as Entity-Attribute-Value (e.g. Row 1: ID 101, Attr: Phone, Val: 98301; Row 2: ID 101, Attr: City, Val: Barrackpore), 
-                standard Pivot Sum fails on text. Selecting <strong>Advanced Options &rarr; Don't Aggregate</strong> 
+                standard Pivot Sum fails on text. Selecting <strong>Advanced Options → Don't Aggregate</strong> 
                 reshapes text attributes into columns with a strict 1-to-1 mapping!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-teal-300">
-                EAV Tall Rows &rarr; Standard Wide Entity Record
+                EAV Tall Rows → Standard Wide Entity Record
               </div>
             </div>
 
@@ -213,7 +213,7 @@ export default function Topic9() {
                 pure SQL <code className="text-sky-300 font-mono">ROW_NUMBER() OVER (PARTITION BY Branch)</code> rankings!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Sub-Table Sorting + Index &rarr; Group-Level Sales Rep Ranks
+                Sub-Table Sorting + Index → Group-Level Sales Rep Ranks
               </div>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Topic9() {
                 <text x="10" y="20" fill="#5EEAD4" fontWeight="bold">1. Table.Group (Sum Amount)</text>
 
                 <rect y="38" width="220" height="32" rx="4" fill="#0369A1" fillOpacity="0.3" stroke="#38BDF8" />
-                <text x="10" y="58" fill="#BAE6FD" fontWeight="bold">2. Table.Pivot (Category &rarr; Cols)</text>
+                <text x="10" y="58" fill="#BAE6FD" fontWeight="bold">2. Table.Pivot (Category → Cols)</text>
 
                 <rect y="76" width="220" height="32" rx="4" fill="#065F46" fillOpacity="0.3" stroke="#10B981" />
                 <text x="10" y="96" fill="#A7F3D0" fontWeight="bold">3. All Rows Nested Tables</text>
@@ -365,7 +365,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Pivot_Aggregate"
+            sheetName="EX2010"
             title="Pivoting & Aggregations Pipeline (Branch City, Service Category, Metric Type, Metric Value, Total Group Revenue)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -403,7 +403,7 @@ export default function Topic9() {
                 into wide customer records using <code className="text-teal-300 font-mono">Table.Pivot</code> with <strong>Don't Aggregate</strong>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Don't Aggregate &rarr; Flattens EAV Key-Values into Wide Entity Table
+                Don't Aggregate → Flattens EAV Key-Values into Wide Entity Table
               </div>
             </div>
 
@@ -421,7 +421,7 @@ export default function Topic9() {
                 Power Query folds into native SQL <code className="text-emerald-300 font-mono">GROUP BY Warehouse, SUM(Qty)</code>, finishing in 1.4 seconds!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                SQL GROUP BY Folding &rarr; Aggregates 12M Rows on Server
+                SQL GROUP BY Folding → Aggregates 12M Rows on Server
               </div>
             </div>
 
@@ -432,14 +432,14 @@ export default function Topic9() {
                 <span className="text-xs font-mono text-slate-400">Ichapur Heavy Engg</span>
               </div>
               <h3 className="font-bold text-white text-base">
-                Group By 'All Rows' &rarr; Nested Index Ranking
+                Group By 'All Rows' → Nested Index Ranking
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 ERP Lead <strong>Abhronila Sengupta</strong> groups by Department with <strong>All Rows</strong>, 
                 sorts sub-tables by revenue descending, and adds index columns to rank sales reps within each division!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Group All Rows &rarr; Nested Index = Partitioned Ranks
+                Group All Rows → Nested Index = Partitioned Ranks
               </div>
             </div>
 
@@ -457,7 +457,7 @@ export default function Topic9() {
                 <code className="text-amber-300 font-mono">{'Table.Group(Source, {"Client"}, {{"Projects", each Text.Combine(_[Project_Name], ", "), type text}})'}</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Text.Combine per Group &rarr; Comma-Separated Project Lists
+                Text.Combine per Group → Comma-Separated Project Lists
               </div>
             </div>
           </div>
@@ -487,7 +487,7 @@ export default function Topic9() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Select Pivot Column &amp; Open Dialog</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Highlight the column whose values will become column headers &rarr; <strong>Transform Tab &rarr; Pivot Column</strong>.
+                  Highlight the column whose values will become column headers → <strong>Transform Tab → Pivot Column</strong>.
                 </p>
               </div>
             </div>
@@ -511,7 +511,7 @@ export default function Topic9() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Perform Multi-Metric Group By</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Click <strong>Home Tab &rarr; Group By</strong> &rarr; Select <strong>Advanced</strong> &rarr; Add multiple group keys and aggregations (Sum, Average, Count).
+                  Click <strong>Home Tab → Group By</strong> → Select <strong>Advanced</strong> → Add multiple group keys and aggregations (Sum, Average, Count).
                 </p>
               </div>
             </div>

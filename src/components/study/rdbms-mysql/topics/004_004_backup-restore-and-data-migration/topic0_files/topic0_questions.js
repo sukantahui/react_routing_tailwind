@@ -107,7 +107,7 @@ xtrabackup --copy-back --target-dir=/backups/base`
     hint: "Backups must be tested by performing actual restore runs to verify validity.",
     level: "basic",
     codeExample: `# Automated verification cron job:
-# 1. Download backup -> 2. Restore to temp container -> 3. Run 'CHECK TABLE' & query counts`
+# 1. Download backup → 2. Restore to temp container → 3. Run 'CHECK TABLE' & query counts`
   },
   {
     question: "What is the difference between a Full Backup, a Differential Backup, and an Incremental Backup?",
@@ -140,10 +140,10 @@ xtrabackup --copy-back --target-dir=/backups/base`
     question: "How do Cloud Storage Lifecycle Policies optimize long-term backup retention costs?",
     shortAnswer: "By automatically transitioning backup files from Standard storage to Warm storage (Infrequent Access) after 30 days, and to Cold/Glacier storage after 90 days, retaining archives for 7 years at minimal cost.",
     explanation: "Regulatory compliance mandates retaining financial and medical records for years. Storing cold archives in Glacier reduces storage costs by over 90% compared to standard hot storage.",
-    hint: "Automatically transitions backups from Hot -> Warm -> Cold Glacier storage.",
+    hint: "Automatically transitions backups from Hot → Warm → Cold Glacier storage.",
     level: "basic",
     codeExample: `# S3 Lifecycle Policy:
-# 0-30 Days: S3 Standard -> 31-90 Days: S3 Glacier Instant -> 91-2555 Days: S3 Glacier Deep Archive`
+# 0-30 Days: S3 Standard → 31-90 Days: S3 Glacier Instant → 91-2555 Days: S3 Glacier Deep Archive`
   },
   {
     question: "What metric measures the financial loss per hour of database downtime for an enterprise?",
@@ -178,7 +178,7 @@ mysql -e "UNLOCK TABLES;"`
     explanation: "During high-pressure production outages, engineers should execute predefined, tested runbooks rather than improvising recovery steps.",
     hint: "Documented operational checklist and execution steps for crisis recovery.",
     level: "basic",
-    codeExample: `# DR Runbook: Step 1: Verify Hardware -> Step 2: Restore Base -> Step 3: Apply Binlogs -> Step 4: Smoke Test`
+    codeExample: `# DR Runbook: Step 1: Verify Hardware → Step 2: Restore Base → Step 3: Apply Binlogs → Step 4: Smoke Test`
   },
   {
     question: "How does `sync_binlog = 1` impact database RPO?",
@@ -213,7 +213,7 @@ ALTER TABLE orders IMPORT TABLESPACE;`
     hint: "Storing copies in different geographic regions protects against regional catastrophes.",
     level: "basic",
     codeExample: `# Cross-Region S3 Replication:
-# Source: ap-south-1 (Mumbai) -> Replica: ap-south-2 (Hyderabad)`
+# Source: ap-south-1 (Mumbai) → Replica: ap-south-2 (Hyderabad)`
   },
   {
     question: "What role does Checksum Validation (e.g. SHA256 or MD5) play in backup integrity?",

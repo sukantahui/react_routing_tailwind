@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. HASH SPREADING FUNCTION:
    - '(h = key.hashCode()) ^ (h >>> 16)'.
-   - Null key &rarr; hash is 0 (Bucket 0).
+   - Null key → hash is 0 (Bucket 0).
    - Folds upper 16 bits into lower 16 bits.
    - Prevents collisions for keys that differ only in high bits.
 

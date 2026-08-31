@@ -63,12 +63,12 @@ To check the server host and active user:
 5. QUALIFIED vs UNQUALIFIED IDENTIFIERS
 --------------------------------------------------------------------------------
 • UNQUALIFIED: `SELECT * FROM students;`
-  -> MySQL searches for `students` inside the currently selected default database.
-  -> Fails with Error 1046: "No database selected" if no `USE` command has been run.
+  → MySQL searches for `students` inside the currently selected default database.
+  → Fails with Error 1046: "No database selected" if no `USE` command has been run.
 
 • FULLY QUALIFIED: `SELECT * FROM kolkata_retail_db.products;`
-  -> MySQL explicitly queries `products` in `kolkata_retail_db` regardless of which database is active.
-  -> Enables cross-database querying and joins on the same server instance!
+  → MySQL explicitly queries `products` in `kolkata_retail_db` regardless of which database is active.
+  → Enables cross-database querying and joins on the same server instance!
 
 
 6. REAL-WORLD CASE STUDIES & SCRIPT PATTERNS

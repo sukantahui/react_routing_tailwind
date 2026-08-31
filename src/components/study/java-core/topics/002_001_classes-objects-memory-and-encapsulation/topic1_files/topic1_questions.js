@@ -11,7 +11,7 @@ const questions = [
     explanation: "Core definition of domain modeling.",
     hint: "Mapping real-world entities to State (fields) and Behavior (methods).",
     level: "basic",
-    codeExample: "// Student -> State: roll, name, gpa | Behavior: isEligibleForHonors()"
+    codeExample: "// Student → State: roll, name, gpa | Behavior: isEligibleForHonors()"
   },
   {
     question: "What constitutes the 'State' of an object in Java?",
@@ -43,7 +43,7 @@ const questions = [
     explanation: "Student honors verification.",
     hint: "Swadeep and Tuhina.",
     level: "basic",
-    codeExample: "s1.isEligibleForHonors() -> true | s2.isEligibleForHonors() -> true"
+    codeExample: "s1.isEligibleForHonors() → true | s2.isEligibleForHonors() → true"
   },
   {
     question: "Why did Abhronila (GPA 8.7) and Debangshu (GPA 7.9) NOT qualify for Honors?",
@@ -51,7 +51,7 @@ const questions = [
     explanation: "Honors disqualification verification.",
     hint: "GPA was below 9.0.",
     level: "basic",
-    codeExample: "s3.isEligibleForHonors() -> false (GPA 8.7 < 9.0)"
+    codeExample: "s3.isEligibleForHonors() → false (GPA 8.7 < 9.0)"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what happened when attempting to enroll student 4 (Debangshu) into a course with max capacity 3?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Capacity constraint domain invariant.",
     hint: "Rejected safely because the course reached its maximum capacity of 3 seats.",
     level: "basic",
-    codeExample: "javaCourse.enrollStudent(s4) -> false (Capacity full)"
+    codeExample: "javaCourse.enrollStudent(s4) → false (Capacity full)"
   },
   {
     question: "What is an 'Anemic Domain Model' anti-pattern?",
@@ -139,7 +139,7 @@ const questions = [
     explanation: "Seat count verification.",
     hint: "0.",
     level: "basic",
-    codeExample: "javaCourse.getRemainingSeats() -> 0"
+    codeExample: "javaCourse.getRemainingSeats() → 0"
   },
   {
     question: "What is the 'Command-Query Separation' (CQS) principle in OOP method design?",

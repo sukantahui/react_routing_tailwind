@@ -7,8 +7,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. MANIFEST.MF RULES:
    - Located at: 'META-INF/MANIFEST.MF' inside the JAR.
-   - 'Main-Class: com.company.Main' &rarr; Entry point.
-   - 'Class-Path: lib/a.jar lib/b.jar' &rarr; Dependency bundle.
+   - 'Main-Class: com.company.Main' → Entry point.
+   - 'Class-Path: lib/a.jar lib/b.jar' → Dependency bundle.
    - Trailing newline is MANDATORY.
 
 ================================================================================

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The #1 beginner mistake in Excel is typing 'KG' or 'Pieces' into cells. Teach your team to use 0 "KG" so formulas work seamlessly forever.
 
 COMMON TRAPS TO AVOID:
-- Typing Units in Cell Data: Typing '500 KG' makes the cell a text string, causing =SUM() to return 0 or #VALUE!. -> Fix: Type only 500 and apply the custom format 0 "KG".
-- Missing Escape Quotes: Typing unit letters like 'm' or 'h' without quotes triggers date/time token substitution. -> Fix: Always enclose arbitrary unit strings in double quotes (e.g. "m", "hrs").
-- Unit Confusion in Conversions: Displaying 'KG' on a column calculated in Grams produces 1000x reporting errors. -> Fix: Ensure raw numbers match the scale of the custom unit label.
+- Typing Units in Cell Data: Typing '500 KG' makes the cell a text string, causing =SUM() to return 0 or #VALUE!. → Fix: Type only 500 and apply the custom format 0 "KG".
+- Missing Escape Quotes: Typing unit letters like 'm' or 'h' without quotes triggers date/time token substitution. → Fix: Always enclose arbitrary unit strings in double quotes (e.g. "m", "hrs").
+- Unit Confusion in Conversions: Displaying 'KG' on a column calculated in Grams produces 1000x reporting errors. → Fix: Ensure raw numbers match the scale of the custom unit label.
 ================================================================================

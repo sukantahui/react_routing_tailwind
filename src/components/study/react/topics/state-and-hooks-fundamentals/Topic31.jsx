@@ -587,7 +587,7 @@ const Topic31 = () => {
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Cleanup Functions in useEffect
           </h1>
           

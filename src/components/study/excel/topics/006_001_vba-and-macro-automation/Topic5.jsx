@@ -71,8 +71,8 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"The Excel Object Model hierarchy: Application &gt; Workbooks &gt; Worksheets &gt; Range &gt; Cells"}
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+            {"The Excel Object Model hierarchy: Application > Workbooks > Worksheets > Range > Cells"}
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
@@ -113,7 +113,7 @@ export default function Topic5() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Object Hierarchy: Application &gt; Workbooks(\"Book1.xlsx\") &gt; Worksheets(\"Data\") &gt; Range(\"A1:B10\") &gt; Cells(Row, Col)"}
+            {"Object Hierarchy: Application > Workbooks(\"Book1.xlsx\") > Worksheets(\"Data\") > Range(\"A1:B10\") > Cells(Row, Col)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic5() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Excel Object Model Hierarchy Tree: Application -> Workbooks -> Worksheets -> Ranges/Cells"}
+              Visual Dataflow: {"Excel Object Model Hierarchy Tree: Application → Workbooks → Worksheets → Ranges/Cells"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Automation Pipeline
@@ -286,8 +286,8 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_The_Excel_Object_M"
-            title={"The Excel Object Model hierarchy: Application &gt; Workbooks &gt; Worksheets &gt; Range &gt; Cells - Interactive Practice Grid"}
+            sheetName="EX2406"
+            title={"The Excel Object Model hierarchy: Application > Workbooks > Worksheets > Range > Cells - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
           />
@@ -375,7 +375,7 @@ export default function Topic5() {
                 Step 1: Open VBE &amp; Insert Standard Module
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert &gt; Module</strong>.
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert > Module</strong>.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic5() {
                 Step 2: Declare Variables &amp; Option Explicit
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Place <code className="text-cyan-300 font-mono font-bold">Option Explicit</code> at the top and declare variables with explicit types <code className="text-cyan-300 font-mono font-bold">{"Object Hierarchy: Application &gt; Workbooks(\"Book1.xlsx\") &gt; Worksheets(\"Data\") &gt; Range(\"A1:B10\") &gt; Cells(Row, Col)"}</code>.
+                Place <code className="text-cyan-300 font-mono font-bold">Option Explicit</code> at the top and declare variables with explicit types <code className="text-cyan-300 font-mono font-bold">{"Object Hierarchy: Application > Workbooks(\"Book1.xlsx\") > Worksheets(\"Data\") > Range(\"A1:B10\") > Cells(Row, Col)"}</code>.
               </p>
             </div>
 
@@ -562,7 +562,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title={"The Excel Object Model hierarchy: Application &gt; Workbooks &gt; Worksheets &gt; Range &gt; Cells - Frequently Asked Questions"}
+            title={"The Excel Object Model hierarchy: Application > Workbooks > Worksheets > Range > Cells - Frequently Asked Questions"}
             questions={questions}
           />
         </div>

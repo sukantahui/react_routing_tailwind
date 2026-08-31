@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Great dashboard design is all about discipline. Turn off gridlines, use a muted 3-color palette, and fit everything onto one clean screen. Your executives will be blown away.
 
 COMMON TRAPS TO AVOID:
-- The 'Christmas Tree' Color Trap: Using 15 bright saturated rainbow colors across charts creates visual clutter and decision fatigue. -> Fix: Enforce a unified 3-color palette following the 60-30-10 information design rule.
-- Forcing Horizontal Scrolling: Designing dashboards wider than standard 1920x1080 resolution forces executives to scroll horizontally. -> Fix: Fit all core visual insights within columns A through N (1 screen width).
-- Leaving Default Sheet Gridlines On: Raw Excel cell gridlines make the dashboard look like a messy spreadsheet rather than polished software. -> Fix: Uncheck View > Gridlines and containerize cards with rounded shapes or subtle borders.
+- The 'Christmas Tree' Color Trap: Using 15 bright saturated rainbow colors across charts creates visual clutter and decision fatigue. → Fix: Enforce a unified 3-color palette following the 60-30-10 information design rule.
+- Forcing Horizontal Scrolling: Designing dashboards wider than standard 1920x1080 resolution forces executives to scroll horizontally. → Fix: Fit all core visual insights within columns A through N (1 screen width).
+- Leaving Default Sheet Gridlines On: Raw Excel cell gridlines make the dashboard look like a messy spreadsheet rather than polished software. → Fix: Uncheck View > Gridlines and containerize cards with rounded shapes or subtle borders.
 ================================================================================

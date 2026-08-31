@@ -9,7 +9,7 @@ Mentor: Sukanta Hui (Barrackpore, West Bengal)
 1. SHELL SORT GAP SEQUENCES
 --------------------------------------------------------------------------------
 - Shell's original sequence: N/2, N/4, ..., 1
-- Knuth's sequence: (3^k - 1) / 2 -> 1, 4, 13, 40, 121... (O(n^(3/2)) time)
+- Knuth's sequence: (3^k - 1) / 2 → 1, 4, 13, 40, 121... (O(n^(3/2)) time)
 
 2. HYBRID ENTERPRISE SORTS
 --------------------------------------------------------------------------------

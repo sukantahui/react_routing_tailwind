@@ -18,13 +18,13 @@ A. `scanner.next()`:
    - Skips all leading whitespace delimiters.
    - Accumulates characters until encountering the first delimiter (space, tab, newline).
    - Returns the single token.
-   - Example: Input "Barrackpore West Bengal" -> `next()` returns "Barrackpore".
+   - Example: Input "Barrackpore West Bengal" → `next()` returns "Barrackpore".
 
 B. `scanner.nextLine()`:
    - Scans from the current cursor position to the next newline character (`\n` or `\r\n`).
    - Consumes the newline character from the stream.
    - Returns all preceding text on that line (including spaces).
-   - Example: Input "25 Shibtala Road, Barrackpore" -> `nextLine()` returns "25 Shibtala Road, Barrackpore".
+   - Example: Input "25 Shibtala Road, Barrackpore" → `nextLine()` returns "25 Shibtala Road, Barrackpore".
 
 3. PRIMITIVE & HIGH-PRECISION NUMERIC PARSING
 - `nextInt()` / `nextInt(radix)`: Parses 32-bit signed two's complement integers. Supports radix parsing for hexadecimal (`radix 16`) and binary (`radix 2`).

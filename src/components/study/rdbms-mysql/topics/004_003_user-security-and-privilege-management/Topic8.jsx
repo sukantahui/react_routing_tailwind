@@ -147,7 +147,7 @@ SELECT ROLES_GRAPHML();`,
             Topic 8 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           MySQL 8.0 Roles: <span className="text-emerald-400">Creating</span>, <span className="text-cyan-400">Granting</span>, <span className="text-purple-400">Assigning</span> &amp; Default Activation
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -415,7 +415,7 @@ SELECT ROLES_GRAPHML();`,
           />
 
           <Teacher
-            note="Roles in MySQL 8.0 represent a massive leap forward in database administration. Remember the golden 4-step workflow: CREATE ROLE -> GRANT privileges TO role -> GRANT role TO user -> SET DEFAULT ROLE ALL TO user! If your users report access denied despite being assigned a role, 99% of the time they forgot step 4 or activate_all_roles_on_login is OFF!"
+            note="Roles in MySQL 8.0 represent a massive leap forward in database administration. Remember the golden 4-step workflow: CREATE ROLE → GRANT privileges TO role → GRANT role TO user → SET DEFAULT ROLE ALL TO user! If your users report access denied despite being assigned a role, 99% of the time they forgot step 4 or activate_all_roles_on_login is OFF!"
           />
         </section>
 

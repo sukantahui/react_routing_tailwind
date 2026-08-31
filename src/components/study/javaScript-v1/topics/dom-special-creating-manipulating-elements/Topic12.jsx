@@ -13,7 +13,7 @@ export default class Topic12 extends Component {
                      HEADER
                 ============================================================ */}
                 <header className="space-y-3">
-                    <h1 className="text-3xl font-bold text-sky-400">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400">
                         Mini Project — Dynamic Card Generator with Filters
                     </h1>
 
@@ -98,7 +98,7 @@ export default class Topic12 extends Component {
 
                     <EditableCodeBlock
                         language="html"
-                        initialCode={`<!-- Template -->
+                        initialCode={`<!-- Template ──→
 <template id="cardTemplate">
   <div class="card">
     <h3 class="title"></h3>

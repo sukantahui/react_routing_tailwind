@@ -17,9 +17,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Under the Hood Mechanics:
   * Compiler translates 'Type... varName' directly to an array 'Type[] varName'.
-  * Zero arguments passed   -> Creates an empty array 'new Type[0]' (never null).
-  * Explicit array passed   -> Passes existing array without extra allocation.
-  * Overload priority       -> Fixed-arity methods ALWAYS beat varargs methods!
+  * Zero arguments passed   → Creates an empty array 'new Type[0]' (never null).
+  * Explicit array passed   → Passes existing array without extra allocation.
+  * Overload priority       → Fixed-arity methods ALWAYS beat varargs methods!
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------

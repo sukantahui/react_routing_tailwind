@@ -66,7 +66,7 @@ const questions = [
   },
   {
     question: "Where in the declaration section must cursors be declared?",
-    shortAnswer: "AFTER local variables and named conditions, but BEFORE handler declarations: Variables -> Conditions -> Cursors -> Handlers.",
+    shortAnswer: "AFTER local variables and named conditions, but BEFORE handler declarations: Variables → Conditions → Cursors → Handlers.",
     explanation: "Grammar placement rule for cursors.",
     hint: "After variables/conditions and before handlers.",
     level: "basic"

@@ -177,7 +177,7 @@ setup(name='sample_package', version='1.0.0', description='Library with post-ins
       ? (rawCompromiseProb * 0.016).toFixed(2) // GPO USB Blocking + 802.1X + OOB blocks 98.4% of attacks
       : hardeningStrength >= 50
       ? (rawCompromiseProb * 0.35).toFixed(2)  // Standard Antivirus blocks 65% of attacks
-      : rawCompromiseProb.toFixed(2);           // Unhardened -> 100% compromise probability
+      : rawCompromiseProb.toFixed(2);           // Unhardened → 100% compromise probability
 
     return {
       rawCompromiseProb: rawCompromiseProb.toFixed(2),

@@ -187,7 +187,7 @@ SELECT * FROM replication_relay_node; -- Output: Empty set (0 rows)!
               Storage Engine Matrix
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Comparing Storage Engines: InnoDB, MyISAM, MEMORY, CSV, ARCHIVE, BLACKHOLE
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -329,7 +329,7 @@ SELECT * FROM replication_relay_node; -- Output: Empty set (0 rows)!
                 
                 <rect x="355" y="105" width="240" height="60" rx="4" fill="#1e293b" stroke="#be123c" />
                 <text x="365" y="125" fill="#fca5a5" fontSize="10" fontWeight="bold">.MYI Index File (B-Tree)</text>
-                <text x="365" y="142" fill="#94a3b8" fontSize="9">Stores Key &rarr; Byte Offset Pointer</text>
+                <text x="365" y="142" fill="#94a3b8" fontSize="9">Stores Key → Byte Offset Pointer</text>
 
                 <path d="M 475 165 L 475 205" fill="none" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrEngCyan)" />
 
@@ -344,7 +344,7 @@ SELECT * FROM replication_relay_node; -- Output: Empty set (0 rows)!
                 
                 <rect x="670" y="105" width="240" height="65" rx="4" fill="#1e293b" stroke="#d97706" />
                 <text x="680" y="125" fill="#fde68a" fontSize="10" fontWeight="bold">In-Memory Hash Buckets (O(1))</text>
-                <text x="680" y="142" fill="#94a3b8" fontSize="9">Hash(Key) &rarr; Memory Pointer</text>
+                <text x="680" y="142" fill="#94a3b8" fontSize="9">Hash(Key) → Memory Pointer</text>
 
                 <rect x="670" y="190" width="240" height="80" rx="4" fill="#1e293b" stroke="#d97706" />
                 <text x="680" y="210" fill="#fde68a" fontSize="10" fontWeight="bold">Fixed-Width Row Arrays in RAM</text>
@@ -492,7 +492,7 @@ SELECT * FROM replication_relay_node; -- Output: Empty set (0 rows)!
                   Case 1: Mamata &amp; Susmita – Eliminating Table Lock Timeouts in Barrackpore E-Commerce
                 </h3>
                 <span className="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800">
-                  MyISAM &rarr; InnoDB Migration
+                  MyISAM → InnoDB Migration
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

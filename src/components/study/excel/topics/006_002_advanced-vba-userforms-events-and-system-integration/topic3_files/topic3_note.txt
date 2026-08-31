@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Remember: Everything inside a TextBox is TEXT! If you write `ws.Cells(1,1).Value = txtPrice.Text`, Excel will store it as text and formulas won't calculate. Always convert it: `ws.Cells(1,1).Value = CDbl(txtPrice.Text)`.
 
 COMMON TRAPS TO AVOID:
-- Writing UserForm Text Directly as Numbers to Worksheet: Writing `ws.Cells(r, 2).Value = txtAmount.Text` stores the number as TEXT with green error flags on the sheet. -> Fix: Convert text to numbers explicitly: `ws.Cells(r, 2).Value = CDbl(txtAmount.Text)` or `Val(txtAmount.Text)`.
-- Using UserForm_Activate Instead of UserForm_Initialize: `Activate` fires repeatedly every time the form regains focus, re-adding duplicate items to ComboBoxes. -> Fix: Populate lists inside `UserForm_Initialize`.
-- Using Hide Instead of Unload Me on Close: `UserForm.Hide` keeps the form in RAM with stale data; `Unload Me` completely flushes and resets the form. -> Fix: undefined
+- Writing UserForm Text Directly as Numbers to Worksheet: Writing `ws.Cells(r, 2).Value = txtAmount.Text` stores the number as TEXT with green error flags on the sheet. → Fix: Convert text to numbers explicitly: `ws.Cells(r, 2).Value = CDbl(txtAmount.Text)` or `Val(txtAmount.Text)`.
+- Using UserForm_Activate Instead of UserForm_Initialize: `Activate` fires repeatedly every time the form regains focus, re-adding duplicate items to ComboBoxes. → Fix: Populate lists inside `UserForm_Initialize`.
+- Using Hide Instead of Unload Me on Close: `UserForm.Hide` keeps the form in RAM with stale data; `Unload Me` completely flushes and resets the form. → Fix: undefined
 ================================================================================

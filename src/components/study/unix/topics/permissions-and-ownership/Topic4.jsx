@@ -143,7 +143,7 @@ class Topic4 extends React.Component {
                 <div className="container mx-auto px-4 py-8 max-w-6xl">
                     {/* Header Section */}
                     <header className={`mb-12 ${animationClass} opacity-0`}>
-                        <h1 className="text-4xl font-bold mb-4 leading-relaxed">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-relaxed">
                             Recursive Permission Changes: chmod -R and Real-World Dangers
                         </h1>
                         <p className="text-lg opacity-80">

@@ -48,7 +48,7 @@ const questions = [
     explanation: "Stage 1 finds a valid basic vertex on the constraint polyhedron; Stage 2 traverses adjacent vertices to reach the absolute minimum cost vertex.",
     hint: "Stage 1 = Initial feasible basis; Stage 2 = Optimality audit & improvement.",
     level: "moderate",
-    codeExample: "Pipeline: Raw Problem -> [Stage 1: IBFS] -> [Stage 2: MODI Test & Pivot] -> Optimal Plan."
+    codeExample: "Pipeline: Raw Problem → [Stage 1: IBFS] → [Stage 2: MODI Test & Pivot] → Optimal Plan."
   },
   {
     question: "Why is the Stepping-Stone method less efficient than the MODI method for testing the optimality of large matrices?",
@@ -110,7 +110,7 @@ const questions = [
     question: "What happens if a student attempts to perform a MODI optimality test on a degenerate solution with only 4 basic cells in a 3x3 tableau?",
     shortAnswer: "The system of equations u_i + v_j = c_ij cannot be solved for all rows and columns because there are 6 unknown potentials but only 4 basic equations.",
     explanation: "Setting u_1 = 0 leaves 5 unknowns with only 4 equations, leaving at least one row or column multiplier undetermined.",
-    hint: "More unknowns than equations -> cannot solve for all u and v.",
+    hint: "More unknowns than equations → cannot solve for all u and v.",
     level: "expert",
     codeExample: "Unknowns (m + n = 6) > Equations (4) => Solvers stall without epsilon."
   },
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Optimality testing uncovers hidden routing inefficiencies that create both financial losses and physical transport congestion.",
     hint: "Eliminates inefficient routes and streamlines flow.",
     level: "intermediate",
-    codeExample: "Optimality Audit -> Identifies hidden bottlenecks and high-cost routes."
+    codeExample: "Optimality Audit → Identifies hidden bottlenecks and high-cost routes."
   },
   {
     question: "If Mahima evaluates a transportation tableau and finds three negative opportunity costs: d_12 = -₹2, d_21 = -₹7, and d_32 = -₹4, which cell should enter the basis first according to standard Dantzig simplex rules?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "The return on time invested in an optimality test is extraordinarily high.",
     hint: "High ROI: few minutes of calculation saves massive budget percentages.",
     level: "intermediate",
-    codeExample: "Time investment: 2 mins -> Payoff: 10-30% freight budget reduction."
+    codeExample: "Time investment: 2 mins → Payoff: 10-30% freight budget reduction."
   },
   {
     question: "What is the summary motto that students in Sukanta Hui's class remember regarding Initial Solutions and Optimality?",

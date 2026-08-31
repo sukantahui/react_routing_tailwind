@@ -97,7 +97,7 @@ CREATE TABLE order_items (
 [x] Always create an intermediate Junction table for M:N relationships.
 [x] Use a Composite Primary Key `(id_a, id_b)` in the junction table to prevent duplicate associations.
 [x] Store relationship payload attributes (e.g. `enrollment_date`, `quantity`, `price`) in the junction table.
-[x] Query M:N data by joining Parent A -> Junction -> Parent B with 2 `JOIN` clauses.
+[x] Query M:N data by joining Parent A → Junction → Parent B with 2 `JOIN` clauses.
 [x] Create a reverse secondary index on `(course_id, student_id)` to optimize reverse lookups.
 
 ================================================================================

@@ -128,7 +128,7 @@ FROM warehouse_inventory;`,
               Statistical & Summary Functions
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Aggregate Functions: COUNT, SUM, AVG, MIN, MAX
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -319,7 +319,7 @@ FROM warehouse_inventory;`,
 
               {/* Title */}
               <text x="450" y="34" fill="#f8fafc" fontSize="16" fontWeight="bold" textAnchor="middle" letterSpacing="0.5">
-                MYSQL AGGREGATE FUNCTION PIPELINE: N ROWS COMPRESSION (N &rarr; 1)
+                MYSQL AGGREGATE FUNCTION PIPELINE: N ROWS COMPRESSION (N → 1)
               </text>
 
               {/* Input Stream: N Rows */}
@@ -356,19 +356,19 @@ FROM warehouse_inventory;`,
                 <text x="125" y="21" fill="#ffffff" fontSize="12" fontWeight="bold" textAnchor="middle">Aggregate Processing Engine</text>
 
                 <rect x="20" y="45" width="210" height="42" rx="6" fill="#1e293b" stroke="#334155" />
-                <text x="125" y="65" fill="#38bdf8" fontSize="10.5" fontWeight="bold" textAnchor="middle">COUNT(*) &rarr; All 5 Rows</text>
+                <text x="125" y="65" fill="#38bdf8" fontSize="10.5" fontWeight="bold" textAnchor="middle">COUNT(*) → All 5 Rows</text>
                 <text x="125" y="78" fill="#94a3b8" fontSize="9" textAnchor="middle">(Includes row with NULL)</text>
 
                 <rect x="20" y="95" width="210" height="42" rx="6" fill="#1e293b" stroke="#334155" />
-                <text x="125" y="115" fill="#34d399" fontSize="10.5" fontWeight="bold" textAnchor="middle">COUNT(fee) &rarr; 4 Non-Nulls</text>
+                <text x="125" y="115" fill="#34d399" fontSize="10.5" fontWeight="bold" textAnchor="middle">COUNT(fee) → 4 Non-Nulls</text>
                 <text x="125" y="128" fill="#94a3b8" fontSize="9" textAnchor="middle">(Filters out Mahima NULL)</text>
 
                 <rect x="20" y="145" width="210" height="42" rx="6" fill="#1e293b" stroke="#334155" />
-                <text x="125" y="165" fill="#a7f3d0" fontSize="10.5" fontWeight="bold" textAnchor="middle">SUM(fee) &rarr; 5000+6000+4000+5000</text>
+                <text x="125" y="165" fill="#a7f3d0" fontSize="10.5" fontWeight="bold" textAnchor="middle">SUM(fee) → 5000+6000+4000+5000</text>
                 <text x="125" y="178" fill="#94a3b8" fontSize="9" textAnchor="middle">Sum = ₹20,000</text>
 
                 <rect x="20" y="195" width="210" height="65" rx="6" fill="#1e293b" stroke="#334155" />
-                <text x="125" y="215" fill="#c7d2fe" fontSize="10.5" fontWeight="bold" textAnchor="middle">AVG(fee) &rarr; 20,000 / 4 = ₹5,000</text>
+                <text x="125" y="215" fill="#c7d2fe" fontSize="10.5" fontWeight="bold" textAnchor="middle">AVG(fee) → 20,000 / 4 = ₹5,000</text>
                 <text x="125" y="232" fill="#f59e0b" fontSize="9.5" textAnchor="middle">Note: Divided by 4 (NOT 5!)</text>
                 <text x="125" y="247" fill="#64748b" fontSize="8.5" textAnchor="middle">MIN=₹4,000 | MAX=₹6,000</text>
               </g>

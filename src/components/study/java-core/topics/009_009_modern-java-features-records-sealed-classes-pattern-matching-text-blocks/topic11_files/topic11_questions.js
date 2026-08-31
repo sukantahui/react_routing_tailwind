@@ -5,7 +5,7 @@ const topic11_questions = [
     "explanation": "A default branch would swallow the new subclass silently, leading to subtle runtime bugs.",
     "hint": "Ensures future subclasses are caught at compile time rather than swallowed by default.",
     "level": "Advanced",
-    "codeExample": "switch (sealedShape) { case Circle c -> ...; case Rect r -> ...; } // 100% verified"
+    "codeExample": "switch (sealedShape) { case Circle c → ...; case Rect r → ...; } // 100% verified"
   },
   {
     "question": "Does exhaustiveness checking apply to switch statements as well as switch expressions?",
@@ -13,7 +13,7 @@ const topic11_questions = [
     "explanation": "Ensures type safety across all modern switch constructs.",
     "hint": "Yes, pattern switch statements also require exhaustiveness in Java 21.",
     "level": "Intermediate",
-    "codeExample": "switch (status) { case Ok -> ...; case Err -> ...; }"
+    "codeExample": "switch (status) { case Ok → ...; case Err → ...; }"
   }
 ];
 

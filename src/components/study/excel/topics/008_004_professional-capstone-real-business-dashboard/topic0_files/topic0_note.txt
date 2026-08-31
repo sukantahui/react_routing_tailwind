@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Capstone Architecture: Enterprise Business Problem -> Requirements Spec -> Multi-Source Data Architecture -> Star Schema Blueprint
+Capstone Architecture: Enterprise Business Problem → Requirements Spec → Multi-Source Data Architecture → Star Schema Blueprint
 
 PRIMARY CONCEPT:
 Architecting an institutional enterprise business intelligence dashboard: establishing business problem statements, defining data pipeline specifications, designing Star Schema dimensional models, and defining executive KPI scorecards
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Great dashboards start with great planning. Before you open Excel, know your numbers: What is your Fact table? What are your Dimension tables? What 5 numbers does the CEO need to see? Plan first, build second!
 
 COMMON TRAPS TO AVOID:
-- Building Dashboards Without Clear Business Question Alignment: Designing 20 pretty charts that answer zero actionable business questions. -> Fix: Define top 5 executive business questions before placing a single chart.
-- Single Giant Flat Table Architecture (Anti-Pattern): Creating an unmaintainable 50-column flat table instead of a clean Star Schema. -> Fix: Separate data into 1 Fact table and dedicated Dimension lookup tables.
-- Underestimating Data Cleansing Complexity: Assuming raw corporate ERP data is clean and formatted. -> Fix: Build robust Power Query ETL pipelines to sanitize all inputs.
+- Building Dashboards Without Clear Business Question Alignment: Designing 20 pretty charts that answer zero actionable business questions. → Fix: Define top 5 executive business questions before placing a single chart.
+- Single Giant Flat Table Architecture (Anti-Pattern): Creating an unmaintainable 50-column flat table instead of a clean Star Schema. → Fix: Separate data into 1 Fact table and dedicated Dimension lookup tables.
+- Underestimating Data Cleansing Complexity: Assuming raw corporate ERP data is clean and formatted. → Fix: Build robust Power Query ETL pipelines to sanitize all inputs.
 ================================================================================

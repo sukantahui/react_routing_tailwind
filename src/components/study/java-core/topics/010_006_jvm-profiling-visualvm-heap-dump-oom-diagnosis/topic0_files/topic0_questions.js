@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "GC only reclaims unreachable objects, not unneeded objects.",
     "hint": "Logically dead objects remain referenced by live GC Roots.",
     "level": "Beginner",
-    "codeExample": "static List<Data> list = new ArrayList<>(); // Never cleared -> Leak"
+    "codeExample": "static List<Data> list = new ArrayList<>(); // Never cleared → Leak"
   },
   {
     "question": "What is the typical visual signature of a memory leak in a JVM memory monitoring graph (VisualVM)?",
@@ -13,7 +13,7 @@ const topic0_questions = [
     "explanation": "Indicates that unreclaimable objects are accumulating over time.",
     "hint": "The minimum heap baseline after GC steadily climbs over time.",
     "level": "Intermediate",
-    "codeExample": "Heap after GC: 100MB -> 250MB -> 500MB -> 900MB -> Crash"
+    "codeExample": "Heap after GC: 100MB → 250MB → 500MB → 900MB → Crash"
   }
 ];
 

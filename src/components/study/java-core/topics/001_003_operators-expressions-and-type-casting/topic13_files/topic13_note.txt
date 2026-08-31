@@ -19,7 +19,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Single-Evaluation Guarantee:
   * In E1 op= E2, the target expression E1 is evaluated ONLY ONCE!
-  * Example: arr[i++] += 10; -> 'i' is incremented only ONCE!
+  * Example: arr[i++] += 10; → 'i' is incremented only ONCE!
   * (Unlike arr[i++] = arr[i++] + 10; which increments 'i' TWICE!).
 
 - Right-to-Left Associativity:
@@ -27,7 +27,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Evaluates as: x += (y += (z += 5));
 
 - Right-Hand Expression Isolation:
-  * x *= 2 + 3 is evaluated as: x = x * (2 + 3) -> x * 5 (NOT x * 2 + 3!).
+  * x *= 2 + 3 is evaluated as: x = x * (2 + 3) → x * 5 (NOT x * 2 + 3!).
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------

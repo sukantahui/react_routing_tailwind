@@ -1638,7 +1638,7 @@
             "Searching Object Arrays with find(), findIndex() & findLast()",
             "Boolean Validation on Object Arrays with some() & every()",
             "Frequency Counting, Histograms & Statistical Distributions across Object Arrays",
-            "The Full Pipeline: Filter -> Sort -> Map Transformations in Production",
+            "The Full Pipeline: Filter → Sort → Map Transformations in Production",
             "Deeply Nested Object Arrays, Relational Joins & FlatMapping",
             "Complex Data Analysis: Ranking, Merit Lists, Percentiles & Sorting by Multiple Fields",
             "Dataset Pagination, Chunking, Slicing & Windowing for Large UI Grids",
@@ -5397,7 +5397,7 @@
             "LeetCode / CodeWars Algorithmic Patterns in JavaScript"
           ],
           "teachingTips": [
-            "Break complex inventory problems down into input -> intermediate transformation -> output format.",
+            "Break complex inventory problems down into input → intermediate transformation → output format.",
             "Demonstrate how binary search halves search space on sorted datasets."
           ],
           "preReading": [

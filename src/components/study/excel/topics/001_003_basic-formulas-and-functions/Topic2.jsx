@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Foundational Aggregation Functions: SUM, AVERAGE, COUNT, COUNTA and COUNTBLANK Mechanics
           </h1>
 
@@ -275,7 +275,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Mathematical_opera"
+            sheetName="Topic2"
             title="Module 1.3 - Foundational Aggregation Functions: SUM, AVERAGE, COUNT, COUNTA and COUNTBLANK Mechanics"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -478,7 +478,7 @@ export default function Topic2() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Zero vs Blank Skewing AVERAGE</td>
                   <td className="py-3 px-4 text-slate-300">Entering 0 for an absent student instead of leaving the cell blank.</td>
                   <td className="py-3 px-4 text-amber-300">Average score drops from 90 to 45 because 0 is counted in the divisor.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Leave cell blank if student was absent, or use =AVERAGEIF(range, "&gt;0").</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Leave cell blank if student was absent, or use =AVERAGEIF(range, ">0").</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">COUNT Returning 0 on Text Numbers</td>

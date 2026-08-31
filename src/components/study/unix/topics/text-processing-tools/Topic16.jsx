@@ -29,7 +29,7 @@ const Topic16 = () => {
                             </svg>
                         </div>
                         <div>
-                            <h1 className="text-4xl font-bold bg-gradient-to-r from-rose-400 to-sky-400 bg-clip-text text-transparent">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-rose-400 to-sky-400 bg-clip-text text-transparent">
                                 Topic 16: Text Processing with Pipes & Redirection
                             </h1>
                             <p className="text-gray-400 mt-2">Mastering UNIX I/O Streams: stdin, stdout, stderr</p>

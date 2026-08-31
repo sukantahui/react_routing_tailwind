@@ -14,4 +14,4 @@ console.log("=== SYN002: Block Scope vs Function Scope with let, const & var ===
 }
 console.log(functionScoped);
 
-console.log("Expected Result Verified:", "Outside block -> var: 'Available outside block' | let in outer scope: ReferenceError");
+console.log("Expected Result Verified:", "Outside block → var: 'Available outside block' | let in outer scope: ReferenceError");

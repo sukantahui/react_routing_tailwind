@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction
           </h1>
 
@@ -169,7 +169,7 @@ export default function Topic6() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>An executive dashboard synthesizes complex multidimensional data into an intuitive, single-page visual command center.</p>
             <p>The layout must flow logically: 1. Strategic Summary (Top KPIs), 2. Operational Comparison (Middle Charts), 3. Diagnostic Breakdown (Bottom Detail).</p>
-            <p>Always hide worksheet gridlines (View &amp;rarr; uncheck Gridlines) when presenting executive dashboards for a clean app-like interface.</p>
+            <p>Always hide worksheet gridlines (View → uncheck Gridlines) when presenting executive dashboards for a clean app-like interface.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -352,7 +352,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic6"
+            sheetName="Topic6"
             title="Module 1.4 - Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -416,7 +416,7 @@ export default function Topic6() {
                   <td className="py-2.5 px-3 text-sky-300">Slicer-Connected PivotCharts</td>
                   <td className="py-2.5 px-3 text-emerald-400">N/A</td>
                   <td className="py-2.5 px-3 text-purple-300">Slicer aligned to top right</td>
-                  <td className="py-2.5 px-3 text-slate-300">1-Click regional filtering updates 3 charts in &lt;0.1s.</td>
+                  <td className="py-2.5 px-3 text-slate-300">1-Click regional filtering updates 3 charts in <0.1s.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 text-amber-400 font-bold">LAB-104</td>
@@ -587,7 +587,7 @@ export default function Topic6() {
               <div>
                 <h3 className="text-sm font-bold text-white">Optimize Gap Width & Remove Clutter</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Right-click columns &rarr; Format Data Series &rarr; Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
+                  Right-click columns → Format Data Series → Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
                 </p>
               </div>
             </div>
@@ -607,7 +607,7 @@ export default function Topic6() {
               <div>
                 <h3 className="text-sm font-bold text-white">Snap to Grid & Hide Sheet Gridlines</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View &rarr; uncheck Gridlines.
+                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View → uncheck Gridlines.
                 </p>
               </div>
             </div>
@@ -648,7 +648,7 @@ export default function Topic6() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Leaving Default Sheet Gridlines Visible</td>
                   <td className="py-3 px-4 text-slate-300">Leaving Excel's grey gridlines on behind dark-styled charts.</td>
                   <td className="py-3 px-4 text-amber-300">Dashboard looks cluttered and amateurish.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Go to View Tab &amp;rarr; Uncheck 'Gridlines' for a clean canvas.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Go to View Tab → Uncheck 'Gridlines' for a clean canvas.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Misaligned Widget Boundaries</td>
@@ -782,7 +782,7 @@ export default function Topic6() {
             
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is unchecking View &amp;rarr; Gridlines the single easiest way to make an Excel dashboard look like a custom software application?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Why is unchecking View → Gridlines the single easiest way to make an Excel dashboard look like a custom software application?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>

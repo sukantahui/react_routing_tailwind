@@ -69,7 +69,7 @@ const questions = [
   {
     id: 7,
     question: "Why is 'Symmetrical 5-Tuple Session Hashing' mandatory when load-balancing traffic across multiple IDS sensors via an NPB?",
-    shortAnswer: "To guarantee that both forward (Client -> Server) and reverse (Server -> Client) packets of a TCP session are delivered to the exact same physical IDS appliance for accurate stateful TCP reassembly.",
+    shortAnswer: "To guarantee that both forward (Client → Server) and reverse (Server → Client) packets of a TCP session are delivered to the exact same physical IDS appliance for accurate stateful TCP reassembly.",
     explanation: "If an NPB routed the client's SYN packet to Sensor 1 and the server's SYN-ACK packet to Sensor 2, neither sensor would observe the complete 3-way handshake, breaking stateful inspection and causing false alarms.",
     hint: "Ensuring both sides of a phone call go to the same security guard so they can hear the full conversation.",
     level: "Expert",
@@ -282,7 +282,7 @@ const certInTapLog = {
     hint: "Catching hackers using double-tagged packets to jump across restricted private subnets.",
     level: "Expert",
     codeExample: `// Snort VLAN Hopping Rule:
-// alert ip any any -> any any (msg:"ATTACK: Double-Tagged 802.1Q VLAN Hopping Attempt"; vlan_id:*;)`
+// alert ip any any → any any (msg:"ATTACK: Double-Tagged 802.1Q VLAN Hopping Attempt"; vlan_id:*;)`
   },
   {
     id: 27,

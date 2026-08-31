@@ -7,7 +7,7 @@ const questions = [
     hint: "Rule Header for network IP/ports, and Rule Options inside parentheses for deep payload checking.",
     level: "Basic",
     codeExample: `// Snort Rule Anatomy:
-// [Header: alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80] ([Options: msg:"SQL Injection"; content:"SELECT"; sid:1000001;])`
+// [Header: alert tcp $EXTERNAL_NET any → $HTTP_SERVERS 80] ([Options: msg:"SQL Injection"; content:"SELECT"; sid:1000001;])`
   },
   {
     id: 2,
@@ -17,9 +17,9 @@ const questions = [
     hint: "alert, log, pass, drop, reject, and sdrop.",
     level: "Basic",
     codeExample: `// Snort Rule Actions:
-// Passive IDS: alert tcp any any -> any 80 (...)
-// Active IPS : drop tcp any any -> any 80 (...)
-// Active RST : reject tcp any any -> any 80 (...)`
+// Passive IDS: alert tcp any any → any 80 (...)
+// Active IPS : drop tcp any any → any 80 (...)
+// Active RST : reject tcp any any → any 80 (...)`
   },
   {
     id: 3,
@@ -29,9 +29,9 @@ const questions = [
     hint: "100 to 999,999 is reserved for custom company rules; over 1,000,000 is for official Cisco/ET rules.",
     level: "Basic",
     codeExample: `// SID Numbering Conventions:
-// sid:1 to 99         -> System Reserved
-// sid:100 to 999999   -> Local Custom Enterprise Rules (Use this range!)
-// sid:1000000+        -> Official Cisco Talos / ET Open Rulesets`
+// sid:1 to 99         → System Reserved
+// sid:100 to 999999   → Local Custom Enterprise Rules (Use this range!)
+// sid:1000000+        → Official Cisco Talos / ET Open Rulesets`
   },
   {
     id: 4,
@@ -99,7 +99,7 @@ const questions = [
     hint: "Searching only inside specific web request sections (like the URL or headers) after decoding special characters.",
     level: "Basic",
     codeExample: `// Protocol-Specific Modifier:
-// alert tcp any any -> $HTTP_SERVERS 80 (msg:"SQLi"; content:"UNION SELECT"; nocase; http_uri; sid:1000005;)`
+// alert tcp any any → $HTTP_SERVERS 80 (msg:"SQLi"; content:"UNION SELECT"; nocase; http_uri; sid:1000005;)`
   },
   {
     id: 10,
@@ -119,7 +119,7 @@ const questions = [
     hint: "Wrapping hex numbers between pipe symbols like `|90 90 90|`.",
     level: "Basic",
     codeExample: `// Binary Hex Matching:
-// alert tcp any any -> any any (msg:"NOP Sled"; content:"|90 90 90 90 90 90|"; sid:1000006;)`
+// alert tcp any any → any any (msg:"NOP Sled"; content:"|90 90 90 90 90 90|"; sid:1000006;)`
   },
   {
     id: 12,
@@ -151,7 +151,7 @@ const questions = [
     hint: "Reading the website name from the unencrypted initial handshake before the connection turns into ciphertext.",
     level: "Moderate",
     codeExample: `// Suricata TLS Rule:
-// alert tls any any -> any any (msg:"Blacklisted C2 Domain in SNI"; tls.sni; content:"evil-c2.com"; sid:1000007;)`
+// alert tls any any → any any (msg:"Blacklisted C2 Domain in SNI"; tls.sni; content:"evil-c2.com"; sid:1000007;)`
   },
   {
     id: 15,
@@ -182,7 +182,7 @@ const questions = [
     hint: "Automatically carving and saving uploaded or downloaded files from the network stream to test for viruses.",
     level: "Expert",
     codeExample: `// Suricata File Extraction Rule:
-// alert http any any -> any any (msg:"EXE Download"; file.name; content:".exe"; filestore; sid:1000008;)`
+// alert http any any → any any (msg:"EXE Download"; file.name; content:".exe"; filestore; sid:1000008;)`
   },
   {
     id: 18,
@@ -192,7 +192,7 @@ const questions = [
     hint: "Checking the size of the data payload in bytes to spot oversized buffer overflow attacks.",
     level: "Basic",
     codeExample: `// Payload Size Check:
-// alert ip any any -> any any (msg:"Abnormal Ping of Death"; ip_proto:icmp; dsize:>1000; sid:1000009;)`
+// alert ip any any → any any (msg:"Abnormal Ping of Death"; ip_proto:icmp; dsize:>1000; sid:1000009;)`
   },
   {
     id: 19,
@@ -212,7 +212,7 @@ const questions = [
     hint: "Checking specific TCP flag letters like SYN, ACK, FIN, or RST.",
     level: "Basic",
     codeExample: `// XMAS Scan Detection:
-// alert tcp any any -> any any (msg:"SCAN XMAS Scan"; flags:FPU; sid:1000010;)`
+// alert tcp any any → any any (msg:"SCAN XMAS Scan"; flags:FPU; sid:1000010;)`
   },
   {
     id: 21,
@@ -222,7 +222,7 @@ const questions = [
     hint: "Loading huge lists of 500,000 bad IPs into an instant memory lookup table for a single rule.",
     level: "Expert",
     codeExample: `// Suricata Dataset Rule:
-// alert ip any any -> any any (msg:"Blacklisted Threat IP"; dataset:isset,malicious_ips,type ip,load threat_feed.lst; sid:1000011;)`
+// alert ip any any → any any (msg:"Blacklisted Threat IP"; dataset:isset,malicious_ips,type ip,load threat_feed.lst; sid:1000011;)`
   },
   {
     id: 22,
@@ -284,7 +284,7 @@ const certInSuricataLog = {
     hint: "Overwriting malicious text inside a packet with harmless letters while it is traveling across the wire.",
     level: "Expert",
     codeExample: `// Snort IPS In-Line Replacement:
-// alert tcp any any -> any 80 (msg:"Blocked"; content:"malware.exe"; replace:"blocked.txt"; sid:1000012;)`
+// alert tcp any any → any 80 (msg:"Blocked"; content:"malware.exe"; replace:"blocked.txt"; sid:1000012;)`
   },
   {
     id: 27,
@@ -294,7 +294,7 @@ const certInSuricataLog = {
     hint: "Using Lua programming scripts inside security rules to inspect complex custom protocols.",
     level: "Expert",
     codeExample: `// Suricata Lua Rule:
-// alert tcp any any -> any 1883 (msg:"Custom MQTT Attack"; lua:inspect_mqtt_packet.lua; sid:1000013;)`
+// alert tcp any any → any 1883 (msg:"Custom MQTT Attack"; lua:inspect_mqtt_packet.lua; sid:1000013;)`
   },
   {
     id: 28,
@@ -304,7 +304,7 @@ const certInSuricataLog = {
     hint: "Skipping inspection for huge trusted video or backup streams to free up sensor CPU power.",
     level: "Expert",
     codeExample: `// Suricata Stream Bypass:
-// alert tcp $SAN_SERVERS any -> $BACKUP_SERVERS 445 (msg:"Bypass Backup Stream"; bypass; sid:1000014;)`
+// alert tcp $SAN_SERVERS any → $BACKUP_SERVERS 445 (msg:"Bypass Backup Stream"; bypass; sid:1000014;)`
   },
   {
     id: 29,
@@ -314,7 +314,7 @@ const certInSuricataLog = {
     hint: "Only ringing the alarm if an attacker sends more than 20 probe packets in 5 seconds.",
     level: "Moderate",
     codeExample: `// Snort Detection Filter:
-// alert tcp any any -> $HTTP_SERVERS 80 (msg:"HTTP Scan"; detection_filter:track by_src, count 30, seconds 10; sid:1000015;)`
+// alert tcp any any → $HTTP_SERVERS 80 (msg:"HTTP Scan"; detection_filter:track by_src, count 30, seconds 10; sid:1000015;)`
   },
   {
     id: 30,
@@ -324,7 +324,7 @@ const certInSuricataLog = {
     hint: "Use specific port headers, fast content words, fast_pattern modifiers, and clean JSON logging.",
     level: "Moderate",
     codeExample: `// The Gold-Standard Snort / Suricata Rule:
-// alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80 (msg:"EXPLOIT SQLi UNION SELECT"; flow:to_server,established; content:"UNION SELECT"; nocase; http_uri; fast_pattern; classtype:web-application-attack; sid:1000016; rev:1;)`
+// alert tcp $EXTERNAL_NET any → $HTTP_SERVERS 80 (msg:"EXPLOIT SQLi UNION SELECT"; flow:to_server,established; content:"UNION SELECT"; nocase; http_uri; fast_pattern; classtype:web-application-attack; sid:1000016; rev:1;)`
   }
 ];
 

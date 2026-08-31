@@ -5,7 +5,7 @@ const questions = [
     explanation: "Unlike native compiled languages like C/C++ which compile directly to machine-specific binaries, Java compiles to bytecode. The platform-specific Java Virtual Machine (JVM) interprets or JIT-compiles this bytecode to native machine instructions at runtime.",
     hint: "Think about the role of the intermediate .class file.",
     level: "basic",
-    codeExample: "// Compiled via: javac App.java -> App.class\n// Executed via: java App"
+    codeExample: "// Compiled via: javac App.java → App.class\n// Executed via: java App"
   },
   {
     question: "Is Java a pure object-oriented programming language? Explain why or why not.",
@@ -53,7 +53,7 @@ const questions = [
     explanation: "The JVM starts by interpreting bytecode line by line. When it identifies 'hot' methods or loops through profiling counters, the JIT compiler compiles those bytecode chunks directly into native machine code for maximum speed.",
     hint: "It combines the fast startup of an interpreter with the execution speed of a compiled binary.",
     level: "advanced",
-    codeExample: "// Loop executed 10,000 times -> JIT compiles it to raw x86_64 assembly."
+    codeExample: "// Loop executed 10,000 times → JIT compiles it to raw x86_64 assembly."
   },
   {
     question: "Why do major global banking institutions choose Java over modern scripting languages for transaction ledgers?",
@@ -77,7 +77,7 @@ const questions = [
     explanation: "Bytecode is instruction-set independent. The Linux ARM64 JVM translates the portable bytecode into ARM64 native instructions during execution.",
     hint: "This is the essence of 'Write Once, Run Anywhere'.",
     level: "basic",
-    codeExample: "// Compiled on Windows: javac App.java -> App.class\n// Transfer to Linux: java App (Runs identically!)"
+    codeExample: "// Compiled on Windows: javac App.java → App.class\n// Transfer to Linux: java App (Runs identically!)"
   },
   {
     question: "What is the purpose of the 'public static void main(String[] args)' method signature?",
@@ -93,7 +93,7 @@ const questions = [
     explanation: "Java enforces that a public top-level class name must exactly match the source file name (case-sensitive) to enable predictable class loading.",
     hint: "Check the Java Language Specification on file naming.",
     level: "basic",
-    codeExample: "// File: Teacher.java\n// public class Student { } -> COMPILE ERROR!"
+    codeExample: "// File: Teacher.java\n// public class Student { } → COMPILE ERROR!"
   },
   {
     question: "Can a single Java source file contain multiple classes? What are the rules?",
@@ -157,7 +157,7 @@ const questions = [
     explanation: "Traditional Java platform threads are 1:1 mapped to OS threads (1MB stack). Virtual Threads are M:N mapped onto carrier threads, enabling high-throughput I/O servers without complex reactive programming.",
     hint: "Replaces traditional heavy platform threads.",
     level: "expert",
-    codeExample: "Thread.ofVirtual().start(() -> {\n    System.out.println(\"Running in lightweight Virtual Thread\");\n});"
+    codeExample: "Thread.ofVirtual().start(() → {\n    System.out.println(\"Running in lightweight Virtual Thread\");\n});"
   },
   {
     question: "How does Java ensure backwards compatibility across decades?",

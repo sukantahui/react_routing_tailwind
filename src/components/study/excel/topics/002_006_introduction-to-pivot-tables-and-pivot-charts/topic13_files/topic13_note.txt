@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on mastering Pivot Tables and Pivot Charts! You now possess the power to take 500,000 rows of raw, messy transaction data and transform it into boardroom-ready visual intelligence in minutes.
 
 COMMON TRAPS TO AVOID:
-- Inconsistent Color Palette Across Charts: Using random default colors on different charts creates a chaotic, amateurish dashboard. -> Fix: Enforce a unified 3-color palette (e.g. Navy primary, Emerald accent, Slate neutral) across all charts.
-- Overcrowding the Dashboard Canvas: Squeezing 10 dense tables onto a single screen overwhelms executive decision-makers. -> Fix: Follow the 4-quadrant rule: Top KPIs, Time Trend, Category Breakdown, Top 10 Detail.
-- Forgetting to Lock Protection & Gridlines: Leaving raw gridlines and unlocked pivot controls allows accidental layout disruption. -> Fix: Turn off worksheet gridlines (View > uncheck Gridlines) and lock slicer positions.
+- Inconsistent Color Palette Across Charts: Using random default colors on different charts creates a chaotic, amateurish dashboard. → Fix: Enforce a unified 3-color palette (e.g. Navy primary, Emerald accent, Slate neutral) across all charts.
+- Overcrowding the Dashboard Canvas: Squeezing 10 dense tables onto a single screen overwhelms executive decision-makers. → Fix: Follow the 4-quadrant rule: Top KPIs, Time Trend, Category Breakdown, Top 10 Detail.
+- Forgetting to Lock Protection & Gridlines: Leaving raw gridlines and unlocked pivot controls allows accidental layout disruption. → Fix: Turn off worksheet gridlines (View > uncheck Gridlines) and lock slicer positions.
 ================================================================================

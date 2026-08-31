@@ -123,7 +123,7 @@ const questions = [
     explanation: "Java strict boolean type safety.",
     hint: "Java requires boolean true, rejecting integer 1.",
     level: "basic",
-    codeExample: "// while (1) // ERROR in Java -> Use while (true)"
+    codeExample: "// while (1) // ERROR in Java → Use while (true)"
   },
   {
     question: "In the Coder & AccoTax Barrackpore ledger settlement, how does `for (;;)` clear balances?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Standard enterprise microservice shutdown pattern.",
     hint: "Shutdown hook flips running flag to false on exit.",
     level: "advanced",
-    codeExample: "Runtime.getRuntime().addShutdownHook(new Thread(() -> running = false));"
+    codeExample: "Runtime.getRuntime().addShutdownHook(new Thread(() → running = false));"
   },
   {
     question: "What happens if a loop condition checks `double d = 0.0; while (d != 1.0) d += 0.1;`?",

@@ -34,7 +34,7 @@ const Topic11 = () => {
             Worked Example 5
           </span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
           Worked Example 5: Labour and Machine-Hour Constraints
         </h1>
         <p className="mt-3 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">

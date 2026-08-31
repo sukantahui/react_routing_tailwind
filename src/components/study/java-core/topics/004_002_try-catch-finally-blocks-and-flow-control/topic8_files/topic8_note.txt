@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. BRANCH EXECUTION MATRIX:
-   - Branch 1 (No error)     : try &rarr; finally &rarr; post-code.
-   - Branch 2 (Caught error) : try &rarr; catch &rarr; finally &rarr; post-code.
-   - Branch 3 (Uncaught error): try &rarr; finally &rarr; abrupt termination (propagate).
+   - Branch 1 (No error)     : try → finally → post-code.
+   - Branch 2 (Caught error) : try → catch → finally → post-code.
+   - Branch 3 (Uncaught error): try → finally → abrupt termination (propagate).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

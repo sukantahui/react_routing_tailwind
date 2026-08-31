@@ -18,7 +18,7 @@ const questions = [
     explanation: "Extracts all characters after the first `@` symbol.",
     hint: "=TEXTAFTER(A2, \"@\").",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"swadeep.b@corp.in\", \"@\") &rarr; \"corp.in\""
+    codeExample: "=TEXTAFTER(\"swadeep.b@corp.in\", \"@\") → \"corp.in\""
   },
   {
     question: "How do you extract the file extension (e.g. `xlsx`) from a file path using TEXTAFTER with a negative instance number?",
@@ -26,7 +26,7 @@ const questions = [
     explanation: "Passing `instance_num = -1` searches from right-to-left and returns the text after the LAST dot.",
     hint: "=TEXTAFTER(A2, \".\", -1).",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"Audit_Report_2026.final.xlsx\", \".\", -1) &rarr; \"xlsx\""
+    codeExample: "=TEXTAFTER(\"Audit_Report_2026.final.xlsx\", \".\", -1) → \"xlsx\""
   },
   {
     question: "How do you extract the file name from a Windows directory path `C:\\Users\\Admin\\Report.xlsx` using TEXTAFTER?",
@@ -34,7 +34,7 @@ const questions = [
     explanation: "Extracts all text after the final backslash in the string.",
     hint: "=TEXTAFTER(A2, \"\\\", -1).",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"C:\\Users\\Admin\\Report.xlsx\", \"\\\", -1) &rarr; \"Report.xlsx\""
+    codeExample: "=TEXTAFTER(\"C:\\Users\\Admin\\Report.xlsx\", \"\\\", -1) → \"Report.xlsx\""
   },
   {
     question: "How do you extract the last name from a full name `Swadeep Banerjee` using TEXTAFTER?",
@@ -42,7 +42,7 @@ const questions = [
     explanation: "Extracts all text after the last space, correctly handling middle names.",
     hint: "=TEXTAFTER(A2, \" \", -1).",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"Debangshu Kumar Ghosh\", \" \", -1) &rarr; \"Ghosh\""
+    codeExample: "=TEXTAFTER(\"Debangshu Kumar Ghosh\", \" \", -1) → \"Ghosh\""
   },
   {
     question: "How do you extract text enclosed inside square brackets `[INFO]` by combining TEXTAFTER and TEXTBEFORE?",
@@ -50,7 +50,7 @@ const questions = [
     explanation: "TEXTAFTER pulls text after `[`, and TEXTBEFORE trims text before `]`.",
     hint: "TEXTBEFORE(TEXTAFTER(A2, \"[\"), \"]\").",
     level: "moderate",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(\"[INFO] Server started\", \"[\"), \"]\") &rarr; \"INFO\""
+    codeExample: "=TEXTBEFORE(TEXTAFTER(\"[INFO] Server started\", \"[\"), \"]\") → \"INFO\""
   },
   {
     question: "What does TEXTAFTER return if the delimiter is not found and `if_not_found` is omitted?",
@@ -82,7 +82,7 @@ const questions = [
     explanation: "Extracts all text following the 2nd slash occurrence.",
     hint: "=TEXTAFTER(A2, \"/\", 2).",
     level: "moderate",
-    codeExample: "=TEXTAFTER(\"https://codernaccotax.co.in/tax/gst\", \"/\", 2) &rarr; \"codernaccotax.co.in/tax/gst\""
+    codeExample: "=TEXTAFTER(\"https://codernaccotax.co.in/tax/gst\", \"/\", 2) → \"codernaccotax.co.in/tax/gst\""
   },
   {
     question: "How do you extract the decimal cents portion of a monetary figure `45000.75` using TEXTAFTER?",
@@ -90,7 +90,7 @@ const questions = [
     explanation: "Extracts all characters after the decimal dot.",
     hint: "=TEXTAFTER(A2, \".\").",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"45000.75\", \".\") &rarr; \"75\""
+    codeExample: "=TEXTAFTER(\"45000.75\", \".\") → \"75\""
   },
   {
     question: "How do you extract everything after the last hyphen in a serial SKU `BKP-2026-HQ-88421`?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "Searches backwards from right to left to return the final segment `88421`.",
     hint: "=TEXTAFTER(A2, \"-\", -1).",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"BKP-2026-HQ-88421\", \"-\", -1) &rarr; \"88421\""
+    codeExample: "=TEXTAFTER(\"BKP-2026-HQ-88421\", \"-\", -1) → \"88421\""
   },
   {
     question: "Can TEXTAFTER operate on an entire column range (e.g. `A5:A500`) dynamically?",
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Extracts all text following the `?` character.",
     hint: "=TEXTAFTER(A2, \"?\").",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"https://site.com/search?q=excel\", \"?\") &rarr; \"q=excel\""
+    codeExample: "=TEXTAFTER(\"https://site.com/search?q=excel\", \"?\") → \"q=excel\""
   },
   {
     question: "How do you make the delimiter match case-insensitive in TEXTAFTER?",
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Matches 'ref:', 'REF:', or 'Ref:'.",
     hint: "Pass 1 for match_mode.",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"Invoice REF:88421\", \"ref:\", , 1) &rarr; \"88421\""
+    codeExample: "=TEXTAFTER(\"Invoice REF:88421\", \"ref:\", , 1) → \"88421\""
   },
   {
     question: "How do you extract the street address and city from an address string `10/A, Shibtala Road, Barrackpore`?",
@@ -138,7 +138,7 @@ const questions = [
     explanation: "Extracts all text after the last comma: `Barrackpore`.",
     hint: "=TEXTAFTER(A2, \", \", -1).",
     level: "moderate",
-    codeExample: "=TEXTAFTER(\"10/A, Shibtala Road, Barrackpore\", \", \", -1) &rarr; \"Barrackpore\""
+    codeExample: "=TEXTAFTER(\"10/A, Shibtala Road, Barrackpore\", \", \", -1) → \"Barrackpore\""
   },
   {
     question: "How do you convert extracted number strings from TEXTAFTER into real Excel numeric values?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Coerces text characters to numeric values.",
     hint: "Wrap in NUMBERVALUE().",
     level: "basic",
-    codeExample: "=NUMBERVALUE(TEXTAFTER(\"INR-45000\", \"-\")) &rarr; 45000"
+    codeExample: "=NUMBERVALUE(TEXTAFTER(\"INR-45000\", \"-\")) → 45000"
   },
   {
     question: "How do you extract the text following a line break in a 2-line cell?",
@@ -178,7 +178,7 @@ const questions = [
     explanation: "Extracts text after the last dot in the entire URL.",
     hint: "=TEXTAFTER(A2, \".\", -1).",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"https://site.com/docs/manual.pdf\", \".\", -1) &rarr; \"pdf\""
+    codeExample: "=TEXTAFTER(\"https://site.com/docs/manual.pdf\", \".\", -1) → \"pdf\""
   },
   {
     question: "How do you create a named LAMBDA `FX_LAST_NAME` that extracts the last word of any name?",
@@ -194,7 +194,7 @@ const questions = [
     explanation: "Extracts all text following the protocol marker `://`.",
     hint: "=TEXTAFTER(A2, \"://\").",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"https://codernaccotax.co.in/tax\", \"://\") &rarr; \"codernaccotax.co.in/tax\""
+    codeExample: "=TEXTAFTER(\"https://codernaccotax.co.in/tax\", \"://\") → \"codernaccotax.co.in/tax\""
   },
   {
     question: "Can you supply multiple possible delimiters to TEXTAFTER as an array constant?",
@@ -210,7 +210,7 @@ const questions = [
     explanation: "Extracts text following the 3rd space.",
     hint: "=TEXTAFTER(A2, \" \", 3).",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"Coder and AccoTax Center of Excellence\", \" \", 3) &rarr; \"Center of Excellence\""
+    codeExample: "=TEXTAFTER(\"Coder and AccoTax Center of Excellence\", \" \", 3) → \"Center of Excellence\""
   },
   {
     question: "How do you extract text between double quotes `\"Barrackpore\"` in a string?",
@@ -218,7 +218,7 @@ const questions = [
     explanation: "TEXTAFTER extracts text following first quote; TEXTBEFORE extracts preceding next quote.",
     hint: "TEXTBEFORE(TEXTAFTER(A2, \"\"\"\"), \"\"\"\").",
     level: "moderate",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(\"Branch: \"\"Barrackpore\"\"\", \"\"\"\"), \"\"\"\") &rarr; \"Barrackpore\""
+    codeExample: "=TEXTBEFORE(TEXTAFTER(\"Branch: \"\"Barrackpore\"\"\", \"\"\"\"), \"\"\"\") → \"Barrackpore\""
   },
   {
     question: "How do you extract the branch code after the hyphen in an employee ID `EMP-BKP-8842`?",
@@ -226,7 +226,7 @@ const questions = [
     explanation: "Extracts text between 1st and 2nd hyphen `BKP`.",
     hint: "TEXTBEFORE(TEXTAFTER(A2, \"-\"), \"-\").",
     level: "moderate",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(\"EMP-BKP-8842\", \"-\"), \"-\") &rarr; \"BKP\""
+    codeExample: "=TEXTBEFORE(TEXTAFTER(\"EMP-BKP-8842\", \"-\"), \"-\") → \"BKP\""
   },
   {
     question: "How do you extract the time portion from a timestamp `2026-08-26 14:30:00`?",
@@ -234,7 +234,7 @@ const questions = [
     explanation: "Extracts all characters after the space `14:30:00`.",
     hint: "=TEXTAFTER(A2, \" \").",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"2026-08-26 14:30:00\", \" \") &rarr; \"14:30:00\""
+    codeExample: "=TEXTAFTER(\"2026-08-26 14:30:00\", \" \") → \"14:30:00\""
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for trailing text extraction with TEXTAFTER?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "TEXTAFTER provides surgical trailing text extraction with zero formula clutter!",
     hint: "TEXTAFTER + Negative Instance (-1) + Composite TEXTBEFORE = Clean Trailing Extraction!",
     level: "expert",
-    codeExample: "Rule: Trailing Text Extraction &rarr; Deploy TEXTAFTER!"
+    codeExample: "Rule: Trailing Text Extraction → Deploy TEXTAFTER!"
   }
 ];
 

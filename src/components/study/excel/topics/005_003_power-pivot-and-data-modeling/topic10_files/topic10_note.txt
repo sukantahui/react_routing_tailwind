@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Power Pivot KPIs add instant executive polish. In the Power Pivot window, select your measure, click 'New KPI', set your budget target measure, and pick Traffic Light icons. Your PivotTables will display real graphical status badges.
 
 COMMON TRAPS TO AVOID:
-- Setting Target to Absolute Number for Sliced Views: Setting target to a static ₹10 Crore means the target is ₹10 Crore whether viewing a single branch or the whole nation. -> Fix: Set Target Goal to a dynamic measure: `Target: Measure -> [BudgetRevenue]`.
-- Reversed Thresholds for Cost Metrics: Showing green traffic lights when departmental expenses exceed budget limits. -> Fix: Select the inverted status icon pattern (Lower is Better) in KPI setup.
-- KPI Icons Not Rendering in Older Excel Viewers: Opening modern Data Model KPIs in third-party spreadsheet viewers can render status icons as raw integer values (-1, 0, 1). -> Fix: Ensure corporate viewers use standard modern Microsoft Excel versions.
+- Setting Target to Absolute Number for Sliced Views: Setting target to a static ₹10 Crore means the target is ₹10 Crore whether viewing a single branch or the whole nation. → Fix: Set Target Goal to a dynamic measure: `Target: Measure → [BudgetRevenue]`.
+- Reversed Thresholds for Cost Metrics: Showing green traffic lights when departmental expenses exceed budget limits. → Fix: Select the inverted status icon pattern (Lower is Better) in KPI setup.
+- KPI Icons Not Rendering in Older Excel Viewers: Opening modern Data Model KPIs in third-party spreadsheet viewers can render status icons as raw integer values (-1, 0, 1). → Fix: Ensure corporate viewers use standard modern Microsoft Excel versions.
 ================================================================================

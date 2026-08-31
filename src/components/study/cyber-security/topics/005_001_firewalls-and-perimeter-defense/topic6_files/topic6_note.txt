@@ -39,11 +39,11 @@ fingerprints, decodes SSL/TLS streams, and enforces policy based on business app
 3. SINGLE-PASS PARALLEL PROCESSING (SP3) VS MULTI-PASS LEGACY ENGINES
 ----------------------------------------------------------------------------------------------------
 Legacy Multi-Pass Architecture (High Latency & CPU Bottlenecks):
-  Packet Ingress -> [Stateful FW] -> [Decapsulate] -> [IPS Engine] -> [Decapsulate] -> [AV Engine] -> [Decapsulate] -> [URL Filter]
+  Packet Ingress → [Stateful FW] → [Decapsulate] → [IPS Engine] → [Decapsulate] → [AV Engine] → [Decapsulate] → [URL Filter]
   *Result: Packet is unpacked, buffered, and scanned 4 to 5 separate times, causing extreme latency.*
 
 NGFW Single-Pass Parallel Processing (SP3 Architecture):
-  Packet Ingress -> [Single-Pass Hardware Engine: App-ID + User-ID + Content-ID + AV + IPS Unified Scan] -> Egress
+  Packet Ingress → [Single-Pass Hardware Engine: App-ID + User-ID + Content-ID + AV + IPS Unified Scan] → Egress
   *Result: Payload is parsed ONCE into hardware memory; all threat signatures and policy rules are evaluated 
    simultaneously in parallel using dedicated ASICs, achieving multi-gigabit line-rate throughput.*
 

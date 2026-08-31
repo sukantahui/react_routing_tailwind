@@ -54,7 +54,7 @@ Why is S = 1, R = 1 when CLK = 1 strictly forbidden in digital design?
 1. Logic Contradiction: Q and Q_bar are defined to be complementary outputs (Q != Q_bar).
    When S=1 and R=1 with CLK=1 in a NAND latch, both Q and Q_bar are forced to 1 simultaneously!
 2. Race Condition / Metastability on Clock Drop:
-   When the clock abruptly transitions from 1 -> 0 while S=1, R=1, both feedback gates
+   When the clock abruptly transitions from 1 → 0 while S=1, R=1, both feedback gates
    attempt to switch simultaneously. Due to microscopic differences in silicon propagation
    delays (t_pd), the circuit enters unpredictable oscillation (metastability) before
    settling into a random, nondeterministic state (either Q=1 or Q=0).
@@ -78,11 +78,11 @@ Characteristic Equation (Derived via Karnaugh Map):
   Q(t+1) = S + (~R . Q(t))  [Subject to constraint: S . R = 0]
 
 Excitation Table (Used for Counter & Sequential Circuit Synthesis):
-  Q(t) -> Q(t+1) | S   R
-    0  ->   0    | 0   X  (Hold 0 or Reset)
-    0  ->   1    | 1   0  (Set)
-    1  ->   0    | 0   1  (Reset)
-    1  ->   1    | X   0  (Hold 1 or Set)
+  Q(t) → Q(t+1) | S   R
+    0  →   0    | 0   X  (Hold 0 or Reset)
+    0  →   1    | 1   0  (Set)
+    1  →   0    | 0   1  (Reset)
+    1  →   1    | X   0  (Hold 1 or Set)
 
 6. REAL-WORLD WEST BENGAL ENGINEERING CASE STUDIES
 --------------------------------------------------------------------------------

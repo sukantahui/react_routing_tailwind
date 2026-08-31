@@ -29,9 +29,9 @@ const questions = [
     hint: "Putting a private letter inside a new public envelope with routable internet addresses.",
     level: "Basic",
     codeExample: `// Encapsulation Diagram:
-// [ Outer Public IP Header (203.0.113.10 -> 198.51.100.1) ]
+// [ Outer Public IP Header (203.0.113.10 → 198.51.100.1) ]
 //   [ IPsec ESP Security Header ]
-//     [ ENCRYPTED: Inner Private IP Header (10.10.1.5 -> 10.20.1.50) + Data Payload ]`
+//     [ ENCRYPTED: Inner Private IP Header (10.10.1.5 → 10.20.1.50) + Data Payload ]`
   },
   {
     id: 4,

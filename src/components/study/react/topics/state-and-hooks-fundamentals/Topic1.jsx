@@ -70,7 +70,7 @@ const Topic1 = () => {
           <span className="text-sm font-mono text-blue-600 dark:text-blue-400">
             Topic 1 / 44
           </span>
-          <h1 className="text-3xl font-bold mt-1 tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mt-1 tracking-tight">
             What are Hooks in React?
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">

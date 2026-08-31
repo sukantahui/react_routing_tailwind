@@ -42,7 +42,7 @@ export default function Topic2() {
             Class Structure &amp; Syntax
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Class Definition: Syntax, Anatomy, and Naming Conventions
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -141,15 +141,15 @@ export default function Topic2() {
             <rect x="45" y="154" width="360" height="25" rx="4" fill="#082f49" />
             <text x="55" y="171" fill="#bae6fd" fontSize="9" fontFamily="monospace">4. private int rollNumber; private String fullName;</text>
 
-            <text x="225" y="215" fill="#a7f3d0" fontSize="10" fontWeight="bold" textAnchor="middle">Constructors &rarr; Domain Methods &rarr; equals/hashCode</text>
+            <text x="225" y="215" fill="#a7f3d0" fontSize="10" fontWeight="bold" textAnchor="middle">Constructors → Domain Methods → equals/hashCode</text>
 
             {/* Right Panel: equals() vs == Memory Layout */}
             <rect x="450" y="30" width="400" height="215" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
             <text x="650" y="55" fill="#10b981" fontSize="13" fontWeight="bold" textAnchor="middle">2. EQUALITY DISSECTION (== vs .equals())</text>
 
             <rect x="465" y="70" width="370" height="40" rx="4" fill="#022c22" />
-            <text x="475" y="90" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Stack Reference A &rarr; Heap Address 0x100 [Roll: 101]</text>
-            <text x="475" y="103" fill="#6ee7b7" fontSize="9">Stack Reference B &rarr; Heap Address 0x200 [Roll: 101]</text>
+            <text x="475" y="90" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Stack Reference A → Heap Address 0x100 [Roll: 101]</text>
+            <text x="475" y="103" fill="#6ee7b7" fontSize="9">Stack Reference B → Heap Address 0x200 [Roll: 101]</text>
 
             <rect x="465" y="120" width="370" height="35" rx="4" fill="#450a0a" />
             <text x="475" y="142" fill="#fca5a5" fontSize="10" fontFamily="monospace">refA == refB       : FALSE (0x100 != 0x200)</text>

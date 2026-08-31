@@ -11,7 +11,7 @@ const questions = [
     explanation: "By default, control flow is sequential (top-to-bottom), but it can be altered via decision-making, looping, and branching statements.",
     hint: "The execution order of statements at runtime.",
     level: "basic",
-    codeExample: "// Sequential -> Branching -> Looping"
+    codeExample: "// Sequential → Branching → Looping"
   },
   {
     question: "What is the Böhm-Jacopini Structured Programming Theorem?",
@@ -51,7 +51,7 @@ const questions = [
     explanation: "If the condition matches, the PC register jumps to a different memory address.",
     hint: "Modifies the Program Counter register via conditional jumps.",
     level: "advanced",
-    codeExample: "// Bytecode: ifeq Label_False -> executes branch jump"
+    codeExample: "// Bytecode: ifeq Label_False → executes branch jump"
   },
   {
     question: "What is Branch Prediction in modern CPU architectures?",
@@ -91,7 +91,7 @@ const questions = [
     explanation: "Demonstrates multi-branch routing in financial systems in Indian Rupees (₹).",
     hint: "Switch routes to withdrawal, deposit, or balance inquiry.",
     level: "basic",
-    codeExample: "switch (action) { case \"WITHDRAW\" -> withdraw(); }"
+    codeExample: "switch (action) { case \"WITHDRAW\" → withdraw(); }"
   },
   {
     question: "What is a Guard Clause in clean code architecture?",
@@ -179,15 +179,15 @@ const questions = [
     explanation: "Much faster than an $O(N)$ `else-if` ladder when case values are dense.",
     hint: "O(1) direct branch lookup table in bytecode.",
     level: "advanced",
-    codeExample: "// Bytecode: tableswitch 1 to 4: default -> L_default"
+    codeExample: "// Bytecode: tableswitch 1 to 4: default → L_default"
   },
   {
     question: "What major enhancement did Java 14 bring to control flow?",
-    shortAnswer: "Standardized Switch Expressions with arrow syntax (`case X -> Y`), elimination of fall-through, multiple case constants (`case 1, 2, 3 ->`), and the `yield` keyword.",
+    shortAnswer: "Standardized Switch Expressions with arrow syntax (`case X → Y`), elimination of fall-through, multiple case constants (`case 1, 2, 3 ->`), and the `yield` keyword.",
     explanation: "Transforms switch from an imperative statement into a functional, value-producing expression.",
     hint: "Modern arrow switch expressions and yield keyword.",
     level: "basic",
-    codeExample: "String res = switch (day) { case 1, 2 -> \"Weekday\"; default -> \"Weekend\"; };"
+    codeExample: "String res = switch (day) { case 1, 2 → \"Weekday\"; default → \"Weekend\"; };"
   },
   {
     question: "What is Fall-Through in traditional switch statements?",

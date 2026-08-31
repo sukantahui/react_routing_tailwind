@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 - Execution Order Rule:
   * For EVERY single iteration of the OUTER loop, the INNER loop executes its
     complete lifecycle from start to finish!
-  * Total Iterations = (Outer Count) * (Inner Count) -> Multiplicative O(R x C).
+  * Total Iterations = (Outer Count) * (Inner Count) → Multiplicative O(R x C).
 
 - 2D Matrix Grid Traversal (Row-Major Order):
   for (int r = 0; r < matrix.length; r++) {

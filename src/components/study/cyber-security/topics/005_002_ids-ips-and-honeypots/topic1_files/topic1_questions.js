@@ -7,8 +7,8 @@ const questions = [
     hint: "IDS monitors passively out-of-band; IPS sits in-line and drops packets in real-time.",
     level: "Basic",
     codeExample: `// IDS (Passive) vs IPS (In-Line):
-// IDS: [Out-of-Band TAP] -> Sniffs mirrored stream -> Generates Alert (Packet reaches server!)
-// IPS: [In-Line Bridge]  -> Inspects packet on wire -> DROPS packet in-flight (Exploit halted!)`
+// IDS: [Out-of-Band TAP] → Sniffs mirrored stream → Generates Alert (Packet reaches server!)
+// IPS: [In-Line Bridge]  → Inspects packet on wire → DROPS packet in-flight (Exploit halted!)`
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const questions = [
     level: "Basic",
     codeExample: `// Latency Breakdown:
 // Passive IDS : Production Packet = 0 µs delay | Mirror Packet = Inspected asynchronously
-// Inline IPS  : Packet Ingress -> [Buffer + Defrag + DFA Regex Match (20 µs)] -> Egress`
+// Inline IPS  : Packet Ingress → [Buffer + Defrag + DFA Regex Match (20 µs)] → Egress`
   },
   {
     id: 3,
@@ -40,7 +40,7 @@ const questions = [
     hint: "A physical mechanical relay that keeps the network running if the IPS loses power.",
     level: "Moderate",
     codeExample: `// Hardware Bypass States:
-// Normal Mode : Ingress Port -> [IPS Inspection CPU] -> Egress Port
+// Normal Mode : Ingress Port → [IPS Inspection CPU] → Egress Port
 // Bypass Mode : Ingress Port ────── [Mechanical Optical Relay] ──────> Egress Port (Zero CPU)`
   },
   {
@@ -146,7 +146,7 @@ const questions = [
     hint: "Only allow automatic dropping on rules that are 100% guaranteed to be malicious exploits.",
     level: "Basic",
     codeExample: `// High Confidence Signature:
-// alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 443 (msg:"EXPLOIT Log4Shell"; content:"\${jndi:"; classtype:attempted-admin; action:drop;)`
+// alert tcp $EXTERNAL_NET any → $HTTP_SERVERS 443 (msg:"EXPLOIT Log4Shell"; content:"\${jndi:"; classtype:attempted-admin; action:drop;)`
   },
   {
     id: 15,
@@ -166,7 +166,7 @@ const questions = [
     hint: "Using an IPS rule to block a newly discovered bug while developers work on fixing the code.",
     level: "Basic",
     codeExample: `// Virtual Patching Workflow:
-// Day 0: Zero-day disclosed -> Day 1: Enable IPS Drop Rule (Exploits Blocked!) -> Day 20: Software patch deployed`
+// Day 0: Zero-day disclosed → Day 1: Enable IPS Drop Rule (Exploits Blocked!) → Day 20: Software patch deployed`
   },
   {
     id: 17,
@@ -272,12 +272,12 @@ const certInIpsLog = {
   {
     id: 26,
     question: "What is 'Evasion Resistance: Case Sensitivity & URL Decoding' in inline IPS preprocessors?",
-    shortAnswer: "Normalizing mixed-case characters (`sElEcT` -> `select`) and resolving multi-layer URL encoding (`%2520` -> `%20` -> ` `) before signature matching to prevent evasion.",
+    shortAnswer: "Normalizing mixed-case characters (`sElEcT` → `select`) and resolving multi-layer URL encoding (`%2520` → `%20` → ` `) before signature matching to prevent evasion.",
     explanation: "Attackers evade naive pattern matchers by mixing letter casing or using double URL encoding. The IPS preprocessor applies canonical transformations so that signatures match regardless of encoding tricks.",
     hint: "Converting weird casing and double-encoded URLs into clean standard text before scanning.",
     level: "Moderate",
     codeExample: `// Preprocessor Canonical Normalization:
-// Raw Input: "/api?q=%2527%20uNiOn%20sElEcT" -> Canonical: "/api?q=' union select"`
+// Raw Input: "/api?q=%2527%20uNiOn%20sElEcT" → Canonical: "/api?q=' union select"`
   },
   {
     id: 27,

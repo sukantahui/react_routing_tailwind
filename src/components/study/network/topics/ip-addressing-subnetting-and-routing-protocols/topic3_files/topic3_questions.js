@@ -45,7 +45,7 @@ const questions = [
     question: "What is NAT hairpinning (NAT loopback)?",
     shortAnswer: "Allowing an internal host to reach another internal host via the public IP of the NAT router.",
     explanation: "Without hairpinning, a packet from internal host A to public IP (which maps to internal host B) would loop. Hairpinning reflects it back inside. Useful for internal users accessing a server by its domain name.",
-    hint: "Internal -> public IP -> internal.",
+    hint: "Internal → public IP → internal.",
     level: "advanced",
     codeExample: "# On Linux: sysctl -w net.ipv4.conf.all.route_localnet=1\n iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -d 203.0.113.5 -j SNAT --to-source 192.168.1.1"
   },

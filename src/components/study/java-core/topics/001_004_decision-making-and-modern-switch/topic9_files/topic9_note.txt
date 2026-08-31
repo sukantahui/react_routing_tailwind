@@ -18,8 +18,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   Readability (4+ cases)| High (Table layout)         | Verbose (Repeated vars)
 
 - Bytecode Optimization in Switch:
-  * Dense Integer Keys  --> 'tableswitch'  (O(1) Direct Indexed Address Jump)
-  * Sparse Integer Keys --> 'lookupswitch' (O(log N) Binary Search Table)
+  * Dense Integer Keys  → 'tableswitch'  (O(1) Direct Indexed Address Jump)
+  * Sparse Integer Keys → 'lookupswitch' (O(log N) Binary Search Table)
 
 - Decision Matrix:
   * Choose 'switch'  : When matching ONE variable against 4+ discrete constants.

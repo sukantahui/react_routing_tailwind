@@ -59,7 +59,7 @@ const questions = [
     explanation: "Topic 14 explores switch expression exhaustiveness rules in depth.",
     hint: "Mandatory in non-exhaustive switch expressions.",
     level: "intermediate",
-    codeExample: "int val = switch (x) { case 1 -> 10; default -> 0; }; // default mandatory"
+    codeExample: "int val = switch (x) { case 1 → 10; default → 0; }; // default mandatory"
   },
   {
     question: "How is `default` used for defensive programming in domain-driven architectures?",
@@ -91,7 +91,7 @@ const questions = [
     explanation: "Arrow syntax is used with modern switch expressions.",
     hint: "default: vs default ->",
     level: "basic",
-    codeExample: "default -> \"Fallback\";"
+    codeExample: "default → \"Fallback\";"
   },
   {
     question: "What bytecode instruction is emitted for the `default` branch?",
@@ -155,7 +155,7 @@ const questions = [
     explanation: "Topic 16 covers modern pattern matching guards.",
     hint: "case null, default is permitted in modern Java.",
     level: "advanced",
-    codeExample: "case null, default -> handleFallback();"
+    codeExample: "case null, default → handleFallback();"
   },
   {
     question: "What is the result of `String s = \"TEST\"; switch (s) { case \"PROD\": print(\"P\"); break; default: print(\"D\"); break; }`?",
@@ -179,7 +179,7 @@ const questions = [
     explanation: "Modern pattern matching enhancement in Java 21.",
     hint: "case null label handles nulls safely in Java 21.",
     level: "advanced",
-    codeExample: "switch (s) { case null -> \"Null value\"; default -> \"Valid\"; }"
+    codeExample: "switch (s) { case null → \"Null value\"; default → \"Valid\"; }"
   },
   {
     question: "What is the difference between `default` in a switch statement and `default` in an interface?",

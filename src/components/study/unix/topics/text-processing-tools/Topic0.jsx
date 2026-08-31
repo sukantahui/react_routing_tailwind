@@ -44,7 +44,7 @@ export default class Topic0 extends React.Component {
                 {/* Header Section */}
                 <header className="max-w-6xl mx-auto mb-12">
                     <div className="animate-[fadeInUp_0.8s_ease-out]">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-relaxed">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-relaxed">
                             Topic 1: Pattern Searching with grep, egrep, fgrep
                         </h1>
                         <p className="text-xl opacity-80 leading-relaxed">

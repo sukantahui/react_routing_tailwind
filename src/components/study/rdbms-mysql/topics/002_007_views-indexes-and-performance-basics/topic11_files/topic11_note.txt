@@ -20,8 +20,8 @@ Valid Leftmost Prefixes (B-Tree Seek Enabled):
 ✓ `WHERE centre_city = 'Barrackpore' AND course_stream = 'React' AND admission_status = 'ACTIVE'` (Uses all 3 columns)
 
 Invalid Prefixes (B-Tree Seek CANNOT be used):
-❌ `WHERE course_stream = 'React'` (Missing 1st leading column `centre_city` -> Full Table Scan!)
-❌ `WHERE admission_status = 'ACTIVE'` (Missing leading columns -> Full Table Scan!)
+❌ `WHERE course_stream = 'React'` (Missing 1st leading column `centre_city` → Full Table Scan!)
+❌ `WHERE admission_status = 'ACTIVE'` (Missing leading columns → Full Table Scan!)
 ❌ `WHERE course_stream = 'React' AND admission_status = 'ACTIVE'` (Missing leading column `centre_city`)
 ⚠️ `WHERE centre_city = 'Barrackpore' AND admission_status = 'ACTIVE'` (Uses only `centre_city` for seek; `admission_status` filtered via ICP)
 

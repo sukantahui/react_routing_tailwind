@@ -7,9 +7,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. MOST SPECIFIC METHOD RULE (JLS 15.12.2.5):
    - Java compiler chooses the most specific method compatible with arguments.
-   - 'String' is a subclass of 'Object' -> 'String' is more specific.
+   - 'String' is a subclass of 'Object' → 'String' is more specific.
    - If two candidate parameter types are siblings (e.g. String vs StringBuffer),
-     neither is more specific -> Ambiguity compile-time error.
+     neither is more specific → Ambiguity compile-time error.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

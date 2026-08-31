@@ -67,7 +67,7 @@ const questions = [
     explanation: "`nextInt()` requires an uninterrupted sequence of digits (with optional leading `+` or `-`). The decimal point character `.` causes immediate validation failure.",
     hint: "Decimal point violates integer regex.",
     level: "basic",
-    codeExample: "// Input: 3.14 -> scanner.nextInt() THROWS InputMismatchException"
+    codeExample: "// Input: 3.14 → scanner.nextInt() THROWS InputMismatchException"
   },
   {
     question: "What happens to the invalid token in the stream when `InputMismatchException` is thrown?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Introduced in Java 9, `scanner.tokens()` integrates `Scanner` seamlessly with the Java Stream API for functional processing (`filter`, `map`, `collect`).",
     hint: "Java 9 Stream API integration.",
     level: "advanced",
-    codeExample: "List<String> words = scanner.tokens().filter(s -> s.length() > 5).toList();"
+    codeExample: "List<String> words = scanner.tokens().filter(s → s.length() > 5).toList();"
   },
   {
     question: "What does `scanner.findAll(Pattern pattern)` return in Java 9+?",

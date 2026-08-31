@@ -96,8 +96,8 @@ const questions = [
     hint: "NIDS sees the big picture across all computers on the network; HIDS only sees its own machine.",
     level: "Basic",
     codeExample: `// Subnet Reconnaissance Visibility:
-// NIDS Sensor: Sees 254 SYN packets across subnet -> Triggers Subnet Sweep Alert!
-// HIDS Agent on Host 10: Sees only 1 SYN packet -> Ignores as normal background noise.`
+// NIDS Sensor: Sees 254 SYN packets across subnet → Triggers Subnet Sweep Alert!
+// HIDS Agent on Host 10: Sees only 1 SYN packet → Ignores as normal background noise.`
   },
   {
     id: 10,
@@ -129,7 +129,7 @@ const questions = [
     id: 12,
     question: "How does a HIDS detect 'Privilege Escalation' on a Linux server?",
     shortAnswer: "By monitoring system calls and log events where an unprivileged user process suddenly invokes `setuid(0)`, executes `sudo`, or spawns a `/bin/sh` process with effective UID 0 (root).",
-    explanation: "If a web daemon running under `www-data` exploits a kernel flaw (e.g. Dirty COW) and spawns an interactive root shell, the HIDS detects the parent-child process anomaly (`nginx -> /bin/sh -> uid 0`) and generates a critical alert.",
+    explanation: "If a web daemon running under `www-data` exploits a kernel flaw (e.g. Dirty COW) and spawns an interactive root shell, the HIDS detects the parent-child process anomaly (`nginx → /bin/sh → uid 0`) and generates a critical alert.",
     hint: "Watching when a regular user or website account suddenly turns into the root administrator.",
     level: "Moderate",
     codeExample: `// Process Lineage Anomaly:
@@ -143,7 +143,7 @@ const questions = [
     hint: "Sending logs to an off-site server immediately so hackers cannot delete the evidence locally.",
     level: "Basic",
     codeExample: `// Real-Time Off-Host Log Streaming:
-// Host Generates Log -> HIDS Agent -> TLS Port 6514 -> Immutable SIEM Storage (Evidence Preserved!)`
+// Host Generates Log → HIDS Agent → TLS Port 6514 → Immutable SIEM Storage (Evidence Preserved!)`
   },
   {
     id: 14,
@@ -187,7 +187,7 @@ const questions = [
     hint: "Catching malware when it tries to inject its code into a normal, trusted Windows program.",
     level: "Expert",
     codeExample: `// Process Injection Sysmon Event:
-// SourceProcess: malware.exe -> TargetProcess: lsass.exe | API: CreateRemoteThread ➔ CRITICAL ALERT!`
+// SourceProcess: malware.exe → TargetProcess: lsass.exe | API: CreateRemoteThread ➔ CRITICAL ALERT!`
   },
   {
     id: 18,

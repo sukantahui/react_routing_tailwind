@@ -12,9 +12,9 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 --------------------------------------------------------------------------------
 • Core Function: Table.FuzzyNestedJoin(T1, Key1, T2, Key2, "Col", JoinKind, FuzzyOptions)
 • Similarity Threshold: 0.00 (Match all) to 1.00 (Exact match); Default = 0.80 (Optimal: 0.80-0.85).
-• Transformation Table: A 2-column table [From, To] mapping domain acronyms (e.g. BKP -> Barrackpore).
+• Transformation Table: A 2-column table [From, To] mapping domain acronyms (e.g. BKP → Barrackpore).
 • NumberOfMatches = 1: Prevents 1-to-many row explosion by picking top-scoring candidate.
-• IgnoreSpaces = true: Handles token spacing variations ("Micro Soft" -> "Microsoft").
+• IgnoreSpaces = true: Handles token spacing variations ("Micro Soft" → "Microsoft").
 
 2. THE 3-PHASE ENTERPRISE FUZZY ARCHITECTURE:
 --------------------------------------------------------------------------------

@@ -70,7 +70,7 @@ Penalty for Hoarding:Up to ₹250 Crores under DPDP Act 2023 Section 33!`
     level: "moderate",
     codeExample: `// AWS KMS Crypto-Shredding Execution:
 Command: aws kms schedule-key-deletion --key-id "arn:aws:kms:ap-south-1:123456789:key/pacs-2021" --pending-window-in-days 7
-Result:  Key deleted -> 80,000 encrypted medical images permanently shredded across AWS multi-AZ storage!`
+Result:  Key deleted → 80,000 encrypted medical images permanently shredded across AWS multi-AZ storage!`
   },
   {
     question: "What are the three sanitization levels defined in NIST SP 800-88 Rev 1 for media disposal?",
@@ -91,7 +91,7 @@ Level 3: DESTROY ➔ Decommissioned banking SAN disks (Physically crushed in ind
     level: "basic",
     codeExample: `// Automated Access Certification Campaign:
 Campaign Cycle:  Every 90 Days triggered via SailPoint / Okta Identity Governance
-Manager Action:  Manager reviews 35 developer IAM roles -> Revokes 4 temporary admin permissions
+Manager Action:  Manager reviews 35 developer IAM roles → Revokes 4 temporary admin permissions
 Audit Artifact:  Signed PDF Access Certification Manifest archived for ISO 27001 auditors`
   },
   {
@@ -112,8 +112,8 @@ Penalty:          Non-compliance punishable under Section 70B(7) with 1 Year Imp
     hint: "FIDO2 security keys cannot be phished because they verify the real website domain cryptographically.",
     level: "moderate",
     codeExample: `// FIDO2 WebAuthn Origin Binding:
-Legitimate URL: https://login.kolkatafintech.in ➔ FIDO2 Key signs challenge -> ACCESS GRANTED!
-Phishing Clone: https://login.kolkata-fintech-fake.com ➔ FIDO2 Key detects domain mismatch -> ACCESS BLOCKED!`
+Legitimate URL: https://login.kolkatafintech.in ➔ FIDO2 Key signs challenge → ACCESS GRANTED!
+Phishing Clone: https://login.kolkata-fintech-fake.com ➔ FIDO2 Key detects domain mismatch → ACCESS BLOCKED!`
   },
   {
     question: "What is 'Compromised Password Screening' under NIST SP 800-63B, and how is it implemented in modern Active Directory environments?",

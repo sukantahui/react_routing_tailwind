@@ -6,7 +6,7 @@ Topic 0: Introduction to Power Query and Modern Automated ETL Architecture
 ================================================================================
 
 1. CORE CONCEPTS:
-- The ETL Pipeline: Extract &rarr; Transform &rarr; Load
+- The ETL Pipeline: Extract → Transform → Load
 - The M Formula Language
 - The Applied Steps Execution Sequence
 - Close & Load Destinations (Table, Connection Only, Data Model)

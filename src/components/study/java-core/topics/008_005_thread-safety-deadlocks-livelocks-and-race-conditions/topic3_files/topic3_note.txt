@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - 2. Hold and Wait: Holding Lock 1 while waiting for Lock 2.
    - 3. No Preemption: Locks cannot be confiscated by force.
    - 4. Circular Wait: Thread A waits for B; Thread B waits for A.
-   - BREAK ANY 1 CONDITION &rarr; DEADLOCK IS PREVENTED!
+   - BREAK ANY 1 CONDITION → DEADLOCK IS PREVENTED!
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

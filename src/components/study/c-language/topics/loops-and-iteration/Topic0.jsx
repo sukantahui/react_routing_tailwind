@@ -59,7 +59,7 @@ const Topic0 = () => {
             "motion-safe:animate-[fadeSlideUp_0.6s_ease-out]"
           )}
         >
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
             🔁 Introduction to Repetition
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">

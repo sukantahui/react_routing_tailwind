@@ -19,7 +19,7 @@ console.log("=== Scenario 1: Inline Synchronous Script in <head> ===");
 // HTML parser is at line 4 (<head>); #app element at line 25 has NOT been parsed yet
 let targetElementHead = mockDOM.getElementById("app");
 console.log("Querying document.getElementById('app') in <head>:", targetElementHead); // null
-console.log("Attempting targetElementHead.textContent = 'Welcome' -> Throws: TypeError: Cannot set properties of null!\n");
+console.log("Attempting targetElementHead.textContent = 'Welcome' → Throws: TypeError: Cannot set properties of null!\n");
 
 console.log("=== Scenario 2: Script Placed Before </body> Tag ===");
 // HTML parser parses <div id="app">...</div> before encountering <script> at bottom of <body>

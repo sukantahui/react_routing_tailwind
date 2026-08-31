@@ -28,7 +28,7 @@ Operational Architecture: Dependent Dropdown: Source: =INDIRECT($A2) | Excel 365
 • Tuhina Mukherjee (Tax Compliance Lead, Shyamnagar Plant):
   HSN Code Cascading Selector - Filters GST Chapter headers to dynamically cascade into specific 8-digit tariff item codes.
 • Abhronila Das (Plant Maintenance Lead, Ichapur Works):
-  Equipment Sub-Assembly Part Selector - Cascades Machine Type -> Sub-Assembly Module -> Replacement Part Serial Number on maintenance request forms.
+  Equipment Sub-Assembly Part Selector - Cascades Machine Type → Sub-Assembly Module → Replacement Part Serial Number on maintenance request forms.
 • Debangshu Roy (Logistics Router, Naihati Logistics):
   Country to State to City Routing Matrix - Cascades freight destination routing choices dynamically across 3 hierarchical levels.
 

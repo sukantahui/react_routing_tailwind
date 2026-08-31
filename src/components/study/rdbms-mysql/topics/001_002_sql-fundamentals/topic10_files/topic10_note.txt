@@ -27,27 +27,27 @@ CORE COMPARISON OPERATORS LIST:
 2. DATA TYPE COMPARISON RULES IN MYSQL
 --------------------------------------------------------------------------------
 A. NUMERIC COMPARISONS:
-   Compared mathematically based on numeric value: `15000.00 > 12000.00` -> TRUE.
+   Compared mathematically based on numeric value: `15000.00 > 12000.00` → TRUE.
 
 B. STRING & TEXT COMPARISONS:
    Compared lexicographically based on the active Collation:
-   • Under `utf8mb4_0900_ai_ci` (case-insensitive): `'Mamata' = 'mamata'` -> TRUE.
-   • Under `utf8mb4_bin` (binary byte comparison): `'Mamata' = 'mamata'` -> FALSE.
+   • Under `utf8mb4_0900_ai_ci` (case-insensitive): `'Mamata' = 'mamata'` → TRUE.
+   • Under `utf8mb4_bin` (binary byte comparison): `'Mamata' = 'mamata'` → FALSE.
 
 C. DATE & TIME COMPARISONS:
-   Compared chronologically: `'2026-08-24' > '2026-01-01'` -> TRUE.
+   Compared chronologically: `'2026-08-24' > '2026-01-01'` → TRUE.
 
 
 3. THE NULL-SAFE EQUAL OPERATOR (`<=>`) EXPLAINED
 --------------------------------------------------------------------------------
 In standard SQL, comparing with NULL using `=` produces `UNKNOWN`:
-• `NULL = NULL` -> `UNKNOWN`
-• `100 = NULL` -> `UNKNOWN`
+• `NULL = NULL` → `UNKNOWN`
+• `100 = NULL` → `UNKNOWN`
 
 With MySQL's NULL-Safe Equal Operator `<=>`:
-• `NULL <=> NULL` -> `TRUE` (1)
-• `100 <=> NULL` -> `FALSE` (0)
-• `100 <=> 100` -> `TRUE` (1)
+• `NULL <=> NULL` → `TRUE` (1)
+• `100 <=> NULL` → `FALSE` (0)
+• `100 <=> 100` → `TRUE` (1)
 
 This is exceptionally useful when comparing nullable columns across joined tables without writing lengthy `(a = b OR (a IS NULL AND b IS NULL))` expressions.
 

@@ -2,11 +2,11 @@ const questions = [
   {
     question: "What is the foundational architectural difference between the 'Lockheed Martin Cyber Kill Chain' and the 'MITRE ATT&CK Framework'?",
     shortAnswer: "The Cyber Kill Chain is a linear, sequential 7-phase waterfall model focused on perimeter disruption; MITRE ATT&CK is a non-linear, granular matrix of 14 tactics and hundreds of techniques focused on post-compromise adversary behavior.",
-    explanation: "Lockheed Martin developed the Cyber Kill Chain as a military-derived 7-stage sequential model (Recon -> Weaponization -> Delivery -> Exploitation -> Installation -> C2 -> Actions on Objectives) where breaking any single link stops the attack. MITRE ATT&CK is a comprehensive, non-linear knowledge base of tactics (goals), techniques (actions), and procedures (tools) that models realistic adversary behavior where attackers jump dynamically between phases.",
+    explanation: "Lockheed Martin developed the Cyber Kill Chain as a military-derived 7-stage sequential model (Recon → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives) where breaking any single link stops the attack. MITRE ATT&CK is a comprehensive, non-linear knowledge base of tactics (goals), techniques (actions), and procedures (tools) that models realistic adversary behavior where attackers jump dynamically between phases.",
     hint: "Think about a strict single-track railway line (Kill Chain) versus an expansive subway network map with hundreds of interconnected stations (MITRE ATT&CK).",
     level: "basic",
     codeExample: `// Model Comparison:
-Kill Chain: Recon -> Weaponize -> Deliver -> Exploit -> Install -> C2 -> Objectives (Linear Waterfall)
+Kill Chain: Recon → Weaponize → Deliver → Exploit → Install → C2 → Objectives (Linear Waterfall)
 MITRE ATT&CK: 14 Tactics | 196+ Techniques | 411+ Sub-techniques (Non-linear Matrix)`
   },
   {
@@ -25,7 +25,7 @@ MITRE ATT&CK: 14 Tactics | 196+ Techniques | 411+ Sub-techniques (Non-linear Mat
     hint: "Think of a chain: removing one single link separates the anchor from the ship.",
     level: "basic",
     codeExample: `// Breaking the Kill Chain:
-Recon (Passed) -> Weaponize (Passed) -> Delivery ──[ BLOCKED BY EMAIL FILTER! ]──X Exploitation Never Happens!`
+Recon (Passed) → Weaponize (Passed) → Delivery ──[ BLOCKED BY EMAIL FILTER! ]──X Exploitation Never Happens!`
   },
   {
     question: "In the MITRE ATT&CK Framework, what is the clear distinction between 'Tactics', 'Techniques', and 'Procedures' (TTPs)?",
@@ -45,8 +45,8 @@ Procedure: LSASS Memory Dump command executed by APT29 (The Exact Implementation
     hint: "Remember that MITRE ATT&CK expands traditional models into 14 distinct operational categories.",
     level: "moderate",
     codeExample: `// MITRE ATT&CK 14 Tactics Overview:
-[Recon] -> [Resource Dev] -> [Initial Access] -> [Execution] -> [Persistence] -> [PrivEsc] ->
-[Defense Evasion] -> [Cred Access] -> [Discovery] -> [Lateral Movement] -> [Collection] -> [C2] -> [Exfiltration] -> [Impact]`
+[Recon] → [Resource Dev] → [Initial Access] → [Execution] → [Persistence] → [PrivEsc] ->
+[Defense Evasion] → [Cred Access] → [Discovery] → [Lateral Movement] → [Collection] → [C2] → [Exfiltration] → [Impact]`
   },
   {
     question: "What is 'MITRE ATT&CK for ICS' (Industrial Control Systems), and how does it address operational technology (OT / SCADA) threat modeling?",
@@ -97,18 +97,18 @@ Invoke-AtomicTest T1059.001 -TestNumbers 1
   },
   {
     question: "How does the 'Pyramid of Pain' (by David Bianco) illustrate the difficulty adversaries face when defenders detect different indicators of compromise?",
-    shortAnswer: "It categorizes IOCs by the pain inflicted on attackers when blocked: Hash Values (Trivial) -> IP Addresses (Easy) -> Domain Names (Simple) -> Network/Host Artifacts (Annoying) -> Tools (Challenging) -> TTPs (Tough!).",
+    shortAnswer: "It categorizes IOCs by the pain inflicted on attackers when blocked: Hash Values (Trivial) → IP Addresses (Easy) → Domain Names (Simple) → Network/Host Artifacts (Annoying) → Tools (Challenging) → TTPs (Tough!).",
     explanation: "Changing a file hash takes an attacker 1 second (modifying 1 byte). Changing an IP or domain takes minutes. However, detecting and blocking an adversary's TTPs (Tactics, Techniques, and Procedures—the top of the pyramid) forces the adversary to completely reinvent their tradecraft, training, and operational methodology, inflicting maximum pain and cost on the threat actor.",
     hint: "Remember the Pyramid of Pain: Hashes at the bottom (trivial to change), TTPs at the peak (inflicts maximum pain on the attacker).",
     level: "moderate",
     codeExample: `// The Pyramid of Pain (David Bianco):
            /\\
-          /  \\     TTPs (Tactics, Techniques, Procedures) -> TOUGH! (Apex)
-         /    \\    Tools (Mimikatz, Cobalt Strike)         -> Challenging
-        /      \\   Network/Host Artifacts (User-Agent)     -> Annoying
-       /        \\  Domain Names (c2.net)                  -> Simple
-      /          \\ IP Addresses (203.0.113.10)             -> Easy
-     /____________\\ Hash Values (SHA-256)                 -> Trivial (Base)`
+          /  \\     TTPs (Tactics, Techniques, Procedures) → TOUGH! (Apex)
+         /    \\    Tools (Mimikatz, Cobalt Strike)         → Challenging
+        /      \\   Network/Host Artifacts (User-Agent)     → Annoying
+       /        \\  Domain Names (c2.net)                  → Simple
+      /          \\ IP Addresses (203.0.113.10)             → Easy
+     /____________\\ Hash Values (SHA-256)                 → Trivial (Base)`
   },
   {
     question: "Why is the Cyber Kill Chain considered insufficient for modern cloud, API, and insider threat modeling compared to MITRE ATT&CK?",
@@ -117,7 +117,7 @@ Invoke-AtomicTest T1059.001 -TestNumbers 1
     hint: "Think about why a wall-and-moat perimeter model fails when the employee already has a legitimate cloud login key.",
     level: "expert",
     codeExample: `// Modern Cloud Intrusion bypassing traditional Kill Chain:
-Stolen Cloud API Key -> Directly calls 'Initial Access' + 'Collection' + 'Exfiltration' (Zero Weaponization or Installation needed!)`
+Stolen Cloud API Key → Directly calls 'Initial Access' + 'Collection' + 'Exfiltration' (Zero Weaponization or Installation needed!)`
   },
   {
     question: "What is 'Sigma' (Generic Signature Format), and how does it map SIEM detection rules directly to MITRE ATT&CK technique IDs?",
@@ -149,7 +149,7 @@ detection:
     codeExample: `// NCIIPC Threat Intelligence Advisory Mapping:
 Advisory: NCIIPC-ADV-2026-08 | Target: Indian Banking & Financial Services
 Threat Actor: Lazarus Group / APT38
-Mapped MITRE ATT&CK: T1566 (Phishing) -> T1059.001 (PowerShell) -> T1003.001 (LSASS) -> T1048 (Exfiltration)`
+Mapped MITRE ATT&CK: T1566 (Phishing) → T1059.001 (PowerShell) → T1003.001 (LSASS) → T1048 (Exfiltration)`
   },
   {
     question: "What is 'Threat Hunting', and how does a hypothesis-driven threat hunt utilize the MITRE ATT&CK Matrix?",
@@ -160,7 +160,7 @@ Mapped MITRE ATT&CK: T1566 (Phishing) -> T1059.001 (PowerShell) -> T1003.001 (LS
     codeExample: `// Hypothesis-Driven Threat Hunt Workflow:
 1. Hypothesis: "Attackers are using Scheduled Tasks (T1053.005) running PowerShell scripts from C:\\Users\\Public"
 2. Query SIEM: EventCode=1 AND ParentImage="schtasks.exe" AND CommandLine="*powershell*C:\\Users\\Public*"
-3. Analyze Anomaly -> Identify and eradicate stealthy persistence!`
+3. Analyze Anomaly → Identify and eradicate stealthy persistence!`
   },
   {
     question: "What is the 'MITRE D3FEND' Matrix, and how does it provide the defensive counterpart to the offensive MITRE ATT&CK Matrix?",
@@ -203,7 +203,7 @@ SOC / Threat Hunting Level:  MITRE ATT&CK Matrix (Granular TTP Telemetry & Sigma
     codeExample: `// Indian Judicial Cyber Crime Prosecution Matrix:
 Charge: Section 66 (Hacking) + Section 66C (Identity Theft)
 Technical Evidence: Mapped to MITRE ATT&CK T1003 (Credential Theft) & T1021 (Lateral Movement)
-Legal Certificate: Section 65B Indian Evidence Act Compliance -> Conviction Secured!`
+Legal Certificate: Section 65B Indian Evidence Act Compliance → Conviction Secured!`
   },
   {
     question: "What is 'Threat Intelligence Mapping', and how do SOCs use STIX/TAXII protocols to ingest MITRE ATT&CK threat feeds automatically?",

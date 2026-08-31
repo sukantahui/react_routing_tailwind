@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never divide your financial models by 1,000,000 with formulas! Use custom format scaling to keep pure raw data while presenting clean K, M, and B figures.
 
 COMMON TRAPS TO AVOID:
-- Accidental Formula Division: Dividing by 1,000,000 in formulas (/10^6) modifies underlying values and breaks dependent totals. -> Fix: Use trailing commas in custom number format instead of formula division.
-- Comma Placement Errors: Placing spaces between commas cancels the 1,000 divisor effect. -> Fix: Keep trailing commas adjacent to digits before literal unit strings (e.g. #,##0.0,, "M").
-- Over-Rounding Visuals: Scaling small values (e.g. ₹45,000) with M scaling shows '₹0.0M'. -> Fix: Choose appropriate scale (K vs M) based on magnitude of data range.
+- Accidental Formula Division: Dividing by 1,000,000 in formulas (/10^6) modifies underlying values and breaks dependent totals. → Fix: Use trailing commas in custom number format instead of formula division.
+- Comma Placement Errors: Placing spaces between commas cancels the 1,000 divisor effect. → Fix: Keep trailing commas adjacent to digits before literal unit strings (e.g. #,##0.0,, "M").
+- Over-Rounding Visuals: Scaling small values (e.g. ₹45,000) with M scaling shows '₹0.0M'. → Fix: Choose appropriate scale (K vs M) based on magnitude of data range.
 ================================================================================

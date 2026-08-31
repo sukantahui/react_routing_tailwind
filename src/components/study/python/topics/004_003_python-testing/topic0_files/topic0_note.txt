@@ -23,7 +23,7 @@ Website: https://www.codernaccotax.co.in
 --------------------------------------------------------------------------------
 2. BASIC ASSERTION CONTRACTS IN PYTHON
 --------------------------------------------------------------------------------
-  def calculate_scholarship(score: float, base_fee: float) -> float:
+  def calculate_scholarship(score: float, base_fee: float) → float:
       if score >= 90.0:
           return base_fee * 0.50 # 50% waiver
       elif score >= 75.0:

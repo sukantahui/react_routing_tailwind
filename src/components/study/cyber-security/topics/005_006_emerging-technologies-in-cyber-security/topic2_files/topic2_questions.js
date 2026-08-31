@@ -157,7 +157,7 @@ const questions = [
     level: "Moderate",
     codeExample: `// Continuous Scoring:
 // 10:00 AM: Risk = 12 (Access Granted)
-// 10:45 AM: EDR flags background Mimikatz execution -> Risk spikes to 98 -> Instant Session Revocation 🛡️`
+// 10:45 AM: EDR flags background Mimikatz execution → Risk spikes to 98 → Instant Session Revocation 🛡️`
   },
   {
     id: 16,
@@ -250,7 +250,7 @@ const questions = [
     hint: "Tracks incident containment milestones to comply with CERT-In 6-hour reporting mandates.",
     level: "Basic",
     codeExample: `// CERT-In SLA Timer:
-// Incident Confirmed: 14:00 IST -> SOAR countdown timer: "CERT-In Notification Due in: 05:59:42" -> Auto-drafts report.`
+// Incident Confirmed: 14:00 IST → SOAR countdown timer: "CERT-In Notification Due in: 05:59:42" → Auto-drafts report.`
   },
   {
     id: 25,
@@ -290,7 +290,7 @@ const questions = [
     hint: "Calls IdP APIs to revoke refresh tokens, kill session cookies, and force hardware passkey login.",
     level: "Basic",
     codeExample: `// Identity Containment Call:
-// POST https://graph.microsoft.com/v1.0/users/{id}/revokeSignInSessions -> Invalidates all active cookies in 100ms.`
+// POST https://graph.microsoft.com/v1.0/users/{id}/revokeSignInSessions → Invalidates all active cookies in 100ms.`
   },
   {
     id: 29,
@@ -310,7 +310,7 @@ const questions = [
     question: "Write out the complete end-to-end technical blueprint for an Automated Ransomware Containment SOAR Playbook.",
     shortAnswer: "1. Trigger: EDR alert detects high-frequency file renaming/encryption. 2. Verification: AI confirms malicious process hash via Threat Intel API. 3. Sub-Second Containment: Isolate host via EDR API, revoke user OAuth sessions via IdP API, push C2 IP block to firewalls. 4. Evidence Preservation: Snapshot VM RAM and disk to forensic cloud bucket. 5. Governance: File P1 Jira ticket, notify CISO via Teams, and start CERT-In 6-hour SLA reporting timer.",
     explanation: "This complete automated playbook executes end-to-end containment in under 2 seconds, completely neutralizing ransomware before disk encryption spreads.",
-    hint: "Trigger -> Verify -> Isolate host & revoke tokens & block IP -> Snapshot RAM -> Notify & start SLA timer.",
+    hint: "Trigger → Verify → Isolate host & revoke tokens & block IP → Snapshot RAM → Notify & start SLA timer.",
     level: "Expert",
     codeExample: `// Complete Ransomware SOAR Playbook:
 // [EDR Alert] ➔ [Threat Intel Enrichment] ➔ [Host Isolation (150ms)] ➔ [IdP Session Revoke (80ms)] ➔ [Firewall IP Block (50ms)] ➔ [Forensic Memory Snapshot] ➔ [CERT-In SLA Timer Started]`

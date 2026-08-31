@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. THE GOLDEN CONTRACT:
-   - If 'a.equals(b) == true'  &rarr; 'a.hashCode() == b.hashCode()' is MANDATORY.
-   - If 'a.hashCode() == b.hashCode()' &rarr; 'a.equals(b)' can be true OR false (Collision).
-   - If 'a.equals(b) == false' &rarr; 'a.hashCode()' can still be same or different.
+   - If 'a.equals(b) == true'  → 'a.hashCode() == b.hashCode()' is MANDATORY.
+   - If 'a.hashCode() == b.hashCode()' → 'a.equals(b)' can be true OR false (Collision).
+   - If 'a.equals(b) == false' → 'a.hashCode()' can still be same or different.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

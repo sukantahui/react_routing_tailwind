@@ -51,7 +51,7 @@ const questions = [
     explanation: "Conversion calculation verification.",
     hint: "Binary: 11101, Hex: 0x1D.",
     level: "basic",
-    codeExample: "decimalToBinaryDivision(29) -> \"11101\" | decimalToHexadecimal(29) -> \"0x1D\""
+    codeExample: "decimalToBinaryDivision(29) → \"11101\" | decimalToHexadecimal(29) → \"0x1D\""
   },
   {
     question: "What is 'Horner's Method' for converting Binary or Hexadecimal strings back to Decimal?",
@@ -67,7 +67,7 @@ const questions = [
     explanation: "Hex to decimal calculation.",
     hint: "6719.",
     level: "basic",
-    codeExample: "hexToDecimal(\"0x1A3F\") -> 6719"
+    codeExample: "hexToDecimal(\"0x1A3F\") → 6719"
   },
   {
     question: "How does `(n & 0xFFFFFFFFL)` convert a negative 32-bit `int` into an unsigned 64-bit `long`?",
@@ -107,7 +107,7 @@ const questions = [
     explanation: "255 hex conversion.",
     hint: "0xFF.",
     level: "basic",
-    codeExample: "decimalToHexadecimal(255) -> \"0xFF\""
+    codeExample: "decimalToHexadecimal(255) → \"0xFF\""
   },
   {
     question: "How can Bitwise AND with `0xF` extract hex digits directly without division?",
@@ -139,7 +139,7 @@ const questions = [
     explanation: "Power of 2 binary representation.",
     hint: "1 followed by 10 zeros.",
     level: "basic",
-    codeExample: "decimalToBinaryDivision(1024) -> \"10000000000\""
+    codeExample: "decimalToBinaryDivision(1024) → \"10000000000\""
   },
   {
     question: "How do you count the number of set bits (Hamming Weight / Population Count) in binary?",
@@ -163,7 +163,7 @@ const questions = [
     explanation: "16-bit max hex verification.",
     hint: "0xFFFF.",
     level: "basic",
-    codeExample: "decimalToHexadecimal(65535) -> \"0xFFFF\""
+    codeExample: "decimalToHexadecimal(65535) → \"0xFFFF\""
   },
   {
     question: "Why should `StringBuilder.append()` and `reverse()` be used instead of string concatenation `res = rem + res`?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "-1 binary representation in two's complement.",
     hint: "32 consecutive ones (0xFFFFFFFF).",
     level: "intermediate",
-    codeExample: "decimalToBinaryBitwise(-1) -> 32 ones"
+    codeExample: "decimalToBinaryBitwise(-1) → 32 ones"
   },
   {
     question: "How do floating-point numbers represent decimals in binary in Java (IEEE 754)?",

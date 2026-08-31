@@ -22,7 +22,7 @@ const topic9_questions = [
   },
   {
     question: "What is the complete lifecycle of an anonymous object in JVM memory?",
-    shortAnswer: "1. Allocated in Eden space -> 2. Constructor initializes fields -> 3. Target method executes on 'this' -> 4. Statement completes -> 5. Immediately eligible for GC.",
+    shortAnswer: "1. Allocated in Eden space → 2. Constructor initializes fields → 3. Target method executes on 'this' → 4. Statement completes → 5. Immediately eligible for GC.",
     explanation: "Unlike named objects which remain reachable until their Stack variable goes out of scope or is nullified, an anonymous object loses reachability as soon as the semicolon terminating the instantiation expression is reached.",
     hint: "Created, executed, and orphaned in a single statement.",
     level: "Intermediate",
@@ -122,7 +122,7 @@ const topic9_questions = [
     explanation: "The thread object is registered with the JVM ThreadGroup (an active GC Root). Even though the spawning method holds no Stack reference, the thread remains alive until its 'run()' method completes.",
     hint: "Active threads are GC Roots regardless of Stack reference variables.",
     level: "Intermediate",
-    codeExample: "new Thread(() -> System.out.println(\"Background Task running\")).start();"
+    codeExample: "new Thread(() → System.out.println(\"Background Task running\")).start();"
   },
   {
     question: "Can you synchronize on an anonymous object (e.g. 'synchronized(new Object())') and why is it useless?",

@@ -117,7 +117,7 @@ const topic9_questions = [
     explanation: "Circular graphs require an identity hash map or tracking registry during deep cloning.",
     hint: "Circular references cause StackOverflowError without identity tracking.",
     level: "Expert",
-    codeExample: "// A -> B -> A requires identity map during deep clone"
+    codeExample: "// A → B → A requires identity map during deep clone"
   },
   {
     question: "How does a copy constructor handle 'final' fields?",

@@ -76,7 +76,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Introduction to Power Query & Modern Automated ETL Architecture
           </h1>
 
@@ -247,7 +247,7 @@ export default function Topic0() {
                 letting high-performance database servers do the heavy lifting before data reaches your computer!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Visual Filter &rarr; Native SQL: WHERE Region = 'Barrackpore'
+                Visual Filter → Native SQL: WHERE Region = 'Barrackpore'
               </div>
             </div>
           </div>
@@ -406,7 +406,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_ETL_Overview"
+            sheetName="EX2001"
             title="Power Query Master ETL Pipeline Dataset (Stage, Process, Source Format, Transformation, Destination, Refresh Frequency)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -444,7 +444,7 @@ export default function Topic0() {
                 using the <code className="text-teal-300 font-mono">From Folder</code> connector, turning 15 hours of manual copy-pasting into a 3-second refresh!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Connector: Get Data &rarr; From File &rarr; From Folder (Auto-Stacks CSVs)
+                Connector: Get Data → From File → From Folder (Auto-Stacks CSVs)
               </div>
             </div>
 
@@ -498,7 +498,7 @@ export default function Topic0() {
                 using the <code className="text-amber-300 font-mono">From Web</code> connector, converting daily FX rates into live inventory cost models.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Connector: Get Data &rarr; From Web &rarr; Live Daily FX Sync
+                Connector: Get Data → From Web → Live Daily FX Sync
               </div>
             </div>
           </div>
@@ -528,7 +528,7 @@ export default function Topic0() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Open Get Data Connector</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Navigate to the Excel Ribbon &rarr; <strong>Data Tab</strong> &rarr; <strong>Get Data</strong> &rarr; Select your data source (e.g. <code className="text-teal-300 font-mono">From Text/CSV</code> or <code className="text-teal-300 font-mono">From Folder</code>).
+                  Navigate to the Excel Ribbon → <strong>Data Tab</strong> → <strong>Get Data</strong> → Select your data source (e.g. <code className="text-teal-300 font-mono">From Text/CSV</code> or <code className="text-teal-300 font-mono">From Folder</code>).
                 </p>
               </div>
             </div>
@@ -602,7 +602,7 @@ export default function Topic0() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Data source not found</td>
                   <td className="py-3 px-4 text-slate-300">File moved, renamed, or network drive disconnected.</td>
                   <td className="py-3 px-4 text-slate-400">Check file path in Source step.</td>
-                  <td className="py-3 px-4 text-emerald-400">Go to Data &rarr; Data Source Settings &rarr; Change Source Path or use dynamic parameter.</td>
+                  <td className="py-3 px-4 text-emerald-400">Go to Data → Data Source Settings → Change Source Path or use dynamic parameter.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">The column 'X' of the table wasn't found</td>

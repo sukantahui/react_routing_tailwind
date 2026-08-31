@@ -7,8 +7,8 @@ const questions = [
     hint: "Tracks active connections in memory and automatically allows valid replies without opening permanent inbound holes.",
     level: "Basic",
     codeExample: `// Stateful Connection Table Concept:
-// Outbound: Client (10.10.1.50:51200) -> Server (203.0.113.88:443) [State: NEW]
-// Table Records: Expect Reply: Server (203.0.113.88:443) -> Client (10.10.1.50:51200) [State: ESTABLISHED]`
+// Outbound: Client (10.10.1.50:51200) → Server (203.0.113.88:443) [State: NEW]
+// Table Records: Expect Reply: Server (203.0.113.88:443) → Client (10.10.1.50:51200) [State: ESTABLISHED]`
   },
   {
     id: 2,
@@ -56,7 +56,7 @@ const questions = [
     level: "Expert",
     codeExample: `// TCP Window Validation:
 // Valid Sequence Range: [Last_Acked_Seq] to [Last_Acked_Seq + Window_Size]
-// Injected packet with Seq = 99999999 (Out of Window) -> Dropped as INVALID!`
+// Injected packet with Seq = 99999999 (Out of Window) → Dropped as INVALID!`
   },
   {
     id: 6,
@@ -105,15 +105,15 @@ const questions = [
   {
     id: 10,
     question: "What is the TCP State Transition sequence tracked by an SPI firewall during a standard 3-way handshake and connection teardown?",
-    shortAnswer: "`SYN_SENT` -> `SYN_RECV` -> `ESTABLISHED` -> `FIN_WAIT` -> `CLOSE_WAIT` -> `TIME_WAIT` -> `CLOSED`.",
+    shortAnswer: "`SYN_SENT` → `SYN_RECV` → `ESTABLISHED` → `FIN_WAIT` → `CLOSE_WAIT` → `TIME_WAIT` → `CLOSED`.",
     explanation: "The firewall tracks each transition: Outbound SYN sets `SYN_SENT`. Inbound SYN+ACK transitions to `SYN_RECV`. Final ACK transitions to `ESTABLISHED` (with a 5-day idle timeout). When a FIN packet arrives, it transitions to `FIN_WAIT`, cleaning up the session memory after the 4-way teardown completes.",
-    hint: "SYN_SENT -> SYN_RECV -> ESTABLISHED -> FIN_WAIT -> CLOSED.",
+    hint: "SYN_SENT → SYN_RECV → ESTABLISHED → FIN_WAIT → CLOSED.",
     level: "Basic",
     codeExample: `// State Transition Lifecycle:
-// 1. Client sends SYN      -> State: SYN_SENT (Timeout: 60s)
-// 2. Server sends SYN+ACK  -> State: SYN_RECV (Timeout: 30s)
-// 3. Client sends ACK      -> State: ESTABLISHED (Timeout: 432,000s / 5 days)
-// 4. Either sends FIN      -> State: FIN_WAIT (Timeout: 120s)`
+// 1. Client sends SYN      → State: SYN_SENT (Timeout: 60s)
+// 2. Server sends SYN+ACK  → State: SYN_RECV (Timeout: 30s)
+// 3. Client sends ACK      → State: ESTABLISHED (Timeout: 432,000s / 5 days)
+// 4. Either sends FIN      → State: FIN_WAIT (Timeout: 120s)`
   },
   {
     id: 11,
@@ -123,8 +123,8 @@ const questions = [
     hint: "Creates a temporary pseudo-state entry with a short timeout timer.",
     level: "Basic",
     codeExample: `// UDP Conntrack Pseudo-State:
-// Outbound: 10.10.1.50:52100 -> 8.8.8.8:53 (UDP) [Timeout: 30s]
-// Inbound : 8.8.8.8:53 -> 10.10.1.50:52100 (UDP) -> MATCHES STATE -> Permitted!`
+// Outbound: 10.10.1.50:52100 → 8.8.8.8:53 (UDP) [Timeout: 30s]
+// Inbound : 8.8.8.8:53 → 10.10.1.50:52100 (UDP) → MATCHES STATE → Permitted!`
   },
   {
     id: 12,
@@ -134,8 +134,8 @@ const questions = [
     hint: "Inspects the original packet header embedded inside the ICMP error message.",
     level: "Expert",
     codeExample: `// ICMP RELATED Matching:
-// Router sends ICMP Type 3 Code 4 (Fragmentation Needed) containing inner header [10.10.1.50:51200 -> 203.0.113.88:443]
-// Firewall matches inner header against active conntrack entry -> Action: ACCEPT (RELATED)`
+// Router sends ICMP Type 3 Code 4 (Fragmentation Needed) containing inner header [10.10.1.50:51200 → 203.0.113.88:443]
+// Firewall matches inner header against active conntrack entry → Action: ACCEPT (RELATED)`
   },
   {
     id: 13,
@@ -169,7 +169,7 @@ const ramMB = (entries * bytesPerEntry) / (1024 * 1024); // ~610 MB Kernel RAM`
     level: "Moderate",
     codeExample: `// Asymmetric Routing Problem:
 // Client ---> [Firewall A (Has State)] ---> Web Server
-// Web Server ---> [Firewall B (NO State!)] ---> Client -> DROPPED as INVALID!`
+// Web Server ---> [Firewall B (NO State!)] ---> Client → DROPPED as INVALID!`
   },
   {
     id: 16,
@@ -189,7 +189,7 @@ const ramMB = (entries * bytesPerEntry) / (1024 * 1024); // ~610 MB Kernel RAM`
     hint: "Strictly verifies that the RST sequence number matches the expected sequence number exactly.",
     level: "Expert",
     codeExample: `// RST Validation:
-// Injected RST with Seq = RCV.NXT + 5000 -> Dropped by SPI firewall!`
+// Injected RST with Seq = RCV.NXT + 5000 → Dropped by SPI firewall!`
   },
   {
     id: 18,
@@ -211,8 +211,8 @@ const ramMB = (entries * bytesPerEntry) / (1024 * 1024); // ~610 MB Kernel RAM`
     hint: "SPI checks that the conversation is grammatically correct at Layer 4, not what words are spoken at Layer 7.",
     level: "Basic",
     codeExample: `// The SPI Blind Spot:
-// 1. Attacker completes 3-way handshake -> State Table: ESTABLISHED (Valid!)
-// 2. Attacker sends SQLi / Log4Shell payload -> SPI passes packet because state is ESTABLISHED!`
+// 1. Attacker completes 3-way handshake → State Table: ESTABLISHED (Valid!)
+// 2. Attacker sends SQLi / Log4Shell payload → SPI passes packet because state is ESTABLISHED!`
   },
   {
     id: 20,
@@ -222,9 +222,9 @@ const ramMB = (entries * bytesPerEntry) / (1024 * 1024); // ~610 MB Kernel RAM`
     hint: "Buffering and reassembling individual TCP byte segments into a continuous stream.",
     level: "Expert",
     codeExample: `// TCP Stream Reassembly:
-// Packet 1: "UNI" -> Buffer
-// Packet 2: "ON " -> Buffer
-// Packet 3: "SELECT" -> Reassembled: "UNION SELECT" -> Signature Matched -> Blocked!`
+// Packet 1: "UNI" → Buffer
+// Packet 2: "ON " → Buffer
+// Packet 3: "SELECT" → Reassembled: "UNION SELECT" → Signature Matched → Blocked!`
   },
   {
     id: 21,

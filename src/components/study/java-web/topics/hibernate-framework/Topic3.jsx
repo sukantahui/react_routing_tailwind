@@ -100,7 +100,7 @@ const Topic3 = () => {
             isInView.intro ? "animate-fadeSlideUp" : "opacity-0 translate-y-8"
           )}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400">
             Entity Mapping
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -134,7 +134,7 @@ const Topic3 = () => {
           </div>
         </div>
 
-        {/* <!-- Basic Entity Example --> */}
+        {/* <!-- Basic Entity Example → */}
         <div
           ref={columnMappingRef}
           className={clsx(
@@ -152,7 +152,7 @@ const Topic3 = () => {
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">⬆️ <code>@Entity</code> marks the class; <code>@Id</code> defines the primary key. Table name defaults to class name (Student → student).</p>
         </div>
 
-        {/* <!-- Column Mappings Deep Dive --> */}
+        {/* <!-- Column Mappings Deep Dive → */}
         <div
           ref={idGenRef}
           className={clsx(
@@ -183,7 +183,7 @@ const Topic3 = () => {
           </div>
         </div>
 
-        {/* <!-- ID Generation Strategies --> */}
+        {/* <!-- ID Generation Strategies → */}
         <div
           ref={embeddedRef}
           className={clsx(
@@ -214,7 +214,7 @@ const Topic3 = () => {
           </div>
         </div>
 
-        {/* <!-- Embedded Objects --> */}
+        {/* <!-- Embedded Objects → */}
         <div
           ref={temporalRef}
           className={clsx(
@@ -233,7 +233,7 @@ const Topic3 = () => {
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">⬆️ The <code>Address</code> fields become columns in the <code>Employee</code> table (e.g., <code>street</code>, <code>city</code>).</p>
         </div>
 
-        {/* <!-- Temporal Mapping --> */}
+        {/* <!-- Temporal Mapping → */}
         <div
           className={clsx(
             "mb-16",
@@ -250,7 +250,7 @@ const Topic3 = () => {
           <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">💡 <strong>Best practice:</strong> Use Java 8 <code>LocalDate</code>, <code>LocalDateTime</code>, <code>Instant</code> – no <code>@Temporal</code> needed, and they handle timezone better.</p>
         </div>
 
-        {/* <!-- Access Strategy (Field vs Property) --> */}
+        {/* <!-- Access Strategy (Field vs Property) → */}
         <div
           className={clsx(
             "mb-16",
@@ -275,7 +275,7 @@ const Topic3 = () => {
           </div>
         </div>
 
-        {/* <!-- Tips & Pitfalls + Checklist --> */}
+        {/* <!-- Tips & Pitfalls + Checklist → */}
         <div
           ref={checklistRef}
           className={clsx(

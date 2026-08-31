@@ -8,7 +8,7 @@ const questions = [
     explanation: "Excel Tables convert static 2D cell grids into intelligent data entities that support structured references like `[@Salary]`.",
     hint: "Press Ctrl + T to convert any contiguous range into a table.",
     level: "basic",
-    codeExample: "Ctrl + T &rarr; Check 'My table has headers' &rarr; Enter"
+    codeExample: "Ctrl + T → Check 'My table has headers' → Enter"
   },
   {
     question: "How do structured column references (e.g. `[@Tuition_Fee] * 0.18`) differ from standard A1 references?",
@@ -36,7 +36,7 @@ const questions = [
   },
   {
     question: "How do you clear all active filters from an Excel worksheet at once?",
-    shortAnswer: "Press `Alt + A + C` or click Data &rarr; Clear on the Data ribbon tab.",
+    shortAnswer: "Press `Alt + A + C` or click Data → Clear on the Data ribbon tab.",
     explanation: "Clearing filters restores view of all hidden rows without removing the AutoFilter dropdown buttons.",
     hint: "Alt + A + C clears all applied filters.",
     level: "basic",

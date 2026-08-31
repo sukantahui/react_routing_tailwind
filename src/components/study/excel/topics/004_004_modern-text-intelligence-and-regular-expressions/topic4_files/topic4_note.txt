@@ -20,8 +20,8 @@ Syntax: =REGEXEXTRACT(text, pattern, [return_mode], [case_sensitivity])
 --------------------------------------------------------------------------------
 • Phone Parsing: ^\+(\d{1,3})-\((\d{3})\)-(\d{4}-\d{4})\s*Ext:\s*(\d+)$
 • Email Decomposition: ^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})$
-• ISO Date Parsing: ^(\d{4})-(\d{2})-(\d{2})$ &rarr; Year, Month, Day
-• Full Name Parsing: ^(\w+)\s+(.+)$ &rarr; First Name, Last Name
+• ISO Date Parsing: ^(\d{4})-(\d{2})-(\d{2})$ → Year, Month, Day
+• Full Name Parsing: ^(\w+)\s+(.+)$ → First Name, Last Name
 
 3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
 --------------------------------------------------------------------------------

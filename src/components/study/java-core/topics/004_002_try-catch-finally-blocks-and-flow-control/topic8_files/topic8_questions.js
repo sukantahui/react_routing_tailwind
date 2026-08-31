@@ -5,7 +5,7 @@ const topic8_questions = [
     "explanation": "This ensures database connections and socket locks are never orphaned even during crashes.",
     "hint": "Finally block executes even for unhandled propagating exceptions.",
     "level": "Intermediate",
-    "codeExample": "// Flow on unhandled error: try -> (catch skipped) -> finally -> propagate"
+    "codeExample": "// Flow on unhandled error: try → (catch skipped) → finally → propagate"
   }
 ];
 

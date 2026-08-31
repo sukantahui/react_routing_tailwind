@@ -17,7 +17,7 @@ const questions = [
     question: "What is the complete Widening Conversion Ladder in Java?",
     shortAnswer: "`byte` $\\to$ `short` $\\to$ `int` $\\to$ `long` $\\to$ `float` $\\to$ `double` (and `char` $\\to$ `int`).",
     explanation: "Any type on the left can be automatically assigned to any type on its right.",
-    hint: "byte -> short -> int -> long -> float -> double.",
+    hint: "byte → short → int → long → float → double.",
     level: "basic",
     codeExample: "byte b = 42;\ndouble d = b; // byte widened directly to double"
   },
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Mastering widening casting ensures seamless type transitions across business logic, mathematical computations, and API method invocations.",
     hint: "Seamless safe promotion; watch for float/double mantissa precision limits.",
     level: "basic",
-    codeExample: "// Summary: byte -> short -> int -> long -> float -> double (automatic widening)"
+    codeExample: "// Summary: byte → short → int → long → float → double (automatic widening)"
   },
   {
     question: "What is the next topic (Topic 20) in Module 001_003?",

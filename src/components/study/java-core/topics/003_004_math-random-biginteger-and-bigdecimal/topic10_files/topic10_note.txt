@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. ROUNDING MODES:
-   - 'HALF_UP'   : Standard school math (.5 rounds up: 2.5 &rarr; 3).
-   - 'HALF_EVEN' : Banker's rounding (rounds to even: 2.5 &rarr; 2, 3.5 &rarr; 4).
+   - 'HALF_UP'   : Standard school math (.5 rounds up: 2.5 → 3).
+   - 'HALF_EVEN' : Banker's rounding (rounds to even: 2.5 → 2, 3.5 → 4).
    - 'CEILING'   : Rounds towards $+\infty$.
    - 'FLOOR'     : Rounds towards $-\infty$.
    - 'UNNECESSARY': Asserts exact scale, throws if rounding needed.

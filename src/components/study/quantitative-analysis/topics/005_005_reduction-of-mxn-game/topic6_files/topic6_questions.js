@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Numerical Exercises for mxn Matrix Reduction?",
     shortAnswer: "'Trace dominance sweeps stage-by-stage; resolve deadlocks via convex blends; extract the solvable 2x2, 2xn, or 1x1 sub-game; reconstruct full-dimensional strategy vectors; and report all financial payoffs in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all steps in solving numerical m x n matrix reduction problems.",
-    hint: "Trace sweeps -> Convex blends -> Extract sub-game -> Reconstruct full vectors in ₹.",
+    hint: "Trace sweeps → Convex blends → Extract sub-game → Reconstruct full vectors in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: TraceSweeps() -> ConvexBlends() -> ExtractSubgame() -> ReportInRupees(₹)."
+    codeExample: "GoldenRule: TraceSweeps() → ConvexBlends() → ExtractSubgame() → ReportInRupees(₹)."
   }
 ];
 

@@ -237,7 +237,7 @@ const questions = [
     explanation: "A rock-solid environment configuration ensures that code compiles reliably, debuggers attach instantly, and build automation runs with zero friction.",
     hint: "The bedrock of professional software development.",
     level: "basic",
-    codeExample: "// Verified Environment -> Fast, productive, error-free engineering."
+    codeExample: "// Verified Environment → Fast, productive, error-free engineering."
   }
 ];
 

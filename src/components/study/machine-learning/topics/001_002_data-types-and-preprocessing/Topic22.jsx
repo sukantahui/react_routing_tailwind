@@ -29,7 +29,7 @@ const Topic22 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Worked Example 2: Handling missing salary values
           </h1>
 

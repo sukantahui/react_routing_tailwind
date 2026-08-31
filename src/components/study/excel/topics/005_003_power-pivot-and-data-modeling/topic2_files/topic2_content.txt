@@ -37,7 +37,7 @@ Operational Architecture: Schema Design: Star Schema (Central FactTable + Surrou
   Root Cause: Merging all customer, product, and regional text attributes into a single 50-column fact table destroys memory compression.
   Diagnostic Fix: Decompose flat tables into a normalized Star Schema: 1 Fact table + clean Dimension lookup tables.
 • Excessive Snowflake Normalization:
-  Root Cause: Splitting dimensions into 5 cascading tiers (Product -> Subcategory -> Category -> Department -> Group) slows down DAX filter traversal.
+  Root Cause: Splitting dimensions into 5 cascading tiers (Product → Subcategory → Category → Department → Group) slows down DAX filter traversal.
   Diagnostic Fix: Collapse multi-tier dimensions back into a single clean Star Schema dimension table.
 • Putting Descriptive Attributes in the Fact Table:
   Root Cause: Leaving customer addresses and telephone numbers in the 5-million row fact table wastes gigabytes of RAM.

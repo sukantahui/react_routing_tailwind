@@ -97,11 +97,11 @@ const certInDirectives = {
     hint: "Iteratively asking 'Why?' five times to drill down to fundamental systemic failures.",
     level: "Moderate",
     codeExample: `// 5 Whys Analysis Example (Equifax Scenario):
-// 1. Why was database compromised? -> Dispute server had an RCE vulnerability (Struts).
-// 2. Why was Struts unpatched? -> IT never received notice to patch the dispute server.
-// 3. Why was notice not received? -> No centralized Software Bill of Materials (SBOM) existed.
-// 4. Why was there no SBOM? -> Software inventory policies did not track nested dependencies.
-// 5. Why were policies outdated? -> ROOT CAUSE: Lack of executive DevSecOps governance and funding!`
+// 1. Why was database compromised? → Dispute server had an RCE vulnerability (Struts).
+// 2. Why was Struts unpatched? → IT never received notice to patch the dispute server.
+// 3. Why was notice not received? → No centralized Software Bill of Materials (SBOM) existed.
+// 4. Why was there no SBOM? → Software inventory policies did not track nested dependencies.
+// 5. Why were policies outdated? → ROOT CAUSE: Lack of executive DevSecOps governance and funding!`
   },
   {
     id: 8,
@@ -251,7 +251,7 @@ const gdprArticle33 = {
 // File: C:\\Windows\\System32\\svchost_malicious.exe
 // $STANDARD_INFORMATION CreationTime: 2018-05-10 12:00:00 (Forged by malware)
 // $FILE_NAME CreationTime:            2026-08-23 04:12:01 (True disk write timestamp!)
-// ANOMALY DETECTED -> File was timestomped!`
+// ANOMALY DETECTED → File was timestomped!`
   },
   {
     id: 18,

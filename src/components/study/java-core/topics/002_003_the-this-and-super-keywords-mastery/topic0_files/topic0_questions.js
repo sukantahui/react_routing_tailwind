@@ -29,7 +29,7 @@ const topic0_questions = [
     explanation: "Swadeep's 'this' points to Swadeep's Heap allocation, and Tuhina's 'this' points to Tuhina's Heap allocation.",
     hint: "Distinct 64-bit Heap addresses per instance.",
     level: "Beginner",
-    codeExample: "Student s1 = new Student(); // this -> 0x88AA\nStudent s2 = new Student(); // this -> 0x99BB"
+    codeExample: "Student s1 = new Student(); // this → 0x88AA\nStudent s2 = new Student(); // this → 0x99BB"
   },
   {
     question: "What is the classroom analogy by Sukanta Hui for 'this' in Barrackpore?",

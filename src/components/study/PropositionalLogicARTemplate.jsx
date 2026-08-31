@@ -260,7 +260,7 @@ const PropositionalLogicARTemplate = ({ data, isLoggedIn = false, organizationDe
 
       <div id="print-content">
         <div className="text-center border-b border-gray-700 pb-6 mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{data.title}</h1>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{data.title}</h1>
           <p className="text-sm text-gray-400 mt-1">Paper ID: {data.paperId}</p>
           <div className="flex justify-center gap-6 mt-3 text-sm text-gray-400">
             <span className="flex items-center gap-1">⏱️ {data.duration}</span>

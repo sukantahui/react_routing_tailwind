@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. VOLATILE NON-ATOMICITY:
    - 'volatile' guarantees: VISIBILITY & ORDERING.
    - 'volatile' DOES NOT guarantee: ATOMICITY.
-   - 'count++' has 3 steps (Read &rarr; Modify &rarr; Write) which still interleave.
+   - 'count++' has 3 steps (Read → Modify → Write) which still interleave.
    - Never use volatile for counters or accumulators.
    - Solution: Use 'AtomicInteger' or 'synchronized'.
 

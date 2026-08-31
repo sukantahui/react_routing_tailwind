@@ -16,11 +16,11 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 A. WINDOWS CONFIGURATION
 1. Download JDK 21 LTS (or modern LTS) installer/zip and install to `C:\Program Files\Java\jdk-21`.
-2. Open System Environment Variables (Start -> search "env").
+2. Open System Environment Variables (Start → search "env").
 3. Under System Variables, click "New":
    - Variable name: `JAVA_HOME`
    - Variable value: `C:\Program Files\Java\jdk-21`  (Notice: NO \bin at the end!)
-4. Under System Variables, select `Path` -> click "Edit":
+4. Under System Variables, select `Path` → click "Edit":
    - Add new entry: `%JAVA_HOME%\bin`
    - Move to top to take precedence.
 5. Verification in new PowerShell / CMD:

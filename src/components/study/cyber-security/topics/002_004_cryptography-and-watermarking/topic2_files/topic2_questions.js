@@ -22,7 +22,7 @@ function caesarEncrypt(char, key) {
     let c = (p + key) % 26;
     return String.fromCharCode(c + 65);
 }
-// Encrypt('H', 3) -> 'K' | Decrypt('K', 3) -> 'H'`
+// Encrypt('H', 3) → 'K' | Decrypt('K', 3) → 'H'`
   },
   {
     question: "What is the 'Affine Cipher', and what mathematical condition must the multiplicative key $a$ satisfy in modulo 26 arithmetic?",
@@ -37,8 +37,8 @@ Decryption Example: P = 21 * (C - b) mod 26`
   },
   {
     question: "What is the 'Playfair Cipher', and what are its three fundamental rules for encrypting digrams in a $5 \\times 5$ matrix?",
-    shortAnswer: "A digram substitution cipher using a $5 \\times 5$ letter matrix (I/J combined); Rules: 1. Same row -> shift right; 2. Same column -> shift down; 3. Rectangle -> swap corners horizontally.",
-    explanation: "Invented by Charles Wheatstone in 1854, Playfair encrypts pairs of letters (digrams): 1. Same Row: Replace each letter with the letter to its immediate right (wrapping around); 2. Same Column: Replace each letter with the letter immediately below it (wrapping around); 3. Rectangle Rule: Form a rectangle and replace each letter with the letter in its own row but at the column of the other letter. Duplicate letters in a pair are separated with 'X' (e.g. 'HELLO' -> 'HE LX LO').",
+    shortAnswer: "A digram substitution cipher using a $5 \\times 5$ letter matrix (I/J combined); Rules: 1. Same row → shift right; 2. Same column → shift down; 3. Rectangle → swap corners horizontally.",
+    explanation: "Invented by Charles Wheatstone in 1854, Playfair encrypts pairs of letters (digrams): 1. Same Row: Replace each letter with the letter to its immediate right (wrapping around); 2. Same Column: Replace each letter with the letter immediately below it (wrapping around); 3. Rectangle Rule: Form a rectangle and replace each letter with the letter in its own row but at the column of the other letter. Duplicate letters in a pair are separated with 'X' (e.g. 'HELLO' → 'HE LX LO').",
     hint: "Remember the 3 geometric rules in the 5x5 grid: Row (Right), Column (Down), and Rectangle (Opposite Corners).",
     level: "moderate",
     codeExample: `// Playfair 5x5 Matrix Example (Key: "MONARCHY"):
@@ -48,8 +48,8 @@ E  F  G  I  K  (I/J share slot)
 L  P  Q  S  T
 U  V  W  X  Z
 
-Pair "EA" (Rectangle) -> Encrypts to "IM" (Opposite column corners)
-Pair "OC" (Column)    -> Encrypts to "HF" (Shift down)`
+Pair "EA" (Rectangle) → Encrypts to "IM" (Opposite column corners)
+Pair "OC" (Column)    → Encrypts to "HF" (Shift down)`
   },
   {
     question: "What is the 'Hill Cipher', and what linear algebra condition must the key matrix $K$ satisfy for successful decryption?",
@@ -59,10 +59,10 @@ Pair "OC" (Column)    -> Encrypts to "HF" (Shift down)`
     level: "expert",
     codeExample: `// Hill 2x2 Matrix Encryption:
 Key Matrix K = [ [3, 2], [5, 7] ]
-det(K) = (3*7 - 2*5) = 21 - 10 = 11. (gcd(11, 26) = 1 -> Invertible!)
-Plaintext "HE" -> Vector P = [7, 4]^T
+det(K) = (3*7 - 2*5) = 21 - 10 = 11. (gcd(11, 26) = 1 → Invertible!)
+Plaintext "HE" → Vector P = [7, 4]^T
 Cipher Vector C = [ [3, 2], [5, 7] ] * [7, 4]^T mod 26
-C = [ 3*7 + 2*4, 5*7 + 7*4 ] = [ 29, 63 ] mod 26 = [ 3, 11 ] -> "DL"`
+C = [ 3*7 + 2*4, 5*7 + 7*4 ] = [ 29, 63 ] mod 26 = [ 3, 11 ] → "DL"`
   },
   {
     question: "What is the 'Vigenère Cipher', and why was it hailed as 'le chiffre indéchiffrable' (the unbreakable cipher) for over 300 years?",
@@ -104,7 +104,7 @@ Ciphertext = "DN" + "EED" + "F" = "DNEEDF"`
     explanation: "If the keyword is 'BENGAL' (sorted alphabetical order: A=1, B=2, E=3, G=4, L=5, N=6), the grid has 6 columns labeled [2, 3, 6, 4, 1, 5]. Plaintext is written across rows. To construct the ciphertext, the cryptographer reads down Column 'A' (order 1) first, then Column 'B' (order 2), then Column 'E' (order 3), etc. In 'Double Columnar Transposition', this process is repeated twice with two different keys, providing high diffusion.",
     hint: "Think of packing books into rows on a bookshelf and then pulling them out by color-coded column tags.",
     level: "moderate",
-    codeExample: `// Columnar Transposition (Key: "CAT" -> Sorted: A=1, C=2, T=3):
+    codeExample: `// Columnar Transposition (Key: "CAT" → Sorted: A=1, C=2, T=3):
 Key Order:  2 1 3 (C A T)
 Row 1:      H E L
 Row 2:      P M E
@@ -160,7 +160,7 @@ Cracking Time: 0.02 Seconds using Python Frequency Analysis Dictionary Solver!`
     hint: "Remember that using toy or ancient ciphers to protect real customer data fails Indian statutory compliance.",
     level: "basic",
     codeExample: `// Legal Assessment:
-Protecting Credit Card Numbers with Vigenère Cipher -> Fails IT Act Section 43A!
+Protecting Credit Card Numbers with Vigenère Cipher → Fails IT Act Section 43A!
 Remedy: Must deploy FIPS 197 validated AES-256-GCM.`
   },
   {
@@ -182,7 +182,7 @@ Digram 'TH':       1.52% Frequency Peak (Much harder to detect!)`
     codeExample: `// Anagramming Col Analysis:
 Col 1: T R E P
 Col 2: H O A S
-Combining Col 1 + Col 2 -> Forms "TH", "RO", "EA", "PS" (All valid English digrams -> Correct column order!)`
+Combining Col 1 + Col 2 → Forms "TH", "RO", "EA", "PS" (All valid English digrams → Correct column order!)`
   },
   {
     question: "How did the 'Feistel Cipher Network' (invented by Horst Feistel) revolutionize symmetric block cipher design using substitution and transposition?",
@@ -202,10 +202,10 @@ Decryption: Identical circuit! Simply apply SubKeys in reverse: K_{16}, K_{15}..
     hint: "Contrast transforming only half a car at a time (Feistel) versus painting and modifying the entire car in every assembly station (SPN).",
     level: "expert",
     codeExample: `// AES SPN Round Operations (Entire 128-bit Block):
-1. SubBytes()    -> S-Box Non-Linear Byte Substitution (Confusion)
-2. ShiftRows()   -> Cyclic Row Permutation (Diffusion)
-3. MixColumns()  -> Matrix Multiplicative Diffusion across Columns
-4. AddRoundKey() -> XOR with Round SubKey`
+1. SubBytes()    → S-Box Non-Linear Byte Substitution (Confusion)
+2. ShiftRows()   → Cyclic Row Permutation (Diffusion)
+3. MixColumns()  → Matrix Multiplicative Diffusion across Columns
+4. AddRoundKey() → XOR with Round SubKey`
   },
   {
     question: "Synthesizing Classical Ciphers: what is the fundamental historical lesson that classical substitution and transposition ciphers teach modern cybersecurity engineers?",

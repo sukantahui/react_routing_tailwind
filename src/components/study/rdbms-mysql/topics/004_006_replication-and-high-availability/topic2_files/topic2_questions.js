@@ -9,8 +9,8 @@ const questions = [
     explanation: "Asynchronous replication risks data loss (RPO > 0) if the Source crashes before binlogs are transmitted; Semi-Synchronous replication guarantees RPO = 0.",
     hint: "Async does not wait for replica acknowledgment; Semi-sync waits for >= 1 replica to receive the transaction.",
     level: "basic",
-    codeExample: `# Asynchronous: Commit -> Return -> Stream in background
-# Semi-Synchronous: Write Binlog -> Stream -> Wait for Replica ACK -> Commit -> Return`
+    codeExample: `# Asynchronous: Commit → Return → Stream in background
+# Semi-Synchronous: Write Binlog → Stream → Wait for Replica ACK → Commit → Return`
   },
   {
     question: "What are the two wait-point modes for Semi-Synchronous Replication in MySQL, and which is the default in MySQL 8.0?",
@@ -27,7 +27,7 @@ const questions = [
     hint: "Committing locally before ACK allows concurrent clients to read un-replicated data that vanishes on failover.",
     level: "intermediate",
     codeExample: `-- AFTER_COMMIT Flaw:
--- Thread 1: Inserts & Commits locally -> Thread 2 reads new balance -> Source crashes -> Standby promoted WITHOUT transaction!`
+-- Thread 1: Inserts & Commits locally → Thread 2 reads new balance → Source crashes → Standby promoted WITHOUT transaction!`
   },
   {
     question: "How does `AFTER_SYNC` (Lossless Semi-Sync) guarantee zero data loss (RPO = 0)?",
@@ -36,7 +36,7 @@ const questions = [
     hint: "Transaction is guaranteed to reside in the replica's relay log before the client receives success.",
     level: "intermediate",
     codeExample: `# Transaction Flow:
-# 1. InnoDB Prepare -> 2. Binlog Flush -> 3. Send to Replica -> 4. Replica Writes Relay Log & ACKs -> 5. InnoDB Commit -> 6. Client OK`
+# 1. InnoDB Prepare → 2. Binlog Flush → 3. Send to Replica → 4. Replica Writes Relay Log & ACKs → 5. InnoDB Commit → 6. Client OK`
   },
   {
     question: "In Mamata & Susmita's Barrackpore retail store, POS billing server crashed during a lightning surge. How did Lossless Semi-Sync prevent losing ₹45,000 in customer invoice data?",
@@ -188,9 +188,9 @@ SET GLOBAL rpl_semi_sync_master_wait_point = 'AFTER_SYNC';`
     hint: "Yes, MySQL supports mixing semi-sync and async replicas on the same Source.",
     level: "basic",
     codeExample: `# Mixed Topology:
-# Source -> Replica 1 (Semi-Sync Standby for HA)
-#        -> Replica 2 (Async Read Replica)
-#        -> Replica 3 (Async Read Replica)`
+# Source → Replica 1 (Semi-Sync Standby for HA)
+#        → Replica 2 (Async Read Replica)
+#        → Replica 3 (Async Read Replica)`
   },
   {
     question: "What is the role of `rpl_semi_sync_master_wait_no_slave` in MySQL?",

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Row Context and Filter Context are the twin engines of DAX. Row context is your cursor moving down rows. Filter context is the active filters on your pivot table. Understand this, and DAX becomes second nature.
 
 COMMON TRAPS TO AVOID:
-- Expecting Row Context to Filter Related Tables: Thinking a calculated column in Table A automatically filters Table B during evaluation. -> Fix: Row Context does not propagate across relationships unless transformed via Context Transition (`CALCULATE`).
-- Confusing Filter Context with Row Coordinates: Writing a measure that expects to know 'what row number am I on'. -> Fix: Measures operate in Filter Context; use Iterator functions if row-by-row iteration is required.
-- Assuming Filter Context Modifies Physical Data: Thinking filtering changes underlying stored tables in RAM. -> Fix: Filter Context only restricts the temporary virtual view of data passed to the formula.
+- Expecting Row Context to Filter Related Tables: Thinking a calculated column in Table A automatically filters Table B during evaluation. → Fix: Row Context does not propagate across relationships unless transformed via Context Transition (`CALCULATE`).
+- Confusing Filter Context with Row Coordinates: Writing a measure that expects to know 'what row number am I on'. → Fix: Measures operate in Filter Context; use Iterator functions if row-by-row iteration is required.
+- Assuming Filter Context Modifies Physical Data: Thinking filtering changes underlying stored tables in RAM. → Fix: Filter Context only restricts the temporary virtual view of data passed to the formula.
 ================================================================================

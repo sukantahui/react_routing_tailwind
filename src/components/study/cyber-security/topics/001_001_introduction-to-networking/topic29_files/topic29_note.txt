@@ -25,9 +25,9 @@ Core Architectural Properties:
 2. IPV4 STRUCTURE & LEGACY CLASSFUL TAXONOMY
 --------------------------------------------------------------------------------
 IPv4 consists of 32 bits arranged in 4 octets (e.g., 172.16.254.1):
-• Class A (1.0.0.0 – 126.255.255.255): Default /8 (255.0.0.0) -> 16,777,214 Hosts/Net
-• Class B (128.0.0.0 – 191.255.255.255): Default /16 (255.255.0.0) -> 65,534 Hosts/Net
-• Class C (192.0.0.0 – 223.255.255.255): Default /24 (255.255.255.0) -> 254 Hosts/Net
+• Class A (1.0.0.0 – 126.255.255.255): Default /8 (255.0.0.0) → 16,777,214 Hosts/Net
+• Class B (128.0.0.0 – 191.255.255.255): Default /16 (255.255.0.0) → 65,534 Hosts/Net
+• Class C (192.0.0.0 – 223.255.255.255): Default /24 (255.255.255.0) → 254 Hosts/Net
 • Class D (224.0.0.0 – 239.255.255.255): Multicast (No host subnets)
 • Class E (240.0.0.0 – 255.255.255.255): Experimental & Research
 

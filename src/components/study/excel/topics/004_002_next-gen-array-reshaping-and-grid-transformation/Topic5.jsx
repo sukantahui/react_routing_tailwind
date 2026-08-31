@@ -76,7 +76,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Extracting Top N or Bottom N Records from Arrays with TAKE
           </h1>
 
@@ -196,7 +196,7 @@ export default function Topic5() {
                 If your table contains only 8 rows and you write <code className="text-amber-300 font-mono">=TAKE(Table, 20)</code>, Excel returns all 8 rows without error.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Formula: =TAKE(8_Row_Table, 20) &rarr; Safe 8-Row Output (No Crash)
+                Formula: =TAKE(8_Row_Table, 20) → Safe 8-Row Output (No Crash)
               </div>
             </div>
 
@@ -380,7 +380,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_TAKE"
+            sheetName="EX1706"
             title="Student Performance Scorecards (12 Ranked Students)"
             rowsPerPage={12}
             showSheetSelector={true}
@@ -419,7 +419,7 @@ export default function Topic5() {
                 he instantly extracts the top 3 overall performers (Abhronila Sengupta 293, Debangshu Ghosh 290, Swadeep Banerjee 288) for scholarship awards.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =TAKE(SORT(A2:H13, 7, -1), 3) &rarr; Honours Top 3
+                Formula: =TAKE(SORT(A2:H13, 7, -1), 3) → Honours Top 3
               </div>
             </div>
 
@@ -437,7 +437,7 @@ export default function Topic5() {
                 She writes <code className="text-amber-300 font-mono">=TAKE(SORT(ScoreTable, 7, -1), -3)</code> to pull the 3 lowest aggregate scores directly into a remedial tracking table.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Formula: =TAKE(SORT(A2:H13, 7, -1), -3) &rarr; Remedial Mentorship List
+                Formula: =TAKE(SORT(A2:H13, 7, -1), -3) → Remedial Mentorship List
               </div>
             </div>
 
@@ -455,7 +455,7 @@ export default function Topic5() {
                 Using <code className="text-amber-300 font-mono">=TAKE(MonthlyCashflowLedger, -12)</code>, her financial model automatically evaluates the most recent 12 months as new rows are added.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =TAKE(Ledger, -12) &rarr; Rolling 12-Month Window
+                Formula: =TAKE(Ledger, -12) → Rolling 12-Month Window
               </div>
             </div>
 
@@ -473,7 +473,7 @@ export default function Topic5() {
                 The formula <code className="text-amber-300 font-mono">=TAKE(SORT(ScoreData, 7, -1), K1)</code> resizes dynamically.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =TAKE(SORT(Data, 7, -1), K1) &rarr; Interactive Resizing
+                Formula: =TAKE(SORT(Data, 7, -1), K1) → Interactive Resizing
               </div>
             </div>
           </div>
@@ -588,7 +588,7 @@ export default function Topic5() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells blocked by existing values or formatting.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow clean multi-column spill.</td>
                 </tr>
               </tbody>

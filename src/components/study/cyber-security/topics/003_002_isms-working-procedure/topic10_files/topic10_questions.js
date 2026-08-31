@@ -79,7 +79,7 @@ Next Review Date:2027-08-23 (Annual Mandatory Maintenance Cycle)`
 Defense Exhibit A: Board-Signed Information Security Policy (POL-SEC-01)
 Defense Exhibit B: PostgreSQL Dynamic Data Masking Technical Standard (STD-DATA-04)
 Defense Exhibit C: 6-Hour Incident Response Escalation SOP (SOP-INC-01)
-Judicial Ruling:   Corporate entity maintained verified reasonable security practices -> Lawsuit dismissed!`
+Judicial Ruling:   Corporate entity maintained verified reasonable security practices → Lawsuit dismissed!`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, what specific documented records must be maintained under Section 8?",

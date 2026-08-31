@@ -27,7 +27,7 @@ const questions = [
     explanation: "Factorial calculation verification.",
     hint: "720.",
     level: "basic",
-    codeExample: "factorial(6) -> 720"
+    codeExample: "factorial(6) → 720"
   },
   {
     question: "What is the recurrence relation and base cases for the Fibonacci sequence?",
@@ -51,7 +51,7 @@ const questions = [
     explanation: "Memoized Fibonacci calculation verification.",
     hint: "102,334,155.",
     level: "basic",
-    codeExample: "fibonacciMemo(40, memo) -> 102,334,155"
+    codeExample: "fibonacciMemo(40, memo) → 102,334,155"
   },
   {
     question: "What is the recursive recurrence relation for Sum of Digits of an integer $N$?",
@@ -67,7 +67,7 @@ const questions = [
     explanation: "Sum of digits output verification.",
     hint: "28.",
     level: "basic",
-    codeExample: "sumOfDigits(98452) -> 28"
+    codeExample: "sumOfDigits(98452) → 28"
   },
   {
     question: "How does Fast Exponentiation (Binary Power) achieve $O(\\log N)$ time complexity?",
@@ -83,7 +83,7 @@ const questions = [
     explanation: "Fast power calculation verification.",
     hint: "1024.00.",
     level: "basic",
-    codeExample: "fastPower(2.0, 10) -> 1024.00"
+    codeExample: "fastPower(2.0, 10) → 1024.00"
   },
   {
     question: "How does `fastPower` safely handle negative exponents (e.g. $2^{-3}$)?",
@@ -105,7 +105,7 @@ const questions = [
     question: "What are the 3 recursive steps to solve Tower of Hanoi for $N$ disks?",
     shortAnswer: "1. Move top $(N-1)$ disks from Source to Helper using Destination as aux. 2. Move disk $N$ directly from Source to Destination. 3. Move $(N-1)$ disks from Helper to Destination using Source as aux.",
     explanation: "The 3 core inductive steps of Tower of Hanoi.",
-    hint: "Move N-1 to Helper -> Move disk N to Dest -> Move N-1 from Helper to Dest.",
+    hint: "Move N-1 to Helper → Move disk N to Dest → Move N-1 from Helper to Dest.",
     level: "basic",
     codeExample: "hanoi(n-1, S, D, H); move(n, S, D); hanoi(n-1, H, S, D);"
   },
@@ -131,7 +131,7 @@ const questions = [
     explanation: "Tower of Hanoi time complexity analysis.",
     hint: "O(2^N) exponential time.",
     level: "basic",
-    codeExample: "// T(N) = 2*T(N-1) + 1 -> O(2^N)"
+    codeExample: "// T(N) = 2*T(N-1) + 1 → O(2^N)"
   },
   {
     question: "What is the Space Complexity of Tower of Hanoi on the Call Stack?",
@@ -155,7 +155,7 @@ const questions = [
     explanation: "Tower of Hanoi base case.",
     hint: "N = 1 moves directly from Source to Destination.",
     level: "basic",
-    codeExample: "if (n == 1) { System.out.println(source + \" -> \" + destination); return; }"
+    codeExample: "if (n == 1) { System.out.println(source + \" → \" + destination); return; }"
   },
   {
     question: "Can `sumOfDigits` handle negative numbers properly?",
@@ -183,11 +183,11 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the first move in 3-disk Tower of Hanoi?",
-    shortAnswer: "Move 1: Transfer Disk 1 from Peg A -> Peg C.",
+    shortAnswer: "Move 1: Transfer Disk 1 from Peg A → Peg C.",
     explanation: "Hanoi initial move verification.",
     hint: "Disk 1 from Peg A to Peg C.",
     level: "basic",
-    codeExample: "Move 1: Transfer Disk 1 from Peg A -> Peg C"
+    codeExample: "Move 1: Transfer Disk 1 from Peg A → Peg C"
   },
   {
     question: "What is the Binary Number representation pattern in Tower of Hanoi moves?",

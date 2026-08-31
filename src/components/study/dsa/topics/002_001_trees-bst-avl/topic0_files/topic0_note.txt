@@ -14,7 +14,7 @@ two vertices and ZERO cycles.
 Core Anatomical Components:
   • Root: The top-most vertex with in-degree 0 (has no parent).
   • Edge: Directed link connecting a parent node to its child.
-  • Parent & Child: If edge points A -> B, A is the parent and B is the child.
+  • Parent & Child: If edge points A → B, A is the parent and B is the child.
   • Siblings: Nodes sharing the exact same direct parent.
   • Leaf (External) Node: A node with degree 0 (no children: left == NULL && right == NULL).
   • Internal (Non-Leaf) Node: A node with at least one child (degree >= 1).

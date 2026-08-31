@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "Preserves centralized business rule enforcement.",
     "hint": "Bypasses essential business validation and transaction management.",
     "level": "Beginner",
-    "codeExample": "Always route: Controller -> Service -> DAO."
+    "codeExample": "Always route: Controller → Service → DAO."
   },
   {
     "question": "What is the Dependency Inversion Principle (DIP) in the context of the DAO pattern?",

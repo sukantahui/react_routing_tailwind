@@ -178,7 +178,7 @@ const topic17_questions = [
     explanation: "Immutable objects are inherently thread-safe, cannot suffer from data leaks, can be shared freely, and make superb HashMap keys.",
     hint: "Start with final fields; make mutable only when necessary.",
     level: "Beginner",
-    codeExample: "// Start with: private final Type field; -> Add mutators only when essential"
+    codeExample: "// Start with: private final Type field; → Add mutators only when essential"
   },
   {
     question: "Why should public classes avoid declaring public constant collections without unmodifiable wrappers?",

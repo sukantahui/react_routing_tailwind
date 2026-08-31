@@ -212,7 +212,7 @@ const Topic5 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Course Module 3: Information Security Management • Module 003_001 • Topic 5 of 10
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             The Three Dimensions of ISM: People, Process, and Technology
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

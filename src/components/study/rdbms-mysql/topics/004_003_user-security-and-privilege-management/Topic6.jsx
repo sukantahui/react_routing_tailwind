@@ -143,7 +143,7 @@ SHOW GRANTS FOR 'global_auditor'@'%';
             Topic 6 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Assigning Privileges with <span className="text-emerald-400">GRANT</span> &amp; Removing with <span className="text-rose-400">REVOKE</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

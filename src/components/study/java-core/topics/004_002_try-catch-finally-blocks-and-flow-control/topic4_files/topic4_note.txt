@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. ORDERING MANDATE:
    - Child/Subclass MUST come BEFORE Parent/Superclass.
-   - Example: 'FileNotFoundException' &rarr; 'IOException' &rarr; 'Exception'.
+   - Example: 'FileNotFoundException' → 'IOException' → 'Exception'.
    - Inverting the order results in a compile-time "unreachable code" error.
 
 ================================================================================

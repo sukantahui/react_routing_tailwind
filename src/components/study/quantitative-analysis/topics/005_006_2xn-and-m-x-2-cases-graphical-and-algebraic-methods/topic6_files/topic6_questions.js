@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Solving Equations for Optimal Probabilities?",
     shortAnswer: "'Set expected payoffs equal across active strategies; compute determinant Δ = (a11 + a22) - (a12 + a21); solve p1* = (a22 - a21)/Δ and q1* = (a22 - a12)/Δ; verify p1, q1 in [0, 1]; and state all payoffs in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all simultaneous equation solving mechanics.",
-    hint: "Equal payoffs -> Determinant Δ -> Formulas for p1* & q1* in ₹.",
+    hint: "Equal payoffs → Determinant Δ → Formulas for p1* & q1* in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: SetEqualPayoffs() -> CalcDelta() -> SolveP1Q1() -> VerifyUnitSimplex(₹)."
+    codeExample: "GoldenRule: SetEqualPayoffs() → CalcDelta() → SolveP1Q1() → VerifyUnitSimplex(₹)."
   }
 ];
 

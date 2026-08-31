@@ -184,7 +184,7 @@ if (TargetAccount == "svc_honeypot_admin" && EventType == "Kerberos_PreAuth") {
       ? (rawDetectionProb * 0.985).toFixed(2) // Calibrated UEBA + SOAR detects 98.5% with high fidelity
       : calibrationStrength >= 50
       ? (rawDetectionProb * 0.65).toFixed(2)  // Static SIEM detects 65% with high false positives
-      : rawDetectionProb.toFixed(2);           // Raw Logs -> 100% false alarms / low accuracy
+      : rawDetectionProb.toFixed(2);           // Raw Logs → 100% false alarms / low accuracy
 
     return {
       rawDetectionProb: rawDetectionProb.toFixed(2),

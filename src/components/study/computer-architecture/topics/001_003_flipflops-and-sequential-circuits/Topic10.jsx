@@ -54,7 +54,7 @@ const Topic10 = () => {
     setSlaveQBar(!masterY);
   };
 
-  // Full Pulse Automation (HIGH -> LOW)
+  // Full Pulse Automation (HIGH → LOW)
   const pulseFullClock = () => {
     stepClockHigh();
     setTimeout(() => {
@@ -100,7 +100,7 @@ const Topic10 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 10</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Master-Slave JK Flip-Flop: 8-NAND Gate Circuit &amp; Race Elimination
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -153,10 +153,10 @@ const Topic10 = () => {
                   In a single level-triggered JK flip-flop, when <code className="text-teal-300 font-mono">J=1</code> and <code className="text-rose-300 font-mono">K=1</code> and Clock is held HIGH ($CLK=1$), the output $Q$ inverts.
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-rose-950/40 border border-rose-800/60 font-mono text-xs text-rose-200 text-center font-bold">
-                  t_pulse &gt; t_propagation &rarr; Output Toggles Continuously (Uncontrolled Ringing)
+                  t_pulse &gt; t_propagation → Output Toggles Continuously (Uncontrolled Ringing)
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Because the clock pulse duration ($t_p$) is longer than the gate propagation delay ($t__pd$), the new inverted output feeds right back to the steering inputs, causing $Q$ to toggle 0 &rarr; 1 &rarr; 0 &rarr; 1 repeatedly during a single clock pulse, leaving the final state unpredictable!
+                  Because the clock pulse duration ($t_p$) is longer than the gate propagation delay ($t__pd$), the new inverted output feeds right back to the steering inputs, causing $Q$ to toggle 0 → 1 → 0 → 1 repeatedly during a single clock pulse, leaving the final state unpredictable!
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-rose-950/30 border border-rose-800/40 text-xs text-rose-200">
@@ -409,13 +409,13 @@ const Topic10 = () => {
                     {/* Q Feedback to NAND 2 (Bottom) */}
                     <polyline points="845,85 845,340 145,340 145,280 190,280" fill="none" stroke="#22c55e" strokeWidth="1.5" strokeDasharray="4 2" />
                     <text x="470" y="335" fill="#22c55e" textAnchor="middle" fontSize="10">
-                      Global Feedback: Slave Output Q &rarr; Master NAND 2
+                      Global Feedback: Slave Output Q → Master NAND 2
                     </text>
 
                     {/* Q_bar Feedback to NAND 1 (Top) */}
                     <polyline points="845,255 845,15 145,15 145,60 190,60" fill="none" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="4 2" />
                     <text x="470" y="12" fill="#a855f7" textAnchor="middle" fontSize="10">
-                      Global Feedback: Slave Output Q̄ &rarr; Master NAND 1
+                      Global Feedback: Slave Output Q̄ → Master NAND 1
                     </text>
                   </svg>
                 </div>

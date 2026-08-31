@@ -13,7 +13,7 @@ const topic13_questions = [
     "explanation": "Returning raw null from flatMap mapper violates the contract.",
     "hint": "Throws NullPointerException if the mapping function returns null.",
     "level": "Advanced",
-    "codeExample": "opt.flatMap(x -> null); // Throws NullPointerException!"
+    "codeExample": "opt.flatMap(x → null); // Throws NullPointerException!"
   }
 ];
 

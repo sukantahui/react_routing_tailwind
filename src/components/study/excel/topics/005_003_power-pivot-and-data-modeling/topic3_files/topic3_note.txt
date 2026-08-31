@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Relationship Definition: Drag [Dim_Table[ID_Key]] (1 - Primary Key) -> [Fact_Table[ID_Key]] (* - Foreign Key)
+Relationship Definition: Drag [Dim_Table[ID_Key]] (1 - Primary Key) → [Fact_Table[ID_Key]] (* - Foreign Key)
 
 PRIMARY CONCEPT:
 Creating, validating, and managing 1-to-Many (1:*) relational models in Power Pivot Diagram View: primary keys, foreign keys, and referential integrity
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Say goodbye to VLOOKUP forever! In Power Pivot Diagram View, simply drag 'CustomerID' from Dim_Customer to Fact_Sales. That 1-second drag replaces 500,000 VLOOKUP formulas and recalculates 1,000x faster.
 
 COMMON TRAPS TO AVOID:
-- The 'Column Contains Duplicate Values' Fatal Error: Attempting to create a relationship where the '1' side dimension table contains duplicate key values. -> Fix: Ensure the dimension key column has 100% unique values using Power Query `Remove Duplicates`.
-- Many-to-Many Relationship Ambiguity: Connecting two fact tables directly together creates ambiguous cartesian explosion. -> Fix: Introduce a shared bridge Dimension table between the two Fact tables.
-- Data Type Mismatch Between Relational Keys: Key column in Dimension table is formatted as Text while Foreign Key in Fact table is Whole Number. -> Fix: Align data types identically in Power Query prior to establishing relationships.
+- The 'Column Contains Duplicate Values' Fatal Error: Attempting to create a relationship where the '1' side dimension table contains duplicate key values. → Fix: Ensure the dimension key column has 100% unique values using Power Query `Remove Duplicates`.
+- Many-to-Many Relationship Ambiguity: Connecting two fact tables directly together creates ambiguous cartesian explosion. → Fix: Introduce a shared bridge Dimension table between the two Fact tables.
+- Data Type Mismatch Between Relational Keys: Key column in Dimension table is formatted as Text while Foreign Key in Fact table is Whole Number. → Fix: Align data types identically in Power Query prior to establishing relationships.
 ================================================================================

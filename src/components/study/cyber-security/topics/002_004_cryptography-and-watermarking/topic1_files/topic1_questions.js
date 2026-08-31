@@ -11,8 +11,8 @@ where:
   P = { Plaintext Messages }
   C = { Encrypted Ciphertexts }
   K = { Secret Cryptographic Keys }
-  E = { e_k : P -> C } (Encryption Function)
-  D = { d_k : C -> P } (Decryption Function)
+  E = { e_k : P → C } (Encryption Function)
+  D = { d_k : C → P } (Decryption Function)
 Invariance Condition: For all x in P, d_k(e_k(x)) = x`
   },
   {
@@ -32,12 +32,12 @@ Invariance Condition: For all x in P, d_k(e_k(x)) = x`
     hint: "Think of adding a unique random timestamp ticket to every sealed envelope so no two envelopes ever look identical.",
     level: "moderate",
     codeExample: `// Without IV (Deterministic Leak):
-AES-ECB("TRANSFER ₹50,000") -> 8a4c12...
-AES-ECB("TRANSFER ₹50,000") -> 8a4c12... (Attacker knows messages are identical!)
+AES-ECB("TRANSFER ₹50,000") → 8a4c12...
+AES-ECB("TRANSFER ₹50,000") → 8a4c12... (Attacker knows messages are identical!)
 
 // With Unique IV (Semantic Security):
-AES-CBC("TRANSFER ₹50,000", IV_1) -> 3f9a1b...
-AES-CBC("TRANSFER ₹50,000", IV_2) -> e8c740... (Completely different ciphertexts!)`
+AES-CBC("TRANSFER ₹50,000", IV_1) → 3f9a1b...
+AES-CBC("TRANSFER ₹50,000", IV_2) → e8c740... (Completely different ciphertexts!)`
   },
   {
     question: "What is the 'ECB Penguin Leak', and why is Electronic Codebook (ECB) mode strictly forbidden for encrypting structured data or images?",
@@ -71,7 +71,7 @@ C_i = E_k( P_i ⊕ C_{i-1} )`
     codeExample: `// AES-GCM (AEAD) Operation:
 Inputs:  Plaintext (P), Key (K), 96-bit Nonce (IV), Associated Data (AAD)
 Outputs: Ciphertext (C), 128-bit Authentication Tag (T)
-Verification: Decrypt(C, K, IV, AAD, T) -> Returns P only if Tag T matches 100%! Otherwise: REJECTS.`
+Verification: Decrypt(C, K, IV, AAD, T) → Returns P only if Tag T matches 100%! Otherwise: REJECTS.`
   },
   {
     question: "What is 'Key Entropy', and what is the difference between a True Random Number Generator (TRNG) and a Cryptographically Secure Pseudo-Random Number Generator (CSPRNG)?",
@@ -94,9 +94,9 @@ const key = crypto.randomBytes(32); // 256-bit high-entropy cryptographic key`
     hint: "Remember: Salt is for password hashes, IV is for block cipher chaining, and Nonce is for stream/AEAD uniqueness.",
     level: "moderate",
     codeExample: `// Primitive Roles:
-Salt:  Hash("SecretPass" + "9f!k2@") -> Unique password hash per user.
-IV:    AES_CBC(Plaintext, Key, IV)    -> Randomizes block chaining.
-Nonce: AES_GCM(Plaintext, Key, Nonce) -> Guarantees unique keystream per session.`
+Salt:  Hash("SecretPass" + "9f!k2@") → Unique password hash per user.
+IV:    AES_CBC(Plaintext, Key, IV)    → Randomizes block chaining.
+Nonce: AES_GCM(Plaintext, Key, Nonce) → Guarantees unique keystream per session.`
   },
   {
     question: "What is 'Padding' in block ciphers, and how does the 'PKCS#7' standard handle plaintexts that are not exact multiples of the block size?",
@@ -118,7 +118,7 @@ Nonce: AES_GCM(Plaintext, Key, Nonce) -> Guarantees unique keystream per session
     codeExample: `// Padding Oracle Decryption Formula:
 Attacker tests C1'[15] = 0x00 to 0xFF until Server responds: "Valid Padding (0x01)"!
 Then: Intermediate_Byte = C1'[15] ⊕ 0x01
-Plaintext_Byte = Intermediate_Byte ⊕ Original_C1[15] -> RECOVERED PLAINTEXT!`
+Plaintext_Byte = Intermediate_Byte ⊕ Original_C1[15] → RECOVERED PLAINTEXT!`
   },
   {
     question: "What is 'Counter Mode' (CTR), and how does it convert a synchronous Block Cipher into a high-speed Stream Cipher?",
@@ -127,8 +127,8 @@ Plaintext_Byte = Intermediate_Byte ⊕ Original_C1[15] -> RECOVERED PLAINTEXT!`
     hint: "Think of turning a heavy block stamper into an automated high-speed spray painter that paints numbers sequentially.",
     level: "moderate",
     codeExample: `// AES-CTR Mode Mathematical Architecture:
-Block 1: Keystream_1 = AES_k( Nonce || 0x00000001 ) -> C_1 = P_1 ⊕ Keystream_1
-Block 2: Keystream_2 = AES_k( Nonce || 0x00000002 ) -> C_2 = P_2 ⊕ Keystream_2
+Block 1: Keystream_1 = AES_k( Nonce || 0x00000001 ) → C_1 = P_1 ⊕ Keystream_1
+Block 2: Keystream_2 = AES_k( Nonce || 0x00000002 ) → C_2 = P_2 ⊕ Keystream_2
 Feature: 100% Parallelizable on Multi-Core Hardware!`
   },
   {
@@ -150,7 +150,7 @@ DPDP Act 2023 Section 33: Up to ₹250 Crores fine for unencrypted data leaks.`
     codeExample: `// Shannon Entropy in PE Binary Analysis:
 Section .text (Normal Code):   Entropy = 5.82 (Standard compiled assembly)
 Section .rsrc (Plaintext UI):  Entropy = 3.41 (Low randomness)
-Section .upx0 (Packed / AES):  Entropy = 7.94 -> [!] Flagged as Encrypted Malware Payload!`
+Section .upx0 (Packed / AES):  Entropy = 7.94 → [!] Flagged as Encrypted Malware Payload!`
   },
   {
     question: "What is 'Key Wrapping' (e.g. AES Key Wrap / RFC 3394), and how do Key Management Systems (KMS) securely encrypt and transport cryptographic keys?",
@@ -182,7 +182,7 @@ Meet-in-the-Middle: 2^56 (Forward Encryptions) + 2^56 (Backward Decryptions) = 2
     codeExample: `// IND-CPA Semantic Security Game:
 Attacker chooses: P0 = "PAY ₹10,000", P1 = "PAY ₹99,999"
 Challenger encrypts: C = Enc(K, P_b, Random_IV)
-Attacker Advantage: |Pr[Guess == b] - 1/2| <= 2^-128 (Negligible Advantage -> SEMANTICALLY SECURE!)`
+Attacker Advantage: |Pr[Guess == b] - 1/2| <= 2^-128 (Negligible Advantage → SEMANTICALLY SECURE!)`
   },
   {
     question: "What is 'Key Derivation Function' (KDF / e.g. PBKDF2, HKDF, Argon2), and how does it convert a low-entropy user password into a 256-bit cryptographic key?",

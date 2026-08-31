@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. UNCAUGHT EXCEPTION LIFECYCLE:
-   - Unhandled in main() &rarr; Invokes 'Thread.UncaughtExceptionHandler'.
+   - Unhandled in main() → Invokes 'Thread.UncaughtExceptionHandler'.
    - Default action: Prints stack trace to System.err & halts thread.
    - Enterprise hook: 'Thread.setDefaultUncaughtExceptionHandler(...)'.
 

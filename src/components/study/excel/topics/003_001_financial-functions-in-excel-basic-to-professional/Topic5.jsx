@@ -71,7 +71,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world irregular cash flow valuation with XNPV"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Real_world_irregul"
+            sheetName="EX1206"
             title={"Real-world irregular cash flow valuation with XNPV - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -494,7 +494,7 @@ export default function Topic5() {
                 <span>⚡</span> {"Sort by Date First"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Mandatory prerequisite to guarantee accurate XNPV calculation."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data &gt; Sort Ascending by Date"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data > Sort Ascending by Date"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

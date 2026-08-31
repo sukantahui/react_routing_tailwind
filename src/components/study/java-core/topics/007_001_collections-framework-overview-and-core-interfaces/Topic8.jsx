@@ -21,7 +21,7 @@ export default function Topic8() {
             Queue &amp; Deque
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           3. <code className="text-amber-400 font-mono">Queue</code> &amp; <code className="text-amber-400 font-mono">Deque</code>: FIFO Buffers, LIFO Stacks &amp; Priority Heaps
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

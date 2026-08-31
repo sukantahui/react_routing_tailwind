@@ -42,7 +42,7 @@ export default function Topic7() {
             Compile-Time Polymorphism
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Method Overloading in Java: Count, Types &amp; Order
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -148,7 +148,7 @@ export default function Topic7() {
             <text x="48" y="165" fill="#bae6fd" fontSize="9" fontFamily="monospace">(double rate)</text>
             <text x="48" y="185" fill="#bae6fd" fontSize="9" fontFamily="monospace">(double rate, int mos)</text>
             <text x="48" y="205" fill="#bae6fd" fontSize="9" fontFamily="monospace">(double rate, int mos, double disc)</text>
-            <text x="48" y="225" fill="#38bdf8" fontSize="8" fontWeight="bold">&rarr; Delegates to master overload</text>
+            <text x="48" y="225" fill="#38bdf8" fontSize="8" fontWeight="bold">→ Delegates to master overload</text>
 
             {/* Branch 2: By Type */}
             <rect x="310" y="115" width="260" height="130" rx="8" fill="url(#gradType)" opacity="0.9" />
@@ -156,7 +156,7 @@ export default function Topic7() {
             <rect x="320" y="145" width="240" height="90" rx="4" fill="#022c22" />
             <text x="328" y="168" fill="#a7f3d0" fontSize="9" fontFamily="monospace">(int courseUnits)</text>
             <text x="328" y="188" fill="#a7f3d0" fontSize="9" fontFamily="monospace">(String courseCode)</text>
-            <text x="328" y="215" fill="#34d399" fontSize="8" fontWeight="bold">&rarr; Distinct primitive / reference types</text>
+            <text x="328" y="215" fill="#34d399" fontSize="8" fontWeight="bold">→ Distinct primitive / reference types</text>
 
             {/* Branch 3: By Order */}
             <rect x="590" y="115" width="260" height="130" rx="8" fill="url(#gradOrder)" opacity="0.9" />
@@ -164,7 +164,7 @@ export default function Topic7() {
             <rect x="600" y="145" width="240" height="90" rx="4" fill="#451a03" />
             <text x="608" y="168" fill="#fde68a" fontSize="9" fontFamily="monospace">(String name, int id)</text>
             <text x="608" y="188" fill="#fde68a" fontSize="9" fontFamily="monospace">(int id, String name)</text>
-            <text x="608" y="215" fill="#fbbf24" fontSize="8" fontWeight="bold">&rarr; Permuted positional signatures</text>
+            <text x="608" y="215" fill="#fbbf24" fontSize="8" fontWeight="bold">→ Permuted positional signatures</text>
 
             {/* Bottom Caption */}
             <text x="440" y="268" fill="#94a3b8" fontSize="12" textAnchor="middle">

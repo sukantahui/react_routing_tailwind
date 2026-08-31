@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             AutoFill Magic, Custom Lists and AI-Powered Flash Fill (Ctrl + E) Pattern Intelligence
           </h1>
 
@@ -316,7 +316,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'Swadeep' &amp;rarr; Press Ctrl + E</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'Swadeep' → Press Ctrl + E</div>
                 <div className="text-emerald-400 font-semibold">Result: All 500 first and last names extracted in 1 second with zero formulas.</div>
                 <div className="text-slate-400 text-[11px]">Flash Fill recognizes the delimiter space and extracts sub-strings automatically.</div>
               </div>
@@ -339,7 +339,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Type '+91 98301-23456' in B2 &amp;rarr; Press Ctrl + E</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Type '+91 98301-23456' in B2 → Press Ctrl + E</div>
                 <div className="text-emerald-400 font-semibold">Result: 500 phone numbers formatted with international prefixes instantly.</div>
                 <div className="text-slate-400 text-[11px]">Flash Fill applies string injection templates across massive datasets effortlessly.</div>
               </div>
@@ -362,7 +362,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: File &amp;rarr; Options &amp;rarr; Advanced &amp;rarr; Edit Custom Lists</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: File → Options → Advanced → Edit Custom Lists</div>
                 <div className="text-emerald-400 font-semibold">Result: Instant local geography cycling in all future workbooks.</div>
                 <div className="text-slate-400 text-[11px]">Custom lists speed up recurring regional reporting.</div>
               </div>
@@ -372,7 +372,7 @@ export default function Topic2() {
                 <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold flex items-center justify-center">04</span>
                 <h3 className="text-base font-bold text-white">Shyamnagar Industrial PAN Card and GSTIN Deconstruction</h3>
               </div>
-              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting 10-character PAN cards from 15-character GSTIN numbers (e.g. 19ABCDE1234F1Z5 &amp;rarr; ABCDE1234F).</p>
+              <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">Extracting 10-character PAN cards from 15-character GSTIN numbers (e.g. 19ABCDE1234F1Z5 → ABCDE1234F).</p>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
@@ -386,7 +386,7 @@ export default function Topic2() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'ABCDE1234F' in B2 &amp;rarr; Press Ctrl + E</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Type 'ABCDE1234F' in B2 → Press Ctrl + E</div>
                 <div className="text-emerald-400 font-semibold">Result: All PAN cards extracted from state-coded GSTIN numbers.</div>
                 <div className="text-slate-400 text-[11px]">Flash Fill extracts fixed-position substring patterns without MID() formulas.</div>
               </div>

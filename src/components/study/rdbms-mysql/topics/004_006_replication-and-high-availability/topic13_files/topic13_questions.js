@@ -29,8 +29,8 @@ const questions = [
     hint: "Strict majority (>50%) quorum ensures only the majority partition can write; minority locks in read-only.",
     level: "intermediate",
     codeExample: `# 3-Node Partition:
-# Majority (2 Nodes > 50%) -> Accepts Writes
-# Minority (1 Node < 50%)  -> Locked in super_read_only = ON`
+# Majority (2 Nodes > 50%) → Accepts Writes
+# Minority (1 Node < 50%)  → Locked in super_read_only = ON`
   },
   {
     question: "What is 'STONITH' (Shoot The Other Node In The Head) and how is it used in enterprise database fencing?",
@@ -139,7 +139,7 @@ super_read_only = ON`
     level: "intermediate",
     codeExample: `SELECT @@GLOBAL.gtid_executed;
 -- Node 2: 3E11FA47-...:1-500
--- Node 3: 3E11FA47-...:1-498 (Node 2 is 2 transactions ahead -> Promote Node 2!)`
+-- Node 3: 3E11FA47-...:1-498 (Node 2 is 2 transactions ahead → Promote Node 2!)`
   },
   {
     question: "What is 'Errant GTID' (or Errant Transaction) and why is it fatal during failover?",

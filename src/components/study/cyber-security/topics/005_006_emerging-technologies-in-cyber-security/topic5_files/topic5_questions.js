@@ -52,7 +52,7 @@ const questions = [
     hint: "Pairing-based cryptographic signature allowing selective attribute disclosure and unlinkable presentations.",
     level: "Expert",
     codeExample: `// BBS+ Cryptographic Presentation:
-// Signs [c1, c2, c3, c4] -> Holder presents proof of (c1, c4) without revealing signature or hidden claims.`
+// Signs [c1, c2, c3, c4] → Holder presents proof of (c1, c4) without revealing signature or hidden claims.`
   },
   {
     id: 6,
@@ -156,7 +156,7 @@ const questions = [
     hint: "Public append-only Merkle logs where all SSL/TLS certificates must be registered to be trusted by browsers.",
     level: "Moderate",
     codeExample: `// CT Log Verification:
-// Browser checks SCT (Signed Certificate Timestamp) in TLS handshake -> Validates Merkle inclusion proof.`
+// Browser checks SCT (Signed Certificate Timestamp) in TLS handshake → Validates Merkle inclusion proof.`
   },
   {
     id: 16,
@@ -166,7 +166,7 @@ const questions = [
     hint: "Encrypted personal data storage mesh where users store their private credentials and data.",
     level: "Moderate",
     codeExample: `// DWN Request:
-// POST https://dwn.susmita.me/records/query -> Authenticates with DID Ed25519 signature -> Retrieves encrypted VC.`
+// POST https://dwn.susmita.me/records/query → Authenticates with DID Ed25519 signature → Retrieves encrypted VC.`
   },
   {
     id: 17,
@@ -176,7 +176,7 @@ const questions = [
     hint: "Resolves DIDs to fetch X25519 public keys and performs ECDH to create an encrypted P2P tunnel.",
     level: "Expert",
     codeExample: `// DIDComm Handshake:
-// Alice resolves Bob's DID -> ECDH(Alice_PrivKey, Bob_PubKey) -> Shared AES-256 GCM Session Key Derived!`
+// Alice resolves Bob's DID → ECDH(Alice_PrivKey, Bob_PubKey) → Shared AES-256 GCM Session Key Derived!`
   },
   {
     id: 18,
@@ -207,7 +207,7 @@ const questions = [
     hint: "Private keys are bound to hardware secure enclaves, not mobile carrier phone numbers.",
     level: "Basic",
     codeExample: `// SIM Swap Immunity:
-// Attacker clones SIM -> Attempts login -> Verifier demands Ed25519 signature from Secure Enclave -> Fails! 🛡️`
+// Attacker clones SIM → Attempts login → Verifier demands Ed25519 signature from Secure Enclave → Fails! 🛡️`
   },
   {
     id: 21,
@@ -227,7 +227,7 @@ const questions = [
     hint: "Provides semantic web context and canonicalizes JSON structures so formatting changes don't break signatures.",
     level: "Expert",
     codeExample: `// RDF Canonicalization:
-// JSON-LD -> URDNA2015 Canonical Form -> SHA256 Hash -> Ed25519 Sign -> Valid Signature Proof`
+// JSON-LD → URDNA2015 Canonical Form → SHA256 Hash → Ed25519 Sign → Valid Signature Proof`
   },
   {
     id: 23,
@@ -237,7 +237,7 @@ const questions = [
     hint: "Storing DID private keys inside hardware Secure Enclaves requiring biometric authorization.",
     level: "Moderate",
     codeExample: `// Secure Enclave Signing:
-// Key generated with kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly -> Signature generated in hardware chip.`
+// Key generated with kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly → Signature generated in hardware chip.`
   },
   {
     id: 24,
@@ -247,7 +247,7 @@ const questions = [
     hint: "Comparing log hashes against on-chain roots pinpoints the exact time window when an intruder tampered with logs.",
     level: "Moderate",
     codeExample: `// Forensic Diagnostic:
-// Hash check passes up to 02:14:00 AM -> Mismatch begins at 02:15:00 AM -> Incident window isolated to 02:15 AM!`
+// Hash check passes up to 02:14:00 AM → Mismatch begins at 02:15:00 AM → Incident window isolated to 02:15 AM!`
   },
   {
     id: 25,
@@ -267,7 +267,7 @@ const questions = [
     hint: "Ensuring each physical human can obtain only one valid credential using biometric deduplication.",
     level: "Moderate",
     codeExample: `// Proof-of-Personhood:
-// Iris Hash Deduplication -> Generates Zero-Knowledge Uniqueness Token -> Prevents duplicate welfare claims ✔`
+// Iris Hash Deduplication → Generates Zero-Knowledge Uniqueness Token → Prevents duplicate welfare claims ✔`
   },
   {
     id: 27,
@@ -298,7 +298,7 @@ const questions = [
     level: "Expert",
     codeExample: `// Layered Defense Outcome:
 // Step 1: Transfer blocked (Invalid DID signature on transaction authorization) 🛡️
-// Step 2: Insider deletes logs -> Merkle Root on Blockchain: 0x7f... vs Local: 0x00... -> Tampering Alarm Triggered! 🚨`
+// Step 2: Insider deletes logs → Merkle Root on Blockchain: 0x7f... vs Local: 0x00... → Tampering Alarm Triggered! 🚨`
   },
   {
     id: 30,

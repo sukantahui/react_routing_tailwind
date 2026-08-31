@@ -14,20 +14,20 @@ JEP 361 (standardized in Java SE 14 under JLS §14.11 and §15.28) redesigned sw
 2. GRAMMAR AND SYNTACTIC RULES OF ARROW SYNTAX
 In arrow syntax:
   SwitchLabeledRule:
-    case CaseConstantList -> Expression ;
-    case CaseConstantList -> Block
-    case CaseConstantList -> ThrowStatement
-    default -> Expression ;
-    default -> Block
-    default -> ThrowStatement
+    case CaseConstantList → Expression ;
+    case CaseConstantList → Block
+    case CaseConstantList → ThrowStatement
+    default → Expression ;
+    default → Block
+    default → ThrowStatement
 
 A. Elimination of Fall-Through:
    By formal definition, the execution of a `SwitchLabeledRule` completes as soon as the expression, block, or throw statement to the right of `->` completes. Control immediately exits the switch.
 
 B. Lexical Block Scoping:
    Unlike traditional colon switches where the entire switch forms a single scope, each arrow rule forms an independent lexical scope:
-     case A -> { int x = 10; }
-     case B -> { int x = 20; } // 100% Legal! No name collision!
+     case A → { int x = 10; }
+     case B → { int x = 20; } // 100% Legal! No name collision!
 
 3. EXHAUSTIVENESS AND COMPILE-TIME SOUNDNESS
 A Switch Expression must be exhaustive: every possible value of the selector type must be matched by a case label or a `default` label.
@@ -37,9 +37,9 @@ A Switch Expression must be exhaustive: every possible value of the selector typ
 4. IMMUTABILITY AND FUNCTIONAL PROGRAMMING ALIGNMENT
 Because switch expressions evaluate directly to a value, variables can be declared `final` at the point of declaration:
   final int tuition = switch (track) {
-      case JAVA_CORE -> 15000;
-      case SPRING_BOOT -> 22000;
-      default -> 10000;
+      case JAVA_CORE → 15000;
+      case SPRING_BOOT → 22000;
+      default → 10000;
   };
 This eliminates mutable temporary variables and aligns Java code with functional programming best practices.
 

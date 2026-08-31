@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. SPECIALIZED OPERATORS:
    - 'UnaryOperator<T>': Extends 'Function<T, T>' (Same input & output type).
      * Used in 'List.replaceAll(UnaryOperator)'.
-   - 'BinaryOperator<T>': Extends 'BiFunction<T, T, T>' (2 identical inputs -> same output).
+   - 'BinaryOperator<T>': Extends 'BiFunction<T, T, T>' (2 identical inputs → same output).
      * Used in 'Stream.reduce(BinaryOperator)'.
      * Static helpers: 'BinaryOperator.minBy()', 'BinaryOperator.maxBy()'.
 

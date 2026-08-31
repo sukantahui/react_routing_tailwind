@@ -9,9 +9,9 @@ AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
 --------------------------------------------------------------------------------
 In Phase 2 of ethical hacking, security auditors execute an integrated 3-stage scanning pipeline:
 
-  STAGE 1 : PORT SCANNING        --> Discovers active IP addresses and listening TCP/UDP transport ports.
-  STAGE 2 : BANNER GRABBING      --> Connects to open ports to extract exact software daemon versions.
-  STAGE 3 : VULNERABILITY SCAN   --> Correlates version banners against CVE databases to identify exploitable bugs.
+  STAGE 1 : PORT SCANNING        → Discovers active IP addresses and listening TCP/UDP transport ports.
+  STAGE 2 : BANNER GRABBING      → Connects to open ports to extract exact software daemon versions.
+  STAGE 3 : VULNERABILITY SCAN   → Correlates version banners against CVE databases to identify exploitable bugs.
 
 Together, this triad provides the technical blueprint required for surgical Phase 3 exploitation.
 
@@ -63,21 +63,21 @@ Together, this triad provides the technical blueprint required for surgical Phas
 4. CVSS v3.1 SEVERITY SCORING SYSTEM
 --------------------------------------------------------------------------------
 
-  * 0.0          --> NONE
-  * 0.1 - 3.9    --> LOW
-  * 4.0 - 6.9    --> MEDIUM
-  * 7.0 - 8.9    --> HIGH
-  * 9.0 - 10.0   --> CRITICAL (Unauthenticated Remote Code Execution without user interaction)
+  * 0.0          → NONE
+  * 0.1 - 3.9    → LOW
+  * 4.0 - 6.9    → MEDIUM
+  * 7.0 - 8.9    → HIGH
+  * 9.0 - 10.0   → CRITICAL (Unauthenticated Remote Code Execution without user interaction)
 
 --------------------------------------------------------------------------------
 5. THE 5-STAGE VULNERABILITY MANAGEMENT LIFECYCLE
 --------------------------------------------------------------------------------
 
-  [ STAGE 1: DISCOVER ]   --> Continuously scan network, cloud, and container assets across IP ranges.
-  [ STAGE 2: PRIORITIZE ] --> Score findings based on CVSS severity and business asset criticality.
-  [ STAGE 3: ASSESS ]     --> Triage results to eliminate false positives via authenticated re-checks.
-  [ STAGE 4: REMEDIATE ]  --> Apply vendor patches, configuration changes, or WAF virtual patching rules.
-  [ STAGE 5: VERIFY ]     --> Rescan endpoints to confirm 100% vulnerability resolution.
+  [ STAGE 1: DISCOVER ]   → Continuously scan network, cloud, and container assets across IP ranges.
+  [ STAGE 2: PRIORITIZE ] → Score findings based on CVSS severity and business asset criticality.
+  [ STAGE 3: ASSESS ]     → Triage results to eliminate false positives via authenticated re-checks.
+  [ STAGE 4: REMEDIATE ]  → Apply vendor patches, configuration changes, or WAF virtual patching rules.
+  [ STAGE 5: VERIFY ]     → Rescan endpoints to confirm 100% vulnerability resolution.
 
 --------------------------------------------------------------------------------
 6. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)

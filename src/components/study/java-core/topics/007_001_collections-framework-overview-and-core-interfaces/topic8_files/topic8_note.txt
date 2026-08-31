@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. QUEUE & DEQUE CONTRACT:
    - Queue: FIFO task buffering (First-In, First-Out).
    - Deque: Double-Ended Queue (supports FIFO queue and LIFO stack).
-   - 'offer()' / 'poll()' &rarr; return false/null (safe).
-   - 'add()' / 'remove()' &rarr; throw exceptions.
+   - 'offer()' / 'poll()' → return false/null (safe).
+   - 'add()' / 'remove()' → throw exceptions.
    - PriorityQueue: heap-ordered priority dispatching.
 
 ================================================================================

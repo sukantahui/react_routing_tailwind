@@ -273,7 +273,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             The Stealth Cloaking Operator (;;;) for Hiding Cell Contents and Dashboard Security
           </h1>
 
@@ -327,7 +327,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic11"
+            sheetName="Topic11"
           />
         </section>
 
@@ -412,7 +412,7 @@ export default function Topic11() {
                 The 1st section before the first semicolon governs positive numbers. Leaving it empty (<code className="text-amber-300">;</code>) suppresses all positive values from visual display.
               </p>
               <div className="p-2 rounded bg-slate-900 font-mono text-[11px] text-cyan-300 border border-slate-800">
-                1850000 -&gt; [Blank Display]
+                1850000 → [Blank Display]
               </div>
             </div>
 
@@ -424,7 +424,7 @@ export default function Topic11() {
                 The 2nd section (negatives) and 3rd section (zeros) left empty (<code className="text-amber-300">;;</code>) suppress negative deficits and zero values completely.
               </p>
               <div className="p-2 rounded bg-slate-900 font-mono text-[11px] text-emerald-300 border border-slate-800">
-                -4200 / 0 -&gt; [Blank Display]
+                -4200 / 0 → [Blank Display]
               </div>
             </div>
 
@@ -436,7 +436,7 @@ export default function Topic11() {
                 The 4th section governs text strings. Using <code className="text-amber-300">;;;</code> cloaks text completely, while <code className="text-amber-300">;;;"[REDACTED]"</code> replaces text with security stamps.
               </p>
               <div className="p-2 rounded bg-slate-900 font-mono text-[11px] text-purple-300 border border-slate-800">
-                "PAN123" -&gt; "[REDACTED]"
+                "PAN123" → "[REDACTED]"
               </div>
             </div>
           </div>
@@ -472,7 +472,7 @@ export default function Topic11() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Formula bar reveals cloaked cell value</td>
                   <td className="py-2.5 px-3">Selecting a cell formatted with ;;; reveals the raw value in the formula bar above the grid.</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300">Check 'Hidden' property in Format Cells -&gt; Protection, then Protect Sheet.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Check 'Hidden' property in Format Cells → Protection, then Protect Sheet.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 font-mono font-bold text-rose-300">Cloaked text string remains visible</td>

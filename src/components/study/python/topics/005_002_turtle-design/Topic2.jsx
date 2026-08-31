@@ -74,7 +74,7 @@ const Topic2 = () => {
             Module 005_002 · Turtle Design & Aesthetic Customization · Topic 2
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400 bg-clip-text text-transparent">
             Color Systems: <span className="font-mono">RGB (0-255 vs 1.0)</span>, Hex & Named Colors
           </h1>
 

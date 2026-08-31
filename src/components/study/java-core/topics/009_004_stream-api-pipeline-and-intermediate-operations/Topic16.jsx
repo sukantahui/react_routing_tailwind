@@ -21,7 +21,7 @@ export default function Topic16() {
             Stream API Pipelines
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">sorted()</code>: Natural & Custom Comparator Ordering
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic16() {
       </section>
 
       <Teacher
-        note="Remember: sorted() without arguments requires elements to implement Comparable<T>, otherwise you get a ClassCastException at runtime! For custom ordering, pass a Comparator like Comparator.comparing(Student::getScore).reversed(). — Sukanta Hui"
+        note="Remember: sorted() without arguments requires elements to implement Comparable&lt;T&gt;, otherwise you get a ClassCastException at runtime! For custom ordering, pass a Comparator like Comparator.comparing(Student::getScore).reversed(). — Sukanta Hui"
       />
     </div>
   );

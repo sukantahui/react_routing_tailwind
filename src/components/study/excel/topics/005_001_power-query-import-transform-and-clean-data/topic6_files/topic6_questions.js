@@ -18,7 +18,7 @@ const questions = [
     explanation: "Allows precise isolation of leading prefixes or trailing file extensions.",
     hint: "Left-most, Right-most, Each occurrence.",
     level: "basic",
-    codeExample: "Splitter.SplitTextByDelimiter(\"-\", QuoteStyle.None) &rarr; Left-most delimiter"
+    codeExample: "Splitter.SplitTextByDelimiter(\"-\", QuoteStyle.None) → Left-most delimiter"
   },
   {
     question: "What is the difference between splitting into 'Columns' vs splitting into 'Rows'?",
@@ -26,7 +26,7 @@ const questions = [
     explanation: "Splitting into rows normalizes multi-value cells into 1NF tabular format.",
     hint: "Columns: horizontal fields; Rows: unnested vertical rows.",
     level: "moderate",
-    codeExample: "Advanced Options &rarr; Split into: Rows (Table.ExpandListColumn)"
+    codeExample: "Advanced Options → Split into: Rows (Table.ExpandListColumn)"
   },
   {
     question: "What is the difference between `Text.Trim` and `Text.Clean` in Power Query M?",
@@ -46,17 +46,17 @@ const questions = [
   },
   {
     question: "How do you split a column based on transition from non-digit to digit (e.g. `INV1042`)?",
-    shortAnswer: "Transform Tab &rarr; Split Column &rarr; 'By Non-Digit to Digit' (`Splitter.SplitTextByCharacterTransition`).",
+    shortAnswer: "Transform Tab → Split Column → 'By Non-Digit to Digit' (`Splitter.SplitTextByCharacterTransition`).",
     explanation: "Splits automatically between alpha characters and numeric sequences.",
-    hint: "Split Column &rarr; By Non-Digit to Digit.",
+    hint: "Split Column → By Non-Digit to Digit.",
     level: "moderate",
     codeExample: "= Table.SplitColumn(Source, \"Code\", Splitter.SplitTextByCharacterTransition({\"a\"..\"z\", \"A\"..\"Z\"}, {\"0\"..\"9\"}))"
   },
   {
-    question: "How do you split camelCase text (e.g. `firstName` &rarr; `first` and `Name`) in Power Query?",
-    shortAnswer: "Split Column &rarr; 'By Lowercase to Uppercase' (`Splitter.SplitTextByCharacterTransition({\"a\"..\"z\"}, {\"A\"..\"Z\"})`).",
+    question: "How do you split camelCase text (e.g. `firstName` → `first` and `Name`) in Power Query?",
+    shortAnswer: "Split Column → 'By Lowercase to Uppercase' (`Splitter.SplitTextByCharacterTransition({\"a\"..\"z\"}, {\"A\"..\"Z\"})`).",
     explanation: "Splits precisely at the lower-to-upper character boundary.",
-    hint: "Split Column &rarr; By Lowercase to Uppercase.",
+    hint: "Split Column → By Lowercase to Uppercase.",
     level: "moderate",
     codeExample: "= Table.SplitColumn(Source, \"FieldName\", Splitter.SplitTextByCharacterTransition({\"a\"..\"z\"}, {\"A\"..\"Z\"}))"
   },
@@ -94,25 +94,25 @@ const questions = [
   },
   {
     question: "How do you merge (concatenate) two or more text columns together with a separator in Power Query?",
-    shortAnswer: "Select multiple columns &rarr; Transform/Add Column &rarr; Merge Columns (`Table.CombineColumns` / `Text.Combine`).",
+    shortAnswer: "Select multiple columns → Transform/Add Column → Merge Columns (`Table.CombineColumns` / `Text.Combine`).",
     explanation: "Combines fields using delimiters like space, comma, or hyphen.",
-    hint: "Transform &rarr; Merge Columns (`Table.CombineColumns`).",
+    hint: "Transform → Merge Columns (`Table.CombineColumns`).",
     level: "basic",
     codeExample: "= Table.CombineColumns(Source, {\"FirstName\", \"LastName\"}, Combiner.CombineTextByDelimiter(\" \", QuoteStyle.None), \"FullName\")"
   },
   {
     question: "How do you add a static prefix (e.g. 'INV-') to an existing numeric ID column?",
-    shortAnswer: "Format &rarr; Add Prefix (`= Table.TransformColumns(Source, {{\"ID\", each \"INV-\" & Text.From(_), type text}})`).",
+    shortAnswer: "Format → Add Prefix (`= Table.TransformColumns(Source, {{\"ID\", each \"INV-\" & Text.From(_), type text}})`).",
     explanation: "Prepends static string characters to column values.",
-    hint: "Transform &rarr; Format &rarr; Add Prefix.",
+    hint: "Transform → Format → Add Prefix.",
     level: "basic",
     codeExample: "= Table.TransformColumns(Source, {{\"ID\", each \"INV-\" & Text.From(_), type text}})"
   },
   {
     question: "How do you add a static suffix (e.g. '@corp.in') to username columns?",
-    shortAnswer: "Format &rarr; Add Suffix (`= Table.TransformColumns(Source, {{\"User\", each _ & \"@corp.in\", type text}})`).",
+    shortAnswer: "Format → Add Suffix (`= Table.TransformColumns(Source, {{\"User\", each _ & \"@corp.in\", type text}})`).",
     explanation: "Appends static text to the end of column values.",
-    hint: "Transform &rarr; Format &rarr; Add Suffix.",
+    hint: "Transform → Format → Add Suffix.",
     level: "basic",
     codeExample: "= Table.TransformColumns(Source, {{\"User\", each _ & \"@corp.in\", type text}})"
   },
@@ -141,7 +141,7 @@ const questions = [
     codeExample: "= Table.AddColumn(Source, \"PAN_PAN_Part\", each Text.Middle([GSTIN], 2, 10))"
   },
   {
-    question: "How do you pad a numeric string with leading zeros (e.g. `42` &rarr; `00042`) in Power Query?",
+    question: "How do you pad a numeric string with leading zeros (e.g. `42` → `00042`) in Power Query?",
     shortAnswer: "Use `Text.PadStart(Text.From([ID]), 5, \"0\")`.",
     explanation: "Standard function for fixed-width code padding.",
     hint: "Text.PadStart(text, totalLength, padChar).",
@@ -182,9 +182,9 @@ const questions = [
   },
   {
     question: "How do you split a column by fixed character positions (e.g. at position 2 and 12)?",
-    shortAnswer: "Split Column &rarr; 'By Positions' &rarr; Enter comma-separated 0-indexed positions `0, 2, 12` (`Splitter.SplitTextByPositions`).",
+    shortAnswer: "Split Column → 'By Positions' → Enter comma-separated 0-indexed positions `0, 2, 12` (`Splitter.SplitTextByPositions`).",
     explanation: "Splits fixed-width mainframe records into relational columns.",
-    hint: "Split Column &rarr; By Positions (0, 2, 12).",
+    hint: "Split Column → By Positions (0, 2, 12).",
     level: "moderate",
     codeExample: "= Table.SplitColumn(Source, \"RawRecord\", Splitter.SplitTextByPositions({0, 2, 12}), {\"State\", \"PAN\", \"Entity\"})"
   },
@@ -240,9 +240,9 @@ const questions = [
     question: "What is Instructor Sukanta Hui's golden rule for Power Query Text Transformations?",
     shortAnswer: "Harness the power of declarative text engineering! Combine Text.Clean and Text.Trim before splitting, use 'Split into Rows' to normalize comma-separated lists into relational tabular data, leverage Text.BeforeDelimiter and Text.AfterDelimiter with reverse indexing ({0, RelativePosition.FromEnd}) for file paths, and remember that M is 0-indexed when working with Text.Middle!",
     explanation: "Mastering text transformations is the cornerstone of modern data cleansing!",
-    hint: "Clean &rarr; Trim &rarr; Split to Rows (1NF Normalization) + 0-Indexed Text Engineering!",
+    hint: "Clean → Trim → Split to Rows (1NF Normalization) + 0-Indexed Text Engineering!",
     level: "expert",
-    codeExample: "Rule: Text Hygiene &rarr; Clean + Trim &rarr; 1NF Split to Rows &rarr; Delimiter Slicing!"
+    codeExample: "Rule: Text Hygiene → Clean + Trim → 1NF Split to Rows → Delimiter Slicing!"
   }
 ];
 

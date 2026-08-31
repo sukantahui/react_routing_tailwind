@@ -221,8 +221,8 @@ DNSOverTLS=yes
 DNSSEC=yes
 
 # Verify Encrypted Client Hello (ECH) in browser:
-# In Chrome: chrome://flags/#encrypted-client-hello -> ENABLED
-# In Firefox: network.dns.echconfig.enabled -> TRUE`,
+# In Chrome: chrome://flags/#encrypted-client-hello → ENABLED
+# In Firefox: network.dns.echconfig.enabled → TRUE`,
       explanation: "Enforces DNS-over-TLS with DNSSEC validation and activates Encrypted Client Hello (ECH) to close the Server Name Indication (SNI) metadata leak."
     }
   };

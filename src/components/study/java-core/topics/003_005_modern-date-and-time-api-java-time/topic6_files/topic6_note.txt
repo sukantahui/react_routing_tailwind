@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. ZONEDDATETIME ESSENTIALS:
    - Combines 'LocalDateTime' + 'ZoneId' + 'ZoneOffset'.
    - 'ZoneId.of("Asia/Kolkata")'.
-   - 'withZoneSameInstant(newZone)' &rarr; Converts instant across timezones.
+   - 'withZoneSameInstant(newZone)' → Converts instant across timezones.
    - Automatically handles Daylight Saving Time (DST) shifts.
 
 ================================================================================

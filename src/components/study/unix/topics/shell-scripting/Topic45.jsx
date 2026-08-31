@@ -314,7 +314,7 @@ const Topic45 = () => {
               XONSH Medium Examples
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
             XONSH:{" "}
             <span className="text-indigo-600 dark:text-indigo-400">
               10 Intermediate‑Level Scripts

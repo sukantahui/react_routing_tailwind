@@ -54,7 +54,7 @@ SELECT @@GLOBAL.gtid_executed;
 SELECT @@GLOBAL.gtid_executed;
 -- Output: 3E11FA47-...:1-498  (Lagging by 2 transactions)
 
--- 💡 Decision: Node 2 has the largest GTID set -> Elect Node 2 for promotion!`,
+-- 💡 Decision: Node 2 has the largest GTID set → Elect Node 2 for promotion!`,
       explanation:
         "The orchestrator or DBA queries @@GLOBAL.gtid_executed on all surviving standby nodes. The node with the most complete transaction range is elected for promotion to guarantee zero data loss (RPO = 0).",
       keyTakeaways: [
@@ -128,7 +128,7 @@ CLONE INSTANCE FROM 'clone_user'@'192.168.1.20':3306 IDENTIFIED BY 'Pass#2026';`
             Topic 13 of 14 (Capstone)
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Automated Failover</span> &amp; <span className="text-cyan-400">Disaster Recovery</span> Runbooks
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

@@ -8,7 +8,7 @@ const questions = [
     explanation: "Core definition and philosophy of TDD.",
     hint: "Writing failing tests first to guide and drive the implementation of production code.",
     level: "basic",
-    codeExample: "# 1. Write failing test -> 2. Write minimum code -> 3. Refactor"
+    codeExample: "# 1. Write failing test → 2. Write minimum code → 3. Refactor"
   },
   {
     question: "What are the three distinct phases of the TDD 'Red-Green-Refactor' micro-cycle?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "Incremental algorithmic development via micro-specifications.",
     hint: "Start with trivial inputs (0, empty, 1 item) and build up complexity gradually.",
     level: "basic",
-    codeExample: "# 1. test_empty_list() -> 2. test_single_item() -> 3. test_multiple_items()"
+    codeExample: "# 1. test_empty_list() → 2. test_single_item() → 3. test_multiple_items()"
   },
   {
     question: "How does TDD serve as 'Executable Documentation' for other developers on the team?",
@@ -84,11 +84,11 @@ const questions = [
   },
   {
     question: "What is the 'Transformation Priority Premise' (TPP) in TDD?",
-    shortAnswer: "A concept proposed by Uncle Bob suggesting that during the GREEN phase, code should progress through simpler transformations (e.g. constant -> variable -> conditional -> loop -> recursion) to avoid taking overly large algorithmic jumps.",
+    shortAnswer: "A concept proposed by Uncle Bob suggesting that during the GREEN phase, code should progress through simpler transformations (e.g. constant → variable → conditional → loop → recursion) to avoid taking overly large algorithmic jumps.",
     explanation: "Algorithmic transformation hierarchy in TDD.",
     hint: "Prefer simple transformations (like variables or if statements) before adding complex loops.",
     level: "complex",
-    codeExample: "# Transform constant -> variable -> if/else -> loop"
+    codeExample: "# Transform constant → variable → if/else → loop"
   },
   {
     question: "What should you do if a test fails unexpectedly during the REFACTOR phase?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Classicist vs Mockist TDD schools of thought.",
     hint: "Inside-Out starts with core data models; Outside-In starts at the user interface/API boundary.",
     level: "complex",
-    codeExample: "# Inside-Out: Student -> Ledger -> AdmissionEngine | Outside-In: API -> Engine -> Storage"
+    codeExample: "# Inside-Out: Student → Ledger → AdmissionEngine | Outside-In: API → Engine → Storage"
   },
   {
     question: "Why is TDD considered a design technique rather than just a testing technique?",

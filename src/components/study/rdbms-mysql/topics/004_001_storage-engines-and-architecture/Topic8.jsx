@@ -55,7 +55,7 @@ WHERE name LIKE '%admissions%';`,
       sqlSnippet: `-- 📄 16KB PAGE INTERNAL BYTE LAYOUT (Total: 16,384 Bytes):
 -- 1. File Header (38 B):
 --    - Checksum (4B), Page Number (4B), Page LSN (8B), Page Type (2B)
---    - FIL_PAGE_PREV (4B) & FIL_PAGE_NEXT (4B) -> Doubly-linked list!
+--    - FIL_PAGE_PREV (4B) & FIL_PAGE_NEXT (4B) → Doubly-linked list!
 -- 2. Page Header (56 B): Slots count, heap top pointer, number of records.
 -- 3. Infimum & Supremum (26 B): Minimum and maximum sentinel boundary records.
 -- 4. User Records: Actual data rows with DB_TRX_ID and DB_ROLL_PTR.
@@ -86,7 +86,7 @@ WHERE name LIKE '%admissions%';`,
 -- 3. Slot N points to Supremum record.
 
 -- SEARCH WORKFLOW:
--- 1. Perform Binary Search on Page Directory slots -> O(log K) complexity.
+-- 1. Perform Binary Search on Page Directory slots → O(log K) complexity.
 -- 2. Locate target slot boundary.
 -- 3. Traverse at most 4 to 8 rows linearly along the linked list!
 -- Result: Sub-microsecond row location within the 16KB RAM frame! ✅`,
@@ -114,7 +114,7 @@ WHERE name LIKE '%admissions%';`,
 -- SCENARIO B: Random UUID Primary Key (Severe Fragmentation):
 -- - Inserts land at random page positions throughout the B+ tree.
 -- - When a page fills up, InnoDB performs a 50/50 PAGE SPLIT:
---   Allocates new page -> moves 50% of rows -> updates parent index!
+--   Allocates new page → moves 50% of rows → updates parent index!
 -- - Result: Leaves pages ~50% empty, doubles disk storage, and causes I/O thrashing! ❌`,
       metricsTable: [
         { keyType: "Sequential AUTO_INCREMENT", fillFactor: "~93% Compact Fill", result: "0 Mid-Tree Page Splits; Minimal I/O ⚡" },
@@ -152,11 +152,11 @@ WHERE name LIKE '%admissions%';`,
               Physical Storage Internals
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             B+ Tree Physical Structure: Pages, Extents, Segments, and Page Layout (16KB Page Size)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
-            Uncover the internal byte architecture of InnoDB B+ trees: master the 4-level storage hierarchy (Tablespace &rarr; Segment &rarr; Extent &rarr; Page), the 7 structural sections of a 16KB page, Page Directory binary search lookups, and page split fragmentation.
+            Uncover the internal byte architecture of InnoDB B+ trees: master the 4-level storage hierarchy (Tablespace → Segment → Extent → Page), the 7 structural sections of a 16KB page, Page Directory binary search lookups, and page split fragmentation.
           </p>
         </div>
       </header>
@@ -275,7 +275,7 @@ WHERE name LIKE '%admissions%';`,
                 <rect x="70" y="140" width="810" height="65" rx="4" fill="#1e293b" stroke="#10b981" />
                 <text x="80" y="162" fill="#34d399" fontSize="11" fontWeight="bold">4. User Records (Data Rows &amp; Hidden System Columns)</text>
                 <text x="80" y="180" fill="#bae6fd" fontSize="10">
-                  Row 1 [DB_TRX_ID | DB_ROLL_PTR | Data] &rarr; Row 2 &rarr; Row 3 ... (Singly-linked in ascending key order)
+                  Row 1 [DB_TRX_ID | DB_ROLL_PTR | Data] → Row 2 → Row 3 ... (Singly-linked in ascending key order)
                 </text>
 
                 {/* Section 5: Free Space */}
@@ -288,7 +288,7 @@ WHERE name LIKE '%admissions%';`,
                 <rect x="70" y="280" width="550" height="50" rx="4" fill="#1e293b" stroke="#f59e0b" />
                 <text x="80" y="302" fill="#fbbf24" fontSize="11" fontWeight="bold">6. Page Directory (Sparse 2-Byte Slot Pointers)</text>
                 <text x="80" y="318" fill="#94a3b8" fontSize="9">
-                  [Slot 0 &rarr; Infimum] [Slot 1 &rarr; Row 4] [Slot 2 &rarr; Row 8] ... [Slot N &rarr; Supremum] (Binary Search $O(\log K)$)
+                  [Slot 0 → Infimum] [Slot 1 → Row 4] [Slot 2 → Row 8] ... [Slot N → Supremum] (Binary Search $O(\log K)$)
                 </text>
 
                 {/* Section 7: File Trailer */}

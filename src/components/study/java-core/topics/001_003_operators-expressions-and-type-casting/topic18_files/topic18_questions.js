@@ -23,7 +23,7 @@ const questions = [
   },
   {
     question: "What is Binary Numeric Promotion (JLS §5.6.2)?",
-    shortAnswer: "The rule set that promotes operands of binary operators to a common type: 1. If any operand is `double` -> `double`; 2. Else if `float` -> `float`; 3. Else if `long` -> `long`; 4. Otherwise, BOTH operands -> `int`.",
+    shortAnswer: "The rule set that promotes operands of binary operators to a common type: 1. If any operand is `double` → `double`; 2. Else if `float` → `float`; 3. Else if `long` → `long`; 4. Otherwise, BOTH operands → `int`.",
     explanation: "Ensures type harmony during arithmetic, relational, and bitwise operations.",
     hint: "double > float > long > int.",
     level: "basic",
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Understanding type promotion prevents compilation errors on byte arithmetic and preserves precision in financial formulas.",
     hint: "byte/short/char promoted to int; widest type wins in mixed math.",
     level: "basic",
-    codeExample: "// Summary: byte/short/char -> int; double > float > long > int"
+    codeExample: "// Summary: byte/short/char → int; double > float > long > int"
   },
   {
     question: "What is the next topic (Topic 19) in Module 001_003?",

@@ -85,7 +85,7 @@ const Topic2 = () => {
               Java Generics Series • Topic 3
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
               Problems Without Generics
             </h1>
             
@@ -587,7 +587,7 @@ public class EnrollmentSystem {
                   scenario: "Swadeep stores different subclasses in same list without instanceof checks",
                   code: `List shapes = new ArrayList();\nshapes.add(new Circle()); // Circle extends Shape\nshapes.add(new Rectangle()); // Rectangle extends Shape\nshapes.add("Square"); // Oops! String not Shape\n\n// Later...\nShape s = (Shape) shapes.get(2); // ClassCastException!`,
                   impact: "Assumption that all items extend same base class fails",
-                  fix: "Generics enforce: List<Shape> shapes = new ArrayList<>();"
+                  fix: "Generics enforce: List<Shape> shapes = new ArrayList&lt;&gt;();"
                 },
                 {
                   title: "The Null Casting Problem",
@@ -689,7 +689,7 @@ import java.util.List;
 public class SafeSystemWithGenerics {
     public static void main(String[] args) {
         // Type-safe declaration
-        List<String> studentNames = new ArrayList<>();
+        List<String> studentNames = new ArrayList&lt;&gt;();
         
         // ✅ Correct usage
         studentNames.add("Swadeep");

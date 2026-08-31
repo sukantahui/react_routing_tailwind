@@ -27,7 +27,7 @@ const defenseLayers = [
 function calculateBreachRisk(layerProbabilities) {
   return layerProbabilities.reduce((accum, p) => accum * p, 1.0);
 }
-// Example: [0.10, 0.05, 0.01] -> 0.00005 (0.005% overall risk)`
+// Example: [0.10, 0.05, 0.01] → 0.00005 (0.005% overall risk)`
   },
   {
     id: 3,
@@ -80,7 +80,7 @@ const canAccessInternalVault = (user, device, context) => {
     hint: "Network firewalls check the envelope (Layer 3/4); WAF reads and sanitizes the letter inside (Layer 7).",
     level: "Basic",
     codeExample: `// Network Firewall vs WAF Rules:
-// Network Firewall: ALLOW TCP 0.0.0.0/0 -> 192.168.1.10:443 (Permits all HTTPS)
+// Network Firewall: ALLOW TCP 0.0.0.0/0 → 192.168.1.10:443 (Permits all HTTPS)
 // WAF Rule        : BLOCK IF Request.Body CONTAINS regex('(?i)(union\\s+select|select\\s+.*\\s+from)')`
   },
   {
@@ -148,7 +148,7 @@ const dpdpSanctions = {
     hint: "IDS is a burglar alarm that rings; IPS is an armed security guard who blocks the intruder at the doorway.",
     level: "Moderate",
     codeExample: `// Snort IPS Inline Rule (Drop Malicious Shellcode):
-// drop tcp any any -> 192.168.1.0/24 80 (msg:"EXPLOIT Buffer Overflow Attempt"; content:"|90 90 90 90|"; sid:1000001;)`
+// drop tcp any any → 192.168.1.0/24 80 (msg:"EXPLOIT Buffer Overflow Attempt"; content:"|90 90 90 90|"; sid:1000001;)`
   },
   {
     id: 12,
@@ -159,7 +159,7 @@ const dpdpSanctions = {
     level: "Expert",
     codeExample: `// NGFW App-ID Policy:
 // Rule: Deny BitTorrent / Tor over port 443 (HTTPS)
-// Action: Match Layer 7 Protocol Signature -> DROP Flow!`
+// Action: Match Layer 7 Protocol Signature → DROP Flow!`
   },
   {
     id: 13,
@@ -317,7 +317,7 @@ const dpdpSanctions = {
     id: 25,
     question: "What is 'Split Horizon DNS' and how does it prevent internal network topology disclosure at the perimeter?",
     shortAnswer: "Split Horizon DNS serves two different sets of DNS records: public Internet queries receive only external DMZ IPs, while internal clients query a separate resolver that returns private RFC 1918 IPs.",
-    explanation: "If an enterprise uses a single public DNS server, zone transfers or brute-force queries could reveal internal hostnames and IP schemes (`payroll-db.corp.local -> 10.10.4.50`). Split Horizon DNS ensures external attackers can only see public endpoints (`www.company.com -> 203.0.113.10`).",
+    explanation: "If an enterprise uses a single public DNS server, zone transfers or brute-force queries could reveal internal hostnames and IP schemes (`payroll-db.corp.local → 10.10.4.50`). Split Horizon DNS ensures external attackers can only see public endpoints (`www.company.com → 203.0.113.10`).",
     hint: "Two different telephone directories: one public for external customers, one confidential for internal employees.",
     level: "Moderate",
     codeExample: `// BIND9 Split Horizon Configuration:
@@ -339,7 +339,7 @@ const dpdpSanctions = {
     level: "Basic",
     codeExample: `// Cloud Access Security Broker (CASB) Discovery:
 // Detects and blocks unauthorized Shadow IT cloud storage:
-// IF App.Category == "Cloud Storage" AND App.Name NOT IN ApprovedSaaSList -> BLOCK & ALERT SOC!`
+// IF App.Category == "Cloud Storage" AND App.Name NOT IN ApprovedSaaSList → BLOCK & ALERT SOC!`
   },
   {
     id: 27,
@@ -369,14 +369,14 @@ const dpdpSanctions = {
     id: 29,
     question: "Synthesize the role of Centralized Security Information and Event Management (SIEM) in binding Defense-in-Depth layers together.",
     shortAnswer: "A SIEM aggregates, correlates, and analyzes real-time log telemetry across all defense layers (Perimeter NGFW, Host EDR, WAF, Cloud IAM), identifying coordinated multi-stage attack patterns that individual controls miss.",
-    explanation: "Defense-in-Depth layers generate isolated logs: the firewall logs a port scan, the web server logs a 404 error, and the EDR logs a PowerShell invocation. A SIEM correlates these disparate events: 'Source IP X scanned port 443 -> sent SQLi -> spawned PowerShell on server Y -> alert SOC of active intrusion!'",
+    explanation: "Defense-in-Depth layers generate isolated logs: the firewall logs a port scan, the web server logs a 404 error, and the EDR logs a PowerShell invocation. A SIEM correlates these disparate events: 'Source IP X scanned port 443 → sent SQLi → spawned PowerShell on server Y → alert SOC of active intrusion!'",
     hint: "The central control room that connects all security cameras, alarms, and guards into a unified picture.",
     level: "Moderate",
     codeExample: `// SIEM Correlation Rule Logic:
 // EVENT 1: NGFW dropped 100 packets from IP X (Port Scan)
 // EVENT 2: WAF permitted 1 request with status 200 from IP X (Exploit)
 // EVENT 3: Host Y spawned powershell.exe connecting back to IP X
-// CONDITION: Events 1, 2, 3 occur within 120 seconds -> TRIGGER CRITICAL SEVERITY 1 INCIDENT!`
+// CONDITION: Events 1, 2, 3 occur within 120 seconds → TRIGGER CRITICAL SEVERITY 1 INCIDENT!`
   },
   {
     id: 30,

@@ -10,7 +10,7 @@ const questions = [
     explanation: "'Close & Load To...' provides full architectural control over query destinations.",
     hint: "Close & Load uses defaults; Close & Load To allows destination configuration.",
     level: "basic",
-    codeExample: "Home Tab &rarr; Close & Load dropdown &rarr; Close & Load To..."
+    codeExample: "Home Tab → Close & Load dropdown → Close & Load To..."
   },
   {
     question: "What are the 4 destination display options in the 'Import Data' dialog?",
@@ -54,11 +54,11 @@ const questions = [
   },
   {
     question: "How do you change the load destination of an existing query from Table to Connection Only?",
-    shortAnswer: "In the Queries & Connections pane &rarr; Right-click the query &rarr; Select 'Load To...' &rarr; Change selection to 'Only Create Connection'.",
+    shortAnswer: "In the Queries & Connections pane → Right-click the query → Select 'Load To...' → Change selection to 'Only Create Connection'.",
     explanation: "Allows converting active worksheet tables back into lightweight staging queries.",
-    hint: "Queries & Connections &rarr; Right-click query &rarr; Load To...",
+    hint: "Queries & Connections → Right-click query → Load To...",
     level: "basic",
-    codeExample: "Right-Click Query &rarr; Load To... &rarr; Only Create Connection"
+    codeExample: "Right-Click Query → Load To... → Only Create Connection"
   },
   {
     question: "What warning does Excel display when changing a query from 'Table' to 'Only Create Connection'?",
@@ -74,21 +74,21 @@ const questions = [
     explanation: "Disable background refresh to ensure synchronous VBA execution.",
     hint: "Disabling ensures queries finish completely before VBA code continues.",
     level: "expert",
-    codeExample: "Connection Properties &rarr; Uncheck 'Enable background refresh'"
+    codeExample: "Connection Properties → Uncheck 'Enable background refresh'"
   },
   {
     question: "How do you set a query to refresh automatically every 15 minutes?",
-    shortAnswer: "Data Tab &rarr; Queries & Connections &rarr; Right-click query &rarr; Properties &rarr; Check 'Refresh every' &rarr; Enter '15' minutes.",
+    shortAnswer: "Data Tab → Queries & Connections → Right-click query → Properties → Check 'Refresh every' → Enter '15' minutes.",
     explanation: "Enables automated periodic operational dashboard polling.",
-    hint: "Query Properties &rarr; Check 'Refresh every X minutes'.",
+    hint: "Query Properties → Check 'Refresh every X minutes'.",
     level: "basic",
-    codeExample: "Query Properties &rarr; [X] Refresh every 15 minutes"
+    codeExample: "Query Properties → [X] Refresh every 15 minutes"
   },
   {
     question: "How do you configure a workbook to refresh all Power Query models automatically when the file is opened?",
-    shortAnswer: "Query Properties &rarr; Usage Tab &rarr; Check 'Refresh data when opening the file'.",
+    shortAnswer: "Query Properties → Usage Tab → Check 'Refresh data when opening the file'.",
     explanation: "Ensures executives always see current live numbers upon opening.",
-    hint: "Query Properties &rarr; [X] Refresh data when opening the file.",
+    hint: "Query Properties → [X] Refresh data when opening the file.",
     level: "basic",
     codeExample: "[X] Refresh data when opening the file"
   },
@@ -106,7 +106,7 @@ const questions = [
     explanation: "VertiPaq column compression efficiency.",
     hint: "5x to 10x compression via columnar dictionary encoding.",
     level: "expert",
-    codeExample: "500 MB Raw CSV &rarr; 50 MB Compressed Data Model Workbook"
+    codeExample: "500 MB Raw CSV → 50 MB Compressed Data Model Workbook"
   },
   {
     question: "What is the difference between 'Refresh All' (Ctrl+Alt+F5) and refreshing a single query?",
@@ -118,11 +118,11 @@ const questions = [
   },
   {
     question: "How do you view and edit Power Query M code after closing the Power Query Editor?",
-    shortAnswer: "Data Tab &rarr; Queries & Connections &rarr; Double-click the query (or right-click &rarr; Edit).",
+    shortAnswer: "Data Tab → Queries & Connections → Double-click the query (or right-click → Edit).",
     explanation: "Re-opens the Power Query Editor interface.",
     hint: "Double-click query in Queries & Connections pane.",
     level: "basic",
-    codeExample: "Data &rarr; Queries & Connections &rarr; Double-Click Query"
+    codeExample: "Data → Queries & Connections → Double-Click Query"
   },
   {
     question: "Why should intermediate staging queries never be loaded into Excel worksheet tables?",
@@ -142,19 +142,19 @@ const questions = [
   },
   {
     question: "How do you preserve custom formatting (e.g. column widths, cell fills) in an Excel Table when refreshing Power Query?",
-    shortAnswer: "Table Design &rarr; External Table Data &rarr; Properties &rarr; Check 'Preserve column sort/filter/layout' and 'Preserve cell formatting'.",
+    shortAnswer: "Table Design → External Table Data → Properties → Check 'Preserve column sort/filter/layout' and 'Preserve cell formatting'.",
     explanation: "Locks visual layout across dynamic refreshes.",
-    hint: "External Table Properties &rarr; [X] Preserve cell formatting.",
+    hint: "External Table Properties → [X] Preserve cell formatting.",
     level: "moderate",
-    codeExample: "Properties &rarr; [X] Preserve cell formatting"
+    codeExample: "Properties → [X] Preserve cell formatting"
   },
   {
     question: "What is the 'Data Model' window in Excel, and how do you access it?",
-    shortAnswer: "The Power Pivot management window for defining star schema relationships and DAX measures; accessed via the Data Tab &rarr; 'Manage Data Model' icon.",
+    shortAnswer: "The Power Pivot management window for defining star schema relationships and DAX measures; accessed via the Data Tab → 'Manage Data Model' icon.",
     explanation: "Opens the Power Pivot ribbon interface.",
-    hint: "Data Tab &rarr; Manage Data Model (Power Pivot).",
+    hint: "Data Tab → Manage Data Model (Power Pivot).",
     level: "basic",
-    codeExample: "Data Tab &rarr; Manage Data Model"
+    codeExample: "Data Tab → Manage Data Model"
   },
   {
     question: "Can a query loaded to 'Only Create Connection' be referenced as a source by other queries?",
@@ -166,19 +166,19 @@ const questions = [
   },
   {
     question: "How do you disable Fast Data Load in Power Query options, and when is it recommended?",
-    shortAnswer: "File &rarr; Options &rarr; Data Load &rarr; Uncheck 'Fast Data Load'; recommended on low-RAM machines when loading massive datasets to prevent Excel from freezing.",
+    shortAnswer: "File → Options → Data Load → Uncheck 'Fast Data Load'; recommended on low-RAM machines when loading massive datasets to prevent Excel from freezing.",
     explanation: "Allows background paging rather than greedy RAM allocation.",
-    hint: "Options &rarr; Data Load &rarr; Uncheck Fast Data Load.",
+    hint: "Options → Data Load → Uncheck Fast Data Load.",
     level: "advanced",
-    codeExample: "File &rarr; Options &rarr; Data Load &rarr; Fast Data Load"
+    codeExample: "File → Options → Data Load → Fast Data Load"
   },
   {
     question: "How do you delete a Power Query from a workbook completely?",
-    shortAnswer: "Queries & Connections pane &rarr; Right-click the query &rarr; Delete (or press Delete key).",
+    shortAnswer: "Queries & Connections pane → Right-click the query → Delete (or press Delete key).",
     explanation: "Removes query recipe and metadata from the workbook.",
-    hint: "Right-click query &rarr; Delete.",
+    hint: "Right-click query → Delete.",
     level: "basic",
-    codeExample: "Queries & Connections &rarr; Right-Click &rarr; Delete"
+    codeExample: "Queries & Connections → Right-Click → Delete"
   },
   {
     question: "What is the impact of checking 'Fast Data Load' on machine responsiveness?",
@@ -190,11 +190,11 @@ const questions = [
   },
   {
     question: "How do you load a Power Query directly into a PivotTable Report without creating an intermediate grid table?",
-    shortAnswer: "Close & Load To... &rarr; Select 'PivotTable Report' &rarr; Choose existing or new worksheet location.",
+    shortAnswer: "Close & Load To... → Select 'PivotTable Report' → Choose existing or new worksheet location.",
     explanation: "Streams data directly into the PivotTable cache.",
-    hint: "Close & Load To... &rarr; PivotTable Report.",
+    hint: "Close & Load To... → PivotTable Report.",
     level: "basic",
-    codeExample: "Close & Load To... &rarr; PivotTable Report"
+    codeExample: "Close & Load To... → PivotTable Report"
   },
   {
     question: "What is the recommended staging-to-master loading architecture for enterprise workbooks?",
@@ -202,13 +202,13 @@ const questions = [
     explanation: "The gold-standard corporate ETL architecture.",
     hint: "Staging = Connection Only; Final Master = Add to Data Model.",
     level: "expert",
-    codeExample: "Architecture: Staging (Connection Only) &rarr; Final (Data Model)"
+    codeExample: "Architecture: Staging (Connection Only) → Final (Data Model)"
   },
   {
     question: "How do you check how many rows are currently loaded in the Data Model?",
-    shortAnswer: "Data Tab &rarr; Manage Data Model &rarr; Look at the bottom status bar for each table tab (e.g. *'3,450,210 rows'*).",
+    shortAnswer: "Data Tab → Manage Data Model → Look at the bottom status bar for each table tab (e.g. *'3,450,210 rows'*).",
     explanation: "Displays exact row counts in the Power Pivot status bar.",
-    hint: "Manage Data Model &rarr; Status bar displays exact row count.",
+    hint: "Manage Data Model → Status bar displays exact row count.",
     level: "basic",
     codeExample: "Power Pivot Status Bar: 3,450,210 rows"
   },
@@ -218,7 +218,7 @@ const questions = [
     explanation: "M queries are stored in the workbook package, not inside individual sheets.",
     hint: "Query is preserved as 'Only Create Connection'.",
     level: "moderate",
-    codeExample: "Sheet deleted &rarr; Query automatically converts to Connection Only"
+    codeExample: "Sheet deleted → Query automatically converts to Connection Only"
   },
   {
     question: "Can Power Query load data into an existing Excel table created manually?",
@@ -230,11 +230,11 @@ const questions = [
   },
   {
     question: "How do you prevent queries from automatically adding relationships in the Data Model?",
-    shortAnswer: "File &rarr; Options &rarr; Data Load &rarr; Uncheck 'Create relationships between tables on first load'.",
+    shortAnswer: "File → Options → Data Load → Uncheck 'Create relationships between tables on first load'.",
     explanation: "Prevents automatic inaccurate relationship guessing.",
-    hint: "Options &rarr; Data Load &rarr; Uncheck automatic relationships.",
+    hint: "Options → Data Load → Uncheck automatic relationships.",
     level: "advanced",
-    codeExample: "Data Load &rarr; [ ] Create relationships on first load"
+    codeExample: "Data Load → [ ] Create relationships on first load"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Power Query Loading Options?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Smart loading options are the bridge between raw ETL pipelines and high-performance BI data models!",
     hint: "Close & Load To... + Staging (Connection Only) + Master (Add to Data Model) = 100M-Row Powerhouse!",
     level: "expert",
-    codeExample: "Rule: Close & Load To... &rarr; Staging (Connection Only) &rarr; Master (Add to Data Model) &rarr; Fast Refresh!"
+    codeExample: "Rule: Close & Load To... → Staging (Connection Only) → Master (Add to Data Model) → Fast Refresh!"
   }
 ];
 

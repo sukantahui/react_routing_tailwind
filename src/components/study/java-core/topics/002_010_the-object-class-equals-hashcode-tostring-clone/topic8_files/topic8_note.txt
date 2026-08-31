@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. RULE 1 INVARIANT:
-   - 'a.equals(b) == true' &rarr; 'a.hashCode() == b.hashCode()' MUST hold 100% of the time.
+   - 'a.equals(b) == true' → 'a.hashCode() == b.hashCode()' MUST hold 100% of the time.
    - Any class that breaks this rule will corrupt HashMaps and HashSets.
 
 ================================================================================

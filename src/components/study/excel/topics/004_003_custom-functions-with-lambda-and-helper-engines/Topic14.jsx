@@ -76,7 +76,7 @@ export default function Topic14() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Real-World Capstone Project: Building a Custom Corporate Business Function Suite
           </h1>
 
@@ -197,7 +197,7 @@ export default function Topic14() {
                 you eliminate thousands of duplicate calculations and guarantee 100% audit consistency across the enterprise.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                Pure Functions: Inputs &rarr; Logic &rarr; Spilled Output
+                Pure Functions: Inputs → Logic → Spilled Output
               </div>
             </div>
 
@@ -366,7 +366,7 @@ export default function Topic14() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic14_Corporate_Project"
+            sheetName="EX1815"
             title="Enterprise Capstone Synthesis Suite (Loan Amortization, Branch Consolidation, HR Matrix, Hierarchy Rollup)"
             rowsPerPage={10}
             showSheetSelector={true}

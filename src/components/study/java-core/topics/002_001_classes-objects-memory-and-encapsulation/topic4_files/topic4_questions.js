@@ -120,7 +120,7 @@ const topic4_questions = [
     question: "What is the Young Generation vs Old (Tenured) Generation in the JVM Heap?",
     shortAnswer: "Young Gen (Eden + S0 + S1) holds newly allocated, short-lived objects; Old Gen holds long-lived objects that survived multiple GC cycles.",
     explanation: "HotSpot Heap is partitioned based on the 'Weak Generational Hypothesis' (most objects die young). New objects are born in Eden. Survivors of Minor GCs move between Survivor spaces (S0/S1) and are eventually tenured/promoted to Old Generation after reaching a tenuring threshold.",
-    hint: "Eden -> Survivor S0/S1 -> Old Generation.",
+    hint: "Eden → Survivor S0/S1 → Old Generation.",
     level: "Advanced",
     codeExample: "// Minor GC collects dead Eden objects in milliseconds without scanning Old Gen"
   },
@@ -202,7 +202,7 @@ const topic4_questions = [
     explanation: "In Java 8+, class metadata was moved from PermGen (Heap) to Metaspace (out-of-heap native memory). Metaspace auto-resizes based on OS memory availability unless constrained with -XX:MaxMetaspaceSize.",
     hint: "Native OS memory for class definitions, separate from JVM Heap.",
     level: "Advanced",
-    codeExample: "// Class metadata in Metaspace -> Object instances on Heap -> References on Stack"
+    codeExample: "// Class metadata in Metaspace → Object instances on Heap → References on Stack"
   },
   {
     question: "What happens when a reference variable goes out of block scope (e.g. inside an 'if' or 'for' block)?",
@@ -218,7 +218,7 @@ const topic4_questions = [
     explanation: "While primitive 'int x = 10' stores 10 directly on the Stack, 'Integer x = 10' causes autoboxing, allocating an Integer object on the Heap (or referencing the -128 to 127 cached Integer instance).",
     hint: "Primitives are raw values on Stack; Wrappers are objects on Heap.",
     level: "Beginner",
-    codeExample: "int p = 500;        // 4 bytes direct on Stack\nInteger w = 500;    // Reference on Stack -> Integer object on Heap (16-24 bytes)"
+    codeExample: "int p = 500;        // 4 bytes direct on Stack\nInteger w = 500;    // Reference on Stack → Integer object on Heap (16-24 bytes)"
   },
   {
     question: "Why does returning an object from a method not destroy it when the method's Stack Frame is popped?",

@@ -78,10 +78,10 @@ CREATE TABLE grade_ledgers (
 ) ENGINE=InnoDB;`,
       tableSummary: [
         { table: "departments", purpose: "Campus departments (Barrackpore, Kolkata)", key: "PK: dept_id" },
-        { table: "courses", purpose: "Curriculum with credit check (1 to 6)", key: "FK -> departments" },
+        { table: "courses", purpose: "Curriculum with credit check (1 to 6)", key: "FK → departments" },
         { table: "students", purpose: "Student directory with unique roll numbers", key: "PK: student_id" },
         { table: "course_enrollments", purpose: "Term registrations with composite unique key", key: "UNIQUE (std, crs, sem)" },
-        { table: "grade_ledgers", purpose: "Score ledgers with check (0-100 marks)", key: "FK -> enrollments" }
+        { table: "grade_ledgers", purpose: "Score ledgers with check (0-100 marks)", key: "FK → enrollments" }
       ],
       explanation:
         "The schema represents an end-to-end academic database. Notice the composite unique key on `course_enrollments` (`UNIQUE (student_id, course_id, semester_term)`), preventing double-registration while allowing students to take different courses in the same semester."
@@ -234,7 +234,7 @@ ORDER BY overall_average_marks DESC;`,
               Capstone Mini-Project
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Mini Project: Student Grading &amp; Course Registration System
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -662,7 +662,7 @@ ORDER BY overall_average_marks DESC;`,
               <div className="space-y-4 text-xs sm:text-sm text-slate-300">
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-cyan-400 font-bold block mb-1">“Observe 5-table JOIN queries...”</span>
-                  Notice how we joined `students` &rarr; `course_enrollments` &rarr; `courses` &rarr; `departments` &rarr; `grade_ledgers` in a single query. Each join condition matches a primary key to its corresponding foreign key!
+                  Notice how we joined `students` → `course_enrollments` → `courses` → `departments` → `grade_ledgers` in a single query. Each join condition matches a primary key to its corresponding foreign key!
                 </div>
                 <div className="p-3 bg-slate-950 rounded-lg border border-slate-800">
                   <span className="text-emerald-400 font-bold block mb-1">“Think about CASE statements...”</span>

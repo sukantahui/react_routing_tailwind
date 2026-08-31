@@ -73,12 +73,12 @@ const Topic9 = () => {
     }
   };
 
-  // 1. Compute Semijoin (Students ⋉ Enrollments) -> Enrolled Students (101, 102, 103)
+  // 1. Compute Semijoin (Students ⋉ Enrollments) → Enrolled Students (101, 102, 103)
   const semijoinResults = students.filter((s) =>
     enrollments.some((e) => e.studentId === s.id)
   );
 
-  // 2. Compute Antijoin (Students ▷ Enrollments) -> Unenrolled Students (104, 105)
+  // 2. Compute Antijoin (Students ▷ Enrollments) → Unenrolled Students (104, 105)
   const antijoinResults = students.filter(
     (s) => !enrollments.some((e) => e.studentId === s.id)
   );
@@ -125,7 +125,7 @@ const Topic9 = () => {
             Module 002_003 · Relational Algebra &amp; Calculus · Topic 9
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Semijoin (⋉) &amp; Antijoin (▷) for{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Existence &amp; Non-Existence

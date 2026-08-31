@@ -71,7 +71,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Basic error handling: `On Error Resume Next`, `On Error GoTo ErrorHandler`"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic11() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"VBA Error Handling Architecture: Normal Execution Stream -> Error Interceptor -> Recovery & Reset Block"}
+              Visual Dataflow: {"VBA Error Handling Architecture: Normal Execution Stream → Error Interceptor → Recovery & Reset Block"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Automation Pipeline
@@ -286,7 +286,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Basic_error_handli"
+            sheetName="EX2412"
             title={"Basic error handling: `On Error Resume Next`, `On Error GoTo ErrorHandler` - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic11() {
                 Step 1: Open VBE &amp; Insert Standard Module
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert &gt; Module</strong>.
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert > Module</strong>.
               </p>
             </div>
 

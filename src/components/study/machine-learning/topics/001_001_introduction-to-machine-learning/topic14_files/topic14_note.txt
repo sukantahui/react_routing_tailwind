@@ -111,7 +111,7 @@ Student 2: Debangshu (Salt Lake) — Actual: Fail (y_2 = 0)
     z_2 = (2.50 * 0.45) + (3.00 * 0.20) + (1.80 * 0.35) - 3.20
         = 1.125 + 0.600 + 0.630 - 3.20 = -0.845
   Step 2: Sigmoid Probability:
-    y_hat_2 = sigma(-0.845) = 1 / (1 + e^(0.845)) = 0.3005 (30.05% -> Fail)
+    y_hat_2 = sigma(-0.845) = 1 / (1 + e^(0.845)) = 0.3005 (30.05% → Fail)
   Step 3: Individual BCE Loss:
     L_2 = - [ 0 + 1 * ln(1 - 0.3005) ] = -ln(0.6995) = 0.3574
 

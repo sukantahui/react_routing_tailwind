@@ -11,4 +11,4 @@ console.log("=== SYN010: Special Number Entities: NaN, Infinity & -Infinity ==="
 computeDivision(100, 0);   // Handled safely without returning Infinity
 computeDivision('abc', 2); // Handled safely without returning NaN
 
-console.log("Expected Result Verified:", "100 / 0 -> Handled: 'Error: Division by zero' | 'abc' / 2 -> Handled: 'Error: Invalid number input'");
+console.log("Expected Result Verified:", "100 / 0 → Handled: 'Error: Division by zero' | 'abc' / 2 → Handled: 'Error: Invalid number input'");

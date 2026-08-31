@@ -8,7 +8,7 @@ Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Excel 365 / Powe
 In imperative programming (Python, JavaScript, C#), paginating over an API is achieved using a `while` loop with mutable variables (`page += 1`).
 Power Query M is a declarative, immutable functional language. Variable re-assignment (`x = x + 1`) is illegal.
 Therefore, all iteration is solved mathematically using:
-- `List.Generate`: Evaluates a state transition tuple `(State) -> NextState` until `Predicate(State)` returns `false`.
+- `List.Generate`: Evaluates a state transition tuple `(State) → NextState` until `Predicate(State)` returns `false`.
 - Recursive Custom Functions: A function calling itself with `NextCursor` and concatenating results with `Table.Combine`.
 
 2. LIST.GENERATE 4-PARAMETER SIGNATURE

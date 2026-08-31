@@ -1469,7 +1469,7 @@ export default class Topic12 extends Component {
               <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium mb-4">
                 Topic 13: Advanced find Conditions
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white leading-tight">
                 find with Conditions: Name, Size, Type, Permissions, Time
                 <span className="block text-xl text-gray-600 dark:text-gray-400 mt-2">
                   Master precise file filtering with advanced search conditions

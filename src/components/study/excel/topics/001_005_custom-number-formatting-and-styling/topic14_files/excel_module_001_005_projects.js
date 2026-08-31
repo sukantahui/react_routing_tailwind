@@ -29,7 +29,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **INT** e.g. `=INT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX301**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX301**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1150000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -52,7 +52,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **TRUNC** e.g. `=TRUNC(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX302**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX302**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1300000.849",
         "mask": "0000-0000-0000",
@@ -75,7 +75,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **ABS** e.g. `=ABS(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX303**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ABS**: Click cell C4, enter `=ABS(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX303**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ABS**: Click cell C4, enter `=ABS(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1450000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -98,7 +98,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **MOD** e.g. `=MOD(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX304**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MOD**: Click cell C4, enter `=MOD(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX304**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MOD**: Click cell C4, enter `=MOD(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1600000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -121,7 +121,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **QUOTIENT** e.g. `=QUOTIENT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX305**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply QUOTIENT**: Click cell C4, enter `=QUOTIENT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX305**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply QUOTIENT**: Click cell C4, enter `=QUOTIENT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1750000.849",
         "mask": "[h]:mm:ss",
@@ -144,7 +144,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **ROUND** e.g. `=ROUND(B4, 2)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX306**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply ROUND**: Click cell C4, enter `=ROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX306**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply ROUND**: Click cell C4, enter `=ROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1900000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -167,7 +167,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **ROUNDUP** e.g. `=ROUNDUP(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX307**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply ROUNDUP**: Click cell C4, enter `=ROUNDUP(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX307**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply ROUNDUP**: Click cell C4, enter `=ROUNDUP(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2050000.849",
         "mask": "0000-0000-0000",
@@ -190,7 +190,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **ROUNDDOWN** e.g. `=ROUNDDOWN(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX308**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ROUNDDOWN**: Click cell C4, enter `=ROUNDDOWN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX308**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ROUNDDOWN**: Click cell C4, enter `=ROUNDDOWN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2200000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -213,7 +213,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **MROUND** e.g. `=MROUND(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX309**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MROUND**: Click cell C4, enter `=MROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX309**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MROUND**: Click cell C4, enter `=MROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2350000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -236,7 +236,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **CEILING.MATH** e.g. `=CEILING.MATH(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX310**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply CEILING.MATH**: Click cell C4, enter `=CEILING.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX310**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply CEILING.MATH**: Click cell C4, enter `=CEILING.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2500000.849",
         "mask": "[h]:mm:ss",
@@ -259,7 +259,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **FLOOR.MATH** e.g. `=FLOOR.MATH(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX311**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FLOOR.MATH**: Click cell C4, enter `=FLOOR.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX311**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FLOOR.MATH**: Click cell C4, enter `=FLOOR.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2650000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -282,7 +282,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **SIGN** e.g. `=SIGN(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX312**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply SIGN**: Click cell C4, enter `=SIGN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX312**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply SIGN**: Click cell C4, enter `=SIGN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2800000.849",
         "mask": "0000-0000-0000",
@@ -305,7 +305,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **SQRT** e.g. `=SQRT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX313**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply SQRT**: Click cell C4, enter `=SQRT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX313**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply SQRT**: Click cell C4, enter `=SQRT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2950000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -328,7 +328,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **POWER** e.g. `=POWER(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX314**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply POWER**: Click cell C4, enter `=POWER(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX314**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply POWER**: Click cell C4, enter `=POWER(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3100000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -351,7 +351,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **EXACT** e.g. `=EXACT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX315**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply EXACT**: Click cell C4, enter `=EXACT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX315**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply EXACT**: Click cell C4, enter `=EXACT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3250000.849",
         "mask": "[h]:mm:ss",
@@ -374,7 +374,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **CHAR** e.g. `=CHAR(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX316**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply CHAR**: Click cell C4, enter `=CHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX316**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply CHAR**: Click cell C4, enter `=CHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3400000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -397,7 +397,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **CODE** e.g. `=CODE(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX317**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply CODE**: Click cell C4, enter `=CODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX317**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply CODE**: Click cell C4, enter `=CODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3550000.849",
         "mask": "0000-0000-0000",
@@ -420,7 +420,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **UNICHAR** e.g. `=UNICHAR(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX318**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply UNICHAR**: Click cell C4, enter `=UNICHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX318**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply UNICHAR**: Click cell C4, enter `=UNICHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3700000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -443,7 +443,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **UNICODE** e.g. `=UNICODE(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX319**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply UNICODE**: Click cell C4, enter `=UNICODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX319**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply UNICODE**: Click cell C4, enter `=UNICODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3850000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -466,7 +466,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **REPT** e.g. `=REPT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX320**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply REPT**: Click cell C4, enter `=REPT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX320**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply REPT**: Click cell C4, enter `=REPT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4000000.849",
         "mask": "[h]:mm:ss",
@@ -489,7 +489,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **FIXED** e.g. `=FIXED(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX321**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FIXED**: Click cell C4, enter `=FIXED(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX321**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FIXED**: Click cell C4, enter `=FIXED(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4150000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -512,7 +512,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **DOLLAR** e.g. `=DOLLAR(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX322**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply DOLLAR**: Click cell C4, enter `=DOLLAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX322**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply DOLLAR**: Click cell C4, enter `=DOLLAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4300000.849",
         "mask": "0000-0000-0000",
@@ -535,7 +535,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **BAHTTEXT** e.g. `=BAHTTEXT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX323**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply BAHTTEXT**: Click cell C4, enter `=BAHTTEXT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX323**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply BAHTTEXT**: Click cell C4, enter `=BAHTTEXT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4450000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -558,7 +558,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **INT** e.g. `=INT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX324**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX324**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4600000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -581,7 +581,7 @@ export const excelDataEntryProjectsData = {
         "In column C, write formula using **TRUNC** e.g. `=TRUNC(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX325**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX325**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4750000.849",
         "mask": "[h]:mm:ss",
@@ -623,7 +623,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **INT** e.g. `=INT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX301**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX301**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1150000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -646,7 +646,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **TRUNC** e.g. `=TRUNC(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX302**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX302**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1300000.849",
         "mask": "0000-0000-0000",
@@ -669,7 +669,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **ABS** e.g. `=ABS(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX303**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ABS**: Click cell C4, enter `=ABS(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX303**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ABS**: Click cell C4, enter `=ABS(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1450000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -692,7 +692,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **MOD** e.g. `=MOD(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX304**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MOD**: Click cell C4, enter `=MOD(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX304**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MOD**: Click cell C4, enter `=MOD(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1600000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -715,7 +715,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **QUOTIENT** e.g. `=QUOTIENT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX305**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply QUOTIENT**: Click cell C4, enter `=QUOTIENT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX305**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply QUOTIENT**: Click cell C4, enter `=QUOTIENT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1750000.849",
         "mask": "[h]:mm:ss",
@@ -738,7 +738,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **ROUND** e.g. `=ROUND(B4, 2)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX306**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply ROUND**: Click cell C4, enter `=ROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX306**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply ROUND**: Click cell C4, enter `=ROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "1900000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -761,7 +761,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **ROUNDUP** e.g. `=ROUNDUP(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX307**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply ROUNDUP**: Click cell C4, enter `=ROUNDUP(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX307**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply ROUNDUP**: Click cell C4, enter `=ROUNDUP(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2050000.849",
         "mask": "0000-0000-0000",
@@ -784,7 +784,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **ROUNDDOWN** e.g. `=ROUNDDOWN(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX308**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ROUNDDOWN**: Click cell C4, enter `=ROUNDDOWN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX308**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply ROUNDDOWN**: Click cell C4, enter `=ROUNDDOWN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2200000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -807,7 +807,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **MROUND** e.g. `=MROUND(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX309**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MROUND**: Click cell C4, enter `=MROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX309**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply MROUND**: Click cell C4, enter `=MROUND(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2350000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -830,7 +830,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **CEILING.MATH** e.g. `=CEILING.MATH(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX310**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply CEILING.MATH**: Click cell C4, enter `=CEILING.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX310**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply CEILING.MATH**: Click cell C4, enter `=CEILING.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2500000.849",
         "mask": "[h]:mm:ss",
@@ -853,7 +853,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **FLOOR.MATH** e.g. `=FLOOR.MATH(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX311**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FLOOR.MATH**: Click cell C4, enter `=FLOOR.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX311**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FLOOR.MATH**: Click cell C4, enter `=FLOOR.MATH(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2650000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -876,7 +876,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **SIGN** e.g. `=SIGN(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX312**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply SIGN**: Click cell C4, enter `=SIGN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX312**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply SIGN**: Click cell C4, enter `=SIGN(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2800000.849",
         "mask": "0000-0000-0000",
@@ -899,7 +899,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **SQRT** e.g. `=SQRT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX313**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply SQRT**: Click cell C4, enter `=SQRT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX313**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply SQRT**: Click cell C4, enter `=SQRT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "2950000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -922,7 +922,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **POWER** e.g. `=POWER(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX314**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply POWER**: Click cell C4, enter `=POWER(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX314**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply POWER**: Click cell C4, enter `=POWER(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3100000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -945,7 +945,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **EXACT** e.g. `=EXACT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX315**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply EXACT**: Click cell C4, enter `=EXACT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX315**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply EXACT**: Click cell C4, enter `=EXACT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3250000.849",
         "mask": "[h]:mm:ss",
@@ -968,7 +968,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **CHAR** e.g. `=CHAR(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX316**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply CHAR**: Click cell C4, enter `=CHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX316**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply CHAR**: Click cell C4, enter `=CHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3400000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -991,7 +991,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **CODE** e.g. `=CODE(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX317**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply CODE**: Click cell C4, enter `=CODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX317**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply CODE**: Click cell C4, enter `=CODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3550000.849",
         "mask": "0000-0000-0000",
@@ -1014,7 +1014,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **UNICHAR** e.g. `=UNICHAR(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX318**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply UNICHAR**: Click cell C4, enter `=UNICHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX318**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply UNICHAR**: Click cell C4, enter `=UNICHAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3700000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -1037,7 +1037,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **UNICODE** e.g. `=UNICODE(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX319**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply UNICODE**: Click cell C4, enter `=UNICODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX319**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply UNICODE**: Click cell C4, enter `=UNICODE(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "3850000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -1060,7 +1060,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **REPT** e.g. `=REPT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX320**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply REPT**: Click cell C4, enter `=REPT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX320**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply REPT**: Click cell C4, enter `=REPT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4000000.849",
         "mask": "[h]:mm:ss",
@@ -1083,7 +1083,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **FIXED** e.g. `=FIXED(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX321**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FIXED**: Click cell C4, enter `=FIXED(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX321**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@' into Type input.\n4. **Apply FIXED**: Click cell C4, enter `=FIXED(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4150000.849",
         "mask": "₹ #,##,##0.00;[Red](₹ #,##,##0.00);\"-\";@",
@@ -1106,7 +1106,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **DOLLAR** e.g. `=DOLLAR(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX322**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply DOLLAR**: Click cell C4, enter `=DOLLAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX322**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '0000-0000-0000' into Type input.\n4. **Apply DOLLAR**: Click cell C4, enter `=DOLLAR(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4300000.849",
         "mask": "0000-0000-0000",
@@ -1129,7 +1129,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **BAHTTEXT** e.g. `=BAHTTEXT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX323**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply BAHTTEXT**: Click cell C4, enter `=BAHTTEXT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX323**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type 'dd-mmm-yyyy (dddd)' into Type input.\n4. **Apply BAHTTEXT**: Click cell C4, enter `=BAHTTEXT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4450000.849",
         "mask": "dd-mmm-yyyy (dddd)",
@@ -1152,7 +1152,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **INT** e.g. `=INT(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX324**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX324**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0' into Type input.\n4. **Apply INT**: Click cell C4, enter `=INT(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4600000.849",
         "mask": "[>10000000]₹ #,,,\" Cr\";[>100000]₹ #,,\" Lakh\";₹ #,##0",
@@ -1175,7 +1175,7 @@ export const excelModuleProjectsData = {
         "In column C, write formula using **TRUNC** e.g. `=TRUNC(B4)`.",
         "Ensure negative numbers appear in red inside parentheses without converting numbers to text strings."
       ],
-      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX325**.\n2. **Open Format Cells**: Press **Ctrl + 1** -> select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
+      "stepByStep": "1. **Select Cell Range**: Highlight B4:B25 on worksheet **EX325**.\n2. **Open Format Cells**: Press **Ctrl + 1** → select **Custom**.\n3. **Apply Mask**: Type '[h]:mm:ss' into Type input.\n4. **Apply TRUNC**: Click cell C4, enter `=TRUNC(B4)` and drag fill handle down to C25.\n5. **Audit Verification**: Confirm calculations run cleanly without #VALUE! errors.",
       "rawMemoryVsRendered": {
         "raw": "4750000.849",
         "mask": "[h]:mm:ss",

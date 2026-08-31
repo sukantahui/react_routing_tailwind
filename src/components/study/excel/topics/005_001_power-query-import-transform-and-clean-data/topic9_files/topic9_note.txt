@@ -22,7 +22,7 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 1. Group By GroupKey with Operation "All Rows"
 2. In nested sub-table: Sort descending by Metric
 3. Add Index Column to nested table (1, 2, 3...)
-4. Expand nested table -> Instant group-level ranking!
+4. Expand nested table → Instant group-level ranking!
 
 3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
 --------------------------------------------------------------------------------

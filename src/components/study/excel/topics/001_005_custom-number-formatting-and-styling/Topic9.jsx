@@ -273,7 +273,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Phone Numbers, Tax IDs (PAN/GSTIN/SSN), and Credit Card Masking Patterns
           </h1>
 
@@ -327,7 +327,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic9"
+            sheetName="Topic9"
           />
         </section>
 
@@ -412,7 +412,7 @@ export default function Topic9() {
                 Entering numbers like PIN codes (<code className="text-amber-300">011001</code>) causes Excel to strip the leading zero automatically. Using custom format mask <code className="text-amber-300">000000</code> forces mandatory zero padding without converting the cell to text.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-cyan-300 border border-slate-800">
-                11001 + 000000 -&gt; "011001" (Numeric Serial Preserved)
+                11001 + 000000 → "011001" (Numeric Serial Preserved)
               </div>
             </div>
 
@@ -424,7 +424,7 @@ export default function Topic9() {
                 Symbols like hyphens (<code className="text-amber-300">-</code>), plus signs (<code className="text-amber-300">+</code>), and parentheses (<code className="text-amber-300">()</code>) pass through format masks directly alongside mandatory digit placeholders.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-emerald-300 border border-slate-800">
-                9830123456 + +91 00000-00000 -&gt; "+91 98301-23456"
+                9830123456 + +91 00000-00000 → "+91 98301-23456"
               </div>
             </div>
           </div>

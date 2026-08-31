@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never email an Excel model to a client or competitor without running Document Inspector! It takes 10 seconds and prevents embarrassing leaks of internal comments and author metadata.
 
 COMMON TRAPS TO AVOID:
-- Irreversible Deletion of Necessary Hidden Sheets: Clicking 'Remove All' on Hidden Worksheets in Document Inspector permanently DELETES those sheets from the workbook. -> Fix: Always save a backup copy (`Model_Master_Internal.xlsx`) before running Document Inspector.
-- Accidental Removal of Live Pivot Cache XML: Removing Custom XML data can occasionally corrupt complex Power Query or third-party add-in connections. -> Fix: Review itemized inspection results before clicking 'Remove All'.
-- Publishing Internal Notes to Public Competitors: Forgetting to inspect documents leaves confidential internal margin discussions visible in cell comments. -> Fix: Make Document Inspection a mandatory step in corporate sign-off checklists.
+- Irreversible Deletion of Necessary Hidden Sheets: Clicking 'Remove All' on Hidden Worksheets in Document Inspector permanently DELETES those sheets from the workbook. → Fix: Always save a backup copy (`Model_Master_Internal.xlsx`) before running Document Inspector.
+- Accidental Removal of Live Pivot Cache XML: Removing Custom XML data can occasionally corrupt complex Power Query or third-party add-in connections. → Fix: Review itemized inspection results before clicking 'Remove All'.
+- Publishing Internal Notes to Public Competitors: Forgetting to inspect documents leaves confidential internal margin discussions visible in cell comments. → Fix: Make Document Inspection a mandatory step in corporate sign-off checklists.
 ================================================================================

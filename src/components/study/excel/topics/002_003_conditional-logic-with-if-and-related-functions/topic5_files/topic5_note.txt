@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Clean, high-performance exact-match condition mapping evaluating a single target expression against discrete value-result pairs with built-in default fallback
 
 TEACHER'S ADVICE:
-SWITCH is the most elegant way to decode corporate category keys (1 -> HQ, 2 -> Plant). It evaluates faster than IFS because it only reads the input cell once.
+SWITCH is the most elegant way to decode corporate category keys (1 → HQ, 2 → Plant). It evaluates faster than IFS because it only reads the input cell once.
 
 COMMON TRAPS TO AVOID:
-- Missing Default Value Return (#N/A): If the input value does not match any case and no trailing default argument is supplied, SWITCH returns #N/A. -> Fix: Always supply a final default fallback argument at the end of the argument list.
-- Data Type Mismatch in Cases: Matching the number 1 against the text string "1" fails because SWITCH performs strict type matching. -> Fix: Ensure data types match: use numbers for numeric codes, quoted strings for text codes.
-- Confusing SWITCH with IFS Syntax: Putting full conditions (A2>100) inside standard SWITCH arguments fails because SWITCH expects discrete target values. -> Fix: Use `SWITCH(TRUE, A2>100, "High", ...)` or use IFS.
+- Missing Default Value Return (#N/A): If the input value does not match any case and no trailing default argument is supplied, SWITCH returns #N/A. → Fix: Always supply a final default fallback argument at the end of the argument list.
+- Data Type Mismatch in Cases: Matching the number 1 against the text string "1" fails because SWITCH performs strict type matching. → Fix: Ensure data types match: use numbers for numeric codes, quoted strings for text codes.
+- Confusing SWITCH with IFS Syntax: Putting full conditions (A2>100) inside standard SWITCH arguments fails because SWITCH expects discrete target values. → Fix: Use `SWITCH(TRUE, A2>100, "High", ...)` or use IFS.
 ================================================================================

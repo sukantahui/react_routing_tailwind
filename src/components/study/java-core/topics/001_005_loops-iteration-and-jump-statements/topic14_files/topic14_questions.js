@@ -211,7 +211,7 @@ const questions = [
     explanation: "Subtle syntax trap in Java labeling.",
     hint: "Label attaches to the empty statement, making it invisible to the loop.",
     level: "intermediate",
-    codeExample: "// Trap: LABEL:; for (..) -> break LABEL fails to find loop!"
+    codeExample: "// Trap: LABEL:; for (..) → break LABEL fails to find loop!"
   },
   {
     question: "How does HotSpot JIT compiler optimize labeled break jumps?",

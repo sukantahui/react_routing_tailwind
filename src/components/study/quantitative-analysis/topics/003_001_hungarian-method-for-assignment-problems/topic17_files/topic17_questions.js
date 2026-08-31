@@ -102,7 +102,7 @@ const questions = [
     question: "What is the Row Scanning Protocol in Step 5?",
     shortAnswer: "Scan rows sequentially; if a row contains EXACTLY ONE zero, box it [0] and immediately CROSS OUT (X) all other zeros in that SAME COLUMN.",
     explanation: "Prevents double-booking tasks.",
-    hint: "Row with 1 zero -> box [0] -> cross out column zeros.",
+    hint: "Row with 1 zero → box [0] → cross out column zeros.",
     level: "moderate",
     codeExample: "RowScan: if (row_zeros === 1) { box(i, j); crossOutCol(j); }"
   },
@@ -110,7 +110,7 @@ const questions = [
     question: "What is the Column Scanning Protocol in Step 5?",
     shortAnswer: "Scan columns sequentially; if a column contains EXACTLY ONE zero, box it [0] and immediately CROSS OUT (X) all other zeros in that SAME ROW.",
     explanation: "Prevents double-booking workers.",
-    hint: "Col with 1 zero -> box [0] -> cross out row zeros.",
+    hint: "Col with 1 zero → box [0] → cross out row zeros.",
     level: "moderate",
     codeExample: "ColScan: if (col_zeros === 1) { box(i, j); crossOutRow(i); }"
   },
@@ -166,7 +166,7 @@ const questions = [
     question: "What is the ultimate golden summary of the entire Assignment Problems track?",
     shortAnswer: "'Check square balance (add ₹0 dummies); convert max to regret (M_max - P); execute Row & Column Reductions; test line covering L = n (adjust by e if L < n); box [0] and cross out (X) independent zeros; calculate final Z* from original rates in Indian Rupees (₹)!'",
     explanation: "This master summary encapsulates all 18 topics of Module 003_001.",
-    hint: "Balance -> Regret -> Row/Col Reduce -> Line Test / Adjust -> Assign Zeros -> State Z* in ₹.",
+    hint: "Balance → Regret → Row/Col Reduce → Line Test / Adjust → Assign Zeros → State Z* in ₹.",
     level: "moderate",
     codeExample: "Master Summary: Complete 5-Step Hungarian Method Pipeline."
   }

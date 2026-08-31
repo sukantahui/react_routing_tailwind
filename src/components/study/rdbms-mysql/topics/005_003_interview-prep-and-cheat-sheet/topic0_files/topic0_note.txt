@@ -74,7 +74,7 @@ SQL / Code Pattern:
 -- 1NF: Atomic values only; no repeating arrays or comma-delimited CSV columns.
 -- 2NF: In 1NF + No Partial Functional Dependencies (All non-key attributes fully depend on whole PK).
 -- 3NF: In 2NF + No Transitive Dependencies (Non-Key attribute cannot determine another Non-Key attribute).
--- BCNF: In 3NF + In every non-trivial FD X -> Y, X MUST be a Superkey!
+-- BCNF: In 3NF + In every non-trivial FD X → Y, X MUST be a Superkey!
 
 Takeaways:
 - Memorize the definition of Partial, Transitive, and Multi-valued dependencies.
@@ -98,8 +98,8 @@ Pitfalls to Avoid:
 - Pitfall 2: Saying 2NF Applies to All Tables: A table with a single-column Primary Key is automatically in 2NF because partial dependencies are mathematically impossible. (Rule: 2NF violations can only occur in tables with composite Primary Keys.)
 
 Production Best Practices:
-- Best Practice 1: Structure Interview Answers Methodically: Answer with: 1. Formal Definition -> 2. Underlying Mechanism -> 3. Real-World SQL Example -> 4. Trade-offs. (Demonstrates clear structured engineering communication.)
-- Best Practice 2: Draw Schema Diagrams on Whiteboards: Illustrate functional dependencies (X -> Y) visually during technical interviews. (Makes theoretical normalization proofs intuitive and convincing.)
+- Best Practice 1: Structure Interview Answers Methodically: Answer with: 1. Formal Definition → 2. Underlying Mechanism → 3. Real-World SQL Example → 4. Trade-offs. (Demonstrates clear structured engineering communication.)
+- Best Practice 2: Draw Schema Diagrams on Whiteboards: Illustrate functional dependencies (X → Y) visually during technical interviews. (Makes theoretical normalization proofs intuitive and convincing.)
 
 5. TEACHER'S MASTER ADVICE - SIR SUKANTA HUI
 --------------------------------------------------------------------------------

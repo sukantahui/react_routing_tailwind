@@ -9,8 +9,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 - Pass-by-Value Reference Semantics (JLS §8.4):
   * Java passes the reference pointer address BY VALUE (copied onto method frame).
-  * In-place Mutation : fees[i] -= 500; -> Mutates caller's Heap array directly!
-  * Reassignment Trap : fees = new double[10]; -> Modifies local parameter only (caller unaffected).
+  * In-place Mutation : fees[i] -= 500; → Mutates caller's Heap array directly!
+  * Reassignment Trap : fees = new double[10]; → Modifies local parameter only (caller unaffected).
 
 - Returning Arrays from Methods:
   * Specify type as return type: public static double[] generateBonuses(int n)

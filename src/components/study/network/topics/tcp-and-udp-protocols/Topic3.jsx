@@ -43,7 +43,7 @@ const Topic3 = () => {
         {/* Header Section */}
         <section className="animate-[fadeSlideUp_0.6s_ease-out] motion-safe:animate-[fadeSlideUp_0.6s_ease-out]">
           <div className="bg-gradient-to-r dark:from-indigo-900/30 from-indigo-100 dark:to-violet-900/30 to-violet-100 rounded-2xl p-6 shadow-md transition-all duration-300 hover:shadow-lg">
-            <h1 className="text-3xl md:text-4xl font-bold dark:text-white text-gray-800 leading-relaxed">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold dark:text-white text-gray-800 leading-relaxed">
               Port Addressing
             </h1>
             <p className="dark:text-gray-300 text-gray-600 mt-3 text-lg leading-relaxed">

@@ -37,7 +37,7 @@ const questions = [
         explanation: "Selection sort can swap distant elements, potentially moving an equal element past another. It can be made stable with careful implementation, but usually it's not.",
         hint: "Long-distance swaps break stability.",
         level: "intermediate",
-        codeExample: "// Example: [2a, 2b, 1] -> [1, 2b, 2a] order of 2's changed"
+        codeExample: "// Example: [2a, 2b, 1] → [1, 2b, 2a] order of 2's changed"
     },
     {
         question: "What is the space complexity of both bubble and selection sort?",
@@ -93,7 +93,7 @@ const questions = [
         explanation: "Bubble sort performs many unnecessary comparisons and swaps, making it impractical for arrays larger than a few thousand elements.",
         hint: "Quadratic time is slow.",
         level: "basic",
-        codeExample: "// 1 million elements -> ~500 billion operations"
+        codeExample: "// 1 million elements → ~500 billion operations"
     },
     {
         question: "What is the main disadvantage of selection sort?",
@@ -221,7 +221,7 @@ const questions = [
         explanation: "Stability matters when sorting by multiple keys (e.g., sort by last name, then by first name).",
         hint: "Order of equal items.",
         level: "intermediate",
-        codeExample: "// Stable: [2a, 1, 2b] -> [1, 2a, 2b]; Unstable: [1, 2b, 2a] possible"
+        codeExample: "// Stable: [2a, 1, 2b] → [1, 2a, 2b]; Unstable: [1, 2b, 2a] possible"
     },
     {
         question: "Can you implement bubble sort recursively?",

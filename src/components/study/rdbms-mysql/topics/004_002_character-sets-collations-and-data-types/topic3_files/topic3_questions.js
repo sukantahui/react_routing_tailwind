@@ -3,9 +3,9 @@
 const questions = [
   {
     question: "What is the 4-level character set and collation inheritance hierarchy in MySQL?",
-    shortAnswer: "1) **Server Level** (Global default in `my.cnf`) &rarr; 2) **Database Level** (`CREATE DATABASE`) &rarr; 3) **Table Level** (`CREATE TABLE`) &rarr; 4) **Column Level** (`col VARCHAR(...)`).",
+    shortAnswer: "1) **Server Level** (Global default in `my.cnf`) → 2) **Database Level** (`CREATE DATABASE`) → 3) **Table Level** (`CREATE TABLE`) → 4) **Column Level** (`col VARCHAR(...)`).",
     explanation: "Each lower level inherits from its immediate parent unless explicitly overridden.",
-    hint: "Server &rarr; Database &rarr; Table &rarr; Column.",
+    hint: "Server → Database → Table → Column.",
     level: "basic"
   },
   {
@@ -140,7 +140,7 @@ const questions = [
   },
   {
     question: "What is the primary architectural takeaway of Topic 3 in Module 004_002?",
-    shortAnswer: "MySQL's 4-tier hierarchy (Server &rarr; Database &rarr; Table &rarr; Column) coupled with the Client-Connection bridge guarantees complete encoding inheritance while allowing granular per-column micro-optimizations, ensuring data integrity from backend applications down to physical disk blocks.",
+    shortAnswer: "MySQL's 4-tier hierarchy (Server → Database → Table → Column) coupled with the Client-Connection bridge guarantees complete encoding inheritance while allowing granular per-column micro-optimizations, ensuring data integrity from backend applications down to physical disk blocks.",
     explanation: "Mastery of the hierarchy prevents charset mismatches and enables optimal schema design.",
     hint: "4-tier inheritance ensures consistent defaults with granular per-column optimization.",
     level: "basic"

@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `Table`"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic4() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Object Model Hierarchy: workbook: ExcelScript.Workbook -> workbook.getWorksheets() -> worksheet.getRange(\"A1:B10\") -> worksheet.getTables()"}
+            {"Object Model Hierarchy: workbook: ExcelScript.Workbook → workbook.getWorksheets() → worksheet.getRange(\"A1:B10\") → worksheet.getTables()"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic4() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Office Scripts Object Model Tree: Workbook -> Worksheet Collection -> Ranges, Tables, Charts & Pivots"}
+              Visual Dataflow: {"Office Scripts Object Model Tree: Workbook → Worksheet Collection → Ranges, Tables, Charts & Pivots"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Cloud Pipeline
@@ -286,7 +286,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_The_Office_Scripts"
+            sheetName="EX2705"
             title={"The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `Table` - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic4() {
                 Step 1: Open Monaco Editor in Excel for Web
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Excel in browser, click <strong>Automate &gt; New Script</strong> to launch the Monaco Code Editor.
+                Open Excel in browser, click <strong>Automate > New Script</strong> to launch the Monaco Code Editor.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic4() {
                 Step 2: Author TypeScript Logic with Parameters
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Write strongly-typed logic: <code className="text-cyan-300 font-mono font-bold">{"Object Model Hierarchy: workbook: ExcelScript.Workbook -> workbook.getWorksheets() -> worksheet.getRange(\"A1:B10\") -> worksheet.getTables()"}</code>.
+                Write strongly-typed logic: <code className="text-cyan-300 font-mono font-bold">{"Object Model Hierarchy: workbook: ExcelScript.Workbook → workbook.getWorksheets() → worksheet.getRange(\"A1:B10\") → worksheet.getTables()"}</code>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic4() {
                 Step 3: Connect to Microsoft Power Automate Flow
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Automate, add <strong>Excel Online (Business) &gt; Run script</strong> and pass dynamic flow tokens.
+                In Power Automate, add <strong>Excel Online (Business) > Run script</strong> and pass dynamic flow tokens.
               </p>
             </div>
 

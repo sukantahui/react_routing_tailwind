@@ -68,7 +68,7 @@ class LiveServerSimulator {
   triggerFileChange(fileName) {
     console.log(`[Live Server] File mutation detected on '${fileName}'. Broadcasting reload signal...`);
     this.clients.forEach(client => {
-      console.log(` -> Hot Reload dispatched to browser client: ${client}`);
+      console.log(` → Hot Reload dispatched to browser client: ${client}`);
     });
   }
 }

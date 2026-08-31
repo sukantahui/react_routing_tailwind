@@ -29,9 +29,9 @@ const Topic3 = () => {
         "2. Target Server replies with TCP [ SYN-ACK ] (Port is OPEN)",
         "3. Client immediately sends TCP [ RST ] to terminate connection instantly"
       ],
-      openState: "Receives [ SYN-ACK ] -> Marked as OPEN",
-      closedState: "Receives [ RST-ACK ] -> Marked as CLOSED",
-      filteredState: "No Response / Timeout -> Marked as FILTERED by Firewall",
+      openState: "Receives [ SYN-ACK ] → Marked as OPEN",
+      closedState: "Receives [ RST-ACK ] → Marked as CLOSED",
+      filteredState: "No Response / Timeout → Marked as FILTERED by Firewall",
       appLogging: "EVADED: Socket connection is never completed, avoiding application access logs.",
       nmapSyntax: "nmap -sS -T4 -p 1-1024 203.0.113.50"
     },
@@ -47,9 +47,9 @@ const Topic3 = () => {
         "3. Client operating system sends TCP [ ACK ] to complete full 3-way handshake",
         "4. Client sends [ RST / FIN ] to close connection"
       ],
-      openState: "Full 3-Way Handshake Established -> Marked as OPEN",
-      closedState: "Receives [ RST-ACK ] -> Marked as CLOSED",
-      filteredState: "Timeout -> Marked as FILTERED",
+      openState: "Full 3-Way Handshake Established → Marked as OPEN",
+      closedState: "Receives [ RST-ACK ] → Marked as CLOSED",
+      filteredState: "Timeout → Marked as FILTERED",
       appLogging: "LOGGED: Application daemons record a complete incoming socket connection.",
       nmapSyntax: "nmap -sT -T4 -p 80,443 203.0.113.50"
     },
@@ -64,9 +64,9 @@ const Topic3 = () => {
         "2. If Open: Target service sends UDP application response or remains silent",
         "3. If Closed: Target OS kernel returns ICMP Type 3 Code 3 (Port Unreachable)"
       ],
-      openState: "Receives UDP payload or no response -> Marked as OPEN|FILTERED",
-      closedState: "Receives ICMP Port Unreachable -> Marked as CLOSED",
-      filteredState: "ICMP Unreachable (Type 3 Code 1, 2, 9, 10, 13) -> FILTERED",
+      openState: "Receives UDP payload or no response → Marked as OPEN|FILTERED",
+      closedState: "Receives ICMP Port Unreachable → Marked as CLOSED",
+      filteredState: "ICMP Unreachable (Type 3 Code 1, 2, 9, 10, 13) → FILTERED",
       appLogging: "MINIMAL: UDP has no handshake; slow due to OS ICMP rate limiting (1 pkt/sec).",
       nmapSyntax: "nmap -sU -p 53,67,123,161 203.0.113.50"
     },
@@ -82,8 +82,8 @@ const Topic3 = () => {
         "3. Stateless Filter / No Firewall: Packet reaches OS kernel, which replies with [ RST ] (UNFILTERED)"
       ],
       openState: "Cannot determine Open vs Closed; maps firewall rulesets instead!",
-      closedState: "Receives [ RST ] -> Marked as UNFILTERED (No firewall blocking port)",
-      filteredState: "No Response / ICMP Error -> Marked as FILTERED (Stateful Firewall present)",
+      closedState: "Receives [ RST ] → Marked as UNFILTERED (No firewall blocking port)",
+      filteredState: "No Response / ICMP Error → Marked as FILTERED (Stateful Firewall present)",
       appLogging: "MAPS FIREWALL: Distinguishes between stateful and stateless firewall rules.",
       nmapSyntax: "nmap -sA -p 80,443,8080 203.0.113.50"
     }
@@ -238,7 +238,7 @@ const Topic3 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_003 • Topic 3 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Phase 2: Scanning and Network Enumeration
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

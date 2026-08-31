@@ -6,10 +6,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. OVERRIDING THROWS RULES:
-   - Broader Checked Exception &rarr; ILLEGAL (Compile Error).
-   - Narrower Checked Exception &rarr; LEGAL.
-   - No Checked Exception &rarr; LEGAL.
-   - Any RuntimeException &rarr; LEGAL.
+   - Broader Checked Exception → ILLEGAL (Compile Error).
+   - Narrower Checked Exception → LEGAL.
+   - No Checked Exception → LEGAL.
+   - Any RuntimeException → LEGAL.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

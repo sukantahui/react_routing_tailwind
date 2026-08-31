@@ -28,7 +28,7 @@ const Topic28 = () => {
       ouiVendor: '00:1A:2B — Intel Corporation',
       deviceSerial: '3C:4D:5E — NIC Physical Serial',
       desc: 'Standard physical burned-in hardware address (BIA) on desktop and server NICs.',
-      camSimulation: 'Frame enters Switch Port 1 -> Switch learns [00:1A:2B:3C:4D:5E -> Port 1, VLAN 10] with 300s aging timer.',
+      camSimulation: 'Frame enters Switch Port 1 → Switch learns [00:1A:2B:3C:4D:5E → Port 1, VLAN 10] with 300s aging timer.',
     },
     {
       id: 'randomized',
@@ -40,7 +40,7 @@ const Topic28 = () => {
       ouiVendor: 'None (Generated in RAM by iOS / Android / Windows)',
       deviceSerial: 'A1:19:67:89:BC — Ephemeral Pseudorandom Hash',
       desc: 'Mobile privacy MAC address generated dynamically to defeat Wi-Fi location tracking across public venues.',
-      camSimulation: 'Smartphone connects to Campus Wi-Fi -> Switch records randomized LAA MAC on Port 24 (AP Trunk).',
+      camSimulation: 'Smartphone connects to Campus Wi-Fi → Switch records randomized LAA MAC on Port 24 (AP Trunk).',
     },
     {
       id: 'multicast',
@@ -52,7 +52,7 @@ const Topic28 = () => {
       ouiVendor: '01:00:5E — IANA IPv4 Multicast Block',
       deviceSerial: '00:00:05 — Maps to OSPF Multicast 224.0.0.5',
       desc: 'Layer 2 multicast destination frame delivered simultaneously to all subscribed router nodes.',
-      camSimulation: 'Switch inspects IGMP Snooping table -> Forwards multicast stream only to subscribed router ports.',
+      camSimulation: 'Switch inspects IGMP Snooping table → Forwards multicast stream only to subscribed router ports.',
     },
     {
       id: 'broadcast',
@@ -64,7 +64,7 @@ const Topic28 = () => {
       ouiVendor: 'Universal Broadcast (All 48 bits = 1)',
       deviceSerial: 'FF:FF:FF — Reaches Every Host on LAN',
       desc: 'Special address for ARP Requests (Who has 192.168.1.1?) and DHCP Discover broadcasts.',
-      camSimulation: 'Switch receives broadcast on Port 3 -> Copies & floods frame to Ports 1, 2, 4, 5... on VLAN 10.',
+      camSimulation: 'Switch receives broadcast on Port 3 → Copies & floods frame to Ports 1, 2, 4, 5... on VLAN 10.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic28 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             MAC Address
           </h1>
 
@@ -360,7 +360,7 @@ const Topic28 = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm font-mono">
               <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex flex-col space-y-2">
                 <span className="text-amber-400 font-sans font-bold">Switch CAM Learning Lifecycle:</span>
-                <p className="text-slate-300 text-xs">• 1. Reads Source MAC of incoming frame to update `[MAC &rarr; Port]` table.</p>
+                <p className="text-slate-300 text-xs">• 1. Reads Source MAC of incoming frame to update `[MAC → Port]` table.</p>
                 <p className="text-slate-300 text-xs">• 2. Looks up Destination MAC; forwards point-to-point if learned.</p>
                 <p className="text-slate-300 text-xs">• 3. Unknown unicast frames are flooded out of all active VLAN ports.</p>
                 <p className="text-slate-300 text-xs">• 4. Unused dynamic entries age out after 300 seconds (5 minutes).</p>

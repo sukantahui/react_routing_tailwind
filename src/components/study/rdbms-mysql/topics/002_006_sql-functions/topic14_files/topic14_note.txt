@@ -25,9 +25,9 @@ single optimized aggregation pass.
 When you specify `GROUP BY col1, col2, col3 WITH ROLLUP`, MySQL computes aggregates 
 at decreasing levels of granularity from right to left:
 1. Detailed groups: `(col1, col2, col3)`
-2. Level 1 Subtotals: `(col1, col2, NULL)` -> Subtotal across col3 for each (col1, col2)
-3. Level 2 Subtotals: `(col1, NULL, NULL)` -> Subtotal across col2 & col3 for each (col1)
-4. Grand Total: `(NULL, NULL, NULL)` -> Grand total across all rows
+2. Level 1 Subtotals: `(col1, col2, NULL)` → Subtotal across col3 for each (col1, col2)
+3. Level 2 Subtotals: `(col1, NULL, NULL)` → Subtotal across col2 & col3 for each (col1)
+4. Grand Total: `(NULL, NULL, NULL)` → Grand total across all rows
 
 Total Generated Aggregation Levels = N + 1 (where N is the number of grouping columns).
 

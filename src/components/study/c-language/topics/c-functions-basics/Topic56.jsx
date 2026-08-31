@@ -13,7 +13,7 @@ const Topic56 = () => {
     <div className="min-h-screen bg-white p-6 text-gray-900 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-200">
       {/* Header */}
       <header className="mb-8 text-center">
-        <h1 className="mb-2 text-4xl font-extrabold tracking-tight">
+        <h1 className="mb-2 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
           <span className="bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent dark:from-cyan-400 dark:to-blue-400">
             Function Pointers – Introduction and Use Cases
           </span>

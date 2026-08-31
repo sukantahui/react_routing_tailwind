@@ -177,7 +177,7 @@ const Topic15 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 15</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Registers: Parallel Load Architecture &amp; Data Transfer Physics
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -728,19 +728,19 @@ const Topic15 = () => {
                     <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-3">
                       <div className="flex justify-between items-center text-[11px]">
                         <span className="text-slate-400">Wire 3 (MSB):</span>
-                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 1 &rarr; Received</span>
+                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 1 → Received</span>
                       </div>
                       <div className="flex justify-between items-center text-[11px]">
                         <span className="text-slate-400">Wire 2:</span>
-                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 0 &rarr; Received</span>
+                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 0 → Received</span>
                       </div>
                       <div className="flex justify-between items-center text-[11px]">
                         <span className="text-slate-400">Wire 1:</span>
-                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 1 &rarr; Received</span>
+                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 1 → Received</span>
                       </div>
                       <div className="flex justify-between items-center text-[11px]">
                         <span className="text-slate-400">Wire 0 (LSB):</span>
-                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 1 &rarr; Received</span>
+                        <span className={clsx("font-bold", parallelTransferred ? "text-emerald-400" : "text-slate-600")}>Bit 1 → Received</span>
                       </div>
                     </div>
 

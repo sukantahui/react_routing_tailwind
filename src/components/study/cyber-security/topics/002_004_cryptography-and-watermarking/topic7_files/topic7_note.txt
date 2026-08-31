@@ -10,7 +10,7 @@ AUTHOR         : SUKANTA HUI  |  LOCATION : BARRACKPORE, WEST BENGAL, INDIA
 A Cryptographic Hash Function is a deterministic, one-way mathematical algorithm that 
 compresses an arbitrary-length binary input string into a fixed-length output digest:
 
-                    H : {0, 1}*  ->  {0, 1}^n
+                    H : {0, 1}*  →  {0, 1}^n
 
 * CORE CHARACTERISTICS:
   - Deterministic Output : The exact same input message always produces the identical hash digest.
@@ -140,7 +140,7 @@ SCENARIO 4 : HASH COLLISION & AVALANCHE EFFECT LAB (JADAVPUR UNIVERSITY)
 --------------------------------------------------------------------------------
 9. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
 --------------------------------------------------------------------------------
-[ ] Hash function maps arbitrary input to fixed-length output (H: {0,1}* -> {0,1}^n).
+[ ] Hash function maps arbitrary input to fixed-length output (H: {0,1}* → {0,1}^n).
 [ ] 3 Properties: Preimage (One-Way: 2^n), Second Preimage (2^n), Collision (2^(n/2)).
 [ ] Birthday Paradox reduces collision complexity to 2^(n/2) (MD5 broken at 2^64).
 [ ] Avalanche Effect: Changing 1 input bit flips ~50% of output digest bits randomly.

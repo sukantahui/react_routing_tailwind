@@ -191,8 +191,8 @@ const questions = [
     level: "expert"
   },
   {
-    question: "What is Implication ($\\rightarrow$) in TRC logic: $P \\rightarrow Q$?",
-    shortAnswer: "$$P \\rightarrow Q \\equiv \\neg P \\lor Q$$. In database queries, it is used with $\\forall$: $\\forall u (u \\in \\text{CoreCourses} \\rightarrow \\dots)$ ('If $u$ is a core course, then student enrolled in $u$').",
+    question: "What is Implication ($\→$) in TRC logic: $P \→ Q$?",
+    shortAnswer: "$$P \→ Q \\equiv \\neg P \\lor Q$$. In database queries, it is used with $\\forall$: $\\forall u (u \\in \\text{CoreCourses} \→ \\dots)$ ('If $u$ is a core course, then student enrolled in $u$').",
     explanation: "Logical implication in universal queries.",
     hint: "P → Q ≡ ¬P ∨ Q (Used in ∀ queries).",
     level: "expert"

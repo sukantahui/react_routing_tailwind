@@ -108,7 +108,7 @@ const questions = [
   },
   {
     question: "What is the Heuristic Query Optimization Algorithm's Step 1?",
-    shortAnswer: "Deconstruct conjunctive Selection predicates into a cascade of atomic selections: $\\sigma_{c_1 \\land c_2}(R) \\rightarrow \\sigma_{c_1}(\\sigma_{c_2}(R))$.",
+    shortAnswer: "Deconstruct conjunctive Selection predicates into a cascade of atomic selections: $\\sigma_{c_1 \\land c_2}(R) \→ \\sigma_{c_1}(\\sigma_{c_2}(R))$.",
     explanation: "Step 1 of heuristic optimization.",
     hint: "Cascade selections into individual atomic filters.",
     level: "basic"
@@ -129,7 +129,7 @@ const questions = [
   },
   {
     question: "What is the Heuristic Query Optimization Algorithm's Step 4?",
-    shortAnswer: "Combine Cartesian product nodes and subsequent selection nodes into single Equijoin nodes: $\\sigma_{R.A = S.B}(R \\times S) \\rightarrow R \\bowtie_{R.A = S.B} S$.",
+    shortAnswer: "Combine Cartesian product nodes and subsequent selection nodes into single Equijoin nodes: $\\sigma_{R.A = S.B}(R \\times S) \→ R \\bowtie_{R.A = S.B} S$.",
     explanation: "Step 4 of heuristic optimization.",
     hint: "Combine Cross Products and Selections into Equijoins.",
     level: "basic"

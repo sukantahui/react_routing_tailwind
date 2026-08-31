@@ -73,7 +73,7 @@ const questions = [
   },
   {
     question: "Why does `5 NOT IN (1, 2, NULL)` evaluate to `UNKNOWN`?",
-    shortAnswer: "Because it expands to `(5 != 1) AND (5 != 2) AND (5 != NULL)` -> `TRUE AND TRUE AND UNKNOWN` -> `UNKNOWN`.",
+    shortAnswer: "Because it expands to `(5 != 1) AND (5 != 2) AND (5 != NULL)` → `TRUE AND TRUE AND UNKNOWN` → `UNKNOWN`.",
     explanation: "In SQL, TRUE AND UNKNOWN evaluates to UNKNOWN (not TRUE).",
     hint: "AND chain with (5 != NULL) yields UNKNOWN.",
     level: "expert"
@@ -87,7 +87,7 @@ const questions = [
   },
   {
     question: "Does the `IN` operator suffer from the same NULL poisoning trap as `NOT IN`?",
-    shortAnswer: "NO; `5 IN (1, 2, 5, NULL)` evaluates to `(5=1) OR (5=2) OR (5=5) OR (5=NULL)` -> `FALSE OR FALSE OR TRUE OR UNKNOWN` -> `TRUE`.",
+    shortAnswer: "NO; `5 IN (1, 2, 5, NULL)` evaluates to `(5=1) OR (5=2) OR (5=5) OR (5=NULL)` → `FALSE OR FALSE OR TRUE OR UNKNOWN` → `TRUE`.",
     explanation: "Because OR with TRUE is always TRUE, matching rows are returned correctly.",
     hint: "No, because OR with TRUE yields TRUE.",
     level: "moderate"

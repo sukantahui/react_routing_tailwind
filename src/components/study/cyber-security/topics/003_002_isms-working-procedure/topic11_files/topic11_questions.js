@@ -20,9 +20,9 @@ const questions = [
     hint: "Stage 1 checks the blueprints; Stage 2 tests the actual building.",
     level: "basic",
     codeExample: `// Stage 1 vs Stage 2 External Audit Matrix:
-Stage 1 Audit: Focus = Documentation, Scope, SoA, Policy Approvals (Pass -> Approved for Stage 2)
+Stage 1 Audit: Focus = Documentation, Scope, SoA, Policy Approvals (Pass → Approved for Stage 2)
 Stage 2 Audit: Focus = Live Production Control Testing, Staff Interviews, SIEM Log Sampling
-Outcome:       Zero Major Non-Conformities -> ISO/IEC 27001:2022 Certificate Issued!`
+Outcome:       Zero Major Non-Conformities → ISO/IEC 27001:2022 Certificate Issued!`
   },
   {
     question: "In the Kolkata FinTech Case Study (Mamata), how was the ISMS designed to handle 500 payment microservices processing ₹120 Crores daily under RBI regulations?",
@@ -70,7 +70,7 @@ Legal Protection:    10-Year Imprisonment Liability Immunized under IT Act Secti
 Flaw 1: Statement of Applicability left 14 controls blank without documented justification
 Flaw 2: Internal Audit (9.2) was never conducted prior to external audit date
 Flaw 3: Management Review meeting minutes (9.3) lacked Board of Directors signatures
-Auditor Action: STAGE 1 AUDIT FAILED -> Stage 2 Technical Audit Cancelled!`
+Auditor Action: STAGE 1 AUDIT FAILED → Stage 2 Technical Audit Cancelled!`
   },
   {
     question: "How does the 'Evidence Triangulation' audit technique work during an ISO 27001 Stage 2 operational audit?",
@@ -81,7 +81,7 @@ Auditor Action: STAGE 1 AUDIT FAILED -> Stage 2 Technical Audit Cancelled!`
     codeExample: `// Evidence Triangulation Workflow:
 1. Document Review:   SOP-IAM-02 requires MFA on all production SSH bastion hosts.
 2. Staff Interview:   Auditor asks developer: "How do you SSH into the Kubernetes nodes?"
-3. Technical Proof:   Auditor watches developer authenticate with FIDO2 YubiKey -> TRIANGULATION PASS!`
+3. Technical Proof:   Auditor watches developer authenticate with FIDO2 YubiKey → TRIANGULATION PASS!`
   },
   {
     question: "What is the strategic role of the CISO during the initial ISMS Initiation & Governance Charter Phase (Phase 1)?",
@@ -104,7 +104,7 @@ Auditor Action: STAGE 1 AUDIT FAILED -> Stage 2 Technical Audit Cancelled!`
 Day 0:   Stage 2 Audit identifies Major NC on unencrypted database backups (Control A.8.13)
 Day 15:  Submit 5-Whys Root Cause Analysis and CAPA plan to BSI / TÜV Lead Auditor
 Day 45:  Deploy AWS KMS AES-256 automated backup encryption across all 500 databases
-Day 60:  Submit CloudTrail evidence logs -> Auditor closes Major NC -> Certificate Granted!`
+Day 60:  Submit CloudTrail evidence logs → Auditor closes Major NC → Certificate Granted!`
   },
   {
     question: "What role does Employee Security Awareness Training (SETA - Control A.6.3) play in passing Stage 2 audits?",
@@ -126,7 +126,7 @@ Auditor Rating:   100% OPERATIONAL CONFORMANCE RECORDED!`
     codeExample: `// DPDP Statutory Safe Harbor Defense:
 Accredited Certificate: ISO/IEC 27001:2022 (Certificate No: IS-749201 by BSI / UKAS)
 Judicial Evidence:      Documented SoA Matrix covering all 93 Annex A controls
-DPBI Finding:           Corporate entity exercised highest standard of care -> ₹250 Cr fine dismissed!`
+DPBI Finding:           Corporate entity exercised highest standard of care → ₹250 Cr fine dismissed!`
   },
   {
     question: "Synthesizing Real-World ISMS Implementation Case Studies: what is the master equation of Implementation Success and Certification Excellence?",

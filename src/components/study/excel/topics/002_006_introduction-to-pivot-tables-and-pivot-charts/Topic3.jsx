@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Value field settings: Sum, Count, Average, Min, Max, and Distinct Count (Data Model)"}
           </h1>
 
@@ -178,7 +178,7 @@ export default function Topic3() {
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Number Formatting Inside Pivot Tables"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Always set formatting via `Value Field Settings &gt; Number Format` rather than standard cell formatting (which gets wiped upon pivot refresh)."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Always set formatting via `Value Field Settings > Number Format` rather than standard cell formatting (which gets wiped upon pivot refresh)."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
@@ -286,7 +286,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Value_field_settin"
+            sheetName="EX1104"
             title={"Value field settings: Sum, Count, Average, Min, Max, and Distinct Count (Data Model) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -395,7 +395,7 @@ export default function Topic3() {
                 Step 3: Set Value Field Settings &amp; Number Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Right-click any value cell &gt; Value Field Settings &gt; Number Format, and apply standard currency/accounting masks.
+                Right-click any value cell > Value Field Settings > Number Format, and apply standard currency/accounting masks.
               </p>
             </div>
 
@@ -442,7 +442,7 @@ export default function Topic3() {
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Formatting Cells Directly (The Refresh Wipe)"}</td>
                   <td className="py-3 px-4">{"Applying number formatting via Home tab causes formatting to disappear when the PivotTable is refreshed or restructured."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always apply formatting through: Right-click value cell > Value Field Settings &gt; Number Format."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always apply formatting through: Right-click value cell > Value Field Settings > Number Format."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
@@ -572,7 +572,7 @@ export default function Topic3() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Never format PivotTable numbers with the Home tab! Always right-click and choose Value Field Settings -> Number Format. That locks your currency and comma formatting permanently."}
+            note={"Never format PivotTable numbers with the Home tab! Always right-click and choose Value Field Settings → Number Format. That locks your currency and comma formatting permanently."}
           />
         </div>
       </div>

@@ -17,7 +17,7 @@ Estimated Study Time: 6 Hours | Level: Pro
 In standard Python 3.12+ execution architecture:
 - Syntax & Semantics: Strict adherence to Pythonic idiomatic standards (PEP 8),
   memory management via reference counting and cyclic generational garbage collection.
-- Execution Lifecycle: Source code (.py) -> Bytecode (.pyc) -> Python Virtual Machine (PVM).
+- Execution Lifecycle: Source code (.py) → Bytecode (.pyc) → Python Virtual Machine (PVM).
 - Performance & Scalability: Vectorized execution, optimized data structures,
   and clean functional/object-oriented modular abstractions.
 

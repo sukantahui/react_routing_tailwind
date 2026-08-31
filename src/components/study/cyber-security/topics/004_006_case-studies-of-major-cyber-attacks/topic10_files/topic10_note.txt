@@ -59,7 +59,7 @@ During forensic investigation, analysts reconstruct the adversary's actions with
 ----------------------------------------------------------------------------------------------------
 A. THE "5 WHYS" METHODOLOGY:
    - Iteratively drilling down past superficial symptoms to uncover foundational governance and architectural failures.
-   - Example: 1. Server breached -> 2. Unpatched Struts -> 3. Notice not received -> 4. No centralized SBOM -> 5. ROOT CAUSE: Lack of executive DevSecOps governance and funding.
+   - Example: 1. Server breached → 2. Unpatched Struts → 3. Notice not received → 4. No centralized SBOM → 5. ROOT CAUSE: Lack of executive DevSecOps governance and funding.
 
 B. ISHIKAWA (FISHBONE) DIAGRAM MAPPING:
    - Categorizes causes across: People (training, sharing), Process (patch SLAs, change control), Technology 

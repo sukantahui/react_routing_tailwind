@@ -84,7 +84,7 @@ export default function Topic2() {
             <span>DSA Segment 6 · Topic 2</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
             Range Sum via BIT: Calculating `Sum(L, R) = Query(R) - Query(L - 1)` in O(log n) time
           </h1>
 
@@ -200,7 +200,7 @@ export default function Topic2() {
                         <span className="text-[9px] font-mono text-cyan-500/80">0x{(2048 + idx * 8).toString(16)}</span>
                       </div>
                       {idx < items.length - 1 && (
-                        <span className="text-cyan-600 font-bold text-sm select-none">&rarr;</span>
+                        <span className="text-cyan-600 font-bold text-sm select-none">→</span>
                       )}
                     </div>
                   );

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Custom Data Validation formulas are pure gold. Use =COUNTIF($A:$A, A2)<=1 to eliminate duplicate data entry forever. Make sure to anchor the range with dollar signs!
 
 COMMON TRAPS TO AVOID:
-- Relative vs Absolute Reference Mismatch in COUNTIF: Writing =COUNTIF(A2:A100, A2)<=1 without locking $A$2:$A$100 shifts the search range down row by row, missing duplicate entries. -> Fix: Always anchor the range absolutely: `=COUNTIF($A$2:$A$500, A2) <= 1`.
-- Formula Reference Row Mismatch: Selecting range A2:A100 but writing the formula referencing cell A1 in the Custom box. -> Fix: Always write the custom formula referencing the ACTIVE top-left cell of your selection (cell A2).
-- Ignoring 'Ignore Blank' Checkbox Glitch: Leaving 'Ignore blank' checked allows users to enter invalid text by clearing cells and typing invalid formats. -> Fix: Uncheck 'Ignore blank' if blank entries must also be strictly validated.
+- Relative vs Absolute Reference Mismatch in COUNTIF: Writing =COUNTIF(A2:A100, A2)<=1 without locking $A$2:$A$100 shifts the search range down row by row, missing duplicate entries. → Fix: Always anchor the range absolutely: `=COUNTIF($A$2:$A$500, A2) <= 1`.
+- Formula Reference Row Mismatch: Selecting range A2:A100 but writing the formula referencing cell A1 in the Custom box. → Fix: Always write the custom formula referencing the ACTIVE top-left cell of your selection (cell A2).
+- Ignoring 'Ignore Blank' Checkbox Glitch: Leaving 'Ignore blank' checked allows users to enter invalid text by clearing cells and typing invalid formats. → Fix: Uncheck 'Ignore blank' if blank entries must also be strictly validated.
 ================================================================================

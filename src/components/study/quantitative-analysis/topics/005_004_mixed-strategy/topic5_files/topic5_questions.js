@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Finding the Value of the Game in Game Theory?",
     shortAnswer: "'Compute v* via det(A)/Delta, expected payoff substitution, or oddments inner products: verify that Maximin <= v* <= Minimax and report the exact financial value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all game value computation and validation methods.",
-    hint: "det(A)/Delta -> Substitute p* -> Validate bounds in ₹.",
+    hint: "det(A)/Delta → Substitute p* → Validate bounds in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CalcDetOverDelta() -> VerifyExpectedPayoff() -> ReportInRupees(₹)."
+    codeExample: "GoldenRule: CalcDetOverDelta() → VerifyExpectedPayoff() → ReportInRupees(₹)."
   }
 ];
 

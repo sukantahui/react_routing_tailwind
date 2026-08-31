@@ -110,9 +110,9 @@ const questions = [
     question: "What is the ultimate golden rule of Project Duration and Time-Cost Optimization?",
     shortAnswer: "'Project Duration equals the Critical Path length; optimize duration at T* where Direct + Indirect costs are minimized; crash only critical activities with the lowest Cost Slope in Indian Rupees (₹) as long as Cost Slope < Daily Overhead!'",
     explanation: "This complete rule captures all project duration and crashing optimization principles.",
-    hint: "Duration = Critical Path -> Minimize Total Cost at T* -> Crash lowest slope critical tasks while Slope < Overhead.",
+    hint: "Duration = Critical Path → Minimize Total Cost at T* → Crash lowest slope critical tasks while Slope < Overhead.",
     level: "moderate",
-    codeExample: "GoldenRule: ProjectDuration = E_n -> FindOptimalT(DirectCost + IndirectCost) -> CrashLowestSlope(₹)."
+    codeExample: "GoldenRule: ProjectDuration = E_n → FindOptimalT(DirectCost + IndirectCost) → CrashLowestSlope(₹)."
   }
 ];
 

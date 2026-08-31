@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Default method added to java.util.Iterator in Java 8.",
     "hint": "Consumes all unvisited remaining elements using a functional Consumer lambda.",
     "level": "Beginner",
-    "codeExample": "iterator.forEachRemaining(e -> System.out.println(e));"
+    "codeExample": "iterator.forEachRemaining(e → System.out.println(e));"
   }
 ];
 

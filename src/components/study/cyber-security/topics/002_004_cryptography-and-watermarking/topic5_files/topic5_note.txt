@@ -130,8 +130,8 @@ SCENARIO 4 : ELLIPTIC CURVE POINT MULTIPLICATION LAB (JADAVPUR UNIVERSITY)
 8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
 --------------------------------------------------------------------------------
 [ ] Asymmetric cryptography uses a Public Key (open) and a Private Key (secret).
-[ ] Confidentiality: Encrypt with Recipient's Public Key -> Decrypt with Recipient's Private Key.
-[ ] Digital Signatures: Sign with Sender's Private Key -> Verify with Sender's Public Key.
+[ ] Confidentiality: Encrypt with Recipient's Public Key → Decrypt with Recipient's Private Key.
+[ ] Digital Signatures: Sign with Sender's Private Key → Verify with Sender's Public Key.
 [ ] 3 Hard Problems: Prime Factorization (RSA), Discrete Log (DH), Elliptic Curve DLP (ECC).
 [ ] ECC-256 provides equivalent 128-bit security to RSA-3072 with 10x smaller key size.
 [ ] Diffie-Hellman (ECDHE) establishes shared secrets with Perfect Forward Secrecy (PFS).

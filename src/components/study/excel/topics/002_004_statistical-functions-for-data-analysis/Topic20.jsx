@@ -71,7 +71,7 @@ export default function Topic20() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             SMALL Function (Bottom N Value Extraction)
           </h1>
 
@@ -271,7 +271,7 @@ export default function Topic20() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic20_SMALL_Function__Bo"
+            sheetName="EX921"
             title="Module 2.4 - SMALL Function (Bottom N Value Extraction)"
             rowsPerPage={25}
             showSheetSelector={true}

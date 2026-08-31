@@ -11,36 +11,36 @@ const questions = [
     "codeExample": "-- Demonstrating Insertion Failure:\nINSERT INTO flat_enrollment (student_id, course_id, course_name)\nVALUES (NULL, 'C109', 'PostgreSQL Internals');\n-- ERROR 1048 (23000): Column 'student_id' cannot be null"
   },
   {
-    "question": "Define a Functional Dependency X -> Y in formal mathematical terms.",
+    "question": "Define a Functional Dependency X → Y in formal mathematical terms.",
     "shortAnswer": "For all pairs of tuples t1, t2 in relation r(R), if t1[X] = t2[X], then t1[Y] must equal t2[Y].",
     "explanation": "A functional dependency is a semantic constraint asserting that the value of attribute set X uniquely determines the value of attribute set Y across all valid states of the database.",
     "hint": "Remember that X is the determinant and Y is the dependent set.",
     "level": "Intermediate",
-    "codeExample": "-- Functional dependency verification in SQL:\nSELECT student_id, COUNT(DISTINCT student_name)\nFROM students\nGROUP BY student_id\nHAVING COUNT(DISTINCT student_name) > 1;\n-- Should return 0 rows if student_id -> student_name holds true"
+    "codeExample": "-- Functional dependency verification in SQL:\nSELECT student_id, COUNT(DISTINCT student_name)\nFROM students\nGROUP BY student_id\nHAVING COUNT(DISTINCT student_name) > 1;\n-- Should return 0 rows if student_id → student_name holds true"
   },
   {
     "question": "How does Armstrong's Transitivity Axiom allow relational designers to deduce implicit dependencies?",
-    "shortAnswer": "If X -> Y and Y -> Z hold, then X -> Z is mathematically guaranteed to hold.",
-    "explanation": "Transitivity allows deriving non-trivial indirect dependencies. For example, if employee_id -> department_id and department_id -> department_location, then employee_id -> department_location is a transitive dependency.",
+    "shortAnswer": "If X → Y and Y → Z hold, then X → Z is mathematically guaranteed to hold.",
+    "explanation": "Transitivity allows deriving non-trivial indirect dependencies. For example, if employee_id → department_id and department_id → department_location, then employee_id → department_location is a transitive dependency.",
     "hint": "Recall the 3 primary Armstrong's axioms: Reflexivity, Augmentation, and Transitivity.",
     "level": "Intermediate",
-    "codeExample": "-- Deducing Transitive Dependencies:\n-- FD1: emp_id -> dept_id\n-- FD2: dept_id -> location\n-- Derived: emp_id -> location (Resolved in 3NF)"
+    "codeExample": "-- Deducing Transitive Dependencies:\n-- FD1: emp_id → dept_id\n-- FD2: dept_id → location\n-- Derived: emp_id → location (Resolved in 3NF)"
   },
   {
     "question": "What is the Attribute Closure (X+) of a set of attributes X with respect to a functional dependency set F?",
     "shortAnswer": "The set of all attributes that are functionally determined by X under the closure of F.",
-    "explanation": "The attribute closure X+ is calculated iteratively by starting with X, and adding Y to the set whenever W -> Y is in F and W is already a subset of the accumulated closure. If X+ contains all attributes of R, X is a superkey.",
+    "explanation": "The attribute closure X+ is calculated iteratively by starting with X, and adding Y to the set whenever W → Y is in F and W is already a subset of the accumulated closure. If X+ contains all attributes of R, X is a superkey.",
     "hint": "If X+ = R and no proper subset of X determines R, then X is a candidate key.",
     "level": "Moderate",
-    "codeExample": "-- Algorithm to find candidate keys using closure:\n-- R(A, B, C, D), F = {A -> B, B -> C, C -> D}\n-- (A)+ = {A, B, C, D} => A is a Candidate Key!"
+    "codeExample": "-- Algorithm to find candidate keys using closure:\n-- R(A, B, C, D), F = {A → B, B → C, C → D}\n-- (A)+ = {A, B, C, D} => A is a Candidate Key!"
   },
   {
     "question": "What makes a functional dependency 'Trivial' versus 'Non-Trivial'?",
-    "shortAnswer": "A dependency X -> Y is trivial if Y is a subset of X (e.g., {A, B} -> A). It is non-trivial if Y is not a subset of X.",
+    "shortAnswer": "A dependency X → Y is trivial if Y is a subset of X (e.g., {A, B} → A). It is non-trivial if Y is not a subset of X.",
     "explanation": "Trivial dependencies convey no new semantic constraints because an attribute set always determines its own members by definition (Reflexivity). Non-trivial dependencies express real-world business constraints.",
-    "hint": "Is {student_id, student_name} -> student_id a trivial dependency? Yes, because student_id is already in the determinant.",
+    "hint": "Is {student_id, student_name} → student_id a trivial dependency? Yes, because student_id is already in the determinant.",
     "level": "Beginner",
-    "codeExample": "-- Trivial FD: (emp_id, emp_name) -> emp_id (Always true)\n-- Non-Trivial FD: emp_id -> emp_name (Expresses business constraint)"
+    "codeExample": "-- Trivial FD: (emp_id, emp_name) → emp_id (Always true)\n-- Non-Trivial FD: emp_id → emp_name (Expresses business constraint)"
   },
   {
     "question": "What is a Canonical Cover (or Minimal Cover) of a set of functional dependencies?",
@@ -48,7 +48,7 @@ const questions = [
     "explanation": "A canonical cover Fc is equivalent to F (Fc+ = F+), contains only single attributes on the right side of each FD, has no extraneous attributes on the left or right, and removing any FD from Fc would reduce its closure.",
     "hint": "Computing a minimal cover is the mandatory first step in Bernstein's 3NF synthesis algorithm.",
     "level": "Expert",
-    "codeExample": "-- Before Minimal Cover: {A -> B, A -> BC, B -> C}\n-- Extraneous attribute in A -> BC: C (since A -> B and B -> C implies A -> C)\n-- Canonical Cover: {A -> B, B -> C}"
+    "codeExample": "-- Before Minimal Cover: {A → B, A → BC, B → C}\n-- Extraneous attribute in A → BC: C (since A → B and B → C implies A → C)\n-- Canonical Cover: {A → B, B → C}"
   },
   {
     "question": "Explain the Lossless-Join (Non-Loss) Decomposition property.",
@@ -56,7 +56,7 @@ const questions = [
     "explanation": "Lossless decomposition guarantees that naturally joining the decomposed tables reconstructs the exact original relation without creating false (spurious) tuples. For binary decomposition, (R1 ∩ R2) must determine either R1 or R2.",
     "hint": "The common attributes between R1 and R2 must form a superkey in at least one of the decomposed tables.",
     "level": "Expert",
-    "codeExample": "-- Testing Lossless Join Property:\n-- R(A, B, C) decomposed to R1(A, B) and R2(B, C)\n-- Lossless IF AND ONLY IF B -> A or B -> C in F+"
+    "codeExample": "-- Testing Lossless Join Property:\n-- R(A, B, C) decomposed to R1(A, B) and R2(B, C)\n-- Lossless IF AND ONLY IF B → A or B → C in F+"
   },
   {
     "question": "What is the Dependency Preservation property in relational decomposition?",

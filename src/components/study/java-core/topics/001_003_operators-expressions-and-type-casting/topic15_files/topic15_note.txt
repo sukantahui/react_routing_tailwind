@@ -13,7 +13,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Guarantees Short-Circuiting: ONLY the selected branch is evaluated at runtime!
 
 - Numeric Type Promotion in Branches (JLS §15.25):
-  * If one branch is int and the other is double -> Result is DOUBLE!
+  * If one branch is int and the other is double → Result is DOUBLE!
   * Example: true ? 10 : 20.5  ==> Evaluates to 10.0 (double)
 
 - Associativity:
@@ -33,6 +33,6 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 [✓] Condition MUST evaluate to a boolean expression.
 [✓] Use ternary for final variable initialization and concise return statements.
-[✓] Watch for binary numeric promotion widening integers to double (10 -> 10.0).
+[✓] Watch for binary numeric promotion widening integers to double (10 → 10.0).
 [✓] Limit nesting to max 2 levels with clean line indentation.
 ================================================================================

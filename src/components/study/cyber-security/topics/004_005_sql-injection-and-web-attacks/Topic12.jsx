@@ -62,7 +62,7 @@ SecRule ARGS "@rx (?i:union\\s+select)" "id:942100,phase:2,block,setvar:tx.anoma
       mechanismDescription:
         "When a critical zero-day (Log4Shell or unauthenticated SQLi) is disclosed, a targeted WAF rule blocks exploit signatures at the cloud edge immediately, buying 48 hours for engineering teams to test code fixes.",
       mitigationPattern: "Deploy AWS WAF / Cloudflare custom regex rules on active CVE advisories.",
-      typicalSyntax: "ByteMatchStatement: SearchString: \"jndi:ldap\" -> Block",
+      typicalSyntax: "ByteMatchStatement: SearchString: \"jndi:ldap\" → Block",
       codeSnippet: `// AWS WAF Virtual Patch Rule:
 { "Name": "Block-Log4j-ZeroDay", "Statement": { "ByteMatchStatement": { "SearchString": "\${jndi:" } }, "Action": { "Block": {} } }`
     },
@@ -75,7 +75,7 @@ SecRule ARGS "@rx (?i:union\\s+select)" "id:942100,phase:2,block,setvar:tx.anoma
       mechanismDescription:
         "The WAF ingests the Swagger / OpenAPI specification. Any request containing unapproved endpoints (`/admin.php`), illegal parameters (`role=admin`), or wrong data types is blocked at the perimeter.",
       mitigationPattern: "Enforce positive schema validation on all REST and GraphQL API gateways.",
-      typicalSyntax: "Enforce OpenAPI Contract: POST /api/v1/transfer -> Strict Types Only",
+      typicalSyntax: "Enforce OpenAPI Contract: POST /api/v1/transfer → Strict Types Only",
       codeSnippet: `// Positive OpenAPI WAF Gating:
 // Request: POST /api/v1/invoice { "id": 105, "unapprovedParam": "attack" } ➔ BLOCKED (HTTP 400 Bad Request)`
     },

@@ -70,7 +70,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Financial Statement Presentation: Wall Street Accounting Alignment Using _) and *
           </h1>
 
@@ -543,7 +543,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Accounting_Alignment"
+            sheetName="Topic4"
             title="Custom Number Formatting & Presentation Suite"
             rowsPerPage={12}
             showSheetSelector={true}

@@ -16,7 +16,7 @@
       "difficulty": "Beginner",
       "description": "In standard C programming, regular arrays have a fixed size determined at compile time or stack allocation time. If you declare int arr[100], you are stuck with 100 elements: if your user enters 101 elements, your program crashes with a stack or buffer overflow, and if they enter 5 elements, you waste memory! To solve this, real-world software like C++ std::vector or Java ArrayList uses a Dynamic Resizable Array. In this project, you will build a dynamic array buffer in C using dynamic memory management (malloc, realloc, free). The vector starts with a small initial capacity (e.g., 2 elements). As you push new numbers into the vector, it tracks its current size (number of stored items) and capacity (total allocated slots). When size reaches capacity, the buffer is full! Instead of expanding by just +1 slot (which would cause expensive repeated memory copying), the vector uses the Geometric Doubling Strategy (capacity * 2). This guarantees an efficient amortized time complexity of O(1) per push operation. You will also implement safe reallocation handling by saving realloc() output into a temporary pointer temp before updating the primary buffer pointer (preventing memory leaks if allocation fails) and write a cleanup function to properly free all heap memory.",
       "learningOutcome": "Dynamic Memory Allocation (malloc, realloc, free) & Amortized O(1) Growth Strategy",
-      "exampleText": "Initial Capacity = 2\nPush 10, Push 20 (Buffer Full: Size 2/Capacity 2)\nPush 30 -> Reallocation triggered! New Capacity = 4",
+      "exampleText": "Initial Capacity = 2\nPush 10, Push 20 (Buffer Full: Size 2/Capacity 2)\nPush 30 → Reallocation triggered! New Capacity = 4",
       "exampleOutput": "--- Dynamic Array (Vector) Buffer Simulation ---\nVector Elements (Size=2, Capacity=2): [ 10 20 ]\nPushing element 30 (Triggers Capacitous Doubling)...\nVector Elements (Size=3, Capacity=4): [ 10 20 30 ]\nVector Elements (Size=5, Capacity=8): [ 10 20 30 40 50 ]",
       "logicExplanation": "1. **Struct Encapsulation**: Encapsulate `int *data`, `size_t size`, and `size_t capacity` inside a typedef `Vector` struct.\n2. **Geometric Doubling**: When `size == capacity`, double capacity (`capacity * 2`) to achieve amortized O(1) push_back complexity.\n3. **Safe Reallocation**: Assign `realloc` result to a temporary pointer `int *temp` to prevent memory leak in case allocation fails.\n4. **Memory Deallocation**: Free `vec->data` before freeing `vec` pointer to avoid heap memory leaks.",
       "answerFile": "./answers/answer1.c",
@@ -42,7 +42,7 @@
       "learningOutcome": "In-Place Array Manipulation, Reversal Algorithm & Optimal O(1) Space Complexity",
       "exampleText": "Input Array: [1, 2, 3, 4, 5, 6, 7], K = 3",
       "exampleOutput": "Original Array: [ 1 2 3 4 5 6 7 ]\nRotating Right by K = 3 positions...\nRotated Array:  [ 5 6 7 1 2 3 4 ]",
-      "logicExplanation": "1. **Modulo Normalization**: Normalize `k = k % n` to handle rotations larger than array size.\n2. **Step 1 - Reverse Entire Array**: Reverse range `[0 .. n-1]` -> `[7, 6, 5, 4, 3, 2, 1]`.\n3. **Step 2 - Reverse First K Elements**: Reverse range `[0 .. k-1]` -> `[5, 6, 7, 4, 3, 2, 1]`.\n4. **Step 3 - Reverse Remaining Elements**: Reverse range `[k .. n-1]` -> `[5, 6, 7, 1, 2, 3, 4]`.",
+      "logicExplanation": "1. **Modulo Normalization**: Normalize `k = k % n` to handle rotations larger than array size.\n2. **Step 1 - Reverse Entire Array**: Reverse range `[0 .. n-1]` → `[7, 6, 5, 4, 3, 2, 1]`.\n3. **Step 2 - Reverse First K Elements**: Reverse range `[0 .. k-1]` → `[5, 6, 7, 4, 3, 2, 1]`.\n4. **Step 3 - Reverse Remaining Elements**: Reverse range `[k .. n-1]` → `[5, 6, 7, 1, 2, 3, 4]`.",
       "answerFile": "./answers/answer3.c",
       "codeExplanation": "1. `reverse()`: Swaps array elements in-place using two pointers `start` and `end`.\n2. `rotate_right()`: Executes the 3-step reversal algorithm to shift array elements without creating auxiliary arrays."
     },
@@ -185,7 +185,7 @@
       "description": "Matrices are used extensively in spreadsheets, image processing, and statistics. A common requirement is calculating summary statistics across dimensions—specifically, finding the sum of each horizontal row and each vertical column. In this project, you will implement a 2D matrix processing tool that iterates through an R x C grid in C. To calculate row sums, you loop through each row i from 0 to R-1 and accumulate elements across columns j from 0 to C-1. To calculate column sums, you loop through each column j from 0 to C-1 and accumulate elements across rows i from 0 to R-1. Your program will print the formatted grid alongside row totals and column totals, highlighting the overall grand matrix sum.",
       "learningOutcome": "Nested Loop Traversal, 2D Grid Indexing & Multi-Dimensional Aggregation",
       "exampleText": "3x4 Grid Input",
-      "exampleOutput": "--- 2D Grid Row & Column Sum Analysis ---\nRow 0: [ 1 2 3 4 ] -> Sum = 10\nRow 1: [ 5 6 7 8 ] -> Sum = 26\nRow 2: [ 9 10 11 12 ] -> Sum = 42\n----------------------------------\nColumn Sums: Col 0=15 | Col 1=18 | Col 2=21 | Col 3=24 | \nGrand Matrix Total = 78",
+      "exampleOutput": "--- 2D Grid Row & Column Sum Analysis ---\nRow 0: [ 1 2 3 4 ] → Sum = 10\nRow 1: [ 5 6 7 8 ] → Sum = 26\nRow 2: [ 9 10 11 12 ] → Sum = 42\n----------------------------------\nColumn Sums: Col 0=15 | Col 1=18 | Col 2=21 | Col 3=24 | \nGrand Matrix Total = 78",
       "logicExplanation": "1. **Row Sum Loop**: Outer loop `i` over rows, inner loop `j` over columns, accumulating `row_sum += grid[i][j]`.\n2. **Column Sum Loop**: Outer loop `j` over columns, inner loop `i` over rows, accumulating `col_sum += grid[i][j]`.\n3. **Grand Total**: Sum all row totals or column totals.",
       "answerFile": "./answers/answer15.c",
       "codeExplanation": "1. `calculate_sums()`: Computes row sums, column sums, and grand total in O(R * C) time."
@@ -233,7 +233,7 @@
       "description": "Square matrices possess two prominent diagonal axes: the Main Diagonal (running from top-left [0][0] to bottom-right [N-1][N-1]) and the Anti-Diagonal (running from top-right [0][N-1] to bottom-left [N-1][0]). The sum of elements along the main diagonal is known in linear algebra as the Matrix Trace. In this project, you will build a Diagonal Processing Tool for N x N matrices. You will extract main diagonal elements using the relation row == col (index [i][i]) and anti-diagonal elements using col == N - 1 - row (index [i][N - 1 - i]). Your program will compute the trace, the anti-diagonal sum, and the combined sum of both diagonals, carefully handling the center element overlap when N is odd.",
       "learningOutcome": "Matrix Diagonals, Matrix Trace Property & Single-Loop Diagonal Traversal",
       "exampleText": "3x3 Grid Input",
-      "exampleOutput": "--- Matrix Diagonals Extractor ---\nMain Diagonal: [ 1 5 9 ] -> Trace Sum = 15\nAnti-Diagonal: [ 3 5 7 ] -> Anti-Diagonal Sum = 15",
+      "exampleOutput": "--- Matrix Diagonals Extractor ---\nMain Diagonal: [ 1 5 9 ] → Trace Sum = 15\nAnti-Diagonal: [ 3 5 7 ] → Anti-Diagonal Sum = 15",
       "logicExplanation": "1. **Main Diagonal**: Element at `[i][i]` for `i` from 0 to N-1.\n2. **Anti-Diagonal**: Element at `[i][N - 1 - i]` for `i` from 0 to N-1.\n3. **Single Loop Optimizing**: Both diagonals can be extracted simultaneously in a single loop `i` from 0 to N-1.",
       "answerFile": "./answers/answer19.c",
       "codeExplanation": "1. `process_diagonals()`: Computes main trace and anti-diagonal sums."
@@ -414,7 +414,7 @@
       "learningOutcome": "Concentric Ring Extraction, Cyclic Layer Rotation & Layer-Specific Matrix Manipulation",
       "exampleText": "4x4 Matrix, Outer Ring K=2 Rotation",
       "exampleOutput": "--- Original Matrix ---\n  1   2   3   4 \n  5   6   7   8 \n  9  10  11  12 \n 13  14  15  16 \n\n--- Outer Ring Rotated Clockwise by K=2 ---\n  9   5   1   2 \n 13   6   7   3 \n 14  10  11   4 \n 15  16  12   8 ",
-      "logicExplanation": "1. **Ring Unpacking**: Traverse ring 0 boundary clockwise (Top -> Right -> Bottom -> Left) and unpack elements into 1D array.\n2. **1D Cyclic Shift**: Shift 1D ring elements by K positions `(i + k) % ring_len`.\n3. **Ring Repacking**: Copy rotated 1D elements back into boundary coordinates.",
+      "logicExplanation": "1. **Ring Unpacking**: Traverse ring 0 boundary clockwise (Top → Right → Bottom → Left) and unpack elements into 1D array.\n2. **1D Cyclic Shift**: Shift 1D ring elements by K positions `(i + k) % ring_len`.\n3. **Ring Repacking**: Copy rotated 1D elements back into boundary coordinates.",
       "answerFile": "./answers/answer34.c",
       "codeExplanation": "1. `rotate_outer_ring()`: Unpacks, rotates, and repacks outer matrix ring layer."
     },

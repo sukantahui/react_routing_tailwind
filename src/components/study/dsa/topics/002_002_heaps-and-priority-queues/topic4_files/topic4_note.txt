@@ -11,7 +11,7 @@ Mentor: Sukanta Hui (Barrackpore, West Bengal)
 1. Count character frequencies in input source string.
 2. Insert all character leaf nodes into Min Heap.
 3. Extract two minimum frequency nodes, join under new parent node ($), re-insert to Min Heap.
-4. Repeat until size == 1 -> Tree Root achieved!
+4. Repeat until size == 1 → Tree Root achieved!
 5. Left branch = 0, Right branch = 1.
 
 ================================================================================

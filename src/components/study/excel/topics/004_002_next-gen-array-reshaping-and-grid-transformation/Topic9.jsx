@@ -76,7 +76,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Reshaping 1D Streams into Fixed-Height Columns with WRAPCOLS
           </h1>
 
@@ -210,7 +210,7 @@ export default function Topic9() {
                 <code className="text-cyan-300 font-mono">WRAPROWS</code> places items 1 to K across Row 1, then items K+1 to 2K across Row 2.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                WRAPCOLS &rarr; Top-to-Bottom | WRAPROWS &rarr; Left-to-Right
+                WRAPCOLS → Top-to-Bottom | WRAPROWS → Left-to-Right
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function Topic9() {
               <span className="text-blue-400">📐</span> Visual Column-Wise Stream Wrapping
             </h2>
             <span className="text-xs font-mono text-blue-300 bg-blue-950/60 px-3 py-1 rounded-lg border border-blue-800">
-              Interactive 1D &rarr; Fixed-Height Column Blocks
+              Interactive 1D → Fixed-Height Column Blocks
             </span>
           </div>
 
@@ -378,7 +378,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_WRAPCOLS"
+            sheetName="EX1710"
             title="Candidate Roll Number Stream (20 Candidates to Wrap into Columns)"
             rowsPerPage={12}
             showSheetSelector={true}
@@ -417,7 +417,7 @@ export default function Topic9() {
                 he generates a 5-row x 4-column seating chart where Room 1 contains students 1-5, Room 2 has 6-10, and so on.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-blue-300">
-                Formula: =WRAPCOLS(A2:A21, 5, "-") &rarr; 4-Room Seating Chart
+                Formula: =WRAPCOLS(A2:A21, 5, "-") → 4-Room Seating Chart
               </div>
             </div>
 
@@ -436,7 +436,7 @@ export default function Topic9() {
                 to format 60 names into a compact 20-row x 3-column layout that fits onto a single printed A4 sheet.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =WRAPCOLS(Names, 20, "") &rarr; 1-Page Printable Layout
+                Formula: =WRAPCOLS(Names, 20, "") → 1-Page Printable Layout
               </div>
             </div>
 
@@ -455,7 +455,7 @@ export default function Topic9() {
                 each column represents one 8-worker shift roster.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =WRAPCOLS(Staff, 8, "Unfilled Slot") &rarr; 3-Shift Roster
+                Formula: =WRAPCOLS(Staff, 8, "Unfilled Slot") → 3-Shift Roster
               </div>
             </div>
 
@@ -473,7 +473,7 @@ export default function Topic9() {
                 and each column represents Week 1, Week 2, Week 3, Week 4, Week 5: <code className="text-amber-300 font-mono">=WRAPCOLS(SEQUENCE(31), 7, "")</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =WRAPCOLS(SEQUENCE(31), 7, "") &rarr; Vertical Weekly Columns
+                Formula: =WRAPCOLS(SEQUENCE(31), 7, "") → Vertical Weekly Columns
               </div>
             </div>
           </div>
@@ -596,7 +596,7 @@ export default function Topic9() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by text or merged formatting.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow multi-column spill.</td>
                 </tr>
               </tbody>

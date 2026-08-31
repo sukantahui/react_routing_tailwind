@@ -35,6 +35,6 @@ Phase 5: Keyset Cursor Pagination & Deferred Join (4.8 ms - 1,080x speedup!) �
 --------------------------------------------------------------------------------
 1. Measure first with EXPLAIN ANALYZE before writing any code.
 2. Fix SQL query architecture (sargability, joins, projection) before adding indexes.
-3. Design composite indexes following the Equality -> Range -> Sort column rule.
+3. Design composite indexes following the Equality → Range → Sort column rule.
 4. Replace deep OFFSET pagination with Keyset pagination.
 5. Verify CPU, I/O, and memory savings via Performance Schema.

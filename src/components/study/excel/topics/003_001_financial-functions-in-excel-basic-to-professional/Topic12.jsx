@@ -71,7 +71,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Working Capital and Free Cash Flow to Firm (FCFF) financial engineering"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic12() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Financial Statement Cash Conversion Pipeline: P&L Net Income -> Cash Flow from Operations -> Free Cash Flow (FCFF)"}
+              Visual Dataflow: {"Financial Statement Cash Conversion Pipeline: P&L Net Income → Cash Flow from Operations → Free Cash Flow (FCFF)"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Financial Pipeline
@@ -286,7 +286,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Working_Capital_an"
+            sheetName="EX1213"
             title={"Working Capital and Free Cash Flow to Firm (FCFF) financial engineering - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

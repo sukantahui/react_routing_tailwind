@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SEPARATE CHAINING:
-   - Hash collision &rarr; multiple keys map to same bucket.
+   - Hash collision → multiple keys map to same bucket.
    - Singly linked list linked by 'Node.next'.
    - In Java 8+: Collisions appended at TAIL (Java 7 inserted at HEAD).
    - In Java 8+: If list reaches 8 nodes, converts to Red-Black Tree.

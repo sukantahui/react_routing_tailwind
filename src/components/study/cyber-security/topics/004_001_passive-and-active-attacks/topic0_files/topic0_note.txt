@@ -140,7 +140,7 @@ replay valid transactions, or disrupt the operational availability of services.
   * INFORMATION TECHNOLOGY ACT 2000 (AMENDED 2008) :
     - Section 43(a) : Civil penalty up to ₹1 CRORE for unauthorized access/downloading.
     - Section 66    : Criminal penalties for active hacking (Up to 3 years prison + ₹5 Lakh fine).
-    - Section 66F   : Cyber terrorism (attacks on critical infrastructure) -> LIFE IMPRISONMENT.
+    - Section 66F   : Cyber terrorism (attacks on critical infrastructure) → LIFE IMPRISONMENT.
 
   * CERT-In MANDATORY CYBER DIRECTIVE (APRIL 2022) :
     - Mandatory 6-Hour reporting SLA for all active security breaches and ransomware intrusions.

@@ -128,7 +128,7 @@ export default function Topic3() {
       totalArr: Array(numCols).fill(0),
       posArr: Array(numCols).fill(0),
       transposed: Array(numTerms + 1).fill(null),
-      codeSnippet: `// Matrix A[${rows}][${cols}] -> 3-Tuple terms = ${numTerms}`,
+      codeSnippet: `// Matrix A[${rows}][${cols}] → 3-Tuple terms = ${numTerms}`,
     });
 
     // Step 1: Count Frequencies
@@ -138,7 +138,7 @@ export default function Topic3() {
       runningTotal[col]++;
       steps.push({
         title: `Step 1.${i}: Count Frequency for Column ${col}`,
-        desc: `Inspecting Term #${i} (val=${triplet[i].val}) at Col ${col} -> Incrementing total[${col}] = ${runningTotal[col]}.`,
+        desc: `Inspecting Term #${i} (val=${triplet[i].val}) at Col ${col} → Incrementing total[${col}] = ${runningTotal[col]}.`,
         activeCol: col,
         activeOriginalIdx: i,
         activeDestIdx: null,
@@ -193,7 +193,7 @@ export default function Topic3() {
 
       steps.push({
         title: `Step 3.${i}: Migrate Term #${i} (Val: ${orig.val}) to Transpose Slot [${destIndex}]`,
-        desc: `Original Term #${i} at (${orig.r}, ${orig.c}) -> Target index = starting_pos[${col}] = ${destIndex}. Writing (${orig.c}, ${orig.r}, ${orig.val}). Updated starting_pos[${col}] -> ${currentStartingPos[col]}.`,
+        desc: `Original Term #${i} at (${orig.r}, ${orig.c}) → Target index = starting_pos[${col}] = ${destIndex}. Writing (${orig.c}, ${orig.r}, ${orig.val}). Updated starting_pos[${col}] → ${currentStartingPos[col]}.`,
         activeCol: col,
         activeOriginalIdx: i,
         activeDestIdx: destIndex,
@@ -271,7 +271,7 @@ export default function Topic3() {
         } else {
           steps.push({
             title: `Col Pass ${c}: Scanning Term #${i} (Col ${orig.c} ≠ ${c})`,
-            desc: `Term #${i} has column ${orig.c} (not ${c}) -> Skipped.`,
+            desc: `Term #${i} has column ${orig.c} (not ${c}) → Skipped.`,
             activeCol: c,
             activeOriginalIdx: i,
             activeDestIdx: null,
@@ -440,7 +440,7 @@ export default function Topic3() {
             <span>DSA Segment 1 · Topic 3</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
             Sparse Matrix Representation: 3-Tuple (Row, Column, Value) &amp; Fast Transpose Algorithm
           </h1>
 
@@ -1109,7 +1109,7 @@ export default function Topic3() {
                           <span className="px-2.5 py-1 rounded-xl bg-cyan-950 text-cyan-300 border border-cyan-800 text-xs font-bold shrink-0">
                             Row[{rIdx}]
                           </span>
-                          <span className="text-slate-500 font-bold">&rarr;</span>
+                          <span className="text-slate-500 font-bold">→</span>
                           {rList.length > 0 ? (
                             rList.map((node, nIdx) => (
                               <React.Fragment key={nIdx}>
@@ -1117,11 +1117,11 @@ export default function Topic3() {
                                   <div className="text-[9px] text-slate-400">Col {node.c}</div>
                                   <div className="font-bold text-xs">{node.val}</div>
                                 </div>
-                                <span className="text-slate-600 font-bold">&rarr;</span>
+                                <span className="text-slate-600 font-bold">→</span>
                               </React.Fragment>
                             ))
                           ) : (
-                            <span className="text-slate-500 italic text-xs">empty (all 0s) &rarr;</span>
+                            <span className="text-slate-500 italic text-xs">empty (all 0s) →</span>
                           )}
                           <span className="text-rose-400 font-bold text-xs bg-rose-950/60 px-2.5 py-1 rounded-xl border border-rose-800/60">
                             NULL

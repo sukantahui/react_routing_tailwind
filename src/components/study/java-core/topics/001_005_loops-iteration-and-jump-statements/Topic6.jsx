@@ -42,7 +42,7 @@ export default function Topic6() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Key Differences: <code className="text-sky-400">&apos;for&apos;</code> vs. <code className="text-emerald-400">&apos;while&apos;</code> vs. <code className="text-amber-400">&apos;do-while&apos;</code> &amp; Selection Decision Matrix
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -146,7 +146,7 @@ export default function Topic6() {
 
             {/* Bottom Caption */}
             <text x="440" y="255" fill="#94a3b8" fontSize="12" textAnchor="middle">
-              Selection Heuristic: Count known &rarr; for | State/stream &rarr; while | Run at least once &rarr; do-while.
+              Selection Heuristic: Count known → for | State/stream → while | Run at least once → do-while.
             </text>
           </svg>
         </div>
@@ -291,7 +291,7 @@ export default function Topic6() {
       {/* Section 9: Teacher's Note */}
       <section className="space-y-4">
         <Teacher
-          note="To Swadeep, Tuhina, Abhronila, and Debangshu: Choosing the right loop signals your design intention with crystal clarity. Count-driven -> for; State-driven -> while; Run-at-least-once -> do-while. In Topic 7, we explore the Enhanced 'for-each' loop for iterating sequences and arrays! — Sukanta Hui"
+          note="To Swadeep, Tuhina, Abhronila, and Debangshu: Choosing the right loop signals your design intention with crystal clarity. Count-driven → for; State-driven → while; Run-at-least-once → do-while. In Topic 7, we explore the Enhanced 'for-each' loop for iterating sequences and arrays! — Sukanta Hui"
         />
       </section>
     </div>

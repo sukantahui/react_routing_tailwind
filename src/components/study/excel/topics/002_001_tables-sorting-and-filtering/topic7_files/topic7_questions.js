@@ -9,7 +9,7 @@ const questions = [
     explanation: "Excel Tables convert static 2D cell grids into intelligent data entities that support structured references like `[@Salary]`.",
     hint: "Press Ctrl + T to convert any contiguous range into a table.",
     level: "basic",
-    codeExample: "Ctrl + T &rarr; Check 'My table has headers' &rarr; Enter"
+    codeExample: "Ctrl + T → Check 'My table has headers' → Enter"
   },
   {
     question: "How do structured column references (e.g. `[@Tuition_Fee] * 0.18`) differ from standard A1 references?",
@@ -37,15 +37,15 @@ const questions = [
   },
   {
     question: "How do you configure a 3-tier multi-level sort hierarchy in Excel?",
-    shortAnswer: "Click inside table &rarr; Press `Alt + D + S` &rarr; Add Level 1 (Branch), Level 2 (Department), and Level 3 (Monthly Sales Descending).",
+    shortAnswer: "Click inside table → Press `Alt + D + S` → Add Level 1 (Branch), Level 2 (Department), and Level 3 (Monthly Sales Descending).",
     explanation: "Multi-level sorting groups data categorically before ranking quantitative metrics within each subset.",
     hint: "Alt + D + S opens the Multi-Level Sort dialog box.",
     level: "basic",
-    codeExample: "Level 1: Branch (A-Z) &rarr; Level 2: Sales (Largest to Smallest)"
+    codeExample: "Level 1: Branch (A-Z) → Level 2: Sales (Largest to Smallest)"
   },
   {
     question: "How do you sort table data by custom list order (e.g. High, Medium, Low)?",
-    shortAnswer: "In the Sort Dialog &rarr; Order dropdown &rarr; Select 'Custom List...' &rarr; Define custom sequence &rarr; OK.",
+    shortAnswer: "In the Sort Dialog → Order dropdown → Select 'Custom List...' → Define custom sequence → OK.",
     explanation: "Custom lists override alphabetical sorting to respect corporate operational priorities.",
     hint: "Select 'Custom List...' from the Sort dialog Order dropdown.",
     level: "moderate",
@@ -61,11 +61,11 @@ const questions = [
   },
   {
     question: "How do you filter for Top 10 items or Top 15% in a numeric table column?",
-    shortAnswer: "Click AutoFilter arrow &rarr; Number Filters &rarr; Top 10... &rarr; Choose Top/Bottom, item count or percentage.",
+    shortAnswer: "Click AutoFilter arrow → Number Filters → Top 10... → Choose Top/Bottom, item count or percentage.",
     explanation: "Quickly isolates high-value outliers without sorting or manual calculation.",
-    hint: "Number Filters &rarr; Top 10 &rarr; Select Items or Percent.",
+    hint: "Number Filters → Top 10 → Select Items or Percent.",
     level: "basic",
-    codeExample: "Number Filters &rarr; Top 10 &rarr; Top 5 Items"
+    codeExample: "Number Filters → Top 10 → Top 5 Items"
   },
   {
     question: "What is Advanced Filter in Excel and when is it required over AutoFilter?",
@@ -73,7 +73,7 @@ const questions = [
     explanation: "AutoFilter cannot handle complex disjoint OR conditions across multiple disparate columns in one step.",
     hint: "Advanced Filter evaluates multi-row criteria ranges and copies to new locations.",
     level: "moderate",
-    codeExample: "Data &rarr; Advanced Filter &rarr; List Range, Criteria Range, Copy to"
+    codeExample: "Data → Advanced Filter → List Range, Criteria Range, Copy to"
   },
   {
     question: "How are AND vs OR logic structured in an Advanced Filter criteria range?",
@@ -85,11 +85,11 @@ const questions = [
   },
   {
     question: "How do you extract a unique list of distinct records using Advanced Filter?",
-    shortAnswer: "Select Data &rarr; Advanced &rarr; Check 'Unique records only' &rarr; Select 'Copy to another location' &rarr; Specify destination cell.",
+    shortAnswer: "Select Data → Advanced → Check 'Unique records only' → Select 'Copy to another location' → Specify destination cell.",
     explanation: "Deduplicates records across multiple columns without altering the primary source table.",
     hint: "Check 'Unique records only' in the Advanced Filter dialog.",
     level: "basic",
-    codeExample: "Advanced Filter &rarr; Copy to another location &rarr; Check 'Unique records only'"
+    codeExample: "Advanced Filter → Copy to another location → Check 'Unique records only'"
   },
   {
     question: "What is an Excel Table Slicer and what are its key advantages?",
@@ -97,7 +97,7 @@ const questions = [
     explanation: "Slicers replace small, hidden dropdown arrows with large, executive-friendly touchscreen filter buttons.",
     hint: "Insert Slicers from the Table Design ribbon tab.",
     level: "basic",
-    codeExample: "Table Design &rarr; Insert Slicer &rarr; Select [Branch], [Department]"
+    codeExample: "Table Design → Insert Slicer → Select [Branch], [Department]"
   },
   {
     question: "How do you connect a single Slicer to multiple structured Excel Tables?",
@@ -105,23 +105,23 @@ const questions = [
     explanation: "Pivot Table slicers support Report Connections across multiple PivotTables sharing a cache.",
     hint: "Use PivotTables or Power Pivot Data Model for multi-table slicer sharing.",
     level: "advanced",
-    codeExample: "Slicer &rarr; Report Connections &rarr; Check multiple PivotTables"
+    codeExample: "Slicer → Report Connections → Check multiple PivotTables"
   },
   {
     question: "How do you format Slicer buttons into a multi-column horizontal layout?",
-    shortAnswer: "Select Slicer &rarr; Slicer ribbon tab &rarr; Buttons group &rarr; Increase 'Columns' to 3, 4, or 5 &rarr; Resize horizontally.",
+    shortAnswer: "Select Slicer → Slicer ribbon tab → Buttons group → Increase 'Columns' to 3, 4, or 5 → Resize horizontally.",
     explanation: "Horizontal slicers form sleek top-of-page dashboard navigation ribbons.",
-    hint: "Change Slicer &rarr; Columns to 4 or 5 for horizontal toolbars.",
+    hint: "Change Slicer → Columns to 4 or 5 for horizontal toolbars.",
     level: "basic",
-    codeExample: "Slicer Ribbon &rarr; Columns = 4"
+    codeExample: "Slicer Ribbon → Columns = 4"
   },
   {
     question: "How do you disable non-destructive Slicer item shading for missing combinations?",
-    shortAnswer: "Right-click Slicer &rarr; Slicer Settings &rarr; Check 'Hide items with no data' or uncheck 'Visually indicate items with no data'.",
+    shortAnswer: "Right-click Slicer → Slicer Settings → Check 'Hide items with no data' or uncheck 'Visually indicate items with no data'.",
     explanation: "Hides greyed-out inactive buttons to prevent user confusion.",
-    hint: "Slicer Settings &rarr; Hide items with no data.",
+    hint: "Slicer Settings → Hide items with no data.",
     level: "moderate",
-    codeExample: "Slicer Settings &rarr; Hide items with no data = TRUE"
+    codeExample: "Slicer Settings → Hide items with no data = TRUE"
   },
   {
     question: "What is the structured reference syntax to sum an entire table column outside the table?",
@@ -157,27 +157,27 @@ const questions = [
   },
   {
     question: "How do you convert an Excel Table back to a standard range without losing formatting?",
-    shortAnswer: "Right-click anywhere inside the Table &rarr; Table &rarr; Convert to Range &rarr; Click 'Yes'.",
+    shortAnswer: "Right-click anywhere inside the Table → Table → Convert to Range → Click 'Yes'.",
     explanation: "Removes structured table functionality while preserving cell styles, fills, and values.",
-    hint: "Right-click Table &rarr; Table &rarr; Convert to Range.",
+    hint: "Right-click Table → Table → Convert to Range.",
     level: "basic",
-    codeExample: "Right-click &rarr; Table &rarr; Convert to Range"
+    codeExample: "Right-click → Table → Convert to Range"
   },
   {
     question: "How do you prevent Excel from automatically expanding tables when typing in adjacent cells?",
-    shortAnswer: "File &rarr; Options &rarr; Proofing &rarr; AutoCorrect Options &rarr; AutoFormat As You Type &rarr; Uncheck 'Include new rows and columns in table'.",
+    shortAnswer: "File → Options → Proofing → AutoCorrect Options → AutoFormat As You Type → Uncheck 'Include new rows and columns in table'.",
     explanation: "Global Excel setting to disable automatic table boundary expansion if desired.",
-    hint: "Options &rarr; Proofing &rarr; AutoCorrect &rarr; AutoFormat As You Type.",
+    hint: "Options → Proofing → AutoCorrect → AutoFormat As You Type.",
     level: "advanced",
-    codeExample: "File &rarr; Options &rarr; Proofing &rarr; AutoCorrect Options"
+    codeExample: "File → Options → Proofing → AutoCorrect Options"
   },
   {
     question: "How do you highlight duplicate records in an Excel Table with Conditional Formatting?",
-    shortAnswer: "Select table column &rarr; Home &rarr; Conditional Formatting &rarr; Highlight Cells Rules &rarr; Duplicate Values.",
+    shortAnswer: "Select table column → Home → Conditional Formatting → Highlight Cells Rules → Duplicate Values.",
     explanation: "Instantly applies a colored fill to identical records for audit identification.",
-    hint: "Conditional Formatting &rarr; Highlight Cells Rules &rarr; Duplicate Values.",
+    hint: "Conditional Formatting → Highlight Cells Rules → Duplicate Values.",
     level: "basic",
-    codeExample: "Conditional Formatting &rarr; Duplicate Values &rarr; Light Red Fill"
+    codeExample: "Conditional Formatting → Duplicate Values → Light Red Fill"
   },
   {
     question: "Why should you avoid using static cell coordinates (e.g. `E2*0.18`) inside Excel Table calculated columns?",
@@ -197,19 +197,19 @@ const questions = [
   },
   {
     question: "How do you select an entire table column including its header with a single click?",
-    shortAnswer: "Hover the mouse over the top edge of the column header until it turns into a black downward arrow &rarr; Click once for data, twice for data + header.",
+    shortAnswer: "Hover the mouse over the top edge of the column header until it turns into a black downward arrow → Click once for data, twice for data + header.",
     explanation: "Mouse selection shortcut for rapid table column management.",
     hint: "Click the column top edge when the cursor becomes a downward black arrow.",
     level: "basic",
-    codeExample: "Downward Black Arrow Cursor &rarr; Click"
+    codeExample: "Downward Black Arrow Cursor → Click"
   },
   {
     question: "How do you select the entire active table with a keyboard shortcut?",
-    shortAnswer: "Click inside the table &rarr; Press `Ctrl + A` once for data body; press `Ctrl + A` twice for entire table including headers and totals.",
+    shortAnswer: "Click inside the table → Press `Ctrl + A` once for data body; press `Ctrl + A` twice for entire table including headers and totals.",
     explanation: "Rapid table boundary selection accelerator.",
     hint: "Ctrl + A inside a table selects the data body; twice selects headers and totals.",
     level: "basic",
-    codeExample: "Ctrl + A (Data Body) &rarr; Ctrl + A again (Headers + Totals)"
+    codeExample: "Ctrl + A (Data Body) → Ctrl + A again (Headers + Totals)"
   },
   {
     question: "What is the risk of having blank rows inside an Excel Table?",
@@ -229,11 +229,11 @@ const questions = [
   },
   {
     question: "How do you rename an Excel Table to a descriptive corporate name?",
-    shortAnswer: "Click inside the Table &rarr; Table Design tab &rarr; Type new name in 'Table Name' box (top-left) &rarr; Press Enter.",
+    shortAnswer: "Click inside the Table → Table Design tab → Type new name in 'Table Name' box (top-left) → Press Enter.",
     explanation: "Renaming `Table1` to `tbl_BranchSales` makes downstream formulas readable and self-documenting.",
-    hint: "Table Design &rarr; Table Name box (top-left).",
+    hint: "Table Design → Table Name box (top-left).",
     level: "basic",
-    codeExample: "Table Design &rarr; Table Name = tbl_BranchSales"
+    codeExample: "Table Design → Table Name = tbl_BranchSales"
   },
   {
     question: "What is the ultimate golden rule of Excel Structured Tables?",

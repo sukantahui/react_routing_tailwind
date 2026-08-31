@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Row Dominance in Game Theory?",
     shortAnswer: "'For Player A (Maximizer), compare rows pairwise: if Row i >= Row j across ALL columns, eliminate the smaller Row j; assign probability 0 to the eliminated row while preserving the Value of the Game in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all row dominance mechanics.",
-    hint: "Compare pairwise -> Row i >= Row j -> Delete smaller Row j in ₹.",
+    hint: "Compare pairwise → Row i >= Row j → Delete smaller Row j in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CompareRowsPairwise() -> DeleteSmallerRow() -> SetProbabilityZero(₹)."
+    codeExample: "GoldenRule: CompareRowsPairwise() → DeleteSmallerRow() → SetProbabilityZero(₹)."
   }
 ];
 

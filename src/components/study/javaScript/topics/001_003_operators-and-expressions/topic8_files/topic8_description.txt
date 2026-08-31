@@ -11,7 +11,7 @@ Remember the BODMAS or PEMDAS rule from your childhood school mathematics? In 2 
 
 2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
 --------------------------------------------------------------------------------
-Abhronila wrote a condition: let result = false && true || true; She wondered: 'Does it evaluate (false && true) first, or (true || true) first?' I showed the class how && has a higher precedence ranking than ||. So JavaScript evaluated (false && true) -> false, and then false || true -> true. I told the class: 'Never force your teammates to memorize 20 precedence levels. Always use explicit parentheses ( ... ) to make your logic unmistakable!'
+Abhronila wrote a condition: let result = false && true || true; She wondered: 'Does it evaluate (false && true) first, or (true || true) first?' I showed the class how && has a higher precedence ranking than ||. So JavaScript evaluated (false && true) → false, and then false || true → true. I told the class: 'Never force your teammates to memorize 20 precedence levels. Always use explicit parentheses ( ... ) to make your logic unmistakable!'
 
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------

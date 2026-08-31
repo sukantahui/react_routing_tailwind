@@ -24,11 +24,11 @@ Formula Code: =LEFT(text, num_chars) | =RIGHT(text, num_chars) | =MID(text, star
 
 4. REAL-WORLD BUSINESS APPLICATION
 • Swadeep Banerjee (Senior Auditor, Barrackpore HQ):
-  Branch Code & Account Slicing - Extracts 4-digit branch codes from structured account numbers (e.g. 'BKP-98214-WB' -> =LEFT(A2, 3)) for divisional reporting.
+  Branch Code & Account Slicing - Extracts 4-digit branch codes from structured account numbers (e.g. 'BKP-98214-WB' → =LEFT(A2, 3)) for divisional reporting.
 • Tuhina Mukherjee (Payroll Specialist, Shyamnagar Plant):
   Domain Extraction from Corporate Emails - Extracts employee domains using =MID(A2, FIND("@", A2)+1, LEN(A2)) to verify contractor vs full-time staff status.
 • Abhronila Das (Materials Controller, Ichapur Heavy Works):
-  SKU Part-Number Decomposition - Parses middle thickness specifications from engineering codes ('STEEL-25MM-GRADEA' -> =MID(A2, 7, 4)).
+  SKU Part-Number Decomposition - Parses middle thickness specifications from engineering codes ('STEEL-25MM-GRADEA' → =MID(A2, 7, 4)).
 • Debangshu Roy (Logistics Manager, Naihati Logistics Hub):
   Waybill Serial Token Extraction - Retrieves the rightmost 6-digit invoice sequence from tracking barcodes (=RIGHT(A2, 6)).
 

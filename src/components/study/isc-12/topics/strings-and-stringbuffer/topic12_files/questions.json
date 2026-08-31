@@ -226,7 +226,7 @@
       "id": 38,
       "topic": "String manipulation programs",
       "question": "Write a program to remove duplicate characters from a string.",
-      "answer": "```java\nStringBuilder sb = new StringBuilder();\nstr.chars().distinct().forEach(c -> sb.append((char)c));\nreturn sb.toString();\n```"
+      "answer": "```java\nStringBuilder sb = new StringBuilder();\nstr.chars().distinct().forEach(c → sb.append((char)c));\nreturn sb.toString();\n```"
     },
     {
       "id": 39,

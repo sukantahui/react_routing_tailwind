@@ -7,17 +7,17 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. COLLECTION INTERFACE INTEGRATION:
    - Java 8 added default methods to 'java.util.Collection<E>':
-     1. 'default Stream<E> stream()' -> Returns a sequential stream.
-     2. 'default Stream<E> parallelStream()' -> Returns a parallel stream backed by Common ForkJoinPool.
+     1. 'default Stream<E> stream()' → Returns a sequential stream.
+     2. 'default Stream<E> parallelStream()' → Returns a parallel stream backed by Common ForkJoinPool.
 
 2. STREAMING DIFFERENT COLLECTION TYPES:
    - List<T>: 'list.stream()' (Preserves encounter order).
    - Set<T>: 'set.stream()' (Unordered, deduplicated).
    - Queue<T>: 'queue.stream()' (Streams elements without polling/removing).
    - Map<K, V>:
-     * 'map.entrySet().stream()' -> Stream<Map.Entry<K, V>> (Most useful for key+value logic).
-     * 'map.keySet().stream()' -> Stream<K>.
-     * 'map.values().stream()' -> Stream<V>.
+     * 'map.entrySet().stream()' → Stream<Map.Entry<K, V>> (Most useful for key+value logic).
+     * 'map.keySet().stream()' → Stream<K>.
+     * 'map.values().stream()' → Stream<V>.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

@@ -21,7 +21,7 @@ export default function Topic16() {
             Optional & Null-Safety
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Optional as a <code className="text-emerald-400 font-mono">Method Return Type</code>: Expressing API Absence Contracts
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic16() {
       </section>
 
       <Teacher
-        note="When your repository or service method might not find a record, return Optional<T>! It forces the developer who calls your method to immediately think about what happens when the record is missing! — Sukanta Hui"
+        note="When your repository or service method might not find a record, return Optional&lt;T&gt;! It forces the developer who calls your method to immediately think about what happens when the record is missing! — Sukanta Hui"
       />
     </div>
   );

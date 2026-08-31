@@ -76,7 +76,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
             Real-World Capstone: Automated Multi-Branch Daily Sales Consolidation Pipeline
           </h1>
 
@@ -129,7 +129,7 @@ export default function Topic12() {
               &nbsp;&nbsp;<span className="text-sky-300">fxIngestBranchSheet</span> = (
               <span className="text-amber-300">fileBinary</span> <span className="text-purple-400">as</span> binary, 
               <span className="text-amber-300">fileName</span> <span className="text-purple-400">as</span> text
-              ) <span className="text-purple-400">as</span> table =&gt;
+              ) <span className="text-purple-400">as</span> table =>
               <br />
               &nbsp;&nbsp;<span className="text-purple-400">let</span>
               <br />
@@ -182,7 +182,7 @@ export default function Topic12() {
                   <td className="py-3 px-4 font-mono font-bold text-indigo-300">02_Functions</td>
                   <td className="py-3 px-4 font-mono text-cyan-300">fxIngestBranchSheet</td>
                   <td className="py-3 px-4">Opens workbook, standardizes schema with <code className="text-indigo-300">MissingField.UseNull</code></td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">&lt; 150ms per file</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">< 150ms per file</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-300">03_Staging</td>
@@ -400,7 +400,7 @@ export default function Topic12() {
                   Fact_ConsolidatedSales
                 </text>
                 <text x="115" y="42" textAnchor="middle" fill="#d1fae5" fontSize="9">
-                  [Enable Load = TRUE &rarr; VertiPaq]
+                  [Enable Load = TRUE → VertiPaq]
                 </text>
                 
                 <rect x="12" y="52" width="206" height="52" rx="6" fill="#064e3b" opacity="0.8" />
@@ -461,7 +461,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Sales_Pipeline"
+            sheetName="EX2113"
             title="Consolidated Multi-Branch Sales Dataset (GlobalTxID, BranchCode, InvoiceDate, ItemSKU, Qty, GrossINR, TaxableValue, CGST, SGST, IngestionStatus)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -498,7 +498,7 @@ export default function Topic12() {
                 Project Lead <strong>Swadeep Banerjee</strong> replaces a manual morning copy-paste routine across 5 branch email attachments with this automated Power Query folder pipeline, reducing daily consolidation time from 3 hours to 4.2 seconds!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Zero-Touch Automation &rarr; 100% On-Time 09:00 AM Executive Briefing
+                Zero-Touch Automation → 100% On-Time 09:00 AM Executive Briefing
               </div>
             </div>
 
@@ -516,7 +516,7 @@ export default function Topic12() {
                 Her team contacts the billing desk immediately, correcting the invoices before filing monthly GSTR-1 returns.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Audit_QuarantineLog &rarr; Zero Statutory GST Filing Penalties
+                Audit_QuarantineLog → Zero Statutory GST Filing Penalties
               </div>
             </div>
 
@@ -534,7 +534,7 @@ export default function Topic12() {
                 Because <code className="text-indigo-300 font-mono">MissingField.UseNull</code> was active, the pipeline refreshed flawlessly, filling missing values with null.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                MissingField.UseNull &rarr; Uninterrupted Enterprise Reporting
+                MissingField.UseNull → Uninterrupted Enterprise Reporting
               </div>
             </div>
 
@@ -551,7 +551,7 @@ export default function Topic12() {
                 Compliance Officer <strong>Debangshu Roy</strong> checks the <code className="text-purple-300 font-mono">Audit_MissingBranchAlert</code> query at 08:30 AM, which immediately highlights that Titagarh has not submitted their closing file, triggering an automated reminder.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Anti-Join Monitor &rarr; 100% Branch Submission Enforcement
+                Anti-Join Monitor → 100% Branch Submission Enforcement
               </div>
             </div>
           </div>
@@ -616,7 +616,7 @@ export default function Topic12() {
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300 overflow-x-auto">
                 {`// Fact_ConsolidatedSales
-Clean_Fact = Table.SelectRows(#"Consolidated Staging", each [GrossTotal] &gt; 0 and [Quantity] &gt; 0 and [GSTIN] <> null)
+Clean_Fact = Table.SelectRows(#"Consolidated Staging", each [GrossTotal] > 0 and [Quantity] > 0 and [GSTIN] &lt;&gt; null)
 
 // Audit_QuarantineLog
 Quarantine_Log = Table.SelectRows(#"Consolidated Staging", each [GrossTotal] <= 0 or [Quantity] <= 0 or [GSTIN] = null)`}

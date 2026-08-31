@@ -82,7 +82,7 @@ Feature               | CPM (Deterministic)           | PERT (Probabilistic)
 Origin                | DuPont & Univac (1957)        | US Navy Polaris (1958)
 Orientation           | Activity-oriented             | Event-oriented
 Time Estimates        | Single Deterministic Time (d) | Three Time Estimates (t_o, t_m, t_p)
-Underlying Curve      | Fixed Point                   | Beta Distribution (CLT -> Normal)
+Underlying Curve      | Fixed Point                   | Beta Distribution (CLT → Normal)
 Cost Optimization     | Direct Crashing (Cost Slope)  | Risk & Probability Buffers
 Primary Application   | Construction, Plant Shutdowns | R&D, Aerospace, New Tech Launches
 Financial Units       | Indian Rupees (₹)             | Indian Rupees (₹)

@@ -172,8 +172,8 @@ END //
 
 DELIMITER ;`,
       resultRows: [
-        { phase: "Cycle 1 (Dept 1)", state: "OPEN -> FETCH -> CLOSE", pointerPos: "Dept 1 Rows", memoryState: "Deallocated on CLOSE", actionExecuted: "Processed Dept 1 Students", status: "Cycle 1 Complete ✅" },
-        { phase: "Cycle 2 (Dept 2)", state: "OPEN -> FETCH -> CLOSE", pointerPos: "Dept 2 Rows", memoryState: "Fresh Result Set", actionExecuted: "Processed Dept 2 Students", status: "Cycle 2 Complete ✅" },
+        { phase: "Cycle 1 (Dept 1)", state: "OPEN → FETCH → CLOSE", pointerPos: "Dept 1 Rows", memoryState: "Deallocated on CLOSE", actionExecuted: "Processed Dept 1 Students", status: "Cycle 1 Complete ✅" },
+        { phase: "Cycle 2 (Dept 2)", state: "OPEN → FETCH → CLOSE", pointerPos: "Dept 2 Rows", memoryState: "Fresh Result Set", actionExecuted: "Processed Dept 2 Students", status: "Cycle 2 Complete ✅" },
       ],
       explanation:
         "You can `OPEN`, `FETCH`, and `CLOSE` the same cursor multiple times. Each `OPEN` executes a fresh query evaluation against current variable values.",
@@ -206,7 +206,7 @@ DELIMITER ;`,
               Cursor Lifecycle
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Cursor Lifecycle: DECLARE, OPEN, FETCH &amp; CLOSE
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

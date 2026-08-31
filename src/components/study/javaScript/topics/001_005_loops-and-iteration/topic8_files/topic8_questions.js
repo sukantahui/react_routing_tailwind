@@ -91,7 +91,7 @@ const questions = [
     explanation: "Plain objects do not have a built-in `[Symbol.iterator]` implementation because there is no universal unambiguous traversal order (keys vs values vs entries). To iterate objects with `for...of`, use `Object.keys(obj)`, `Object.values(obj)`, or `Object.entries(obj)`.",
     hint: "Use Object.entries(obj) to loop over an object with for...of.",
     level: "basic",
-    codeExample: "const user = { name: 'Swadeep', city: 'Barrackpore' };\n// ❌ for (const x of user) -> TypeError: user is not iterable\n// ✓ Correct:\nfor (const [key, val] of Object.entries(user)) {\n  console.log(`${key}: ${val}`);\n}"
+    codeExample: "const user = { name: 'Swadeep', city: 'Barrackpore' };\n// ❌ for (const x of user) → TypeError: user is not iterable\n// ✓ Correct:\nfor (const [key, val] of Object.entries(user)) {\n  console.log(`${key}: ${val}`);\n}"
   },
   {
     question: "How does the scope of let vs var affect traditional for loops with asynchronous closures (such as setTimeout)?",
@@ -147,7 +147,7 @@ const questions = [
     explanation: "If a loop runs for many iterations (hot loop), V8 does not wait for the outer function to return. Instead, TurboFan compiles the loop body and replaces the execution frame directly on the Call Stack (On-Stack Replacement) to immediately accelerate execution.",
     hint: "OSR upgrades running loops from bytecode to native machine code mid-flight.",
     level: "expert",
-    codeExample: "// Long running loop triggers V8 OSR:\nfor (let i = 0; i < 1_000_000; i++) {\n  // Bytecode -> TurboFan optimized assembly via OSR\n}"
+    codeExample: "// Long running loop triggers V8 OSR:\nfor (let i = 0; i < 1_000_000; i++) {\n  // Bytecode → TurboFan optimized assembly via OSR\n}"
   },
   {
     question: "How does mutating an array during iteration affect for...of, forEach, and traditional for loops?",
@@ -193,7 +193,7 @@ const questions = [
     question: "What is the difference between Array.prototype.keys(), values(), and entries() when used with for...of?",
     shortAnswer: "keys() yields numeric indices (0, 1, 2), values() yields element items, and entries() yields [index, value] pairs.",
     explanation: "These built-in array methods return specialized Array Iterator objects adhering to `Symbol.iterator`, enabling clean, declarative selection of keys, values, or dual tuples.",
-    hint: "keys() -> index; values() -> item; entries() -> [index, item].",
+    hint: "keys() → index; values() → item; entries() → [index, item].",
     level: "basic",
     codeExample: "const arr = ['red', 'blue'];\nfor (const k of arr.keys()) console.log(k);       // 0, 1\nfor (const v of arr.values()) console.log(v);     // 'red', 'blue'\nfor (const [k, v] of arr.entries()) console.log(k, v); // 0 'red', 1 'blue'"
   },
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Modern JavaScript architecture prioritizes `for...of` as the standard default for data collections due to value clarity and async support. Traditional `for` is reserved for tight mathematical optimizations and backwards loops. `for...in` is restricted to object reflection. `forEach` is used when chained with other array methods.",
     hint: "Default: for...of for collections; for(let i...) for raw performance; for...in for object keys.",
     level: "expert",
-    codeExample: "// Decision Matrix:\n// Arrays / Sets / Maps -> for...of\n// High Performance / Hot Path -> for (let i = 0; ...)\n// Plain Object Inspection -> for (const k in obj) if (Object.hasOwn(obj, k))\n// Fluent Chaining -> arr.filter().map().forEach()"
+    codeExample: "// Decision Matrix:\n// Arrays / Sets / Maps → for...of\n// High Performance / Hot Path → for (let i = 0; ...)\n// Plain Object Inspection → for (const k in obj) if (Object.hasOwn(obj, k))\n// Fluent Chaining → arr.filter().map().forEach()"
   }
 ];
 

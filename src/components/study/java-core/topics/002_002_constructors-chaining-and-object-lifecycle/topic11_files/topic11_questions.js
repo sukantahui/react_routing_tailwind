@@ -3,7 +3,7 @@ const topic11_questions = [
     question: "What is the exact execution sequence when a subclass object is instantiated in Java?",
     shortAnswer: "1. Parent IIBs & field initializers, 2. Parent constructor body, 3. Child IIBs & field initializers, 4. Child constructor body.",
     explanation: "Parent state is established first from top-to-bottom, followed by child state.",
-    hint: "Parent IIB -> Parent Constructor -> Child IIB -> Child Constructor.",
+    hint: "Parent IIB → Parent Constructor → Child IIB → Child Constructor.",
     level: "Intermediate",
     codeExample: "// Hierarchy execution flow"
   },

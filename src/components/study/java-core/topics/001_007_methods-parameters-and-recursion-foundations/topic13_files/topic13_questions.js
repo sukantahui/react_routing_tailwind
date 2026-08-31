@@ -47,11 +47,11 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore fee engine, what was the call stack depth when `applyTax()` executed?",
-    shortAnswer: "Depth 4: `main()` &rarr; `processStudentFeeInvoice()` &rarr; `applyScholarshipDiscount()` &rarr; `applyTax()` in Indian Rupees (₹).",
+    shortAnswer: "Depth 4: `main()` → `processStudentFeeInvoice()` → `applyScholarshipDiscount()` → `applyTax()` in Indian Rupees (₹).",
     explanation: "Stack frame call depth trace.",
-    hint: "Depth 4: main -> processInvoice -> applyDiscount -> applyTax.",
+    hint: "Depth 4: main → processInvoice → applyDiscount → applyTax.",
     level: "basic",
-    codeExample: "main() -> processStudentFeeInvoice() -> applyScholarshipDiscount() -> applyTax()"
+    codeExample: "main() → processStudentFeeInvoice() → applyScholarshipDiscount() → applyTax()"
   },
   {
     question: "How is memory reclaimed when a Java method returns?",
@@ -155,7 +155,7 @@ const questions = [
     explanation: "Stack frame pointer to heap object relation.",
     hint: "Copies reference pointer on the stack pointing to the same Heap object.",
     level: "basic",
-    codeExample: "// Stack frame holds pointer 0x40A0 -> Heap holds StudentAccount object"
+    codeExample: "// Stack frame holds pointer 0x40A0 → Heap holds StudentAccount object"
   },
   {
     question: "Why does Java not allocate Object instances directly on the Stack (by default)?",
@@ -199,11 +199,11 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore fee ledger, how did the call stack unwind after `applyTax()` returned?",
-    shortAnswer: "`applyTax()` popped &rarr; `applyScholarshipDiscount()` popped &rarr; `processStudentFeeInvoice()` popped &rarr; control returned to `main()` in Indian Rupees (₹).",
+    shortAnswer: "`applyTax()` popped → `applyScholarshipDiscount()` popped → `processStudentFeeInvoice()` popped → control returned to `main()` in Indian Rupees (₹).",
     explanation: "Stack unwinding sequence verification.",
     hint: "Popped in reverse order of invocation (LIFO).",
     level: "basic",
-    codeExample: "applyTax -> applyDiscount -> processInvoice -> main"
+    codeExample: "applyTax → applyDiscount → processInvoice → main"
   },
   {
     question: "What is a 'Tail Call' and how does it relate to stack frames?",
@@ -227,7 +227,7 @@ const questions = [
     explanation: "Mastery of the JVM call stack and stack frames.",
     hint: "Method calls push Stack Frames (LVA + OS + Frame Data); returns pop them in O(1) time.",
     level: "basic",
-    codeExample: "// Summary: Push Frame on Invoke -> Execute LVA/OS -> Pop Frame on Return"
+    codeExample: "// Summary: Push Frame on Invoke → Execute LVA/OS → Pop Frame on Return"
   },
   {
     question: "What is the next topic (Topic 14) in Module 001_007?",
@@ -243,7 +243,7 @@ const questions = [
     explanation: "Project Loom virtual thread stack storage in Heap.",
     hint: "Virtual threads store stack frames in Heap when blocked, allowing millions of concurrent threads.",
     level: "advanced",
-    codeExample: "Thread.startVirtualThread(() -> processStudentFeeInvoice(...));"
+    codeExample: "Thread.startVirtualThread(() → processStudentFeeInvoice(...));"
   }
 ];
 

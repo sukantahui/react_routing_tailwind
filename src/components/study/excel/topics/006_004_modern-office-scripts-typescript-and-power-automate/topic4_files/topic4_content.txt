@@ -10,7 +10,7 @@ The Office Scripts Object Model: `ExcelScript.Workbook`, `Worksheet`, `Range`, `
 It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Object Model Hierarchy: workbook: ExcelScript.Workbook -> workbook.getWorksheets() -> worksheet.getRange("A1:B10") -> worksheet.getTables()
+Operational Architecture: Object Model Hierarchy: workbook: ExcelScript.Workbook → workbook.getWorksheets() → worksheet.getRange("A1:B10") → worksheet.getTables()
 
 3. CORE TECHNICAL MECHANICS
 1. Synchronous Object Encapsulation:

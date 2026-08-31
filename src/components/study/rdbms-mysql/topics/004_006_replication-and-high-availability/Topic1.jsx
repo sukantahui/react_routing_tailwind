@@ -27,7 +27,7 @@ const Topic1 = () => {
       badgeColor: "emerald",
       sqlSnippet: `-- 📜 1. SOURCE BINARY LOG WRITING:
 -- Transactions are committed locally in InnoDB and written to the Binary Log:
--- binlog.000001 -> binlog.000002
+-- binlog.000001 → binlog.000002
 
 -- 🚀 2. DEDICATED BINLOG DUMP THREAD (SPAWNED PER CONNECTED REPLICA):
 SHOW PROCESSLIST;
@@ -123,7 +123,7 @@ SHOW REPLICA STATUS\\G
             Topic 1 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           How MySQL Replication Works: <span className="text-emerald-400">Binary Log</span>, <span className="text-cyan-400">I/O Thread</span> &amp; Relay Logs
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

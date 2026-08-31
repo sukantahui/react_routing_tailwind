@@ -10,8 +10,8 @@ const questions = [
   {
     question: "What is the Critical Rendering Path (CRP)?",
     shortAnswer: "The sequence of steps the browser takes to parse HTML/CSS and paint pixels on screen.",
-    explanation: "CRP consists of DOM construction -> CSSOM construction -> Render Tree creation -> Layout calculation -> Paint -> GPU Composite.",
-    hint: "DOM + CSSOM -> Render Tree -> Layout -> Paint.",
+    explanation: "CRP consists of DOM construction → CSSOM construction → Render Tree creation → Layout calculation → Paint → GPU Composite.",
+    hint: "DOM + CSSOM → Render Tree → Layout → Paint.",
     level: "intermediate",
     codeExample: "// Optimizing the CRP ensures First Contentful Paint (FCP) occurs under 1 second"
   },
@@ -187,7 +187,7 @@ const questions = [
     question: "What is progressive enhancement versus graceful degradation?",
     shortAnswer: "Progressive enhancement starts with basic HTML/CSS and adds JS features; graceful degradation builds for modern JS with fallbacks.",
     explanation: "Progressive enhancement ensures all users have access to core content even if JavaScript fails or is disabled in the browser.",
-    hint: "Build solid HTML/CSS base -> Enhance with JS superpowers.",
+    hint: "Build solid HTML/CSS base → Enhance with JS superpowers.",
     level: "basic",
     codeExample: "// Functional HTML form works without JS; enhanced with AJAX when JS is active"
   },

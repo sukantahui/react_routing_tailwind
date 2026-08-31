@@ -31,7 +31,7 @@ const questions = [
   },
   {
     question: "How do student queries for Mamata and Susmita illustrate `EXPLAIN FORMAT=TREE`?",
-    shortAnswer: "Running `EXPLAIN FORMAT=TREE SELECT * FROM students s JOIN enrollments e ON s.id = e.student_id;` visually prints the nested loop join hierarchy with indentation: `-> Nested loop inner join -> Table scan on e -> Single-row index lookup on s`.",
+    shortAnswer: "Running `EXPLAIN FORMAT=TREE SELECT * FROM students s JOIN enrollments e ON s.id = e.student_id;` visually prints the nested loop join hierarchy with indentation: `-> Nested loop inner join → Table scan on e → Single-row index lookup on s`.",
     explanation: "Hierarchical visual representation of join order in TREE format.",
     hint: "Displays indented tree showing nested loop join and index lookups.",
     level: "basic"
@@ -194,7 +194,7 @@ const questions = [
     question: "What does `EXPLAIN FORMAT=TREE` output when a query requires a Hash Join in MySQL 8.0?",
     shortAnswer: "`-> Inner hash join (s.department_id = d.department_id)` (used for joins on un-indexed equality predicates).",
     explanation: "Hash join representation in FORMAT=TREE.",
-    hint: "Shows -> Inner hash join for un-indexed equi-joins.",
+    hint: "Shows → Inner hash join for un-indexed equi-joins.",
     level: "expert"
   },
   {

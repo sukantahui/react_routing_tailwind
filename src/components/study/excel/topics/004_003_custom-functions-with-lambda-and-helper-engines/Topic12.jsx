@@ -76,7 +76,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Recursive LAMBDAs: Solving Algorithmic Loops & Deep Tree Traversals
           </h1>
 
@@ -123,7 +123,7 @@ export default function Topic12() {
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-sm sm:text-base text-purple-300 space-y-2">
             <span className="text-slate-500">// Name Manager Registration: FX_FACTORIAL</span>
             <div className="mt-1 text-white font-bold">
-              =<span className="text-purple-300">LAMBDA</span>(<span className="text-amber-300">n</span>, <span className="text-yellow-300">IF</span>(<span className="text-sky-300">n &lt;= 1</span>, <span className="text-emerald-300">1</span>, <span className="text-amber-300">n</span> * <span className="text-pink-300">FX_FACTORIAL</span>(<span className="text-amber-300">n</span> - 1)))
+              =<span className="text-purple-300">LAMBDA</span>(<span className="text-amber-300">n</span>, <span className="text-yellow-300">IF</span>(<span className="text-sky-300">n <= 1</span>, <span className="text-emerald-300">1</span>, <span className="text-amber-300">n</span> * <span className="text-pink-300">FX_FACTORIAL</span>(<span className="text-amber-300">n</span> - 1)))
             </div>
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
               <span className="text-slate-500">// Hierarchy Rollup (Finding Top Executive / CEO):</span> <br />
@@ -191,9 +191,9 @@ export default function Topic12() {
               <p className="leading-relaxed">
                 When <code className="text-emerald-300 font-mono">FX_FACT(4)</code> is evaluated, Excel pauses each frame in volatile RAM:
                 <br />
-                <code className="text-amber-300 font-mono">Frame 1: 4 * FX_FACT(3) &rarr; Frame 2: 3 * FX_FACT(2) &rarr; Frame 3: 2 * FX_FACT(1) &rarr; Base Case: 1</code>.
+                <code className="text-amber-300 font-mono">Frame 1: 4 * FX_FACT(3) → Frame 2: 3 * FX_FACT(2) → Frame 3: 2 * FX_FACT(1) → Base Case: 1</code>.
                 <br />
-                The stack unwinds backward: <code className="text-sky-300 font-mono">2 * 1 = 2 &rarr; 3 * 2 = 6 &rarr; 4 * 6 = 24</code>.
+                The stack unwinds backward: <code className="text-sky-300 font-mono">2 * 1 = 2 → 3 * 2 = 6 → 4 * 6 = 24</code>.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
                 1,024 Maximum Stack Depth Before #NUM! Protection
@@ -224,7 +224,7 @@ export default function Topic12() {
               always pass an optional <code className="text-purple-300 font-mono">[maxDepth]</code> parameter:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                FX_SAFE_CEO = LAMBDA(empID, [maxDepth], LET(depth, IF(ISOMITTED(maxDepth), 20, maxDepth), mgr, XLOOKUP(empID, ID, MgrID), IF(OR(depth&lt;=0, mgr="", mgr=empID), empID, FX_SAFE_CEO(mgr, depth - 1))))
+                FX_SAFE_CEO = LAMBDA(empID, [maxDepth], LET(depth, IF(ISOMITTED(maxDepth), 20, maxDepth), mgr, XLOOKUP(empID, ID, MgrID), IF(OR(depth<=0, mgr="", mgr=empID), empID, FX_SAFE_CEO(mgr, depth - 1))))
               </code>
             </p>
           </div>
@@ -269,12 +269,12 @@ export default function Topic12() {
                 <path d="M 140 32 L 140 50" stroke="#94A3B8" strokeWidth="2" strokeDasharray="2 2" />
 
                 <rect y="50" width="210" height="32" rx="4" fill="#1E293B" stroke="#334155" />
-                <text x="10" y="70" fill="#38BDF8" fontSize="9.5" fontFamily="monospace">E102: Tuhina (VP Ops &rarr; E101)</text>
+                <text x="10" y="70" fill="#38BDF8" fontSize="9.5" fontFamily="monospace">E102: Tuhina (VP Ops → E101)</text>
 
                 <path d="M 140 82 L 140 100" stroke="#94A3B8" strokeWidth="2" strokeDasharray="2 2" />
 
                 <rect y="100" width="210" height="32" rx="4" fill="#1E293B" stroke="#334155" />
-                <text x="10" y="120" fill="#FDE047" fontSize="9.5" fontFamily="monospace">E103: Swadeep (Analyst &rarr; E102)</text>
+                <text x="10" y="120" fill="#FDE047" fontSize="9.5" fontFamily="monospace">E103: Swadeep (Analyst → E102)</text>
               </g>
 
               <rect x="35" y="225" width="210" height="55" rx="6" fill="#1E293B" stroke="#334155" />
@@ -295,15 +295,15 @@ export default function Topic12() {
               <g transform="translate(345, 75)">
                 <rect width="240" height="42" rx="4" fill="#3B0764" stroke="#A855F7" />
                 <text x="10" y="16" fill="#F5D0FE" fontSize="9" fontWeight="bold" fontFamily="monospace">Frame 1: FX_FIND_CEO("E103")</text>
-                <text x="10" y="32" fill="#E2E8F0" fontSize="8" fontFamily="sans-serif">XLOOKUP("E103") &rarr; Mgr="E102" &rarr; Recurse!</text>
+                <text x="10" y="32" fill="#E2E8F0" fontSize="8" fontFamily="sans-serif">XLOOKUP("E103") → Mgr="E102" → Recurse!</text>
 
                 <rect y="50" width="240" height="42" rx="4" fill="#3B0764" stroke="#A855F7" />
                 <text x="10" y="66" fill="#F5D0FE" fontSize="9" fontWeight="bold" fontFamily="monospace">Frame 2: FX_FIND_CEO("E102")</text>
-                <text x="10" y="82" fill="#E2E8F0" fontSize="8" fontFamily="sans-serif">XLOOKUP("E102") &rarr; Mgr="E101" &rarr; Recurse!</text>
+                <text x="10" y="82" fill="#E2E8F0" fontSize="8" fontFamily="sans-serif">XLOOKUP("E102") → Mgr="E101" → Recurse!</text>
 
                 <rect y="100" width="240" height="42" rx="4" fill="#064E3B" stroke="#10B981" />
                 <text x="10" y="116" fill="#A7F3D0" fontSize="9" fontWeight="bold" fontFamily="monospace">Frame 3: FX_FIND_CEO("E101")</text>
-                <text x="10" y="132" fill="#34D399" fontSize="8" fontWeight="bold" fontFamily="sans-serif">Base Case Met! Mgr="" &rarr; Return "E101"</text>
+                <text x="10" y="132" fill="#34D399" fontSize="8" fontWeight="bold" fontFamily="sans-serif">Base Case Met! Mgr="" → Return "E101"</text>
               </g>
 
               <text x="465" y="275" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ 3 Frames Resolved in Memory</text>
@@ -360,7 +360,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Recursive_LAMBDA"
+            sheetName="EX1813"
             title="Corporate Hierarchy Roster (Employee ID, Name, Department, Reports-To Manager ID)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -399,7 +399,7 @@ export default function Topic12() {
                 Recursively climbs from junior analysts through shift managers and VP levels up to CEO Debangshu in 1ms.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =FX_FIND_CEO("E103") &rarr; Returns "E101" (Debangshu)
+                Formula: =FX_FIND_CEO("E103") → Returns "E101" (Debangshu)
               </div>
             </div>
 
@@ -433,7 +433,7 @@ export default function Topic12() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Risk Analyst <strong>Abhronila Sengupta</strong> registers <code className="text-indigo-300 font-mono">FX_FACT</code> in Name Manager: 
-                <code className="text-indigo-300 font-mono">=LAMBDA(n, IF(n&lt;=1, 1, n * FX_FACT(n-1)))</code>, 
+                <code className="text-indigo-300 font-mono">=LAMBDA(n, IF(n<=1, 1, n * FX_FACT(n-1)))</code>, 
                 computing portfolio permutation combinations without external add-ins.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
@@ -456,7 +456,7 @@ export default function Topic12() {
                 dynamically unwinding tokens into a vertical spilled column using VSTACK.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Recursive Text Tokenizer: Delimited String &rarr; Spilled Array
+                Recursive Text Tokenizer: Delimited String → Spilled Array
               </div>
             </div>
           </div>
@@ -561,7 +561,7 @@ export default function Topic12() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#NUM! (Stack Overflow)</td>
                   <td className="py-3 px-4 text-slate-300">Recursion exceeded 1,024 frames due to missing/flawed base case or circular data loop.</td>
                   <td className="py-3 px-4 text-slate-400">Check base condition logic and check for circular parent-child IDs.</td>
-                  <td className="py-3 px-4 text-emerald-400">Implement defensive base conditions (e.g. <code className="text-emerald-400 font-mono">depth &lt;= 0</code>) and depth limiters.</td>
+                  <td className="py-3 px-4 text-emerald-400">Implement defensive base conditions (e.g. <code className="text-emerald-400 font-mono">depth <= 0</code>) and depth limiters.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#NAME?</td>
@@ -571,9 +571,9 @@ export default function Topic12() {
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Base Case Flaw</td>
-                  <td className="py-3 px-4 text-slate-300">Wrote <code className="text-rose-300 font-mono">n = 1</code> instead of <code className="text-emerald-300 font-mono">n &lt;= 1</code>, causing negative inputs to loop indefinitely.</td>
+                  <td className="py-3 px-4 text-slate-300">Wrote <code className="text-rose-300 font-mono">n = 1</code> instead of <code className="text-emerald-300 font-mono">n <= 1</code>, causing negative inputs to loop indefinitely.</td>
                   <td className="py-3 px-4 text-slate-400">Test function with 0 and negative numbers.</td>
-                  <td className="py-3 px-4 text-emerald-400">Always use inequality operators (<code className="text-emerald-400 font-mono">&lt;=</code>) for base termination.</td>
+                  <td className="py-3 px-4 text-emerald-400">Always use inequality operators (<code className="text-emerald-400 font-mono"><=</code>) for base termination.</td>
                 </tr>
               </tbody>
             </table>

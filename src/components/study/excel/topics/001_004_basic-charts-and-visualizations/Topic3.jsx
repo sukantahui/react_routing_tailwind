@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Pie and Doughnut Charts: Part-to-Whole Proportions, Slice Limits and Modern Best Practices
           </h1>
 
@@ -124,7 +124,7 @@ export default function Topic3() {
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Slice Count (&lt;=5)</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Slice Count (<=5)</td>
                   <td className="py-3 px-4 text-teal-400">Cognitive Limit</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">Never exceed 5 slices; group smaller items into an 'Other' slice.</td>
@@ -361,7 +361,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic3"
+            sheetName="Topic3"
             title="Module 1.4 - Pie and Doughnut Charts: Part-to-Whole Proportions, Slice Limits and Modern Best Practices"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -596,7 +596,7 @@ export default function Topic3() {
               <div>
                 <h3 className="text-sm font-bold text-white">Optimize Gap Width & Remove Clutter</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Right-click columns &rarr; Format Data Series &rarr; Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
+                  Right-click columns → Format Data Series → Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
                 </p>
               </div>
             </div>
@@ -616,7 +616,7 @@ export default function Topic3() {
               <div>
                 <h3 className="text-sm font-bold text-white">Snap to Grid & Hide Sheet Gridlines</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View &rarr; uncheck Gridlines.
+                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View → uncheck Gridlines.
                 </p>
               </div>
             </div>

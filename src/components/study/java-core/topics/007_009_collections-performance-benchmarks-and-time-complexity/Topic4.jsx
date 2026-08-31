@@ -21,7 +21,7 @@ export default function Topic4() {
             Primitive vs Boxed
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Performance Comparison: Primitive Arrays vs Boxed Collections (<code className="text-emerald-400 font-mono">int[]</code> vs <code className="text-amber-400 font-mono">ArrayList&lt;Integer&gt;</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

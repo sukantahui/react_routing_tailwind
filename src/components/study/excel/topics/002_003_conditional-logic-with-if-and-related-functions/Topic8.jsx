@@ -71,7 +71,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Dynamic threshold scoring and tier classification systems"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Dynamic_threshold_"
+            sheetName="EX809"
             title={"Dynamic threshold scoring and tier classification systems - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -502,7 +502,7 @@ export default function Topic8() {
                 <span>⚡</span> {"Named Range Table"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Makes tier formulas self-documenting and automatically expanding."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + T -> Name Table"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + T → Name Table"}</kbd>
             </div>
             
           </div>

@@ -10,14 +10,14 @@ Robust enterprise error handling, call stack tracing, and debug logging to text 
 It provides the core protocols required to construct custom GUI forms, automate cross-application reporting decks, and deploy enterprise add-ins.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Enterprise Debug Logging: Open logPath For Append As #fNum -> Print #fNum, Format(Now, "yyyy-mm-dd hh:nn:ss") & " | " & ErrMsg -> Close #fNum
+Operational Architecture: Enterprise Debug Logging: Open logPath For Append As #fNum → Print #fNum, Format(Now, "yyyy-mm-dd hh:nn:ss") & " | " & ErrMsg → Close #fNum
 
 3. CORE TECHNICAL MECHANICS
 1. Persistent Disk Audit Logging:
    Appends execution milestones, duration metrics, user identities, and error dumps to a dedicated `automation_audit.log` file on disk.
 
 2. Call Stack Tracing Paradigm:
-   Tracks the active subroutine hierarchy (`MainController -> IngestData -> ValidateRow -> ParseDate`), recording the exact call path when a failure occurs.
+   Tracks the active subroutine hierarchy (`MainController → IngestData → ValidateRow → ParseDate`), recording the exact call path when a failure occurs.
 
 3. Non-Intrusive Production Telemetry:
    Runs silently in background with zero UI interruption, providing IT and auditors with a complete forensic audit trail.

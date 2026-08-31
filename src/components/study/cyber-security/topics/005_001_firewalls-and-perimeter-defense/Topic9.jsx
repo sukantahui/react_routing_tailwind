@@ -37,7 +37,7 @@ const Topic9 = () => {
       severity: "CRITICAL SECURITY RISK",
       badgeColor: "bg-rose-950 text-rose-300 border-rose-800",
       description: "A broader rule higher up matches all packets intended for a specific rule below it. The lower rule is completely shadowed and will NEVER execute, leaving intended blocks inoperative.",
-      codeSnippet: "Rule 10: PERMIT Source: 10.10.1.0/24 -> Dest: ANY\nRule 25: DROP   Source: 10.10.1.50   -> Dest: ANY  <-- SHADOWED! 10.10.1.50 is NEVER blocked!",
+      codeSnippet: "Rule 10: PERMIT Source: 10.10.1.0/24 → Dest: ANY\nRule 25: DROP   Source: 10.10.1.50   → Dest: ANY  <-- SHADOWED! 10.10.1.50 is NEVER blocked!",
       engineeringFix: "Move specific narrower rules (e.g. Host Drop) ABOVE general broader rules (e.g. Subnet Allow)."
     },
     redundancy: {
@@ -46,7 +46,7 @@ const Topic9 = () => {
       severity: "PERFORMANCE DEBT",
       badgeColor: "bg-amber-950 text-amber-300 border-amber-800",
       description: "Two rules perform identical actions on identical or overlapping traffic. Does not create security holes directly, but wastes CPU lookup cycles and confuses administrators.",
-      codeSnippet: "Rule 30: PERMIT Source: ANY -> Dest: 172.16.1.10:443 [TCP]\nRule 45: PERMIT Source: ANY -> Dest: 172.16.1.10:443 [TCP]  <-- REDUNDANT DUPLICATE",
+      codeSnippet: "Rule 30: PERMIT Source: ANY → Dest: 172.16.1.10:443 [TCP]\nRule 45: PERMIT Source: ANY → Dest: 172.16.1.10:443 [TCP]  <-- REDUNDANT DUPLICATE",
       engineeringFix: "Run automated static deduplication scripts to delete identical subordinate rules."
     },
     correlation: {
@@ -55,7 +55,7 @@ const Topic9 = () => {
       severity: "AMBIGUOUS POLICY RISK",
       badgeColor: "bg-purple-950 text-purple-300 border-purple-800",
       description: "Two rules intersect on some packet criteria but have conflicting actions. The effective policy depends entirely on relative rule ordering, leading to unintended access grants.",
-      codeSnippet: "Rule 1: PERMIT Subnet 10.10.1.0/24 -> 172.16.1.10:80\nRule 2: DENY   Host   10.10.1.50   -> ANY:ANY\nResult: 10.10.1.50 gets access to 172.16.1.10:80 only because Rule 1 is above Rule 2!",
+      codeSnippet: "Rule 1: PERMIT Subnet 10.10.1.0/24 → 172.16.1.10:80\nRule 2: DENY   Host   10.10.1.50   → ANY:ANY\nResult: 10.10.1.50 gets access to 172.16.1.10:80 only because Rule 1 is above Rule 2!",
       engineeringFix: "Disambiguate rules by creating explicit mutually exclusive source and destination definitions."
     },
     orphaned: {
@@ -64,7 +64,7 @@ const Topic9 = () => {
       severity: "UNMONITORED ATTACK SURFACE",
       badgeColor: "bg-sky-950 text-sky-300 border-sky-800",
       description: "Legacy permit rules pointing to IP addresses or servers that were decommissioned months or years ago, leaving unmonitored open doors in the perimeter.",
-      codeSnippet: "Rule 89: PERMIT ANY -> 10.10.4.80:8080 (Old staging database retired in 2022!)",
+      codeSnippet: "Rule 89: PERMIT ANY → 10.10.4.80:8080 (Old staging database retired in 2022!)",
       engineeringFix: "Conduct quarterly hit-count recertifications: auto-prune rules with zero hits over 90–180 days."
     }
   };
@@ -165,7 +165,7 @@ const Topic9 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold uppercase tracking-wider">
             <span>📋 Module 005_001 • Topic 9</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Firewall Rule-Base Design: Default-Deny vs Default-Allow
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">

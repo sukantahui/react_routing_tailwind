@@ -34,7 +34,7 @@ const questions = [
   {
     question: "What annotation extracts query parameters?",
     shortAnswer: "@QueryParam",
-    explanation: "e.g., /search?q=jersey -> @QueryParam(\"q\") String query",
+    explanation: "e.g., /search?q=jersey → @QueryParam(\"q\") String query",
     level: "intermediate"
   },
   {

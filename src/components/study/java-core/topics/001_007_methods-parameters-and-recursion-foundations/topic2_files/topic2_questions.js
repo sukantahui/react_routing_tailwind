@@ -243,7 +243,7 @@ const questions = [
     explanation: "Tooling and API generation benefits.",
     hint: "Generates clear, intuitive API endpoint documentation automatically.",
     level: "intermediate",
-    codeExample: "GET /api/students -> getStudents()"
+    codeExample: "GET /api/students → getStudents()"
   }
 ];
 

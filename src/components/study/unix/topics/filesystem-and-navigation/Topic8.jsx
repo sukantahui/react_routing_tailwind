@@ -47,7 +47,7 @@ export default class Topic8 extends Component {
           ],
           color: 'from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20',
           icon: '🔗',
-          lsOutput: 'lrwxrwxrwx 1 user users 9 Jan 16 python3 -> python3.9'
+          lsOutput: 'lrwxrwxrwx 1 user users 9 Jan 16 python3 → python3.9'
         },
         device: {
           name: 'Device File',
@@ -181,7 +181,7 @@ export default class Topic8 extends Component {
           <div className="mb-8">
             <div className="flex items-center mb-4">
               <span className="text-2xl mr-3">📁</span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
                 Understanding File Types: Regular, Directory, Symbolic Link, Device File
               </h1>
             </div>
@@ -251,7 +251,7 @@ export default class Topic8 extends Component {
                     <div className="mt-2 text-xs text-gray-500">
                       {activeFileType === 'regular' && 'First character: - (hyphen) indicates regular file'}
                       {activeFileType === 'directory' && 'First character: d indicates directory'}
-                      {activeFileType === 'symbolic' && 'First character: l indicates symbolic link, -> shows target'}
+                      {activeFileType === 'symbolic' && 'First character: l indicates symbolic link, → shows target'}
                       {activeFileType === 'device' && 'First character: b/c indicates block/character device, numbers show major/minor'}
                     </div>
                   </div>

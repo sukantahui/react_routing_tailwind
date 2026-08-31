@@ -42,7 +42,7 @@ export default function Topic12() {
             Inductive Algorithms &amp; Recursion
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Recursive Methods: Base Cases &amp; Recursive Steps
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -122,13 +122,13 @@ export default function Topic12() {
             <text x="160" y="55" fill="#38bdf8" fontSize="12" fontWeight="bold" textAnchor="middle">1. WINDING (Stack Growing)</text>
 
             <rect x="45" y="70" width="230" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="92" fill="#bae6fd" fontSize="10" fontFamily="monospace">fact(4) &rarr; 4 * fact(3)</text>
+            <text x="55" y="92" fill="#bae6fd" fontSize="10" fontFamily="monospace">fact(4) → 4 * fact(3)</text>
 
             <rect x="45" y="110" width="230" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="132" fill="#bae6fd" fontSize="10" fontFamily="monospace">fact(3) &rarr; 3 * fact(2)</text>
+            <text x="55" y="132" fill="#bae6fd" fontSize="10" fontFamily="monospace">fact(3) → 3 * fact(2)</text>
 
             <rect x="45" y="150" width="230" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">fact(2) &rarr; 2 * fact(1)</text>
+            <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">fact(2) → 2 * fact(1)</text>
 
             <text x="160" y="215" fill="#7dd3fc" fontSize="9" textAnchor="middle">&darr; Pushing frames onto Call Stack</text>
 
@@ -142,7 +142,7 @@ export default function Topic12() {
             <text x="440" y="145" fill="#ffffff" fontSize="10" textAnchor="middle">Returns 1 immediately!</text>
 
             <text x="440" y="195" fill="#fde68a" fontSize="10" textAnchor="middle">Recursion halts!</text>
-            <text x="440" y="215" fill="#fbbf24" fontSize="10" fontWeight="bold" textAnchor="middle">Unwinding phase begins &rarr;</text>
+            <text x="440" y="215" fill="#fbbf24" fontSize="10" fontWeight="bold" textAnchor="middle">Unwinding phase begins →</text>
 
             {/* Panel 3: Unwinding Phase (Returns bubble up) */}
             <rect x="590" y="30" width="260" height="215" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
@@ -186,25 +186,25 @@ export default function Topic12() {
             <tbody className="divide-y divide-slate-800 text-slate-300 font-mono text-xs">
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Factorial ($n!$)</td>
-                <td className="p-3 text-amber-300">`n &le; 1` &rarr; return 1</td>
+                <td className="p-3 text-amber-300">`n &le; 1` → return 1</td>
                 <td className="p-3 text-emerald-300">`n * fact(n - 1)`</td>
                 <td className="p-3 text-purple-300">$O(N)$ Time / $O(N)$ Stack Space</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Natural Sum ($\sum_{1}^n$)</td>
-                <td className="p-3 text-amber-300">`n &le; 1` &rarr; return n</td>
+                <td className="p-3 text-amber-300">`n &le; 1` → return n</td>
                 <td className="p-3 text-emerald-300">`n + sum(n - 1)`</td>
                 <td className="p-3 text-purple-300">$O(N)$ Time / $O(N)$ Stack Space</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Compound Fee Growth</td>
-                <td className="p-3 text-amber-300">`years &le; 0` &rarr; return principal</td>
+                <td className="p-3 text-amber-300">`years &le; 0` → return principal</td>
                 <td className="p-3 text-emerald-300">`calc(principal * (1 + rate), rate, years - 1)`</td>
                 <td className="p-3 text-purple-300">$O(Y)$ Time / $O(Y)$ Stack Space</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 text-sky-300 font-bold">Countdown Print</td>
-                <td className="p-3 text-amber-300">`n &lt; 0` &rarr; return</td>
+                <td className="p-3 text-amber-300">`n &lt; 0` → return</td>
                 <td className="p-3 text-emerald-300">`print(n); countdown(n - 1)`</td>
                 <td className="p-3 text-purple-300">$O(N)$ Time / $O(N)$ Stack Space</td>
               </tr>

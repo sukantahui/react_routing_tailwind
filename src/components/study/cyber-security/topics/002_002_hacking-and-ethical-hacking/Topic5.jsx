@@ -75,7 +75,7 @@ const Topic5 = () => {
       badgeClass: "bg-red-950 text-red-300 border-red-800",
       authorization: "ZERO Authorization",
       malice: "EXTREME (Financial blackmail under threat of data leakage)",
-      legalityVerdict: "SEVERELY CRIMINAL (Extortion IPC 384 + IT Act 2000 Section 66 -> Up to 3-7 Yrs Jail)",
+      legalityVerdict: "SEVERELY CRIMINAL (Extortion IPC 384 + IT Act 2000 Section 66 → Up to 3-7 Yrs Jail)",
       corporateResponse: "Refuse extortion demand, isolate compromised endpoints, engage specialized forensic negotiators, and file FIR with Cyber Crime Cell."
     }
   };
@@ -224,7 +224,7 @@ const Topic5 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_002 • Topic 5 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Hacker Taxonomy: Grey Hat Hackers
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

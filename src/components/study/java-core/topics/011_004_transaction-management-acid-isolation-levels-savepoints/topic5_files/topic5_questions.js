@@ -13,7 +13,7 @@ const topic5_questions = [
     "explanation": "Standard database recovery algorithm.",
     "hint": "Analysis, Redo (committed work), and Undo (uncommitted work).",
     "level": "Advanced",
-    "codeExample": "ARIES Recovery: Analysis -> Redo -> Undo."
+    "codeExample": "ARIES Recovery: Analysis → Redo → Undo."
   }
 ];
 

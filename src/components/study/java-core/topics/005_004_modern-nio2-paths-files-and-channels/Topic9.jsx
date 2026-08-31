@@ -21,7 +21,7 @@ export default function Topic9() {
             Java 11 One-Liners
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Convenience Methods: <code className="text-emerald-400 font-mono">Files.readString()</code> &amp; <code className="text-sky-400 font-mono">Files.writeString()</code> (Java 11+)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

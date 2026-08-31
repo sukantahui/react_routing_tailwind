@@ -124,7 +124,7 @@ const Topic21 = () => {
       {/* Header Section */}
       <header className="max-w-6xl mx-auto mb-12">
         <div className={`${animationClass} opacity-0`}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400">
             Default Props & Basic Prop Validation
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Forget about `SUMIF` and always use `SUMIFS`! In `SUMIFS`, the column you want to add up is always the VERY FIRST argument: `=SUMIFS(Revenue, Region, "East", Year, 2026)`. It is much easier to remember.
 
 COMMON TRAPS TO AVOID:
-- Confusing SUMIF vs SUMIFS Argument Order: In `SUMIF`, the sum range is LAST; in `SUMIFS`, the sum range is FIRST! Mixing them causes formula errors. -> Fix: Always use `SUMIFS` (sum range FIRST) even for single-condition queries for consistency.
-- Mismatched Range Dimensions in SUMIFS: Sum range `B2:B100` with criteria range `A2:A150` throws `#VALUE!` error. -> Fix: Ensure all range arguments have identical row and column dimensions.
-- Forgetting Ampersand in Dynamic Comparison Operators: Writing `">=A1"` searches for the literal text '>A1' instead of comparing against cell value. -> Fix: Concatenate operator with cell reference: `">=" & A1`.
+- Confusing SUMIF vs SUMIFS Argument Order: In `SUMIF`, the sum range is LAST; in `SUMIFS`, the sum range is FIRST! Mixing them causes formula errors. → Fix: Always use `SUMIFS` (sum range FIRST) even for single-condition queries for consistency.
+- Mismatched Range Dimensions in SUMIFS: Sum range `B2:B100` with criteria range `A2:A150` throws `#VALUE!` error. → Fix: Ensure all range arguments have identical row and column dimensions.
+- Forgetting Ampersand in Dynamic Comparison Operators: Writing `">=A1"` searches for the literal text '>A1' instead of comparing against cell value. → Fix: Concatenate operator with cell reference: `">=" & A1`.
 ================================================================================

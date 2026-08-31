@@ -79,9 +79,9 @@ Action: Row 3 (Kolkata) is exhausted and crossed out. Gariahat still needs 10 pa
 --------------------------------------------------------------------------------
 CASE STUDY 4: Higher Education Publishing Fleet (Abhronila)
 Demonstrates multi-stage allocations:
-  Pass 1: Allocate 75 bundles to (S1, D2) @ ₹2 -> Cross Row 1.
-  Pass 2: Allocate 60 bundles to (S3, D1) @ ₹8 -> Cross Row 3.
-  Pass 3: Allocate 60 bundles to (S2, D3) @ ₹4 -> Cross Row 2.
+  Pass 1: Allocate 75 bundles to (S1, D2) @ ₹2 → Cross Row 1.
+  Pass 2: Allocate 60 bundles to (S3, D1) @ ₹8 → Cross Row 3.
+  Pass 3: Allocate 60 bundles to (S2, D3) @ ₹4 → Cross Row 2.
 Total Initial Cost: Z = (75*2) + (60*8) + (60*4) + ... computed in ₹ Rupees.
 
 --------------------------------------------------------------------------------

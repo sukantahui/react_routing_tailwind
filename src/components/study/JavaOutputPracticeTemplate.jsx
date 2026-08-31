@@ -51,7 +51,7 @@ export default function JavaOutputPracticeTemplate({ data }) {
           </div>
 
           <div>
-            <h1 className="text-3xl font-bold text-sky-400 tracking-wide">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400 tracking-wide">
               {data.topic}
             </h1>
             <p className="text-sm text-zinc-400">

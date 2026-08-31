@@ -21,7 +21,7 @@ const Topic1 = () => {
 
   const errorScenarios = {
     integrity_violations_23000: {
-      title: "1. Integrity Violations: Error 1062 & 1452 -> SQLSTATE '23000'",
+      title: "1. Integrity Violations: Error 1062 & 1452 → SQLSTATE '23000'",
       badge: "Class 23 (Integrity)",
       badgeColor: "rose",
       sqlQuery: `-- Handling Integrity Constraint Violations:
@@ -68,7 +68,7 @@ DELIMITER ;`,
         "Errors 1062, 1452, and 1048 all map to ANSI SQLSTATE `'23000'`. MySQL's specificity rule allows you to trap 1062 specifically while letting 1048 fall back to the generic `'23000'` handler.",
     },
     deadlock_serialization_40001: {
-      title: "2. Deadlock & Serialization Failure: Error 1213 -> SQLSTATE '40001'",
+      title: "2. Deadlock & Serialization Failure: Error 1213 → SQLSTATE '40001'",
       badge: "Class 40 (Deadlock)",
       badgeColor: "amber",
       sqlQuery: `-- Trapping InnoDB Deadlocks for Automatic Retry Logic:
@@ -107,7 +107,7 @@ DELIMITER ;`,
         "When concurrent transactions create a lock dependency cycle, InnoDB detects the deadlock and aborts one transaction with Error 1213 / SQLSTATE `'40001'`, triggering rollback and retry.",
     },
     missing_objects_42S02: {
-      title: "3. Syntax & Catalog Errors: Error 1146 -> SQLSTATE '42S02'",
+      title: "3. Syntax & Catalog Errors: Error 1146 → SQLSTATE '42S02'",
       badge: "Class 42 (Catalog)",
       badgeColor: "cyan",
       sqlQuery: `-- Handling Missing Tables and Syntax Violations:
@@ -198,7 +198,7 @@ DELIMITER ;
               Error Standards
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             MySQL Error Codes &amp; Standard ANSI SQLSTATE
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

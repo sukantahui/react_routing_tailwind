@@ -42,7 +42,7 @@ export default function Topic14() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Defining Immutable Constants Using the <code className="text-amber-400">final</code> Keyword
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -125,7 +125,7 @@ export default function Topic14() {
 
             {/* Array Elements */}
             <rect x="420" y="95" width="120" height="65" rx="8" fill="url(#gradHeapObj)" />
-            <text x="480" y="122" fill="#ffffff" fontSize="12" textAnchor="middle">arr[0] = 85 &rarr; 95</text>
+            <text x="480" y="122" fill="#ffffff" fontSize="12" textAnchor="middle">arr[0] = 85 → 95</text>
             <text x="480" y="142" fill="#d1fae5" fontSize="10" textAnchor="middle">✓ MUTATION OK</text>
 
             <rect x="560" y="95" width="120" height="65" rx="8" fill="url(#gradHeapObj)" />

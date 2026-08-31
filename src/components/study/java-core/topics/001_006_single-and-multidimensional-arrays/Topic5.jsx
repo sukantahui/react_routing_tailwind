@@ -42,7 +42,7 @@ export default function Topic5() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           0-Based Array Indexing &amp; Element Access Mechanics
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -114,7 +114,7 @@ export default function Topic5() {
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="55" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Offset = 0 * 8B = 0B</text>
             <text x="55" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Addr = Base (0x7000)</text>
-            <text x="55" y="142" fill="#d1fae5" fontSize="10">Swadeep &rarr; ₹12,000</text>
+            <text x="55" y="142" fill="#d1fae5" fontSize="10">Swadeep → ₹12,000</text>
             <text x="160" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Base Pointer (0-Offset)
             </text>
@@ -125,7 +125,7 @@ export default function Topic5() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="335" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">Offset = 2 * 8B = 16B</text>
             <text x="335" y="122" fill="#bae6fd" fontSize="11" fontFamily="monospace">Addr = Base + 16 (0x7010)</text>
-            <text x="335" y="142" fill="#d1fae5" fontSize="10">Abhronila &rarr; ₹18,000</text>
+            <text x="335" y="142" fill="#d1fae5" fontSize="10">Abhronila → ₹18,000</text>
             <text x="440" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Median Offset Access
             </text>
@@ -136,7 +136,7 @@ export default function Topic5() {
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#2e1065" />
             <text x="615" y="102" fill="#ddd6fe" fontSize="11" fontFamily="monospace">Offset = 3 * 8B = 24B</text>
             <text x="615" y="122" fill="#ddd6fe" fontSize="11" fontFamily="monospace">Addr = Base + 24 (0x7018)</text>
-            <text x="615" y="142" fill="#d1fae5" fontSize="10">Debangshu &rarr; ₹14,000</text>
+            <text x="615" y="142" fill="#d1fae5" fontSize="10">Debangshu → ₹14,000</text>
             <text x="720" y="190" fill="#f5f3ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Upper Bound (len - 1)
             </text>

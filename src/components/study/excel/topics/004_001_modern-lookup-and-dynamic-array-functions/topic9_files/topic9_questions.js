@@ -8,7 +8,7 @@ const questions = [
     explanation: "Excel calculates dynamic arrays in memory, but if the required rectangular destination range contains existing text, formulas, merged cells, or hits table/sheet boundaries, `#SPILL!` is returned.",
     hint: "Think of an obstructed destination path for a spilled array.",
     level: "basic",
-    codeExample: "// Formula in A1 needs A1:A10, but cell A5 contains 'Hello' -> #SPILL!"
+    codeExample: "// Formula in A1 needs A1:A10, but cell A5 contains 'Hello' → #SPILL!"
   },
   {
     question: "What is the most common cause of a #SPILL! error?",
@@ -48,7 +48,7 @@ const questions = [
     explanation: "Excel Tables are designed with fixed row-by-row calculated columns. Spilled arrays are prohibited within Table bodies to prevent table geometry conflicts.",
     hint: "Place dynamic array formulas on regular worksheet grids, not inside Tables.",
     level: "moderate",
-    codeExample: "// Table1[Col] = =UNIQUE(...) -> Returns #SPILL!"
+    codeExample: "// Table1[Col] = =UNIQUE(...) → Returns #SPILL!"
   },
   {
     question: "Why does writing `=UNIQUE(A:A)` often cause a #SPILL! error?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "If an array requires 100 rows and is placed in row 1,048,500, it runs out of worksheet rows (max 1,048,576) and triggers `#SPILL!`.",
     hint: "The array extends past the worksheet boundary.",
     level: "moderate",
-    codeExample: "// Array of 100 rows in cell A1048500 -> Out of Grid #SPILL!"
+    codeExample: "// Array of 100 rows in cell A1048500 → Out of Grid #SPILL!"
   },
   {
     question: "What causes a #SPILL! error labeled 'Spill range is unknown'?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "Dynamic array spill perimeters are mutually exclusive. They cannot overlap on the same worksheet cells.",
     hint: "Separate the formulas into non-overlapping columns or rows.",
     level: "basic",
-    codeExample: "// Formula in A1 spilling A1:C10 vs Formula in B5 spilling B5:D15 -> Collision"
+    codeExample: "// Formula in A1 spilling A1:C10 vs Formula in B5 spilling B5:D15 → Collision"
   },
   {
     question: "How do you fix a #SPILL! error caused by an Excel Table?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "Decoupling raw spilled arrays from executive presentation cards guarantees that layout widgets will never collide.",
     hint: "Separate Calculation and Presentation layers.",
     level: "expert",
-    codeExample: "// CalcSheet holds =UNIQUE(...) -> Dashboard holds =INDEX(CalcSheet!A2#, 1, 1)"
+    codeExample: "// CalcSheet holds =UNIQUE(...) → Dashboard holds =INDEX(CalcSheet!A2#, 1, 1)"
   },
   {
     question: "Can an array formula in cell A1 spill into locked cells on a protected worksheet?",

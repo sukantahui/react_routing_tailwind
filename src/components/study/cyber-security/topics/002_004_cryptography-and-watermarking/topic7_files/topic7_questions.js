@@ -16,8 +16,8 @@ H("A 100-Gigabyte Database Backup...") = e3c12d... (Exactly 256 bits!)`
     hint: "Recall the 3 properties: Cannot invert the hash, cannot match a target message, and cannot find any two colliding messages.",
     level: "moderate",
     codeExample: `// The 3 Security Properties:
-1. Preimage Resistance:        Given h -> Find m such that H(m) = h (Difficulty: 2^256)
-2. Second Preimage Resistance: Given m1 -> Find m2 != m1 such that H(m2) = H(m1) (Difficulty: 2^256)
+1. Preimage Resistance:        Given h → Find m such that H(m) = h (Difficulty: 2^256)
+2. Second Preimage Resistance: Given m1 → Find m2 != m1 such that H(m2) = H(m1) (Difficulty: 2^256)
 3. Collision Resistance:       Find ANY m1, m2 such that H(m1) = H(m2) (Difficulty: 2^128)`
   },
   {
@@ -38,8 +38,8 @@ H("A 100-Gigabyte Database Backup...") = e3c12d... (Exactly 256 bits!)`
     hint: "Think of a small pebble rolling down a snow slope that triggers a giant avalanche reshaping the entire mountain.",
     level: "basic",
     codeExample: `// SHA-256 Avalanche Demonstration:
-Input 1: "KolkataFinTech2026" -> 4a8b9f12c7... (256 bits)
-Input 2: "KolkataFinTech2027" -> e3c12d90a5... (131 out of 256 bits flipped! ~51.2% change)`
+Input 1: "KolkataFinTech2026" → 4a8b9f12c7... (256 bits)
+Input 2: "KolkataFinTech2027" → e3c12d90a5... (131 out of 256 bits flipped! ~51.2% change)`
   },
   {
     question: "Why is 'MD5' (Message Digest 5) completely broken and strictly forbidden for cryptographic integrity and digital signatures?",
@@ -49,7 +49,7 @@ Input 2: "KolkataFinTech2027" -> e3c12d90a5... (131 out of 256 bits flipped! ~51
     level: "basic",
     codeExample: `// MD5 Collision Vulnerability (Flame Malware):
 File A (Benign Executable): MD5 = 79054025255fb1a26e4bc422aef54eb4
-File B (Rogue Rootkit):     MD5 = 79054025255fb1a26e4bc422aef54eb4 (IDENTICAL HASH -> TOTAL FAILURE!)`
+File B (Rogue Rootkit):     MD5 = 79054025255fb1a26e4bc422aef54eb4 (IDENTICAL HASH → TOTAL FAILURE!)`
   },
   {
     question: "What was the 'SHAttered Attack' (2017), and how did researchers generate the first real-world collision for 'SHA-1'?",
@@ -72,7 +72,7 @@ H_0 = Initial_Vector_Constants (IV)
 H_1 = CompressionFunction( H_0, Block_1 )
 H_2 = CompressionFunction( H_1, Block_2 )
 ...
-H_t = CompressionFunction( H_{t-1}, Block_t ) -> Final Hash Digest`
+H_t = CompressionFunction( H_{t-1}, Block_t ) → Final Hash Digest`
   },
   {
     question: "What is a 'Length Extension Attack', and why does it break naive message authentication constructions like $\\text{Hash}(Key || Message)$ on Merkle-Damgård hashes?",
@@ -106,7 +106,7 @@ HMAC = SHA256( K_outer || SHA256( K_inner || Message ) )`
     codeExample: `// SHA-3 Sponge Construction:
 State: [ Rate (r bits) ] [ Capacity (c bits) ] (Total 1600 bits)
 Absorbing: State[0..r] ⊕ Message_Block_i ──> [ Keccak-f Permutation ]
-Squeezing: Output_Hash = State[0..r] (Capacity part stays hidden -> Immune to Length Extension!)`
+Squeezing: Output_Hash = State[0..r] (Capacity part stays hidden → Immune to Length Extension!)`
   },
   {
     question: "Under Section 65B of the Indian Evidence Act 1872 (and Bharatiya Sakshya Adhiniyam 2023), why is SHA-256 hashing mandatory when collecting digital forensic evidence?",
@@ -115,8 +115,8 @@ Squeezing: Output_Hash = State[0..r] (Capacity part stays hidden -> Immune to Le
     hint: "Remember the legal certificate in India that proves digital evidence has remained untouched and authentic.",
     level: "moderate",
     codeExample: `// Section 65B Forensic Chain of Custody:
-1. Seizure: Forensic Image created -> SHA-256: 4a8b9f12c7... (Recorded in Certificate)
-2. Court Trial 2 Years Later: Image Hash Verified -> SHA-256: 4a8b9f12c7... (100% Match -> ADMISSIBLE EVIDENCE!)`
+1. Seizure: Forensic Image created → SHA-256: 4a8b9f12c7... (Recorded in Certificate)
+2. Court Trial 2 Years Later: Image Hash Verified → SHA-256: 4a8b9f12c7... (100% Match → ADMISSIBLE EVIDENCE!)`
   },
   {
     question: "Why is standard fast hashing (SHA-256) strictly INSECURE for storing user passwords, and why must organizations use 'Memory-Hard Password Hash Functions' (Argon2id, Bcrypt)?",
@@ -126,7 +126,7 @@ Squeezing: Output_Hash = State[0..r] (Capacity part stays hidden -> Immune to Le
     level: "expert",
     codeExample: `// Password Hashing Security Comparison:
 SHA-256 Password Hash: GPU Cracking Speed = 100,000,000,000 guesses/sec (VULNERABLE!)
-Argon2id Password Hash: GPU Cracking Speed = 50 guesses/sec (Memory-Hard -> 100% IMPREGNABLE!)`
+Argon2id Password Hash: GPU Cracking Speed = 50 guesses/sec (Memory-Hard → 100% IMPREGNABLE!)`
   },
   {
     question: "What are the four internal logical functions used in each round of the SHA-256 compression algorithm?",
@@ -147,8 +147,8 @@ Argon2id Password Hash: GPU Cracking Speed = 50 guesses/sec (Memory-Hard -> 100%
     hint: "Think of adding a unique secret pinch of spice to each person's recipe so no two cakes look or smell the same.",
     level: "moderate",
     codeExample: `// Salted Password Verification:
-User A: Hash( "Password123" || "9f!k2@" ) -> 4a8b9f...
-User B: Hash( "Password123" || "3x#p8L" ) -> e3c12d... (COMPLETELY DIFFERENT HASHES!)
+User A: Hash( "Password123" || "9f!k2@" ) → 4a8b9f...
+User B: Hash( "Password123" || "3x#p8L" ) → e3c12d... (COMPLETELY DIFFERENT HASHES!)
 Result: Pre-computed Rainbow Tables are 100% USELESS!`
   },
   {
@@ -173,7 +173,7 @@ Result: Pre-computed Rainbow Tables are 100% USELESS!`
     codeExample: `// DPDP Act 2023 Pseudonymization Pipeline:
 Raw Input:  Aadhaar Number = "9876-5432-1098"
 KMS Key:    Secret 256-bit Master Key in HSM
-Analytics:  Pseudo_ID = HMAC_SHA256( KMS_Key, "9876-5432-1098" ) -> "d4e8c1...a9"
+Analytics:  Pseudo_ID = HMAC_SHA256( KMS_Key, "9876-5432-1098" ) → "d4e8c1...a9"
 Result:     Data scientists analyze data safely with ZERO exposure of customer Aadhaar!`
   },
   {

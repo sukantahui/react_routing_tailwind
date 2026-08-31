@@ -226,7 +226,7 @@ export default class Topic15 extends Component {
             </div>
 
             <div className="reveal-section">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-[slideInFromLeft_0.8s_ease-out_forwards]">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 animate-[slideInFromLeft_0.8s_ease-out_forwards]">
                 <span className={isDarkMode ? 'text-rose-300' : 'text-rose-600'}>
                   Topic 16: 
                 </span>
@@ -361,7 +361,7 @@ export default class Topic15 extends Component {
                             </circle>
                           </svg>
                           <div className="absolute inset-0 flex flex-col items-center justify-center">
-                            <span className="text-4xl font-bold" style={{ color: recoveryColor }}>
+                            <span className="text-xl sm:text-2xl md:text-3xl font-bold" style={{ color: recoveryColor }}>
                               {recoverySuccessRate}%
                             </span>
                             <span className="text-sm opacity-80">Recovery Success</span>

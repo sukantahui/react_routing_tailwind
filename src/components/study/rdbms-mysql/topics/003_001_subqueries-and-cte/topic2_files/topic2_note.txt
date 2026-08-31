@@ -39,7 +39,7 @@ The SQL Three-Valued Logic Hazard:
 If the subquery in a `NOT IN` clause returns even a SINGLE `NULL` row:
     `5 NOT IN (1, 2, NULL)`
     Evaluates to: `(5 != 1) AND (5 != 2) AND (5 != NULL)`
-    Evaluates to: `TRUE AND TRUE AND UNKNOWN` -> `UNKNOWN` (False).
+    Evaluates to: `TRUE AND TRUE AND UNKNOWN` → `UNKNOWN` (False).
 
 Result: The entire outer query silently returns ZERO rows (Empty Set)!
 

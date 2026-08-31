@@ -144,7 +144,7 @@ const questions = [
     explanation: "A single zero in a row forces that assignment.",
     hint: "Assign (1, 2) and cross out other zeros in Column 2.",
     level: "intermediate",
-    codeExample: "Single Zero Rule: Assign (1, 2) -> Cross out other zeros in col 2."
+    codeExample: "Single Zero Rule: Assign (1, 2) → Cross out other zeros in col 2."
   },
   {
     question: "What currency symbol must ALWAYS be used when stating assignment costs for West Bengal enterprises?",
@@ -166,9 +166,9 @@ const questions = [
     question: "What is the golden rule of Balanced Assignment Problems?",
     shortAnswer: "'Verify m = n; subtract row minimums; subtract column minimums; test line covering (L = n); assign independent zeros; state final minimum cost Z* in Indian Rupees (₹)!'",
     explanation: "This complete rule captures the entire 5-step balanced Hungarian pipeline.",
-    hint: "Verify m=n -> Row Min -> Col Min -> Line Test -> Assign Zeros -> State Z* in ₹.",
+    hint: "Verify m=n → Row Min → Col Min → Line Test → Assign Zeros → State Z* in ₹.",
     level: "moderate",
-    codeExample: "Golden Rule: CheckBalance -> RowReduce -> ColReduce -> CoverTest -> Assign -> Report Z*."
+    codeExample: "Golden Rule: CheckBalance → RowReduce → ColReduce → CoverTest → Assign → Report Z*."
   }
 ];
 

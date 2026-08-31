@@ -5,7 +5,7 @@ const topic4_questions = [
     "explanation": "Core side-effect functional interface in java.util.function.",
     "hint": "Accepts input T, returns void; used for side-effects like printing, logging, and database saves in forEach().",
     "level": "Beginner",
-    "codeExample": "Consumer<String> log = msg -> logger.info(msg); log.accept(\"Hello\");"
+    "codeExample": "Consumer<String> log = msg → logger.info(msg); log.accept(\"Hello\");"
   }
 ];
 

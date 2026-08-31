@@ -95,7 +95,7 @@ const Topic11 = () => {
           <span className="inline-block px-4 py-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-full text-sm font-semibold mb-4">
             Topic 12: awk Programming
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600 dark:from-indigo-400 dark:to-pink-400">
               Conditional Logic and Loops in awk
             </span>
@@ -607,11 +607,11 @@ awk '{
         
         # Nested condition within loop
         if ($i ~ /^[0-9]+$/) {
-            printf "  -> Numeric field, value: %d\\n", $i
+            printf "  → Numeric field, value: %d\\n", $i
             
             # Further nested logic
             if ($i > 90) {
-                print "  -> Excellent score!"
+                print "  → Excellent score!"
             }
         }
     }

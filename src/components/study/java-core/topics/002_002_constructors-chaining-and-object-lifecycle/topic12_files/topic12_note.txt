@@ -13,7 +13,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    Execution Trigger   Class loading (once per JVM)    Every 'new' instantiation
    Context             Class / Metaspace               Heap instance ('this')
    Access              Static members ONLY             Both Static & Instance
-   Parent-Child Order  Parent SIB -> Child SIB         Parent IIB -> Child IIB
+   Parent-Child Order  Parent SIB → Child SIB         Parent IIB → Child IIB
    -----------------------------------------------------------------------------
 
 2. COMPLETE ORDER OF EXECUTION:

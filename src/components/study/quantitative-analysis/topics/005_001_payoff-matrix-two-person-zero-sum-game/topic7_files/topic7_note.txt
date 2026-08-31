@@ -44,7 +44,7 @@ and Two-Person Zero-Sum Games:
   - Linear Transformation Invariance: a' = k*a + c preserves strategies and saddle points.
 
 • TOPIC 6: FORMULATING SIMPLE GAME MATRICES
-  - 4-step formulation pipeline: Players -> Strategies -> Net Payoffs (₹) -> Assemble Matrix.
+  - 4-step formulation pipeline: Players → Strategies → Net Payoffs (₹) → Assemble Matrix.
   - Real-world paradigms: Tenders, Advertising, Retail Price Matching, Legal Disputes.
 
 • TOPIC 7: SHORT QUESTIONS & VIVA VOCE SYNTHESIS

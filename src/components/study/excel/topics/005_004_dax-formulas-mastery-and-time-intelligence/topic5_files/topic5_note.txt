@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 SUM only takes ONE column: `SUM(Sales[Amount])`. If you need to multiply two columns (like `Qty * Price`), use SUMX: `SUMX(Sales, Sales[Qty] * Sales[Price])`. It is clean, fast, and saves RAM.
 
 COMMON TRAPS TO AVOID:
-- Using SUMX When Standard SUM Suffices: Writing `SUMX(Sales, Sales[Amount])` when `SUM(Sales[Amount])` accomplishes the exact same thing faster. -> Fix: Use `SUM()` for single-column additions; reserve `SUMX()` for multi-column math or expressions.
-- Iterating Massive Unfiltered Fact Tables with Complex Measures: Calling a complex measure inside SUMX over 10 million rows causes high CPU latency. -> Fix: Iterate small Dimension tables (`SUMX(Dim_Customer, ...)`), or push row math to raw columns.
-- Confusing SUM of Averages with Average of Sums: Writing `AVERAGEX(Sales, [Margin%])` averages transactions equally rather than weighting by dollar volume. -> Fix: Use the ratio of sums: `DIVIDE([TotalMargin], [TotalSales])`.
+- Using SUMX When Standard SUM Suffices: Writing `SUMX(Sales, Sales[Amount])` when `SUM(Sales[Amount])` accomplishes the exact same thing faster. → Fix: Use `SUM()` for single-column additions; reserve `SUMX()` for multi-column math or expressions.
+- Iterating Massive Unfiltered Fact Tables with Complex Measures: Calling a complex measure inside SUMX over 10 million rows causes high CPU latency. → Fix: Iterate small Dimension tables (`SUMX(Dim_Customer, ...)`), or push row math to raw columns.
+- Confusing SUM of Averages with Average of Sums: Writing `AVERAGEX(Sales, [Margin%])` averages transactions equally rather than weighting by dollar volume. → Fix: Use the ratio of sums: `DIVIDE([TotalMargin], [TotalSales])`.
 ================================================================================

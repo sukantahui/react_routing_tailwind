@@ -42,7 +42,7 @@ export default function Topic13() {
             JVM Runtime Memory Architecture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Understanding the Call Stack &amp; Stack Frames in Java
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -88,7 +88,7 @@ export default function Topic13() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Programmatic Stack Trace):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> (₹20,000 base fee with 10% scholarship) triggered our programmatic inspector <code className="text-emerald-400 font-mono">printActiveStackFrames()</code> from deep inside <code className="text-sky-300 font-mono">applyTax()</code>. The stack snapshot revealed a 4-level deep call chain: <code className="text-emerald-400 font-mono">main() &rarr; processStudentFeeInvoice() &rarr; applyScholarshipDiscount() &rarr; applyTax()</code> computing final tuition in Indian Rupees (<code className="text-emerald-400 font-semibold">₹21,240.00</code>).
+              In our Barrackpore laboratory, <strong>Swadeep</strong> (₹20,000 base fee with 10% scholarship) triggered our programmatic inspector <code className="text-emerald-400 font-mono">printActiveStackFrames()</code> from deep inside <code className="text-sky-300 font-mono">applyTax()</code>. The stack snapshot revealed a 4-level deep call chain: <code className="text-emerald-400 font-mono">main() → processStudentFeeInvoice() → applyScholarshipDiscount() → applyTax()</code> computing final tuition in Indian Rupees (<code className="text-emerald-400 font-semibold">₹21,240.00</code>).
             </p>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function Topic13() {
             {/* Section B: Operand Stack */}
             <rect x="435" y="120" width="400" height="45" rx="4" fill="#022c22" />
             <text x="445" y="138" fill="#10b981" fontSize="10" fontWeight="bold">2. Operand Stack (OS):</text>
-            <text x="445" y="154" fill="#a7f3d0" fontSize="9" fontFamily="monospace">[dload_0] &rarr; [dload_2] &rarr; [dadd] &rarr; [21240.0 ready to return]</text>
+            <text x="445" y="154" fill="#a7f3d0" fontSize="9" fontFamily="monospace">[dload_0] → [dload_2] → [dadd] → [21240.0 ready to return]</text>
 
             {/* Section C: Frame Data */}
             <rect x="435" y="170" width="400" height="55" rx="4" fill="#2e1065" />

@@ -67,7 +67,7 @@ const questions = [
     explanation: "Switch fall-through bug (Bug 8).",
     hint: "Execution falls through and executes subsequent cases consecutively.",
     level: "basic",
-    codeExample: "switch (x) { case 1 -> \"A\"; case 2 -> \"B\"; } // Modern switch expression"
+    codeExample: "switch (x) { case 1 → \"A\"; case 2 → \"B\"; } // Modern switch expression"
   },
   {
     question: "What causes a `StackOverflowError` in recursive methods?",
@@ -83,7 +83,7 @@ const questions = [
     explanation: "ConcurrentModificationException in collections (Bug 10).",
     hint: "Directly modifying a list during for-each iteration breaks internal iterator state.",
     level: "intermediate",
-    codeExample: "list.removeIf(s -> s.equals(target)); // Safe removal"
+    codeExample: "list.removeIf(s → s.equals(target)); // Safe removal"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the safe result of `fixBug2_NullSafety(null)`?",
@@ -91,7 +91,7 @@ const questions = [
     explanation: "Null safety return verification.",
     hint: "0.",
     level: "basic",
-    codeExample: "fixBug2_NullSafety(null) -> 0"
+    codeExample: "fixBug2_NullSafety(null) → 0"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the average marks for 95 total marks across 2 subjects?",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Integer division fix output.",
     hint: "47.50.",
     level: "basic",
-    codeExample: "fixBug4_IntegerDivision(95, 2) -> 47.50"
+    codeExample: "fixBug4_IntegerDivision(95, 2) → 47.50"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the correct product of $1,000,000 \\times 3000$ in Indian Rupees?",
@@ -107,7 +107,7 @@ const questions = [
     explanation: "Long overflow fix output.",
     hint: "₹3,000,000,000.",
     level: "basic",
-    codeExample: "fixBug5_IntegerOverflow(1_000_000, 3000) -> 3,000,000,000L"
+    codeExample: "fixBug5_IntegerOverflow(1_000_000, 3000) → 3,000,000,000L"
   },
   {
     question: "Why is `list.removeIf(predicate)` preferred over `Iterator.remove()` in modern Java?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "removeIf modern collection API advantage.",
     hint: "removeIf() performs batch element shifting in O(N) time with clean syntax.",
     level: "intermediate",
-    codeExample: "students.removeIf(s -> s.equals(\"Tuhina\"));"
+    codeExample: "students.removeIf(s → s.equals(\"Tuhina\"));"
   },
   {
     question: "What compiler error occurs if a non-void method is missing a `return` statement in one execution path?",
@@ -167,11 +167,11 @@ const questions = [
   },
   {
     question: "How does Java 14+ Enhanced Switch eliminate fall-through bugs permanently?",
-    shortAnswer: "The arrow syntax (`case X -> ...`) executes only the targeted branch without falling through to subsequent cases, eliminating the need for `break` statements.",
+    shortAnswer: "The arrow syntax (`case X → ...`) executes only the targeted branch without falling through to subsequent cases, eliminating the need for `break` statements.",
     explanation: "Enhanced switch expression syntax.",
     hint: "Arrow syntax (case ->) executes only the matching branch with zero fall-through.",
     level: "basic",
-    codeExample: "case 1 -> \"Monday\";"
+    codeExample: "case 1 → \"Monday\";"
   },
   {
     question: "What is the difference between `Checked` and `Unchecked` exceptions in Java?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Constructor variable shadowing fix verification.",
     hint: "Swadeep.",
     level: "basic",
-    codeExample: "s.name -> \"Swadeep\""
+    codeExample: "s.name → \"Swadeep\""
   },
   {
     question: "How can static analysis tools (SonarQube, SpotBugs, Checkstyle) catch these 10 bugs automatically?",

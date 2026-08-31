@@ -169,7 +169,7 @@ const Topic1 = () => {
       ? (rawBreachProb * 0.008).toFixed(2) // Out-of-band voice verification blocks 99.2% of attacks
       : verificationFriction >= 50
       ? (rawBreachProb * 0.30).toFixed(2)  // Secondary email confirmation blocks 70% of attacks
-      : rawBreachProb.toFixed(2);           // No verification -> 100% exploit rate
+      : rawBreachProb.toFixed(2);           // No verification → 100% exploit rate
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),
@@ -200,7 +200,7 @@ class FinancialTransferEngine:
         
         # 1. Authority Check: High value transactions require Dual Authorization
         if amount >= self.threshold:
-            print("[!] High Value Transfer Detected -> Triggering Out-of-Band Verification!")
+            print("[!] High Value Transfer Detected → Triggering Out-of-Band Verification!")
             
             # Require Out-of-Band Voice Call Confirmation
             is_oob_verified = self.verify_out_of_band_voice_call(requester)
@@ -243,7 +243,7 @@ New-AntiPhishPolicy -Name "Strict_DMARC_Enforcement_Policy" \`
     -EnableMailboxIntelligenceProtection $true
 
 # 2. Verify DMARC DNS Record:
-# DNS TXT: _dmarc.kolkata-fintech.in -> "v=DMARC1; p=reject; rua=mailto:dmarc-reports@kolkata-fintech.in; pct=100"
+# DNS TXT: _dmarc.kolkata-fintech.in → "v=DMARC1; p=reject; rua=mailto:dmarc-reports@kolkata-fintech.in; pct=100"
 Write-Host "[+] DMARC p=reject Enforcement ACTIVE! Spoofed executive emails blocked at perimeter." -ForegroundColor Green`,
       explanation: "Configures Microsoft Exchange Online anti-phishing policies to quarantine spoofed internal executive domains failing SPF/DKIM/DMARC alignment."
     },

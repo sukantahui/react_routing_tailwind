@@ -40,7 +40,7 @@ const Topic3 = () => {
           !prefersReducedMotion && "animate-[fadeSlideUp_0.6s_ease-out_forwards]"
         )}
       >
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-3">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-3">
           Broadcast & Multicast Routing
         </h1>
         <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">

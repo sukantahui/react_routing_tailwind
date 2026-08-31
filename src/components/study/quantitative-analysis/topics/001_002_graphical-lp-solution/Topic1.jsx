@@ -77,7 +77,7 @@ const Topic1 = () => {
                     <div className="inline-block px-4 py-1 mb-4 text-xs font-semibold tracking-widest uppercase rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
                         Topic 1 — Graphing Fundamentals
                     </div>
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Plotting Constraints on <br className="sm:hidden" />
                         <span className="bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent">
                             a Coordinate Plane
@@ -280,7 +280,7 @@ const Topic1 = () => {
                                     if (xIntVal !== null && yIntVal !== null) {
                                         // Both intercepts exist
                                         const px1 = 200 + xIntVal * 40;
-                                        const py1 = 200 - 0 * 40; // y=0 -> at 200
+                                        const py1 = 200 - 0 * 40; // y=0 → at 200
                                         const px2 = 200 + 0 * 40;
                                         const py2 = 200 - yIntVal * 40;
                                         // But we need to extend to edges
@@ -329,7 +329,7 @@ const Topic1 = () => {
                                         x1 = 20; y1 = yPos; x2 = 380; y2 = yPos;
                                     }
 
-                                    // Determine if solid or dashed (<= or >= -> solid, < or > -> dashed)
+                                    // Determine if solid or dashed (<= or >= → solid, < or > → dashed)
                                     const isSolid = sign.includes("=");
                                     const strokeDasharray = isSolid ? "none" : "8,4";
                                     const color = "#0ea5e9"; // sky-500

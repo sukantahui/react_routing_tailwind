@@ -11,7 +11,7 @@ const questions = [
     explanation: "Eliminates the #1 source of switch-related bugs in enterprise code.",
     hint: "Prevents accidental logic and security bugs.",
     level: "basic",
-    codeExample: "case STUDENT -> grantStudentAccess(); // Zero fall-through!"
+    codeExample: "case STUDENT → grantStudentAccess(); // Zero fall-through!"
   },
   {
     question: "How does the Java compiler enforce zero fall-through in arrow switch?",
@@ -23,11 +23,11 @@ const questions = [
   },
   {
     question: "How do you share code across multiple cases in arrow switch without fall-through?",
-    shortAnswer: "Use comma-separated case labels: `case 1, 2, 3 -> executeCommonAction();`.",
+    shortAnswer: "Use comma-separated case labels: `case 1, 2, 3 → executeCommonAction();`.",
     explanation: "Topic 13 covers multiple case labels per branch in detail.",
     hint: "Use comma-separated case labels (case 1, 2, 3 ->).",
     level: "basic",
-    codeExample: "case 1, 2, 3 -> doCommonWork();"
+    codeExample: "case 1, 2, 3 → doCommonWork();"
   },
   {
     question: "Can you intentionally fall through from one arrow branch to another in Java?",
@@ -38,20 +38,20 @@ const questions = [
     codeExample: "// Arrow branches are strictly isolated"
   },
   {
-    question: "What happens if a developer writes `break;` inside an arrow switch branch (`case 1 -> { print(\"A\"); break; }`)?",
+    question: "What happens if a developer writes `break;` inside an arrow switch branch (`case 1 → { print(\"A\"); break; }`)?",
     shortAnswer: "Compilation error: `break` cannot be used to complete an arrow rule.",
     explanation: "Arrow branches terminate automatically without `break`.",
     hint: "break is illegal inside arrow rules.",
     level: "intermediate",
-    codeExample: "// case 1 -> { break; } // COMPILER ERROR!"
+    codeExample: "// case 1 → { break; } // COMPILER ERROR!"
   },
   {
     question: "In the Coder & AccoTax Barrackpore security gateway, how does arrow switch prevent privilege leaks?",
-    shortAnswer: "By ensuring that when a student logs in (`case STUDENT -> ...`), execution completes immediately without falling into `SYSTEM_ADMIN` routines in Indian Rupees (₹).",
+    shortAnswer: "By ensuring that when a student logs in (`case STUDENT → ...`), execution completes immediately without falling into `SYSTEM_ADMIN` routines in Indian Rupees (₹).",
     explanation: "Enforces strict authorization boundaries.",
     hint: "Guarantees student role never falls into admin code.",
     level: "basic",
-    codeExample: "case STUDENT -> grantStudentAccess();\ncase ADMIN -> grantAdminAccess();"
+    codeExample: "case STUDENT → grantStudentAccess();\ncase ADMIN → grantAdminAccess();"
   },
   {
     question: "What is the difference between multi-case stacking in colon syntax and comma-separated labels in arrow syntax?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Syntactic elegance and grammatical safety.",
     hint: "Stacked cases with fall-through vs atomic comma-separated rule.",
     level: "basic",
-    codeExample: "case 1, 2 -> doAction();"
+    codeExample: "case 1, 2 → doAction();"
   },
   {
     question: "What happens if an arrow branch executes an expression that throws a runtime exception?",
@@ -67,15 +67,15 @@ const questions = [
     explanation: "Standard exception unwinding behavior.",
     hint: "Exception propagates out of switch immediately.",
     level: "basic",
-    codeExample: "default -> throw new IllegalStateException(\"Invalid\");"
+    codeExample: "default → throw new IllegalStateException(\"Invalid\");"
   },
   {
     question: "Can an arrow branch return early from the enclosing method using `return`?",
-    shortAnswer: "Yes! In a switch statement with a block body (`case 1 -> { return; }`), `return` exits the enclosing method immediately.",
+    shortAnswer: "Yes! In a switch statement with a block body (`case 1 → { return; }`), `return` exits the enclosing method immediately.",
     explanation: "Valid in statement switches with block bodies.",
     hint: "return exits the enclosing method.",
     level: "intermediate",
-    codeExample: "case 1 -> { log(); return; }"
+    codeExample: "case 1 → { log(); return; }"
   },
   {
     question: "Why does arrow switch eliminate the need for `@SuppressWarnings(\"fallthrough\")` annotations?",
@@ -86,28 +86,28 @@ const questions = [
     codeExample: "// Zero fall-through compiler warnings"
   },
   {
-    question: "What is the result of `int x = 1; switch (x) { case 1 -> print(\"1\"); case 2 -> print(\"2\"); }`?",
+    question: "What is the result of `int x = 1; switch (x) { case 1 → print(\"1\"); case 2 → print(\"2\"); }`?",
     shortAnswer: "Prints `\"1\"` ONLY.",
     explanation: "Zero fall-through guarantees `case 2` is never executed.",
     hint: "Prints 1 only.",
     level: "basic",
-    codeExample: "int x = 1; switch (x) { case 1 -> print(\"1\"); case 2 -> print(\"2\"); } // \"1\""
+    codeExample: "int x = 1; switch (x) { case 1 → print(\"1\"); case 2 → print(\"2\"); } // \"1\""
   },
   {
-    question: "Can an arrow branch have an empty block (`case 1 -> { }`)?",
+    question: "Can an arrow branch have an empty block (`case 1 → { }`)?",
     shortAnswer: "Yes! Represents an explicit no-operation branch for that case.",
     explanation: "Clean and readable no-op handling.",
     hint: "Empty block {} represents an explicit no-op.",
     level: "basic",
-    codeExample: "case IGNORE -> { /* No action needed */ }"
+    codeExample: "case IGNORE → { /* No action needed */ }"
   },
   {
-    question: "What is the evaluated value of `String s = switch (2) { case 1 -> \"A\"; case 2 -> \"B\"; default -> \"C\"; };`?",
+    question: "What is the evaluated value of `String s = switch (2) { case 1 → \"A\"; case 2 → \"B\"; default → \"C\"; };`?",
     shortAnswer: "`s = \"B\"`.",
     explanation: "Direct assignment without intermediate fall-through.",
     hint: "Evaluates to \"B\".",
     level: "basic",
-    codeExample: "String s = switch (2) { case 1 -> \"A\"; case 2 -> \"B\"; default -> \"C\"; };"
+    codeExample: "String s = switch (2) { case 1 → \"A\"; case 2 → \"B\"; default → \"C\"; };"
   },
   {
     question: "How does the removal of fall-through affect code refactoring and maintenance?",
@@ -123,7 +123,7 @@ const questions = [
     explanation: "Because there is no switch-level break ambiguity.",
     hint: "continue advances enclosing loop.",
     level: "intermediate",
-    codeExample: "for (int x : list) { switch (x) { case 0 -> continue; } }"
+    codeExample: "for (int x : list) { switch (x) { case 0 → continue; } }"
   },
   {
     question: "What happens if you have an arrow switch inside a loop and use a labeled break (`break LOOP;`) inside a block?",
@@ -131,7 +131,7 @@ const questions = [
     explanation: "Labeled breaks remain legal for outer loop control.",
     hint: "Labeled break exits enclosing loop.",
     level: "intermediate",
-    codeExample: "case \"EXIT\" -> { break OUTER_LOOP; }"
+    codeExample: "case \"EXIT\" → { break OUTER_LOOP; }"
   },
   {
     question: "Why did language designers keep traditional colon syntax in Java 14+ instead of deprecating it?",
@@ -150,20 +150,20 @@ const questions = [
     codeExample: "// Prefer arrow switch in modern codebases"
   },
   {
-    question: "What is the result of `int val = switch (\"TEST\") { case \"A\", \"B\" -> 1; case \"TEST\" -> 2; default -> 3; };`?",
+    question: "What is the result of `int val = switch (\"TEST\") { case \"A\", \"B\" → 1; case \"TEST\" → 2; default → 3; };`?",
     shortAnswer: "`val = 2`.",
     explanation: "Matches `\"TEST\"` and immediately returns `2`.",
     hint: "Evaluates to 2.",
     level: "basic",
-    codeExample: "int val = switch (\"TEST\") { case \"A\", \"B\" -> 1; case \"TEST\" -> 2; default -> 3; };"
+    codeExample: "int val = switch (\"TEST\") { case \"A\", \"B\" → 1; case \"TEST\" → 2; default → 3; };"
   },
   {
-    question: "Can local variables declared inside `case 1 -> { int x = 10; }` be accessed in `case 2 -> { int x = 20; }`?",
+    question: "Can local variables declared inside `case 1 → { int x = 10; }` be accessed in `case 2 → { int x = 20; }`?",
     shortAnswer: "No! Each arrow block has its own isolated lexical scope; they cannot access each other's local variables, nor do they conflict in name.",
     explanation: "Complete scope isolation.",
     hint: "Completely isolated block scopes.",
     level: "intermediate",
-    codeExample: "case 1 -> { int x = 10; }\ncase 2 -> { int x = 20; } // Both valid and isolated"
+    codeExample: "case 1 → { int x = 10; }\ncase 2 → { int x = 20; } // Both valid and isolated"
   },
   {
     question: "What is the cyclomatic complexity of a switch statement with 4 arrow branches?",
@@ -183,19 +183,19 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore billing engine, how are quarter months grouped safely?",
-    shortAnswer: "Using `case 1, 2, 3 -> \"Q1: ₹15,000\"; case 4, 5, 6 -> \"Q2: ₹22,000\";` with zero risk of quarterly bleed-through in Indian Rupees (₹).",
+    shortAnswer: "Using `case 1, 2, 3 → \"Q1: ₹15,000\"; case 4, 5, 6 → \"Q2: ₹22,000\";` with zero risk of quarterly bleed-through in Indian Rupees (₹).",
     explanation: "Demonstrates safe quarterly billing grouping.",
     hint: "Comma-separated month lists for billing quarters in ₹.",
     level: "basic",
-    codeExample: "case 1, 2, 3 -> \"Q1: ₹15,000\";"
+    codeExample: "case 1, 2, 3 → \"Q1: ₹15,000\";"
   },
   {
     question: "Can an arrow switch expression be formatted on a single line if short?",
-    shortAnswer: "Yes! E.g. `boolean isWeekend = switch (day) { case SAT, SUN -> true; default -> false; };`.",
+    shortAnswer: "Yes! E.g. `boolean isWeekend = switch (day) { case SAT, SUN → true; default → false; };`.",
     explanation: "Extremely compact and readable.",
     hint: "Single-line formatting is supported for concise rules.",
     level: "basic",
-    codeExample: "int code = switch (c) { case 'A' -> 1; default -> 0; };"
+    codeExample: "int code = switch (c) { case 'A' → 1; default → 0; };"
   },
   {
     question: "What happens if a switch statement without return values uses arrow syntax with block bodies?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Zero fall-through applies to block bodies as well.",
     hint: "Block executes and exits switch immediately.",
     level: "basic",
-    codeExample: "case 1 -> { step1(); step2(); } // Exits switch immediately!"
+    codeExample: "case 1 → { step1(); step2(); } // Exits switch immediately!"
   },
   {
     question: "How does the HotSpot JIT compiler optimize arrow switch branches?",
@@ -215,11 +215,11 @@ const questions = [
   },
   {
     question: "Can an arrow branch call a `void` method in a switch statement?",
-    shortAnswer: "Yes! `case 1 -> doVoidMethod();` is completely valid in a switch statement.",
+    shortAnswer: "Yes! `case 1 → doVoidMethod();` is completely valid in a switch statement.",
     explanation: "Valid in statement switch context.",
     hint: "Valid in statement switch.",
     level: "basic",
-    codeExample: "switch (cmd) { case \"PRINT\" -> printDoc(); }"
+    codeExample: "switch (cmd) { case \"PRINT\" → printDoc(); }"
   },
   {
     question: "Can an arrow branch call a `void` method in a switch expression?",
@@ -227,7 +227,7 @@ const questions = [
     explanation: "Switch expressions must yield non-void values.",
     hint: "Switch expressions cannot call void methods as return expressions.",
     level: "intermediate",
-    codeExample: "// int x = switch (c) { case 1 -> voidMethod(); }; // COMPILER ERROR"
+    codeExample: "// int x = switch (c) { case 1 → voidMethod(); }; // COMPILER ERROR"
   },
   {
     question: "What is the ultimate takeaway of Module 001_004 Topic 12 for Java developers?",
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Core architectural safeguard of modern Java.",
     hint: "Arrow syntax eliminates fall-through and prevents missing-break vulnerabilities.",
     level: "basic",
-    codeExample: "// Summary: case A, B -> expr; (Strictly isolated, zero fall-through)"
+    codeExample: "// Summary: case A, B → expr; (Strictly isolated, zero fall-through)"
   },
   {
     question: "What is the next topic (Topic 13) in Module 001_004?",

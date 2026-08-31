@@ -99,7 +99,7 @@ const questions = [
     explanation: "More compact bytecode than `while` because no initial `goto` jump is required.",
     hint: "Compact bytecode with direct loopback jump at the bottom.",
     level: "advanced",
-    codeExample: "// Bytecode: L_BODY: body -> condition -> if_icmp L_BODY"
+    codeExample: "// Bytecode: L_BODY: body → condition → if_icmp L_BODY"
   },
   {
     question: "What is the canonical infinite `do-while` loop in Java?",
@@ -147,7 +147,7 @@ const questions = [
     explanation: "Grammar distinction between pre-test and post-test semicolons.",
     hint: "Trailing semicolon is required syntax in do-while, but a bug in while.",
     level: "intermediate",
-    codeExample: "// while (c); -> BUG! vs do { } while (c); -> CORRECT SYNTAX"
+    codeExample: "// while (c); → BUG! vs do { } while (c); → CORRECT SYNTAX"
   },
   {
     question: "Can the body of a `do-while` loop be a single statement without curly braces (`do print(); while (c);`)?",
@@ -227,7 +227,7 @@ const questions = [
     explanation: "Condition is recorded after body execution.",
     hint: "Record body state first, then condition evaluation.",
     level: "basic",
-    codeExample: "// Trace: 1. Body runs -> 2. state updated -> 3. condition evaluated"
+    codeExample: "// Trace: 1. Body runs → 2. state updated → 3. condition evaluated"
   },
   {
     question: "What is the ultimate takeaway of Module 001_005 Topic 5 for Java developers?",

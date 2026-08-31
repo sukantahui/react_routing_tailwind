@@ -32,28 +32,28 @@ const Topic12 = () => {
 
   const sectionRefs = useRef([]);
 
-  // Compute Excitation Values for Transition (presentQ -> nextQ)
+  // Compute Excitation Values for Transition (presentQ → nextQ)
   const getExcitationValues = (qNow, qNext) => {
     let sr = { s: "0", r: "X", desc: "No change (Hold 0,0) or Reset (0,1)" };
     let jk = { j: "0", k: "X", desc: "No change (Hold 0,0) or Reset (0,1)" };
     let d = { d: "0", desc: "Direct Next State Value (D = 0)" };
-    let t = { t: "0", desc: "No Toggle Required (State 0 -> 0)" };
+    let t = { t: "0", desc: "No Toggle Required (State 0 → 0)" };
 
     if (qNow === 0 && qNext === 1) {
       sr = { s: "1", r: "0", desc: "Set Condition Required (S=1, R=0)" };
       jk = { j: "1", k: "X", desc: "Set (1,0) or Toggle (1,1)" };
       d = { d: "1", desc: "Direct Next State Value (D = 1)" };
-      t = { t: "1", desc: "Toggle Required (State 0 -> 1)" };
+      t = { t: "1", desc: "Toggle Required (State 0 → 1)" };
     } else if (qNow === 1 && qNext === 0) {
       sr = { s: "0", r: "1", desc: "Reset Condition Required (S=0, R=1)" };
       jk = { j: "X", k: "1", desc: "Reset (0,1) or Toggle (1,1)" };
       d = { d: "0", desc: "Direct Next State Value (D = 0)" };
-      t = { t: "1", desc: "Toggle Required (State 1 -> 0)" };
+      t = { t: "1", desc: "Toggle Required (State 1 → 0)" };
     } else if (qNow === 1 && qNext === 1) {
       sr = { s: "X", r: "0", desc: "No change (Hold 0,0) or Set (1,0)" };
       jk = { j: "X", k: "0", desc: "No change (Hold 0,0) or Set (1,0)" };
       d = { d: "1", desc: "Direct Next State Value (D = 1)" };
-      t = { t: "0", desc: "No Toggle Required (State 1 -> 1)" };
+      t = { t: "0", desc: "No Toggle Required (State 1 → 1)" };
     }
 
     return { sr, jk, d, t };
@@ -184,7 +184,7 @@ const Topic12 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 12</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Characteristic Table vs Excitation Table: Masterclass Theory &amp; Conversion Synthesis
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -238,7 +238,7 @@ const Topic12 = () => {
                   Answers: <strong className="text-teal-300">"Given the Present State Q(t) and applied Inputs, what will be the Next State Q(t+1)?"</strong>
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs text-teal-200 text-center font-bold">
-                  [ Inputs + Present State Q(t) ] &rarr; Compute Next State Q(t+1)
+                  [ Inputs + Present State Q(t) ] → Compute Next State Q(t+1)
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   Used by engineers when analyzing an already-built circuit to determine what sequence of states it will produce.
@@ -259,7 +259,7 @@ const Topic12 = () => {
                   Answers: <strong className="text-cyan-300">"To force a transition from Present State Q(t) to Next State Q(t+1), what Inputs must we excite?"</strong>
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-cyan-950/40 border border-cyan-800/60 font-mono text-xs text-cyan-200 text-center font-bold">
-                  [ Desired Transition Q(t) &rarr; Q(t+1) ] &rarr; Derive Required Inputs
+                  [ Desired Transition Q(t) → Q(t+1) ] → Derive Required Inputs
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   Used when you want to design a <strong>Counter, Sequence Generator, or CPU Controller</strong> from scratch based on a state diagram.
@@ -300,7 +300,7 @@ const Topic12 = () => {
                     : "text-slate-400 hover:text-slate-200"
                 )}
               >
-                2. SR &rarr; JK Conversion Schematic
+                2. SR → JK Conversion Schematic
               </button>
               <button
                 onClick={() => setActiveDiagramTab("jk-to-d-schematic")}
@@ -311,7 +311,7 @@ const Topic12 = () => {
                     : "text-slate-400 hover:text-slate-200"
                 )}
               >
-                3. JK &rarr; D &amp; D &rarr; T Schematics
+                3. JK → D &amp; D → T Schematics
               </button>
               <button
                 onClick={() => setActiveDiagramTab("kmap-synthesis")}
@@ -339,7 +339,7 @@ const Topic12 = () => {
                   <table className="w-full text-left text-xs font-mono">
                     <thead className="bg-slate-900 border-b border-slate-800 text-slate-400">
                       <tr>
-                        <th className="p-3">Q(t) &rarr; Q(t+1)</th>
+                        <th className="p-3">Q(t) → Q(t+1)</th>
                         <th className="p-3 text-teal-300">SR (S, R)</th>
                         <th className="p-3 text-cyan-300">JK (J, K)</th>
                         <th className="p-3 text-emerald-300">D (D)</th>
@@ -349,7 +349,7 @@ const Topic12 = () => {
                     </thead>
                     <tbody className="divide-y divide-slate-800 text-slate-300">
                       <tr className="hover:bg-slate-900/50">
-                        <td className="p-3 font-bold text-white">0 &rarr; 0</td>
+                        <td className="p-3 font-bold text-white">0 → 0</td>
                         <td className="p-3 text-teal-300 font-semibold">S = 0, R = X</td>
                         <td className="p-3 text-cyan-300 font-bold">J = 0, K = X</td>
                         <td className="p-3 text-emerald-300 font-semibold">D = 0</td>
@@ -357,7 +357,7 @@ const Topic12 = () => {
                         <td className="p-3 text-slate-400">Hold (0) or Reset</td>
                       </tr>
                       <tr className="hover:bg-slate-900/50">
-                        <td className="p-3 font-bold text-white">0 &rarr; 1</td>
+                        <td className="p-3 font-bold text-white">0 → 1</td>
                         <td className="p-3 text-teal-300 font-semibold">S = 1, R = 0</td>
                         <td className="p-3 text-cyan-300 font-bold">J = 1, K = X</td>
                         <td className="p-3 text-emerald-300 font-bold">D = 1</td>
@@ -365,7 +365,7 @@ const Topic12 = () => {
                         <td className="p-3 text-emerald-300">Set (1) or Toggle</td>
                       </tr>
                       <tr className="hover:bg-slate-900/50">
-                        <td className="p-3 font-bold text-white">1 &rarr; 0</td>
+                        <td className="p-3 font-bold text-white">1 → 0</td>
                         <td className="p-3 text-teal-300 font-semibold">S = 0, R = 1</td>
                         <td className="p-3 text-cyan-300 font-bold">J = X, K = 1</td>
                         <td className="p-3 text-emerald-300 font-semibold">D = 0</td>
@@ -373,7 +373,7 @@ const Topic12 = () => {
                         <td className="p-3 text-rose-300">Reset (0) or Toggle</td>
                       </tr>
                       <tr className="hover:bg-slate-900/50">
-                        <td className="p-3 font-bold text-white">1 &rarr; 1</td>
+                        <td className="p-3 font-bold text-white">1 → 1</td>
                         <td className="p-3 text-teal-300 font-semibold">S = X, R = 0</td>
                         <td className="p-3 text-cyan-300 font-bold">J = X, K = 0</td>
                         <td className="p-3 text-emerald-300 font-bold">D = 1</td>
@@ -484,14 +484,14 @@ const Topic12 = () => {
             {activeDiagramTab === "jk-to-d-schematic" && (
               <div className="space-y-6">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 block">
-                  Additional Conversions: JK &rarr; D (Inverter) and D &rarr; T (XOR Gate)
+                  Additional Conversions: JK → D (Inverter) and D → T (XOR Gate)
                 </span>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* JK to D Conversion */}
                   <div className="rounded-xl border border-slate-800 bg-slate-950 p-5 space-y-3">
                     <span className="text-xs font-bold text-cyan-300 block">
-                      A. JK &rarr; D Conversion (J = D, K = D̄)
+                      A. JK → D Conversion (J = D, K = D̄)
                     </span>
                     <svg viewBox="0 0 400 160" className="w-full h-auto text-xs font-mono select-none">
                       {/* Input D */}
@@ -521,7 +521,7 @@ const Topic12 = () => {
                   {/* D to T Conversion */}
                   <div className="rounded-xl border border-slate-800 bg-slate-950 p-5 space-y-3">
                     <span className="text-xs font-bold text-purple-300 block">
-                      B. D &rarr; T Conversion (D = T ⊕ Q)
+                      B. D → T Conversion (D = T ⊕ Q)
                     </span>
                     <svg viewBox="0 0 400 160" className="w-full h-auto text-xs font-mono select-none">
                       {/* Input T */}
@@ -675,7 +675,7 @@ const Topic12 = () => {
                     Present Q(t): {presentQ}
                   </button>
 
-                  <span className="text-slate-500 font-bold">&rarr;</span>
+                  <span className="text-slate-500 font-bold">→</span>
 
                   <button
                     onClick={() => setNextQ(nextQ === 0 ? 1 : 0)}
@@ -740,10 +740,10 @@ const Topic12 = () => {
                 {/* Circuit Selector */}
                 <div className="flex flex-wrap gap-2">
                   {[
-                    { id: "sr-to-jk", label: "SR &rarr; JK" },
-                    { id: "jk-to-d", label: "JK &rarr; D" },
-                    { id: "sr-to-d", label: "SR &rarr; D" },
-                    { id: "d-to-t", label: "D &rarr; T" }
+                    { id: "sr-to-jk", label: "SR → JK" },
+                    { id: "jk-to-d", label: "JK → D" },
+                    { id: "sr-to-d", label: "SR → D" },
+                    { id: "d-to-t", label: "D → T" }
                   ].map((item) => (
                     <button
                       key={item.id}
@@ -840,7 +840,7 @@ const Topic12 = () => {
             <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
               <div className="h-7 w-7 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center">2</div>
               <strong className="text-slate-100 block">Available Excitations</strong>
-              <p className="text-slate-400 leading-relaxed">Append excitation columns of available flip-flop for each Q(t)&rarr;Q(t+1).</p>
+              <p className="text-slate-400 leading-relaxed">Append excitation columns of available flip-flop for each Q(t)→Q(t+1).</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
               <div className="h-7 w-7 rounded-lg bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center">3</div>

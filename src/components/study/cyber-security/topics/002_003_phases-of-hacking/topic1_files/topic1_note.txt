@@ -47,10 +47,10 @@ Thorough footprinting eliminates guesswork and reveals surgical attack vectors.
   * Value: Uncovers hidden staging subdomains (e.g., `dev-payment.kolkata-fintech.co.in`).
 
 [2. ICONIC GOOGLE DORK OPERATORS]
-  * `site:target.com filetype:env`                   --> Discovers exposed API secrets & DB passwords.
-  * `site:target.com inurl:wp-config.php.bak`        --> Discovers database configuration backups.
-  * `site:target.com intitle:"Index of" ".git"`      --> Discovers exposed Git source code repositories.
-  * `site:target.com inurl:admin login`              --> Locates administrative management panels.
+  * `site:target.com filetype:env`                   → Discovers exposed API secrets & DB passwords.
+  * `site:target.com inurl:wp-config.php.bak`        → Discovers database configuration backups.
+  * `site:target.com intitle:"Index of" ".git"`      → Discovers exposed Git source code repositories.
+  * `site:target.com inurl:admin login`              → Locates administrative management panels.
 
 [3. METADATA & DOCUMENT HARVESTING (ExifTool / FOCA)]
   * Inspects public PDFs, DOCX, and images published on the company website.

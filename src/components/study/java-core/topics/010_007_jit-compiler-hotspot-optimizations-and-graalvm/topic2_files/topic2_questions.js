@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "When their sum exceeds the compilation threshold, JIT compilation is queued.",
     "hint": "Invocation Counter and Backedge Counter.",
     "level": "Intermediate",
-    "codeExample": "Invocation Count + Backedge Count > Threshold -> Triggers JIT"
+    "codeExample": "Invocation Count + Backedge Count > Threshold → Triggers JIT"
   },
   {
     "question": "What is On-Stack Replacement (OSR) in the JVM execution engine?",

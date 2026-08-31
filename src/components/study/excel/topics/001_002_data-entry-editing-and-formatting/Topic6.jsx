@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_002_data_entry_editing_and_formatting_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -71,7 +70,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Alignment, Text Wrapping, Center Across Selection vs Merge, and Executive Cell Styles
           </h1>
 
@@ -169,7 +168,7 @@ export default function Topic6() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>Merge &amp; Center physically fuses multiple cells into a single address (top-left cell), destroying all other cell addresses in that block.</p>
             <p>Merged cells break VBA automation, disable column sorting, break array formulas, and prevent single-column selection (Ctrl+Space).</p>
-            <p>'Center Across Selection' (Format Cells &amp;rarr; Alignment &amp;rarr; Horizontal: Center Across Selection) visually achieves the exact same title centering while keeping every column 100% intact!</p>
+            <p>'Center Across Selection' (Format Cells → Alignment → Horizontal: Center Across Selection) visually achieves the exact same title centering while keeping every column 100% intact!</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -315,7 +314,7 @@ export default function Topic6() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells (Ctrl+1) &amp;rarr; Alignment &amp;rarr; Horizontal: Center Across Selection</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells (Ctrl+1) → Alignment → Horizontal: Center Across Selection</div>
                 <div className="text-emerald-400 font-semibold">Result: Executive centered banner with zero structural grid damage.</div>
                 <div className="text-slate-400 text-[11px]">Center Across Selection is the universal standard in elite financial modeling.</div>
               </div>
@@ -340,7 +339,7 @@ export default function Topic6() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Home Tab &amp;rarr; Increase Indent (Alt + H + 6)</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Home Tab → Increase Indent (Alt + H + 6)</div>
                 <div className="text-emerald-400 font-semibold">Result: Clean audited financial statement hierarchy without messy leading spaces.</div>
                 <div className="text-slate-400 text-[11px]">Cell indentation maintains clean numerical searchability while creating clear visual structure.</div>
               </div>
@@ -386,7 +385,7 @@ export default function Topic6() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells &amp;rarr; Alignment &amp;rarr; Orientation: 45 Degrees</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Format Cells → Alignment → Orientation: 45 Degrees</div>
                 <div className="text-emerald-400 font-semibold">Result: Compact engineering quality matrix fitting perfectly on A4 printable width.</div>
                 <div className="text-slate-400 text-[11px]">Header orientation angles maximize printable table density.</div>
               </div>
@@ -528,10 +527,8 @@ export default function Topic6() {
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Decrease Indent.</p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + 1 &amp;rarr; Alignment &amp;rarr; Center Across Selection
-              </kbd>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex flex-col gap-2">
+              <div className="flex items-center gap-1.5 flex-wrap"><kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">Ctrl + 1</kbd><span className="text-purple-300 font-mono text-xs font-semibold">→ Alignment → Center Across Selection</span></div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Safely center titles across columns without merging.</p>
             </div>
           </div>

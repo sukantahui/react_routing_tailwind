@@ -13,7 +13,7 @@ const Topic2 = () => {
 
         {/* Header Section */}
         <div className="space-y-4 animate-[fade-slide-up_0.6s_cubic-bezier(0.2,0.9,0.4,1.1)] motion-safe:animate-[fade-slide-up_0.6s_cubic-bezier(0.2,0.9,0.4,1.1)]">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
             Understanding init Process
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed border-l-4 border-purple-500 pl-4">
@@ -92,21 +92,21 @@ const Topic2 = () => {
                 <title>Logging daemon</title>
               </g>
 
-              {/* <!-- login shell --> */}
+              {/* <!-- login shell → */}
               <g className="cursor-pointer hover:drop-shadow transition" transform="translate(250,140)">
                 <rect x="-50" y="-15" width="100" height="30" rx="6" fill="#10b981" className="hover:fill-emerald-400 transition"/>
                 <text x="0" y="5" textAnchor="middle" fill="white" fontSize="11">getty / login</text>
                 <title>Spawn user login sessions</title>
               </g>
 
-              {/* <!-- sshd --> */}
+              {/* <!-- sshd → */}
               <g className="cursor-pointer hover:drop-shadow transition" transform="translate(400,140)">
                 <rect x="-35" y="-15" width="70" height="30" rx="6" fill="#ef4444" className="hover:fill-red-400 transition"/>
                 <text x="0" y="5" textAnchor="middle" fill="white" fontSize="11">sshd</text>
                 <title>Secure shell daemon</title>
               </g>
 
-              {/* <!-- from login to bash (grandchild) --> */}
+              {/* <!-- from login to bash (grandchild) → */}
               <line x1="250" y1="155" x2="250" y2="210" stroke="#4b5563" strokeWidth="2" markerEnd="url(#arrow)"/>
               <g transform="translate(250,240)">
                 <rect x="-35" y="-15" width="70" height="30" rx="6" fill="#f59e0b" className="hover:fill-amber-400 transition"/>
@@ -114,7 +114,7 @@ const Topic2 = () => {
                 <title>User shell (child of login)</title>
               </g>
 
-              {/* <!-- from bash to child processes --> */}
+              {/* <!-- from bash to child processes → */}
               <line x1="250" y1="255" x2="180" y2="300" stroke="#4b5563" strokeWidth="1.5" markerEnd="url(#arrow)" strokeDasharray="3"/>
               <line x1="250" y1="255" x2="320" y2="300" stroke="#4b5563" strokeWidth="1.5" markerEnd="url(#arrow)" strokeDasharray="3"/>
               <g transform="translate(180,320)">

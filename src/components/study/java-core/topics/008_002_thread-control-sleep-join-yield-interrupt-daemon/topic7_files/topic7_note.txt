@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. INTERRUPT-RESPONSIVE LOOPS:
    - Loop condition: 'while (!Thread.currentThread().isInterrupted())'.
-   - Catch 'InterruptedException' &rarr; call 'Thread.currentThread().interrupt()'.
+   - Catch 'InterruptedException' → call 'Thread.currentThread().interrupt()'.
    - Loop terminates cleanly and executes 'finally' / cleanup logic.
    - Allows safe release of files, sockets, and DB connections.
 

@@ -180,7 +180,7 @@ FROM students s, enrollments e, courses c, payments p;
             Module 002_005 · SQL Joins · Topic 12
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Common Join Pitfalls:{" "}
             <span className="bg-gradient-to-r from-rose-400 via-amber-400 to-teal-400 bg-clip-text text-transparent">
               Fan-Outs, Explosions &amp; NULL Traps

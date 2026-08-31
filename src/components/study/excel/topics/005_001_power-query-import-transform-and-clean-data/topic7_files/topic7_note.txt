@@ -14,7 +14,7 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 • Period Boundaries: Date.StartOfMonth, Date.EndOfMonth, Date.StartOfYear, Date.EndOfYear
 • Names & Quarters: Date.MonthName, Date.QuarterOfYear, Date.DayOfWeekName
 • Relative Dates: Date.IsInCurrentYear, Date.IsInPreviousNDays([Date], 30)
-• Durations: [End] - [Start] -> Duration.Days, Duration.TotalHours
+• Durations: [End] - [Start] → Duration.Days, Duration.TotalHours
 
 2. NUMBER TRANSFORMATION SUITE:
 --------------------------------------------------------------------------------

@@ -9,7 +9,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
 --------------------------------------------------------------------------------
 - Definition: Hands-on industrial project laboratory part 1: build data manipulation utilities including shopping cart totalizers, student grade rankers, deduplicators, and search filters.
 - Classroom Experience: The Barrackpore lab cohort was challenged to build an e-commerce cart calculation engine handling tiered discounts, coupon codes, tax calculations, and shipping rules.
-- Solution: Sukanta Hui guided the students to decompose complex business logic into a sequence of pure array transformations (`filter` -> `map` -> `reduce`).
+- Solution: Sukanta Hui guided the students to decompose complex business logic into a sequence of pure array transformations (`filter` → `map` → `reduce`).
 - Core Invariant: Mastering array methods ensures high-performance, immutable data processing.
 
 2. IN-DEPTH TECHNICAL KNOW-HOW & ENGINE RUNTIME MECHANICS

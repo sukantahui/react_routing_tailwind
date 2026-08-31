@@ -10,7 +10,7 @@ Real-world project: Building an automated Customer Churn Prediction and Cohort A
 It provides the core protocols required to run Python analytics natively inside Excel, manipulate pandas DataFrames, and deploy predictive AI models.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap
+Operational Architecture: Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap
 
 3. CORE TECHNICAL MECHANICS
 1. End-to-End Predictive Pipeline:

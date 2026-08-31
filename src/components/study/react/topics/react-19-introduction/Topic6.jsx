@@ -163,7 +163,7 @@ const Topic6 = () => {
                   ⚡
                 </div>
                 <div>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
                     Vite vs Create React App
                   </h2>
                   <p className="text-xl text-gray-300">

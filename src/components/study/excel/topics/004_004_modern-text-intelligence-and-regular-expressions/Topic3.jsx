@@ -76,7 +76,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Extracting Substrings Matching Regex Patterns with REGEXEXTRACT
           </h1>
 
@@ -190,11 +190,11 @@ export default function Topic3() {
               </h3>
               <p className="leading-relaxed">
                 When you want only the numeric price without the currency prefix <code className="text-amber-300 font-mono">"INR "</code>, 
-                use a <strong>positive lookbehind</strong>: <code className="text-emerald-300 font-mono">(?&lt;=INR\s)\d+(\.\d{"{2}"})?</code>. 
+                use a <strong>positive lookbehind</strong>: <code className="text-emerald-300 font-mono">(?<=INR\s)\d+(\.\d{"{2}"})?</code>. 
                 Matches only the digits while discarding the <code className="text-amber-300 font-mono">"INR "</code> prefix!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                (?&lt;=INR\s)\d+ &rarr; Extracts Clean Numeric Value
+                (?<=INR\s)\d+ → Extracts Clean Numeric Value
               </div>
             </div>
 
@@ -221,7 +221,7 @@ export default function Topic3() {
               Extract Invoice ID, Transaction Date, and Net Amount in a single horizontal row:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                =HSTACK(REGEXEXTRACT(B5, "INV-\d{"{5}"}"), REGEXEXTRACT(B5, "\b\d{"{2}"}-\d{"{2}"}-\d{"{4}"}\b"), NUMBERVALUE(REGEXEXTRACT(B5, "(?&lt;=INR\s)\d+(\.\d{"{2}"})?")))
+                =HSTACK(REGEXEXTRACT(B5, "INV-\d{"{5}"}"), REGEXEXTRACT(B5, "\b\d{"{2}"}-\d{"{2}"}-\d{"{4}"}\b"), NUMBERVALUE(REGEXEXTRACT(B5, "(?<=INR\s)\d+(\.\d{"{2}"})?")))
               </code>
             </p>
           </div>
@@ -289,7 +289,7 @@ export default function Topic3() {
               <rect x="575" y="105" width="250" height="150" rx="10" fill="#0F172A" stroke="#10B981" strokeWidth="1.5" />
               <rect x="575" y="105" width="250" height="30" rx="10" fill="#059669" fillOpacity="0.3" />
               <text x="700" y="125" fill="#A7F3D0" fontSize="10.5" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">3. AMOUNT ENGINE</text>
-              <text x="700" y="155" fill="#34D399" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">Pattern: "(?&lt;=INR\s)\d+(\.\d{"{2}"})?"</text>
+              <text x="700" y="155" fill="#34D399" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">Pattern: "(?<=INR\s)\d+(\.\d{"{2}"})?"</text>
 
               <g transform="translate(585, 175)">
                 <rect width="230" height="35" rx="6" fill="#064E3B" stroke="#10B981" />
@@ -336,7 +336,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_REGEXEXTRACT"
+            sheetName="EX1904"
             title="Banking Narration String Extraction Dataset (Log ID, Narration Text, Extracted Txn ID, Date, Amount ₹)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic3() {
                 eliminating 5 nested MID/FIND formulas and cutting reconciliation time by 90%.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =REGEXEXTRACT(Narration, "INV-\d{5}") &rarr; "INV-88421"
+                Formula: =REGEXEXTRACT(Narration, "INV-\d{5}") → "INV-88421"
               </div>
             </div>
 
@@ -390,11 +390,11 @@ export default function Topic3() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Treasury Manager <strong>Tuhina Mukherjee</strong> extracts net invoice totals from vendor descriptions: 
-                <code className="text-amber-300 font-mono">=NUMBERVALUE(REGEXEXTRACT(B5, "(?&lt;=INR\s)\d+(\.\d{"{2}"})?"))</code>, 
+                <code className="text-amber-300 font-mono">=NUMBERVALUE(REGEXEXTRACT(B5, "(?<=INR\s)\d+(\.\d{"{2}"})?"))</code>, 
                 automatically converting raw text amounts into computable Excel numbers.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Extracts "INR 45000.00" &rarr; Number 45000.00
+                Extracts "INR 45000.00" → Number 45000.00
               </div>
             </div>
 
@@ -428,7 +428,7 @@ export default function Topic3() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Data Architect <strong>Debangshu Ghosh</strong> deploys an end-to-end extraction pipeline: 
-                <code className="text-amber-300 font-mono">=HSTACK(REGEXEXTRACT(B5, "INV-\d{"{5}"}"), REGEXEXTRACT(B5, "\d{"{2}"}-\d{"{2}"}-\d{"{4}"}"), NUMBERVALUE(REGEXEXTRACT(B5, "(?&lt;=INR\s)\d+")))</code>, 
+                <code className="text-amber-300 font-mono">=HSTACK(REGEXEXTRACT(B5, "INV-\d{"{5}"}"), REGEXEXTRACT(B5, "\d{"{2}"}-\d{"{2}"}-\d{"{4}"}"), NUMBERVALUE(REGEXEXTRACT(B5, "(?<=INR\s)\d+")))</code>, 
                 spilling complete database records in 1 formula!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
@@ -584,11 +584,11 @@ export default function Topic3() {
 
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2">
               <div className="flex items-center gap-2 text-white font-bold">
-                <span className="text-sky-400 font-mono font-bold">Lookbehind (?&lt;=...)</span>
+                <span className="text-sky-400 font-mono font-bold">Lookbehind (?<=...)</span>
                 <span>Clean Numbers</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Extract value without prefix: <code className="text-sky-300 font-mono">(?&lt;=INR\s)\d+(\.\d{"{2}"})?</code>.
+                Extract value without prefix: <code className="text-sky-300 font-mono">(?<=INR\s)\d+(\.\d{"{2}"})?</code>.
               </p>
             </div>
 
@@ -641,7 +641,7 @@ export default function Topic3() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Examine lookaround assertions:</strong> How does the positive lookbehind <code className="text-emerald-300 font-mono">(?&lt;=INR\s)</code> allow you to extract clean numeric currency values without capturing the <code className="text-amber-300 font-mono">"INR "</code> text label?
+                <strong>Examine lookaround assertions:</strong> How does the positive lookbehind <code className="text-emerald-300 font-mono">(?<=INR\s)</code> allow you to extract clean numeric currency values without capturing the <code className="text-amber-300 font-mono">"INR "</code> text label?
               </p>
             </div>
 

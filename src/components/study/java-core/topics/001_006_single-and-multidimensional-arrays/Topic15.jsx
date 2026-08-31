@@ -42,7 +42,7 @@ export default function Topic15() {
             Mathematical Algorithms
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Matrix Operations: Addition, Transpose &amp; Matrix Multiplication
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -140,7 +140,7 @@ export default function Topic15() {
             <rect x="310" y="40" width="260" height="180" rx="10" fill="url(#gradTrans)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Matrix Transpose</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
-            <text x="335" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">A(2x3) &rarr; A^T(3x2)</text>
+            <text x="335" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">A(2x3) → A^T(3x2)</text>
             <text x="335" y="122" fill="#bae6fd" fontSize="10">Transposed[j][i] = A[i][j]</text>
             <text x="335" y="142" fill="#d1fae5" fontSize="10">Inverts rows and columns</text>
             <text x="440" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
@@ -151,7 +151,7 @@ export default function Topic15() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradMult)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Matrix Multiply: O(N^3)</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#2e1065" />
-            <text x="615" y="102" fill="#ddd6fe" fontSize="10" fontFamily="monospace">A(2x3) * B(3x2) &rarr; C(2x2)</text>
+            <text x="615" y="102" fill="#ddd6fe" fontSize="10" fontFamily="monospace">A(2x3) * B(3x2) → C(2x2)</text>
             <text x="615" y="122" fill="#ddd6fe" fontSize="10">Requires: cA == rB</text>
             <text x="615" y="142" fill="#d1fae5" fontSize="10">C[i][j] = sum(A[i][k] * B[k][j])</text>
             <text x="720" y="190" fill="#f5f3ff" fontSize="11" textAnchor="middle" fontWeight="bold">

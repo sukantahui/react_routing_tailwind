@@ -107,14 +107,14 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
         </head>
         <body>
           <div class="paper">
-            <!-- Header -->
+            <!-- Header ──→
             <div class="header">
               <h1>${data.title}</h1>
               <p>Paper ID: ${data.paperId}</p>
               <p>Duration: ${data.duration} | Total Marks: ${data.totalMarks}</p>
               ${data.prerequisites ? `<p>Prerequisites: ${data.prerequisites}</p>` : ''}
             </div>
-            <!-- Instructions -->
+            <!-- Instructions ──→
             ${data.instructions ? `
               <div class="instructions">
                 <h3>Instructions:</h3>
@@ -123,7 +123,7 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
                 </ul>
               </div>
             ` : ''}
-            <!-- Sections -->
+            <!-- Sections ──→
             ${data.sections.map(section => `
               <div class="section">
                 <h2>Section ${section.section}: ${section.type}</h2>
@@ -146,7 +146,7 @@ const JavaQuestionPaperTemplate = ({ data, isLoggedIn = false, organizationDetai
                 </ol>
               </div>
             `).join('')}
-            <!-- Footer -->
+            <!-- Footer ──→
             <div class="footer">
               <p>© ${new Date().getFullYear()} Java Question Paper - All Rights Reserved</p>
               <p>Good Luck!</p>

@@ -20,7 +20,7 @@ const Topic1 = () => {
 
             {/* Section 1: Title & Introduction */}
             <div className="animate-[fadeSlideUp_0.6s_ease-out] motion-safe:animate-[fadeSlideUp_0.6s_ease-out]">
-                <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 border-l-4 border-blue-500 pl-4">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 border-l-4 border-blue-500 pl-4">
                     Types of Inheritance in Java
                 </h1>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">

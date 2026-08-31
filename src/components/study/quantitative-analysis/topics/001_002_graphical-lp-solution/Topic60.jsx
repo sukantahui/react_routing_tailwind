@@ -272,7 +272,7 @@ const Topic60 = () => {
                     <div className="inline-block px-4 py-1 mb-4 text-xs font-semibold tracking-widest uppercase rounded-full bg-stone-100 dark:bg-stone-800/50 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700">
                         Topic 60 — Graphical Redundancy
                     </div>
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Identifying Redundant Constraints <br className="sm:hidden" />
                         <span className="bg-gradient-to-r from-stone-700 to-neutral-600 dark:from-stone-300 dark:to-neutral-400 bg-clip-text text-transparent">
                             Graphically

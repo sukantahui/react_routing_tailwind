@@ -11,7 +11,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Negative numbers are NEVER palindromes (if (x < 0) return false;).
   * Numbers ending in 0 (except 0) are NEVER palindromes (if (x % 10 == 0 && x != 0) return false;).
   * Reversing only half: while (x > rev) { rev = rev * 10 + x % 10; x /= 10; }
-  * Check: (x == rev) || (x == rev / 10) -> Completely eliminates integer overflow!
+  * Check: (x == rev) || (x == rev / 10) → Completely eliminates integer overflow!
 
 - String Palindrome (Two-Pointer In-Place O(1) Space):
   * Pointers left = 0, right = s.length() - 1.

@@ -136,7 +136,7 @@ SELECT * FROM kolkata_retail.orders WHERE status = 'PENDING' ORDER BY order_date
             Topic 4 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           The Slow Query Log: <span className="text-emerald-400">Configuration</span> &amp; <span className="text-cyan-400">Tuning</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -299,7 +299,7 @@ SELECT * FROM kolkata_retail.orders WHERE status = 'PENDING' ORDER BY order_date
                   Case 1: Mamata &amp; Susmita – Fixing 4.5M Row Scan in Barrackpore Retail
                 </h3>
                 <span className="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800">
-                  3.4s &rarr; 1.2ms
+                  3.4s → 1.2ms
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

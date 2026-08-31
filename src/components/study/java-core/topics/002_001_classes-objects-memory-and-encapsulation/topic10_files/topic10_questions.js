@@ -250,7 +250,7 @@ const topic10_questions = [
     explanation: "At the Barrackpore campus, Sukanta Hui teaches that encapsulation is the single most vital skill separating amateur coders from enterprise software architects. By enforcing invariants at the door and guarding mutations from within, your applications run bug-free and scale effortlessly.",
     hint: "Private state, guarded gates, unconquerable domain logic.",
     level: "Beginner",
-    codeExample: "// Sukanta Hui's Capsule Template: Private Fields -> Guarded Constructors -> Invariant-Enforcing Mutators -> Defensive Getters"
+    codeExample: "// Sukanta Hui's Capsule Template: Private Fields → Guarded Constructors → Invariant-Enforcing Mutators → Defensive Getters"
   }
 ];
 

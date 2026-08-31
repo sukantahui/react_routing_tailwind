@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Use VBA when you need heavy desktop UserForms or local database connections. Use Office Scripts when you want your automation to run automatically in the cloud 24/7 via Power Automate without touching your computer!
 
 COMMON TRAPS TO AVOID:
-- Trying to Automate Other Desktop Apps from Office Scripts: Office Scripts cannot launch desktop PowerPoint or Outlook like VBA COM automation. -> Fix: Use Power Automate cloud connectors for cross-app automation (Forms, Outlook, Teams, SharePoint).
-- Using VBA When Cloud 24/7 Headless Execution is Required: VBA requires a physical computer turned on with Excel running. -> Fix: Migrate unattended server workflows to Office Scripts triggered by Power Automate.
-- Expecting ActiveSheet Focus to Always Exist in Cloud: Headless cloud runs do not have an active visual user selection. -> Fix: Always reference worksheets explicitly by name: `workbook.getWorksheet("Data")`.
+- Trying to Automate Other Desktop Apps from Office Scripts: Office Scripts cannot launch desktop PowerPoint or Outlook like VBA COM automation. → Fix: Use Power Automate cloud connectors for cross-app automation (Forms, Outlook, Teams, SharePoint).
+- Using VBA When Cloud 24/7 Headless Execution is Required: VBA requires a physical computer turned on with Excel running. → Fix: Migrate unattended server workflows to Office Scripts triggered by Power Automate.
+- Expecting ActiveSheet Focus to Always Exist in Cloud: Headless cloud runs do not have an active visual user selection. → Fix: Always reference worksheets explicitly by name: `workbook.getWorksheet("Data")`.
 ================================================================================

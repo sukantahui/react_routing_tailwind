@@ -85,7 +85,7 @@ Penalty: Up to 3 Years Imprisonment + ₹2,00,000 Fine (Cognizable Criminal Offe
     codeExample: `// Section 65B Indian Evidence Act Compliance:
 1. Capture SHA-256 Hash of Server Log File at 02:00 AM IST.
 2. Maintain Chain of Custody Log.
-3. Issue Signed Section 65B Certificate certifying system integrity -> 100% Admissible in Court!`
+3. Issue Signed Section 65B Certificate certifying system integrity → 100% Admissible in Court!`
   },
   {
     question: "What is 'Log Injection' (Log Forging / Log Poisoning), and how do attackers inject fake log entries into web server access logs to mislead forensic investigators?",

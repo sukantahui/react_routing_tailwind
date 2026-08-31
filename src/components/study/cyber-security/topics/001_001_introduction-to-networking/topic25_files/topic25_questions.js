@@ -136,7 +136,7 @@ const questions = [
     explanation: "Universities in Kolkata use PXE booting to provision 100 lab computers with clean student Linux/Windows OS images simultaneously in minutes.",
     hint: "Allows a computer to boot its operating system directly from the network.",
     level: "moderate",
-    codeExample: "PXE_Boot: DHCP_Request() -> Receive_TFTP_Server_IP() -> Download_OS_Kernel();"
+    codeExample: "PXE_Boot: DHCP_Request() → Receive_TFTP_Server_IP() → Download_OS_Kernel();"
   },
   {
     question: "How does a NIC detect bit errors in received Ethernet frames?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures all essential principles of NIC hardware engineering, high availability bonding, performance optimization, and cyber defense.",
     hint: "Enterprise NICs + LACP teaming + Hardware offload + Switch port security + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeployEnterpriseNIC() -> EnableHardwareOffloads() -> EnforcePortSecurity() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeployEnterpriseNIC() → EnableHardwareOffloads() → EnforcePortSecurity() → BudgetInRupees(₹);"
   }
 ];
 

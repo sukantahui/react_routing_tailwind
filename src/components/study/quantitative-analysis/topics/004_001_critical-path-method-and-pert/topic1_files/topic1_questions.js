@@ -126,9 +126,9 @@ const questions = [
     question: "What is the ultimate golden rule of CPM/PERT Assumptions?",
     shortAnswer: "'Verify DAG topology (no cycles); enforce activity independence; model CPM deterministically with linear crashing and PERT via Beta distribution; apply Central Limit Theorem for Z-score probability in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all theoretical foundations of Topic 1.",
-    hint: "Verify DAG -> Ensure independence -> Use Beta/CLT for PERT -> Linear crashing for CPM in ₹.",
+    hint: "Verify DAG → Ensure independence → Use Beta/CLT for PERT → Linear crashing for CPM in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CheckDAG() -> CheckIndependence() -> ModelBeta_CLT() -> CalculateZ() -> Report."
+    codeExample: "GoldenRule: CheckDAG() → CheckIndependence() → ModelBeta_CLT() → CalculateZ() → Report."
   }
 ];
 

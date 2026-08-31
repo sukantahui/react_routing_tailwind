@@ -38,8 +38,8 @@ Scale-Out       Adding read replicas, replica   High throughput, no      Replica
 4. CAP THEOREM & PACELC IN MYSQL REPLICATION
 --------------------------------------------------------------------------------
 - In the event of a network partition (P):
-  - Asynchronous Replication chooses Availability (A) over strict Consistency (C) -> RPO > 0.
-  - Lossless Semi-Synchronous Replication and MySQL Group Replication prioritize Consistency (C) -> RPO = 0.
+  - Asynchronous Replication chooses Availability (A) over strict Consistency (C) → RPO > 0.
+  - Lossless Semi-Synchronous Replication and MySQL Group Replication prioritize Consistency (C) → RPO = 0.
 
 5. PRODUCTION BEST PRACTICES
 --------------------------------------------------------------------------------

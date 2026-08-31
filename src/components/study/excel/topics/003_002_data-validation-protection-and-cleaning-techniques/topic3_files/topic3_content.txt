@@ -24,13 +24,13 @@ Operational Architecture: Custom Validation: Prevent Duplicates: =COUNTIF($A:$A,
 
 4. REAL-WORLD BUSINESS APPLICATION
 • Swadeep Banerjee (Chief Risk Officer, Barrackpore HQ):
-  Unique Corporate Loan Account Number Gate - Blocks duplicate loan account numbers across 50,000 accounts using Allow: Custom -> =COUNTIF($A:$A, A2) <= 1.
+  Unique Corporate Loan Account Number Gate - Blocks duplicate loan account numbers across 50,000 accounts using Allow: Custom → =COUNTIF($A:$A, A2) <= 1.
 • Tuhina Mukherjee (Chartered Tax Auditor, Shyamnagar Plant):
   Strict 10-Character Uppercase PAN Validation - Enforces 10-character uppercase PAN entries: =AND(LEN(A2)=10, EXACT(A2, UPPER(A2)), ISERROR(FIND(" ", A2))).
 • Abhronila Das (Quality Assurance Lead, Ichapur Works):
-  Multiple of 50 Batch Order Constraint - Enforces pallet ordering rules: Allow: Custom -> =AND(ISNUMBER(A2), A2>0, MOD(A2, 50)=0).
+  Multiple of 50 Batch Order Constraint - Enforces pallet ordering rules: Allow: Custom → =AND(ISNUMBER(A2), A2>0, MOD(A2, 50)=0).
 • Debangshu Roy (Fleet Dispatch Manager, Naihati Logistics):
-  Sequential Waybill Serial Number Enforcer - Enforces strictly sequential odometer entries: Allow: Custom -> =A2 > A1.
+  Sequential Waybill Serial Number Enforcer - Enforces strictly sequential odometer entries: Allow: Custom → =A2 > A1.
 
 5. TROUBLESHOOTING & COMMON ERRORS
 • Relative vs Absolute Reference Mismatch in COUNTIF:

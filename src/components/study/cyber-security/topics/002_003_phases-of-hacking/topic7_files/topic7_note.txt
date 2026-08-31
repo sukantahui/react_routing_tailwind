@@ -58,7 +58,7 @@ firewall changes, and defensive investigations.
 4. COMMAND & CONTROL (C2) BEACONING & JITTER MECHANICS
 --------------------------------------------------------------------------------
 
-* Traditional Beacon: Heartbeats sent at exact 60-second intervals (60s, 60s, 60s) -> Flagged by SIEM.
+* Traditional Beacon: Heartbeats sent at exact 60-second intervals (60s, 60s, 60s) → Flagged by SIEM.
 * Jittered Beacon: Adds randomized percentage variation to sleep time (e.g. 60s sleep with 30% jitter):
   - Beacon 1 : 48.2s
   - Beacon 2 : 71.5s

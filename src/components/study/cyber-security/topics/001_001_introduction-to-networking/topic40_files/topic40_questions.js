@@ -16,7 +16,7 @@ const questions = [
     explanation: "Allows students and professors from Jadavpur University to connect securely to Wi-Fi at Cambridge or MIT without obtaining local guest passwords.",
     hint: "Global university Wi-Fi roaming that authenticates users back to their home campus RADIUS server.",
     level: "expert",
-    codeExample: "Eduroam_Auth: VisitingUser -> Host_AP -> Host_RADIUS -> National_Proxy_RADIUS -> Home_University_RADIUS -> Access_Granted"
+    codeExample: "Eduroam_Auth: VisitingUser → Host_AP → Host_RADIUS → National_Proxy_RADIUS → Home_University_RADIUS → Access_Granted"
   },
   {
     question: "How is an Online Computer-Based Test (CBT) examination network secured against cheating?",
@@ -24,7 +24,7 @@ const questions = [
     explanation: "Prevents examinees from accessing search engines, remote desktop proxies, or external messaging applications during entrance exams in Kolkata.",
     hint: "Uses locked-down exam VLANs, Safe Exam Browser clients, and blocks all external Internet access.",
     level: "moderate",
-    codeExample: "ExamFirewallRule: Allow Exam_Terminals (VLAN 40) -> Local_Exam_Server (10.10.40.5:8080); Deny All Internet;"
+    codeExample: "ExamFirewallRule: Allow Exam_Terminals (VLAN 40) → Local_Exam_Server (10.10.40.5:8080); Deny All Internet;"
   },
   {
     question: "What Multi-SSID architecture is standard on modern university campus Wi-Fi networks?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Automates book issue tracking and prevents unauthorized library book removal in Jadavpur.",
     hint: "Connects library security gates to the book checkout database over TCP/IP using SIP2.",
     level: "basic",
-    codeExample: "SIP2_Message: 09 /* Item Status Request */ | AB0012345 /* Book RFID Barcode */ -> ILS Server"
+    codeExample: "SIP2_Message: 09 /* Item Status Request */ | AB0012345 /* Book RFID Barcode */ → ILS Server"
   },
   {
     question: "What is Network Access Control (NAC) Posture Assessment for faculty laptops on campus?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "Ensures university admissions and research databases can be fully recovered without paying extortion ransoms.",
     hint: "Emergency plan to isolate infected networks and restore clean backups during ransomware attacks.",
     level: "basic",
-    codeExample: "IncidentProtocol: IsolateInfectedVLAN() -> RevokeKerberosTickets() -> RestoreImmutableBackup();"
+    codeExample: "IncidentProtocol: IsolateInfectedVLAN() → RevokeKerberosTickets() → RestoreImmutableBackup();"
   },
   {
     question: "What is the ultimate golden rule for designing, operating, and budgeting Educational Campus Networks?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes national research backbones, high-density wireless design, exam security, bandwidth fairness, and financial budgeting.",
     hint: "NKN uplinks + Eduroam 802.1X + CBT locked VLANs + Layer-7 content filtering + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ConnectNKN() -> DeployEduroamWPA3() -> SecureCBTExams() -> FilterLayer7Traffic() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: ConnectNKN() → DeployEduroamWPA3() → SecureCBTExams() → FilterLayer7Traffic() → BudgetInRupees(₹);"
   }
 ];
 

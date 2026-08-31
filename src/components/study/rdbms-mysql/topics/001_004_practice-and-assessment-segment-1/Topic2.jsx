@@ -71,8 +71,8 @@ CREATE TABLE inventory_stock (
       tableSummary: [
         { table: "categories", purpose: "Classification categories (Electronics, Books)", key: "PK: category_id" },
         { table: "suppliers", purpose: "Vendor contacts & locations (Kolkata, Barrackpore)", key: "PK: supplier_id" },
-        { table: "products", purpose: "Product definitions with unique SKU & price checks", key: "FK -> categories, suppliers" },
-        { table: "inventory_stock", purpose: "1:1 Stock ledgers with non-negative checks", key: "FK -> products (1:1)" }
+        { table: "products", purpose: "Product definitions with unique SKU & price checks", key: "FK → categories, suppliers" },
+        { table: "inventory_stock", purpose: "1:1 Stock ledgers with non-negative checks", key: "FK → products (1:1)" }
       ],
       explanation:
         "The retail schema establishes strict normalization: categories and suppliers are decoupled from product items. SKU codes are globally unique, and non-negative constraints (`CHECK (stock_quantity >= 0)`) protect warehouse ledgers from corrupt negative quantities."
@@ -149,7 +149,7 @@ DESCRIBE inventory_stock;`,
       tableSummary: [
         { table: "ADD COLUMN discount_pct", purpose: "Added discount percentage with range check (0-100)", key: "Altered products ✅" },
         { table: "MODIFY COLUMN stock_quantity", purpose: "Enforced NOT NULL default on inventory stock", key: "Altered inventory_stock ✅" },
-        { table: "RENAME COLUMN", purpose: "Renamed warehouse_city -> storage_location", key: "Altered inventory_stock ✅" },
+        { table: "RENAME COLUMN", purpose: "Renamed warehouse_city → storage_location", key: "Altered inventory_stock ✅" },
         { table: "ADD COLUMN AFTER", purpose: "Positioned warranty_months immediately after product_name", key: "Altered products ✅" }
       ],
       explanation:
@@ -223,7 +223,7 @@ ORDER BY shortage_units DESC;`,
               Hands-on Lab 2
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Hands-on Lab 2: Retail Product Catalog &amp; Inventory DDL Scripts
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

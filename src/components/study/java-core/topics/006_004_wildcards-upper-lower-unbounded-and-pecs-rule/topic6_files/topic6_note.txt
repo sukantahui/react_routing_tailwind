@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. READ/WRITE DECISION MATRIX:
-   - '<? extends T>': PRODUCER &rarr; read 'T', cannot write.
-   - '<? super T>': CONSUMER &rarr; write 'T', read 'Object'.
-   - '<?>': UNBOUNDED &rarr; read 'Object', cannot write.
+   - '<? extends T>': PRODUCER → read 'T', cannot write.
+   - '<? super T>': CONSUMER → write 'T', read 'Object'.
+   - '<?>': UNBOUNDED → read 'Object', cannot write.
    - Only 'null' can be written to '<? extends T>' or '<?>'.
 
 ================================================================================

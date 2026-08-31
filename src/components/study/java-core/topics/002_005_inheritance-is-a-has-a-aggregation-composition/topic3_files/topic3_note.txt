@@ -6,12 +6,12 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SUPPORTED CLASS INHERITANCE FORMS:
-   - Single Inheritance: 1 Parent -> 1 Child
-   - Multilevel Inheritance: Grandparent -> Parent -> Child
-   - Hierarchical Inheritance: 1 Parent -> Multiple Child classes
+   - Single Inheritance: 1 Parent → 1 Child
+   - Multilevel Inheritance: Grandparent → Parent → Child
+   - Hierarchical Inheritance: 1 Parent → Multiple Child classes
 
 2. UNSUPPORTED FORMS (WITH CLASSES):
-   - Multiple Inheritance (Multiple parents -> 1 Child)
+   - Multiple Inheritance (Multiple parents → 1 Child)
    - Hybrid Inheritance involving multiple parents
 
 ================================================================================

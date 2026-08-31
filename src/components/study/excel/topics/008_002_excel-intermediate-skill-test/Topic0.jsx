@@ -71,7 +71,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Structured Tables & Advanced Multi-column Filter Challenge"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic0() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Structured Table Architecture: Flat Range -> Ctrl+T Conversion -> Structured References -> Interactive Slicers"}
+              Visual Dataflow: {"Structured Table Architecture: Flat Range → Ctrl+T Conversion → Structured References → Interactive Slicers"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Assessment Pipeline
@@ -286,7 +286,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Structured_Tables_"
+            sheetName="EX3101"
             title={"Structured Tables & Advanced Multi-column Filter Challenge - Assessment Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -494,7 +494,7 @@ export default function Topic0() {
                 <span>⚡</span> {"Insert Slicer"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Adds interactive 1-click visual filter buttons."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Table Design &gt; Insert Slicer"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Table Design > Insert Slicer"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

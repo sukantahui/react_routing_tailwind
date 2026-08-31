@@ -23,9 +23,9 @@ Because the narrowing cast is inserted automatically by the compiler, the develo
   `byte b = 127; b += 1;`
   Evaluates to `(byte)(128)`. Since `128` exceeds the maximum signed 8-bit value (`+127`), its binary representation `10000000` is interpreted as `-128` (`Byte.MIN_VALUE`).
 - Short Overflow:
-  `short s = 32767; s += 1;` -> Wraps to `-32768`.
+  `short s = 32767; s += 1;` → Wraps to `-32768`.
 - Higher Bit Discard:
-  `byte b = 100; b += 300;` -> `(byte)(400)`. `400` in binary is `0x0190`. Discarding the upper 24 bits leaves `0x90` (`-112`).
+  `byte b = 100; b += 300;` → `(byte)(400)`. `400` in binary is `0x0190`. Discarding the upper 24 bits leaves `0x90` (`-112`).
 
 3. FLOATING-POINT DECIMAL TRUNCATION (INT += DOUBLE)
 When applying compound assignment across mixed numeric domains:

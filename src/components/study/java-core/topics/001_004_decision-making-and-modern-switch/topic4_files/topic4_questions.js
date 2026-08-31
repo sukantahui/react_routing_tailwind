@@ -107,7 +107,7 @@ const questions = [
     explanation: "`85 > 90` is false, `85 > 80` is true, so branch `B` executes.",
     hint: "Evaluates to B.",
     level: "basic",
-    codeExample: "int score = 85;\n// Matches 'score > 80' -> \"B\""
+    codeExample: "int score = 85;\n// Matches 'score > 80' → \"B\""
   },
   {
     question: "When should you prefer a `switch` statement over an `else-if` ladder?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "Switch provides better readability and $O(1)$ performance for discrete values.",
     hint: "Use switch for discrete constants, else-if for ranges and inequalities.",
     level: "basic",
-    codeExample: "switch (dayOfWeek) { case 1 -> \"Mon\"; ... }"
+    codeExample: "switch (dayOfWeek) { case 1 → \"Mon\"; ... }"
   },
   {
     question: "What is the result of `int n = 0; if (n > 0) print(\"+\"); else if (n < 0) print(\"-\"); else print(\"0\");`?",
@@ -123,7 +123,7 @@ const questions = [
     explanation: "`0 > 0` is false, `0 < 0` is false, fallback `else` executes.",
     hint: "Prints 0.",
     level: "basic",
-    codeExample: "int n = 0;\n// Fallback else runs -> \"0\""
+    codeExample: "int n = 0;\n// Fallback else runs → \"0\""
   },
   {
     question: "Can an 'else-if' ladder have 50 `else if` branches?",
@@ -179,7 +179,7 @@ const questions = [
     explanation: "`25 < 10` is false; `25 < 20` is false; `25 < 30` is true, so branch `C` executes.",
     hint: "Prints C.",
     level: "basic",
-    codeExample: "int val = 25;\n// Matches 'val < 30' -> \"C\""
+    codeExample: "int val = 25;\n// Matches 'val < 30' → \"C\""
   },
   {
     question: "How do you refactor an 'else-if' ladder matching string commands into a Map?",
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Mastering condition ordering prevents subtle range classification defects.",
     hint: "Order highest to lowest; provide fallback else.",
     level: "basic",
-    codeExample: "// Summary: if -> else if -> else if -> else (ordered highest to lowest)"
+    codeExample: "// Summary: if → else if → else if → else (ordered highest to lowest)"
   },
   {
     question: "What is the next topic (Topic 5) in Module 001_004?",

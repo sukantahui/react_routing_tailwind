@@ -5,7 +5,7 @@ const topic17_questions = [
     "explanation": "Grand architectural capstone of Module 008_007.",
     "hint": "exceptionally provides fallback on error; handle transforms/recovers from both result and error; whenComplete executes side-effects without altering values.",
     "level": "Advanced",
-    "codeExample": "future.exceptionally(ex -> fallbackValue).handle((res, err) -> format(res, err));"
+    "codeExample": "future.exceptionally(ex → fallbackValue).handle((res, err) → format(res, err));"
   }
 ];
 

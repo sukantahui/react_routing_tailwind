@@ -12,15 +12,15 @@ Website: https://www.codernaccotax.co.in
 --------------------------------------------------------------------------------
   1. 🔴 RED:
      Write a small, focused test for a new requirement before writing code.
-     Run test -> Verify it FAILS for the expected reason (e.g. function missing).
+     Run test → Verify it FAILS for the expected reason (e.g. function missing).
 
   2. 🟢 GREEN:
      Write the MINIMUM amount of production code to make the test pass.
-     Run test -> Verify it PASSES.
+     Run test → Verify it PASSES.
 
   3. 🔵 REFACTOR:
      Clean up duplication, improve variable names, optimize algorithms.
-     Run test -> Verify suite REMAINS GREEN.
+     Run test → Verify suite REMAINS GREEN.
 
 --------------------------------------------------------------------------------
 2. THE THREE LAWS OF TDD (UNCLE BOB)
@@ -37,7 +37,7 @@ Website: https://www.codernaccotax.co.in
       assert calculate_waiver(score=95.0, fee=10000.0) == 10000.0
 
   # Step 2: Implement Minimum Code (GREEN)
-  def calculate_waiver(score: float, fee: float) -> float:
+  def calculate_waiver(score: float, fee: float) → float:
       if score >= 90.0:
           return fee
       return 0.0

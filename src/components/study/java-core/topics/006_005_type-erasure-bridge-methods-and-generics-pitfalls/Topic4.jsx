@@ -21,7 +21,7 @@ export default function Topic4() {
             Bytecode Disassembly
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Inspecting Bytecode with <code className="text-emerald-400 font-mono">javap -c -v</code>: Observing Erased Types &amp; Bridge Flags
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic4() {
       </section>
 
       <Teacher
-        note="You can verify type erasure with your own eyes by running 'javap -c MyClass.class' in your terminal! You will see that all your <T> types turned into Object or CharSequence in the actual bytecode! — Sukanta Hui"
+        note="You can verify type erasure with your own eyes by running 'javap -c MyClass.class' in your terminal! You will see that all your &lt;T&gt; types turned into Object or CharSequence in the actual bytecode! — Sukanta Hui"
       />
     </div>
   );

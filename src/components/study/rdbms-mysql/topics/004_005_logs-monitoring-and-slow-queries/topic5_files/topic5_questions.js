@@ -221,7 +221,7 @@ ORDER BY order_date DESC LIMIT 10;`
     explanation: "String literal abstraction prevents encoding corruption during digest generation.",
     hint: "String literals are abstracted to 'S', and identifiers remain in UTF-8.",
     level: "basic",
-    codeExample: `# Raw: WHERE name = 'সুস্মিতা' -> Abstracted: WHERE name = 'S'`
+    codeExample: `# Raw: WHERE name = 'সুস্মিতা' → Abstracted: WHERE name = 'S'`
   },
   {
     question: "How do you verify if `mysqldumpslow` is installed and accessible in the system PATH on Linux?",

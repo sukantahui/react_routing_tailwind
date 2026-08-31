@@ -10,7 +10,7 @@ Automating multi-database ETL data extraction into Excel staging sheets is an es
 It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: ETL Pipeline: Extract (ADO SQL / REST API) -> Transform (VBA RAM Array Cleansing) -> Load (CopyFromRecordset / Staging Sheet)
+Operational Architecture: ETL Pipeline: Extract (ADO SQL / REST API) → Transform (VBA RAM Array Cleansing) → Load (CopyFromRecordset / Staging Sheet)
 
 3. CORE TECHNICAL MECHANICS
 1. Heterogeneous Multi-Source Ingestion:
@@ -44,7 +44,7 @@ Operational Architecture: ETL Pipeline: Extract (ADO SQL / REST API) -> Transfor
   Diagnostic Fix: Explicitly close and set connections to Nothing after each source extraction.
 
 6. PRO TIPS & SHORTCUTS
-• Modular ETL Stages (Sub Extract_Source1() -> Sub Transform() -> Sub Load()): Clean modular software architecture.
+• Modular ETL Stages (Sub Extract_Source1() → Sub Transform() → Sub Load()): Clean modular software architecture.
 • Fault-Tolerant Extraction (On Error Resume Next on individual DB calls): Prevents one offline server from crashing the entire pipeline.
 • Dedicated Staging Tab (wsStaging.Visible = xlSheetVeryHidden): Keeps messy background data hidden from executive users.
 ================================================================================

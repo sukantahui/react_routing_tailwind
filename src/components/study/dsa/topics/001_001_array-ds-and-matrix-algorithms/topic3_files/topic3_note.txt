@@ -115,12 +115,12 @@ Ideal For           Very small matrices         Industrial & Large-scale sparse
 6. FAST TRANSPOSE 3-STEP ALGORITHM
 --------------------------------------------------------------------------------
 Step 1: Column Frequency Count (total[Cols]):
-    for (i = 1; i <= K; i++) total[a[i].col]++;            -> O(K)
+    for (i = 1; i <= K; i++) total[a[i].col]++;            → O(K)
 
 Step 2: Prefix-Sum Starting Positions (starting_pos[Cols]):
     starting_pos[0] = 1;
     for (c = 1; c < Cols; c++) 
-        starting_pos[c] = starting_pos[c - 1] + total[c - 1];  -> O(Cols)
+        starting_pos[c] = starting_pos[c - 1] + total[c - 1];  → O(Cols)
 
 Step 3: Single-Pass Direct Migration:
     for (i = 1; i <= K; i++) {
@@ -128,7 +128,7 @@ Step 3: Single-Pass Direct Migration:
         b[j].row = a[i].col;
         b[j].col = a[i].row;
         b[j].val = a[i].val;
-    }                                                      -> O(K)
+    }                                                      → O(K)
 
 Total Time Complexity: O(Cols + NonZero) Linear Time.
 

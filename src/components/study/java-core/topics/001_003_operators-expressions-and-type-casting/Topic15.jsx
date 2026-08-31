@@ -42,7 +42,7 @@ export default function Topic15() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Ternary / Conditional Operator (<code className="text-indigo-400">? :</code>) &amp; Nested Expressions
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -113,8 +113,8 @@ export default function Topic15() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Syntax &amp; Short-Circuit</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#1e1b4b" />
             <text x="55" y="102" fill="#c7d2fe" fontSize="11" fontFamily="monospace">cond ? expr1 : expr2;</text>
-            <text x="55" y="122" fill="#e0e7ff" fontSize="10">If TRUE  &rarr; Evaluates expr1</text>
-            <text x="55" y="142" fill="#e0e7ff" fontSize="10">If FALSE &rarr; Evaluates expr2</text>
+            <text x="55" y="122" fill="#e0e7ff" fontSize="10">If TRUE  → Evaluates expr1</text>
+            <text x="55" y="142" fill="#e0e7ff" fontSize="10">If FALSE → Evaluates expr2</text>
             <text x="160" y="190" fill="#e0e7ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Unselected Branch Skipped
             </text>
@@ -125,7 +125,7 @@ export default function Topic15() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="335" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">true ? 10 : 20.5</text>
             <text x="335" y="122" fill="#e0f2fe" fontSize="10">int (10) vs double (20.5)</text>
-            <text x="335" y="142" fill="#e0f2fe" fontSize="10">&rarr; Promotes to DOUBLE: 10.0</text>
+            <text x="335" y="142" fill="#e0f2fe" fontSize="10">→ Promotes to DOUBLE: 10.0</text>
             <text x="440" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Binary Numeric Promotion
             </text>

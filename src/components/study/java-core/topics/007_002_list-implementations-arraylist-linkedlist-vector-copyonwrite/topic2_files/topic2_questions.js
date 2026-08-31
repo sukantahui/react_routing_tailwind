@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "Standard JDK ArrayList internal growth algorithm.",
     "hint": "'oldCapacity + (oldCapacity >> 1)' increases capacity by 1.5x using bitwise shifting.",
     "level": "Intermediate",
-    "codeExample": "int newCapacity = oldCapacity + (oldCapacity >> 1); // 10 -> 15 -> 22 -> 33"
+    "codeExample": "int newCapacity = oldCapacity + (oldCapacity >> 1); // 10 → 15 → 22 → 33"
   }
 ];
 

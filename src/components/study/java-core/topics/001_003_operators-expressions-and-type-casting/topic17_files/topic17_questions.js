@@ -243,7 +243,7 @@ const questions = [
     explanation: "Topic 18 explores Unary and Binary Numeric Promotion rules in the Java virtual machine.",
     hint: "Automatic type promotion rules.",
     level: "basic",
-    codeExample: "// Topic 18: Automatic Type Promotion (byte/short/char -> int)"
+    codeExample: "// Topic 18: Automatic Type Promotion (byte/short/char → int)"
   }
 ];
 

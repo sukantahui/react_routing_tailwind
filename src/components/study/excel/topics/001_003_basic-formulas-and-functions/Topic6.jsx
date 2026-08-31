@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Comprehensive Laboratory Practice Session: Basic Formulas, Functions and Calculation Auditing
           </h1>
 
@@ -275,7 +275,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Handling_common_er"
+            sheetName="Topic6"
             title="Module 1.3 - Comprehensive Laboratory Practice Session: Basic Formulas, Functions and Calculation Auditing"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -485,7 +485,7 @@ export default function Topic6() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Hardcoded Overwrites in Calculated Columns</td>
                   <td className="py-3 px-4 text-slate-300">Typing a manual constant over a formula cell.</td>
                   <td className="py-3 px-4 text-amber-300">Cell stops updating dynamically when raw inputs change.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Press F5 &amp;rarr; Special &amp;rarr; Constants to identify rogue manual entries in formula columns.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Press F5 → Special → Constants to identify rogue manual entries in formula columns.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">#DIV/0! on Empty Cohort</td>
@@ -559,7 +559,7 @@ export default function Topic6() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does F5 &amp;rarr; Special &amp;rarr; Constants safeguard formula integrity in multi-user accounting teams?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">How does F5 → Special → Constants safeguard formula integrity in multi-user accounting teams?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>

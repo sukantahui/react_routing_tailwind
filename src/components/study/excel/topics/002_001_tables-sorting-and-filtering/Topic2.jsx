@@ -68,7 +68,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Sorting Data: Single-Column, Multi-Level Hierarchy & Custom List Sorting
           </h1>
 
@@ -134,7 +134,7 @@ export default function Topic2() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Custom List Order</td>
                   <td className="py-3 px-4 text-teal-400">Sort Rule</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Custom Order</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Enforces business priority lists (e.g. Critical -&gt; High -&gt; Medium -&gt; Low).</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Enforces business priority lists (e.g. Critical → High → Medium → Low).</td>
                 </tr>
               </tbody>
             </table>
@@ -294,13 +294,13 @@ export default function Topic2() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Customer_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Applied_Sort</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sorted_Position</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">CUST-104</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Region -&gt; Priority -&gt; Date</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Row 4 (Critical Ticket)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">CUST-104</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Region → Priority → Date</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Row 4 (Critical Ticket)</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Sort Dialog -&gt; Add Level -&gt; Custom List</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Sort Dialog → Add Level → Custom List</div>
                 <div className="text-emerald-400 font-semibold">Result: Urgent tickets listed at top.</div>
                 <div className="text-slate-400 text-[11px]">Custom lists enforce operational urgency over alphabetical sort.</div>
               </div>
@@ -316,7 +316,7 @@ export default function Topic2() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Student</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sort_Levels</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Rank</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tuhina Das</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Stream A-Z -&gt; Marks Desc</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Rank 1 (Science)</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Tuhina Das</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Stream A-Z → Marks Desc</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Rank 1 (Science)</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -338,13 +338,13 @@ export default function Topic2() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Sort_Rule</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Alert</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cat A-Z -&gt; Qty Asc</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Re-order Required</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-902</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Cat A-Z → Qty Asc</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Re-order Required</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Level 1 Category -&gt; Level 2 Stock Qty</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Level 1 Category → Level 2 Stock Qty</div>
                 <div className="text-emerald-400 font-semibold">Result: Depleted inventory items listed first.</div>
                 <div className="text-slate-400 text-[11px]">Ascending sort highlights low stock items.</div>
               </div>
@@ -418,7 +418,7 @@ export default function Topic2() {
               <div>
                 <h3 className="text-sm font-bold text-white">Apply Custom List Ordering</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Choose Order -&gt; Custom List -&gt; Type 'Critical, High, Medium, Low' -&gt; Click OK.
+                  Choose Order → Custom List → Type 'Critical, High, Medium, Low' → Click OK.
                 </p>
               </div>
             </div>

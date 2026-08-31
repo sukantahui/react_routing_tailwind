@@ -5,7 +5,7 @@ const topic6_questions = [
     "explanation": "Determines eligibility for scalar replacement and lock elision.",
     "hint": "NoEscape, ArgEscape, and GlobalEscape.",
     "level": "Intermediate",
-    "codeExample": "NoEscape -> Candidate for zero-heap stack allocation."
+    "codeExample": "NoEscape → Candidate for zero-heap stack allocation."
   },
   {
     "question": "What major optimizations does the JIT compiler apply when an object is determined to be NoEscape?",
@@ -13,7 +13,7 @@ const topic6_questions = [
     "explanation": "Eliminates GC pressure and synchronization overhead entirely.",
     "hint": "Scalar Replacement and Lock Elision.",
     "level": "Intermediate",
-    "codeExample": "NoEscape -> Scalar Replacement + Lock Elision"
+    "codeExample": "NoEscape → Scalar Replacement + Lock Elision"
   }
 ];
 

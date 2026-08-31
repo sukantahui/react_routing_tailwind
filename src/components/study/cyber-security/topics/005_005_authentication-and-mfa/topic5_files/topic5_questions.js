@@ -31,7 +31,7 @@ const questions = [
     hint: "Legacy 1975 telecom protocol lacking mutual cryptographic authentication between carrier nodes.",
     level: "Moderate",
     codeExample: `// SS7 Architectural Flaw:
-// Zero Cryptographic Signatures -> Any carrier node trusts messages from any other connected node globally.`
+// Zero Cryptographic Signatures → Any carrier node trusts messages from any other connected node globally.`
   },
   {
     id: 4,
@@ -41,8 +41,8 @@ const questions = [
     hint: "Queries the HLR to leak the victim's IMSI and serving MSC address.",
     level: "Expert",
     codeExample: `// SS7 SRI_SM Flow:
-// Attacker -> [SRI_SM: MSISDN=+919830012345] -> Victim HLR
-// Victim HLR -> Returns: [IMSI: 404450123456789, Serving MSC: 103.220.14.88]`
+// Attacker → [SRI_SM: MSISDN=+919830012345] → Victim HLR
+// Victim HLR → Returns: [IMSI: 404450123456789, Serving MSC: 103.220.14.88]`
   },
   {
     id: 5,
@@ -52,8 +52,8 @@ const questions = [
     hint: "Falsely updates the HLR that the subscriber has roamed to an attacker-controlled mobile switching center.",
     level: "Expert",
     codeExample: `// Spoofed Location Update:
-// Attacker MSC -> [MAP_UPDATE_LOCATION: IMSI=404450..., New_VLR=Attacker_VLR] -> Home HLR
-// Bank sends OTP -> HLR routes SMS to Attacker_VLR in cleartext!`
+// Attacker MSC → [MAP_UPDATE_LOCATION: IMSI=404450..., New_VLR=Attacker_VLR] → Home HLR
+// Bank sends OTP → HLR routes SMS to Attacker_VLR in cleartext!`
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const questions = [
     hint: "Rogue cell tower forcing mobile devices to connect and downgrade to unencrypted 2G GSM.",
     level: "Moderate",
     codeExample: `// IMSI Catcher Attack:
-// Rogue Base Station -> Transmits maximum power GSM signal -> Phone connects -> Forces A5/0 (No Encryption) -> Intercepts SMS OTP.`
+// Rogue Base Station → Transmits maximum power GSM signal → Phone connects → Forces A5/0 (No Encryption) → Intercepts SMS OTP.`
   },
   {
     id: 7,
@@ -86,7 +86,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Email inboxes are vulnerable to phishing, session theft, and unencrypted mail protocols.",
     level: "Basic",
     codeExample: `// Single Point of Failure:
-// Compromised Email Inbox = Password Reset Links + Email OTP Codes -> Total Digital Identity Takeover ❌`
+// Compromised Email Inbox = Password Reset Links + Email OTP Codes → Total Digital Identity Takeover ❌`
   },
   {
     id: 9,
@@ -108,7 +108,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Using telecom forwarding codes (e.g. *21*) to redirect incoming SMS messages to another phone.",
     level: "Moderate",
     codeExample: `// Malicious MMI Code:
-// Attacker instructs victim: "Dial *21*9830099999# to update 5G SIM" -> Unconditionally forwards all SMS OTPs to attacker!`
+// Attacker instructs victim: "Dial *21*9830099999# to update 5G SIM" → Unconditionally forwards all SMS OTPs to attacker!`
   },
   {
     id: 11,
@@ -140,7 +140,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Uses HTTP/2 over TLS 1.3 and ECIES-encrypted SUCI to defeat IMSI catchers and SS7 attacks.",
     level: "Expert",
     codeExample: `// 5G SA Security:
-// Plaintext IMSI (Vulnerable 4G/3G) -> Encrypted SUCI (5G ECIES Curve25519) -> Rogue towers cannot read subscriber ID!`
+// Plaintext IMSI (Vulnerable 4G/3G) → Encrypted SUCI (5G ECIES Curve25519) → Rogue towers cannot read subscriber ID!`
   },
   {
     id: 14,
@@ -162,7 +162,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Immune to SS7 and radio eavesdropping, but still vulnerable if the messaging account is SIM-swapped.",
     level: "Moderate",
     codeExample: `// WhatsApp OTP Delivery:
-// Bank Server -> [Encrypted HTTPS / TLS 1.3] -> Meta WhatsApp API -> Encrypted Push to User Device (No SS7 involved ✔)`
+// Bank Server → [Encrypted HTTPS / TLS 1.3] → Meta WhatsApp API → Encrypted Push to User Device (No SS7 involved ✔)`
   },
   {
     id: 16,
@@ -172,7 +172,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Sudden and permanent loss of cellular signal ('No Service') while in an area with good coverage.",
     level: "Basic",
     codeExample: `// Victim Symptom:
-// Status Bar: [ 🚫 No Service / Emergency Calls Only ] -> Incoming calls/SMS instantly fail.`
+// Status Bar: [ 🚫 No Service / Emergency Calls Only ] → Incoming calls/SMS instantly fail.`
   },
   {
     id: 17,
@@ -182,7 +182,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Exploiting online e-SIM QR code generation sent to a compromised email address.",
     level: "Moderate",
     codeExample: `// e-SIM Attack Vector:
-// Compromised Email -> Attacker requests "Convert to e-SIM" on Airtel/Jio portal -> Scans QR code from email -> Number transferred!`
+// Compromised Email → Attacker requests "Convert to e-SIM" on Airtel/Jio portal → Scans QR code from email → Number transferred!`
   },
   {
     id: 18,
@@ -192,7 +192,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "App-based TOTP relies on local device storage and clocks, not cellular SIM cards.",
     level: "Basic",
     codeExample: `// SIM Swapped: Attacker gets phone number (+91 98300...)
-// User App   : Google Authenticator still holds local Base32 secret on physical phone -> Attacker CANNOT generate valid TOTP codes! ✔`
+// User App   : Google Authenticator still holds local Base32 secret on physical phone → Attacker CANNOT generate valid TOTP codes! ✔`
   },
   {
     id: 19,
@@ -224,7 +224,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "An invisible SMS that triggers no notification but forces the phone to acknowledge receipt, leaking location.",
     level: "Expert",
     codeExample: `// Silent SMS Protocol:
-// TP-PID byte set to 0x40 (Type 0) -> Phone returns delivery report ACK -> Exposes Cell Tower BSSID/Location.`
+// TP-PID byte set to 0x40 (Type 0) → Phone returns delivery report ACK → Exposes Cell Tower BSSID/Location.`
   },
   {
     id: 22,
@@ -234,7 +234,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Requires live biological fingerprint/iris verification against UIDAI to issue replacement SIMs.",
     level: "Basic",
     codeExample: `// In-Person Biometric KYC:
-// Customer touches fingerprint sensor -> Matched with UIDAI central database -> Store system unlocks replacement SIM.`
+// Customer touches fingerprint sensor → Matched with UIDAI central database → Store system unlocks replacement SIM.`
   },
   {
     id: 23,
@@ -244,7 +244,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Cellular SMS travels over mobile radio bands; Wi-Fi Calling uses encrypted IPsec tunnels across local Wi-Fi.",
     level: "Moderate",
     codeExample: `// VoWiFi Architecture:
-// Smartphone -> [Encrypted IPsec Tunnel over local Wi-Fi] -> Carrier ePDG Gateway -> Cellular Core.`
+// Smartphone → [Encrypted IPsec Tunnel over local Wi-Fi] → Carrier ePDG Gateway → Cellular Core.`
   },
   {
     id: 24,
@@ -254,7 +254,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Enforces a 24-hour delay on fund transfers after phone number updates to allow dispute intervention.",
     level: "Basic",
     codeExample: `// Cooling-Off Rule:
-// Mobile updated at 10:00 -> Maximum transfer limit capped at ₹0 for 24 hours -> Security alert sent to old registered channels.`
+// Mobile updated at 10:00 → Maximum transfer limit capped at ₹0 for 24 hours → Security alert sent to old registered channels.`
   },
   {
     id: 25,
@@ -264,7 +264,7 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "Legacy 56-bit DES in older SIM cards can be cracked to execute unauthorized SIM Toolkit applet commands.",
     level: "Expert",
     codeExample: `// Simjacker Exploitation:
-// Binary SMS -> Exploits S@T Browser applet on SIM -> Executes 'SEND_SHORT_MESSAGE' command without user knowledge.`
+// Binary SMS → Exploits S@T Browser applet on SIM → Executes 'SEND_SHORT_MESSAGE' command without user knowledge.`
   },
   {
     id: 26,
@@ -275,7 +275,7 @@ if (simStatus.hoursSinceSwap < 48) {
     level: "Moderate",
     codeExample: `// DLT Template Verification:
 // Sender Header: "AX-SBINB" | Template ID: "10078921"
-// Telecom node verifies blockchain registry -> Message approved for cellular dispatch ✔`
+// Telecom node verifies blockchain registry → Message approved for cellular dispatch ✔`
   },
   {
     id: 27,
@@ -285,8 +285,8 @@ if (simStatus.hoursSinceSwap < 48) {
     hint: "SMS has no origin binding (easily relayed to phishing proxies); FIDO2 binds directly to the domain origin.",
     level: "Basic",
     codeExample: `// Comparison:
-// SMS OTP   : User types '489201' into phishing site 'fake-bank.in' -> Phishing proxy steals it! ❌
-// FIDO2 Push: Cryptographically validates 'https://realbank.com' origin in browser -> Phishing proxy fails! ✔`
+// SMS OTP   : User types '489201' into phishing site 'fake-bank.in' → Phishing proxy steals it! ❌
+// FIDO2 Push: Cryptographically validates 'https://realbank.com' origin in browser → Phishing proxy fails! ✔`
   },
   {
     id: 28,
@@ -298,7 +298,7 @@ if (simStatus.hoursSinceSwap < 48) {
     codeExample: `// Crypto SIM Swap Attack:
 // 1. SIM Swap executed on victim's phone.
 // 2. Attacker resets exchange password via SMS.
-// 3. 15 Bitcoin transferred to attacker wallet -> Irreversible blockchain transfer (Permanent loss).`
+// 3. 15 Bitcoin transferred to attacker wallet → Irreversible blockchain transfer (Permanent loss).`
   },
   {
     id: 29,
@@ -309,7 +309,7 @@ if (simStatus.hoursSinceSwap < 48) {
     level: "Expert",
     codeExample: `// SS7 Silent Interception:
 // Victim's phone shows full 5G signal ✔
-// SMS OTP routed overseas over SS7 MAP network -> Attacker reads code in terminal -> Account breached.`
+// SMS OTP routed overseas over SS7 MAP network → Attacker reads code in terminal → Account breached.`
   },
   {
     id: 30,

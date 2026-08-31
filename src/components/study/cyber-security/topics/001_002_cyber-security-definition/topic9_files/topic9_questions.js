@@ -56,7 +56,7 @@ const questions = [
     explanation: "Modern aviation enforces Traffic Collision Avoidance System (TCAS) and multi-lateration primary radar correlation in Kolkata.",
     hint: "Transmitting fake radar signals to create ghost airplanes on air traffic controllers' screens.",
     level: "expert",
-    codeExample: "ATC_Defense: CrossVerify(ADSB_Packet, PrimaryRadarSkinEcho, MultiLaterationTimestamp) -> DropsGhostAircraft"
+    codeExample: "ATC_Defense: CrossVerify(ADSB_Packet, PrimaryRadarSkinEcho, MultiLaterationTimestamp) → DropsGhostAircraft"
   },
   {
     question: "What is Terrorist Darknet Financing & Cryptocurrency Tumbling (Monero/Tornado Cash)?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "Law enforcement agencies in Jadavpur deploy AI chain-analytics and KYC cluster tracing to unmask darknet funding nodes.",
     hint: "Using privacy cryptocurrencies and coin mixers to secretly fund terrorist operations.",
     level: "moderate",
-    codeExample: "CryptoTracing: ClusterGraphAnalysis(TumbledInputs) -> TraceMuleWallets() -> IdentifiesCashOutExchange"
+    codeExample: "CryptoTracing: ClusterGraphAnalysis(TumbledInputs) → TraceMuleWallets() → IdentifiesCashOutExchange"
   },
   {
     question: "How do cyber terrorists target Nuclear Power Plant Cooling and Safety Systems?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "Indian nuclear installations enforce physical air-gaps, dedicated private fiber backbones, and analog gravity-drop control rods.",
     hint: "Targeting nuclear cooling pumps; defended by gravity-drop control rods that need no electricity.",
     level: "expert",
-    codeExample: "NuclearSafety: GravityDropControlRods() -> Failsafe trips automatically upon loss of power (Zero Code Dependency)"
+    codeExample: "NuclearSafety: GravityDropControlRods() → Failsafe trips automatically upon loss of power (Zero Code Dependency)"
   },
   {
     question: "What is Cyber Radicalization & Online Recruitment across encrypted messaging platforms?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "National intelligence units monitor public darknet recruitment gateways across West Bengal.",
     hint: "Using encrypted chat apps and propaganda videos to brainwash and recruit lone-wolf attackers.",
     level: "basic",
-    codeExample: "RadicalizationVector: DarkWebPortal -> EncryptedTelegramGroup -> PsychologicalGrooming -> LoneWolfAttack"
+    codeExample: "RadicalizationVector: DarkWebPortal → EncryptedTelegramGroup → PsychologicalGrooming → LoneWolfAttack"
   },
   {
     question: "What is a 'Dirty Bomb' Hoax and Cognitive Cyber Panic warfare?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "Combats cognitive panic by deploying cryptographically signed sensor telemetry and official verified SMS broadcasts in Kolkata.",
     hint: "Hacking radiation sensor dashboards to show fake nuclear leaks, causing city-wide evacuation stampedes.",
     level: "moderate",
-    codeExample: "SensorAuthentication: RadiationSensor.signHMAC(SecretKey) -> Dashboard verifies authenticity before display."
+    codeExample: "SensorAuthentication: RadiationSensor.signHMAC(SecretKey) → Dashboard verifies authenticity before display."
   },
   {
     question: "How does the Unlawful Activities (Prevention) Act (UAPA) in India intersect with Cyber Terrorism?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Prevents emergency services from coordinating ambulance triage in Kolkata.",
     hint: "Coordinated cyber attacks taking down cell towers and ambulance lines during a physical bomb attack.",
     level: "expert",
-    codeExample: "DDoI_Scenario: PhysicalExplosion + Concurrent_5G_Tower_DDoS_Flood -> ParalyzesFirstResponders"
+    codeExample: "DDoI_Scenario: PhysicalExplosion + Concurrent_5G_Tower_DDoS_Flood → ParalyzesFirstResponders"
   },
   {
     question: "What is Lone-Wolf Cyber Terrorism and why is it difficult to detect?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "Leaves no organizational communication footprint, requiring behavioral anomaly detection on public infrastructure in Jadavpur.",
     hint: "A single radicalized person working alone from their bedroom using downloaded hacking tools.",
     level: "basic",
-    codeExample: "LoneWolfProfile: SelfRadicalized -> NoOrganizationalHierarchy -> LaunchesDisruptiveSCADAAttack"
+    codeExample: "LoneWolfProfile: SelfRadicalized → NoOrganizationalHierarchy → LaunchesDisruptiveSCADAAttack"
   },
   {
     question: "How do cyber terrorists target Chemical and Petroleum Refinery Storage Facilities?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Defended by enforcing physical mechanical rupture discs and strict SIS network isolation in Barrackpore.",
     hint: "Disabling refinery pressure relief valves using malware to cause chemical plant explosions.",
     level: "expert",
-    codeExample: "TRITON_Malware_Target: OverwriteTriconexSafetyLogic() -> SuppressEmergencyFlare() -> VaporCloudExplosion"
+    codeExample: "TRITON_Malware_Target: OverwriteTriconexSafetyLogic() → SuppressEmergencyFlare() → VaporCloudExplosion"
   },
   {
     question: "What is Dark Web Threat Intelligence & Extremist Forum Scraping?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "Alerts state security agencies in Kolkata before terror campaigns are launched.",
     hint: "Monitoring dark web hacker forums to spot planned terrorist attacks before they happen.",
     level: "moderate",
-    codeExample: "DarknetScraper: IngestTorForumPosts() -> MatchKeywords(['PowerGrid', 'Substation', 'TargetList']) -> AlertIntelligence();"
+    codeExample: "DarknetScraper: IngestTorForumPosts() → MatchKeywords(['PowerGrid', 'Substation', 'TargetList']) → AlertIntelligence();"
   },
   {
     question: "What is a 'Cyber Sleeper Cell' in digital terrorism networks?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Requires continuous proactive threat hunting and baseline anomaly analytics in Ichapur.",
     hint: "Dormant malware implants waiting quietly inside government networks for years until triggered.",
     level: "moderate",
-    codeExample: "SleeperCell: ImplantedIn2022 -> ZeroOutboundBeacons -> WokenIn2026ViaSteganographicDNSQuery"
+    codeExample: "SleeperCell: ImplantedIn2022 → ZeroOutboundBeacons → WokenIn2026ViaSteganographicDNSQuery"
   },
   {
     question: "What is Maritime Port Automation & Container Terminal Sabotage?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "Guarantees that shipping operations across coastal Bengal ports operate with tamper-proof sensor telemetry.",
     hint: "Hacking automated shipping cranes to stop container ships from loading grain and fuel.",
     level: "moderate",
-    codeExample: "PortSabotage: AlterContainerWeightTelemetry() -> OverloadsPortCrane -> ParalyzesContainerBerth"
+    codeExample: "PortSabotage: AlterContainerWeightTelemetry() → OverloadsPortCrane → ParalyzesContainerBerth"
   },
   {
     question: "What is Cyber-Physical Convergence in critical municipal infrastructure defense?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Discovered using statistical chi-square steganalysis tools in Jadavpur forensic laboratories.",
     hint: "Hiding secret terrorist messages inside ordinary digital photos posted on social media.",
     level: "moderate",
-    codeExample: "Steganography: SecretMessage --LSB_Insertion--> InnocentDogPhoto.jpg -> PostedOnPublicInstagram"
+    codeExample: "Steganography: SecretMessage --LSB_Insertion--> InnocentDogPhoto.jpg → PostedOnPublicInstagram"
   },
   {
     question: "What is Civil Defense Cyber Preparedness and City-Wide Cyber Drills?",
@@ -184,7 +184,7 @@ const questions = [
     explanation: "Conducted annually across Kolkata to ensure rapid recovery during simulated grid collapses.",
     hint: "Practice emergency drills where cities test how police, hospitals, and power plants handle a cyber attack.",
     level: "basic",
-    codeExample: "CyberDrill_Scenario: 'Simultaneous Power Blackout + Water Telemetry Hijack' -> MeasuresRestoreTime"
+    codeExample: "CyberDrill_Scenario: 'Simultaneous Power Blackout + Water Telemetry Hijack' → MeasuresRestoreTime"
   },
   {
     question: "What is Aviation Fly-by-Wire Flight Control Cyber Sabotage?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Indian Railways enforces Euroradio cryptographic authentication and fail-safe mechanical track relays across West Bengal.",
     hint: "Hacking railway signals to show green on occupied tracks; stopped by fail-safe track relays.",
     level: "expert",
-    codeExample: "RailwaySafety: SignalCommand.verifyHMAC(CryptoKey) -> TracksideRelay validates track circuit occupancy before green."
+    codeExample: "RailwaySafety: SignalCommand.verifyHMAC(CryptoKey) → TracksideRelay validates track circuit occupancy before green."
   },
   {
     question: "What is Counter-Terrorist Cyber Operations (Offensive Disruption)?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Conducted by sovereign national intelligence and defense agencies in India.",
     hint: "Government intelligence agencies hacking into terrorist servers to shut down their websites and seize funds.",
     level: "moderate",
-    codeExample: "CounterOperation: Infiltrate_Darknet_Server() -> Seize_Admin_DB() -> Dismantle_Recruitment_Ring"
+    codeExample: "CounterOperation: Infiltrate_Darknet_Server() → Seize_Admin_DB() → Dismantle_Recruitment_Ring"
   },
   {
     question: "What is the Psychological Terror Dimension of Cyber Attacks on Healthcare?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "Treated under Section 66F of the IT Act (Cyber Terrorism) rather than standard commercial extortion in Barrackpore.",
     hint: "Terrorists using ransomware to lock municipal utilities to raise money and paralyze city services.",
     level: "moderate",
-    codeExample: "TerrorRansomware: LocksCityWaterUtility -> Demands₹50Lakh -> ChargedUnder(IT_Act_Sec66F_LifeImprisonment)"
+    codeExample: "TerrorRansomware: LocksCityWaterUtility → Demands₹50Lakh → ChargedUnder(IT_Act_Sec66F_LifeImprisonment)"
   },
   {
     question: "What is the Role of Public-Private Partnerships (PPP) in Countering Cyber Terrorism?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures ideological motivations, life-critical infrastructure defense, statutory non-bailable prosecution, and municipal budgeting.",
     hint: "Ideological terror + Physical analog interlocks + Section 66F Life Imprisonment + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ProtectCriticalInfrastructure() -> DeployPhysicalAnalogInterlocks() -> EnforceSec66F_LifeImprisonment() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: ProtectCriticalInfrastructure() → DeployPhysicalAnalogInterlocks() → EnforceSec66F_LifeImprisonment() → BudgetInRupees(₹);"
   }
 ];
 

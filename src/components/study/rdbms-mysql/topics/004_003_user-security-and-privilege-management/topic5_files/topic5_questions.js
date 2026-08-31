@@ -6,7 +6,7 @@ const questions = [
     question: "What are the 5 granular privilege levels in MySQL 8.0, from broadest to most specific?",
     shortAnswer: "1. Global (*.*), 2. Database (db.*), 3. Table (db.table), 4. Column (db.table(col1, col2)), and 5. Routine (PROCEDURE / FUNCTION).",
     explanation: "MySQL's access control subsystem operates across five distinct scope boundaries. A privilege granted at a higher tier automatically encompasses all lower objects in that scope. For example, `SELECT ON *.*` grants read access to all databases, tables, and columns server-wide.",
-    hint: "Think of the hierarchy: Server -> Database -> Table -> Column / Stored Routine.",
+    hint: "Think of the hierarchy: Server → Database → Table → Column / Stored Routine.",
     level: "basic",
     codeExample: `-- The 5 privilege scopes:
 GRANT SELECT ON *.* TO 'global_user'@'%';                 -- 1. Global
@@ -29,11 +29,11 @@ SELECT User, Host, Db, Routine_name, Routine_type, Proc_priv FROM mysql.procs_pr
   },
   {
     question: "How does the MySQL authorization engine evaluate permissions when a user executes a `SELECT` query?",
-    shortAnswer: "It performs an upward-breadth seek: checking Global (mysql.user) -> Database (mysql.db) -> Table (mysql.tables_priv) -> Column (mysql.columns_priv), granting access as soon as a matching tier is found.",
+    shortAnswer: "It performs an upward-breadth seek: checking Global (mysql.user) → Database (mysql.db) → Table (mysql.tables_priv) → Column (mysql.columns_priv), granting access as soon as a matching tier is found.",
     explanation: "If the user has `SELECT` in `mysql.user`, MySQL approves the query immediately without checking lower tables. If not, it checks `mysql.db`. If not present there, it checks `mysql.tables_priv`. Finally, it checks `mysql.columns_priv` for the specific requested columns. If no level matches, it returns Error 1142.",
     hint: "Follow the cascading check from Global down to Column.",
     level: "intermediate",
-    codeExample: `-- Flow: mysql.user -> mysql.db -> mysql.tables_priv -> mysql.columns_priv`
+    codeExample: `-- Flow: mysql.user → mysql.db → mysql.tables_priv → mysql.columns_priv`
   },
   {
     question: "Why can't `DELETE`, `TRIGGER`, `INDEX`, or `ALTER` privileges be granted at the Column level in MySQL?",

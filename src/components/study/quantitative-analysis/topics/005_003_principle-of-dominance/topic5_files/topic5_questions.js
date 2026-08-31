@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Step-by-Step Dominance Reduction Examples?",
     shortAnswer: "'Execute dominance reduction pass-by-pass: prune smaller rows, prune larger columns, re-evaluate cascading dominances, solve the surviving 2x2/1x1 game, and reconstruct the full strategy vectors in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all practical step-by-step reduction steps.",
-    hint: "Pass-by-pass reduction -> Prune smaller rows, larger cols -> Reconstruct full vectors in ₹.",
+    hint: "Pass-by-pass reduction → Prune smaller rows, larger cols → Reconstruct full vectors in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: PassByPassReduction() -> SolveSubMatrix() -> ReconstructFullVectors(₹)."
+    codeExample: "GoldenRule: PassByPassReduction() → SolveSubMatrix() → ReconstructFullVectors(₹)."
   }
 ];
 

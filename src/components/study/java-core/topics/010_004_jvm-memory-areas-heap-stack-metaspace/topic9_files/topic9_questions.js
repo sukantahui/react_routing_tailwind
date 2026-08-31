@@ -5,7 +5,7 @@ const topic9_questions = [
     "explanation": "Ensures zero memory fragmentation in the Young Generation.",
     "hint": "Because all live objects are copied into the target Survivor space.",
     "level": "Intermediate",
-    "codeExample": "Eden + S0 (From) -> Copied to S1 (To) -> S0 becomes empty"
+    "codeExample": "Eden + S0 (From) → Copied to S1 (To) → S0 becomes empty"
   },
   {
     "question": "What JVM flag configures the size ratio between Eden and Survivor spaces?",

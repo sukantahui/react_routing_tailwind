@@ -57,8 +57,8 @@ Outcome: Even if the database storage volume is leaked, data is 100% UNREADABLE 
     hint: "Think of changing the physical lock on a delivery van for every single package delivery.",
     level: "moderate",
     codeExample: `// Security Compartmentalization via Ephemeral Keys:
-Transaction 1: K_session_1 = CSPRNG() -> Encrypts Invoice #101 (Only Invoice #101 at risk)
-Transaction 2: K_session_2 = CSPRNG() -> Encrypts Invoice #102 (Protected by distinct key)
+Transaction 1: K_session_1 = CSPRNG() → Encrypts Invoice #101 (Only Invoice #101 at risk)
+Transaction 2: K_session_2 = CSPRNG() → Encrypts Invoice #102 (Protected by distinct key)
 Static Key Flaw: 1 Leaked Key = 10,000,000 Stolen Customer Files (CATASTROPHIC BREACH!)`
   },
   {
@@ -124,7 +124,7 @@ Hybrid RSA-AES: RSA Wrap (1.1 ms) + AES-GCM (0.595 s) = ~0.60 Seconds (2,600x FA
     codeExample: `// DPDP Act Cryptographic Erasure via Envelope Encryption:
 Requirement: Right to Erasure / Secure Data Decommissioning
 Action:      Delete Master RSA Key in HSM
-Outcome:     All encrypted DEKs become permanently unrecoverable -> Petabytes of Cloud Backups SHREDDED in 0.01 seconds!`
+Outcome:     All encrypted DEKs become permanently unrecoverable → Petabytes of Cloud Backups SHREDDED in 0.01 seconds!`
   },
   {
     question: "What is a 'Key Re-Wrapping' operation in hybrid envelope architectures, and how does it enable key rotation without re-encrypting petabytes of data?",

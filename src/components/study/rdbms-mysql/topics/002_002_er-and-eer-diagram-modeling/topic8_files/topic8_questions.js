@@ -95,7 +95,7 @@ const questions = [
   },
   {
     question: "Can a subclass itself act as a superclass for further lower-level subclasses (Multi-Level Specialization Hierarchy)?",
-    shortAnswer: "Yes (e.g. `Person` -> `Employee` -> `Engineering_Manager`), creating multi-level inheritance trees.",
+    shortAnswer: "Yes (e.g. `Person` → `Employee` → `Engineering_Manager`), creating multi-level inheritance trees.",
     explanation: "Inheritance cascades down through all ancestor levels.",
     hint: "Multi-level specialization trees.",
     level: "moderate"

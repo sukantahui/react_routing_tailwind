@@ -13,7 +13,7 @@ const topic15_questions = [
     "explanation": "This allows seamless integration with parallel reductions.",
     "hint": "Uses combine() to merge stats across parallel worker threads.",
     "level": "Advanced",
-    "codeExample": "stream.parallel().mapToDouble(x -> x).summaryStatistics();"
+    "codeExample": "stream.parallel().mapToDouble(x → x).summaryStatistics();"
   }
 ];
 

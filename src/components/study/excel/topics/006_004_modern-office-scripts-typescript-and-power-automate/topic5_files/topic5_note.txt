@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Always write your data in ONE shot! Build your 2D array in TypeScript, create a matching range with `ws.getRangeByIndexes(0, 0, rows.length, rows[0].length)`, and call `.setValues(rows)`. It finishes in half a second.
 
 COMMON TRAPS TO AVOID:
-- Dimensions Mismatch Between Array and Range (Fatal Error): Trying to write a 5x2 array into a 10x2 range throws runtime error. -> Fix: Size the target range dynamically using array dimensions: `ws.getRangeByIndexes(0, 0, arr.length, arr[0].length).setValues(arr)`.
-- Writing Cell-by-Cell in a Loop (Cloud Latency): Calling `range.setValue()` 1,000 times across network round-trips makes cloud scripts crawl. -> Fix: Always read all data into a 2D array, modify in RAM, and call `setValues()` once.
-- Invalid Hex Color String Format: Passing invalid color like `"blue-dark"` instead of `#0284c7` throws format error. -> Fix: Use standard 6-digit hex color strings (`#0284c7`).
+- Dimensions Mismatch Between Array and Range (Fatal Error): Trying to write a 5x2 array into a 10x2 range throws runtime error. → Fix: Size the target range dynamically using array dimensions: `ws.getRangeByIndexes(0, 0, arr.length, arr[0].length).setValues(arr)`.
+- Writing Cell-by-Cell in a Loop (Cloud Latency): Calling `range.setValue()` 1,000 times across network round-trips makes cloud scripts crawl. → Fix: Always read all data into a 2D array, modify in RAM, and call `setValues()` once.
+- Invalid Hex Color String Format: Passing invalid color like `"blue-dark"` instead of `#0284c7` throws format error. → Fix: Use standard 6-digit hex color strings (`#0284c7`).
 ================================================================================

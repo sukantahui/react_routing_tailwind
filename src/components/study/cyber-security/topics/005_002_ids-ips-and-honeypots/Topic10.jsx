@@ -75,7 +75,7 @@ const Topic10 = () => {
       label: "Ingress Exploit: External Attacker attacks Decoy Domain Controller (Port 445 SMB)",
       srcIp: "198.51.100.22",
       dstIp: "172.20.1.10 (Decoy AD DC)",
-      direction: "Ingress -> Honeynet",
+      direction: "Ingress → Honeynet",
       isOutbound: false,
       payload: "SMB2 EternalBlue Exploit Probe"
     },
@@ -84,7 +84,7 @@ const Topic10 = () => {
       label: "Lateral Pivot Attempt: Compromised Honeypot attempts SSH into Real Database (10.10.1.50)",
       srcIp: "172.20.1.10 (Compromised Honeynet VM)",
       dstIp: "10.10.1.50 (REAL Production Database)",
-      direction: "Outbound -> Internal RFC 1918",
+      direction: "Outbound → Internal RFC 1918",
       isOutbound: true,
       payload: "SSH SYN Connect to Production Database"
     },
@@ -93,7 +93,7 @@ const Topic10 = () => {
       label: "Outbound DDoS Flood: Compromised Honeypot attempts UDP Flood to External Target",
       srcIp: "172.20.1.10 (Compromised Honeynet VM)",
       dstIp: "203.0.113.80 (External Internet Host)",
-      direction: "Outbound -> Internet",
+      direction: "Outbound → Internet",
       isOutbound: true,
       payload: "High-Volume UDP Flood Packet Stream"
     }
@@ -198,7 +198,7 @@ const Topic10 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold uppercase tracking-wider">
             <span>🛡️ Module 005_002 • Topic 10</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Honeynets &amp; Production vs Research Honeypots
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">

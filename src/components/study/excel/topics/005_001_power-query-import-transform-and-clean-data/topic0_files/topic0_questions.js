@@ -10,15 +10,15 @@ const questions = [
     explanation: "Allows business analysts to connect to heterogeneous sources, transform data via repeatable visual steps, and load clean models without code.",
     hint: "Automated ETL and data preparation engine.",
     level: "basic",
-    codeExample: "Excel Ribbon &rarr; Data Tab &rarr; Get Data (Power Query)"
+    codeExample: "Excel Ribbon → Data Tab → Get Data (Power Query)"
   },
   {
     question: "What do the letters ETL stand for in modern enterprise data architecture?",
     shortAnswer: "Extract, Transform, and Load.",
     explanation: "Extract: ingest raw data; Transform: clean, filter, and reshape; Load: output to tables or data models.",
-    hint: "Extract &rarr; Transform &rarr; Load.",
+    hint: "Extract → Transform → Load.",
     level: "basic",
-    codeExample: "Extract &rarr; Transform &rarr; Load"
+    codeExample: "Extract → Transform → Load"
   },
   {
     question: "What underlying programming language powers all Power Query transformations?",
@@ -34,7 +34,7 @@ const questions = [
     explanation: "Guarantees raw data immutability and complete forensic audit trails.",
     hint: "Raw source files remain completely untouched.",
     level: "basic",
-    codeExample: "Source File (Read-Only) &rarr; Memory Stream &rarr; Output Model"
+    codeExample: "Source File (Read-Only) → Memory Stream → Output Model"
   },
   {
     question: "What is the 'Applied Steps' pane in the Power Query Editor?",
@@ -42,7 +42,7 @@ const questions = [
     explanation: "Allows analysts to reorder, delete, edit, or inspect intermediate data states like a recorded cooking recipe.",
     hint: "Sequential transformation recipe pane.",
     level: "basic",
-    codeExample: "Source &rarr; Promoted Headers &rarr; Changed Type &rarr; Filtered Rows"
+    codeExample: "Source → Promoted Headers → Changed Type → Filtered Rows"
   },
   {
     question: "How does Power Query compare with legacy VBA macros for data cleaning?",
@@ -58,7 +58,7 @@ const questions = [
     explanation: "Entire multi-file ETL pipelines update in seconds with a single click.",
     hint: "Replays recorded Applied Steps on fresh source data.",
     level: "basic",
-    codeExample: "Excel Ribbon &rarr; Data Tab &rarr; Refresh All (Ctrl + Alt + F5)"
+    codeExample: "Excel Ribbon → Data Tab → Refresh All (Ctrl + Alt + F5)"
   },
   {
     question: "What are the 3 primary 'Close & Load' destination options in Power Query?",
@@ -66,7 +66,7 @@ const questions = [
     explanation: "Connection Only saves RAM, Table dumps to grid, and Data Model connects to Power Pivot VertiPaq.",
     hint: "Table, Only Create Connection, and Add to Data Model.",
     level: "moderate",
-    codeExample: "Close & Load &rarr; Close & Load To..."
+    codeExample: "Close & Load → Close & Load To..."
   },
   {
     question: "What is Query Folding in Power Query?",
@@ -74,7 +74,7 @@ const questions = [
     explanation: "Dramatically reduces network traffic and speeds up execution by offloading work to database servers.",
     hint: "Translates M steps into server-side SQL.",
     level: "expert",
-    codeExample: "M Filter Step &rarr; Server SQL: WHERE [Status] = 'Active'"
+    codeExample: "M Filter Step → Server SQL: WHERE [Status] = 'Active'"
   },
   {
     question: "Can Power Query connect to multiple different file formats (e.g. SQL Server, CSV, Excel, Web API) within the same workbook?",
@@ -82,7 +82,7 @@ const questions = [
     explanation: "Acts as a universal data gateway across enterprise silos.",
     hint: "Universal heterogeneous data ingestion.",
     level: "basic",
-    codeExample: "SQL + CSV + Web API &rarr; Unified Fact Table"
+    codeExample: "SQL + CSV + Web API → Unified Fact Table"
   },
   {
     question: "What is the difference between Power Query and Power Pivot?",
@@ -90,15 +90,15 @@ const questions = [
     explanation: "Power Query prepares the food; Power Pivot hosts the dinner.",
     hint: "Power Query = ETL / Cleaning; Power Pivot = Data Modeling & DAX.",
     level: "moderate",
-    codeExample: "Power Query (ETL) &rarr; Data Model &rarr; Power Pivot (DAX)"
+    codeExample: "Power Query (ETL) → Data Model → Power Pivot (DAX)"
   },
   {
     question: "Where is the Power Query button located in Microsoft Excel 2016, 2019, 2021, and 365?",
     shortAnswer: "On the Ribbon under the 'Data' tab, in the 'Get & Transform Data' group.",
     explanation: "Fully built-in native feature in modern Excel.",
-    hint: "Data Tab &rarr; Get & Transform Data.",
+    hint: "Data Tab → Get & Transform Data.",
     level: "basic",
-    codeExample: "Data &rarr; Get Data"
+    codeExample: "Data → Get Data"
   },
   {
     question: "What is a 'Connection Only' query, and when should you use it?",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "Prevents worksheet row limit issues and saves megabytes of RAM.",
     hint: "Defines query in memory without loading rows onto grid.",
     level: "moderate",
-    codeExample: "Close & Load To &rarr; Only Create Connection"
+    codeExample: "Close & Load To → Only Create Connection"
   },
   {
     question: "How does Power Query handle data volumes exceeding Excel's 1,048,576 row worksheet limit?",
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Enables advanced formula adjustments beyond standard GUI ribbon buttons.",
     hint: "Displays and edits underlying M code.",
     level: "basic",
-    codeExample: "View Tab &rarr; Check 'Formula Bar'"
+    codeExample: "View Tab → Check 'Formula Bar'"
   },
   {
     question: "Why is Power Query essential for modern financial reporting and tax audits?",
@@ -144,9 +144,9 @@ const questions = [
     question: "Can you rename Applied Steps in Power Query to make the recipe readable for auditors?",
     shortAnswer: "Yes, right-click any step and select 'Rename' or press F2 to give it a descriptive business name.",
     explanation: "Best practice for enterprise governance and documentation.",
-    hint: "Right-click step &rarr; Rename (or press F2).",
+    hint: "Right-click step → Rename (or press F2).",
     level: "basic",
-    codeExample: "#\"Changed Type\" &rarr; #\"Coerce Amount To Numeric\""
+    codeExample: "#\"Changed Type\" → #\"Coerce Amount To Numeric\""
   },
   {
     question: "What is the function of the 'Queries Pane' on the left side of the Power Query Editor?",
@@ -162,7 +162,7 @@ const questions = [
     explanation: "Adding a new month's file to the folder automatically includes it upon clicking Refresh.",
     hint: "Auto-stacks all files in a folder into 1 master table.",
     level: "advanced",
-    codeExample: "Get Data &rarr; From File &rarr; From Folder"
+    codeExample: "Get Data → From File → From Folder"
   },
   {
     question: "Is M code case-sensitive in Power Query?",
@@ -178,13 +178,13 @@ const questions = [
     explanation: "Enterprise security architecture protecting database credentials and confidential streams.",
     hint: "Privacy Levels: Public, Organizational, Private.",
     level: "expert",
-    codeExample: "Data &rarr; Data Source Settings &rarr; Edit Permissions &rarr; Privacy Level"
+    codeExample: "Data → Data Source Settings → Edit Permissions → Privacy Level"
   },
   {
     question: "What is the Advanced Editor in Power Query?",
     shortAnswer: "A full-screen code editor window that displays the entire complete M script (`let ... in ...`) for the active query.",
     explanation: "Used by power users to copy, paste, debug, and author complex custom M ETL pipelines.",
-    hint: "Home Tab &rarr; Advanced Editor (Full M Script).",
+    hint: "Home Tab → Advanced Editor (Full M Script).",
     level: "advanced",
     codeExample: "let Source = ..., Clean = ... in Clean"
   },
@@ -192,9 +192,9 @@ const questions = [
     question: "Can Power Query extract and clean data from HTML tables on public websites?",
     shortAnswer: "Yes, using the 'From Web' connector, Power Query parses web pages and isolates structured HTML tables automatically.",
     explanation: "Ideal for scraping exchange rates, economic indicators, and stock indices.",
-    hint: "Get Data &rarr; From Web.",
+    hint: "Get Data → From Web.",
     level: "basic",
-    codeExample: "Get Data &rarr; From Web &rarr; Enter URL"
+    codeExample: "Get Data → From Web → Enter URL"
   },
   {
     question: "What is the purpose of the 'Promote Headers' transformation?",
@@ -222,7 +222,7 @@ const questions = [
   },
   {
     question: "What is the keyboard shortcut to open the Power Query Editor in Microsoft Excel?",
-    shortAnswer: "Press Alt + F12 (or Alt &rarr; A &rarr; P &rarr; N in sequence).",
+    shortAnswer: "Press Alt + F12 (or Alt → A → P → N in sequence).",
     explanation: "Instant shortcut to launch the editor window.",
     hint: "Alt + F12.",
     level: "basic",
@@ -234,7 +234,7 @@ const questions = [
     explanation: "If 'View Native Query' is greyed out, query folding has stopped at that step.",
     hint: "Shows SQL generated by Query Folding.",
     level: "expert",
-    codeExample: "Right-Click Step &rarr; View Native Query"
+    codeExample: "Right-Click Step → View Native Query"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Power Query ETL architecture?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Power Query represents the single greatest productivity leap in modern spreadsheet history!",
     hint: "Automated Repeatable Applied Steps + Non-Destructive Ingestion = Single-Click Enterprise Reporting!",
     level: "expert",
-    codeExample: "Rule: Data Ingestion &rarr; Deploy Power Query Automated ETL Pipelines!"
+    codeExample: "Rule: Data Ingestion → Deploy Power Query Automated ETL Pipelines!"
   }
 ];
 

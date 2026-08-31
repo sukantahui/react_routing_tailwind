@@ -40,7 +40,7 @@ const questions = [
     explanation: "Every sorting array passed to `SORTBY` must have the exact same number of rows (or columns) as the primary data array. If `array` is 20 rows and `by_array` is 25 rows, `#VALUE!` is raised.",
     hint: "All by_arrays must match the row height of the source array.",
     level: "basic",
-    codeExample: "// A2:C20 (19 rows) vs D2:D25 (24 rows) -> #VALUE!"
+    codeExample: "// A2:C20 (19 rows) vs D2:D25 (24 rows) → #VALUE!"
   },
   {
     question: "How do you sort data based on a custom non-alphabetical list order (e.g. High, Medium, Low) using SORTBY?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "In complex corporate HR systems across Barrackpore, Shyamnagar, and Kolkata, `SORTBY` organizes entire payroll rosters into structured management hierarchies with 100% calculation reliability.",
     hint: "SORTBY enables multi-tiered enterprise hierarchy structuring with zero VBA.",
     level: "expert",
-    codeExample: "// Hierarchy: Division (Asc) -> Grade (Custom Match) -> CTC (Desc)"
+    codeExample: "// Hierarchy: Division (Asc) → Grade (Custom Match) → CTC (Desc)"
   }
 ];
 

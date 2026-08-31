@@ -128,7 +128,7 @@ FROM performance_schema.replication_applier_status_by_worker;`,
             Topic 9 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Multi-Threaded Slave</span> (MTS) &amp; <span className="text-cyan-400">Parallel Replication</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

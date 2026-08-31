@@ -21,7 +21,7 @@ export default function Topic5() {
             Encoding Architecture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Character Encodings &amp; Charsets: <code className="text-emerald-400 font-mono">UTF-8</code>, <code className="text-sky-400 font-mono">UTF-16</code>, <code className="text-amber-400 font-mono">ASCII</code> &amp; <code className="text-purple-400 font-mono">ISO-8859-1</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

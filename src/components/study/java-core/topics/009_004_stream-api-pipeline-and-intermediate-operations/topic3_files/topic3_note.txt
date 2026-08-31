@@ -15,7 +15,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    Explicit Values          Stream.of(v1, v2, ...)             Stream.of("A", "B")
    Nullable Value (Java 9)  Stream.ofNullable(val)             Stream.ofNullable(str)
    Stream Builder           Stream.builder().add().build()     Stream.<T>builder()...
-   Infinite Sequence        Stream.iterate(seed, operator)     Stream.iterate(0, n -> n+2)
+   Infinite Sequence        Stream.iterate(seed, operator)     Stream.iterate(0, n → n+2)
    Infinite Generator       Stream.generate(supplier)          Stream.generate(Math::random)
    Primitive Range          IntStream.range(from, to)          IntStream.range(1, 100)
    Lines of File (NIO.2)    Files.lines(path)                  Files.lines(Paths.get("data.txt"))

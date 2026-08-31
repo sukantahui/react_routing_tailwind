@@ -17,9 +17,9 @@ const questions = [
   },
   {
     question: "What is the strict declaration order required inside a `BEGIN ... END` block in MySQL?",
-    shortAnswer: "1. Local Variables -> 2. Named Conditions -> 3. Cursors -> 4. Handlers -> 5. Executable procedural statements.",
+    shortAnswer: "1. Local Variables → 2. Named Conditions → 3. Cursors → 4. Handlers → 5. Executable procedural statements.",
     explanation: "MySQL declaration ordering grammar rules.",
-    hint: "Variables -> Conditions -> Cursors -> Handlers -> Statements.",
+    hint: "Variables → Conditions → Cursors → Handlers → Statements.",
     level: "basic"
   },
   {
@@ -129,7 +129,7 @@ const questions = [
   },
   {
     question: "Why should handlers be declared AFTER cursors?",
-    shortAnswer: "MySQL syntax parser strictly enforces the order: Variables -> Conditions -> Cursors -> Handlers. Violating this order throws a syntax error.",
+    shortAnswer: "MySQL syntax parser strictly enforces the order: Variables → Conditions → Cursors → Handlers. Violating this order throws a syntax error.",
     explanation: "Grammar requirement in MySQL procedural SQL.",
     hint: "MySQL parser grammar requires cursors before handlers.",
     level: "basic"

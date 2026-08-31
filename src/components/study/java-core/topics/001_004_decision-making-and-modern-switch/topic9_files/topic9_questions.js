@@ -35,7 +35,7 @@ const questions = [
     explanation: "Significantly enhances code readability, reduces boilerplate, and optimizes execution speed.",
     hint: "Matching single variable against 4+ discrete constants.",
     level: "basic",
-    codeExample: "switch (command) { case \"START\" -> ...; case \"STOP\" -> ...; }"
+    codeExample: "switch (command) { case \"START\" → ...; case \"STOP\" → ...; }"
   },
   {
     question: "What is the Time Complexity of an `else-if` ladder with $N$ branches?",
@@ -75,7 +75,7 @@ const questions = [
     explanation: "Reduces visual noise and typographical redundancy.",
     hint: "Eliminates variable repetition across branches.",
     level: "basic",
-    codeExample: "switch (x) { case 1 -> ...; case 2 -> ...; }"
+    codeExample: "switch (x) { case 1 → ...; case 2 → ...; }"
   },
   {
     question: "Can an `else-if` ladder test multiple different variables in separate branches?",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Practical domain-driven decision guidelines.",
     hint: "switch for discrete menus/enums; else-if for slabs/ranges.",
     level: "basic",
-    codeExample: "// Course tracks -> switch; Tax slabs -> else-if"
+    codeExample: "// Course tracks → switch; Tax slabs → else-if"
   },
   {
     question: "What is the memory trade-off of `tableswitch` over `else-if`?",
@@ -147,7 +147,7 @@ const questions = [
     explanation: "Combines the benefits of ternary expressions and jump tables.",
     hint: "Direct expression assignment, compile-time exhaustiveness, zero fall-through.",
     level: "basic",
-    codeExample: "String title = switch (role) { case 1 -> \"Admin\"; default -> \"User\"; };"
+    codeExample: "String title = switch (role) { case 1 → \"Admin\"; default → \"User\"; };"
   },
   {
     question: "What happens when an `else-if` ladder has 20 branches and the target match is at the very bottom?",
@@ -183,11 +183,11 @@ const questions = [
   },
   {
     question: "What is the best practice when converting a complex `else-if` ladder to `switch` in modern Java?",
-    shortAnswer: "Use Java 14+ arrow switch expressions (`case X -> Y`) to ensure concise, fall-through-free, value-returning code.",
+    shortAnswer: "Use Java 14+ arrow switch expressions (`case X → Y`) to ensure concise, fall-through-free, value-returning code.",
     explanation: "State-of-the-art modern Java standard.",
     hint: "Use modern arrow switch expressions.",
     level: "basic",
-    codeExample: "var res = switch (code) { case 1 -> \"A\"; default -> \"B\"; };"
+    codeExample: "var res = switch (code) { case 1 → \"A\"; default → \"B\"; };"
   },
   {
     question: "How does code maintainability differ between `switch` and `else-if` when adding new cases?",

@@ -42,7 +42,7 @@ export default function Topic1() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Simple <code className="text-emerald-400">&apos;if&apos;</code> Statement: Syntax, Boolean Conditions &amp; Execution Flow
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -179,7 +179,7 @@ export default function Topic1() {
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono text-rose-400">if (flag = true)</td>
-                <td className="p-3 font-mono text-emerald-400">if (flag == true) &rarr; if (flag)</td>
+                <td className="p-3 font-mono text-emerald-400">if (flag == true) → if (flag)</td>
                 <td className="p-3 text-xs">Prevents accidental assignment operator bug</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">

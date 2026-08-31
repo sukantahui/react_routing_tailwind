@@ -13,7 +13,7 @@ const topic1_questions = [
     "explanation": "Reachable among themselves, but unreachable from any live thread.",
     "hint": "A cycle of objects referencing each other with no connection to any GC Root.",
     "level": "Intermediate",
-    "codeExample": "A <-> B with no external live pointers -> Both collected by GC."
+    "codeExample": "A <-> B with no external live pointers → Both collected by GC."
   }
 ];
 

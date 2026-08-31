@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. BOUND INSTANCE METHOD REFERENCES:
    - Syntax: 'instanceRef::instanceMethodName'.
    - Bound to a SPECIFIC object instance created beforehand.
-   - Equivalence: 'x -> myObject.doSomething(x)'.
+   - Equivalence: 'x → myObject.doSomething(x)'.
    - 'System.out::println' is bound to the 'System.out' PrintStream object.
 
 ================================================================================

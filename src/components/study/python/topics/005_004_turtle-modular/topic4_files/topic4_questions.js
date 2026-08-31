@@ -7,7 +7,7 @@ const questions = [
     explanation: "Because later draw calls overwrite earlier pixels (Painter's Algorithm), background elements must be drawn before foreground objects.",
     hint: "What concept dictates which objects appear in front of others?",
     level: "basic",
-    codeExample: "# 1. Sky -> 2. Mountains -> 3. Houses -> 4. Trees"
+    codeExample: "# 1. Sky → 2. Mountains → 3. Houses → 4. Trees"
   },
   {
     question: "What is the Painter's Algorithm?",
@@ -79,7 +79,7 @@ const questions = [
     explanation: "Organizing functions hierarchically simplifies complex multi-object scene orchestration.",
     hint: "What data structure models visual hierarchy in games and rendering engines?",
     level: "advanced",
-    codeExample: "# Scene -> [SkyNode, TerrainNode, CityNode, RoadNode]"
+    codeExample: "# Scene → [SkyNode, TerrainNode, CityNode, RoadNode]"
   },
   {
     question: "How do you draw water reflections beneath mountains or skylines?",
@@ -227,7 +227,7 @@ const questions = [
   },
   {
     question: "What is the 5-layer pipeline rule for assembling complex Python Turtle scenes?",
-    shortAnswer: "1. Sky/Celestial -> 2. Far Topography -> 3. Midground Terrain -> 4. Architecture/Props -> 5. Foreground Infrastructure.",
+    shortAnswer: "1. Sky/Celestial → 2. Far Topography → 3. Midground Terrain → 4. Architecture/Props → 5. Foreground Infrastructure.",
     explanation: "Adhering to this structured pipeline guarantees depth, optical occlusion, and visual clarity.",
     hint: "What 5 layers assemble a complete natural or urban landscape?",
     level: "basic",
@@ -235,7 +235,7 @@ const questions = [
   },
   {
     question: "How do you create an animated daytime-to-nighttime transition cycle?",
-    shortAnswer: "In a timer loop, interpolate color palettes from Day -> Sunset -> Night and re-render the scene graph.",
+    shortAnswer: "In a timer loop, interpolate color palettes from Day → Sunset → Night and re-render the scene graph.",
     explanation: "Palette interpolation animates smooth diurnal lighting cycles.",
     hint: "How do you animate day to night cycles in Turtle?",
     level: "expert",

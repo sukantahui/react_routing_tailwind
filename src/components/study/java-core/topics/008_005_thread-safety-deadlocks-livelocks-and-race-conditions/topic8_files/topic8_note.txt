@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. GLOBAL LOCK ORDERING:
-   - Problem: Inverted lock acquisition (A &rarr; B vs B &rarr; A) deadlocks.
+   - Problem: Inverted lock acquisition (A → B vs B → A) deadlocks.
    - Solution: Sort lock targets deterministically before acquiring.
    - Compare 'accountId' or 'System.identityHashCode()'.
    - Both threads acquire smaller ID first, then larger ID.

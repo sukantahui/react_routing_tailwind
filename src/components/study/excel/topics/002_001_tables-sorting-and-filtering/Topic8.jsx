@@ -68,7 +68,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Test Your Skill: Dynamic Tables, Sorting & Filtering Assessment
           </h1>
 
@@ -300,7 +300,7 @@ export default function Topic8() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Alt + A + S + S -&gt; Multi-Level Sort</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Alt + A + S + S → Multi-Level Sort</div>
                 <div className="text-emerald-400 font-semibold">Result: Hierarchical tie-breaking achieved.</div>
                 <div className="text-slate-400 text-[11px]">Multi-level sort establishes clear record precedence.</div>
               </div>
@@ -316,13 +316,13 @@ export default function Topic8() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Task</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Criteria</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Result</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Top 10%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filters -&gt; Top 10 Percent</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Spilled Subset</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Top 10%</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filters → Top 10 Percent</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Spilled Subset</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: AutoFilter -&gt; Top 10 Percent</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: AutoFilter → Top 10 Percent</div>
                 <div className="text-emerald-400 font-semibold">Result: High-value deals isolated.</div>
                 <div className="text-slate-400 text-[11px]">Top 10% filter calculates threshold dynamically.</div>
               </div>

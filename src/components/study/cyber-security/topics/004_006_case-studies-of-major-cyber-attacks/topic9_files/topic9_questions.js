@@ -170,7 +170,7 @@ const cdmAgentTelemetry = {
   osVersion: "Windows 11 Enterprise 23H2",
   missingPatches: ["KB5034123 (Critical RCE)"],
   cisaKevMatch: true,
-  healthVerdict: "NON_COMPLIANT -> Network Quarantine Active via ZTNA"
+  healthVerdict: "NON_COMPLIANT → Network Quarantine Active via ZTNA"
 };`
   },
   {
@@ -184,7 +184,7 @@ const cdmAgentTelemetry = {
 // 1. Laptop plugs into Ethernet wall jack at Barrackpore office
 // 2. Cisco Switch sends EAP-Request/Identity challenge
 // 3. Laptop presents valid TPM-backed X.509 Device Certificate
-// 4. RADIUS server validates cert -> Switch unblocks Port 12 and assigns VLAN 20`
+// 4. RADIUS server validates cert → Switch unblocks Port 12 and assigns VLAN 20`
   },
   {
     id: 13,
@@ -219,7 +219,7 @@ const cdmAgentTelemetry = {
     codeExample: `// Canary / Honey-Token AWS Key:
 // AccessKeyId: AKIA_HONEY_TRAP_9918
 // SecretAccessKey: [Decoy]
-// AWS CloudTrail Alert Rule: IF AKIA_HONEY_TRAP_9918 is used for ANY API call -> TRIGGER SEVERITY-1 ALARM!`
+// AWS CloudTrail Alert Rule: IF AKIA_HONEY_TRAP_9918 is used for ANY API call → TRIGGER SEVERITY-1 ALARM!`
   },
   {
     id: 15,
@@ -234,7 +234,7 @@ const pimRoleActivation = {
   durationHours: 2,
   justification: "Emergency database schema migration (Ticket #JIRA-8912)",
   mfaChallenge: "FIDO2 Hardware Key Verified",
-  approvalStatus: "Approved by CISO -> Access auto-revokes at 16:30 IST"
+  approvalStatus: "Approved by CISO → Access auto-revokes at 16:30 IST"
 };`
   },
   {
@@ -331,7 +331,7 @@ const dpdpComplianceStack = [
     hint: "Analyzing process execution trees and memory behavior to catch living-off-the-land commands.",
     level: "Moderate",
     codeExample: `// EDR Behavioral Detection Rule:
-// Alert Trigger: WINWORD.EXE -> spawns CMD.EXE -> spawns POWERSHELL.EXE
+// Alert Trigger: WINWORD.EXE → spawns CMD.EXE → spawns POWERSHELL.EXE
 // Action: KILL_PROCESS_TREE & ISOLATE_ENDPOINT_FROM_NETWORK`
   },
   {
@@ -425,7 +425,7 @@ const highRiskOperation = {
     hint: "Keeping all ports closed and invisible until an authenticated Single Packet Authorization packet is sent.",
     level: "Expert",
     codeExample: `// Single Packet Authorization (SPA) Flow (fwknop):
-// 1. Attacker port scans IP -> All ports appear CLOSED / STEALTH (Dark Cloud)
+// 1. Attacker port scans IP → All ports appear CLOSED / STEALTH (Dark Cloud)
 // 2. Legitimate user sends encrypted SPA packet (HMAC-SHA256) to Port 62201/UDP
 // 3. Firewall dynamically opens Port 22 ONLY for user's IP for 30 seconds`
   },

@@ -71,7 +71,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world case study: Progressive income tax bracket calculation using nested logic"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic12() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Progressive Income Tax Slabs: =SUMPRODUCT(--(Income &gt; Slabs), Income - Slabs, TaxRatesDiff)"}
+            {"Progressive Income Tax Slabs: =SUMPRODUCT(--(Income > Slabs), Income - Slabs, TaxRatesDiff)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -286,7 +286,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Real_world_case_st"
+            sheetName="EX813"
             title={"Real-world case study: Progressive income tax bracket calculation using nested logic - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic12() {
                 Step 2: Enter Core Decision Formula
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the target calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"Progressive Income Tax Slabs: =SUMPRODUCT(--(Income &gt; Slabs), Income - Slabs, TaxRatesDiff)"}</code>.
+                In the target calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"Progressive Income Tax Slabs: =SUMPRODUCT(--(Income > Slabs), Income - Slabs, TaxRatesDiff)"}</code>.
               </p>
             </div>
 

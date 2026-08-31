@@ -198,7 +198,7 @@ const questions = [
         question: "What does the 'non-sealed' modifier mean in the context of sealed classes (Java 17+)?",
         shortAnswer: "It allows a subclass of a sealed class to be non-sealed, opening up further extension.",
         explanation: "Sealed classes restrict subclasses. A non-sealed subclass breaks the sealing for its own hierarchy, allowing unknown subclasses.",
-        hint: "Sealed -> permits only specific subclasses. Non-sealed -> permits any subclass.",
+        hint: "Sealed → permits only specific subclasses. Non-sealed → permits any subclass.",
         level: "expert",
         codeExample: "sealed class Shape permits Circle, Rectangle {}\nnon-sealed class Circle extends Shape {}\nclass FancyCircle extends Circle {} // now allowed"
     },
@@ -208,7 +208,7 @@ const questions = [
         explanation: "It's about hiding unnecessary detail. The microwave abstracts away magnetrons, timers, and waveguides.",
         hint: "Ask: Do you need to know the physics of radio waves to heat food? No.",
         level: "basic",
-        codeExample: "// Press start() -> internal machinery runs"
+        codeExample: "// Press start() → internal machinery runs"
     },
     {
         question: "What is the relationship between abstraction and refactoring?",

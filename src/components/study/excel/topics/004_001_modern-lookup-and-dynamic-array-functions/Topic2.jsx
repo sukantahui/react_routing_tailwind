@@ -77,7 +77,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Extracting Distinct Data with the UNIQUE Function (Single & Multi-Column Unique Rows)
           </h1>
 
@@ -195,7 +195,7 @@ export default function Topic2() {
               <li><strong>Sequential Hash Traversal:</strong> Excel iterates through the input rows, computing a 64-bit hash code for each element or multi-column composite tuple.</li>
               <li><strong>Duplicate Detection:</strong> If a hash collision matches an existing record under case-insensitive string equality, it is skipped.</li>
               <li><strong>Dynamic Memory Output:</strong> The resulting unique items are compiled into a contiguous matrix and spilled starting at the formula origin cell.</li>
-              <li><strong>[exactly_once] Mode:</strong> In anomaly mode (<code className="text-amber-300 font-mono">TRUE</code>), Excel uses a frequency occurrence map, omitting all items with count &gt; 1.</li>
+              <li><strong>[exactly_once] Mode:</strong> In anomaly mode (<code className="text-amber-300 font-mono">TRUE</code>), Excel uses a frequency occurrence map, omitting all items with count > 1.</li>
             </ol>
           </div>
         </section>
@@ -331,7 +331,7 @@ export default function Topic2() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic2_Unique_Deduplication"
+              sheetName="EX1603"
               title="Master Student Enrollment & Deduplication Log"
               rowsPerPage={10}
               showSheetSelector={true}

@@ -58,7 +58,7 @@ export default function Topic14() {
             <span>Module 002_009_tricky-programs-and-function-combinations · Topic 14</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-sky-300 tracking-tight leading-tight">
             {"Deep Object Flattening & Dynamic String Path Resolver (get(obj, \"a.b[0].c\") & set(obj, \"x.y.z\", val))"}
           </h1>
 

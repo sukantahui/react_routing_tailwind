@@ -102,7 +102,7 @@ export default function Topic12() {
       code: "INC-107",
       category: "Operating Income (EBIT)",
       raw: "30300000",
-      mask: '[Green][>25000000]_($* #,##0.0,," M"_);[Red]_($* (#,##0.0,," M");_($* "-"??_);_(@_)',
+      mask: '[Green][&gt;25000000]_($* #,##0.0,," M"_);[Red]_($* (#,##0.0,," M");_($* "-"??_);_(@_)',
       formatted: "$      30.3 M ",
       formulaBar: "30300000",
       logic: "Embeds green color threshold alert for EBIT exceeding $25M target floor."
@@ -152,7 +152,7 @@ export default function Topic12() {
       code: "INC-112",
       category: "Net Income After Taxes",
       raw: "21150000",
-      mask: '[Green][>20000000]_($* #,##0.0,," M"_);[Red]_($* (#,##0.0,," M");_($* "-"??_);_(@_)',
+      mask: '[Green][&gt;20000000]_($* #,##0.0,," M"_);[Red]_($* (#,##0.0,," M");_($* "-"??_);_(@_)',
       formatted: "$      21.2 M ",
       formulaBar: "21150000",
       logic: "Net bottom-line earnings highlighted in green when exceeding $20M target."
@@ -212,7 +212,7 @@ export default function Topic12() {
       code: "INC-118",
       category: "YoY Revenue Growth %",
       raw: "0.184",
-      mask: '[Green][>0.15]+0.0%;[Red][<0]-0.0%;0.0%',
+      mask: '[Green][&gt;0.15]+0.0%;[Red][&lt;0]-0.0%;0.0%',
       formatted: "+18.4%",
       formulaBar: "0.184",
       logic: "Dynamic color alert highlighting YoY growth exceeding 15% threshold in green."
@@ -273,7 +273,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Real-World Project: Building an Executive Financial Income Statement with Dynamic Scaling and Color Alerts
           </h1>
 
@@ -327,7 +327,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic12"
+            sheetName="Topic12"
           />
         </section>
 
@@ -412,7 +412,7 @@ export default function Topic12() {
                 The asterisk <code className="text-amber-300 font-bold">*</code> repeats the subsequent space character to push the currency symbol <code className="text-amber-300">$</code> flush to the left boundary of the cell, while numeric digits remain flush-right.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-cyan-300 border border-slate-800">
-                _($* #,##0.0,," M"_) -&gt; "$      145.8 M "
+                _($* #,##0.0,," M"_) → "$      145.8 M "
               </div>
             </div>
 

@@ -47,7 +47,7 @@ const feesStatus = {
 Object.entries(feesStatus).forEach(function (entry) {
   const name = entry[0];
   const status = entry[1];
-  console.log(name + " -> " + status);
+  console.log(name + " → " + status);
 });`}
         />
       </div>

@@ -21,7 +21,7 @@ export default function Topic11() {
             The Collectors Framework
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">groupingBy(classifier, maxBy()/minBy())</code>: Extreme Per-Group Extractions
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic11() {
       </section>
 
       <Teacher
-        note="maxBy() inside groupingBy() produces Map<K, Optional<T>>. If you want to unwrap the Optional directly to get Map<K, T>, combine it with Collectors.collectingAndThen(maxBy(...), Optional::get)! — Sukanta Hui"
+        note="maxBy() inside groupingBy() produces Map<K, Optional&lt;T&gt;>. If you want to unwrap the Optional directly to get Map<K, T>, combine it with Collectors.collectingAndThen(maxBy(...), Optional::get)! — Sukanta Hui"
       />
     </div>
   );

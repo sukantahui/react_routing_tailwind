@@ -30,7 +30,7 @@ Level 4: Column Level (Most Specific):
 1. If both `CHARACTER SET` and `COLLATE` are specified:
    - Uses the exact charset and collation specified.
 2. If `CHARACTER SET` is specified without `COLLATE`:
-   - Uses that charset and assigns its default collation (e.g. `utf8mb4` -> `utf8mb4_0900_ai_ci`).
+   - Uses that charset and assigns its default collation (e.g. `utf8mb4` → `utf8mb4_0900_ai_ci`).
 3. If `COLLATE` is specified without `CHARACTER SET`:
    - Uses that collation and assigns its parent character set.
 4. If neither is specified:

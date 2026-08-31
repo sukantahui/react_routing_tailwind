@@ -30,13 +30,13 @@ function CallStackVisualizer({ onStepChange }) {
       note: "startClass is pushed to the stack."
     },
     {
-      label: 'startClass -> call greetStudent("Kaustav")',
+      label: 'startClass → call greetStudent("Kaustav")',
       stack: ["global()", "startClass()", 'greetStudent("Kaustav")'],
       console: ["Class starting..."],
       note: "greetStudent is pushed; it will run next."
     },
     {
-      label: 'greetStudent -> console.log("Hello Kaustav")',
+      label: 'greetStudent → console.log("Hello Kaustav")',
       stack: ["global()", "startClass()", 'greetStudent("Kaustav")', 'console.log("Hello Kaustav")'],
       console: ["Class starting...", "Hello Kaustav"],
       note: "console.log inside greetStudent runs and prints 'Hello Kaustav'."

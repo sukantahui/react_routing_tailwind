@@ -33,9 +33,9 @@ Switch expressions enable single-step initialization of `final` fields inside co
       private final double finalFee;
       public CourseBilling(StudentCategory cat, double base) {
           this.finalFee = base * (1.0 - switch (cat) {
-              case MERIT_SCHOLAR -> 0.50;
-              case BPL_EWS       -> 0.75;
-              default            -> 0.00;
+              case MERIT_SCHOLAR → 0.50;
+              case BPL_EWS       → 0.75;
+              default            → 0.00;
           });
       }
   }

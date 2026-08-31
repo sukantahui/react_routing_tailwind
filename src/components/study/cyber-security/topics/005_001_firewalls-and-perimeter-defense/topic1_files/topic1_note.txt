@@ -147,7 +147,7 @@ A civic municipal tax collection portal in Barrackpore with branches in Ichapur 
 [ ] NAT/PAT translates private RFC 1918 IPs to public WAN IPs and conceals internal network topology.
 [ ] Ingress filtering inspects incoming traffic; Egress filtering stops malware C2 and data leaks.
 [ ] Strategic placements: Edge Perimeter, DMZ Boundary, Inter-VLAN Core, and Host-based Endpoints.
-[ ] Netfilter packet traversal sequence: PREROUTING -> ROUTING -> FORWARD/INPUT -> POSTROUTING.
+[ ] Netfilter packet traversal sequence: PREROUTING → ROUTING → FORWARD/INPUT → POSTROUTING.
 [ ] CERT-In mandates 180-day firewall log retention and NTP synchronization with NPL India.
 
 ====================================================================================================

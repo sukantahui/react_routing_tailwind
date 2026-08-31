@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. MEMORY ALLOCATION RULES:
-   - 'String s = "hello";'          &rarr; 1 object in SCP (or 0 if already present).
-   - 'String s = new String("hello");' &rarr; 2 objects (1 in SCP + 1 in regular Heap).
+   - 'String s = "hello";'          → 1 object in SCP (or 0 if already present).
+   - 'String s = new String("hello");' → 2 objects (1 in SCP + 1 in regular Heap).
    - Avoid 'new String("literal")' in production code.
 
 ================================================================================

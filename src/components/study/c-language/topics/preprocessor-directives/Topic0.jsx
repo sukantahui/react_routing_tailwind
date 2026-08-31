@@ -15,7 +15,7 @@ const Topic0 = () => {
         
         {/* Hero Section – animated */}
         <section className="space-y-4 animate-fade-slide-up [animation-delay:0s]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
             C Preprocessor
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">

@@ -300,7 +300,7 @@ const Topic14 = () => {
         className="max-w-6xl mx-auto mb-12 animate-[fadeSlideUp_0.8s_ease-out]"
         style={{ animation: 'fadeSlideUp 0.8s ease-out' }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4 tracking-tight">
           Event Handling in React Components
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -430,7 +430,7 @@ const Topic14 = () => {
               <div className="space-y-6">
                 <div className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                   <div className="text-center mb-6">
-                    <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">{clickCount}</div>
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">{clickCount}</div>
                     <div className="text-sm text-gray-500">Total Clicks</div>
                   </div>
                   
@@ -1060,7 +1060,7 @@ const Topic14 = () => {
                   
                   <div className="text-center p-8">
                     <div className={clsx(
-                      "text-5xl font-bold mb-4 transition-all duration-300",
+                      "text-xl sm:text-2xl md:text-3xl font-bold mb-4 transition-all duration-300",
                       keyPressed ? "text-green-600 dark:text-green-400" : "text-gray-300 dark:text-gray-600"
                     )}>
                       {keyPressed || "?"}

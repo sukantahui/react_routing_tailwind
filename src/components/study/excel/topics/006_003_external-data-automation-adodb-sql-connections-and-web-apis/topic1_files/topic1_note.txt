@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Connection strings are just recipes: Driver name + Server IP + Database name + Login info. Bookmark `connectionstrings.com`! Once you have the right string, connecting to any database in the world takes 2 seconds.
 
 COMMON TRAPS TO AVOID:
-- Driver Architecture Bitness Mismatch (Fatal Connection Error): Installing a 64-bit MySQL driver when using 32-bit Excel (or vice-versa) throws '[Microsoft][ODBC Driver Manager] Data source name not found'. -> Fix: Install the exact ODBC driver bitness matching your Excel version (Check File > Account > About Excel).
-- Missing Port Number on Non-Standard Database Ports: Database running on non-default port (e.g. MySQL on 3307 instead of 3306) fails to connect. -> Fix: Include explicit port: `Server=192.168.1.100,1433;` or `Port=3307;`.
-- Unescaped Special Characters in Passwords: Semicolons or quotes inside database passwords breaking connection string parsing. -> Fix: Enclose passwords containing semicolons in single quotes or curly braces: `Pwd='p;ssw@rd';`.
+- Driver Architecture Bitness Mismatch (Fatal Connection Error): Installing a 64-bit MySQL driver when using 32-bit Excel (or vice-versa) throws '[Microsoft][ODBC Driver Manager] Data source name not found'. → Fix: Install the exact ODBC driver bitness matching your Excel version (Check File > Account > About Excel).
+- Missing Port Number on Non-Standard Database Ports: Database running on non-default port (e.g. MySQL on 3307 instead of 3306) fails to connect. → Fix: Include explicit port: `Server=192.168.1.100,1433;` or `Port=3307;`.
+- Unescaped Special Characters in Passwords: Semicolons or quotes inside database passwords breaking connection string parsing. → Fix: Enclose passwords containing semicolons in single quotes or curly braces: `Pwd='p;ssw@rd';`.
 ================================================================================

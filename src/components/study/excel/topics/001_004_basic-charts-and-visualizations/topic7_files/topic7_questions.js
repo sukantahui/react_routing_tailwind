@@ -29,7 +29,7 @@ const questions = [
   },
   {
     question: "How do you link a chart title directly to a cell value for dynamic updates?",
-    shortAnswer: "Select the Chart Title &rarr; Click inside the Formula Bar &rarr; Type `='SheetName'!$A$1` &rarr; Press Enter.",
+    shortAnswer: "Select the Chart Title → Click inside the Formula Bar → Type `='SheetName'!$A$1` → Press Enter.",
     explanation: "Dynamic chart titles automatically reflect selected date ranges or branch filters without manual editing.",
     hint: "Click the title box, then in the Formula Bar type = and point to the cell.",
     level: "moderate",
@@ -57,7 +57,7 @@ const questions = [
     explanation: "Sparklines provide micro-visual context right beside tabular numbers.",
     hint: "Sparklines offer lightweight trend context inside dense financial tables.",
     level: "basic",
-    codeExample: "Insert &rarr; Sparklines &rarr; Line (Data: C2:N2, Location: O2)"
+    codeExample: "Insert → Sparklines → Line (Data: C2:N2, Location: O2)"
   },
   {
     question: "How do you format data labels to display negative variances in red and positive in green?",
@@ -77,11 +77,11 @@ const questions = [
   },
   {
     question: "How do you ensure charts resize smoothly when printing or exporting to PDF?",
-    shortAnswer: "Right-click Chart &rarr; Format Chart Area &rarr; Properties &rarr; Select 'Move and size with cells'.",
+    shortAnswer: "Right-click Chart → Format Chart Area → Properties → Select 'Move and size with cells'.",
     explanation: "Prevents chart elements from drifting or overlapping when grid rows/columns are resized.",
     hint: "Set chart properties to 'Move and size with cells'.",
     level: "moderate",
-    codeExample: "Format Chart Area &rarr; Size & Properties &rarr; Move and size with cells"
+    codeExample: "Format Chart Area → Size & Properties → Move and size with cells"
   },
   {
     question: "How do you highlight the maximum or latest value in a line chart dynamically?",
@@ -105,15 +105,15 @@ const questions = [
     explanation: "A combo column-and-line chart provides instant visual target-vs-actual comparison.",
     hint: "Add a static target series and set its chart type to Line.",
     level: "moderate",
-    codeExample: "Change Chart Type &rarr; Combo &rarr; Target: Line, Actual: Clustered Column"
+    codeExample: "Change Chart Type → Combo → Target: Line, Actual: Clustered Column"
   },
   {
     question: "How do you lock chart aspect ratios to prevent stretched distortion on different monitors?",
-    shortAnswer: "Right-click Chart &rarr; Format Chart Area &rarr; Size &rarr; Check 'Lock aspect ratio'.",
+    shortAnswer: "Right-click Chart → Format Chart Area → Size → Check 'Lock aspect ratio'.",
     explanation: "Preserves width-to-height proportions when pasting into PowerPoint or executive decks.",
     hint: "Check 'Lock aspect ratio' in chart size properties.",
     level: "basic",
-    codeExample: "Format Chart Area &rarr; Size &rarr; Lock Aspect Ratio = TRUE"
+    codeExample: "Format Chart Area → Size → Lock Aspect Ratio = TRUE"
   },
   {
     question: "What is the role of an executive summary card above a chart pack?",
@@ -125,19 +125,19 @@ const questions = [
   },
   {
     question: "How do you handle zero or null values in line chart time series without dropping the line to the bottom?",
-    shortAnswer: "Select Chart &rarr; Select Data &rarr; Hidden and Empty Cells &rarr; Choose 'Connect data points with line' or represent blanks as `#N/A`.",
+    shortAnswer: "Select Chart → Select Data → Hidden and Empty Cells → Choose 'Connect data points with line' or represent blanks as `#N/A`.",
     explanation: "Prevents artificial dips to zero when data is simply missing or pending collection.",
-    hint: "In Select Data &rarr; Hidden and Empty Cells &rarr; Connect data points with line.",
+    hint: "In Select Data → Hidden and Empty Cells → Connect data points with line.",
     level: "moderate",
-    codeExample: "Hidden & Empty Cells &rarr; Connect data points with line"
+    codeExample: "Hidden & Empty Cells → Connect data points with line"
   },
   {
     question: "How do you configure a waterfall chart in a corporate financial chart pack?",
-    shortAnswer: "Select the step data (Gross Revenue, COGS, OpEx, Taxes, Net Income) &rarr; Insert Waterfall Chart &rarr; Right-click subtotal columns &rarr; Set as Total.",
+    shortAnswer: "Select the step data (Gross Revenue, COGS, OpEx, Taxes, Net Income) → Insert Waterfall Chart → Right-click subtotal columns → Set as Total.",
     explanation: "Waterfall charts show how positive and negative components bridge starting and ending totals.",
     hint: "Right-click bridge totals and select 'Set as Total'.",
     level: "moderate",
-    codeExample: "Insert &rarr; Waterfall Chart &rarr; Format Data Point &rarr; Set as Total"
+    codeExample: "Insert → Waterfall Chart → Format Data Point → Set as Total"
   },
   {
     question: "Why should you avoid using bright saturated rainbow colors across multiple chart series?",
@@ -149,11 +149,11 @@ const questions = [
   },
   {
     question: "How do you copy chart formatting from one chart to another instantly?",
-    shortAnswer: "Select formatted chart &rarr; Press `Ctrl + C` &rarr; Select target chart &rarr; Press `Alt + E + S` (Paste Special) &rarr; Choose 'Formats' &rarr; Click OK.",
+    shortAnswer: "Select formatted chart → Press `Ctrl + C` → Select target chart → Press `Alt + E + S` (Paste Special) → Choose 'Formats' → Click OK.",
     explanation: "Transfers font styles, colors, border strokes, and gridline settings in 1 second.",
-    hint: "Copy chart, select target chart, and use Paste Special &rarr; Formats.",
+    hint: "Copy chart, select target chart, and use Paste Special → Formats.",
     level: "moderate",
-    codeExample: "Ctrl+C &rarr; Select Target &rarr; Alt+E+S &rarr; Formats &rarr; Enter"
+    codeExample: "Ctrl+C → Select Target → Alt+E+S → Formats → Enter"
   },
   {
     question: "What is the purpose of adding a rolling 3-month moving average trendline to volatile daily charts?",
@@ -161,15 +161,15 @@ const questions = [
     explanation: "A moving average dampens daily fluctuations caused by weekends or billing cycles.",
     hint: "Trendlines smooth seasonal spikes and clarify direction.",
     level: "moderate",
-    codeExample: "Add Chart Element &rarr; Trendline &rarr; Moving Average (Period: 3)"
+    codeExample: "Add Chart Element → Trendline → Moving Average (Period: 3)"
   },
   {
     question: "How do you align multiple chart objects perfectly in a worksheet grid?",
-    shortAnswer: "Hold `Ctrl` and click each chart &rarr; Shape Format &rarr; Align &rarr; Select 'Align Top' and 'Distribute Horizontally'.",
+    shortAnswer: "Hold `Ctrl` and click each chart → Shape Format → Align → Select 'Align Top' and 'Distribute Horizontally'.",
     explanation: "Mathematical alignment gives dashboards a polished, executive software aesthetic.",
-    hint: "Use Shape Format &rarr; Align &rarr; Align Top / Distribute Horizontally.",
+    hint: "Use Shape Format → Align → Align Top / Distribute Horizontally.",
     level: "basic",
-    codeExample: "Shape Format &rarr; Align &rarr; Align Top &rarr; Distribute Horizontally"
+    codeExample: "Shape Format → Align → Align Top → Distribute Horizontally"
   },
   {
     question: "How do you snap a chart's borders to the underlying worksheet gridlines?",
@@ -185,7 +185,7 @@ const questions = [
     explanation: "Border-free charts on a subtle shaded card container look modern and airy.",
     hint: "Set Shape Outline to 'No Outline' for modern flat design.",
     level: "basic",
-    codeExample: "Shape Format &rarr; Shape Outline &rarr; No Outline"
+    codeExample: "Shape Format → Shape Outline → No Outline"
   },
   {
     question: "How do you create a bullet chart for target vs actual benchmarking in Excel?",
@@ -198,18 +198,18 @@ const questions = [
   {
     question: "What is the primary benefit of grouping multiple chart objects together?",
     shortAnswer: "Grouping allows you to move, resize, format, or reposition the entire chart pack as a single unified component.",
-    explanation: "Select charts &rarr; Right-click &rarr; Group &rarr; Group (or `Ctrl + G`).",
+    explanation: "Select charts → Right-click → Group → Group (or `Ctrl + G`).",
     hint: "Grouping bundles individual charts into one moveable dashboard container.",
     level: "basic",
-    codeExample: "Select all charts &rarr; Shape Format &rarr; Group"
+    codeExample: "Select all charts → Shape Format → Group"
   },
   {
     question: "How do you add interactive slicers to filter charts created from structured Excel Tables?",
-    shortAnswer: "Click inside the Table &rarr; Table Design &rarr; Insert Slicer &rarr; Select filter columns (Branch, Year, Department).",
+    shortAnswer: "Click inside the Table → Table Design → Insert Slicer → Select filter columns (Branch, Year, Department).",
     explanation: "Slicers linked to structured tables dynamically filter the table and its connected charts simultaneously.",
     hint: "Insert Slicers from the Table Design tab to filter table-connected charts.",
     level: "moderate",
-    codeExample: "Table Design &rarr; Insert Slicer &rarr; Select [Branch], [Department]"
+    codeExample: "Table Design → Insert Slicer → Select [Branch], [Department]"
   },
   {
     question: "Why should vertical axis scales start at zero on all column and bar charts?",
@@ -217,7 +217,7 @@ const questions = [
     explanation: "Truncated axes create deceptive visual representations, violating data ethics.",
     hint: "Bar heights encode absolute value; truncating axis distorts proportionality.",
     level: "basic",
-    codeExample: "Format Axis &rarr; Bounds Minimum = 0"
+    codeExample: "Format Axis → Bounds Minimum = 0"
   },
   {
     question: "How do you format financial numbers on chart axes to display in Lakhs or Crores?",

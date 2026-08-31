@@ -42,7 +42,7 @@ export default function Topic1() {
             Domain Modeling &amp; Entities
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Real-World Modeling: Mapping Entities to State &amp; Behavior
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -137,7 +137,7 @@ export default function Topic1() {
 
             <rect x="465" y="120" width="370" height="40" rx="4" fill="#022c22" />
             <text x="475" y="140" fill="#a7f3d0" fontSize="10" fontWeight="bold">CAPACITY INVARIANT BEHAVIOR:</text>
-            <text x="475" y="153" fill="#6ee7b7" fontSize="9" fontFamily="monospace">enrollStudent() &rarr; Rejects if enrolled &gt;= capacity</text>
+            <text x="475" y="153" fill="#6ee7b7" fontSize="9" fontFamily="monospace">enrollStudent() → Rejects if enrolled &gt;= capacity</text>
 
             <text x="650" y="215" fill="#fef08a" fontSize="10" fontWeight="bold" textAnchor="middle">Defensive Copying: List.copyOf(enrolledStudents)</text>
 

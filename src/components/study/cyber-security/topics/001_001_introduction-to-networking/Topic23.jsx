@@ -27,7 +27,7 @@ const Topic23 = () => {
       desc: 'Listens for HTTP/HTTPS requests from client web browsers, terminates SSL/TLS, and serves HTML/CSS/JS or API endpoints.',
       securityFocus: 'HTTPS certificates (Let’s Encrypt), rate limiting, Web Application Firewall (WAF).',
       estCost: '₹80,000 – ₹1,80,000 (Hardware/Cloud VM)',
-      actionTrace: 'Client GET /index.html -> TLS 1.3 Handshake -> Nginx serves cached static asset in 2.4ms.',
+      actionTrace: 'Client GET /index.html → TLS 1.3 Handshake → Nginx serves cached static asset in 2.4ms.',
     },
     {
       id: 'database',
@@ -38,7 +38,7 @@ const Topic23 = () => {
       desc: 'Stores and queries structured relational and document data with ACID transaction compliance, indexing, and automated snapshot backups.',
       securityFocus: 'Bound to private subnet IP, encrypted tablespaces (TDE), database user privilege isolation.',
       estCost: '₹2,50,000 – ₹6,00,000',
-      actionTrace: 'App Server Query SELECT * FROM students -> Query Optimizer -> Indexed lookup returned in 0.8ms.',
+      actionTrace: 'App Server Query SELECT * FROM students → Query Optimizer → Indexed lookup returned in 0.8ms.',
     },
     {
       id: 'file',
@@ -49,7 +49,7 @@ const Topic23 = () => {
       desc: 'Provides centralized multi-terabyte file sharing, departmental quotas, volume snapshots, and automated offsite cloud replication.',
       securityFocus: 'NTFS/POSIX Access Control Lists, encryption-at-rest (AES-256), immutable ransomware snapshots.',
       estCost: '₹1,50,000 – ₹4,50,000',
-      actionTrace: 'Client maps network drive Z: -> Kerberos ticket check -> Grants Read/Write to /finance/2026.',
+      actionTrace: 'Client maps network drive Z: → Kerberos ticket check → Grants Read/Write to /finance/2026.',
     },
     {
       id: 'dns',
@@ -60,7 +60,7 @@ const Topic23 = () => {
       desc: 'Resolves domain names to IP addresses in sub-milliseconds and automatically leases IP configurations to newly connected clients.',
       securityFocus: 'DNSSEC validation, protection against DNS Amplification and Cache Poisoning.',
       estCost: '₹60,000 – ₹1,20,000',
-      actionTrace: 'Client requests lease -> DHCP DORA process -> Assigns 192.168.10.45, Gateway: 192.168.10.1.',
+      actionTrace: 'Client requests lease → DHCP DORA process → Assigns 192.168.10.45, Gateway: 192.168.10.1.',
     },
     {
       id: 'reverse-proxy',
@@ -71,7 +71,7 @@ const Topic23 = () => {
       desc: 'Shields backend servers by terminating incoming traffic, distributing loads via Least Connections/Round Robin, and blocking DDoS.',
       securityFocus: 'DDoS throttling, IP reputation filtering, SSL/TLS offloading, hidden backend IP topology.',
       estCost: '₹1,20,000 – ₹3,50,000',
-      actionTrace: '45,000 simultaneous connections -> Load balancer routes evenly across Web Node 1, 2, and 3.',
+      actionTrace: '45,000 simultaneous connections → Load balancer routes evenly across Web Node 1, 2, and 3.',
     },
   ];
 
@@ -166,7 +166,7 @@ const Topic23 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Server
           </h1>
 

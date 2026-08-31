@@ -12,12 +12,12 @@ Return Type: Ordered Multi-Key Array / In-Place Sorted Table
 Real-World Business Scenarios:
 [Kolkata Corporate Multi-Tier Compensation Sort]
 Context: Sorting 500 corporate employees: 1. Branch A-Z, 2. Department A-Z, 3. Salary Descending.
-Applied: Data -> Sort (Alt + D + S) Multi-Level Dialog
+Applied: Data → Sort (Alt + D + S) Multi-Level Dialog
 Result: Clean 3-tier organized compensation audit register.
 
 [Barrackpore Priority Incident Ticket Custom List Sorting]
-Context: Sorting customer support tickets by priority: 'Critical' -> 'High' -> 'Medium' -> 'Low' (non-alphabetical).
-Applied: Sort -> Order -> Custom List -> {Critical, High, Medium, Low}
+Context: Sorting customer support tickets by priority: 'Critical' → 'High' → 'Medium' → 'Low' (non-alphabetical).
+Applied: Sort → Order → Custom List → {Critical, High, Medium, Low}
 Result: Tickets sorted by true operational urgency.
 
 [Shyamnagar Regional Retail Shift Schedule Left-to-Right Sort]

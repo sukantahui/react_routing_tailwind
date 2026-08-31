@@ -72,7 +72,7 @@ const questions = [
     explanation: "Accelerates Kubernetes packet forwarding by over 40% and provides deep cryptographic visibility into pod communications in Kolkata.",
     hint: "Runs fast networking and security bytecode directly inside the Linux kernel, replacing iptables in Kubernetes.",
     level: "expert",
-    codeExample: "Cilium_eBPF: Pod_A -> Kernel_eBPF_Hook -> Pod_B (Zero iptables overhead, WireGuard encryption)"
+    codeExample: "Cilium_eBPF: Pod_A → Kernel_eBPF_Hook → Pod_B (Zero iptables overhead, WireGuard encryption)"
   },
   {
     question: "What is a Cloud NAT Gateway and how does it protect private subnet instances?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "Ensures backend servers in Ichapur can update packages without exposing open listening ports to external hackers.",
     hint: "Allows private servers to download software updates from the web while blocking external inbound connections.",
     level: "basic",
-    codeExample: "RouteTable_Private: Destination '0.0.0.0/0' -> Target 'nat-gateway-01ab23cd' (Public IP Masquerade)"
+    codeExample: "RouteTable_Private: Destination '0.0.0.0/0' → Target 'nat-gateway-01ab23cd' (Public IP Masquerade)"
   },
   {
     question: "What are VPC Flow Logs and how are they used for Cloud Security Forensics?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Centralizes cloud egress security and prevents data leakage across hundreds of independent development VPCs.",
     hint: "Routes all outbound cloud internet traffic through a central firewall VPC for security inspection.",
     level: "expert",
-    codeExample: "Spoke_VPC -> TransitGateway -> Inspection_VPC (Next-Gen Firewall SSL Decrypt) -> Internet Gateway"
+    codeExample: "Spoke_VPC → TransitGateway → Inspection_VPC (Next-Gen Firewall SSL Decrypt) → Internet Gateway"
   },
   {
     question: "What is GENEVE (Generic Network Virtualization Encapsulation - RFC 8926)?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "Hides internal cloud server IP addresses from public discovery while providing seamless internal service discovery in Jadavpur.",
     hint: "Returns private internal IP addresses to VPC servers and public IPs to external Internet users.",
     level: "moderate",
-    codeExample: "Route53_PrivateZone: 'api.corp.local' -> 10.0.2.50 (VPC Query); Public Query -> Blocked/NXDOMAIN"
+    codeExample: "Route53_PrivateZone: 'api.corp.local' → 10.0.2.50 (VPC Query); Public Query → Blocked/NXDOMAIN"
   },
   {
     question: "What is SR-IOV (Single Root I/O Virtualization) in High-Performance Cloud Networking?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Used for high-frequency trading applications and supercomputing GPU nodes in cloud data centers.",
     hint: "Connects virtual machines directly to physical network card hardware for ultra-fast line-rate speeds.",
     level: "expert",
-    codeExample: "SRIOV_Config: VirtualFunction_0 assigned directly to VM_PCI_PassThrough -> Zero Hypervisor Overhead"
+    codeExample: "SRIOV_Config: VirtualFunction_0 assigned directly to VM_PCI_PassThrough → Zero Hypervisor Overhead"
   },
   {
     question: "What is Data Egress Cost Optimization in Cloud Architecture?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Prevents developers from exposing private database servers directly to the public Internet in Ichapur.",
     hint: "A secure gateway server in the public subnet used by admins to safely SSH into private servers.",
     level: "basic",
-    codeExample: "SSH_Route: Admin_Laptop -> (MFA + Port 22) -> Bastion_Host -> (Private SSH) -> Backend_DB_Server"
+    codeExample: "SSH_Route: Admin_Laptop → (MFA + Port 22) → Bastion_Host → (Private SSH) → Backend_DB_Server"
   },
   {
     question: "What is Cloud HSM (Hardware Security Module) in Cloud Cryptography?",
@@ -184,7 +184,7 @@ const questions = [
     explanation: "Enables financial and healthcare enterprises in West Bengal to meet strict regulatory compliance while migrating workloads to the cloud.",
     hint: "Dedicated hardware encryption vault inside your cloud VPC giving you full control of security keys.",
     level: "expert",
-    codeExample: "CloudHSM: Customer_App -> (PKCS#11 API) -> Dedicated_Cloud_HSM_Appliance (FIPS 140-2 Level 3)"
+    codeExample: "CloudHSM: Customer_App → (PKCS#11 API) → Dedicated_Cloud_HSM_Appliance (FIPS 140-2 Level 3)"
   },
   {
     question: "What is Data Plane Development Kit (DPDK) in Cloud Network Function Virtualization (NFV)?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Allows virtual cloud firewalls and routers to achieve line-rate 40G/100G threat inspection throughput.",
     hint: "Processes network packets directly in user space, bypassing the OS kernel for ultra-fast packet speeds.",
     level: "expert",
-    codeExample: "DPDK_Driver: PollingModeDriver (PMD) reads NIC ring buffer directly -> Zero Kernel Context Switch"
+    codeExample: "DPDK_Driver: PollingModeDriver (PMD) reads NIC ring buffer directly → Zero Kernel Context Switch"
   },
   {
     question: "What is Cloud VPC Ingress Routing (Gateway Route Tables)?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Enables transparent inline inspection of all incoming Internet traffic by cloud firewall appliances in Kolkata.",
     hint: "Directs incoming internet traffic through a virtual firewall before it reaches your applications.",
     level: "expert",
-    codeExample: "IGW_RouteTable: Destination '10.0.1.0/24' -> Target 'eni-security-appliance' (Inline Inspection)"
+    codeExample: "IGW_RouteTable: Destination '10.0.1.0/24' → Target 'eni-security-appliance' (Inline Inspection)"
   },
   {
     question: "What is Site-to-Site IPsec VPN Backup for Cloud Direct Connect?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Absorbs massive botnet attacks without degrading e-commerce or streaming application performance in West Bengal.",
     hint: "Global cloud defense that automatically scrubs and filters out massive multi-terabit DDoS attacks.",
     level: "basic",
-    codeExample: "CloudShield: Ingress_Traffic (1.2 Tbps Flood) -> Anycast Scrubbing Center -> Clean_Traffic (2 Gbps) to VPC"
+    codeExample: "CloudShield: Ingress_Traffic (1.2 Tbps Flood) → Anycast Scrubbing Center → Clean_Traffic (2 Gbps) to VPC"
   },
   {
     question: "What is Microservices Service Mesh (e.g. Istio / Linkerd) Mutual TLS in Cloud Environments?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures cloud perimeter isolation, scalable hybrid transit, container mesh security, automated configuration auditing, and financial cloud budgeting.",
     hint: "Public/Private subnets + Transit Gateway Direct Connect + Cilium eBPF + CSPM auditing + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: SegmentPublicPrivateVPC() -> DeployTransitGateway_DirectConnect() -> EnforceCilium_eBPF_mTLS() -> AuditWithCSPM() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: SegmentPublicPrivateVPC() → DeployTransitGateway_DirectConnect() → EnforceCilium_eBPF_mTLS() → AuditWithCSPM() → BudgetInRupees(₹);"
   }
 ];
 

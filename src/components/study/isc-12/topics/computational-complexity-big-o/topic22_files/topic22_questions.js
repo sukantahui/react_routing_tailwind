@@ -205,7 +205,7 @@ const questions = [
     explanation: "Stream.filter() visits each element.",
     hint: "Single pass.",
     level: "intermediate",
-    codeExample: "arr.stream().filter(x -> x > 0).collect(...); // O(n)"
+    codeExample: "arr.stream().filter(x → x > 0).collect(...); // O(n)"
   },
   {
     question: "What is the time complexity of a while loop that increments by 1?",

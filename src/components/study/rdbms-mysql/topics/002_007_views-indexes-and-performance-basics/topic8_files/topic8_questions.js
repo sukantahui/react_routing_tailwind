@@ -137,7 +137,7 @@ const questions = [
   {
     question: "How does InnoDB navigate from a Secondary Index leaf node to the full row data in the Clustered Index?",
     shortAnswer: "The secondary index leaf node stores the row's **Primary Key value**; MySQL performs a second B-Tree seek on the Clustered Index using this primary key (known as a Key Lookup / Bookmark Lookup).",
-    explanation: "Secondary index -> Primary Key -> Clustered Index Seek -> Full Row Data.",
+    explanation: "Secondary index → Primary Key → Clustered Index Seek → Full Row Data.",
     hint: "Uses the stored Primary Key to perform a second seek on the Clustered Index.",
     level: "expert"
   },

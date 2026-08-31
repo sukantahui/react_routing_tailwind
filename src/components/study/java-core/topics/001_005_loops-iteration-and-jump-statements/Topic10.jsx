@@ -42,7 +42,7 @@ export default function Topic10() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Nested Loops: Outer vs. Inner Execution Order &amp; 2D Grid Traversal
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -120,9 +120,9 @@ export default function Topic10() {
             <text x="130" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">OUTER LOOP (Rows)</text>
             <rect x="45" y="80" width="170" height="140" rx="6" fill="#2e1065" />
             <text x="55" y="105" fill="#ddd6fe" fontSize="11" fontFamily="monospace">for (int r=1; r&lt;=3; r++)</text>
-            <text x="55" y="130" fill="#a7f3d0" fontSize="10">&bull; Row 1 &rarr; Inner 1..4</text>
-            <text x="55" y="150" fill="#a7f3d0" fontSize="10">&bull; Row 2 &rarr; Inner 1..4</text>
-            <text x="55" y="170" fill="#a7f3d0" fontSize="10">&bull; Row 3 &rarr; Inner 1..4</text>
+            <text x="55" y="130" fill="#a7f3d0" fontSize="10">&bull; Row 1 → Inner 1..4</text>
+            <text x="55" y="150" fill="#a7f3d0" fontSize="10">&bull; Row 2 → Inner 1..4</text>
+            <text x="55" y="170" fill="#a7f3d0" fontSize="10">&bull; Row 3 → Inner 1..4</text>
             <text x="130" y="205" fill="#f5f3ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Steps 3 Times
             </text>
@@ -131,7 +131,7 @@ export default function Topic10() {
             <g transform="translate(260, 40)">
               <rect x="0" y="0" width="580" height="200" rx="10" fill="#0f172a" stroke="#334155" strokeWidth="2" />
               <text x="290" y="25" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">
-                INNER LOOP: (col = 1 to 4 per row) &rarr; 12 Total Grid Operations
+                INNER LOOP: (col = 1 to 4 per row) → 12 Total Grid Operations
               </text>
 
               {/* Row 1 */}

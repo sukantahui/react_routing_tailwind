@@ -58,7 +58,7 @@ const Topic9 = () => {
       codeSnippet: `// LSB Steganography Pixel Encoding:
 // Original Red Byte : 11010110 (214)
 // Secret Bit to Hide: 1
-// Modified Red Byte : 11010111 (215) -> Visual difference: 0.39% (Completely Imperceptible!)`
+// Modified Red Byte : 11010111 (215) → Visual difference: 0.39% (Completely Imperceptible!)`
     },
     volume_shadow_deletion_sabotage: {
       key: "volume_shadow_deletion_sabotage",
@@ -175,7 +175,7 @@ Get-LocalGroupMember -Group "Administrators" | Where-Object {
       ? (rawBreachProb * 0.015).toFixed(2) // PAW + DAM + Immutable WORM blocks 98.5% of exfiltration
       : pawControlsStrength >= 50
       ? (rawBreachProb * 0.35).toFixed(2)  // Basic Firewall blocks 65% of exfiltration
-      : rawBreachProb.toFixed(2);           // Unhardened -> 100% exfiltration vulnerability
+      : rawBreachProb.toFixed(2);           // Unhardened → 100% exfiltration vulnerability
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),

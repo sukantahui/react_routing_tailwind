@@ -42,11 +42,11 @@ export default function Topic14() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Implicit Type Casting in Compound Assignments (<code className="text-amber-400">byte b = 5; b += 2;</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          Master the hidden mechanics of compound assignments: why <code className="text-rose-400 font-mono">b = b + 2</code> fails while <code className="text-emerald-300 font-mono">b += 2</code> compiles cleanly, the automatic <code className="text-amber-300 font-mono">(T)</code> narrowing cast injected by the compiler (JLS §15.26.2), silent wrap-around hazards (<code className="text-rose-400 font-mono">127 += 1 &rarr; -128</code>), floating-point truncation (<code className="text-rose-400 font-mono">int += double</code>), and student attendance validation in Barrackpore.
+          Master the hidden mechanics of compound assignments: why <code className="text-rose-400 font-mono">b = b + 2</code> fails while <code className="text-emerald-300 font-mono">b += 2</code> compiles cleanly, the automatic <code className="text-amber-300 font-mono">(T)</code> narrowing cast injected by the compiler (JLS §15.26.2), silent wrap-around hazards (<code className="text-rose-400 font-mono">127 += 1 → -128</code>), floating-point truncation (<code className="text-rose-400 font-mono">int += double</code>), and student attendance validation in Barrackpore.
         </p>
       </header>
 
@@ -120,7 +120,7 @@ export default function Topic14() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Compiler Desugaring</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">b += 2;</text>
-            <text x="55" y="122" fill="#e0f2fe" fontSize="10">&rarr; Transformed into:</text>
+            <text x="55" y="122" fill="#e0f2fe" fontSize="10">→ Transformed into:</text>
             <text x="55" y="142" fill="#a7f3d0" fontSize="11" fontFamily="monospace">b = (byte)(b + 2);</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Automatic (T) Injection
@@ -131,7 +131,7 @@ export default function Topic14() {
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Silent Wrap-Around</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#4c0519" />
             <text x="335" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">byte b = 127; b += 1;</text>
-            <text x="335" y="122" fill="#fecdd3" fontSize="10">&rarr; (byte)(128) wraps to -128!</text>
+            <text x="335" y="122" fill="#fecdd3" fontSize="10">→ (byte)(128) wraps to -128!</text>
             <text x="335" y="142" fill="#fecdd3" fontSize="10">Zero compiler warnings!</text>
             <text x="440" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               High-Bit Truncation
@@ -142,7 +142,7 @@ export default function Topic14() {
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Decimal Loss (int += double)</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#451a03" />
             <text x="615" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">int fee = 1000;</text>
-            <text x="615" y="122" fill="#fde68a" fontSize="11" fontFamily="monospace">fee += 50.75; &rarr; 1050</text>
+            <text x="615" y="122" fill="#fde68a" fontSize="11" fontFamily="monospace">fee += 50.75; → 1050</text>
             <text x="615" y="142" fill="#fef3c7" fontSize="10">0.75 paise silently dropped!</text>
             <text x="720" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               Financial Precision Loss
@@ -220,7 +220,7 @@ export default function Topic14() {
         </div>
         
         <p className="text-sm text-slate-300 leading-relaxed">
-          The following program illustrates the compilation paradox, silent byte wrap-around (<code className="text-rose-400 font-mono">127 += 1 &rarr; -128</code>), floating-point decimal truncation (<code className="text-amber-300 font-mono">int += double</code>), and student attendance boundary auditing in Indian Rupees (₹).
+          The following program illustrates the compilation paradox, silent byte wrap-around (<code className="text-rose-400 font-mono">127 += 1 → -128</code>), floating-point decimal truncation (<code className="text-amber-300 font-mono">int += double</code>), and student attendance boundary auditing in Indian Rupees (₹).
         </p>
 
         <JavaFileLoader

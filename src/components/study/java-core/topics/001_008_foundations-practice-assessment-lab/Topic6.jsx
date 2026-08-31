@@ -42,7 +42,7 @@ export default function Topic6() {
             Algorithmic Lab 6 · Radix &amp; Bitwise Math
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Decimal to Binary &amp; Hexadecimal Base Conversions (from Scratch)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -61,7 +61,7 @@ export default function Topic6() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono text-xs">
             <div className="p-4 bg-slate-950 rounded-xl border border-sky-500/30">
-              <h3 className="text-sky-400 font-bold text-sm mb-2">1. Decimal &rarr; Base B (Division &amp; Modulo)</h3>
+              <h3 className="text-sky-400 font-bold text-sm mb-2">1. Decimal → Base B (Division &amp; Modulo)</h3>
               <p className="text-sky-300 mb-1">rem = n % B; n /= B;</p>
               <p className="text-xs text-slate-300 font-sans leading-relaxed">
                 Repeatedly extracts the remainder modulo $B$, shrinks the number, and reverses the accumulated string. Bitwise masks (<code className="text-sky-300 font-mono">&gt;&gt;&gt;</code>) extract bits directly.
@@ -69,7 +69,7 @@ export default function Topic6() {
             </div>
 
             <div className="p-4 bg-slate-950 rounded-xl border border-emerald-500/30">
-              <h3 className="text-emerald-400 font-bold text-sm mb-2">2. Base B &rarr; Decimal (Horner&apos;s Method)</h3>
+              <h3 className="text-emerald-400 font-bold text-sm mb-2">2. Base B → Decimal (Horner&apos;s Method)</h3>
               <p className="text-emerald-300 mb-1">result = (result * B) + digitVal</p>
               <p className="text-xs text-slate-300 font-sans leading-relaxed">
                 Evaluates the positional polynomial in linear <code className="text-emerald-400 font-mono">O(N)</code> time without calculating expensive <code className="text-slate-300 font-mono">Math.pow()</code> exponents!
@@ -80,7 +80,7 @@ export default function Topic6() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Byte Encoding):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> converted decimal <code className="text-emerald-400 font-mono">29 &rarr; 11101 (binary) &rarr; 0x1D (hex)</code>, <strong>Tuhina</strong> parsed 16-bit max <code className="text-sky-300 font-mono">65535 &rarr; 0xFFFF</code>, and <strong>Abhronila</strong> recovered decimal <code className="text-purple-300 font-mono">6,719</code> from Hex <code className="text-purple-300 font-mono">0x1A3F</code> via Horner&apos;s method.
+              In our Barrackpore laboratory, <strong>Swadeep</strong> converted decimal <code className="text-emerald-400 font-mono">29 → 11101 (binary) → 0x1D (hex)</code>, <strong>Tuhina</strong> parsed 16-bit max <code className="text-sky-300 font-mono">65535 → 0xFFFF</code>, and <strong>Abhronila</strong> recovered decimal <code className="text-purple-300 font-mono">6,719</code> from Hex <code className="text-purple-300 font-mono">0x1A3F</code> via Horner&apos;s method.
             </p>
           </div>
         </div>
@@ -115,7 +115,7 @@ export default function Topic6() {
 
             {/* Left Panel: Successive Division (Decimal 29 to Binary) */}
             <rect x="30" y="30" width="390" height="215" rx="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
-            <text x="225" y="55" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">1. DECIMAL &rarr; BINARY (29 / 2)</text>
+            <text x="225" y="55" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">1. DECIMAL → BINARY (29 / 2)</text>
 
             <rect x="45" y="70" width="360" height="25" rx="4" fill="#082f49" />
             <text x="55" y="87" fill="#bae6fd" fontSize="10" fontFamily="monospace">29 / 2 = 14 | Remainder: 1 (LSB)</text>
@@ -133,7 +133,7 @@ export default function Topic6() {
 
             {/* Right Panel: Horner's Polynomial Expansion (Hex 0x1A3F to Decimal) */}
             <rect x="450" y="30" width="400" height="215" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
-            <text x="650" y="55" fill="#10b981" fontSize="13" fontWeight="bold" textAnchor="middle">2. HEX &rarr; DECIMAL (0x1A3F via Horner)</text>
+            <text x="650" y="55" fill="#10b981" fontSize="13" fontWeight="bold" textAnchor="middle">2. HEX → DECIMAL (0x1A3F via Horner)</text>
 
             <rect x="465" y="70" width="370" height="30" rx="4" fill="#022c22" />
             <text x="475" y="90" fill="#a7f3d0" fontSize="10" fontFamily="monospace">Digit &apos;1&apos; : (0 * 16) + 1  = 1</text>

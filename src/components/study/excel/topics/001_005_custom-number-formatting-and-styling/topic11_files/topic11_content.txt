@@ -46,5 +46,5 @@ Format Code: ;;; /* Triple Semicolon Stealth Cloaking */ | 0.00;-0.00;"" /* Hide
 6. PRO TIPS & SHORTCUTS
 • Full Stealth Cloak (;;; (Triple Semicolon)): Completely hides all positive, negative, zero, and text content from the grid.
 • Suppress Zeros Only (#,##0;(#,##0);""): Leaves zero cells visually blank while keeping numbers visible.
-• Formula Bar Protection (Format Cells -> Protection -> Hidden): Hides formula text from the formula bar when sheet is protected.
+• Formula Bar Protection (Format Cells → Protection → Hidden): Hides formula text from the formula bar when sheet is protected.
 ================================================================================

@@ -5,7 +5,7 @@ const topic6_questions = [
     "explanation": "Under-the-hood JVM mechanics comparing lambdas and anonymous inner classes.",
     "hint": "Lambdas use invokedynamic without generating .class files, can be cached as singletons, and their 'this' refers to the enclosing outer class.",
     "level": "Advanced",
-    "codeExample": "// Lambda: invokedynamic -> LambdaMetafactory (Zero Outer$1.class files)"
+    "codeExample": "// Lambda: invokedynamic → LambdaMetafactory (Zero Outer$1.class files)"
   }
 ];
 

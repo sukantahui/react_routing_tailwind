@@ -46,8 +46,8 @@ $$;`
     hint: "Think of an armored room inside a bank where even the bank guards cannot see what is being counted.",
     level: "expert",
     codeExample: `// Confidential Computing (TEE) Enclave Execution:
-Standard Processing: Host RAM contains plaintext customer Aadhaar numbers -> Root memory dump steals data!
-Confidential Enclave: Host RAM is AES-128 hardware encrypted -> Decrypted ONLY inside CPU silicon register!`
+Standard Processing: Host RAM contains plaintext customer Aadhaar numbers → Root memory dump steals data!
+Confidential Enclave: Host RAM is AES-128 hardware encrypted → Decrypted ONLY inside CPU silicon register!`
   },
   {
     question: "What is 'Write-Once-Read-Many' (WORM) storage, and why is it mandatory during the 'Archival' stage of the data lifecycle?",
@@ -71,7 +71,7 @@ aws s3api put-object-retention \\
     codeExample: `// NIST SP 800-88 Sanitization Commands:
 Clear:   dd if=/dev/zero of=/dev/sdc bs=4M status=progress (Logical Overwrite)
 Purge:   blkdiscard --secure /dev/nvme0n1 (Firmware-Level NVMe Secure Erase)
-Destroy: Dual-Shaft Industrial Media Shredder -> Reduces SSD to < 2mm particulate`
+Destroy: Dual-Shaft Industrial Media Shredder → Reduces SSD to < 2mm particulate`
   },
   {
     question: "What is 'Crypto-Shredding' (Cryptographic Erasure), and why is it the definitive solution for cloud storage sanitization?",
@@ -83,7 +83,7 @@ Destroy: Dual-Shaft Industrial Media Shredder -> Reduces SSD to < 2mm particulat
 1. Data Storage: 50 TB Customer Transaction Archive encrypted with KMS Key K
 2. End-of-Life:  DPDP Section 8(7) 5-year retention period expires
 3. Destruction:  aws kms schedule-key-deletion --key-id K --pending-window-in-days 7
-4. Silicon Erase: HSM erases Key K -> 50 TB ciphertext instantly converted to useless entropy!`
+4. Silicon Erase: HSM erases Key K → 50 TB ciphertext instantly converted to useless entropy!`
   },
   {
     question: "Under the Information Technology Act 2000 Section 65B, how is digital evidence preserved across the data lifecycle for legal court admissibility?",
@@ -105,8 +105,8 @@ Certifier:       Sukanta Hui (Lead Forensic Officer - Section 65B Certified)`
     hint: "Think of packing only essential clothes for a trip rather than moving your entire wardrobe.",
     level: "basic",
     codeExample: `// Data Minimization Schema Design:
-Unnecessary Bloat (High Risk): Collect { Name, Phone, Aadhaar, GPS, Contacts, Photos } -> Huge ₹250 Cr fine exposure!
-Minimized Design (Low Risk):    Collect { Phone_Number, UPI_VPA } -> Minimal breach blast radius!`
+Unnecessary Bloat (High Risk): Collect { Name, Phone, Aadhaar, GPS, Contacts, Photos } → Huge ₹250 Cr fine exposure!
+Minimized Design (Low Risk):    Collect { Phone_Number, UPI_VPA } → Minimal breach blast radius!`
   },
   {
     question: "What are the core technical controls required during the 'Sharing / Transmission' stage of the data lifecycle?",
@@ -131,7 +131,7 @@ Minimized Design (Low Risk):    Collect { Phone_Number, UPI_VPA } -> Minimal bre
     level: "moderate",
     codeExample: `// Data Remanence Vulnerability:
 Step 1: Admin runs $ rm customer_database.db (Only inode pointer deleted!)
-Step 2: Attacker runs $ photorec /dev/sdb1 -> Recovers 100% of customer records in 60 seconds!
+Step 2: Attacker runs $ photorec /dev/sdb1 → Recovers 100% of customer records in 60 seconds!
 Defense: NIST SP 800-88 blkdiscard / crypto-shredding destroys underlying flash blocks!`
   },
   {
@@ -145,7 +145,7 @@ Employee: Mahima moves from Radiology (PACS access) to General Admin
 Automated JML Action:
 1. REVOKE role 'radiology_pacs_rw'
 2. GRANT role 'admin_general_ro'
-3. Invalidate active OAuth sessions -> Zero privilege creep!`
+3. Invalidate active OAuth sessions → Zero privilege creep!`
   },
   {
     question: "Synthesizing Data Lifecycle Security Management: what is the master equation of lifecycle data protection?",

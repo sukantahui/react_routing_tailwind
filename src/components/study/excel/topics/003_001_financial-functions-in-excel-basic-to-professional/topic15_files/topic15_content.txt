@@ -10,7 +10,7 @@ Real-world case study: Commercial real estate investment appraisal model is a fo
 It equips financial modelers with the exact mathematical tools to value assets, evaluate debt structures, and appraise investments.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Real Estate Appraisal Engine: Net Operating Income (NOI) / Cap Rate -> DCF Levered Cash Flows -> IRR & Equity Multiple
+Operational Architecture: Real Estate Appraisal Engine: Net Operating Income (NOI) / Cap Rate → DCF Levered Cash Flows → IRR & Equity Multiple
 
 3. CORE TECHNICAL MECHANICS
 1. Net Operating Income (NOI) Waterfall:

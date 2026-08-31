@@ -53,7 +53,7 @@
       "description": "Compilers and text editors use stacks to verify whether expression brackets (`()`, `{}`, `[]`) are correctly paired and nested. In this project, you will construct a Syntax Bracket Matcher in C. Scan the string: when encountering an opening bracket, push it onto the stack; when encountering a closing bracket, pop the top character and check if it matches the closing bracket type. If the stack is empty at the end, the string is balanced.",
       "learningOutcome": "Syntax Parsing, Nested Bracket Matching & Stack Error State Handling",
       "exampleText": "{[()]} vs {[(])}",
-      "exampleOutput": "--- Balanced Parentheses Matcher ---\n{[()]} -> Balanced\n{[(])} -> Unbalanced",
+      "exampleOutput": "--- Balanced Parentheses Matcher ---\n{[()]} → Balanced\n{[(])} → Unbalanced",
       "logicExplanation": "1. **Opening**: Push `(`, `{`, `[` onto stack.\n2. **Closing**: Pop top and verify matching pair type.\n3. **Validation**: Return true if stack is empty after scanning.",
       "answerFile": "./answers/answer4.c",
       "codeExplanation": "1. `is_balanced()`: Validates bracket pairing syntax."
@@ -185,7 +185,7 @@
       "description": "For each element in an array, find the first element to its right that is strictly greater. Brute force takes O(N^2) time. A Monotonic Decreasing Stack solves this in linear O(N) time! Iterate right-to-left, popping stack elements smaller than `arr[i]`. In this project, you will build a Monotonic NGE Engine in C.",
       "learningOutcome": "Monotonic Stack Pattern, Linear O(N) Next Element Search & Stack Pruning",
       "exampleText": "Input: [4, 5, 2, 25, 7, 18]",
-      "exampleOutput": "--- Next Greater Element (Monotonic Stack) ---\nElement  4 -> NGE = 5\nElement  5 -> NGE = 25\nElement  2 -> NGE = 25\nElement 25 -> NGE = -1",
+      "exampleOutput": "--- Next Greater Element (Monotonic Stack) ---\nElement  4 → NGE = 5\nElement  5 → NGE = 25\nElement  2 → NGE = 25\nElement 25 → NGE = -1",
       "logicExplanation": "1. **Right-to-Left**: Loop `i` from `N-1` down to 0.\n2. **Pop Smaller**: Pop stack while `stack[top] <= arr[i]`.\n3. **Set NGE**: `NGE[i] = stack[top]`, then push `arr[i]`.",
       "answerFile": "./answers/answer15.c",
       "codeExplanation": "1. `next_greater_element()`: Computes NGE array using monotonic stack in O(N) time."
@@ -221,7 +221,7 @@
       "description": "Given a continuous stream of characters, find the first non-repeating character after reading each character. In this project, you will build a Stream Processor in C combining a FIFO queue (storing order of characters) and a frequency array.",
       "learningOutcome": "Stream Data Processing, Queue & Frequency Table Combination & Real-Time Filtering",
       "exampleText": "Stream: aabccxb",
-      "exampleOutput": "--- First Non-Repeating Character in Stream ---\nRead 'a' -> First Non-Repeating: 'a'\nRead 'a' -> First Non-Repeating: -1\nRead 'b' -> First Non-Repeating: 'b'",
+      "exampleOutput": "--- First Non-Repeating Character in Stream ---\nRead 'a' → First Non-Repeating: 'a'\nRead 'a' → First Non-Repeating: -1\nRead 'b' → First Non-Repeating: 'b'",
       "logicExplanation": "1. **Frequency Tally**: Increment `freq[char]++`, enqueue `char`.\n2. **Queue Pruning**: Pop queue front while `freq[front] > 1`.\n3. **Result**: `q.front` is first non-repeating character.",
       "answerFile": "./answers/answer18.c",
       "codeExplanation": "1. `first_non_repeating()`: Tracks real-time non-repeating character in data stream."

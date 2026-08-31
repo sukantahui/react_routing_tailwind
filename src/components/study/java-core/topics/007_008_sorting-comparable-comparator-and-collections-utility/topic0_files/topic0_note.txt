@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. SORTING PARADIGMS:
    - Natural Order: 'Comparable<T>' ('compareTo(o)').
    - Custom Strategy: 'Comparator<T>' ('compare(o1, o2)').
-   - Collections.sort(list) &rarr; uses Comparable.
-   - list.sort(comparator) &rarr; uses custom strategy.
+   - Collections.sort(list) → uses Comparable.
+   - list.sort(comparator) → uses custom strategy.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

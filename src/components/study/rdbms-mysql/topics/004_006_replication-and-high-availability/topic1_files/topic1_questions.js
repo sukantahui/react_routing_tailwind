@@ -9,9 +9,9 @@ const questions = [
     explanation: "The Dump thread streams binlogs over TCP, the I/O thread writes them to local Relay Logs, and the SQL thread applies them to the database.",
     hint: "Binlog Dump Thread on Source, Receiver (I/O) Thread on Replica, and Applier (SQL) Thread on Replica.",
     level: "basic",
-    codeExample: `# Source: Binlog Dump Thread (reads binlog -> streams to network)
-# Replica: I/O Thread (reads network -> writes relay log)
-# Replica: SQL Thread (reads relay log -> executes in InnoDB)`
+    codeExample: `# Source: Binlog Dump Thread (reads binlog → streams to network)
+# Replica: I/O Thread (reads network → writes relay log)
+# Replica: SQL Thread (reads relay log → executes in InnoDB)`
   },
   {
     question: "Why did MySQL architect replication with TWO separate threads (I/O Thread and SQL Thread) on the replica instead of a single thread?",
@@ -169,7 +169,7 @@ SELECT * FROM mysql.slave_relay_log_info;`
     explanation: "`NULL` indicates that lag cannot be calculated because replication is broken or stopped.",
     hint: "Returns NULL when either replication thread is stopped or broken.",
     level: "basic",
-    codeExample: `-- Seconds_Behind_Source: NULL -> Replication is stopped or broken!`
+    codeExample: `-- Seconds_Behind_Source: NULL → Replication is stopped or broken!`
   },
   {
     question: "What is `max_relay_log_size` in MySQL?",
@@ -239,7 +239,7 @@ SELECT * FROM performance_schema.replication_applier_status\\G`
   },
   {
     question: "Why should replicas have `log_replica_updates = ON` (or `log_slave_updates = ON`) enabled?",
-    shortAnswer: "To force the replica to write transactions executed by its SQL thread into its own Binary Log, enabling cascading replication topologies (Source -> Relay Replica -> Edge Replicas) and seamless promotion to primary during failover.",
+    shortAnswer: "To force the replica to write transactions executed by its SQL thread into its own Binary Log, enabling cascading replication topologies (Source → Relay Replica → Edge Replicas) and seamless promotion to primary during failover.",
     explanation: "Required for failover candidate replicas to retain binlogs for downstream nodes.",
     hint: "Writes applied transactions to replica's own binlog for cascading replication and failover.",
     level: "intermediate",

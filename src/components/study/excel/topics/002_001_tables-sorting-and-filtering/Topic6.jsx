@@ -68,7 +68,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Total Row Integration: Automated Aggregations & Dynamic Summaries
           </h1>
 
@@ -294,13 +294,13 @@ export default function Topic6() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Table_Name</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Total_Row_Action</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Summary_Result</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">tblSales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl+Shift+T -&gt; Dropdown 'SUM'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">₹ 14,80,000.00</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">tblSales</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl+Shift+T → Dropdown 'SUM'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">₹ 14,80,000.00</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Table Design -&gt; Total Row Checkbox</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Table Design → Total Row Checkbox</div>
                 <div className="text-emerald-400 font-semibold">Result: Instant total turnover calculation.</div>
                 <div className="text-slate-400 text-[11px]">Total Row uses =SUBTOTAL(109, [Sales]) automatically.</div>
               </div>
@@ -366,7 +366,7 @@ export default function Topic6() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Total Row Dropdown -&gt; MAX</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Total Row Dropdown → MAX</div>
                 <div className="text-emerald-400 font-semibold">Result: Highest cost asset identified.</div>
                 <div className="text-slate-400 text-[11px]">Total row dropdown eliminates manual formula typing.</div>
               </div>
@@ -451,7 +451,7 @@ export default function Topic6() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Typing Below Table Overwrites Total Row</td>
                   <td className="py-3 px-4 text-slate-300">User typed directly underneath Total Row instead of inserting row inside table.</td>
                   <td className="py-3 px-4 text-amber-300">Check if row is inside table border.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Right-click total row -&gt; Insert -&gt; Table Row Above.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Right-click total row → Insert → Table Row Above.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Total Row Disappears Upon Table Conversion</td>
@@ -488,10 +488,8 @@ export default function Topic6() {
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Toggle Table Total Row on/off instantly.</p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Right Click -&gt; Insert
-              </kbd>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex flex-col gap-2">
+              <div className="flex items-center gap-1.5 flex-wrap"><kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">Right Click -</kbd><span className="text-purple-300 font-mono text-xs font-semibold">→ Insert</span></div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Insert new Table Row Above total row.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">

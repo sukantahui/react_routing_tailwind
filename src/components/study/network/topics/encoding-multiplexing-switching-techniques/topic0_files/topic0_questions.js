@@ -38,7 +38,7 @@ const questions = [
     explanation: "Always a transition mid-bit for clock. The bit value is determined by whether there is a transition at the beginning of the bit period.",
     hint: "Draw the waveform: start high, first bit (1) → transition at start → low. Then mid-bit always transition to high? Wait carefully.",
     level: "expert",
-    codeExample: "diffManchester(bit=1, prev_level=high) -> start transition to low, then mid transition to high (clock)."
+    codeExample: "diffManchester(bit=1, prev_level=high) → start transition to low, then mid transition to high (clock)."
   },
   {
     question: "Why is NRZ still used in high-speed serial links (e.g., PCIe, USB 3.0)?",

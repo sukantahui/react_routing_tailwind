@@ -5,7 +5,7 @@ const topic8_questions = [
     "explanation": "Core closure mechanics and variable capture rules in Java 8.",
     "hint": "Local variables captured by lambdas must never be reassigned (assigned once and never mutated).",
     "level": "Intermediate",
-    "codeExample": "int discount = 10; Function<Integer, Integer> f = price -> price - discount; // discount is effectively final"
+    "codeExample": "int discount = 10; Function<Integer, Integer> f = price → price - discount; // discount is effectively final"
   }
 ];
 

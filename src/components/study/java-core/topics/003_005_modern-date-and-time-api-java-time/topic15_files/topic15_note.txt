@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. INTEROPERABILITY BRIDGES:
-   - Old &rarr; New: 'date.toInstant()'.
-   - New &rarr; Old: 'Date.from(instant)'.
+   - Old → New: 'date.toInstant()'.
+   - New → Old: 'Date.from(instant)'.
    - 'Instant' is the universal bridge type.
 
 ================================================================================

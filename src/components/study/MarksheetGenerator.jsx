@@ -114,7 +114,7 @@ const SingleStudentMarksheet = ({ questions: questionsProp, examData, paperTitle
     <div className="max-w-5xl mx-auto p-6 bg-gray-100 text-gray-800 min-h-screen">
       {/* Header */}
       <div className="bg-white rounded-2xl shadow-md p-6 mb-8 border-l-4 border-blue-600">
-        <h1 className="text-3xl font-bold text-gray-800">{paperTitle}</h1>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{paperTitle}</h1>
         <div className="text-gray-600 text-sm mt-2">
           Total Questions: {questions.length} | Total Marks: {totalMaxMarks}
         </div>

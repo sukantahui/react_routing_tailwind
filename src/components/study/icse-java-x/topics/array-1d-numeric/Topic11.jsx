@@ -159,7 +159,7 @@ const Topic11 = () => {
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 dark:from-pink-400 dark:to-rose-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-600 to-rose-600 dark:from-pink-400 dark:to-rose-400 bg-clip-text text-transparent mb-4">
             Bubble Sort - Descending Order
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">

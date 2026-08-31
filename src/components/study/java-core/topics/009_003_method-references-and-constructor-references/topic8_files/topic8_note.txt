@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. UNBOUND PARAMETER ROUTING:
-   - Target Interface: '(Arg1, Arg2) -> ReturnType'.
+   - Target Interface: '(Arg1, Arg2) → ReturnType'.
    - Referenced Method: 'Class1.method(Arg2)'.
    - Resolution Formula: 'Arg1.method(Arg2)'.
-   - 'String::startsWith' = '(s1, s2) -> s1.startsWith(s2)'.
-   - 'String::indexOf'    = '(s1, s2) -> s1.indexOf(s2)'.
+   - 'String::startsWith' = '(s1, s2) → s1.startsWith(s2)'.
+   - 'String::indexOf'    = '(s1, s2) → s1.indexOf(s2)'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

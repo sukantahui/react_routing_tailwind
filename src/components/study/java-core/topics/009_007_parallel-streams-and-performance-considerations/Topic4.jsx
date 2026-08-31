@@ -21,7 +21,7 @@ export default function Topic4() {
             Parallel Streams & Performance
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Configuring <code className="text-emerald-400 font-mono">Common Pool Parallelism</code> & Custom ForkJoinPool Execution
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic4() {
       </section>
 
       <Teacher
-        note="To prevent parallel streams from hogging the global common pool, you can submit your parallel stream inside a custom ForkJoinPool(4).submit(() -> stream.parallel()...).get()! — Sukanta Hui"
+        note="To prevent parallel streams from hogging the global common pool, you can submit your parallel stream inside a custom ForkJoinPool(4).submit(() → stream.parallel()...).get()! — Sukanta Hui"
       />
     </div>
   );

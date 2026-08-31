@@ -21,7 +21,7 @@ export default function Topic4() {
             Static Scoping
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Generic Static Methods: Why Static Methods Cannot Access Class-Level <code className="text-emerald-400 font-mono">&lt;T&gt;</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic4() {
       </section>
 
       <Teacher
-        note="This is a famous interview trap! Static methods cannot use the class '<T>' because static methods exist before any object is created! A static method must always declare its own '<E>' before its return type! — Sukanta Hui"
+        note="This is a famous interview trap! Static methods cannot use the class '&lt;T&gt;' because static methods exist before any object is created! A static method must always declare its own '&lt;E&gt;' before its return type! — Sukanta Hui"
       />
     </div>
   );

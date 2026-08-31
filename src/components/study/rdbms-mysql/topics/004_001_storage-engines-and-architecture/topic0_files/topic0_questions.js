@@ -145,9 +145,9 @@ const questions = [
   },
   {
     question: "What is the execution sequence when a client sends a `SELECT` statement to MySQL?",
-    shortAnswer: "1) Client sends packet &rarr; 2) Thread allocated & authentication verified &rarr; 3) Parser builds AST &rarr; 4) Preprocessor checks tables/permissions &rarr; 5) Optimizer creates plan &rarr; 6) Executor calls Handler API &rarr; 7) Engine reads pages &rarr; 8) Server streams rows to client.",
+    shortAnswer: "1) Client sends packet → 2) Thread allocated & authentication verified → 3) Parser builds AST → 4) Preprocessor checks tables/permissions → 5) Optimizer creates plan → 6) Executor calls Handler API → 7) Engine reads pages → 8) Server streams rows to client.",
     explanation: "End-to-end lifecycle across the three architectural tiers.",
-    hint: "Network &rarr; Connection Thread &rarr; Parser &rarr; Preprocessor &rarr; Optimizer &rarr; Handler API &rarr; Client.",
+    hint: "Network → Connection Thread → Parser → Preprocessor → Optimizer → Handler API → Client.",
     level: "expert"
   },
   {

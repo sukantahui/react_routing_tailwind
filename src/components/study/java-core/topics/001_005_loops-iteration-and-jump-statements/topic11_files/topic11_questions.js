@@ -51,7 +51,7 @@ const questions = [
     explanation: "Boundary condition column makes bounds transparent.",
     hint: "Shows whether the loop halts at N or executes an extra iteration at N+1.",
     level: "basic",
-    codeExample: "// Shows condition truth value at boundary: i=3 (3<=3 -> TRUE), i=4 (4<=3 -> FALSE)"
+    codeExample: "// Shows condition truth value at boundary: i=3 (3<=3 → TRUE), i=4 (4<=3 → FALSE)"
   },
   {
     question: "When dry running `for (int i = 1; i <= 3; i++) for (int j = 1; j <= 2; j++)`, what is the 4th row in the trace table?",
@@ -63,11 +63,11 @@ const questions = [
   },
   {
     question: "How do you trace an Inner Loop's termination in a trace table?",
-    shortAnswer: "Record the step where the inner condition evaluates to `false` (e.g. `j = 4, 4 <= 3 -> FALSE`), triggering the inner loop exit and jumping to outer update `i++`.",
+    shortAnswer: "Record the step where the inner condition evaluates to `false` (e.g. `j = 4, 4 <= 3 → FALSE`), triggering the inner loop exit and jumping to outer update `i++`.",
     explanation: "Captures the precise exit boundary transition.",
     hint: "Record the false condition step that causes the inner loop to exit.",
     level: "intermediate",
-    codeExample: "// j=4: 4 <= 3 is FALSE -> Exit inner loop -> outer i++"
+    codeExample: "// j=4: 4 <= 3 is FALSE → Exit inner loop → outer i++"
   },
   {
     question: "In technical interview coding, how should a candidate present a dry run to the interviewer?",
@@ -79,11 +79,11 @@ const questions = [
   },
   {
     question: "What is a 'State Transition' in loop tracing?",
-    shortAnswer: "The mutation of one or more variables from their old values to their new values during a single clock step (e.g. `sum: 3 -> 7`).",
+    shortAnswer: "The mutation of one or more variables from their old values to their new values during a single clock step (e.g. `sum: 3 → 7`).",
     explanation: "Atomic state evolution per iteration.",
     hint: "The change of variable values from old state to new state.",
     level: "basic",
-    codeExample: "// State change: (i=2, j=1) -> term=2 -> sum: 1 -> 3"
+    codeExample: "// State change: (i=2, j=1) → term=2 → sum: 1 → 3"
   },
   {
     question: "How do trace tables assist in deriving Mathematical Time Complexity?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "Explicitly tracks skipped execution branches.",
     hint: "Mark action as SKIPPED and show immediate jump to update clause.",
     level: "basic",
-    codeExample: "// Step: condition true -> continue -> skip output -> j++"
+    codeExample: "// Step: condition true → continue → skip output → j++"
   },
   {
     question: "How do you trace `break` statements in a trace table?",
@@ -123,7 +123,7 @@ const questions = [
     explanation: "Explicitly tracks abrupt loop termination.",
     hint: "Mark action as BREAK and show immediate loop termination.",
     level: "basic",
-    codeExample: "// Step: condition true -> break -> exit inner loop"
+    codeExample: "// Step: condition true → break → exit inner loop"
   },
   {
     question: "In the Coder & AccoTax Barrackpore fee discount multiplier demo, what pattern is traced?",
@@ -171,7 +171,7 @@ const questions = [
     explanation: "Verifies accumulator correctness per clock cycle.",
     hint: "Tracks running total or collection state over time.",
     level: "basic",
-    codeExample: "// sum: 1 -> 3 -> 5 -> 8 -> 11 -> 14"
+    codeExample: "// sum: 1 → 3 → 5 → 8 → 11 → 14"
   },
   {
     question: "How do you trace a Two-Pointer algorithmic loop (e.g. `left` and `right`)?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Core characteristic of nested loops.",
     hint: "Shows inner counter j resetting back to initial value when outer i advances.",
     level: "basic",
-    codeExample: "// i=1 -> j=1..i -> i=2 -> j resets back to 1!"
+    codeExample: "// i=1 → j=1..i → i=2 → j resets back to 1!"
   },
   {
     question: "In the Coder & AccoTax Barrackpore curriculum, why are students required to draw trace tables before coding patterns?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Instills rigorous engineering and logical discipline.",
     hint: "Pre-coding trace tables eliminate pattern bugs on the first try.",
     level: "basic",
-    codeExample: "// Paper trace table -> 100% bug-free pattern implementation"
+    codeExample: "// Paper trace table → 100% bug-free pattern implementation"
   },
   {
     question: "What is the trace table row count for `for (int i=0; i<4; i++) for (int j=0; j<i; j++)`?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "Triangular dependent inner loop starting at $j=0$ and stopping at $j<i$.",
     hint: "0 + 1 + 2 + 3 = 6 rows.",
     level: "intermediate",
-    codeExample: "// i=0: 0, i=1: 1, i=2: 2, i=3: 3 -> Total 6"
+    codeExample: "// i=0: 0, i=1: 1, i=2: 2, i=3: 3 → Total 6"
   },
   {
     question: "Can a trace table be used to trace recursive methods?",
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Mastery of dry running is the hallmark of a confident algorithmic engineer.",
     hint: "Trace tables make discrete state transitions transparent, eliminating guesswork.",
     level: "basic",
-    codeExample: "// Summary: Step -> Variables -> Condition -> Action -> Output"
+    codeExample: "// Summary: Step → Variables → Condition → Action → Output"
   },
   {
     question: "What is the next topic (Topic 12) in Module 001_005?",

@@ -90,7 +90,7 @@ const questions = [
     explanation: "The output row height is the mathematical ceiling of total vector elements divided by wrap_count.",
     hint: "Ceiling division: ROUNDUP(Total / N, 0).",
     level: "moderate",
-    codeExample: "=ROUNDUP(ROWS(A1:A25)/4, 0) &rarr; 7 Rows"
+    codeExample: "=ROUNDUP(ROWS(A1:A25)/4, 0) → 7 Rows"
   },
   {
     question: "How can you combine WRAPROWS and TEXTSPLIT to parse a single delimited text cell into a 2D table?",

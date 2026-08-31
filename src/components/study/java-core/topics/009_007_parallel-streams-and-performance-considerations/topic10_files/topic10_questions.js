@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "CommonPool is sized for CPU compute, not I/O blocking.",
     "hint": "Starves the shared JVM common pool which is sized only for CPU cores.",
     "level": "Advanced",
-    "codeExample": "// Severe Anti-Pattern:\\nurls.parallelStream().map(url -> httpClient.send(url)).toList();"
+    "codeExample": "// Severe Anti-Pattern:\\nurls.parallelStream().map(url → httpClient.send(url)).toList();"
   },
   {
     "question": "What is the recommended modern Java architecture for executing concurrent I/O requests instead of parallel streams?",

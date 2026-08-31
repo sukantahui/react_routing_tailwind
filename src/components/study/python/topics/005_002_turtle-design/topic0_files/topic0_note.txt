@@ -43,7 +43,7 @@ programmers to manipulate this drawing behavior dynamically:
 
 3. GOLDEN RULES FOR CLEAN PEN MANAGEMENT
 --------------------------------------------------------------------------------
-- Always pair repositioning with `penup()` -> `goto(x, y)` -> `pendown()`.
+- Always pair repositioning with `penup()` → `goto(x, y)` → `pendown()`.
 - Check `t.isdown()` before running nested subroutines if a function requires
   restoring the original pen state.
 - Set `pensize()` before starting complex geometric loops for consistent stroke weight.

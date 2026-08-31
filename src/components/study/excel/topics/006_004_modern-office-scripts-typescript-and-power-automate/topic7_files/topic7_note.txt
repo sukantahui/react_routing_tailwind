@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 This is true modern programming. You can pass inputs into your script like `function main(workbook, branchName, target)`, calculate the answer in Excel, and return the result to Power Automate to send in an email!
 
 COMMON TRAPS TO AVOID:
-- Using Non-Serializable Return Types: Returning complex circular objects or DOM references causes Power Automate flow execution to fail. -> Fix: Return clean primitive types, arrays, or simple JSON objects (`{ status: string, total: number }`).
-- Missing Parameter Types on Main Function: Omitting TypeScript type annotations on input parameters (`function main(workbook, arg1)`). -> Fix: Always declare explicit types: `function main(workbook: ExcelScript.Workbook, arg1: string)`.
-- Testing in Excel Without Passing Mock Arguments: Running a parameterized script in the editor without providing test values in the Run panel. -> Fix: Enter test parameters in the Monaco editor parameters panel before clicking Run.
+- Using Non-Serializable Return Types: Returning complex circular objects or DOM references causes Power Automate flow execution to fail. → Fix: Return clean primitive types, arrays, or simple JSON objects (`{ status: string, total: number }`).
+- Missing Parameter Types on Main Function: Omitting TypeScript type annotations on input parameters (`function main(workbook, arg1)`). → Fix: Always declare explicit types: `function main(workbook: ExcelScript.Workbook, arg1: string)`.
+- Testing in Excel Without Passing Mock Arguments: Running a parameterized script in the editor without providing test values in the Run panel. → Fix: Enter test parameters in the Monaco editor parameters panel before clicking Run.
 ================================================================================

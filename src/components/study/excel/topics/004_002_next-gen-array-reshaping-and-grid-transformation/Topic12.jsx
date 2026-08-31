@@ -76,7 +76,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 bg-clip-text text-transparent leading-tight">
             Real-World Project: Converting Unformatted Bank Statements into Clean Tabular Data
           </h1>
 
@@ -217,7 +217,7 @@ export default function Topic12() {
                 Using <code className="text-amber-300 font-mono">FILTER(RawStream, RawStream&lt;&gt;"")</code> strips blank delimiter lines in RAM before wrapping, guaranteeing exact 4-field token alignment.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-cyan-300">
-                Sanitize with FILTER &rarr; Unroll with WRAPROWS
+                Sanitize with FILTER → Unroll with WRAPROWS
               </div>
             </div>
           </div>
@@ -395,7 +395,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Bank_Statement"
+            sheetName="EX1713"
             title="Raw Bank Transaction Feed (20-Line Unformatted Log Dump)"
             rowsPerPage={12}
             showSheetSelector={true}
@@ -433,7 +433,7 @@ export default function Topic12() {
                 Entering our single master LET formula in cell <code className="text-emerald-300 font-mono">C2</code> produces a complete 6-column financial ledger with 18% GST and grand totals in under 2 milliseconds.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: Master Pipeline &rarr; 7-Row x 6-Column Clean Financial Card
+                Formula: Master Pipeline → 7-Row x 6-Column Clean Financial Card
               </div>
             </div>
 
@@ -451,7 +451,7 @@ export default function Topic12() {
                 Our pipeline attaches the exact 18% GST calculation vector automatically, ensuring zero discrepancy between bank debits and claimed tax credits.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-cyan-300">
-                Formula: Dynamic GST Vector (amounts * 0.18) &rarr; Zero Audit Errors
+                Formula: Dynamic GST Vector (amounts * 0.18) → Zero Audit Errors
               </div>
             </div>
 
@@ -469,7 +469,7 @@ export default function Topic12() {
                 to automatically rank multi-lakh vendor disbursements at the top of the report for executive approval.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =SORT(body, 4, -1) &rarr; Ranked by Net Invoiced
+                Formula: =SORT(body, 4, -1) → Ranked by Net Invoiced
               </div>
             </div>
 
@@ -603,7 +603,7 @@ export default function Topic12() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by existing text or merged cells.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow unobstructed dynamic spill.</td>
                 </tr>
               </tbody>

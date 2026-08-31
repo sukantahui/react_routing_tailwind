@@ -103,7 +103,7 @@ ORDER BY category_name, brand_name;
 [x] Use explicit `AS alias_name` to improve query self-documentation and API mapping.
 [x] Use `DISTINCT` to eliminate redundant duplicate rows in categorical lookups.
 [x] Use `COUNT(DISTINCT col)` to accurately count unique entities.
-[x] Remember SQL execution order: `FROM` -> `WHERE` -> `GROUP BY` -> `HAVING` -> `SELECT` -> `DISTINCT` -> `ORDER BY` -> `LIMIT`.
+[x] Remember SQL execution order: `FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `DISTINCT` → `ORDER BY` → `LIMIT`.
 
 ================================================================================
 END OF STUDY NOTE · Coder & AccoTax · Barrackpore

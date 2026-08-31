@@ -21,7 +21,7 @@ export default function Topic9() {
             Consumer Chaining
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-purple-400 font-mono">Consumer</code> Chaining: Sequential Multi-Stage Processing via <code className="text-emerald-400 font-mono">andThen()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

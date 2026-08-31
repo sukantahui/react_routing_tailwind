@@ -7,7 +7,7 @@ import questions from "./topic1_files/topic1_questions";
 import noteText from "./topic1_files/topic1_note.txt?raw";
 
 /**
- * Topic1 – Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X -> Y, X Must Be a Superkey
+ * Topic1 – Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X → Y, X Must Be a Superkey
  * Module: 006_005_boyce-codd-normal-form-bcnf
  *
  * @component
@@ -70,7 +70,7 @@ const Topic1 = () => {
             <span>📐</span>
             <span>Relational Normalization Masterclass · Topic 1</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X {"->"} Y, X Must Be a Superkey
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -339,7 +339,7 @@ const Topic1 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X -> Y, X Must Be a Superkey"
+            title="Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X → Y, X Must Be a Superkey"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
@@ -361,7 +361,7 @@ const Topic1 = () => {
         {/* ─── FAQ & Practice Questions ───────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X -> Y, X Must Be a Superkey – Practice Questions"
+            title="Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X → Y, X Must Be a Superkey – Practice Questions"
             questions={questions}
             subtitle="Test your comprehension with 30 deep-dive questions"
             showPrint

@@ -55,7 +55,7 @@ WHERE r.VARIABLE_NAME = 'Innodb_buffer_pool_reads';`
     hint: "Surging physical disk reads revealed buffer pool thrashing caused by an unindexed query.",
     level: "moderate",
     codeExample: `# Barrackpore Buffer Pool Thrashing Triage:
--- Innodb_buffer_pool_reads spiked from 5/sec -> 1,200/sec!`
+-- Innodb_buffer_pool_reads spiked from 5/sec → 1,200/sec!`
   },
   {
     question: "In Abhronila & Debangshu's Kolkata fintech bank, how did monitoring `Threads_running` prevent a cascading database collapse during an end-of-quarter rush across ₹500 Crores in transactions?",
@@ -114,7 +114,7 @@ WHERE r.VARIABLE_NAME = 'Innodb_buffer_pool_reads';`
     explanation: "Interval delta calculation provides the true real-time throughput rate.",
     hint: "Delta of Questions divided by delta of time in seconds.",
     level: "basic",
-    codeExample: `# Sample: Questions at t0=100,000; Questions at t10=150,000 -> (150,000 - 100,000) / 10 = 5,000 QPS.`
+    codeExample: `# Sample: Questions at t0=100,000; Questions at t10=150,000 → (150,000 - 100,000) / 10 = 5,000 QPS.`
   },
   {
     question: "What is the danger of `Threads_connected` approaching 100% of `max_connections`?",

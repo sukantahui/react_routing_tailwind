@@ -21,7 +21,7 @@ export default function Topic13() {
             Instantiation Patterns
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Workarounds for Generic Instantiation: <code className="text-emerald-400 font-mono">Class&lt;T&gt;</code> Tokens &amp; Suppliers
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic13() {
       </section>
 
       <Teacher
-        note="When you need to create a generic array or generic object, use 'Class<T>' or 'Supplier<T>'! 'Supplier<T>' with constructor references (Student::new) is the modern, super-clean Java 8+ way! — Sukanta Hui"
+        note="When you need to create a generic array or generic object, use 'Class&lt;T&gt;' or 'Supplier&lt;T&gt;'! 'Supplier&lt;T&gt;' with constructor references (Student::new) is the modern, super-clean Java 8+ way! — Sukanta Hui"
       />
     </div>
   );

@@ -101,8 +101,8 @@ DNSSEC=yes`
       vulnerabilityRoot: "Windows default fallback to broadcast LLMNR/NetBIOS name resolution for proxy discovery.",
       productionDefense: "Disabling LLMNR and NetBIOS via Group Policy (GPO) + Disabling WPAD in browsers.",
       codeSnippet: `// Disable LLMNR via Windows Group Policy (GPO):
-// Computer Configuration -> Administrative Templates -> Network -> DNS Client
-// Policy: "Turn off multicast name resolution" -> ENABLED`
+// Computer Configuration → Administrative Templates → Network → DNS Client
+// Policy: "Turn off multicast name resolution" → ENABLED`
     },
     bgp_wan_hijack: {
       key: "bgp_wan_hijack",
@@ -214,15 +214,15 @@ server {
     },
     android_cert_pinning: {
       name: "Android Mobile Certificate Pinning (XML)",
-      code: `<!-- res/xml/network_security_config.xml -->
+      code: `<!-- res/xml/network_security_config.xml ──→
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
     <domain-config>
         <domain includeSubdomains="true">api.kolkatabank.in</domain>
         <pin-set expiration="2027-01-01">
-            <!-- SHA-256 SPKI Pin of Primary Certificate -->
+            <!-- SHA-256 SPKI Pin of Primary Certificate ──→
             <pin digest="SHA-256">7HIpactkIAq2Y49orFOOQKurWxmmSFZhBCoQYcRhJ3Y=</pin>
-            <!-- SHA-256 SPKI Pin of Backup Disaster Recovery Certificate -->
+            <!-- SHA-256 SPKI Pin of Backup Disaster Recovery Certificate ──→
             <pin digest="SHA-256">k2oTX1jXXoyEmfikwztRVC42EXotPOJIOyP6zpn1Pew=</pin>
         </pin-set>
     </domain-config>
@@ -459,7 +459,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                 </text>
               </g>
 
-              {/* PATH 1: Alice -> Attacker */}
+              {/* PATH 1: Alice → Attacker */}
               <path d="M 220 165 L 360 165" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 220 165 L 360 165" dur="1.5s" repeatCount="indefinite" />
@@ -492,7 +492,7 @@ ip arp inspection validate src-mac dst-mac ip`,
                 </text>
               </g>
 
-              {/* PATH 2: Attacker -> Server */}
+              {/* PATH 2: Attacker → Server */}
               <path d="M 570 165 L 680 165" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 570 165 L 680 165" dur="1.5s" repeatCount="indefinite" />

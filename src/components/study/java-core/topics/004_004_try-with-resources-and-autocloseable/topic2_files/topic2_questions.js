@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "A critical architectural sequence that guarantees clean state during catch recovery.",
     "hint": "Resource close() executes BEFORE catch and finally blocks run.",
     "level": "Intermediate",
-    "codeExample": "// Order: try_body -> resource.close() -> catch_block -> finally_block"
+    "codeExample": "// Order: try_body → resource.close() → catch_block → finally_block"
   }
 ];
 

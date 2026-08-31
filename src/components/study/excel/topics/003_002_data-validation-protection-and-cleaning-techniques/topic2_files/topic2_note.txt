@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Cascading drop-downs are the hallmark of elite spreadsheet design. Highlight your tables, press Ctrl + Shift + F3 to create Named Ranges from Top Row, and use =INDIRECT($A2) in Data Validation.
 
 COMMON TRAPS TO AVOID:
-- Space Character Named Range Syntax Failure: Selecting 'Credit Card' causes =INDIRECT($A2) to look for a Named Range with spaces, which is illegal in Excel. -> Fix: Name the range `Credit_Card` and use `=INDIRECT(SUBSTITUTE($A2, " ", "_"))` in validation.
-- Ghost Sub-Category Retention on Primary Change: Changing Primary from 'Electronics' to 'Clothing' leaves 'Laptop' selected in the secondary cell until manually changed. -> Fix: Educate users or use a lightweight VBA Worksheet_Change event to clear child cells upon parent change.
-- INDIRECT() Volatility & Case Sensitivity: INDIRECT is a volatile function that recalculates on every sheet action, slowing down massive 100,000-row models. -> Fix: In Excel 365, use dynamic array `=FILTER()` formulas to drive cascading lists.
+- Space Character Named Range Syntax Failure: Selecting 'Credit Card' causes =INDIRECT($A2) to look for a Named Range with spaces, which is illegal in Excel. → Fix: Name the range `Credit_Card` and use `=INDIRECT(SUBSTITUTE($A2, " ", "_"))` in validation.
+- Ghost Sub-Category Retention on Primary Change: Changing Primary from 'Electronics' to 'Clothing' leaves 'Laptop' selected in the secondary cell until manually changed. → Fix: Educate users or use a lightweight VBA Worksheet_Change event to clear child cells upon parent change.
+- INDIRECT() Volatility & Case Sensitivity: INDIRECT is a volatile function that recalculates on every sheet action, slowing down massive 100,000-row models. → Fix: In Excel 365, use dynamic array `=FILTER()` formulas to drive cascading lists.
 ================================================================================

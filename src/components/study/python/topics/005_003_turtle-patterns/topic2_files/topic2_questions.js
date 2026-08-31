@@ -71,7 +71,7 @@ const questions = [
     explanation: "Preserving rotational invariants prevents unintended angular drift.",
     hint: "Why does an inner polygon loop return the heading to 0° relative?",
     level: "advanced",
-    codeExample: "# 4 * 90 = 360 deg -> heading unchanged"
+    codeExample: "# 4 * 90 = 360 deg → heading unchanged"
   },
   {
     question: "How do you draw concentric nested polygons with diminishing sizes using nested loops?",

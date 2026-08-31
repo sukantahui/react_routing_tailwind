@@ -139,10 +139,10 @@ export default App`,
     <title>School Portal - Barrackpore</title>
   </head>
   <body>
-    <!-- This is where React takes over -->
+    <!-- This is where React takes over ──→
     <div id="root"></div>
     
-    <!-- Vite injects the script tag here during development -->
+    <!-- Vite injects the script tag here during development ──→
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>`,
@@ -227,7 +227,7 @@ export default App`,
     {
       stage: "React Mounts",
       content: `<div id="root">
-  <!-- React creating components -->
+  <!-- React creating components ──→
 </div>`,
       state: "React takes control, starts rendering"
     },
@@ -236,7 +236,7 @@ export default App`,
       content: `<div id="root">
   <div class="app theme-dark">
     <header>School Portal</header>
-    <!-- More components -->
+    <!-- More components ──→
   </div>
 </div>`,
       state: "App component returns JSX structure"
@@ -419,7 +419,7 @@ root.render(
                   🎯
                 </div>
                 <div>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
                     Where React Begins
                   </h2>
                   <p className="text-xl text-gray-300">

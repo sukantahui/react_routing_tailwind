@@ -42,7 +42,7 @@ export default function Topic0() {
             Object Genesis &amp; Initialization Architecture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           What is a Constructor and Why Object Initialization is Mandatory
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -145,7 +145,7 @@ export default function Topic0() {
 
             <rect x="35" y="170" width="230" height="110" rx="6" fill="#082f49" stroke="#38bdf8" strokeWidth="1" />
             <text x="45" y="192" fill="#bae6fd" fontSize="9" fontWeight="bold">Local Variable Table (LVT):</text>
-            <text x="45" y="212" fill="#7dd3fc" fontSize="9" fontFamily="monospace">Slot 1: ref &apos;s&apos; &rarr; 0x4517D9A3</text>
+            <text x="45" y="212" fill="#7dd3fc" fontSize="9" fontFamily="monospace">Slot 1: ref &apos;s&apos; → 0x4517D9A3</text>
             <text x="45" y="240" fill="#a7f3d0" fontSize="8" fontWeight="bold">&check; Receives initialized reference</text>
             <text x="45" y="258" fill="#a7f3d0" fontSize="8">after constructor completes!</text>
 

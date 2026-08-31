@@ -24,7 +24,7 @@ const questions = [
     explanation: "In a Star-Ring topology (such as IBM Token Ring architecture), physical star connections from workstations enter a central unit where data circulate logically or physically in a token-passing ring structure.",
     hint: "Workstations radiate to a central unit that loops in a ring.",
     level: "moderate",
-    codeExample: "// Star clusters linked in a circular loop\n(Star A) -> (Star B) -> (Star C) -> (Star A)"
+    codeExample: "// Star clusters linked in a circular loop\n(Star A) → (Star B) → (Star C) → (Star A)"
   },
   {
     question: "What is the primary advantage of adopting a Hybrid Topology in large enterprises?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "Structured cabling prevents cable sprawl, standardizes termination points, and ensures rapid identification of link failures across complex hybrid segments.",
     hint: "Structured cabling with Main (MDF) and Intermediate (IDF) distribution frames.",
     level: "moderate",
-    codeExample: "MDF -> FiberBackbone -> IDF -> Category6_Copper -> StarWorkstations;"
+    codeExample: "MDF → FiberBackbone → IDF → Category6_Copper → StarWorkstations;"
   },
   {
     question: "What is the role of a Core Switch in a modern enterprise Hybrid Star-Mesh network?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures the essence of enterprise hybrid networking: flexibility, reliability, structured management, and rigorous financial planning.",
     hint: "Modular design + Redundant core + Structured documentation in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ModularDesign() -> RedundantCore() -> StructuredCabling() -> StrictDocumentation(₹);"
+    codeExample: "GoldenRule: ModularDesign() → RedundantCore() → StructuredCabling() → StrictDocumentation(₹);"
   }
 ];
 

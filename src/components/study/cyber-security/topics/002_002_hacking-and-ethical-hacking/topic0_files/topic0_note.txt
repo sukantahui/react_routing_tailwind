@@ -57,19 +57,19 @@ Over the decades, hacking evolved through distinct historical eras:
 --------------------------------------------------------------------------------
 
    [ PHASE 1: RECONNAISSANCE ]
-        |  --> Passive OSINT, DNS records, Subdomain discovery (crt.sh)
+        |  → Passive OSINT, DNS records, Subdomain discovery (crt.sh)
         v
    [ PHASE 2: SCANNING & ENUMERATION ]
-        |  --> Port scanning (Nmap), Service version probing, Banner grabbing
+        |  → Port scanning (Nmap), Service version probing, Banner grabbing
         v
    [ PHASE 3: VULNERABILITY IDENTIFICATION ]
-        |  --> Matching service versions against CVE databases (e.g., CVE-2021-44228)
+        |  → Matching service versions against CVE databases (e.g., CVE-2021-44228)
         v
    [ PHASE 4: WEAPONIZATION & EXPLOIT EXECUTION ]
-        |  --> Crafting the exploit string / buffer overflow to hijack control flow
+        |  → Crafting the exploit string / buffer overflow to hijack control flow
         v
    [ PHASE 5: PAYLOAD DELIVERY & POST-EXPLOITATION ]
-        |  --> Spawning Reverse Shell, Establishing Persistence, Lateral Movement
+        |  → Spawning Reverse Shell, Establishing Persistence, Lateral Movement
 
 --------------------------------------------------------------------------------
 4. THREAT ACTOR SPECTRUM & MOTIVATIONAL TAXONOMY
@@ -98,12 +98,12 @@ Over the decades, hacking evolved through distinct historical eras:
 --------------------------------------------------------------------------------
 
 1. STRIDE THREAT MODELING (Microsoft):
-   - S : Spoofing Identity        --> Defense: Strong Authentication (FIDO2, TLS)
-   - T : Tampering with Data      --> Defense: Cryptographic HMACs & Hashes
-   - R : Repudiation              --> Defense: Immutable WORM Audit Logs
-   - I : Information Disclosure   --> Defense: AES-256 Encryption & Egress Lockdown
-   - D : Denial of Service        --> Defense: Anycast DDoS Scrubbing & Rate Limiting
-   - E : Elevation of Privilege   --> Defense: Principle of Least Privilege (RBAC)
+   - S : Spoofing Identity        → Defense: Strong Authentication (FIDO2, TLS)
+   - T : Tampering with Data      → Defense: Cryptographic HMACs & Hashes
+   - R : Repudiation              → Defense: Immutable WORM Audit Logs
+   - I : Information Disclosure   → Defense: AES-256 Encryption & Egress Lockdown
+   - D : Denial of Service        → Defense: Anycast DDoS Scrubbing & Rate Limiting
+   - E : Elevation of Privilege   → Defense: Principle of Least Privilege (RBAC)
 
 2. COMMON VULNERABILITY SCORING SYSTEM (CVSS v3.1):
    - Numerical score ranging from 0.0 to 10.0 based on Base Metrics:

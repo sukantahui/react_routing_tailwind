@@ -28,7 +28,7 @@ const Topic44 = () => {
       throughputLatency: '2.5 kbps Quantum Key Generation Rate • &lt; 0.2 ms Optical Propagation',
       estResearchBudget: '₹48,00,000 (Single-Photon QKD Optical Terminal Pair & Dark Fiber Transceivers)',
       desc: 'Transmits cryptographic encryption keys via polarized single photons, guaranteeing mathematical proof against eavesdropping.',
-      simResult: 'Alice sends 10,000 polarized photons -> Bob measures in rectilinear/diagonal bases -> QBER measured at 2.4% (< 11%) -> 256-bit AES Master Key Distilled.',
+      simResult: 'Alice sends 10,000 polarized photons → Bob measures in rectilinear/diagonal bases → QBER measured at 2.4% (< 11%) → 256-bit AES Master Key Distilled.',
     },
     {
       id: 'pqc-hybrid-tls',
@@ -40,7 +40,7 @@ const Topic44 = () => {
       throughputLatency: '1.2 KB Public Key Size • 1-RTT Handshake Duration (3.8 ms) • Zero Latency Penalty',
       estResearchBudget: '₹3,80,000 (PQC HSM Firmware Upgrade & Cryptographic Gateway Cluster)',
       desc: 'Combines classical elliptic curves with post-quantum lattice mathematics to protect sensitive healthcare data permanently.',
-      simResult: 'TLS 1.3 ClientHello offers [X25519, ML-KEM-768] -> Server encapsulates shared secret -> Derives AES-256-GCM session key in 3.8ms.',
+      simResult: 'TLS 1.3 ClientHello offers [X25519, ML-KEM-768] → Server encapsulates shared secret → Derives AES-256-GCM session key in 3.8ms.',
     },
     {
       id: '6g-leo-laser',
@@ -52,7 +52,7 @@ const Topic44 = () => {
       throughputLatency: '120 Gbps Wireless Throughput • 47% Faster Light Propagation in Space Vacuum',
       estResearchBudget: '₹14,50,000 (Prototype 6G THz Transceiver & LEO Satellite Ground Terminal)',
       desc: 'Ultra-broadband space-air-ground network delivering multi-gigabit speeds directly to mobile devices worldwide.',
-      simResult: '6G terminal transmits 3D holographic point cloud at 120 Gbps -> RIS steers beam around skyscraper -> Space laser routes to London in 32ms.',
+      simResult: '6G terminal transmits 3D holographic point cloud at 120 Gbps → RIS steers beam around skyscraper → Space laser routes to London in 32ms.',
     },
     {
       id: 'ai-intent-p4',
@@ -64,7 +64,7 @@ const Topic44 = () => {
       throughputLatency: '25.6 Terabits/sec ASIC Wire-Speed Switching • Nanosecond INT Observability',
       estResearchBudget: '₹18,50,000 (P4 Programmable 25.6 Tbps Switch & AI Intent Controller Stack)',
       desc: 'Self-driving network where AI translates business intents into programmable switch hardware pipelines autonomously.',
-      simResult: 'Jitter anomaly detected on Primary Trunk -> AI Digital Twin validates alternate route -> P4 switch updates flow table in 14ms -> 0 Drops.',
+      simResult: 'Jitter anomaly detected on Primary Trunk → AI Digital Twin validates alternate route → P4 switch updates flow table in 14ms → 0 Drops.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic44 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Future of Computer Networking
           </h1>
 

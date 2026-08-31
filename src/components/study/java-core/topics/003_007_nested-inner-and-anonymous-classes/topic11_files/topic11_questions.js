@@ -5,7 +5,7 @@ const topic11_questions = [
     "explanation": "Applies equally to Anonymous Inner Classes, Method-Local classes, and Java 8 Lambdas.",
     "hint": "A variable that is never reassigned; copies are passed to the inner class on heap.",
     "level": "Intermediate",
-    "codeExample": "int x = 10; Runnable r = () -> System.out.println(x); // x is effectively final"
+    "codeExample": "int x = 10; Runnable r = () → System.out.println(x); // x is effectively final"
   }
 ];
 

@@ -71,7 +71,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Asset_depreciation"
+            sheetName="EX1211"
             title={"Asset depreciation modeling: SLN (Straight-line), DB (Declining balance), DDB (Double-declining), and SYD - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

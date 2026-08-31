@@ -31,7 +31,7 @@ export default class Topic12 extends React.Component {
                     <div className={`mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         <div className="flex items-center gap-3 mb-6">
                             <div className="w-3 h-12 bg-gradient-to-b from-orange-500 to-red-600 rounded-full animate-pulse"></div>
-                            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
                                 Understanding File Timestamps
                             </h1>
                         </div>

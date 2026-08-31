@@ -19,7 +19,7 @@ const questions = [
     explanation: "Inner loop runs to full completion before the outer loop advances by 1 step.",
     hint: "Inner loop executes all iterations for every single outer loop step.",
     level: "basic",
-    codeExample: "// Outer i=1 -> Inner runs j=1..4 -> Outer i=2 -> Inner runs j=1..4"
+    codeExample: "// Outer i=1 → Inner runs j=1..4 → Outer i=2 → Inner runs j=1..4"
   },
   {
     question: "How do you calculate the Total Number of Iterations of a nested loop?",

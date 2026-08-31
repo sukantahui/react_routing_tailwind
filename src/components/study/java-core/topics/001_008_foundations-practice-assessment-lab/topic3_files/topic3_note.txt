@@ -9,10 +9,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 - 4 Boundary Pointers: top = 0, bottom = rows - 1, left = 0, right = cols - 1
 - Traversal Steps:
-  1. Top Row     : left -> right across 'top' row, then top++
-  2. Right Col   : top -> bottom down 'right' column, then right--
-  3. Bottom Row  : right -> left across 'bottom' row (GUARD: if (top <= bottom)), then bottom--
-  4. Left Col    : bottom -> top up 'left' column (GUARD: if (left <= right)), then left++
+  1. Top Row     : left → right across 'top' row, then top++
+  2. Right Col   : top → bottom down 'right' column, then right--
+  3. Bottom Row  : right → left across 'bottom' row (GUARD: if (top <= bottom)), then bottom--
+  4. Left Col    : bottom → top up 'left' column (GUARD: if (left <= right)), then left++
 - Loop condition: while (top <= bottom && left <= right)
 
 2. IN-PLACE 90-DEGREE CLOCKWISE ROTATION (O(N^2) Time, O(1) Space)

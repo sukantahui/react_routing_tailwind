@@ -21,7 +21,7 @@ export default function Topic11() {
             Wildcard Capture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Wildcard Capture &amp; Helper Methods: Fixing <code className="text-rose-400 font-mono">CAP#1</code> Capture Errors
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic11() {
       </section>
 
       <Teacher
-        note="When the compiler throws a mysterious error about 'capture#1 of ?', don't panic! Just write a private helper method with '<T>' and delegate the work to it! The helper method captures the wildcard and solves the issue instantly! — Sukanta Hui"
+        note="When the compiler throws a mysterious error about 'capture#1 of ?', don't panic! Just write a private helper method with '&lt;T&gt;' and delegate the work to it! The helper method captures the wildcard and solves the issue instantly! — Sukanta Hui"
       />
     </div>
   );

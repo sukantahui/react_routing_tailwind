@@ -27,12 +27,12 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   +---------------+------------+------------+----------------------------------+
 
 - Java 8+ Floor Division:
-  * Math.floorDiv(-7, 2)  --> -4 (Rounds down to -4, unlike -7 / 2 which gives -3)
-  * Math.floorMod(-7, 2)  --> +1 (Remainder sign matches divisor +2)
+  * Math.floorDiv(-7, 2)  → -4 (Rounds down to -4, unlike -7 / 2 which gives -3)
+  * Math.floorMod(-7, 2)  → +1 (Remainder sign matches divisor +2)
 
 - Cast Placement Rule:
-  * (double)(a / b) --> WRONG! Truncation already occurred inside parentheses.
-  * (double) a / b  --> CORRECT! Promotes division to floating-point.
+  * (double)(a / b) → WRONG! Truncation already occurred inside parentheses.
+  * (double) a / b  → CORRECT! Promotes division to floating-point.
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------

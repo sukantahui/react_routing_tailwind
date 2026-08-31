@@ -21,7 +21,7 @@ In Java 12 preview, `break Expression;` was used to return values from switch ex
   LOOP_LABEL:
   for (...) {
       int x = switch (val) {
-          case 1 -> {
+          case 1 → {
               break LOOP_LABEL; // Is this breaking the loop or yielding variable LOOP_LABEL?
           }
       };
@@ -35,7 +35,7 @@ When a multi-statement block body `{ ... }` is used in a switch expression:
 
 4. TELEMETRY, LOGGING, AND STEPWISE AUDITING
 The primary architectural utility of `yield` in production systems is enabling intermediate instrumentation:
-  case PAYMENT_ONLINE -> {
+  case PAYMENT_ONLINE → {
       auditLogger.info("Initiating UPI handshake for student: " + id);
       int netPayable = calculateGstAndPlatformFee(baseAmount);
       metricRegistry.counter("payments.online").increment();

@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. WHAT IS A METHOD REFERENCE:
    - Compact syntax for lambdas calling existing methods.
    - Eliminates boilerplate parameter names.
-   - Example: 'x -> System.out.println(x)' &rarr; 'System.out::println'.
+   - Example: 'x → System.out.println(x)' → 'System.out::println'.
    - Evaluated at runtime with the same performance as lambda expressions.
 
 ================================================================================

@@ -16,7 +16,7 @@ GRANT 'app_read_only' TO 'mamata'@'192.168.1.%', 'susmita'@'192.168.1.%';`
     question: "What are the 4 fundamental steps to implement a working Role in MySQL 8.0?",
     shortAnswer: "1. `CREATE ROLE`, 2. `GRANT privileges TO role`, 3. `GRANT role TO user`, and 4. `SET DEFAULT ROLE role TO user`.",
     explanation: "Step 1 provisions the role object. Step 2 assigns database capabilities to the role. Step 3 binds the role to user accounts. Step 4 activates the role automatically on login so users do not receive 'command denied' errors.",
-    hint: "Recall: Create -> Grant Privs -> Assign to User -> Set Default Role.",
+    hint: "Recall: Create → Grant Privs → Assign to User → Set Default Role.",
     level: "basic",
     codeExample: `-- Step 1: Create
 CREATE ROLE 'finance_editor';
@@ -34,7 +34,7 @@ SET DEFAULT ROLE 'finance_editor' TO 'debangshu'@'localhost';`
     hint: "Assigned roles start in an inactive dormant state by default.",
     level: "intermediate",
     codeExample: `-- User logs in and queries:
--- SELECT * FROM orders; -> ERROR 1142 (command denied)
+-- SELECT * FROM orders; → ERROR 1142 (command denied)
 -- Solution in session:
 SET ROLE ALL;`
   },
@@ -123,7 +123,7 @@ SET DEFAULT ROLE ALL TO 'cashier1'@'192.168.1.%', 'cashier2'@'192.168.1.%';`
   },
   {
     question: "In Abhronila & Debangshu's Kolkata fintech bank, how did they use Role Inheritance across Junior, Senior, and Lead banking engineers managing ₹100 Crore ledgers?",
-    shortAnswer: "They built a 3-tier hierarchy: `junior_analyst_role` (read-only) -> `senior_analyst_role` (inherits junior + execute procedures) -> `lead_dba_role` (inherits senior + DDL).",
+    shortAnswer: "They built a 3-tier hierarchy: `junior_analyst_role` (read-only) → `senior_analyst_role` (inherits junior + execute procedures) → `lead_dba_role` (inherits senior + DDL).",
     explanation: "By structuring roles hierarchically, privileges were managed modularly without duplicate grants. When reporting requirements changed, updating the base `junior_analyst_role` automatically propagated up to seniors and leads.",
     hint: "Nest roles using multi-tiered inheritance.",
     level: "expert",
@@ -290,7 +290,7 @@ WHERE FROM_USER = 'barrackpore_cashier';`
   },
   {
     question: "What is the primary operational takeaway of Topic 8 in Module 004_003?",
-    shortAnswer: "MySQL 8.0 Roles provide modern, enterprise-grade Role-Based Access Control (RBAC): remember the 4-step lifecycle (Create -> Grant -> Assign -> Set Default Role) and structure modular role inheritance hierarchies.",
+    shortAnswer: "MySQL 8.0 Roles provide modern, enterprise-grade Role-Based Access Control (RBAC): remember the 4-step lifecycle (Create → Grant → Assign → Set Default Role) and structure modular role inheritance hierarchies.",
     explanation: "Adopting Roles eliminates administrative overhead and security vulnerabilities. By centralizing permissions into role graphs and automating role activation via `SET DEFAULT ROLE ALL` or `activate_all_roles_on_login`, database operations remain clean, secure, and compliant.",
     hint: "Summarize RBAC lifecycle, role inheritance, and automatic activation.",
     level: "basic",

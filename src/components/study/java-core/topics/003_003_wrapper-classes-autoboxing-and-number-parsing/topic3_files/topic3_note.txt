@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. AUTOBOXING MECHANICS:
    - Introduced in Java 5.
-   - Primitive &rarr; Wrapper object automatically.
+   - Primitive → Wrapper object automatically.
    - Bytecode translation: 'Integer.valueOf(primitive)'.
    - Eliminates deprecated 'new Integer(n)' constructors.
 

@@ -12,14 +12,14 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 --------------------------------------------------------------------------------
 • Split by Delimiter: Table.SplitColumn with Splitter.SplitTextByDelimiter
 • Split into Rows: Table.ExpandListColumn (Normalizes lists to 1NF rows!)
-• Character Transition: Split non-digit to digit (INV1024 -> INV | 1024)
+• Character Transition: Split non-digit to digit (INV1024 → INV | 1024)
 • Delimiter Slicing:
   - Text.BeforeDelimiter(text, "@")
   - Text.AfterDelimiter(text, ".", {0, RelativePosition.FromEnd})
   - Text.BetweenDelimiters(text, "(", ")")
 • Surgical Selection:
-  - Text.Select(text, {"0".."9"}) -> Extracts digits only!
-  - Text.Remove(text, {"-", "(", ")", " "}) -> Strips symbols!
+  - Text.Select(text, {"0".."9"}) → Extracts digits only!
+  - Text.Remove(text, {"-", "(", ")", " "}) → Strips symbols!
 • Casing: Text.Upper, Text.Lower, Text.Proper
 • Hygiene: Text.Clean + Text.Trim
 

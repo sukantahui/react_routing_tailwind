@@ -5,7 +5,7 @@ const topic5_questions = [
     "explanation": "Static nested classes do not have this synthetic reference.",
     "hint": "The synthetic this$0 reference to the enclosing outer instance.",
     "level": "Intermediate",
-    "codeExample": "innerInstance.this$0 -> Points to outer class instance"
+    "codeExample": "innerInstance.this$0 → Points to outer class instance"
   },
   {
     "question": "How do you break the connection between an inner class and its outer enclosing instance?",

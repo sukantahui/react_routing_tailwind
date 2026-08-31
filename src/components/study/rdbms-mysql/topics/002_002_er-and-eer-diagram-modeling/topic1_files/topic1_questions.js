@@ -24,7 +24,7 @@ const questions = [
   },
   {
     question: "What is a Composite Attribute in ER modeling?",
-    shortAnswer: "An attribute that can be divided into smaller sub-components (e.g. `full_name` -> `first_name`, `last_name`; `address` -> `street`, `city`, `pincode`).",
+    shortAnswer: "An attribute that can be divided into smaller sub-components (e.g. `full_name` → `first_name`, `last_name`; `address` → `street`, `city`, `pincode`).",
     explanation: "Allows modeling hierarchical attribute structures.",
     hint: "Divisible into sub-components.",
     level: "basic"

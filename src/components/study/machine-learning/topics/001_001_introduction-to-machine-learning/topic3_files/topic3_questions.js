@@ -57,7 +57,7 @@ const questions = [
     explanation: "Self-supervised learning (the foundation of LLMs like GPT-4 and BERT) masks tokens in a sentence or patches in an image, training the model to predict the missing information using the surrounding context as implicit ground truth.",
     hint: "Predicting the next word in a Wikipedia sentence or masked image patch.",
     level: "Expert",
-    codeExample: "# Pretext task in BERT: 'Kolkata is the [MASK] of West Bengal' -> Predict 'capital'"
+    codeExample: "# Pretext task in BERT: 'Kolkata is the [MASK] of West Bengal' → Predict 'capital'"
   },
   {
     id: 7,
@@ -147,7 +147,7 @@ const questions = [
     explanation: "Multi-task learning shares lower-level feature representations (e.g. convolutional or transformer backbone) while branching into separate task-specific prediction heads (e.g. simultaneously predicting vehicle bounding boxes and road lane boundaries).",
     hint: "One shared neural backbone with multiple specialized output heads.",
     level: "Expert",
-    codeExample: "# Shared Backbone -> Head 1 (Object Detection), Head 2 (Depth Estimation)"
+    codeExample: "# Shared Backbone → Head 1 (Object Detection), Head 2 (Depth Estimation)"
   },
   {
     id: 17,
@@ -180,7 +180,7 @@ const questions = [
     id: 20,
     question: "Why is association rule mining (e.g. Apriori algorithm) considered an Unsupervised technique?",
     shortAnswer: "It discovers co-occurrence item patterns in market baskets without pre-defined class labels or target variables.",
-    explanation: "Market basket analysis examines thousands of retail receipts (e.g. at an Ichapur grocery store) to calculate Support, Confidence, and Lift for rules like {Bread, Butter} -> {Milk} without requiring supervisory target labels.",
+    explanation: "Market basket analysis examines thousands of retail receipts (e.g. at an Ichapur grocery store) to calculate Support, Confidence, and Lift for rules like {Bread, Butter} → {Milk} without requiring supervisory target labels.",
     hint: "Finding which items are frequently bought together.",
     level: "Basic",
     codeExample: "rules = association_rules(frequent_itemsets, metric='lift', min_threshold=1.5)"
@@ -260,20 +260,20 @@ const questions = [
   {
     id: 29,
     question: "In a real-world enterprise ML deployment, how do companies combine multiple paradigms?",
-    shortAnswer: "Self-supervised pre-training on mass data -> Supervised fine-tuning on domain data -> Reinforcement Learning alignment.",
+    shortAnswer: "Self-supervised pre-training on mass data → Supervised fine-tuning on domain data → Reinforcement Learning alignment.",
     explanation: "Modern AI architectures (like LLMs, autonomous vehicles, and medical perception systems) execute a multi-stage funnel: 1. Self-supervised pre-training on raw data. 2. Supervised fine-tuning (SFT) on clean labeled data. 3. RLHF policy refinement for safety and business goals.",
-    hint: "The three-stage modern AI pipeline: Pretrain (SSL) -> Fine-tune (Supervised) -> Align (RL).",
+    hint: "The three-stage modern AI pipeline: Pretrain (SSL) → Fine-tune (Supervised) → Align (RL).",
     level: "Moderate",
-    codeExample: "# Stage 1: Pretrain on 1TB text -> Stage 2: SFT on 50k QA pairs -> Stage 3: PPO Alignment"
+    codeExample: "# Stage 1: Pretrain on 1TB text → Stage 2: SFT on 50k QA pairs → Stage 3: PPO Alignment"
   },
   {
     id: 30,
     question: "What is the ultimate rule of thumb for selecting the correct Machine Learning paradigm for an enterprise project?",
-    shortAnswer: "Map your available data and feedback structure: If labels exist -> Supervised; If no labels -> Unsupervised; If sparse labels -> Semi-Supervised; If sequential actions & rewards -> Reinforcement Learning.",
+    shortAnswer: "Map your available data and feedback structure: If labels exist → Supervised; If no labels → Unsupervised; If sparse labels → Semi-Supervised; If sequential actions & rewards → Reinforcement Learning.",
     explanation: "The paradigm choice is dictated strictly by the problem physics and dataset annotation reality: Labeled pairs mandate Supervised Learning; Latent structure discovery mandates Unsupervised Learning; Costly labeling mandates Semi-Supervised; Dynamic action-reward loops mandate Reinforcement Learning.",
     hint: "Let the data annotation reality and feedback structure dictate the paradigm.",
     level: "Basic",
-    codeExample: "# Data Audit Checklist: Labels present? -> Supervised | Unlabeled? -> Unsupervised | Action-reward? -> RL"
+    codeExample: "# Data Audit Checklist: Labels present? → Supervised | Unlabeled? → Unsupervised | Action-reward? → RL"
   }
 ];
 

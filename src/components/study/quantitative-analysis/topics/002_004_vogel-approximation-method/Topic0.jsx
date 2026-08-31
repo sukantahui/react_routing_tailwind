@@ -74,7 +74,7 @@ const Topic0 = () => {
       rowPenalties: ['₹14 - ₹12 = ₹2', '₹10 - ₹6 = ₹4'],
       colPenalties: ['₹12 - ₹6 = ₹6', '₹26 - ₹18 = ₹8 (MAX)', '₹14 - ₹10 = ₹4'],
       maxPenaltyLocation: 'Column 2 (Jadavpur Depot) with Penalty = ₹8',
-      actionTaken: 'Allocate maximum possible 50 tons to lowest cost cell in Col 2 -> Cell (S1, D2) @ ₹18/ton.',
+      actionTaken: 'Allocate maximum possible 50 tons to lowest cost cell in Col 2 → Cell (S1, D2) @ ₹18/ton.',
       financialImpact: 'Shields Jadavpur from paying the exorbitant ₹26 route from Ichapur. Immediate savings: 50 × ₹8 = ₹400.',
       summary: 'Without penalty evaluation, a greedy method would grab Ichapur → Kolkata (₹6), leaving Jadavpur stranded with a ₹26/ton nightmare.',
     },
@@ -98,7 +98,7 @@ const Topic0 = () => {
       rowPenalties: ['₹8 - ₹5 = ₹3', '₹18 - ₹4 = ₹14 (MAX)'],
       colPenalties: ['₹5 - ₹4 = ₹1', '₹22 - ₹15 = ₹7', '₹18 - ₹8 = ₹10'],
       maxPenaltyLocation: 'Row 2 (Barrackpore Bio-Depot) with Penalty = ₹14',
-      actionTaken: 'Allocate 80 boxes to lowest cost in Row 2 -> Cell (S2, D1) @ ₹4/box.',
+      actionTaken: 'Allocate 80 boxes to lowest cost in Row 2 → Cell (S2, D1) @ ₹4/box.',
       financialImpact: 'Locks in the ₹4 rate for 80 units, preventing a massive ₹14/box regret on the Barrackpore stock.',
       summary: 'Row 2 had an alarming penalty gap of ₹14/box between ₹4 and ₹18. VAM solved this bottleneck on step 1.',
     },
@@ -124,7 +124,7 @@ const Topic0 = () => {
       rowPenalties: ['₹7 - ₹3 = ₹4', '₹6 - ₹4 = ₹2', '₹5 - ₹2 = ₹3'],
       colPenalties: ['₹5 - ₹3 = ₹2', '₹6 - ₹4 = ₹2', '₹8 - ₹2 = ₹6 (MAX)'],
       maxPenaltyLocation: 'Column 3 (Gariahat Supercenter) with Penalty = ₹6',
-      actionTaken: 'Allocate min(30, 40) = 30 pallets to lowest cost cell in Col 3 -> Cell (S3, D3) @ ₹2/pallet.',
+      actionTaken: 'Allocate min(30, 40) = 30 pallets to lowest cost cell in Col 3 → Cell (S3, D3) @ ₹2/pallet.',
       financialImpact: 'Exhausts Kolkata Depot directly at ₹2/pallet, avoiding Gariahat taking pallets at ₹8 or ₹9.',
       summary: 'Gariahat had the highest penalty hazard (₹6). Fulfilling 30 pallets @ ₹2 saved ₹180 immediately.',
     },
@@ -150,7 +150,7 @@ const Topic0 = () => {
       rowPenalties: ['₹10 - ₹2 = ₹8 (MAX)', '₹7 - ₹4 = ₹3', '₹12 - ₹8 = ₹4'],
       colPenalties: ['₹8 - ₹7 = ₹1', '₹11 - ₹2 = ₹9 (MAX GLOBAL)', '₹12 - ₹4 = ₹8'],
       maxPenaltyLocation: 'Column 2 (College Street Depot) with Penalty = ₹9',
-      actionTaken: 'Allocate min(75, 80) = 75 bundles to lowest cost in Col 2 -> Cell (S1, D2) @ ₹2/bundle.',
+      actionTaken: 'Allocate min(75, 80) = 75 bundles to lowest cost in Col 2 → Cell (S1, D2) @ ₹2/bundle.',
       financialImpact: 'Secures 75 bundles at ₹2, preventing College Street from taking costly ₹11 or ₹14 alternatives.',
       summary: 'Column 2 had a massive ₹9 penalty gap. Allocating S1 completely saturated the cheapest route.',
     },
@@ -293,7 +293,7 @@ const Topic0 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Concept of Penalty in Vogel's Approximation Method
           </h1>
 
@@ -804,7 +804,7 @@ const Topic0 = () => {
                   </text>
                 </g>
 
-                {/* Connector 1 -> 2 */}
+                {/* Connector 1 → 2 */}
                 <path d="M 240 85 L 290 85" stroke="#38bdf8" strokeWidth="2" strokeDasharray="4 4">
                   <animate attributeName="stroke-dashoffset" values="8;0" dur="1.2s" repeatCount="indefinite" />
                 </path>
@@ -828,7 +828,7 @@ const Topic0 = () => {
                   </text>
                 </g>
 
-                {/* Connector 2 -> 3 */}
+                {/* Connector 2 → 3 */}
                 <path d="M 530 85 L 580 85" stroke="#34d399" strokeWidth="2" strokeDasharray="4 4">
                   <animate attributeName="stroke-dashoffset" values="8;0" dur="1.2s" repeatCount="indefinite" />
                 </path>
@@ -849,7 +849,7 @@ const Topic0 = () => {
                   </text>
                 </g>
 
-                {/* Vertical Connector 3 -> 4 */}
+                {/* Vertical Connector 3 → 4 */}
                 <path d="M 690 130 L 690 220" stroke="#a78bfa" strokeWidth="2" strokeDasharray="4 4">
                   <animate attributeName="stroke-dashoffset" values="8;0" dur="1.2s" repeatCount="indefinite" />
                 </path>
@@ -870,7 +870,7 @@ const Topic0 = () => {
                   </text>
                 </g>
 
-                {/* Connector 4 -> 5 */}
+                {/* Connector 4 → 5 */}
                 <path d="M 570 280 L 510 280" stroke="#fbbf24" strokeWidth="2" strokeDasharray="4 4">
                   <animate attributeName="stroke-dashoffset" values="8;0" dur="1.2s" repeatCount="indefinite" />
                 </path>

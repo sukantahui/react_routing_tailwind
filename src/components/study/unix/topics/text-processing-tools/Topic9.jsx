@@ -82,7 +82,7 @@ const Topic9 = () => {
           <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-4">
             Topic 10: Data Processing Mastery
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
               awk for Column-Based Processing and Reports
             </span>

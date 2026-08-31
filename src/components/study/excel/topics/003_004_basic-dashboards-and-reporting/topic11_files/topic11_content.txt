@@ -10,7 +10,7 @@ Connecting multiple charts to synchronized slicer panels is an essential discipl
 It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables
+Operational Architecture: Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables
 
 3. CORE TECHNICAL MECHANICS
 1. Unified Slicer Signal Broadcasting:

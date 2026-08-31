@@ -234,7 +234,7 @@ export default function Topic5() {
             Module 001_003 · Operators & Expressions · Topic 5
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Operator Precedence & <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400">Associativity</span>
           </h1>
 
@@ -608,7 +608,7 @@ print(f"a = {a}, b = {b}, c = {c}")
 
 # Modifying one primitive does not affect others
 a += 50
-print(f"After a += 50 -> a = {a}, b = {b}")`}
+print(f"After a += 50 → a = {a}, b = {b}")`}
             />
           </div>
 

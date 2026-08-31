@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. DESIGN DECISION MATRIX:
-   - Can caller recover? &rarr; Use CHECKED ('extends Exception').
-   - Is it a bug / bad argument? &rarr; Use UNCHECKED ('extends RuntimeException').
-   - Precondition checks &rarr; 'IllegalArgumentException', 'IllegalStateException'.
+   - Can caller recover? → Use CHECKED ('extends Exception').
+   - Is it a bug / bad argument? → Use UNCHECKED ('extends RuntimeException').
+   - Precondition checks → 'IllegalArgumentException', 'IllegalStateException'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

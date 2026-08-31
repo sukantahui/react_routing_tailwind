@@ -19,9 +19,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    -----------------------------------------------------------------------------
 
 3. COMMON USE CASES:
-   - Flattening 'List<List<T>>' &rarr; 'List<T>'.
-   - Splitting sentences into streams of individual words ('sentence -> Arrays.stream(sentence.split(" "))').
-   - Extracting sub-collections from domain entities (Order &rarr; List<OrderItem>).
+   - Flattening 'List<List<T>>' → 'List<T>'.
+   - Splitting sentences into streams of individual words ('sentence → Arrays.stream(sentence.split(" "))').
+   - Extracting sub-collections from domain entities (Order → List<OrderItem>).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

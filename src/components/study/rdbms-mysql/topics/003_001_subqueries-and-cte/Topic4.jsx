@@ -84,7 +84,7 @@ ORDER BY d.dept_name;`,
       badgeColor: "amber",
       sqlQuery: `-- Legacy Pre-MySQL 8.0 Pattern: Finding Top 1 Student per Department:
 -- Counts how many peers in the SAME department have a higher score.
--- If (Count < 1), this student has zero peers with higher scores -> Rank 1!
+-- If (Count < 1), this student has zero peers with higher scores → Rank 1!
 
 SELECT 
     s.student_id,
@@ -164,7 +164,7 @@ ORDER BY dept_name, exam_score_pct DESC;`,
               Dependent Subquery Architecture
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Correlated Subqueries: Row-by-Row Execution
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

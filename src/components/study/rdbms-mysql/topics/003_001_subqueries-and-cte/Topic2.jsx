@@ -107,7 +107,7 @@ WHERE s.exam_score_pct > ALL (
       badge: "NULL Defense",
       badgeColor: "rose",
       sqlQuery: `-- ❌ BUGGY QUERY (Fails silently if subquery contains ANY NULL!):
--- If subquery returns [101, 102, NULL], 'NOT IN' evaluates to UNKNOWN for all rows -> EMPTY SET!
+-- If subquery returns [101, 102, NULL], 'NOT IN' evaluates to UNKNOWN for all rows → EMPTY SET!
 -- SELECT * FROM courses WHERE course_id NOT IN (SELECT course_id FROM enrollments);
 
 -- ✅ DEFENSIVE REFACTORED QUERY (Explicit NULL filtration):
@@ -157,7 +157,7 @@ WHERE c.course_id NOT IN (
               Multi-Row Set Operations
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Multiple-Row Subqueries: IN, NOT IN, ANY, ALL
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

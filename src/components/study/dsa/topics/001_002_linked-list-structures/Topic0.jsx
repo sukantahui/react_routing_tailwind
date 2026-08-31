@@ -138,7 +138,7 @@ export default function Topic0() {
     if (nextIdx < heapNodes.length) {
       const curr = heapNodes[nextIdx];
       setAllocStatus(
-        `Dereferencing register [curr]: Address ${curr.addr} -> curr->data = ${curr.val}, curr->next = ${curr.nextAddr}.`
+        `Dereferencing register [curr]: Address ${curr.addr} → curr->data = ${curr.val}, curr->next = ${curr.nextAddr}.`
       );
     } else {
       setAllocStatus(
@@ -184,7 +184,7 @@ export default function Topic0() {
             <span>DSA Foundation · Module 001_002 · Topic 0</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-indigo-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-indigo-300 tracking-tight leading-tight">
             Self-Referential Struct Mechanics
           </h1>
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-300 max-w-4xl mx-auto">
@@ -364,7 +364,7 @@ export default function Topic0() {
 
                 {/* Arrow */}
                 <div className="md:col-span-1 flex items-center justify-center text-cyan-500 font-bold text-2xl select-none">
-                  &rarr;
+                  →
                 </div>
 
                 {/* Heap Section */}
@@ -384,7 +384,7 @@ export default function Topic0() {
                       <div className="text-sky-300 text-[10px]">next: 0x55a030 <span className="text-slate-500">(8B)</span></div>
                     </div>
 
-                    <span className="text-cyan-500 font-bold text-sm">&rarr;</span>
+                    <span className="text-cyan-500 font-bold text-sm">→</span>
 
                     {/* Node 2 */}
                     <div className="p-3 bg-slate-900 rounded-xl border border-cyan-500/60 text-xs font-mono space-y-1 shadow-md min-w-[150px]">
@@ -779,7 +779,7 @@ export default function Topic0() {
             {/* Interactive Memory Chain Display */}
             <div className="space-y-3">
               <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center justify-between">
-                <span>Active Physical Memory Chain (Stack &rarr; Heap Nodes &rarr; Sentinel):</span>
+                <span>Active Physical Memory Chain (Stack → Heap Nodes → Sentinel):</span>
                 <span className="text-cyan-400 font-mono text-[11px]">sizeof(struct Node) = 16B</span>
               </div>
 
@@ -793,7 +793,7 @@ export default function Topic0() {
                   <span className="text-[9px] font-mono text-slate-400">ptr register</span>
                 </div>
 
-                <div className="text-cyan-500 font-bold text-lg select-none">&rarr;</div>
+                <div className="text-cyan-500 font-bold text-lg select-none">→</div>
 
                 {/* Heap Nodes */}
                 {heapNodes.length === 0 ? (
@@ -835,7 +835,7 @@ export default function Topic0() {
                         </div>
 
                         {/* Arrow to next node */}
-                        <div className="text-cyan-500 font-bold text-lg select-none">&rarr;</div>
+                        <div className="text-cyan-500 font-bold text-lg select-none">→</div>
                       </React.Fragment>
                     );
                   })

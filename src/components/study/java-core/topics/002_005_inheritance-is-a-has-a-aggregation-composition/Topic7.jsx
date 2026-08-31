@@ -32,7 +32,7 @@ export default function Topic7() {
             Lifecycle Order
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Constructor Execution Sequence in an Inheritance Hierarchy
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -74,7 +74,7 @@ export default function Topic7() {
 
       {/* Section 4: Teacher's Note */}
       <Teacher
-        note="Constructor calls travel up like a rocket (Child -> Parent -> Grandparent), and execute down like a waterfall (Grandparent -> Parent -> Child)! — Sukanta Hui"
+        note="Constructor calls travel up like a rocket (Child → Parent → Grandparent), and execute down like a waterfall (Grandparent → Parent → Child)! — Sukanta Hui"
       />
     </div>
   );

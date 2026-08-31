@@ -71,7 +71,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Cell protection: Locking formulas, unlocking input cells, and worksheet passwords"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic8() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Cell Protection Protocol: 1. Select Entire Sheet &gt; Format Cells &gt; Protection &gt; Uncheck 'Locked' | 2. Select Formula Cells &gt; Check 'Locked' & 'Hidden' | 3. Review &gt; Protect Sheet (Password)"}
+            {"Cell Protection Protocol: 1. Select Entire Sheet > Format Cells > Protection > Uncheck 'Locked' | 2. Select Formula Cells > Check 'Locked' & 'Hidden' | 3. Review > Protect Sheet (Password)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic8() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Worksheet Protection Architecture: Unlock Input Cells -> Lock Formula Cells -> Encrypt Sheet"}
+              Visual Dataflow: {"Worksheet Protection Architecture: Unlock Input Cells → Lock Formula Cells → Encrypt Sheet"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Security Pipeline
@@ -286,7 +286,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Cell_protection__L"
+            sheetName="EX1309"
             title={"Cell protection: Locking formulas, unlocking input cells, and worksheet passwords - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic8() {
                 Step 2: Configure Validation Criteria &amp; Formulas
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Cell Protection Protocol: 1. Select Entire Sheet &gt; Format Cells &gt; Protection &gt; Uncheck 'Locked' | 2. Select Formula Cells &gt; Check 'Locked' & 'Hidden' | 3. Review &gt; Protect Sheet (Password)"}</code>.
+                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Cell Protection Protocol: 1. Select Entire Sheet > Format Cells > Protection > Uncheck 'Locked' | 2. Select Formula Cells > Check 'Locked' & 'Hidden' | 3. Review > Protect Sheet (Password)"}</code>.
               </p>
             </div>
 
@@ -448,7 +448,7 @@ export default function Topic8() {
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Protect Sheet Does Not Secure Against Malicious Hackers"}</td>
                   <td className="py-3 px-4">{"Standard Excel worksheet passwords can be bypassed using simple VBA scripts or ZIP file XML editing."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use worksheet protection for accidental error prevention; use File &gt; Protect Workbook > Encrypt with Password for true cryptographic security."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use worksheet protection for accidental error prevention; use File > Protect Workbook > Encrypt with Password for true cryptographic security."}</td>
                 </tr>
                 
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
@@ -494,7 +494,7 @@ export default function Topic8() {
                 <span>⚡</span> {"Protect Sheet Shortcut"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Launches the worksheet encryption and permission modal."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Review &gt; Protect Sheet (Alt + R + P + S)"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Review > Protect Sheet (Alt + R + P + S)"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -538,7 +538,7 @@ export default function Topic8() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"How do you quickly select all formula cells on a sheet to lock them in a single step (F5 -> Special)?"}
+                <span className="text-teal-400">💭</span> Question 2: {"How do you quickly select all formula cells on a sheet to lock them in a single step (F5 → Special)?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the spreadsheet security architecture and data governance implications.
@@ -572,7 +572,7 @@ export default function Topic8() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"The Golden 2-Step for model protection: 1. Press F5 -> Special -> Formulas -> Ctrl+1 -> check 'Locked' and 'Hidden'. 2. Review -> Protect Sheet. Now your formulas are tamper-proof and invisible in the formula bar!"}
+            note={"The Golden 2-Step for model protection: 1. Press F5 → Special → Formulas → Ctrl+1 → check 'Locked' and 'Hidden'. 2. Review → Protect Sheet. Now your formulas are tamper-proof and invisible in the formula bar!"}
           />
         </div>
       </div>

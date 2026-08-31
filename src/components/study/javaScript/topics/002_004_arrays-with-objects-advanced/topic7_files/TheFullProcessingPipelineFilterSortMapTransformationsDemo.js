@@ -1,13 +1,13 @@
 // ============================================================================
 // CODER & ACCOTAX - JAVASCRIPT MASTERCLASS
 // Module: 002_004_arrays-with-objects-advanced
-// Topic: The Full Processing Pipeline: Filter -> Sort -> Map Transformations
+// Topic: The Full Processing Pipeline: Filter → Sort → Map Transformations
 // Classroom Lab: Ichapur Training Room
 // Mentors: Sukanta Hui | Students: Debangshu, Swadeep
 // ============================================================================
 
 console.log("=== [1] FUNDAMENTAL CONCEPT & INITIALIZATION ===");
-console.log("Demonstrating foundational mechanics for: The Full Processing Pipeline: Filter -> Sort -> Map Transformations");
+console.log("Demonstrating foundational mechanics for: The Full Processing Pipeline: Filter → Sort → Map Transformations");
 console.log("");
 
 // Example 1: Basic declaration and setup
@@ -71,7 +71,7 @@ function safeRunner(action, fallbackValue) {
 
 const safeOutcome = safeRunner(() => {
   const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
+  return data.status + " → Metric: " + data.metric;
 }, "default_fallback");
 
 console.log("Safe Execution Output:", safeOutcome);
@@ -105,7 +105,7 @@ LabController.register("INIT_TOPIC", (payload) => {
 });
 
 const dispatchResult = LabController.dispatch("INIT_TOPIC", {
-  topic: "The Full Processing Pipeline: Filter -> Sort -> Map Transformations",
+  topic: "The Full Processing Pipeline: Filter → Sort → Map Transformations",
   student: "Debangshu",
   mentor: "Sukanta Hui"
 });

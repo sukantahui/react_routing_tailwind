@@ -144,7 +144,7 @@ const pool = mysql.createPool({
             Topic 11 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Securing Data in Transit: <span className="text-emerald-400">SSL/TLS</span> Encrypted Connections
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

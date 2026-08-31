@@ -41,7 +41,7 @@
       "description": "Build a complete mathematical expression calculator. 1) Convert Infix string `(3 + 4) * 5` into Reverse Polish Notation (Postfix) `3 4 + 5 *` using the Shunting-Yard Algorithm; 2) Evaluate Postfix expression using a Stack to compute result `35`! In this project, you will build Expression Calculator in C.",
       "learningOutcome": "Shunting-Yard Algorithm, Infix-to-Postfix Conversions & Stack Expression Evaluation",
       "exampleText": "Evaluate Infix expression (3 + 4) * 5 to output 35",
-      "exampleOutput": "--- Expression Calculator Engine ---\nEvaluated Infix expression '(3 + 4) * 5' -> Postfix '3 4 + 5 *' -> Output = 35.",
+      "exampleOutput": "--- Expression Calculator Engine ---\nEvaluated Infix expression '(3 + 4) * 5' → Postfix '3 4 + 5 *' → Output = 35.",
       "logicExplanation": "1. **Shunting-Yard Pass**: Convert infix string to postfix tokens using operator precedence stack.\n2. **Postfix Evaluation**: Push numbers onto stack; pop operands on operator and push result.",
       "answerFile": "./answers/answer3.c",
       "codeExplanation": "1. `expression_calculator_demo()`: Solves Expression Calculator Engine."
@@ -98,10 +98,10 @@
       "projectId": "CAPSTONE_008",
       "title": "File Compression Utility Engine using Run-Length Encoding (RLE)",
       "difficulty": "Beginner",
-      "description": "Build a command-line file compression utility using Run-Length Encoding (RLE). Compresses consecutive repeated byte sequences into `count + byte` pairs (e.g. `WWWWWWWWWWWWBWWWWWWWWWWWWBBB` -> `12W1B12W3B`). Achieves 50% compression ratio on repeated data! In this project, you will build RLE Compression Utility in C.",
+      "description": "Build a command-line file compression utility using Run-Length Encoding (RLE). Compresses consecutive repeated byte sequences into `count + byte` pairs (e.g. `WWWWWWWWWWWWBWWWWWWWWWWWWBBB` → `12W1B12W3B`). Achieves 50% compression ratio on repeated data! In this project, you will build RLE Compression Utility in C.",
       "learningOutcome": "File RLE Compression, Byte Run Counting & Decompression Utility Engines",
       "exampleText": "Compress file using Run-Length Encoding (RLE)",
-      "exampleOutput": "--- File Compression Utility Engine using RLE ---\nCompressed 'WWWWWWWWWWWWBWWWWWWWWWWWWBBB' -> '12W1B12W3B' (50% compression ratio).",
+      "exampleOutput": "--- File Compression Utility Engine using RLE ---\nCompressed 'WWWWWWWWWWWWBWWWWWWWWWWWWBBB' → '12W1B12W3B' (50% compression ratio).",
       "logicExplanation": "1. **Run Counter**: Count consecutive matching bytes `count`.\n2. **RLE Stream**: Output `count` and `byte`; decompress by expanding byte `count` times.",
       "answerFile": "./answers/answer8.c",
       "codeExplanation": "1. `rle_compression_demo()`: Solves File Compression Utility Engine using RLE."
@@ -113,7 +113,7 @@
       "description": "Build a real-time Phone Book Contact Directory Search Engine. Uses a Prefix Tree (Trie) to store contact names: typing a prefix like `'John'` instantly returns all auto-complete suggestions `['John Doe', 'Johnny', 'Johnson']` in `O(L)` prefix search time! In this project, you will build Phone Book Trie Engine in C.",
       "learningOutcome": "Trie Auto-Complete Search, Contact Directory Prefix Trees & Sub-Millisecond Lookups",
       "exampleText": "Search contact auto-complete suggestions via Trie prefix search",
-      "exampleOutput": "--- Phone Book Contact Directory Search Engine ---\nPrefix Auto-Complete for 'John' -> ['John Doe', 'Johnny', 'Johnson'].",
+      "exampleOutput": "--- Phone Book Contact Directory Search Engine ---\nPrefix Auto-Complete for 'John' → ['John Doe', 'Johnny', 'Johnson'].",
       "logicExplanation": "1. **Trie Insert**: Insert contact name into 26-child Trie node network.\n2. **Prefix DFS**: Traverse prefix `p`; run DFS to collect all leaf words under prefix subtree.",
       "answerFile": "./answers/answer9.c",
       "codeExplanation": "1. `phonebook_trie_demo()`: Solves Phone Book Contact Directory Search Engine."
@@ -245,7 +245,7 @@
       "description": "Build a real-time Spell Checker & Auto-Correct System. Reads misspelled input words (e.g. `'graffe'`), queries a 100,000-word dictionary, and calculates 2D Edit Distance (Levenshtein Distance) to output top 3 auto-correct replacements in `O(N * M)` time! In this project, you will build Spell Checker System in C.",
       "learningOutcome": "Auto-Correct Architectures, Levenshtein Edit Distance 2D DP & Dictionary Candidate Searches",
       "exampleText": "Suggest auto-correct replacements for misspelled words via 2D Edit Distance",
-      "exampleOutput": "--- Dynamic Programming Spell Checker & Auto-Correct System ---\nSuggested auto-correct replacements for 'graffe' -> ['giraffe' (dist 1), 'graft' (dist 2)].",
+      "exampleOutput": "--- Dynamic Programming Spell Checker & Auto-Correct System ---\nSuggested auto-correct replacements for 'graffe' → ['giraffe' (dist 1), 'graft' (dist 2)].",
       "logicExplanation": "1. **Edit Distance DP**: Calculate `min_distance(word, dict_word)` for dictionary words.\n2. **Candidate Filter**: Sort dictionary words by edit distance and pick top 3 minimums.",
       "answerFile": "./answers/answer20.c",
       "codeExplanation": "1. `spell_checker_autocorrect_demo()`: Solves Dynamic Programming Spell Checker & Auto-Correct System."

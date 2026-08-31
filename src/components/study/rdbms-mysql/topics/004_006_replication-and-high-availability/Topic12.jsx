@@ -98,15 +98,15 @@ cluster.status();
       title: "4. Zero-Downtime Rolling Upgrade Workflow",
       badge: "Zero Downtime",
       badgeColor: "rose",
-      sqlSnippet: `# 🔄 STEP-BY-STEP ROLLING UPGRADE RUNBOOK (e.g. 8.0.35 -> 8.0.36):
+      sqlSnippet: `# 🔄 STEP-BY-STEP ROLLING UPGRADE RUNBOOK (e.g. 8.0.35 → 8.0.36):
 
-# Step 1: Upgrade Secondary Node 3 -> Start mysqld -> cluster.status() shows ONLINE.
-# Step 2: Upgrade Secondary Node 2 -> Start mysqld -> cluster.status() shows ONLINE.
+# Step 1: Upgrade Secondary Node 3 → Start mysqld → cluster.status() shows ONLINE.
+# Step 2: Upgrade Secondary Node 2 → Start mysqld → cluster.status() shows ONLINE.
 
 # Step 3: Switch Primary to upgraded Node 2:
 cluster.setPrimaryInstance('admin@192.168.1.20:3306');
 
-# Step 4: Upgrade the former Primary Node 1 -> Start mysqld -> cluster.status() shows ONLINE.
+# Step 4: Upgrade the former Primary Node 1 → Start mysqld → cluster.status() shows ONLINE.
 # ✅ Complete cluster upgraded with 100% continuous application availability!`,
       explanation:
         "Upgrading secondaries first, performing a controlled primary switchover to an upgraded secondary, and upgrading the old primary guarantees 100% continuous database availability during version upgrades.",
@@ -132,7 +132,7 @@ cluster.setPrimaryInstance('admin@192.168.1.20:3306');
             Topic 12 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           MySQL <span className="text-emerald-400">InnoDB Cluster</span>: Group Replication, <span className="text-cyan-400">Router</span> &amp; AdminAPI
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

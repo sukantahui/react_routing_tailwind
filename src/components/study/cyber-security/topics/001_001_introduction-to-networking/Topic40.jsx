@@ -27,7 +27,7 @@ const Topic40 = () => {
       securityControl: '802.1X EAP-TTLS/PEAP cryptographic authentication with zero cleartext sniffing.',
       estHardwareBudget: '₹4,20,000 (Campus Hardware Wi-Fi Controller & 30 AP Stack)',
       desc: 'Seamless international wireless roaming allowing visiting researchers to connect instantly with home credentials.',
-      simResult: 'Visiting Scholar logs into "eduroam" -> EAP Request proxied to IIT Kharagpur RADIUS -> Access Granted in 320ms.',
+      simResult: 'Visiting Scholar logs into "eduroam" → EAP Request proxied to IIT Kharagpur RADIUS → Access Granted in 320ms.',
     },
     {
       id: 'cbt-exam-lockdown',
@@ -38,7 +38,7 @@ const Topic40 = () => {
       securityControl: 'Safe Exam Browser (SEB) client locks desktop; firewall drops all external WAN traffic.',
       estHardwareBudget: '₹1,45,000 (Managed 48-Port Switch Stack & Dual Local Assessment Servers)',
       desc: 'Tamper-proof examination environment preventing web searching, USB cheating, and unauthorized communication.',
-      simResult: 'Examinee launches SEB -> Firewall blocks external web requests -> Local exam paper loads securely -> 0 Cheating Vectors.',
+      simResult: 'Examinee launches SEB → Firewall blocks external web requests → Local exam paper loads securely → 0 Cheating Vectors.',
     },
     {
       id: 'result-portal-surge',
@@ -49,7 +49,7 @@ const Topic40 = () => {
       securityControl: 'Queue-It Virtual Waiting Room + Cloudflare DDoS Scrubbing + Captcha Protection',
       estHardwareBudget: '₹85,000 / month (Cloud CDN & Auto-Scaling Result Server Farm)',
       desc: 'High-concurrency cloud architecture absorbing massive traffic spikes during semester score releases.',
-      simResult: '450K students query results at 12:00 PM -> CDN serves 99.1% of scorecards from cache -> Origin DB load stays at 12%.',
+      simResult: '450K students query results at 12:00 PM → CDN serves 99.1% of scorecards from cache → Origin DB load stays at 12%.',
     },
     {
       id: 'hpc-research-cluster',
@@ -60,7 +60,7 @@ const Topic40 = () => {
       securityControl: 'Strict Perimeter Bastion Host + MFA for SSH Access + Quarantined Sandbox Subnet',
       estHardwareBudget: '₹4,20,000 (100G RoCE Switch Fabric & NKN Gateway Router)',
       desc: 'High-performance computing cluster processing complex molecular modeling and AI training datasets.',
-      simResult: 'MPI job dispatched across 64 GPU nodes -> RoCE fabric delivers 0.8μs inter-node latency -> Simulation finished in 4 hours.',
+      simResult: 'MPI job dispatched across 64 GPU nodes → RoCE fabric delivers 0.8μs inter-node latency → Simulation finished in 4 hours.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic40 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Networking in Education
           </h1>
 

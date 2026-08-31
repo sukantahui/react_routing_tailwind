@@ -47,7 +47,7 @@ const questions = [
     question: "What are the three sequential steps of the InnoDB Crash Recovery process upon server restart?",
     shortAnswer: "1) **Doublewrite Verification** (restores any torn 16KB pages), 2) **Redo Log Roll-Forward** (replays committed changes from Checkpoint LSN to end of log into memory), and 3) **Undo Log Roll-Back** (rolls back active uncommitted transactions).",
     explanation: "Guarantees complete ACID consistency after an unexpected server crash or power failure.",
-    hint: "Doublewrite torn page fix &rarr; Redo roll-forward &rarr; Undo roll-back.",
+    hint: "Doublewrite torn page fix → Redo roll-forward → Undo roll-back.",
     level: "expert"
   },
   {
@@ -67,7 +67,7 @@ const questions = [
   },
   {
     question: "What is 'Two-Phase Commit' (2PC) between the Redo Log and the Binary Log?",
-    shortAnswer: "A coordination protocol (Prepare &rarr; Write Binlog &rarr; Commit) ensuring that transaction changes in the InnoDB Redo Log and the MySQL Binary Log remain 100% synchronized, preventing replication desync on crash.",
+    shortAnswer: "A coordination protocol (Prepare → Write Binlog → Commit) ensuring that transaction changes in the InnoDB Redo Log and the MySQL Binary Log remain 100% synchronized, preventing replication desync on crash.",
     explanation: "Guarantees consistency between local storage engine and replication stream.",
     hint: "Coordinates Redo Log and Binlog commit states to prevent replication desynchronization.",
     level: "expert"
@@ -209,7 +209,7 @@ const questions = [
   },
   {
     question: "What is the primary architectural takeaway of Topic 5 in Module 004_001?",
-    shortAnswer: "Write-Ahead Logging (WAL) via the InnoDB Redo Log transforms expensive random disk page writes into fast sequential log appends, enabling maximum transactional throughput while guaranteeing 100% crash recovery via the 3-step pipeline (Doublewrite check &rarr; Redo roll-forward &rarr; Undo roll-back).",
+    shortAnswer: "Write-Ahead Logging (WAL) via the InnoDB Redo Log transforms expensive random disk page writes into fast sequential log appends, enabling maximum transactional throughput while guaranteeing 100% crash recovery via the 3-step pipeline (Doublewrite check → Redo roll-forward → Undo roll-back).",
     explanation: "Mastery of WAL and crash recovery is the cornerstone of enterprise database durability.",
     hint: "WAL enables RAM-speed transaction processing backed by crash-safe sequential durability.",
     level: "basic"

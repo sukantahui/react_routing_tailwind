@@ -76,7 +76,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Assessment: Advanced M Scripting &amp; Enterprise ETL Challenge
           </h1>
 
@@ -131,11 +131,11 @@ export default function Topic13() {
               <br />
               &nbsp;&nbsp;<span className="text-sky-300">BufferedDim</span> = <span className="text-purple-400">Table.Buffer</span>(DimRates),
               <br />
-              &nbsp;&nbsp;<span className="text-sky-300">CleanFact</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Date] &gt;= pStart <span className="text-purple-400">and</span> [Date] &lt;= pEnd),
+              &nbsp;&nbsp;<span className="text-sky-300">CleanFact</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Date] >= pStart <span className="text-purple-400">and</span> [Date] <= pEnd),
               <br />
               &nbsp;&nbsp;<span className="text-sky-300">Enriched</span> = <span className="text-purple-400">Table.AddColumn</span>(CleanFact, <span className="text-emerald-200">"INR"</span>, <span className="text-purple-400">each</span> [Amt] * BufferedDim&#123;[Cur=[Cur]]&#125;[Rate]),
               <br />
-              &nbsp;&nbsp;<span className="text-sky-300">Quarantine</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Amt] &lt;= 0)
+              &nbsp;&nbsp;<span className="text-sky-300">Quarantine</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Amt] <= 0)
               <br />
               <span className="text-purple-400">in</span>
               <br />
@@ -156,7 +156,7 @@ export default function Topic13() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-300">1. M Engine &amp; AST</td>
-                  <td className="py-3 px-4 font-mono text-purple-300">let...in, each (_) =&gt; _, #shared</td>
+                  <td className="py-3 px-4 font-mono text-purple-300">let...in, each (_) => _, #shared</td>
                   <td className="py-3 px-4 text-emerald-400 font-semibold">15 Points</td>
                   <td className="py-3 px-4">Understanding call-by-need lazy evaluation and lexical scoping.</td>
                 </tr>
@@ -376,7 +376,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_ETL_Assessment"
+            sheetName="EX2114"
             title="Capstone Assessment Candidate Scorecard (Candidate Name, Branch, AST Score, Loop Score, Folding Score, Buffer Score, Governance Score, Total /100, Certification Level)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -413,7 +413,7 @@ export default function Topic13() {
                 Candidate <strong>Swadeep Banerjee</strong> presents a multi-branch consolidation pipeline featuring dynamic API bearer token renewal, 100% SQL query folding pushdown, and dual-stream quarantine logging, earning the Principal Enterprise BI Architect gold medal.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                Score: 98/100 &rarr; Principal Enterprise BI Architect Certified
+                Score: 98/100 → Principal Enterprise BI Architect Certified
               </div>
             </div>
 
@@ -431,7 +431,7 @@ export default function Topic13() {
                 She identifies an unbuffered table scan inside a custom function loop, refactors it with <code className="text-teal-300 font-mono">Table.Buffer</code>, and drops execution time by 97%.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Score: 94/100 &rarr; Senior Power Query Performance Specialist
+                Score: 94/100 → Senior Power Query Performance Specialist
               </div>
             </div>
 
@@ -448,7 +448,7 @@ export default function Topic13() {
                 Candidate <strong>Abhronila Das</strong> fixes a broken query folding chain on a 5-million-row SQL fact table by re-ordering <code className="text-indigo-300 font-mono">Table.AddIndexColumn</code> to the tail, restoring native database joins and sub-3-second cloud refresh.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Score: 92/100 &rarr; Enterprise Relational Pushdown Specialist
+                Score: 92/100 → Enterprise Relational Pushdown Specialist
               </div>
             </div>
 
@@ -465,7 +465,7 @@ export default function Topic13() {
                 Candidate <strong>Debangshu Roy</strong> engineers a fault-tolerant folder ingestion pipeline with <code className="text-purple-300 font-mono">MissingField.UseNull</code> and dual-stream quarantine routing, achieving 100% data audit compliance for statutory GST filing.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Score: 90/100 &rarr; Certified Enterprise Governance Architect
+                Score: 90/100 → Certified Enterprise Governance Architect
               </div>
             </div>
           </div>
@@ -495,7 +495,7 @@ export default function Topic13() {
                 Step 1: Inspect Query Diagnostics &amp; Lineage DAG
               </h3>
               <p className="text-slate-300 leading-relaxed">
-                Open <strong>View &rarr; Query Dependencies</strong> to evaluate the entire pipeline architecture. Start <strong>Tools &rarr; Start Diagnostics</strong> to measure duration and memory metrics for every applied step.
+                Open <strong>View → Query Dependencies</strong> to evaluate the entire pipeline architecture. Start <strong>Tools → Start Diagnostics</strong> to measure duration and memory metrics for every applied step.
               </p>
             </div>
 

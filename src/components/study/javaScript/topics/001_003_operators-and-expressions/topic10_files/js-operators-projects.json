@@ -20,7 +20,7 @@
       "difficulty": "Beginner",
       "description": "Implement a financial interest and compound growth calculator demonstrating +, -, *, /, %, and the ES2016 exponentiation operator (**).",
       "exampleText": "// Calculating compound interest: A = P * (1 + r/n)**(n*t)\nfunction calculateCompoundGrowth(principal, rate, timesPerYear, years) {\n  const amount = principal * (1 + rate / timesPerYear) ** (timesPerYear * years);\n  return Number(amount.toFixed(2));\n}\ncalculateCompoundGrowth(10000, 0.08, 4, 3);",
-      "exampleOutput": "Principal: ₹10,000 | 8% Quarterly for 3 Yrs -> Total: ₹12,682.42",
+      "exampleOutput": "Principal: ₹10,000 | 8% Quarterly for 3 Yrs → Total: ₹12,682.42",
       "answerFile": "./answers/OPR001.js",
       "learningOutcome": "Mastering standard arithmetic operators and right-associative exponentiation (**).",
       "logicExplanation": "1. **ES2016 Exponentiation Operator (`**`)**:\n`a ** b` computes $a^b$. Unlike multiplication ($*$) which is left-associative, `**` is **right-associative** ($2 ** 3 ** 2 = 2 ** 9 = 512$, not $8 ** 2 = 64$).\n\n2. **Modulus (`%`) Operator Mechanics**:\nIn JavaScript, `%` is the remainder operator, retaining the sign of the dividend ($-5 % 2 === -1$).\n\n3. **IEEE 754 Rounding Strategy**:\nFinancial calculations should use `.toFixed(2)` or integer cents to mitigate floating-point inaccuracies.",

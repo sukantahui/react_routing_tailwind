@@ -109,7 +109,7 @@ SELECT * FROM transactions WHERE created_at &gt;= '2026-01-01';`,
             Topic 8 of 11
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Phase 7: Query Profiling, Index Optimization, EXPLAIN Reports & Performance Benchmark
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

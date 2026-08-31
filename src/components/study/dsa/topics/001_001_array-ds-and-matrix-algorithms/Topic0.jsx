@@ -197,7 +197,7 @@ export default function Topic0() {
     setActiveStep(nextStep);
     const targetAddr = baseAddress + nextStep * dataTypeSize;
     setStatusMessage(
-      `Pointer Arithmetic: ptr + ${nextStep} -> Physical Address 0x${targetAddr.toString(16).toUpperCase()} (Offset +${nextStep * dataTypeSize}B). Dereferenced value = ${heapElements[nextStep]?.val}`
+      `Pointer Arithmetic: ptr + ${nextStep} → Physical Address 0x${targetAddr.toString(16).toUpperCase()} (Offset +${nextStep * dataTypeSize}B). Dereferenced value = ${heapElements[nextStep]?.val}`
     );
   };
 
@@ -224,7 +224,7 @@ export default function Topic0() {
             <span>DSA Segment 1 · Topic 0</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
             Contiguous Memory Layout, malloc vs calloc, and Physical Address Calculation
           </h1>
 
@@ -474,7 +474,7 @@ export default function Topic0() {
                       </div>
 
                       {idx < heapElements.length - 1 && (
-                        <span className="text-slate-600 font-bold text-xs select-none hidden sm:inline">&rarr;</span>
+                        <span className="text-slate-600 font-bold text-xs select-none hidden sm:inline">→</span>
                       )}
                     </div>
                   );

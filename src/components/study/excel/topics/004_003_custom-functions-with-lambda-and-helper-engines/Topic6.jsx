@@ -76,7 +76,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Iterating Across Arrays Element-by-Element with the MAP Function
           </h1>
 
@@ -128,7 +128,7 @@ export default function Topic6() {
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
               <span className="text-slate-500">// Example (Attendance Days & Performance Score Evaluation):</span> <br />
               <span className="text-emerald-400 font-bold">
-                =MAP(E5:E9, F5:F9, LAMBDA(days, score, IF(AND(days&gt;=25, score&gt;=90), "Tier-1 Bonus", "Standard")))
+                =MAP(E5:E9, F5:F9, LAMBDA(days, score, IF(AND(days>=25, score>=90), "Tier-1 Bonus", "Standard")))
               </span>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default function Topic6() {
                 <span className="text-purple-400">1.</span> Why Native Arrays Fail on AND / OR
               </h3>
               <p className="leading-relaxed">
-                If you write <code className="text-rose-400 font-mono">=IF(AND(E5:E9&gt;=25, F5:F9&gt;=90), "Bonus", "No")</code>, 
+                If you write <code className="text-rose-400 font-mono">=IF(AND(E5:E9>=25, F5:F9>=90), "Bonus", "No")</code>, 
                 Excel's <code className="text-amber-300 font-mono">AND</code> function evaluates the entire column at once, returning a single global TRUE/FALSE rather than row-by-row bonuses. 
                 <code className="text-emerald-300 font-mono">MAP</code> forces Excel to evaluate the logical expression independently for each individual employee!
               </p>
@@ -309,14 +309,14 @@ export default function Topic6() {
               <g transform="translate(395, 80)">
                 <rect width="220" height="65" rx="6" fill="#3B0764" stroke="#A855F7" />
                 <text x="110" y="20" fill="#F5D0FE" fontSize="9.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">LAMBDA(days, score,</text>
-                <text x="110" y="36" fill="#A7F3D0" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">IF(AND(days&gt;=25, score&gt;=90),</text>
+                <text x="110" y="36" fill="#A7F3D0" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">IF(AND(days>=25, score>=90),</text>
                 <text x="110" y="52" fill="#FDE047" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">"Tier-1 Bonus", "Standard"))</text>
               </g>
 
               <text x="505" y="175" fill="#38BDF8" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">Pairwise Evaluation:</text>
-              <text x="505" y="195" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">Row 2: (26, 94) &rarr; Tier-1 Bonus</text>
-              <text x="505" y="213" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">Row 4: (25, 91) &rarr; Tier-1 Bonus</text>
-              <text x="505" y="231" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">Row 5: (26, 96) &rarr; Tier-1 Bonus</text>
+              <text x="505" y="195" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">Row 2: (26, 94) → Tier-1 Bonus</text>
+              <text x="505" y="213" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">Row 4: (25, 91) → Tier-1 Bonus</text>
+              <text x="505" y="231" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">Row 5: (26, 96) → Tier-1 Bonus</text>
               <text x="505" y="260" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ 100% Vectorized Execution</text>
 
               {/* Arrow */}
@@ -380,7 +380,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_MAP"
+            sheetName="EX1807"
             title="Employee Appraisal Roster (Attendance Days, Performance Scores, Gross Pay Matrix)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -415,11 +415,11 @@ export default function Topic6() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 HR Manager <strong>Swadeep Banerjee</strong> evaluates bonuses for 500 campus staff. 
-                Writing <code className="text-emerald-300 font-mono">=MAP(E5:E500, F5:F500, LAMBDA(days, score, IF(AND(days&gt;=25, score&gt;=90), "Tier-1 Bonus", "Standard")))</code> 
+                Writing <code className="text-emerald-300 font-mono">=MAP(E5:E500, F5:F500, LAMBDA(days, score, IF(AND(days>=25, score>=90), "Tier-1 Bonus", "Standard")))</code> 
                 evaluates both conditions row-by-row and spills all 500 tiers from a single formula.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =MAP(E5:E500, F5:F500, ...) &rarr; 500 Tiers Spilled in 1ms
+                Formula: =MAP(E5:E500, F5:F500, ...) → 500 Tiers Spilled in 1ms
               </div>
             </div>
 
@@ -438,7 +438,7 @@ export default function Topic6() {
                 computing final gross invoice amounts in a single vectorized operation.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Multi-Array Mapping: 3 Columns Ingested &rarr; 1 Spilled Net Total
+                Multi-Array Mapping: 3 Columns Ingested → 1 Spilled Net Total
               </div>
             </div>
 
@@ -472,7 +472,7 @@ export default function Topic6() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Senior Auditor <strong>Debangshu Ghosh</strong> creates debit/credit masks: 
-                <code className="text-amber-300 font-mono">=MAP(Movements, LAMBDA(x, IF(x&gt;0, "Deposit", "Withdrawal")))</code>, 
+                <code className="text-amber-300 font-mono">=MAP(Movements, LAMBDA(x, IF(x>0, "Deposit", "Withdrawal")))</code>, 
                 enabling instantaneous transaction categorizations without legacy IF dragging.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
@@ -530,7 +530,7 @@ export default function Topic6() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Insert Element-Wise Logical Expression</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Add the logical check: <code className="text-emerald-400 font-mono">IF(AND(days&gt;=25, score&gt;=90), "Tier-1 Bonus", "Standard")</code>.
+                  Add the logical check: <code className="text-emerald-400 font-mono">IF(AND(days>=25, score>=90), "Tier-1 Bonus", "Standard")</code>.
                 </p>
               </div>
             </div>
@@ -684,7 +684,7 @@ export default function Topic6() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Reflect on vectorization barriers:</strong> Why does a standard <code className="text-rose-400 font-mono">AND(A2:A10&gt;5, B2:B10&gt;10)</code> formula collapse into a single scalar value, and how does <code className="text-purple-300 font-mono">MAP</code> restore row-by-row granularity?
+                <strong>Reflect on vectorization barriers:</strong> Why does a standard <code className="text-rose-400 font-mono">AND(A2:A10>5, B2:B10>10)</code> formula collapse into a single scalar value, and how does <code className="text-purple-300 font-mono">MAP</code> restore row-by-row granularity?
               </p>
             </div>
 

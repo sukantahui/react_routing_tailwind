@@ -95,7 +95,7 @@ const questions = [
     level: "Expert",
     codeExample: `// Key Confusion Attack:
 // Attacker signs: HMAC-SHA256(payload, PUBLIC_RSA_KEY_STRING)
-// Flawed Server verifies: HMAC-SHA256(payload, PUBLIC_RSA_KEY_STRING) -> VALID! 🚨`
+// Flawed Server verifies: HMAC-SHA256(payload, PUBLIC_RSA_KEY_STRING) → VALID! 🚨`
   },
   {
     id: 9,
@@ -276,7 +276,7 @@ const questions = [
     hint: "Broadcasts real-time security events to instantly revoke active sessions across all apps.",
     level: "Expert",
     codeExample: `// CAEP Event Broadcast:
-// IdP detects malware -> Dispatches CAEP event: { "event": "session-revoked", "sub": "usr_10482" } -> All apps terminate session immediately.`
+// IdP detects malware → Dispatches CAEP event: { "event": "session-revoked", "sub": "usr_10482" } → All apps terminate session immediately.`
   },
   {
     id: 25,

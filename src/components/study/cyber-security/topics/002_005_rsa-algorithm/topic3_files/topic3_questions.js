@@ -3,7 +3,7 @@ const questions = [
     question: "What are the 5 sequential mathematical steps in standard RSA Key Generation?",
     shortAnswer: "1. Generate primes $p, q$; 2. Compute modulus $N = p \\cdot q$; 3. Compute totient $\\phi(N) = (p-1)(q-1)$; 4. Select coprime public exponent $e$ (typically 65537); 5. Compute private exponent $d = e^{-1} \\bmod \\phi(N)$ via Extended Euclidean Algorithm.",
     explanation: "Standard RSA key generation proceeds through 5 strict steps: 1. Generate two large, distinct primes $p$ and $q$ using a CSPRNG and 64-round Miller-Rabin test; 2. Compute the public modulus $N = p \\cdot q$; 3. Compute Euler's Totient $\\phi(N) = (p-1)(q-1)$ or Carmichael's $\\lambda(N) = \\text{lcm}(p-1, q-1)$; 4. Select public exponent $e$ such that $1 < e < \\phi(N)$ and $\\gcd(e, \\phi(N)) = 1$ (standard: $e=65537$); 5. Calculate private exponent $d$ using the Extended Euclidean Algorithm ($e \\cdot d \\equiv 1 \\pmod{\\phi(N)}$).",
-    hint: "Think through the chronological lifecycle: Primes -> Modulus -> Totient -> Public Exponent -> Private Inversion.",
+    hint: "Think through the chronological lifecycle: Primes → Modulus → Totient → Public Exponent → Private Inversion.",
     level: "basic",
     codeExample: `// 5-Step RSA Key Generation Flow:
 Step 1: p = CSPRNG_Prime(1024), q = CSPRNG_Prime(1024)
@@ -118,8 +118,8 @@ Outcome: SSH root login on any Debian server achieved in 0.01 seconds!`
     hint: "Think of a predictable clock pendulum versus random atmospheric radio static.",
     level: "basic",
     codeExample: `// CSPRNG vs Predictable PRNG:
-Insecure:  p = LCG_Random()       -> Attacker predicts seed -> FACTORS KEY IN 0.001 MS!
-Secure:    p = Crypto.getRandomValues() -> Hardware Thermal Entropy -> UNBREAKABLE!`
+Insecure:  p = LCG_Random()       → Attacker predicts seed → FACTORS KEY IN 0.001 MS!
+Secure:    p = Crypto.getRandomValues() → Hardware Thermal Entropy → UNBREAKABLE!`
   },
   {
     question: "What is the 'Public Key' file format (SubjectPublicKeyInfo / RFC 5280), and what ASN.1 structure does it define?",
@@ -148,7 +148,7 @@ SubjectPublicKeyInfo ::= SEQUENCE {
 Router A (Kolkata): Modulus N1 = p * q1
 Router B (Munich):  Modulus N2 = p * q2  (Both used flawed boot entropy!)
 Attacker computes:  Common_p = gcd( N1, N2 )
-Result: Common_p > 1 -> BOTH PRIVATE KEYS DERIVED IN 0.0001 SECONDS!`
+Result: Common_p > 1 → BOTH PRIVATE KEYS DERIVED IN 0.0001 SECONDS!`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, why is 'Hardware-Secured RSA Key Generation' mandatory for Data Fiduciaries processing sensitive personal data?",
@@ -157,8 +157,8 @@ Result: Common_p > 1 -> BOTH PRIVATE KEYS DERIVED IN 0.0001 SECONDS!`
     hint: "Remember the maximum ₹250 Crore penalty for negligent cryptographic key management under Indian privacy laws.",
     level: "basic",
     codeExample: `// DPDP Act 2023 Key Generation Mandate:
-Software Keygen in Node.js/Python: Lingering RAM primes -> DPDP Compliance Violation!
-FIPS 140-3 HSM Keygen Ceremony:    Silicon Isolation -> 100% Statutory Compliance!`
+Software Keygen in Node.js/Python: Lingering RAM primes → DPDP Compliance Violation!
+FIPS 140-3 HSM Keygen Ceremony:    Silicon Isolation → 100% Statutory Compliance!`
   },
   {
     question: "What is the computational difference in key generation between RSA and Elliptic Curve Cryptography (ECC-256)?",
@@ -167,8 +167,8 @@ FIPS 140-3 HSM Keygen Ceremony:    Silicon Isolation -> 100% Statutory Complianc
     hint: "Contrast searching for two needles in two giant haystacks (RSA) with simply picking a single random number (ECC).",
     level: "moderate",
     codeExample: `// RSA vs ECC Key Generation Comparison:
-RSA-2048 Keygen: Find Prime p + Find Prime q + Invert EEA -> ~85.00 ms (Heavy!)
-ECC-256 Keygen:  k = CSPRNG(256) -> Public Q = k * G     -> ~0.05 ms (1,700x Faster!)`
+RSA-2048 Keygen: Find Prime p + Find Prime q + Invert EEA → ~85.00 ms (Heavy!)
+ECC-256 Keygen:  k = CSPRNG(256) → Public Q = k * G     → ~0.05 ms (1,700x Faster!)`
   },
   {
     question: "Synthesizing RSA Key Generation: what is the complete architectural checklist for production-grade, legally compliant RSA key generation?",

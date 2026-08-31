@@ -10,7 +10,7 @@ Automated data analysis: Asking natural language questions to discover trends, o
 It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Automated Analysis: Prompt: 'Analyze this table and show me key trends, top performers, and outliers' -> Copilot Insight Cards
+Operational Architecture: Automated Analysis: Prompt: 'Analyze this table and show me key trends, top performers, and outliers' → Copilot Insight Cards
 
 3. CORE TECHNICAL MECHANICS
 1. Conversational Query Parsing:

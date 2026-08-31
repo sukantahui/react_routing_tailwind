@@ -21,7 +21,7 @@ export default function Topic5() {
             Modern CAS &amp; Bucket Locks
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Modern <code className="text-emerald-400 font-mono">ConcurrentHashMap</code> (Java 8+): <code className="text-emerald-400 font-mono">CAS</code> &amp; Synchronized Bucket Head
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

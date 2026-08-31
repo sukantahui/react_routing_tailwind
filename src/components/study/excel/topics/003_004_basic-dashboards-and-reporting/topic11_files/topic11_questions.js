@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Dashboard Canvas Architecture & Information Design is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage KPI Mathematics & Delta Formatting regarding YoY growth, negative base year math, and Unicode delta formatting masks (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering KPI Mathematics & Delta Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how YoY growth, negative base year math, and Unicode delta formatting masks operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Interactive Form Controls & Slicer Synchronization regarding Combo boxes, Group boxes, linked cells, and Report Connections (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Interactive Form Controls & Slicer Synchronization is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Combo boxes, Group boxes, linked cells, and Report Connections operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Advanced Chart Typologies & Financial Bridges regarding Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Advanced Chart Typologies & Financial Bridges is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage In-Cell Micro-Visualizations & Formatting regarding Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering In-Cell Micro-Visualizations & Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Executive Presentation & PDF Publication regarding 1-page fit constraints, Page Break Preview, and C-suite briefing standards (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Executive Presentation & PDF Publication is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 1-page fit constraints, Page Break Preview, and C-suite briefing standards operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Dashboard Canvas Architecture & Information Design regarding 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Dashboard Canvas Architecture & Information Design is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage KPI Mathematics & Delta Formatting regarding YoY growth, negative base year math, and Unicode delta formatting masks (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering KPI Mathematics & Delta Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how YoY growth, negative base year math, and Unicode delta formatting masks operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Interactive Form Controls & Slicer Synchronization regarding Combo boxes, Group boxes, linked cells, and Report Connections (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Interactive Form Controls & Slicer Synchronization is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Combo boxes, Group boxes, linked cells, and Report Connections operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Advanced Chart Typologies & Financial Bridges regarding Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Advanced Chart Typologies & Financial Bridges is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses operates to enhance visual clarity and executive decision support.",
     "level": "basic",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage In-Cell Micro-Visualizations & Formatting regarding Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering In-Cell Micro-Visualizations & Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Executive Presentation & PDF Publication regarding 1-page fit constraints, Page Break Preview, and C-suite briefing standards (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Executive Presentation & PDF Publication is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 1-page fit constraints, Page Break Preview, and C-suite briefing standards operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Dashboard Canvas Architecture & Information Design regarding 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Dashboard Canvas Architecture & Information Design is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage KPI Mathematics & Delta Formatting regarding YoY growth, negative base year math, and Unicode delta formatting masks (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering KPI Mathematics & Delta Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how YoY growth, negative base year math, and Unicode delta formatting masks operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Interactive Form Controls & Slicer Synchronization regarding Combo boxes, Group boxes, linked cells, and Report Connections (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Interactive Form Controls & Slicer Synchronization is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Combo boxes, Group boxes, linked cells, and Report Connections operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Advanced Chart Typologies & Financial Bridges regarding Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Advanced Chart Typologies & Financial Bridges is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage In-Cell Micro-Visualizations & Formatting regarding Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering In-Cell Micro-Visualizations & Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Executive Presentation & PDF Publication regarding 1-page fit constraints, Page Break Preview, and C-suite briefing standards (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Executive Presentation & PDF Publication is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 1-page fit constraints, Page Break Preview, and C-suite briefing standards operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Dashboard Canvas Architecture & Information Design regarding 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Dashboard Canvas Architecture & Information Design is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage KPI Mathematics & Delta Formatting regarding YoY growth, negative base year math, and Unicode delta formatting masks (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering KPI Mathematics & Delta Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how YoY growth, negative base year math, and Unicode delta formatting masks operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Interactive Form Controls & Slicer Synchronization regarding Combo boxes, Group boxes, linked cells, and Report Connections (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Interactive Form Controls & Slicer Synchronization is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Combo boxes, Group boxes, linked cells, and Report Connections operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Advanced Chart Typologies & Financial Bridges regarding Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Advanced Chart Typologies & Financial Bridges is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses operates to enhance visual clarity and executive decision support.",
     "level": "moderate",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage In-Cell Micro-Visualizations & Formatting regarding Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering In-Cell Micro-Visualizations & Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Executive Presentation & PDF Publication regarding 1-page fit constraints, Page Break Preview, and C-suite briefing standards (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Executive Presentation & PDF Publication is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 1-page fit constraints, Page Break Preview, and C-suite briefing standards operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Dashboard Canvas Architecture & Information Design regarding 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Dashboard Canvas Architecture & Information Design is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 4-quadrant grids, the 60-30-10 color rule, and single-screen fit principles operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage KPI Mathematics & Delta Formatting regarding YoY growth, negative base year math, and Unicode delta formatting masks (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering KPI Mathematics & Delta Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how YoY growth, negative base year math, and Unicode delta formatting masks operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Interactive Form Controls & Slicer Synchronization regarding Combo boxes, Group boxes, linked cells, and Report Connections (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Interactive Form Controls & Slicer Synchronization is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Combo boxes, Group boxes, linked cells, and Report Connections operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Advanced Chart Typologies & Financial Bridges regarding Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Advanced Chart Typologies & Financial Bridges is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Waterfall P&L walks, Treemap nested tiles, and Pareto 80/20 analyses operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage In-Cell Micro-Visualizations & Formatting regarding Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering In-Cell Micro-Visualizations & Formatting is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how Sparkline scaling, Data Bars with Show Bar Only, and single-hue heatmaps operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   },
   {
     "question": "In the context of Connecting multiple charts to synchronized slicer panels, how does Excel manage Executive Presentation & PDF Publication regarding 1-page fit constraints, Page Break Preview, and C-suite briefing standards (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Connecting multiple charts to synchronized slicer panels, mastering Executive Presentation & PDF Publication is essential for executive communication. Excel combines high-precision cell calculations with interactive form controls and dynamic visualization engines, ensuring that complex business metrics, operational variances, and multi-dimensional portfolio trends present with maximum clarity for C-suite decision-makers.",
     "hint": "Think about how 1-page fit constraints, Page Break Preview, and C-suite briefing standards operates to enhance visual clarity and executive decision support.",
     "level": "advanced",
-    "codeExample": "Slicer Multi-Link: Insert Slicer -> Right-Click Slicer -> Report Connections -> Check All Target PivotTables"
+    "codeExample": "Slicer Multi-Link: Insert Slicer → Right-Click Slicer → Report Connections → Check All Target PivotTables"
   }
 ];
 

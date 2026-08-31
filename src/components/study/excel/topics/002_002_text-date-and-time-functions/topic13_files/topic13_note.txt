@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on reaching the pinnacle of Excel Text, Date, and Time mastery! These capabilities form the essential foundation for advanced business modeling and Power Query ETL.
 
 COMMON TRAPS TO AVOID:
-- Hardcoding Variable Values: Hardcoding dates, rates, or character counts directly into formulas breaks model scalability. -> Fix: Always reference structured lookup cells, parameter blocks, or dynamic locator functions.
-- Ignoring Regional Date Standards: Building formulas that assume US date formats without handling international client settings. -> Fix: Use DATE(yyyy, mm, dd) and unambiguous dd-mmm-yyyy visual formats.
-- Failing to Handle Boundary Values: Testing formulas only with happy-path data while failing on blank, zero, or error inputs. -> Fix: Test formulas thoroughly against empty strings, leap days, and midnight crossovers.
+- Hardcoding Variable Values: Hardcoding dates, rates, or character counts directly into formulas breaks model scalability. → Fix: Always reference structured lookup cells, parameter blocks, or dynamic locator functions.
+- Ignoring Regional Date Standards: Building formulas that assume US date formats without handling international client settings. → Fix: Use DATE(yyyy, mm, dd) and unambiguous dd-mmm-yyyy visual formats.
+- Failing to Handle Boundary Values: Testing formulas only with happy-path data while failing on blank, zero, or error inputs. → Fix: Test formulas thoroughly against empty strings, leap days, and midnight crossovers.
 ================================================================================

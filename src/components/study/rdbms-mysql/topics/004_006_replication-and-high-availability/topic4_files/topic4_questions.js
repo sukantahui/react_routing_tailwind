@@ -188,7 +188,7 @@ RESET REPLICA ALL;`
     explanation: "Always use `binlog_format = ROW` if database filtering is configured.",
     hint: "Filters on default USE database, which can drop cross-database query updates.",
     level: "expert",
-    codeExample: `-- USE db1; UPDATE db2.users SET active=1; -> Skipped if binlog_do_db=db2 under STATEMENT format!`
+    codeExample: `-- USE db1; UPDATE db2.users SET active=1; → Skipped if binlog_do_db=db2 under STATEMENT format!`
   },
   {
     question: "How do you verify on the Source which replicas are currently connected?",

@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Pure Strategy in Game Theory?",
     shortAnswer: "'A Pure Strategy is a 100% deterministic choice of action (p = 1.0); pure strategies are completely stable and optimal if and only if a saddle point exists; in games without a saddle point, pure strategies are vulnerable to counter-exploitation in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all pure strategy mechanics.",
-    hint: "Deterministic p=1.0 -> Optimal when saddle point exists -> Vulnerable without saddle point in ₹.",
+    hint: "Deterministic p=1.0 → Optimal when saddle point exists → Vulnerable without saddle point in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeterministicChoice() -> TestSaddlePoint() -> PlayPureOrRandomize(₹)."
+    codeExample: "GoldenRule: DeterministicChoice() → TestSaddlePoint() → PlayPureOrRandomize(₹)."
   }
 ];
 

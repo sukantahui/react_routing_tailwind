@@ -26,7 +26,7 @@ const questions = [
     explanation: "Clicking any prior step allows inspecting the historical state of the dataset at that exact point in time.",
     hint: "Chronological list of transformation steps.",
     level: "basic",
-    codeExample: "Source &rarr; Promoted Headers &rarr; Changed Type &rarr; Filtered Rows"
+    codeExample: "Source → Promoted Headers → Changed Type → Filtered Rows"
   },
   {
     question: "What happens when you click on a previous step in the Applied Steps list?",
@@ -34,15 +34,15 @@ const questions = [
     explanation: "Enables step-by-step visual debugging without changing data permanently.",
     hint: "Time-travels data preview to that historical step.",
     level: "basic",
-    codeExample: "Click 'Source' &rarr; Preview raw unpromoted data snapshot"
+    codeExample: "Click 'Source' → Preview raw unpromoted data snapshot"
   },
   {
     question: "How do you enable or display the Formula Bar in the Power Query Editor if it is hidden?",
     shortAnswer: "Go to the 'View' tab on the Power Query ribbon and check the 'Formula Bar' checkbox.",
     explanation: "Displays the M formula expression for the active step.",
-    hint: "View Tab &rarr; Check 'Formula Bar'.",
+    hint: "View Tab → Check 'Formula Bar'.",
     level: "basic",
-    codeExample: "View Tab &rarr; Layout Group &rarr; Check [X] Formula Bar"
+    codeExample: "View Tab → Layout Group → Check [X] Formula Bar"
   },
   {
     question: "What is the difference between 'Duplicate' and 'Reference' when copying a query in the Queries pane?",
@@ -50,7 +50,7 @@ const questions = [
     explanation: "Reference queries prevent re-executing heavy ingestion steps multiple times.",
     hint: "Duplicate: Independent clone; Reference: Linked child query.",
     level: "moderate",
-    codeExample: "Right-Click Query &rarr; Duplicate vs Reference"
+    codeExample: "Right-Click Query → Duplicate vs Reference"
   },
   {
     question: "What is the Advanced Editor in Power Query?",
@@ -58,15 +58,15 @@ const questions = [
     explanation: "Allows power users to author custom logic, nested lambdas, and complex ETL algorithms.",
     hint: "Full M script window with let...in blocks.",
     level: "advanced",
-    codeExample: "Home Tab &rarr; Advanced Editor"
+    codeExample: "Home Tab → Advanced Editor"
   },
   {
     question: "How do you rename an Applied Step to give it a descriptive business name?",
     shortAnswer: "Right-click the step in the Applied Steps pane and select 'Rename', or select the step and press F2.",
     explanation: "Best practice for enterprise auditability and documentation.",
-    hint: "Right-click &rarr; Rename or press F2.",
+    hint: "Right-click → Rename or press F2.",
     level: "basic",
-    codeExample: "Rename: #\"Changed Type\" &rarr; #\"Coerce Amount To Decimal\""
+    codeExample: "Rename: #\"Changed Type\" → #\"Coerce Amount To Decimal\""
   },
   {
     question: "What happens if you insert a new step in the middle of an existing Applied Steps chain?",
@@ -82,7 +82,7 @@ const questions = [
     explanation: "Removes the transformation from the M recipe.",
     hint: "Click the 'X' button next to the step.",
     level: "basic",
-    codeExample: "Right-Click Step &rarr; Delete (or click red X)"
+    codeExample: "Right-Click Step → Delete (or click red X)"
   },
   {
     question: "What do the small icon badges next to each column header represent?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "Improves project navigation when managing 20+ queries.",
     hint: "Organizing queries into named folder groups.",
     level: "basic",
-    codeExample: "Right-Click Queries Pane &rarr; New Group..."
+    codeExample: "Right-Click Queries Pane → New Group..."
   },
   {
     question: "What does the gear / cog icon next to an Applied Step signify?",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "Clicking the gear re-launches the configuration modal.",
     hint: "Reopens the visual configuration dialog for that step.",
     level: "basic",
-    codeExample: "Click Gear Icon &rarr; Edit Filter / Split settings"
+    codeExample: "Click Gear Icon → Edit Filter / Split settings"
   },
   {
     question: "What is the M code structure of an Applied Step assignment?",
@@ -130,15 +130,15 @@ const questions = [
     explanation: "Enables instant statistical health profiling across all columns.",
     hint: "Toggles Column Quality, Distribution, and Profile bars.",
     level: "basic",
-    codeExample: "View Tab &rarr; Check [X] Column quality, [X] Column profile"
+    codeExample: "View Tab → Check [X] Column quality, [X] Column profile"
   },
   {
     question: "How do you reorder Applied Steps in the Query Settings pane?",
     shortAnswer: "Drag and drop the step up or down the list, or right-click the step and select 'Move Up' or 'Move Down'.",
     explanation: "Alters the chronological execution order of the ETL recipe.",
-    hint: "Drag and drop step, or right-click &rarr; Move Up/Down.",
+    hint: "Drag and drop step, or right-click → Move Up/Down.",
     level: "moderate",
-    codeExample: "Right-Click Step &rarr; Move Up / Move Down"
+    codeExample: "Right-Click Step → Move Up / Move Down"
   },
   {
     question: "What happens when you right-click a column header in the Power Query grid?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Fastest way to apply single-column transformations.",
     hint: "Context menu with column-specific transformations.",
     level: "basic",
-    codeExample: "Right-Click Header &rarr; Remove Other Columns"
+    codeExample: "Right-Click Header → Remove Other Columns"
   },
   {
     question: "What is the 'Remove Other Columns' transformation, and why is it considered a best practice?",
@@ -176,25 +176,25 @@ const questions = [
     question: "How do you change column profiling from 'Top 1000 rows' to 'Entire dataset'?",
     shortAnswer: "Click the status bar text at the bottom left ('Column profiling based on top 1000 rows') and select 'Column profiling based on entire data set'.",
     explanation: "Ensures comprehensive statistical checks across multi-million row tables.",
-    hint: "Click status bar &rarr; Profiling based on entire data set.",
+    hint: "Click status bar → Profiling based on entire data set.",
     level: "advanced",
-    codeExample: "Status Bar &rarr; Select 'Profiling based on entire data set'"
+    codeExample: "Status Bar → Select 'Profiling based on entire data set'"
   },
   {
     question: "How do you add step-by-step documentation comments to an Applied Step for external audit review?",
-    shortAnswer: "Right-click the step &rarr; Properties &rarr; Enter description text in the 'Description' box.",
+    shortAnswer: "Right-click the step → Properties → Enter description text in the 'Description' box.",
     explanation: "Hovering over the step's 'i' info icon displays the documentation tooltip.",
-    hint: "Right-click Step &rarr; Properties &rarr; Description.",
+    hint: "Right-click Step → Properties → Description.",
     level: "moderate",
-    codeExample: "Step Properties &rarr; Description: 'Tax compliance filter per FY26 audit rules'"
+    codeExample: "Step Properties → Description: 'Tax compliance filter per FY26 audit rules'"
   },
   {
     question: "What is the 'Query Dependencies' view in Power Query?",
-    shortAnswer: "A visual flowchart diagram (View Tab &rarr; Query Dependencies) mapping relationships and upstream/downstream data flows between all queries and sources.",
+    shortAnswer: "A visual flowchart diagram (View Tab → Query Dependencies) mapping relationships and upstream/downstream data flows between all queries and sources.",
     explanation: "Essential for understanding architecture in enterprise workbooks with 30+ linked queries.",
-    hint: "View Tab &rarr; Query Dependencies (Visual Flowchart).",
+    hint: "View Tab → Query Dependencies (Visual Flowchart).",
     level: "advanced",
-    codeExample: "View Tab &rarr; Query Dependencies"
+    codeExample: "View Tab → Query Dependencies"
   },
   {
     question: "What does the green progress bar at the top of column headers represent?",
@@ -208,9 +208,9 @@ const questions = [
     question: "How do you discard all changes and exit the Power Query Editor without saving?",
     shortAnswer: "Click the 'X' close button in the top right and select 'Discard' (or 'Keep' to save).",
     explanation: "Prevents accidental modification of production queries.",
-    hint: "Close Window &rarr; Click 'Discard'.",
+    hint: "Close Window → Click 'Discard'.",
     level: "basic",
-    codeExample: "Close Dialog &rarr; Discard Changes"
+    codeExample: "Close Dialog → Discard Changes"
   },
   {
     question: "Can you copy an Applied Step from one query and paste it into another query?",
@@ -218,23 +218,23 @@ const questions = [
     explanation: "Allows rapid sharing of complex transformation logic between queries.",
     hint: "Copy M code from formula bar or Advanced Editor.",
     level: "moderate",
-    codeExample: "Copy M Step &rarr; Paste in Target Query Formula Bar"
+    codeExample: "Copy M Step → Paste in Target Query Formula Bar"
   },
   {
     question: "What is the keyboard shortcut to open the Advanced Editor in Power Query?",
-    shortAnswer: "Press Alt &rarr; H &rarr; V (or click Advanced Editor on the Home tab).",
+    shortAnswer: "Press Alt → H → V (or click Advanced Editor on the Home tab).",
     explanation: "Quick access to the raw M code script.",
-    hint: "Home Tab &rarr; Advanced Editor.",
+    hint: "Home Tab → Advanced Editor.",
     level: "basic",
-    codeExample: "Home Tab &rarr; Advanced Editor"
+    codeExample: "Home Tab → Advanced Editor"
   },
   {
     question: "How do you inspect native query folding SQL for a specific Applied Step?",
     shortAnswer: "Right-click the step in the Applied Steps pane and click 'View Native Query'.",
     explanation: "If enabled, displays the exact SQL dialect sent to the server.",
-    hint: "Right-click step &rarr; View Native Query.",
+    hint: "Right-click step → View Native Query.",
     level: "expert",
-    codeExample: "Right-Click Step &rarr; View Native Query"
+    codeExample: "Right-Click Step → View Native Query"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for navigating the Power Query Editor interface?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Mastery of the Power Query UI separates spreadsheet amateurs from institutional data architects!",
     hint: "Rename Steps (F2) + Remove Other Columns + Formula Bar Mastery = Enterprise Architecture!",
     level: "expert",
-    codeExample: "Rule: UI Navigation &rarr; Treat Applied Steps as Your Audit Recipe!"
+    codeExample: "Rule: UI Navigation → Treat Applied Steps as Your Audit Recipe!"
   }
 ];
 

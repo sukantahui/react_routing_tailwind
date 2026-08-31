@@ -58,7 +58,7 @@ Why double capacity (2x) instead of linear increment (+10)?
 --------------------------------------------------------------------------------
 • Never shrink capacity immediately when size drops below 1/2 capacity.
 • If an app alternates between pushing and popping at the boundary:
-  Push -> Double (realloc) -> Pop -> Halve (realloc) -> Push -> Double...
+  Push → Double (realloc) → Pop → Halve (realloc) → Push → Double...
 • Thrashing cost: O(N) work on EVERY operation!
 • Solution: Shrink capacity to half ONLY when size drops to 1/4 of capacity (25%).
 

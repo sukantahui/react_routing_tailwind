@@ -99,7 +99,7 @@ const questions = [
     explanation: "Using `&` in null guards is dangerous because it invokes the method even if the object is null!",
     hint: "Logical operators short-circuit; bitwise operators do not.",
     level: "intermediate",
-    codeExample: "// DANGEROUS: if (obj != null & obj.isValid()) -> Throws NPE if obj is null!"
+    codeExample: "// DANGEROUS: if (obj != null & obj.isValid()) → Throws NPE if obj is null!"
   },
   {
     question: "What happens if you evaluate `! (x > 10)`?",
@@ -163,7 +163,7 @@ const questions = [
     explanation: "Useful for simplifying redundant enterprise conditions.",
     hint: "A || (A && B) = A.",
     level: "advanced",
-    codeExample: "// if (isAdmin || (isAdmin && isSuperUser)) -> if (isAdmin)"
+    codeExample: "// if (isAdmin || (isAdmin && isSuperUser)) → if (isAdmin)"
   },
   {
     question: "What is the Boolean Identity Law?",
@@ -187,7 +187,7 @@ const questions = [
     explanation: "Duplicate condition checks are redundant.",
     hint: "A && A = A.",
     level: "basic",
-    codeExample: "// if (isReady && isReady) -> if (isReady)"
+    codeExample: "// if (isReady && isReady) → if (isReady)"
   },
   {
     question: "What is the Double Negation Law?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Double inversion returns to the original truth value.",
     hint: "!!A = A.",
     level: "basic",
-    codeExample: "// !!valid -> valid"
+    codeExample: "// !!valid → valid"
   },
   {
     question: "Why is it dangerous to have side effects inside composite boolean expressions (e.g. `if (a && ++count > 5)`)?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Always perform mutations outside the condition.",
     hint: "Mutations may be skipped due to short-circuiting.",
     level: "intermediate",
-    codeExample: "// Bad: if (a && ++i > 5) -> i only increments if a is true!"
+    codeExample: "// Bad: if (a && ++i > 5) → i only increments if a is true!"
   },
   {
     question: "How should you refactor a method with 6 complex composite boolean conditions?",

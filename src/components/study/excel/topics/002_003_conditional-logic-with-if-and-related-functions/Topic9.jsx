@@ -71,7 +71,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Conditional formatting using custom logical formulas"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic9() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"=$B2 &gt; 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"}
+            {"=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"}
           </div>
 
           <div className="overflow-x-auto">
@@ -286,7 +286,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Conditional_format"
+            sheetName="EX810"
             title={"Conditional formatting using custom logical formulas - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -327,7 +327,7 @@ export default function Topic9() {
                 <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: GST Audit Discrepancy Highlighting"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Highlights vendor invoice rows in amber where the computed tax differs from the invoiced tax (=$G2<>$H2)."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Highlights vendor invoice rows in amber where the computed tax differs from the invoiced tax (=$G2&lt;&gt;$H2)."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -385,7 +385,7 @@ export default function Topic9() {
                 Step 2: Enter Core Decision Formula
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the target calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=$B2 &gt; 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"}</code>.
+                In the target calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=$B2 > 100000 /* Highlight Row */ | =AND($C2=\"Pending\", TODAY()-$D2>30) /* Overdue Alert */"}</code>.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic9() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Conditional Formatting Rule Bloat"}</td>
                   <td className="py-3 px-4">{"Copying and pasting formatted cells creates dozens of duplicate fragmented rules, causing severe workbook lag."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Clean rules regularly via Home &gt; Conditional Formatting > Manage Rules > Clear Duplicate Rules."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Clean rules regularly via Home > Conditional Formatting > Manage Rules > Clear Duplicate Rules."}</td>
                 </tr>
                 
               </tbody>

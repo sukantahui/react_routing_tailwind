@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Use of Dominance for Matrix Reduction?",
     shortAnswer: "'Apply strict, weak, and convex dominance to systematically eliminate inferior rows and columns; discard redundant strategies to isolate the active core support; and preserve the invariant Game Value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all dominance reduction principles.",
-    hint: "Strict, weak & convex dominance -> Eliminate inferior actions -> Preserve game value in ₹.",
+    hint: "Strict, weak & convex dominance → Eliminate inferior actions → Preserve game value in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ApplyDominanceHierarchy() -> PruneInferiorBranches() -> ReportInRupees(₹)."
+    codeExample: "GoldenRule: ApplyDominanceHierarchy() → PruneInferiorBranches() → ReportInRupees(₹)."
   }
 ];
 

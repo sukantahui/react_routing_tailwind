@@ -124,7 +124,7 @@ const Topic4 = () => {
             Module 005_005 · Animation & Motion Logic · Topic 4
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
             Simulating 2D Physics: Velocity, Acceleration & Gravity
           </h1>
 
@@ -416,7 +416,7 @@ if y <= floor_y:
           <h3 className="text-xl font-semibold text-amber-400 mb-3">📝 Student Mastery Checklist</h3>
           <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
             {[
-              "I understand Forward Euler Integration (Acceleration -> Velocity -> Position)",
+              "I understand Forward Euler Integration (Acceleration → Velocity → Position)",
               "I know how to decompose launch speed and angle into `(vx, vy)` vectors",
               "I subtract downward gravitational acceleration (`vy -= g * dt`) on each frame tick",
               "I know how to reverse velocity with restitution elasticity (`vy = -vy * e`) on collision",

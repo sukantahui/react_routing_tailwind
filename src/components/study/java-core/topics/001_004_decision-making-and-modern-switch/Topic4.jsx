@@ -42,7 +42,7 @@ export default function Topic4() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-sky-400">&apos;else-if&apos;</code> Ladder for Multi-Branch Evaluations
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -122,8 +122,8 @@ export default function Topic4() {
             <rect x="30" y="40" width="260" height="180" rx="10" fill="url(#gradLadderFlow)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Descending Cascade</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
-            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">if (score &gt;= 90) &rarr; A+</text>
-            <text x="55" y="122" fill="#bae6fd" fontSize="11" fontFamily="monospace">else if (score &gt;= 80) &rarr; A</text>
+            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">if (score &gt;= 90) → A+</text>
+            <text x="55" y="122" fill="#bae6fd" fontSize="11" fontFamily="monospace">else if (score &gt;= 80) → A</text>
             <text x="55" y="142" fill="#a7f3d0" fontSize="10">Stops at FIRST true condition</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✓ Correct Ordering
@@ -144,8 +144,8 @@ export default function Topic4() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradTaxSlab)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Progressive Tax (₹)</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#022c22" />
-            <text x="615" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">&lt;= 3L &rarr; 0% | &lt;= 6L &rarr; 5%</text>
-            <text x="615" y="122" fill="#d1fae5" fontSize="10">&lt;= 9L &rarr; 10% | &lt;= 12L &rarr; 15%</text>
+            <text x="615" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">&lt;= 3L → 0% | &lt;= 6L → 5%</text>
+            <text x="615" y="122" fill="#d1fae5" fontSize="10">&lt;= 9L → 10% | &lt;= 12L → 15%</text>
             <text x="615" y="142" fill="#d1fae5" fontSize="10">Clean progressive brackets</text>
             <text x="720" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Financial Integrity

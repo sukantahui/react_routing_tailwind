@@ -117,7 +117,7 @@ const Topic7 = () => {
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Section 1: Title + Intro (staggered) */}
         <div className="animate-fade-up space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
             Unguided Media
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 border-l-4 border-indigo-500 pl-4">

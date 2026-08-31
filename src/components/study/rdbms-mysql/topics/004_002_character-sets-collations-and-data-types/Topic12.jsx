@@ -109,7 +109,7 @@ SELECT
     zone_name,
     ST_Contains(boundary, ST_GeomFromText('POINT(88.3533 22.7634)', 4326)) AS is_deliverable
 FROM delivery_zones;
--- Result: 1 (TRUE) -> Eligible for Instant Delivery! ✅`,
+-- Result: 1 (TRUE) → Eligible for Instant Delivery! ✅`,
       metricsTable: [
         { functionName: "ST_Contains(poly, pt)", role: "Tests if point is inside polygon", result: "1 (Inside) or 0 (Outside)", useCase: "Delivery zone eligibility" },
         { functionName: "ST_Within(pt, poly)", role: "Equivalent inverse of ST_Contains", result: "1 (Inside) or 0 (Outside)", useCase: "Rider tracking in zone" },
@@ -174,7 +174,7 @@ LIMIT 5;
               Spatial (GIS) Engine
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Introduction to Spatial Data Types: POINT, LINESTRING, POLYGON, and GIS Functions (ST_Distance, ST_Contains)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -286,11 +286,11 @@ LIMIT 5;
 
                 {/* Inside Point */}
                 <circle cx="200" cy="220" r="7" fill="#38bdf8" />
-                <text x="215" y="225" fill="#bae6fd" fontSize="10" fontWeight="bold">Customer A (Inside) &rarr; ST_Contains = 1 ✅</text>
+                <text x="215" y="225" fill="#bae6fd" fontSize="10" fontWeight="bold">Customer A (Inside) → ST_Contains = 1 ✅</text>
 
                 {/* Outside Point */}
                 <circle cx="440" cy="180" r="7" fill="#f43f5e" />
-                <text x="320" y="305" fill="#f87171" fontSize="10" fontWeight="bold">Customer B (Outside) &rarr; ST_Contains = 0 ❌</text>
+                <text x="320" y="305" fill="#f87171" fontSize="10" fontWeight="bold">Customer B (Outside) → ST_Contains = 0 ❌</text>
 
                 {/* Right: Distance Radius Box */}
                 <rect x="490" y="40" width="440" height="280" rx="8" fill="#0f172a" stroke="#0ea5e9" strokeWidth="1.5" />

@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Module 005_004 Mixed Strategies?",
     shortAnswer: "'When Maximin < Minimax, randomize over the probability simplex; calculate Delta = (a11+a22)-(a12+a21); compute p*, q*, and v* = det(A)/Delta; and verify indifference in Indian Rupees (₹)!'",
     explanation: "This master synthesis captures all core mixed strategy mechanics.",
-    hint: "Randomize over simplex -> Compute Delta, p*, q*, v* -> Verify indifference in ₹.",
+    hint: "Randomize over simplex → Compute Delta, p*, q*, v* → Verify indifference in ₹.",
     level: "moderate",
-    codeExample: "MasterGoldenRule: RandomizeSimplex() -> Solve2x2ClosedForm() -> VerifyIndifference(₹)."
+    codeExample: "MasterGoldenRule: RandomizeSimplex() → Solve2x2ClosedForm() → VerifyIndifference(₹)."
   }
 ];
 

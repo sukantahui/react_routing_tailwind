@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Core Mathematical Execution & Precision is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula syntax, coordinate resolution, and parameter arguments behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Calculation Engine & Volatility Dynamics regarding volatile vs non-volatile recalculation trees, memory buffers, and performance (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Calculation Engine & Volatility Dynamics is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how volatile vs non-volatile recalculation trees, memory buffers, and performance behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Business Context & Real-World Application regarding rolling window sums, dynamic chart ranges, and multi-tier reporting (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Business Context & Real-World Application is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how rolling window sums, dynamic chart ranges, and multi-tier reporting behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Dynamic Array Spilling & Matrix Reshaping regarding vectorized array evaluation, spill boundaries, and # reference syntax (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Dynamic Array Spilling & Matrix Reshaping is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how vectorized array evaluation, spill boundaries, and # reference syntax behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Diagnostic Troubleshooting & Edge-Case Guards regarding error signatures, boundary checking, and handling empty/spill clashes (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Diagnostic Troubleshooting & Edge-Case Guards is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how error signatures, boundary checking, and handling empty/spill clashes behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Enterprise Governance & Model Maintenance regarding formula maintainability, self-documenting LET blocks, and audit trails (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Enterprise Governance & Model Maintenance is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula maintainability, self-documenting LET blocks, and audit trails behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Core Mathematical Execution & Precision regarding formula syntax, coordinate resolution, and parameter arguments (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Core Mathematical Execution & Precision is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula syntax, coordinate resolution, and parameter arguments behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Calculation Engine & Volatility Dynamics regarding volatile vs non-volatile recalculation trees, memory buffers, and performance (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Calculation Engine & Volatility Dynamics is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how volatile vs non-volatile recalculation trees, memory buffers, and performance behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Business Context & Real-World Application regarding rolling window sums, dynamic chart ranges, and multi-tier reporting (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Business Context & Real-World Application is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how rolling window sums, dynamic chart ranges, and multi-tier reporting behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Dynamic Array Spilling & Matrix Reshaping regarding vectorized array evaluation, spill boundaries, and # reference syntax (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Dynamic Array Spilling & Matrix Reshaping is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how vectorized array evaluation, spill boundaries, and # reference syntax behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "basic",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Diagnostic Troubleshooting & Edge-Case Guards regarding error signatures, boundary checking, and handling empty/spill clashes (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Diagnostic Troubleshooting & Edge-Case Guards is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how error signatures, boundary checking, and handling empty/spill clashes behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Enterprise Governance & Model Maintenance regarding formula maintainability, self-documenting LET blocks, and audit trails (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Enterprise Governance & Model Maintenance is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula maintainability, self-documenting LET blocks, and audit trails behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Core Mathematical Execution & Precision regarding formula syntax, coordinate resolution, and parameter arguments (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Core Mathematical Execution & Precision is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula syntax, coordinate resolution, and parameter arguments behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Calculation Engine & Volatility Dynamics regarding volatile vs non-volatile recalculation trees, memory buffers, and performance (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Calculation Engine & Volatility Dynamics is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how volatile vs non-volatile recalculation trees, memory buffers, and performance behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Business Context & Real-World Application regarding rolling window sums, dynamic chart ranges, and multi-tier reporting (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Business Context & Real-World Application is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how rolling window sums, dynamic chart ranges, and multi-tier reporting behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Dynamic Array Spilling & Matrix Reshaping regarding vectorized array evaluation, spill boundaries, and # reference syntax (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Dynamic Array Spilling & Matrix Reshaping is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how vectorized array evaluation, spill boundaries, and # reference syntax behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Diagnostic Troubleshooting & Edge-Case Guards regarding error signatures, boundary checking, and handling empty/spill clashes (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Diagnostic Troubleshooting & Edge-Case Guards is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how error signatures, boundary checking, and handling empty/spill clashes behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Enterprise Governance & Model Maintenance regarding formula maintainability, self-documenting LET blocks, and audit trails (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Enterprise Governance & Model Maintenance is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula maintainability, self-documenting LET blocks, and audit trails behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Core Mathematical Execution & Precision regarding formula syntax, coordinate resolution, and parameter arguments (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Core Mathematical Execution & Precision is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula syntax, coordinate resolution, and parameter arguments behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Calculation Engine & Volatility Dynamics regarding volatile vs non-volatile recalculation trees, memory buffers, and performance (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Calculation Engine & Volatility Dynamics is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how volatile vs non-volatile recalculation trees, memory buffers, and performance behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Business Context & Real-World Application regarding rolling window sums, dynamic chart ranges, and multi-tier reporting (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Business Context & Real-World Application is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how rolling window sums, dynamic chart ranges, and multi-tier reporting behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Dynamic Array Spilling & Matrix Reshaping regarding vectorized array evaluation, spill boundaries, and # reference syntax (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Dynamic Array Spilling & Matrix Reshaping is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how vectorized array evaluation, spill boundaries, and # reference syntax behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "moderate",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Diagnostic Troubleshooting & Edge-Case Guards regarding error signatures, boundary checking, and handling empty/spill clashes (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Diagnostic Troubleshooting & Edge-Case Guards is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how error signatures, boundary checking, and handling empty/spill clashes behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Enterprise Governance & Model Maintenance regarding formula maintainability, self-documenting LET blocks, and audit trails (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Enterprise Governance & Model Maintenance is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula maintainability, self-documenting LET blocks, and audit trails behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Core Mathematical Execution & Precision regarding formula syntax, coordinate resolution, and parameter arguments (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Core Mathematical Execution & Precision is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula syntax, coordinate resolution, and parameter arguments behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Calculation Engine & Volatility Dynamics regarding volatile vs non-volatile recalculation trees, memory buffers, and performance (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Calculation Engine & Volatility Dynamics is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how volatile vs non-volatile recalculation trees, memory buffers, and performance behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Business Context & Real-World Application regarding rolling window sums, dynamic chart ranges, and multi-tier reporting (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Business Context & Real-World Application is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how rolling window sums, dynamic chart ranges, and multi-tier reporting behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Dynamic Array Spilling & Matrix Reshaping regarding vectorized array evaluation, spill boundaries, and # reference syntax (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Dynamic Array Spilling & Matrix Reshaping is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how vectorized array evaluation, spill boundaries, and # reference syntax behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Diagnostic Troubleshooting & Edge-Case Guards regarding error signatures, boundary checking, and handling empty/spill clashes (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Diagnostic Troubleshooting & Edge-Case Guards is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how error signatures, boundary checking, and handling empty/spill clashes behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   },
   {
     "question": "In the context of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, how does Excel handle Enterprise Governance & Model Maintenance regarding formula maintainability, self-documenting LET blocks, and audit trails (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas, understanding Enterprise Governance & Model Maintenance is critical for creating reliable, enterprise-grade spreadsheets. Excel enforces strict coordinate referencing, volatility rules, and dynamic spilling dynamics, ensuring that dynamic range formulas, coordinate lookups, and modern aggregation functions execute accurately across large business datasets.",
     "hint": "Think about how formula maintainability, self-documenting LET blocks, and audit trails behaves within the computational workflow of Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas.",
     "level": "advanced",
-    "codeExample": "Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
+    "codeExample": "Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"
   }
 ];
 

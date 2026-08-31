@@ -76,7 +76,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Regex Pattern Fundamentals: Metacharacters, Classes, Quantifiers & Anchors
           </h1>
 
@@ -147,25 +147,25 @@ export default function Topic1() {
                   <td className="py-3 px-4 font-bold text-purple-400 font-sans">1. Metacharacters</td>
                   <td className="py-3 px-4 text-purple-300">\d, \w, \s, .</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Shorthand tokens for digits, word characters, whitespace, and wildcards.</td>
-                  <td className="py-3 px-4 text-emerald-400">\d+ &rarr; 88421</td>
+                  <td className="py-3 px-4 text-emerald-400">\d+ → 88421</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-sky-400 font-sans">2. Character Classes</td>
                   <td className="py-3 px-4 text-sky-300">[A-Z], [0-9], [^0-9]</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Explicit sets or ranges of allowable characters enclosed in brackets.</td>
-                  <td className="py-3 px-4 text-emerald-400">[A-Z]{"{5}"} &rarr; ABCDE</td>
+                  <td className="py-3 px-4 text-emerald-400">[A-Z]{"{5}"} → ABCDE</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">3. Quantifiers</td>
                   <td className="py-3 px-4 text-emerald-300">+, *, ?, {"{n}"}, {"{n,m}"}</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Defines how many consecutive times the preceding token must occur.</td>
-                  <td className="py-3 px-4 text-emerald-400">\d{"{6}"} &rarr; 700120</td>
+                  <td className="py-3 px-4 text-emerald-400">\d{"{6}"} → 700120</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-amber-400 font-sans">4. Anchors</td>
                   <td className="py-3 px-4 text-amber-300">^, $, \b</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Zero-width assertions locking matching to string edges or word boundaries.</td>
-                  <td className="py-3 px-4 text-emerald-400">^\d+$ &rarr; Pure Number</td>
+                  <td className="py-3 px-4 text-emerald-400">^\d+$ → Pure Number</td>
                 </tr>
               </tbody>
             </table>
@@ -195,11 +195,11 @@ export default function Topic1() {
               </h3>
               <p className="leading-relaxed">
                 By default, quantifiers (<code className="text-amber-300 font-mono">+</code>, <code className="text-amber-300 font-mono">*</code>) are <strong>greedy</strong>: 
-                given <code className="text-rose-300 font-mono">&lt;b&gt;Text&lt;/b&gt;</code>, the pattern <code className="text-rose-300 font-mono">&lt;.*&gt;</code> matches from the first <code className="text-rose-300 font-mono">&lt;</code> to the final <code className="text-rose-300 font-mono">&gt;</code>! 
-                Appending <code className="text-emerald-300 font-mono">?</code> makes it <strong>lazy</strong>: <code className="text-emerald-300 font-mono">&lt;.*?&gt;</code> stops at each tag individually.
+                given <code className="text-rose-300 font-mono"><b>Text</b></code>, the pattern <code className="text-rose-300 font-mono"><.*></code> matches from the first <code className="text-rose-300 font-mono"><</code> to the final <code className="text-rose-300 font-mono">></code>! 
+                Appending <code className="text-emerald-300 font-mono">?</code> makes it <strong>lazy</strong>: <code className="text-emerald-300 font-mono"><.*?></code> stops at each tag individually.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                &lt;.*?&gt; (Lazy) vs &lt;.*&gt; (Greedy)
+                <.*?> (Lazy) vs <.*> (Greedy)
               </div>
             </div>
 
@@ -306,7 +306,7 @@ export default function Topic1() {
               {/* Match Result Banner */}
               <rect x="25" y="240" width="800" height="55" rx="10" fill="#064E3B" stroke="#10B981" strokeWidth="1.5" />
               <text x="425" y="263" fill="#A7F3D0" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
-                MATCH TARGET: "ABCDE1234F" &rarr; REGEXTEST Returns TRUE
+                MATCH TARGET: "ABCDE1234F" → REGEXTEST Returns TRUE
               </text>
               <text x="425" y="282" fill="#E2E8F0" fontSize="9.5" textAnchor="middle" fontFamily="sans-serif">
                 Exact 10-Character Field Conformity Verified with Zero False Positives
@@ -345,7 +345,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Fundamentals"
+            sheetName="EX1902"
             title="Regex Tokens & Fundamentals (Token, Description, Pattern, Sample Target, Expected Result)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -384,7 +384,7 @@ export default function Topic1() {
                 Ensures PIN codes start with a non-zero digit and contain exactly 6 numbers.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =REGEXTEST(PIN, "^[1-9][0-9]{5}$") &rarr; TRUE
+                Formula: =REGEXTEST(PIN, "^[1-9][0-9]{5}$") → TRUE
               </div>
             </div>
 
@@ -403,7 +403,7 @@ export default function Topic1() {
                 flagging invalid telephone numbers that fail Indian TRAI mobile standards.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Pattern: ^[6-9]\d{9}$ &rarr; Validates 9830111223
+                Pattern: ^[6-9]\d{9}$ → Validates 9830111223
               </div>
             </div>
 
@@ -422,7 +422,7 @@ export default function Topic1() {
                 guaranteeing that input currency fields have at most 2 decimal places.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Pattern: ^\d+(\.\d{2})?$ &rarr; Validates 45000 and 45000.50
+                Pattern: ^\d+(\.\d{2})?$ → Validates 45000 and 45000.50
               </div>
             </div>
 
@@ -441,7 +441,7 @@ export default function Topic1() {
                 ensuring all 20,000 legacy warehouse items conform to new ERP conventions.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Pattern: ^[A-Z]{3}-\d{4,6}$ &rarr; Validates "BKP-88421"
+                Pattern: ^[A-Z]{3}-\d{4,6}$ → Validates "BKP-88421"
               </div>
             </div>
           </div>
@@ -557,7 +557,7 @@ export default function Topic1() {
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Greedy Wildcard Runaway</td>
                   <td className="py-3 px-4 text-slate-300">Used <code className="text-rose-300 font-mono">.*</code> which consumed the entire remaining text string across multiple tags.</td>
                   <td className="py-3 px-4 text-slate-400">Extracts from first tag to last tag.</td>
-                  <td className="py-3 px-4 text-emerald-400">Use lazy quantifier <code className="text-emerald-400 font-mono">.*?</code> or specific classes <code className="text-emerald-400 font-mono">[^&gt;]+</code>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Use lazy quantifier <code className="text-emerald-400 font-mono">.*?</code> or specific classes <code className="text-emerald-400 font-mono">[^>]+</code>.</td>
                 </tr>
               </tbody>
             </table>
@@ -650,7 +650,7 @@ export default function Topic1() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Examine quantifier greediness:</strong> What happens when you use <code className="text-rose-400 font-mono">&lt;.*&gt;</code> to extract text from <code className="text-sky-300 font-mono">&lt;b&gt;Hello&lt;/b&gt; &lt;i&gt;World&lt;/i&gt;</code>, and why does <code className="text-emerald-300 font-mono">&lt;.*?&gt;</code> fix it?
+                <strong>Examine quantifier greediness:</strong> What happens when you use <code className="text-rose-400 font-mono"><.*></code> to extract text from <code className="text-sky-300 font-mono"><b>Hello</b> <i>World</i></code>, and why does <code className="text-emerald-300 font-mono"><.*?></code> fix it?
               </p>
             </div>
 

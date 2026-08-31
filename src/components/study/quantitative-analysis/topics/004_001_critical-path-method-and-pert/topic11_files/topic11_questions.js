@@ -104,7 +104,7 @@ const questions = [
     explanation: "CLT provides the mathematical foundation for using Z-tables in PERT.",
     hint: "Sum of multiple independent random variables approaches a normal distribution by CLT.",
     level: "expert",
-    codeExample: "CLT: Sum(Beta_i) -> Normal(mu_sum, sigma_sum^2) as n increases."
+    codeExample: "CLT: Sum(Beta_i) → Normal(mu_sum, sigma_sum^2) as n increases."
   },
   {
     question: "What currency symbol must ALWAYS be used when stating project contingency reserves and R&D budgets in West Bengal?",
@@ -118,9 +118,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Basic PERT Concept?",
     shortAnswer: "'Estimate 3 times (t_o, t_m, t_p); compute t_e = (t_o + 4t_m + t_p)/6 and variance = ((t_p - t_o)/6)^2; sum means and variances along the Critical Path; evaluate deliverability probability via Z = (T_S - mu)/sigma in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all core PERT calculation mechanics.",
-    hint: "3 estimates -> t_e & variance -> sum on CP -> Z = (T_S - mu)/sigma -> Normal probability.",
+    hint: "3 estimates → t_e & variance → sum on CP → Z = (T_S - mu)/sigma → Normal probability.",
     level: "moderate",
-    codeExample: "GoldenRule: ThreeEstimates() -> ComputeTeVar() -> SumOnCriticalPath() -> ZScoreDeliverability(₹)."
+    codeExample: "GoldenRule: ThreeEstimates() → ComputeTeVar() → SumOnCriticalPath() → ZScoreDeliverability(₹)."
   }
 ];
 

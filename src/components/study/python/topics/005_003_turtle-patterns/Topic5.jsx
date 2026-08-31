@@ -66,7 +66,7 @@ const Topic5 = () => {
             Module 005_003 · Turtle Patterns & Geometric Mathematics · Topic 5
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-fuchsia-400 via-pink-300 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-fuchsia-400 via-pink-300 to-cyan-400 bg-clip-text text-transparent">
             Color Gradients & Hue Shifts in Iterative Loops
           </h1>
 

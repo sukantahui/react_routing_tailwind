@@ -49,7 +49,7 @@ const questions = [
     explanation: "Introduced by Edward Tufte, sparklines provide quick historical trajectory context right alongside tabular row numbers.",
     hint: "Sparklines live inside individual spreadsheet cells.",
     level: "basic",
-    codeExample: "Insert &rarr; Sparklines &rarr; Line (Location: $O$2)"
+    codeExample: "Insert → Sparklines → Line (Location: $O$2)"
   },
   {
     question: "Why should you never truncate the vertical axis on a Column or Bar chart?",
@@ -57,7 +57,7 @@ const questions = [
     explanation: "Starting an axis at 50,000 when values are 52,000 and 54,000 makes a 4% difference look like a 200% difference.",
     hint: "Column and bar visual encodings require a zero baseline.",
     level: "basic",
-    codeExample: "Format Axis &rarr; Minimum Bound = 0"
+    codeExample: "Format Axis → Minimum Bound = 0"
   },
   {
     question: "When is it acceptable to start the vertical axis above zero?",
@@ -69,7 +69,7 @@ const questions = [
   },
   {
     question: "How do you link a chart title to an Excel cell dynamically?",
-    shortAnswer: "Select the Chart Title &rarr; Click inside the Formula Bar &rarr; Type `='Sheet1'!$A$1` &rarr; Press Enter.",
+    shortAnswer: "Select the Chart Title → Click inside the Formula Bar → Type `='Sheet1'!$A$1` → Press Enter.",
     explanation: "Cell-linked titles automatically update when slicers or dynamic formula values change.",
     hint: "Select title box, click formula bar, type =, and reference the cell.",
     level: "moderate",
@@ -85,11 +85,11 @@ const questions = [
   },
   {
     question: "How do you add a moving average trendline to smooth noisy time-series data?",
-    shortAnswer: "Select the series &rarr; Click '+' (Chart Elements) &rarr; Trendline &rarr; Moving Average &rarr; Set Period (e.g. 3 or 7).",
+    shortAnswer: "Select the series → Click '+' (Chart Elements) → Trendline → Moving Average → Set Period (e.g. 3 or 7).",
     explanation: "Moving average trendlines filter short-term fluctuations to reveal underlying cyclical or seasonal trajectory.",
-    hint: "Add Chart Element &rarr; Trendline &rarr; Moving Average.",
+    hint: "Add Chart Element → Trendline → Moving Average.",
     level: "moderate",
-    codeExample: "Trendline &rarr; Moving Average (Period = 3)"
+    codeExample: "Trendline → Moving Average (Period = 3)"
   },
   {
     question: "What is the primary benefit of converting raw data to an Excel Table (Ctrl+T) before creating charts?",
@@ -97,15 +97,15 @@ const questions = [
     explanation: "Structured tables dynamically update series ranges when rows or columns are inserted.",
     hint: "Structured tables automatically expand connected chart series.",
     level: "basic",
-    codeExample: "Ctrl + T &rarr; Create Table &rarr; Insert Chart"
+    codeExample: "Ctrl + T → Create Table → Insert Chart"
   },
   {
     question: "How do you prevent chart objects from stretching when resizing worksheet columns?",
-    shortAnswer: "Right-click Chart &rarr; Format Chart Area &rarr; Size & Properties &rarr; Select 'Don't move or size with cells' or 'Move but don't size with cells'.",
+    shortAnswer: "Right-click Chart → Format Chart Area → Size & Properties → Select 'Don't move or size with cells' or 'Move but don't size with cells'.",
     explanation: "Prevents distortion of carefully formatted dashboard visuals when neighboring cells are adjusted.",
-    hint: "Format Chart Area &rarr; Properties &rarr; Don't move or size with cells.",
+    hint: "Format Chart Area → Properties → Don't move or size with cells.",
     level: "moderate",
-    codeExample: "Format Chart Area &rarr; Properties &rarr; Don't move or size with cells"
+    codeExample: "Format Chart Area → Properties → Don't move or size with cells"
   },
   {
     question: "How do you magnetically snap chart borders to worksheet gridlines?",
@@ -125,11 +125,11 @@ const questions = [
   },
   {
     question: "How do you copy visual formatting from one chart to another in 1 second?",
-    shortAnswer: "Copy the formatted chart (`Ctrl+C`), select the target chart, and use Paste Special Formats (`Alt+E+S &rarr; Formats`).",
+    shortAnswer: "Copy the formatted chart (`Ctrl+C`), select the target chart, and use Paste Special Formats (`Alt+E+S → Formats`).",
     explanation: "Transfers palettes, fonts, gridlines, and border styles across charts seamlessly.",
-    hint: "Ctrl+C on formatted chart &rarr; Select target &rarr; Alt+E+S &rarr; Formats.",
+    hint: "Ctrl+C on formatted chart → Select target → Alt+E+S → Formats.",
     level: "moderate",
-    codeExample: "Ctrl+C &rarr; Select Target &rarr; Alt+E+S &rarr; Formats"
+    codeExample: "Ctrl+C → Select Target → Alt+E+S → Formats"
   },
   {
     question: "What is an Area Chart and when should it be avoided?",
@@ -153,15 +153,15 @@ const questions = [
     explanation: "Highlights how intermediate debits and credits contribute to final net income.",
     hint: "Waterfall charts show cumulative step-by-step additions and deductions.",
     level: "moderate",
-    codeExample: "Insert &rarr; Waterfall Chart &rarr; Set intermediate columns as Total"
+    codeExample: "Insert → Waterfall Chart → Set intermediate columns as Total"
   },
   {
     question: "How do you filter specific series in a chart without altering the underlying grid table?",
-    shortAnswer: "Click the Chart Filters funnel icon next to the chart &rarr; Uncheck unwanted series or categories &rarr; Apply.",
+    shortAnswer: "Click the Chart Filters funnel icon next to the chart → Uncheck unwanted series or categories → Apply.",
     explanation: "Chart filters dynamically isolate specific categories on the fly without hiding table rows.",
     hint: "Use the funnel icon on the top-right corner of the chart.",
     level: "basic",
-    codeExample: "Chart Filters (Funnel Icon) &rarr; Uncheck Series &rarr; Apply"
+    codeExample: "Chart Filters (Funnel Icon) → Uncheck Series → Apply"
   },
   {
     question: "What is the purpose of adding Error Bars to a column or scatter chart?",
@@ -169,15 +169,15 @@ const questions = [
     explanation: "Error bars show confidence intervals or measurement tolerances around data points.",
     hint: "Error bars visualize statistical variance and uncertainty.",
     level: "advanced",
-    codeExample: "Add Chart Element &rarr; Error Bars &rarr; Standard Deviation"
+    codeExample: "Add Chart Element → Error Bars → Standard Deviation"
   },
   {
     question: "How do you display high and low points automatically on an in-cell Sparkline?",
-    shortAnswer: "Select the sparkline &rarr; Sparkline tab &rarr; Check 'High Point' and 'Low Point' in the Show group &rarr; Set distinct marker colors.",
+    shortAnswer: "Select the sparkline → Sparkline tab → Check 'High Point' and 'Low Point' in the Show group → Set distinct marker colors.",
     explanation: "Highlighting extremes draws immediate attention to annual best and worst performance periods.",
     hint: "Check 'High Point' and 'Low Point' on the Sparkline ribbon tab.",
     level: "basic",
-    codeExample: "Sparkline Ribbon &rarr; Show: High Point, Low Point"
+    codeExample: "Sparkline Ribbon → Show: High Point, Low Point"
   },
   {
     question: "Why should you avoid placing red and green series side-by-side without secondary cues?",
@@ -189,11 +189,11 @@ const questions = [
   },
   {
     question: "How do you change the order of series in a multi-series clustered column chart?",
-    shortAnswer: "Right-click Chart &rarr; Select Data &rarr; Use the 'Move Up' and 'Move Down' arrow buttons under Legend Entries.",
+    shortAnswer: "Right-click Chart → Select Data → Use the 'Move Up' and 'Move Down' arrow buttons under Legend Entries.",
     explanation: "Reorders series horizontally inside each category cluster.",
-    hint: "Select Data &rarr; Legend Entries &rarr; Move Up / Move Down.",
+    hint: "Select Data → Legend Entries → Move Up / Move Down.",
     level: "moderate",
-    codeExample: "Select Data &rarr; Move Up / Move Down"
+    codeExample: "Select Data → Move Up / Move Down"
   },
   {
     question: "What is a Radar (Spider) Chart and when is it best used?",
@@ -205,19 +205,19 @@ const questions = [
   },
   {
     question: "How do you combine multiple charts into a single moveable grouped dashboard unit?",
-    shortAnswer: "Select all charts while holding `Ctrl` &rarr; Shape Format &rarr; Group &rarr; Group.",
+    shortAnswer: "Select all charts while holding `Ctrl` → Shape Format → Group → Group.",
     explanation: "Grouped visuals move, copy, and align together as one unified container.",
-    hint: "Select charts &rarr; Shape Format &rarr; Group.",
+    hint: "Select charts → Shape Format → Group.",
     level: "basic",
-    codeExample: "Ctrl + Click &rarr; Shape Format &rarr; Group"
+    codeExample: "Ctrl + Click → Shape Format → Group"
   },
   {
     question: "How do you insert an interactive Slicer that controls both a Table and its connected chart?",
-    shortAnswer: "Click inside the structured Table &rarr; Table Design &rarr; Insert Slicer &rarr; Choose filter columns.",
+    shortAnswer: "Click inside the structured Table → Table Design → Insert Slicer → Choose filter columns.",
     explanation: "Slicers filter table rows, and the connected chart updates automatically in real time.",
     hint: "Insert Slicers from the Table Design ribbon tab.",
     level: "basic",
-    codeExample: "Table Design &rarr; Insert Slicer &rarr; [Branch]"
+    codeExample: "Table Design → Insert Slicer → [Branch]"
   },
   {
     question: "What is the recommended Gap Width for professional Clustered Column charts?",
@@ -225,7 +225,7 @@ const questions = [
     explanation: "Default gap width (219%) leaves columns too narrow; reducing to 120-150% creates balanced proportions.",
     hint: "Set Gap Width to 100% - 150% in Format Data Series.",
     level: "moderate",
-    codeExample: "Format Data Series &rarr; Gap Width = 120%"
+    codeExample: "Format Data Series → Gap Width = 120%"
   },
   {
     question: "How do you plot a non-contiguous range on an Excel chart?",
@@ -233,7 +233,7 @@ const questions = [
     explanation: "Allows selective plotting of Column A (Names) and Column D (Totals) while skipping Columns B and C.",
     hint: "Hold Ctrl while selecting non-adjacent columns.",
     level: "basic",
-    codeExample: "Select A1:A10 &rarr; Hold Ctrl &rarr; Select D1:D10 &rarr; Alt+F1"
+    codeExample: "Select A1:A10 → Hold Ctrl → Select D1:D10 → Alt+F1"
   },
   {
     question: "What is the ultimate objective of business data visualization in Excel?",

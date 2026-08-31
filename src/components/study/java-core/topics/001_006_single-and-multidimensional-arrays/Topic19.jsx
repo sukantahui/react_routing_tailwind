@@ -42,7 +42,7 @@ export default function Topic19() {
             Standard Library Masterclass
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           The <code className="text-emerald-400 font-mono">java.util.Arrays</code> Masterclass Toolkit
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -148,7 +148,7 @@ export default function Topic19() {
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Compare &amp; Bridge</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#2e1065" />
             <text x="615" y="102" fill="#ddd6fe" fontSize="11" fontFamily="monospace">equals() / mismatch()</text>
-            <text x="615" y="122" fill="#ddd6fe" fontSize="11" fontFamily="monospace">stream() &rarr; IntStream</text>
+            <text x="615" y="122" fill="#ddd6fe" fontSize="11" fontFamily="monospace">stream() → IntStream</text>
             <text x="615" y="142" fill="#d1fae5" fontSize="10">asList() List wrapper</text>
             <text x="720" y="190" fill="#f5f3ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Stream &amp; Equality Suite

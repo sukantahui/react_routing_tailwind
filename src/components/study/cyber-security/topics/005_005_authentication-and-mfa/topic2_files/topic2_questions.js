@@ -17,8 +17,8 @@ const questions = [
     explanation: "Human memory struggles with arbitrary character substitutions, leading users to pick predictable patterns ('@' for 'a', '!' at end). Long passphrases provide exponential resistance against brute-force attacks.",
     hint: "Length contributes far more to the search space than character complexity substitutions.",
     level: "Basic",
-    codeExample: `// Short Complex: 'P@$$w0rd!' (9 chars, N=95) -> 2^59.1 combinations (~500B guesses, cracked in 10 sec on RTX 4090)
-// Long Passphrase: 'bengal tiger barrackpore river' (30 chars, N=26) -> 2^141 combinations (Billions of years to crack)`
+    codeExample: `// Short Complex: 'P@$$w0rd!' (9 chars, N=95) → 2^59.1 combinations (~500B guesses, cracked in 10 sec on RTX 4090)
+// Long Passphrase: 'bengal tiger barrackpore river' (30 chars, N=26) → 2^141 combinations (Billions of years to crack)`
   },
   {
     id: 3,
@@ -28,9 +28,9 @@ const questions = [
     hint: "General-purpose hashes are too fast; password storage requires deliberately slow, memory-hard algorithms.",
     level: "Basic",
     codeExample: `// Fast Hashes (UNSAFE for Passwords):
-// SHA-256: 50,000,000,000 hashes/sec on RTX 4090 -> 8-char password cracked in < 1 minute!
+// SHA-256: 50,000,000,000 hashes/sec on RTX 4090 → 8-char password cracked in < 1 minute!
 // Slow KDF (SAFE):
-// Argon2id / Bcrypt: ~20,000 hashes/sec -> 8-char password takes years to brute-force offline.`
+// Argon2id / Bcrypt: ~20,000 hashes/sec → 8-char password takes years to brute-force offline.`
   },
   {
     id: 4,
@@ -62,8 +62,8 @@ const storedHash = bcrypt.hashSync("UserPassword", salt);
     explanation: "Password spraying circumvents threshold-based account lockouts (e.g., lock after 5 failed attempts) by spreading single failed attempts across an entire organization.",
     hint: "Brute force targets one user with many passwords; spraying targets many users with one password.",
     level: "Moderate",
-    codeExample: `// Traditional Brute Force: Target 'susmita@bank.in' with 10,000 passwords -> Account LOCKED after 5 attempts ❌
-// Password Spraying: Target 5,000 employees with 1 password 'Spring2026!' -> 0 lockouts triggered, 12 accounts breached ✔`
+    codeExample: `// Traditional Brute Force: Target 'susmita@bank.in' with 10,000 passwords → Account LOCKED after 5 attempts ❌
+// Password Spraying: Target 5,000 employees with 1 password 'Spring2026!' → 0 lockouts triggered, 12 accounts breached ✔`
   },
   {
     id: 7,
@@ -80,12 +80,12 @@ const storedHash = bcrypt.hashSync("UserPassword", salt);
   {
     id: 8,
     question: "Why did NIST SP 800-63B eliminate the traditional requirement for mandatory periodic 90-day password resets?",
-    shortAnswer: "Empirical behavioral research proved that frequent forced password resets cause users to select predictable incrementing transformations (e.g., 'Kolkata@2025' -> 'Kolkata@2026') rather than creating secure passwords, actively reducing overall security.",
+    shortAnswer: "Empirical behavioral research proved that frequent forced password resets cause users to select predictable incrementing transformations (e.g., 'Kolkata@2025' → 'Kolkata@2026') rather than creating secure passwords, actively reducing overall security.",
     explanation: "NIST now recommends changing passwords only when evidence exists that a compromise has occurred, while actively checking passwords against known breach lists.",
     hint: "Forced rotations lead to predictable substitutions and cognitive fatigue.",
     level: "Moderate",
     codeExample: `// Predictable Human Rotation Pattern:
-// Q1: Winter2025! -> Q2: Spring2025! -> Q3: Summer2025! -> Q4: Autumn2025!
+// Q1: Winter2025! → Q2: Spring2025! → Q3: Summer2025! → Q4: Autumn2025!
 // Attackers easily predict the current password with single-guess mutations.`
   },
   {
@@ -122,8 +122,8 @@ const storedHash = bcrypt.hashSync("UserPassword", salt);
     explanation: "Because storage of millions of individual rainbow tables is mathematically impossible, salting renders precomputed rainbow tables 100% obsolete.",
     hint: "Precomputed hash chains defeated because every user's salt requires a completely distinct table.",
     level: "Moderate",
-    codeExample: `// Unsalted MD5: md5("password") = 5f4dcc3b5aa765d61d8327deb882cf99 -> Instantly looked up in 1 millisecond.
-// Salted: md5("password" + "9k2L#m") = 8e1b... -> Must be recalculated from scratch.`
+    codeExample: `// Unsalted MD5: md5("password") = 5f4dcc3b5aa765d61d8327deb882cf99 → Instantly looked up in 1 millisecond.
+// Salted: md5("password" + "9k2L#m") = 8e1b... → Must be recalculated from scratch.`
   },
   {
     id: 12,
@@ -149,7 +149,7 @@ const storedHash = bcrypt.hashSync("UserPassword", salt);
     codeExample: `// NTLM Vulnerability:
 // Password: 'Password123'
 // NTLM: 58a4781343f762909c4d8a240b51fec5 (Identical across all 10,000 users with this password!)
-// Pass-the-Hash: Attacker sends raw hash over SMB port 445 -> Full domain admin access granted.`
+// Pass-the-Hash: Attacker sends raw hash over SMB port 445 → Full domain admin access granted.`
   },
   {
     id: 14,
@@ -179,7 +179,7 @@ crypto.timingSafeEqual(Buffer.from(hashA), Buffer.from(hashB)); // SAFE ✔`
     hint: "5 dice rolls select from 7,776 words, yielding ~12.92 bits per word.",
     level: "Moderate",
     codeExample: `// Diceware Rolls:
-// Roll: [3, 1, 4, 2, 5] -> Index 31425 -> Word: "monsoon"
+// Roll: [3, 1, 4, 2, 5] → Index 31425 → Word: "monsoon"
 // 6 Words = 6 * 12.92 = 77.5 bits of true entropy.`
   },
   {
@@ -192,7 +192,7 @@ crypto.timingSafeEqual(Buffer.from(hashA), Buffer.from(hashB)); // SAFE ✔`
     codeExample: `// Honeywords Implementation:
 // User 'debangshu' has 5 stored hashes:
 // [Hash_1, Hash_2, Hash_3 (REAL), Hash_4, Hash_5]
-// If attacker cracks Hash_1 and attempts login -> SOC triggers silent lockdown & forensics.`
+// If attacker cracks Hash_1 and attempts login → SOC triggers silent lockdown & forensics.`
   },
   {
     id: 17,
@@ -209,7 +209,7 @@ for user in company_users:
   {
     id: 18,
     question: "Explain the concept of Exponential Backoff / Progressive Delay in login rate limiting.",
-    shortAnswer: "Exponential backoff doubles the enforced wait time between successive failed login attempts from a specific IP or username (e.g., 1s -> 2s -> 4s -> 8s -> 16s -> 32s).",
+    shortAnswer: "Exponential backoff doubles the enforced wait time between successive failed login attempts from a specific IP or username (e.g., 1s → 2s → 4s → 8s → 16s → 32s).",
     explanation: "This allows legitimate human users who mistype a password to retry within seconds while slowing automated brute-force scripts down to a crawl without locking the user out.",
     hint: "Delay increases exponentially after each failure: t = base * 2^(failed_attempts).",
     level: "Basic",
@@ -241,7 +241,7 @@ for user in company_users:
     hint: "Answers to security questions are easily researched on social media; SMS is intercepted via SIM swaps.",
     level: "Basic",
     codeExample: `// Insecure KBA:
-// Question: "What city were you born in?" -> Attacker checks target's Facebook profile -> "Barrackpore" -> Bypassed in 5 seconds! ❌`
+// Question: "What city were you born in?" → Attacker checks target's Facebook profile → "Barrackpore" → Bypassed in 5 seconds! ❌`
   },
   {
     id: 21,
@@ -251,14 +251,14 @@ for user in company_users:
     hint: "Online is throttled by web servers; offline runs locally on multi-GPU hardware at billions of guesses per second.",
     level: "Basic",
     codeExample: `// Online vs Offline:
-// Online  : 5 guesses/sec (Server rate limit enforced) -> 100,000 guesses takes 5.5 hours.
-// Offline : 50,000,000,000 guesses/sec (Hashcat on 8x RTX 4090) -> 100,000,000,000 guesses in 2 seconds.`
+// Online  : 5 guesses/sec (Server rate limit enforced) → 100,000 guesses takes 5.5 hours.
+// Offline : 50,000,000,000 guesses/sec (Hashcat on 8x RTX 4090) → 100,000,000,000 guesses in 2 seconds.`
   },
   {
     id: 22,
     question: "How does a Hybrid Wordlist Attack operate in tools like Hashcat or John the Ripper?",
     shortAnswer: "A Hybrid attack takes dictionary words from lists like rockyou.txt and systematically applies transformation rules (e.g., leet-speak substitutions, appending years, prepending symbols, capitalizing first letters).",
-    explanation: "Because humans follow predictable habits (e.g., 'password' -> 'P@ssw0rd2026!'), transformation rules allow attackers to crack complex-looking passwords in fractions of a second.",
+    explanation: "Because humans follow predictable habits (e.g., 'password' → 'P@ssw0rd2026!'), transformation rules allow attackers to crack complex-looking passwords in fractions of a second.",
     hint: "Combines base dictionary words with automated mutation rules (e.g., appending '2026!').",
     level: "Moderate",
     codeExample: `// Hashcat Rule Syntax:
@@ -274,7 +274,7 @@ for user in company_users:
     hint: "Physical dongles connected between keyboard and PC; undetected by software antivirus.",
     level: "Moderate",
     codeExample: `// Hardware Keylogger Vector:
-// Keyboard Cable -> [MALICIOUS HARDWARE KEYLOGGER DONGLE] -> PC Motherboard USB Port
+// Keyboard Cable → [MALICIOUS HARDWARE KEYLOGGER DONGLE] → PC Motherboard USB Port
 // Intercepts all BIOS, BitLocker, and OS login keystrokes in raw hardware memory.`
   },
   {
@@ -297,7 +297,7 @@ const derivedKey = crypto.pbkdf2Sync('UserPass123!', salt, 600000, 32, 'sha256')
     hint: "Client encrypts data before sending to the server; the server has zero knowledge of the master key.",
     level: "Moderate",
     codeExample: `// Zero-Knowledge Vault Encryption:
-// Client Side: MasterPass + Salt -> Argon2id -> AES-256 Key -> Encrypts Vault -> Sends Ciphertext Blob to Cloud.
+// Client Side: MasterPass + Salt → Argon2id → AES-256 Key → Encrypts Vault → Sends Ciphertext Blob to Cloud.
 // Cloud Server: Stores only ciphertext { "vault_data": "7f8a9e...encrypted..." }`
   },
   {
@@ -333,7 +333,7 @@ const derivedKey = crypto.pbkdf2Sync('UserPass123!', salt, 600000, 32, 'sha256')
     level: "Expert",
     codeExample: `// Scrypt Parameters:
 // N = CPU/Memory cost (e.g., 2^15 = 32,768)
-// r = Block size (e.g., 8 -> 1024 bytes)
+// r = Block size (e.g., 8 → 1024 bytes)
 // p = Parallelization factor (e.g., 1)
 // RAM Required = 128 * N * r * p = 32 Megabytes per hash instance.`
   },

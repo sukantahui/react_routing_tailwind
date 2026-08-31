@@ -71,7 +71,7 @@ From: "ICICI Bank Security Alert" <support-alert948@free-mailer.xyz>
         "Users read the trusted URL in the body text and click without hovering over the link to verify the true destination URL in the status bar.",
       telemetryIndicator: "Click-through events where destination IP does not match domain in anchor text",
       resilientDefense: "Time-of-Click URL rewriting (SafeLinks) and user awareness training on URL hovering.",
-      codeSnippet: `<!-- Anchor Text Mismatch -->
+      codeSnippet: `<!-- Anchor Text Mismatch ──→
 <a href="https://attacker-c2.net/auth/login.php">
   https://www.kolkata-fintech.in/secure/login
 </a>`
@@ -141,7 +141,7 @@ a.click(); // File assembled locally in browser memory!`
         "Spam filters read `Pxyzassword` and permit the message; the rendered email in the user's browser displays 'Password' seamlessly.",
       telemetryIndicator: "HTML emails containing excessive inline styles with zero font sizes or negative margins",
       resilientDefense: "Normalized HTML rendering before passing email text to Natural Language Processing (NLP) models.",
-      codeSnippet: `<!-- Zero-Font CSS Obfuscation -->
+      codeSnippet: `<!-- Zero-Font CSS Obfuscation ──→
 <p>
   Please verify your P<span style="font-size:0px;color:transparent;">hidden_garbage_text</span>assword 
   to prevent immediate account suspension.

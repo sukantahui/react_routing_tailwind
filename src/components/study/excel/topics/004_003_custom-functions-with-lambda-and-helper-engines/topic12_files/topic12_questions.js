@@ -34,7 +34,7 @@ const questions = [
     explanation: "Exceeding 1,024 recursive frames triggers a #NUM! error to protect Excel from unrecoverable system stack overflow.",
     hint: "1,024 recursive call frames.",
     level: "moderate",
-    codeExample: "Max Depth = 1,024 Calls &rarr; #NUM! if exceeded"
+    codeExample: "Max Depth = 1,024 Calls → #NUM! if exceeded"
   },
   {
     question: "How do you define a recursive factorial function FX_FACT in Name Manager?",
@@ -130,7 +130,7 @@ const questions = [
     explanation: "Testing with small inputs (e.g. n = 5) prevents unexpected infinite loop errors.",
     hint: "Register in Name Manager and test with small inputs.",
     level: "moderate",
-    codeExample: "=FX_FACT(5) &rarr; Returns 120"
+    codeExample: "=FX_FACT(5) → Returns 120"
   },
   {
     question: "How do you compute the sum of digits of an integer recursively using FX_SUM_DIGITS?",
@@ -154,7 +154,7 @@ const questions = [
     explanation: "Defensive hierarchy LAMBDAs track visited nodes or limit depth to prevent circular crash loops.",
     hint: "Circular hierarchy loops trigger #NUM!.",
     level: "expert",
-    codeExample: "Circular Dependency &rarr; 1,024 Stack Limit Exceeded (#NUM!)"
+    codeExample: "Circular Dependency → 1,024 Stack Limit Exceeded (#NUM!)"
   },
   {
     question: "How do you implement a depth-limited hierarchy traversal to guard against circular references?",
@@ -182,7 +182,7 @@ const questions = [
   },
   {
     question: "How do you calculate binary search tree (BST) path discovery recursively in Excel?",
-    shortAnswer: "=LAMBDA(nodeID, target, IF(nodeID=target, nodeID, LET(nextID, IF(target<nodeID, XLOOKUP(nodeID, Tbl[ID], Tbl[Left]), XLOOKUP(nodeID, Tbl[ID], Tbl[Right])), IF(nextID=\"\", \"NOT FOUND\", nodeID & \" &rarr; \" & FX_BST(nextID, target)))))",
+    shortAnswer: "=LAMBDA(nodeID, target, IF(nodeID=target, nodeID, LET(nextID, IF(target<nodeID, XLOOKUP(nodeID, Tbl[ID], Tbl[Left]), XLOOKUP(nodeID, Tbl[ID], Tbl[Right])), IF(nextID=\"\", \"NOT FOUND\", nodeID & \" → \" & FX_BST(nextID, target)))))",
     explanation: "Branches left or right depending on target comparison and strings together the search path.",
     hint: "Branch left/right and recurse down the tree.",
     level: "expert",
@@ -222,11 +222,11 @@ const questions = [
   },
   {
     question: "How do you find all ancestors of an employee formatted as a comma-separated path string?",
-    shortAnswer: "=LAMBDA(empID, LET(mgrID, XLOOKUP(empID, EmpTbl[ID], EmpTbl[MgrID]), IF(OR(mgrID=\"\", mgrID=empID), empID, empID & \" &rarr; \" & FX_ANCESTORS(mgrID))))",
+    shortAnswer: "=LAMBDA(empID, LET(mgrID, XLOOKUP(empID, EmpTbl[ID], EmpTbl[MgrID]), IF(OR(mgrID=\"\", mgrID=empID), empID, empID & \" → \" & FX_ANCESTORS(mgrID))))",
     explanation: "Constructs the full reporting chain from the employee up to the board level.",
-    hint: "empID & \" &rarr; \" & FX_ANCESTORS(mgrID).",
+    hint: "empID & \" → \" & FX_ANCESTORS(mgrID).",
     level: "advanced",
-    codeExample: "FX_ANCESTORS = LAMBDA(id, id & \" -> \" & FX_ANCESTORS(mgr))"
+    codeExample: "FX_ANCESTORS = LAMBDA(id, id & \" → \" & FX_ANCESTORS(mgr))"
   },
   {
     question: "What happens if a user enters a negative number into a recursive factorial LAMBDA FX_FACT(n)?",

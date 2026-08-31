@@ -8,9 +8,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. CORE COLLECTION METHODS:
    - 'add(E)' / 'addAll(Collection)'.
    - 'remove(Object)' / 'removeAll(Collection)'.
-   - 'removeIf(Predicate)' &rarr; in-place lambda deletion.
+   - 'removeIf(Predicate)' → in-place lambda deletion.
    - 'contains(Object)' / 'containsAll(Collection)'.
-   - 'toArray(new T[0])' &rarr; typed array conversion.
+   - 'toArray(new T[0])' → typed array conversion.
    - 'size()', 'isEmpty()', 'clear()'.
 
 ================================================================================

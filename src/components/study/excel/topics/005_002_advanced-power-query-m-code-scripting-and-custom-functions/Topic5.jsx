@@ -76,7 +76,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Ingesting Data from Entire Folders: Dynamic Multi-File Consolidation with Custom Schema Handling
           </h1>
 
@@ -142,7 +142,7 @@ export default function Topic5() {
                 <tr className="border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider bg-slate-950/50">
                   <th className="py-3 px-4">Pipeline Step</th>
                   <th className="py-3 px-4">M Function Signature</th>
-                  <th className="py-3 px-4">Input &rarr; Output</th>
+                  <th className="py-3 px-4">Input → Output</th>
                   <th className="py-3 px-4">Critical Enterprise Purpose</th>
                 </tr>
               </thead>
@@ -150,25 +150,25 @@ export default function Topic5() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-teal-400 font-sans">Folder Scan</td>
                   <td className="py-3 px-4 text-teal-300">Folder.Files(path)</td>
-                  <td className="py-3 px-4 text-slate-300">Path &rarr; Table</td>
+                  <td className="py-3 px-4 text-slate-300">Path → Table</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Performs recursive flat directory scan of all binary files.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">Lock Filter</td>
                   <td className="py-3 px-4 text-emerald-300">Table.SelectRows(...)</td>
-                  <td className="py-3 px-4 text-slate-300">Table &rarr; Table</td>
+                  <td className="py-3 px-4 text-slate-300">Table → Table</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Excludes temp lock files (<code className="text-emerald-300 font-mono">~$...</code>) and non-data extensions.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-sky-400 font-sans">Binary Parser</td>
                   <td className="py-3 px-4 text-sky-300">Csv.Document / Excel.Workbook</td>
-                  <td className="py-3 px-4 text-slate-300">Binary &rarr; Table</td>
+                  <td className="py-3 px-4 text-slate-300">Binary → Table</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Converts raw file bytes into structured in-memory table objects.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-amber-400 font-sans">Schema Expansion</td>
                   <td className="py-3 px-4 text-amber-300">Table.ExpandTableColumn(...)</td>
-                  <td className="py-3 px-4 text-slate-300">Nested &rarr; Flat Grid</td>
+                  <td className="py-3 px-4 text-slate-300">Nested → Flat Grid</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Unpacks nested rows into a unified table with preserved lineage.</td>
                 </tr>
               </tbody>
@@ -378,7 +378,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Folder_Consolidation"
+            sheetName="EX2106"
             title="Multi-Branch Folder Consolidation Output (Source File Name, Branch Dimension, Invoice Date, Customer Name, Net Sales Amount INR, Consolidation Engine)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -415,7 +415,7 @@ export default function Topic5() {
                 Financial Analyst <strong>Swadeep Banerjee</strong> builds a folder ingestion pipeline consolidating 36 monthly branch sales CSVs from Barrackpore, Shyamnagar, Ichapur, and Naihati in 1.8 seconds.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Folder.Files &rarr; 36 Branch Files Consolidated into 1 Fact Table
+                Folder.Files → 36 Branch Files Consolidated into 1 Fact Table
               </div>
             </div>
 
@@ -432,7 +432,7 @@ export default function Topic5() {
                 Senior Accountant <strong>Tuhina Mukherjee</strong> implements <code className="text-emerald-300 font-mono">not Text.StartsWith([Name], "~$")</code>, ensuring scheduled refreshes succeed even when store managers have regional Excel files actively open.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                ~$ Lock Filter &rarr; Zero Open-File Refresh Aborts
+                ~$ Lock Filter → Zero Open-File Refresh Aborts
               </div>
             </div>
 
@@ -449,7 +449,7 @@ export default function Topic5() {
                 ERP Lead <strong>Abhronila Sengupta</strong> applies dynamic column header discovery (<code className="text-indigo-300 font-mono">List.Distinct</code>), aligning vendor billing spreadsheets that feature varying column headers across different factory plants.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Dynamic Schema Union &rarr; 100% Ingestion Across Schema Drifts
+                Dynamic Schema Union → 100% Ingestion Across Schema Drifts
               </div>
             </div>
 
@@ -466,7 +466,7 @@ export default function Topic5() {
                 Operations Lead <strong>Debangshu Ghosh</strong> configures a SharePoint folder pipeline where dropping the new <code className="text-fuchsia-300 font-mono">Sales_2026_05.xlsx</code> file into the folder updates the Power BI executive dashboard upon next scheduled refresh.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Drop File &rarr; Auto Ingested without Editing M Code
+                Drop File → Auto Ingested without Editing M Code
               </div>
             </div>
           </div>

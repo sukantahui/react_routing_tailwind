@@ -28,8 +28,8 @@ const Topic2 = () => {
       sqlSnippet: `-- 🔬 BREAKING DOWN THE 0900_AI_CI IDENTIFIER:
 -- 1. utf8mb4 : Full 4-Byte UTF-8 (100% Unicode + Emojis)
 -- 2. 0900    : Unicode Collation Algorithm (UCA) 9.0.0 Standards
--- 3. _ai     : Accent Insensitive ('café' = 'cafe' -> TRUE)
--- 4. _ci     : Case Insensitive ('Kolkata' = 'kolkata' -> TRUE)
+-- 3. _ai     : Accent Insensitive ('café' = 'cafe' → TRUE)
+-- 4. _ci     : Case Insensitive ('Kolkata' = 'kolkata' → TRUE)
 
 -- Verifying Collation Properties in Information Schema:
 SELECT 
@@ -159,7 +159,7 @@ SELECT * FROM student_directory ORDER BY student_name ASC;
               MySQL 8.0 Standard Collation
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Why utf8mb4_0900_ai_ci is the Recommended Default in MySQL 8.0+
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

@@ -13,7 +13,7 @@ const topic8_questions = [
     "explanation": "Prevents lock ping-pong within tight loops.",
     "hint": "Merges adjacent synchronization blocks on the same monitor.",
     "level": "Intermediate",
-    "codeExample": "3 separate locks -> Merged into 1 coarsened lock block."
+    "codeExample": "3 separate locks → Merged into 1 coarsened lock block."
   }
 ];
 

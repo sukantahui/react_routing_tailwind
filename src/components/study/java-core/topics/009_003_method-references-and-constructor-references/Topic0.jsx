@@ -21,7 +21,7 @@ export default function Topic0() {
             Method References
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           What is a <code className="text-emerald-400 font-mono">Method Reference</code>? Compact Syntax for Existing Methods
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic0() {
       </section>
 
       <Teacher
-        note="If all your lambda is doing is taking a parameter 's' and immediately passing 's' into 'System.out.println(s)', why waste time typing 's -> ... (s)'? Just write 'System.out::println' and let Java do the wiring! — Sukanta Hui"
+        note="If all your lambda is doing is taking a parameter 's' and immediately passing 's' into 'System.out.println(s)', why waste time typing 's → ... (s)'? Just write 'System.out::println' and let Java do the wiring! — Sukanta Hui"
       />
     </div>
   );

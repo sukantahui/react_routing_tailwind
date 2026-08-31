@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. MILLION-THREAD BENCHMARK:
-   - 100,000 Platform Threads: ~100 GB RAM &rarr; Crashes OS immediately.
-   - 100,000 Virtual Threads: ~200 MB RAM &rarr; Runs seamlessly on a laptop!
+   - 100,000 Platform Threads: ~100 GB RAM → Crashes OS immediately.
+   - 100,000 Virtual Threads: ~200 MB RAM → Runs seamlessly on a laptop!
    - High density: 1,000,000+ virtual threads on a standard server.
    - Virtual threads sleep without consuming OS thread resources.
 

@@ -1,9 +1,9 @@
 const questions = [
   {
     question: "What is the mandatory ordering of top-level sections in a Java source file (.java)?",
-    shortAnswer: "Package declaration (first) -> Import statements (second) -> Class/Type declaration (third).",
+    shortAnswer: "Package declaration (first) → Import statements (second) → Class/Type declaration (third).",
     explanation: "If present, the `package` statement must be the very first non-comment statement in the file, followed by `import` statements, followed by the class or interface declaration.",
-    hint: "Package -> Imports -> Class.",
+    hint: "Package → Imports → Class.",
     level: "basic",
     codeExample: "package com.example;\n\nimport java.util.List;\n\npublic class App { }"
   },
@@ -81,8 +81,8 @@ const questions = [
   },
   {
     question: "What is the execution order of static blocks, instance blocks, and constructors?",
-    shortAnswer: "1. Static Initializers (once on class load) -> 2. Instance Initializers (on new) -> 3. Constructor (on new).",
-    explanation: "When instantiating an object: Superclass static blocks -> Subclass static blocks -> Superclass instance blocks & constructor -> Subclass instance blocks & constructor.",
+    shortAnswer: "1. Static Initializers (once on class load) → 2. Instance Initializers (on new) → 3. Constructor (on new).",
+    explanation: "When instantiating an object: Superclass static blocks → Subclass static blocks → Superclass instance blocks & constructor → Subclass instance blocks & constructor.",
     hint: "Static first, then Instance blocks, then Constructor.",
     level: "advanced",
     codeExample: "// 1. static {} \n// 2. {} \n// 3. ClassName()"
@@ -107,7 +107,7 @@ const questions = [
     question: "What are the 4 Access Modifiers in Java and their visibility scopes?",
     shortAnswer: "1. private (class only), 2. default/package-private (same package), 3. protected (same package + subclasses), 4. public (everywhere).",
     explanation: "These modifiers enforce encapsulation boundaries across classes, packages, and inheritance trees.",
-    hint: "private -> default -> protected -> public.",
+    hint: "private → default → protected → public.",
     level: "basic",
     codeExample: "private int a; \nint b; // Default\nprotected int c;\npublic int d;"
   },
@@ -221,7 +221,7 @@ const questions = [
     explanation: "Because static methods execute without an object instance, attempting to reference instance fields (which require `this`) results in a compilation error.",
     hint: "Static methods cannot access non-static instance fields directly.",
     level: "basic",
-    codeExample: "public static void print() {\n    // System.out.println(this.name); -> COMPILE ERROR!\n}"
+    codeExample: "public static void print() {\n    // System.out.println(this.name); → COMPILE ERROR!\n}"
   },
   {
     question: "Why does Java enforce strict case-sensitivity across all identifiers?",
@@ -237,7 +237,7 @@ const questions = [
     explanation: "When code follows standard package hierarchies, PascalCase class naming, camelCase methods, and organized section layouts, any engineer in the team can navigate and maintain it immediately.",
     hint: "Standardized structure = Effortless maintainability.",
     level: "basic",
-    codeExample: "// Clean structure -> Enterprise maintainability."
+    codeExample: "// Clean structure → Enterprise maintainability."
   }
 ];
 

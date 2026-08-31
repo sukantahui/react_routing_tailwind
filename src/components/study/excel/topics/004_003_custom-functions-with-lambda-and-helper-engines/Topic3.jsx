@@ -76,7 +76,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Documenting LAMBDA Parameters & Syntax Hints for End-Users
           </h1>
 
@@ -128,7 +128,7 @@ export default function Topic3() {
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
               <span className="text-slate-500">// Real-World Production Example:</span> <br />
               <span className="text-emerald-400 font-bold">
-                "FX_GST_BREAKDOWN(amount, is_interstate) &rarr; Spills 3 columns: [CGST, SGST, IGST]. Set is_interstate=TRUE for IGST."
+                "FX_GST_BREAKDOWN(amount, is_interstate) → Spills 3 columns: [CGST, SGST, IGST]. Set is_interstate=TRUE for IGST."
               </span>
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function Topic3() {
                 Excel's Intellisense dropdown highlights the function and creates a floating description card containing the exact text from the Name Manager Comment box.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                Formula Autocomplete &rarr; In-Place Contextual Documentation
+                Formula Autocomplete → In-Place Contextual Documentation
               </div>
             </div>
 
@@ -206,7 +206,7 @@ export default function Topic3() {
                 pressing <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 text-xs font-mono">Ctrl+Shift+A</kbd> automatically inserts all defined argument names as placeholders!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Ctrl+Shift+A &rarr; Injects: basic_pay, da_pct, hra_pct
+                Ctrl+Shift+A → Injects: basic_pay, da_pct, hra_pct
               </div>
             </div>
           </div>
@@ -218,13 +218,13 @@ export default function Topic3() {
             <p className="text-sm text-slate-300 leading-relaxed">
               Adopt standard suffix conventions across your team to eliminate ambiguity:
               <br />
-              • <code className="text-sky-300 font-mono">_inr</code> / <code className="text-sky-300 font-mono">_amt</code> &rarr; Currency amounts (e.g. <code className="text-slate-300 font-mono">principal_inr</code>)
+              • <code className="text-sky-300 font-mono">_inr</code> / <code className="text-sky-300 font-mono">_amt</code> → Currency amounts (e.g. <code className="text-slate-300 font-mono">principal_inr</code>)
               <br />
-              • <code className="text-amber-300 font-mono">_pct</code> / <code className="text-amber-300 font-mono">_rate</code> &rarr; Percentage decimal values (e.g. <code className="text-slate-300 font-mono">gst_rate_pct</code> = 0.18)
+              • <code className="text-amber-300 font-mono">_pct</code> / <code className="text-amber-300 font-mono">_rate</code> → Percentage decimal values (e.g. <code className="text-slate-300 font-mono">gst_rate_pct</code> = 0.18)
               <br />
-              • <code className="text-purple-300 font-mono">is_</code> / <code className="text-purple-300 font-mono">has_</code> &rarr; Boolean flags (e.g. <code className="text-slate-300 font-mono">is_interstate</code> = TRUE/FALSE)
+              • <code className="text-purple-300 font-mono">is_</code> / <code className="text-purple-300 font-mono">has_</code> → Boolean flags (e.g. <code className="text-slate-300 font-mono">is_interstate</code> = TRUE/FALSE)
               <br />
-              • <code className="text-emerald-300 font-mono">_vector</code> / <code className="text-emerald-300 font-mono">_matrix</code> &rarr; Array inputs (e.g. <code className="text-slate-300 font-mono">movement_vector</code>)
+              • <code className="text-emerald-300 font-mono">_vector</code> / <code className="text-emerald-300 font-mono">_matrix</code> → Array inputs (e.g. <code className="text-slate-300 font-mono">movement_vector</code>)
             </p>
           </div>
         </section>
@@ -324,7 +324,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Documentation"
+            sheetName="EX1804"
             title="Corporate Invoicing Ledger (Taxable Value, Supply Type, GST Rate Grid)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -363,7 +363,7 @@ export default function Topic3() {
                 Junior accountants simply look at the formula tooltip to know that <code className="text-purple-300 font-mono">is_interstate=TRUE</code> computes IGST and <code className="text-purple-300 font-mono">FALSE</code> splits CGST/SGST.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Tooltip Guidance &rarr; Zero Tax Classification Errors
+                Tooltip Guidance → Zero Tax Classification Errors
               </div>
             </div>
 
@@ -381,7 +381,7 @@ export default function Topic3() {
                 By specifying <code className="text-emerald-300 font-mono">tenure_months</code>, loan officers never make the costly mistake of entering 5 years instead of 60 months!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Semantic Parameter Naming &rarr; Prevents Unit Mismatch Errors
+                Semantic Parameter Naming → Prevents Unit Mismatch Errors
               </div>
             </div>
 
@@ -400,7 +400,7 @@ export default function Topic3() {
                 Engineers know to keep adjacent columns empty, preventing <code className="text-rose-400 font-mono">#SPILL!</code> errors.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Comment: Spilled Columns [Base, Freight, Landed] &rarr; Zero #SPILL!
+                Comment: Spilled Columns [Base, Freight, Landed] → Zero #SPILL!
               </div>
             </div>
 
@@ -419,7 +419,7 @@ export default function Topic3() {
                 External auditors verify formula compliance instantly without questioning model logic.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Statutory Audit Compliance &rarr; 100% Traceable Legal Logic
+                Statutory Audit Compliance → 100% Traceable Legal Logic
               </div>
             </div>
           </div>
@@ -461,7 +461,7 @@ export default function Topic3() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Open Name Manager & Fill the Comment Box</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 text-xs font-mono">Ctrl+F3</kbd> &rarr; In the 'Comment' field, write: <br />
+                  Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 text-xs font-mono">Ctrl+F3</kbd> → In the 'Comment' field, write: <br />
                   <code className="text-amber-300 font-mono text-xs">"Computes GST breakdown. Params: taxable_value (₹), is_interstate (TRUE=IGST, FALSE=CGST+SGST). Returns 3-column spilled array."</code>
                 </p>
               </div>

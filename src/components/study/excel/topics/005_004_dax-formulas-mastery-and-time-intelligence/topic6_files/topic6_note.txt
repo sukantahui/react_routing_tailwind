@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Remember: Simple filters don't need the FILTER function (just write `Product[Category] = "Valves"`). Use the FILTER function ONLY when you need to filter by a Measure (like `[TotalSales] > 100000`) or compare two columns.
 
 COMMON TRAPS TO AVOID:
-- Wrapping Entire Fact Table in FILTER() Unnecessarily: Writing `CALCULATE([Sales], FILTER(Fact_Sales, Fact_Sales[Region]="East"))` forces DAX to scan 10 million rows in slow row context. -> Fix: Use simple Boolean filters or filter the small Dimension table: `CALCULATE([Sales], Dim_Customer[Region]="East")`.
-- Forgetting That FILTER Returns a Table, Not a Scalar Number: Attempting to assign `=FILTER(...)` directly to a single PivotTable cell measure. -> Fix: Wrap FILTER inside an aggregator like `CALCULATE()`, `COUNTROWS()`, or `SUMX()`.
-- Filter Masking Existing Context: Passing `FILTER(Dim_Product, ...)` without `ALL()` can inadvertently intersect with active slicers. -> Fix: Use `FILTER(ALL(Dim_Product[Category]), ...)` when full table scanning is required.
+- Wrapping Entire Fact Table in FILTER() Unnecessarily: Writing `CALCULATE([Sales], FILTER(Fact_Sales, Fact_Sales[Region]="East"))` forces DAX to scan 10 million rows in slow row context. → Fix: Use simple Boolean filters or filter the small Dimension table: `CALCULATE([Sales], Dim_Customer[Region]="East")`.
+- Forgetting That FILTER Returns a Table, Not a Scalar Number: Attempting to assign `=FILTER(...)` directly to a single PivotTable cell measure. → Fix: Wrap FILTER inside an aggregator like `CALCULATE()`, `COUNTROWS()`, or `SUMX()`.
+- Filter Masking Existing Context: Passing `FILTER(Dim_Product, ...)` without `ALL()` can inadvertently intersect with active slicers. → Fix: Use `FILTER(ALL(Dim_Product[Category]), ...)` when full table scanning is required.
 ================================================================================

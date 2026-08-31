@@ -55,7 +55,7 @@ const Topic0 = () => {
           className="fade-slide-up"
           style={{ animationDelay: "0.1s" }}
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-indigo-700 dark:text-indigo-300 mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-4">
             📚 Topic 0: Working with Arrays of Objects
           </h1>
           <p className="text-lg">

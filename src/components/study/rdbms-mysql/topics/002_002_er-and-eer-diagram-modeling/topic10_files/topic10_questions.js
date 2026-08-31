@@ -9,7 +9,7 @@ const questions = [
     level: "basic"
   },
   {
-    question: "How does Attribute Inheritance work in a multi-level specialization hierarchy (e.g. Person -> Employee -> Manager)?",
+    question: "How does Attribute Inheritance work in a multi-level specialization hierarchy (e.g. Person → Employee → Manager)?",
     shortAnswer: "The leaf subclass (Manager) inherits all attributes of its immediate parent (Employee) PLUS all attributes of the root ancestor (Person), in addition to its own local attributes.",
     explanation: "Inheritance flows transitively down the hierarchy tree.",
     hint: "Transitive inheritance from root to leaf.",
@@ -37,7 +37,7 @@ const questions = [
     level: "basic"
   },
   {
-    question: "How is a 3-tier hierarchy (`Person` -> `Employee` -> `Engineering_Manager`) mapped to relational tables in MySQL?",
+    question: "How is a 3-tier hierarchy (`Person` → `Employee` → `Engineering_Manager`) mapped to relational tables in MySQL?",
     shortAnswer: "Create three tables (`persons`, `employees`, `engineering_managers`), each using `person_id` as its Primary Key, linked via cascading Foreign Keys.",
     explanation: "Multi-tier Table-Per-Type mapping.",
     hint: "Three tables linked by shared person_id PK/FK.",

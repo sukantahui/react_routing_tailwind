@@ -47,11 +47,11 @@ const questions = [
   },
   {
     question: "How does `Arrays.setAll(arr, generator)` work in Java 8+?",
-    shortAnswer: "It populates each array slot dynamically using an `IntToDoubleFunction` / lambda expression that calculates values based on their index `i` (e.g. `Arrays.setAll(arr, i -> (i+1)*1000)`).",
+    shortAnswer: "It populates each array slot dynamically using an `IntToDoubleFunction` / lambda expression that calculates values based on their index `i` (e.g. `Arrays.setAll(arr, i → (i+1)*1000)`).",
     explanation: "Index-based functional array population.",
     hint: "Generates array elements dynamically from their index via a lambda.",
     level: "intermediate",
-    codeExample: "Arrays.setAll(arr, i -> (i + 1) * 1000);"
+    codeExample: "Arrays.setAll(arr, i → (i + 1) * 1000);"
   },
   {
     question: "In the Coder & AccoTax Barrackpore batch manager, what does `Arrays.mismatch(batchA, batchC)` return?",
@@ -91,7 +91,7 @@ const questions = [
     explanation: "Stream API integration.",
     hint: "Creates a Stream pipeline for functional filtering, mapping, and summing.",
     level: "basic",
-    codeExample: "double sum = Arrays.stream(fees).filter(f -> f > 12000).sum();"
+    codeExample: "double sum = Arrays.stream(fees).filter(f → f > 12000).sum();"
   },
   {
     question: "What is the difference between `Arrays.equals()` and `Arrays.deepEquals()`?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Comparator-based custom sorting.",
     hint: "Pass a Comparator lambda to Arrays.sort(arr, comparator).",
     level: "basic",
-    codeExample: "Arrays.sort(students, (a, b) -> Double.compare(a.fee, b.fee));"
+    codeExample: "Arrays.sort(students, (a, b) → Double.compare(a.fee, b.fee));"
   },
   {
     question: "What is `Arrays.equals(a, fromA, toA, b, fromB, toB)` in Java 9+?",

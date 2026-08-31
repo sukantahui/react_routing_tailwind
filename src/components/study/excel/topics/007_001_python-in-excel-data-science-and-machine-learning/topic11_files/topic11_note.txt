@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The best part about Python in Excel is that you can email your workbook to your boss as a standard `.xlsx` file. They don't need Python installed, they don't see scary macro warnings—they just see your beautiful charts and predictions!
 
 COMMON TRAPS TO AVOID:
-- Recipient Opening File in Legacy Desktop Excel 2016 / 2019: Legacy perpetual Office versions lack cloud Python runtime, displaying `#NAME?` error on `=PY()` cells. -> Fix: Advise recipients to open file in Excel for Web or upgrade to Microsoft 365.
-- Leaving 50 Unneeded Visualizations Rendering on Every Calc: Recalculating 50 complex seaborn plots simultaneously on every cell edit causes cloud latency. -> Fix: Convert static finalized plots to Excel Values or image snapshots.
-- Confusing Co-Authoring Lockups: Multiple users editing Python code cells simultaneously in live co-authoring sessions. -> Fix: Designate specific input assumption cells for collaborators while locking Python formula cells.
+- Recipient Opening File in Legacy Desktop Excel 2016 / 2019: Legacy perpetual Office versions lack cloud Python runtime, displaying `#NAME?` error on `=PY()` cells. → Fix: Advise recipients to open file in Excel for Web or upgrade to Microsoft 365.
+- Leaving 50 Unneeded Visualizations Rendering on Every Calc: Recalculating 50 complex seaborn plots simultaneously on every cell edit causes cloud latency. → Fix: Convert static finalized plots to Excel Values or image snapshots.
+- Confusing Co-Authoring Lockups: Multiple users editing Python code cells simultaneously in live co-authoring sessions. → Fix: Designate specific input assumption cells for collaborators while locking Python formula cells.
 ================================================================================

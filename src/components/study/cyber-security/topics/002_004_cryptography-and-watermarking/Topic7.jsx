@@ -51,7 +51,7 @@ const Topic7 = () => {
       designer: "Ron Rivest (1991)",
       digestLength: "128 bits (16 bytes / 32 hex characters)",
       architecture: "Merkle-Damgård Construction (64 rounds of non-linear functions)",
-      collisionBound: "2^64 operations (Theoretical) -> Broken in <1 second (Practical)",
+      collisionBound: "2^64 operations (Theoretical) → Broken in <1 second (Practical)",
       knownAttacks: "Xiaoyun Wang (2004) practical collision attacks; Flame nation-state malware forged Microsoft certificates (2012).",
       status: "COMPLETELY BROKEN & FORBIDDEN",
       badgeClass: "bg-rose-950 text-rose-300 border-rose-800"
@@ -62,7 +62,7 @@ const Topic7 = () => {
       designer: "NSA / NIST FIPS 180-1 (1995)",
       digestLength: "160 bits (20 bytes / 40 hex characters)",
       architecture: "Merkle-Damgård Construction (80 rounds with expansion schedule)",
-      collisionBound: "2^80 operations (Theoretical) -> SHAttered attack broke it at 2^63.1 (2017)",
+      collisionBound: "2^80 operations (Theoretical) → SHAttered attack broke it at 2^63.1 (2017)",
       knownAttacks: "SHAttered (Google/CWI 2017) created colliding PDF files with identical SHA-1 hashes.",
       status: "DEPRECATED & RETIRED GLOBALLY",
       badgeClass: "bg-amber-950 text-amber-300 border-amber-800"
@@ -109,7 +109,7 @@ const Topic7 = () => {
         "Mamata upgraded the batch file verification pipeline to SHA-256 and HMAC-SHA256, eliminating MD5 collision risks and meeting 100% RBI compliance.",
       metrics: {
         batchFilesProtected: "100% Daily Banking Batches",
-        hashAlgorithmMigrated: "MD5 Deprecated -> SHA-256",
+        hashAlgorithmMigrated: "MD5 Deprecated → SHA-256",
         collisionRisk: "0% Mathematical Exposure",
         compliance: "RBI Master Direction on Cyber Security"
       }
@@ -184,7 +184,7 @@ const Topic7 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_004 • Topic 7 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Cryptographic Hash Functions: MD5, SHA-1, SHA-256
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

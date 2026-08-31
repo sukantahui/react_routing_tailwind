@@ -271,7 +271,7 @@ const dbPassword = process.env.DB_PASSWORD;`
     hint: "Target columns in the SET clause must be explicitly permitted.",
     level: "basic",
     codeExample: `GRANT UPDATE (status) ON orders TO 'status_svc'@'%';
--- UPDATE orders SET total_amount = 500 WHERE id = 1; -> ERROR 1142!`
+-- UPDATE orders SET total_amount = 500 WHERE id = 1; → ERROR 1142!`
   },
   {
     question: "What is the relationship between Connection Pooling (e.g. HikariCP) and Service Account `MAX_USER_CONNECTIONS`?",

@@ -62,20 +62,20 @@ const Topic14 = () => {
   const optimizedMath = "π_{full_name, course_title}((σ_{city='Barrackpore'}(Students) ⨝_{id=sid} Enrollments) ⨝_{cid=id} σ_{fee>4000}(Courses))";
 
   const canonicalExplain = `-> Project: full_name, course_title  (cost=5250000.00 rows=2)
-   -> Filter: (Students.city = 'Barrackpore' AND Courses.fee > 4000 AND Students.id = Enrollments.sid AND Enrollments.cid = Courses.id)
-      -> Cartesian product (cost=5000000.00 rows=50,000,000)  <-- MEMORY DISASTER!
-         -> Table scan on Courses (rows=100)
-         -> Cartesian product (rows=500,000)
-            -> Table scan on Enrollments (rows=5,000)
-            -> Table scan on Students (rows=100)`;
+   → Filter: (Students.city = 'Barrackpore' AND Courses.fee > 4000 AND Students.id = Enrollments.sid AND Enrollments.cid = Courses.id)
+      → Cartesian product (cost=5000000.00 rows=50,000,000)  <-- MEMORY DISASTER!
+         → Table scan on Courses (rows=100)
+         → Cartesian product (rows=500,000)
+            → Table scan on Enrollments (rows=5,000)
+            → Table scan on Students (rows=100)`;
 
   const optimizedExplain = `-> Project: full_name, course_title  (cost=12.40 rows=2)
-   -> Nested loop inner join  (cost=10.20 rows=2)
-      -> Nested loop inner join  (cost=6.10 rows=4)
-         -> Filter: (Students.city = 'Barrackpore')  (cost=2.00 rows=5)  <-- PUSHED DOWN!
-            -> Index range scan on Students using idx_city (rows=5)
-         -> Index lookup on Enrollments using idx_sid (sid=Students.id) (rows=4)
-      -> Index lookup on Courses using PRIMARY (id=Enrollments.cid), filter: (Courses.fee > 4000) (rows=1)  <-- PUSHED DOWN!`;
+   → Nested loop inner join  (cost=10.20 rows=2)
+      → Nested loop inner join  (cost=6.10 rows=4)
+         → Filter: (Students.city = 'Barrackpore')  (cost=2.00 rows=5)  <-- PUSHED DOWN!
+            → Index range scan on Students using idx_city (rows=5)
+         → Index lookup on Enrollments using idx_sid (sid=Students.id) (rows=4)
+      → Index lookup on Courses using PRIMARY (id=Enrollments.cid), filter: (Courses.fee > 4000) (rows=1)  <-- PUSHED DOWN!`;
 
   return (
     <>
@@ -110,7 +110,7 @@ const Topic14 = () => {
             Module 002_003 · Relational Algebra &amp; Calculus · Topic 14
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Constructing &amp; Evaluating{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Relational Query Trees

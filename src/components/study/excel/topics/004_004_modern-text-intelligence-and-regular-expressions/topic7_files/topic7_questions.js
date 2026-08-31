@@ -18,7 +18,7 @@ const questions = [
     explanation: "Returns all characters from start of text up to the first `@` symbol.",
     hint: "=TEXTBEFORE(A2, \"@\").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"swadeep.b@corp.in\", \"@\") &rarr; \"swadeep.b\""
+    codeExample: "=TEXTBEFORE(\"swadeep.b@corp.in\", \"@\") → \"swadeep.b\""
   },
   {
     question: "What happens when you pass a negative `instance_num` (e.g. `instance_num = -1`) to TEXTBEFORE?",
@@ -26,7 +26,7 @@ const questions = [
     explanation: "Negative instance numbers count backwards from the end of the string.",
     hint: "Searches from right-to-left (before last occurrence).",
     level: "moderate",
-    codeExample: "=TEXTBEFORE(\"C:\\Reports\\2026\\Audit.xlsx\", \"\\\", -1) &rarr; \"C:\\Reports\\2026\""
+    codeExample: "=TEXTBEFORE(\"C:\\Reports\\2026\\Audit.xlsx\", \"\\\", -1) → \"C:\\Reports\\2026\""
   },
   {
     question: "How do you extract everything before the 2nd comma in a list of cities?",
@@ -34,7 +34,7 @@ const questions = [
     explanation: "Passing `2` as instance_num extracts text preceding the 2nd comma occurrence.",
     hint: "=TEXTBEFORE(A2, \",\", 2).",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"Barrackpore,Shyamnagar,Ichapur,Naihati\", \",\", 2) &rarr; \"Barrackpore,Shyamnagar\""
+    codeExample: "=TEXTBEFORE(\"Barrackpore,Shyamnagar,Ichapur,Naihati\", \",\", 2) → \"Barrackpore,Shyamnagar\""
   },
   {
     question: "How do you extract the protocol (e.g. `https`) from a URL using TEXTBEFORE?",
@@ -42,7 +42,7 @@ const questions = [
     explanation: "Extracts all characters before the `://` delimiter.",
     hint: "=TEXTBEFORE(A2, \"://\").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"https://codernaccotax.co.in\", \"://\") &rarr; \"https\""
+    codeExample: "=TEXTBEFORE(\"https://codernaccotax.co.in\", \"://\") → \"https\""
   },
   {
     question: "What does TEXTBEFORE return if the specified delimiter is not found and `if_not_found` is not provided?",
@@ -82,7 +82,7 @@ const questions = [
     explanation: "Extracts all text before the last backslash in the file path.",
     hint: "=TEXTBEFORE(A2, \"\\\", -1).",
     level: "moderate",
-    codeExample: "=TEXTBEFORE(\"C:\\Users\\Admin\\Report.xlsx\", \"\\\", -1) &rarr; \"C:\\Users\\Admin\""
+    codeExample: "=TEXTBEFORE(\"C:\\Users\\Admin\\Report.xlsx\", \"\\\", -1) → \"C:\\Users\\Admin\""
   },
   {
     question: "Can you pass multiple possible delimiters to TEXTBEFORE as an array constant?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "Extracts all characters before the first space.",
     hint: "=TEXTBEFORE(A2, \" \").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"Swadeep Banerjee\", \" \") &rarr; \"Swadeep\""
+    codeExample: "=TEXTBEFORE(\"Swadeep Banerjee\", \" \") → \"Swadeep\""
   },
   {
     question: "How do you extract the first two words from a 5-word sentence?",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "Extracts all text preceding the 2nd space character.",
     hint: "=TEXTBEFORE(A2, \" \", 2).",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"Welcome to Coder and AccoTax\", \" \", 2) &rarr; \"Welcome to\""
+    codeExample: "=TEXTBEFORE(\"Welcome to Coder and AccoTax\", \" \", 2) → \"Welcome to\""
   },
   {
     question: "Can TEXTBEFORE operate dynamically on an entire column range (e.g. `A5:A100`)?",
@@ -117,12 +117,12 @@ const questions = [
     codeExample: "=TEXTBEFORE(A5:A100, \"@\")"
   },
   {
-    question: "How do you extract text before a parenthetical remark (e.g. `Laptop (16GB RAM)` &rarr; `Laptop`)?",
+    question: "How do you extract text before a parenthetical remark (e.g. `Laptop (16GB RAM)` → `Laptop`)?",
     shortAnswer: "=TRIM(TEXTBEFORE(A2, \"(\"))",
     explanation: "Extracts text before `(` and trims trailing whitespace.",
     hint: "TRIM(TEXTBEFORE(A2, \"(\")).",
     level: "basic",
-    codeExample: "=TRIM(TEXTBEFORE(\"Laptop (16GB RAM)\", \"(\")) &rarr; \"Laptop\""
+    codeExample: "=TRIM(TEXTBEFORE(\"Laptop (16GB RAM)\", \"(\")) → \"Laptop\""
   },
   {
     question: "What is the speed advantage of TEXTBEFORE over legacy `=LEFT(A1, FIND(\"@\", A1)-1)`?",
@@ -138,7 +138,7 @@ const questions = [
     explanation: "Using negative instance `-1` extracts everything before the final hyphen.",
     hint: "=TEXTBEFORE(A2, \"-\", -1).",
     level: "moderate",
-    codeExample: "=TEXTBEFORE(\"BKP-2026-HQ-88421\", \"-\", -1) &rarr; \"BKP-2026-HQ\""
+    codeExample: "=TEXTBEFORE(\"BKP-2026-HQ-88421\", \"-\", -1) → \"BKP-2026-HQ\""
   },
   {
     question: "How do you extract the integer dollar amount before the decimal point in a currency string `45000.50`?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Extracts all characters before the decimal dot.",
     hint: "=TEXTBEFORE(A2, \".\").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"45000.50\", \".\") &rarr; \"45000\""
+    codeExample: "=TEXTBEFORE(\"45000.50\", \".\") → \"45000\""
   },
   {
     question: "How do you extract the text before a line break (Alt+Enter) in a multi-line cell?",
@@ -178,7 +178,7 @@ const questions = [
     explanation: "Extracts characters before the first slash `ELEC`.",
     hint: "=TEXTBEFORE(A2, \"/\").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"ELEC/LAP/DELL-88421\", \"/\") &rarr; \"ELEC\""
+    codeExample: "=TEXTBEFORE(\"ELEC/LAP/DELL-88421\", \"/\") → \"ELEC\""
   },
   {
     question: "How do you extract the category and subcategory together from `ELEC/LAP/DELL-88421`?",
@@ -186,7 +186,7 @@ const questions = [
     explanation: "Extracts all characters before the 2nd slash `ELEC/LAP`.",
     hint: "=TEXTBEFORE(A2, \"/\", 2).",
     level: "moderate",
-    codeExample: "=TEXTBEFORE(\"ELEC/LAP/DELL-88421\", \"/\", 2) &rarr; \"ELEC/LAP\""
+    codeExample: "=TEXTBEFORE(\"ELEC/LAP/DELL-88421\", \"/\", 2) → \"ELEC/LAP\""
   },
   {
     question: "How do you extract text before a date tag in a transaction narration `Payment Received on 12-04-2026 ref 99`?",
@@ -194,7 +194,7 @@ const questions = [
     explanation: "Extracts all text before the word ' on '.",
     hint: "=TEXTBEFORE(A2, \" on \").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"Payment Received on 12-04-2026\", \" on \") &rarr; \"Payment Received\""
+    codeExample: "=TEXTBEFORE(\"Payment Received on 12-04-2026\", \" on \") → \"Payment Received\""
   },
   {
     question: "How do you safely convert extracted numeric text strings from TEXTBEFORE into real numbers?",
@@ -226,7 +226,7 @@ const questions = [
     explanation: "Extracts text before the first comma `10/A`.",
     hint: "=TEXTBEFORE(A2, \",\").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"10/A, Shibtala Road, Barrackpore\", \",\") &rarr; \"10/A\""
+    codeExample: "=TEXTBEFORE(\"10/A, Shibtala Road, Barrackpore\", \",\") → \"10/A\""
   },
   {
     question: "How do you extract the company name before the legal suffix `(P) Ltd` or `Private Limited`?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "TEXTBEFORE provides surgical leading text extraction with zero formula clutter!",
     hint: "TEXTBEFORE + Negative Instance (-1) + match_end = 1 + Array Delimiters = Clean Extraction!",
     level: "expert",
-    codeExample: "Rule: Leading Text Extraction &rarr; Deploy TEXTBEFORE!"
+    codeExample: "Rule: Leading Text Extraction → Deploy TEXTBEFORE!"
   }
 ];
 

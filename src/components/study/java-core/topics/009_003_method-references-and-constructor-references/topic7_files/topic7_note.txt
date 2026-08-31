@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. ARRAY CONSTRUCTOR REFERENCES:
    - Syntax: 'Type[]::new'.
-   - Represents: 'size -> new Type[size]'.
+   - Represents: 'size → new Type[size]'.
    - SAM Target: 'IntFunction<T[]>'.
    - Primary Use Case: 'stream.toArray(String[]::new)' for type-safe arrays.
    - Solves Generic Type Erasure in Stream-to-Array conversions.

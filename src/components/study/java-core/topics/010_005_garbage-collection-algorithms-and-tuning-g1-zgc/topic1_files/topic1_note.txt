@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. WHY REFERENCE COUNTING WAS REJECTED BY JAVA:
    - In Reference Counting, each object holds an integer count of inbound pointers.
-   - Flaw: Circular References ('A &rarr; B &rarr; A') maintain a count &ge; 1 even when totally disconnected
+   - Flaw: Circular References ('A → B → A') maintain a count &ge; 1 even when totally disconnected
      from the running application ('Island of Isolation').
 
 2. JAVA'S SOLUTION: GC ROOTS REACHABILITY ANALYSIS (Tracing):

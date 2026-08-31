@@ -71,7 +71,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Workbook-level protection: Structure protection, encryption, and read-only recommendation"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic9() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Workbook Protection: Review &gt; Protect Workbook (Structure) | File &gt; Info &gt; Protect Workbook &gt; Encrypt with Password (AES-256)"}
+            {"Workbook Protection: Review > Protect Workbook (Structure) | File > Info > Protect Workbook > Encrypt with Password (AES-256)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -178,7 +178,7 @@ export default function Topic9() {
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. AES-256 Military-Grade File Encryption"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"File &gt; Info > Protect Workbook > Encrypt with Password applies true AES-256 cryptographic encryption, making the file impossible to open without the master password."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"File > Info > Protect Workbook > Encrypt with Password applies true AES-256 cryptographic encryption, making the file impossible to open without the master password."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
@@ -286,7 +286,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Workbook_level_pro"
+            sheetName="EX1310"
             title={"Workbook-level protection: Structure protection, encryption, and read-only recommendation - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic9() {
                 Step 2: Configure Validation Criteria &amp; Formulas
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Workbook Protection: Review &gt; Protect Workbook (Structure) | File &gt; Info &gt; Protect Workbook &gt; Encrypt with Password (AES-256)"}</code>.
+                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Workbook Protection: Review > Protect Workbook (Structure) | File > Info > Protect Workbook > Encrypt with Password (AES-256)"}</code>.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic9() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unhiding Sheets Blocked by Structure Lock"}</td>
                   <td className="py-3 px-4">{"Trying to unhide a hidden sheet while Workbook Protection is active."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Unprotect the workbook first (Review &gt; Protect Workbook) before managing tabs."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Unprotect the workbook first (Review > Protect Workbook) before managing tabs."}</td>
                 </tr>
                 
               </tbody>
@@ -486,7 +486,7 @@ export default function Topic9() {
                 <span>⚡</span> {"Protect Structure Shortcut"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Locks worksheet tabs against adding, deleting, and renaming."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Review &gt; Protect Workbook (Alt + R + P + W)"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Review > Protect Workbook (Alt + R + P + W)"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -494,7 +494,7 @@ export default function Topic9() {
                 <span>⚡</span> {"Military-Grade Encryption"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Applies true unbreakable AES-256 file encryption."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File &gt; Info > Encrypt with Password"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File > Info > Encrypt with Password"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -572,7 +572,7 @@ export default function Topic9() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Protect Sheet only protects cells; users can still right-click the sheet tab and DELETE it! Always go to Review -> Protect Workbook (Structure) to lock tabs from being deleted or renamed."}
+            note={"Protect Sheet only protects cells; users can still right-click the sheet tab and DELETE it! Always go to Review → Protect Workbook (Structure) to lock tabs from being deleted or renamed."}
           />
         </div>
       </div>

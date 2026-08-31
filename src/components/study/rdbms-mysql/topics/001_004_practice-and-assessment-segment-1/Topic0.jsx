@@ -181,7 +181,7 @@ LIMIT 10 OFFSET 20; -- Returns Page 3 (Rows 21 to 30)!`,
               Segment 1 Comprehensive Review
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Segment 1 Comprehensive MCQ Self-Assessment
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -372,7 +372,7 @@ LIMIT 10 OFFSET 20; -- Returns Page 3 (Rows 21 to 30)!`,
                   <text x="560" y="130" fill="#bae6fd" fontSize="11" fontWeight="bold">🔑 student_id (INT PK AUTO_INCREMENT)</text>
 
                   <rect x="540" y="155" width="340" height="40" rx="4" fill="#1e293b" stroke="#0ea5e9" strokeWidth="1.5" />
-                  <text x="560" y="180" fill="#38bdf8" fontSize="11" fontWeight="bold">🔗 academy_id (INT FK &rarr; academies.id)</text>
+                  <text x="560" y="180" fill="#38bdf8" fontSize="11" fontWeight="bold">🔗 academy_id (INT FK → academies.id)</text>
 
                   <rect x="540" y="205" width="340" height="40" rx="4" fill="#1e293b" stroke="#334155" />
                   <text x="560" y="230" fill="#e2e8f0" fontSize="11">email (VARCHAR UNIQUE - Alternate Key)</text>

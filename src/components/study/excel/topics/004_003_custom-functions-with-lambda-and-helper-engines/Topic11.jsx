@@ -76,7 +76,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Aggregation Algorithms: Custom Multi-Step Reductions with REDUCE
           </h1>
 
@@ -201,7 +201,7 @@ export default function Topic11() {
                 This makes REDUCE ideal for compounding interest, overall product metrics, and string pipelines!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                [x₁, x₂, ... xₙ] &rarr; REDUCE &rarr; Single Final State
+                [x₁, x₂, ... xₙ] → REDUCE → Single Final State
               </div>
             </div>
 
@@ -364,7 +364,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_REDUCE"
+            sheetName="EX1812"
             title="Portfolio Annual Return Schedule (2021 to 2024 Return Rates & Benchmarks)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -403,7 +403,7 @@ export default function Topic11() {
                 Folds 4 annual return rates (+12%, +8%, -5%, +15%) into the exact 4-year wealth multiplier: <strong>1.3215x</strong>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =REDUCE(1, E5:E8, ...) &rarr; 1.3215x (+32.15% Net Growth)
+                Formula: =REDUCE(1, E5:E8, ...) → 1.3215x (+32.15% Net Growth)
               </div>
             </div>
 
@@ -456,7 +456,7 @@ export default function Topic11() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Disptach Supervisor <strong>Susmita Roy</strong> joins SKU codes: 
-                <code className="text-amber-300 font-mono">=REDUCE("", SKUsRange, LAMBDA(acc, sku, IF(acc="", sku, acc & " &rarr; " & sku)))</code>, 
+                <code className="text-amber-300 font-mono">=REDUCE("", SKUsRange, LAMBDA(acc, sku, IF(acc="", sku, acc & " → " & sku)))</code>, 
                 generating formatted manifest route strings dynamically.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">

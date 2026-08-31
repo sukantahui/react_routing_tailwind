@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SUMMARIZATION COLLECTORS SUITE:
-   - Counting: 'Collectors.counting()' -> Collector<T, ?, Long>.
+   - Counting: 'Collectors.counting()' → Collector<T, ?, Long>.
    - Summing:
      * 'Collectors.summingInt(ToIntFunction)'
      * 'Collectors.summingLong(ToLongFunction)'
@@ -16,9 +16,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
      * 'Collectors.averagingLong(ToLongFunction)'
      * 'Collectors.averagingDouble(ToDoubleFunction)'
    - Complete Statistics:
-     * 'Collectors.summarizingInt(ToIntFunction)' -> IntSummaryStatistics
-     * 'Collectors.summarizingLong(ToLongFunction)' -> LongSummaryStatistics
-     * 'Collectors.summarizingDouble(ToDoubleFunction)' -> DoubleSummaryStatistics
+     * 'Collectors.summarizingInt(ToIntFunction)' → IntSummaryStatistics
+     * 'Collectors.summarizingLong(ToLongFunction)' → LongSummaryStatistics
+     * 'Collectors.summarizingDouble(ToDoubleFunction)' → DoubleSummaryStatistics
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

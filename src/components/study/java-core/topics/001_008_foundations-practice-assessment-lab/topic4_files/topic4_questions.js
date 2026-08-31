@@ -51,7 +51,7 @@ const questions = [
     explanation: "Missing roll number verification.",
     hint: "4.",
     level: "basic",
-    codeExample: "findMissingNumberXor(studentRollsMissing, 10) -> 4"
+    codeExample: "findMissingNumberXor(studentRollsMissing, 10) → 4"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the duplicate ID in `{3, 1, 3, 4, 2}`?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Duplicate ID verification.",
     hint: "3.",
     level: "basic",
-    codeExample: "findDuplicateFloyd(studentRollsDuplicate) -> 3"
+    codeExample: "findDuplicateFloyd(studentRollsDuplicate) → 3"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what were the duplicate and missing values in transaction IDs `{1, 2, 2, 4}`?",
@@ -67,7 +67,7 @@ const questions = [
     explanation: "Set mismatch result verification.",
     hint: "Duplicate: 2, Missing: 3.",
     level: "basic",
-    codeExample: "findSetMismatch(transactionIds) -> [2, 3]"
+    codeExample: "findSetMismatch(transactionIds) → [2, 3]"
   },
   {
     question: "Why must array signs be restored after Negative Index Marking?",
@@ -139,7 +139,7 @@ const questions = [
     explanation: "Pigeonhole Principle in cycle detection.",
     hint: "Pigeonhole Principle guarantees at least 1 duplicate among N+1 elements.",
     level: "intermediate",
-    codeExample: "// N+1 elements in [1..N] -> Cycle guaranteed by Pigeonhole Principle"
+    codeExample: "// N+1 elements in [1..N] → Cycle guaranteed by Pigeonhole Principle"
   },
   {
     question: "Can Floyd's Cycle Detection handle arrays containing zeros or negative numbers?",
@@ -219,7 +219,7 @@ const questions = [
     explanation: "Sum subtraction calculation.",
     hint: "51.",
     level: "basic",
-    codeExample: "actualSum = 51 -> 55 - 51 = 4"
+    codeExample: "actualSum = 51 → 55 - 51 = 4"
   },
   {
     question: "What is the ultimate takeaway of Module 001_008 Topic 4 for Java developers?",
@@ -243,7 +243,7 @@ const questions = [
     explanation: "Stream API frequency collection.",
     hint: "Collectors.groupingBy() with Collectors.counting().",
     level: "intermediate",
-    codeExample: "Map<Integer, Long> freq = list.stream().collect(Collectors.groupingBy(e -> e, Collectors.counting()));"
+    codeExample: "Map<Integer, Long> freq = list.stream().collect(Collectors.groupingBy(e → e, Collectors.counting()));"
   }
 ];
 

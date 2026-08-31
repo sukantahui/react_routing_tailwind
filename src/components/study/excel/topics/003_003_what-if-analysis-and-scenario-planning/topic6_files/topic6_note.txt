@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Scenario Summary reports give you instant executive credibility. When the CEO asks: 'What happens if sales drop 15% and costs rise 10%?', you hand them a clean Scenario Summary sheet with the exact answer.
 
 COMMON TRAPS TO AVOID:
-- Cryptic Cell Addresses in Summary Report: If changing cells and result cells are not named, the summary report displays ugly references like `$C$12` instead of 'Net Profit'. -> Fix: Name all changing and result cells prior to clicking 'Summary'.
-- Static Snapshot Nature of Scenario Summaries: Scenario Summary sheets are static snapshots; modifying model formulas does NOT update previously generated summary sheets. -> Fix: Regenerate the Scenario Summary report after altering underlying model formulas.
-- Including Irrelevant Intermediate Cells in Result Cells: Selecting 50 intermediate calculation cells clutters the executive presentation. -> Fix: Select only the top 3-5 core executive KPI result cells.
+- Cryptic Cell Addresses in Summary Report: If changing cells and result cells are not named, the summary report displays ugly references like `$C$12` instead of 'Net Profit'. → Fix: Name all changing and result cells prior to clicking 'Summary'.
+- Static Snapshot Nature of Scenario Summaries: Scenario Summary sheets are static snapshots; modifying model formulas does NOT update previously generated summary sheets. → Fix: Regenerate the Scenario Summary report after altering underlying model formulas.
+- Including Irrelevant Intermediate Cells in Result Cells: Selecting 50 intermediate calculation cells clutters the executive presentation. → Fix: Select only the top 3-5 core executive KPI result cells.
 ================================================================================

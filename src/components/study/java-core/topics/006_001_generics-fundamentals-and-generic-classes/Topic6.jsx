@@ -74,7 +74,7 @@ const Topic6 = () => {
               Java Generics Series • Topic 7
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
               Generic Constructors
             </h1>
             
@@ -321,8 +321,8 @@ public class Container {
     private Object value;
     
     // Generic constructor - declares its own type parameter
-    // <T> is NOT related to class type parameters (class has none)
-    public <T> Container(T value) {
+    // &lt;T&gt; is NOT related to class type parameters (class has none)
+    public &lt;T&gt; Container(T value) {
         this.value = value;
     }
     
@@ -353,7 +353,7 @@ public class Main {
 }
 
 // Generic constructor in generic class
-public class Box<T> {
+public class Box&lt;T&gt; {
     private T value;
     
     // Regular constructor using class type parameter
@@ -362,13 +362,13 @@ public class Box<T> {
     }
     
     // Generic constructor with different type parameter
-    // <U> is different from class <T>
-    public <U> Box(U otherValue, Class<T> targetType) {
+    // <U> is different from class &lt;T&gt;
+    public <U> Box(U otherValue, Class&lt;T&gt; targetType) {
         // Convert U to T (requires conversion logic)
         this.value = convert(otherValue, targetType);
     }
     
-    private T convert(U value, Class<T> type) {
+    private T convert(U value, Class&lt;T&gt; type) {
         // Conversion logic here
         return type.cast(value);
     }
@@ -403,9 +403,9 @@ public class Box<T> {
                       {[
                         {
                           pattern: "Basic Generic Constructor",
-                          syntax: "public <T> ClassName(T param)",
+                          syntax: "public &lt;T&gt; ClassName(T param)",
                           desc: "Single type parameter constructor",
-                          example: "public <T> Box(T item)"
+                          example: "public &lt;T&gt; Box(T item)"
                         },
                         {
                           pattern: "Multiple Type Parameters",
@@ -421,15 +421,15 @@ public class Box<T> {
                         },
                         {
                           pattern: "In Generic Class",
-                          syntax: "class C<T> { public <U> C(U param) }",
+                          syntax: "class C&lt;T&gt; { public <U> C(U param) }",
                           desc: "Different type params from class",
-                          example: "class Box<T> { public <U> Box(U item) }"
+                          example: "class Box&lt;T&gt; { public <U> Box(U item) }"
                         },
                         {
                           pattern: "Static Factory Constructor",
-                          syntax: "public static <T> T create(Class<T> type)",
+                          syntax: "public static &lt;T&gt; T create(Class&lt;T&gt; type)",
                           desc: "Static method acting as constructor",
-                          example: "public static <T> Container<T> of(T value)"
+                          example: "public static &lt;T&gt; Container&lt;T&gt; of(T value)"
                         }
                       ].map((item, index) => (
                         <div 
@@ -462,13 +462,13 @@ public class FlexibleContainer {
     private Object content;
     
     // Generic constructor allows any type
-    public <T> FlexibleContainer(T content) {
+    public &lt;T&gt; FlexibleContainer(T content) {
         this.content = content;
     }
     
     // Get with casting - type safety lost!
     @SuppressWarnings("unchecked")
-    public <T> T getContent(Class<T> type) {
+    public &lt;T&gt; T getContent(Class&lt;T&gt; type) {
         return type.cast(content);
     }
 }
@@ -483,7 +483,7 @@ public class MultiConstructorBox {
     }
     
     // Generic constructor
-    public <T> MultiConstructorBox(T value) {
+    public &lt;T&gt; MultiConstructorBox(T value) {
         this.value = value;
     }
     
@@ -494,7 +494,7 @@ public class MultiConstructorBox {
 }
 
 // Example 3: Generic class with generic constructor
-public class GenericBox<T> {
+public class GenericBox&lt;T&gt; {
     private T value;
     
     // Regular constructor using class T
@@ -517,14 +517,14 @@ public class GenericBox<T> {
 // Example 4: Static factory method (alternative to constructor)
 public class ContainerFactory {
     // Static generic method acting as constructor
-    public static <T> Container<T> createContainer(T value) {
-        return new Container<>(value);
+    public static &lt;T&gt; Container&lt;T&gt; createContainer(T value) {
+        return new Container&lt;&gt;(value);
     }
     
     // With bounded type parameter
-    public static <T extends Comparable<T>> SortedContainer<T> 
+    public static <T extends Comparable&lt;T&gt;> SortedContainer&lt;T&gt; 
         createSortedContainer(T value) {
-        return new SortedContainer<>(value);
+        return new SortedContainer&lt;&gt;(value);
     }
 }`}
                       language="java"
@@ -569,12 +569,12 @@ public class ContainerFactory {
                 <div className="mt-6">
                   <JavaCodeBlock
                     code={`// Scope demonstration with confusing naming
-public class ScopeExample<T> {  // Class-level T
+public class ScopeExample&lt;T&gt; {  // Class-level T
     private T classValue;
     
     // Constructor-level T hides class-level T
     // This is CONFUSING - avoid same names!
-    public <T> ScopeExample(T constructorValue) {
+    public &lt;T&gt; ScopeExample(T constructorValue) {
         // constructorValue is constructor-level T
         // this.classValue is class-level T
         // They can be DIFFERENT types!
@@ -582,7 +582,7 @@ public class ScopeExample<T> {  // Class-level T
     }
     
     // Better: Use different names
-    public <U> ScopeExample(U constructorValue, Class<T> targetType) {
+    public <U> ScopeExample(U constructorValue, Class&lt;T&gt; targetType) {
         // U is constructor type parameter
         // T is class type parameter
         // Need to convert U to T
@@ -595,7 +595,7 @@ public class ScopeExample<T> {  // Class-level T
         this.classValue = classValue;
     }
     
-    private T convert(U value, Class<T> type) {
+    private T convert(U value, Class&lt;T&gt; type) {
         // Conversion logic
         return type.cast(value);
     }
@@ -606,7 +606,7 @@ public class Main {
     public static void main(String[] args) {
         // Class T is String
         ScopeExample<String> example1 = 
-            new ScopeExample<>("Class type");
+            new ScopeExample&lt;&gt;("Class type");
         
         // Constructor T is Integer, class T is String
         ScopeExample<String> example2 = 
@@ -654,29 +654,29 @@ public class Main {
 public class EntityFactory {
     
     // Generic constructor allowing creation with any initial data
-    public <T> EntityContainer<T> createContainer(T initialData) {
-        return new EntityContainer<>(initialData);
+    public &lt;T&gt; EntityContainer&lt;T&gt; createContainer(T initialData) {
+        return new EntityContainer&lt;&gt;(initialData);
     }
     
     // Generic constructor with validation
-    public <T> ValidatedContainer<T> createValidatedContainer(
-            T data, Validator<T> validator) {
+    public &lt;T&gt; ValidatedContainer&lt;T&gt; createValidatedContainer(
+            T data, Validator&lt;T&gt; validator) {
         if (!validator.isValid(data)) {
             throw new IllegalArgumentException("Invalid data");
         }
-        return new ValidatedContainer<>(data);
+        return new ValidatedContainer&lt;&gt;(data);
     }
     
     // Generic constructor with conversion
-    public <S, T> ConvertedContainer<T> createConvertedContainer(
+    public <S, T> ConvertedContainer&lt;T&gt; createConvertedContainer(
             S sourceData, Function<S, T> converter) {
         T convertedData = converter.apply(sourceData);
-        return new ConvertedContainer<>(convertedData);
+        return new ConvertedContainer&lt;&gt;(convertedData);
     }
 }
 
 // Supporting classes
-public class EntityContainer<T> {
+public class EntityContainer&lt;T&gt; {
     private final T data;
     
     // Generic constructor
@@ -686,7 +686,7 @@ public class EntityContainer<T> {
     }
 }
 
-public class ValidatedContainer<T> {
+public class ValidatedContainer&lt;T&gt; {
     private final T data;
     
     public ValidatedContainer(T data) {
@@ -694,7 +694,7 @@ public class ValidatedContainer<T> {
     }
 }
 
-public class ConvertedContainer<T> {
+public class ConvertedContainer&lt;T&gt; {
     private final T data;
     
     public ConvertedContainer(T data) {
@@ -714,7 +714,7 @@ public class UniversitySystem {
         
         // Create course container with validation
         Course course = new Course("Java 101", 4);
-        Validator<Course> courseValidator = c -> c.getCredits() > 0;
+        Validator<Course> courseValidator = c → c.getCredits() > 0;
         ValidatedContainer<Course> courseContainer = 
             factory.createValidatedContainer(course, courseValidator);
         
@@ -723,7 +723,7 @@ public class UniversitySystem {
         ConvertedContainer<String> gradeContainer = 
             factory.createConvertedContainer(
                 rawGrade, 
-                grade -> grade >= 90 ? "A" : "B"
+                grade → grade >= 90 ? "A" : "B"
             );
         
         // Generic constructor allows type-safe creation
@@ -754,29 +754,29 @@ public class UniversitySystem {
 public class MedicalRecordBuilder {
     
     // Generic constructor for creating typed builders
-    public <T extends MedicalRecord> TypedBuilder<T> forType(Class<T> recordType) {
-        return new TypedBuilder<>(recordType);
+    public <T extends MedicalRecord> TypedBuilder&lt;T&gt; forType(Class&lt;T&gt; recordType) {
+        return new TypedBuilder&lt;&gt;(recordType);
     }
     
     // Static generic factory method (alternative to constructor)
-    public static <T extends MedicalRecord> TypedBuilder<T> createBuilder(
-            Class<T> recordType) {
-        return new TypedBuilder<>(recordType);
+    public static <T extends MedicalRecord> TypedBuilder&lt;T&gt; createBuilder(
+            Class&lt;T&gt; recordType) {
+        return new TypedBuilder&lt;&gt;(recordType);
     }
 }
 
 // Typed builder with generic constructor
 public class TypedBuilder<T extends MedicalRecord> {
-    private final Class<T> recordType;
-    private Map<String, Object> data = new HashMap<>();
+    private final Class&lt;T&gt; recordType;
+    private Map<String, Object> data = new HashMap&lt;&gt;();
     
     // Generic constructor
-    public <U> TypedBuilder(Class<T> recordType) {
+    public <U> TypedBuilder(Class&lt;T&gt; recordType) {
         this.recordType = recordType;
     }
     
     // Method with generic parameter
-    public <V> TypedBuilder<T> withData(String key, V value) {
+    public &lt;V&gt; TypedBuilder&lt;T&gt; withData(String key, V value) {
         data.put(key, value);
         return this;
     }
@@ -869,12 +869,12 @@ public class HospitalSystem {
                   {
                     pattern: "Factory Method",
                     desc: "Static methods acting as typed constructors",
-                    example: "public static <T> Box<T> of(T value)"
+                    example: "public static &lt;T&gt; Box&lt;T&gt; of(T value)"
                   },
                   {
                     pattern: "Builder Starter",
                     desc: "Generic constructor starts builder chain",
-                    example: "public <T> Builder<T> forType(Class<T> type)"
+                    example: "public &lt;T&gt; Builder&lt;T&gt; forType(Class&lt;T&gt; type)"
                   },
                   {
                     pattern: "Conversion Constructor",
@@ -884,7 +884,7 @@ public class HospitalSystem {
                   {
                     pattern: "Validation Constructor",
                     desc: "Constructor with type-safe validation",
-                    example: "public <T> Validated(T data, Validator<T> validator)"
+                    example: "public &lt;T&gt; Validated(T data, Validator&lt;T&gt; validator)"
                   },
                   {
                     pattern: "Adapter Pattern",
@@ -926,7 +926,7 @@ public class HospitalSystem {
 public class InferenceExample {
     
     // Generic constructor
-    public <T> InferenceExample(T value) {
+    public &lt;T&gt; InferenceExample(T value) {
         System.out.println("Created with: " + value.getClass());
     }
     
@@ -966,7 +966,7 @@ public class Main {
         InferenceExample ex6 = new <String>InferenceExample("Explicit");
         
         // Diamond operator with generic constructors
-        Box<String> box1 = new Box<>("Content");
+        Box<String> box1 = new Box&lt;&gt;("Content");
         // Diamond operator infers Box<String>
         
         // Without diamond operator (redundant)
@@ -974,13 +974,13 @@ public class Main {
         
         // Complex inference scenario
         List<String> names = Arrays.asList("A", "B");
-        Container<List<String>> container = new Container<>(names);
+        Container<List<String>> container = new Container&lt;&gt;(names);
         // Nested generic type inference
     }
 }
 
 // Generic class example
-public class Box<T> {
+public class Box&lt;T&gt; {
     private T content;
     
     public Box(T content) {
@@ -988,7 +988,7 @@ public class Box<T> {
     }
 }
 
-public class Container<T> {
+public class Container&lt;T&gt; {
     private T item;
     
     public Container(T item) {
@@ -1014,17 +1014,17 @@ public class Container<T> {
                       {
                         rule: "Assignment Context",
                         desc: "Variable type provides inference hints",
-                        example: "Box<String> box = new Box<>(...) → Box<String>"
+                        example: "Box<String> box = new Box&lt;&gt;(...) → Box<String>"
                       },
                       {
-                        rule: "Diamond Operator <>",
+                        rule: "Diamond Operator &lt;&gt;",
                         desc: "Infers type from context, avoids redundancy",
-                        example: "new Box<>() instead of new Box<String>()"
+                        example: "new Box&lt;&gt;() instead of new Box<String>()"
                       },
                       {
                         rule: "Chained Constructor Calls",
                         desc: "Inference flows through constructor chain",
-                        example: "new Container(new Box<>(\"text\"))"
+                        example: "new Container(new Box&lt;&gt;(\"text\"))"
                       },
                       {
                         rule: "Explicit Type Arguments",
@@ -1053,7 +1053,7 @@ public class Container<T> {
                   <div className="space-y-3">
                     {[
                       "Ambiguous null: new Box(null) - which type?",
-                      "Raw types break inference: new Box() instead of new Box<>()",
+                      "Raw types break inference: new Box() instead of new Box&lt;&gt;()",
                       "Nested generics can confuse inference",
                       "Chained method calls may lose type information",
                       "Varargs with generics can cause warnings"
@@ -1073,7 +1073,7 @@ public class Container<T> {
                   
                   <div className="space-y-3">
                     {[
-                      "Always use diamond operator <> with new",
+                      "Always use diamond operator &lt;&gt; with new",
                       "Avoid raw types in new expressions",
                       "Use explicit types only when inference fails",
                       "Test constructor inference with different argument types",
@@ -1154,7 +1154,7 @@ public class Container<T> {
                       code={`// Common pitfalls with generic constructors
 
 // 1. Type erasure prevents storing constructor type
-public class ProblematicContainer<T> {
+public class ProblematicContainer&lt;T&gt; {
     private T value;  // Class T
     
     // Constructor U cannot be stored directly
@@ -1167,7 +1167,7 @@ public class ProblematicContainer<T> {
 }
 
 // 2. Better approach: Convert or use different design
-public class BetterContainer<T> {
+public class BetterContainer&lt;T&gt; {
     private T value;
     
     // Constructor with conversion
@@ -1197,13 +1197,13 @@ public class DecisionExample {
 // 4. Static factory alternative
 public class ContainerFactory {
     // Often better than generic constructor
-    public static <T> Container<T> create(T value) {
-        return new Container<>(value);
+    public static &lt;T&gt; Container&lt;T&gt; create(T value) {
+        return new Container&lt;&gt;(value);
     }
     
-    public static <U, T> Container<T> createFrom(
+    public static <U, T> Container&lt;T&gt; createFrom(
             U source, Function<U, T> converter) {
-        return new Container<>(converter.apply(source));
+        return new Container&lt;&gt;(converter.apply(source));
     }
 }`}
                       language="java"
@@ -1452,7 +1452,7 @@ public class ContainerFactory {
                   "Use different type parameter names from class parameters",
                   "Prefer static factory methods over generic constructors",
                   "Use generic constructors only for construction-time flexibility",
-                  "Always use diamond operator <> with new expressions",
+                  "Always use diamond operator &lt;&gt; with new expressions",
                   "Document when constructor type differs from class type",
                   "Consider if a generic class would be better suited",
                   "Test type inference with various argument types",

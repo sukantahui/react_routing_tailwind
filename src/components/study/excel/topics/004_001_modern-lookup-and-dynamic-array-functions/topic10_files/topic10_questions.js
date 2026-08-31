@@ -240,7 +240,7 @@ const questions = [
     explanation: "In enterprise accounting and ERP implementations across Barrackpore and Kolkata, multi-column spilled XLOOKUP eliminates manual lookup errors and guarantees 100% data consistency.",
     hint: "Spilled XLOOKUP guarantees atomic multi-column data retrieval with zero formula clutter.",
     level: "expert",
-    codeExample: "// Portal Architecture: Search Key -> XLOOKUP -> Spilled 6-Column Profile Matrix"
+    codeExample: "// Portal Architecture: Search Key → XLOOKUP → Spilled 6-Column Profile Matrix"
   }
 ];
 

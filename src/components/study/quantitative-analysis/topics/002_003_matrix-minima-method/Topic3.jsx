@@ -135,7 +135,7 @@ const Topic3 = () => {
           <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-blue-500/10 text-blue-400 border border-blue-500/30 mb-4 shadow-sm">
             Quantitative Analysis • Transportation Models • Topic 3
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mb-4 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
             The Allocation Procedure
           </h1>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
@@ -359,7 +359,7 @@ const Topic3 = () => {
                 {/* Bottom Status Banner */}
                 <rect x="160" y="260" width="400" height="34" rx="17" fill="#1e293b" stroke="#334155" />
                 <text x="360" y="282" fill="#38bdf8" fontSize="11" textAnchor="middle" fontWeight="bold">
-                  Column D2 is Closed &rarr; Active Search Space Reduced
+                  Column D2 is Closed → Active Search Space Reduced
                 </text>
               </svg>
             </div>

@@ -6,16 +6,16 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Insert > Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) -> Format: High Point / Low Point Markers
+Insert > Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) → Format: High Point / Low Point Markers
 
 PRIMARY CONCEPT:
 Embedding intense, word-sized micro-charts directly inside single worksheet cells using Sparklines: Line trends, Column volumes, and Win/Loss binary performance
 
 TEACHER'S ADVICE:
-Sparklines pack massive context into zero space. Always remember to go to Sparkline -> Axis -> and select 'Same for All Sparklines' so your micro-charts are scaled accurately.
+Sparklines pack massive context into zero space. Always remember to go to Sparkline → Axis → and select 'Same for All Sparklines' so your micro-charts are scaled accurately.
 
 COMMON TRAPS TO AVOID:
-- Independent Axis Scaling Distorting Real Comparisons: By default, each Sparkline scales independently; a flat line varying between $99 and $100 looks identical to a volatile swing between $10 and $1000. -> Fix: Sparkline tab > Axis > Set 'Vertical Axis Minimum/Maximum Value' to 'Same for All Sparklines'.
-- Deleting Sparklines with Backspace/Delete Key: Pressing Delete on a cell containing a Sparkline clears text but leaves the Sparkline drawing intact. -> Fix: Sparkline tab > Click 'Clear' (or Clear Selected Sparklines).
-- Hidden Columns Disrupting Sparklines: Hiding historical data columns causes Sparklines to become blank lines. -> Fix: Sparkline tab > Edit Data > Hidden & Empty Cells > Check 'Show data in hidden rows and columns'.
+- Independent Axis Scaling Distorting Real Comparisons: By default, each Sparkline scales independently; a flat line varying between $99 and $100 looks identical to a volatile swing between $10 and $1000. → Fix: Sparkline tab > Axis > Set 'Vertical Axis Minimum/Maximum Value' to 'Same for All Sparklines'.
+- Deleting Sparklines with Backspace/Delete Key: Pressing Delete on a cell containing a Sparkline clears text but leaves the Sparkline drawing intact. → Fix: Sparkline tab > Click 'Clear' (or Clear Selected Sparklines).
+- Hidden Columns Disrupting Sparklines: Hiding historical data columns causes Sparklines to become blank lines. → Fix: Sparkline tab > Edit Data > Hidden & Empty Cells > Check 'Show data in hidden rows and columns'.
 ================================================================================

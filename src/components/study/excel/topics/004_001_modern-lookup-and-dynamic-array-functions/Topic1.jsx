@@ -77,7 +77,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             The Spill Operator (#) & Referencing Spilled Array Ranges Dynamically
           </h1>
 
@@ -310,7 +310,7 @@ export default function Topic1() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic1_Spill_Operator"
+              sheetName="EX1602"
               title="Spill Operator (#) Formula Laboratory"
               rowsPerPage={10}
               showSheetSelector={true}

@@ -10,7 +10,7 @@ Real-world project: Automated daily exchange rate and stock price fetcher via we
 It provides the core protocols required to connect Excel directly to enterprise relational databases, query closed workbooks via SQL, and consume cloud REST APIs.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh
+Operational Architecture: Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh
 
 3. CORE TECHNICAL MECHANICS
 1. Automated Live Market Data Ingestion:

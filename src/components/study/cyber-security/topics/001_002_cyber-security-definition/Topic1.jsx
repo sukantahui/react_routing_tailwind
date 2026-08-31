@@ -27,7 +27,7 @@ const Topic1 = () => {
       legalFinancialBenefit: 'Saved ₹1.2 Crore in extortion & business interruption • 100% Data Restored',
       estBudget: '₹3,50,000 (EDR Platform & Immutable Cloud Backup Vault)',
       desc: 'Demonstrates why robust cyber security is vital to prevent catastrophic financial ruin from ransomware.',
-      simResult: 'Ransomware dropped via malicious email -> EDR detects behavioral mass file encryption -> Kills process & rolls back snapshot in 12 seconds.',
+      simResult: 'Ransomware dropped via malicious email → EDR detects behavioral mass file encryption → Kills process & rolls back snapshot in 12 seconds.',
     },
     {
       id: 'bec-wire-fraud',
@@ -38,18 +38,18 @@ const Topic1 = () => {
       legalFinancialBenefit: 'Saved ₹45,00,000 direct financial theft • Zero Cash Flow Disruption',
       estBudget: '₹1,80,000 (Email Security Gateway & DMARC Enforcement Module)',
       desc: 'Shows how social engineering defenses prevent multi-lakh financial wire fraud without needing malware.',
-      simResult: 'Spoofed vendor email requests bank account change -> Email Gateway flags DMARC failure -> Flags "SUSPICIOUS BEC" -> Transfer aborted.',
+      simResult: 'Spoofed vendor email requests bank account change → Email Gateway flags DMARC failure → Flags "SUSPICIOUS BEC" → Transfer aborted.',
     },
     {
       id: 'dpdpa-data-compliance',
       name: 'DPDPA 2023 Statutory Compliance & Penalty Shield',
       threatContext: 'Diagnostic Clinic Patient Database in Ichapur (85,000 Records)',
-      withoutSecurity: 'Unencrypted SQL database leaked online -> Data Protection Board imposes ₹50 Crore statutory penalty.',
+      withoutSecurity: 'Unencrypted SQL database leaked online → Data Protection Board imposes ₹50 Crore statutory penalty.',
       withSecurity: 'AES-256 database encryption at rest + Role-based access control prevents data leakage & passes CERT-In audit.',
       legalFinancialBenefit: 'Shields organization from up to ₹250 Crore statutory fines • Preserves Trust',
       estBudget: '₹2,40,000 (Database Encryption Licenses & Access Governance)',
       desc: 'Illustrates the legal necessity of cybersecurity to comply with India’s Digital Personal Data Protection Act.',
-      simResult: 'Adversary attempts unauthenticated database dump -> AES-256 column encryption returns unreadable ciphertext -> Zero PII exposed.',
+      simResult: 'Adversary attempts unauthenticated database dump → AES-256 column encryption returns unreadable ciphertext → Zero PII exposed.',
     },
     {
       id: 'cni-power-grid',
@@ -60,7 +60,7 @@ const Topic1 = () => {
       legalFinancialBenefit: 'Guarantees 100% Grid Stability • Protects Public Safety & National Security',
       estBudget: '₹12,50,000 (Military-Grade Hardware Data Diodes & 24/7 MDR)',
       desc: 'Proves why cybersecurity is a national defense priority protecting life-critical public utilities.',
-      simResult: 'Hostile actor attempts remote SCADA exploit injection -> Physical data diode blocks return light pulses -> Power grid operates flawlessly.',
+      simResult: 'Hostile actor attempts remote SCADA exploit injection → Physical data diode blocks return light pulses → Power grid operates flawlessly.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic1 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Need of Cyber Security
           </h1>
 

@@ -94,7 +94,7 @@ resource "aws_db_instance" "prod_mysql" {
             Topic 9 of 10
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Cost Optimization Strategies for Cloud Databases (Reserved Instances, Storage Autoscaling)
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

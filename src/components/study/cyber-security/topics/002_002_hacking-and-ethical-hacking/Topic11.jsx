@@ -99,7 +99,7 @@ const Topic11 = () => {
       key: "bangladesh_bank_2016",
       title: "Bangladesh Bank SWIFT Heist (2016)",
       category: "Central Banking & FinTech (South Asia)",
-      ingressVector: "Phishing email to employee -> Lateral movement across unmanaged $10 network switches",
+      ingressVector: "Phishing email to employee → Lateral movement across unmanaged $10 network switches",
       adversaryTTP: "Injected evtdt.exe and hooked PDF printer library (fxservice.dll) to suppress physical paper transaction receipts for fraudulent MT103 wire transfers.",
       realImpact: "₹650 Crores ($81 Million) successfully stolen and laundered through Sri Lankan and Philippine casinos.",
       ethicalBlueprint:
@@ -234,7 +234,7 @@ const Topic11 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_002 • Topic 11 of 12 (Module Capstone)
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Ethical Hacking Case Studies &amp; Industry Applications
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

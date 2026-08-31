@@ -27,7 +27,7 @@ const Topic9 = () => {
       antiTerrorSafeguard: 'Physical Optical Chemical Telemetry + Automated Mechanical Dump Valve Interlocks',
       estBudget: '₹8,50,000 (Multi-Sensor Chemical Telemetry & Mechanical Interlock System)',
       desc: 'Adversaries manipulate water treatment chemical concentrations to poison city drinking water.',
-      simResult: 'Rogue PLC command sets chlorine to 11,000 PPM -> Hardwired optical sensor detects threshold breach -> Mechanical dump valve trips in 0.4s -> 0 Liters Contaminated.',
+      simResult: 'Rogue PLC command sets chlorine to 11,000 PPM → Hardwired optical sensor detects threshold breach → Mechanical dump valve trips in 0.4s → 0 Liters Contaminated.',
     },
     {
       id: 'atc-radar-spoofing',
@@ -38,7 +38,7 @@ const Topic9 = () => {
       antiTerrorSafeguard: 'Multi-Lateration Time-Difference-of-Arrival (TDoA) + Primary Skin Echo Cross-Verification',
       estBudget: '₹11,50,000 (ADS-B Cryptographic Validation Engine & Primary Radar Correlator)',
       desc: 'Injecting fake aircraft onto radar screens to induce catastrophic aviation crashes.',
-      simResult: 'Radio spoofer broadcasts fake flight path -> Primary radar correlation flags missing skin echo -> Drops spoofed ghost targets in 12ms -> Runway operations 100% safe.',
+      simResult: 'Radio spoofer broadcasts fake flight path → Primary radar correlation flags missing skin echo → Drops spoofed ghost targets in 12ms → Runway operations 100% safe.',
     },
     {
       id: 'ebs-siren-hijack',
@@ -49,7 +49,7 @@ const Topic9 = () => {
       antiTerrorSafeguard: 'Hardware-Bound FIPS 140-2 PKI Cryptographic Siren Activation Authentication',
       estBudget: '₹3,80,000 (Cryptographic Emergency Broadcast Gateway & Siren Authentication Hub)',
       desc: 'Broadcasting false disaster alerts to trigger fatal civilian stampedes and mass hysteria.',
-      simResult: 'Unauthenticated siren broadcast packet received -> Cryptographic verification fails RSA-4096 check -> Drops rogue siren command in 2ms -> Civil calm preserved.',
+      simResult: 'Unauthenticated siren broadcast packet received → Cryptographic verification fails RSA-4096 check → Drops rogue siren command in 2ms → Civil calm preserved.',
     },
     {
       id: 'darknet-crypto-funding',
@@ -60,7 +60,7 @@ const Topic9 = () => {
       antiTerrorSafeguard: 'AI Blockchain Cluster Analytics + IT Act Section 66F Legal Seizure Pipeline',
       estBudget: '₹4,20,000 (Darknet Intelligence Scraping & Crypto Clustering Platform)',
       desc: 'Extremist cells using tumbled cryptocurrency to fund attacks and recruit operatives anonymously.',
-      simResult: 'Terrorist mixer wallet flagged -> AI clustering maps output cash-out nodes -> National Investigation Agency (NIA) freezes wallet -> Operatives detained.',
+      simResult: 'Terrorist mixer wallet flagged → AI clustering maps output cash-out nodes → National Investigation Agency (NIA) freezes wallet → Operatives detained.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic9 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Cyber Terrorism
           </h1>
 

@@ -21,7 +21,7 @@ export default function Topic10() {
             Callable &amp; FutureTask
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Creation Method 4: <code className="text-emerald-400 font-mono">Callable&lt;V&gt;</code>, Return Values &amp; Checked Exceptions
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

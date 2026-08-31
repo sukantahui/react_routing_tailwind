@@ -164,7 +164,7 @@ const Topic11 = () => {
                   BCA BCAC703 • Cyber Security
                 </span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
                 Zero Trust Architecture (NIST SP 800-207): Never Trust, Always Verify
               </h1>
             </div>

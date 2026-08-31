@@ -63,11 +63,11 @@ Characteristic Equation:
   (The next state equals the data input during the active clock window).
 
 Excitation Table:
-  Q(t) -> Q(t+1) | D
-    0  ->   0    | 0
-    0  ->   1    | 1
-    1  ->   0    | 0
-    1  ->   1    | 1
+  Q(t) → Q(t+1) | D
+    0  →   0    | 0
+    0  →   1    | 1
+    1  →   0    | 0
+    1  →   1    | 1
   (In D Flip-Flops, the excitation input D is always identical to the desired next state Q(t+1)).
 
 5. TIMING PARAMETERS & INVARIANTS

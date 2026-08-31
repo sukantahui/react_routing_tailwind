@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on mastering Custom Number Formatting! You now possess the rare skill of making complex financial data both visually stunning and mathematically rigorous.
 
 COMMON TRAPS TO AVOID:
-- Mixing Up Semicolon Positions: Placing color tags or conditions in the wrong section causes syntax errors. -> Fix: Memorize: [Condition][Color]Format;[Condition][Color]Format;ZeroFormat;TextFormat.
-- Over-Complicated Format Strings: Creating overly complex format strings when conditional formatting or helper columns are cleaner. -> Fix: Use custom format for layout and light conditions; use Power Query or DAX for multi-table ETL.
-- Forgetting to Test Edge Cases: Testing only positive numbers and failing to test zero, negative, and text input behavior. -> Fix: Always test format strings with +100, -100, 0, and 'N/A' text.
+- Mixing Up Semicolon Positions: Placing color tags or conditions in the wrong section causes syntax errors. → Fix: Memorize: [Condition][Color]Format;[Condition][Color]Format;ZeroFormat;TextFormat.
+- Over-Complicated Format Strings: Creating overly complex format strings when conditional formatting or helper columns are cleaner. → Fix: Use custom format for layout and light conditions; use Power Query or DAX for multi-table ETL.
+- Forgetting to Test Edge Cases: Testing only positive numbers and failing to test zero, negative, and text input behavior. → Fix: Always test format strings with +100, -100, 0, and 'N/A' text.
 ================================================================================

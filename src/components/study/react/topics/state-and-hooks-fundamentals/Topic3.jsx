@@ -289,7 +289,7 @@ const Topic3 = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
                 State vs Hooks: Understanding the Relationship 🔗
               </h1>
               <p className={clsx(
@@ -323,7 +323,7 @@ const Topic3 = () => {
               ? "bg-gradient-to-r from-gray-800 to-gray-700 shadow-2xl" 
               : "bg-gradient-to-r from-white to-indigo-50 shadow-xl"
           )}>
-            <h2 className="text-4xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
               State vs Hooks: What's the Difference? 🤔
             </h2>
             <p className={clsx(
@@ -1087,7 +1087,7 @@ const Topic3 = () => {
                   )}>
                     <h4 className="font-bold mb-3 text-blue-400">Basic useState Counter</h4>
                     <div className="text-center mb-4">
-                      <div className="text-4xl font-bold text-blue-300 mb-2">{count}</div>
+                      <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-300 mb-2">{count}</div>
                       <div className="text-sm opacity-70">Resets on refresh</div>
                     </div>
                     <div className="flex gap-2">
@@ -1119,7 +1119,7 @@ const Topic3 = () => {
                   )}>
                     <h4 className="font-bold mb-3 text-teal-400">Custom Hook Counter</h4>
                     <div className="text-center mb-4">
-                      <div className="text-4xl font-bold text-teal-300 mb-2">{counterStorage.count}</div>
+                      <div className="text-xl sm:text-2xl md:text-3xl font-bold text-teal-300 mb-2">{counterStorage.count}</div>
                       <div className="text-sm opacity-70">Persists in localStorage</div>
                     </div>
                     <div className="flex gap-2">
@@ -1327,7 +1327,7 @@ const Topic3 = () => {
                     isDarkMode ? "bg-green-900/20" : "bg-green-100/50"
                   )}>
                     <div className="text-center">
-                      <div className="text-5xl font-bold text-green-300 mb-2">
+                      <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-300 mb-2">
                         {windowSize.width} × {windowSize.height}
                       </div>
                       <div className="text-sm opacity-70">Current Window Size</div>
@@ -1367,7 +1367,7 @@ const Topic3 = () => {
                   isDarkMode ? "bg-blue-900/20" : "bg-blue-100/50"
                 )}>
                   <div className="text-sm opacity-70">Current Count</div>
-                  <div className="text-4xl font-bold text-blue-300 mt-2">{count}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-300 mt-2">{count}</div>
                 </div>
                 
                 <div className={clsx(
@@ -1375,7 +1375,7 @@ const Topic3 = () => {
                   isDarkMode ? "bg-orange-900/20" : "bg-orange-100/50"
                 )}>
                   <div className="text-sm opacity-70">Previous Count</div>
-                  <div className="text-4xl font-bold text-orange-300 mt-2">{previousCount.current}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-orange-300 mt-2">{previousCount.current}</div>
                 </div>
                 
                 <div className={clsx(
@@ -1383,7 +1383,7 @@ const Topic3 = () => {
                   isDarkMode ? "bg-purple-900/20" : "bg-purple-100/50"
                 )}>
                   <div className="text-sm opacity-70">Render Count</div>
-                  <div className="text-4xl font-bold text-purple-300 mt-2">{renderCount.current}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-300 mt-2">{renderCount.current}</div>
                 </div>
               </div>
               

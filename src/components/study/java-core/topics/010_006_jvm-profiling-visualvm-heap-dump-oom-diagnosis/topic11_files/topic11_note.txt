@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Attaches with virtually zero performance overhead, making it safe for production monitoring.
 
 2. HEALTH CHECK DIAGNOSIS VIA JSTAT:
-   - Healthy App    : Eden (E) cycles 0% &rarr; 100% &rarr; 0%, Old (O) stays low, FGC is near zero.
+   - Healthy App    : Eden (E) cycles 0% → 100% → 0%, Old (O) stays low, FGC is near zero.
    - Memory Leak    : Old (O) climbs steadily to 99%–100% and stays stuck despite increasing FGC counts!
 
 ================================================================================

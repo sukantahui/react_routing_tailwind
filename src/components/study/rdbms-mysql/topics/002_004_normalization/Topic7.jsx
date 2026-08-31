@@ -154,7 +154,7 @@ const Topic7 = () => {
             Module 002_004 · Database Normalization · Topic 7
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Attribute Closure (X+) &amp;{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Finding Candidate Keys
@@ -449,10 +449,10 @@ const Topic7 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Relation: R(student_id, email, course_id, grade)
--- FDs: student_id -> email, email -> student_id, (student_id, course_id) -> grade
+-- FDs: student_id → email, email → student_id, (student_id, course_id) → grade
 -- Step 1: L={course_id}, R={grade}, LR={student_id, email}
--- Step 2: (student_id, course_id)+ = { student_id, course_id, email, grade } = R -> CK 1!
--- Step 3: (email, course_id)+ = { email, course_id, student_id, grade } = R -> CK 2!
+-- Step 2: (student_id, course_id)+ = { student_id, course_id, email, grade } = R → CK 1!
+-- Step 3: (email, course_id)+ = { email, course_id, student_id, grade } = R → CK 2!
 -- Result: Candidate Keys = { (student_id, course_id), (email, course_id) }`}
               </pre>
             </div>
@@ -470,7 +470,7 @@ const Topic7 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Relation: R(student_id, name, academic_year)
--- FD: student_id -> name
+-- FD: student_id → name
 -- Analysis: academic_year is in Class N (appears on neither side).
 -- Core Set = { student_id, academic_year }
 -- { student_id, academic_year }+ = { student_id, academic_year, name } = R

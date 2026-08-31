@@ -21,7 +21,7 @@ export default function Topic11() {
             Tokenization &amp; Formatting
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Splitting &amp; Joining: <code className="text-emerald-400 font-mono">split()</code> &amp; <code className="text-emerald-400 font-mono">String.join()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

@@ -278,7 +278,7 @@ const Topic20 = () => {
       {/* Header Section */}
       <header className="max-w-6xl mx-auto mb-10">
         <div className="animate-[slideUp_0.8s_ease-out]">
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent mb-3">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent mb-3">
             Topic 20: Handling Multiple Inputs with One State Object
           </h1>
           <p className="text-lg text-gray-300 leading-relaxed">

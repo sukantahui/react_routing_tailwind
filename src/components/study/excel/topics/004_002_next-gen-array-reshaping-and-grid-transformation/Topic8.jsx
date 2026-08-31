@@ -76,7 +76,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Reshaping 1D Data Streams into Structured 2D Tables with WRAPROWS
           </h1>
 
@@ -90,7 +90,7 @@ export default function Topic8() {
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-cyan-400 text-base">✓</span>
-              <span><strong>Stream Reconstruction:</strong> 1D Vector &rarr; 2D Rectangular Table</span>
+              <span><strong>Stream Reconstruction:</strong> 1D Vector → 2D Rectangular Table</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -210,7 +210,7 @@ export default function Topic8() {
                 <code className="text-blue-300 font-mono">WRAPCOLS</code> builds tables column-wise (filling Column 1 down rows before starting Column 2).
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                WRAPROWS &rarr; Left-to-Right | WRAPCOLS &rarr; Top-to-Bottom
+                WRAPROWS → Left-to-Right | WRAPCOLS → Top-to-Bottom
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function Topic8() {
               <span className="text-cyan-400">📐</span> Visual Stream Unrolling Architecture
             </h2>
             <span className="text-xs font-mono text-cyan-300 bg-cyan-950/60 px-3 py-1 rounded-lg border border-cyan-800">
-              Interactive 1D &rarr; 2D Stream Wrapping
+              Interactive 1D → 2D Stream Wrapping
             </span>
           </div>
 
@@ -373,7 +373,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_WRAPROWS"
+            sheetName="EX1709"
             title="Raw Banking Transaction Stream (20-Line Repeating Log)"
             rowsPerPage={12}
             showSheetSelector={true}
@@ -412,7 +412,7 @@ export default function Topic8() {
                 Swadeep converts the flat list into a 5-row x 4-column relational accounting ledger in 1 millisecond.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-cyan-300">
-                Formula: =WRAPROWS(A2:A21, 4, "NO_DATA") &rarr; 5-Record Structured Ledger
+                Formula: =WRAPROWS(A2:A21, 4, "NO_DATA") → 5-Record Structured Ledger
               </div>
             </div>
 
@@ -431,7 +431,7 @@ export default function Topic8() {
                 she shapes a 31-day numeric sequence into a 5-week x 7-day calendar matrix, automatically padding the incomplete 5th week with blanks.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =WRAPROWS(SEQUENCE(31), 7, "") &rarr; 5x7 Calendar Grid
+                Formula: =WRAPROWS(SEQUENCE(31), 7, "") → 5x7 Calendar Grid
               </div>
             </div>
 
@@ -449,7 +449,7 @@ export default function Topic8() {
                 She applies <code className="text-amber-300 font-mono">=WRAPROWS(RawCRMVector, 3, "N/A")</code> to build an instant client compliance register.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =WRAPROWS(CRM_Stream, 3, "N/A") &rarr; 3-Column Compliance Register
+                Formula: =WRAPROWS(CRM_Stream, 3, "N/A") → 3-Column Compliance Register
               </div>
             </div>
 
@@ -468,7 +468,7 @@ export default function Topic8() {
                 he reconstructs a 5-column transaction ledger for automated fulfillment.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =WRAPROWS(OrderStream, 5, "-") &rarr; 5-Column Order Table
+                Formula: =WRAPROWS(OrderStream, 5, "-") → 5-Column Order Table
               </div>
             </div>
           </div>
@@ -591,7 +591,7 @@ export default function Topic8() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by text or merged formatting.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow multi-column spill.</td>
                 </tr>
               </tbody>

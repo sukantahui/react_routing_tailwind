@@ -122,7 +122,7 @@ export default class Topic0 extends Component {
         {/* Header Section */}
         <section className={`max-w-6xl mx-auto transition-all duration-700 ${baseAnimation}`}>
           <div className="mb-8 md:mb-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white mb-4 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4 leading-tight">
               Linux Directory Structure: The Filesystem Hierarchy
             </h1>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">

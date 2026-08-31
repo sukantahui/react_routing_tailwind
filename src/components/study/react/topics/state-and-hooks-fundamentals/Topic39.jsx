@@ -191,7 +191,7 @@ const Topic39 = () => {
         <div 
           className="mb-8 animate-[fadeIn_0.8s_ease-out]"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             Handling <span className="text-blue-600 dark:text-blue-400">Loading</span> &{" "}
             <span className="text-red-600 dark:text-red-400">Error</span> States
           </h1>

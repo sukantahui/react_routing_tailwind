@@ -1,7 +1,7 @@
 ================================================================================
 CODER & ACCOTAX - MASTER TEACHER CLASSROOM LECTURE & STUDY GUIDE
 Module: 002_004_ARRAYS-WITH-OBJECTS-ADVANCED
-Topic 7: THE FULL PIPELINE: FILTER -> SORT -> MAP TRANSFORMATIONS IN PRODUCTION
+Topic 7: THE FULL PIPELINE: FILTER → SORT → MAP TRANSFORMATIONS IN PRODUCTION
 Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
@@ -43,7 +43,7 @@ const honorRoll = allStudents
 console.log('Top Honor Roll:', honorRoll);
 
 Teacher's Note on Example 1:
-Chaining filter -> toSorted -> slice -> map produces an end-to-end data pipeline.
+Chaining filter → toSorted → slice → map produces an end-to-end data pipeline.
 
 5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
 --------------------------------------------------------------------------------

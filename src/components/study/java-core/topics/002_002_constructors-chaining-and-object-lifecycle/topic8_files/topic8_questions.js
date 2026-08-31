@@ -141,7 +141,7 @@ const topic8_questions = [
     explanation: "Stateless lambdas or lambdas capturing static variables are legal constructor arguments.",
     hint: "Lambdas are legal if they do not capture 'this'.",
     level: "Expert",
-    codeExample: "public TaskRunner() { this(() -> System.out.println(\"Running\")); }"
+    codeExample: "public TaskRunner() { this(() → System.out.println(\"Running\")); }"
   },
   {
     question: "Can a constructor parameter be passed directly into 'this(...)'?",
@@ -181,7 +181,7 @@ const topic8_questions = [
     explanation: "The operand stack holds evaluated arguments right before the '<init>' dispatch.",
     hint: "Stack operations evaluate arguments prior to invokespecial.",
     level: "Expert",
-    codeExample: "// Bytecode: invokestatic Helper.format -> invokespecial Student.<init>"
+    codeExample: "// Bytecode: invokestatic Helper.format → invokespecial Student.<init>"
   },
   {
     question: "Can a subclass constructor call 'this()' to chain to another subclass constructor?",

@@ -117,7 +117,7 @@ const questions = [
   },
   {
     question: "How many bytes does `DECIMAL(10, 2)` consume on disk?",
-    shortAnswer: "**5 Bytes total**:\n- 8 integer digits &rarr; 4 bytes\n- 2 fraction digits &rarr; 1 byte\n- Total: 5 bytes.",
+    shortAnswer: "**5 Bytes total**:\n- 8 integer digits → 4 bytes\n- 2 fraction digits → 1 byte\n- Total: 5 bytes.",
     explanation: "Calculated based on MySQL's 9-digit 4-byte packed decimal algorithm.",
     hint: "5 bytes (4 bytes for 8 integer digits + 1 byte for 2 fraction digits).",
     level: "expert"

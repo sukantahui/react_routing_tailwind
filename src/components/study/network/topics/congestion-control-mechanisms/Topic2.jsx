@@ -11,7 +11,7 @@ const Topic2 = () => {
         
         {/* HEADER */}
         <header className="text-center space-y-4 animate-[fade-up_0.6s_ease-out] motion-safe:animate-[fade-up_0.6s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-400 to-orange-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-rose-400 to-orange-500 bg-clip-text text-transparent">
             Concept of Network Congestion
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">

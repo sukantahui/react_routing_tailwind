@@ -42,7 +42,7 @@ export default function Topic11() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Dry Running Nested Loops Using Iteration Trace Tables
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -119,9 +119,9 @@ export default function Topic11() {
             <rect x="30" y="40" width="260" height="180" rx="10" fill="url(#gradTrace1)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Outer Loop State</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
-            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">i = 1 &rarr; i &lt;= 3 (TRUE)</text>
-            <text x="55" y="122" fill="#bae6fd" fontSize="11" fontFamily="monospace">i = 2 &rarr; i &lt;= 3 (TRUE)</text>
-            <text x="55" y="142" fill="#d1fae5" fontSize="10">i = 4 &rarr; 4 &lt;= 3 (FALSE - Halt!)</text>
+            <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">i = 1 → i &lt;= 3 (TRUE)</text>
+            <text x="55" y="122" fill="#bae6fd" fontSize="11" fontFamily="monospace">i = 2 → i &lt;= 3 (TRUE)</text>
+            <text x="55" y="142" fill="#d1fae5" fontSize="10">i = 4 → 4 &lt;= 3 (FALSE - Halt!)</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Outer Boundary Gate
             </text>

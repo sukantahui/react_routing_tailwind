@@ -36,7 +36,7 @@ export default function Topic3() {
 
   let docstringSnippet = "";
   if (docstringFormat === "GOOGLE") {
-    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) -> float:
+    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) → float:
     """Calculates final net tuition after applying institutional merit rules.
 
     Args:
@@ -54,7 +54,7 @@ export default function Topic3() {
         16000.0
     """`;
   } else if (docstringFormat === "NUMPY") {
-    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) -> float:
+    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) → float:
     """
     Calculates final net tuition after applying institutional merit rules.
 
@@ -76,7 +76,7 @@ export default function Topic3() {
         If base_fee <= 0 or score is outside [0.0, 100.0].
     """`;
   } else {
-    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) -> float:
+    docstringSnippet = `def calculate_waiver(base_fee: float, score: float) → float:
     """Calculates final net tuition after applying institutional merit rules.
 
     :param base_fee: Initial tuition fee in INR (must be > 0).
@@ -156,7 +156,7 @@ export default function Topic3() {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Writing Complete Documentation: <span className="text-teal-400">README, Docstrings &amp; Types</span>
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">

@@ -7,7 +7,7 @@ const questions = [
     explanation: "Like an oil painter laying down the distant sky before painting trees in front, later draw commands overwrite earlier ones.",
     hint: "How does the sequence of drawing determine what appears on top?",
     level: "basic",
-    codeExample: "# 1. Draw sky -> 2. Draw mountains -> 3. Draw house"
+    codeExample: "# 1. Draw sky → 2. Draw mountains → 3. Draw house"
   },
   {
     question: "What happens if you draw a window before drawing the house wall?",
@@ -87,7 +87,7 @@ const questions = [
     explanation: "This mimics optical light bloom by layering wide soft borders under sharp intense highlights.",
     hint: "How does layering stroke widths create a bloom/glow illusion?",
     level: "advanced",
-    codeExample: "# Layer 1: pensize(10) dark pink -> Layer 2: pensize(2) bright white"
+    codeExample: "# Layer 1: pensize(10) dark pink → Layer 2: pensize(2) bright white"
   },
   {
     question: "What is the coordinate anchor of `turtle.circle(radius)`?",
@@ -127,7 +127,7 @@ const questions = [
     explanation: "Underlying offset dark shapes create realistic 2.5D elevation and depth.",
     hint: "Where do you position a shadow relative to the primary shape?",
     level: "moderate",
-    codeExample: "# Shadow at (x+5, y-5) in '#0f172a' -> Main card at (x, y) in '#38bdf8'"
+    codeExample: "# Shadow at (x+5, y-5) in '#0f172a' → Main card at (x, y) in '#38bdf8'"
   },
   {
     question: "How do you draw cloud puffs in a sky landscape?",
@@ -159,7 +159,7 @@ const questions = [
     explanation: "Controlling tonal contrast creates depth perception in 2D illustrations.",
     hint: "How does contrast affect perceived visual distance?",
     level: "advanced",
-    codeExample: "# Distant: #0f172a -> Foreground: #38bdf8"
+    codeExample: "# Distant: #0f172a → Foreground: #38bdf8"
   },
   {
     question: "How do you stamp repeating ground texture dots without slowing down execution?",
@@ -199,7 +199,7 @@ const questions = [
     explanation: "Clean architectural separation prevents tangled spaghetti code in complex graphical projects.",
     hint: "What 4 phases structure clean Python applications?",
     level: "moderate",
-    codeExample: "# Config -> Helpers -> Compose Scene -> main()"
+    codeExample: "# Config → Helpers → Compose Scene → main()"
   },
   {
     question: "What happens if you use `t.dot(size)` while inside a `begin_fill()` block?",

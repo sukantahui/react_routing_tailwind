@@ -6,8 +6,8 @@ const questions = [
     hint: "Think about shifting from reactive cleanup after a disaster to proactive continuous defense.",
     level: "basic",
     codeExample: `// Enterprise Defense Evolution:
-Legacy Model: Deploy software -> Hope firewalls hold -> React after ransomware breach.
-Modern Model: Threat Model in Design -> Automated SAST/DAST in CI/CD -> Continuous Purple Teaming.`
+Legacy Model: Deploy software → Hope firewalls hold → React after ransomware breach.
+Modern Model: Threat Model in Design → Automated SAST/DAST in CI/CD → Continuous Purple Teaming.`
   },
   {
     question: "How is 'Return on Security Investment' (ROSI) calculated in enterprise risk management?",
@@ -28,10 +28,10 @@ ROSI = (₹4,50,00,000 - ₹50,00,000) / ₹50,00,000 = 800% Net Return`
     hint: "Recall SAST (static code), DAST (dynamic running app), IAST (interactive inside runtime), and SCA (third-party dependencies).",
     level: "moderate",
     codeExample: `// DevSecOps Toolchain Integration:
-Code Commit (Git)   -> SAST (Semgrep) & SCA (Snyk Dependency Scan)
-Build & Package     -> Container Image Scan (Trivy)
-Staging Deployment  -> DAST (OWASP ZAP / Burp Enterprise)
-Production Monitor  -> EDR (CrowdStrike) & SIEM (Splunk)`
+Code Commit (Git)   → SAST (Semgrep) & SCA (Snyk Dependency Scan)
+Build & Package     → Container Image Scan (Trivy)
+Staging Deployment  → DAST (OWASP ZAP / Burp Enterprise)
+Production Monitor  → EDR (CrowdStrike) & SIEM (Splunk)`
   },
   {
     question: "What is 'Threat Modeling', and how does the STRIDE framework assist enterprise security architects during system design?",
@@ -40,12 +40,12 @@ Production Monitor  -> EDR (CrowdStrike) & SIEM (Splunk)`
     hint: "Remember the 6 STRIDE categories: Spoofing, Tampering, Repudiation, Information Disclosure, DoS, and Elevation of Privilege.",
     level: "basic",
     codeExample: `// STRIDE Threat Mapping:
-S - Spoofing Identity        --> Solution: FIDO2 MFA / mTLS Authentication
-T - Tampering with Data      --> Solution: HMAC-SHA256 Signatures & Integrity Checks
-R - Repudiation              --> Solution: Immutable Cryptographic Audit Logs
-I - Information Disclosure   --> Solution: AES-256 Encryption at Rest & in Transit
-D - Denial of Service        --> Solution: Rate-Limiting & Anycast DDoS Scrubbing
-E - Elevation of Privilege   --> Solution: Role-Based Access Control (RBAC) & Least Privilege`
+S - Spoofing Identity        → Solution: FIDO2 MFA / mTLS Authentication
+T - Tampering with Data      → Solution: HMAC-SHA256 Signatures & Integrity Checks
+R - Repudiation              → Solution: Immutable Cryptographic Audit Logs
+I - Information Disclosure   → Solution: AES-256 Encryption at Rest & in Transit
+D - Denial of Service        → Solution: Rate-Limiting & Anycast DDoS Scrubbing
+E - Elevation of Privilege   → Solution: Role-Based Access Control (RBAC) & Least Privilege`
   },
   {
     question: "What is 'Continuous Threat Exposure Management' (CTEM) pioneered by Gartner, and how does it replace annual penetration tests?",
@@ -54,11 +54,11 @@ E - Elevation of Privilege   --> Solution: Role-Based Access Control (RBAC) & Le
     hint: "Think about shifting from a once-a-year security exam to continuous daily automated testing.",
     level: "expert",
     codeExample: `// Gartner CTEM 5-Stage Cycle:
-1. SCOPE      -> Map business-critical core payment switches & cloud clusters.
-2. DISCOVER   -> Continuous Attack Surface Management (ASM) of exposed subnets.
-3. PRIORITIZE -> Rank CVEs using CVSS v3.1 + Exploit Prediction Scoring System (EPSS).
-4. VALIDATE   -> Automated Breach and Attack Simulation (BAS) validation.
-5. MOBILIZE   -> Automated Jira ticketing to engineering leads with code fixes.`
+1. SCOPE      → Map business-critical core payment switches & cloud clusters.
+2. DISCOVER   → Continuous Attack Surface Management (ASM) of exposed subnets.
+3. PRIORITIZE → Rank CVEs using CVSS v3.1 + Exploit Prediction Scoring System (EPSS).
+4. VALIDATE   → Automated Breach and Attack Simulation (BAS) validation.
+5. MOBILIZE   → Automated Jira ticketing to engineering leads with code fixes.`
   },
   {
     question: "How does the NIST Cybersecurity Framework 2.0 (CSF 2.0) structure enterprise security governance across its six core functions?",
@@ -67,12 +67,12 @@ E - Elevation of Privilege   --> Solution: Role-Based Access Control (RBAC) & Le
     hint: "Recall the 6 NIST CSF 2.0 pillars: Govern, Identify, Protect, Detect, Respond, Recover.",
     level: "moderate",
     codeExample: `// NIST CSF 2.0 Core Functions:
-[ GOVERN ]   -> C-level governance, DPDP Act compliance, risk strategy
-[ IDENTIFY ] -> Asset inventory, threat intelligence, vulnerability scanning
-[ PROTECT ]  -> Zero Trust, FIDO2 passkeys, data encryption, network segmentation
-[ DETECT ]   -> 24/7 SOC, SIEM correlation, EDR behavioral alerts
-[ RESPOND ]  -> SANS incident response, host isolation, 6-hour CERT-In notification
-[ RECOVER ]  -> Restoring clean WORM backups, post-mortem lessons learned`
+[ GOVERN ]   → C-level governance, DPDP Act compliance, risk strategy
+[ IDENTIFY ] → Asset inventory, threat intelligence, vulnerability scanning
+[ PROTECT ]  → Zero Trust, FIDO2 passkeys, data encryption, network segmentation
+[ DETECT ]   → 24/7 SOC, SIEM correlation, EDR behavioral alerts
+[ RESPOND ]  → SANS incident response, host isolation, 6-hour CERT-In notification
+[ RECOVER ]  → Restoring clean WORM backups, post-mortem lessons learned`
   },
   {
     question: "What is an 'Industrial Demilitarized Zone' (IDMZ) in the ISA/IEC 62443 / Purdue Enterprise Reference Architecture?",
@@ -81,11 +81,11 @@ E - Elevation of Privilege   --> Solution: Role-Based Access Control (RBAC) & Le
     hint: "Think about the heavily guarded checkpoint separating corporate office computers from dangerous factory machinery.",
     level: "expert",
     codeExample: `// Purdue Model with IDMZ (Level 3.5):
-[ Level 4/5: Corporate IT ] -> Email, ERP, Internet (High Attack Exposure)
+[ Level 4/5: Corporate IT ] → Email, ERP, Internet (High Attack Exposure)
           ↓ (Strict Firewall - No Direct Routing)
-[ Level 3.5: Industrial DMZ ] -> Jump Hosts, Historian Mirror, Patch Proxy
+[ Level 3.5: Industrial DMZ ] → Jump Hosts, Historian Mirror, Patch Proxy
           ↓ (Unidirectional Optical Data Diode)
-[ Level 0-3: Industrial SCADA / OT ] -> PLCs, RTUs, Turbines, 220kV Switchgears`
+[ Level 0-3: Industrial SCADA / OT ] → PLCs, RTUs, Turbines, 220kV Switchgears`
   },
   {
     question: "What is 'Software Bill of Materials' (SBOM), and why is it essential for enterprise supply chain security post-Log4j?",
@@ -231,7 +231,7 @@ spec:
     level: "basic",
     codeExample: `// Technical Translation to Executive Board Deck:
 Technical finding: "Unauthenticated IDOR in /api/v1/invoices"
-Executive translation: "Critical financial data exposure -> 45,000 corporate invoices readable -> Risks ₹250 Cr statutory DPDP fine -> Recommendation: Allocate ₹8 Lakhs for DevSecOps patch."`
+Executive translation: "Critical financial data exposure → 45,000 corporate invoices readable → Risks ₹250 Cr statutory DPDP fine → Recommendation: Allocate ₹8 Lakhs for DevSecOps patch."`
   },
   {
     question: "What is 'Deception Technology' (Honeypots / Deception Grids), and how does it provide early warning indicators to enterprise Blue Teams?",
@@ -242,7 +242,7 @@ Executive translation: "Critical financial data exposure -> 45,000 corporate inv
     codeExample: `// Deception Grid Trap Architecture:
 Production Network: 192.168.1.10 (Live Web Server) | 192.168.1.20 (Live Database)
 Decoy Trap:         192.168.1.99 (Fake High-Value Active Directory Domain Controller)
-Rule: If TCP_SYN to 192.168.1.99 -> Trigger IMMEDIATE HOST ISOLATION on the initiating IP!`
+Rule: If TCP_SYN to 192.168.1.99 → Trigger IMMEDIATE HOST ISOLATION on the initiating IP!`
   },
   {
     question: "What is 'Attack Surface Management' (ASM), and how does it help ethical hackers eliminate 'Shadow IT' in large enterprises?",
@@ -254,7 +254,7 @@ Rule: If TCP_SYN to 192.168.1.99 -> Trigger IMMEDIATE HOST ISOLATION on the init
 Target Org: West Bengal FinTech Enterprise
 1. Subdomain Enumeration: Discovers 340 active subdomains via crt.sh & Amass
 2. Shadow IT Discovery: Flags unpatched test server: "https://dev-staging-payment.corp.in"
-3. Port Scan: Identifies exposed unauthenticated Redis database on port 6379 -> Alerts SOC`
+3. Port Scan: Identifies exposed unauthenticated Redis database on port 6379 → Alerts SOC`
   },
   {
     question: "Synthesizing the role of Ethical Hackers in Enterprise Defense: what is the ultimate measure of success for a corporate cybersecurity program?",

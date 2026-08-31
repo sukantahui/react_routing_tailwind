@@ -16,9 +16,9 @@ Abhronila was writing a login handler. She wanted to display the user's name, bu
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
 1. How Short-Circuiting Acts as Control Flow:
-- Logical AND (&&) as a Guard: condition && executeAction() -> The right side runs ONLY if the left side is truthy.
-- Logical OR (||) as a Fallback: value || defaultFallback -> Returns fallback if the primary value is falsy.
-- Nullish (??) as a Precise Fallback: value ?? defaultFallback -> Returns fallback ONLY if value is null or undefined.
+- Logical AND (&&) as a Guard: condition && executeAction() → The right side runs ONLY if the left side is truthy.
+- Logical OR (||) as a Fallback: value || defaultFallback → Returns fallback if the primary value is falsy.
+- Nullish (??) as a Precise Fallback: value ?? defaultFallback → Returns fallback ONLY if value is null or undefined.
 
 2. When to Use Guard Clauses:
 - Ensuring prerequisites are met before running an operation.

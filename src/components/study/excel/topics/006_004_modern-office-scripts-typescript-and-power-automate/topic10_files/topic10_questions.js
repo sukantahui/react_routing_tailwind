@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Office Scripts Architecture & Cloud Runtime is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how TypeScript vs VBA, cross-platform execution, and Entra ID governance functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Monaco Editor & Action Recorder Translation regarding clean code generation, IntelliSense, and 0-based cell coordinates (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Monaco Editor & Action Recorder Translation is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how clean code generation, IntelliSense, and 0-based cell coordinates functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage TypeScript Language Fundamentals regarding 2D array range representation, static types, and functional array methods (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering TypeScript Language Fundamentals is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how 2D array range representation, static types, and functional array methods functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage ExcelScript Object Model Operations regarding batch getValues/setValues, table creation, and multi-column sorting (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering ExcelScript Object Model Operations is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how batch getValues/setValues, table creation, and multi-column sorting functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Power Automate Cloud Flow Integration regarding parameterized scripts, return payloads, and 24/7 headless execution (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Power Automate Cloud Flow Integration is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how parameterized scripts, return payloads, and 24/7 headless execution functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Event Triggers & Serverless Pipelines regarding Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Event Triggers & Serverless Pipelines is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Office Scripts Architecture & Cloud Runtime regarding TypeScript vs VBA, cross-platform execution, and Entra ID governance (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Office Scripts Architecture & Cloud Runtime is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how TypeScript vs VBA, cross-platform execution, and Entra ID governance functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Monaco Editor & Action Recorder Translation regarding clean code generation, IntelliSense, and 0-based cell coordinates (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Monaco Editor & Action Recorder Translation is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how clean code generation, IntelliSense, and 0-based cell coordinates functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage TypeScript Language Fundamentals regarding 2D array range representation, static types, and functional array methods (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering TypeScript Language Fundamentals is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how 2D array range representation, static types, and functional array methods functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage ExcelScript Object Model Operations regarding batch getValues/setValues, table creation, and multi-column sorting (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering ExcelScript Object Model Operations is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how batch getValues/setValues, table creation, and multi-column sorting functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "basic",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Power Automate Cloud Flow Integration regarding parameterized scripts, return payloads, and 24/7 headless execution (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Power Automate Cloud Flow Integration is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how parameterized scripts, return payloads, and 24/7 headless execution functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Event Triggers & Serverless Pipelines regarding Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Event Triggers & Serverless Pipelines is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Office Scripts Architecture & Cloud Runtime regarding TypeScript vs VBA, cross-platform execution, and Entra ID governance (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Office Scripts Architecture & Cloud Runtime is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how TypeScript vs VBA, cross-platform execution, and Entra ID governance functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Monaco Editor & Action Recorder Translation regarding clean code generation, IntelliSense, and 0-based cell coordinates (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Monaco Editor & Action Recorder Translation is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how clean code generation, IntelliSense, and 0-based cell coordinates functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage TypeScript Language Fundamentals regarding 2D array range representation, static types, and functional array methods (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering TypeScript Language Fundamentals is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how 2D array range representation, static types, and functional array methods functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage ExcelScript Object Model Operations regarding batch getValues/setValues, table creation, and multi-column sorting (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering ExcelScript Object Model Operations is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how batch getValues/setValues, table creation, and multi-column sorting functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Power Automate Cloud Flow Integration regarding parameterized scripts, return payloads, and 24/7 headless execution (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Power Automate Cloud Flow Integration is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how parameterized scripts, return payloads, and 24/7 headless execution functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Event Triggers & Serverless Pipelines regarding Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Event Triggers & Serverless Pipelines is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Office Scripts Architecture & Cloud Runtime regarding TypeScript vs VBA, cross-platform execution, and Entra ID governance (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Office Scripts Architecture & Cloud Runtime is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how TypeScript vs VBA, cross-platform execution, and Entra ID governance functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Monaco Editor & Action Recorder Translation regarding clean code generation, IntelliSense, and 0-based cell coordinates (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Monaco Editor & Action Recorder Translation is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how clean code generation, IntelliSense, and 0-based cell coordinates functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage TypeScript Language Fundamentals regarding 2D array range representation, static types, and functional array methods (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering TypeScript Language Fundamentals is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how 2D array range representation, static types, and functional array methods functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage ExcelScript Object Model Operations regarding batch getValues/setValues, table creation, and multi-column sorting (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering ExcelScript Object Model Operations is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how batch getValues/setValues, table creation, and multi-column sorting functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "moderate",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Power Automate Cloud Flow Integration regarding parameterized scripts, return payloads, and 24/7 headless execution (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Power Automate Cloud Flow Integration is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how parameterized scripts, return payloads, and 24/7 headless execution functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Event Triggers & Serverless Pipelines regarding Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Event Triggers & Serverless Pipelines is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Office Scripts Architecture & Cloud Runtime regarding TypeScript vs VBA, cross-platform execution, and Entra ID governance (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Office Scripts Architecture & Cloud Runtime is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how TypeScript vs VBA, cross-platform execution, and Entra ID governance functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Monaco Editor & Action Recorder Translation regarding clean code generation, IntelliSense, and 0-based cell coordinates (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Monaco Editor & Action Recorder Translation is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how clean code generation, IntelliSense, and 0-based cell coordinates functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage TypeScript Language Fundamentals regarding 2D array range representation, static types, and functional array methods (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering TypeScript Language Fundamentals is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how 2D array range representation, static types, and functional array methods functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage ExcelScript Object Model Operations regarding batch getValues/setValues, table creation, and multi-column sorting (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering ExcelScript Object Model Operations is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how batch getValues/setValues, table creation, and multi-column sorting functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Power Automate Cloud Flow Integration regarding parameterized scripts, return payloads, and 24/7 headless execution (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Power Automate Cloud Flow Integration is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how parameterized scripts, return payloads, and 24/7 headless execution functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   },
   {
     "question": "In the context of Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, how does Office Scripts manage Event Triggers & Serverless Pipelines regarding Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Processing incoming CSV attachments from emails and writing records to Excel tables in SharePoint/OneDrive, mastering Event Triggers & Serverless Pipelines is critical for next-generation enterprise automation. Office Scripts bridges Excel with the broader Microsoft Power Platform, ensuring that cloud-native web scripts, 24/7 automated Power Automate flows, and cross-channel Teams broadcasts execute seamlessly with production-grade reliability and zero desktop dependencies.",
     "hint": "Think about how Microsoft Forms, email CSV ingestion, Teams Adaptive Cards, and try/catch telemetry functions within the Office Scripts and Power Automate cloud architecture.",
     "level": "advanced",
-    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table"
+    "codeExample": "Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table"
   }
 ];
 

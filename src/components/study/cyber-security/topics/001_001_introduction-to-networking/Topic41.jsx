@@ -28,7 +28,7 @@ const Topic41 = () => {
       latencyThroughput: '3.6 Seconds Transfer Time (9.6 Gbps Wire Speed) • Zero Packet Drops',
       estHardwareBudget: '₹8,50,000 (Dual 10G SFP+ Managed Switches & 80TB RAID-6 SAN Storage Array)',
       desc: 'High-speed diagnostic imaging transfer allowing radiologists to load high-resolution MRI scans in seconds.',
-      simResult: 'MRI Scanner initiates DICOM C-STORE -> Transmits 1.8GB dataset over MTU 9000 -> PACS confirms C-STORE-RSP (Status: 0x0000 Success in 3.6s).',
+      simResult: 'MRI Scanner initiates DICOM C-STORE → Transmits 1.8GB dataset over MTU 9000 → PACS confirms C-STORE-RSP (Status: 0x0000 Success in 3.6s).',
     },
     {
       id: '5g-ambulance',
@@ -40,7 +40,7 @@ const Topic41 = () => {
       latencyThroughput: '12 ms RTT Cellular Latency • 50 Mbps Upstream • Zero Radio Dropout',
       estHardwareBudget: '₹1,85,000 (Ruggedized 5G Multi-SIM Gateway & Telemedicine Module)',
       desc: 'Streams live cardiac rhythm and patient telemetry to hospital trauma surgeons before ambulance arrival.',
-      simResult: 'Ambulance connects over 5G -> Transmits live 12-lead ECG stream -> ER Cardiologist reviews data -> Prepares Cath Lab before arrival.',
+      simResult: 'Ambulance connects over 5G → Transmits live 12-lead ECG stream → ER Cardiologist reviews data → Prepares Cath Lab before arrival.',
     },
     {
       id: 'iomt-microsegmentation',
@@ -52,7 +52,7 @@ const Topic41 = () => {
       latencyThroughput: '&lt; 2 ms Internal Deterministic Latency • 100% Guaranteed SLA',
       estHardwareBudget: '₹3,20,000 (Medical Next-Gen Firewall & Microsegmentation Appliance)',
       desc: 'Isolates critical patient ventilators and pumps into a private zone, blocking lateral malware propagation.',
-      simResult: 'Infusion Pump sends drug infusion rate to central console -> Firewall blocks unauthorized lateral scanning -> Patient stays safe.',
+      simResult: 'Infusion Pump sends drug infusion rate to central console → Firewall blocks unauthorized lateral scanning → Patient stays safe.',
     },
     {
       id: 'medjack-defense',
@@ -64,7 +64,7 @@ const Topic41 = () => {
       latencyThroughput: 'Exploit Dropped in 15 Milliseconds • Zero Infection Spread',
       estHardwareBudget: '₹4,50,000 (Enterprise Healthcare Threat Prevention & EDR Sensor)',
       desc: 'Stops attackers from exploiting unpatched legacy medical hardware to steal confidential patient databases.',
-      simResult: 'Infected PC initiates SMB exploit to blood analyzer -> NGFW DPI engine detects WannaCry signature -> Drops packet & isolates laptop.',
+      simResult: 'Infected PC initiates SMB exploit to blood analyzer → NGFW DPI engine detects WannaCry signature → Drops packet & isolates laptop.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic41 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Networking in Healthcare
           </h1>
 

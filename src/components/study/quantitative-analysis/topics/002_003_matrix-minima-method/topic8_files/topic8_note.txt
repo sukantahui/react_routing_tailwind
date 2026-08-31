@@ -75,19 +75,19 @@ demands are integers, all basic solutions are strictly integer-valued."
 ================================================================================
 
 Case 1: Heavy Fasteners Logistics (Debangshu)
-- Network: Barrackpore & Ichapur &rarr; Kolkata, Jadavpur, Salt Lake (120 tons)
+- Network: Barrackpore & Ichapur → Kolkata, Jadavpur, Salt Lake (120 tons)
 - NWCR Cost: ₹670 | Matrix Minima Cost: ₹470 | Saved: ₹200 (29.8% Savings)
 
 Case 2: Bengal FMCG Packaged Goods (Mamata)
-- Network: Kolkata, Barrackpore, Ichapur &rarr; Jadavpur, Howrah, Barasat (200 crates)
+- Network: Kolkata, Barrackpore, Ichapur → Jadavpur, Howrah, Barasat (200 crates)
 - NWCR Cost: ₹840 | Matrix Minima Cost: ₹490 | Saved: ₹350 (41.7% Savings)
 
 Case 3: Hospital Oxygen Cold-Chain (Susmita)
-- Network: Kolkata & Barrackpore &rarr; Jadavpur & Ichapur Hospitals (250 cylinders)
+- Network: Kolkata & Barrackpore → Jadavpur & Ichapur Hospitals (250 cylinders)
 - NWCR Cost: ₹2,030 | Matrix Minima Cost: ₹1,470 | Saved: ₹560 (27.6% Savings)
 
 Case 4: E-Commerce Regional Parcel Dispatch (Abhronila & Mahima)
-- Network: Barrackpore & Kolkata &rarr; Ichapur, Jadavpur, Salt Lake (100 parcels)
+- Network: Barrackpore & Kolkata → Ichapur, Jadavpur, Salt Lake (100 parcels)
 - NWCR Cost: ₹630 | Matrix Minima Cost: ₹400 | Saved: ₹230 (36.5% Savings)
 
 

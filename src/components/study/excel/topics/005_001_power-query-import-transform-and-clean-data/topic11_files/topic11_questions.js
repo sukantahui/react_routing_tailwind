@@ -50,7 +50,7 @@ const questions = [
     explanation: "Strict intersection join.",
     hint: "Keeps only matching rows from both tables.",
     level: "basic",
-    codeExample: "JoinKind.Inner &rarr; Intersection of both datasets"
+    codeExample: "JoinKind.Inner → Intersection of both datasets"
   },
   {
     question: "What is a 'Full Outer' join in Power Query?",
@@ -58,7 +58,7 @@ const questions = [
     explanation: "Complete union join with matching row alignment.",
     hint: "All rows from both tables.",
     level: "basic",
-    codeExample: "JoinKind.FullOuter &rarr; Complete union with alignment"
+    codeExample: "JoinKind.FullOuter → Complete union with alignment"
   },
   {
     question: "What M function is generated when you perform a Merge Queries step?",
@@ -90,7 +90,7 @@ const questions = [
     explanation: "Deduplicate lookup tables before merging.",
     hint: "Duplicate keys in lookup table cause row multiplication and revenue inflation.",
     level: "expert",
-    codeExample: "1 Order matched to 3 duplicate Product rows &rarr; Triples Order Revenue!"
+    codeExample: "1 Order matched to 3 duplicate Product rows → Triples Order Revenue!"
   },
   {
     question: "How do you prevent 1-to-many row explosion before merging?",
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Modular architecture best practice.",
     hint: "Merge mutates active query; Merge as New creates a distinct output query.",
     level: "basic",
-    codeExample: "Home Tab &rarr; Merge Queries vs Merge Queries as New"
+    codeExample: "Home Tab → Merge Queries vs Merge Queries as New"
   },
   {
     question: "Why should you uncheck 'Use original column name as prefix' when expanding merged columns?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Sub-second execution of multi-table joins on SQL servers.",
     hint: "Folds into server-side SQL LEFT JOIN / INNER JOIN.",
     level: "expert",
-    codeExample: "M Table.NestedJoin &rarr; SQL: SELECT * FROM T1 LEFT JOIN T2 ON T1.ID = T2.ID"
+    codeExample: "M Table.NestedJoin → SQL: SELECT * FROM T1 LEFT JOIN T2 ON T1.ID = T2.ID"
   },
   {
     question: "What is the 'Formula.Firewall' privacy error during a Merge operation?",
@@ -160,15 +160,15 @@ const questions = [
     question: "How do you resolve a 'Formula.Firewall' privacy error during a cross-source Merge?",
     shortAnswer: "Set Privacy Levels to 'Organizational' across all sources in Data Source Settings, or set Privacy to 'Ignore Privacy Levels' for local desktop files.",
     explanation: "Harmonizes privacy partition boundaries.",
-    hint: "Data Source Settings &rarr; Edit Permissions &rarr; Privacy Level: Organizational.",
+    hint: "Data Source Settings → Edit Permissions → Privacy Level: Organizational.",
     level: "advanced",
-    codeExample: "File &rarr; Options &rarr; Privacy &rarr; Ignore Privacy Levels"
+    codeExample: "File → Options → Privacy → Ignore Privacy Levels"
   },
   {
     question: "How do you calculate the total lifetime spend of a customer during a merge without expanding rows?",
-    shortAnswer: "Click the Aggregate icon on the nested table column &rarr; Check `Amount` &rarr; Select `Sum` (`Table.AggregateTableColumn`).",
+    shortAnswer: "Click the Aggregate icon on the nested table column → Check `Amount` → Select `Sum` (`Table.AggregateTableColumn`).",
     explanation: "Directly rolls up metric totals inside the parent dimension table.",
-    hint: "Aggregate icon &rarr; Sum of Amount (`Table.AggregateTableColumn`).",
+    hint: "Aggregate icon → Sum of Amount (`Table.AggregateTableColumn`).",
     level: "moderate",
     codeExample: "= Table.AggregateTableColumn(#\"Merged\", \"SalesData\", {{\"Amount\", List.Sum, \"Total_Lifetime_Spend\"}})"
   },
@@ -184,7 +184,7 @@ const questions = [
     question: "How do you perform a self-join in Power Query (e.g. employee reporting to manager ID)?",
     shortAnswer: "Merge a query with itself: select `Manager_ID` from the first table and `Employee_ID` from the second instance of the same table.",
     explanation: "Standard organizational hierarchy modeling.",
-    hint: "Merge query with itself: Manager_ID &rarr; Employee_ID.",
+    hint: "Merge query with itself: Manager_ID → Employee_ID.",
     level: "moderate",
     codeExample: "= Table.NestedJoin(Employees, {\"Manager_ID\"}, Employees, {\"Employee_ID\"}, \"ManagerInfo\")"
   },
@@ -194,13 +194,13 @@ const questions = [
     explanation: "Exact data type consistency is mandatory for join key equality.",
     hint: "Convert DateTime to Date before merging.",
     level: "basic",
-    codeExample: "Coerce DateTime &rarr; Date prior to Table.NestedJoin"
+    codeExample: "Coerce DateTime → Date prior to Table.NestedJoin"
   },
   {
     question: "How do you count the number of orders placed by each customer using a Merge?",
-    shortAnswer: "Merge Customers with Orders &rarr; Click Aggregate icon &rarr; Select 'Count of Order_ID'.",
+    shortAnswer: "Merge Customers with Orders → Click Aggregate icon → Select 'Count of Order_ID'.",
     explanation: "Instant parent-child record counting.",
-    hint: "Aggregate icon &rarr; Count of Rows / Order_ID.",
+    hint: "Aggregate icon → Count of Rows / Order_ID.",
     level: "basic",
     codeExample: "= Table.AggregateTableColumn(#\"Merged\", \"Orders\", {{\"Order_ID\", List.NonNullCount, \"Order_Count\"}})"
   },
@@ -208,7 +208,7 @@ const questions = [
     question: "How do you perform a cross join (Cartesian product) in Power Query where every row from Table 1 joins with every row from Table 2?",
     shortAnswer: "Add a custom column to Table 1 containing the entire Table 2: `= Table.AddColumn(T1, \"AllT2\", each T2)`, then expand the column.",
     explanation: "Generates M &times; N Cartesian combination rows.",
-    hint: "Add Custom Column: `each Table2` &rarr; Expand.",
+    hint: "Add Custom Column: `each Table2` → Expand.",
     level: "expert",
     codeExample: "= Table.ExpandTableColumn(Table.AddColumn(T1, \"Cross\", each T2), \"Cross\", {\"ColA\", \"ColB\"})"
   },
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Relational joins are the master bridge between transaction facts and corporate dimension intelligence!",
     hint: "Deduplicate Lookups + Match Data Types + Left Anti for Audits + Table.Buffer = Flawless Relational ETL!",
     level: "expert",
-    codeExample: "Rule: Deduplicate Dimension &rarr; Verify Types &rarr; Table.Buffer(Dim) &rarr; NestedJoin &rarr; Aggregate/Expand!"
+    codeExample: "Rule: Deduplicate Dimension → Verify Types → Table.Buffer(Dim) → NestedJoin → Aggregate/Expand!"
   }
 ];
 

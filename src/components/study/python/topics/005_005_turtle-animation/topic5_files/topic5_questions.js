@@ -207,7 +207,7 @@ const questions = [
     explanation: "Turtle coordinates center `(0, 0)` at the exact middle of the window.",
     hint: "What are the coordinate boundaries for an 800x600 Turtle screen?",
     level: "basic",
-    codeExample: "# Width 800 -> [-400, 400] | Height 600 -> [-300, 300]"
+    codeExample: "# Width 800 → [-400, 400] | Height 600 → [-300, 300]"
   },
   {
     question: "How do you simulate a soft sponge wall that slows the ball down gradually upon contact?",
@@ -223,7 +223,7 @@ const questions = [
     explanation: "This 3-step sequence prevents tunneling, sticky walls, and jitter artifacts.",
     hint: "What 3 steps execute perfect boundary collision in Turtle?",
     level: "basic",
-    codeExample: "# 1. Detect overlap -> 2. Snap position -> 3. Invert velocity"
+    codeExample: "# 1. Detect overlap → 2. Snap position → 3. Invert velocity"
   },
   {
     question: "How does boundary detection logic translate into professional robotics and autonomous drone control?",

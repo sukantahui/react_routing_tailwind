@@ -71,7 +71,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Grouping data in Pivot Tables: Grouping dates (Years, Quarters, Months), Numbers, and Text"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic5() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Pivot Grouping Engine: Serial Timestamps -> Multi-Level Date & Numeric Buckets"}
+              Visual Dataflow: {"Pivot Grouping Engine: Serial Timestamps → Multi-Level Date & Numeric Buckets"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Pivot Architecture
@@ -286,7 +286,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Grouping_data_in_P"
+            sheetName="EX1106"
             title={"Grouping data in Pivot Tables: Grouping dates (Years, Quarters, Months), Numbers, and Text - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -395,7 +395,7 @@ export default function Topic5() {
                 Step 3: Set Value Field Settings &amp; Number Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Right-click any value cell &gt; Value Field Settings &gt; Number Format, and apply standard currency/accounting masks.
+                Right-click any value cell > Value Field Settings > Number Format, and apply standard currency/accounting masks.
               </p>
             </div>
 
@@ -502,7 +502,7 @@ export default function Topic5() {
                 <span>⚡</span> {"Automatic Date Grouping Toggle"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Prevents Excel from automatically splitting dates into Years/Quarters on insertion."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File &gt; Options > Data &gt; Disable automatic grouping"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File > Options > Data > Disable automatic grouping"}</kbd>
             </div>
             
           </div>

@@ -8,9 +8,9 @@ const questions = [
     question: "Where are the Data Profiling tools located in the Power Query Editor?",
     shortAnswer: "On the Ribbon under the 'View' tab, in the 'Data Preview' group.",
     explanation: "Allows toggling Column Quality, Column Distribution, Column Profile, and Monospaced font.",
-    hint: "View Tab &rarr; Data Preview Group.",
+    hint: "View Tab → Data Preview Group.",
     level: "basic",
-    codeExample: "View Tab &rarr; Check [X] Column quality, [X] Column distribution, [X] Column profile"
+    codeExample: "View Tab → Check [X] Column quality, [X] Column distribution, [X] Column profile"
   },
   {
     question: "What are the 3 metrics displayed in the 'Column Quality' bar at the top of each column?",
@@ -26,7 +26,7 @@ const questions = [
     explanation: "If Distinct equals Unique and equals total rows, the column is a candidate primary key.",
     hint: "Distinct: Different values; Unique: Values appearing exactly once.",
     level: "moderate",
-    codeExample: "Values [A, A, B, C] &rarr; Distinct = 3 (A, B, C), Unique = 2 (B, C)"
+    codeExample: "Values [A, A, B, C] → Distinct = 3 (A, B, C), Unique = 2 (B, C)"
   },
   {
     question: "How do you know if a column qualifies as a unique Primary Key using Column Distribution?",
@@ -34,7 +34,7 @@ const questions = [
     explanation: "Essential for verifying one-to-many relationship keys in Power Pivot data models.",
     hint: "Distinct == Unique == Total Rows.",
     level: "moderate",
-    codeExample: "Customer_ID: 10,000 distinct, 10,000 unique &rarr; Valid Primary Key"
+    codeExample: "Customer_ID: 10,000 distinct, 10,000 unique → Valid Primary Key"
   },
   {
     question: "What does the 'Column Profile' pane display when a column is selected?",
@@ -56,17 +56,17 @@ const questions = [
     question: "How do you switch the profiling engine to evaluate the 'Entire dataset'?",
     shortAnswer: "Click the status text at the bottom left of the editor window and select 'Column profiling based on entire data set'.",
     explanation: "Ensures comprehensive anomaly detection across the entire dataset.",
-    hint: "Click Status Bar &rarr; Profiling based on entire data set.",
+    hint: "Click Status Bar → Profiling based on entire data set.",
     level: "moderate",
-    codeExample: "Status Bar &rarr; Select 'Column profiling based on entire data set'"
+    codeExample: "Status Bar → Select 'Column profiling based on entire data set'"
   },
   {
     question: "What action can you take directly from the Column Quality hover tooltip on 'Error'?",
     shortAnswer: "Hover over the red error bar and click 'Remove Errors' or 'Keep Errors'.",
     explanation: "'Keep Errors' isolates all failing rows in a separate staging query for forensic debugging.",
-    hint: "Hover over Red Error Bar &rarr; Click 'Keep Errors' or 'Remove Errors'.",
+    hint: "Hover over Red Error Bar → Click 'Keep Errors' or 'Remove Errors'.",
     level: "advanced",
-    codeExample: "Quality Tooltip &rarr; Click [...] &rarr; Keep Errors (Isolates Failures)"
+    codeExample: "Quality Tooltip → Click [...] → Keep Errors (Isolates Failures)"
   },
   {
     question: "What is the purpose of the 'Keep Errors' transformation?",
@@ -88,9 +88,9 @@ const questions = [
     question: "What is the benefit of enabling 'Monospaced font' in the View tab?",
     shortAnswer: "It displays text in a fixed-width font (like Consolas), making trailing spaces, padding anomalies, and fixed-width alignment mismatches instantly visible.",
     explanation: "Essential for inspecting fixed-width ERP and banking logs.",
-    hint: "View Tab &rarr; Check [X] Monospaced (Fixed-Width Alignment).",
+    hint: "View Tab → Check [X] Monospaced (Fixed-Width Alignment).",
     level: "basic",
-    codeExample: "View Tab &rarr; Data Preview &rarr; Check [X] Monospaced"
+    codeExample: "View Tab → Data Preview → Check [X] Monospaced"
   },
   {
     question: "How does the Value Distribution chart in Column Profile help detect skewness or outliers?",
@@ -102,9 +102,9 @@ const questions = [
   },
   {
     question: "How do you replace error values with a default fallback (e.g. 0 or 'N/A') in Power Query?",
-    shortAnswer: "Right-click the column header &rarr; Replace Errors &rarr; Enter replacement value.",
+    shortAnswer: "Right-click the column header → Replace Errors → Enter replacement value.",
     explanation: "Prevents entire report queries from crashing due to single corrupted cells.",
-    hint: "Right-Click Column &rarr; Replace Errors.",
+    hint: "Right-Click Column → Replace Errors.",
     level: "basic",
     codeExample: "= Table.ReplaceErrorValues(#\"Changed Type\", {{\"Amount\", 0}})"
   },
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Helps catch hidden leading or trailing whitespace.",
     hint: "Makes invisible whitespace and line breaks visible.",
     level: "basic",
-    codeExample: "View Tab &rarr; Show Whitespace Characters"
+    codeExample: "View Tab → Show Whitespace Characters"
   },
   {
     question: "How do you isolate the top 10 most frequent values in a column using Column Profile?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Signals that a `Text.Trim` transformation is required.",
     hint: "Duplicate distinct entries appear in the distribution list.",
     level: "moderate",
-    codeExample: "Distribution: 'Kolkata ' (40 rows) + 'Kolkata' (960 rows) &rarr; Apply Trim!"
+    codeExample: "Distribution: 'Kolkata ' (40 rows) + 'Kolkata' (960 rows) → Apply Trim!"
   },
   {
     question: "What does a grey Column Quality bar indicate?",
@@ -166,27 +166,27 @@ const questions = [
   },
   {
     question: "How do you clean all leading and trailing whitespace from a column in one click?",
-    shortAnswer: "Right-click column header &rarr; Transform &rarr; Trim (`= Table.TransformColumns(Source, {{\"Name\", Text.Trim, type text}})`).",
+    shortAnswer: "Right-click column header → Transform → Trim (`= Table.TransformColumns(Source, {{\"Name\", Text.Trim, type text}})`).",
     explanation: "Standard data hygiene step for all ingested text fields.",
-    hint: "Right-click &rarr; Transform &rarr; Trim.",
+    hint: "Right-click → Transform → Trim.",
     level: "basic",
     codeExample: "= Table.TransformColumns(#\"Prior\", {{\"Customer\", Text.Trim, type text}})"
   },
   {
     question: "How do you remove non-printable ASCII/Unicode control characters in Power Query?",
-    shortAnswer: "Right-click column header &rarr; Transform &rarr; Clean (`= Table.TransformColumns(Source, {{\"Field\", Text.Clean, type text}})`).",
+    shortAnswer: "Right-click column header → Transform → Clean (`= Table.TransformColumns(Source, {{\"Field\", Text.Clean, type text}})`).",
     explanation: "Strips carriage returns, line feeds, and non-printable control bytes.",
-    hint: "Right-click &rarr; Transform &rarr; Clean.",
+    hint: "Right-click → Transform → Clean.",
     level: "moderate",
     codeExample: "= Table.TransformColumns(#\"Prior\", {{\"RawText\", Text.Clean, type text}})"
   },
   {
     question: "What is the recommended transformation sequence for sanitizing dirty text columns?",
-    shortAnswer: "1. Clean (remove control characters) &rarr; 2. Trim (remove leading/trailing spaces) &rarr; 3. Capitalize Each Word / Proper Case.",
+    shortAnswer: "1. Clean (remove control characters) → 2. Trim (remove leading/trailing spaces) → 3. Capitalize Each Word / Proper Case.",
     explanation: "Standard 3-step text hygiene pipeline.",
-    hint: "Clean &rarr; Trim &rarr; Capitalize Each Word.",
+    hint: "Clean → Trim → Capitalize Each Word.",
     level: "moderate",
-    codeExample: "1. Text.Clean &rarr; 2. Text.Trim &rarr; 3. Text.Proper"
+    codeExample: "1. Text.Clean → 2. Text.Trim → 3. Text.Proper"
   },
   {
     question: "How do you identify duplicate rows across an entire table using Power Query profiling?",
@@ -194,7 +194,7 @@ const questions = [
     explanation: "Alerts the analyst to apply 'Remove Duplicates'.",
     hint: "Distinct Count < Total Rows indicates duplicates.",
     level: "moderate",
-    codeExample: "Distinct (9,800) < Total Rows (10,000) &rarr; 200 Duplicates Exist!"
+    codeExample: "Distinct (9,800) < Total Rows (10,000) → 200 Duplicates Exist!"
   },
   {
     question: "What happens when you apply 'Remove Duplicates' on multiple selected columns?",
@@ -208,9 +208,9 @@ const questions = [
     question: "How do you copy column profile statistics to Excel for an audit documentation report?",
     shortAnswer: "Right-click anywhere inside the Column Profile pane and select 'Copy'.",
     explanation: "Pastes a formatted statistical table directly into your audit workbook.",
-    hint: "Right-click Column Profile &rarr; Copy.",
+    hint: "Right-click Column Profile → Copy.",
     level: "basic",
-    codeExample: "Right-Click Profile &rarr; Copy &rarr; Paste in Excel Worksheet"
+    codeExample: "Right-Click Profile → Copy → Paste in Excel Worksheet"
   },
   {
     question: "What is the 'Fill Down' transformation, and when is it applied during data cleaning?",
@@ -226,7 +226,7 @@ const questions = [
     explanation: "Indicates that 'Capitalize Each Word' or 'Uppercase' transformation is required.",
     hint: "Case variations appear as separate items in Value Distribution.",
     level: "moderate",
-    codeExample: "Apply: Transform &rarr; Format &rarr; Capitalize Each Word"
+    codeExample: "Apply: Transform → Format → Capitalize Each Word"
   },
   {
     question: "Why is data profiling critical before performing Table Merges (Joins)?",
@@ -238,11 +238,11 @@ const questions = [
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Data Profiling & Quality Hygiene?",
-    shortAnswer: "Never load raw data into production without profiling! Always turn on Column Quality and Column Distribution under the View tab, check for red error bars and unexpected grey nulls, verify that your primary key has Distinct == Unique == Total Rows, and apply the golden triad of Clean &rarr; Trim &rarr; Type Coercion before loading to the Data Model!",
+    shortAnswer: "Never load raw data into production without profiling! Always turn on Column Quality and Column Distribution under the View tab, check for red error bars and unexpected grey nulls, verify that your primary key has Distinct == Unique == Total Rows, and apply the golden triad of Clean → Trim → Type Coercion before loading to the Data Model!",
     explanation: "Data profiling is the foundational quality gate of enterprise business intelligence!",
     hint: "Column Quality + Column Distribution + Clean/Trim/Type Coercion = Pristine Data Models!",
     level: "expert",
-    codeExample: "Rule: Ingestion &rarr; View Tab &rarr; Enable Column Quality &amp; Distribution Profile!"
+    codeExample: "Rule: Ingestion → View Tab → Enable Column Quality &amp; Distribution Profile!"
   }
 ];
 

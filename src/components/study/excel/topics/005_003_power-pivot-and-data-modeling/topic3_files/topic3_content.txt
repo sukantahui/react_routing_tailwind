@@ -10,7 +10,7 @@ Creating and managing relationships: One-to-Many (1:*) and Cardinality is an ess
 It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Relationship Definition: Drag [Dim_Table[ID_Key]] (1 - Primary Key) -> [Fact_Table[ID_Key]] (* - Foreign Key)
+Operational Architecture: Relationship Definition: Drag [Dim_Table[ID_Key]] (1 - Primary Key) → [Fact_Table[ID_Key]] (* - Foreign Key)
 
 3. CORE TECHNICAL MECHANICS
 1. The 1-to-Many (1:*) Golden Standard:

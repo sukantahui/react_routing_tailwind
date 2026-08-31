@@ -194,7 +194,7 @@ const questions = [
     explanation: "Query folding limitation with client-side M error primitives.",
     hint: "Pushes evaluation to local client memory, breaking SQL delegation.",
     level: "expert",
-    codeExample: "try [SQL_Col] &rarr; breaks folding; use SQL CAST in native query if possible."
+    codeExample: "try [SQL_Col] → breaks folding; use SQL CAST in native query if possible."
   },
   {
     question: "How can you validate that numeric columns do not contain negative values in accounting pipelines?",

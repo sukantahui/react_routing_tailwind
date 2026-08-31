@@ -10,7 +10,7 @@ Phase 4: VBA / Office Script Automation for Scheduled Reporting, PDF Export & Em
 It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Phase 4 Automation: 1-Click Refresh All -> Format Deck -> Export Vector PDF -> Automated Outlook / Teams Distribution
+Operational Architecture: Phase 4 Automation: 1-Click Refresh All → Format Deck → Export Vector PDF → Automated Outlook / Teams Distribution
 
 3. CORE TECHNICAL MECHANICS
 1. Master Controller Subroutine:

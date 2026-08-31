@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - The Widening Conversion Ladder (JLS §5.1.2):
-  byte -> short -> int -> long -> float -> double
+  byte → short → int → long → float → double
                    ^
   char ------------+
 
@@ -20,8 +20,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 - Critical Nuance: The Precision Loss Exception
   * Widening integer types to float (23-bit mantissa) or large longs to double
     (52-bit mantissa) may lose lower bits of precision!
-  * int 123456789 -> float -> 123456792.0 (Lower digits rounded off!)
-  * long 9007199254740993L -> double -> 9007199254740992.0
+  * int 123456789 → float → 123456792.0 (Lower digits rounded off!)
+  * long 9007199254740993L → double → 9007199254740992.0
 
 - Incompatible Primitive Widening:
   * byte/short CANNOT be widened to char (signed vs unsigned).

@@ -5,7 +5,7 @@ const topic11_questions = [
     "explanation": "Evolution of asynchronous programming from Java 5 to Java 8.",
     "hint": "Replaces blocking get() calls with non-blocking callback chains (thenApply, thenAccept) and functional composition.",
     "level": "Beginner",
-    "codeExample": "CompletableFuture.supplyAsync(() -> fetch()).thenApply(x -> process(x)).thenAccept(res -> print(res));"
+    "codeExample": "CompletableFuture.supplyAsync(() → fetch()).thenApply(x → process(x)).thenAccept(res → print(res));"
   }
 ];
 

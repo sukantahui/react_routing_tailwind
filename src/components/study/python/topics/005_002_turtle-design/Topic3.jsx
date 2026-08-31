@@ -66,7 +66,7 @@ const Topic3 = () => {
             Module 005_002 · Turtle Design & Aesthetic Customization · Topic 3
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-400 via-emerald-300 to-teal-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-400 via-emerald-300 to-teal-300 bg-clip-text text-transparent">
             Fill Mechanics: <span className="font-mono">begin_fill()</span>, <span className="font-mono">end_fill()</span> & Fills
           </h1>
 
@@ -337,7 +337,7 @@ const Topic3 = () => {
           <h3 className="text-xl font-semibold text-emerald-400 mb-3">📝 Student Mastery Checklist</h3>
           <div className="grid sm:grid-cols-2 gap-2.5 text-xs text-gray-200">
             {[
-              "I know the 3-step fill sequence: fillcolor() -> begin_fill() -> draw -> end_fill()",
+              "I know the 3-step fill sequence: fillcolor() → begin_fill() → draw → end_fill()",
               "I understand that end_fill() automatically closes unclosed polygon endpoints",
               "I can check whether a fill is currently active using the t.filling() boolean query",
               "I know to isolate each sub-component in composite illustrations with its own fill pair",

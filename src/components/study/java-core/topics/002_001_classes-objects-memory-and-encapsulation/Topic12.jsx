@@ -42,7 +42,7 @@ export default function Topic12() {
             Visibility &amp; Access Control Architecture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Access Modifiers Overview: <code className="text-purple-400 font-mono">private</code>, <code className="text-sky-400 font-mono">default</code>, <code className="text-amber-400 font-mono">protected</code>, <code className="text-emerald-400 font-mono">public</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -184,7 +184,7 @@ export default function Topic12() {
               <span>📌</span> Overriding Visibility Rule
             </h3>
             <p className="text-slate-300 leading-relaxed">
-              When overriding a method in a subclass, visibility can stay the same or widen (e.g. <code className="text-sky-300 font-mono">protected &rarr; public</code>), but can NEVER be narrowed (<code className="text-rose-400 font-mono">public &rarr; protected</code> causes a compile error).
+              When overriding a method in a subclass, visibility can stay the same or widen (e.g. <code className="text-sky-300 font-mono">protected → public</code>), but can NEVER be narrowed (<code className="text-rose-400 font-mono">public → protected</code> causes a compile error).
             </p>
           </div>
 

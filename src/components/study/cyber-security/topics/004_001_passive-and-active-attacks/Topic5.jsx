@@ -444,7 +444,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                 </text>
               </g>
 
-              {/* PATH 1: Attacker -> Switch */}
+              {/* PATH 1: Attacker → Switch */}
               <path d="M 230 165 L 360 165" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 230 165 L 360 165" dur="1.5s" repeatCount="indefinite" />
@@ -480,7 +480,7 @@ _dmarc.kolkatabank.in. IN TXT "v=DMARC1; p=reject; sp=reject; pct=100; rua=mailt
                 </text>
               </g>
 
-              {/* PATH 2: Switch -> Victim (Blocked) */}
+              {/* PATH 2: Switch → Victim (Blocked) */}
               <path d="M 580 165 L 680 165" stroke="#334155" strokeWidth="3" strokeDasharray="4 4" fill="none" />
               <text x="630" y="155" fill="#f87171" fontSize="10" fontWeight="bold" textAnchor="middle">
                 BLOCKED

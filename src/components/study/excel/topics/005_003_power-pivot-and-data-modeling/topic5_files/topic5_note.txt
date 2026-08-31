@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Rule #1 of DAX: Never use the date column inside your Fact table for pivots! Always create a dedicated Calendar table, link it to your fact table, and mark it as a Date Table. Then time intelligence works like magic.
 
 COMMON TRAPS TO AVOID:
-- Missing Date Gaps (Breaks Time Intelligence): Creating a calendar table from sales transactions containing days with zero sales breaks DAX time intelligence functions like TOTALYTD. -> Fix: Generate a continuous date sequence using `=CALENDAR(StartDate, EndDate)` or Power Pivot > Date Table > New.
-- Alphabetical Month Sorting Trap: PivotTables displaying months as 'April, August, December, February, January...' -> Fix: Select 'MonthName' column > Home > Sort by Column > Select 'MonthNumber'.
-- Forgetting 'Mark as Date Table': Failing to mark the calendar table prevents DAX from recognizing custom date hierarchies. -> Fix: Power Pivot > Design > Mark as Date Table > Select Date column.
+- Missing Date Gaps (Breaks Time Intelligence): Creating a calendar table from sales transactions containing days with zero sales breaks DAX time intelligence functions like TOTALYTD. → Fix: Generate a continuous date sequence using `=CALENDAR(StartDate, EndDate)` or Power Pivot > Date Table > New.
+- Alphabetical Month Sorting Trap: PivotTables displaying months as 'April, August, December, February, January...' → Fix: Select 'MonthName' column > Home > Sort by Column > Select 'MonthNumber'.
+- Forgetting 'Mark as Date Table': Failing to mark the calendar table prevents DAX from recognizing custom date hierarchies. → Fix: Power Pivot > Design > Mark as Date Table > Select Date column.
 ================================================================================

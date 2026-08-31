@@ -124,7 +124,7 @@ FROM student_admissions;`,
               Flow Control & NULL Safety
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Flow Control & Conditional Functions
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -264,28 +264,28 @@ FROM student_admissions;`,
                   <td className="py-3 px-4">Exactly 3</td>
                   <td className="py-3 px-4 text-rose-400">No (MySQL/MariaDB)</td>
                   <td className="py-3 px-4 text-slate-300">Inline ternary condition branching</td>
-                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">IF(10 &gt; 5, 'Pass', 'Fail') &rarr; 'Pass'</td>
+                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">IF(10 &gt; 5, 'Pass', 'Fail') → 'Pass'</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-mono text-emerald-300 font-bold">IFNULL(a, b)</td>
                   <td className="py-3 px-4">Exactly 2</td>
                   <td className="py-3 px-4 text-rose-400">No (MySQL shorthand)</td>
                   <td className="py-3 px-4 text-slate-300">Substitute default value if column is NULL</td>
-                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">IFNULL(NULL, 0) &rarr; 0</td>
+                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">IFNULL(NULL, 0) → 0</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-mono text-amber-300 font-bold">NULLIF(a, b)</td>
                   <td className="py-3 px-4">Exactly 2</td>
                   <td className="py-3 px-4 text-emerald-400">Yes (ANSI SQL)</td>
                   <td className="py-3 px-4 text-slate-300">Convert equal values to NULL (division safety)</td>
-                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">NULLIF(50, 50) &rarr; NULL</td>
+                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">NULLIF(50, 50) → NULL</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-mono text-indigo-300 font-bold">COALESCE(a, b, ...)</td>
                   <td className="py-3 px-4">Arbitrary (2 to N)</td>
                   <td className="py-3 px-4 text-emerald-400">Yes (ANSI SQL)</td>
                   <td className="py-3 px-4 text-slate-300">Multi-tier cascade fallback chain</td>
-                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">COALESCE(NULL, NULL, 'Kolkata') &rarr; 'Kolkata'</td>
+                  <td className="py-3 px-4 font-mono text-xs text-emerald-400">COALESCE(NULL, NULL, 'Kolkata') → 'Kolkata'</td>
                 </tr>
               </tbody>
             </table>
@@ -382,10 +382,10 @@ FROM student_admissions;`,
 
                 {/* Steps */}
                 <rect x="20" y="55" width="210" height="30" rx="6" fill="#1e1b4b" stroke="#4338ca" />
-                <text x="125" y="75" fill="#c7d2fe" fontSize="10" textAnchor="middle">Arg 1: whatsapp_no (NULL &rarr; Skip)</text>
+                <text x="125" y="75" fill="#c7d2fe" fontSize="10" textAnchor="middle">Arg 1: whatsapp_no (NULL → Skip)</text>
 
                 <rect x="20" y="95" width="210" height="30" rx="6" fill="#1e1b4b" stroke="#6366f1" />
-                <text x="125" y="115" fill="#a5b4fc" fontSize="10" textAnchor="middle">Arg 2: mobile_no ('98301...') &rarr; MATCH!</text>
+                <text x="125" y="115" fill="#a5b4fc" fontSize="10" textAnchor="middle">Arg 2: mobile_no ('98301...') → MATCH!</text>
 
                 <rect x="20" y="135" width="210" height="30" rx="6" fill="#0f172a" stroke="#334155" opacity="0.5" />
                 <text x="125" y="155" fill="#64748b" fontSize="10" textAnchor="middle">Arg 3: email (Skipped)</text>
@@ -418,7 +418,7 @@ FROM student_admissions;`,
                 <polygon points="125,120 120,112 130,112" fill="#f59e0b" />
 
                 <rect x="20" y="125" width="210" height="35" rx="6" fill="#451a03" stroke="#f59e0b" />
-                <text x="125" y="147" fill="#fef3c7" fontSize="10.5" fontWeight="bold" textAnchor="middle">NULLIF(0, 0) &rarr; returns NULL</text>
+                <text x="125" y="147" fill="#fef3c7" fontSize="10.5" fontWeight="bold" textAnchor="middle">NULLIF(0, 0) → returns NULL</text>
 
                 <path d="M 125 165 L 125 185" fill="none" stroke="#10b981" strokeWidth="2" />
                 <polygon points="125,190 120,182 130,182" fill="#10b981" />

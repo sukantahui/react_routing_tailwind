@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never write naked `Range("A1")` in your code! If the user clicks on another tab while your macro is running, it will overwrite the wrong sheet. Always write `ws.Range("A1")` or use `With ws ... .Range("A1") ... End With`.
 
 COMMON TRAPS TO AVOID:
-- Unqualified ActiveSheet Overwrite Bug (Fatal Data Corruption): Running a macro that uses `Range("A1").ClearContents` while looking at the wrong worksheet clears critical master formulas. -> Fix: Never use naked Range references; always qualify with explicit worksheet: `wsTarget.Range("A1").ClearContents`.
-- Confusing ThisWorkbook with ActiveWorkbook: `ActiveWorkbook` is whichever file currently has user focus; `ThisWorkbook` is the workbook containing the running VBA code. -> Fix: Use `ThisWorkbook` when referencing the code's host file.
-- Hardcoding Sheet Tab Names That Users Might Rename: Using `Sheets("Sales Data")` crashes with 'Subscript out of range' if user renames the tab to 'Sales_Data'. -> Fix: Use Sheet CodeNames (e.g. `Sheet1.Range(...)`) which remain immutable even if the tab name changes.
+- Unqualified ActiveSheet Overwrite Bug (Fatal Data Corruption): Running a macro that uses `Range("A1").ClearContents` while looking at the wrong worksheet clears critical master formulas. → Fix: Never use naked Range references; always qualify with explicit worksheet: `wsTarget.Range("A1").ClearContents`.
+- Confusing ThisWorkbook with ActiveWorkbook: `ActiveWorkbook` is whichever file currently has user focus; `ThisWorkbook` is the workbook containing the running VBA code. → Fix: Use `ThisWorkbook` when referencing the code's host file.
+- Hardcoding Sheet Tab Names That Users Might Rename: Using `Sheets("Sales Data")` crashes with 'Subscript out of range' if user renames the tab to 'Sales_Data'. → Fix: Use Sheet CodeNames (e.g. `Sheet1.Range(...)`) which remain immutable even if the tab name changes.
 ================================================================================

@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Analysis of traditional I/O blocking bottlenecks in enterprise Java web applications.",
     "hint": "Threads block on I/O while doing zero CPU work, exhausting the thread pool and rejecting incoming users.",
     "level": "Intermediate",
-    "codeExample": "// Tomcat maxThreads=200 -> 201st concurrent blocking request must wait in queue!"
+    "codeExample": "// Tomcat maxThreads=200 → 201st concurrent blocking request must wait in queue!"
   }
 ];
 

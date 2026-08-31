@@ -242,7 +242,7 @@ const questions = [
     explanation: "Immediate execution syntax provides a zero-risk sandbox to inspect formula logic, verify edge cases, and ensure proper data types before publishing custom functions organization-wide!",
     hint: "Prove in cell with immediate execution before publishing to Name Manager.",
     level: "expert",
-    codeExample: "Rule: Prototype in cell &rarr; Test with (args) &rarr; Publish to Name Manager"
+    codeExample: "Rule: Prototype in cell → Test with (args) → Publish to Name Manager"
   }
 ];
 

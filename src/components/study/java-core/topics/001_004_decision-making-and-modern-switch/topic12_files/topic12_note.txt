@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - The Zero Fall-Through Rule (JLS §14.11.2):
-  * When using Arrow Syntax (case X -> Y), execution completes as soon as the
+  * When using Arrow Syntax (case X → Y), execution completes as soon as the
     expression or block to the right of '->' completes.
   * Fall-through into subsequent cases is IMPOSSIBLE by grammar design!
 
@@ -20,7 +20,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Multi-Case Code Sharing (No Stacking Needed):
   * In traditional switch: required stacked cases with fall-through (case 1: case 2: ...)
-  * In modern arrow switch: use comma-separated lists (case 1, 2, 3 -> doAction();)
+  * In modern arrow switch: use comma-separated lists (case 1, 2, 3 → doAction();)
 
 - Scoping Independence:
   * Each arrow branch has an isolated block scope. Variables declared in one

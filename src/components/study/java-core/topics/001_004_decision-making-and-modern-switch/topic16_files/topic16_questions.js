@@ -11,7 +11,7 @@ const questions = [
     explanation: "Replaces complex `instanceof` cascades with clean pattern matching.",
     hint: "Matches and casts types directly in case branches.",
     level: "basic",
-    codeExample: "switch (obj) { case String s -> s.toLowerCase(); }"
+    codeExample: "switch (obj) { case String s → s.toLowerCase(); }"
   },
   {
     question: "What is a Guard Clause (`when` clause) in pattern matching switch?",
@@ -19,7 +19,7 @@ const questions = [
     explanation: "Allows fine-grained pattern filtering without nested `if` statements.",
     hint: "Appends boolean condition using 'when'.",
     level: "basic",
-    codeExample: "case Student s when s.getMarks() >= 90 -> \"Honors\";"
+    codeExample: "case Student s when s.getMarks() >= 90 → \"Honors\";"
   },
   {
     question: "What keyword was previously used for guards during Java 17-18 previews before `when` was finalized?",
@@ -27,7 +27,7 @@ const questions = [
     explanation: "Java 19, 20, 21 finalized the `when` contextual keyword.",
     hint: "&& was replaced by the contextual keyword 'when'.",
     level: "intermediate",
-    codeExample: "// Java 17 preview: case String s && ... -> Java 21: case String s when ..."
+    codeExample: "// Java 17 preview: case String s && ... → Java 21: case String s when ..."
   },
   {
     question: "What is the Pattern Dominance rule in Java pattern matching switch?",
@@ -35,7 +35,7 @@ const questions = [
     explanation: "Prevents unreachable dead code branches.",
     hint: "Guarded specific patterns must precede broad unguarded patterns.",
     level: "intermediate",
-    codeExample: "// Correct ordering:\ncase String s when s.isEmpty() -> 1;\ncase String s -> 2;"
+    codeExample: "// Correct ordering:\ncase String s when s.isEmpty() → 1;\ncase String s → 2;"
   },
   {
     question: "What happens if an unguarded `case String s` is placed BEFORE `case String s when s.length() > 5`?",
@@ -43,23 +43,23 @@ const questions = [
     explanation: "The compiler detects that the second guarded case can never be reached.",
     hint: "Compile error: case label is dominated.",
     level: "intermediate",
-    codeExample: "// case String s -> ...\n// case String s when ... // COMPILER ERROR: dominated!"
+    codeExample: "// case String s → ...\n// case String s when ... // COMPILER ERROR: dominated!"
   },
   {
     question: "How does Java 21 handle `null` in pattern matching switch statements?",
     shortAnswer: "By providing explicit `case null ->` or `case null, default ->` branches that safely catch null references without throwing `NullPointerException`.",
     explanation: "Revolutionizes null handling in Java control flow.",
-    hint: "case null -> handles nulls safely without NPE.",
+    hint: "case null → handles nulls safely without NPE.",
     level: "basic",
-    codeExample: "switch (obj) { case null -> \"Null Input\"; case String s -> s; }"
+    codeExample: "switch (obj) { case null → \"Null Input\"; case String s → s; }"
   },
   {
     question: "In the Coder & AccoTax Barrackpore student auditor, how do `when` guards classify scholarships?",
-    shortAnswer: "By checking student marks on `StudentRecord` (`case StudentRecord s when s.marks() >= 90 -> \"Honors Gold Medalist\"`) in Indian Rupees (₹).",
+    shortAnswer: "By checking student marks on `StudentRecord` (`case StudentRecord s when s.marks() >= 90 → \"Honors Gold Medalist\"`) in Indian Rupees (₹).",
     explanation: "Demonstrates practical pattern matching with record deconstruction.",
     hint: "Records filtered by marks using 'when' guards.",
     level: "basic",
-    codeExample: "case StudentRecord s when s.marks() >= 90 -> \"Gold Medalist\";"
+    codeExample: "case StudentRecord s when s.marks() >= 90 → \"Gold Medalist\";"
   },
   {
     question: "Is `when` a reserved global keyword in Java 21?",
@@ -75,23 +75,23 @@ const questions = [
     explanation: "Guard exceptions are not swallowed.",
     hint: "Exceptions in guards propagate immediately.",
     level: "intermediate",
-    codeExample: "case String s when s.length() / 0 == 1 -> // Throws ArithmeticException"
+    codeExample: "case String s when s.length() / 0 == 1 → // Throws ArithmeticException"
   },
   {
     question: "Can multiple boolean conditions be combined in a single `when` guard clause?",
-    shortAnswer: "Yes! Using standard logical operators: `case Student s when s.getMarks() >= 80 && s.getFeePaid() > 0 -> ...`.",
+    shortAnswer: "Yes! Using standard logical operators: `case Student s when s.getMarks() >= 80 && s.getFeePaid() > 0 → ...`.",
     explanation: "Full support for boolean logic in guards.",
     hint: "Combine conditions with &&, ||, and !.",
     level: "basic",
-    codeExample: "case Student s when s.getMarks() >= 80 && s.hasPaidFee() -> ..."
+    codeExample: "case Student s when s.getMarks() >= 80 && s.hasPaidFee() → ..."
   },
   {
     question: "What is Record Pattern Matching in Java 21 (JEP 440)?",
-    shortAnswer: "Deconstructing a record's components directly inside a case pattern: `case StudentRecord(String name, int marks, double fee) when marks >= 90 -> ...`.",
+    shortAnswer: "Deconstructing a record's components directly inside a case pattern: `case StudentRecord(String name, int marks, double fee) when marks >= 90 → ...`.",
     explanation: "Extracts record fields directly into local variables.",
     hint: "Deconstructs record fields directly in case label.",
     level: "advanced",
-    codeExample: "case StudentRecord(String name, int marks, double fee) -> ..."
+    codeExample: "case StudentRecord(String name, int marks, double fee) → ..."
   },
   {
     question: "Can a switch with pattern matching match against primitive values and reference types simultaneously?",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Provides unified polymorphic dispatching.",
     hint: "Polymorphic dispatch across any object types.",
     level: "intermediate",
-    codeExample: "switch (obj) { case Integer i -> i * 2; case String s -> s.length(); }"
+    codeExample: "switch (obj) { case Integer i → i * 2; case String s → s.length(); }"
   },
   {
     question: "What is the Exhaustiveness rule for pattern matching on Sealed Classes in Java 21?",
@@ -107,15 +107,15 @@ const questions = [
     explanation: "Sealed hierarchies provide complete type coverage guarantees.",
     hint: "Exhaustive if all permitted subclasses of sealed class are covered.",
     level: "advanced",
-    codeExample: "switch (sealedShape) { case Circle c -> ...; case Square s -> ...; } // Exhaustive"
+    codeExample: "switch (sealedShape) { case Circle c → ...; case Square s → ...; } // Exhaustive"
   },
   {
-    question: "What is the result of `Object obj = \"Barrackpore\"; String res = switch (obj) { case String s when s.startsWith(\"B\") -> \"HQ\"; default -> \"Other\"; };`?",
+    question: "What is the result of `Object obj = \"Barrackpore\"; String res = switch (obj) { case String s when s.startsWith(\"B\") → \"HQ\"; default → \"Other\"; };`?",
     shortAnswer: "`res = \"HQ\"`.",
     explanation: "`\"Barrackpore\"` is a String and starts with \"B\", satisfying the guard.",
     hint: "Evaluates to \"HQ\".",
     level: "basic",
-    codeExample: "switch (\"Barrackpore\") { case String s when s.startsWith(\"B\") -> \"HQ\"; }"
+    codeExample: "switch (\"Barrackpore\") { case String s when s.startsWith(\"B\") → \"HQ\"; }"
   },
   {
     question: "What happens if a switch selector is `Object obj` and the switch expression has no `default` or total pattern?",
@@ -123,7 +123,7 @@ const questions = [
     explanation: "Compiler enforces exhaustiveness on open object hierarchies.",
     hint: "default or case Object is required for Object selectors.",
     level: "basic",
-    codeExample: "// switch ((Object)x) { case String s -> ...; } // ERROR: missing default"
+    codeExample: "// switch ((Object)x) { case String s → ...; } // ERROR: missing default"
   },
   {
     question: "What is a 'Total Pattern' in Java pattern matching?",
@@ -131,15 +131,15 @@ const questions = [
     explanation: "Acts as a type-safe fallback matching any object.",
     hint: "Matches all values of the selector type.",
     level: "advanced",
-    codeExample: "case Object o -> handleAnyObject(o);"
+    codeExample: "case Object o → handleAnyObject(o);"
   },
   {
     question: "Can a `case null, default ->` rule be used in Java 21 switch expressions?",
     shortAnswer: "Yes! Combines null handling and the fallback branch into a single clean rule.",
     explanation: "Standardized in Java 21.",
-    hint: "case null, default -> combines null and fallback.",
+    hint: "case null, default → combines null and fallback.",
     level: "basic",
-    codeExample: "case null, default -> handleFallback();"
+    codeExample: "case null, default → handleFallback();"
   },
   {
     question: "Can a pattern variable declared in a case label be used in subsequent cases?",
@@ -147,7 +147,7 @@ const questions = [
     explanation: "Isolated pattern variable scope.",
     hint: "Pattern variables are scoped only to their own case branch.",
     level: "basic",
-    codeExample: "case String s -> s.trim(); // 's' only exists here!"
+    codeExample: "case String s → s.trim(); // 's' only exists here!"
   },
   {
     question: "What is the difference between `if (obj instanceof String s && s.length() > 5)` and `case String s when s.length() > 5`?",
@@ -155,7 +155,7 @@ const questions = [
     explanation: "Switch provides better multi-branch structure and compiler exhaustiveness checks.",
     hint: "Pattern switch organizes multi-type branches cleanly with exhaustiveness.",
     level: "intermediate",
-    codeExample: "// case String s when s.length() > 5 -> ... (cleaner than chained if instanceof)"
+    codeExample: "// case String s when s.length() > 5 → ... (cleaner than chained if instanceof)"
   },
   {
     question: "Can an ungarded constant case (e.g. `case \"SPECIAL\":`) appear before a type pattern (`case String s:`)?",
@@ -163,7 +163,7 @@ const questions = [
     explanation: "Constant cases are more specific than general type patterns.",
     hint: "Constant cases must precede general type patterns.",
     level: "intermediate",
-    codeExample: "case \"SPECIAL\" -> handleSpecial();\ncase String s -> handleGeneric(s);"
+    codeExample: "case \"SPECIAL\" → handleSpecial();\ncase String s → handleGeneric(s);"
   },
   {
     question: "In the Coder & AccoTax Barrackpore financial gateway, how are corporate grants handled?",
@@ -171,15 +171,15 @@ const questions = [
     explanation: "Demonstrates practical enterprise financial dispatching.",
     hint: "Filters corporate grants by sanction amount in ₹.",
     level: "basic",
-    codeExample: "case CorporateGrant g when g.sanctionAmount() >= 100000.0 -> ..."
+    codeExample: "case CorporateGrant g when g.sanctionAmount() >= 100000.0 → ..."
   },
   {
     question: "Can a guard condition `when` call private methods on the enclosing class?",
-    shortAnswer: "Yes! E.g. `case Student s when isValidAdmission(s) -> ...`.",
+    shortAnswer: "Yes! E.g. `case Student s when isValidAdmission(s) → ...`.",
     explanation: "Any accessible boolean method can be used in guards.",
     hint: "Can call private helper methods.",
     level: "basic",
-    codeExample: "case Student s when isEligible(s) -> approve();"
+    codeExample: "case Student s when isEligible(s) → approve();"
   },
   {
     question: "What is the execution overhead of pattern matching switch in Java 21 bytecode?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Clean polymorphic type dispatching.",
     hint: "Dispatches dynamically based on runtime object type.",
     level: "basic",
-    codeExample: "switch (num) { case Integer i -> i; case Double d -> d; default -> 0; }"
+    codeExample: "switch (num) { case Integer i → i; case Double d → d; default → 0; }"
   },
   {
     question: "Why does pattern matching in switch eliminate the need for casting `((String) obj).substring(...)`?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "Eliminates unsafe explicit casts.",
     hint: "Pattern variable is automatically typed and cast.",
     level: "basic",
-    codeExample: "case String s -> s.substring(0, 3); // No (String) cast needed!"
+    codeExample: "case String s → s.substring(0, 3); // No (String) cast needed!"
   },
   {
     question: "Can you match arrays with pattern matching in Java 21 (`case int[] arr when arr.length > 0 ->`)?",
@@ -219,15 +219,15 @@ const questions = [
     explanation: "Full support for array type patterns.",
     hint: "Array types can be matched and guarded.",
     level: "intermediate",
-    codeExample: "case int[] arr when arr.length > 0 -> arr[0];"
+    codeExample: "case int[] arr when arr.length > 0 → arr[0];"
   },
   {
     question: "What is the recommended best practice for ordering case branches with pattern matching and guards?",
     shortAnswer: "1. `case null ->`; 2. Specific constant literals (`case \"ADMIN\" ->`); 3. Narrow guarded type patterns (`case String s when s.length() > 10 ->`); 4. Broad unguarded type patterns (`case String s ->`); 5. Fallback `default ->`.",
     explanation: "Ensures logical progression from most specific to least specific.",
-    hint: "null -> specific constants -> guarded patterns -> broad patterns -> default.",
+    hint: "null → specific constants → guarded patterns → broad patterns → default.",
     level: "intermediate",
-    codeExample: "// Order: null -> constants -> guarded types -> broad types -> default"
+    codeExample: "// Order: null → constants → guarded types → broad types → default"
   },
   {
     question: "What is the ultimate takeaway of Module 001_004 Topic 16 for Java developers?",
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Modern pinnacle of Java control flow and type dispatching.",
     hint: "Polymorphic type matching with 'when' guards and explicit null safety.",
     level: "basic",
-    codeExample: "// Summary: case Type var when condition -> result; (Java 21 pattern matching)"
+    codeExample: "// Summary: case Type var when condition → result; (Java 21 pattern matching)"
   },
   {
     question: "What is the next and final topic (Topic 17) in Module 001_004?",

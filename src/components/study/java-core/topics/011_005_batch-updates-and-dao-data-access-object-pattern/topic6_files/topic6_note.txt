@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - The DAO manages the connection with the database and hides SQL complexity from the business layer.
 
 2. CORE LAYERS:
-   - Presentation / Controller &rarr; Service Layer &rarr; DAO Interface &rarr; JDBC Driver &rarr; Database.
+   - Presentation / Controller → Service Layer → DAO Interface → JDBC Driver → Database.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

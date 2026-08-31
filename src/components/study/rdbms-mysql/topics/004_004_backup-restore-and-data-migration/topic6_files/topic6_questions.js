@@ -16,7 +16,7 @@ xtrabackup --backup --target-dir=/data/backups/base_2026/`
     question: "What are the 3 distinct phases in the Percona XtraBackup (PXB) backup and restoration lifecycle?",
     shortAnswer: "1. Backup Phase (`--backup`): Copies data files while streaming redo logs. 2. Prepare Phase (`--prepare`): Applies redo logs to achieve crash consistency. 3. Copy-Back Phase (`--copy-back`): Copies prepared binary files into an empty MySQL data directory.",
     explanation: "Understanding these 3 phases is essential: raw backup copies are crash-inconsistent until prepared with redo logs, after which they can be restored and booted instantly by MySQL.",
-    hint: "Recall the 3 phases: Backup -> Prepare -> Copy-Back.",
+    hint: "Recall the 3 phases: Backup → Prepare → Copy-Back.",
     level: "basic",
     codeExample: `# Phase 1: Backup
 xtrabackup --backup --target-dir=/backups/base
@@ -265,7 +265,7 @@ xtrabackup --backup --target-dir=/mnt/backup_nvme/base/`
     hint: "mysqldump is portable across versions; XtraBackup is bound to compatible binary versions.",
     level: "basic",
     codeExample: `-- XtraBackup: Restore to identical MySQL 8.0.x binary.
--- mysqldump: Restore across MySQL 5.7 -> 8.0 or Linux -> Windows.`
+-- mysqldump: Restore across MySQL 5.7 → 8.0 or Linux → Windows.`
   },
   {
     question: "What is the primary operational takeaway of Topic 6 in Module 004_004?",

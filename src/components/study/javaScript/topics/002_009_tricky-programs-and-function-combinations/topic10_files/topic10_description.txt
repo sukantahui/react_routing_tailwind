@@ -16,7 +16,7 @@ Debangshu encountered a classic trap: `const obj = { name: 'Debangshu', print() 
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
 1. The 4 Major `this` Traps:
-1. Detached Method Reference: `const fn = obj.method; fn();` -> Loses object context; `this` becomes `undefined`.
+1. Detached Method Reference: `const fn = obj.method; fn();` → Loses object context; `this` becomes `undefined`.
 2. Nested Callback Decay: Standard `function()` callbacks inside `setTimeout` or `forEach` revert to default binding.
 3. Arrow Function Constructor Hijacking: Arrow functions CANNOT be used as constructors (`new ArrowFn()` throws TypeError).
 4. Method Borrowing with null context: Passing `null` to `call(null)` in non-strict mode defaults to `window`.

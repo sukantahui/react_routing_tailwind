@@ -16,4 +16,4 @@ The 7 Root Causes of #SPILL! Errors:
 7. Out of Memory / Worksheet Edge: Attempting to spill past row 1,048,576 or column XFD (16,384).
 
 Pro Troubleshooting Tool:
-- Click the Error Indicator Tag on the origin cell -> Click "Select Obstructing Cell" -> Press Delete to clear blockage!
+- Click the Error Indicator Tag on the origin cell → Click "Select Obstructing Cell" → Press Delete to clear blockage!

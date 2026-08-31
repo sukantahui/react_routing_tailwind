@@ -41,7 +41,7 @@ const questions = [
     question: "What happens when `double 99.99` is cast to an `int` (`(int)99.99`)?",
     shortAnswer: "It evaluates to `99` (fractional decimal is truncated towards zero, NOT rounded!).",
     explanation: "Floating-point to integer casting performs truncation towards zero, dropping all digits after the decimal point.",
-    hint: "Truncates decimals towards zero: 99.99 -> 99.",
+    hint: "Truncates decimals towards zero: 99.99 → 99.",
     level: "basic",
     codeExample: "int price = (int) 99.99; // 99"
   },
@@ -49,7 +49,7 @@ const questions = [
     question: "What happens when `double -99.99` is cast to an `int` (`(int)-99.99`)?",
     shortAnswer: "It evaluates to `-99`.",
     explanation: "Truncation towards zero for negative numbers removes the decimal fraction without rounding to -100.",
-    hint: "Truncates towards zero: -99.99 -> -99.",
+    hint: "Truncates towards zero: -99.99 → -99.",
     level: "basic",
     codeExample: "int negPrice = (int) -99.99; // -99"
   },
@@ -91,7 +91,7 @@ const questions = [
     explanation: "Computes the two's complement interpretation of the lowest 8 bits.",
     hint: "Modulo 256 with two's complement sign adjustment.",
     level: "advanced",
-    codeExample: "int n = 1000;\n// 1000 % 256 = 232 -> 232 - 256 = -24\nbyte b = (byte) n; // -24"
+    codeExample: "int n = 1000;\n// 1000 % 256 = 232 → 232 - 256 = -24\nbyte b = (byte) n; // -24"
   },
   {
     question: "How do you round a `double` to the nearest integer instead of truncating?",
@@ -175,9 +175,9 @@ const questions = [
   },
   {
     question: "What happens when casting `float` to `byte` (`(byte)1234.56f`)?",
-    shortAnswer: "First truncates `float` to `int 1234`, then truncates `int 1234` to `byte -46` (`1234 % 256 = 210 -> 210 - 256 = -46`).",
+    shortAnswer: "First truncates `float` to `int 1234`, then truncates `int 1234` to `byte -46` (`1234 % 256 = 210 → 210 - 256 = -46`).",
     explanation: "Two-stage narrowing: float to int, then int to byte.",
-    hint: "Two-stage conversion: float -> int -> byte.",
+    hint: "Two-stage conversion: float → int → byte.",
     level: "advanced",
     codeExample: "byte b = (byte) 1234.56f; // -46"
   },

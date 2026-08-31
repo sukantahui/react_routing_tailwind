@@ -24,13 +24,13 @@ Formula Code: =SWITCH(expression, value1, result1, [value2, result2], ..., [defa
 
 4. REAL-WORLD BUSINESS APPLICATION
 • Swadeep Banerjee (ERP Systems Specialist, Barrackpore HQ):
-  General Ledger Department Code Mapping - Translates numeric GL department codes (100 -> 'Sales', 200 -> 'Engineering', 300 -> 'Finance', 'Other') in single-line formulas.
+  General Ledger Department Code Mapping - Translates numeric GL department codes (100 → 'Sales', 200 → 'Engineering', 300 → 'Finance', 'Other') in single-line formulas.
 • Tuhina Mukherjee (Tax Consultant, Shyamnagar Plant):
-  GST Tax Rate Lookup by HSN Category - Maps tax slab codes (A -> 5%, B -> 12%, C -> 18%, D -> 28%, 0%) across 20,000 product line items.
+  GST Tax Rate Lookup by HSN Category - Maps tax slab codes (A → 5%, B → 12%, C → 18%, D → 28%, 0%) across 20,000 product line items.
 • Abhronila Das (Shift Supervisor, Ichapur Works):
-  Factory Shift Name Decoding - Converts shift code integers (1 -> 'Morning 06:00-14:00', 2 -> 'Evening 14:00-22:00', 3 -> 'Night 22:00-06:00', 'Off').
+  Factory Shift Name Decoding - Converts shift code integers (1 → 'Morning 06:00-14:00', 2 → 'Evening 14:00-22:00', 3 → 'Night 22:00-06:00', 'Off').
 • Debangshu Roy (Logistics Router, Naihati Logistics Hub):
-  Carrier Service Level Assignment - Maps courier service codes (EXP -> 'Express Air', STD -> 'Surface', ECO -> 'Economy', 'Standard').
+  Carrier Service Level Assignment - Maps courier service codes (EXP → 'Express Air', STD → 'Surface', ECO → 'Economy', 'Standard').
 
 5. TROUBLESHOOTING & COMMON ERRORS
 • Missing Default Value Return (#N/A):

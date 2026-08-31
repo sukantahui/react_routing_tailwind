@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-VBA Execution Pipeline: User Trigger (Button/Key) -> VBA Interpreter Engine -> COM Automation Layer -> Excel Objects
+VBA Execution Pipeline: User Trigger (Button/Key) → VBA Interpreter Engine → COM Automation Layer → Excel Objects
 
 PRIMARY CONCEPT:
 Understanding Visual Basic for Applications (VBA) automation architecture: procedural programming paradigms, COM object automation, eliminating manual repetitive tasks, and executing code
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Welcome to the superpower of Excel: VBA! Once you learn to automate your spreadsheets, you can do in 5 seconds what takes other people 5 days. Always save your files as `.xlsm`!
 
 COMMON TRAPS TO AVOID:
-- Saving Macro Workbooks as Plain .xlsx (Fatal Code Loss): Saving a workbook with VBA code as standard `.xlsx` strips and permanently DESTROYS all written macros. -> Fix: Always save macro-enabled workbooks as Excel Macro-Enabled Workbook (`.xlsm`) or Binary Workbook (`.xlsb`).
-- Relying on Recorded Code Without Cleanup: Macro recorder generates bloated, slow `.Select` and `.Activate` statements for every mouse movement. -> Fix: Refactor code to manipulate objects directly (`Range("A1").Value = 100` instead of `Range("A1").Select: Selection.Value = 100`).
-- Infinite Loop Freezing Excel: Writing a `Do While` loop with no incrementing condition freezes Excel permanently. -> Fix: Always include loop counters and press Ctrl + Break (or Esc) to halt runaway macros.
+- Saving Macro Workbooks as Plain .xlsx (Fatal Code Loss): Saving a workbook with VBA code as standard `.xlsx` strips and permanently DESTROYS all written macros. → Fix: Always save macro-enabled workbooks as Excel Macro-Enabled Workbook (`.xlsm`) or Binary Workbook (`.xlsb`).
+- Relying on Recorded Code Without Cleanup: Macro recorder generates bloated, slow `.Select` and `.Activate` statements for every mouse movement. → Fix: Refactor code to manipulate objects directly (`Range("A1").Value = 100` instead of `Range("A1").Select: Selection.Value = 100`).
+- Infinite Loop Freezing Excel: Writing a `Do While` loop with no incrementing condition freezes Excel permanently. → Fix: Always include loop counters and press Ctrl + Break (or Esc) to halt runaway macros.
 ================================================================================

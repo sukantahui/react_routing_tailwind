@@ -59,7 +59,7 @@ const element = (
   </div>
 )`,
       correct: false,
-      explanation: "JSX must have exactly one parent element. Use fragments <>...</> for multiple."
+      explanation: "JSX must have exactly one parent element. Use fragments &lt;&gt;...</> for multiple."
     },
     {
       title: "JSX is JavaScript",
@@ -83,7 +83,7 @@ const element = React.createElement(
       description: "JSX expressions must have exactly one parent element",
       correct: `<div><p>A</p><p>B</p></div>`,
       wrong: `<p>A</p><p>B</p>`,
-      tip: "Use React Fragment <>...</> for multiple elements"
+      tip: "Use React Fragment &lt;&gt;...</> for multiple elements"
     },
     {
       rule: "Close All Tags",
@@ -123,7 +123,7 @@ const element = React.createElement(
   <p>Content</p>
 )`,
       message: "Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag",
-      fix: "Wrap in <div> or use <> fragment",
+      fix: "Wrap in <div> or use &lt;&gt; fragment",
       fixedCode: `return (
   <>
     <h1>Title</h1>
@@ -224,10 +224,10 @@ return <p>{student.name} got {student.grade}</p>`,
     },
     {
       limitation: "No HTML comments",
-      reason: "<!-- comment --> would be treated as text",
+      reason: "<!-- comment → would be treated as text",
       workaround: "Use JavaScript comments inside {}",
       example: `// ❌ Can't do this:
-<div><!-- This is a comment -->Content</div>
+<div><!-- This is a comment ──→Content</div>
 
 // ✅ Do this instead:
 <div>{/* This is a comment */}Content</div>`
@@ -267,7 +267,7 @@ return <p>{student.name} got {student.grade}</p>`,
     <Footer />
   </>
 )`,
-      tip: "Short syntax <> is same as <React.Fragment>"
+      tip: "Short syntax &lt;&gt; is same as <React.Fragment>"
     },
     {
       practice: "Extract complex logic",
@@ -424,7 +424,7 @@ return (
                   💎
                 </div>
                 <div>
-                  <h2 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
                     JSX: The DNA of React
                   </h2>
                   <p className="text-xl text-gray-300">

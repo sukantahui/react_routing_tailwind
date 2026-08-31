@@ -104,7 +104,7 @@ const questions = [
     explanation: "The `include` boolean criteria array must have the identical number of rows (or columns) as the source `array`. If `array` is `A2:D20` (19 rows) and `include` is `E2:E25` (24 rows), `#VALUE!` is returned.",
     hint: "Source range and criteria range must have the exact same row count.",
     level: "basic",
-    codeExample: "// A2:D20 (19 rows) vs E2:E25 (24 rows) -> #VALUE!"
+    codeExample: "// A2:D20 (19 rows) vs E2:E25 (24 rows) → #VALUE!"
   },
   {
     question: "How do you filter for records that are NOT equal to a certain value (e.g. excluding 'Cancelled')?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "With `FILTER`, business analysts can build real-time interactive search portals, dynamic drill-down reports, and executive KPI summaries that react instantaneously to user inputs with 100% calculation reliability.",
     hint: "FILTER enables fully reactive, live dashboard pipelines with zero VBA code.",
     level: "expert",
-    codeExample: "// Complete Pipeline: Input Cell -> FILTER -> SORT -> KPI Cards (Zero VBA)"
+    codeExample: "// Complete Pipeline: Input Cell → FILTER → SORT → KPI Cards (Zero VBA)"
   }
 ];
 

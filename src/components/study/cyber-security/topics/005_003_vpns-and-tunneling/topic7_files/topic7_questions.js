@@ -203,9 +203,9 @@ const questions = [
     hint: "Blocking TCP 1723, GRE Protocol 47, and UDP 1701 at the corporate firewall.",
     level: "Moderate",
     codeExample: `// Enterprise Firewall Rules:
-// drop tcp any any -> any 1723 (Block PPTP Control)
-// drop ip  any any -> any 47   (Block GRE Data)
-// drop udp any any -> any 1701 (Block Standalone L2TP)`
+// drop tcp any any → any 1723 (Block PPTP Control)
+// drop ip  any any → any 47   (Block GRE Data)
+// drop udp any any → any 1701 (Block Standalone L2TP)`
   },
   {
     id: 21,

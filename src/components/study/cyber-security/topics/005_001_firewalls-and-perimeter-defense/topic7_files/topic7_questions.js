@@ -32,7 +32,7 @@ const firewallArchitectures = [
     hint: "Root compromise of that single computer gives the attacker access to both networks.",
     level: "Moderate",
     codeExample: `// Single Point of Failure Failure Mode:
-// Attacker gains root on Dual-Homed Host -> Executes: sysctl -w net.ipv4.ip_forward=1
+// Attacker gains root on Dual-Homed Host → Executes: sysctl -w net.ipv4.ip_forward=1
 // Result: Direct packet routing opened between Internet and Private LAN!`
   },
   {
@@ -53,7 +53,7 @@ const firewallArchitectures = [
     hint: "The bastion sits on the same internal switch as company computers; compromising it compromises the LAN.",
     level: "Moderate",
     codeExample: `// Screened Host Lateral Exposure:
-// Attacker exploits Bastion (10.10.1.10) -> Executes: nmap -sS 10.10.1.0/24 (Scans all internal PCs on same switch!)`
+// Attacker exploits Bastion (10.10.1.10) → Executes: nmap -sS 10.10.1.0/24 (Scans all internal PCs on same switch!)`
   },
   {
     id: 6,
@@ -74,7 +74,7 @@ const firewallArchitectures = [
     level: "Moderate",
     codeExample: `// Tri-Homed vs Back-to-Back:
 // Tri-Homed: [WAN Interface] <-> [SINGLE FIREWALL] <-> [DMZ Interface] / [LAN Interface]
-// Back-to-Back: [Internet] -> [FW 1 (Palo Alto)] -> [DMZ Subnet] -> [FW 2 (Fortinet)] -> [Internal LAN]`
+// Back-to-Back: [Internet] → [FW 1 (Palo Alto)] → [DMZ Subnet] → [FW 2 (Fortinet)] → [Internal LAN]`
   },
   {
     id: 8,
@@ -84,8 +84,8 @@ const firewallArchitectures = [
     hint: "Using two different firewall brands so an exploit against one cannot breach the other.",
     level: "Expert",
     codeExample: `// Heterogeneous Defense Principle:
-// External Firewall: Vendor A (Palo Alto) -> Exploit Succeeds -> DMZ Breached
-// Internal Firewall: Vendor B (Fortinet)   -> Exploit FAILS!    -> Core Database Protected!`
+// External Firewall: Vendor A (Palo Alto) → Exploit Succeeds → DMZ Breached
+// Internal Firewall: Vendor B (Fortinet)   → Exploit FAILS!    → Core Database Protected!`
   },
   {
     id: 9,
@@ -95,9 +95,9 @@ const firewallArchitectures = [
     hint: "LAN can talk to DMZ, but DMZ cannot start new conversations with LAN.",
     level: "Basic",
     codeExample: `// One-Way DMZ Rule Base:
-// ALLOW: Internal_LAN (10.10.0.0/16) -> DMZ (172.16.1.0/24) (Admin access)
-// ALLOW: DMZ_Web (172.16.1.10)       -> Internal_DB (10.10.4.50:5432) (Pinhole query)
-// DROP : DMZ (172.16.1.0/24)         -> Internal_LAN (10.0.0.0/8) (Blocks lateral pivot!)`
+// ALLOW: Internal_LAN (10.10.0.0/16) → DMZ (172.16.1.0/24) (Admin access)
+// ALLOW: DMZ_Web (172.16.1.10)       → Internal_DB (10.10.4.50:5432) (Pinhole query)
+// DROP : DMZ (172.16.1.0/24)         → Internal_LAN (10.0.0.0/8) (Blocks lateral pivot!)`
   },
   {
     id: 10,
@@ -130,18 +130,18 @@ const firewallArchitectures = [
     hint: "The inner boundary guard protecting the internal network from the DMZ.",
     level: "Moderate",
     codeExample: `// Internal Screening Router Policy:
-// ALLOW: DMZ_Web -> DB_Server port 5432
-// DENY : DMZ_Subnet -> ANY Internal Subnet`
+// ALLOW: DMZ_Web → DB_Server port 5432
+// DENY : DMZ_Subnet → ANY Internal Subnet`
   },
   {
     id: 13,
     question: "What is a 'Database Pinhole Rule' in DMZ architecture and how is it secured?",
     shortAnswer: "A tightly restricted firewall rule that allows a DMZ web application server to connect exclusively to the database server IP on its specific listening port (e.g. TCP 5432) using encrypted mutual TLS (mTLS).",
-    explanation: "Rather than opening the entire database subnet, a pinhole rule specifies exact source and destination `/32` host IPs and a single port: `172.16.1.10:ANY -> 10.10.4.50:5432`. Connections must use mTLS with client certificates so compromised DMZ processes without the certificate cannot query the database.",
+    explanation: "Rather than opening the entire database subnet, a pinhole rule specifies exact source and destination `/32` host IPs and a single port: `172.16.1.10:ANY → 10.10.4.50:5432`. Connections must use mTLS with client certificates so compromised DMZ processes without the certificate cannot query the database.",
     hint: "A tiny, specific opening allowing only the web server to talk to the database on one port.",
     level: "Moderate",
     codeExample: `// PostgreSQL Database Pinhole Rule:
-// ALLOW: host 172.16.1.10 (DMZ Web) -> host 10.10.4.50 (Internal DB) eq 5432 Proto: TCP
+// ALLOW: host 172.16.1.10 (DMZ Web) → host 10.10.4.50 (Internal DB) eq 5432 Proto: TCP
 // Enforce: Certificate-based mTLS authentication`
   },
   {
@@ -169,11 +169,11 @@ const firewallArchitectures = [
     id: 16,
     question: "What is a 'Dual-DMZ (Split DMZ / Multi-Tier DMZ)' architecture and when is it deployed?",
     shortAnswer: "An architecture with two distinct DMZs: an 'External DMZ' hosting presentation web servers and a separate 'Internal Application DMZ' hosting business logic/middleware, fully isolating web servers from core databases.",
-    explanation: "In 3-tier enterprise architectures (Presentation -> Logic -> Data), a web compromise in the External DMZ only gives the attacker access to the Application DMZ via strict API calls (REST/gRPC), with zero direct reachability to the internal database tier.",
+    explanation: "In 3-tier enterprise architectures (Presentation → Logic → Data), a web compromise in the External DMZ only gives the attacker access to the Application DMZ via strict API calls (REST/gRPC), with zero direct reachability to the internal database tier.",
     hint: "Two separate DMZs: External for Web, Internal for Application Middleware.",
     level: "Expert",
     codeExample: `// 3-Tier Multi-Tier DMZ Layout:
-// [Internet] -> (FW 1) -> [External DMZ (Web)] -> (FW 2) -> [Internal DMZ (App Logic)] -> (FW 3) -> [Internal Data Vault]`
+// [Internet] → (FW 1) → [External DMZ (Web)] → (FW 2) → [Internal DMZ (App Logic)] → (FW 3) → [Internal Data Vault]`
   },
   {
     id: 17,
@@ -183,8 +183,8 @@ const firewallArchitectures = [
     hint: "One DNS server for the outside world, and a separate private DNS server for internal staff.",
     level: "Moderate",
     codeExample: `// Split-Horizon DNS Resolution:
-// External User queries "portal.bank.gov.in" -> Resolves Public IP: 203.0.113.10
-// Internal User queries "portal.bank.gov.in" -> Resolves Private IP: 172.16.1.10`
+// External User queries "portal.bank.gov.in" → Resolves Public IP: 203.0.113.10
+// Internal User queries "portal.bank.gov.in" → Resolves Private IP: 172.16.1.10`
   },
   {
     id: 18,
@@ -194,8 +194,8 @@ const firewallArchitectures = [
     hint: "Internal firewalls block direct outbound connections, forcing all traffic through inspected DMZ proxies.",
     level: "Moderate",
     codeExample: `// Egress Proxy Enforcement:
-// DROP : Internal_Workstations (10.10.1.0/24) -> WAN (ANY:ANY) (Direct Internet blocked!)
-// ALLOW: Internal_Workstations -> DMZ_Forward_Proxy (172.16.1.25:8080) Only`
+// DROP : Internal_Workstations (10.10.1.0/24) → WAN (ANY:ANY) (Direct Internet blocked!)
+// ALLOW: Internal_Workstations → DMZ_Forward_Proxy (172.16.1.25:8080) Only`
   },
   {
     id: 19,
@@ -205,7 +205,7 @@ const firewallArchitectures = [
     hint: "A completely separate private network dedicated solely to administrator access and maintenance.",
     level: "Expert",
     codeExample: `// Out-of-Band (OOB) Architecture:
-// Firewall MGMT Port -> Dedicated OOB Switch (VLAN 99) -> Air-gapped Admin Terminal`
+// Firewall MGMT Port → Dedicated OOB Switch (VLAN 99) → Air-gapped Admin Terminal`
   },
   {
     id: 20,
@@ -257,8 +257,8 @@ const firewallArchitectures = [
     hint: "Using cloud Public and Private VPC subnets to isolate web servers from internal databases.",
     level: "Moderate",
     codeExample: `// AWS VPC Architecture:
-// Public Subnet (DMZ)  : Route Table -> 0.0.0.0/0 -> Internet Gateway (igw-xxxx)
-// Private Subnet (LAN) : Route Table -> 0.0.0.0/0 -> NAT Gateway (nat-xxxx)`
+// Public Subnet (DMZ)  : Route Table → 0.0.0.0/0 → Internet Gateway (igw-xxxx)
+// Private Subnet (LAN) : Route Table → 0.0.0.0/0 → NAT Gateway (nat-xxxx)`
   },
   {
     id: 25,
@@ -289,7 +289,7 @@ const firewallArchitectures = [
     hint: "Dividing internal office networks into small isolated compartments to stop lateral malware spread.",
     level: "Moderate",
     codeExample: `// Inter-VLAN Micro-segmentation Rule:
-// DROP Source: HR_VLAN (10.10.1.0/24) -> Destination: Engineering_VLAN (10.10.2.0/24)`
+// DROP Source: HR_VLAN (10.10.1.0/24) → Destination: Engineering_VLAN (10.10.2.0/24)`
   },
   {
     id: 28,

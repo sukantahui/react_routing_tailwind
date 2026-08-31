@@ -36,7 +36,7 @@ UPDATE wallet SET balance = balance - 5000 WHERE user_id = 101;
 INSERT INTO outbox_events (event_type, payload) VALUES ('WALLET_DEDUCTED', '{"user_id":101,"amt":5000}');
 COMMIT; // Local commit completes in 1ms!
 
-// Step 2: Debezium CDC tails binlog -> Streams to Kafka -> Executes Deposit on Shard 1!
+// Step 2: Debezium CDC tails binlog → Streams to Kafka → Executes Deposit on Shard 1!
 // If Shard 1 fails: Saga triggers Compensating Refund Transaction on Shard 0!`,
       explanation:
         "Distributed 2PC holds synchronous row locks across network round-trips, severely throttling throughput. The Saga pattern uses local ACID transactions coupled with Compensating Transactions and the Transactional Outbox pattern to achieve eventual consistency at scale.",
@@ -61,7 +61,7 @@ COMMIT; // Local commit completes in 1ms!
 // 4. Sequence Number (12 bits): Generates up to 4,096 unique IDs per ms per node!
 
 // 📊 Why it matters in MySQL InnoDB:
-// Chronologically sortable -> Append-only B-Tree inserts! Zero page splits!`,
+// Chronologically sortable → Append-only B-Tree inserts! Zero page splits!`,
       explanation:
         "Random UUIDv4 causes 50%+ B-Tree page split fragmentation. Twitter Snowflake generates 64-bit chronologically sortable integers that fit into BIGINT UNSIGNED, maintaining dense clustered B-Tree index pages.",
       keyTakeaways: [
@@ -79,8 +79,8 @@ COMMIT; // Local commit completes in 1ms!
 -- Customers, Orders, and Items all share the SAME Shard Key (customer_id):
 CREATE TABLE orders (order_id BIGINT, customer_id INT, PRIMARY KEY(order_id, customer_id));
 CREATE TABLE order_items (item_id BIGINT, customer_id INT, PRIMARY KEY(item_id, customer_id));
--- -> All orders & items for Customer 101 reside on the SAME shard node!
--- -> 100% of parent-child joins execute locally at sub-millisecond speeds!
+-- → All orders & items for Customer 101 reside on the SAME shard node!
+-- → 100% of parent-child joins execute locally at sub-millisecond speeds!
 
 -- 🌐 2. GLOBAL BROADCAST TABLES:
 -- Replicates reference data (currencies, tax_rates) on 100% of shard nodes!`,
@@ -101,13 +101,13 @@ CREATE TABLE order_items (item_id BIGINT, customer_id INT, PRIMARY KEY(item_id, 
 // Querying by email (WHERE email = 'mamata@bengal.in') forces a broadcast to ALL shards!
 
 // ✅ THE REDIS GSI LOOKUP SOLUTION:
-// Step 1: Query high-speed Redis GSI cache (email -> customer_id):
+// Step 1: Query high-speed Redis GSI cache (email → customer_id):
 const customerId = await redis.get(\`email_idx:\${userEmail}\`); // Returns 105 in 0.4ms!
 
 // Step 2: Compute shard location and execute a Point Query directly to that 1 node:
 const targetShard = getShardConnection(customerId);
 const profile = await targetShard.query("SELECT * FROM users WHERE customer_id = ?", [customerId]);
-// -> Converts expensive scatter-gather broadcast into deterministic 1-node point lookup!`,
+// → Converts expensive scatter-gather broadcast into deterministic 1-node point lookup!`,
       explanation:
         "Filtering on non-shard keys normally forces expensive scatter-gather scans across all nodes. Maintaining a Redis Global Secondary Index (GSI) converts secondary lookups into deterministic single-shard point queries.",
       keyTakeaways: [
@@ -132,7 +132,7 @@ const profile = await targetShard.query("SELECT * FROM users WHERE customer_id =
             Topic 11 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Sharding Challenges</span>: Distributed Sagas, Joins &amp; <span className="text-cyan-400">Global IDs</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

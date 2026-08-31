@@ -639,7 +639,7 @@ module.exports = SecureFileUploadValidator;`,
                   TRANSLATION:
                 </text>
                 <text x="70" y="90" fill="#ffffff" fontSize="7.5" textAnchor="middle">
-                  &lt; ➔ &amp;lt; | ' ➔ \u0027
+                  &lt; ➔ < | ' ➔ \u0027
                 </text>
                 <text x="70" y="106" fill="#fde68a" fontSize="7.5" textAnchor="middle">
                   Tailored to Destination!

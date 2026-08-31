@@ -16,7 +16,7 @@ const Topic3 = () => {
         
         {/* Header */}
         <div className="animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-4">
             Logical Variables and Representation (p, q, r)
           </h1>
           <p className="text-xl text-gray-300 leading-relaxed">

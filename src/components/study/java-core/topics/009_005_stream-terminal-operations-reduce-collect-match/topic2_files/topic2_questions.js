@@ -13,7 +13,7 @@ const topic2_questions = [
     "explanation": "The Optional return type forces the caller to handle the empty stream case explicitly.",
     "hint": "Handles the case where the stream is empty without an identity fallback.",
     "level": "Beginner",
-    "codeExample": "List.<Integer>of().stream().reduce((a, b) -> a + b); // Returns Optional.empty()"
+    "codeExample": "List.<Integer>of().stream().reduce((a, b) → a + b); // Returns Optional.empty()"
   }
 ];
 

@@ -86,7 +86,7 @@ const Topic0 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 0</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Introduction to Sequential Circuits: Combinational vs Sequential Logic &amp; Memory Feedback
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -537,7 +537,7 @@ const Topic0 = () => {
                 </div>
                 <h3 className="text-base font-bold text-slate-100 mb-2">Sequential Traffic Light Controller</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata designed an intelligent 4-way traffic controller in Barrackpore. Because the green signal must follow a strict timed sequence (North &rarr; East &rarr; South &rarr; West), pure combinational logic is insufficient; sequential state registers advance on 30-second clock intervals.
+                  Mamata designed an intelligent 4-way traffic controller in Barrackpore. Because the green signal must follow a strict timed sequence (North → East → South → West), pure combinational logic is insufficient; sequential state registers advance on 30-second clock intervals.
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">

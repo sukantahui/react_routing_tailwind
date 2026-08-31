@@ -6,13 +6,13 @@ const questions = [
     hint: "Think about checking if a door is unlocked (Scanning) versus walking inside and cataloging everything on the desk (Enumeration).",
     level: "basic",
     codeExample: `// Scanning vs Enumeration Workflow:
-Step 1 (Scanning):    nmap -sS -p 445,161 192.168.1.50   -> Discovers Port 445 (Open) & Port 161 (Open)
-Step 2 (Enumeration): enum4linux -U 192.168.1.50         -> Extracts 45 Active Directory usernames & shared folders!`
+Step 1 (Scanning):    nmap -sS -p 445,161 192.168.1.50   → Discovers Port 445 (Open) & Port 161 (Open)
+Step 2 (Enumeration): enum4linux -U 192.168.1.50         → Extracts 45 Active Directory usernames & shared folders!`
   },
   {
     question: "How does a 'TCP SYN Stealth Scan' (Nmap `-sS` / Half-Open Scan) work at the transport layer, and why is it preferred over a 'TCP Connect Scan' (`-sT`)?",
     shortAnswer: "The client sends a SYN packet; if the server replies with SYN-ACK (Open), the client immediately sends a RST packet to tear down the connection before the 3-way handshake completes, evading application-level logging.",
-    explanation: "In a standard TCP Connect scan (`-sT`), the OS completes the full 3-way handshake (SYN -> SYN-ACK -> ACK), which creates a full socket connection and triggers application connection logging (e.g. Apache/FTP access logs). In a SYN Stealth scan (`-sS`), the scanner sends a SYN; upon receiving SYN-ACK, it sends an immediate RST (Reset) packet. Because the handshake never completes, legacy applications rarely log the connection, making it faster and stealthier.",
+    explanation: "In a standard TCP Connect scan (`-sT`), the OS completes the full 3-way handshake (SYN → SYN-ACK → ACK), which creates a full socket connection and triggers application connection logging (e.g. Apache/FTP access logs). In a SYN Stealth scan (`-sS`), the scanner sends a SYN; upon receiving SYN-ACK, it sends an immediate RST (Reset) packet. Because the handshake never completes, legacy applications rarely log the connection, making it faster and stealthier.",
     hint: "Think of knocking on a door, hearing someone say 'Hello?', and running away before they open the door.",
     level: "moderate",
     codeExample: `// TCP SYN Stealth Scan (Half-Open) Handshake:
@@ -74,8 +74,8 @@ user:[administrator] rid:[0x1f4]`
     codeExample: `// TCP ACK Scan Syntax:
 nmap -sA -p 80,443,8080 203.0.113.50
 // Result:
-Port 80/tcp:   Unfiltered (RST received -> Firewall is stateless on port 80)
-Port 8080/tcp: Filtered   (No response -> Stateful firewall is dropping packets)`
+Port 80/tcp:   Unfiltered (RST received → Firewall is stateless on port 80)
+Port 8080/tcp: Filtered   (No response → Stateful firewall is dropping packets)`
   },
   {
     question: "What is 'UDP Port Scanning' (`-sU`), and why is it significantly slower and more difficult than TCP scanning?",
@@ -174,8 +174,8 @@ IP address       NetBIOS Name     Server    User             MAC address
     hint: "Remember that sending active probe packets to someone's server without written permission is a crime under Indian law.",
     level: "basic",
     codeExample: `// Legal Classification of Active Scanning:
-Authorized Pentest:  Signed Rules of Engagement (RoE) -> 100% Lawful & Protected
-Unauthorized Scan:   Probing IP ranges without permission -> Criminal Offense under IT Act Section 66!`
+Authorized Pentest:  Signed Rules of Engagement (RoE) → 100% Lawful & Protected
+Unauthorized Scan:   Probing IP ranges without permission → Criminal Offense under IT Act Section 66!`
   },
   {
     question: "How do modern Next-Generation Firewalls (NGFW) and EDR agents detect and block automated Nmap port scans in real time?",
@@ -216,7 +216,7 @@ PERMITTED: nmap -sS -T1 -p 502 --max-retries 1 192.168.1.100 (Safe, single-packe
     level: "expert",
     codeExample: `// The Enumeration to Exploitation Pipeline:
 Phase 2 Enumeration: Discovers "ProFTPD 1.3.5 with mod_copy enabled"
-Phase 3 Exploitation:  msf> use exploit/unix/ftp/proftpd_modcopy_exec -> Instant Root Shell (#)!`
+Phase 3 Exploitation:  msf> use exploit/unix/ftp/proftpd_modcopy_exec → Instant Root Shell (#)!`
   }
 ];
 

@@ -143,7 +143,7 @@ const questions = [
     hint: "Based on solving systems of quadratic equations; Rainbow was broken in 2022 on a standard laptop.",
     level: "Expert",
     codeExample: `// Beullens Rainbow Attack (2022):
-// Laptop CPU (53 hours) -> Solves MinRank algebraic subspace -> Extracts Rainbow Layer-1 Secret Keys 🚨`
+// Laptop CPU (53 hours) → Solves MinRank algebraic subspace → Extracts Rainbow Layer-1 Secret Keys 🚨`
   },
   {
     id: 14,
@@ -153,7 +153,7 @@ const questions = [
     hint: "Isogeny candidate with tiny keys, completely broken in 1 hour using auxiliary torsion points in 2022.",
     level: "Expert",
     codeExample: `// SIKE Demise:
-// Castryck-Decru attack exploited (P, Q) torsion auxiliary points -> 100% private key recovery in 60 mins.`
+// Castryck-Decru attack exploited (P, Q) torsion auxiliary points → 100% private key recovery in 60 mins.`
   },
   {
     id: 15,
@@ -316,7 +316,7 @@ const questions = [
     level: "Expert",
     codeExample: `// Streaming Verification:
 // For col in range(5):
-//   Compute NTT column in-place -> Accumulate hash -> Release buffer (Peak RAM: < 1.5 KB ✔)`
+//   Compute NTT column in-place → Accumulate hash → Release buffer (Peak RAM: < 1.5 KB ✔)`
   },
   {
     id: 30,

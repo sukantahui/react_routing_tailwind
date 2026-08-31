@@ -150,7 +150,7 @@ ORDER BY
               ANSI SQL Conditional Expressions
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             CASE Statement: Simple vs Searched Expressions
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -339,7 +339,7 @@ ORDER BY
               {/* Step 2: WHEN 2 (MATCH!) */}
               <rect x="290" y="155" width="220" height="55" rx="8" fill="#064e3b" stroke="#10b981" strokeWidth="2" filter="url(#shadowCase)" />
               <text x="400" y="177" fill="#a7f3d0" fontSize="11" fontWeight="bold" textAnchor="middle">2. WHEN marks &gt;= 80 ?</text>
-              <text x="400" y="196" fill="#34d399" fontSize="12" fontWeight="extrabold" textAnchor="middle">TRUE! (84 &gt;= 80) &rarr; MATCH!</text>
+              <text x="400" y="196" fill="#34d399" fontSize="12" fontWeight="extrabold" textAnchor="middle">TRUE! (84 &gt;= 80) → MATCH!</text>
 
               {/* Arrow to Result Output */}
               <path d="M 510 182 L 630 182" fill="none" stroke="#10b981" strokeWidth="2.5" />
@@ -355,9 +355,9 @@ ORDER BY
 
               {/* Skipped Branches Box */}
               <rect x="290" y="250" width="220" height="100" rx="8" fill="#0f172a" stroke="#334155" strokeDasharray="3 3" opacity="0.6" />
-              <text x="400" y="275" fill="#64748b" fontSize="10" textAnchor="middle">3. WHEN marks &gt;= 60 &rarr; (SKIPPED)</text>
-              <text x="400" y="295" fill="#64748b" fontSize="10" textAnchor="middle">4. WHEN marks &gt;= 40 &rarr; (SKIPPED)</text>
-              <text x="400" y="315" fill="#64748b" fontSize="10" textAnchor="middle">5. ELSE 'Fail' &rarr; (SKIPPED)</text>
+              <text x="400" y="275" fill="#64748b" fontSize="10" textAnchor="middle">3. WHEN marks &gt;= 60 → (SKIPPED)</text>
+              <text x="400" y="295" fill="#64748b" fontSize="10" textAnchor="middle">4. WHEN marks &gt;= 40 → (SKIPPED)</text>
+              <text x="400" y="315" fill="#64748b" fontSize="10" textAnchor="middle">5. ELSE 'Fail' → (SKIPPED)</text>
               <text x="400" y="335" fill="#f59e0b" fontSize="9.5" fontWeight="bold" textAnchor="middle">-- Short-Circuit Terminated --</text>
             </svg>
           </div>

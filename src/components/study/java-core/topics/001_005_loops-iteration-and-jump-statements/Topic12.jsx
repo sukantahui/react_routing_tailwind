@@ -42,7 +42,7 @@ export default function Topic12() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Jump Statements: The <code className="text-rose-400 font-mono">&apos;break&apos;</code> Statement for Immediate Loop Termination
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -133,7 +133,7 @@ export default function Topic12() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#4c0519" />
             <text x="335" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">if (roll == 103) break;</text>
             <text x="335" y="122" fill="#fecdd3" fontSize="10">Halts loop instantly!</text>
-            <text x="335" y="142" fill="#fecdd3" fontSize="10">Jumps to post-loop code &rarr;</text>
+            <text x="335" y="142" fill="#fecdd3" fontSize="10">Jumps to post-loop code →</text>
             <text x="440" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               Abrupt Termination
             </text>

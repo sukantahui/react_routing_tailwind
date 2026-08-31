@@ -12,10 +12,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Fail-Fast guarantee: prevents silent data corruption and memory over-reads.
 
 - Top 4 Root Causes:
-  1. Off-by-one in loop header : for (int i = 0; i <= arr.length; i++) -> BUG!
-  2. Negative index access     : arr[-1] -> Throws exception (no negative indices in Java).
-  3. Reverse loop start bug    : for (int i = arr.length; i >= 0; i--) -> BUG at first iteration!
-  4. Empty array access        : new int[0][0] -> Throws exception (length is 0).
+  1. Off-by-one in loop header : for (int i = 0; i <= arr.length; i++) → BUG!
+  2. Negative index access     : arr[-1] → Throws exception (no negative indices in Java).
+  3. Reverse loop start bug    : for (int i = arr.length; i >= 0; i--) → BUG at first iteration!
+  4. Empty array access        : new int[0][0] → Throws exception (length is 0).
 
 - Top 3 Prevention Strategies:
   1. Strict Loop Idiom         : for (int i = 0; i < arr.length; i++) (Strictly '<'!).

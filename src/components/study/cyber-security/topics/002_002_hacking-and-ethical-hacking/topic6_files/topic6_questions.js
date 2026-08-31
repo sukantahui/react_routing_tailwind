@@ -6,9 +6,9 @@ const questions = [
     hint: "Think about the offensive team (Red), the defensive team (Blue), and the collaborative testing group (Purple).",
     level: "basic",
     codeExample: `// Team Dynamics Triad:
-Red Team:    Offensive Adversary Emulation -> Goal: Test security posture & evade detection
-Blue Team:   Defensive SOC & Incident Response -> Goal: Detect, isolate, and eradicate threats
-Purple Team: Collaborative Feedback Loop -> Goal: Rapidly optimize detection engineering`
+Red Team:    Offensive Adversary Emulation → Goal: Test security posture & evade detection
+Blue Team:   Defensive SOC & Incident Response → Goal: Detect, isolate, and eradicate threats
+Purple Team: Collaborative Feedback Loop → Goal: Rapidly optimize detection engineering`
   },
   {
     question: "What are the primary metrics used to evaluate the efficiency and maturity of an enterprise Blue Team SOC?",
@@ -28,9 +28,9 @@ Total Adversary Dwell Time     = MTTD + MTTR; // Target: < 1 Hour (1-10-60 Rule)
     hint: "Remember the 1-10-60 rule: 1 min to detect, 10 mins to investigate, 60 mins to contain.",
     level: "moderate",
     codeExample: `// The 1-10-60 SOC Operational Benchmark:
-[ 01 Minute ]  -> Automated EDR / SIEM Alert Generation
-[ 10 Minutes ] -> Human SOC Tier 2 Analyst Triage & Threat Verification
-[ 60 Minutes ] -> Full Host Isolation, Credential Revocation & Malicious Process Kill`
+[ 01 Minute ]  → Automated EDR / SIEM Alert Generation
+[ 10 Minutes ] → Human SOC Tier 2 Analyst Triage & Threat Verification
+[ 60 Minutes ] → Full Host Isolation, Credential Revocation & Malicious Process Kill`
   },
   {
     question: "How does a 'Purple Team Exercise' conduct 'Atomic Testing' using frameworks like Atomic Red Team or MITRE Caldera?",
@@ -50,12 +50,12 @@ Invoke-AtomicTest T1003.001 -TestNumbers 1
     hint: "Recall the 6 steps: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned.",
     level: "basic",
     codeExample: `// SANS / NIST IR 6-Stage Lifecycle:
-1. Preparation   -> Playbooks, EDR agents, backups, communication channels
-2. Identification -> Correlating SIEM logs & verifying true-positive incident
-3. Containment   -> Isolating infected subnet to stop lateral spread
-4. Eradication   -> Removing webshells, terminating C2 processes, resetting passwords
-5. Recovery      -> Restoring clean database backups and validating uptime
-6. Lessons Learn -> Post-mortem analysis and tuning detection rules`
+1. Preparation   → Playbooks, EDR agents, backups, communication channels
+2. Identification → Correlating SIEM logs & verifying true-positive incident
+3. Containment   → Isolating infected subnet to stop lateral spread
+4. Eradication   → Removing webshells, terminating C2 processes, resetting passwords
+5. Recovery      → Restoring clean database backups and validating uptime
+6. Lessons Learn → Post-mortem analysis and tuning detection rules`
   },
   {
     question: "What are 'Indicators of Compromise' (IOCs) versus 'Indicators of Attack' (IOAs) in Blue Team threat detection?",
@@ -65,7 +65,7 @@ Invoke-AtomicTest T1003.001 -TestNumbers 1
     level: "expert",
     codeExample: `// IOC vs IOA Distinction:
 IOC (Static Hash): MD5: d41d8cd98f00b204e9800998ecf8427e (Easily changed by recompiling)
-IOA (Behavioral):  Parent_Process="WINWORD.EXE" -> Child_Process="CMD.EXE" -> Network_Egress=True`
+IOA (Behavioral):  Parent_Process="WINWORD.EXE" → Child_Process="CMD.EXE" → Network_Egress=True`
   },
   {
     question: "What is the 'Pyramid of Pain' conceptualized by David Bianco, and why are 'TTPs' at the top of the pyramid?",
@@ -74,12 +74,12 @@ IOA (Behavioral):  Parent_Process="WINWORD.EXE" -> Child_Process="CMD.EXE" -> Ne
     hint: "Think of the triangle where hash values are at the easy bottom and TTPs are at the painful top.",
     level: "expert",
     codeExample: `// The Pyramid of Pain (From Bottom to Top):
-1. Hash Values         -> Trivial for attacker to modify (Re-pack binary)
-2. IP Addresses        -> Easy (Change proxy / VPS)
-3. Domain Names        -> Simple (DGA / Fast-flux DNS)
-4. Network Artifacts   -> Annoying (Alter User-Agent)
-5. Tools               -> Challenging (Write new custom exploit)
-6. TTPs                -> TOUGH / PAINFUL (Forces adversary to invent new attack methodology)`
+1. Hash Values         → Trivial for attacker to modify (Re-pack binary)
+2. IP Addresses        → Easy (Change proxy / VPS)
+3. Domain Names        → Simple (DGA / Fast-flux DNS)
+4. Network Artifacts   → Annoying (Alter User-Agent)
+5. Tools               → Challenging (Write new custom exploit)
+6. TTPs                → TOUGH / PAINFUL (Forces adversary to invent new attack methodology)`
   },
   {
     question: "What is a 'C2 Framework' (Command and Control), and how do Red Teams use 'Malleable C2 Profiles' with Cobalt Strike or Sliver?",
@@ -109,10 +109,10 @@ http-get {
     level: "moderate",
     codeExample: `// SOAR Phishing Playbook Workflow:
 Trigger: Phishing Alert in User Inbox
-Step 1: Extract URL -> Query VirusTotal API
-Step 2: If Reputation == Malicious -> Block URL on Palo Alto Firewall
-Step 3: Search Exchange Server -> Delete email from all employee inboxes
-Step 4: Notify SOC Analyst on Slack -> Close ticket automatically (Time: 2.8s)`
+Step 1: Extract URL → Query VirusTotal API
+Step 2: If Reputation == Malicious → Block URL on Palo Alto Firewall
+Step 3: Search Exchange Server → Delete email from all employee inboxes
+Step 4: Notify SOC Analyst on Slack → Close ticket automatically (Time: 2.8s)`
   },
   {
     question: "What is 'Sigma Rule' format, and how does it enable universal detection engineering across different SIEM platforms?",
@@ -144,7 +144,7 @@ level: critical`
 // 1. Request TGS ticket for SQL Server SPN:
 Add-Type -AssemblyName System.IdentityModel
 New-Object System.IdentityModel.Tokens.KerberosRequestorSecurityToken -ArgumentList "MSSQLSvc/db01.corp:1433"
-// 2. Extract ticket hash with Mimikatz -> Crack offline via Hashcat Mode 13100 (Kerberos 5 TGS)`
+// 2. Extract ticket hash with Mimikatz → Crack offline via Hashcat Mode 13100 (Kerberos 5 TGS)`
   },
   {
     question: "How does the 'MITRE ATT&CK Framework' provide a common taxonomy connecting Red, Blue, and Purple teams?",
@@ -176,7 +176,7 @@ index=endpoint_logs process_name="certutil.exe" command_line="*-urlcache*"
     level: "moderate",
     codeExample: `// Honeytoken Deployment:
 Decoy User: svc_oracle_superadmin (Never used by real applications)
-Alert Logic: If Event_ID=4624 (Logon) AND User="svc_oracle_superadmin" -> 
+Alert Logic: If Event_ID=4624 (Logon) AND User="svc_oracle_superadmin" → 
              Trigger SEVERITY-1 CRITICAL BREACH ALERT (Host compromised)`
   },
   {
@@ -188,11 +188,11 @@ Alert Logic: If Event_ID=4624 (Logon) AND User="svc_oracle_superadmin" ->
     codeExample: `// SOC Escalation Pipeline:
 [ Incoming 10,000 Daily Alerts ]
           ↓
-[ SOC Tier 1: Alert Triage ] -> Filters 9,800 False Positives
+[ SOC Tier 1: Alert Triage ] → Filters 9,800 False Positives
           ↓ (200 Escalations)
-[ SOC Tier 2: Incident Response ] -> Isolates hosts & remediates incidents
+[ SOC Tier 2: Incident Response ] → Isolates hosts & remediates incidents
           ↓ (10 Complex Cases)
-[ SOC Tier 3: Threat Hunting & Forensics ] -> Reverses malware & authors detection rules`
+[ SOC Tier 3: Threat Hunting & Forensics ] → Reverses malware & authors detection rules`
   },
   {
     question: "What is 'Active Directory BloodHound', and how do Red Teams use graph theory to find shortest attack paths to Domain Admin?",
@@ -212,8 +212,8 @@ p=shortestPath((m)-[*1..15]->(n)) RETURN p`
     hint: "Think about an automated robot testing your door locks every single hour of every day to ensure they work.",
     level: "moderate",
     codeExample: `// BAS Continuous Testing Cycle:
-01:00 AM: Simulate T1059 (PowerShell Encoded Command) -> Result: BLOCKED by EDR (Pass)
-01:15 AM: Simulate T1003 (LSASS Memory Read)          -> Result: MISSED by SIEM (Fail -> Alert Purple Team)`
+01:00 AM: Simulate T1059 (PowerShell Encoded Command) → Result: BLOCKED by EDR (Pass)
+01:15 AM: Simulate T1003 (LSASS Memory Read)          → Result: MISSED by SIEM (Fail → Alert Purple Team)`
   },
   {
     question: "Under the CERT-In Directives of 2022 in India, what is the mandatory reporting timeline for a Blue Team upon confirming a cyber security incident?",

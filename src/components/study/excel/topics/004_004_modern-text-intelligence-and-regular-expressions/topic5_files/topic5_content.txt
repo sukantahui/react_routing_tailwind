@@ -18,7 +18,7 @@ Topic 5: Cleaning, masking, and reformatting text with REGEXREPLACE
 - Phone Number Standardization:
   =REGEXREPLACE(E5, "^(\d{3})(\d{3})(\d{4})$", "($1) $2-$3")
 
-- Date Format Transposition (DD/MM/YYYY &rarr; YYYY-MM-DD):
+- Date Format Transposition (DD/MM/YYYY → YYYY-MM-DD):
   =REGEXREPLACE(F5, "^(\d{2})/(\d{2})/(\d{4})$", "$3-$2-$1")
 
 - Non-Alphanumeric Punctuation Removal:

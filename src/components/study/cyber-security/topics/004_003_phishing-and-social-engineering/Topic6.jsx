@@ -88,8 +88,8 @@ const Topic6 = () => {
       telemetryIndicator: "Duplicate badge swipe events occurring simultaneously across distant physical access doors",
       resilientDefense: "Upgrading to 13.56MHz MIFARE DESFire EV3 smart cards with AES-128 mutual authentication.",
       codeSnippet: `# Flipper Zero 125kHz RFID Badge Clone (Proxmark3):
-lf search -> Found EM4100 Tag [Card ID: 2006A48F]
-lf clone 2006A48F -> Written to blank card in 1.8s (ACCESS GRANTED!)`
+lf search → Found EM4100 Tag [Card ID: 2006A48F]
+lf clone 2006A48F → Written to blank card in 1.8s (ACCESS GRANTED!)`
     },
     anti_tailgating_mantrap_airlocks: {
       key: "anti_tailgating_mantrap_airlocks",
@@ -172,7 +172,7 @@ lf clone 2006A48F -> Written to blank card in 1.8s (ACCESS GRANTED!)`
       ? (rawBreachProb * 0.014).toFixed(2) // Optical Mantrap + DESFire EV3 blocks 98.6% of physical attacks
       : mantrapArmorStrength >= 50
       ? (rawBreachProb * 0.35).toFixed(2)  // Guarded Turnstile blocks 65% of physical attacks
-      : rawBreachProb.toFixed(2);           // Standard Doors -> 100% vulnerable to tailgating/cloning
+      : rawBreachProb.toFixed(2);           // Standard Doors → 100% vulnerable to tailgating/cloning
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),

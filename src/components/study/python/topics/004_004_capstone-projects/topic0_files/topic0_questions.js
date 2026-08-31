@@ -148,15 +148,15 @@ const questions = [
   },
   {
     question: "What is 'Circular Import' in Python and how does clean architecture prevent it?",
-    shortAnswer: "A circular import occurs when Module A imports Module B while Module B imports Module A during module initialization; clean layered architecture prevents this by enforcing strict one-directional dependency flows (e.g. Services -> Repositories -> Models).",
+    shortAnswer: "A circular import occurs when Module A imports Module B while Module B imports Module A during module initialization; clean layered architecture prevents this by enforcing strict one-directional dependency flows (e.g. Services → Repositories → Models).",
     explanation: "Circular dependency hazards and strict one-directional layering.",
     hint: "When module A imports B and B imports A; prevented by strict one-way layer dependencies.",
     level: "complex",
-    codeExample: "# Enforce: controllers -> services -> repositories -> models (Never backwards!)"
+    codeExample: "# Enforce: controllers → services → repositories → models (Never backwards!)"
   },
   {
     question: "What is the ultimate golden rule of professional Python project architecture?",
-    shortAnswer: "Use the 'src/' layout, centralize configuration in 'pyproject.toml', enforce strict one-directional tiered layering (models -> repositories -> services -> interfaces), isolate secrets in '.env', and test continuously in editable mode.",
+    shortAnswer: "Use the 'src/' layout, centralize configuration in 'pyproject.toml', enforce strict one-directional tiered layering (models → repositories → services → interfaces), isolate secrets in '.env', and test continuously in editable mode.",
     explanation: "The complete enterprise Python project architecture standard.",
     hint: "src/ layout + pyproject.toml + layered architecture + .env secret isolation.",
     level: "basic",

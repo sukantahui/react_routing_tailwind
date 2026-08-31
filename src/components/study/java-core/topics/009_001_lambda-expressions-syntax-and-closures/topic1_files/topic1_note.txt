@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. LAMBDA ANATOMY:
-   - Syntax: '(parameters) -> { body }'
+   - Syntax: '(parameters) → { body }'
    - 1. Parameter List: Arguments received by the SAM interface method.
    - 2. Arrow Token ('->'): Connects parameters to the implementation.
    - 3. Body: Single expression or block of statements.

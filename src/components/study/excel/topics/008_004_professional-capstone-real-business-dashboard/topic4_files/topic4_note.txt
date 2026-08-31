@@ -6,16 +6,16 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Phase 4 Automation: 1-Click Refresh All -> Format Deck -> Export Vector PDF -> Automated Outlook / Teams Distribution
+Phase 4 Automation: 1-Click Refresh All → Format Deck → Export Vector PDF → Automated Outlook / Teams Distribution
 
 PRIMARY CONCEPT:
 Completing the capstone with full automated distribution: authoring a 1-click VBA / Office Script master controller that refreshes data, exports high-resolution vector PDF briefing decks, and dispatches automated Outlook emails
 
 TEACHER'S ADVICE:
-Congratulations on completing the Professional Capstone Business Dashboard! You have mastered the complete, end-to-end enterprise data analytics pipeline: Power Query ETL -> Power Pivot Star Schema -> DAX Measures -> Interactive Dashboard -> VBA/Office Script Automation. You are officially an Excel Ultra Expert!
+Congratulations on completing the Professional Capstone Business Dashboard! You have mastered the complete, end-to-end enterprise data analytics pipeline: Power Query ETL → Power Pivot Star Schema → DAX Measures → Interactive Dashboard → VBA/Office Script Automation. You are officially an Excel Ultra Expert!
 
 COMMON TRAPS TO AVOID:
-- Exporting PDF Before Background Query Refresh Completes: Calling PDF export while Power Query is still asynchronously calculating in background produces stale PDF reports. -> Fix: Disable Background Refresh on queries or wait for calculation completion.
-- Hardcoding Output File Paths to Local Folders: Script breaking when executed on another user's machine. -> Fix: Use `ThisWorkbook.Path & "\Reports\"` or prompt user for destination directory.
-- Leaving ScreenUpdating Disabled on Error: Macro crash leaving Excel UI frozen. -> Fix: Include structured error handling resetting `Application.ScreenUpdating = True`.
+- Exporting PDF Before Background Query Refresh Completes: Calling PDF export while Power Query is still asynchronously calculating in background produces stale PDF reports. → Fix: Disable Background Refresh on queries or wait for calculation completion.
+- Hardcoding Output File Paths to Local Folders: Script breaking when executed on another user's machine. → Fix: Use `ThisWorkbook.Path & "\Reports\"` or prompt user for destination directory.
+- Leaving ScreenUpdating Disabled on Error: Macro crash leaving Excel UI frozen. → Fix: Include structured error handling resetting `Application.ScreenUpdating = True`.
 ================================================================================

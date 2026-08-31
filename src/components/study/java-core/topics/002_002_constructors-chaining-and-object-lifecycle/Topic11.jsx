@@ -32,7 +32,7 @@ export default function Topic11() {
             JVM Execution Lifecycle
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Execution Sequence: IIB Execution Before Constructor Body
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -125,7 +125,7 @@ export default function Topic11() {
 
       {/* Section 6: Teacher's Note */}
       <Teacher
-        note="Master the sequence: Parent IIB -> Parent Constructor -> Child IIB -> Child Constructor. Once you visualize this cascade, you will never have a bug with uninitialized fields! — Sukanta Hui"
+        note="Master the sequence: Parent IIB → Parent Constructor → Child IIB → Child Constructor. Once you visualize this cascade, you will never have a bug with uninitialized fields! — Sukanta Hui"
       />
     </div>
   );

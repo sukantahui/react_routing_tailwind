@@ -14,7 +14,7 @@ console.log("1. Entry-Controlled Loop Evaluation (0 vs N executions):");
 
 let counter = 0;
 while (counter < 3) {
-  console.log(`Counter value: ${counter} -> Condition (${counter} < 3) is TRUE`);
+  console.log(`Counter value: ${counter} → Condition (${counter} < 3) is TRUE`);
   counter++;
 }
 console.log(`Loop finished with counter = ${counter}`);
@@ -38,7 +38,7 @@ const taskQueue = [
 console.log(`Starting queue with ${taskQueue.length} pending items.`);
 while (taskQueue.length > 0) {
   const currentTask = taskQueue.shift(); // Remove from front
-  console.log(`[Processing] ${currentTask.id} (${currentTask.name}) -> Remaining in queue: ${taskQueue.length}`);
+  console.log(`[Processing] ${currentTask.id} (${currentTask.name}) → Remaining in queue: ${taskQueue.length}`);
 }
 console.log("✓ Task queue completely drained.");
 
@@ -106,7 +106,7 @@ function reverseInteger(n) {
 
 const originalNumber = 987654;
 const resultReversed = reverseInteger(originalNumber);
-console.log(`Original: ${originalNumber} -> Reversed: ${resultReversed}`);
+console.log(`Original: ${originalNumber} → Reversed: ${resultReversed}`);
 
 console.log("");
 console.log("✓ All 5 while loop practical demonstrations completed.");

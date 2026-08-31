@@ -65,7 +65,7 @@
       "description": "The Floyd-Warshall algorithm computes shortest path distances between ALL PAIRS of vertices `(i, j)` in a weighted directed graph in `O(V^3)` time using Dynamic Programming! Formula: `dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])`. In this project, you will build Floyd-Warshall Engine in C.",
       "learningOutcome": "All-Pairs Shortest Paths (APSP), Dynamic Programming Matrix Triple Loops & Intermediate Node Relaxation",
       "exampleText": "Compute all-pairs shortest path matrix in O(V^3) time",
-      "exampleOutput": "--- Floyd-Warshall All-Pairs Shortest Path Algorithm ---\nAll-Pairs Shortest Path Matrix Computed in O(V^3) time.\nDistance (0 -> 3) = 8",
+      "exampleOutput": "--- Floyd-Warshall All-Pairs Shortest Path Algorithm ---\nAll-Pairs Shortest Path Matrix Computed in O(V^3) time.\nDistance (0 → 3) = 8",
       "logicExplanation": "1. **Triple Loop**: Outer loop `k` represents intermediate vertex, inner loops `i` and `j` represent source/dest.\n2. **DP Recurrence**: `dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])`.",
       "answerFile": "./answers/answer5.c",
       "codeExplanation": "1. `floyd_warshall_demo()`: Computes all-pairs shortest path matrix using Floyd-Warshall algorithm."
@@ -89,7 +89,7 @@
       "description": "Distance arrays store shortest path lengths, but users need the EXACT sequence of visited nodes on the path. Maintain a `parent[u]` pointer array updated during edge relaxations: `parent[v] = u`. Reconstruct the path backwards from destination to source in O(V) time! In this project, you will build Shortest Path Reconstructor in C.",
       "learningOutcome": "Shortest Path Node Reconstruction, Parent Pointer Tracing & Path Sequence Retrieval",
       "exampleText": "Reconstruct path sequence from source to destination",
-      "exampleOutput": "--- Single-Source Shortest Path Path Reconstruction ---\nReconstructed Path (0 -> 3): [ 0 -> 1 -> 4 -> 3 ]",
+      "exampleOutput": "--- Single-Source Shortest Path Path Reconstruction ---\nReconstructed Path (0 → 3): [ 0 → 1 → 4 → 3 ]",
       "logicExplanation": "1. **Parent Pointer**: Set `parent[v] = u` whenever edge relaxation succeeds.\n2. **Backtrack Path**: Follow parent pointers from `destination` to `source`; reverse array.",
       "answerFile": "./answers/answer7.c",
       "codeExplanation": "1. `path_reconstruction_demo()`: Reconstructs exact node path sequence from shortest path algorithms."
@@ -102,7 +102,7 @@
       "learningOutcome": "Second Best MST Algorithms, Tree Edge Swapping & Cycle Max Edge Removals",
       "exampleText": "Find weight of primary MST and second best MST",
       "exampleOutput": "--- Second Minimum Spanning Tree Finder ---\nPrimary MST Weight = 16\nSecond Best MST Weight = 18",
-      "logicExplanation": "1. **Primary MST**: Compute primary MST edges set `T`.\n2. **Edge Swap**: For non-tree edge `e(u, v)`, replace max weight edge on path `u -> v` in `T`.",
+      "logicExplanation": "1. **Primary MST**: Compute primary MST edges set `T`.\n2. **Edge Swap**: For non-tree edge `e(u, v)`, replace max weight edge on path `u → v` in `T`.",
       "answerFile": "./answers/answer8.c",
       "codeExplanation": "1. `second_mst_demo()`: Finds second minimum spanning tree."
     },

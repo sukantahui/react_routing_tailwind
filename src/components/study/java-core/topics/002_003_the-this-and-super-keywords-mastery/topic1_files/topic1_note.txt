@@ -12,8 +12,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
      LOCAL parameter!
 
 2. THE 'this.' SOLUTION:
-   - 'this.fieldName' &rarr; Targets instance variable on Heap.
-   - 'fieldName' &rarr; Targets local parameter in stack frame.
+   - 'this.fieldName' → Targets instance variable on Heap.
+   - 'fieldName' → Targets local parameter in stack frame.
    - Syntax: 'this.fieldName = fieldName;'
 
 3. THE 'name = name' BUG:

@@ -54,7 +54,7 @@ export default function Topic1() {
     if (elements.length >= capacity) {
       newCap = capacity * 2;
       logs.unshift(
-        `⚡ CAPACITY FULL (${elements.length}/${capacity}) -> Doubling capacity to ${newCap} via realloc()! (Heap block expanded)`
+        `⚡ CAPACITY FULL (${elements.length}/${capacity}) → Doubling capacity to ${newCap} via realloc()! (Heap block expanded)`
       );
     }
 
@@ -84,7 +84,7 @@ export default function Topic1() {
     // Hysteresis Shrink: at 1/4 capacity
     if (nextElements.length > 0 && nextElements.length <= capacity / 4 && capacity > 4) {
       newCap = capacity / 2;
-      logs.unshift(`↓ HYSTERESIS SHRINK: Size (${nextElements.length}) <= Capacity/4 (${capacity / 4}) -> Halved capacity to ${newCap}`);
+      logs.unshift(`↓ HYSTERESIS SHRINK: Size (${nextElements.length}) <= Capacity/4 (${capacity / 4}) → Halved capacity to ${newCap}`);
     }
 
     setCapacity(newCap);
@@ -123,7 +123,7 @@ export default function Topic1() {
             <span>DSA Segment 1 · Module 001_001 · Topic 1</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
             Dynamic Array (Vector) Implementation in C
           </h1>
 
@@ -334,7 +334,7 @@ export default function Topic1() {
                 Why double by 2x instead of adding +100?
               </p>
               <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-                <li><strong>Linear (+C):</strong> Triggers N/C reallocations &rarr; O(N&sup2;) total work &rarr; O(N) per push.</li>
+                <li><strong>Linear (+C):</strong> Triggers N/C reallocations → O(N&sup2;) total work → O(N) per push.</li>
                 <li><strong>Geometric (2x):</strong> Total copies for N pushes = 1 + 2 + 4 + ... + N/2 = N - 1.</li>
                 <li><strong>Total Cost:</strong> N (insertions) + (N - 1) (copies) = 2N - 1.</li>
                 <li><strong>Amortized Cost per Push:</strong> (2N - 1) / N &approx; <strong className="text-emerald-400">O(1)</strong> constant time!</li>

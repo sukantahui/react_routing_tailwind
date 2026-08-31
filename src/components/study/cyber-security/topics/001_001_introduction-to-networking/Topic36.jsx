@@ -29,7 +29,7 @@ const Topic36 = () => {
       securityGuard: 'Direct external connection to database port 8080 is strictly blocked by internal firewall.',
       estApplianceCost: '₹1,85,000 (Dual FortiGate UTM Pair)',
       desc: 'Standard multi-tier DMZ architecture protecting corporate ERP data in Barrackpore from Internet threats.',
-      simResult: 'External Client -> [Ext Firewall: Allow 443] -> DMZ Reverse Proxy -> [Int Firewall: Allow DB Query] -> 10.0.5.20 (Safe Isolation Enforced).',
+      simResult: 'External Client → [Ext Firewall: Allow 443] → DMZ Reverse Proxy → [Int Firewall: Allow DB Query] → 10.0.5.20 (Safe Isolation Enforced).',
     },
     {
       id: 'internal-intranet-erp',
@@ -42,7 +42,7 @@ const Topic36 = () => {
       securityGuard: 'High-speed 10 Gbps LAN fabric with < 0.5 ms latency and zero Internet exposure.',
       estApplianceCost: '₹85,000 (10G Core Distribution Switch)',
       desc: 'Authenticated internal employee accessing confidential payroll records within the private Intranet.',
-      simResult: 'HR PC (10.0.1.45) -> 802.1X NAC Verified -> Internal Core Switch -> Payroll Server (10.0.5.10) [Transfer speed: 9.8 Gbps].',
+      simResult: 'HR PC (10.0.1.45) → 802.1X NAC Verified → Internal Core Switch → Payroll Server (10.0.5.10) [Transfer speed: 9.8 Gbps].',
     },
     {
       id: 'direct-internet-traffic',
@@ -55,7 +55,7 @@ const Topic36 = () => {
       securityGuard: 'DLP sensor scans outbound upload payloads; blocks unencrypted Aadhaar / PAN file leaks.',
       estApplianceCost: '₹95,000 (Forward Proxy & Egress DLP Gateway)',
       desc: 'Internal employee accessing external technical documentation safely through an egress forward proxy.',
-      simResult: 'Internal PC -> DLP Forward Proxy (Clean) -> PAT NAT Gateway (103.25.10.4) -> External Web Server.',
+      simResult: 'Internal PC → DLP Forward Proxy (Clean) → PAT NAT Gateway (103.25.10.4) → External Web Server.',
     },
     {
       id: 'airgap-breach-attempt',
@@ -68,7 +68,7 @@ const Topic36 = () => {
       securityGuard: 'Physical USB drive blocked by Endpoint Protection; rogue Wi-Fi dongle disabled.',
       estApplianceCost: '₹45,000 (USB Sanitization Kiosk & Honeypot)',
       desc: 'Air-gapped power turbine control network in Jadavpur successfully defended against offline malware injection.',
-      simResult: 'Malicious USB inserted -> Endpoint EDR blocks payload execution -> Honeypot logs port scan -> Switch port shutdown in 80ms.',
+      simResult: 'Malicious USB inserted → Endpoint EDR blocks payload execution → Honeypot logs port scan → Switch port shutdown in 80ms.',
     },
   ];
 
@@ -163,7 +163,7 @@ const Topic36 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Internet vs Intranet
           </h1>
 
@@ -627,7 +627,7 @@ const Topic36 = () => {
               {[
                 'Mapped the differences between the public Internet and private Intranets',
                 'Listed RFC 1918 private address ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)',
-                'Designed a 3-tier DMZ perimeter architecture (Untrusted -> DMZ -> Trusted Intranet)',
+                'Designed a 3-tier DMZ perimeter architecture (Untrusted → DMZ → Trusted Intranet)',
                 'Analyzed Split-Horizon DNS and Network Address Translation (NAT/PAT)',
                 'Evaluated Lateral Movement, Air-Gap breaches, and Zero Trust Network Access (ZTNA)',
                 'Formulated realistic perimeter firewall and DMZ hardware budgets in Indian Rupees (₹)',

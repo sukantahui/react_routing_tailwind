@@ -141,7 +141,7 @@ const Topic41 = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <header className="mb-12 text-center animate-[fadeIn_0.8s_ease-out]">
-          <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
             Combining <span className="text-blue-600 dark:text-blue-400">useState</span> &{' '}
             <span className="text-purple-600 dark:text-purple-400">useEffect</span> Patterns
           </h1>

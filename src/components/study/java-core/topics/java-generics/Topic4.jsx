@@ -81,7 +81,7 @@ const Topic4 = () => {
               Java Generics Series • Topic 5
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
               Defining & Using Generic Classes
             </h1>
             
@@ -283,7 +283,7 @@ const Topic4 = () => {
                     
                     <JavaCodeBlock
                       code={`// Basic generic class with one type parameter
-public class Box<T> {
+public class Box&lt;T&gt; {
     // Field using type parameter
     private T content;
     
@@ -309,7 +309,7 @@ public class Box<T> {
     
     // Static method (note: cannot use T here!)
     public static <U> Box<U> createEmpty() {
-        return new Box<>(null);
+        return new Box&lt;&gt;(null);
     }
 }`}
                       language="java"
@@ -366,7 +366,7 @@ public class KeyValuePair<KEY_TYPE, VALUE_TYPE> {
     
     // Swap key and value (returns new pair)
     public KeyValuePair<VALUE_TYPE, KEY_TYPE> swap() {
-        return new KeyValuePair<>(value, key);
+        return new KeyValuePair&lt;&gt;(value, key);
     }
 }`}
                       language="java"
@@ -392,7 +392,7 @@ public class KeyValuePair<KEY_TYPE, VALUE_TYPE> {
                     {
                       name: "Container/Wrapper",
                       desc: "Holds single item of any type",
-                      example: "Box<T>, Container<T>, Wrapper<T>",
+                      example: "Box&lt;T&gt;, Container&lt;T&gt;, Wrapper&lt;T&gt;",
                       useCase: "Data encapsulation"
                     },
                     {
@@ -404,25 +404,25 @@ public class KeyValuePair<KEY_TYPE, VALUE_TYPE> {
                     {
                       name: "Node/Link",
                       desc: "Linked data structure nodes",
-                      example: "Node<T>, LinkedListNode<T>",
+                      example: "Node&lt;T&gt;, LinkedListNode&lt;T&gt;",
                       useCase: "Data structures"
                     },
                     {
                       name: "Result/Response",
                       desc: "Wraps result with status/metadata",
-                      example: "Result<T>, ApiResponse<T>",
+                      example: "Result&lt;T&gt;, ApiResponse&lt;T&gt;",
                       useCase: "API responses"
                     },
                     {
                       name: "Factory/Builder",
                       desc: "Creates instances of type T",
-                      example: "Factory<T>, Builder<T>",
+                      example: "Factory&lt;T&gt;, Builder&lt;T&gt;",
                       useCase: "Object creation"
                     },
                     {
                       name: "Repository/DAO",
                       desc: "Data access for type T",
-                      example: "Repository<T>, Dao<T>",
+                      example: "Repository&lt;T&gt;, Dao&lt;T&gt;",
                       useCase: "Database access"
                     }
                   ].map((pattern, index) => (
@@ -461,7 +461,7 @@ public class KeyValuePair<KEY_TYPE, VALUE_TYPE> {
                     <JavaCodeBlock
                       code={`// Complete Generic Stack Implementation
 // Used in Barrackpore University's algorithm course
-public class GenericStack<T> {
+public class GenericStack&lt;T&gt; {
     // Generic array - note the workaround
     private T[] elements;
     private int top;
@@ -517,7 +517,7 @@ public class GenericStack<T> {
     
     // Generic method inside generic class
     public <U> GenericStack<U> transform(Function<T, U> transformer) {
-        GenericStack<U> result = new GenericStack<>(this.capacity);
+        GenericStack<U> result = new GenericStack&lt;&gt;(this.capacity);
         for (int i = 0; i <= top; i++) {
             result.push(transformer.apply(elements[i]));
         }
@@ -660,8 +660,8 @@ public class GenericStack<T> {
 public class CompilationExample {
     public static void main(String[] args) {
         // Create specific instances
-        Box<String> stringBox = new Box<>("Hello");
-        Box<Integer> integerBox = new Box<>(42);
+        Box<String> stringBox = new Box&lt;&gt;("Hello");
+        Box<Integer> integerBox = new Box&lt;&gt;(42);
         
         // ✅ VALID: Type matches
         String text = stringBox.getContent();
@@ -681,7 +681,7 @@ public class CompilationExample {
         // Object obj = rawBox.getContent(); // OK but unsafe
         
         // 4. Type inference with diamond operator
-        Box<String> inferredBox = new Box<>();
+        Box<String> inferredBox = new Box&lt;&gt;();
         // Compiler infers Box<String> from variable type
     }
 }`}
@@ -717,7 +717,7 @@ public class CompilationExample {
                             error: "unchecked conversion",
                             cause: "Using raw types without warnings",
                             fix: "Specify type arguments",
-                            example: "Box box = new Box(); → Box<String> box = new Box<>();"
+                            example: "Box box = new Box(); → Box<String> box = new Box&lt;&gt;();"
                           },
                           {
                             error: "type parameter cannot be instantiated",
@@ -787,7 +787,7 @@ public class CompilationExample {
                     <span className="text-gray-400">IDE - IntelliJ/Eclipse</span>
                   </div>
                   <div className="space-y-1">
-                    <div><span className="text-green-400">Box&lt;String&gt;</span> box = <span className="text-yellow-300">new Box&lt;&gt;</span>("Hello");</div>
+                    <div><span className="text-green-400">Box&lt;String&gt;</span> box = <span className="text-yellow-300">new Box<></span>("Hello");</div>
                     <div className="text-gray-500">// ^ IDE infers Box&lt;String&gt; from "Hello"</div>
                     <div className="mt-2"><span className="text-blue-300">box.setContent</span>(<span className="text-red-400">123</span>);</div>
                     <div className="text-red-400">// ^ IDE shows red underline: "setContent(java.lang.String)"</div>
@@ -813,12 +813,12 @@ public class GenericClassUsage {
     
     public static void main(String[] args) {
         // 1. Simple Box usage
-        Box<String> messageBox = new Box<>("Welcome to Barrackpore");
+        Box<String> messageBox = new Box&lt;&gt;("Welcome to Barrackpore");
         String message = messageBox.getContent(); // Type: String
         messageBox.setContent("Updated message");
         
         // 2. Stack usage (from earlier example)
-        GenericStack<Integer> numberStack = new GenericStack<>(10);
+        GenericStack<Integer> numberStack = new GenericStack&lt;&gt;(10);
         numberStack.push(10);
         numberStack.push(20);
         numberStack.push(30);
@@ -828,27 +828,27 @@ public class GenericClassUsage {
         
         // 3. Pair usage with different types
         Pair<String, Integer> studentGrade = 
-            new Pair<>("Swadeep", 85);
+            new Pair&lt;&gt;("Swadeep", 85);
         String studentName = studentGrade.getFirst();
         int grade = studentGrade.getValue();
         
         // 4. Complex: Stack of Pairs
         GenericStack<Pair<String, Double>> gradeStack = 
-            new GenericStack<>(50);
-        gradeStack.push(new Pair<>("Math", 92.5));
-        gradeStack.push(new Pair<>("Science", 88.0));
+            new GenericStack&lt;&gt;(50);
+        gradeStack.push(new Pair&lt;&gt;("Math", 92.5));
+        gradeStack.push(new Pair&lt;&gt;("Science", 88.0));
         
         // 5. Type inference with methods
         Box<String> inferredBox = createBox("Inferred type");
         
         // 6. Wildcard usage (advanced - next topic)
-        List<Box<String>> stringBoxes = new ArrayList<>();
+        List<Box<String>> stringBoxes = new ArrayList&lt;&gt;();
         processBoxes(stringBoxes);
     }
     
     // Generic method creating Box instances
-    public static <T> Box<T> createBox(T content) {
-        return new Box<>(content);
+    public static &lt;T&gt; Box&lt;T&gt; createBox(T content) {
+        return new Box&lt;&gt;(content);
     }
     
     // Method using wildcards
@@ -861,7 +861,7 @@ public class GenericClassUsage {
         private Map<Integer, Box<Student>> studentRecords;
         
         public void addStudentRecord(int id, Student student) {
-            Box<Student> record = new Box<>(student);
+            Box<Student> record = new Box&lt;&gt;(student);
             studentRecords.put(id, record);
         }
         
@@ -883,7 +883,7 @@ public class GenericClassUsage {
                   <div className="space-y-4">
                     {[
                       {
-                        component: "GradeBook<T>",
+                        component: "GradeBook&lt;T&gt;",
                         purpose: "Store grades of any type (Double, String, Enum)",
                         example: "GradeBook<Double> mathGrades"
                       },
@@ -893,12 +893,12 @@ public class GenericClassUsage {
                         example: "AttendanceRecord<LocalDate, Boolean>"
                       },
                       {
-                        component: "ResourcePool<R>",
+                        component: "ResourcePool&lt;R&gt;",
                         purpose: "Manage reusable resources",
                         example: "ResourcePool<DatabaseConnection>"
                       },
                       {
-                        component: "Validator<T>",
+                        component: "Validator&lt;T&gt;",
                         purpose: "Validate objects of type T",
                         example: "Validator<Student> studentValidator"
                       },
@@ -933,8 +933,8 @@ public class GenericClassUsage {
                     {[
                       "Mistake: Using raw types instead of specifying type arguments",
                       "Fix: Always use Box<String> instead of Box",
-                      "Mistake: Forgetting diamond operator <>",
-                      "Fix: Use new Box<>() not new Box<String>()",
+                      "Mistake: Forgetting diamond operator &lt;&gt;",
+                      "Fix: Use new Box&lt;&gt;() not new Box<String>()",
                       "Mistake: Trying to create generic array",
                       "Fix: Use ArrayList<Box<String>> instead of Box<String>[]",
                       "Mistake: Using instanceof with parameterized type",
@@ -975,9 +975,9 @@ public class GenericClassUsage {
                 <div>
                   <JavaCodeBlock
                     code={`// 1. Nested Generics
-List<Box<String>> listOfBoxes = new ArrayList<>();
-listOfBoxes.add(new Box<>("Item 1"));
-listOfBoxes.add(new Box<>("Item 2"));
+List<Box<String>> listOfBoxes = new ArrayList&lt;&gt;();
+listOfBoxes.add(new Box&lt;&gt;("Item 1"));
+listOfBoxes.add(new Box&lt;&gt;("Item 2"));
 
 // Type-safe processing
 for (Box<String> box : listOfBoxes) {
@@ -985,9 +985,9 @@ for (Box<String> box : listOfBoxes) {
 }
 
 // 2. Generic Class as Type Parameter
-Map<String, Box<Integer>> studentScores = new HashMap<>();
-studentScores.put("Swadeep", new Box<>(85));
-studentScores.put("Tuhina", new Box<>(92));
+Map<String, Box<Integer>> studentScores = new HashMap&lt;&gt;();
+studentScores.put("Swadeep", new Box&lt;&gt;(85));
+studentScores.put("Tuhina", new Box&lt;&gt;(92));
 
 // 3. Method Chaining with Generics
 ApiResponse<List<Student>> response = studentService
@@ -997,7 +997,7 @@ ApiResponse<List<Student>> response = studentService
 
 // 4. Factory Pattern with Generics
 StudentFactory<Undergraduate> undergradFactory = 
-    new StudentFactory<>(Undergraduate.class);
+    new StudentFactory&lt;&gt;(Undergraduate.class);
 Undergraduate student = undergradFactory.create("Abhronila");
 
 // 5. Builder Pattern with Generics
@@ -1187,7 +1187,7 @@ List<Student> students = builder.execute();`}
                 <h4 className="text-xl font-bold mb-4 text-indigo-600 dark:text-indigo-400">Definition Phase</h4>
                 {[
                   "Choose appropriate type parameter names (T, E, K, V, etc.)",
-                  "Specify type parameters in class declaration: class Name<T>",
+                  "Specify type parameters in class declaration: class Name&lt;T&gt;",
                   "Use type parameters in fields, constructors, and methods",
                   "Consider multiple type parameters for complex structures",
                   "Handle generic array creation properly",
@@ -1211,7 +1211,7 @@ List<Student> students = builder.execute();`}
                 <h4 className="text-xl font-bold mb-4 text-green-600 dark:text-green-400">Usage Phase</h4>
                 {[
                   "Always specify type arguments when instantiating",
-                  "Use diamond operator <> for type inference",
+                  "Use diamond operator &lt;&gt; for type inference",
                   "Avoid raw types in new code",
                   "Let IDE infer types when possible",
                   "Test with different type arguments",

@@ -8,15 +8,15 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - The 4-Tier Resolution Hierarchy (JLS §15.12.2):
-  1. Priority 1 : EXACT TYPE MATCH (e.g. int -> int)
-  2. Priority 2 : PRIMITIVE WIDENING PROMOTION (byte -> short -> int -> long -> float -> double)
-  3. Priority 3 : AUTOBOXING / UNBOXING (int -> Integer, Integer -> int)
+  1. Priority 1 : EXACT TYPE MATCH (e.g. int → int)
+  2. Priority 2 : PRIMITIVE WIDENING PROMOTION (byte → short → int → long → float → double)
+  3. Priority 3 : AUTOBOXING / UNBOXING (int → Integer, Integer → int)
   4. Priority 4 : VARARGS FALLBACK (int...)
 
 - The Golden Rules of Type Promotion:
   * RULE 1: Primitive Widening ALWAYS beats Autoboxing (long beats Integer for int).
   * RULE 2: Widening followed by Boxing is ILLEGAL (int cannot box to Long).
-  * RULE 3: Boxing followed by Reference Widening is LEGAL (int -> Integer -> Number/Object).
+  * RULE 3: Boxing followed by Reference Widening is LEGAL (int → Integer → Number/Object).
   * RULE 4: Varargs is the lowest priority fallback, executed only when all else fails.
 
 2. ESSENTIAL CHECKLIST

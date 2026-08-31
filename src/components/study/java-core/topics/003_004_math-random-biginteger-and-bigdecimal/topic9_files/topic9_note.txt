@@ -6,10 +6,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. ARITHMETIC TOOLSET:
-   - 'a.add(b)'        &rarr; Returns $a + b$.
-   - 'a.subtract(b)'   &rarr; Returns $a - b$.
-   - 'a.multiply(b)'   &rarr; Returns $a 	imes b$.
-   - 'a.divide(b, scale, RoundingMode)' &rarr; Exact division with rounding.
+   - 'a.add(b)'        → Returns $a + b$.
+   - 'a.subtract(b)'   → Returns $a - b$.
+   - 'a.multiply(b)'   → Returns $a 	imes b$.
+   - 'a.divide(b, scale, RoundingMode)' → Exact division with rounding.
    - All methods return new immutable instances.
 
 ================================================================================

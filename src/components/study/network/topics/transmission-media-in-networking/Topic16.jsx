@@ -118,7 +118,7 @@ const Topic16 = () => {
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Title Section */}
         <div className="animate-fade-up space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
             Jitter: Variation in Delay
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 border-l-4 border-purple-500 pl-4">

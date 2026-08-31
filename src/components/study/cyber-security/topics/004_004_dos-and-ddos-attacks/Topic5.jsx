@@ -164,7 +164,7 @@ let attack_payload = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!"; // 30 'a's followed by '
         "Triggers immediate Out-Of-Memory (OOM) operating system kernel kills (`kill -9`) on application processes.",
       telemetryIndicator: "Sudden spike in memory consumption on API endpoints accepting XML/JSON payloads followed by process crash",
       resilientDefense: "Disabling DTDs (Document Type Definitions) and external entity resolution in XML parsers.",
-      codeSnippet: `<!-- XML Billion Laughs Bomb (1KB Payload ➔ 3GB RAM Expansion!): -->
+      codeSnippet: `<!-- XML Billion Laughs Bomb (1KB Payload ➔ 3GB RAM Expansion!): ──→
 <!DOCTYPE lolz [
  <!ENTITY lol "lol">
  <!ENTITY lol1 "&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;">

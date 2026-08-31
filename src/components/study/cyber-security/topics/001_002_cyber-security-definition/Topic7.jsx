@@ -27,7 +27,7 @@ const Topic7 = () => {
       forensicIntervention: 'National Helpline 1930 / CFCFRMS Automated Debit Freeze Across Mule Accounts',
       estBudget: '₹2,80,000 (Real-Time Transaction Fraud Monitoring & Helpline 1930 Integration)',
       desc: 'Criminals use fake KYC calls or SIM swapping to steal banking credentials and drain accounts.',
-      simResult: 'Victim reports fraudulent ₹1,50,000 UPI debit to 1930 -> CFCFRMS triggers API freeze on Layer 1-3 mule accounts in 84 seconds -> 100% Funds recovered.',
+      simResult: 'Victim reports fraudulent ₹1,50,000 UPI debit to 1930 → CFCFRMS triggers API freeze on Layer 1-3 mule accounts in 84 seconds → 100% Funds recovered.',
     },
     {
       id: 'ransomware-extortion',
@@ -38,7 +38,7 @@ const Topic7 = () => {
       forensicIntervention: 'Dead-Box Write-Blocker Disk Imaging + In-Memory RAM Volatility Triage',
       estBudget: '₹4,50,000 (DFIR Forensic Retainer & Ransomware Behavioral Containment)',
       desc: 'Malicious actors encrypt patient diagnostic records and demand cryptocurrency ransom.',
-      simResult: 'Ransomware attempts shadow copy deletion -> Endpoint EDR isolates infected PC -> Forensic image extracted via write-blocker -> Zero ransom paid.',
+      simResult: 'Ransomware attempts shadow copy deletion → Endpoint EDR isolates infected PC → Forensic image extracted via write-blocker → Zero ransom paid.',
     },
     {
       id: 'identity-theft-kyc',
@@ -49,7 +49,7 @@ const Topic7 = () => {
       forensicIntervention: 'Biometric Liveness Verification + Format-Preserving Aadhaar Tokenization',
       estBudget: '₹3,20,000 (AI Facial Liveness Detection & Aadhaar Vault Tokenizer Gateway)',
       desc: 'Forging demographic and biometric records to take out fraudulent corporate loans.',
-      simResult: 'Adversary submits spoofed Aadhaar document -> AI liveness detection detects printed photo artifact -> Flags "FORGED KYC" in 320ms.',
+      simResult: 'Adversary submits spoofed Aadhaar document → AI liveness detection detects printed photo artifact → Flags "FORGED KYC" in 320ms.',
     },
     {
       id: 'phishing-brand-takedown',
@@ -60,7 +60,7 @@ const Topic7 = () => {
       forensicIntervention: 'Certificate Transparency Log Monitoring + Automated Registrar Abuse Filing',
       estBudget: '₹1,90,000 (Automated Phishing Domain Detection & Registrar Takedown Service)',
       desc: 'Spoofed websites mimicking official university portals to harvest student login passwords.',
-      simResult: 'Fake clone domain `jadavpur-exam-login.com` detected -> Automated abuse API submits proof -> Registrar revokes DNS delegation in 90 minutes.',
+      simResult: 'Fake clone domain `jadavpur-exam-login.com` detected → Automated abuse API submits proof → Registrar revokes DNS delegation in 90 minutes.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic7 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Cyber Crime
           </h1>
 

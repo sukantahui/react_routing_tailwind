@@ -312,7 +312,7 @@ const Topic44 = () => {
       {/* Header Section */}
       <div className="max-w-6xl mx-auto">
         <div className="mb-8 animate-[fadeIn_0.8s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             Handling <span className="text-blue-600 dark:text-blue-400">onClick</span>,{" "}
             <span className="text-green-600 dark:text-green-400">onChange</span>, and{" "}
             <span className="text-purple-600 dark:text-purple-400">onSubmit</span>

@@ -66,7 +66,7 @@ const firewallFunctions = [
     hint: "Border edge, DMZ buffer, internal department VLAN core, and local host OS.",
     level: "Moderate",
     codeExample: `// Enterprise Firewall Placement Architecture:
-// [Internet] -> (1. Edge FW) -> [DMZ] -> (2. DMZ FW) -> [Internal Core] -> (3. Inter-VLAN FW) -> [Host (4. Host FW)]`
+// [Internet] → (1. Edge FW) → [DMZ] → (2. DMZ FW) → [Internal Core] → (3. Inter-VLAN FW) → [Host (4. Host FW)]`
   },
   {
     id: 7,
@@ -93,14 +93,14 @@ const firewallFunctions = [
   {
     id: 9,
     question: "Explain the Netfilter packet traversal lifecycle inside the Linux kernel (PREROUTING, INPUT, FORWARD, OUTPUT, POSTROUTING).",
-    shortAnswer: "Packets arrive at PREROUTING (DNAT) -> Routing decision determines if packet is for local host (INPUT chain) or routed to another subnet (FORWARD chain) -> Local responses go to OUTPUT -> All outgoing packets pass POSTROUTING (SNAT).",
+    shortAnswer: "Packets arrive at PREROUTING (DNAT) → Routing decision determines if packet is for local host (INPUT chain) or routed to another subnet (FORWARD chain) → Local responses go to OUTPUT → All outgoing packets pass POSTROUTING (SNAT).",
     explanation: "Netfilter is the packet filtering framework inside the Linux kernel. When a packet enters a physical NIC, PREROUTING handles Destination NAT. The kernel routing engine inspects the destination IP. If local, it passes the INPUT chain to reach the application. If routed to another network, it passes the FORWARD chain, followed by POSTROUTING for Source NAT.",
-    hint: "PREROUTING -> Routing Decision -> (INPUT / FORWARD) -> OUTPUT -> POSTROUTING.",
+    hint: "PREROUTING → Routing Decision → (INPUT / FORWARD) → OUTPUT → POSTROUTING.",
     level: "Expert",
     codeExample: `// Netfilter Packet Flow Diagram:
-// Ingress -> [PREROUTING (DNAT)] -> [Routing Decision]
-//   ├── Local Host: -> [INPUT Chain] -> [Local App] -> [OUTPUT Chain] -> [POSTROUTING (SNAT)] -> Egress
-//   └── Forwarded : -> [FORWARD Chain] --------------------------------> [POSTROUTING (SNAT)] -> Egress`
+// Ingress → [PREROUTING (DNAT)] → [Routing Decision]
+//   ├── Local Host: → [INPUT Chain] → [Local App] → [OUTPUT Chain] → [POSTROUTING (SNAT)] → Egress
+//   └── Forwarded : → [FORWARD Chain] --------------------------------> [POSTROUTING (SNAT)] → Egress`
   },
   {
     id: 10,
@@ -110,11 +110,11 @@ const firewallFunctions = [
     hint: "First rule that matches wins; place specific rules first, general rules last.",
     level: "Basic",
     codeExample: `// Flawed Rule Base vs Correct Rule Base:
-// BAD:  Line 1: ACCEPT ANY -> ANY port 80 (Overly broad, shadows specific blocks!)
-//       Line 2: DROP 198.51.100.10 -> ANY port 80 (NEVER REACHED!)
+// BAD:  Line 1: ACCEPT ANY → ANY port 80 (Overly broad, shadows specific blocks!)
+//       Line 2: DROP 198.51.100.10 → ANY port 80 (NEVER REACHED!)
 
-// GOOD: Line 1: DROP 198.51.100.10 -> ANY port 80 (Specific drop executed first!)
-//       Line 2: ACCEPT ANY -> 172.16.1.10 port 80`
+// GOOD: Line 1: DROP 198.51.100.10 → ANY port 80 (Specific drop executed first!)
+//       Line 2: ACCEPT ANY → 172.16.1.10 port 80`
   },
   {
     id: 11,
@@ -124,8 +124,8 @@ const firewallFunctions = [
     hint: "A broad rule higher up hides a specific rule lower down.",
     level: "Moderate",
     codeExample: `// Rule Shadowing Example:
-// Rule 1: ACCEPT source: 192.168.1.0/24 -> dest: ANY (Broad subnet allow)
-// Rule 2: DROP   source: 192.168.1.50   -> dest: ANY (SHADOWED! Will NEVER execute)`
+// Rule 1: ACCEPT source: 192.168.1.0/24 → dest: ANY (Broad subnet allow)
+// Rule 2: DROP   source: 192.168.1.50   → dest: ANY (SHADOWED! Will NEVER execute)`
   },
   {
     id: 12,
@@ -135,8 +135,8 @@ const firewallFunctions = [
     hint: "DMZ servers can only talk to specific database ports, never initiate arbitrary connections into internal office desks.",
     level: "Moderate",
     codeExample: `// DMZ Firewall Policy:
-// ALLOW: DMZ_Web (172.16.1.10) -> Internal_DB (10.10.4.50) port 5432 (PostgreSQL)
-// DROP : DMZ_Web (172.16.1.10) -> Internal_LAN (10.0.0.0/8) ANY (Blocks lateral movement!)`
+// ALLOW: DMZ_Web (172.16.1.10) → Internal_DB (10.10.4.50) port 5432 (PostgreSQL)
+// DROP : DMZ_Web (172.16.1.10) → Internal_LAN (10.0.0.0/8) ANY (Blocks lateral movement!)`
   },
   {
     id: 13,
@@ -183,8 +183,8 @@ const firewallFunctions = [
     hint: "Ingress guards the entrance door; Egress guards the exit door.",
     level: "Basic",
     codeExample: `// Ingress vs Egress Rules:
-// Ingress: DROP ANY -> 192.168.1.0/24 port 22 (Blocks external SSH probes)
-// Egress : DROP 192.168.1.0/24 -> ANY port 4444 (Blocks reverse shell beacons)`
+// Ingress: DROP ANY → 192.168.1.0/24 port 22 (Blocks external SSH probes)
+// Egress : DROP 192.168.1.0/24 → ANY port 4444 (Blocks reverse shell beacons)`
   },
   {
     id: 17,
@@ -205,8 +205,8 @@ const firewallFunctions = [
     hint: "Never put the master control panel on the outside wall of the fortress.",
     level: "Basic",
     codeExample: `// Hardening Firewall Management Interface:
-// ALLOW: Admin_VLAN (10.10.99.0/24) -> Firewall_MGMT_IP port 443/22
-// DROP : WAN_Interface (0.0.0.0/0)   -> Firewall_MGMT_IP port 443/22/8443`
+// ALLOW: Admin_VLAN (10.10.99.0/24) → Firewall_MGMT_IP port 443/22
+// DROP : WAN_Interface (0.0.0.0/0)   → Firewall_MGMT_IP port 443/22/8443`
   },
   {
     id: 19,
@@ -217,7 +217,7 @@ const firewallFunctions = [
     level: "Moderate",
     codeExample: `// High Availability (HA) State Synchronization:
 // Primary Firewall (Active)  <=== Heartbeat & conntrack sync ===> Secondary Firewall (Passive)
-// If Primary fails -> Secondary promotes to Active in < 500ms!`
+// If Primary fails → Secondary promotes to Active in < 500ms!`
   },
   {
     id: 20,
@@ -227,8 +227,8 @@ const firewallFunctions = [
     hint: "Layer 3 router that participates in IP hops vs Layer 2 invisible filter inserted into the wire.",
     level: "Expert",
     codeExample: `// Routed vs Transparent Mode:
-// Routed Mode     : LAN (10.10.1.0/24) -> [FW Gateway: 10.10.1.1] -> WAN (203.0.113.1)
-// Transparent Mode: LAN (10.10.1.0/24) -> [Layer 2 Bridge FW (No IP)] -> LAN Gateway (10.10.1.1)`
+// Routed Mode     : LAN (10.10.1.0/24) → [FW Gateway: 10.10.1.1] → WAN (203.0.113.1)
+// Transparent Mode: LAN (10.10.1.0/24) → [Layer 2 Bridge FW (No IP)] → LAN Gateway (10.10.1.1)`
   },
   {
     id: 21,
@@ -283,8 +283,8 @@ const maxConcurrentSessionsPerIP = totalPorts - reservedPorts; // 64,512 session
     hint: "A U-turn for network packets so internal users can use the public web address.",
     level: "Expert",
     codeExample: `// Hairpin NAT Concept:
-// Client (10.10.1.50) -> Requests Public IP (203.0.113.10)
-// Router performs U-turn -> Translates to DMZ IP (172.16.1.10) -> Returns response smoothly!`
+// Client (10.10.1.50) → Requests Public IP (203.0.113.10)
+// Router performs U-turn → Translates to DMZ IP (172.16.1.10) → Returns response smoothly!`
   },
   {
     id: 26,
@@ -307,7 +307,7 @@ const maxConcurrentSessionsPerIP = totalPorts - reservedPorts; // 64,512 session
     hint: "Locking the border gate against foreign automated botnet traffic when you only serve local citizens.",
     level: "Basic",
     codeExample: `// Geo-IP Firewall Rule:
-// IF Packet.SourceCountry NOT IN ['IN'] AND Packet.DestinationPort == 443 -> DROP Flow!`
+// IF Packet.SourceCountry NOT IN ['IN'] AND Packet.DestinationPort == 443 → DROP Flow!`
   },
   {
     id: 28,
@@ -317,7 +317,7 @@ const maxConcurrentSessionsPerIP = totalPorts - reservedPorts; // 64,512 session
     hint: "A door left unlocked for a tenant who moved out three years ago.",
     level: "Moderate",
     codeExample: `// Orphaned Rule Risk:
-// Rule 45: ALLOW ANY -> 10.10.4.80 port 8080 (Old staging server decommissioned in 2021!)
+// Rule 45: ALLOW ANY → 10.10.4.80 port 8080 (Old staging server decommissioned in 2021!)
 // Fix: Automated firewall rule audits flagging zero-hit-count rules over 90 days.`
   },
   {

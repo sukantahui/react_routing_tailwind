@@ -42,7 +42,7 @@ export default function Topic6() {
             Fault Diagnostics &amp; Defensive Coding
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Null Reference and the Anatomy of <code className="text-rose-400 font-mono">NullPointerException</code> (NPE)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -161,17 +161,17 @@ export default function Topic6() {
 
             <rect x="40" y="85" width="385" height="50" rx="6" fill="#450a0a" stroke="#f87171" strokeWidth="1" />
             <text x="50" y="105" fill="#fca5a5" fontSize="10" fontFamily="monospace">swadeep.getPostalAddressDirect()</text>
-            <text x="50" y="123" fill="#fecaca" fontSize="11" fontWeight="bold" fontFamily="monospace">&rarr; Returns NULL (0x00000000)</text>
+            <text x="50" y="123" fill="#fecaca" fontSize="11" fontWeight="bold" fontFamily="monospace">→ Returns NULL (0x00000000)</text>
 
             <rect x="40" y="145" width="385" height="50" rx="6" fill="#1e293b" stroke="#64748b" strokeWidth="1" />
             <text x="50" y="165" fill="#bae6fd" fontSize="10" fontFamily="monospace">.getCity() [invokevirtual]</text>
-            <text x="50" y="183" fill="#ef4444" fontSize="11" fontWeight="bold" fontFamily="monospace">&rarr; CRASH! Hardware Page Fault Trapped</text>
+            <text x="50" y="183" fill="#ef4444" fontSize="11" fontWeight="bold" fontFamily="monospace">→ CRASH! Hardware Page Fault Trapped</text>
 
             <rect x="40" y="205" width="385" height="85" rx="6" fill="#020617" stroke="#ef4444" strokeWidth="1" />
             <text x="50" y="225" fill="#f87171" fontSize="10" fontWeight="bold">Java 14+ JEP 358 Diagnostic Message:</text>
             <text x="50" y="245" fill="#fca5a5" fontSize="9" fontFamily="monospace">"Cannot invoke Address.getCity() because the</text>
             <text x="50" y="260" fill="#fca5a5" fontSize="9" fontFamily="monospace"> return value of getPostalAddressDirect() is null"</text>
-            <text x="50" y="278" fill="#fecaca" fontSize="9" fontWeight="bold">&rarr; Throws java.lang.NullPointerException</text>
+            <text x="50" y="278" fill="#fecaca" fontSize="9" fontWeight="bold">→ Throws java.lang.NullPointerException</text>
 
             {/* Right Box: Modern Defensive Optional Shield */}
             <rect x="475" y="25" width="420" height="280" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="2" />
@@ -180,15 +180,15 @@ export default function Topic6() {
 
             <rect x="490" y="85" width="390" height="50" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1" />
             <text x="500" y="105" fill="#a7f3d0" fontSize="10" fontFamily="monospace">swadeep.getPostalAddress()</text>
-            <text x="500" y="123" fill="#ecfdf5" fontSize="11" fontWeight="bold" fontFamily="monospace">&rarr; Returns Optional.empty()</text>
+            <text x="500" y="123" fill="#ecfdf5" fontSize="11" fontWeight="bold" fontFamily="monospace">→ Returns Optional.empty()</text>
 
             <rect x="490" y="145" width="390" height="50" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1" />
             <text x="500" y="165" fill="#a7f3d0" fontSize="10" fontFamily="monospace">.map(Address::getCity)</text>
-            <text x="500" y="183" fill="#ecfdf5" fontSize="11" fontWeight="bold" fontFamily="monospace">&rarr; Safely skipped! Still Optional.empty()</text>
+            <text x="500" y="183" fill="#ecfdf5" fontSize="11" fontWeight="bold" fontFamily="monospace">→ Safely skipped! Still Optional.empty()</text>
 
             <rect x="490" y="205" width="390" height="85" rx="6" fill="#022c22" stroke="#10b981" strokeWidth="1" />
             <text x="500" y="225" fill="#6ee7b7" fontSize="10" fontWeight="bold">.orElse("Campus Hostel (Default)")</text>
-            <text x="500" y="248" fill="#fef08a" fontSize="11" fontWeight="bold" fontFamily="monospace">&rarr; Value: "Campus Hostel (Default)"</text>
+            <text x="500" y="248" fill="#fef08a" fontSize="11" fontWeight="bold" fontFamily="monospace">→ Value: "Campus Hostel (Default)"</text>
             <text x="500" y="272" fill="#a7f3d0" fontSize="10">Zero Exceptions Thrown &middot; 100% Type-Safe Delivery &middot; Production Ready</text>
           </svg>
         </div>

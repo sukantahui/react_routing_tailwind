@@ -86,7 +86,7 @@ const questions = [
     question: "How do you draw a straight line of length 200, reverse to the midpoint, and draw a perpendicular tick mark?",
     shortAnswer: "'t.forward(200); t.backward(100); t.left(90); t.forward(20); t.backward(40)'",
     explanation: "Combining forward and backward steps for tick marks and axis drawing.",
-    hint: "forward(200) -> backward(100) to midpoint -> turn 90° -> forward/backward for tick.",
+    hint: "forward(200) → backward(100) to midpoint → turn 90° → forward/backward for tick.",
     level: "moderate",
     codeExample: "t.fd(200); t.bk(100); t.lt(90); t.fd(20); t.bk(40)"
   },

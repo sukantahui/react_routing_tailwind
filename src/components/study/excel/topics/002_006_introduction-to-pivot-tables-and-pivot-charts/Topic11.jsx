@@ -71,7 +71,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Formatting and Layout options: Compact, Outline, Tabular forms, and blank rows"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Formatting_and_Lay"
+            sheetName="EX1112"
             title={"Formatting and Layout options: Compact, Outline, Tabular forms, and blank rows - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -395,7 +395,7 @@ export default function Topic11() {
                 Step 3: Set Value Field Settings &amp; Number Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Right-click any value cell &gt; Value Field Settings &gt; Number Format, and apply standard currency/accounting masks.
+                Right-click any value cell > Value Field Settings > Number Format, and apply standard currency/accounting masks.
               </p>
             </div>
 
@@ -486,7 +486,7 @@ export default function Topic11() {
                 <span>⚡</span> {"Repeat Item Labels"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Fills down all category labels, making pivot data 100% formula-ready."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design &gt; Report Layout > Repeat All Item Labels"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design > Report Layout > Repeat All Item Labels"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -502,7 +502,7 @@ export default function Topic11() {
                 <span>⚡</span> {"Insert Blank Line"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Creates visual breathing room between major division groups."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design &gt; Blank Rows > Insert Blank Line After Each Item"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design > Blank Rows > Insert Blank Line After Each Item"}</kbd>
             </div>
             
           </div>
@@ -572,7 +572,7 @@ export default function Topic11() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"If you plan to use PivotTable output in VLOOKUPs or downstream models, ALWAYS switch to 'Design -> Report Layout -> Tabular Form' and select 'Repeat All Item Labels'. It creates a perfect database grid."}
+            note={"If you plan to use PivotTable output in VLOOKUPs or downstream models, ALWAYS switch to 'Design → Report Layout → Tabular Form' and select 'Repeat All Item Labels'. It creates a perfect database grid."}
           />
         </div>
       </div>

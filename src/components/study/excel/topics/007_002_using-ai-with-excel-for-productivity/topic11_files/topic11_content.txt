@@ -10,7 +10,7 @@ Real-world project: Building an AI-powered customer feedback sentiment analysis 
 It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: AI Sentiment Dashboard: Customer Feedback Table -> =ASK_AI() Sentiment & Category Extraction -> Pivot Table Aggregation -> Executive KPI Dashboard
+Operational Architecture: AI Sentiment Dashboard: Customer Feedback Table → =ASK_AI() Sentiment & Category Extraction → Pivot Table Aggregation → Executive KPI Dashboard
 
 3. CORE TECHNICAL MECHANICS
 1. End-to-End AI Sentiment Pipeline:

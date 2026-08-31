@@ -23,6 +23,6 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
 --------------------------------------------------------------------------------
 • Always register corporate functions with Workbook Scope (never Worksheet Scope).
-• Use semantic versioning (v1.0.0 &rarr; v1.1.0) and deprecate legacy signatures gracefully.
+• Use semantic versioning (v1.0.0 → v1.1.0) and deprecate legacy signatures gracefully.
 • Distribute via Master Template workbooks (.xltx) or corporate Excel Add-ins (.xlam).
 ================================================================================

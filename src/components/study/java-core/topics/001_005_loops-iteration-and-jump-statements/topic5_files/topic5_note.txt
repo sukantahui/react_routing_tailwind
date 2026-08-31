@@ -14,7 +14,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Guaranteed Single Execution (Post-test):
   * The body executes at least ONCE before the condition is ever evaluated.
-  * If initial condition is FALSE -> Body still executes 1 time.
+  * If initial condition is FALSE → Body still executes 1 time.
 
 - Canonical Use Cases:
   1. Interactive CLI Menus    : Displaying options before receiving user selection.

@@ -43,7 +43,7 @@ export default function Topic8() {
             Behavior Invocation &amp; Dynamic Dispatch
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Instance Methods: Invoking Behaviors on Objects via Dot (<code className="text-sky-400 font-mono">.</code>) Operator
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -155,7 +155,7 @@ export default function Topic8() {
             <text x="50" y="200" fill="#bae6fd" fontSize="9" fontFamily="monospace">1. aload_1 // Load swadeep</text>
             <text x="50" y="218" fill="#bae6fd" fontSize="9" fontFamily="monospace">2. ldc2_w 6000.0 // Amount</text>
             <text x="50" y="236" fill="#38bdf8" fontSize="9" fontFamily="monospace" fontWeight="bold">3. invokevirtual creditStipend</text>
-            <text x="50" y="258" fill="#a7f3d0" fontSize="8">&rarr; Pushes new callee stack frame</text>
+            <text x="50" y="258" fill="#a7f3d0" fontSize="8">→ Pushes new callee stack frame</text>
 
             {/* Middle Box: Callee Stack Frame with 'this' */}
             <rect x="335" y="25" width="280" height="270" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="2" />

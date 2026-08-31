@@ -15,8 +15,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Reverse the accumulated string.
 
 - Bitwise Binary & Hex Extraction:
-  * Binary : for bit 31 down to 0 -> (n >>> bit) & 1
-  * Hex    : while (num > 0) -> nibble = (int)(num % 16); num /= 16;
+  * Binary : for bit 31 down to 0 → (n >>> bit) & 1
+  * Hex    : while (num > 0) → nibble = (int)(num % 16); num /= 16;
   * Negative numbers : use (n & 0xFFFFFFFFL) to convert to unsigned 64-bit long.
 
 - Reverse Conversion (Horner's Method - Base B to Decimal):

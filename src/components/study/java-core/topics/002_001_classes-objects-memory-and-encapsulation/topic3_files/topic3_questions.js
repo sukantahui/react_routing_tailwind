@@ -70,7 +70,7 @@ const topic3_questions = [
   },
   {
     question: "In what order do static blocks, instance blocks, and constructors execute when creating the first instance?",
-    shortAnswer: "1. Static blocks (once) -> 2. Instance initializers/fields -> 3. Constructor body.",
+    shortAnswer: "1. Static blocks (once) → 2. Instance initializers/fields → 3. Constructor body.",
     explanation: "When the first object of a class is created, static initializers and static fields execute first during class loading. Then, for each instance created, instance field initializers and instance blocks execute in textual order, followed immediately by the constructor body.",
     hint: "Static belongs to the Class; instance blocks belong to each individual Object.",
     level: "Intermediate",
@@ -98,7 +98,7 @@ const topic3_questions = [
     explanation: "64-bit CPUs fetch data from memory most efficiently in 64-bit (8-byte) words. HotSpot JVM enforces 8-byte address alignment. If an object's header + fields total 21 bytes, the JVM adds 3 bytes of padding to round it up to 24 bytes.",
     hint: "Hardware architecture optimization for 64-bit bus alignment.",
     level: "Advanced",
-    codeExample: "// Header (12B) + int id (4B) + boolean (1B) = 17 bytes\n// JVM adds 7 bytes padding -> Total 24 bytes."
+    codeExample: "// Header (12B) + int id (4B) + boolean (1B) = 17 bytes\n// JVM adds 7 bytes padding → Total 24 bytes."
   },
   {
     question: "Does the declaration 'CourseEnrollment swadeep;' allocate memory for an object on the Heap?",
@@ -222,11 +222,11 @@ const topic3_questions = [
   },
   {
     question: "What is the lifecycle of an object created via 'new' from creation to reclamation?",
-    shortAnswer: "1. Created & Initialized -> 2. In Use (Reachable) -> 3. Unreachable -> 4. Finalized (deprecated) -> 5. Reclaimed by GC.",
+    shortAnswer: "1. Created & Initialized → 2. In Use (Reachable) → 3. Unreachable → 4. Finalized (deprecated) → 5. Reclaimed by GC.",
     explanation: "An object is born when 'new' allocates it. It remains in-use as long as a GC Root holds a reference. When all references are cleared (nullified or out of scope), it enters the unreachable state and the Garbage Collector reclaims its Heap space during minor/major GC.",
     hint: "Root reachability determines when JVM Garbage Collector recycles the bytes.",
     level: "Intermediate",
-    codeExample: "CourseEnrollment s = new CourseEnrollment(...); // Created & In Use\ns = null; // Unreachable -> GC Reclaims memory"
+    codeExample: "CourseEnrollment s = new CourseEnrollment(...); // Created & In Use\ns = null; // Unreachable → GC Reclaims memory"
   },
   {
     question: "What is the danger of repeatedly creating large numbers of short-lived objects in a tight loop?",

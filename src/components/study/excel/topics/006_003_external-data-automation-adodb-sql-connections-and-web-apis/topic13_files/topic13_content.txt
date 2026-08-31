@@ -44,7 +44,7 @@ Operational Architecture: Enterprise Database Automation & SQL Integration Lab C
   Diagnostic Fix: Wrap all network calls in defensive error recovery blocks.
 
 6. PRO TIPS & SHORTCUTS
-• Universal Connection Pattern (Open -> Execute -> Process -> Close -> Set Nothing): The foundational pattern for all database automation.
+• Universal Connection Pattern (Open → Execute → Process → Close → Set Nothing): The foundational pattern for all database automation.
 • Fastest Data Ingestion (CopyFromRecordset for tabular data): Sub-second extraction across millions of data points.
 • Security First (Parameterized queries + Windows Auth): Non-negotiable corporate standards.
 ================================================================================

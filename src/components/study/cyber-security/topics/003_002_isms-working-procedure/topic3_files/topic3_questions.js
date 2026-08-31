@@ -77,7 +77,7 @@ Status in SoA:       IMPLEMENTED & AUDITED`
     codeExample: `// Judicial Defense via SoA:
 Plaintiff Claim: "Enterprise was negligent in protecting customer PAN numbers."
 Defense Evidence: Produces ISO 27001 SoA showing Control A.8.11 (Data Masking) and A.8.24 (Crypto) were actively enforced.
-Judicial Finding: Corporate entity demonstrated statutory reasonable security practices -> Claim dismissed!`
+Judicial Finding: Corporate entity demonstrated statutory reasonable security practices → Claim dismissed!`
   },
   {
     question: "What role do 'Interfaces and Dependencies' play in defining the ISMS Scope under Clause 4.3?",
@@ -120,7 +120,7 @@ v2.1 (2026): Updated for DPDP Act Section 8 (Added A.8.10 Information Deletion &
     level: "moderate",
     codeExample: `// Shared Responsibility in Cloud SoA:
 Control A.7.1 (Physical Security): Delegated to AWS (AWS SOC 2 Type II Report on file)
-Control A.8.24 (Encryption):       Customer Responsibility -> AES-256-GCM enforced via AWS KMS by Mamata`
+Control A.8.24 (Encryption):       Customer Responsibility → AES-256-GCM enforced via AWS KMS by Mamata`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, why must the ISMS Scope include all databases processing digital personal data?",

@@ -4,7 +4,7 @@ Instructor: Sukanta Hui | Coder & AccoTax
 Key Takeaways:
 - Merge & Center physically fuses multiple cells into a single address (top-left cell), destroying all other cell addresses in that block.
 - Merged cells break VBA automation, disable column sorting, break array formulas, and prevent single-column selection (Ctrl+Space).
-- 'Center Across Selection' (Format Cells &rarr; Alignment &rarr; Horizontal: Center Across Selection) visually achieves the exact same title centering while keeping every column 100% intact!
+- 'Center Across Selection' (Format Cells → Alignment → Horizontal: Center Across Selection) visually achieves the exact same title centering while keeping every column 100% intact!
 
 Teacher Note:
 Never, ever use Merge & Center! It breaks sorting, breaks VBA macros, and breaks array formulas. Always press Ctrl+1, go to Alignment, and select 'Center Across Selection'. Your spreadsheets will look identical but remain 100% robust and sortable!

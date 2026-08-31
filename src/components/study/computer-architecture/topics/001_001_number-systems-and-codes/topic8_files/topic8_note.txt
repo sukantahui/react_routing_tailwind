@@ -36,7 +36,7 @@ Decimal Value: -25
 Arithmetic Check (45 - 25 = 20):
   +45: 00101101
   -25: 11100111
-  Sum: 1 00010100 (End carry discarded) -> Result: 00010100 = (20)_10. Verified!
+  Sum: 1 00010100 (End carry discarded) → Result: 00010100 = (20)_10. Verified!
 
 4. REAL-WORLD WEST BENGAL ENGINEERING APPLICATIONS
 --------------------------------------------------------------------------------

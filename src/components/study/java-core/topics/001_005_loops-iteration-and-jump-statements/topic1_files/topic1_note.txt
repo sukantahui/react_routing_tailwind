@@ -14,7 +14,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Exact 5-Step Lifecycle Order:
   Step 1: Initialization executes EXACTLY ONCE upon loop entry.
-  Step 2: Condition is evaluated (true -> Step 3 | false -> Terminate Loop).
+  Step 2: Condition is evaluated (true → Step 3 | false → Terminate Loop).
   Step 3: Loop Body executes payload statements.
   Step 4: Update Expression executes (e.g. i++, i--, i += 5).
   Step 5: Jump back to Step 2 (re-evaluate condition).

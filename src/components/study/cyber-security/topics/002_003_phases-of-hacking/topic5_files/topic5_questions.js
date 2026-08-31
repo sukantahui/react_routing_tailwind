@@ -6,7 +6,7 @@ const questions = [
     hint: "Think about turning the key in the unlocked lock to step inside the room.",
     level: "basic",
     codeExample: `// Phase 3 Validation Objective:
-// Vulnerability Identified -> Safe Test Performed -> Evidence Collected -> Remediation Recommended`
+// Vulnerability Identified → Safe Test Performed → Evidence Collected → Remediation Recommended`
   },
   {
     question: "What are the core technical differences between a 'Vulnerability', an 'Exploit', and a 'Payload'?",

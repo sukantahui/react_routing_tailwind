@@ -41,7 +41,7 @@ const Topic1 = () => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
           </svg>
         </div>
-        <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
           <span className="block">Boolean Constants</span>
           <span className="block text-green-600 dark:text-green-400">and Variables</span>
         </h1>
@@ -59,7 +59,7 @@ const Topic1 = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div className="bg-red-50 dark:bg-red-900/20 p-5 rounded-xl transition-all duration-300 hover:bg-red-100 dark:hover:bg-red-900/40">
-              <div className="text-4xl font-bold text-red-600 dark:text-red-400 mb-2">0</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 dark:text-red-400 mb-2">0</div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">FALSE · OFF · LOW</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                 Represents the absence of a condition, a closed switch, or 0 volts in a digital circuit.
@@ -70,7 +70,7 @@ const Topic1 = () => {
             </div>
             
             <div className="bg-green-50 dark:bg-green-900/20 p-5 rounded-xl transition-all duration-300 hover:bg-green-100 dark:hover:bg-green-900/40">
-              <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">1</div>
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-2">1</div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">TRUE · ON · HIGH</h3>
               <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                 Represents the presence of a condition, a closed switch, or a positive voltage (e.g., 5V, 3.3V) in a digital circuit.

@@ -6,8 +6,8 @@ Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
 
 1. CREATION & AGGREGATION FUNCTIONS
 --------------------------------------------------------------------------------
-1. `JSON_OBJECT('name', 'Mamata', 'city', 'Barrackpore')` -> `{"name": "Mamata", "city": "Barrackpore"}`
-2. `JSON_ARRAY('MySQL', 'React', 'Node.js')` -> `["MySQL", "React", "Node.js"]`
+1. `JSON_OBJECT('name', 'Mamata', 'city', 'Barrackpore')` → `{"name": "Mamata", "city": "Barrackpore"}`
+2. `JSON_ARRAY('MySQL', 'React', 'Node.js')` → `["MySQL", "React", "Node.js"]`
 3. `JSON_ARRAYAGG(col)`: Aggregates table rows into a single JSON array.
 4. `JSON_OBJECTAGG(key_col, val_col)`: Aggregates key-value rows into a JSON object.
 

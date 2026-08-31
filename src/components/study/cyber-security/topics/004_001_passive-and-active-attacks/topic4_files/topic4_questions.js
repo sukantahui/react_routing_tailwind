@@ -115,10 +115,10 @@ const isValid = verify(null, Buffer.from("Transfer ₹50,000 to Mahima"), public
     hint: "A substation refusing to throw a master power switch until a digital challenge-response password is confirmed.",
     level: "expert",
     codeExample: `// DNP3 SAv5 Challenge-Response Sequence:
-// Master   -> Operate Command (Trip Breaker 14)
-// Substation -> Challenge Object (Nonce = 0x9a8f4e1b)
-// Master   -> Challenge Response (HMAC_K(Nonce || Command))
-// Substation -> Verifies HMAC -> Executes Breaker Trip Relay`
+// Master   → Operate Command (Trip Breaker 14)
+// Substation → Challenge Object (Nonce = 0x9a8f4e1b)
+// Master   → Challenge Response (HMAC_K(Nonce || Command))
+// Substation → Verifies HMAC → Executes Breaker Trip Relay`
   },
   {
     question: "What is an XML/JSON In-Flight Parameter Injection attack on Web Services?",
@@ -137,7 +137,7 @@ const isValid = verify(null, Buffer.from("Transfer ₹50,000 to Mahima"), public
     hint: "A family tree of hashes where changing one baby's name changes the family crest at the very top.",
     level: "expert",
     codeExample: `// Merkle Root Verification:
-// Leaf A = Hash(Tx1), Leaf B = Hash(Tx2) -> Node AB = Hash(Leaf A || Leaf B)
+// Leaf A = Hash(Tx1), Leaf B = Hash(Tx2) → Node AB = Hash(Leaf A || Leaf B)
 // Merkle Root = Hash(Node AB || Node CD)
 // Tampering with Tx1 invalidates Node AB and corrupts Merkle Root immediately!`
   },
@@ -159,8 +159,8 @@ const isValid = verify(null, Buffer.from("Transfer ₹50,000 to Mahima"), public
     level: "expert",
     codeExample: `// Encrypt-then-MAC Verification Pipeline:
 // Step 1: Verify HMAC_K2(Ciphertext) == Received_Tag
-// Step 2: IF INVALID -> Drop immediately! (Never call AES Decrypt)
-// Step 3: IF VALID   -> Call AES_Decrypt_K1(Ciphertext)`
+// Step 2: IF INVALID → Drop immediately! (Never call AES Decrypt)
+// Step 3: IF VALID   → Call AES_Decrypt_K1(Ciphertext)`
   },
   {
     question: "What is SQL Injection (SQLi) via In-Flight HTTP Parameter Modification?",
@@ -191,7 +191,7 @@ const isValid = verify(null, Buffer.from("Transfer ₹50,000 to Mahima"), public
     codeExample: `// AIDE / Wazuh File Integrity Rule:
 /etc/nginx/nginx.conf  R+sha256
 /usr/sbin/sshd         R+sha512+p+u+g
-# Alert: SHA-256 mismatch detected on /etc/nginx/nginx.conf -> Immediate SOC incident!`
+# Alert: SHA-256 mismatch detected on /etc/nginx/nginx.conf → Immediate SOC incident!`
   },
   {
     question: "How does the 'Birthday Attack' mathematically limit the collision resistance of cryptographic hashes?",

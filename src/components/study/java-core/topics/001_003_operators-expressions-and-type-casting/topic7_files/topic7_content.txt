@@ -30,7 +30,7 @@ B. The NaN Comparison Invariant:
 During relational comparisons between different numeric primitives, Java performs Binary Numeric Promotion (JLS §5.6.2):
   int a = 10;
   double b = 10.0;
-  boolean res = (a == b); // 'a' is promoted to double 10.0 -> returns true.
+  boolean res = (a == b); // 'a' is promoted to double 10.0 → returns true.
 
 4. ACCIDENTAL ASSIGNMENT PREVENTION IN JAVA
 In C and C++, writing `if (x = 5)` assigns `5` to `x` and evaluates to truthy `5`, causing silent catastrophic bugs.

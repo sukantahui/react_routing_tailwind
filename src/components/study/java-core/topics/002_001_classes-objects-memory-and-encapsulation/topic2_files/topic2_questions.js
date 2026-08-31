@@ -19,7 +19,7 @@ const questions = [
     explanation: "The 8 architectural sections of a Java class.",
     hint: "Package, Imports, Class Header, Constants, Fields, Constructors, Methods, Object overrides.",
     level: "basic",
-    codeExample: "// Package -> Imports -> Class -> Constants -> Fields -> Constructors -> Methods -> Overrides"
+    codeExample: "// Package → Imports → Class → Constants → Fields → Constructors → Methods → Overrides"
   },
   {
     question: "What are the allowed Top-Level Class Access Modifiers in Java?",
@@ -75,7 +75,7 @@ const questions = [
     explanation: "Overridden equals() method verification.",
     hint: "true (logical equality based on rollNumber).",
     level: "basic",
-    codeExample: "swadeep.equals(swadeepDuplicate) -> true"
+    codeExample: "swadeep.equals(swadeepDuplicate) → true"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the result of `swadeep == swadeepDuplicate`?",
@@ -83,7 +83,7 @@ const questions = [
     explanation: "Reference address vs logical equality.",
     hint: "false (different memory addresses in Heap).",
     level: "basic",
-    codeExample: "swadeep == swadeepDuplicate -> false"
+    codeExample: "swadeep == swadeepDuplicate → false"
   },
   {
     question: "Why must `hashCode()` ALWAYS be overridden whenever `equals()` is overridden?",
@@ -107,7 +107,7 @@ const questions = [
     explanation: "Student profile calculation verification.",
     hint: "94.0%.",
     level: "basic",
-    codeExample: "computePercentage() -> 94.0%"
+    codeExample: "computePercentage() → 94.0%"
   },
   {
     question: "What is the purpose of the `this` keyword inside instance methods and constructors?",
@@ -225,7 +225,7 @@ const questions = [
     question: "What is the ultimate takeaway of Module 002_001 Topic 2 for Java developers?",
     shortAnswer: "A production Java class is a structured blueprint consisting of 8 clear sections: static constants, private instance fields, robust constructors with invariant guards, domain behavior methods, validating accessors, and overridden `toString`/`equals`/`hashCode` methods.",
     explanation: "Mastery of class definition syntax and anatomy.",
-    hint: "A clean class structure: constants -> private fields -> constructors -> domain methods -> equals/hashCode.",
+    hint: "A clean class structure: constants → private fields → constructors → domain methods → equals/hashCode.",
     level: "basic",
     codeExample: "// Summary: Complete 8-part Java Class Architecture"
   },

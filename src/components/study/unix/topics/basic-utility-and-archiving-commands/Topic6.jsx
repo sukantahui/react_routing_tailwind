@@ -91,7 +91,7 @@ const Topic6 = () => {
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-4 py-12 md:py-16 animate-fade-slide-up">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-transparent mb-4">
             🗜️ The `gzip` Command
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -143,7 +143,7 @@ const Topic6 = () => {
               <span>gzip {keepOriginal ? '-k ' : ''}{verbose ? '-v ' : ''}-{compressionLevel} data.bin</span>
             </div>
             <pre className={clsx('transition-opacity duration-300', isAnimating ? 'opacity-70' : 'opacity-100')}>
-              {verbose ? `data.bin:      ${parseInt(fileSize).toLocaleString()} bytes -> ${compressedSize} bytes, ${Math.round((1 - parseInt(compressedSize.replace(/,/g,''))/parseInt(fileSize))*100)}% reduction\n` : ''}
+              {verbose ? `data.bin:      ${parseInt(fileSize).toLocaleString()} bytes → ${compressedSize} bytes, ${Math.round((1 - parseInt(compressedSize.replace(/,/g,''))/parseInt(fileSize))*100)}% reduction\n` : ''}
               {keepOriginal ? 'Original file kept: data.bin\n' : 'Original file removed: data.bin → data.bin.gz'}
               {'Compressed file: data.bin.gz'}
             </pre>

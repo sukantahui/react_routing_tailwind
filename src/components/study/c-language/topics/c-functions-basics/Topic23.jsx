@@ -78,7 +78,7 @@ const Topic23 = () => {
               "motion-reduce:animate-none"
             )}
           >
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight text-indigo-400 dark:text-indigo-400">
+            <h1 className="mb-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-indigo-400 dark:text-indigo-400">
               📚 Stack Memory Behavior in Recursion
             </h1>
             <p className="text-xl text-gray-300 dark:text-gray-300">

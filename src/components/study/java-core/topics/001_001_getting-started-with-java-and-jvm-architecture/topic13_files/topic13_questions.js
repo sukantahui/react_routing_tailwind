@@ -11,7 +11,7 @@ const questions = [
     question: "In the expression `System.out.println()`, what is `System`, what is `out`, and what is `println`?",
     shortAnswer: "`System` is a final class in java.lang; `out` is a public static PrintStream field; `println` is an overloaded method on PrintStream.",
     explanation: "Understanding this structure demystifies Java's object model: accessing a static member on class System to invoke an instance method on a PrintStream object.",
-    hint: "Class -> Static Field (PrintStream instance) -> Method.",
+    hint: "Class → Static Field (PrintStream instance) → Method.",
     level: "basic",
     codeExample: "// java.lang.System.out.println(\"Hello\");"
   },
@@ -77,7 +77,7 @@ const questions = [
     explanation: "`print()` requires at least one parameter (primitive, String, or Object) to convert to text.",
     hint: "print() must receive an argument.",
     level: "basic",
-    codeExample: "// System.out.print(); -> COMPILE ERROR: no suitable method found for print()"
+    codeExample: "// System.out.print(); → COMPILE ERROR: no suitable method found for print()"
   },
   {
     question: "What does `System.out.println((Object) null)` print?",
@@ -141,7 +141,7 @@ const questions = [
     explanation: "Format specifier `%d` requires an integer (byte, short, int, long, BigInteger). Passing a String mismatches the expected type.",
     hint: "IllegalFormatConversionException.",
     level: "intermediate",
-    codeExample: "// System.out.printf(\"%d\", \"text\"); -> Throws IllegalFormatConversionException: d != java.lang.String"
+    codeExample: "// System.out.printf(\"%d\", \"text\"); → Throws IllegalFormatConversionException: d != java.lang.String"
   },
   {
     question: "What exception is thrown if there are fewer arguments passed than format specifiers (e.g. `System.out.printf(\"%s %s\", \"one\")`)?",
@@ -149,7 +149,7 @@ const questions = [
     explanation: "The format string expects two arguments, but only one was provided.",
     hint: "MissingFormatArgumentException.",
     level: "intermediate",
-    codeExample: "// System.out.printf(\"%s %s\", \"A\"); -> Throws MissingFormatArgumentException"
+    codeExample: "// System.out.printf(\"%s %s\", \"A\"); → Throws MissingFormatArgumentException"
   },
   {
     question: "How do you escape the percent `%` symbol inside a `printf` format string?",
@@ -237,7 +237,7 @@ const questions = [
     explanation: "Knowing when to use `print` for prompts, `println` for structured logs, and `printf` for aligned reports produces professional, classroom-friendly console applications.",
     hint: "Precision in console presentation and debugging.",
     level: "basic",
-    codeExample: "// Formatting Mastery -> Clean, Professional Console Output."
+    codeExample: "// Formatting Mastery → Clean, Professional Console Output."
   }
 ];
 

@@ -76,7 +76,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Parameterizing Power Query: Creating Dynamic File Paths &amp; Date Range Parameters
           </h1>
 
@@ -216,7 +216,7 @@ export default function Topic4() {
                 executing lightning-fast server-side filtering!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                SQL Server Executes: WHERE [Amount] &gt;= @p_Threshold
+                SQL Server Executes: WHERE [Amount] >= @p_Threshold
               </div>
             </div>
           </div>
@@ -304,7 +304,7 @@ export default function Topic4() {
               <rect x="325" y="115" width="495" height="85" rx="10" fill="#0F172A" stroke="#1E293B" strokeWidth="2" />
               <text x="340" y="137" fill="#38BDF8" fontSize="10" fontWeight="bold" fontFamily="sans-serif">QUERY 2: Enterprise SQL Server Ledger Extract</text>
               <text x="340" y="158" fill="#94A3B8" fontSize="8.5" fontFamily="monospace">
-                = Table.SelectRows(Source, each [Date] &gt;= <tspan fill="#38BDF8" fontWeight="bold">p_StartDate</tspan> and [Branch] = <tspan fill="#38BDF8" fontWeight="bold">p_TargetBranch</tspan>)
+                = Table.SelectRows(Source, each [Date] >= <tspan fill="#38BDF8" fontWeight="bold">p_StartDate</tspan> and [Branch] = <tspan fill="#38BDF8" fontWeight="bold">p_TargetBranch</tspan>)
               </text>
               <text x="340" y="180" fill="#38BDF8" fontSize="8" fontFamily="sans-serif">✓ 100% Query Folding preserved in remote SQL WHERE clause</text>
 
@@ -312,7 +312,7 @@ export default function Topic4() {
               <rect x="325" y="210" width="495" height="85" rx="10" fill="#0F172A" stroke="#1E293B" strokeWidth="2" />
               <text x="340" y="232" fill="#FBBF24" fontSize="10" fontWeight="bold" fontFamily="sans-serif">QUERY 3: High-Value Financial Audit Report</text>
               <text x="340" y="253" fill="#94A3B8" fontSize="8.5" fontFamily="monospace">
-                = Table.SelectRows(FactTable, each [Amount] &gt;= <tspan fill="#FBBF24" fontWeight="bold">p_MinCutoffINR</tspan>)
+                = Table.SelectRows(FactTable, each [Amount] >= <tspan fill="#FBBF24" fontWeight="bold">p_MinCutoffINR</tspan>)
               </text>
               <text x="340" y="275" fill="#FBBF24" fontSize="8" fontFamily="sans-serif">✓ Non-technical managers adjust cutoff thresholds in 1 click</text>
             </svg>
@@ -349,7 +349,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Parameters"
+            sheetName="EX2105"
             title="Enterprise Parameter Configuration Store (Parameter Name, Data Type, Current Active Value, Validation / Allowed List, Pipeline Scope & Purpose)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -386,7 +386,7 @@ export default function Topic4() {
                 Financial Analyst <strong>Swadeep Banerjee</strong> parameterizes all file extraction steps with <code className="text-teal-300 font-mono">p_FolderPath</code>, allowing 20 distributed accounting team members to run reports without path-not-found crashes.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                p_FolderPath &rarr; Zero File-Path Breakages on Shared Workbooks
+                p_FolderPath → Zero File-Path Breakages on Shared Workbooks
               </div>
             </div>
 
@@ -403,7 +403,7 @@ export default function Topic4() {
                 Senior Accountant <strong>Tuhina Mukherjee</strong> connects an Excel cell containing <code className="text-emerald-300 font-mono">=TODAY()-60</code> to Power Query via <code className="text-emerald-300 font-mono">Excel.CurrentWorkbook</code>, dynamically filtering the last 60 days of sales automatically.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Excel.CurrentWorkbook &rarr; Dynamic Worksheet Cell Filtering
+                Excel.CurrentWorkbook → Dynamic Worksheet Cell Filtering
               </div>
             </div>
 
@@ -420,7 +420,7 @@ export default function Topic4() {
                 ERP Lead <strong>Abhronila Sengupta</strong> creates a dropdown parameter <code className="text-indigo-300 font-mono">p_Environment</code> ({'{"Dev_SQL", "Prod_SQL"}'}), switching ETL pipelines between test and production servers with a single dropdown selection.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                p_Environment &rarr; 1-Click Dev / Production Database Switching
+                p_Environment → 1-Click Dev / Production Database Switching
               </div>
             </div>
 
@@ -437,7 +437,7 @@ export default function Topic4() {
                 Operations Lead <strong>Debangshu Ghosh</strong> distributes a Power BI template (<code className="text-fuchsia-300 font-mono">.pbit</code>) where branch managers select their Branch Code from a parameter prompt upon opening, generating localized dashboards instantly.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                .pbit Parameter Prompt &rarr; Localized Self-Service Analytics
+                .pbit Parameter Prompt → Localized Self-Service Analytics
               </div>
             </div>
           </div>
@@ -467,7 +467,7 @@ export default function Topic4() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Create Parameter in Manage Parameters</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Go to <strong>Home &rarr; Manage Parameters &rarr; New Parameter</strong>. Name it <code className="text-teal-300 font-mono">p_FolderPath</code>, set Type to <strong>Text</strong>, and enter default path.
+                  Go to <strong>Home → Manage Parameters → New Parameter</strong>. Name it <code className="text-teal-300 font-mono">p_FolderPath</code>, set Type to <strong>Text</strong>, and enter default path.
                 </p>
               </div>
             </div>
@@ -503,7 +503,7 @@ export default function Topic4() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 4: Group Parameters in '00_Parameters' Folder</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Right-click Queries pane &rarr; <strong>New Group</strong> &rarr; Name <code className="text-emerald-300 font-mono">00_Parameters</code> and move all <code className="text-emerald-300 font-mono">p_*</code> queries into it!
+                  Right-click Queries pane → <strong>New Group</strong> → Name <code className="text-emerald-300 font-mono">00_Parameters</code> and move all <code className="text-emerald-300 font-mono">p_*</code> queries into it!
                 </p>
               </div>
             </div>

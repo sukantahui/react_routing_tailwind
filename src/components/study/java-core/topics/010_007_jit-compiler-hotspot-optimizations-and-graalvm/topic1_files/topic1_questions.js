@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Combines the advantages of both historical JIT compilers.",
     "hint": "Combines fast startup (C1) with peak long-term optimization (C2).",
     "level": "Intermediate",
-    "codeExample": "Tiered promotion: 0 -> 3 -> 4"
+    "codeExample": "Tiered promotion: 0 → 3 → 4"
   },
   {
     "question": "What does the number in the output column of -XX:+PrintCompilation represent (e.g. '1254   4   com.foo.Bar::calculate')?",
@@ -13,7 +13,7 @@ const topic1_questions = [
     "explanation": "Level 4 indicates maximum C2 optimization.",
     "hint": "The Tiered Compilation level (1, 2, 3, or 4).",
     "level": "Beginner",
-    "codeExample": "1254  4  ... -> Level 4 C2 Server compilation."
+    "codeExample": "1254  4  ... → Level 4 C2 Server compilation."
   }
 ];
 

@@ -28,7 +28,7 @@ const Topic38 = () => {
       securityLayer: '802.1X RADIUS + DHCP Snooping + Dynamic ARP Inspection + Layer 7 NGFW',
       estHardwareBudget: '₹2,40,000 (Cisco Catalyst 9300 Core Stack & PoE Switches)',
       desc: 'Modular enterprise architecture serving administrative workstations, Wi-Fi 6 APs, and server clusters.',
-      traceSimulation: 'Client PC (10.0.1.50) -> 802.1X Auth OK -> Switch Port-Channel (LACP) -> Core VRRP Master -> Dual ISP BGP -> 0 Packet Drops.',
+      traceSimulation: 'Client PC (10.0.1.50) → 802.1X Auth OK → Switch Port-Channel (LACP) → Core VRRP Master → Dual ISP BGP → 0 Packet Drops.',
     },
     {
       id: 'ftth-smart-home',
@@ -40,7 +40,7 @@ const Topic38 = () => {
       securityLayer: 'WPA3 Personal Encryption + Isolated Guest Wi-Fi SSID + SPI Firewall + DDNS',
       estHardwareBudget: '₹14,500 (GPON ONT Modem + Dual-Band Wi-Fi 6 Gigabit Router)',
       desc: 'High-speed fiber-to-the-home broadband streaming 4K HDR video and controlling automated Zigbee smart lights.',
-      traceSimulation: 'Phone sends 4K stream request -> Wi-Fi 6 OFDMA -> Home ONT -> 1490nm Downstream Optical Pulses -> Smooth playback at 300 Mbps.',
+      traceSimulation: 'Phone sends 4K stream request → Wi-Fi 6 OFDMA → Home ONT → 1490nm Downstream Optical Pulses → Smooth playback at 300 Mbps.',
     },
     {
       id: 'cloud-cdn-streaming',
@@ -52,7 +52,7 @@ const Topic38 = () => {
       securityLayer: 'Cloud WAF (DDoS Scrubbing) + TLS 1.3 Key Exchange + Bot Protection',
       estHardwareBudget: '₹1,65,000 / month (Cloud CDN, WAF & Managed K8s Cluster)',
       desc: 'Global cloud edge architecture delivering instantaneous page loads during festive e-commerce flash sales.',
-      traceSimulation: 'Browser requests video chunk -> BGP Anycast routes to Kolkata IXP Edge Cache -> Cache Hit (98.4%) -> Video served in 3.8 ms.',
+      traceSimulation: 'Browser requests video chunk → BGP Anycast routes to Kolkata IXP Edge Cache → Cache Hit (98.4%) → Video served in 3.8 ms.',
     },
     {
       id: 'municipal-cctv-ring',
@@ -64,7 +64,7 @@ const Topic38 = () => {
       securityLayer: 'MAC Address Port Security + Video VLAN Isolation + IP67 Weatherproof Enclosures',
       estHardwareBudget: '₹4,80,000 (10 Outdoor Industrial PoE Switches + 20 4K ANPR Cameras)',
       desc: 'Fault-tolerant municipal surveillance ring recording vehicle license plates continuously across major road intersections.',
-      traceSimulation: 'Fiber cut simulated between Pole 4 and Pole 5 -> G.8032 ERPS unblocks Ring Protection Link in 28ms -> Zero video frames lost.',
+      traceSimulation: 'Fiber cut simulated between Pole 4 and Pole 5 → G.8032 ERPS unblocks Ring Protection Link in 28ms → Zero video frames lost.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic38 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Real-life Networking Examples
           </h1>
 

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Accelerated depreciation (DDB) is an CFO's best friend. By taking larger depreciation deductions in early years, you lower taxable income today and defer taxes into the future, creating real economic value.
 
 COMMON TRAPS TO AVOID:
-- DDB Depreciation Exceeding Salvage Value: In older Excel versions, DDB could depreciate below salvage value in edge cases. -> Fix: Use `=VDB(Cost, Salvage, Life, StartPeriod, EndPeriod, Factor, FALSE)` to ensure flawless salvage boundary adherence.
-- Mismatching Depreciation Periods with Life: Passing life in years (5) but period in months (36) causes formula breakdown. -> Fix: Ensure period and life use identical time units (all years or all months).
-- Ignoring Year 1 Partial Month Proration: Assets purchased mid-year require partial first-year depreciation. -> Fix: Use the optional `[month]` argument in DB() or use VDB() for exact fractional periods.
+- DDB Depreciation Exceeding Salvage Value: In older Excel versions, DDB could depreciate below salvage value in edge cases. → Fix: Use `=VDB(Cost, Salvage, Life, StartPeriod, EndPeriod, Factor, FALSE)` to ensure flawless salvage boundary adherence.
+- Mismatching Depreciation Periods with Life: Passing life in years (5) but period in months (36) causes formula breakdown. → Fix: Ensure period and life use identical time units (all years or all months).
+- Ignoring Year 1 Partial Month Proration: Assets purchased mid-year require partial first-year depreciation. → Fix: Use the optional `[month]` argument in DB() or use VDB() for exact fractional periods.
 ================================================================================

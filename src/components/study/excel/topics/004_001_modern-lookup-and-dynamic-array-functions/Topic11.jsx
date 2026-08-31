@@ -77,7 +77,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Dynamic Validation Lists Fed Directly by Spilled Array Ranges (A2# Syntax)
           </h1>
 
@@ -303,7 +303,7 @@ export default function Topic11() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic2_Unique_Deduplication"
+              sheetName="EX1612"
               title="Master Regional Validation & Data Registry"
               rowsPerPage={10}
               showSheetSelector={true}

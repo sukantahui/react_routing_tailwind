@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 In Office Scripts, Excel ranges are always 2D arrays (an array of rows). To write 3 numbers in a row, write `[[10, 20, 30]]`. To write 3 numbers in a column, write `[[10], [20], [30]]`.
 
 COMMON TRAPS TO AVOID:
-- Confusing 1D Arrays with 2D Range Arrays: Passing a 1D array `[1, 2, 3]` to `range.setValues()` throws runtime error 'Values must be a 2D array'. -> Fix: Always wrap values in 2D array format: `[[1, 2, 3]]` (single row) or `[[1], [2], [3]]` (single column).
-- Using 'any' Everywhere (Losing Type Safety): Typing all variables as `any` defeats TypeScript's error-prevention benefits. -> Fix: Declare strict types: `let revenue: number`, `let customer: string`.
-- Using 'var' Instead of 'const' / 'let': Using legacy `var` introduces variable hoisting bugs. -> Fix: Always use `const` for immutable variables and `let` for reassignable variables.
+- Confusing 1D Arrays with 2D Range Arrays: Passing a 1D array `[1, 2, 3]` to `range.setValues()` throws runtime error 'Values must be a 2D array'. → Fix: Always wrap values in 2D array format: `[[1, 2, 3]]` (single row) or `[[1], [2], [3]]` (single column).
+- Using 'any' Everywhere (Losing Type Safety): Typing all variables as `any` defeats TypeScript's error-prevention benefits. → Fix: Declare strict types: `let revenue: number`, `let customer: string`.
+- Using 'var' Instead of 'const' / 'let': Using legacy `var` introduces variable hoisting bugs. → Fix: Always use `const` for immutable variables and `let` for reassignable variables.
 ================================================================================

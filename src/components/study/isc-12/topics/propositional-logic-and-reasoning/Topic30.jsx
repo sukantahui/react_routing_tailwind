@@ -699,7 +699,7 @@ const Topic30 = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <header className="mb-8 text-center animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
             Propositional Logic Dictionary
           </h1>
           <p className="mt-3 text-lg text-gray-600 dark:text-gray-300">

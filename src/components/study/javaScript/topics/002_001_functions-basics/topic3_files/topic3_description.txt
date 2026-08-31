@@ -11,7 +11,7 @@ Imagine a set of transparent Russian nesting dolls or a series of concentric gla
 
 2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
 --------------------------------------------------------------------------------
-Debangshu declared let centerCity = 'Barrackpore' outside all functions. Inside his printDetails() function, he was able to use centerCity without any problem. But when he tried to read let studentRoll (declared inside the function) from outside in the global file, JavaScript threw ReferenceError: studentRoll is not defined. I drew the Scope Chain on the board: Global Scope -> Outer Function Scope -> Block Scope. Debangshu saw how scope protects internal variables from outside tampering.
+Debangshu declared let centerCity = 'Barrackpore' outside all functions. Inside his printDetails() function, he was able to use centerCity without any problem. But when he tried to read let studentRoll (declared inside the function) from outside in the global file, JavaScript threw ReferenceError: studentRoll is not defined. I drew the Scope Chain on the board: Global Scope → Outer Function Scope → Block Scope. Debangshu saw how scope protects internal variables from outside tampering.
 
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
@@ -37,7 +37,7 @@ function outerBranch() {
   function innerClassroom() {
     let room = 'Lab 1'; // Nested Scope
     // Has access to room, branch, AND institute!
-    console.log(institute + ' -> ' + branch + ' -> ' + room);
+    console.log(institute + ' → ' + branch + ' → ' + room);
   }
   
   innerClassroom();

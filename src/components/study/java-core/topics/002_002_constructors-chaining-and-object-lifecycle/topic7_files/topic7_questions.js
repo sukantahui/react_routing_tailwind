@@ -53,7 +53,7 @@ const topic7_questions = [
     explanation: "Only the terminal constructor in the 'this()' chain invokes 'super()', ensuring the parent is initialized exactly once per object.",
     hint: "Parent super() is executed once by the terminal constructor in the chain.",
     level: "Advanced",
-    codeExample: "A() -> this(1) -> this(1,2) -> super() [Object initialized once]"
+    codeExample: "A() → this(1) → this(1,2) → super() [Object initialized once]"
   },
   {
     question: "What bytecode instruction is generated for 'this(...)' call?",
@@ -85,7 +85,7 @@ const topic7_questions = [
     explanation: "Every request flows smoothly down the chain to the master officer (Master constructor) who stamps the record once.",
     hint: "Clerk relay funneling to the Chief Officer who stamps the record.",
     level: "Beginner",
-    codeExample: "Student(roll) -> Student(roll, name) -> MasterStudent(roll, name, hub, fee)"
+    codeExample: "Student(roll) → Student(roll, name) → MasterStudent(roll, name, hub, fee)"
   },
   {
     question: "Can a constructor chain to a private constructor in the same class?",
@@ -101,7 +101,7 @@ const topic7_questions = [
     explanation: "Each chain step pushes an activation frame on the JVM call stack.",
     hint: "Typically 2-4 chained steps.",
     level: "Beginner",
-    codeExample: "C1 -> C2 -> C3 -> Master"
+    codeExample: "C1 → C2 → C3 → Master"
   },
   {
     question: "Does constructor chaining create multiple objects on the Heap?",
@@ -229,7 +229,7 @@ const topic7_questions = [
     explanation: "Excessive delegation depth obscures which defaults are being set.",
     hint: "3 to 4 levels maximum.",
     level: "Intermediate",
-    codeExample: "// 1-Arg -> 2-Arg -> Master (Clean 3-level chain)"
+    codeExample: "// 1-Arg → 2-Arg → Master (Clean 3-level chain)"
   },
   {
     question: "Summarize the primary benefit of Constructor Chaining.",

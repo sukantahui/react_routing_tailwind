@@ -13,7 +13,7 @@ const topic0_questions = [
     "explanation": "Popped from the stack when the method returns.",
     "hint": "A Stack Frame containing Local Variables, Operand Stack, and Frame Data.",
     "level": "Beginner",
-    "codeExample": "Method Call -> Pushes Stack Frame; Return -> Pops Stack Frame"
+    "codeExample": "Method Call → Pushes Stack Frame; Return → Pops Stack Frame"
   }
 ];
 

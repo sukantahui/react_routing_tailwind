@@ -28,19 +28,19 @@ const Topic1 = () => {
       sqlSnippet: `-- 🔤 COMPARING STRINGS ACROSS DIFFERENT COLLATIONS:
 -- 1. Case-Insensitive (_ci) Comparison:
 SELECT 'Barrackpore' = 'BARRACKPORE' COLLATE utf8mb4_0900_ai_ci AS is_equal;
--- Result: 1 (TRUE) -> Case is ignored!
+-- Result: 1 (TRUE) → Case is ignored!
 
 -- 2. Case-Sensitive (_cs) Comparison:
 SELECT 'Barrackpore' = 'BARRACKPORE' COLLATE utf8mb4_0900_as_cs AS is_equal;
--- Result: 0 (FALSE) -> Case is distinguished!
+-- Result: 0 (FALSE) → Case is distinguished!
 
 -- 3. Binary Byte (_bin) Comparison:
 SELECT 'Barrackpore' = 'BARRACKPORE' COLLATE utf8mb4_bin AS is_equal;
--- Result: 0 (FALSE) -> Raw ASCII byte values mismatch ('B'=0x42 vs 'b'=0x62)
+-- Result: 0 (FALSE) → Raw ASCII byte values mismatch ('B'=0x42 vs 'b'=0x62)
 
 -- 4. Accent-Insensitive (_ai) Comparison:
 SELECT 'café' = 'cafe' COLLATE utf8mb4_0900_ai_ci AS is_equal;
--- Result: 1 (TRUE) -> Accents are treated as identical!`,
+-- Result: 1 (TRUE) → Accents are treated as identical!`,
       metricsTable: [
         { suffix: "_ci", meaning: "Case Insensitive", behavior: "'apple' = 'APPLE' (Evaluates TRUE)" },
         { suffix: "_cs", meaning: "Case Sensitive", behavior: "'apple' != 'APPLE' (Evaluates FALSE)" },
@@ -121,7 +121,7 @@ CREATE TABLE api_keys_insecure (
     api_key VARCHAR(64) COLLATE utf8mb4_0900_ai_ci NOT NULL
 );
 -- Query: SELECT * FROM api_keys_insecure WHERE api_key = 'aB3X9z';
--- Matches 'ab3x9z' or 'AB3X9Z' -> Security authentication vulnerability! ❌
+-- Matches 'ab3x9z' or 'AB3X9Z' → Security authentication vulnerability! ❌
 
 -- ✅ SECURE PATTERN (Binary Case-Sensitive Collation):
 CREATE TABLE api_keys_secure (
@@ -167,7 +167,7 @@ CREATE TABLE api_keys_secure (
               String Comparison Rules
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Understanding Collations: _ci (Case Insensitive), _cs (Case Sensitive), _bin (Binary)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -209,7 +209,7 @@ CREATE TABLE api_keys_secure (
               <span className="text-xs font-mono text-cyan-400 font-bold uppercase">1. _ci Suffix</span>
               <h3 className="font-bold text-white">Case Insensitive</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                `'apple' = 'APPLE'` &rarr; Ideal for user search bars, names, and emails.
+                `'apple' = 'APPLE'` → Ideal for user search bars, names, and emails.
               </p>
             </div>
 
@@ -217,7 +217,7 @@ CREATE TABLE api_keys_secure (
               <span className="text-xs font-mono text-emerald-400 font-bold uppercase">2. _cs Suffix</span>
               <h3 className="font-bold text-white">Case Sensitive</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                `'apple' != 'APPLE'` &rarr; Distinguishes uppercase and lowercase casing.
+                `'apple' != 'APPLE'` → Distinguishes uppercase and lowercase casing.
               </p>
             </div>
 

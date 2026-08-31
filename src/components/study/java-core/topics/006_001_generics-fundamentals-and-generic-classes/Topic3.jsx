@@ -68,7 +68,7 @@ const Topic3 = () => {
               Java Generics Series • Topic 4
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
               Generic Classes
             </h1>
             
@@ -297,7 +297,7 @@ const Topic3 = () => {
                     <JavaCodeBlock
                       code={`// Generic Class Blueprint
 // T is a Type Parameter - placeholder for actual type
-public class Box<T> {
+public class Box&lt;T&gt; {
     private T content;  // T can be String, Integer, Student, etc.
     
     public void setContent(T content) {
@@ -331,17 +331,17 @@ public class Box<T> {
 public class Main {
     public static void main(String[] args) {
         // String Box - T becomes String
-        Box<String> stringBox = new Box<>();
+        Box<String> stringBox = new Box&lt;&gt;();
         stringBox.setContent("Hello from Barrackpore!");
         String message = stringBox.getContent(); // No casting!
         
         // Integer Box - T becomes Integer
-        Box<Integer> ageBox = new Box<>();
+        Box<Integer> ageBox = new Box&lt;&gt;();
         ageBox.setContent(22);
         int age = ageBox.getContent(); // Auto-unboxing works
         
         // Custom type Box - T becomes Student
-        Box<Student> studentBox = new Box<>();
+        Box<Student> studentBox = new Box&lt;&gt;();
         studentBox.setContent(new Student("Swadeep", "Computer Science"));
         Student student = studentBox.getContent(); // Type safe!
         
@@ -384,9 +384,9 @@ public class Main {
                       {[
                         {
                           component: "Type Parameter",
-                          syntax: "<T>",
+                          syntax: "&lt;T&gt;",
                           purpose: "Placeholder for actual type",
-                          example: "class Container<T>"
+                          example: "class Container&lt;T&gt;"
                         },
                         {
                           component: "Multiple Parameters",
@@ -470,22 +470,22 @@ public class Pair<K, V> {
     
     // Utility method using both types
     public String toString() {
-        return "Pair: " + key + " -> " + value;
+        return "Pair: " + key + " → " + value;
     }
     
     // Generic method inside generic class
     public <U> Pair<K, U> transformValue(Function<V, U> transformer) {
         U newValue = transformer.apply(value);
-        return new Pair<>(key, newValue);
+        return new Pair&lt;&gt;(key, newValue);
     }
 }
 
 // Usage example from Ichapur College
-Pair<String, Integer> studentGrade = new Pair<>("Swadeep", 85);
+Pair<String, Integer> studentGrade = new Pair&lt;&gt;("Swadeep", 85);
 String name = studentGrade.getKey();      // String
 int grade = studentGrade.getValue();      // Integer
 
-Pair<Integer, String> productInfo = new Pair<>(101, "Laptop");
+Pair<Integer, String> productInfo = new Pair&lt;&gt;(101, "Laptop");
 int productId = productInfo.getKey();     // Integer
 String productName = productInfo.getValue(); // String`}
                       language="java"
@@ -501,11 +501,11 @@ String productName = productInfo.getValue(); // String`}
                 
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                   {[
-                    { letter: "T", meaning: "Type", example: "Box<T>" },
-                    { letter: "E", meaning: "Element", example: "List<E>" },
+                    { letter: "T", meaning: "Type", example: "Box&lt;T&gt;" },
+                    { letter: "E", meaning: "Element", example: "List&lt;E&gt;" },
                     { letter: "K", meaning: "Key", example: "Map<K, V>" },
                     { letter: "V", meaning: "Value", example: "Map<K, V>" },
-                    { letter: "N", meaning: "Number", example: "Calculator<N>" }
+                    { letter: "N", meaning: "Number", example: "Calculator&lt;N&gt;" }
                   ].map((item, index) => (
                     <div 
                       key={index}
@@ -553,7 +553,7 @@ String productName = productInfo.getValue(); // String`}
                 
                 <JavaCodeBlock
                   code={`// Generic Container for Library Items
-public class LibraryContainer<T> {
+public class LibraryContainer&lt;T&gt; {
     private T[] items;
     private int size;
     private int capacity;
@@ -594,19 +594,19 @@ public class LibraryContainer<T> {
     // Usage in Shyamnagar Library
     public static void main(String[] args) {
         // Container for Books (String titles)
-        LibraryContainer<String> bookTitles = new LibraryContainer<>(100);
+        LibraryContainer<String> bookTitles = new LibraryContainer&lt;&gt;(100);
         bookTitles.addItem("Java Programming");
         bookTitles.addItem("Data Structures");
         String book = bookTitles.getItem(0); // Type: String
         
         // Container for Student IDs (Integer)
-        LibraryContainer<Integer> studentIds = new LibraryContainer<>(500);
+        LibraryContainer<Integer> studentIds = new LibraryContainer&lt;&gt;(500);
         studentIds.addItem(1001);
         studentIds.addItem(1002);
         int id = studentIds.getItem(0); // Type: Integer
         
         // Container for Custom Objects
-        LibraryContainer<Student> students = new LibraryContainer<>(50);
+        LibraryContainer<Student> students = new LibraryContainer&lt;&gt;(50);
         students.addItem(new Student("Tuhina", 21));
         Student student = students.getItem(0); // Type: Student
         
@@ -634,15 +634,15 @@ public class LibraryContainer<T> {
                 
                 <JavaCodeBlock
                   code={`// Generic API Response Wrapper
-public class ApiResponse<T> {
+public class ApiResponse&lt;T&gt; {
     private boolean success;
     private String message;
     private T data;  // Generic data payload
     private long timestamp;
     
     // Constructor for successful responses
-    public static <T> ApiResponse<T> success(T data) {
-        ApiResponse<T> response = new ApiResponse<>();
+    public static &lt;T&gt; ApiResponse&lt;T&gt; success(T data) {
+        ApiResponse&lt;T&gt; response = new ApiResponse&lt;&gt;();
         response.success = true;
         response.message = "Operation successful";
         response.data = data;
@@ -651,8 +651,8 @@ public class ApiResponse<T> {
     }
     
     // Constructor for error responses
-    public static <T> ApiResponse<T> error(String message) {
-        ApiResponse<T> response = new ApiResponse<>();
+    public static &lt;T&gt; ApiResponse&lt;T&gt; error(String message) {
+        ApiResponse&lt;T&gt; response = new ApiResponse&lt;&gt;();
         response.success = false;
         response.message = message;
         response.data = null;
@@ -706,7 +706,7 @@ public class ApiResponse<T> {
     ApiResponse<List<Student>> response2 = service.getAllStudents();
     if (response2.isSuccess()) {
         List<Student> students = response2.getData(); // Type: List<Student>
-        students.forEach(s -> System.out.println(s.getName()));
+        students.forEach(s → System.out.println(s.getName()));
     }
 }`}
                   language="java"
@@ -755,7 +755,7 @@ public class Pair<FirstType, SecondType> {
     
     // Swap the pair
     public Pair<SecondType, FirstType> swap() {
-        return new Pair<>(second, first);
+        return new Pair&lt;&gt;(second, first);
     }
     
     // Check if both elements are equal
@@ -774,19 +774,19 @@ public class CollegeSystem {
     public static void main(String[] args) {
         // Student-Name Pair
         Pair<Integer, String> studentRecord = 
-            new Pair<>(101, "Swadeep");
+            new Pair&lt;&gt;(101, "Swadeep");
         int id = studentRecord.getFirst();      // Integer
         String name = studentRecord.getSecond(); // String
         
         // Course-Grade Pair
         Pair<String, Double> courseGrade = 
-            new Pair<>("Java Programming", 85.5);
+            new Pair&lt;&gt;("Java Programming", 85.5);
         String course = courseGrade.getFirst();  // String
         double grade = courseGrade.getSecond();  // Double
         
         // Complex: Pair of Lists
         Pair<List<String>, List<Integer>> studentData = 
-            new Pair<>(
+            new Pair&lt;&gt;(
                 Arrays.asList("Swadeep", "Tuhina"),
                 Arrays.asList(22, 21)
             );
@@ -861,7 +861,7 @@ public class CollegeSystem {
                   <div className="space-y-3">
                     {[
                       "Using raw types: Pair instead of Pair<String, Integer>",
-                      "Forgetting diamond operator: new Pair<>(), not new Pair()",
+                      "Forgetting diamond operator: new Pair&lt;&gt;(), not new Pair()",
                       "Mixing type parameters: Pair<String, String> vs Pair<String, Integer>",
                       "Creating arrays of generic types: Pair<String, Integer>[]",
                       "Using instanceof with generic types: obj instanceof Pair<String, Integer>"
@@ -1013,16 +1013,16 @@ class StudentBox {
                   
                   <JavaCodeBlock
                     code={`// One class handles all types
-class Box<T> {
+class Box&lt;T&gt; {
     private T content;
     public void setContent(T content) { ... }
     public T getContent() { ... }
 }
 
 // Usage with any type
-Box<String> stringBox = new Box<>();
-Box<Integer> integerBox = new Box<>();
-Box<Student> studentBox = new Box<>();
+Box<String> stringBox = new Box&lt;&gt;();
+Box<Integer> integerBox = new Box&lt;&gt;();
+Box<Student> studentBox = new Box&lt;&gt;();
 
 // Single point of maintenance
 // All types benefit from improvements`}
@@ -1118,7 +1118,7 @@ public class GenericCache<KEY_TYPE, VALUE_TYPE> {
     }
     
     public GenericCache(long defaultTtl) {
-        this.cache = new ConcurrentHashMap<>();
+        this.cache = new ConcurrentHashMap&lt;&gt;();
         this.defaultTtl = defaultTtl;
     }
     
@@ -1128,7 +1128,7 @@ public class GenericCache<KEY_TYPE, VALUE_TYPE> {
     }
     
     public void put(KEY_TYPE key, VALUE_TYPE value, long ttl) {
-        cache.put(key, new CacheEntry<>(value, ttl));
+        cache.put(key, new CacheEntry&lt;&gt;(value, ttl));
     }
     
     // Type-safe get method
@@ -1148,13 +1148,13 @@ public class GenericCache<KEY_TYPE, VALUE_TYPE> {
     
     // Clear expired entries
     public void cleanup() {
-        cache.entrySet().removeIf(entry -> entry.getValue().isExpired());
+        cache.entrySet().removeIf(entry → entry.getValue().isExpired());
     }
 }
 
 // Usage in Student System
 GenericCache<Integer, Student> studentCache = 
-    new GenericCache<>(30 * 60 * 1000); // 30 minute TTL
+    new GenericCache&lt;&gt;(30 * 60 * 1000); // 30 minute TTL
 
 // Cache student objects
 studentCache.put(101, new Student("Swadeep", "CS"));
@@ -1308,7 +1308,7 @@ if (student.isPresent()) {
                 <h4 className="text-xl font-bold mb-4 text-emerald-600 dark:text-emerald-400">Key Concepts</h4>
                 {[
                   "Generic classes are blueprints for type-safe containers",
-                  "Type parameters (<T>) are placeholders for actual types",
+                  "Type parameters (&lt;T&gt;) are placeholders for actual types",
                   "Each instance specifies concrete type arguments",
                   "Compiler enforces type consistency across all operations",
                   "Generic classes eliminate code duplication",
@@ -1331,13 +1331,13 @@ if (student.isPresent()) {
               <div>
                 <h4 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400">Syntax Essentials</h4>
                 {[
-                  "Declaration: class ClassName<T> { ... }",
+                  "Declaration: class ClassName&lt;T&gt; { ... }",
                   "Multiple params: class Pair<K, V> { ... }",
                   "Type variables: private T content;",
                   "Generic methods: public T getContent() { ... }",
                   "Constructor: public Box(T content) { ... }",
-                  "Instantiation: Box<String> box = new Box<>();",
-                  "Diamond operator: new Box<>() infers type",
+                  "Instantiation: Box<String> box = new Box&lt;&gt;();",
+                  "Diamond operator: new Box&lt;&gt;() infers type",
                   "Bounded types: class Box<T extends Number> (later topic)"
                 ].map((item, index) => (
                   <div 

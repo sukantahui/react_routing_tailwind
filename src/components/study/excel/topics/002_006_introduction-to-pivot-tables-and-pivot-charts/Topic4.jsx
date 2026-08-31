@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Showing values as: % of Grand Total, % of Column/Row, Difference From, Running Total"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Showing_values_as_"
+            sheetName="EX1105"
             title={"Showing values as: % of Grand Total, % of Column/Row, Difference From, Running Total - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -395,7 +395,7 @@ export default function Topic4() {
                 Step 3: Set Value Field Settings &amp; Number Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Right-click any value cell &gt; Value Field Settings &gt; Number Format, and apply standard currency/accounting masks.
+                Right-click any value cell > Value Field Settings > Number Format, and apply standard currency/accounting masks.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic4() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Drag your numeric metric into the Values area TWICE. Keep the first column as raw currency (Sum) and set the second column to 'Show Values As -> % of Grand Total'. Executive teams love this layout."}
+            note={"Drag your numeric metric into the Values area TWICE. Keep the first column as raw currency (Sum) and set the second column to 'Show Values As → % of Grand Total'. Executive teams love this layout."}
           />
         </div>
       </div>

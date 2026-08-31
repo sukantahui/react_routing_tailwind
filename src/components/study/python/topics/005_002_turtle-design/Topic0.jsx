@@ -66,7 +66,7 @@ const Topic0 = () => {
             Module 005_002 · Turtle Design & Aesthetic Customization · Topic 0
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400 bg-clip-text text-transparent">
             Pen Control: <span className="font-mono">penup()</span>, <span className="font-mono">pendown()</span> & <span className="font-mono">pensize()</span>
           </h1>
 
@@ -369,7 +369,7 @@ const Topic0 = () => {
         ========================================================================= */}
         <div className="animate-[fadeInUp_0.6s_ease-out_1s]">
           <Teacher
-            note="When teaching graphics in Barrackpore and Kolkata, I always emphasize that pen control is what separates messy beginner sketches from clean, professional vector art. Always drill into students the 3-step mantra: 'Pen UP -> Goto Coordinates -> Pen DOWN'. Once this habit is second nature, students can place complex buildings, celestial constellations, and multi-colored mandalas across their canvas with pinpoint mathematical precision."
+            note="When teaching graphics in Barrackpore and Kolkata, I always emphasize that pen control is what separates messy beginner sketches from clean, professional vector art. Always drill into students the 3-step mantra: 'Pen UP → Goto Coordinates → Pen DOWN'. Once this habit is second nature, students can place complex buildings, celestial constellations, and multi-colored mandalas across their canvas with pinpoint mathematical precision."
           />
         </div>
 

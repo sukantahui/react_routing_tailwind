@@ -21,7 +21,7 @@ export default function Topic1() {
             Syntax Breakdown
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Generic Method Syntax: <code className="text-emerald-400 font-mono">&lt;T&gt; returnType methodName(T param)</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic1() {
       </section>
 
       <Teacher
-        note="Always check where '<T>' is placed! In Java, '<T>' must come BEFORE the return type! 'public <T> T getFirst(List<T> list)' is valid; 'public T <T> getFirst' is a syntax error! — Sukanta Hui"
+        note="Always check where '&lt;T&gt;' is placed! In Java, '&lt;T&gt;' must come BEFORE the return type! 'public &lt;T&gt; T getFirst(List&lt;T&gt; list)' is valid; 'public T &lt;T&gt; getFirst' is a syntax error! — Sukanta Hui"
       />
     </div>
   );

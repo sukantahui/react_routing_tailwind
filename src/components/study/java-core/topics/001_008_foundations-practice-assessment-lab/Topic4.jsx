@@ -42,7 +42,7 @@ export default function Topic4() {
             Algorithmic Lab 4 · Bitwise &amp; Pointers
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Finding Duplicate &amp; Missing Numbers in Arrays
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -142,7 +142,7 @@ export default function Topic4() {
 
             <rect x="465" y="70" width="370" height="40" rx="4" fill="#2e1065" />
             <text x="475" y="90" fill="#ddd6fe" fontSize="10" fontFamily="monospace">Index Graph: [3, 1, 3, 4, 2]</text>
-            <text x="475" y="102" fill="#c4b5fd" fontSize="9">Index 0 &rarr; 3 &rarr; 4 &rarr; 2 &rarr; 3 (Cycle on 3!)</text>
+            <text x="475" y="102" fill="#c4b5fd" fontSize="9">Index 0 → 3 → 4 → 2 → 3 (Cycle on 3!)</text>
 
             <rect x="465" y="120" width="370" height="35" rx="4" fill="#2e1065" />
             <text x="475" y="142" fill="#ddd6fe" fontSize="10" fontFamily="monospace">Phase 1: Slow (1x) &amp; Fast (2x) meet at Index 2</text>

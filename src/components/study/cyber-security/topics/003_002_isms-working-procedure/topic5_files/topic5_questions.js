@@ -100,7 +100,7 @@ Compensating Control Architecture:
     hint: "Remember locking papers in drawers and pressing Win+L to lock screens.",
     level: "basic",
     codeExample: `// Clean Screen Group Policy (GPO):
-Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> Security Options:
+Computer Configuration → Windows Settings → Security Settings → Local Policies → Security Options:
 - Interactive logon: Machine inactivity limit = 180 seconds (3 Minutes)
 - Screen Saver: Password protected = ENABLED`
   },
@@ -116,7 +116,7 @@ Defense Evidence: Produces ISO 27001 audit report proving:
 1. Technical:      AES-256-GCM encryption + PostgreSQL Dynamic Data Masking
 2. Administrative: Board-signed security policy + Monthly employee phishing drills
 3. Physical:       Biometric mantrap access logs + AI CCTV surveillance
-Court Ruling:      Corporate entity demonstrated statutory reasonable security practices -> Dismissed!`
+Court Ruling:      Corporate entity demonstrated statutory reasonable security practices → Dismissed!`
   },
   {
     question: "What is NIST SP 800-88 physical media sanitization (Control A.7.14), and why are software file deletions insufficient for decommissioned storage?",

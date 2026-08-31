@@ -21,7 +21,7 @@ export default function Topic5() {
             Capacity Optimization
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Optimizing ArrayList: <code className="text-emerald-400 font-mono">ensureCapacity()</code> &amp; <code className="text-sky-400 font-mono">trimToSize()</code> Tuning
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic5() {
       </section>
 
       <Teacher
-        note="If you know you are fetching 10,000 student records from a database, never use 'new ArrayList<>()' without arguments! Use 'new ArrayList<>(10000)'! That single change eliminates 12 separate array reallocations! — Sukanta Hui"
+        note="If you know you are fetching 10,000 student records from a database, never use 'new ArrayList&lt;&gt;()' without arguments! Use 'new ArrayList&lt;&gt;(10000)'! That single change eliminates 12 separate array reallocations! — Sukanta Hui"
       />
     </div>
   );

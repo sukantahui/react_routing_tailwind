@@ -97,7 +97,7 @@ const Topic2 = () => {
             isInView.intro ? "animate-fadeSlideUp" : "opacity-0 translate-y-8"
           )}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
             Configuration (XML & Annotations)
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -132,7 +132,7 @@ const Topic2 = () => {
           </div>
         </div>
 
-        {/* <!-- XML Configuration Deep Dive --> */}
+        {/* <!-- XML Configuration Deep Dive → */}
         <div
           ref={annotationsRef}
           className={clsx(
@@ -153,17 +153,17 @@ const Topic2 = () => {
   "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <!-- DB connection -->
+    <!-- DB connection ──→
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/school_db</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">password</property>
     
-    <!-- Dialect & SQL -->
+    <!-- Dialect & SQL ──→
     <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
     <property name="hibernate.show_sql">true</property>
     
-    <!-- Mapping files -->
+    <!-- Mapping files ──→
     <mapping resource="com/school/model/Student.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>`}
@@ -193,7 +193,7 @@ const Topic2 = () => {
           </div>
         </div>
 
-        {/* <!-- Annotation Configuration --> */}
+        {/* <!-- Annotation Configuration → */}
         <div
           ref={comparisonRef}
           className={clsx(
@@ -214,7 +214,7 @@ const Topic2 = () => {
           </div>
         </div>
 
-        {/* <!-- Code Examples - both approaches --> */}
+        {/* <!-- Code Examples - both approaches → */}
         <div
           ref={codeExamplesRef}
           className={clsx(
@@ -236,7 +236,7 @@ const Topic2 = () => {
           />
         </div>
 
-        {/* <!-- Comparison Table --> */}
+        {/* <!-- Comparison Table → */}
         <div className="overflow-x-auto mb-12 bg-white dark:bg-gray-800 rounded-xl shadow-md">
           <table className="min-w-full text-sm">
             <thead className="bg-gray-100 dark:bg-gray-700">

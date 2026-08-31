@@ -18,7 +18,7 @@ Black Hat: UNAUTHORIZED + MALICIOUS INTENT     = ILLEGAL (Severe Criminality)`
     level: "moderate",
     codeExample: `// Legal Principle:
 Intent == "Helpful / Altruistic" != Legal Immunity
-Action == "Probed Server Without Signed RoE" -> Violates IT Act 2000 Section 66`
+Action == "Probed Server Without Signed RoE" → Violates IT Act 2000 Section 66`
   },
   {
     question: "What was the famous 2013 incident involving Palestinian security researcher Khalil Shreateh and Mark Zuckerberg's Facebook wall?",
@@ -72,8 +72,8 @@ for iccid in range(89014103211118510720, 89014103211118600000):
     hint: "Compare immediately dropping an exploit on Twitter versus giving the developer 90 days to fix it first.",
     level: "basic",
     codeExample: `// Vulnerability Disclosure Models:
-Full Disclosure:         Day 0: Publish Exploit on GitHub -> Users vulnerable until vendor reacts.
-Coordinated Disclosure:  Day 0: Private Report -> Day 1-90: Vendor patches -> Day 90: Public Advisory.`
+Full Disclosure:         Day 0: Publish Exploit on GitHub → Users vulnerable until vendor reacts.
+Coordinated Disclosure:  Day 0: Private Report → Day 1-90: Vendor patches → Day 90: Public Advisory.`
   },
   {
     question: "How did the rise of structured 'Vulnerability Disclosure Programs' (VDP) help bridge the gap between Grey Hat hackers and enterprise defense?",
@@ -105,8 +105,8 @@ Hiring: https://company.com/careers/security`
     level: "moderate",
     codeExample: `// Adrian Lamo's Grey Hat Pattern:
 1. Discover misconfigured corporate proxy / internal router.
-2. Access internal intranet database -> Add name to authorized directory as Proof of Concept.
-3. Call corporate CISO / press -> Explain vulnerability & offer free remediation guidance.
+2. Access internal intranet database → Add name to authorized directory as Proof of Concept.
+3. Call corporate CISO / press → Explain vulnerability & offer free remediation guidance.
 4. Result: Prosecuted under CFAA despite claiming altruistic motives.`
   },
   {
@@ -116,8 +116,8 @@ Hiring: https://company.com/careers/security`
     hint: "Consider how looking at a public storefront is legal, but picking the lock or peeking into private customer files is illegal.",
     level: "expert",
     codeExample: `// Legal vs Illegal API Interaction:
-GET /api/public-pricing                 --> LAWFUL (Publicly advertised endpoint)
-GET /api/invoices?id=10294 (Other User)  --> UNLAWFUL (Unauthorized Data Access under IT Act Sec 43/66)`
+GET /api/public-pricing                 → LAWFUL (Publicly advertised endpoint)
+GET /api/invoices?id=10294 (Other User)  → UNLAWFUL (Unauthorized Data Access under IT Act Sec 43/66)`
   },
   {
     question: "Why do professional bug bounty platforms (HackerOne, Bugcrowd) immediately disqualify and ban researchers who publicly leak vulnerabilities on Twitter/X before resolution?",
@@ -169,7 +169,7 @@ Private Zero-Day Broker (Zerodium):     ₹15 Crores ($2,000,000) (Flaw kept Sec
     codeExample: `// SOC Alert Perspective:
 Event: High-volume directory fuzzing against /admin/ endpoints
 Origin: Unknown residential IP address in Kolkata
-SOC Classification: SEVERITY 1 HOSTILE PROBE -> Block IP + Alert Legal + Notify CERT-In`
+SOC Classification: SEVERITY 1 HOSTILE PROBE → Block IP + Alert Legal + Notify CERT-In`
   },
   {
     question: "How can a passionate cybersecurity student in India transition safely from Grey Hat curiosity to a certified White Hat career?",
@@ -202,9 +202,9 @@ curl https://example.com/.well-known/security.txt
     hint: "Think of keeping a secret master key to every house in the city instead of warning the lock manufacturer.",
     level: "expert",
     codeExample: `// Vulnerability Hoarding Risk:
-1. Intelligence Agency discovers CVE-2017-0144 (EternalBlue) -> Keeps secret for 5 years.
+1. Intelligence Agency discovers CVE-2017-0144 (EternalBlue) → Keeps secret for 5 years.
 2. Shadow Brokers leaks the exploit online in 2017.
-3. WannaCry ransomware weaponizes it within weeks -> Paralyzes 200,000 systems worldwide.`
+3. WannaCry ransomware weaponizes it within weeks → Paralyzes 200,000 systems worldwide.`
   },
   {
     question: "Synthesizing the role of Grey Hat hacking: why is structured legal channelization superior to criminalization alone?",

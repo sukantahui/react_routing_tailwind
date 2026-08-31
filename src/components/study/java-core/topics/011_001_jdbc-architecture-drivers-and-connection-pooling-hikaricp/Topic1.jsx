@@ -21,11 +21,11 @@ export default function Topic1() {
             JDBC & Data Access
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           JDBC Architecture: <code className="text-emerald-400 font-mono">From Application to Database Engine</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          The 4-tier layer model: Application Code &rarr; JDBC API (Interfaces) &rarr; DriverManager &rarr; Vendor Driver &rarr; Database Server.
+          The 4-tier layer model: Application Code → JDBC API (Interfaces) → DriverManager → Vendor Driver → Database Server.
         </p>
       </header>
 

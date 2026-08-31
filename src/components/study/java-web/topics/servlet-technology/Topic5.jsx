@@ -41,7 +41,7 @@ const Topic5 = () => {
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <header className="text-center space-y-4 animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
             Filters
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -116,7 +116,7 @@ const Topic5 = () => {
                 </marker>
               </defs>
 
-              {/*<!-- Return arrows (response) -->*/}
+              {/*<!-- Return arrows (response) ──→*/}
               <path d="M695 90 L640 90 L590 90 L480 90 L430 90 L320 90 L270 90 L160 90 L110 90" 
                     fill="none" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="4,4" markerEnd="url(#arrowRet)" />
               <text x="350" y="110" textAnchor="middle" fill="#fcd34d" fontSize="10">Response flows back through filters in reverse order</text>

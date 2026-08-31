@@ -53,7 +53,7 @@ const Topic1 = () => {
       {/* Header Section */}
       <div className="max-w-5xl mx-auto animate-fadeSlideUp">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
             Abstract Class & Abstract Methods
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">

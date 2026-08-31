@@ -51,7 +51,7 @@ const questions = [
     explanation: "Prime count up to 50 verification.",
     hint: "15 primes.",
     level: "basic",
-    codeExample: "generatePrimesSieve(50) -> 15 primes"
+    codeExample: "generatePrimesSieve(50) → 15 primes"
   },
   {
     question: "In the Coder & AccoTax Barrackpore benchmark, how many primes were found up to 100,000?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Prime count up to 100,000 verification.",
     hint: "9,592 primes.",
     level: "basic",
-    codeExample: "generatePrimesSieve(100_000) -> 9,592 primes"
+    codeExample: "generatePrimesSieve(100_000) → 9,592 primes"
   },
   {
     question: "How does `java.util.BitSet` optimize the memory footprint of the Sieve?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Parallel segmented sieve in modern Java.",
     hint: "Yes, segments can be processed in parallel across multiple CPU cores.",
     level: "advanced",
-    codeExample: "IntStream.range(0, numSegments).parallel().forEach(seg -> sieveSegment(seg));"
+    codeExample: "IntStream.range(0, numSegments).parallel().forEach(seg → sieveSegment(seg));"
   },
   {
     question: "What is an 'Emirp' prime?",

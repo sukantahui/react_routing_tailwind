@@ -185,7 +185,7 @@ const questions = [
   },
   {
     question: "How do you decide between a Subquery and a JOIN when writing a new query?",
-    shortAnswer: "1. Need multi-table columns? -> Use JOIN. 2. Need set existence/exclusion without row multiplication? -> Use `IN` / `NOT EXISTS` subquery. 3. Need multi-stage aggregation? -> Use Derived Table JOIN or CTE.",
+    shortAnswer: "1. Need multi-table columns? → Use JOIN. 2. Need set existence/exclusion without row multiplication? → Use `IN` / `NOT EXISTS` subquery. 3. Need multi-stage aggregation? → Use Derived Table JOIN or CTE.",
     explanation: "The universal 3-point architectural decision rule.",
     hint: "Multi-table columns = JOIN; Set existence = Subquery; Multi-stage = Derived Table / CTE.",
     level: "expert"

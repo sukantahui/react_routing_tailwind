@@ -14,7 +14,7 @@ Operational Architecture: Tamper-Proof Corporate Budget Engine: Unlocked Blue In
 
 3. CORE TECHNICAL MECHANICS
 1. Multi-Layered Defense-in-Depth:
-   Layer 1: Data validation on inputs (Numbers > 0, Dates in FY 2026-27); Layer 2: Dependent dropdowns for Cost Center -> Expense Account; Layer 3: Cell protection locking formulas; Layer 4: Workbook structure encryption.
+   Layer 1: Data validation on inputs (Numbers > 0, Dates in FY 2026-27); Layer 2: Dependent dropdowns for Cost Center → Expense Account; Layer 3: Cell protection locking formulas; Layer 4: Workbook structure encryption.
 
 2. Tab-Key Guided Data Entry Workflow:
    Users pressing the Tab key glide smoothly between unlocked input cells only, bypassing locked calculations entirely for high-speed error-free entry.

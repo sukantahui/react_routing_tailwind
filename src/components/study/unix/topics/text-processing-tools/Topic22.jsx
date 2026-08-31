@@ -64,7 +64,7 @@ const Topic22 = () => {
                 >
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-3 h-8 bg-yellow-500 rounded-full"></div>
-                        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-400 to-amber-300 bg-clip-text text-transparent">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 to-amber-300 bg-clip-text text-transparent">
                             Topic 22: Common Mistakes and Debugging Text-Processing Commands
                         </h1>
                     </div>

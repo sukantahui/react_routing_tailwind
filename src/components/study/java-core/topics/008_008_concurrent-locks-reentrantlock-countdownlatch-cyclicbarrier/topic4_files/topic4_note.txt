@@ -8,9 +8,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. REENTRANTREADWRITELOCK:
    - 'readLock()': Shared lock (N readers can read at the same time).
    - 'writeLock()': Exclusive lock (1 writer at a time, blocks all).
-   - Read & Read &rarr; Concurrent.
-   - Read & Write &rarr; Blocked.
-   - Write & Write &rarr; Blocked.
+   - Read & Read → Concurrent.
+   - Read & Write → Blocked.
+   - Write & Write → Blocked.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

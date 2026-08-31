@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Allows attackers to modify the Abstract Syntax Tree (AST) of the SQL query.",
     "hint": "The database parser treats user input as executable SQL syntax.",
     "level": "Beginner",
-    "codeExample": "'admin' OR '1'='1' -> Changes boolean logic of the query."
+    "codeExample": "'admin' OR '1'='1' → Changes boolean logic of the query."
   },
   {
     "question": "What is the industry-standard defense in Java to prevent 100% of SQL Injection attacks?",

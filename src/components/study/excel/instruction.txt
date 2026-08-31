@@ -39,6 +39,29 @@ The Excel study module structure:
     - This single workbook serves as the master interactive worksheet for all topics in that chapter.
     - Inside this workbook, the FIRST sheet (`SheetNames[0]`) is ALWAYS the executive **Overview** landing sheet.
 
+--------------------------------------------------------------------------------
+2.1 DEDICATED CAPSTONE PROJECTS PRACTICE WORKBOOK ARCHITECTURE
+--------------------------------------------------------------------------------
+• DEDICATED PROJECT WORKBOOK PER MODULE:
+    - Every module with a Capstone Lab / Practical Project Topic (e.g. Topic7.jsx or Topic14.jsx) MUST have a dedicated projects workbook stored in:
+        `./excel_files/[module_slug]_projects_master.xlsx`
+    - This workbook is separate from the chapter concept master workbook (`[module_slug]_master.xlsx`).
+
+• WORKSHEET ARCHITECTURE (26 SHEETS):
+    - Sheet 1 (Index 0): `Overview` (Password Protected: `sukantahui`)
+        • Includes official CNAT logo (`cnat.png`), hero graphic (`landing_sheet.jpg`), institutional profiles, academic metrics, and Section 4 Interactive Navigation Table listing all 25 capstone projects.
+        • In Section 4 table, Column E features clickable internal Excel hyperlinks: `{ text: '👉 Open ' + sheetCode + ' Sheet', hyperlink: "#'" + sheetCode + "'!A1" }`.
+    - Sheets 2 to 26 (Indices 1 to 25): Dedicated Project Sheets (`EX101`..`EX125`, `EX201`..`EX225`, `EX301`..`EX325`, `EX401`..`EX425`, `EX501`..`EX525`, `EX601`..`EX625`...)
+        • Cell A1 MUST contain a single-click return hyperlink back to Overview: `{ text: '🏠 Jump to Executive Overview Landing Sheet', hyperlink: "#'Overview'!A1" }`.
+
+• TASK-SPECIFIC AUTHENTICITY RULE:
+    - EVERY project sheet MUST contain authentic, task-specific data rows (minimum 20-25 rows) tailored to its exact capstone problem:
+        • Column E: Raw numeric/text payload (authentic Indian names, Barrackpore/Naihati/Kolkata locations, varied numeric floats/integers/dates).
+        • Column F: Exact target custom format mask for that task (e.g. `₹ #,##,##0.00;[Red](₹ #,##,##0.00);"-";@`, `0000-0000-0000`, `dd-mmm-yyyy (dddd)`, `[h]:mm:ss`, `+91 00000-00000`, `0.00" KG"`, `;;;`...).
+        • Column G: Real working Excel formula specific to that task (`{ f: "INT(E4)" }`, `{ f: "TRUNC(E4, 2)" }`, `{ f: "ROUND(E4, 2)" }`, `{ f: "ABS(E4)" }`, `{ f: "MROUND(E4, 5)" }`...).
+        • Column H: Audit Verification Status (`Verified & Audit Passed`).
+    - Generic placeholder rows across project sheets are STRICTLY PROHIBITED.
+
 • MANDATORY EXECUTIVE OVERVIEW LANDING SHEET (SHEET 1: `Overview`):
     - The first sheet (`SheetNames[0]`) of every workbook MUST be the executive `Overview` landing sheet featuring CNAT branding logo (`cnat.png`), executive hero graphic (`landing_sheet.jpg`), Organisation & Instructor profiles, Academic Metrics, and Section 4 Interactive Navigation Directory.
 
@@ -66,9 +89,9 @@ The Excel study module structure:
     - Sheet 1 (Index 0) of every master workbook is ALWAYS the executive `Overview` landing sheet.
     - When a student opens a topic page (e.g. `Topic0.jsx`, `Topic1.jsx`, `Topic8.jsx`...), the interactive spreadsheet viewer MUST default to that specific topic's worksheet tab (`Topic0`, `Topic1`, ..., `TopicN`), NOT the Overview landing sheet.
     - Sequence Rule:
-        • Topic 0 (`Topic0.jsx`) -> Default Sheet 2 (Index 1: `Topic0` Worksheet)
-        • Topic 1 (`Topic1.jsx`) -> Default Sheet 3 (Index 2: `Topic1` Worksheet)
-        • Topic N (`Topic[N].jsx`) -> Default Sheet N + 2 (Index N + 1: `Topic[N]` Worksheet)
+        • Topic 0 (`Topic0.jsx`) → Default Sheet 2 (Index 1: `Topic0` Worksheet)
+        • Topic 1 (`Topic1.jsx`) → Default Sheet 3 (Index 2: `Topic1` Worksheet)
+        • Topic N (`Topic[N].jsx`) → Default Sheet N + 2 (Index N + 1: `Topic[N]` Worksheet)
     - The `Overview` landing sheet remains at Sheet 1 (Index 0), accessible at any time via the interactive sheet selector dropdown or internal hyperlinks.
 
 --------------------------------------------------------------------------------
@@ -258,7 +281,7 @@ async function buildMasterWorkbook() {
   wsOverview.getRow(4).height = 20;
   wsOverview.getRow(5).height = 12; // Gap row
 
-  // 1C. Embed Executive Landing Hero Graphic (Native 1536x1024 -> 3:2 Ratio: 600x400px)
+  // 1C. Embed Executive Landing Hero Graphic (Native 1536x1024 → 3:2 Ratio: 600x400px)
   const landingImgPath = path.resolve(__dirname, '../../assets/landing_sheet.jpg');
   if (fs.existsSync(landingImgPath)) {
     const landingImgId = wb.addImage({

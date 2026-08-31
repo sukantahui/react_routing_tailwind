@@ -13,7 +13,7 @@ const topic1_questions = [
     "explanation": "Internal iteration allows the JVM to optimize pipeline loops, eliminate redundant passes, and distribute chunks across CPU cores.",
     "hint": "External: you write the loop; Internal: Java manages iteration and optimization.",
     "level": "Beginner",
-    "codeExample": "// External:\\nfor (String item : list) { ... }\\n// Internal:\\nlist.stream().forEach(item -> ...);"
+    "codeExample": "// External:\\nfor (String item : list) { ... }\\n// Internal:\\nlist.stream().forEach(item → ...);"
   }
 ];
 

@@ -11,9 +11,9 @@ An expression is any legal combination of literals, variables, functions, and
 operators that evaluates down to a single resulting value.
 
 Examples:
-- 5 + 3                  -> Evaluates to 8
-- 10 > 5 and 'a' in 'cat' -> Evaluates to True
-- f"Score: {90 + 5}"     -> Evaluates to "Score: 95"
+- 5 + 3                  → Evaluates to 8
+- 10 > 5 and 'a' in 'cat' → Evaluates to True
+- f"Score: {90 + 5}"     → Evaluates to "Score: 95"
 
 2. THE 4 PHASES OF PYTHON EXPRESSION EVALUATION
 --------------------------------------------------------------------------------
@@ -58,8 +58,8 @@ Rule 2: Operator Hierarchy (Precedence)
   13. Assignment & Augmented: =, +=, -=, *=, ... (Right-to-Left!)
 
 Rule 3: Associativity Rule
-  - Left-to-Right (L->R): 100 - 30 - 20 -> (100 - 30) - 20 = 50
-  - Right-to-Left (R->L): 2 ** 3 ** 2 -> 2 ** (3 ** 2) = 2 ** 9 = 512
+  - Left-to-Right (L->R): 100 - 30 - 20 → (100 - 30) - 20 = 50
+  - Right-to-Left (R->L): 2 ** 3 ** 2 → 2 ** (3 ** 2) = 2 ** 9 = 512
 
 Rule 4: Chained Comparisons Rule
   - a < b < c is translated as (a < b) and (b < c), with 'b' evaluated once.
@@ -68,11 +68,11 @@ Rule 4: Chained Comparisons Rule
 --------------------------------------------------------------------------------
 Expression: 10 + 6 * 3 - 4 / 2 ** 2
 
-Step 1: Exponentiation (2 ** 2)           -> 4
-Step 2: Division (4 / 4)                  -> 1.0 (True float division)
-Step 3: Multiplication (6 * 3)            -> 18
-Step 4: Addition (10 + 18)                -> 28
-Step 5: Subtraction (28 - 1.0)            -> 27.0 (Final Result)
+Step 1: Exponentiation (2 ** 2)           → 4
+Step 2: Division (4 / 4)                  → 1.0 (True float division)
+Step 3: Multiplication (6 * 3)            → 18
+Step 4: Addition (10 + 18)                → 28
+Step 5: Subtraction (28 - 1.0)            → 27.0 (Final Result)
 
 5. COMMON PITFALLS & INTERVIEW TRAPS
 --------------------------------------------------------------------------------

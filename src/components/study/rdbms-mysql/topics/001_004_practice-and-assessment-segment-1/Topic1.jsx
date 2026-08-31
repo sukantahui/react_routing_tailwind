@@ -78,9 +78,9 @@ CREATE TABLE admissions (
 ) ENGINE=InnoDB;`,
       tableSummary: [
         { table: "departments", purpose: "Parent table for academic departments & campuses", key: "PK: department_id" },
-        { table: "courses", purpose: "Degree programs with fee & duration validation", key: "FK -> departments" },
+        { table: "courses", purpose: "Degree programs with fee & duration validation", key: "FK → departments" },
         { table: "students", purpose: "Candidate personal profiles with unique contacts", key: "PK: student_id" },
-        { table: "admissions", purpose: "Enrollment ledgers with deposit checks (>= ₹5,000)", key: "FK -> students, courses" }
+        { table: "admissions", purpose: "Enrollment ledgers with deposit checks (>= ₹5,000)", key: "FK → students, courses" }
       ],
       explanation:
         "The DDL script establishes strict topological dependency order: parent tables (`departments`, `students`) are created first, followed by dependent child tables (`courses`, `admissions`). Constraints guarantee entity, domain, and referential integrity."
@@ -229,7 +229,7 @@ GROUP BY d.department_id, d.dept_name, d.campus_city;`,
               Hands-on Lab 1
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Hands-on Lab 1: College Student Admission Database Setup
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

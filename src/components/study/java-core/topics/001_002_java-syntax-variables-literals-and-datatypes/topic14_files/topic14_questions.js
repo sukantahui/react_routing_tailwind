@@ -83,7 +83,7 @@ const questions = [
     explanation: "Since Java 8, variables that are not reassigned after initialization are 'effectively final' and can be safely accessed by closures and lambda expressions.",
     hint: "Effectively final variables are accessible in lambdas.",
     level: "intermediate",
-    codeExample: "final String center = \"Barrackpore\";\nRunnable r = () -> System.out.println(center);"
+    codeExample: "final String center = \"Barrackpore\";\nRunnable r = () → System.out.println(center);"
   },
   {
     question: "What happens if a constructor fails to initialize a blank final instance field?",

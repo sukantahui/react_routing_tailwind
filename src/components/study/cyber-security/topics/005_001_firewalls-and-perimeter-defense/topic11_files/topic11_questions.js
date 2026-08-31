@@ -78,7 +78,7 @@ const certinLogPolicy = {
     hint: "Requiring two different people to review and approve every firewall rule change.",
     level: "Basic",
     codeExample: `// Four-Eyes Workflow:
-// Step 1: Mamata submits rule change #CHG-9921 -> Step 2: Sukanta Hui reviews diff & approves -> Step 3: Automated CI/CD deployment`
+// Step 1: Mamata submits rule change #CHG-9921 → Step 2: Sukanta Hui reviews diff & approves → Step 3: Automated CI/CD deployment`
   },
   {
     id: 8,
@@ -286,7 +286,7 @@ const roeDoc = {
     hint: "Reviewing all firewall rules every 3 months and deleting old rules that have zero hits.",
     level: "Basic",
     codeExample: `// Quarterly Pruning Workflow:
-// Step 1: Export rules with hit_count == 0 (Last 90 Days) -> Step 2: Notify app owners -> Step 3: Decommission after 14 days`
+// Step 1: Export rules with hit_count == 0 (Last 90 Days) → Step 2: Notify app owners → Step 3: Decommission after 14 days`
   },
   {
     id: 27,
@@ -317,7 +317,7 @@ const roeDoc = {
     hint: "A separate logging system that administrators cannot edit or delete.",
     level: "Moderate",
     codeExample: `// Cryptographic Log Chain:
-// SHA-256(Log_N) = Hash(Log_N_Payload + SHA-256(Log_N-1)) -> Any modification breaks the cryptographic hash chain!`
+// SHA-256(Log_N) = Hash(Log_N_Payload + SHA-256(Log_N-1)) → Any modification breaks the cryptographic hash chain!`
   },
   {
     id: 30,

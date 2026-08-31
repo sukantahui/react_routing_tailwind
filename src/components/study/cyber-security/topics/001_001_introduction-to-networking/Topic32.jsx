@@ -21,7 +21,7 @@ const Topic32 = () => {
     {
       id: 'fiber-1g',
       name: '1 Gbps Clean Optical Fiber (Zero Loss)',
-      pathLinks: '10G Core -> 1G Aggregation -> 1G Endpoint',
+      pathLinks: '10G Core → 1G Aggregation → 1G Endpoint',
       bottleneckCap: '1,000 Mbps (1 Gbps)',
       packetLoss: '0.001% (Clean Fiber)',
       rtt: '15 ms',
@@ -34,7 +34,7 @@ const Topic32 = () => {
     {
       id: 'bottleneck-wan',
       name: 'Multi-Hop WAN with 50 Mbps Bottleneck Link',
-      pathLinks: '10G Local -> 1G ISP -> 50 Mbps WAN -> 10G Remote Cloud',
+      pathLinks: '10G Local → 1G ISP → 50 Mbps WAN → 10G Remote Cloud',
       bottleneckCap: '50 Mbps (Bottleneck Link Rule)',
       packetLoss: '0.1% (Intermediate Queue Drops)',
       rtt: '45 ms',
@@ -47,7 +47,7 @@ const Topic32 = () => {
     {
       id: 'lossy-wifi',
       name: 'Lossy Campus Wi-Fi (3% Packet Loss with TCP Cubic)',
-      pathLinks: '300 Mbps Wi-Fi 6 -> 1G Switch -> 1G Gateway',
+      pathLinks: '300 Mbps Wi-Fi 6 → 1G Switch → 1G Gateway',
       bottleneckCap: '300 Mbps Radio Bandwidth',
       packetLoss: '3.0% (RF Noise & Wall Interference)',
       rtt: '25 ms',
@@ -60,7 +60,7 @@ const Topic32 = () => {
     {
       id: 'san-jumbo',
       name: '10 Gbps SAN Storage with 9000-Byte Jumbo Frames',
-      pathLinks: '10G Server NIC -> 40G Core -> 10G NVMe Array',
+      pathLinks: '10G Server NIC → 40G Core → 10G NVMe Array',
       bottleneckCap: '10,000 Mbps (10 Gbps Line Rate)',
       packetLoss: '0.000% (Lossless DCB / PFC Enabled)',
       rtt: '1 ms (Intra-Rack SAN)',
@@ -163,7 +163,7 @@ const Topic32 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Throughput
           </h1>
 

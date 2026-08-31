@@ -504,7 +504,7 @@ import java.util.*;
 
 // Generic container that can hold any type extending Number
 class NumberContainer<T extends Number> {
-    private List<T> numbers;
+    private List&lt;T&gt; numbers;
     
     public NumberContainer() {
         numbers = new ArrayList<>();
@@ -561,10 +561,10 @@ public class NumberProcessor {
     }
     
     // Merge multiple containers
-    public static NumberContainer<Number> mergeContainers(
+    public static NumberContainer&lt;Number&gt; mergeContainers(
             NumberContainer<? extends Number>... containers) {
         
-        NumberContainer<Number> result = new NumberContainer<>();
+        NumberContainer&lt;Number&gt; result = new NumberContainer<>();
         for (NumberContainer<? extends Number> container : containers) {
             for (int i = 0; i < container.size(); i++) {
                 result.add(container.get(i));
@@ -608,7 +608,7 @@ public class MarksContainerSystem {
         System.out.println("Do containers have same sum? " + sameSum);
         
         // Merge containers
-        NumberContainer<Number> merged = NumberProcessor.mergeContainers(
+        NumberContainer&lt;Number&gt; merged = NumberProcessor.mergeContainers(
             integerContainer, doubleContainer, floatContainer);
         
         System.out.println("\\nMerged container (" + merged.size() + " items):");
@@ -704,14 +704,14 @@ public class WildcardMistakes {
         simpleMap.put("marks", Arrays.asList(85, 92, 88));
         
         // Or if you need flexibility, use bounded type parameters
-        class FlexibleContainer<K extends Comparable<K>, V extends Number> {
-            private Map<K, List<V>> data = new HashMap<>();
+        class FlexibleContainer<K extends Comparable&lt;K&gt;, V extends Number> {
+            private Map<K, List&lt;V&gt;> data = new HashMap<>();
             
             public void add(K key, V value) {
-                data.computeIfAbsent(key, k -> new ArrayList<>()).add(value);
+                data.computeIfAbsent(key, k → new ArrayList<>()).add(value);
             }
             
-            public List<V> get(K key) {
+            public List&lt;V&gt; get(K key) {
                 return data.get(key);
             }
         }
@@ -745,7 +745,7 @@ public class WildcardMistakes {
         double doubleSum = sumOfList(doubles); // Producer: provides Numbers
         
         // Consumer example - would use super (not shown here)
-        // List<? super Integer> consumerList = new ArrayList<Number>();
+        // List<? super Integer> consumerList = new ArrayList&lt;Number&gt;();
         // consumerList.add(10); // Can add Integers
         
         System.out.println("Integer sum: " + intSum);
@@ -795,7 +795,7 @@ public class WildcardMistakes {
             }
             
             // ✅ Alternative: Use type parameter for adding
-            public <T extends Number> void addAndProcess(List<T> marks, T newMark) {
+            public <T extends Number> void addAndProcess(List&lt;T&gt; marks, T newMark) {
                 marks.add(newMark);  // Can add because we know exact type
                 System.out.println("Added mark: " + newMark);
                 System.out.println("New average: " + calculateAverage(marks));
@@ -844,10 +844,10 @@ public class AdvancedWildcardPatterns {
     }
     
     // PATTERN 2: Wildcards with bounded type parameters
-    public static <T extends Number> List<T> filterAboveThreshold(
-            List<T> numbers, T threshold) {
+    public static <T extends Number> List&lt;T&gt; filterAboveThreshold(
+            List&lt;T&gt; numbers, T threshold) {
         
-        List<T> result = new ArrayList<>();
+        List&lt;T&gt; result = new ArrayList<>();
         for (T num : numbers) {
             if (num.doubleValue() > threshold.doubleValue()) {
                 result.add(num);
@@ -903,10 +903,10 @@ public class AdvancedWildcardPatterns {
         T create();
     }
     
-    public static <T extends Number> List<T> createNumberList(
-            NumberFactory<T> factory, int count) {
+    public static <T extends Number> List&lt;T&gt; createNumberList(
+            NumberFactory&lt;T&gt; factory, int count) {
         
-        List<T> result = new ArrayList<>();
+        List&lt;T&gt; result = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             result.add(factory.create());
         }
@@ -1010,7 +1010,7 @@ public class AdvancedWildcardPatterns {
         
         // Pattern 4: Using streams
         OptionalDouble maxMark = findMax(marks);
-        maxMark.ifPresent(max -> System.out.println("Maximum mark: " + max));
+        maxMark.ifPresent(max → System.out.println("Maximum mark: " + max));
         
         // Pattern 5: Weighted average
         List<Integer> test1 = Arrays.asList(85, 92, 88);
@@ -1021,7 +1021,7 @@ public class AdvancedWildcardPatterns {
         System.out.println("Weighted average: " + weightedAvg);
         
         // Pattern 6: Factory pattern
-        NumberFactory<Integer> integerFactory = () -> (int)(Math.random() * 100);
+        NumberFactory<Integer> integerFactory = () → (int)(Math.random() * 100);
         List<Integer> randomMarks = createNumberList(integerFactory, 5);
         System.out.println("Random marks: " + randomMarks);
         
@@ -1048,7 +1048,7 @@ public class AdvancedWildcardPatterns {
         Map<String, Double> performance = 
             CollegeMarksSystem.analyzePerformance(allSemesters);
         System.out.println("\\nPerformance analysis:");
-        performance.forEach((key, value) -> 
+        performance.forEach((key, value) → 
             System.out.println(key + ": " + value));
     }
 }`;
@@ -1080,7 +1080,7 @@ public class AdvancedWildcardPatterns {
     },
     {
       type: "Exact Type",
-      syntax: "<T>",
+      syntax: "&lt;T&gt;",
       allows: "Both reading and adding as T",
       disallows: "Other types",
       useCase: "When you need full type control",
@@ -1152,7 +1152,7 @@ public class AdvancedWildcardPatterns {
               </svg>
             </div>
             <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
                 Upper Bounded Wildcards (? extends)
               </h1>
               <p className="mt-3 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">

@@ -10,9 +10,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Eliminates cascading 'if-else-if instanceof' chains.
 
 2. KEY FEATURES:
-   1. Type Patterns: 'case String s -> ...'
-   2. Guard Clauses ('when'): 'case String s when s.length() > 5 -> ...'
-   3. Direct Null Handling: 'case null -> ...' (No longer throws NullPointerException by default).
+   1. Type Patterns: 'case String s → ...'
+   2. Guard Clauses ('when'): 'case String s when s.length() > 5 → ...'
+   3. Direct Null Handling: 'case null → ...' (No longer throws NullPointerException by default).
    4. Exhaustiveness Checking: Compiler ensures all possible values are covered.
 
 ================================================================================

@@ -76,7 +76,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Optimizing Performance: Buffering Tables &amp; Reducing Memory Footprint
           </h1>
 
@@ -159,19 +159,19 @@ export default function Topic10() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-300">Table.Buffer</td>
                   <td className="py-3 px-4 font-mono text-purple-300">Table (Rows &times; Columns)</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">1,000 to 100,000 rows (&lt;100MB)</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">1,000 to 100,000 rows (<100MB)</td>
                   <td className="py-3 px-4">Accelerates row-by-row lookups, nested merges, and locks sort order before <code className="text-amber-300">Table.Group</code>.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-teal-300">List.Buffer</td>
                   <td className="py-3 px-4 font-mono text-purple-300">List (1D Array)</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">Any size key list (&lt;250MB)</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">Any size key list (<250MB)</td>
                   <td className="py-3 px-4">Instant key membership checks inside <code className="text-teal-300">List.Contains</code> during row filtering.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-indigo-300">Binary.Buffer</td>
                   <td className="py-3 px-4 font-mono text-purple-300">Raw Byte Array</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">Single file streams (&lt;500MB)</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">Single file streams (<500MB)</td>
                   <td className="py-3 px-4">Prevents multiple disk re-reads when extracting multiple worksheets from one Excel file.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -216,7 +216,7 @@ export default function Topic10() {
 
             <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
               <h3 className="font-bold text-teal-300 text-base flex items-center gap-2">
-                <span>2.</span> Complexity Reduction: O(N*M) &rarr; O(N)
+                <span>2.</span> Complexity Reduction: O(N*M) → O(N)
               </h3>
               <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
                 Wrapping the dimension table in <code className="text-teal-300 font-mono">Table.Buffer</code> creates an immutable in-memory hash table in RAM. 
@@ -421,7 +421,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Performance_Optimize"
+            sheetName="EX2111"
             title="Performance Optimization &amp; Table.Buffer Benchmarks (Query Name, Unbuffered Runtime s, Buffered Runtime s, Speedup Multiplier, Memory Footprint MB)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -460,7 +460,7 @@ export default function Topic10() {
                 the lookup query executes directly in CPU memory, dropping execution time from 12 minutes to 1.8 seconds!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                Table.Buffer(FXRates) &rarr; 400x Faster Multi-Currency Calculation
+                Table.Buffer(FXRates) → 400x Faster Multi-Currency Calculation
               </div>
             </div>
 
@@ -479,7 +479,7 @@ export default function Topic10() {
                 guaranteeing that <code className="text-teal-300 font-mono">Table.Group</code> returns the true latest KYC state without random reordering.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Table.Buffer(Table.Sort(...)) &rarr; 100% Reliable Latest Row State
+                Table.Buffer(Table.Sort(...)) → 100% Reliable Latest Row State
               </div>
             </div>
 
@@ -498,7 +498,7 @@ export default function Topic10() {
                 <code className="text-indigo-300 font-mono">List.Contains</code> evaluates instantly in RAM with zero memory overhead.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                List.Buffer(Keys) &rarr; Fast Vector Search in List.Contains
+                List.Buffer(Keys) → Fast Vector Search in List.Contains
               </div>
             </div>
 
@@ -516,7 +516,7 @@ export default function Topic10() {
                 Buffering the raw file stream once with <code className="text-purple-300 font-mono">Binary.Buffer(File.Contents(...))</code> avoids re-downloading the 80MB file 12 consecutive times over the network!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Binary.Buffer(File.Contents) &rarr; 1 Single Network Read for 12 Sheets
+                Binary.Buffer(File.Contents) → 1 Single Network Read for 12 Sheets
               </div>
             </div>
           </div>
@@ -685,7 +685,7 @@ in
                 <span>⚡</span> Tip 3: Inspect Memory via Query Diagnostics
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Use <strong>Tools &rarr; Start Diagnostics</strong> in Power BI to evaluate <code className="text-indigo-300 font-mono">Memory (KB)</code> allocations per step and identify rogue memory-heavy operations.
+                Use <strong>Tools → Start Diagnostics</strong> in Power BI to evaluate <code className="text-indigo-300 font-mono">Memory (KB)</code> allocations per step and identify rogue memory-heavy operations.
               </p>
             </div>
 

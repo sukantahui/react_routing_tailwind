@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema)"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Dimensional_Modeli"
+            sheetName="EX2203"
             title={"Dimensional Modeling principles: Fact Tables vs Dimension Tables (Star Schema vs Snowflake Schema) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic2() {
                 Step 1: Load Data Tables to Data Model
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> &gt; Check <strong>Add this data to the Data Model</strong>.
+                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> > Check <strong>Add this data to the Data Model</strong>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic2() {
                 Step 3: Define Calendar Dimension &amp; Mark as Date Table
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design &gt; Mark as Date Table</strong>.
+                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design > Mark as Date Table</strong>.
               </p>
             </div>
 
@@ -447,7 +447,7 @@ export default function Topic2() {
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Excessive Snowflake Normalization"}</td>
-                  <td className="py-3 px-4">{"Splitting dimensions into 5 cascading tiers (Product -> Subcategory -> Category -> Department -> Group) slows down DAX filter traversal."}</td>
+                  <td className="py-3 px-4">{"Splitting dimensions into 5 cascading tiers (Product → Subcategory → Category → Department → Group) slows down DAX filter traversal."}</td>
                   <td className="py-3 px-4 font-mono text-cyan-300">{"Collapse multi-tier dimensions back into a single clean Star Schema dimension table."}</td>
                 </tr>
                 

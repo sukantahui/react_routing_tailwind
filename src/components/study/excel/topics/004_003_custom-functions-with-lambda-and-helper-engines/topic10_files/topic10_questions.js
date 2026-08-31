@@ -50,7 +50,7 @@ const questions = [
     explanation: "SCAN preserves the shape of the input array exactly.",
     hint: "Same dimensions as the input array.",
     level: "basic",
-    codeExample: "(M x 1) Vector &rarr; (M x 1) Spilled Vector"
+    codeExample: "(M x 1) Vector → (M x 1) Spilled Vector"
   },
   {
     question: "How do you compute a running maximum (peak high-water mark) across a sales column using SCAN?",
@@ -170,7 +170,7 @@ const questions = [
     explanation: "Accumulator carries forward the previous balance unaffected.",
     hint: "Blank evaluated as 0 in arithmetic scan.",
     level: "basic",
-    codeExample: "Blank Cell &rarr; Val = 0"
+    codeExample: "Blank Cell → Val = 0"
   },
   {
     question: "How can you combine SCAN running balance with the original transaction table using HSTACK?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "SCAN is the definitive high-speed accumulator engine in modern Excel, transforming financial ledgers, inventory trackers, and cumulative models into pristine, single-formula spilled pipelines!",
     hint: "Always replace legacy dragged running totals with SCAN!",
     level: "expert",
-    codeExample: "Rule: Running Balances & Progressive Totals &rarr; Use SCAN!"
+    codeExample: "Rule: Running Balances & Progressive Totals → Use SCAN!"
   }
 ];
 

@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Securing proprietary algorithms and intellectual property: locking VBA Projects with passwords, obfuscation techniques, trusted code deployment, and enterprise security governance
 
 TEACHER'S ADVICE:
-To protect your proprietary code: In VBE, go to Tools -> VBAProject Properties -> Protection -> check 'Lock project for viewing' and set a strong password. Now nobody can see your code without the password.
+To protect your proprietary code: In VBE, go to Tools → VBAProject Properties → Protection → check 'Lock project for viewing' and set a strong password. Now nobody can see your code without the password.
 
 COMMON TRAPS TO AVOID:
-- Believing VBA Passwords Are 100% Unbreakable: Standard VBA passwords can be bypassed using hex editor binary byte alteration (`DPB` to `DPx`). -> Fix: Combine VBA passwords with code obfuscation, C++ DLL compilation, or compiled `.xlam` add-ins for true commercial security.
-- Lost VBA Passwords (No Recovery Option): Forgetting project password locks author out of their own source code permanently. -> Fix: Store master unencrypted source code copies in secure corporate Git repositories.
-- Protecting Project Before Debugging Concludes: Leaving project locked makes testing and error debugging painful during active development. -> Fix: Apply VBA password protection ONLY as the final deployment step.
+- Believing VBA Passwords Are 100% Unbreakable: Standard VBA passwords can be bypassed using hex editor binary byte alteration (`DPB` to `DPx`). → Fix: Combine VBA passwords with code obfuscation, C++ DLL compilation, or compiled `.xlam` add-ins for true commercial security.
+- Lost VBA Passwords (No Recovery Option): Forgetting project password locks author out of their own source code permanently. → Fix: Store master unencrypted source code copies in secure corporate Git repositories.
+- Protecting Project Before Debugging Concludes: Leaving project locked makes testing and error debugging painful during active development. → Fix: Apply VBA password protection ONLY as the final deployment step.
 ================================================================================

@@ -130,7 +130,7 @@ const questions = [
     explanation: "If a corporate tax law changes, updating the formula once in Name Manager instantly updates all 10,000 dependent cells across the workbook.",
     hint: "Single point of maintenance for proprietary corporate logic.",
     level: "moderate",
-    codeExample: "Update once in Name Manager &rarr; All cells update"
+    codeExample: "Update once in Name Manager → All cells update"
   },
   {
     question: "Can a LAMBDA function return a multi-cell dynamic spilled array?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Prototyping in an active cell with immediate execution allows instant visual debugging with real data. Once validated, moving the formula to Name Manager encapsulates the business logic into a permanent, reusable asset for the entire organization!",
     hint: "Prototype in cell with LET & (LAMBDA()()), then register in Name Manager.",
     level: "expert",
-    codeExample: "Workflow: Prototype in LET &rarr; Wrap in LAMBDA &rarr; Test with (args) &rarr; Save in Name Manager"
+    codeExample: "Workflow: Prototype in LET → Wrap in LAMBDA → Test with (args) → Save in Name Manager"
   }
 ];
 

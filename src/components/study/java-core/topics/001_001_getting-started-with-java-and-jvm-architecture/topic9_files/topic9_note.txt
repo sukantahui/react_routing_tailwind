@@ -37,6 +37,6 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 3. QUICK CHECKLIST
 --------------------------------------------------------------------------------
 [✓] IntelliJ IDEA Community is recommended for core Java mastery.
-[✓] Configure Project SDK in File -> Project Structure -> SDKs.
+[✓] Configure Project SDK in File → Project Structure → SDKs.
 [✓] Master keyboard shortcuts early to double your development speed.
 ================================================================================

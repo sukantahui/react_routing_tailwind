@@ -20,18 +20,18 @@ A clean, modular repository layout ensures evaluators and prospective employers 
 
 SQL Implementation:
 -- 📁 CAPSTONE GITHUB REPOSITORY STRUCTURE:
--- ├── README.md                 -> Executive summary, architecture overview, setup guide
+-- ├── README.md                 → Executive summary, architecture overview, setup guide
 -- ├── docs/
--- │   ├── eer_diagram.png       -> High-res Crow's Foot EER diagram
+-- │   ├── eer_diagram.png       → High-res Crow's Foot EER diagram
 -- │   ├── normalization_proof.md-> Functional dependencies & 3NF proofs
--- │   ├── data_dictionary.md    -> Complete table & column specifications
--- │   └── disaster_recovery.md  -> Backup & PITR runbook
+-- │   ├── data_dictionary.md    → Complete table & column specifications
+-- │   └── disaster_recovery.md  → Backup & PITR runbook
 -- ├── sql/
--- │   ├── 01_schema.sql         -> Production DDL scripts
--- │   ├── 02_seeds.sql          -> 100,000+ mock records
--- │   ├── 03_analytics.sql      -> 15 Analytical queries (Window / CTEs)
--- │   ├── 04_procedures.sql     -> Stored procedures, triggers, events
--- │   └── 05_optimization.sql   -> EXPLAIN benchmark reports
+-- │   ├── 01_schema.sql         → Production DDL scripts
+-- │   ├── 02_seeds.sql          → 100,000+ mock records
+-- │   ├── 03_analytics.sql      → 15 Analytical queries (Window / CTEs)
+-- │   ├── 04_procedures.sql     → Stored procedures, triggers, events
+-- │   └── 05_optimization.sql   → EXPLAIN benchmark reports
 
 Takeaways:
 - Include a clear README.md with architecture badges, setup commands, and quick-start instructions.

@@ -76,7 +76,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Assessment: Advanced Regular Expressions & String Intelligence Lab
           </h1>
 
@@ -179,7 +179,7 @@ export default function Topic13() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-400">Lab 8</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Lookbehind API Status Token Extraction</td>
-                  <td className="py-3 px-4 text-sky-300">REGEXEXTRACT (?&lt;=KEY=)</td>
+                  <td className="py-3 px-4 text-sky-300">REGEXEXTRACT (?<=KEY=)</td>
                   <td className="py-3 px-4 font-sans text-emerald-400">Extracts value with zero helper columns.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -241,7 +241,7 @@ export default function Topic13() {
                 <span className="text-amber-400">3.</span> Lookaround & Group Capturing Mastery (20%)
               </h3>
               <p className="leading-relaxed">
-                Candidate deploys capturing groups (Mode 2) and positive lookbehinds <code className="text-purple-300 font-mono">(?&lt;=KEY=)</code> to isolate target tokens 
+                Candidate deploys capturing groups (Mode 2) and positive lookbehinds <code className="text-purple-300 font-mono">(?<=KEY=)</code> to isolate target tokens 
                 cleanly without redundant string trimming formulas.
               </p>
             </div>
@@ -388,7 +388,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Capstone_Lab"
+            sheetName="EX1914"
             title="Capstone Assessment Lab Dataset (Challenge ID, Problem Domain, Raw Source String, Target Function, Solution Formula)"
             rowsPerPage={10}
             showSheetSelector={true}

@@ -35,7 +35,7 @@ export default function Topic2() {
                             "motion-safe:animate-[slideUp_0.5s_ease-out]"
                         )}
                     >
-                        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                             Role of JDBC, JSP, and Servlets
                         </h1>
                         <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
@@ -97,7 +97,7 @@ export default function Topic2() {
                                 height="220"
                                 viewBox="0 0 650 220"
                                 className="max-w-full"
-                                aria-label="Flow diagram: Client -> Servlet -> JDBC -> Database -> JSP -> Client"
+                                aria-label="Flow diagram: Client → Servlet → JDBC → Database → JSP → Client"
                             >
                                 <rect width="650" height="220" fill="transparent" />
 

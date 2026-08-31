@@ -75,7 +75,7 @@ const Topic4 = () => {
     {
       name: "Unbind-Rebind Pattern",
       returnType: "Queue Overflow Prevention",
-      purpose: "Calls `ondrag(None)` -> moves turtle -> re-enables `ondrag(handler)` to prevent lag.",
+      purpose: "Calls `ondrag(None)` → moves turtle → re-enables `ondrag(handler)` to prevent lag.",
       usage: "t.ondrag(None)\nt.goto(x, y)\nt.ondrag(on_drag)"
     },
     {
@@ -99,7 +99,7 @@ const Topic4 = () => {
             Module 005_006 · Event Handling & Interaction · Topic 4
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 via-cyan-300 to-sky-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 via-cyan-300 to-sky-400 bg-clip-text text-transparent">
             Mouse Drag Events: turtle.ondrag() & Freehand Drawing
           </h1>
 

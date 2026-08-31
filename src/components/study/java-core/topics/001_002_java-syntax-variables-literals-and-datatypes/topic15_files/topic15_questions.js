@@ -99,7 +99,7 @@ const questions = [
     explanation: "`Scanner` has a small default buffer (1024 chars) and evaluates regular expressions on every token read. `BufferedReader` uses an 8192-char buffer and reads raw text lines directly, making it significantly faster for competitive programming and big data.",
     hint: "BufferedReader is faster; Scanner is more convenient for parsing primitives.",
     level: "advanced",
-    codeExample: "// Competitive Programming / Big Data -> BufferedReader\n// Classroom Console / Easy Parsing -> Scanner"
+    codeExample: "// Competitive Programming / Big Data → BufferedReader\n// Classroom Console / Easy Parsing → Scanner"
   },
   {
     question: "What is the return type of `scanner.delimiter()`?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "`next()` stops at the first space or tab, leaving subsequent words on the stream. `nextLine()` consumes all characters until `\\n` or `\\r\\n` and advances the cursor to the next line.",
     hint: "next() reads a word; nextLine() reads a full line.",
     level: "basic",
-    codeExample: "// Input: 'Swadeep Hui Barrackpore'\n// sc.next() -> 'Swadeep'\n// sc.nextLine() -> ' Hui Barrackpore'"
+    codeExample: "// Input: 'Swadeep Hui Barrackpore'\n// sc.next() → 'Swadeep'\n// sc.nextLine() → ' Hui Barrackpore'"
   },
   {
     question: "How do you check if more lines of text exist in a `Scanner`?",

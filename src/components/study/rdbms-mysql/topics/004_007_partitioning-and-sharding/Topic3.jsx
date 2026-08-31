@@ -59,8 +59,8 @@ CREATE TABLE modern_sales (
       badgeColor: "cyan",
       sqlSnippet: `-- 🧮 HOW BOUNDARY VALUES WORK:
 -- PARTITION p2024 VALUES LESS THAN (2025)
--- -> Stores values where order_year < 2025 (e.g. 2024, 2023, 2022).
--- -> Row with order_year = 2025 routes to p2025!
+-- → Stores values where order_year < 2025 (e.g. 2024, 2023, 2022).
+-- → Row with order_year = 2025 routes to p2025!
 
 -- 📦 NULL HANDLING IN RANGE PARTITIONING:
 -- NULL is treated as less than any integer or date value.
@@ -102,9 +102,9 @@ ALTER TABLE modern_sales REORGANIZE PARTITION p_future INTO (
       badge: "Sizing Strategy",
       badgeColor: "rose",
       sqlSnippet: `-- 📊 PRODUCTION SIZING GUIDELINES:
--- Volume: < 10M rows/year   -> Yearly Partitioning (p2024, p2025)
--- Volume: 10M-100M rows/yr -> Monthly Partitioning (p2025_01, p2025_02)
--- Volume: > 1M rows/day     -> Daily Partitioning (p20250825, p20250826)
+-- Volume: < 10M rows/year   → Yearly Partitioning (p2024, p2025)
+-- Volume: 10M-100M rows/yr → Monthly Partitioning (p2025_01, p2025_02)
+-- Volume: > 1M rows/day     → Daily Partitioning (p20250825, p20250826)
 
 -- 🎯 Target: Size each partition between 2GB and 10GB for optimal RAM caching!`,
       explanation:
@@ -131,7 +131,7 @@ ALTER TABLE modern_sales REORGANIZE PARTITION p_future INTO (
             Topic 3 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">RANGE Partitioning</span>: Date Ranges, <span className="text-cyan-400">Years</span> &amp; ID Intervals
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

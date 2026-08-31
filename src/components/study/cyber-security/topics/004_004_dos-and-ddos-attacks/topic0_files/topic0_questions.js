@@ -17,8 +17,8 @@ const questions = [
     hint: "One loud person screaming in a library (DoS) vs 10,000 people chanting simultaneously (DDoS).",
     level: "basic",
     codeExample: `// DoS vs DDoS Architecture:
-// DoS  : [Attacker IP: 103.25.10.50] ➔ (100 Mbps Flood) ➔ [Victim Server] -> (Easy to Block 1 IP!)
-// DDoS : [Botnet (500,000 Distributed IPs)] ➔ (1.2 Tbps Flood) ➔ [Victim Server] -> (Requires Scrubbing!)`
+// DoS  : [Attacker IP: 103.25.10.50] ➔ (100 Mbps Flood) ➔ [Victim Server] → (Easy to Block 1 IP!)
+// DDoS : [Botnet (500,000 Distributed IPs)] ➔ (1.2 Tbps Flood) ➔ [Victim Server] → (Requires Scrubbing!)`
   },
   {
     question: "What are the 3 Primary Categories of Denial of Service (DoS) Attacks?",
@@ -334,7 +334,7 @@ while True:
   {
     question: "Synthesize the mathematical relationship between Legitimate Request Arrival Rate (λ_legit), Attack Traffic Arrival Rate (λ_attack), Server Service Processing Capacity (μ), and Request Drop Probability (P_drop) in an M/M/1 Queueing Model.",
     shortAnswer: "Request drop probability is modeled as P_drop = 1 - e^(- λ_attack / (μ - λ_legit)); when attack traffic λ_attack exceeds remaining server capacity (μ - λ_legit), service availability collapses to zero (100% request drop rate).",
-    explanation: "In an M/M/1 queueing system, server service capacity is μ requests/sec and legitimate traffic is λ_legit. When an attacker injects λ_attack requests/sec, the total arrival rate is λ_total = λ_legit + λ_attack. When λ_total >= μ, queue length approaches infinity (L -> ∞), buffer overflows occur, and request drop probability is: P_drop = 1 - e^(- λ_attack / (μ - λ_legit)). Enforcing upstream rate limiting and anycast load balancing keeps λ_total < μ, ensuring P_drop -> 0.",
+    explanation: "In an M/M/1 queueing system, server service capacity is μ requests/sec and legitimate traffic is λ_legit. When an attacker injects λ_attack requests/sec, the total arrival rate is λ_total = λ_legit + λ_attack. When λ_total >= μ, queue length approaches infinity (L → ∞), buffer overflows occur, and request drop probability is: P_drop = 1 - e^(- λ_attack / (μ - λ_legit)). Enforcing upstream rate limiting and anycast load balancing keeps λ_total < μ, ensuring P_drop → 0.",
     hint: "Mathematical queueing theory formula proving that when attack traffic rate exceeds remaining service capacity, request drop probability reaches 100%.",
     level: "expert",
     codeExample: `// M/M/1 Queueing DoS Availability Calculation:

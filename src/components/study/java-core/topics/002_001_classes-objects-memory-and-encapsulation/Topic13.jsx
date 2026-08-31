@@ -42,7 +42,7 @@ export default function Topic13() {
             JavaBean Standards &amp; Framework Contracts
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Getter and Setter Methods: Accessor and Mutator Conventions
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -102,7 +102,7 @@ export default function Topic13() {
       {/* Section 2: Semantic Visual Diagram */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
-          <span>⚙️</span> The JavaBean Reflection Bridge: Frameworks &rarr; Getters/Setters &rarr; Private Fields
+          <span>⚙️</span> The JavaBean Reflection Bridge: Frameworks → Getters/Setters → Private Fields
         </h2>
         <p className="text-sm md:text-base text-slate-400 leading-relaxed">
           Visualizing how Spring Boot, Jackson, and Hibernate interact with private state through standardized JavaBean accessor bridges:

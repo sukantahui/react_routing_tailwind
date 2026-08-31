@@ -37,7 +37,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 8. Switch Fall-Through
    * Bug: missing break causes execution to spill into next cases.
-   * Fix: use Java 14+ switch expressions (case X -> ...).
+   * Fix: use Java 14+ switch expressions (case X → ...).
 
 9. Missing Base Case in Recursion
    * Bug: missing base case crashes with StackOverflowError.

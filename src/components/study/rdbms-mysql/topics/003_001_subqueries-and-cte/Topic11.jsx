@@ -151,7 +151,7 @@ ORDER BY assembly_depth, component_id;`,
       title: "4. Cycle Detection & Runaway Loop Mitigation",
       badge: "Cycle Guard",
       badgeColor: "rose",
-      sqlQuery: `-- Preventing Infinite Loops on Corrupted Hierarchies (A -> B -> A):
+      sqlQuery: `-- Preventing Infinite Loops on Corrupted Hierarchies (A → B → A):
 WITH RECURSIVE SafeGraphTraversal AS (
     -- Anchor Member: Seed starting node with path tracker:
     SELECT 
@@ -216,7 +216,7 @@ FROM SafeGraphTraversal;`,
               Graph & Tree Traversal
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Recursive CTEs for Hierarchical Trees & BOM
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

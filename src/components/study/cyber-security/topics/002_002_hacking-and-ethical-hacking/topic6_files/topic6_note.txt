@@ -54,8 +54,8 @@ Modern organizations structure their security operations into three collaborativ
   * 60 MINUTES : Complete host isolation, credential revocation, and remediation.
 
 [3. DAVID BIANCO'S PYRAMID OF PAIN]
-  * Hash Values (Trivial) -> IP Addresses (Easy) -> Domain Names (Simple) -> 
-    Network Artifacts (Annoying) -> Tools (Challenging) -> TTPs (PAINFUL FOR ADVERSARY).
+  * Hash Values (Trivial) → IP Addresses (Easy) → Domain Names (Simple) → 
+    Network Artifacts (Annoying) → Tools (Challenging) → TTPs (PAINFUL FOR ADVERSARY).
 
 --------------------------------------------------------------------------------
 4. PURPLE TEAMING & DETECTION ENGINEERING

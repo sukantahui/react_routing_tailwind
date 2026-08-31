@@ -99,7 +99,7 @@ SELECT * FROM customers c WHERE NOT EXISTS (SELECT 1 FROM orders o WHERE o.custo
             Topic 1 of 10
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Top 25 SQL Query Writing Interview Challenges (Nth Highest Salary, Duplicate Removal, Running Totals, Top-N Per Group)
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

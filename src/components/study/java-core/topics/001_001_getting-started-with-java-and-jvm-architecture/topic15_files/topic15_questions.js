@@ -13,7 +13,7 @@ const questions = [
     explanation: "Static methods execute without an object instance on the heap. Instance fields require an object instance to exist.",
     hint: "Static methods cannot read instance fields directly.",
     level: "basic",
-    codeExample: "public class App {\n    int count = 10;\n    public static void main(String[] args) {\n        // System.out.println(count); -> COMPILE ERROR\n        System.out.println(new App().count); // FIXED\n    }\n}"
+    codeExample: "public class App {\n    int count = 10;\n    public static void main(String[] args) {\n        // System.out.println(count); → COMPILE ERROR\n        System.out.println(new App().count); // FIXED\n    }\n}"
   },
   {
     question: "What causes `error: incompatible types: possible lossy conversion from double to int`?",
@@ -45,7 +45,7 @@ const questions = [
     explanation: "The compiler's flow analysis detects that execution can never physically reach that line of code.",
     hint: "Code placed after unconditional return/throw.",
     level: "basic",
-    codeExample: "public void test() {\n    return;\n    // System.out.println(\"Dead\"); -> COMPILE ERROR: unreachable statement\n}"
+    codeExample: "public void test() {\n    return;\n    // System.out.println(\"Dead\"); → COMPILE ERROR: unreachable statement\n}"
   },
   {
     question: "What causes `error: class ClassName is public, should be declared in a file named ClassName.java`?",
@@ -53,7 +53,7 @@ const questions = [
     explanation: "In Java, a public class named `Employee` MUST reside in a file named `Employee.java`.",
     hint: "Filename must match public class name exactly.",
     level: "basic",
-    codeExample: "// Public class OrderService -> Must be in OrderService.java"
+    codeExample: "// Public class OrderService → Must be in OrderService.java"
   },
   {
     question: "What causes `error: ';' expected` or `error: '}' expected`?",
@@ -77,7 +77,7 @@ const questions = [
     explanation: "The `@Override` annotation instructs javac to verify the signature against parent types; any mismatch triggers a compiler error.",
     hint: "Signature mismatch on overridden method.",
     level: "basic",
-    codeExample: "// Typo: @Override public String tostring() -> Fixed: toString()"
+    codeExample: "// Typo: @Override public String tostring() → Fixed: toString()"
   },
   {
     question: "What causes `error: array required, but java.lang.String found`?",
@@ -93,7 +93,7 @@ const questions = [
     explanation: "The `+` operator in Java is defined only for numeric arithmetic and String concatenation.",
     hint: "Invalid operands for plus operator.",
     level: "basic",
-    codeExample: "// boolean b = true + false; -> Compile error"
+    codeExample: "// boolean b = true + false; → Compile error"
   },
   {
     question: "What causes `error: call to this/super must be first statement in constructor`?",
@@ -133,7 +133,7 @@ const questions = [
     explanation: "Java does not allow variable shadowing inside the same method block.",
     hint: "Duplicate local variable name.",
     level: "basic",
-    codeExample: "int count = 10;\n// int count = 20; -> COMPILE ERROR: count already defined"
+    codeExample: "int count = 10;\n// int count = 20; → COMPILE ERROR: count already defined"
   },
   {
     question: "What causes `error: cannot assign a value to final variable x`?",
@@ -141,7 +141,7 @@ const questions = [
     explanation: "Final variables are immutable and can be assigned only once.",
     hint: "Final variables cannot be reassigned.",
     level: "basic",
-    codeExample: "final int MAX = 100;\n// MAX = 200; -> COMPILE ERROR: cannot assign value to final variable"
+    codeExample: "final int MAX = 100;\n// MAX = 200; → COMPILE ERROR: cannot assign value to final variable"
   },
   {
     question: "What causes `error: modifier static not allowed here`?",
@@ -149,7 +149,7 @@ const questions = [
     explanation: "Local variables exist on the thread stack and cannot be static.",
     hint: "Static is not permitted on local variables.",
     level: "intermediate",
-    codeExample: "void run() {\n    // static int local = 5; -> COMPILE ERROR\n}"
+    codeExample: "void run() {\n    // static int local = 5; → COMPILE ERROR\n}"
   },
   {
     question: "What causes `error: abstract methods cannot have a body`?",
@@ -237,7 +237,7 @@ const questions = [
     explanation: "Master developers read compiler error diagnostics instantly, immediately pinpointing whether the issue is a scoping, typing, import, or syntax rule violation.",
     hint: "Compiler errors are diagnostic guides, not obstacles.",
     level: "basic",
-    codeExample: "// Diagnostic Mastery -> Fast, Confident Problem Solving."
+    codeExample: "// Diagnostic Mastery → Fast, Confident Problem Solving."
   }
 ];
 

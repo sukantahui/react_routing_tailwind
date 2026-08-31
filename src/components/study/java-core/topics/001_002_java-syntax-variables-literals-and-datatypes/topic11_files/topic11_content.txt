@@ -52,8 +52,8 @@ Java represents supplementary characters as a pair of 16-bit `char`s (Surrogate 
 - Low Surrogate  : `\uDC00` to `\uDFFF`
 Example:
   String emoji = "\uD83D\uDE80"; // 🚀
-  emoji.length()           --> 2 (Code Units)
-  emoji.codePointCount()   --> 1 (Actual Glyph)
+  emoji.length()           → 2 (Code Units)
+  emoji.codePointCount()   → 1 (Actual Glyph)
 
 6. SECURITY BEST PRACTICE: CHAR ARRAYS FOR PASSWORDS
 In enterprise security architecture, passwords should never be stored as `java.lang.String`. Strings are immutable and reside in the JVM memory heap/string pool until arbitrary garbage collection cycles occur.

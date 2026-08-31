@@ -4,7 +4,7 @@ const questions = [
         question: "What does the length() method return?",
         shortAnswer: "The number of characters in the string.",
         explanation: "length() returns an int. For empty string, returns 0. Note: it's a method, not a property (unlike arrays).",
-        hint: "Try 'Java'.length() -> 4",
+        hint: "Try 'Java'.length() → 4",
         level: "basic",
         codeExample: "String s = \"Swadeep\";\nint len = s.length(); // 7"
     },
@@ -36,7 +36,7 @@ const questions = [
         question: "How to convert a string to lowercase?",
         shortAnswer: "Using toLowerCase() method.",
         explanation: "Returns a new string with all characters converted to lowercase. Original unchanged.",
-        hint: "Example: 'JAVA'.toLowerCase() -> 'java'",
+        hint: "Example: 'JAVA'.toLowerCase() → 'java'",
         level: "basic",
         codeExample: "String lang = \"JAVA\";\nString lower = lang.toLowerCase();"
     },
@@ -100,7 +100,7 @@ const questions = [
         question: "What is the difference between isEmpty() and isBlank()?",
         shortAnswer: "isEmpty() true only if length == 0; isBlank() true if empty or only whitespace.",
         explanation: "isBlank() (Java 11+) is more forgiving for user input validation.",
-        hint: "'   '.isEmpty() -> false; '   '.isBlank() -> true",
+        hint: "'   '.isEmpty() → false; '   '.isBlank() → true",
         level: "intermediate",
         codeExample: "String s = \"   \";\nSystem.out.println(s.isBlank()); // true"
     },
@@ -147,7 +147,7 @@ const questions = [
     {
         question: "What is the result of 'abc'.compareTo('abd')?",
         shortAnswer: "Negative (specifically -1, but depends on implementation).",
-        explanation: "Compare lexicographically: 'c' vs 'd' -> 'c' is less, so negative.",
+        explanation: "Compare lexicographically: 'c' vs 'd' → 'c' is less, so negative.",
         hint: "Returns 0 if equal, <0 if first < second, >0 if first > second.",
         level: "intermediate",
         codeExample: "int cmp = \"abc\".compareTo(\"abd\"); // negative"

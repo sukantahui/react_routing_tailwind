@@ -8,16 +8,16 @@ LOCATION: Barrackpore, West Bengal, India
 
 1. WHAT IS A TRANSITIVE FUNCTIONAL DEPENDENCY?
 --------------------------------------------------------------------------------
-In a relational schema R, a functional dependency $X \rightarrow Z$ is a Transitive Dependency 
+In a relational schema R, a functional dependency $X → Z$ is a Transitive Dependency 
 if there exists an intermediate attribute set Y such that:
-1. $X \rightarrow Y$ holds
-2. $Y \rightarrow Z$ holds
-3. $Y \rightarrow X$ does NOT hold (Y is not a candidate key)
+1. $X → Y$ holds
+2. $Y → Z$ holds
+3. $Y → X$ does NOT hold (Y is not a candidate key)
 4. $Z \not\subseteq X$ and $Z \not\subseteq Y$ (Z is non-trivial and non-prime)
 
 In plain English:
 A non-prime attribute Z depends on the primary key X only indirectly via another 
-non-prime attribute Y ($X \rightarrow Y \rightarrow Z$).
+non-prime attribute Y ($X → Y → Z$).
 A non-key column is determining another non-key column!
 
 
@@ -64,7 +64,7 @@ A relation schema R is in 3NF if and only if:
 1. It is in Second Normal Form (2NF).
 2. NO non-prime attribute is transitively dependent on any candidate key of R.
 
-Equivalently, for every non-trivial functional dependency $X \rightarrow A$ in R, 
+Equivalently, for every non-trivial functional dependency $X → A$ in R, 
 at least one of the following conditions MUST hold:
 • Condition 1: X is a Super Key of R.
 • Condition 2: A is a Prime Attribute (A is part of some candidate key of R).
@@ -72,7 +72,7 @@ at least one of the following conditions MUST hold:
 
 5. 3NF DECOMPOSITION PROCEDURE
 --------------------------------------------------------------------------------
-To eliminate transitive dependency $X \rightarrow Y \rightarrow Z$:
+To eliminate transitive dependency $X → Y → Z$:
 1. Create a dedicated table for the intermediate determinant and its dependents:
    `Departments(department_id [PK], department_name, department_head, building_block)`
 2. Retain the determinant Y as a Foreign Key in the original table:
@@ -83,11 +83,11 @@ To eliminate transitive dependency $X \rightarrow Y \rightarrow Z$:
 
 6. SUMMARY CHECKLIST FOR TRANSITIVE DEPENDENCIES
 --------------------------------------------------------------------------------
-[x] Transitive Dependency: $X \rightarrow Y$ and $Y \rightarrow Z$ implies indirect dependency $X \rightarrow Z$.
+[x] Transitive Dependency: $X → Y$ and $Y → Z$ implies indirect dependency $X → Z$.
 [x] Occurs when a non-prime attribute Y determines another non-prime attribute Z.
 [x] Transitive dependencies cause severe Insertion, Update, and Deletion anomalies.
 [x] Third Normal Form (3NF) strictly eliminates all transitive dependencies.
-[x] 3NF Rule: For every non-trivial $X \rightarrow A$, either X is a super key OR A is a prime attribute.
+[x] 3NF Rule: For every non-trivial $X → A$, either X is a super key OR A is a prime attribute.
 [x] Decompose by creating a dedicated table where Y becomes the Primary Key, and Y remains as a Foreign Key in the original table.
 
 ================================================================================

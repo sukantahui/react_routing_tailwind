@@ -12,11 +12,11 @@ const questions = [
   },
   {
     question: "In what order are the nested functions evaluated in `=SORT(UNIQUE(FILTER(A2:A100, B2:B100=\"Active\")))`?",
-    shortAnswer: "1. FILTER executes first -> 2. UNIQUE executes second -> 3. SORT executes last.",
+    shortAnswer: "1. FILTER executes first → 2. UNIQUE executes second → 3. SORT executes last.",
     explanation: "Excel evaluates expressions from the inside out: FILTER produces the active subset, UNIQUE deduplicates that subset, and SORT alphabetizes the unique list.",
-    hint: "Inside-out evaluation: FILTER -> UNIQUE -> SORT.",
+    hint: "Inside-out evaluation: FILTER → UNIQUE → SORT.",
     level: "basic",
-    codeExample: "// 1. FILTER(A, B='Active') -> 2. UNIQUE(...) -> 3. SORT(...)"
+    codeExample: "// 1. FILTER(A, B='Active') → 2. UNIQUE(...) → 3. SORT(...)"
   },
   {
     question: "How do you create an interactive search box where leaving the search cell blank displays all unique values?",
@@ -91,7 +91,7 @@ const questions = [
     codeExample: "// Spills single cell: 'No Matches Found'"
   },
   {
-    question: "How do you build a dependent cascading dropdown (City -> Branch -> Trainer) using this pipeline?",
+    question: "How do you build a dependent cascading dropdown (City → Branch → Trainer) using this pipeline?",
     shortAnswer: "Write sequential SORT(UNIQUE(FILTER())) formulas where each tier filters by the preceding dropdown selection.",
     explanation: "Dropdown 1 selects City; Formula 2 filters Branches by City; Dropdown 2 binds to Formula 2 (#); Formula 3 filters Trainers by selected Branch.",
     hint: "Chain multiple SORT(UNIQUE(FILTER())) formulas pointing to preceding dropdown cells.",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This composite pipeline replaces thousands of lines of legacy VBA macros, eliminating file corruption risks and enabling lightning-fast reactive dashboards across Barrackpore and Kolkata enterprises.",
     hint: "It represents the pinnacle of modern formula-driven spreadsheet engineering.",
     level: "expert",
-    codeExample: "// Ultimate Pipeline: Search Box -> FILTER -> UNIQUE -> SORT -> Dropdown (#)"
+    codeExample: "// Ultimate Pipeline: Search Box → FILTER → UNIQUE → SORT → Dropdown (#)"
   }
 ];
 

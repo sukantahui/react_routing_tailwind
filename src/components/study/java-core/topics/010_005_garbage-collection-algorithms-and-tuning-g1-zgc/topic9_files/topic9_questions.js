@@ -13,7 +13,7 @@ const topic9_questions = [
     "explanation": "Calculated as 1 / (1 + N).",
     "hint": "Sets target GC time to 1/(1+N) of total running time.",
     "level": "Intermediate",
-    "codeExample": "-XX:GCTimeRatio=19 -> 5% GC time, 95% app time."
+    "codeExample": "-XX:GCTimeRatio=19 → 5% GC time, 95% app time."
   }
 ];
 

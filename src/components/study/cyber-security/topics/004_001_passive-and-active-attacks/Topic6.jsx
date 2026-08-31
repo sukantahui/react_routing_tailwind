@@ -52,8 +52,8 @@ if (!isProcessed) return res.json(await redis.get(\`receipt:\${idempKey}\`));`
       vulnerabilityRoot: "Asynchronous rolling code windows and lack of two-way challenge-response in keyfobs.",
       productionDefense: "Multi-stage two-way cryptographically signed challenge-response transceivers.",
       codeSnippet: `// Two-Way Keyfob Challenge Response:
-// Car -> Keyfob : Transmits 128-bit Nonce R
-// Keyfob -> Car : Transmits AES_K( R || Counter || "UNLOCK" )`
+// Car → Keyfob : Transmits 128-bit Nonce R
+// Keyfob → Car : Transmits AES_K( R || Counter || "UNLOCK" )`
     },
     kerberos_ticket_replay: {
       key: "kerberos_ticket_replay",

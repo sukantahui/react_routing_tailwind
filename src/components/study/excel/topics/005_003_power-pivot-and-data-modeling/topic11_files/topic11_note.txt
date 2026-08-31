@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 When inserting a PivotTable, always choose 'Use this workbook's Data Model' (Alt + N + V + M). It gives you access to all tables, all relationships, and all explicit DAX measures in one unified field list.
 
 COMMON TRAPS TO AVOID:
-- Selecting Standard Worksheet Range by Mistake: Clicking 'Select a table or range' connects to the sheet rather than the high-performance Data Model. -> Fix: Always select 'Use this workbook's Data Model' (Alt + N + V + M).
-- Cartesian Explosion from Missing Relationships: Dragging fields from two unconnected tables causes the PivotTable to repeat the grand total across all rows. -> Fix: Go to Diagram View and establish the missing 1-to-Many relationship.
-- Disabling OLAP Tools Drill-Through: Attempting to double-click an OLAP Pivot cell when drill-through limit is set to default 1,000 rows. -> Fix: PivotTable Options > Data tab > Increase 'Maximum number of records to retrieve'.
+- Selecting Standard Worksheet Range by Mistake: Clicking 'Select a table or range' connects to the sheet rather than the high-performance Data Model. → Fix: Always select 'Use this workbook's Data Model' (Alt + N + V + M).
+- Cartesian Explosion from Missing Relationships: Dragging fields from two unconnected tables causes the PivotTable to repeat the grand total across all rows. → Fix: Go to Diagram View and establish the missing 1-to-Many relationship.
+- Disabling OLAP Tools Drill-Through: Attempting to double-click an OLAP Pivot cell when drill-through limit is set to default 1,000 rows. → Fix: PivotTable Options > Data tab > Increase 'Maximum number of records to retrieve'.
 ================================================================================

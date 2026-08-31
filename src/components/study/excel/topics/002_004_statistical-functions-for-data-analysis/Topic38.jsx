@@ -70,7 +70,7 @@ export default function Topic38() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-emerald-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-emerald-300 bg-clip-text text-transparent leading-tight">
             Test Your Skill: Statistical Functions For Data Analysis
           </h1>
 
@@ -352,7 +352,7 @@ export default function Topic38() {
                 Candidate <strong>Swadeep Banerjee</strong> presents an econometric risk model incorporating sample standard deviation, IQR outlier fences, and Pearson correlation coefficients, earning the Gold Medal in Quantitative Analytics.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Score: 98/100 &rarr; Certified Quantitative Modeling Specialist
+                Score: 98/100 → Certified Quantitative Modeling Specialist
               </div>
             </div>
 
@@ -369,7 +369,7 @@ export default function Topic38() {
                 Candidate <strong>Tuhina Mukherjee</strong> diagnoses a corrupted plant maintenance ledger where rogue data entries skewed the mean, successfully isolating anomalies using <code className="text-sky-300 font-mono">=QUARTILE.INC</code> and 1.5&times;IQR fences.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Score: 94/100 &rarr; Certified Data Quality Specialist
+                Score: 94/100 → Certified Data Quality Specialist
               </div>
             </div>
 
@@ -386,7 +386,7 @@ export default function Topic38() {
                 Candidate <strong>Abhronila Das</strong> models a multi-quarter revenue projection using <code className="text-teal-300 font-mono">=FORECAST.LINEAR</code> and evaluates trend reliability via <code className="text-teal-300 font-mono">=CORREL</code> (r = 0.94), providing accurate Q4 guidance.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Score: 92/100 &rarr; Certified Financial Forecasting Specialist
+                Score: 92/100 → Certified Financial Forecasting Specialist
               </div>
             </div>
 
@@ -403,7 +403,7 @@ export default function Topic38() {
                 Candidate <strong>Debangshu Roy</strong> leverages Excel 365 dynamic array function <code className="text-amber-300 font-mono">=MODE.MULT</code> to identify dual peak delivery volume cycles across logistics routes.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-amber-300">
-                Score: 90/100 &rarr; Certified Operations Research Analyst
+                Score: 90/100 → Certified Operations Research Analyst
               </div>
             </div>
           </div>

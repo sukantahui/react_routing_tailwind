@@ -273,7 +273,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Elapsed Duration Tracking Exceeding 24 Hours with [h]:mm:ss for Timesheets
           </h1>
 
@@ -327,7 +327,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic8"
+            sheetName="Topic8"
           />
         </section>
 
@@ -412,7 +412,7 @@ export default function Topic8() {
                 Standard <code className="text-amber-300">hh:mm</code> loops modulo 24. A timesheet total of 25 hours (raw fraction 1.041667) displays as <strong className="text-white">01:00</strong> because 25 hours mod 24 = 1 hour.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-rose-300 border border-slate-800">
-                1.041667 + hh:mm -&gt; "01:00" (WRONG Payroll Total!)
+                1.041667 + hh:mm → "01:00" (WRONG Payroll Total!)
               </div>
             </div>
 
@@ -424,7 +424,7 @@ export default function Topic8() {
                 Enclosing hour tokens in square brackets <code className="text-amber-300">[h]:mm</code> disables 24-hour rollover. Raw fraction 1.041667 correctly displays cumulative <strong className="text-white">25:00</strong> hours.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-emerald-300 border border-slate-800">
-                1.041667 + [h]:mm -&gt; "25:00" (CORRECT Payroll Total!)
+                1.041667 + [h]:mm → "25:00" (CORRECT Payroll Total!)
               </div>
             </div>
           </div>
@@ -470,7 +470,7 @@ export default function Topic8() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 font-mono font-bold text-rose-300">##### Error display in cell</td>
                   <td className="py-2.5 px-3">Negative time serial number resulting from subtracting later time from earlier time in 1900 system.</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300">Use IF(End&gt;Start, End-Start, End+1-Start) for cross-midnight shifts.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Use IF(End>Start, End-Start, End+1-Start) for cross-midnight shifts.</td>
                 </tr>
               </tbody>
             </table>

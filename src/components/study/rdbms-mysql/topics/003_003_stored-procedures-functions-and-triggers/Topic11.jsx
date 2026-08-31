@@ -39,7 +39,7 @@ END //
 
 DELIMITER ;
 
--- Insert new student -> Department count automatically increments:
+-- Insert new student → Department count automatically increments:
 INSERT INTO students (first_name, last_name, dept_id) VALUES ('Mamata', 'Hui', 1);
 SELECT dept_name, total_students FROM departments WHERE dept_id = 1;`,
       resultRows: [
@@ -82,7 +82,7 @@ END //
 
 DELIMITER ;
 
--- Update student score -> Trigger detects difference and logs revision!
+-- Update student score → Trigger detects difference and logs revision!
 UPDATE students SET exam_score_pct = 94.50 WHERE student_id = 101;`,
       resultRows: [
         { id: "STU-101", eventType: "UPDATE", targetRow: "Mamata Hui (CS)", availableRecords: "BOTH OLD (88.0%) & NEW (94.5%)", actionTaken: "INSERT into grade_audit (+6.5% Delta)", status: "Revision Logged" },
@@ -122,7 +122,7 @@ END //
 
 DELIMITER ;
 
--- Delete student record -> Archived safely before table deletion!
+-- Delete student record → Archived safely before table deletion!
 DELETE FROM students WHERE student_id = 104;`,
       resultRows: [
         { id: "STU-104", eventType: "DELETE", targetRow: "Debangshu Roy (IT)", availableRecords: "OLD only (NEW is NULL)", actionTaken: "INSERT into deleted_students_archive", status: "Archived & Deleted" },
@@ -135,8 +135,8 @@ DELETE FROM students WHERE student_id = 104;`,
       badge: "TRUNCATE Trap",
       badgeColor: "amber",
       sqlQuery: `-- ⚠️ CRITICAL GOTCHA: TRUNCATE TABLE vs DELETE FROM:
--- 1. DELETE FROM students; -> DML Statement: Fires DELETE trigger for every row!
--- 2. TRUNCATE TABLE students; -> DDL Statement: Drops and re-creates the table!
+-- 1. DELETE FROM students; → DML Statement: Fires DELETE trigger for every row!
+-- 2. TRUNCATE TABLE students; → DDL Statement: Drops and re-creates the table!
 -- 🚨 TRUNCATE TABLE bypasses all DELETE triggers completely! Zero audit records are created!
 
 -- Senior Best Practice: Revoke DROP/TRUNCATE permissions in production:
@@ -176,7 +176,7 @@ REVOKE DROP ON barrackpore_academy.students FROM 'app_user'@'%';`,
               DML Events
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Trigger Event Types: INSERT, UPDATE &amp; DELETE
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

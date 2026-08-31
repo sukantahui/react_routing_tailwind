@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. CHECK-THEN-ACT HAZARD:
-   - Thread A checks condition (balance >= amount &rarr; true).
-   - Thread B checks condition before Thread A acts (balance >= amount &rarr; true).
-   - Both threads deduct amount &rarr; account overdrawn!
+   - Thread A checks condition (balance >= amount → true).
+   - Thread B checks condition before Thread A acts (balance >= amount → true).
+   - Both threads deduct amount → account overdrawn!
    - Must make the Check AND Act steps indivisible (atomic) using 'synchronized'.
 
 ================================================================================

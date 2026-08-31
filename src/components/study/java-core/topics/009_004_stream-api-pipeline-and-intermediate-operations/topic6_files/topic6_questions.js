@@ -13,7 +13,7 @@ const topic6_questions = [
     "explanation": "This provides a functional idiom for mapping and filtering nulls simultaneously.",
     "hint": "Empty streams vanish in flatMap operations.",
     "level": "Intermediate",
-    "codeExample": "names.stream().flatMap(name -> Stream.ofNullable(getPhone(name))).toList();"
+    "codeExample": "names.stream().flatMap(name → Stream.ofNullable(getPhone(name))).toList();"
   }
 ];
 

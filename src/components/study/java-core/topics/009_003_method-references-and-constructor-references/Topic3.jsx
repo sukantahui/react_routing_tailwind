@@ -21,7 +21,7 @@ export default function Topic3() {
             Static References
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Kind 1: Reference to a <code className="text-emerald-400 font-mono">Static Method</code> (<code className="text-sky-400 font-mono">ClassName::staticMethod</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic3() {
       </section>
 
       <Teacher
-        note="Whenever you have a static utility method that takes arguments and returns a value, write 'ClassName::method'! For example, 'list.map(Integer::parseInt)' is 10 times cleaner than 'list.map(s -> Integer.parseInt(s))'! — Sukanta Hui"
+        note="Whenever you have a static utility method that takes arguments and returns a value, write 'ClassName::method'! For example, 'list.map(Integer::parseInt)' is 10 times cleaner than 'list.map(s → Integer.parseInt(s))'! — Sukanta Hui"
       />
     </div>
   );

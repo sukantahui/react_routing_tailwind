@@ -23,7 +23,7 @@ Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
 
 2. HANDLER PRECEDENCE RULES
 --------------------------------------------------------------------------------
-1. Specific MySQL Error Number (e.g., `FOR 1062`) -> HIGHEST PRECEDENCE
+1. Specific MySQL Error Number (e.g., `FOR 1062`) → HIGHEST PRECEDENCE
 2. Specific SQLSTATE string (e.g., `FOR SQLSTATE '23000'`)
 3. Named Condition (e.g., `FOR custom_cond`)
-4. Generic Condition Keyword (`FOR SQLEXCEPTION`, `SQLWARNING`, `NOT FOUND`) -> LOWEST
+4. Generic Condition Keyword (`FOR SQLEXCEPTION`, `SQLWARNING`, `NOT FOUND`) → LOWEST

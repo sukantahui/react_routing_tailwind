@@ -76,7 +76,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-rose-400 via-pink-300 to-amber-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-rose-400 via-pink-300 to-amber-300 bg-clip-text text-transparent leading-tight">
             Matrix Transposition & Multi-Block Alignment Using Array Functions
           </h1>
 
@@ -90,7 +90,7 @@ export default function Topic11() {
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-rose-400 text-base">✓</span>
-              <span><strong>Dynamic Transposition:</strong> (M x N) &rarr; (N x M) in 1 formula cell</span>
+              <span><strong>Dynamic Transposition:</strong> (M x N) → (N x M) in 1 formula cell</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -146,7 +146,7 @@ export default function Topic11() {
                   <td className="py-3 px-4 text-slate-300">Range / Matrix</td>
                   <td className="py-3 px-4 text-emerald-400">Required</td>
                   <td className="py-3 px-4 font-sans text-slate-300">
-                    The 2D table, range, or 1D vector to rotate. Maps coordinate <code className="text-amber-300 font-mono">(i, j) &rarr; (j, i)</code>.
+                    The 2D table, range, or 1D vector to rotate. Maps coordinate <code className="text-amber-300 font-mono">(i, j) → (j, i)</code>.
                   </td>
                 </tr>
               </tbody>
@@ -190,7 +190,7 @@ export default function Topic11() {
               </h3>
               <p className="leading-relaxed">
                 An Excel worksheet contains 1,048,576 rows but only 16,384 columns (Column XFD). 
-                Attempting to transpose whole column ranges like <code className="text-rose-400 font-mono">A:A</code> or ranges with &gt; 16,384 rows will trigger a fatal calculation overflow crash. Always use bounded ranges!
+                Attempting to transpose whole column ranges like <code className="text-rose-400 font-mono">A:A</code> or ranges with > 16,384 rows will trigger a fatal calculation overflow crash. Always use bounded ranges!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-rose-300">
                 Max Allowed Rows to Transpose Horizontally: 16,384
@@ -224,7 +224,7 @@ export default function Topic11() {
               <span className="text-rose-400">📐</span> Visual Matrix Transposition & Multi-Block Alignment
             </h2>
             <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Interactive (M x N) &rarr; (N x M) Rotation
+              Interactive (M x N) → (N x M) Rotation
             </span>
           </div>
 
@@ -288,7 +288,7 @@ export default function Topic11() {
               </g>
 
               <text x="460" y="165" fill="#38BDF8" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">Coordinate Mapping:</text>
-              <text x="460" y="185" fill="#FDA4AF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">Cell (i, j) &rarr; Cell (j, i)</text>
+              <text x="460" y="185" fill="#FDA4AF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">Cell (i, j) → Cell (j, i)</text>
               <text x="460" y="203" fill="#FDA4AF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">Rows become Columns</text>
               <text x="460" y="221" fill="#FDA4AF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">Columns become Rows</text>
               <text x="460" y="248" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ Rotated 90° in RAM</text>
@@ -355,7 +355,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Matrix_Alignment"
+            sheetName="EX1712"
             title="Quarterly Departmental Budget Matrix (Horizontal Cross-Tab Schedule)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -394,7 +394,7 @@ export default function Topic11() {
                 he converts the horizontal matrix into a vertical database layout where quarters run down rows and departments span across columns.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-rose-300">
-                Formula: =TRANSPOSE(A2:E6) &rarr; Standardized Vertical Schedule
+                Formula: =TRANSPOSE(A2:E6) → Standardized Vertical Schedule
               </div>
             </div>
 
@@ -412,7 +412,7 @@ export default function Topic11() {
                 She applies <code className="text-amber-300 font-mono">=LET(p, A2:A6, q, B1:E1, v, B2:E6, HSTACK(TOCOL(IF(v&lt;&gt;"", p)), TOCOL(IF(v&lt;&gt;"", q)), TOCOL(v)))</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: Dynamic LET Unpivot &rarr; 16-Row Normalized Table
+                Formula: Dynamic LET Unpivot → 16-Row Normalized Table
               </div>
             </div>
 
@@ -552,7 +552,7 @@ export default function Topic11() {
               <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#REF! / #NUM! (Column Limit)</td>
-                  <td className="py-3 px-4 text-slate-300">Attempted to transpose &gt; 16,384 rows across horizontal columns.</td>
+                  <td className="py-3 px-4 text-slate-300">Attempted to transpose > 16,384 rows across horizontal columns.</td>
                   <td className="py-3 px-4 text-slate-400">Check source rows count: exceeds 16,384.</td>
                   <td className="py-3 px-4 text-emerald-400">Use bounded ranges with &le; 16,384 rows. Never transpose whole columns like A:A!</td>
                 </tr>
@@ -565,7 +565,7 @@ export default function Topic11() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by existing values or merged cells.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow rotated dynamic spill.</td>
                 </tr>
               </tbody>

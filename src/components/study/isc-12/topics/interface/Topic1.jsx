@@ -66,7 +66,7 @@ const Topic1 = () => {
         className="section-animate max-w-5xl mx-auto px-6 py-12 md:py-16"
         style={{ animationDelay: '0.1s' }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
           Defining & Implementing Interfaces
         </h1>
         <p className="text-xl mt-4 leading-relaxed text-gray-600 dark:text-gray-300">

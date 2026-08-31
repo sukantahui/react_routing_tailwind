@@ -61,7 +61,7 @@ const questions = [
     hint: "Evaluates risk continuously on every request, revoking sessions mid-flight if risk spikes.",
     level: "Moderate",
     codeExample: `// CAE Revocation Event:
-// 11:15 AM: User initiates ransomware encryption -> CrowdStrike EDR triggers alert -> PDP revokes token in 250ms!`
+// 11:15 AM: User initiates ransomware encryption → CrowdStrike EDR triggers alert → PDP revokes token in 250ms!`
   },
   {
     id: 7,
@@ -111,7 +111,7 @@ const questions = [
     hint: "ZTNA 1.0 checks once at login; ZTNA 2.0 inspects every transaction continuously at Layer 7.",
     level: "Moderate",
     codeExample: `// ZTNA Comparison:
-// ZTNA 1.0 : Authenticates at 9:00 AM -> Allows all TCP traffic on port 443
+// ZTNA 1.0 : Authenticates at 9:00 AM → Allows all TCP traffic on port 443
 // ZTNA 2.0 : Inspects every HTTP POST, runs DLP on file uploads, revokes session instantly if malicious.`
   },
   {
@@ -164,7 +164,7 @@ const questions = [
     hint: "Supplies real-time malicious IP and botnet feeds to help the PDP block dangerous connections instantly.",
     level: "Moderate",
     codeExample: `// Threat Feed Integration:
-// Request from IP 198.51.100.22 -> Threat Feed Match: "Cobalt Strike C2" -> PDP Decision: REJECT & LOG ALERT 🚨`
+// Request from IP 198.51.100.22 → Threat Feed Match: "Cobalt Strike C2" → PDP Decision: REJECT & LOG ALERT 🚨`
   },
   {
     id: 17,
@@ -226,7 +226,7 @@ const questions = [
     hint: "Requires devices plugging into office wall jacks or Wi-Fi to authenticate via certificates before getting an IP.",
     level: "Moderate",
     codeExample: `// 802.1X Switch Port:
-// Rogue laptop plugs in -> No X.509 cert -> Switch port stays disabled (Status: UNMANAGED / BLOCKED 🛡️)`
+// Rogue laptop plugs in → No X.509 cert → Switch port stays disabled (Status: UNMANAGED / BLOCKED 🛡️)`
   },
   {
     id: 23,
@@ -246,7 +246,7 @@ const questions = [
     hint: "Webhooks that propagate instant session revocation across all connected cloud SaaS apps simultaneously.",
     level: "Expert",
     codeExample: `// OpenID CAEP Event:
-// POST https://api.slack.com/caep/events -> { "event_type": "session-revoked", "subject": "susmita@bank.in" }`
+// POST https://api.slack.com/caep/events → { "event_type": "session-revoked", "subject": "susmita@bank.in" }`
   },
   {
     id: 25,
@@ -266,7 +266,7 @@ const questions = [
     hint: "Assuming attackers are already inside the network, requiring full encryption and authentication for all internal traffic.",
     level: "Basic",
     codeExample: `// Assume Breach Rule:
-// Web Server and Database sit in the same rack -> Still communicate ONLY over encrypted mutual TLS with strict token auth!`
+// Web Server and Database sit in the same rack → Still communicate ONLY over encrypted mutual TLS with strict token auth!`
   },
   {
     id: 27,
@@ -276,8 +276,8 @@ const questions = [
     hint: "VPN gives access to entire subnets; ZTNA gives access strictly to a single specific application.",
     level: "Basic",
     codeExample: `// VPN vs ZTNA:
-// Legacy VPN : Connected -> Can ping 10.0.0.0/8 (16 Million internal IPs exposed ❌)
-// ZTNA       : Connected -> Can access ONLY https://treasury.internal:8443 (Zero lateral access ✔)`
+// Legacy VPN : Connected → Can ping 10.0.0.0/8 (16 Million internal IPs exposed ❌)
+// ZTNA       : Connected → Can access ONLY https://treasury.internal:8443 (Zero lateral access ✔)`
   },
   {
     id: 28,
@@ -287,7 +287,7 @@ const questions = [
     hint: "Real-time inspection of outbound traffic to detect and block leaking of Aadhaar, credit cards, or confidential data.",
     level: "Moderate",
     codeExample: `// Inline DLP Match:
-// Outbound Payload contains regex '[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}' (Aadhaar) -> PEP BLOCKS PACKET & ALERTS 🚨`
+// Outbound Payload contains regex '[2-9]{1}[0-9]{3}\\s[0-9]{4}\\s[0-9]{4}' (Aadhaar) → PEP BLOCKS PACKET & ALERTS 🚨`
   },
   {
     id: 29,

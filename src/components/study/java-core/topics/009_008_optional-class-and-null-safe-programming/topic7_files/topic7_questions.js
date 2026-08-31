@@ -5,7 +5,7 @@ const topic7_questions = [
     "explanation": "Eliminates verbose if-null checks in service layers.",
     "hint": "Converts repository Optional.empty() into HTTP 404 domain exceptions.",
     "level": "Intermediate",
-    "codeExample": "return repo.findById(id).orElseThrow(() -> new ResourceNotFoundException('User ' + id));"
+    "codeExample": "return repo.findById(id).orElseThrow(() → new ResourceNotFoundException('User ' + id));"
   },
   {
     "question": "Can orElseThrow(Supplier) throw checked exceptions?",
@@ -13,7 +13,7 @@ const topic7_questions = [
     "explanation": "The calling method must declare the checked exception in its throws clause.",
     "hint": "Yes, supports both checked and unchecked exceptions.",
     "level": "Intermediate",
-    "codeExample": "opt.orElseThrow(() -> new IOException('File missing'));"
+    "codeExample": "opt.orElseThrow(() → new IOException('File missing'));"
   }
 ];
 

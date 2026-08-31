@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. TEARDOWN SEQUENCE:
-   - Declaration Order: Res1 &rarr; Res2 &rarr; Res3.
-   - Closing Order: Res3.close() &rarr; Res2.close() &rarr; Res1.close().
+   - Declaration Order: Res1 → Res2 → Res3.
+   - Closing Order: Res3.close() → Res2.close() → Res1.close().
    - Protects dependent child resources against premature parent termination.
 
 ================================================================================

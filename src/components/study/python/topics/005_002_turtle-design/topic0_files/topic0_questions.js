@@ -239,7 +239,7 @@ const questions = [
     explanation: "This simple habit eliminates 99% of accidental stray lines in Turtle graphical programming.",
     hint: "What two actions keep drawings clean and sharp?",
     level: "basic",
-    codeExample: "# Golden Rule:\n# 1. t.penup() -> 2. t.goto() -> 3. t.pensize() -> 4. t.pendown()"
+    codeExample: "# Golden Rule:\n# 1. t.penup() → 2. t.goto() → 3. t.pensize() → 4. t.pendown()"
   }
 ];
 

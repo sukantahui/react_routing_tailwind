@@ -39,7 +39,7 @@ During our Saturday lab session at Barrackpore, our 4 students took on 20 data e
 --- Example 1: Complete Pipeline: Top 3 Passing Scores with GST Calculation ---
 const rawScores = [35, 88, 92, 45, 28, 76, 95, 82];
 
-// Pipeline: Filter passing (>=40) -> Sort descending -> Take top 3
+// Pipeline: Filter passing (>=40) → Sort descending → Take top 3
 const top3Passing = rawScores
   .filter(score => score >= 40)
   .toSorted((a, b) => b - a)

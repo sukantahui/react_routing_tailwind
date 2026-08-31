@@ -28,13 +28,13 @@ Strategic (Executive):  Align ISMS with ISO 27001 to unlock ₹50 Cr European ba
     hint: "Think of maximum structural load (capacity), the chosen speed limit (appetite), acceptable momentary speeding (tolerance), and actual driving risk (residual).",
     level: "expert",
     codeExample: `// The Hierarchy of Enterprise Risk Thresholds:
-[ Risk Capacity ]  -> ₹100 Crore Max Loss (Exceeding this causes bankruptcy)
+[ Risk Capacity ]  → ₹100 Crore Max Loss (Exceeding this causes bankruptcy)
       |
-[ Risk Appetite ]  -> ₹5 Crore Target Risk (Approved by Board of Directors)
+[ Risk Appetite ]  → ₹5 Crore Target Risk (Approved by Board of Directors)
       |
-[ Risk Tolerance ] -> ₹6 Crore Operational Threshold (Allowable tactical variance)
+[ Risk Tolerance ] → ₹6 Crore Operational Threshold (Allowable tactical variance)
       |
-[ Residual Risk ]  -> ₹3.2 Crore Actual Measured Risk (STABLE: Residual < Tolerance < Appetite)`
+[ Residual Risk ]  → ₹3.2 Crore Actual Measured Risk (STABLE: Residual < Tolerance < Appetite)`
   },
   {
     question: "What is a 'Risk Appetite Statement', and why must it be formally approved by the Board of Directors?",
@@ -114,8 +114,8 @@ Penalty for Breach:  Imprisonment up to 10 years under IT Act Section 70(3)!`
     hint: "Think of racecar brakes: brakes do not just slow the car down; they allow the driver to drive much faster with confidence.",
     level: "moderate",
     codeExample: `// Security as a Business Accelerator (DevSecOps):
-Legacy Security (Friction):   Manual 4-week security review before every release -> Blocks innovation!
-Strategic Security (Enabler): Automated CI/CD security guardrails (SAST + Container scan in 60s) -> Daily safe releases!`
+Legacy Security (Friction):   Manual 4-week security review before every release → Blocks innovation!
+Strategic Security (Enabler): Automated CI/CD security guardrails (SAST + Container scan in 60s) → Daily safe releases!`
   },
   {
     question: "What is a 'Security Risk Register', and why is it an essential tool for tracking strategic information security goals?",
@@ -140,8 +140,8 @@ Residual Score: LOW (Likelihood: 1, Impact: 2 = 2/25)`
     hint: "Contrast taking an annual health physical exam versus wearing a continuous heart rate and vital signs monitor.",
     level: "moderate",
     codeExample: `// Snapshot Audits vs Continuous Security Monitoring (CSM):
-Annual Audit:     Audited in January -> Vulnerability introduced in March -> Discovered in December (9 MONTHS OF EXPOSURE!)
-Continuous CSM:   Vulnerability introduced at 10:00 AM -> EDR detects at 10:02 AM -> Automated isolation at 10:05 AM!`
+Annual Audit:     Audited in January → Vulnerability introduced in March → Discovered in December (9 MONTHS OF EXPOSURE!)
+Continuous CSM:   Vulnerability introduced at 10:00 AM → EDR detects at 10:02 AM → Automated isolation at 10:05 AM!`
   },
   {
     question: "Synthesizing Strategic Goals of Information Security: what is the master alignment formula of sustainable cybersecurity governance?",

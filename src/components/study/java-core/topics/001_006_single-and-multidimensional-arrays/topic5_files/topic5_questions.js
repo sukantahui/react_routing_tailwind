@@ -59,7 +59,7 @@ const questions = [
     explanation: "Direct arithmetic computation of the physical memory address.",
     hint: "O(1) constant time.",
     level: "basic",
-    codeExample: "// Address = Base + i * 4 -> O(1) Instantaneous"
+    codeExample: "// Address = Base + i * 4 → O(1) Instantaneous"
   },
   {
     question: "How do you update an array element in-place (e.g. increase by 10)?",

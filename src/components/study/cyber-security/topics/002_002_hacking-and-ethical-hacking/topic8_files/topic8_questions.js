@@ -41,7 +41,7 @@ Section 66F (Cyber Terrorism): Cognizable, NON-BAILABLE (Life Imprisonment)`
     level: "basic",
     codeExample: `// DPDP Act 2023 Entities:
 Data Principal:  The individual citizen whose personal data is collected (e.g., Patient).
-Data Fiduciary:  The hospital determining why data is collected -> Liable up to ₹250 Cr.
+Data Fiduciary:  The hospital determining why data is collected → Liable up to ₹250 Cr.
 Data Processor:  The cloud database vendor hosting files on behalf of the hospital.`
   },
   {
@@ -136,7 +136,7 @@ Penalty: Imprisonment up to 3 Years, or Fine up to ₹2,00,000, or Both`
     hint: "Think of the physical hardware device that stops a computer from writing or modifying any data on an evidence hard drive.",
     level: "moderate",
     codeExample: `// Forensic Bit-Stream Image Acquisition:
-Evidence Hard Drive -> [ Hardware Write Blocker (Read-Only) ] -> Forensic Workstation
+Evidence Hard Drive → [ Hardware Write Blocker (Read-Only) ] → Forensic Workstation
 Verification:
 Source Drive SHA-256: 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
 Forensic Image SHA-256: 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 (100% Match)`
@@ -204,7 +204,7 @@ Primary Offenses:
     hint: "Think about why a security auditor should never try to fix the pipes in a client's building without permission.",
     level: "basic",
     codeExample: `// Professional Boundary Rule:
-ROLE OF PENTESTER: Document the flaw -> Provide exact fix in report -> Verify patch during re-test.
+ROLE OF PENTESTER: Document the flaw → Provide exact fix in report → Verify patch during re-test.
 FORBIDDEN: Modifying live production configuration files or deleting services yourself!`
   },
   {

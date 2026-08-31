@@ -70,7 +70,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             AutoFilter Mastery: Text, Number, Date Filters, Wildcard Searches (*, ?) and Top 10 Filters
           </h1>
 
@@ -107,7 +107,7 @@ export default function Topic3() {
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            =FILTER(Table1, (Table1[Region]="Kolkata") * (Table1[Sales]&gt;100000))
+            =FILTER(Table1, (Table1[Region]="Kolkata") * (Table1[Sales]>100000))
           </div>
 
           <div className="overflow-x-auto">
@@ -274,7 +274,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Excel_Tables"
+            sheetName="EX104"
             title="Module 2.1 - AutoFilter Mastery: Text, Number, Date Filters, Wildcard Searches (*, ?) and Top 10 Filters"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -307,13 +307,13 @@ export default function Topic3() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Filter_Type</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action_Sequence</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Filtered_Output</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filter -&gt; Top 10...</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Select 'Top' -&gt; '10' -&gt; 'Percent'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Displays top 100 enterprise clients generating 72% of total turnover</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filter → Top 10...</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Select 'Top' → '10' → 'Percent'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Displays top 100 enterprise clients generating 72% of total turnover</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters -&gt; Top 10 Percent</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters → Top 10 Percent</div>
                 <div className="text-emerald-400 font-semibold">Result: High-value accounts isolated in 2 clicks for VIP marketing.</div>
                 <div className="text-slate-400 text-[11px]">Top 10 Percent filters dynamically calculate threshold based on total volume.</div>
               </div>
@@ -353,13 +353,13 @@ export default function Topic3() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date_Filter_Selected</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Underlying_Logic</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Invoices_Displayed</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date Filters -&gt; Last Month</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Scans date serials falling in previous calendar month</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">35 Overdue unpaid supplier bills</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date Filters → Last Month</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Scans date serials falling in previous calendar month</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">35 Overdue unpaid supplier bills</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Date Filters -&gt; Relative Period (Last Month)</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Date Filters → Relative Period (Last Month)</div>
                 <div className="text-emerald-400 font-semibold">Result: Accounts payable audit completed in seconds.</div>
                 <div className="text-slate-400 text-[11px]">Relative date filters update automatically without manually changing date thresholds.</div>
               </div>
@@ -376,13 +376,13 @@ export default function Topic3() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Metric</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Filter_Choice</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Result</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Defect Count</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filters -&gt; Above Average</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Isolates 18 problem batches for engineering inspection</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Defect Count</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filters → Above Average</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Isolates 18 problem batches for engineering inspection</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters -&gt; Above Average</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters → Above Average</div>
                 <div className="text-emerald-400 font-semibold">Result: Sub-par batches flagged without manual average calculation.</div>
                 <div className="text-slate-400 text-[11px]">Above Average filter computes dynamic mean in memory and filters in one step.</div>
               </div>
@@ -408,7 +408,7 @@ export default function Topic3() {
               <div>
                 <h3 className="text-sm font-bold text-white">Convert Range to Structured Table</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Click inside dataset. Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Ctrl + T</kbd> &rarr; Check 'My table has headers' &rarr; Click OK. Rename table in Table Design tab.
+                  Click inside dataset. Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Ctrl + T</kbd> → Check 'My table has headers' → Click OK. Rename table in Table Design tab.
                 </p>
               </div>
             </div>
@@ -438,7 +438,7 @@ export default function Topic3() {
               <div>
                 <h3 className="text-sm font-bold text-white">Insert & Format Interactive Slicers</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Go to Table Design &rarr; <strong>Insert Slicer</strong> &rarr; Select Branch and Department. Set Slicer Columns to 4 and align horizontally.
+                  Go to Table Design → <strong>Insert Slicer</strong> → Select Branch and Department. Set Slicer Columns to 4 and align horizontally.
                 </p>
               </div>
             </div>
@@ -473,7 +473,7 @@ export default function Topic3() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Copy-Pasting Filtered Data Overwrites Hidden Rows</td>
                   <td className="py-3 px-4 text-slate-300">In older Excel versions, pasting into a filtered table pasted into invisible hidden rows.</td>
                   <td className="py-3 px-4 text-amber-300">Corrupted records in hidden rows.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Select range -&gt; Press Alt + ; (Select Visible Cells Only) before copying.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Select range → Press Alt + ; (Select Visible Cells Only) before copying.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Filter Dropdowns Missing from Some Columns</td>

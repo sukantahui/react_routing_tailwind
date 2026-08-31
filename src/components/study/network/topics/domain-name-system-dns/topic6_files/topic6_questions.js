@@ -152,7 +152,7 @@ const questions = [
     explanation: "Clients perform A and AAAA queries in parallel. They attempt connection over IPv6, but if that fails or is too slow, they immediately try IPv4. This balances IPv6 preference with performance. AAAA records are essential for this algorithm.",
     hint: "Why does your browser sometimes take two seconds to load a site that has both A and AAAA?",
     level: "expert",
-    codeExample: "# See connection attempts in browser dev tools -> Network"
+    codeExample: "# See connection attempts in browser dev tools → Network"
   },
   {
     question: "Can an AAAA record point to a link-local address (fe80::/10)?",

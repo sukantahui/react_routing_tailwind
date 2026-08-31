@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Remember the Golden Rule of Python in Excel: Top-to-Bottom, Left-to-Right! Define your DataFrame in cell A1, do your calculations in cell B5, and output your charts in cell D10. If you try to reference backwards, Python will say 'Variable Not Defined'.
 
 COMMON TRAPS TO AVOID:
-- Backward Calculation Dependency (#NAME? / NameError): Attempting to reference variable `df` in cell A1 when `df` was created in cell E20 (violates top-to-bottom calculation order). -> Fix: Place foundational Python data definitions in the upper-left of the worksheet.
-- Omitting headers=True on Data Tables: Omitting `headers=True` causes column names to be treated as row 0 data, corrupting numeric types. -> Fix: Always pass `headers=True` when reading tables: `xl("A1:D50", headers=True)`.
-- Circular Calculation Dependency: Cell A1 referencing B1 while B1 references A1 in Python. -> Fix: Maintain clean unidirectional dataflows.
+- Backward Calculation Dependency (#NAME? / NameError): Attempting to reference variable `df` in cell A1 when `df` was created in cell E20 (violates top-to-bottom calculation order). → Fix: Place foundational Python data definitions in the upper-left of the worksheet.
+- Omitting headers=True on Data Tables: Omitting `headers=True` causes column names to be treated as row 0 data, corrupting numeric types. → Fix: Always pass `headers=True` when reading tables: `xl("A1:D50", headers=True)`.
+- Circular Calculation Dependency: Cell A1 referencing B1 while B1 references A1 in Python. → Fix: Maintain clean unidirectional dataflows.
 ================================================================================

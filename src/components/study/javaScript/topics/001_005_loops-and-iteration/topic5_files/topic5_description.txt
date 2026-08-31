@@ -19,8 +19,8 @@ Tuhina had an array of student names: ['Swadeep', 'Tuhina', 'Abhronila', 'Debang
 Introduced in ES6, for...of iterates directly over the VALUES of any Iterable data structure (Arrays, Strings, Sets, Maps, NodeLists).
 
 2. for...in vs for...of (The Golden Distinction):
-- for...in -> Iterates over KEYS / PROPERTY NAMES (for Objects).
-- for...of -> Iterates over VALUES directly (for Arrays and Iterables).
+- for...in → Iterates over KEYS / PROPERTY NAMES (for Objects).
+- for...of → Iterates over VALUES directly (for Arrays and Iterables).
 
 3. Iterating Strings:
 You can use for...of to loop over every individual character in a string:

@@ -72,7 +72,7 @@ const questions = [
     explanation: "Prevents internal fraud in banking (e.g. ensuring the person who creates an invoice cannot approve the payment).",
     hint: "Ensures data can only be changed via certified transactions and enforces separation of duties.",
     level: "expert",
-    codeExample: "ClarkWilson = CDI(Data) -> TP(CertifiedTransaction) -> IVP(Verification) -> DualApproval();"
+    codeExample: "ClarkWilson = CDI(Data) → TP(CertifiedTransaction) → IVP(Verification) → DualApproval();"
   },
   {
     question: "How does a Digital Signature provide Non-Repudiation in addition to data integrity?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Stops UEFI rootkits and malicious kernels from running before antivirus software loads.",
     hint: "UEFI firmware checks cryptographic signatures before booting the operating system.",
     level: "moderate",
-    codeExample: "UEFI_Verify(Bootloader_Binary, Microsoft_Or_OEM_Certificate) -> ProceedBoot();"
+    codeExample: "UEFI_Verify(Bootloader_Binary, Microsoft_Or_OEM_Certificate) → ProceedBoot();"
   },
   {
     question: "What is a TPM 2.0 (Trusted Platform Module) and what role do PCR (Platform Configuration Register) measurements play?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Any packet modification invalidates the authentication tag, causing the connection to immediately drop.",
     hint: "Active attackers modifying packets in transit; prevented by TLS 1.3 AEAD auth tags.",
     level: "moderate",
-    codeExample: "AES_GCM_Decrypt(Ciphertext, Key, AuthTag) -> { if (!TagValid) throw 'TamperedPacketError'; }"
+    codeExample: "AES_GCM_Decrypt(Ciphertext, Key, AuthTag) → { if (!TagValid) throw 'TamperedPacketError'; }"
   },
   {
     question: "What is Software Supply Chain Tampering and how does code signing mitigate it?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Essential for mission-critical banking and aerospace servers to prevent memory corruption.",
     hint: "Rapidly reading RAM lines to flip adjacent bits; prevented by ECC server memory.",
     level: "expert",
-    codeExample: "ECC_RAM = DetectSingleBitError() -> CorrectBit() -> AlertSysadmin();"
+    codeExample: "ECC_RAM = DetectSingleBitError() → CorrectBit() → AlertSysadmin();"
   },
   {
     question: "What is Configuration Drift in DevOps and how does Infrastructure-as-Code (IaC) maintain integrity?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes hashing, digital signatures, formal integrity models, FIM monitoring, and enterprise budgeting.",
     hint: "Never trust unverified data: hash everything, sign with HSMs, enforce Biba/Clark-Wilson, and budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: Hash(Data) -> VerifySignature() -> EnforceBiba() -> MonitorFIM() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: Hash(Data) → VerifySignature() → EnforceBiba() → MonitorFIM() → BudgetInRupees(₹);"
   }
 ];
 

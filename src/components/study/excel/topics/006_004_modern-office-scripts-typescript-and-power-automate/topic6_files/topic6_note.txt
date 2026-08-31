@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Structured Tables (`addTable`) are the best thing in Excel. They give you automatic filter arrows, zebra stripes, and dynamic formulas. Always convert your raw data ranges into Tables using Office Scripts!
 
 COMMON TRAPS TO AVOID:
-- Adding Table Over Existing Table (Name Collision): Calling `addTable()` on a range that already contains an Excel Table throws runtime error. -> Fix: Check if table exists first, or clear existing tables before adding.
-- 0-Based Column Key Confusion in Sorting: Passing `{key: 1}` when intending to sort by Column A (Column A is `key: 0`). -> Fix: Remember table column keys are 0-based (`key: 0` = first column).
-- Adding Pivot Table on Occupied Cell Range: Creating a pivot table over existing cells causes collision errors. -> Fix: Create pivot tables on dedicated clean summary worksheets.
+- Adding Table Over Existing Table (Name Collision): Calling `addTable()` on a range that already contains an Excel Table throws runtime error. → Fix: Check if table exists first, or clear existing tables before adding.
+- 0-Based Column Key Confusion in Sorting: Passing `{key: 1}` when intending to sort by Column A (Column A is `key: 0`). → Fix: Remember table column keys are 0-based (`key: 0` = first column).
+- Adding Pivot Table on Occupied Cell Range: Creating a pivot table over existing cells causes collision errors. → Fix: Create pivot tables on dedicated clean summary worksheets.
 ================================================================================

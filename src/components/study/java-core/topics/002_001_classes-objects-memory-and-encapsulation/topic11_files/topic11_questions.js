@@ -110,7 +110,7 @@ const topic11_questions = [
   },
   {
     question: "How does Data Hiding prevent Invalid State Transitions in state machines?",
-    shortAnswer: "By keeping the state variable private and exposing transition methods that validate allowed state transitions (e.g. ACTIVE -> LOCKED).",
+    shortAnswer: "By keeping the state variable private and exposing transition methods that validate allowed state transitions (e.g. ACTIVE → LOCKED).",
     explanation: "If the 'status' field were public, outside code could jump from 'CLOSED' back to 'APPROVED'. With a private field, methods like 'lockAccount()' enforce that only valid lifecycle transitions occur.",
     hint: "State machine guards on private status variables.",
     level: "Intermediate",
@@ -218,7 +218,7 @@ const topic11_questions = [
     explanation: "Just like named inner classes, anonymous inner classes belong to the outer class's nest and can read and mutate outer private state seamlessly.",
     hint: "Anonymous classes share outer class scope.",
     level: "Intermediate",
-    codeExample: "button.addActionListener(e -> this.privateField = true);"
+    codeExample: "button.addActionListener(e → this.privateField = true);"
   },
   {
     question: "What is the relationship between Data Hiding and the Single Responsibility Principle (SRP)?",
@@ -250,7 +250,7 @@ const topic11_questions = [
     explanation: "At the Barrackpore campus, Sukanta Hui teaches that an unhidden field is like dumping cash in the street. By marking fields 'private' and exposing only validated public teller methods ('authenticate', 'changePassword'), your domain records remain forever secure and uncompromised.",
     hint: "Private vault within, fortified teller window without.",
     level: "Beginner",
-    codeExample: "// Sukanta Hui's Vault Architecture: Private Fields (Vault) -> Public Methods (Teller Window) -> Guarded Contracts"
+    codeExample: "// Sukanta Hui's Vault Architecture: Private Fields (Vault) → Public Methods (Teller Window) → Guarded Contracts"
   }
 ];
 

@@ -5,7 +5,7 @@ const questions = [
     shortAnswer: "Model, View, Controller",
     explanation: "Model handles data, View handles presentation, Controller handles request processing.",
     level: "basic",
-    codeExample: "Servlet (Controller) -> Java Bean (Model) -> JSP (View)"
+    codeExample: "Servlet (Controller) → Java Bean (Model) → JSP (View)"
   },
   {
     question: "What is the role of the Controller in MVC?",

@@ -43,7 +43,7 @@ const questions = [
   {
     question: "If a parent class has only a parameterized constructor, what must the child do?",
     shortAnswer: "The child must explicitly call super(parameters) as the first statement in its constructor.",
-    explanation: "Otherwise, the implicit super() tries to call a non-existent no-arg constructor -> compile error.",
+    explanation: "Otherwise, the implicit super() tries to call a non-existent no-arg constructor → compile error.",
     hint: "Superclass has no default constructor.",
     level: "intermediate",
     codeExample: "class Parent { Parent(int x) {} }\nclass Child extends Parent { Child() { super(10); } }"

@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh
+Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh
 
 PRIMARY CONCEPT:
 Comprehensive real-time market data capstone project: building an automated Daily Foreign Exchange Rate, Commodity Price, and Stock Market Fetcher consuming live cloud REST APIs via JSON parsing
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Your Excel spreadsheet can now fetch live financial data from anywhere in the world! Schedule it with `Application.OnTime`, let it run in the background, and your executive team will always have up-to-the-minute market intelligence.
 
 COMMON TRAPS TO AVOID:
-- API Rate Limit Exhaustion (HTTP 429 Too Many Requests): Running the fetcher in a tight loop calling the API 1,000 times per minute, getting IP-blocked by the provider. -> Fix: Cache API responses locally and enforce a minimum 5-minute refresh interval.
-- Unchecked API Provider Schema Changes: API provider renaming a JSON field breaks hardcoded key references. -> Fix: Include defensive key verification (`If json.Exists("rate") Then ...`).
-- Crashing on No Internet Connection: Network disconnection throwing unhandled runtime error on `.Send`. -> Fix: Wrap `.Send` in structured error handling alerting the user to check internet connectivity.
+- API Rate Limit Exhaustion (HTTP 429 Too Many Requests): Running the fetcher in a tight loop calling the API 1,000 times per minute, getting IP-blocked by the provider. → Fix: Cache API responses locally and enforce a minimum 5-minute refresh interval.
+- Unchecked API Provider Schema Changes: API provider renaming a JSON field breaks hardcoded key references. → Fix: Include defensive key verification (`If json.Exists("rate") Then ...`).
+- Crashing on No Internet Connection: Network disconnection throwing unhandled runtime error on `.Send`. → Fix: Wrap `.Send` in structured error handling alerting the user to check internet connectivity.
 ================================================================================

@@ -94,7 +94,7 @@ const Topic0 = () => {
             </span>
             <h1
               className={clsx(
-                "text-3xl sm:text-4xl md:text-5xl font-bold",
+                "text-3xl sm:text-xl sm:text-2xl md:text-3xl font-bold",
                 "bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400",
                 "bg-clip-text text-transparent"
               )}

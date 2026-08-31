@@ -12,7 +12,7 @@ Return Type: Structural Grid Manipulation
 Real-World Business Scenarios:
 [Barrackpore Payroll Structure Addition of PF Deduction Column]
 Context: Inserting a new Provident Fund (PF) column between Gross Salary and Net Salary.
-Applied: Ctrl + Space (Select Col) &rarr; Ctrl + Shift + + (Insert Col)
+Applied: Ctrl + Space (Select Col) → Ctrl + Shift + + (Insert Col)
 Result: New column inserted with zero broken formula references.
 
 [Kolkata Audit Report Multi-Level Outline Grouping]
@@ -22,7 +22,7 @@ Result: Interactive collapsible financial report ready for C-suite presentation.
 
 [Shyamnagar Inventory Column Width AutoFitting]
 Context: Fixing '###' overflow errors across a 30-column product inventory table.
-Applied: Ctrl + A &rarr; Alt + H + O + I
+Applied: Ctrl + A → Alt + H + O + I
 Result: Zero '###' display truncation across the entire worksheet.
 
 [Ichapur Client Master Data Sterilization (Clear All)]

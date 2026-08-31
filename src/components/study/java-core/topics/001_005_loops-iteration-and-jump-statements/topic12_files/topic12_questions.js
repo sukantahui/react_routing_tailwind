@@ -83,7 +83,7 @@ const questions = [
     explanation: "Loop-level exit vs method-level exit.",
     hint: "break exits the loop; return exits the entire enclosing method.",
     level: "basic",
-    codeExample: "// break -> continues method; return -> exits method"
+    codeExample: "// break → continues method; return → exits method"
   },
   {
     question: "What happens to code written directly below a `break` in the same block (`if (true) { break; print(\"Hi\"); }`)?",
@@ -110,12 +110,12 @@ const questions = [
     codeExample: "while (true) { String s = read(); if (\"EXIT\".equals(s)) break; }"
   },
   {
-    question: "Can `break` be used inside a lambda expression within a loop (`list.forEach(x -> { break; });`)?",
+    question: "Can `break` be used inside a lambda expression within a loop (`list.forEach(x → { break; });`)?",
     shortAnswer: "No! Lambdas create distinct method frames; `break` cannot cross lambda method boundaries (causes compile-time error).",
     explanation: "Functional interfaces and lambdas cannot contain jump statements targeting outer loops.",
     hint: "Compile error: break cannot cross lambda boundaries.",
     level: "intermediate",
-    codeExample: "// list.forEach(x -> { if (x > 5) break; }); // COMPILER ERROR!"
+    codeExample: "// list.forEach(x → { if (x > 5) break; }); // COMPILER ERROR!"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, why is `break` preferred over flag variables for simple searches?",

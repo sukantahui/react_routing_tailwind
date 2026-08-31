@@ -111,7 +111,7 @@ const questions = [
   },
   {
     question: "How can loop order optimization improve Matrix Multiplication speed on modern CPUs?",
-    shortAnswer: "Reordering the 3 loops to `i -> k -> j` accesses matrix $B$ along contiguous row memory ($B[k][j]$), eliminating CPU cache misses and speeding up execution by up to $10\\times$!",
+    shortAnswer: "Reordering the 3 loops to `i → k → j` accesses matrix $B$ along contiguous row memory ($B[k][j]$), eliminating CPU cache misses and speeding up execution by up to $10\\times$!",
     explanation: "Hardware spatial memory cache locality optimization.",
     hint: "Loop reordering to (i, k, j) maximizes CPU L1/L2 cache hits on B[k][j].",
     level: "advanced",

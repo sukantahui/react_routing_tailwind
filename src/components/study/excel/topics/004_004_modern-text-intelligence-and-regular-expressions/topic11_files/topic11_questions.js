@@ -26,7 +26,7 @@ const questions = [
     explanation: "Matches standard 4-octet IPv4 address structure.",
     hint: "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b.",
     level: "basic",
-    codeExample: "=REGEXEXTRACT(A2, \"\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b\") &rarr; \"192.168.1.100\""
+    codeExample: "=REGEXEXTRACT(A2, \"\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b\") → \"192.168.1.100\""
   },
   {
     question: "How do you parse an invoice block `INV: BKP-88421 | AMT: 45000 | GST: 18%` into a structured 2-column key-value matrix?",
@@ -82,7 +82,7 @@ const questions = [
     explanation: "Composite TEXTAFTER and TEXTBEFORE extracts text between `UID:[` and `]`.",
     hint: "TEXTBEFORE(TEXTAFTER(A2, \"UID:[\"), \"]\").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(A2, \"UID:[\"), \"]\") &rarr; \"swadeep_88\""
+    codeExample: "=TEXTBEFORE(TEXTAFTER(A2, \"UID:[\"), \"]\") → \"swadeep_88\""
   },
   {
     question: "How do you parse a legacy EDI transaction string with custom tilde `~` line separators and asterisk `*` element delimiters?",
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Positive lookahead `(?=ms)` matches digits immediately preceding 'ms'.",
     hint: "NUMBERVALUE(REGEXEXTRACT(A2, \"\\d+(?=ms)\")).",
     level: "moderate",
-    codeExample: "=NUMBERVALUE(REGEXEXTRACT(A2, \"\\d+(?=ms)\")) &rarr; 342"
+    codeExample: "=NUMBERVALUE(REGEXEXTRACT(A2, \"\\d+(?=ms)\")) → 342"
   },
   {
     question: "How do you parse a semi-structured customer note containing PAN, GSTIN, and Mobile numbers in random order into separate dedicated columns?",
@@ -130,7 +130,7 @@ const questions = [
     explanation: "Lookbehind `(?<=FROM\\s)` extracts the table name case-insensitively.",
     hint: "(?<=FROM\\s)\\w+.",
     level: "moderate",
-    codeExample: "=REGEXEXTRACT(A2, \"(?<=FROM\\s)\\w+\", 1) &rarr; \"tbl_CustomerMaster\""
+    codeExample: "=REGEXEXTRACT(A2, \"(?<=FROM\\s)\\w+\", 1) → \"tbl_CustomerMaster\""
   },
   {
     question: "How do you extract all email addresses found within a multi-paragraph email thread into a vertical list?",
@@ -154,7 +154,7 @@ const questions = [
     explanation: "Lookbehind finds `\"status\": \"` and captures characters up to closing quote.",
     hint: "(?<=\\\"status\\\":\\s*\\\")[^\\\" ]+.",
     level: "advanced",
-    codeExample: "=REGEXEXTRACT(A2, \"(?<=\\\"status\\\":\\s*\\\")[^\\\"]+\") &rarr; \"SUCCESS\""
+    codeExample: "=REGEXEXTRACT(A2, \"(?<=\\\"status\\\":\\s*\\\")[^\\\"]+\") → \"SUCCESS\""
   },
   {
     question: "How do you count the frequency of each error level (`INFO`, `WARN`, `ERROR`, `FATAL`) across 10,000 log lines?",
@@ -186,7 +186,7 @@ const questions = [
     explanation: "Isolates the reference code between `UPI/` and the next slash.",
     hint: "TEXTBEFORE(TEXTAFTER(A2, \"UPI/\"), \"/\").",
     level: "basic",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(A2, \"UPI/\"), \"/\") &rarr; \"623488219\""
+    codeExample: "=TEXTBEFORE(TEXTAFTER(A2, \"UPI/\"), \"/\") → \"623488219\""
   },
   {
     question: "How do you extract the GST rate percentage from `Item Total: 50000 (GST @ 18% Applicable)`?",
@@ -194,7 +194,7 @@ const questions = [
     explanation: "Matches digits followed by `%` preceding 'Applicable'.",
     hint: "\\d+%(?=\\sApplicable).",
     level: "basic",
-    codeExample: "=REGEXEXTRACT(A2, \"\\d+%(?=\\sApplicable)\") &rarr; \"18%\""
+    codeExample: "=REGEXEXTRACT(A2, \"\\d+%(?=\\sApplicable)\") → \"18%\""
   },
   {
     question: "How do you parse an XML tag attribute like `<customer id='CUST-8842' region='Barrackpore'>`?",
@@ -202,7 +202,7 @@ const questions = [
     explanation: "Lookbehind for `id='` captures characters up to closing single quote.",
     hint: "(?<=id=')[^']+",
     level: "advanced",
-    codeExample: "=REGEXEXTRACT(A2, \"(?<=id=')[^']+\") &rarr; \"CUST-8842\""
+    codeExample: "=REGEXEXTRACT(A2, \"(?<=id=')[^']+\") → \"CUST-8842\""
   },
   {
     question: "How do you extract the domain name from server access log referrers `http://example.com/page.html`?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Mastering semi-structured text parsing bridges the gap between raw unstructured data and enterprise relational reporting!",
     hint: "TEXTSPLIT Matrix + REGEXEXTRACT Mode 2 Capturing Groups + Vector Pipelines = Ultimate Parsing Engine!",
     level: "expert",
-    codeExample: "Rule: Semi-Structured Text Parsing &rarr; Deploy Dynamic Regex & Matrix Engines!"
+    codeExample: "Rule: Semi-Structured Text Parsing → Deploy Dynamic Regex & Matrix Engines!"
   }
 ];
 

@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Building_KPI_Summa"
+            sheetName="EX1503"
             title={"Building KPI Summary Cards with dynamic change indicators (▲ / ▼) and conditional styling - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic2() {
                 Step 1: Set Up Clean Presentation Canvas &amp; Hide Gridlines
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View &gt; Gridlines</kbd>, and define the 4-quadrant layout bounds.
+                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View > Gridlines</kbd>, and define the 4-quadrant layout bounds.
               </p>
             </div>
 

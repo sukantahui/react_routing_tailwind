@@ -18,9 +18,9 @@ const questions = [
     hint: "N = 2F + 1; minimum 3 nodes to tolerate 1 failure.",
     level: "basic",
     codeExample: `# Cluster Node Sizing:
-# 3 Nodes -> Tolerate 1 Failure (Quorum = 2)
-# 5 Nodes -> Tolerate 2 Failures (Quorum = 3)
-# 7 Nodes -> Tolerate 3 Failures (Quorum = 4)`
+# 3 Nodes → Tolerate 1 Failure (Quorum = 2)
+# 5 Nodes → Tolerate 2 Failures (Quorum = 3)
+# 7 Nodes → Tolerate 3 Failures (Quorum = 4)`
   },
   {
     question: "How does the Transaction Certification Phase work in MySQL Group Replication?",
@@ -254,7 +254,7 @@ FROM performance_schema.replication_group_member_stats;`
     explanation: "Completely automated state transfer with zero manual dump/restore.",
     hint: "Uses MySQL Clone Plugin for physical snapshot followed by binlog catch-up.",
     level: "intermediate",
-    codeExample: `-- State transitions: OFFLINE -> RECOVERING -> ONLINE.`
+    codeExample: `-- State transitions: OFFLINE → RECOVERING → ONLINE.`
   },
   {
     question: "What is the difference between MySQL Group Replication vs Galera Cluster?",

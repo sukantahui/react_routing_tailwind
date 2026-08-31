@@ -19,7 +19,7 @@ const Topic_FlowBasedRouting = () => {
 
           {/* Header */}
           <section className="text-center space-y-4 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_forwards]">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent dark:from-teal-400 dark:to-cyan-400">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent dark:from-teal-400 dark:to-cyan-400">
               Flow‑Based Routing
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">

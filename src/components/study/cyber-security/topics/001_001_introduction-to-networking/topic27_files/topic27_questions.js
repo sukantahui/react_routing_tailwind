@@ -14,7 +14,7 @@ const questions = [
     question: "What are the four primary layers of network addressing across the OSI/TCP-IP model?",
     shortAnswer: "1. Layer 2 Physical: MAC Address (48-bit hex), 2. Layer 3 Logical: IP Address (IPv4 32-bit / IPv6 128-bit), 3. Layer 4 Transport: Port Numbers (16-bit), 4. Layer 7 Application: Domain Names / URLs.",
     explanation: "Each layer uses its unique addressing scheme to route data from global domain names down to the physical silicon network interface card.",
-    hint: "MAC (L2) -> IP (L3) -> Port (L4) -> Domain Name (L7).",
+    hint: "MAC (L2) → IP (L3) → Port (L4) → Domain Name (L7).",
     level: "moderate",
     codeExample: "AddressStack = { L7_URL: 'https://college.edu', L4_Port: 443, L3_IP: '103.25.10.4', L2_MAC: '00:1A:2B:3C:4D:5E' };"
   },
@@ -182,9 +182,9 @@ const questions = [
     question: "What is Dynamic Host Configuration Protocol (DHCP) DORA process for network address leasing?",
     shortAnswer: "1. Discover (Client broadcasts DHCPDISCOVER), 2. Offer (Server offers DHCPOFFER), 3. Request (Client requests DHCPREQUEST), 4. Acknowledge (Server confirms DHCPACK with IP lease details).",
     explanation: "The 4-step DORA handshake safely negotiates IP configuration, default gateway, subnet mask, and DNS servers in under 50 milliseconds.",
-    hint: "Discover -> Offer -> Request -> Acknowledge (DORA).",
+    hint: "Discover → Offer → Request → Acknowledge (DORA).",
     level: "moderate",
-    codeExample: "DORA_Handshake: DHCPDISCOVER -> DHCPOFFER -> DHCPREQUEST -> DHCPACK;"
+    codeExample: "DORA_Handshake: DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK;"
   },
   {
     question: "What is Port Address Translation (PAT / NAT Overload)?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures all foundational principles of IP address architecture, subnetwork segmentation, cybersecurity defense, and financial budgeting.",
     hint: "Private subnets + VLSM + NAT firewalls + DAI protection + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: SegmentWithVLSM() -> DeployNATAndFirewall() -> GuardWithDAI() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: SegmentWithVLSM() → DeployNATAndFirewall() → GuardWithDAI() → BudgetInRupees(₹);"
   }
 ];
 

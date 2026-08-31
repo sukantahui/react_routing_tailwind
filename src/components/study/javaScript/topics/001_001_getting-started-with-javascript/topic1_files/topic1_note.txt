@@ -30,7 +30,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
   * Modern SPA Architecture: Initial shell is loaded once; subsequent user actions fetch 
     lightweight JSON payloads and mutate the in-memory DOM tree dynamically.
 - State-Driven UI Lifecycle:
-  State -> Transformation Function -> Virtual DOM / DOM Operations -> Painted Pixels.
+  State → Transformation Function → Virtual DOM / DOM Operations → Painted Pixels.
 - Security Invariants:
   * Same-Origin Policy (SOP): Restricts scripts from accessing resources across origins.
   * Content Security Policy (CSP): Mitigates Cross-Site Scripting (XSS) attacks.

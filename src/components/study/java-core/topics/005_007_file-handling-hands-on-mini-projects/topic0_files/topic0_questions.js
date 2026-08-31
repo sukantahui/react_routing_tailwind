@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "Standard progression in modern enterprise Java development.",
     "hint": "java.io is stream-based and blocking; NIO.2 is Path/Files-based, atomic, lazy-stream ready, and kernel-integrated.",
     "level": "Intermediate",
-    "codeExample": "// Classic: File f = new File(); -> Modern: Path p = Path.of(); Files.readString(p);"
+    "codeExample": "// Classic: File f = new File(); → Modern: Path p = Path.of(); Files.readString(p);"
   }
 ];
 

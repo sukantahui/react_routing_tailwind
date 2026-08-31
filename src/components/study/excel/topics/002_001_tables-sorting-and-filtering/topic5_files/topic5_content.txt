@@ -12,7 +12,7 @@ Return Type: Visual 1-Click UI Filter State
 Real-World Business Scenarios:
 [Coder & AccoTax Multi-Branch Interactive Student Dashboard]
 Context: Building 1-click Branch and Department slicers for academic counselors.
-Applied: Table Slicers (Insert -> Slicer)
+Applied: Table Slicers (Insert → Slicer)
 Result: Interactive app-like filtering interface without writing VBA.
 
 [Kolkata Corporate Executive Sales Region Slicer Panel]

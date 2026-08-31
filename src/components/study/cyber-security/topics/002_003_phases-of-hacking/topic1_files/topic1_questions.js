@@ -194,7 +194,7 @@ PROHIBITED: Threatening employees, impersonating police/government officials, or
     codeExample: `// S3 Bucket Permutation Enumeration:
 s3scanner scan --bucket kolkata-fintech-backups
 // Result:
-[FOUND] [kolkata-fintech-backups] -> Status: Open / Publicly Readable!
+[FOUND] [kolkata-fintech-backups] → Status: Open / Publicly Readable!
 Files: customer_aadhaar_dump.tar.gz (CRITICAL DATA LEAK)`
   },
   {

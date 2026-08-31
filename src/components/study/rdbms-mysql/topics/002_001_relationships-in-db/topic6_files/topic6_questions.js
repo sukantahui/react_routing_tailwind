@@ -39,7 +39,7 @@ const questions = [
     level: "moderate"
   },
   {
-    question: "What happens in a 3-tier cascading chain (e.g. `Department` -> `Student` -> `Payment`) when the Department is deleted?",
+    question: "What happens in a 3-tier cascading chain (e.g. `Department` → `Student` → `Payment`) when the Department is deleted?",
     shortAnswer: "The deletion cascades down the entire hierarchy: all students in that department are deleted, AND all payments belonging to those students are deleted.",
     explanation: "Multi-tier recursive cascading.",
     hint: "Cascades through all downstream dependent child tiers.",

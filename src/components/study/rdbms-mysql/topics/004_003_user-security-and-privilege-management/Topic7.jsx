@@ -142,7 +142,7 @@ SELECT User, Host, ssl_type FROM mysql.user WHERE ssl_type = '' AND Host != 'loc
             Topic 7 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Verifying Permissions with <span className="text-emerald-400">SHOW GRANTS</span> &amp; Inspecting <span className="text-cyan-400">mysql.user</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

@@ -130,7 +130,7 @@ DATABASE_URL="mysql://app_user:Pass@127.0.0.1:6446/kolkata_bank"`
     explanation: "Eliminates network proxy hops, distributes proxy CPU load, and removes central load balancer bottlenecks.",
     hint: "Colocate MySQL Router on each application host connecting via localhost.",
     level: "intermediate",
-    codeExample: `# App -> Localhost Router (Port 6446) -> Fast direct connection to Primary Node`
+    codeExample: `# App → Localhost Router (Port 6446) → Fast direct connection to Primary Node`
   },
   {
     question: "How does MySQL Router know when a Primary has crashed and a new node is elected in under 5 seconds?",
@@ -147,7 +147,7 @@ DATABASE_URL="mysql://app_user:Pass@127.0.0.1:6446/kolkata_bank"`
     hint: "Upgrade secondaries first, switch primary role to upgraded node, then upgrade the former primary.",
     level: "expert",
     codeExample: `# Rolling Upgrade Order:
-# 1. Upgrade Node 3 -> 2. Upgrade Node 2 -> 3. Switch Primary to Node 2 -> 4. Upgrade Node 1.`
+# 1. Upgrade Node 3 → 2. Upgrade Node 2 → 3. Switch Primary to Node 2 → 4. Upgrade Node 1.`
   },
   {
     question: "What does `cluster.removeInstance('instance_address')` do in MySQL Shell?",

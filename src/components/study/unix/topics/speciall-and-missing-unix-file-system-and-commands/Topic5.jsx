@@ -51,7 +51,7 @@ const interactiveQuestions = [
   { q: "How can you set a file's timestamp to a specific date in the past using `-d`?", a: "`touch -d '2020-01-01 00:00:00' oldfile.txt`" },
   { q: "Write a command to set a file's timestamp to midnight of the current day.", a: "`touch -d '00:00' file`" },
   { q: "How do you set a file's timestamp to exactly 3:45:30 PM using `-t`?", a: "`touch -t 154530 file` (assuming current date, or include date: `MMDD1545.30`)." },
-  { q: "What is the range for the year in `touch -t` with 2-digit format?", a: "`YY` between 69 and 99 -> 1969-1999; 00-68 -> 2000-2068 (POSIX)." },
+  { q: "What is the range for the year in `touch -t` with 2-digit format?", a: "`YY` between 69 and 99 → 1969-1999; 00-68 → 2000-2068 (POSIX)." },
   { q: "Can `touch -d` understand natural language like 'last Sunday'?", a: "Yes, GNU date parser handles many English phrases: 'last Sunday', 'next week', '10:30'." },
   { q: "How do you set only the modification time with `-d` or `-t`?", a: "Combine with `-m`: `touch -m -t 202512311200 file`" },
   { q: "What does `touch -d '1 day ago' file` do?", a: "Sets timestamps to 24 hours before the current moment." },
@@ -125,7 +125,7 @@ export default function Topic5() {
 
           {/* Hero */}
           <div className="animate-fade-slide-up mb-12 text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight md:text-5xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
               Using touch with <code className="text-3xl bg-transparent">-d</code> and <code className="text-3xl bg-transparent">-t</code> Options
             </h1>
             <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">

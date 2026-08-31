@@ -6,10 +6,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. ILLEGAL MODIFIER COMBINATIONS:
-   - 'final abstract class' &rarr; COMPILE ERROR.
-   - 'final abstract void method()' &rarr; COMPILE ERROR.
-   - 'private abstract void method()' &rarr; COMPILE ERROR.
-   - 'static abstract void method()' &rarr; COMPILE ERROR.
+   - 'final abstract class' → COMPILE ERROR.
+   - 'final abstract void method()' → COMPILE ERROR.
+   - 'private abstract void method()' → COMPILE ERROR.
+   - 'static abstract void method()' → COMPILE ERROR.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

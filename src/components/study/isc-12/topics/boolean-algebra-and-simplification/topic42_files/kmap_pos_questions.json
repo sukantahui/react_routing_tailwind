@@ -747,7 +747,7 @@
           "marks": 5,
           "answer": "(B + C + D)(B' + C' + D')",
           "steps": [
-            { "step": 1, "action": "Zeros at diagonal corners: group (0) -> (A+B+C+D), but using don't cares we can form two larger groups." }
+            { "step": 1, "action": "Zeros at diagonal corners: group (0) → (A+B+C+D), but using don't cares we can form two larger groups." }
           ]
         },
         {

@@ -21,7 +21,7 @@ export default function Topic7() {
             Deduplication Pattern
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           When to Use <code className="text-emerald-400 font-mono">LinkedHashSet</code>: Deduplicating Lists While Preserving Sequence
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic7() {
       </section>
 
       <Teacher
-        note="If an interviewer asks: 'How do you remove duplicates from a List while keeping the exact same order?', write 'new ArrayList<>(new LinkedHashSet<>(list))'! It is clean, elegant, and executes in linear O(n) time! — Sukanta Hui"
+        note="If an interviewer asks: 'How do you remove duplicates from a List while keeping the exact same order?', write 'new ArrayList&lt;&gt;(new LinkedHashSet&lt;&gt;(list))'! It is clean, elegant, and executes in linear O(n) time! — Sukanta Hui"
       />
     </div>
   );

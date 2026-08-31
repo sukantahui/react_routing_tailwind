@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Memorize this rule: If you want to SLICE by it, make it a Column. If you want to AGGREGATE it (sum, average, ratio), make it a Measure! Never average a column of percentages.
 
 COMMON TRAPS TO AVOID:
-- Averaging a Calculated Column Ratio (The Fatal Math Error): Creating a column `Margin% = Profit / Rev` and selecting `AVERAGE(Margin%)` in PivotTable computes the arithmetic average of percentages rather than the true weighted margin. -> Fix: Always compute financial ratios as explicit DAX measures: `Margin% := DIVIDE([TotalProfit], [TotalRevenue])`.
-- Creating Calculated Columns for Simple Math: Adding `Sales[Total] = Sales[Qty] * Sales[Price]` across 10 million rows adds 80MB of wasted RAM. -> Fix: Use DAX Iterator measure: `TotalSales := SUMX(Sales, Sales[Qty] * Sales[Price])`.
-- Using Measures as Slicer Categories: Attempting to drag a Calculated Measure into a PivotTable Slicer or Row label area (Excel only allows Columns in Slicers). -> Fix: Use a Calculated Column if the attribute is required as a categorical slicer.
+- Averaging a Calculated Column Ratio (The Fatal Math Error): Creating a column `Margin% = Profit / Rev` and selecting `AVERAGE(Margin%)` in PivotTable computes the arithmetic average of percentages rather than the true weighted margin. → Fix: Always compute financial ratios as explicit DAX measures: `Margin% := DIVIDE([TotalProfit], [TotalRevenue])`.
+- Creating Calculated Columns for Simple Math: Adding `Sales[Total] = Sales[Qty] * Sales[Price]` across 10 million rows adds 80MB of wasted RAM. → Fix: Use DAX Iterator measure: `TotalSales := SUMX(Sales, Sales[Qty] * Sales[Price])`.
+- Using Measures as Slicer Categories: Attempting to drag a Calculated Measure into a PivotTable Slicer or Row label area (Excel only allows Columns in Slicers). → Fix: Use a Calculated Column if the attribute is required as a categorical slicer.
 ================================================================================

@@ -9,7 +9,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    -----------------------------------------------------------------------------
    RULE 1: EXACT NAME MATCH
            - Must match the class name with exact case sensitivity.
-           - Class `CourseRegistration` -> `public CourseRegistration(...)`.
+           - Class `CourseRegistration` → `public CourseRegistration(...)`.
 
    RULE 2: NO RETURN TYPE (NOT EVEN 'void')
            - Has NO return type.

@@ -161,7 +161,7 @@
       "description": "Given array of variable equality equations (e.g. `['a==b', 'b==c', 'a!=c']`), check if equations are satisfiable. Pass 1: Union variables for all `==` equations. Pass 2: For all `!=` equations, check if `find(u) == find(v)`. If roots match, equations are CONTRADICTORY! In this project, you will build Equation Satisfiability Checker in C.",
       "learningOutcome": "Two-Pass Logic Auditing, Equality Union vs Inequality Contradictions & DSU Satisfiability",
       "exampleText": "Check satisfiability for ['a==b', 'b!=a']",
-      "exampleOutput": "--- Satisfiability of Equality Equations ---\nEquations ['a==b', 'b!=a'] -> Satisfiable: NO",
+      "exampleOutput": "--- Satisfiability of Equality Equations ---\nEquations ['a==b', 'b!=a'] → Satisfiable: NO",
       "logicExplanation": "1. **Pass 1 (==)**: Run `union(u, v)` for equality equations.\n2. **Pass 2 (!=)**: If `find(u) == find(v)` for inequality equation, return false (unsatisfiable).",
       "answerFile": "./answers/answer13.c",
       "codeExplanation": "1. `equality_equations_demo()`: Validates equation satisfiability via DSU."

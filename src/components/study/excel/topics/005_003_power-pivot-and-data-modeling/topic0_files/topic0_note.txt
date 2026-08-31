@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Power Pivot changes everything. You are no longer trapped in Excel's 1-million row prison. With VertiPaq, you can load 15 million rows into Excel, compress it into 50MB, and pivot it in milliseconds.
 
 COMMON TRAPS TO AVOID:
-- Loading Unnecessary High-Cardinality Columns (GUIDs): Loading unique primary keys or transaction timestamps with milliseconds destroys VertiPaq compression ratios. -> Fix: Remove high-cardinality IDs and split timestamps into Date and Hour columns.
-- Power Pivot Tab Missing in Excel Ribbon: Power Pivot is an advanced COM Add-in that is disabled by default in standard Excel installations. -> Fix: File > Options > Add-ins > COM Add-ins > Check 'Microsoft Power Pivot for Excel'.
-- Confusing Workbook Grid Limits with Data Model Capacity: Thinking Excel cannot handle more than 1,048,576 rows. -> Fix: Load data directly into the Data Model (VertiPaq) rather than pasting onto standard worksheet grids.
+- Loading Unnecessary High-Cardinality Columns (GUIDs): Loading unique primary keys or transaction timestamps with milliseconds destroys VertiPaq compression ratios. → Fix: Remove high-cardinality IDs and split timestamps into Date and Hour columns.
+- Power Pivot Tab Missing in Excel Ribbon: Power Pivot is an advanced COM Add-in that is disabled by default in standard Excel installations. → Fix: File > Options > Add-ins > COM Add-ins > Check 'Microsoft Power Pivot for Excel'.
+- Confusing Workbook Grid Limits with Data Model Capacity: Thinking Excel cannot handle more than 1,048,576 rows. → Fix: Load data directly into the Data Model (VertiPaq) rather than pasting onto standard worksheet grids.
 ================================================================================

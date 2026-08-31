@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Time-series in pandas is unbeatable. Set your date column as the index (`df.set_index('Date')`), and you can calculate 30-day moving averages in one command: `df['Sales'].rolling(30).mean()`.
 
 COMMON TRAPS TO AVOID:
-- Failing to Convert Dates to pd.to_datetime() First: Calling `.resample()` or date slicing on string date columns throws TypeError. -> Fix: Always convert date column: `df['Date'] = pd.to_datetime(df['Date']); df.set_index('Date', inplace=True)`.
-- Unsorted Datetime Index Breaking Rolling Windows: Calculating rolling averages on chronologically unsorted data produces invalid trend metrics. -> Fix: Always sort index before time series operations: `df.sort_index(inplace=True)`.
-- Resample Frequency Deprecation Warnings ('M' vs 'ME'): Using deprecated frequency string `'M'` in newer pandas versions. -> Fix: Use modern frequency aliases: `'ME'` (Month End), `'QE'` (Quarter End), `'YE'` (Year End).
+- Failing to Convert Dates to pd.to_datetime() First: Calling `.resample()` or date slicing on string date columns throws TypeError. → Fix: Always convert date column: `df['Date'] = pd.to_datetime(df['Date']); df.set_index('Date', inplace=True)`.
+- Unsorted Datetime Index Breaking Rolling Windows: Calculating rolling averages on chronologically unsorted data produces invalid trend metrics. → Fix: Always sort index before time series operations: `df.sort_index(inplace=True)`.
+- Resample Frequency Deprecation Warnings ('M' vs 'ME'): Using deprecated frequency string `'M'` in newer pandas versions. → Fix: Use modern frequency aliases: `'ME'` (Month End), `'QE'` (Quarter End), `'YE'` (Year End).
 ================================================================================

@@ -24,7 +24,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
     but DOES NOT stop execution fall-through! 'break;' is still required!
 
 - Java 14+ Solution:
-  * Modern Switch Expressions with Arrow Syntax (case X -> Y) completely
+  * Modern Switch Expressions with Arrow Syntax (case X → Y) completely
     eliminate accidental fall-through!
 
 2. ESSENTIAL CHECKLIST

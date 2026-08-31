@@ -185,7 +185,7 @@ if (forbidden_pretexts.Contains(ProposedSimulation.PretextType)) {
       ? (rawPpp * 0.25).toFixed(2) // Monthly Micro-Learning achieves 75% additional reduction
       : simulationCadence >= 2
       ? (rawPpp * 0.65).toFixed(2)  // Quarterly training achieves moderate reduction
-      : rawPpp.toFixed(2);           // Annual training -> High persistent failure rate
+      : rawPpp.toFixed(2);           // Annual training → High persistent failure rate
 
     return {
       rawPpp: rawPpp.toFixed(2),

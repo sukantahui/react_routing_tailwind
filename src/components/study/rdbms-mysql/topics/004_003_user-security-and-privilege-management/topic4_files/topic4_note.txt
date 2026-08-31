@@ -24,7 +24,7 @@ C. Key System Variables:
    - `validate_password.number_count` (default 1)
    - `validate_password.mixed_case_count` (default 1)
    - `validate_password.special_char_count` (default 1)
-   - `validate_password.check_user_name` (default ON) -> Rejects password if it matches the username.
+   - `validate_password.check_user_name` (default ON) → Rejects password if it matches the username.
    - `validate_password.dictionary_file` (path to wordlist file for STRONG policy)
 
 2. PASSWORD EXPIRATION & LIFETIME POLICIES

@@ -22,13 +22,13 @@ const Topic6 = () => {
   const replicationTopologies = {
     topology1_fan_out: {
       topologyName: "1. Standard Fan-Out",
-      title: "1. Standard Fan-Out (1 Primary -> N Replicas)",
+      title: "1. Standard Fan-Out (1 Primary → N Replicas)",
       badge: "Read Scaling",
       badgeColor: "emerald",
       sqlSnippet: `-- 🌐 STANDARD FAN-OUT ARCHITECTURE:
--- [Primary (RW)] ───┬───> [Read Replica 1 (RO)]
---                   ├───> [Read Replica 2 (RO)]
---                   └───> [Read Replica 3 (RO)]
+-- [Primary (RW)] ───┬───→ [Read Replica 1 (RO)]
+--                   ├───→ [Read Replica 2 (RO)]
+--                   └───→ [Read Replica 3 (RO)]
 
 -- ⚙️ Configuration:
 -- Primary writes to binlog; each replica runs independent I/O and SQL threads.
@@ -47,9 +47,9 @@ const Topic6 = () => {
       badge: "Bandwidth Offload",
       badgeColor: "cyan",
       sqlSnippet: `-- 🌳 CASCADING TREE TOPOLOGY:
--- [Primary] ───> [Relay Replica] ───┬───> [Edge Replica 1]
---                                   ├───> [Edge Replica 2]
---                                   └───> [Edge Replica 20+]
+-- [Primary] ───→ [Relay Replica] ───┬───→ [Edge Replica 1]
+--                                   ├───→ [Edge Replica 2]
+--                                   └───→ [Edge Replica 20+]
 
 -- ⚙️ MANDATORY SETTING ON RELAY REPLICA (/etc/mysql/my.cnf):
 [mysqld]
@@ -70,7 +70,7 @@ log_replica_updates = ON   # Re-writes applied events to own binlog!`,
       badgeColor: "purple",
       sqlSnippet: `-- 🏢 MULTI-SOURCE CONSOLIDATION INTO CENTRAL WAREHOUSE:
 -- [Mumbai Source]   ──┐
--- [Kolkata Source]  ──┼──> [Central DWH Replica]
+-- [Kolkata Source]  ──┼──→ [Central DWH Replica]
 -- [Delhi Source]    ──┘
 
 -- ⚙️ NAMED CHANNELS CONFIGURATION ON CENTRAL REPLICA:
@@ -96,7 +96,7 @@ START REPLICA FOR CHANNEL 'mumbai_channel';`,
       title: "4. Dual-Master & Auto-Increment Offset Mitigation",
       badge: "Active-Passive",
       badgeColor: "rose",
-      sqlSnippet: `-- ⚖️ DUAL-MASTER CLUSTER: [Node A] <──────> [Node B]
+      sqlSnippet: `-- ⚖️ DUAL-MASTER CLUSTER: [Node A] <──────→ [Node B]
 
 -- 🛡️ AUTO-INCREMENT COLLISION MITIGATION (my.cnf):
 -- On Node A:
@@ -132,7 +132,7 @@ auto_increment_offset = 2   # Generates IDs: 2, 4, 6, 8...
             Topic 6 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           MySQL <span className="text-emerald-400">Replication Topologies</span>: Fan-Out, Tree &amp; <span className="text-cyan-400">Multi-Source</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

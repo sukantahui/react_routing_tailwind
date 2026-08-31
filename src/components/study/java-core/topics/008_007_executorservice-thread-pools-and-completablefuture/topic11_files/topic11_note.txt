@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. COMPLETABLEFUTURE OVERVIEW:
    - Implements 'Future<T>' + 'CompletionStage<T>' (Java 8+).
    - 100% Non-Blocking: Zero thread waiting with reactive callbacks.
-   - Declarative async chaining: 'supplyAsync() &rarr; thenApply() &rarr; thenAccept()'.
+   - Declarative async chaining: 'supplyAsync() → thenApply() → thenAccept()'.
    - By default executes on 'ForkJoinPool.commonPool()'.
    - Can accept custom 'ExecutorService' thread pools.
 

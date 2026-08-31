@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures all foundational principles of physical layer transmission engineering, high-bandwidth scaling, building safety compliance, and cost budgeting.",
     hint: "Solid Cat6 for desks + Fiber for backbones + Plenum for fire safety + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeploySolidCat6() -> InstallFiberBackbone() -> EnforcePlenumSafety() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeploySolidCat6() → InstallFiberBackbone() → EnforcePlenumSafety() → BudgetInRupees(₹);"
   }
 ];
 

@@ -124,8 +124,8 @@ export default class Topic8 extends React.Component {
         // Convert wildcard pattern to regex
         let regexPattern = pattern
             .replace(/\./g, '\\.') // Escape dots
-            .replace(/\*/g, '.*')  // * -> any characters
-            .replace(/\?/g, '.')   // ? -> single character
+            .replace(/\*/g, '.*')  // * → any characters
+            .replace(/\?/g, '.')   // ? → single character
             .replace(/\[([^\]]+)\]/g, (match, chars) => {
                 // Character classes
                 return `[${chars}]`;

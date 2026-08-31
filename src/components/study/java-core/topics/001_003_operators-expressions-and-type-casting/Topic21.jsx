@@ -42,11 +42,11 @@ export default function Topic21() {
             Module Grand Finale
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Detecting &amp; Preventing Arithmetic Overflow &amp; Underflow
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          Master crash-proof arithmetic in Java: understanding silent two&apos;s complement wrap-arounds (<code className="text-rose-400 font-mono">Integer.MAX_VALUE + 1 &rarr; MIN_VALUE</code>), Java 8+ safe <code className="text-emerald-300 font-mono">Math.*Exact()</code> methods, avoiding the <code className="text-amber-300 font-mono">long total = a + b</code> upcasting trap, arbitrary precision with <code className="text-sky-300 font-mono">BigInteger</code> &amp; <code className="text-sky-300 font-mono">BigDecimal</code>, and financial ledger auditing in Indian Rupees (₹).
+          Master crash-proof arithmetic in Java: understanding silent two&apos;s complement wrap-arounds (<code className="text-rose-400 font-mono">Integer.MAX_VALUE + 1 → MIN_VALUE</code>), Java 8+ safe <code className="text-emerald-300 font-mono">Math.*Exact()</code> methods, avoiding the <code className="text-amber-300 font-mono">long total = a + b</code> upcasting trap, arbitrary precision with <code className="text-sky-300 font-mono">BigInteger</code> &amp; <code className="text-sky-300 font-mono">BigDecimal</code>, and financial ledger auditing in Indian Rupees (₹).
         </p>
       </header>
 
@@ -60,7 +60,7 @@ export default function Topic21() {
             In Java, standard primitive integer arithmetic operations (<code className="text-sky-300 font-mono">+</code>, <code className="text-sky-300 font-mono">-</code>, <code className="text-sky-300 font-mono">*</code>) <strong>SILENTLY wrap around</strong> upon overflow or underflow without throwing any compiler warning or runtime exception:
           </p>
           <p className="font-mono text-rose-400 bg-slate-950 p-3 rounded-xl border border-slate-800">
-            Integer.MAX_VALUE (2,147,483,647) + 1 &rarr; -2,147,483,648 (Integer.MIN_VALUE!)
+            Integer.MAX_VALUE (2,147,483,647) + 1 → -2,147,483,648 (Integer.MIN_VALUE!)
           </p>
           <p>
             To prevent silent data corruption in mission-critical applications, Java 8 introduced the <code className="text-emerald-300 font-mono">Math.*Exact()</code> suite (<code className="text-emerald-300 font-mono">addExact</code>, <code className="text-emerald-300 font-mono">multiplyExact</code>, <code className="text-emerald-300 font-mono">toIntExact</code>), which detects overflow conditions and throws <code className="text-rose-400 font-mono">ArithmeticException</code> immediately.
@@ -111,7 +111,7 @@ export default function Topic21() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Silent Wrap-Around</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#4c0519" />
             <text x="55" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">MAX_VALUE + 1</text>
-            <text x="55" y="122" fill="#fecdd3" fontSize="10">&rarr; Wraps to -2,147,483,648!</text>
+            <text x="55" y="122" fill="#fecdd3" fontSize="10">→ Wraps to -2,147,483,648!</text>
             <text x="55" y="142" fill="#fecdd3" fontSize="10">Zero runtime exceptions thrown!</text>
             <text x="160" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               Corrupted Data Risk
@@ -122,7 +122,7 @@ export default function Topic21() {
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Java 8 Math.*Exact()</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="335" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Math.addExact(max, 1);</text>
-            <text x="335" y="122" fill="#d1fae5" fontSize="10">&rarr; Throws ArithmeticException!</text>
+            <text x="335" y="122" fill="#d1fae5" fontSize="10">→ Throws ArithmeticException!</text>
             <text x="335" y="142" fill="#d1fae5" fontSize="10">Allows clean error handling</text>
             <text x="440" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✓ Hardware Overflow Detection

@@ -5,11 +5,11 @@ const topic11_questions = [
     "explanation": "Safe to call without checking isPresent() first.",
     "hint": "Returns Optional.empty() without running the predicate.",
     "level": "Beginner",
-    "codeExample": "Optional.<String>empty().filter(s -> s.length() > 5); // Returns Optional.empty()"
+    "codeExample": "Optional.<String>empty().filter(s → s.length() > 5); // Returns Optional.empty()"
   },
   {
     "question": "How can you validate that a String Optional contains non-blank text using filter?",
-    "shortAnswer": "By chaining .filter(Predicate.not(String::isBlank)) or .filter(s -> !s.trim().isEmpty()).",
+    "shortAnswer": "By chaining .filter(Predicate.not(String::isBlank)) or .filter(s → !s.trim().isEmpty()).",
     "explanation": "Converts blank string Optionals to Optional.empty() cleanly.",
     "hint": "opt.filter(Predicate.not(String::isBlank))",
     "level": "Intermediate",

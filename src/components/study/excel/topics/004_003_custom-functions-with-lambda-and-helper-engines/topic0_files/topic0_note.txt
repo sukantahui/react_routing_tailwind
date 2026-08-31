@@ -18,7 +18,7 @@ Syntax: =LAMBDA([parameter1, parameter2, ...], calculation)
 2. CORE CAPABILITIES OF THE LAMBDA ECOSYSTEM
 --------------------------------------------------------------------------------
 • Reusability: Register in Name Manager (Ctrl+F3) to use anywhere in the workbook.
-• Immediate Execution: Test in cells with =(LAMBDA(x, x*2))(5) &rarr; 10.
+• Immediate Execution: Test in cells with =(LAMBDA(x, x*2))(5) → 10.
 • Helper Functions: Pair with MAP, SCAN, REDUCE, BYROW, BYCOL, and MAKEARRAY.
 • Pure Functional Recursion: Execute algorithmic loops without VBA For/While loops.
 • Cross-Platform: 100% compatible with Excel for Web, Mac, Windows, and iPad.

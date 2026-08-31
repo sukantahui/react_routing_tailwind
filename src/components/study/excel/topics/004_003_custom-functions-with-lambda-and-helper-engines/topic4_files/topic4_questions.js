@@ -74,7 +74,7 @@ const questions = [
     explanation: "ISOMITTED tests specifically for the absence of an argument, not whether an argument is blank text or zero.",
     hint: "Returns FALSE if \"\" is explicitly passed.",
     level: "advanced",
-    codeExample: "ISOMITTED(\"\") &rarr; FALSE"
+    codeExample: "ISOMITTED(\"\") → FALSE"
   },
   {
     question: "What does ISOMITTED return if a caller passes a cell reference containing an empty blank cell?",

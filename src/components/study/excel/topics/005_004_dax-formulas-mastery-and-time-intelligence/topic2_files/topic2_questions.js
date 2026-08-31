@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering DAX Philosophy & Syntax Standards is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how table and column references, naked measure names, and functional evaluation functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Evaluation Contexts & Context Transition regarding Row Context, Filter Context, and CALCULATE context transformation (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Evaluation Contexts & Context Transition is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how Row Context, Filter Context, and CALCULATE context transformation functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage CALCULATE Engine & Filter Modifiers regarding filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering CALCULATE Engine & Filter Modifiers is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Iterator Functions & Table Constructors regarding SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Iterator Functions & Table Constructors is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Time Intelligence & Period Comparisons regarding continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Time Intelligence & Period Comparisons is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Advanced Analytics & Enterprise Measure Suites regarding rolling windows, semi-additive closing balances, RANKX, and TOPN (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Advanced Analytics & Enterprise Measure Suites is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how rolling windows, semi-additive closing balances, RANKX, and TOPN functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage DAX Philosophy & Syntax Standards regarding table and column references, naked measure names, and functional evaluation (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering DAX Philosophy & Syntax Standards is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how table and column references, naked measure names, and functional evaluation functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Evaluation Contexts & Context Transition regarding Row Context, Filter Context, and CALCULATE context transformation (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Evaluation Contexts & Context Transition is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how Row Context, Filter Context, and CALCULATE context transformation functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage CALCULATE Engine & Filter Modifiers regarding filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering CALCULATE Engine & Filter Modifiers is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Iterator Functions & Table Constructors regarding SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Iterator Functions & Table Constructors is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables functions within DAX's evaluation context architecture.",
     "level": "basic",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Time Intelligence & Period Comparisons regarding continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Time Intelligence & Period Comparisons is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Advanced Analytics & Enterprise Measure Suites regarding rolling windows, semi-additive closing balances, RANKX, and TOPN (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Advanced Analytics & Enterprise Measure Suites is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how rolling windows, semi-additive closing balances, RANKX, and TOPN functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage DAX Philosophy & Syntax Standards regarding table and column references, naked measure names, and functional evaluation (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering DAX Philosophy & Syntax Standards is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how table and column references, naked measure names, and functional evaluation functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Evaluation Contexts & Context Transition regarding Row Context, Filter Context, and CALCULATE context transformation (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Evaluation Contexts & Context Transition is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how Row Context, Filter Context, and CALCULATE context transformation functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage CALCULATE Engine & Filter Modifiers regarding filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering CALCULATE Engine & Filter Modifiers is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Iterator Functions & Table Constructors regarding SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Iterator Functions & Table Constructors is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Time Intelligence & Period Comparisons regarding continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Time Intelligence & Period Comparisons is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Advanced Analytics & Enterprise Measure Suites regarding rolling windows, semi-additive closing balances, RANKX, and TOPN (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Advanced Analytics & Enterprise Measure Suites is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how rolling windows, semi-additive closing balances, RANKX, and TOPN functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage DAX Philosophy & Syntax Standards regarding table and column references, naked measure names, and functional evaluation (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering DAX Philosophy & Syntax Standards is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how table and column references, naked measure names, and functional evaluation functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Evaluation Contexts & Context Transition regarding Row Context, Filter Context, and CALCULATE context transformation (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Evaluation Contexts & Context Transition is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how Row Context, Filter Context, and CALCULATE context transformation functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage CALCULATE Engine & Filter Modifiers regarding filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering CALCULATE Engine & Filter Modifiers is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Iterator Functions & Table Constructors regarding SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Iterator Functions & Table Constructors is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables functions within DAX's evaluation context architecture.",
     "level": "moderate",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Time Intelligence & Period Comparisons regarding continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Time Intelligence & Period Comparisons is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Advanced Analytics & Enterprise Measure Suites regarding rolling windows, semi-additive closing balances, RANKX, and TOPN (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Advanced Analytics & Enterprise Measure Suites is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how rolling windows, semi-additive closing balances, RANKX, and TOPN functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage DAX Philosophy & Syntax Standards regarding table and column references, naked measure names, and functional evaluation (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering DAX Philosophy & Syntax Standards is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how table and column references, naked measure names, and functional evaluation functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Evaluation Contexts & Context Transition regarding Row Context, Filter Context, and CALCULATE context transformation (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Evaluation Contexts & Context Transition is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how Row Context, Filter Context, and CALCULATE context transformation functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage CALCULATE Engine & Filter Modifiers regarding filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering CALCULATE Engine & Filter Modifiers is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how filter overriding, ALL, ALLEXCEPT, ALLSELECTED, and REMOVEFILTERS functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Iterator Functions & Table Constructors regarding SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Iterator Functions & Table Constructors is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how SUMX, AVERAGEX, MAXX, and dynamic FILTER virtual tables functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Time Intelligence & Period Comparisons regarding continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Time Intelligence & Period Comparisons is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how continuous date rules, TOTALYTD, SAMEPERIODLASTYEAR, and DATEADD functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   },
   {
     "question": "In the context of Context Transition: Transforming Row Context into Filter Context with CALCULATE, how does DAX manage Advanced Analytics & Enterprise Measure Suites regarding rolling windows, semi-additive closing balances, RANKX, and TOPN (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Context Transition: Transforming Row Context into Filter Context with CALCULATE, mastering Advanced Analytics & Enterprise Measure Suites is vital for enterprise financial engineering. DAX combines rigorous evaluation contexts, filter context manipulation, and optimized tabular iterators, ensuring that complex corporate business metrics, Time Intelligence comparisons, and ranking distributions calculate dynamically with certified mathematical accuracy.",
     "hint": "Think about how rolling windows, semi-additive closing balances, RANKX, and TOPN functions within DAX's evaluation context architecture.",
     "level": "advanced",
-    "codeExample": "Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context"
+    "codeExample": "Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context"
   }
 ];
 

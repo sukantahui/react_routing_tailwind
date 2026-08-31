@@ -21,7 +21,7 @@ export default function Topic1() {
             Type Replacement
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Compilation Type Replacement: <code className="text-emerald-400 font-mono">Object</code> vs Upper Bounds
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic1() {
       </section>
 
       <Teacher
-        note="If your generic parameter is unbounded like '<T>', the compiler replaces it with Object! If it is bounded like '<T extends Number>', the compiler replaces it with Number! That is how bytecode stays simple! — Sukanta Hui"
+        note="If your generic parameter is unbounded like '&lt;T&gt;', the compiler replaces it with Object! If it is bounded like '<T extends Number>', the compiler replaces it with Number! That is how bytecode stays simple! — Sukanta Hui"
       />
     </div>
   );

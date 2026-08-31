@@ -84,7 +84,7 @@ const questions = [
   },
   {
     question: "Suppose Debangshu in Barrackpore is playing a zero-sum bidding game with matrix [[40, 20], [30, 50]]. What is the optimal strategy and value of the game in ₹ Thousands?",
-    shortAnswer: "Row min: [20, 30] -> Maximin = 30. Col max: [40, 50] -> Minimax = 40. Since 30 < 40, it is non-strictly determined; mixed strategies yield v* = ₹32.5k.",
+    shortAnswer: "Row min: [20, 30] → Maximin = 30. Col max: [40, 50] → Minimax = 40. Since 30 < 40, it is non-strictly determined; mixed strategies yield v* = ₹32.5k.",
     explanation: "Non-strictly determined 2x2 game.",
     hint: "Maximin = 30, Minimax = 40; requires mixed strategy solution.",
     level: "moderate",
@@ -102,9 +102,9 @@ const questions = [
     question: "What is the ultimate golden rule of Two-Person Zero-Sum Games?",
     shortAnswer: "'In a TPZSG, total wealth is strictly conserved (u_A + u_B = 0); the Minimax Theorem guarantees a unique game value v*; strictly determined games have pure saddle points; non-strictly determined games require mixed strategies; express all values in Indian Rupees (₹)!'",
     explanation: "This master synthesis captures all principles of Two-Person Zero-Sum Games.",
-    hint: "Zero-sum conservation -> Minimax theorem -> Pure vs mixed equilibrium -> Value v* in ₹.",
+    hint: "Zero-sum conservation → Minimax theorem → Pure vs mixed equilibrium → Value v* in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: EnforceZeroSum() -> ApplyMinimaxTheorem() -> FindEquilibrium(v*, ₹)."
+    codeExample: "GoldenRule: EnforceZeroSum() → ApplyMinimaxTheorem() → FindEquilibrium(v*, ₹)."
   }
 ];
 

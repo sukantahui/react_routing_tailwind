@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on mastering the entire modern #Spill formula ecosystem! By combining LET, UNIQUE, FILTER, SORT, and GROUPBY, you can build executive dashboards that used to require 500 lines of VBA code in just ONE single formula.
 
 COMMON TRAPS TO AVOID:
-- Spill Range Reference Syntax Errors: Writing `=SUM(A2)` instead of `=SUM(A2#)` to aggregate spilled arrays. -> Fix: Always append `#` to reference full spilled ranges: `=SUM(A2#)`.
-- Unbounded Matrix Spilling Crashing Memory: Filtering 1 million rows without criteria into an unconstrained array. -> Fix: Apply specific filter predicates in LET blocks.
-- Circular Calculation in Self-Referencing Dynamic Names: Referencing target spill cell inside formula definition. -> Fix: Maintain strict unidirectional reference flow.
+- Spill Range Reference Syntax Errors: Writing `=SUM(A2)` instead of `=SUM(A2#)` to aggregate spilled arrays. → Fix: Always append `#` to reference full spilled ranges: `=SUM(A2#)`.
+- Unbounded Matrix Spilling Crashing Memory: Filtering 1 million rows without criteria into an unconstrained array. → Fix: Apply specific filter predicates in LET blocks.
+- Circular Calculation in Self-Referencing Dynamic Names: Referencing target spill cell inside formula definition. → Fix: Maintain strict unidirectional reference flow.
 ================================================================================

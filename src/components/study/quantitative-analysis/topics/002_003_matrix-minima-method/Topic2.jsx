@@ -132,7 +132,7 @@ const Topic2 = () => {
           <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-blue-500/10 text-blue-400 border border-blue-500/30 mb-4 shadow-sm">
             Quantitative Analysis • Transportation Models • Topic 2
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mb-4 bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
             Selecting the Minimum Cost Cell
           </h1>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
@@ -370,7 +370,7 @@ const Topic2 = () => {
 
                 {/* Bottom Callout */}
                 <text x="360" y="315" fill="#38bdf8" fontSize="11" textAnchor="middle" fontWeight="bold">
-                  Selection Action: Target Cell (Ichapur, Jadavpur) @ ₹3/unit &rarr; Allocate min(70, 50) = 50 units
+                  Selection Action: Target Cell (Ichapur, Jadavpur) @ ₹3/unit → Allocate min(70, 50) = 50 units
                 </text>
               </svg>
             </div>
@@ -621,7 +621,7 @@ const Topic2 = () => {
               <div className="p-4 rounded-xl bg-slate-800/40 border border-slate-700/60 flex flex-col space-y-1">
                 <span className="text-violet-300 font-semibold text-sm">2. Deterministic Tie-Breaker Ladder</span>
                 <p className="text-slate-300 text-xs sm:text-sm">
-                  Always implement the 3-tier ladder (Cost &rarr; Volume &rarr; Capacity Dominance) to ensure reproducible and optimal starting tables.
+                  Always implement the 3-tier ladder (Cost → Volume → Capacity Dominance) to ensure reproducible and optimal starting tables.
                 </p>
               </div>
 

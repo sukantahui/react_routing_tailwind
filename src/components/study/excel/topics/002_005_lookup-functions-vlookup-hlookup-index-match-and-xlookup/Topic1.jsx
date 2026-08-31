@@ -70,7 +70,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Importance of Unique IDs, Primary Keys and Key Column Hygiene
           </h1>
 
@@ -138,7 +138,7 @@ export default function Topic1() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Duplicate Detection</td>
                   <td className="py-3 px-4 text-teal-400">Audit Formula</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Validation</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">=IF(COUNTIF(A:A, A2)&gt;1, "DUPLICATE ERROR", "OK")</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">=IF(COUNTIF(A:A, A2)>1, "DUPLICATE ERROR", "OK")</td>
                 </tr>
               </tbody>
             </table>
@@ -274,7 +274,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Importance_of_Uniq"
+            sheetName="EX1002"
             title="Module 2.5 - Importance of Unique IDs, Primary Keys and Key Column Hygiene"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -355,7 +355,7 @@ export default function Topic1() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Condition</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=COUNTIF($A$2:$A$500, A2) &gt; 1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Returns TRUE on duplicates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Highlights cell in Red with popup alert</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=COUNTIF($A$2:$A$500, A2) > 1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Returns TRUE on duplicates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Highlights cell in Red with popup alert</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -508,16 +508,12 @@ export default function Topic1() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Data -&gt; Remove Duplicates
-              </kbd>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex flex-col gap-2">
+              <div className="flex items-center gap-1.5 flex-wrap"><kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">Data -</kbd><span className="text-purple-300 font-mono text-xs font-semibold">→ Remove Duplicates</span></div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Instantly deduplicate reference table keys.</p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                =COUNTIF(A:A, A2)&gt;1
-              </kbd>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex flex-col gap-2">
+              <div className="flex items-center gap-1.5 flex-wrap"><kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">=COUNTIF(A:A, A2)</kbd><span className="text-purple-300 font-mono text-xs font-semibold">→ 1</span></div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Formula rule for Conditional Formatting duplicate alert.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">

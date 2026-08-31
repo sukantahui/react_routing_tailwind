@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SECURE RANDOM RULES:
-   - 'java.util.Random' &rarr; Predictable (Games/Simulations only).
-   - 'SecureRandom' &rarr; Cryptographically secure (OTPs, Tokens, Salt).
+   - 'java.util.Random' → Predictable (Games/Simulations only).
+   - 'SecureRandom' → Cryptographically secure (OTPs, Tokens, Salt).
    - Collects OS entropy (/dev/urandom / CryptoAPI).
 
 ================================================================================

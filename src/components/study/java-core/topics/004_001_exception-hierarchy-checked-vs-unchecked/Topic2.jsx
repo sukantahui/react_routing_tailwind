@@ -21,7 +21,7 @@ export default function Topic2() {
             Fatal JVM Failures
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-rose-400 font-mono">java.lang.Error</code>: Unrecoverable System Failures (<code className="text-rose-300 font-mono">OutOfMemoryError</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

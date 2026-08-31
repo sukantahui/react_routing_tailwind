@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. MODULE 007_001 GRAND SUMMARY:
    - JCF provides unified architecture across Interfaces, Classes, Utilities.
-   - Root: 'Iterable' &rarr; 'Collection' (List, Set, Queue) + independent 'Map'.
+   - Root: 'Iterable' → 'Collection' (List, Set, Queue) + independent 'Map'.
    - List: Ordered, indexed, permits duplicates (Default: ArrayList).
    - Set: Strict uniqueness (Default: HashSet, LinkedHashSet, TreeSet).
    - Queue/Deque: FIFO queue and LIFO stack (Default: ArrayDeque).

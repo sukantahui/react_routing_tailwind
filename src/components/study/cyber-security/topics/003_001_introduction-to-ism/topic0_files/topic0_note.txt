@@ -61,7 +61,7 @@ non-repudiation of an enterprise's information assets.
 --------------------------------------------------------------------------------
 
   * ISO/IEC 27001:2022 : International standard for establishing an ISMS (Clauses 4-10 + 93 Annex A controls).
-  * NIST CSF 2.0       : 6 Core Functions [ GOVERN -> IDENTIFY -> PROTECT -> DETECT -> RESPOND -> RECOVER ].
+  * NIST CSF 2.0       : 6 Core Functions [ GOVERN → IDENTIFY → PROTECT → DETECT → RESPOND → RECOVER ].
   * COBIT 2019         : Governance and management framework for enterprise information and technology.
   * CIS CONTROLS v8    : 18 Prescriptive, prioritized technical safeguards against prevalent cyber attacks.
 

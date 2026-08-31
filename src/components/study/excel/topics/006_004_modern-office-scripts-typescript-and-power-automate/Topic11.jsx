@@ -71,7 +71,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Generating automated Teams/Slack notifications and PDF reports from Excel via Power Automate"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic11() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Notifications & PDF: Run Script (Calculate KPI & Generate Summary) -> Create File (SharePoint .pdf) -> Post message in a chat or channel (Teams / Slack) -> Send Email (Outlook)"}
+            {"Notifications & PDF: Run Script (Calculate KPI & Generate Summary) → Create File (SharePoint .pdf) → Post message in a chat or channel (Teams / Slack) → Send Email (Outlook)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic11() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Automated Multi-Channel Broadcast Pipeline: Excel Cloud Calculation -> Adaptive Card Generator -> Teams/Slack Channel + PDF Email"}
+              Visual Dataflow: {"Automated Multi-Channel Broadcast Pipeline: Excel Cloud Calculation → Adaptive Card Generator → Teams/Slack Channel + PDF Email"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Cloud Pipeline
@@ -286,7 +286,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Generating_automat"
+            sheetName="EX2712"
             title={"Generating automated Teams/Slack notifications and PDF reports from Excel via Power Automate - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic11() {
                 Step 1: Open Monaco Editor in Excel for Web
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Excel in browser, click <strong>Automate &gt; New Script</strong> to launch the Monaco Code Editor.
+                Open Excel in browser, click <strong>Automate > New Script</strong> to launch the Monaco Code Editor.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic11() {
                 Step 2: Author TypeScript Logic with Parameters
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Write strongly-typed logic: <code className="text-cyan-300 font-mono font-bold">{"Notifications & PDF: Run Script (Calculate KPI & Generate Summary) -> Create File (SharePoint .pdf) -> Post message in a chat or channel (Teams / Slack) -> Send Email (Outlook)"}</code>.
+                Write strongly-typed logic: <code className="text-cyan-300 font-mono font-bold">{"Notifications & PDF: Run Script (Calculate KPI & Generate Summary) → Create File (SharePoint .pdf) → Post message in a chat or channel (Teams / Slack) → Send Email (Outlook)"}</code>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic11() {
                 Step 3: Connect to Microsoft Power Automate Flow
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Automate, add <strong>Excel Online (Business) &gt; Run script</strong> and pass dynamic flow tokens.
+                In Power Automate, add <strong>Excel Online (Business) > Run script</strong> and pass dynamic flow tokens.
               </p>
             </div>
 

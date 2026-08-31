@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Testing enterprise spreadsheet governance and security: custom formula data validation, cascading dependent dropdowns (INDIRECT), locking formula cells, protecting worksheets, and allowing user edit ranges
 
 TEACHER'S ADVICE:
-Protect your models from user mistakes! 1. Highlight your input cells, press Ctrl + 1, and uncheck 'Locked'. 2. Go to Review -> Protect Sheet and set a password. Now users can ONLY type in the input cells and can never break your formulas.
+Protect your models from user mistakes! 1. Highlight your input cells, press Ctrl + 1, and uncheck 'Locked'. 2. Go to Review → Protect Sheet and set a password. Now users can ONLY type in the input cells and can never break your formulas.
 
 COMMON TRAPS TO AVOID:
-- Protecting Sheet Without Unlocking Input Cells First: Protecting sheet locks ALL cells by default, preventing users from typing anywhere. -> Fix: Highlight input cells > Format Cells (Ctrl+1) > Protection > UNCHECK 'Locked' > Protect Sheet.
-- Spaces in Named Ranges for Cascading Dropdowns: `INDIRECT("West Bengal")` fails because named ranges cannot contain spaces. -> Fix: Use `SUBSTITUTE`: `=INDIRECT(SUBSTITUTE(A2, " ", "_"))`.
-- Allowing Users to Paste Over Validation Rules: Standard copy-paste overwrites cell validation rules. -> Fix: Protect sheet to disable formatting changes.
+- Protecting Sheet Without Unlocking Input Cells First: Protecting sheet locks ALL cells by default, preventing users from typing anywhere. → Fix: Highlight input cells > Format Cells (Ctrl+1) > Protection > UNCHECK 'Locked' > Protect Sheet.
+- Spaces in Named Ranges for Cascading Dropdowns: `INDIRECT("West Bengal")` fails because named ranges cannot contain spaces. → Fix: Use `SUBSTITUTE`: `=INDIRECT(SUBSTITUTE(A2, " ", "_"))`.
+- Allowing Users to Paste Over Validation Rules: Standard copy-paste overwrites cell validation rules. → Fix: Protect sheet to disable formatting changes.
 ================================================================================

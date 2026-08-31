@@ -13,7 +13,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 2. RUNNING IN A CUSTOM FORKJOINPOOL:
    - Pattern:
      'ForkJoinPool customPool = new ForkJoinPool(4);'
-     'customPool.submit(() -> list.parallelStream().forEach(...)).get();'
+     'customPool.submit(() → list.parallelStream().forEach(...)).get();'
    - Isolates CPU-heavy or sensitive batch pipelines from starving global application threads.
 
 ================================================================================

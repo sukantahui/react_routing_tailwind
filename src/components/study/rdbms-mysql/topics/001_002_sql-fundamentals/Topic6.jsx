@@ -87,7 +87,7 @@ const Topic6 = () => {
             Module 001_002 · SQL Fundamentals · Topic 6
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             DROP TABLE vs{" "}
             <span className="bg-gradient-to-r from-teal-400 via-amber-400 to-rose-500 bg-clip-text text-transparent">
               TRUNCATE TABLE

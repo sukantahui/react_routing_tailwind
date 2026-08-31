@@ -136,7 +136,7 @@ const Topic4 = () => {
             Module 002_004 · Database Normalization · Topic 4
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Full vs Partial:{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Functional Dependencies &amp; 2NF
@@ -227,7 +227,7 @@ const Topic4 = () => {
                 <text x="110" y="95" fill="#94a3b8" textAnchor="middle" fontSize="9">Both Needed for Final Grade</text>
               </g>
 
-              {/* Partial Arrow 1: student_id -> name */}
+              {/* Partial Arrow 1: student_id → name */}
               <g transform="translate(255, 45)">
                 <line x1="0" y1="0" x2="100" y2="-15" stroke="#f43f5e" strokeWidth="2" strokeDasharray="3 3" />
                 <polygon points="100,-20 115,-15 100,-10" fill="#f43f5e" />
@@ -240,7 +240,7 @@ const Topic4 = () => {
                 <text x="90" y="20" fill="#fca5a5" textAnchor="middle" fontWeight="bold">student_name, city</text>
               </g>
 
-              {/* Full Arrow: (sid, cid) -> grade */}
+              {/* Full Arrow: (sid, cid) → grade */}
               <g transform="translate(255, 75)">
                 <line x1="0" y1="0" x2="100" y2="0" stroke="#10b981" strokeWidth="3" />
                 <polygon points="100,-5 115,0 100,5" fill="#10b981" />
@@ -253,7 +253,7 @@ const Topic4 = () => {
                 <text x="90" y="20" fill="#10b981" textAnchor="middle" fontWeight="bold">final_grade (2NF Safe)</text>
               </g>
 
-              {/* Partial Arrow 2: course_id -> fee */}
+              {/* Partial Arrow 2: course_id → fee */}
               <g transform="translate(255, 105)">
                 <line x1="0" y1="0" x2="100" y2="15" stroke="#f43f5e" strokeWidth="2" strokeDasharray="3 3" />
                 <polygon points="100,10 115,15 100,20" fill="#f43f5e" />

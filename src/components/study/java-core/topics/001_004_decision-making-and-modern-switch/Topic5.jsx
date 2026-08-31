@@ -42,7 +42,7 @@ export default function Topic5() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Combining Complex Boolean Conditions Using <code className="text-emerald-400">&amp;&amp;</code>, <code className="text-sky-300">||</code>, and <code className="text-rose-400">!</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -125,7 +125,7 @@ export default function Topic5() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="335" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">if (s != null &amp;&amp; s.isEnrolled())</text>
             <text x="335" y="122" fill="#d1fae5" fontSize="10">If &apos;s&apos; is null, &amp;&amp; stops immediately!</text>
-            <text x="335" y="142" fill="#d1fae5" fontSize="10">&rarr; Zero NullPointerException!</text>
+            <text x="335" y="142" fill="#d1fae5" fontSize="10">→ Zero NullPointerException!</text>
             <text x="440" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Crash-Proof Short-Circuit
             </text>

@@ -64,7 +64,7 @@ const questions = [
     question: "What is the return type of `Json.Document` when the API root is an object `{...}`?",
     shortAnswer: "An M **Record** (`[...]`).",
     explanation: "JSON objects map directly to M Records.",
-    hint: "JSON object {} &rarr; M Record [...].",
+    hint: "JSON object {} → M Record [...].",
     level: "basic",
     codeExample: "RootRecord = Json.Document(Web.Contents(...)) // type record"
   },
@@ -72,15 +72,15 @@ const questions = [
     question: "What is the return type of `Json.Document` when the API root is an array `[...]`?",
     shortAnswer: "An M **List** (`{...}`).",
     explanation: "JSON arrays map directly to M Lists of Records or Primitives.",
-    hint: "JSON array [] &rarr; M List {...}.",
+    hint: "JSON array [] → M List {...}.",
     level: "basic",
     codeExample: "RootList = Json.Document(Web.Contents(...)) // type list"
   },
   {
     question: "How do you convert a List of JSON records into an M Table?",
-    shortAnswer: "Using `Table.FromList(MyList, Splitter.SplitByNothing())` &rarr; then expand columns via `Table.ExpandRecordColumn`.",
+    shortAnswer: "Using `Table.FromList(MyList, Splitter.SplitByNothing())` → then expand columns via `Table.ExpandRecordColumn`.",
     explanation: "Standard pipeline from JSON array to 2D table grid.",
-    hint: "Table.FromList &rarr; Table.ExpandRecordColumn.",
+    hint: "Table.FromList → Table.ExpandRecordColumn.",
     level: "moderate",
     codeExample: "= Table.FromList(JsonList, Splitter.SplitByNothing(), {\"Column1\"})"
   },
@@ -118,9 +118,9 @@ const questions = [
   },
   {
     question: "How do you handle nested arrays inside a JSON record when flattening to a table?",
-    shortAnswer: "Use `Table.ExpandListColumn` to duplicate parent rows for each array item &rarr; then `Table.ExpandRecordColumn` to extract nested fields.",
+    shortAnswer: "Use `Table.ExpandListColumn` to duplicate parent rows for each array item → then `Table.ExpandRecordColumn` to extract nested fields.",
     explanation: "Standard multi-level JSON flattening protocol.",
-    hint: "Table.ExpandListColumn &rarr; Table.ExpandRecordColumn.",
+    hint: "Table.ExpandListColumn → Table.ExpandRecordColumn.",
     level: "moderate",
     codeExample: "Table.ExpandRecordColumn(Table.ExpandListColumn(T, \"Items\"), \"Items\", {\"SKU\", \"Qty\"})"
   },
@@ -138,7 +138,7 @@ const questions = [
     explanation: "Security compliance for credential management.",
     hint: "Exposes private credentials; use Web.Contents native auth or secure parameters.",
     level: "basic",
-    codeExample: "Use Power Query Data Source Credentials &rarr; 'Web API'"
+    codeExample: "Use Power Query Data Source Credentials → 'Web API'"
   },
   {
     question: "What is the `Timeout` option in `Web.Contents`?",
@@ -158,11 +158,11 @@ const questions = [
   },
   {
     question: "Can Power Query scrape tables from web pages protected by basic username/password authentication?",
-    shortAnswer: "Yes; configure Basic Authentication under Data Source Settings &rarr; Edit Permissions &rarr; Select 'Basic' and enter credentials.",
+    shortAnswer: "Yes; configure Basic Authentication under Data Source Settings → Edit Permissions → Select 'Basic' and enter credentials.",
     explanation: "Native credential management handles HTTP Basic Auth headers automatically.",
     hint: "Yes; configure 'Basic' credentials in Data Source Settings.",
     level: "basic",
-    codeExample: "Data Source Settings &rarr; Edit Permissions &rarr; Basic Auth"
+    codeExample: "Data Source Settings → Edit Permissions → Basic Auth"
   },
   {
     question: "How do you scrape tables from websites that load data dynamically using client-side JavaScript?",
@@ -182,7 +182,7 @@ const questions = [
   },
   {
     question: "How do you handle API responses where date fields are formatted in ISO-8601 (e.g. `\"2026-08-27T10:30:00Z\"`)?",
-    shortAnswer: "Use `DateTimeZone.FromText([DateStr])` &rarr; then convert to local time with `DateTimeZone.ToLocal` if needed.",
+    shortAnswer: "Use `DateTimeZone.FromText([DateStr])` → then convert to local time with `DateTimeZone.ToLocal` if needed.",
     explanation: "Standard UTC ISO-8601 parsing.",
     hint: "DateTimeZone.FromText([DateStr]).",
     level: "moderate",
@@ -232,7 +232,7 @@ const questions = [
     question: "What is the recommended approach for refreshing exchange rates daily in financial models?",
     shortAnswer: "Connect to a reliable central bank or FX REST API using `Web.Contents` + `Json.Document`, transform rates into a 2-column table `[Currency, Rate]`, and relate it in Power Pivot.",
     explanation: "Automated daily currency normalization.",
-    hint: "Query FX API via Web.Contents &rarr; relate rate table in Power Pivot.",
+    hint: "Query FX API via Web.Contents → relate rate table in Power Pivot.",
     level: "basic",
     codeExample: "Daily FX API query related to Fact_Sales in Power Pivot"
   },

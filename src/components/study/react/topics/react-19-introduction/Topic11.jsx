@@ -427,7 +427,7 @@ return isLoggedIn
                   ⚡
                 </div>
                 <div>
-                  <h3 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent">
                     The Great Divide: Expressions vs Statements
                   </h3>
                   <p className="text-xl text-gray-300">

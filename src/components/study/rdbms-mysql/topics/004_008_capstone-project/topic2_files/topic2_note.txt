@@ -69,9 +69,9 @@ MySQL Workbench EER Modeler automates visual schema design and generates product
 
 SQL Implementation:
 -- 🛠️ MYSQL WORKBENCH MODEL EXPORT CHECKLIST:
--- 1. Create EER Model -> Add Diagram.
+-- 1. Create EER Model → Add Diagram.
 -- 2. Place 15-25 tables with explicit data types and foreign key relationships.
--- 3. Run Forward Engineer Database Wizard -> Generate production SQL script.
+-- 3. Run Forward Engineer Database Wizard → Generate production SQL script.
 -- 4. Export high-resolution PNG/SVG diagram for capstone documentation report.
 
 Takeaways:

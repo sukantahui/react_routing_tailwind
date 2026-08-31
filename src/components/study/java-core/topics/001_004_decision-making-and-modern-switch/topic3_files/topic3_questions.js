@@ -89,7 +89,7 @@ const questions = [
     question: "In the Coder & AccoTax Barrackpore scholarship engine, how does nested `if-else` classify students?",
     shortAnswer: "First checks academic score ($\ge 85\%$). If true, checks family income ($\le 200,000$) for a Tier 1 full waiver, then checks local residence in Barrackpore for Tier 2 vs Tier 3 waivers in Indian Rupees (₹).",
     explanation: "Demonstrates multi-tier hierarchical eligibility decision trees.",
-    hint: "Hierarchical checks: score -> income -> residence.",
+    hint: "Hierarchical checks: score → income → residence.",
     level: "basic",
     codeExample: "if (score >= 85) {\n    if (income <= 200000) { tier1(); }\n    else if (isResident) { tier2(); }\n}"
   },

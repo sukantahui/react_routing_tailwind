@@ -42,7 +42,7 @@ const Topic8 = () => {
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <header className="text-center space-y-4 animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
             Servlet Listeners
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ const Topic8 = () => {
           <h2 className="text-2xl font-semibold text-green-400">📡 Listener Event Flow</h2>
           <div className="mt-6 flex justify-center">
             <svg viewBox="0 0 750 280" className="w-full max-w-4xl h-auto">
-              {/* <!-- Timeline --> */}
+              {/* <!-- Timeline → */}
               <rect x="20" y="40" width="160" height="60" rx="8" fill="#1e293b" stroke="#10b981" strokeWidth="2" />
               <text x="100" y="65" textAnchor="middle" fill="#6ee7b7" fontSize="13">App Startup</text>
               <text x="100" y="85" textAnchor="middle" fill="#9ca3af" fontSize="11">contextInitialized()</text>
@@ -103,7 +103,7 @@ const Topic8 = () => {
               <line x1="390" y1="70" x2="438" y2="70" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrL)" />
               <line x1="600" y1="70" x2="648" y2="70" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrL)" />
 
-              {/* <!-- Response side --> */}
+              {/* <!-- Response side → */}
               <rect x="650" y="160" width="80" height="60" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="2" />
               <text x="690" y="195" textAnchor="middle" fill="#fcd34d" fontSize="12">Servlet</text>
 

@@ -59,7 +59,7 @@ const questions = [
     question: "How does JavaScript manage state in complex enterprise web applications?",
     shortAnswer: "Through centralized stores (Redux, Zustand, Signals) enforcing unidirectional data flow and reactive re-renders.",
     explanation: "Unidirectional data flow ensures UI is a pure projection of state. Actions dispatch state updates, and subscribed components re-render predictably.",
-    hint: "Action -> State Mutation -> Reactive UI Re-render.",
+    hint: "Action → State Mutation → Reactive UI Re-render.",
     level: "advanced",
     codeExample: "const store = { state: { count: 0 }, set(fn) { this.state = fn(this.state); } };"
   },
@@ -115,7 +115,7 @@ const questions = [
     question: "What is the Critical Rendering Path (CRP) in web browsers?",
     shortAnswer: "The sequence of steps browsers take to convert HTML, CSS, and JS into visible screen pixels.",
     explanation: "CRP involves parsing HTML to DOM, CSS to CSSOM, combining into Render Tree, calculating Layout coordinates (Reflow), and Painting pixels.",
-    hint: "DOM + CSSOM -> Render Tree -> Layout -> Paint -> Composite.",
+    hint: "DOM + CSSOM → Render Tree → Layout → Paint → Composite.",
     level: "advanced",
     codeExample: "// Minimizing DOM mutations reduces reflows and improves 60fps frame rate"
   },
@@ -139,7 +139,7 @@ const questions = [
     question: "What is the Virtual DOM and why do libraries like React use it?",
     shortAnswer: "An in-memory lightweight representation of the real DOM used to batch and minimize costly browser reflows.",
     explanation: "Mutating the real DOM triggers layout recalculations. Virtual DOM diffing (Reconciliation) computes minimal patch sets and applies updates in batches.",
-    hint: "Lightweight in-memory DOM tree -> Diffing -> Batched real DOM patch.",
+    hint: "Lightweight in-memory DOM tree → Diffing → Batched real DOM patch.",
     level: "intermediate",
     codeExample: "const vNode = { type: 'h1', props: { className: 'title' }, children: 'Hello' };"
   },

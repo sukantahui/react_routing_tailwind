@@ -96,7 +96,7 @@ const questions = [
     explanation: "Because dynamic arrays participate in Excel's live calculation graph, cohort migration is 100% automated.",
     hint: "Account tier upgrades happen automatically in real time.",
     level: "basic",
-    codeExample: "// Customer spend updated -> Tier changes instantly to Platinum"
+    codeExample: "// Customer spend updated → Tier changes instantly to Platinum"
   },
   {
     question: "How do you return only Customer Name, Region, and Computed Tier in the drill-down view?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Boolean multiplication strictly enforces both spend and quality rating standards for Platinum VIP status.",
     hint: "Both conditions must be met for Platinum VIP qualification.",
     level: "basic",
-    codeExample: "// Spend: 14L, Rating: 4.5 -> Classified as Gold Tier or Silver Tier"
+    codeExample: "// Spend: 14L, Rating: 4.5 → Classified as Gold Tier or Silver Tier"
   },
   {
     question: "How do you format the segmented customer roster for executive board presentation?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "Completing this lab proves full end-to-end fluency in modern formula-driven spreadsheet engineering, empowering analysts across Barrackpore and Kolkata to build high-impact enterprise applications.",
     hint: "It unifies all module competencies into an end-to-end commercial analytics system.",
     level: "expert",
-    codeExample: "// Capstone Pipeline: Raw Data -> In-Memory Segmentation -> HSTACK -> FILTER -> Drill-Down UI"
+    codeExample: "// Capstone Pipeline: Raw Data → In-Memory Segmentation → HSTACK → FILTER → Drill-Down UI"
   }
 ];
 

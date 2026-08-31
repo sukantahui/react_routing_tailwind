@@ -37,10 +37,10 @@ Lov Grover demonstrated a quantum search algorithm providing a quadratic speedup
 - Search complexity reduced from $O(N)$ to $O(\sqrt{N})$.
 - Effective Key Security: An $n$-bit symmetric key provides only $\frac{n}{2}$ bits of quantum security.
 - Impact on AES:
-  • AES-128 $\rightarrow$ 64-bit quantum security (Vulnerable to brute-force 🚨).
-  • AES-256 $\rightarrow$ 128-bit quantum security (QUANTUM SAFE ✔).
+  • AES-128 → 64-bit quantum security (Vulnerable to brute-force 🚨).
+  • AES-256 → 128-bit quantum security (QUANTUM SAFE ✔).
 - Impact on Hash Functions:
-  • SHA-256 (Collision Resistance via BHT algorithm) $\rightarrow 2^{256/3} \approx 2^{85}$ (Use SHA-384 or SHA-512).
+  • SHA-256 (Collision Resistance via BHT algorithm) $→ 2^{256/3} \approx 2^{85}$ (Use SHA-384 or SHA-512).
 
 
 4. MOSCA'S THEOREM & HARVEST NOW, DECRYPT LATER (HNDL)
@@ -59,7 +59,7 @@ to decrypt it retroactively once a CRQC is operational (Harvest Now, Decrypt Lat
 ----------------------------------------------------------------------------------------------------
 Case 1: Barrackpore Municipal Treasury PQC Migration Planning
 - Architecture: Identified 10-year confidential pension and tax records protected under legacy RSA-2048.
-- Result: Applied Mosca's Theorem ($X=10, Y=2, Z=7 \rightarrow 12 > 7$), initiating immediate hybrid PQC TLS migration.
+- Result: Applied Mosca's Theorem ($X=10, Y=2, Z=7 → 12 > 7$), initiating immediate hybrid PQC TLS migration.
 
 Case 2: Salt Lake Sector V FinTech Symmetric AES Upgrade
 - Architecture: Upgraded all core payment tokenization databases from AES-128 to AES-256.

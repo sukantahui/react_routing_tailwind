@@ -56,7 +56,7 @@ CREATE TABLE invoices (
       badge: "Hybrid VLDB Scale",
       badgeColor: "cyan",
       sqlSnippet: `-- 🌐 TIER 1: HORIZONTAL SCALE-OUT ACROSS 16 AUTONOMOUS NODES
--- Sharded by Consistent Hashing on tenant_id -> Handles 80,000 writes/second!
+-- Sharded by Consistent Hashing on tenant_id → Handles 80,000 writes/second!
 
 -- ⚙️ TIER 2: LOCAL TABLE PARTITIONING INSIDE EACH SHARD NODE:
 -- On each of the 16 shard nodes, the orders table is partitioned by RANGE:
@@ -97,7 +97,7 @@ wait
 
 # 🛡️ 2. SYNCHRONIZED POINT-IN-TIME RECOVERY (PITR):
 # All shards restored to the identical synchronized Global Timestamp:
-# -> mysqlbinlog --stop-datetime="2026-08-25 03:00:00.000000" ...`,
+# → mysqlbinlog --stop-datetime="2026-08-25 03:00:00.000000" ...`,
       explanation:
         "Enterprise backup strategies execute non-blocking Percona XtraBackups in parallel across all shard nodes, with synchronized global timestamps or GTID coordinates ensuring consistent point-in-time recovery.",
       keyTakeaways: [
@@ -116,9 +116,9 @@ wait
 // across all 16 shard clusters with automated skew alerts (>15% deviation).
 
 // 🚀 2. REAL-TIME CDC ANALYTICS PIPELINE (Debezium + ClickHouse):
-// 16 Shard Nodes (OLTP) -> Debezium CDC -> Apache Kafka -> ClickHouse OLAP
-// -> Multi-billion-row global reporting queries execute in 25ms in ClickHouse!
-// -> Zero scatter-gather queries touch the live production OLTP shards!`,
+// 16 Shard Nodes (OLTP) → Debezium CDC → Apache Kafka → ClickHouse OLAP
+// → Multi-billion-row global reporting queries execute in 25ms in ClickHouse!
+// → Zero scatter-gather queries touch the live production OLTP shards!`,
       explanation:
         "Separating OLTP transactional sharding from OLAP analytical data lakes via real-time Debezium CDC pipelines ensures that multi-billion-row business reports execute in milliseconds without saturating production database nodes.",
       keyTakeaways: [
@@ -143,7 +143,7 @@ wait
             Topic 12 of 12 (Capstone)
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Production Case Studies</span>: Multi-Tenant SaaS &amp; <span className="text-cyan-400">Hybrid VLDBs</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

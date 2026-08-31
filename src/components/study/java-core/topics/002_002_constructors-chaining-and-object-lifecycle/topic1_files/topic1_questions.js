@@ -194,7 +194,7 @@ const topic1_questions = [
     explanation: "If the class is declared 'public class Account', the compiler generates 'public Account()'. If the class has package-private access, the constructor has package-private access.",
     hint: "Default constructor matches class visibility.",
     level: "Intermediate",
-    codeExample: "// 'public class Student {}' -> Compiler generates: 'public Student() { super(); }'"
+    codeExample: "// 'public class Student {}' → Compiler generates: 'public Student() { super(); }'"
   },
   {
     question: "Can an abstract class have constructors?",
@@ -238,7 +238,7 @@ const topic1_questions = [
   },
   {
     question: "What is the order of execution between Field Initializers, IIBs, and Constructor Body?",
-    shortAnswer: "1. Field Initializers & IIBs execute in textual order -> 2. Constructor body executes.",
+    shortAnswer: "1. Field Initializers & IIBs execute in textual order → 2. Constructor body executes.",
     explanation: "When 'new' runs, instance field default assignments and IIBs run in the order they appear in source code, followed immediately by the body of the constructor.",
     hint: "Field initializers + IIBs run before constructor body.",
     level: "Intermediate",

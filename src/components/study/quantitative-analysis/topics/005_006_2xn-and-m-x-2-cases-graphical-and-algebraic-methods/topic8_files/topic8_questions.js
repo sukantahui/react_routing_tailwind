@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Numerical Exercises for 2xn and mx2 Games?",
     shortAnswer: "'Trace the active boundary envelope (or enumerate submatrices); pinpoint the optimal apex; solve the 2x2 submatrix; reconstruct full-dimensional strategy vectors; verify global optimality; and report all payoffs in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all steps in numerical 2xn and mx2 problem solving.",
-    hint: "Trace envelope -> Apex -> Solve 2x2 -> Reconstruct full vectors in ₹.",
+    hint: "Trace envelope → Apex → Solve 2x2 → Reconstruct full vectors in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: TraceEnvelope() -> FindApex() -> Solve2x2() -> ReconstructVectors(₹)."
+    codeExample: "GoldenRule: TraceEnvelope() → FindApex() → Solve2x2() → ReconstructVectors(₹)."
   }
 ];
 

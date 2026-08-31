@@ -19,17 +19,17 @@ Tuhina was calculating a student's total score across 5 subjects. She wrote: tot
 Assigns the evaluated value from the right-hand side to the variable on the left.
 
 2. Compound Arithmetic Assignment:
-- x += 5  -> (x = x + 5)
-- x -= 5  -> (x = x - 5)
-- x *= 2  -> (x = x * 2)
-- x /= 2  -> (x = x / 2)
-- x %= 3  -> (x = x % 3)
-- x **= 2 -> (x = x ** 2)
+- x += 5  → (x = x + 5)
+- x -= 5  → (x = x - 5)
+- x *= 2  → (x = x * 2)
+- x /= 2  → (x = x / 2)
+- x %= 3  → (x = x % 3)
+- x **= 2 → (x = x ** 2)
 
 3. Modern Logical Assignment (ES2021):
-- x ||= y  -> Assigns y to x ONLY if x is falsy (Logical OR assignment)
-- x &&= y  -> Assigns y to x ONLY if x is truthy (Logical AND assignment)
-- x ??= y  -> Assigns y to x ONLY if x is null or undefined (Nullish assignment)
+- x ||= y  → Assigns y to x ONLY if x is falsy (Logical OR assignment)
+- x &&= y  → Assigns y to x ONLY if x is truthy (Logical AND assignment)
+- x ??= y  → Assigns y to x ONLY if x is null or undefined (Nullish assignment)
 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
 --------------------------------------------------------------------------------

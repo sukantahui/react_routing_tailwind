@@ -140,7 +140,7 @@ const Topic3 = () => {
             Module 002_004 · Database Normalization · Topic 3
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Trivial vs Non-Trivial:{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Functional Dependencies
@@ -422,7 +422,7 @@ const Topic3 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Non-trivial FD to verify for BCNF:
--- student_id -> { student_name, email, city }
+-- student_id → { student_name, email, city }
 -- Check: Is student_id a super key?
 -- YES (It is the PRIMARY KEY). Table is in BCNF!`}
               </pre>
@@ -440,10 +440,10 @@ const Topic3 = () => {
                 Simplifying semi-trivial composite dependencies into clean canonical form:
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
-{`-- Original Semi-Trivial: { student_id, course_id } -> { grade, course_id }
--- Step 1 (Decomposition): { student_id, course_id } -> grade  AND  { student_id, course_id } -> course_id
--- Step 2 (Drop Trivial): Discard { student_id, course_id } -> course_id
--- Clean Canonical FD: (student_id, course_id) -> grade`}
+{`-- Original Semi-Trivial: { student_id, course_id } → { grade, course_id }
+-- Step 1 (Decomposition): { student_id, course_id } → grade  AND  { student_id, course_id } → course_id
+-- Step 2 (Drop Trivial): Discard { student_id, course_id } → course_id
+-- Clean Canonical FD: (student_id, course_id) → grade`}
               </pre>
             </div>
           </div>
@@ -580,9 +580,9 @@ const Topic3 = () => {
             note={
               "In database theory, the distinction between Trivial and Non-Trivial Functional Dependencies is pure mathematical elegance! " +
               "In my classroom at Coder & AccoTax in Barrackpore, I tell students: " +
-              "'{student_id, name} -> student_id' is trivial because if you already have a student's ID in your hand, " +
+              "'{student_id, name} → student_id' is trivial because if you already have a student's ID in your hand, " +
               "asking what their ID is gives you zero new information. " +
-              "That is why normal form definitions like BCNF explicitly state: 'For every NON-TRIVIAL functional dependency X -> Y, X must be a super key.' " +
+              "That is why normal form definitions like BCNF explicitly state: 'For every NON-TRIVIAL functional dependency X → Y, X must be a super key.' " +
               "Always strip away the trivial mathematical noise so you can focus entirely on the genuine business rules that govern your database!"
             }
           />

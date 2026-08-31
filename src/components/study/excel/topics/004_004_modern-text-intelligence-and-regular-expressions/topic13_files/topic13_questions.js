@@ -50,7 +50,7 @@ const questions = [
     explanation: "Crucial for isolating file extensions and parent folder directories.",
     hint: "Searches backwards from right-to-left.",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"Report.final.xlsx\", \".\", -1) &rarr; \"xlsx\""
+    codeExample: "=TEXTAFTER(\"Report.final.xlsx\", \".\", -1) → \"xlsx\""
   },
   {
     question: "How do you construct a 2D matrix from a delimited text blob using TEXTSPLIT?",
@@ -178,7 +178,7 @@ const questions = [
     explanation: "Extracts all characters preceding the last backslash.",
     hint: "=TEXTBEFORE(A2, '\\', -1).",
     level: "basic",
-    codeExample: "=TEXTBEFORE(\"C:\\Users\\Admin\\Reports\\Audit.xlsx\", \"\\\", -1) &rarr; \"C:\\Users\\Admin\\Reports\""
+    codeExample: "=TEXTBEFORE(\"C:\\Users\\Admin\\Reports\\Audit.xlsx\", \"\\\", -1) → \"C:\\Users\\Admin\\Reports\""
   },
   {
     question: "How do you extract the file extension from `Audit.final.2026.xlsx` in 1 step?",
@@ -186,7 +186,7 @@ const questions = [
     explanation: "Extracts text following the last period.",
     hint: "=TEXTAFTER(A2, '.', -1).",
     level: "basic",
-    codeExample: "=TEXTAFTER(\"Audit.final.2026.xlsx\", \".\", -1) &rarr; \"xlsx\""
+    codeExample: "=TEXTAFTER(\"Audit.final.2026.xlsx\", \".\", -1) → \"xlsx\""
   },
   {
     question: "How do you extract all URLs starting with http:// or https:// from a long narrative text block into a deduplicated column?",
@@ -234,7 +234,7 @@ const questions = [
     explanation: "Pulls text between `) ` and `-`.",
     hint: "TEXTBEFORE(TEXTAFTER(A2, ') '), '-').",
     level: "basic",
-    codeExample: "=TEXTBEFORE(TEXTAFTER(\"(033) 259-2114\", \") \"), \"-\") &rarr; \"259\""
+    codeExample: "=TEXTBEFORE(TEXTAFTER(\"(033) 259-2114\", \") \"), \"-\") → \"259\""
   },
   {
     question: "What is Instructor Sukanta Hui's ultimate capstone principle for Modern Text Intelligence & Regular Expressions?",

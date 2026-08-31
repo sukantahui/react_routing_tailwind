@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Bridges the gap between C1 (fast compilation, moderate optimization) and C2 (slow compilation, peak optimization).
 
 2. STANDARD PROMOTION PATH:
-   - 'Level 0 (Interpreted) &rarr; Level 3 (C1 Full Profiling) &rarr; Level 4 (C2 Server JIT)'.
+   - 'Level 0 (Interpreted) → Level 3 (C1 Full Profiling) → Level 4 (C2 Server JIT)'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

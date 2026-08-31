@@ -47,7 +47,7 @@ const questions = [
     explanation: "Unlike other languages where `10 < x < 20` evaluates `(10 < x) < 20` (comparing a boolean to 20), Python executes it as a logical conjunction, guaranteeing single evaluation of middle expressions.",
     hint: "How does Python rewrite chained operators?",
     level: "moderate",
-    codeExample: "x = 15\nprint(10 < x < 20)  # True -> (10 < 15) and (15 < 20)"
+    codeExample: "x = 15\nprint(10 < x < 20)  # True → (10 < 15) and (15 < 20)"
   },
   {
     question: "What is the output of `10 + 20 / 5 * 2` and why?",
@@ -151,7 +151,7 @@ const questions = [
     explanation: "Python is strongly typed and does not perform automatic type coercion between strings and numbers during arithmetic operations. You must explicitly convert: `'10' + str(5)` or `int('10') + 5`.",
     hint: "Does Python auto-convert strings to numbers like JavaScript?",
     level: "basic",
-    codeExample: "# '10' + 5 -> TypeError\nprint('10' + str(5))  # '105'\nprint(int('10') + 5)  # 15"
+    codeExample: "# '10' + 5 → TypeError\nprint('10' + str(5))  # '105'\nprint(int('10') + 5)  # 15"
   },
   {
     question: "What does `10 // 3` vs `10 / 3` return?",
@@ -212,7 +212,7 @@ const questions = [
   {
     question: "What is the result of `(5 + 3 > 7) and (2 * 4 == 8)`?",
     shortAnswer: "True.",
-    explanation: "1. `5 + 3 = 8` -> `8 > 7` is True.\n2. `2 * 4 = 8` -> `8 == 8` is True.\n3. `True and True` evaluates to True.",
+    explanation: "1. `5 + 3 = 8` → `8 > 7` is True.\n2. `2 * 4 = 8` → `8 == 8` is True.\n3. `True and True` evaluates to True.",
     hint: "Break the expression down into arithmetic, then relational, then logical.",
     level: "basic",
     codeExample: "print((5 + 3 > 7) and (2 * 4 == 8))  # True"

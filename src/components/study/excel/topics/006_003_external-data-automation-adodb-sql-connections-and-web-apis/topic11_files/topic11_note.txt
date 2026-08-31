@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Two-Way MySQL Sync Engine: Read MySQL -> CopyFromRecordset Staging -> Highlight Modified Rows -> Batch UPDATE MySQL via Transactions
+Two-Way MySQL Sync Engine: Read MySQL → CopyFromRecordset Staging → Highlight Modified Rows → Batch UPDATE MySQL via Transactions
 
 PRIMARY CONCEPT:
 Comprehensive enterprise capstone project: building an automated Two-Way Synchronization Tool between Excel and a remote MySQL server with dirty-row tracking, transactional batch updates, and conflict resolution
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Two-way database sync is the Holy Grail of spreadsheet development. Users get the familiar Excel interface they love, while IT gets the centralized MySQL database they require. You have built a true enterprise application.
 
 COMMON TRAPS TO AVOID:
-- Updating All 10,000 Rows Instead of Only Modified Rows: Executing SQL UPDATE statements for every single row in the table, even unchanged rows, causing massive network lag. -> Fix: Use a 'Dirty Flag' column (or `Worksheet_Change` event) to track and update ONLY modified rows.
-- Syncing Without Primary Key Matching: Attempting to update MySQL without passing the unique primary key `ID` in the `WHERE` clause. -> Fix: Always store and match the immutable database primary key in a hidden column.
-- Missing Rollback on Partial Sync Failure: Writing 50 rows but crashing on row 51 without rollback, leaving database partially updated. -> Fix: Wrap the entire sync loop inside `conn.BeginTrans ... conn.CommitTrans`.
+- Updating All 10,000 Rows Instead of Only Modified Rows: Executing SQL UPDATE statements for every single row in the table, even unchanged rows, causing massive network lag. → Fix: Use a 'Dirty Flag' column (or `Worksheet_Change` event) to track and update ONLY modified rows.
+- Syncing Without Primary Key Matching: Attempting to update MySQL without passing the unique primary key `ID` in the `WHERE` clause. → Fix: Always store and match the immutable database primary key in a hidden column.
+- Missing Rollback on Partial Sync Failure: Writing 50 rows but crashing on row 51 without rollback, leaving database partially updated. → Fix: Wrap the entire sync loop inside `conn.BeginTrans ... conn.CommitTrans`.
 ================================================================================

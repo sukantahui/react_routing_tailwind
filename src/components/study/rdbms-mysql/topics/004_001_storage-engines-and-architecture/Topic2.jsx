@@ -89,7 +89,7 @@ SHOW ENGINE INNODB STATUS\\G
 --   Last checkpoint at           34567880000
 --
 -- Checkpoint Age = Log Sequence Number - Last Checkpoint at
--- If Checkpoint Age approaches Redo Log Capacity -> Aggressive Flushing triggers!`,
+-- If Checkpoint Age approaches Redo Log Capacity → Aggressive Flushing triggers!`,
       componentsTable: [
         { component: "Log Sequence Number (LSN)", duty: "Monotonically increasing 64-bit byte counter tracking all changes", metric: "Global LSN Clock" },
         { component: "Page Cleaner Threads", duty: "Asynchronously flushes dirty pages from Buffer Pool to tablespaces", metric: "innodb_page_cleaners" },
@@ -105,9 +105,9 @@ SHOW ENGINE INNODB STATUS\\G
       badgeColor: "rose",
       sqlSnippet: `-- 🛡️ INNODB CRASH RECOVERY AUTOMATION:
 -- If server power cuts abruptly, MySQL restarts and executes:
--- 1. Doublewrite Verification -> Restores torn pages from doublewrite buffer.
--- 2. Redo Log Roll-Forward   -> Replays committed LSN changes into Buffer Pool.
--- 3. Undo Log Roll-Back      -> Reverts uncommitted in-flight active transactions.
+-- 1. Doublewrite Verification → Restores torn pages from doublewrite buffer.
+-- 2. Redo Log Roll-Forward   → Replays committed LSN changes into Buffer Pool.
+-- 3. Undo Log Roll-Back      → Reverts uncommitted in-flight active transactions.
 -- 
 -- Result: 100% ACID consistency achieved automatically with 0 data corruption!`,
       componentsTable: [
@@ -145,7 +145,7 @@ SHOW ENGINE INNODB STATUS\\G
               InnoDB Internals
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             InnoDB Architecture Overview: In-Memory Structures vs On-Disk Structures
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

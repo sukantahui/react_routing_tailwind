@@ -36,9 +36,9 @@ const questions = [
     explanation: "Increasing the threshold makes the system more secure against intruders at the expense of user convenience and retry rates.",
     hint: "Higher threshold lowers FAR (more secure) but raises FRR (more false rejections).",
     level: "Basic",
-    codeExample: `// Increasing Threshold (theta -> 1.0):
-// FAR -> 0.0001% (High Security ✔)
-// FRR -> 8.5% (Frequent False Rejections for real users ❌)`
+    codeExample: `// Increasing Threshold (theta → 1.0):
+// FAR → 0.0001% (High Security ✔)
+// FRR → 8.5% (Frequent False Rejections for real users ❌)`
   },
   {
     id: 5,
@@ -47,9 +47,9 @@ const questions = [
     explanation: "Lowering the threshold prioritizes high throughput and convenience over strict access security.",
     hint: "Lower threshold lowers FRR (high convenience) but raises FAR (higher imposter risk).",
     level: "Basic",
-    codeExample: `// Decreasing Threshold (theta -> 0.0):
-// FRR -> 0.01% (Seamless entry ✔)
-// FAR -> 3.5% (High risk of imposter entry ❌)`
+    codeExample: `// Decreasing Threshold (theta → 0.0):
+// FRR → 0.01% (Seamless entry ✔)
+// FAR → 3.5% (High risk of imposter entry ❌)`
   },
   {
     id: 6,
@@ -111,7 +111,7 @@ const questions = [
     hint: "FTE is during initial registration; FTA is when a sensor fails to capture a clean image during login.",
     level: "Moderate",
     codeExample: `// FTA Scenario:
-// User places dry finger on sensor -> Image contrast too low (< 30 DPI) -> Sensor outputs "IMAGE_ACQUISITION_FAILED".`
+// User places dry finger on sensor → Image contrast too low (< 30 DPI) → Sensor outputs "IMAGE_ACQUISITION_FAILED".`
   },
   {
     id: 12,
@@ -278,7 +278,7 @@ if (isMorningRushHour && gateType === "turnstile") { threshold = 0.35; } // High
     codeExample: `// Template Decay:
 // Year 1 Score : 0.92 (Pass)
 // Year 3 Score : 0.84 (Pass)
-// Year 5 Score : 0.74 (Below 0.80 threshold -> Falsely Rejected! ❌)`
+// Year 5 Score : 0.74 (Below 0.80 threshold → Falsely Rejected! ❌)`
   },
   {
     id: 27,

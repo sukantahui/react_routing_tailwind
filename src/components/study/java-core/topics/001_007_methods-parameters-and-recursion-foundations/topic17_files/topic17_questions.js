@@ -35,7 +35,7 @@ const questions = [
     explanation: "Batch fee array summation output.",
     hint: "₹141,000.00.",
     level: "basic",
-    codeExample: "iterativeFeeSum(tuitionLedger) -> ₹141,000.00"
+    codeExample: "iterativeFeeSum(tuitionLedger) → ₹141,000.00"
   },
   {
     question: "When is Recursion significantly better and preferred over Iteration?",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Factorial 20 value verification.",
     hint: "2,432,902,008,176,640,000.",
     level: "basic",
-    codeExample: "iterativeFactorial(20) -> 2432902008176640000L"
+    codeExample: "iterativeFactorial(20) → 2432902008176640000L"
   },
   {
     question: "How does JIT Method Inlining help small recursive functions?",
@@ -179,7 +179,7 @@ const questions = [
     explanation: "Virtual thread heap stack impact.",
     hint: "Stores stack frames on Heap, allowing millions of concurrent lightweight tasks.",
     level: "advanced",
-    codeExample: "Thread.startVirtualThread(() -> recursiveFactorial(100));"
+    codeExample: "Thread.startVirtualThread(() → recursiveFactorial(100));"
   },
   {
     question: "Why is `StackOverflowError` impossible in a standard `for` loop with a terminating condition?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Fibonacci 35 value verification.",
     hint: "9,227,465.",
     level: "basic",
-    codeExample: "iterativeFibonacci(35) -> 9227465"
+    codeExample: "iterativeFibonacci(35) → 9227465"
   },
   {
     question: "What is the recommended rule of thumb for choosing between Recursion and Iteration in Enterprise Java?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Enterprise architecture rule of thumb.",
     hint: "Default to Iteration for linear sequences; use Recursion for Trees, Graphs, and Backtracking.",
     level: "basic",
-    codeExample: "// Rule of Thumb: Linear -> Loop | Hierarchical -> Recursion"
+    codeExample: "// Rule of Thumb: Linear → Loop | Hierarchical → Recursion"
   },
   {
     question: "Can a `while(true)` loop cause `OutOfMemoryError` or `StackOverflowError` on its own?",

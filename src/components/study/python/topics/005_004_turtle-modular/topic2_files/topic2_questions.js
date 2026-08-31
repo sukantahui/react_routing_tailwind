@@ -103,7 +103,7 @@ const questions = [
     explanation: "L-Systems use bracket notation to generate complex botanical and fractal models.",
     hint: "What do brackets signify in Turtle L-System grammars?",
     level: "expert",
-    codeExample: "# '[' -> push_state | ']' -> pop_state"
+    codeExample: "# '[' → push_state | ']' → pop_state"
   },
   {
     question: "Why should visibility status `t.isvisible()` also be preserved in general-purpose utilities?",
@@ -207,7 +207,7 @@ const questions = [
     explanation: "State restoration must return to the *caller's* position, which is rarely `(0, 0)`.",
     hint: "Why is t.home() dangerous inside helper functions?",
     level: "basic",
-    codeExample: "# BAD: t.home() -> jumps to (0, 0) and loses caller position"
+    codeExample: "# BAD: t.home() → jumps to (0, 0) and loses caller position"
   },
   {
     question: "How do you manage state when multiple turtles `[t1, t2]` are drawing concurrently?",

@@ -10,7 +10,7 @@ const questions = [
   },
   {
     question: "What is the correct order to DROP tables that have foreign key dependencies?",
-    shortAnswer: "Drop child tables first (e.g. `admissions` &rarr; `courses`), and then drop parent tables (`students` &rarr; `departments`), or temporarily disable `FOREIGN_KEY_CHECKS = 0`.",
+    shortAnswer: "Drop child tables first (e.g. `admissions` → `courses`), and then drop parent tables (`students` → `departments`), or temporarily disable `FOREIGN_KEY_CHECKS = 0`.",
     explanation: "Dropping a parent table while child tables still reference it results in Error 1451.",
     hint: "Drop children before parents, or temporarily disable foreign key checks.",
     level: "basic"

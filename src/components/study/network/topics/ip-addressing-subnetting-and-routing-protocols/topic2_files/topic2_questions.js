@@ -187,7 +187,7 @@ const questions = [
   },
   {
     question: "Explain the BGP 'path selection' order (most important attributes).",
-    shortAnswer: "Highest Local Preference -> Shortest AS_PATH -> Lowest Origin Type (IGP < EGP < incomplete) -> Lowest MED -> eBGP preferred over iBGP -> Lowest IGP metric to next-hop -> Oldest route -> Lowest Router-ID.",
+    shortAnswer: "Highest Local Preference → Shortest AS_PATH → Lowest Origin Type (IGP < EGP < incomplete) → Lowest MED → eBGP preferred over iBGP → Lowest IGP metric to next-hop → Oldest route → Lowest Router-ID.",
     explanation: "This is the Cisco BGP decision process. Local Pref is highest priority; then AS_PATH length; then origin; then MED; then path type; then interior cost; then router ID.",
     hint: "Think: Local Pref, AS_PATH, Origin, MED…",
     level: "expert",

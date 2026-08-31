@@ -13,7 +13,7 @@ const topic9_questions = [
     "explanation": "Preserves the sorted order in a newly collected map.",
     "hint": "Stream entrySet, sort by comparingByValue().reversed(), collect to LinkedHashMap.",
     "level": "Intermediate",
-    "codeExample": "map.entrySet().stream().sorted(Map.Entry.<String, Long>comparingByValue().reversed()).collect(toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));"
+    "codeExample": "map.entrySet().stream().sorted(Map.Entry.<String, Long>comparingByValue().reversed()).collect(toMap(Entry::getKey, Entry::getValue, (e1, e2) → e1, LinkedHashMap::new));"
   }
 ];
 

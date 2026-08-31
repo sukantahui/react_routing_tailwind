@@ -39,7 +39,7 @@ const questions = [
     explanation: "Vi protects you from accidentally losing work. You must either save (`:w`) then quit, or force quit (`:q!`) to discard changes.",
     hint: "Read the error message carefully – it tells you what to do.",
     level: "beginner",
-    codeExample: "`:q` -> 'E37: No write since last change (add ! to override)'"
+    codeExample: "`:q` → 'E37: No write since last change (add ! to override)'"
   },
   {
     question: "Can I exit vi without using the colon?",

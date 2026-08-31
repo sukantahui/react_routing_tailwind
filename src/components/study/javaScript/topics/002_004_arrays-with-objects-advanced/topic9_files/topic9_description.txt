@@ -33,7 +33,7 @@ const leaderboard = [
   { name: 'Abhronila', marks: 88, attendance: 95 }
 ];
 
-// Sort: Marks DESC -> If tied, Name ASC (Alphabetical)
+// Sort: Marks DESC → If tied, Name ASC (Alphabetical)
 const sortedLeaderboard = leaderboard.toSorted((a, b) => 
   (b.marks - a.marks) || a.name.localeCompare(b.name)
 );

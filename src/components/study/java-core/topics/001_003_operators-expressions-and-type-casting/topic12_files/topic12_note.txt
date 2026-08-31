@@ -23,8 +23,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Shift Distance Masking Rule (JLS §15.19):
   * For 32-bit int : distance is masked with 0x1F (distance % 32).
-    - 8 << 32 -> 8 << 0 = 8 (Unchanged!)
-    - 8 << 33 -> 8 << 1 = 16
+    - 8 << 32 → 8 << 0 = 8 (Unchanged!)
+    - 8 << 33 → 8 << 1 = 16
   * For 64-bit long: distance is masked with 0x3F (distance % 64).
 
 - ARGB Color Packing Recipe:

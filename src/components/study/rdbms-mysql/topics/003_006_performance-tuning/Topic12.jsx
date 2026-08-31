@@ -116,7 +116,7 @@ $ mysqldumpslow -s ar -t 5 /var/log/mysql/mysql-slow.log
 -- ⚡ ARCHITECTURAL INSIGHT:
 -- Examined: 500,000 rows | Sent: 1 row! (Ratio: 500,000:1 🚨)
 -- The storage engine scans half a million physical records to return a single student row!
--- Adding a single B+Tree index on 'pin_code' cuts rows examined from 500,000 -> 1!`,
+-- Adding a single B+Tree index on 'pin_code' cuts rows examined from 500,000 → 1!`,
       resultRows: [
         {
           rank: "#1 Worst Scan Ratio",
@@ -190,7 +190,7 @@ $ mysqldumpslow -s al -t 5 /var/log/mysql/mysql-slow.log
               Diagnostics &amp; Log Analysis
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Analyzing the Slow Query Log with mysqldumpslow
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -378,7 +378,7 @@ WHERE address LIKE '%Ichapur%';`}
                     2. mysqldumpslow Parser
                   </text>
                   <text x="465" y="90" fill="#94a3b8" fontSize="10" textAnchor="middle">
-                    Abstracts Numbers &rarr; N | Strings &rarr; 'S'
+                    Abstracts Numbers → N | Strings → 'S'
                   </text>
 
                   <rect x="350" y="120" width="230" height="60" rx="6" fill="#1e293b" stroke="#0284c7" />
@@ -638,7 +638,7 @@ WHERE address LIKE '%Ichapur%';`}
 {`-- Enforced string binding on candidate mobile lookup:
 SELECT student_id, name FROM candidate_registrations WHERE mobile_no = '9830012345';
 
--- Result: CPU dropped from 95% -> 4%! Recovered 5,820s of compute time per hour!`}
+-- Result: CPU dropped from 95% → 4%! Recovered 5,820s of compute time per hour!`}
                 </pre>
               </div>
             </div>

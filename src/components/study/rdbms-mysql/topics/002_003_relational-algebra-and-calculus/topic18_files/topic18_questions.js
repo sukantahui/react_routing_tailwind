@@ -115,7 +115,7 @@ const questions = [
   },
   {
     question: "How do you express: 'Find students enrolled in ALL core courses' in DRC?",
-    shortAnswer: "$$\\left\\{ \\langle s, n \\rangle \\mid \\exists ci \\ (\\langle s, n, ci \\rangle \\in \\text{Students} \\land \\forall c, t \\ (\\langle c, t \\rangle \\in \\text{Core\\_Courses} \\rightarrow \\exists g \\ (\\langle s, c, g \\rangle \\in \\text{Enrollments}))) \\right\\}$$.",
+    shortAnswer: "$$\\left\\{ \\langle s, n \\rangle \\mid \\exists ci \\ (\\langle s, n, ci \\rangle \\in \\text{Students} \\land \\forall c, t \\ (\\langle c, t \\rangle \\in \\text{Core\\_Courses} \→ \\exists g \\ (\\langle s, c, g \\rangle \\in \\text{Enrollments}))) \\right\\}$$.",
     explanation: "Universal implication in DRC.",
     hint: "{ <s, n> | ... ∀c, t (<c, t> ∈ CoreCourses → ∃g (<s, c, g> ∈ Enrollments)) }.",
     level: "expert"

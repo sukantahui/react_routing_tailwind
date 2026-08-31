@@ -6,7 +6,7 @@ const questions = [
     "explanation": "Because t_pulse > t_pd, the output inverts repeatedly during the same active clock pulse, resulting in uncontrollable high-frequency oscillation.",
     "hint": "Recall the relationship between gate propagation delay and clock pulse duration.",
     "level": "basic",
-    "codeExample": "// Race-around condition:\n// If (J == 1 && K == 1 && CLK == 1 && t_pulse > t_pd) -> Uncontrolled Toggling"
+    "codeExample": "// Race-around condition:\n// If (J == 1 && K == 1 && CLK == 1 && t_pulse > t_pd) → Uncontrolled Toggling"
   },
   {
     "question": "How does the two-stage Master-Slave architecture eliminate race-around without requiring ultra-narrow clock pulses?",
@@ -14,7 +14,7 @@ const questions = [
     "explanation": "When CLK=1, the Master samples inputs while the Slave isolates outputs; when CLK=0, the Master locks inputs while the Slave updates outputs, breaking the closed feedback loop.",
     "hint": "Think about the non-overlapping two-phase clock isolation.",
     "level": "basic",
-    "codeExample": "// Master-Slave Operation:\n// Phase 1 (CLK=1): Master samples J/K -> Stores Y (Slave Frozen)\n// Phase 2 (CLK=0): Master isolated -> Slave passes Y to Q"
+    "codeExample": "// Master-Slave Operation:\n// Phase 1 (CLK=1): Master samples J/K → Stores Y (Slave Frozen)\n// Phase 2 (CLK=0): Master isolated → Slave passes Y to Q"
   },
   {
     "question": "What is the mathematical inequality that defines the operational boundary where race-around occurs?",
@@ -38,7 +38,7 @@ const questions = [
     "explanation": "Because the Master remains transparent throughout the entire CLK=1 interval, any transient high glitch permanently sets the master latch, leading to modern preference for edge-triggered designs.",
     "hint": "Consider transient glitches during the active clock level.",
     "level": "expert",
-    "codeExample": "// 1s Catching Hazard:\n// J_noise_pulse during CLK=1 -> Master latch catches 1 permanently"
+    "codeExample": "// 1s Catching Hazard:\n// J_noise_pulse during CLK=1 → Master latch catches 1 permanently"
   },
   {
     "question": "Master-Slave Timing Analysis Question 6: Explain how stage isolation timing margins ensure deterministic toggling under process voltage and temperature (PVT) variations.",

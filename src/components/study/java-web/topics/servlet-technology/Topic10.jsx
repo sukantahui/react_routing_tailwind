@@ -39,7 +39,7 @@ const Topic10 = () => {
     <div className="dark min-h-screen bg-gray-950 text-gray-100 font-sans leading-relaxed p-6 md:p-10">
       <div className="max-w-5xl mx-auto space-y-12">
         <header className="text-center space-y-4 animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
             RequestDispatcher & sendRedirect
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -148,7 +148,7 @@ const Topic10 = () => {
           </div>
         </section>
 
-        {/* <!-- Comparison Table --> */}
+        {/* <!-- Comparison Table → */}
         <section className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
           <h2 className="text-2xl font-semibold text-indigo-400">📋 Forward vs Redirect – Key Differences</h2>
           <div className="overflow-x-auto mt-4">
@@ -168,7 +168,7 @@ const Topic10 = () => {
           </div>
         </section>
 
-        {/* <!-- Real-world: Login example --> */}
+        {/* <!-- Real-world: Login example → */}
         <section className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
           <h2 className="text-2xl font-semibold text-indigo-400">🔐 Example: Login with Forward vs Redirect</h2>
           <p className="mt-3 text-gray-300">After successful login, redirect to dashboard (to avoid re‑submission on refresh). If login fails, forward back to login page with error message.</p>
@@ -179,7 +179,7 @@ const Topic10 = () => {
           />
         </section>
 
-        {/* <!-- MVC Pattern with Forward --> */}
+        {/* <!-- MVC Pattern with Forward → */}
         <section className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
           <h2 className="text-2xl font-semibold text-indigo-400">🏛️ MVC Architecture Using Forward</h2>
           <p className="mt-3 text-gray-300">Servlet as Controller processes request, sets attributes, forwards to JSP (View).</p>
@@ -190,7 +190,7 @@ const Topic10 = () => {
           />
         </section>
 
-        {/* <!-- Common Pitfalls --> */}
+        {/* <!-- Common Pitfalls → */}
         <section
           ref={(el) => (sectionRefs.current[3] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"
@@ -205,7 +205,7 @@ const Topic10 = () => {
           </ul>
         </section>
 
-        {/* <!-- Best Practices --> */}
+        {/* <!-- Best Practices → */}
         <section
           ref={(el) => (sectionRefs.current[4] = el)}
           className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800"

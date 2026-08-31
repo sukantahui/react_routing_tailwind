@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Number one production performance gotcha when adopting Virtual Threads in Java 21.",
     "hint": "Occurs when blocking I/O runs inside synchronized or native methods; resolved by replacing synchronized with ReentrantLock.",
     "level": "Advanced",
-    "codeExample": "// Replace: synchronized(lock) { doIo(); } -> With: reentrantLock.lock(); try { doIo(); } finally { reentrantLock.unlock(); }"
+    "codeExample": "// Replace: synchronized(lock) { doIo(); } → With: reentrantLock.lock(); try { doIo(); } finally { reentrantLock.unlock(); }"
   }
 ];
 

@@ -72,7 +72,7 @@ const topic16_questions = [
     question: "How does the AutomobileCar entity function as a Finite State Machine (FSM)?",
     shortAnswer: "It manages boolean state ('isEngineRunning') and speed, blocking illegal transitions (e.g. accelerating while engine is OFF).",
     explanation: "The car's methods enforce state-dependent rules: accelerating is only allowed when engine is ON, engine cannot start if fuel <= 0.5L, and stopping the engine resets speed to 0.",
-    hint: "State machine transitions: OFF -> ON -> ACCELERATING -> BRAKING -> OFF.",
+    hint: "State machine transitions: OFF → ON → ACCELERATING → BRAKING → OFF.",
     level: "Intermediate",
     codeExample: "public void accelerate(int delta) {\n    if (!isEngineRunning) return; // Guard against engine-off acceleration\n    this.speed += delta;\n}"
   },

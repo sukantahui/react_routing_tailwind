@@ -1,13 +1,13 @@
 ================================================================================
 RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
 MODULE: THIRD NORMAL FORM (3NF) – TRANSITIVE DEPENDENCIES & SYNTHESIS ALGORITHM
-TOPIC 1: UNDERSTANDING TRANSITIVE FUNCTIONAL DEPENDENCIES (X -> Y AND Y -> Z WHERE X IS SUPERKEY)
+TOPIC 1: UNDERSTANDING TRANSITIVE FUNCTIONAL DEPENDENCIES (X → Y AND Y → Z WHERE X IS SUPERKEY)
 ================================================================================
 
 1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
 --------------------------------------------------------------------------------
 This topic provides an exhaustive theoretical and practical deep-dive into:
-"Understanding Transitive Functional Dependencies (X -> Y and Y -> Z where X is Superkey)".
+"Understanding Transitive Functional Dependencies (X → Y and Y → Z where X is Superkey)".
 Module: Third Normal Form (3NF) – Transitive Dependencies & Synthesis Algorithm (006_004_third-normal-form-3nf)
 Level: Intermediate | Estimated Study Time: 4 Hours
 
@@ -15,7 +15,7 @@ Level: Intermediate | Estimated Study Time: 4 Hours
 --------------------------------------------------------------------------------
 - Core Concept: Relational normalization ensures that data dependencies are modeled
   strictly according to business invariants, preventing update, deletion, and insertion anomalies.
-- Formal Rule: 1. Transitive Dependency (X -> Y and Y -> Z where X is Primary Key)
+- Formal Rule: 1. Transitive Dependency (X → Y and Y → Z where X is Primary Key)
 - Decomposition Strategy: Extract Department entity into its own relation with dept_id as Primary Key.
 
 3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION

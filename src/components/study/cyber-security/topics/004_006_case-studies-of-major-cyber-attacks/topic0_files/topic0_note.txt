@@ -57,19 +57,19 @@ SCENARIO INVESTIGATION: REGIONAL ACADEMIC PORTAL COMPROMISE (JADAVPUR / BARRACKP
   [Problem Statement]: Student financial records and personal identifiers were exfiltrated online.
 
   - WHY 1: Why were records dumped?
-    -> Attacker executed an SQL Injection script against the legacy examination portal.
+    → Attacker executed an SQL Injection script against the legacy examination portal.
 
   - WHY 2: Why did the SQL Injection succeed?
-    -> User input parameters were concatenated directly into a raw SQL query string.
+    → User input parameters were concatenated directly into a raw SQL query string.
 
   - WHY 3: Why was direct string concatenation present in production code?
-    -> The developers did not use an ORM or parameterized prepared statements.
+    → The developers did not use an ORM or parameterized prepared statements.
 
   - WHY 4: Why was this insecure code deployed to production without detection?
-    -> The CI/CD deployment pipeline had its Static Application Security Testing (SAST) checks bypassed.
+    → The CI/CD deployment pipeline had its Static Application Security Testing (SAST) checks bypassed.
 
   - WHY 5 (ROOT CAUSE): Why was the security gate bypassed?
-    -> Lack of mandatory security governance and absence of automated branch protection policies 
+    → Lack of mandatory security governance and absence of automated branch protection policies 
        permitting emergency weekend pushes without peer code review.
 
   [Defensive Remedy]: Implement automated branch protection rules in GitHub/GitLab, mandate SAST/DAST 
@@ -82,13 +82,13 @@ To systematically dissect complex attacks, forensic analysts map adversary behav
 frameworks:
 
   A. LOCKHEED MARTIN CYBER KILL CHAIN (7 PHASES):
-     1. Reconnaissance  -> Scanning subnets, harvesting employee emails, OSINT.
-     2. Weaponization   -> Coupling an exploit (e.g., EternalBlue) with a payload (e.g., Ransomware).
-     3. Delivery        -> Transmitting malicious payload via phishing email, USB, or drive-by web.
-     4. Exploitation    -> Triggering software/hardware vulnerability (e.g., buffer overflow).
-     5. Installation    -> Dropping web shells, DLL side-loading, or scheduled task persistence.
+     1. Reconnaissance  → Scanning subnets, harvesting employee emails, OSINT.
+     2. Weaponization   → Coupling an exploit (e.g., EternalBlue) with a payload (e.g., Ransomware).
+     3. Delivery        → Transmitting malicious payload via phishing email, USB, or drive-by web.
+     4. Exploitation    → Triggering software/hardware vulnerability (e.g., buffer overflow).
+     5. Installation    → Dropping web shells, DLL side-loading, or scheduled task persistence.
      6. Command & Control-> Establishing encrypted outbound beaconing channel (DNS, HTTPS, Tor).
-     7. Actions on Obj. -> Exfiltrating PII, encrypting datastores, or wiping physical firmware.
+     7. Actions on Obj. → Exfiltrating PII, encrypting datastores, or wiping physical firmware.
 
   B. MITRE ATT&CK MATRIX:
      Decomposes the Kill Chain into 14 distinct Tactical columns with hundreds of granular Techniques 
@@ -104,12 +104,12 @@ frameworks:
 | (SCADA Sabotage)  |      | (Iran Uranium Infra) | Zero-Days (LNK, PLC) | PLC integrity monitoring|
 +-------------------+------+----------------------+----------------------+-------------------------+
 | TARGET CORP       | 2013 | Target Retail (USA)  | Phishing HVAC Vendor | Strict micro-segmentation|
-| (Supply Chain)    |      | (40M Cards Stolen)   | -> Flat network POS  | & Third-Party ZTNA      |
+| (Supply Chain)    |      | (40M Cards Stolen)   | → Flat network POS  | & Third-Party ZTNA      |
 +-------------------+------+----------------------+----------------------+-------------------------+
-| SONY PICTURES     | 2014 | Sony Pictures Ent.   | Spearphishing ->     | Zero Trust AD isolation |
+| SONY PICTURES     | 2014 | Sony Pictures Ent.   | Spearphishing →     | Zero Trust AD isolation |
 | (Nation-State Wiper|      | (Destructive Wiper)  | Domain Controller    | & Immutable backups     |
 +-------------------+------+----------------------+----------------------+-------------------------+
-| UKRAINE POWER     | 2015 | Prykarpattyaoblenergo| BlackEnergy 3 -> HMI | Out-of-band ICS control |
+| UKRAINE POWER     | 2015 | Prykarpattyaoblenergo| BlackEnergy 3 → HMI | Out-of-band ICS control |
 | (Critical Infra)  |      | (230,000 in Dark)    | Hijack + KillDisk    | & Manual override drills|
 +-------------------+------+----------------------+----------------------+-------------------------+
 | WANNACRY / NOTPETYA|2017 | Global Enterprises   | EternalBlue SMBv1    | Immediate patch cadence |
@@ -119,7 +119,7 @@ frameworks:
 | (Vulnerability)   |      | (147M Records Leaked)| (CVE-2017-5638)      | & Continuous vuln scans |
 +-------------------+------+----------------------+----------------------+-------------------------+
 | SOLARWINDS        | 2020 | Orion IT Platform    | Compromised Build CI | Software Supply Chain   |
-| (Build Pipeline)  |      | (18,000 Orgs / Govt) | -> SUNBURST Backdoor | SLSA standards & SBOM   |
+| (Build Pipeline)  |      | (18,000 Orgs / Govt) | → SUNBURST Backdoor | SLSA standards & SBOM   |
 +-------------------+------+----------------------+----------------------+-------------------------+
 | COLONIAL PIPELINE | 2021 | Critical Fuel Pipe   | Compromised Legacy   | Universal MFA on VPNs   |
 | (Ransomware)      |      | (East Coast Shutdown)| VPN Account (No MFA) | & Hard IT/OT separation |

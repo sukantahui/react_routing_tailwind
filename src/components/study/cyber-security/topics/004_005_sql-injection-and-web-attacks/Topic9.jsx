@@ -321,7 +321,7 @@ class CitizenHealthService:
         patient_id: int, 
         department: str, 
         sort_by: str = "date"
-    ) -> List[Dict]:
+    ) → List[Dict]:
         safe_sort = self.ALLOWED_SORT_FIELDS.get(sort_by, "diagnosis_date")
 
         # 1. SECURE: Pre-compiled SQL with positional $1, $2 parameter placeholders

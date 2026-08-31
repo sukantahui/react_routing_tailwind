@@ -93,7 +93,7 @@ class Topic1 extends React.Component {
           {/* Header Section */}
           <div className="max-w-4xl mx-auto">
             <div className="animate-fade-slide-up motion-safe:animate-fade-slide-up">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4 leading-tight">
                 Topic 2: Creating Directories in Linux
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">

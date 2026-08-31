@@ -71,7 +71,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world project: Building a 12-month commercial sales performance pivot report"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Real_world_project"
+            sheetName="EX1114"
             title={"Real-world project: Building a 12-month commercial sales performance pivot report - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -395,7 +395,7 @@ export default function Topic13() {
                 Step 3: Set Value Field Settings &amp; Number Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Right-click any value cell &gt; Value Field Settings &gt; Number Format, and apply standard currency/accounting masks.
+                Right-click any value cell > Value Field Settings > Number Format, and apply standard currency/accounting masks.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic13() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Forgetting to Lock Protection & Gridlines"}</td>
                   <td className="py-3 px-4">{"Leaving raw gridlines and unlocked pivot controls allows accidental layout disruption."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Turn off worksheet gridlines (View &gt; uncheck Gridlines) and lock slicer positions."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Turn off worksheet gridlines (View > uncheck Gridlines) and lock slicer positions."}</td>
                 </tr>
                 
               </tbody>
@@ -529,7 +529,7 @@ export default function Topic13() {
             
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why is unchecking View -> Gridlines the fastest way to make a spreadsheet look like professional software?"}
+                <span className="text-teal-400">💭</span> Question 1: {"Why is unchecking View → Gridlines the fastest way to make a spreadsheet look like professional software?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the multidimensional OLAP mechanics and dashboard interactivity principles.

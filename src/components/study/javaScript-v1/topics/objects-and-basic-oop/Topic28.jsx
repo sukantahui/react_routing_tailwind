@@ -48,7 +48,7 @@ console.log(student2.toString); // found further up in Object.prototype`}
         <EditableCodeBlock
           language="javascript"
           initialCode={`// Example 4: Visualising the chain (conceptual comments)
-// student2 --> base --> Object.prototype --> null`}
+// student2 → base → Object.prototype → null`}
         />
       </div>
     );

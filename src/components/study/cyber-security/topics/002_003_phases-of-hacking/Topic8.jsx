@@ -22,7 +22,7 @@ const Topic8 = () => {
       key: "windows_token",
       name: "Token Impersonation (SeImpersonatePrivilege)",
       os: "Windows Server (IIS / SQL Service Accounts)",
-      direction: "VERTICAL ESCALATION (Service Account -> SYSTEM)",
+      direction: "VERTICAL ESCALATION (Service Account → SYSTEM)",
       flaw: "Service accounts holding SeImpersonatePrivilege can impersonate connecting SYSTEM named pipes.",
       badgeClass: "bg-rose-950 text-rose-300 border-rose-800",
       icon: "🥔",
@@ -33,7 +33,7 @@ const Topic8 = () => {
       key: "unquoted_path",
       name: "Unquoted Service Paths",
       os: "Windows (x86 / x64)",
-      direction: "VERTICAL ESCALATION (Standard User -> SYSTEM)",
+      direction: "VERTICAL ESCALATION (Standard User → SYSTEM)",
       flaw: "Service ImagePath contains spaces without quotes; Windows looks for partial executables (e.g. C:\\Program.exe).",
       badgeClass: "bg-amber-950 text-amber-300 border-amber-800",
       icon: "📁",
@@ -44,18 +44,18 @@ const Topic8 = () => {
       key: "linux_suid",
       name: "Linux SUID Binaries (GTFOBins)",
       os: "Linux / UNIX",
-      direction: "VERTICAL ESCALATION (Low-Priv User -> Root UID 0)",
+      direction: "VERTICAL ESCALATION (Low-Priv User → Root UID 0)",
       flaw: "SUID bit is set on standard utilities with shell-escape functions (e.g. /usr/bin/find).",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800",
       icon: "🐧",
-      sampleSyntax: "find / -perm -4000 2>/dev/null\n/usr/bin/find . -exec /bin/sh -p \\; -quit\n# id -> uid=1000 euid=0(root) ROOT SHELL!",
+      sampleSyntax: "find / -perm -4000 2>/dev/null\n/usr/bin/find . -exec /bin/sh -p \\; -quit\n# id → uid=1000 euid=0(root) ROOT SHELL!",
       remediation: "Audit SUID permissions with `chmod u-s /usr/bin/find` and enforce least privilege."
     },
     sudo_nopasswd: {
       key: "sudo_nopasswd",
       name: "Sudo NOPASSWD Shell Escapes",
       os: "Linux (/etc/sudoers)",
-      direction: "VERTICAL ESCALATION (Standard User -> Root)",
+      direction: "VERTICAL ESCALATION (Standard User → Root)",
       flaw: "Sudoers file allows running specific binaries as root without requiring a password.",
       badgeClass: "bg-blue-950 text-blue-300 border-blue-800",
       icon: "🔑",
@@ -66,7 +66,7 @@ const Topic8 = () => {
       key: "kernel_dirtypipe",
       name: "Dirty Pipe Kernel Exploit (CVE-2022-0847)",
       os: "Linux Kernel 5.8 to 5.16.11",
-      direction: "VERTICAL ESCALATION (Any Local User -> Root)",
+      direction: "VERTICAL ESCALATION (Any Local User → Root)",
       flaw: "Kernel pipe buffer flag flaw allows unprivileged users to overwrite read-only page cache memory (/etc/passwd).",
       badgeClass: "bg-purple-950 text-purple-300 border-purple-800",
       icon: "💥",
@@ -210,7 +210,7 @@ const Topic8 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_003 • Topic 8 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Privilege Escalation and Lateral Movement
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

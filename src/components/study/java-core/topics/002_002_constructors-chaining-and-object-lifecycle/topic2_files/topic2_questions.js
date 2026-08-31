@@ -52,7 +52,7 @@ const topic2_questions = [
     explanation: "The JVM treats constructors as special instance initialization methods named '<init>', resolved with static binding via 'invokespecial'. Virtual methods use dynamic dispatch via 'invokevirtual'.",
     hint: "invokespecial <init> vs invokevirtual.",
     level: "Advanced",
-    codeExample: "// Bytecode:\n// new Student -> invokespecial Student.<init>()V\n// s.study()   -> invokevirtual Student.study()V"
+    codeExample: "// Bytecode:\n// new Student → invokespecial Student.<init>()V\n// s.study()   → invokevirtual Student.study()V"
   },
   {
     question: "Does the compiler ever generate a default method if none is defined?",
@@ -202,7 +202,7 @@ const topic2_questions = [
     question: "In what order do Instance Initialization Blocks (IIBs) execute relative to Constructors and Methods?",
     shortAnswer: "IIBs execute on every object instantiation immediately before the constructor body runs. Methods execute only when explicitly called thereafter.",
     explanation: "The compiler copies IIB bytecode into the start of each constructor right after the 'super()' call. Methods only execute when invoked on the completed reference.",
-    hint: "super() -> IIB -> Constructor Body -> Methods (when called).",
+    hint: "super() → IIB → Constructor Body → Methods (when called).",
     level: "Intermediate",
     codeExample: "class Demo {\n    { System.out.println(\"IIB\"); }\n    Demo() { System.out.println(\"Constructor\"); }\n    void run() { System.out.println(\"Method\"); }\n}"
   },

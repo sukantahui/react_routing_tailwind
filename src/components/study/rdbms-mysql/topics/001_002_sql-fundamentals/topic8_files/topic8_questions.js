@@ -27,7 +27,7 @@ const questions = [
   {
     question: "Why can you NOT reference a `SELECT` column alias inside the `WHERE` clause of the same query?",
     shortAnswer: "Because SQL's logical processing order executes the `WHERE` clause BEFORE evaluating expressions in the `SELECT` clause.",
-    explanation: "In SQL processing flow: `FROM` -> `WHERE` -> `GROUP BY` -> `HAVING` -> `SELECT` -> `ORDER BY`. When `WHERE` filters rows, the column alias does not exist yet.",
+    explanation: "In SQL processing flow: `FROM` → `WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY`. When `WHERE` filters rows, the column alias does not exist yet.",
     hint: "SQL logical query execution phase ordering.",
     level: "moderate",
     codeExample: "-- FAILS: SELECT price * 0.18 AS tax FROM items WHERE tax > 100;\n-- WORKS: SELECT price * 0.18 AS tax FROM items WHERE (price * 0.18) > 100;"
@@ -187,7 +187,7 @@ const questions = [
   },
   {
     question: "What is the logical execution order of the 6 main SQL clauses?",
-    shortAnswer: "1. `FROM` -> 2. `WHERE` -> 3. `GROUP BY` -> 4. `HAVING` -> 5. `SELECT` -> 6. `ORDER BY` -> 7. `LIMIT`.",
+    shortAnswer: "1. `FROM` → 2. `WHERE` → 3. `GROUP BY` → 4. `HAVING` → 5. `SELECT` → 6. `ORDER BY` → 7. `LIMIT`.",
     explanation: "Understanding this lifecycle explains why aliases cannot be used in `WHERE`, why aggregates require `HAVING`, and why `LIMIT` executes last.",
     hint: "SQL query execution lifecycle.",
     level: "expert"

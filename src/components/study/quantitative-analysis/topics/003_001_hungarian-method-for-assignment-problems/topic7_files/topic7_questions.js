@@ -8,7 +8,7 @@ const questions = [
     explanation: "It operates directly on the cost matrix through row/column reductions and line covering, bypassing simplex degeneracy.",
     hint: "Kuhn-Munkres O(n^3) polynomial time assignment algorithm.",
     level: "moderate",
-    codeExample: "HungarianMethod(C) -> OptimalPermutationMatrix X* with MinCost Z* in O(n^3)."
+    codeExample: "HungarianMethod(C) → OptimalPermutationMatrix X* with MinCost Z* in O(n^3)."
   },
   {
     question: "Who developed the Hungarian Method and why is it called 'Hungarian'?",
@@ -22,9 +22,9 @@ const questions = [
     question: "What are the 5 sequential steps of the Hungarian Method algorithm?",
     shortAnswer: "Step 1: Check balance (add dummy rows/cols if m != n); Step 2: Row Reduction; Step 3: Column Reduction; Step 4: Line Covering Test (if L = n, proceed to Step 5; if L < n, execute additional reduction); Step 5: Assign independent zeros and compute Z* in Indian Rupees (₹).",
     explanation: "This structured 5-step pipeline guarantees global optimality on all assignment problems.",
-    hint: "Balance -> Row Reduce -> Col Reduce -> Line Test / Extra Reduce -> Assign Zeros.",
+    hint: "Balance → Row Reduce → Col Reduce → Line Test / Extra Reduce → Assign Zeros.",
     level: "intermediate",
-    codeExample: "Pipeline: Balance() -> RowReduce() -> ColReduce() -> LineCover() -> AssignZeros() -> Z_opt."
+    codeExample: "Pipeline: Balance() → RowReduce() → ColReduce() → LineCover() → AssignZeros() → Z_opt."
   },
   {
     question: "What is König's Theorem in the context of the Hungarian Method?",
@@ -158,9 +158,9 @@ const questions = [
     question: "What is the ultimate master rule of the Hungarian Method?",
     shortAnswer: "'Check square balance (add ₹0 dummies); subtract row minimums; subtract column minimums; test line covering L = n (if L < n, adjust uncovered by e); assign independent zeros; state final minimum cost Z* in Indian Rupees (₹)!'",
     explanation: "This complete rule captures the entire 5-step Hungarian algorithm from start to finish.",
-    hint: "Balance -> Row Min -> Col Min -> Line Cover / Adjust -> Assign Zeros -> State Z* in ₹.",
+    hint: "Balance → Row Min → Col Min → Line Cover / Adjust → Assign Zeros → State Z* in ₹.",
     level: "moderate",
-    codeExample: "Master Rule: Balance -> RowReduce -> ColReduce -> LineTest(L==n) -> Assign -> Z* in ₹."
+    codeExample: "Master Rule: Balance → RowReduce → ColReduce → LineTest(L==n) → Assign → Z* in ₹."
   }
 ];
 

@@ -168,7 +168,7 @@ WHERE student_id = '#104' AND course_id = 'C103';
             Module 002_004 · Database Normalization · Topic 1
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Database Anomalies:{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Insertion, Update &amp; Deletion
@@ -342,17 +342,17 @@ WHERE student_id = '#104' AND course_id = 'C103';
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
                 <span className="font-bold text-rose-400 block mb-1">❓ Test 1 (Insertion):</span>
                 <p className="text-slate-300 text-[11px]"><em>"Can I add a course or teacher if no students are registered yet?"</em></p>
-                <span className="text-[10px] text-slate-500 mt-1 block">If NO &rarr; You have an Insertion Anomaly!</span>
+                <span className="text-[10px] text-slate-500 mt-1 block">If NO → You have an Insertion Anomaly!</span>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
                 <span className="font-bold text-amber-400 block mb-1">❓ Test 2 (Update):</span>
                 <p className="text-slate-300 text-[11px]"><em>"If course fee or teacher phone changes, must I update multiple rows?"</em></p>
-                <span className="text-[10px] text-slate-500 mt-1 block">If YES &rarr; You have an Update Anomaly!</span>
+                <span className="text-[10px] text-slate-500 mt-1 block">If YES → You have an Update Anomaly!</span>
               </div>
               <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
                 <span className="font-bold text-rose-400 block mb-1">❓ Test 3 (Deletion):</span>
                 <p className="text-slate-300 text-[11px]"><em>"If the last student drops out, do we lose the course information?"</em></p>
-                <span className="text-[10px] text-slate-500 mt-1 block">If YES &rarr; You have a Deletion Anomaly!</span>
+                <span className="text-[10px] text-slate-500 mt-1 block">If YES → You have a Deletion Anomaly!</span>
               </div>
             </div>
           </div>

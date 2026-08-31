@@ -32,17 +32,17 @@ Key Subnetting Formulas:
 • Broadcast Address: Host bits all 1s (e.g., 192.168.10.255/24).
 
 Common Subnet Masks:
-- /24 -> 255.255.255.0   -> 8 Host bits  -> 254 Usable Hosts
-- /28 -> 255.255.255.240 -> 4 Host bits  -> 14 Usable Hosts
-- /16 -> 255.255.0.0     -> 16 Host bits -> 65,534 Usable Hosts
-- /30 -> 255.255.255.252 -> 2 Host bits  -> 2 Usable Hosts (Point-to-Point WAN links)
+- /24 → 255.255.255.0   → 8 Host bits  → 254 Usable Hosts
+- /28 → 255.255.255.240 → 4 Host bits  → 14 Usable Hosts
+- /16 → 255.255.0.0     → 16 Host bits → 65,534 Usable Hosts
+- /30 → 255.255.255.252 → 2 Host bits  → 2 Usable Hosts (Point-to-Point WAN links)
 
 --------------------------------------------------------------------------------
 3. RFC 1918 PRIVATE IP ADDRESS RANGES
 --------------------------------------------------------------------------------
-• Class A Private Range: 10.0.0.0 to 10.255.255.255 (10.0.0.0/8) -> 16,777,214 Hosts
-• Class B Private Range: 172.16.0.0 to 172.31.255.255 (172.16.0.0/12) -> 1,048,574 Hosts
-• Class C Private Range: 192.168.0.0 to 192.168.255.255 (192.168.0.0/16) -> 65,534 Hosts
+• Class A Private Range: 10.0.0.0 to 10.255.255.255 (10.0.0.0/8) → 16,777,214 Hosts
+• Class B Private Range: 172.16.0.0 to 172.31.255.255 (172.16.0.0/12) → 1,048,574 Hosts
+• Class C Private Range: 192.168.0.0 to 192.168.255.255 (192.168.0.0/16) → 65,534 Hosts
 • Special Loopback: 127.0.0.1 (Localhost inter-process communication)
 • Special APIPA / Link-Local: 169.254.0.0/16 (DHCP failure fallback)
 

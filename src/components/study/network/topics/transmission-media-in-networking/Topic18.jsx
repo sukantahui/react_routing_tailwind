@@ -115,7 +115,7 @@ const Topic18 = () => {
       <div className="max-w-6xl mx-auto space-y-8">
         {/* Title Section */}
         <div className="animate-fade-up space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-700 to-yellow-700 dark:from-amber-500 dark:to-yellow-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-700 to-yellow-700 dark:from-amber-500 dark:to-yellow-500 bg-clip-text text-transparent">
             Cost vs Performance
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 border-l-4 border-amber-500 pl-4">

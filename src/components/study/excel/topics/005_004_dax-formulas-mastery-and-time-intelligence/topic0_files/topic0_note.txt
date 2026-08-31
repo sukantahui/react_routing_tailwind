@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 DAX is not Excel formulas! Always remember: Tables and Columns represent your raw data, while Measures represent your business logic. Prefix columns with table names `Sales[Amount]`, and keep measures clean `[TotalSales]`.
 
 COMMON TRAPS TO AVOID:
-- Omitting Table Name in Column References: Writing `SUM([Revenue])` makes it impossible for another developer to know if `[Revenue]` is a raw column or an explicit measure. -> Fix: Always write `SUM(Sales[Revenue])` for columns and `[TotalRevenue]` for measures.
-- Expecting DAX to Support Cell Offsets (A1 + 1): Attempting to reference the 'previous row' by row number. -> Fix: Use Time Intelligence functions (`DATEADD`, `SAMEPERIODLASTYEAR`) or `EARLIER()` / variables to reference previous records.
-- Writing Iterative Calculations in Standard SUM: Trying to write `=SUM(Sales[Qty] * Sales[Price])` in standard SUM (which only accepts a single column). -> Fix: Use the iterator function `=SUMX(Sales, Sales[Qty] * Sales[Price])`.
+- Omitting Table Name in Column References: Writing `SUM([Revenue])` makes it impossible for another developer to know if `[Revenue]` is a raw column or an explicit measure. → Fix: Always write `SUM(Sales[Revenue])` for columns and `[TotalRevenue]` for measures.
+- Expecting DAX to Support Cell Offsets (A1 + 1): Attempting to reference the 'previous row' by row number. → Fix: Use Time Intelligence functions (`DATEADD`, `SAMEPERIODLASTYEAR`) or `EARLIER()` / variables to reference previous records.
+- Writing Iterative Calculations in Standard SUM: Trying to write `=SUM(Sales[Qty] * Sales[Price])` in standard SUM (which only accepts a single column). → Fix: Use the iterator function `=SUMX(Sales, Sales[Qty] * Sales[Price])`.
 ================================================================================

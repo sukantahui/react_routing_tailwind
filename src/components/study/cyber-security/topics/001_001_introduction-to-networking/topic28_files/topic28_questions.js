@@ -24,7 +24,7 @@ const questions = [
     explanation: "If Bit 0 is 1, the frame is targeted to a multicast group or broadcast. If Bit 1 is 1, the MAC address was locally generated or randomized by the operating system rather than assigned by IEEE.",
     hint: "Bit 0: Unicast/Multicast; Bit 1: Global IEEE OUI / Local Randomized.",
     level: "expert",
-    codeExample: "FirstOctet = 0x02; // Binary 00000010 -> Bit 1 is 1 (Locally Administered MAC)"
+    codeExample: "FirstOctet = 0x02; // Binary 00000010 → Bit 1 is 1 (Locally Administered MAC)"
   },
   {
     question: "What is the universal Broadcast MAC Address and which devices process it?",
@@ -37,7 +37,7 @@ const questions = [
   {
     question: "What is the Content Addressable Memory (CAM) Table inside a network switch?",
     shortAnswer: "A high-speed hardware lookup table in a switch that maps learned source MAC addresses to their corresponding physical switch port numbers and VLAN IDs with an aging timer (default 300 seconds).",
-    explanation: "When a frame enters Port 1 from MAC A, the switch records `[MAC A -> Port 1]`. When subsequent traffic is destined for MAC A, the switch forwards the frame directly to Port 1 without flooding.",
+    explanation: "When a frame enters Port 1 from MAC A, the switch records `[MAC A → Port 1]`. When subsequent traffic is destined for MAC A, the switch forwards the frame directly to Port 1 without flooding.",
     hint: "Switch table mapping MAC addresses to physical port numbers.",
     level: "moderate",
     codeExample: "camTable.learn(sourceMAC = '00:1A:2B:3C:4D:5E', ingressPort = 1, vlan = 10);"
@@ -132,7 +132,7 @@ const questions = [
   },
   {
     question: "What is Static MAC Binding in managed network switches?",
-    shortAnswer: "Manually configuring a permanent `[MAC -> Port]` entry in the switch configuration that never ages out and cannot be overwritten by dynamic learning, preventing MAC spoofing.",
+    shortAnswer: "Manually configuring a permanent `[MAC → Port]` entry in the switch configuration that never ages out and cannot be overwritten by dynamic learning, preventing MAC spoofing.",
     explanation: "Critical servers in Kolkata have static MAC bindings configured on core switch ports to guarantee that rogue machines cannot hijack server traffic.",
     hint: "Permanently locks a specific MAC address to a specific physical switch port.",
     level: "expert",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "MAC addresses change at every single hop across the Internet, whereas source and destination IP addresses remain constant end-to-end.",
     hint: "MAC addresses are rewritten at every router hop; IP addresses stay the same.",
     level: "expert",
-    codeExample: "Hop1: [MAC_A -> MAC_RouterIn] -> Router rewrites -> Hop2: [MAC_RouterOut -> MAC_RouterNext];"
+    codeExample: "Hop1: [MAC_A → MAC_RouterIn] → Router rewrites → Hop2: [MAC_RouterOut → MAC_RouterNext];"
   },
   {
     question: "What is MAC Filtering on Wi-Fi routers and why is it considered weak security on its own?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures all foundational principles of Layer 2 physical addressing, switch CAM table operations, hardware security controls, and financial budgeting.",
     hint: "Local Layer 2 delivery + Switch Port Security + DAI defense + Changes at each hop + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: Layer2LocalDelivery() -> EnforcePortSecurity() -> EnableDAI() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: Layer2LocalDelivery() → EnforcePortSecurity() → EnableDAI() → BudgetInRupees(₹);"
   }
 ];
 

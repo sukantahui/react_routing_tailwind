@@ -42,7 +42,7 @@ export default function Topic10() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Short-Circuit Evaluation in <code className="text-sky-400">&amp;&amp;</code> and <code className="text-sky-400">||</code> Operators &amp; Side-Effects
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -110,7 +110,7 @@ export default function Topic10() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Safe Guard (&amp;&amp;)</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="55" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">s != null &amp;&amp; s.isPaid()</text>
-            <text x="55" y="122" fill="#d1fae5" fontSize="10">s is null &rarr; Left is FALSE</text>
+            <text x="55" y="122" fill="#d1fae5" fontSize="10">s is null → Left is FALSE</text>
             <text x="55" y="142" fill="#d1fae5" fontSize="10">Right side is SKIPPED!</text>
             <text x="160" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✓ 100% NPE Immune
@@ -132,8 +132,8 @@ export default function Topic10() {
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Skipped Side-Effects</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#451a03" />
             <text x="615" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">false &amp;&amp; (++x &gt; 0)</text>
-            <text x="615" y="122" fill="#fef3c7" fontSize="10">&rarr; ++x is NEVER executed!</text>
-            <text x="615" y="142" fill="#fef3c7" fontSize="10">&rarr; x remains unchanged!</text>
+            <text x="615" y="122" fill="#fef3c7" fontSize="10">→ ++x is NEVER executed!</text>
+            <text x="615" y="142" fill="#fef3c7" fontSize="10">→ x remains unchanged!</text>
             <text x="720" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               Avoid Side-Effects in Logic
             </text>

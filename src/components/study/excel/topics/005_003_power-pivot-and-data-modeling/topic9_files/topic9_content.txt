@@ -10,7 +10,7 @@ Creating Hierarchies (Year > Quarter > Month > Day, Category > Subcategory > Pro
 It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Hierarchy Definition: Diagram View > Right-Click Column > Create Hierarchy -> Drag Child Levels (Category > Subcategory > Product)
+Operational Architecture: Hierarchy Definition: Diagram View > Right-Click Column > Create Hierarchy → Drag Child Levels (Category > Subcategory > Product)
 
 3. CORE TECHNICAL MECHANICS
 1. Single-Field Drag Drill-Down:
@@ -45,6 +45,6 @@ Operational Architecture: Hierarchy Definition: Diagram View > Right-Click Colum
 
 6. PRO TIPS & SHORTCUTS
 • Create Hierarchy Shortcut (Diagram View > Right-click column > Create Hierarchy): Instantly initializes a new drill-down hierarchy container.
-• Top-to-Bottom Granularity (Coarsest at top -> Most detailed at bottom): Guarantees intuitive drill-down exploration.
+• Top-to-Bottom Granularity (Coarsest at top → Most detailed at bottom): Guarantees intuitive drill-down exploration.
 • Drill Down in Pivot (Double-click item (or click + expand button)): Explores next level of hierarchy detail in real time.
 ================================================================================

@@ -332,7 +332,7 @@ const Topic40 = () => {
         <div 
           className="mb-8 animate-[fadeIn_0.8s_ease-out]"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             Conditional <span className="text-blue-600 dark:text-blue-400">Data Fetching</span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">

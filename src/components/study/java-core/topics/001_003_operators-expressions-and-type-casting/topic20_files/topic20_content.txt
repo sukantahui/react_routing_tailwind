@@ -22,8 +22,8 @@ When narrowing from a larger integral type to a smaller integral type (e.g. `int
 2. The upper $32 - N$ bits are discarded.
 3. The remaining $N$ bits are interpreted as a signed two's complement integer.
 For example:
-  int val = 130; // 0x00000082 -> Binary: ...0000 10000010
-  byte b = (byte) val; // Discards top 24 bits -> Leaves 10000010 = -126.
+  int val = 130; // 0x00000082 → Binary: ...0000 10000010
+  byte b = (byte) val; // Discards top 24 bits → Leaves 10000010 = -126.
 
 3. FLOATING-POINT TO INTEGER CONVERSION MECHANICS
 Under JLS §5.1.3, converting floating-point values (`float` or `double`) to an integral type `T` follows a strict multi-step algorithm:

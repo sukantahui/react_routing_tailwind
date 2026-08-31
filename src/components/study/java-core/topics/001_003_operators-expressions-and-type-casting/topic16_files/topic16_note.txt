@@ -32,7 +32,7 @@ Level | Category          | Operators                            | Associativity
    1 + 2 << 2  ==> (1 + 2) << 2 = 12  (NOT 1 + 8 = 9!)
 
 2. Relational beats Bitwise AND:
-   flags & MASK != 0  ==> flags & (MASK != 0) -> COMPILATION ERROR!
+   flags & MASK != 0  ==> flags & (MASK != 0) → COMPILATION ERROR!
    Fix: ((flags & MASK) != 0)
 
 3. Logical AND beats Logical OR:

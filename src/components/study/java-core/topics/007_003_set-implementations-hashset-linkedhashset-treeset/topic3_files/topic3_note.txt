@@ -7,10 +7,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. UNIQUENESS ALGORITHM:
    - Step 1: 'hashCode()' calculates target bucket.
-   - Step 2: If bucket empty &rarr; insert.
-   - Step 3: If bucket occupied &rarr; invoke 'equals()'.
-   - If 'equals() == true' &rarr; rejected (duplicate).
-   - If 'equals() == false' &rarr; inserted (collision handled).
+   - Step 2: If bucket empty → insert.
+   - Step 3: If bucket occupied → invoke 'equals()'.
+   - If 'equals() == true' → rejected (duplicate).
+   - If 'equals() == false' → inserted (collision handled).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

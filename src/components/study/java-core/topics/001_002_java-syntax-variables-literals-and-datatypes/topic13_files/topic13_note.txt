@@ -28,7 +28,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   | &        | Eager Logical AND     | Evaluates BOTH operands unconditionally |
   | |        | Eager Logical OR      | Evaluates BOTH operands unconditionally |
   | ^        | Logical XOR           | True if EXACTLY ONE operand is true     |
-  | !        | Logical NOT           | Inverts truth value (!true -> false)    |
+  | !        | Logical NOT           | Inverts truth value (!true → false)    |
   +----------+-----------------------+-----------------------------------------+
 
 - Guard Pattern with Short-Circuit:

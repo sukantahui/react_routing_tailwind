@@ -20,13 +20,13 @@ Two dominant frameworks govern modern enterprise defense:
 2. THE 7 STAGES OF THE CYBER KILL CHAIN (LOCKHEED MARTIN)
 --------------------------------------------------------------------------------
 
-[1. RECONNAISSANCE]   --> Researching target infrastructure, employee OSINT, and exposed ports.
-[2. WEAPONIZATION]    --> Pairing an exploit with a malicious payload (e.g. MS Office macro + C2 beacon).
-[3. DELIVERY]         --> Transmitting weaponized payload to victim (Spear-phishing email, USB drive).
-[4. EXPLOITATION]     --> Triggering the vulnerability (buffer overflow, macro execution) on endpoint.
-[5. INSTALLATION]     --> Installing backdoor, registry run key, or service for persistent access.
+[1. RECONNAISSANCE]   → Researching target infrastructure, employee OSINT, and exposed ports.
+[2. WEAPONIZATION]    → Pairing an exploit with a malicious payload (e.g. MS Office macro + C2 beacon).
+[3. DELIVERY]         → Transmitting weaponized payload to victim (Spear-phishing email, USB drive).
+[4. EXPLOITATION]     → Triggering the vulnerability (buffer overflow, macro execution) on endpoint.
+[5. INSTALLATION]     → Installing backdoor, registry run key, or service for persistent access.
 [6. COMMAND & CONTROL]--> Establishing encrypted two-way C2 communication channel over HTTPS/DNS.
-[7. ACTIONS ON OBJ.]  --> Achieving final goal: data exfiltration, ransomware encryption, disruption.
+[7. ACTIONS ON OBJ.]  → Achieving final goal: data exfiltration, ransomware encryption, disruption.
 
 * BREAKING THE KILL CHAIN:
   - Because the chain is strictly sequential, stopping the attacker at ANY single phase (e.g. blocking 
@@ -72,8 +72,8 @@ Two dominant frameworks govern modern enterprise defense:
 +--------------------+-------------------------+------------------------------------------------+
 
 * THE PYRAMID OF PAIN (David Bianco):
-  - Hash Values (Trivial) -> IP Addresses (Easy) -> Domain Names (Simple) ->
-    Network/Host Artifacts (Annoying) -> Tools (Challenging) -> TTPs (TOUGH! - Apex of the Pyramid)
+  - Hash Values (Trivial) → IP Addresses (Easy) → Domain Names (Simple) ->
+    Network/Host Artifacts (Annoying) → Tools (Challenging) → TTPs (TOUGH! - Apex of the Pyramid)
 
 --------------------------------------------------------------------------------
 5. THREAT VALIDATION & DETECTION ENGINEERING TOOLS

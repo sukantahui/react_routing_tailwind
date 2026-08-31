@@ -9,7 +9,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 - Challenge 1: Matrix Diagonal Sum (Primary + Secondary - Center for odd n in O(N)).
 - Challenge 2: Recursive Binary Search (low + (high - low)/2 overflow-safe in O(log N)).
-- Challenge 3: Modern Switch Expression Scholarship Dispatch (Enum -> Expression).
+- Challenge 3: Modern Switch Expression Scholarship Dispatch (Enum → Expression).
 - Challenge 4: Sieve of Eratosthenes Prime Table (O(N log(log N)) in-memory lookup).
 - Challenge 5: Comprehensive Academic Billing Ledger in Indian Rupees (₹) (Record models).
 

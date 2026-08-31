@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Determining the Value of the Game?",
     shortAnswer: "'Compute v* = (a11*a22 - a12*a21)/Δ or via inner product p*^T A q*; recognize shift-invariance under constant addition; interpret v* as guaranteed long-run cycle profit; and report the final value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all Game Value determination mechanics.",
-    hint: "Compute v* via determinant/inner product -> Shift-invariance -> Report in ₹.",
+    hint: "Compute v* via determinant/inner product → Shift-invariance → Report in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ComputeVStar() -> VerifyShiftInvariance() -> ReportInRupees(₹)."
+    codeExample: "GoldenRule: ComputeVStar() → VerifyShiftInvariance() → ReportInRupees(₹)."
   }
 ];
 

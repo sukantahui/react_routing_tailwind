@@ -39,7 +39,7 @@ const questions = [
     explanation: "Each recursive call pushes a new frame onto the top of the call stack.",
     hint: "What data structure manages active function invocations in memory?",
     level: "moderate",
-    codeExample: "# Call Stack: Frame 3 -> Frame 2 -> Frame 1 -> Main"
+    codeExample: "# Call Stack: Frame 3 → Frame 2 → Frame 1 → Main"
   },
   {
     question: "What is the Winding Phase vs Unwinding Phase in recursion?",
@@ -175,7 +175,7 @@ const questions = [
     explanation: "Pre-order vs Post-order execution control.",
     hint: "How does placing drawing commands after the recursive call affect rendering?",
     level: "advanced",
-    codeExample: "# Pre-order: draw -> recurse | Post-order: recurse -> draw"
+    codeExample: "# Pre-order: draw → recurse | Post-order: recurse → draw"
   },
   {
     question: "What is Memoization in recursive algorithms?",
@@ -223,7 +223,7 @@ const questions = [
     explanation: "This 3-step blueprint guarantees mathematically sound, terminating recursive visual algorithms.",
     hint: "What 3 steps construct any recursive drawing function?",
     level: "basic",
-    codeExample: "# 1. if base_case: return -> 2. Draw -> 3. recurse(size*0.7, depth-1)"
+    codeExample: "# 1. if base_case: return → 2. Draw → 3. recurse(size*0.7, depth-1)"
   },
   {
     question: "How does learning visual recursion prepare students for advanced Data Structures and Algorithms (DSA)?",

@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. SIZE CALCULATION:
    - 'baseCount' + sum of 'CounterCell[]' array.
    - LongAdder striped counter design.
-   - Low contention &rarr; updates 'baseCount'.
-   - High contention &rarr; distributes updates across 'CounterCell' slots.
+   - Low contention → updates 'baseCount'.
+   - High contention → distributes updates across 'CounterCell' slots.
    - 'mappingCount()' preferred over 'size()' in Java 8+.
 
 ================================================================================

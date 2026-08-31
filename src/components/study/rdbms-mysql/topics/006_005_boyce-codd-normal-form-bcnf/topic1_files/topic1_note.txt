@@ -1,13 +1,13 @@
 ================================================================================
 RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
 MODULE: BOYCE-CODD NORMAL FORM (BCNF) – STRICT SUPERKEY NORMAL FORM & OVERLAPPING KEYS
-TOPIC 1: FORMAL DEFINITION OF BOYCE-CODD NORMAL FORM: FOR EVERY FUNCTIONAL DEPENDENCY X -> Y, X MUST BE A SUPERKEY
+TOPIC 1: FORMAL DEFINITION OF BOYCE-CODD NORMAL FORM: FOR EVERY FUNCTIONAL DEPENDENCY X → Y, X MUST BE A SUPERKEY
 ================================================================================
 
 1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
 --------------------------------------------------------------------------------
 This topic provides an exhaustive theoretical and practical deep-dive into:
-"Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X -> Y, X Must Be a Superkey".
+"Formal Definition of Boyce-Codd Normal Form: For Every Functional Dependency X → Y, X Must Be a Superkey".
 Module: Boyce-Codd Normal Form (BCNF) – Strict Superkey Normal Form & Overlapping Keys (006_005_boyce-codd-normal-form-bcnf)
 Level: Advanced | Estimated Study Time: 4 Hours
 
@@ -22,7 +22,7 @@ Level: Advanced | Estimated Study Time: 4 Hours
 --------------------------------------------------------------------------------
 UNNORMALIZED / NON-COMPLIANT STATE:
 In relation (student, subject, advisor), each advisor teaches only one subject, and a student has at most one advisor per subject.
-Root Cause: Candidate keys are {student, subject} and {student, advisor}. FD advisor -> subject satisfies 3NF because subject is prime, yet redundancy remains!
+Root Cause: Candidate keys are {student, subject} and {student, advisor}. FD advisor → subject satisfies 3NF because subject is prime, yet redundancy remains!
 
 NORMALIZED STATE:
 All tables are in strict BCNF; advisor subject is stored in exactly 1 row.

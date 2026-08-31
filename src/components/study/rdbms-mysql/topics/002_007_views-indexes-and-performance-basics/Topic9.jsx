@@ -35,7 +35,7 @@ FROM students
 WHERE student_id = 101;
 
 -- Execution Mechanics:
--- 1. Traverses PRIMARY B+Tree directly (Root -> Branch -> Leaf).
+-- 1. Traverses PRIMARY B+Tree directly (Root → Branch → Leaf).
 -- 2. Leaf Page contains the COMPLETE PHYSICAL ROW (All columns)!
 -- 3. Returns data in a single step (Zero secondary lookups).
 -- Type: const / eq_ref | Key: PRIMARY | Latency: 0.4 ms`,
@@ -59,7 +59,7 @@ FROM students
 WHERE phone_number = '98300-98214';
 
 -- Execution Mechanics:
--- Step 1 (Secondary Seek): Traverses 'idx_phone' B-Tree -> Finds PK 'student_id = 101'.
+-- Step 1 (Secondary Seek): Traverses 'idx_phone' B-Tree → Finds PK 'student_id = 101'.
 -- Step 2 (Bookmark Lookup): Takes PK 101 and performs a 2nd B-Tree seek on PRIMARY table to fetch name & fee!
 -- Type: ref | Key: idx_phone | Latency: 1.1 ms (2 B-Tree traversals)`,
       resultRows: [
@@ -80,7 +80,7 @@ FROM students
 WHERE phone_number = '98300-98214';
 
 -- Execution Mechanics:
--- 1. Traverses 'idx_phone' B-Tree -> Leaf contains both phone_number AND student_id.
+-- 1. Traverses 'idx_phone' B-Tree → Leaf contains both phone_number AND student_id.
 -- 2. Returns immediately from secondary index leaf!
 -- 3. Step 2 (Clustered seek) is COMPLETELY BYPASSED!
 -- EXPLAIN Extra: 'Using index' | Latency: 0.4 ms`,
@@ -119,7 +119,7 @@ WHERE phone_number = '98300-98214';
               Index Architecture Deep-Dive
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Clustered Index (Primary Key) vs Secondary (Non-Clustered) Indexes
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -297,7 +297,7 @@ WHERE phone_number = '98300-98214';
                     <text x="475" y="96" fill="#a7f3d0" fontSize="9 font-mono" textAnchor="middle">Fetches: Mamata, Fee ₹25k</text>
                   </g>
 
-                  {/* Flow Arrow Step 1 -> Step 2 */}
+                  {/* Flow Arrow Step 1 → Step 2 */}
                   <path d="M 250 95 L 350 95" stroke="#f59e0b" strokeWidth="2" />
                   <text x="300" y="85" fill="#fcd34d" fontSize="9" fontWeight="bold" textAnchor="middle">PK 101</text>
 

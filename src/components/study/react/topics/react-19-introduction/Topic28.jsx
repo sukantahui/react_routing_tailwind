@@ -56,7 +56,7 @@ function Header() {
   );
 }`,
       errorMessage: "Adjacent JSX elements must be wrapped in an enclosing tag",
-      solution: "Wrap multiple elements in a <div>, <> (Fragment), or any container element.",
+      solution: "Wrap multiple elements in a <div>, &lt;&gt; (Fragment), or any container element.",
       commonIn: "Components that need to return multiple UI elements",
       example: "Tuhina tried returning both a title and description without wrapping them."
     },
@@ -234,7 +234,7 @@ function StudentList({ students }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white">
               Debugging JSX & Component Errors
             </h1>
           </div>

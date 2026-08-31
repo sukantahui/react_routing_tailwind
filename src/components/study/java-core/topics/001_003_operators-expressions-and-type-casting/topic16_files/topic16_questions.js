@@ -175,7 +175,7 @@ const questions = [
   },
   {
     question: "What is the complete 15-tier precedence order summary in Java?",
-    shortAnswer: "1. Postfix -> 2. Unary -> 3. Cast/Creation -> 4. Multiplicative -> 5. Additive -> 6. Shift -> 7. Relational -> 8. Equality -> 9. Bitwise AND -> 10. Bitwise XOR -> 11. Bitwise OR -> 12. Logical AND -> 13. Logical OR -> 14. Ternary -> 15. Assignment.",
+    shortAnswer: "1. Postfix → 2. Unary → 3. Cast/Creation → 4. Multiplicative → 5. Additive → 6. Shift → 7. Relational → 8. Equality → 9. Bitwise AND → 10. Bitwise XOR → 11. Bitwise OR → 12. Logical AND → 13. Logical OR → 14. Ternary → 15. Assignment.",
     explanation: "The complete standard Java operator precedence hierarchy.",
     hint: "Postfix > Unary > Math > Shift > Compare > Bitwise > Logical > Ternary > Assign.",
     level: "advanced",

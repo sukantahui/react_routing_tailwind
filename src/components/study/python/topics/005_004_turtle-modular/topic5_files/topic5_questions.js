@@ -31,7 +31,7 @@ const questions = [
     explanation: "Parameterized loops eliminate hundreds of redundant lines.",
     hint: "How much code reduction is typical when refactoring copy-pasted Turtle scripts?",
     level: "basic",
-    codeExample: "# 500 lines of spaghetti -> 40 lines of clean DRY code"
+    codeExample: "# 500 lines of spaghetti → 40 lines of clean DRY code"
   },
   {
     question: "How do you define configuration constants properly in Python?",
@@ -63,7 +63,7 @@ const questions = [
     explanation: "Type annotations clarify expected input types and catch type mismatch errors early.",
     hint: "What Python feature adds type annotations to function parameters?",
     level: "moderate",
-    codeExample: "def draw_circle(t: turtle.Turtle, x: float, y: float, radius: float) -> None:"
+    codeExample: "def draw_circle(t: turtle.Turtle, x: float, y: float, radius: float) → None:"
   },
   {
     question: "How do Docstrings adhere to clean code standards?",

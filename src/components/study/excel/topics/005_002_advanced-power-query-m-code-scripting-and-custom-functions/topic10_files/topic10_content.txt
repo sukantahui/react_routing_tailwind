@@ -19,7 +19,7 @@ Scenario: Joining 100,000 Fact rows with 5,000 Dimension rows via row-level Tabl
 
 3. STEP ORDER OPTIMIZATION PROTOCOL
 Step 1: Ingest source (`Sql.Database`, `Folder.Files`).
-Step 2: Immediate column pruning (`Table.SelectColumns`) -> Discard 80% of unused byte width.
-Step 3: Immediate row filtering (`Table.SelectRows`) -> Maximize early stream reduction.
+Step 2: Immediate column pruning (`Table.SelectColumns`) → Discard 80% of unused byte width.
+Step 3: Immediate row filtering (`Table.SelectRows`) → Maximize early stream reduction.
 Step 4: Buffer static lookup dimension in outer scope: `BufferedDim = Table.Buffer(DimCustomer)`.
 Step 5: Perform in-memory transformation or merge against `BufferedDim`.

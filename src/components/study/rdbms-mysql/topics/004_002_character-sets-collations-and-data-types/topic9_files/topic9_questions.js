@@ -121,7 +121,7 @@ const questions = [
   },
   {
     question: "What happens when you pass `NULL` as an argument to `JSON_OBJECT()`?",
-    shortAnswer: "It creates a JSON key with a literal **JSON `null` value**: `JSON_OBJECT('middle_name', NULL)` &rarr; `{\"middle_name\": null}`.",
+    shortAnswer: "It creates a JSON key with a literal **JSON `null` value**: `JSON_OBJECT('middle_name', NULL)` → `{\"middle_name\": null}`.",
     explanation: "SQL NULL is converted to JSON null.",
     hint: "Converts SQL NULL to JSON null value in the resulting document.",
     level: "basic"

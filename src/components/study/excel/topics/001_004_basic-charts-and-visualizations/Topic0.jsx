@@ -71,7 +71,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Chart Selection Guide: Matching Business Data Stories to Optimal Chart Types
           </h1>
 
@@ -372,7 +372,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic0"
+            sheetName="Topic0"
             title="Module 1.4 - Chart Selection Guide: Matching Business Data Stories to Optimal Chart Types"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -607,7 +607,7 @@ export default function Topic0() {
               <div>
                 <h3 className="text-sm font-bold text-white">Optimize Gap Width & Remove Clutter</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Right-click columns &rarr; Format Data Series &rarr; Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
+                  Right-click columns → Format Data Series → Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
                 </p>
               </div>
             </div>
@@ -627,7 +627,7 @@ export default function Topic0() {
               <div>
                 <h3 className="text-sm font-bold text-white">Snap to Grid & Hide Sheet Gridlines</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View &rarr; uncheck Gridlines.
+                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View → uncheck Gridlines.
                 </p>
               </div>
             </div>

@@ -71,7 +71,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Practice Lab: Multi-department procurement request form with strict validation"}
           </h1>
 
@@ -173,7 +173,7 @@ export default function Topic12() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Multi-Field Validation Stack"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Department (Dropdown) -> Expense Category (Cascading) -> Item Description (Text length >= 10) -> Quantity (Whole number > 0) -> Estimated Unit Cost (Decimal > 0)."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Department (Dropdown) → Expense Category (Cascading) → Item Description (Text length >= 10) → Quantity (Whole number > 0) → Estimated Unit Cost (Decimal > 0)."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
@@ -199,7 +199,7 @@ export default function Topic12() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Enterprise Procurement Governance Engine: Requisition -> Validation Gate -> Approval Matrix -> Purchase Order"}
+              Visual Dataflow: {"Enterprise Procurement Governance Engine: Requisition → Validation Gate → Approval Matrix → Purchase Order"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Security Pipeline
@@ -286,7 +286,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Practice_Lab__Mult"
+            sheetName="EX1313"
             title={"Practice Lab: Multi-department procurement request form with strict validation - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

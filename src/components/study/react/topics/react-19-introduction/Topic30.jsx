@@ -62,7 +62,7 @@ const Topic30 = () => {
             </div>
 
             <h1 className={clsx(
-              "text-4xl md:text-5xl font-bold mb-6",
+              "text-xl sm:text-2xl md:text-3xl font-bold mb-6",
               isDark ? "text-white" : "text-gray-900",
               "motion-safe:animate-[slideUp_0.8s_ease-out]"
             )}>

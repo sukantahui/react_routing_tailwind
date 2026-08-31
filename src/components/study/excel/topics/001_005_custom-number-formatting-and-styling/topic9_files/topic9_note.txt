@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Formatting identity numbers cleanly prevents costly data-entry mistakes. For regulatory compliance, ensure sensitive credentials are both formatted and access-controlled.
 
 COMMON TRAPS TO AVOID:
-- Dropping Leading Country Zeros: Entering phone numbers as raw numbers drops leading zeros or country codes. -> Fix: Use custom format '+91 ##### #####' or enter as text.
-- Alphanumeric Text Token Errors: Using numeric 0 placeholders on alphanumeric PAN cards fails because PAN contains letters. -> Fix: Use @ text placeholders or UPPER() functions for mixed alphanumeric codes.
-- Formatting vs True Security: Formatting hides digits on screen, but the raw number remains in cell memory and formula bar. -> Fix: For true security, hash or truncate values using formulas (=RIGHT(A1,4)).
+- Dropping Leading Country Zeros: Entering phone numbers as raw numbers drops leading zeros or country codes. → Fix: Use custom format '+91 ##### #####' or enter as text.
+- Alphanumeric Text Token Errors: Using numeric 0 placeholders on alphanumeric PAN cards fails because PAN contains letters. → Fix: Use @ text placeholders or UPPER() functions for mixed alphanumeric codes.
+- Formatting vs True Security: Formatting hides digits on screen, but the raw number remains in cell memory and formula bar. → Fix: For true security, hash or truncate values using formulas (=RIGHT(A1,4)).
 ================================================================================

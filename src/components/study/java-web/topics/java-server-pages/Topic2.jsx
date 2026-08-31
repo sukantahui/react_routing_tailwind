@@ -36,7 +36,7 @@ const Topic2 = () => {
         className="max-w-4xl mx-auto mb-12 text-center animate-[fadeSlideUp_0.6s_ease-out]"
         style={{ animationFillMode: "both" }}
       >
-        <h1 className="text-4xl font-bold text-indigo-700 dark:text-indigo-300 mb-3">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-3">
           JSP Implicit Objects
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">

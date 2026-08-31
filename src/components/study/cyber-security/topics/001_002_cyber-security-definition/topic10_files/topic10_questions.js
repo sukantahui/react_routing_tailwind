@@ -48,7 +48,7 @@ const questions = [
     explanation: "Secures millions of smart electricity meters deployed across West Bengal.",
     hint: "Digital certificates and encryption on smart electric meters so hackers cannot shut off city power.",
     level: "expert",
-    codeExample: "SmartGrid_AMI: SmartMeter --mTLS(ECC_256)--> UtilityHeadEnd -> ValidatesReadingBeforeBilling"
+    codeExample: "SmartGrid_AMI: SmartMeter --mTLS(ECC_256)--> UtilityHeadEnd → ValidatesReadingBeforeBilling"
   },
   {
     question: "How is Cyber Security applied in Connected & Autonomous Vehicles (CAN Bus & V2X)?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "Catches SQL injection and Log4j vulnerabilities in Barrackpore before software is deployed to production.",
     hint: "Automated security scanners built into developer code pipelines to find bugs before publishing.",
     level: "basic",
-    codeExample: "DevSecOps_Pipeline = 'Git Commit -> SAST Scan -> Dependency SCA -> Container Linting -> Automated Deployment';"
+    codeExample: "DevSecOps_Pipeline = 'Git Commit → SAST Scan → Dependency SCA → Container Linting → Automated Deployment';"
   },
   {
     question: "How is Cyber Security applied in National Defense & Military Command Systems?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Ensures container vessels entering coastal ports in West Bengal navigate safely with authentic satellite coordinates.",
     hint: "Protecting ship navigation screens and automated port cranes from GPS spoofing and hacking.",
     level: "moderate",
-    codeExample: "MaritimeSecurity: ECDIS_Navigation.verifyGPS(DualConstellation_Galileo_NavIC) -> RejectsSpoofedCoordinates"
+    codeExample: "MaritimeSecurity: ECDIS_Navigation.verifyGPS(DualConstellation_Galileo_NavIC) → RejectsSpoofedCoordinates"
   },
   {
     question: "How is Cyber Security applied in E-Governance and Citizen Identity Platforms (e.g. Aadhaar / DigiLocker)?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Allows multiple competing hospitals in Kolkata to train shared AI cancer models without exposing patient data.",
     hint: "Special encrypted CPU enclaves that keep data secret even while it is being processed in computer RAM.",
     level: "expert",
-    codeExample: "ConfidentialComputing: Enclave.executeInRAM(EncryptedData) -> CPU registers decrypted only inside silicon."
+    codeExample: "ConfidentialComputing: Enclave.executeInRAM(EncryptedData) → CPU registers decrypted only inside silicon."
   },
   {
     question: "How is Cyber Security applied in Automated Train Interlocking & Metro Rail Systems?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Secures billions of rupees in daily equity transactions on national exchanges in Kolkata.",
     hint: "Nanosecond-precise hardware packet filters stopping hackers from cheating high-speed stock trades.",
     level: "expert",
-    codeExample: "HFT_Security: HardwareFPGA.inspect(Packet, Latency = 800_Nanoseconds) -> DropsSpoofedOrder"
+    codeExample: "HFT_Security: HardwareFPGA.inspect(Packet, Latency = 800_Nanoseconds) → DropsSpoofedOrder"
   },
   {
     question: "How is Cyber Security applied in Legal & Law Enforcement Digital Evidence Custody?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Ensures evidence gathered by cyber police in Barrackpore is never challenged for tampering in court.",
     hint: "WORM storage and SHA-256 hashes proving police digital evidence was never altered.",
     level: "moderate",
-    codeExample: "EvidenceVault: StoreDiskImage() -> CalculateSHA256() -> RecordOnPrivateBlockchainLedger() -> CourtAdmissible"
+    codeExample: "EvidenceVault: StoreDiskImage() → CalculateSHA256() → RecordOnPrivateBlockchainLedger() → CourtAdmissible"
   },
   {
     question: "What is the Role of Cyber Insurance in enterprise risk management applications?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Protects national earth observation and communication satellites operated by Indian space facilities.",
     hint: "AES-256 encryption on satellite radio commands to prevent rogue actors from altering satellite orbits.",
     level: "expert",
-    codeExample: "SatelliteUplink: CCSDS_Telecommand.encrypt(AES-256-GCM, MasterSpaceKey) -> Spacecraft validates before execution."
+    codeExample: "SatelliteUplink: CCSDS_Telecommand.encrypt(AES-256-GCM, MasterSpaceKey) → Spacecraft validates before execution."
   },
   {
     question: "How is Cyber Security applied in Online Gaming & Esports anti-cheat architectures?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Protects multimillion-rupee esports tournaments and in-game digital economies from fraud.",
     hint: "Kernel-level anti-cheat engines stopping players from using aimbots and memory hacks.",
     level: "moderate",
-    codeExample: "AntiCheat_Engine: InspectMemorySpace() -> DetectsInjectedDLL() -> BanPlayerHardwareID();"
+    codeExample: "AntiCheat_Engine: InspectMemorySpace() → DetectsInjectedDLL() → BanPlayerHardwareID();"
   },
   {
     question: "How is Cyber Security applied in AI / Machine Learning Model Protection (Adversarial ML)?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes industry specialization, defense-in-depth, zero trust governance, and financial procurement budgeting.",
     hint: "Industry specialization + Zero Trust architecture + Defense-in-depth + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: TailorIndustrySecurity() -> EnforceZeroTrust() -> LayerDefenseInDepth() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: TailorIndustrySecurity() → EnforceZeroTrust() → LayerDefenseInDepth() → BudgetInRupees(₹);"
   }
 ];
 

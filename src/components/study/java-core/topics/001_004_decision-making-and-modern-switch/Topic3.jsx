@@ -42,7 +42,7 @@ export default function Topic3() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Nested <code className="text-purple-400">&apos;if-else&apos;</code> &amp; Resolving the Dangling Else Ambiguity
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -79,7 +79,7 @@ export default function Topic3() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-purple-500 text-slate-300 space-y-2">
             <p className="font-medium text-purple-300">Classroom Case Study (Barrackpore Scholarship Matrix):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> and <strong>Tuhina</strong> audited multi-tier tuition waivers. By structuring nested checks (academic score &ge; 85% &rarr; family income &le; ₹2,00,000 for Tier 1 Full Waiver vs local residence for Tier 2/3 waivers), <strong>Abhronila</strong> and <strong>Debangshu</strong> eliminated dangling else errors and refactored deep pyramids into flat guard clauses in Indian Rupees (<code className="text-emerald-400 font-semibold">₹</code>) across Naihati and Shyamnagar.
+              In our Barrackpore laboratory, <strong>Swadeep</strong> and <strong>Tuhina</strong> audited multi-tier tuition waivers. By structuring nested checks (academic score &ge; 85% → family income &le; ₹2,00,000 for Tier 1 Full Waiver vs local residence for Tier 2/3 waivers), <strong>Abhronila</strong> and <strong>Debangshu</strong> eliminated dangling else errors and refactored deep pyramids into flat guard clauses in Indian Rupees (<code className="text-emerald-400 font-semibold">₹</code>) across Naihati and Shyamnagar.
             </p>
           </div>
         </div>

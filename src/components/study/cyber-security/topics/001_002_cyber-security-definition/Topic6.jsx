@@ -27,7 +27,7 @@ const Topic6 = () => {
       dwellTimeSLA: 'Stealth Dwell Time: 180+ Days • Bypasses Static Antivirus Scanners',
       estBudget: '₹8,50,000 (Commercial CTI Threat Intelligence Feeds & Behavioral EDR Sandboxing)',
       desc: 'Top-tier state-sponsored actors targeting sovereign defense, power grids, and research labs.',
-      simResult: 'APT adversary executes stealth memory injection via PowerShell -> EDR flags anomalous IoA behavior -> Blocks C2 beacon in 3.8 seconds.',
+      simResult: 'APT adversary executes stealth memory injection via PowerShell → EDR flags anomalous IoA behavior → Blocks C2 beacon in 3.8 seconds.',
     },
     {
       id: 'ecrime-ransomware',
@@ -38,7 +38,7 @@ const Topic6 = () => {
       dwellTimeSLA: 'Fast-Moving: Initial Breach to Domain Ransom within 4 to 12 Hours',
       estBudget: '₹5,20,000 (Endpoint Detection & Response - EDR + Immutable Backup Vault)',
       desc: 'Financially motivated gangs that encrypt enterprise files and threaten public data leaks.',
-      simResult: 'Ransomware invokes `vssadmin delete shadows` -> EDR agent intercepts shadow copy tampering -> Terminates process in 1.2s -> 0 Files Encrypted.',
+      simResult: 'Ransomware invokes `vssadmin delete shadows` → EDR agent intercepts shadow copy tampering → Terminates process in 1.2s → 0 Files Encrypted.',
     },
     {
       id: 'insider-threat',
@@ -49,7 +49,7 @@ const Topic6 = () => {
       dwellTimeSLA: 'Difficult to Detect: Exploits Pre-Existing Legitimate Authorization Access',
       estBudget: '₹4,50,000 (User & Entity Behavior Analytics - UEBA + Endpoint DLP Platform)',
       desc: 'Internal personnel with valid passwords who bypass external perimeter firewalls entirely.',
-      simResult: 'Privileged user queries 50,000 customer credit card records at 2:00 AM -> UEBA flags anomaly score 98/100 -> Revokes token in 450ms.',
+      simResult: 'Privileged user queries 50,000 customer credit card records at 2:00 AM → UEBA flags anomaly score 98/100 → Revokes token in 450ms.',
     },
     {
       id: 'hacktivist-swarm',
@@ -60,7 +60,7 @@ const Topic6 = () => {
       dwellTimeSLA: 'Loud & Immediate: Aims for Instant Public Visibility and Brand Disruption',
       estBudget: '₹3,80,000 (Cloud-Native BGP Anycast Anti-DDoS Scrubbing & WAF Gateway)',
       desc: 'Ideologically driven groups that overwhelm web servers to send political messages.',
-      simResult: 'Hacktivist botnet floods 60 Gbps UDP flood -> Cloud scrubber absorbs volumetric traffic -> Web portal maintains 100% uptime with zero slowdown.',
+      simResult: 'Hacktivist botnet floods 60 Gbps UDP flood → Cloud scrubber absorbs volumetric traffic → Web portal maintains 100% uptime with zero slowdown.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic6 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Cyber Threat Landscape
           </h1>
 

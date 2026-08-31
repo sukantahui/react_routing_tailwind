@@ -13,14 +13,14 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   +----------+-----------------------+-----------------------------------------+
   | &&       | Logical AND           | true ONLY if BOTH operands are true     |
   | ||       | Logical OR            | true if AT LEAST ONE operand is true    |
-  | !        | Logical NOT           | Inverts boolean (true -> false)         |
+  | !        | Logical NOT           | Inverts boolean (true → false)         |
   +----------+-----------------------+-----------------------------------------+
 
 - Precedence Hierarchy:
   * 1. Unary NOT (!)   [Highest]
   * 2. Logical AND (&&)[Medium]
   * 3. Logical OR (||) [Lowest]
-  * Example: a || b && c  --> Evaluates as: a || (b && c)
+  * Example: a || b && c  → Evaluates as: a || (b && c)
 
 - De Morgan's Laws:
   * Law 1: !(A && B) == (!A || !B)

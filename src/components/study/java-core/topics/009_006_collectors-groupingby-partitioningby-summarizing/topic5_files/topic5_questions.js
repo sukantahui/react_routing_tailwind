@@ -13,7 +13,7 @@ const topic5_questions = [
     "explanation": "Prefer using Optional or sentinel default values instead of null keys.",
     "hint": "Avoid null classifier keys to prevent TreeMap exceptions and maintain clean design.",
     "level": "Intermediate",
-    "codeExample": "s -> s.getCenter() != null ? s.getCenter() : 'Unassigned'"
+    "codeExample": "s → s.getCenter() != null ? s.getCenter() : 'Unassigned'"
   }
 ];
 

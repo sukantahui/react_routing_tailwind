@@ -10,7 +10,7 @@ export default class Topic9 extends Component {
             HEADER
         ============================================================ */}
         <header className="space-y-3">
-          <h1 className="text-2xl md:text-3xl font-bold text-sky-300 flex items-center gap-3">
+          <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-sky-300 flex items-center gap-3">
             <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
               <rect
                 x="3"

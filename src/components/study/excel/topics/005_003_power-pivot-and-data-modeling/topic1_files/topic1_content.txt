@@ -10,7 +10,7 @@ Overcoming Excel's 1-million row limit: Handling millions of rows with high comp
 It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Data Import Protocol: Data > Get Data > Only Create Connection -> Check 'Add this data to the Data Model'
+Operational Architecture: Data Import Protocol: Data > Get Data > Only Create Connection → Check 'Add this data to the Data Model'
 
 3. CORE TECHNICAL MECHANICS
 1. Connection-Only Ingestion Paradigm:

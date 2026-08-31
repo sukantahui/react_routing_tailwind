@@ -38,7 +38,7 @@ const questions = [
   },
   {
     question: "Why is `NOT EXISTS` immune to the 'NOT IN with NULL' poisoning trap?",
-    shortAnswer: "Because `NOT EXISTS` tests boolean row presence (`TRUE` or `FALSE`), completely bypassing three-valued scalar logic (`val != NULL` -> `UNKNOWN`).",
+    shortAnswer: "Because `NOT EXISTS` tests boolean row presence (`TRUE` or `FALSE`), completely bypassing three-valued scalar logic (`val != NULL` → `UNKNOWN`).",
     explanation: "A candidate row with NULL values is still a valid row, returning TRUE for EXISTS.",
     hint: "Tests row presence directly, avoiding SQL three-valued logic UNKNOWN evaluations.",
     level: "expert"

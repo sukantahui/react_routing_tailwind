@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. UNBOXING MECHANICS:
-   - Wrapper Object &rarr; Primitive value.
+   - Wrapper Object → Primitive value.
    - Bytecode translation: invokes '.intValue()', '.doubleValue()', etc.
    - Enables direct arithmetic (+, -, *, /) on wrapper objects.
 

@@ -6,16 +6,16 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Data Import Protocol: Data > Get Data > Only Create Connection -> Check 'Add this data to the Data Model'
+Data Import Protocol: Data > Get Data > Only Create Connection → Check 'Add this data to the Data Model'
 
 PRIMARY CONCEPT:
 Shattering Excel's traditional 1,048,576 row barrier: ingesting multi-million row enterprise datasets into the Data Model using Power Query connections with zero worksheet bloat
 
 TEACHER'S ADVICE:
-When loading big data, never click 'Load' directly. Click the little arrow next to Load -> 'Load To...' -> select 'Only Create Connection' and check 'Add this data to the Data Model'. That is how pros handle millions of rows.
+When loading big data, never click 'Load' directly. Click the little arrow next to Load → 'Load To...' → select 'Only Create Connection' and check 'Add this data to the Data Model'. That is how pros handle millions of rows.
 
 COMMON TRAPS TO AVOID:
-- Attempting to 'Load to Table' on Multi-Million Row Datasets: Selecting 'Table' in Power Query on a 3-million row query throws 'Data could not be written because the worksheet is full'. -> Fix: Always select 'Only Create Connection' and CHECK 'Add this data to the Data Model'.
-- Memory Exhaustion on 32-bit Excel: 32-bit Excel is capped at 2GB virtual RAM; loading 10 million rows throws 'Out of Memory'. -> Fix: Install 64-bit Microsoft Office to utilize full system RAM (16GB+).
-- Duplicate Source Query Refreshes: Loading the same large table both to a worksheet grid and the Data Model doubles memory consumption. -> Fix: Store large master facts exclusively in the Data Model.
+- Attempting to 'Load to Table' on Multi-Million Row Datasets: Selecting 'Table' in Power Query on a 3-million row query throws 'Data could not be written because the worksheet is full'. → Fix: Always select 'Only Create Connection' and CHECK 'Add this data to the Data Model'.
+- Memory Exhaustion on 32-bit Excel: 32-bit Excel is capped at 2GB virtual RAM; loading 10 million rows throws 'Out of Memory'. → Fix: Install 64-bit Microsoft Office to utilize full system RAM (16GB+).
+- Duplicate Source Query Refreshes: Loading the same large table both to a worksheet grid and the Data Model doubles memory consumption. → Fix: Store large master facts exclusively in the Data Model.
 ================================================================================

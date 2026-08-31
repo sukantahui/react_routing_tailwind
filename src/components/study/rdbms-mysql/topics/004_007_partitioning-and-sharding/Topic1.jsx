@@ -33,7 +33,7 @@ const Topic1 = () => {
 //       │
 //       ▼
 // [ha_partition (Partition Handler Proxy)]
-//       │ (Evaluates YEAR('2025-04-12') = 2025 -> Target: Partition 1)
+//       │ (Evaluates YEAR('2025-04-12') = 2025 → Target: Partition 1)
 //       ▼
 // [ha_innobase Instance for Partition 1]
 //       │
@@ -78,8 +78,8 @@ CREATE INDEX idx_customer ON sales_records (customer_id);
 
 -- 💡 HOW MYSQL HANDLES SECONDARY INDEXES:
 -- Every partition (.ibd file) maintains its OWN LOCAL B-TREE INDEX!
--- p2024.ibd -> Contains idx_customer for 2024 rows only.
--- p2025.ibd -> Contains idx_customer for 2025 rows only.
+-- p2024.ibd → Contains idx_customer for 2024 rows only.
+-- p2025.ibd → Contains idx_customer for 2025 rows only.
 -- MySQL does NOT have Global Indexes; all indexes are strictly LOCAL!`,
       explanation:
         "All secondary indexes in MySQL are Local Partitioned Indexes confined to each individual partition's .ibd file. This is why unique constraints must include the partition key to enable local uniqueness verification.",
@@ -127,7 +127,7 @@ ALTER TABLE sales_records EXCHANGE PARTITION p2024 WITH TABLE orders_2024_stagin
             Topic 1 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Partitioning Mechanics</span>: Storage Engine Internals &amp; <span className="text-cyan-400">ha_partition</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

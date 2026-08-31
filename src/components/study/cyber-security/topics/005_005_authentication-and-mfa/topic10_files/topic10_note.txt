@@ -71,7 +71,7 @@ Structure: `Header.Payload.Signature` (Base64URL encoded)
    - Attacker alters JWT header to `{"alg": "none"}`, strips the signature, and accesses admin endpoints.
    - Defense: Hardcode permitted signature algorithms on the backend; reject `none` unconditionally.
 
-3. JWT Key Confusion (Algorithm Switching: RS256 -> HS256):
+3. JWT Key Confusion (Algorithm Switching: RS256 → HS256):
    - Attacker changes `alg` from RS256 (asymmetric) to HS256 (symmetric) and signs the token using the 
      server's public RSA key as the HMAC secret!
    - Defense: Never use the same verification function for both symmetric and asymmetric keys.

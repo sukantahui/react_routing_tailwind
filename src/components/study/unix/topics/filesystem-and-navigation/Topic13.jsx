@@ -1357,7 +1357,7 @@ export default class Topic13 extends Component {
               <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium mb-4">
                 Topic 14: Terminal Efficiency
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white leading-tight">
                 Tab Completion and Command History Navigation
                 <span className="block text-xl text-gray-600 dark:text-gray-400 mt-2">
                   Master terminal efficiency with auto-completion and smart history recall

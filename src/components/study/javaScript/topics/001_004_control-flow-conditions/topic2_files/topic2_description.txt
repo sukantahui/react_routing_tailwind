@@ -20,8 +20,8 @@ Swadeep had a piece of code that determined a discount based on student status, 
 - If-Else: A Statement. It executes blocks of instructions. Great for multiple branches, complex logic, performing side-effects, and multi-line operations.
 
 2. Readability Rules:
-- If a condition fits on one line and just assigns a value -> Use Ternary.
-- If you have more than 2 branches or need to execute multiple steps -> Use If-Else.
+- If a condition fits on one line and just assigns a value → Use Ternary.
+- If you have more than 2 branches or need to execute multiple steps → Use If-Else.
 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
 --------------------------------------------------------------------------------

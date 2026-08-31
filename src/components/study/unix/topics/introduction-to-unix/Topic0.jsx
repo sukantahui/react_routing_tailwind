@@ -16,7 +16,7 @@ export default class Topic0 extends Component {
 
         {/* ================== TITLE ================== */}
         <section className="reveal animate-[fadeUp_0.8s_ease-out_both]">
-          <h1 className="text-3xl font-bold text-sky-600 dark:text-sky-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-600 dark:text-sky-400">
             Evolution of UNIX – From Bell Labs to Modern Linux
           </h1>
           <p className="mt-3 text-slate-600 dark:text-slate-400">

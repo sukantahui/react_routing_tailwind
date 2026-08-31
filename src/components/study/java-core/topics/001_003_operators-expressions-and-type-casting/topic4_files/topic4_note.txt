@@ -9,8 +9,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 - Built-In Overloading of '+':
   * '+' is the ONLY overloaded operator in Java.
-  * If EITHER operand is a String -> String Concatenation.
-  * If BOTH operands are numeric -> Numeric Addition.
+  * If EITHER operand is a String → String Concatenation.
+  * If BOTH operands are numeric → Numeric Addition.
 
 - Left-to-Right Evaluation Traps:
   +--------------------------------+--------------------+----------------------+
@@ -24,7 +24,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   +--------------------------------+--------------------+----------------------+
 
 - Null Handling:
-  * String s = "Data: " + null; -> Evaluates safely to "Data: null".
+  * String s = "Data: " + null; → Evaluates safely to "Data: null".
   * null.toString() throws NullPointerException!
 
 - Performance: Loops vs StringBuilder

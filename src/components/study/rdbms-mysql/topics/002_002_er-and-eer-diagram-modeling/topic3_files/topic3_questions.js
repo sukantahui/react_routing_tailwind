@@ -74,7 +74,7 @@ const questions = [
   },
   {
     question: "Can a Weak Entity Set have another Weak Entity Set dependent on it (Chained Weak Entities)?",
-    shortAnswer: "Yes, multi-level weak entity hierarchies (e.g. `Building` (Strong) -> `Floor` (Weak) -> `Room` (Weak of Floor)).",
+    shortAnswer: "Yes, multi-level weak entity hierarchies (e.g. `Building` (Strong) → `Floor` (Weak) → `Room` (Weak of Floor)).",
     explanation: "Primary key cascades down: `(building_id, floor_no, room_no)`.",
     hint: "Multi-level weak entity chains.",
     level: "expert",

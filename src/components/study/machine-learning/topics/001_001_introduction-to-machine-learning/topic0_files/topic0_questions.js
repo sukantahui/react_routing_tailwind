@@ -26,7 +26,7 @@ const questions = [
   {
     id: 3,
     question: "How does the fundamental input-output flow of Traditional Programming differ from that of Machine Learning?",
-    shortAnswer: "Traditional: Data + Rules -> Answers; Machine Learning: Data + Answers -> Model (Rules).",
+    shortAnswer: "Traditional: Data + Rules → Answers; Machine Learning: Data + Answers → Model (Rules).",
     explanation: "Traditional software engineering follows deductive logic where human developers supply data and explicit logical rules to produce outputs. Machine learning uses inductive logic where algorithms consume data and known historical outputs to learn the underlying predictive hypothesis/model.",
     hint: "Recall which paradigm outputs a mathematical function h(x) rather than raw computational results.",
     level: "Moderate",
@@ -39,7 +39,7 @@ const questions = [
     explanation: "GST computation is strictly deterministic and governed by clear statutory legal formulas. Applying statistical or probabilistic machine learning models to exact tax calculations would introduce unacceptable approximation errors.",
     hint: "Look for tasks that have a 100% deterministic mathematical formula with zero ambiguity.",
     level: "Moderate",
-    codeExample: "# Deterministic computation -> Use Rule Engine\ngst_amount = invoice_val * 0.18"
+    codeExample: "# Deterministic computation → Use Rule Engine\ngst_amount = invoice_val * 0.18"
   },
   {
     id: 5,
@@ -225,7 +225,7 @@ const questions = [
     id: 25,
     question: "What distinguishes Transductive Learning from Inductive Learning?",
     shortAnswer: "Inductive learns a general hypothesis function for any future input; Transductive predicts labels only for specific given unlabeled points.",
-    explanation: "Inductive learning infers a general mapping function h: X -> Y capable of evaluating any arbitrary unseen query. Transductive learning (e.g., standard Graph Neural Label Propagation) solves directly for the given unlabeled test nodes without formulating a global hypothesis.",
+    explanation: "Inductive learning infers a general mapping function h: X → Y capable of evaluating any arbitrary unseen query. Transductive learning (e.g., standard Graph Neural Label Propagation) solves directly for the given unlabeled test nodes without formulating a global hypothesis.",
     hint: "Global mapping rule vs specific point-to-point label propagation.",
     level: "Expert",
     codeExample: "# Inductive: LinearRegression().predict(any_new_x)\n# Transductive: Graph label propagation on fixed graph"
@@ -273,7 +273,7 @@ const questions = [
     explanation: "MLOps (Machine Learning Operations) unites data engineering, machine learning, and DevOps practices to ensure reliable continuous integration, continuous deployment (CI/CD), feature store management, data versioning, drift monitoring, and automated retraining in production enterprise environments.",
     hint: "DevOps tailored specifically for machine learning models and data pipelines.",
     level: "Expert",
-    codeExample: "# MLOps Pipeline: Data Ingestion -> Automated Retraining -> Model Registry -> Canary Deployment -> Drift Alert"
+    codeExample: "# MLOps Pipeline: Data Ingestion → Automated Retraining → Model Registry → Canary Deployment → Drift Alert"
   }
 ];
 

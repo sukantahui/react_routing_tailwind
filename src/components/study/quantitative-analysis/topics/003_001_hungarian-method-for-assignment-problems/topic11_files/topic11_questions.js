@@ -158,7 +158,7 @@ const questions = [
     question: "What is the ultimate golden rule of Making Additional Reductions?",
     shortAnswer: "'If L < n: find smallest uncovered element e; subtract e from uncovered cells; add e to intersection cells; leave single-covered cells unchanged; re-test line covering until L = n!'",
     explanation: "This complete rule captures all logic and mechanics of Step 4b.",
-    hint: "If L < n -> e = min(uncovered) -> uncovered - e -> intersections + e -> single unchanged -> re-test.",
+    hint: "If L < n → e = min(uncovered) → uncovered - e → intersections + e → single unchanged → re-test.",
     level: "moderate",
     codeExample: "Golden Rule: e = min(uncovered); uncovered -= e; intersections += e; ReTestLines();"
   }

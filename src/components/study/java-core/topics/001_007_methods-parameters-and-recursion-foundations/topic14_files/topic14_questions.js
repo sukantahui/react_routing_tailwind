@@ -19,7 +19,7 @@ const questions = [
     explanation: "JVM call stack execution order in tree recursion.",
     hint: "Depth-First Search (DFS) order, evaluating left branch before right.",
     level: "basic",
-    codeExample: "// In fib(4): fib(3) -> fib(2) -> fib(1) is fully evaluated before fib(2) right branch"
+    codeExample: "// In fib(4): fib(3) → fib(2) → fib(1) is fully evaluated before fib(2) right branch"
   },
   {
     question: "What is the difference between Linear Recursion and Tree (Binary) Recursion?",
@@ -35,7 +35,7 @@ const questions = [
     explanation: "Exponential complexity of binary recursive trees.",
     hint: "O(2^N) exponential time.",
     level: "basic",
-    codeExample: "// T(N) = T(N - 1) + T(N - 2) + O(1) -> O(2^N)"
+    codeExample: "// T(N) = T(N - 1) + T(N - 2) + O(1) → O(2^N)"
   },
   {
     question: "What is the Space Complexity of naive recursive Fibonacci ($fib(N)$) on the Call Stack?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Fibonacci output verification.",
     hint: "3.",
     level: "basic",
-    codeExample: "traceFibonacci(4, 0) -> 3"
+    codeExample: "traceFibonacci(4, 0) → 3"
   },
   {
     question: "How does 'Stack Unwinding' assemble the final answer in a binary recursion tree?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "Tier 3 scholarship total output verification.",
     hint: "₹1,000.00.",
     level: "basic",
-    codeExample: "calculateTieredScholarship(3, 20000.0, 0) -> ₹1,000.00"
+    codeExample: "calculateTieredScholarship(3, 20000.0, 0) → ₹1,000.00"
   },
   {
     question: "Can an execution tree have more than 2 branches per node (Multi-way Tree)?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "Fibonacci root children.",
     hint: "traceFibonacci(3) and traceFibonacci(2).",
     level: "basic",
-    codeExample: "fib(4) -> left: fib(3), right: fib(2)"
+    codeExample: "fib(4) → left: fib(3), right: fib(2)"
   },
   {
     question: "What tool in the Java ecosystem allows profiling recursive execution trees at runtime?",
@@ -227,7 +227,7 @@ const questions = [
     explanation: "Mastery of recursive execution trees.",
     hint: "Trees visualize DFS call flow; parent frames suspend until children unwind from base leaves.",
     level: "basic",
-    codeExample: "// Summary: DFS Branching -> Leaf Base Case -> Stack Unwinding"
+    codeExample: "// Summary: DFS Branching → Leaf Base Case → Stack Unwinding"
   },
   {
     question: "What is the next topic (Topic 15) in Module 001_007?",
@@ -243,7 +243,7 @@ const questions = [
     explanation: "Master Theorem theoretical foundation.",
     hint: "Compares leaf node work against root divide/combine work.",
     level: "advanced",
-    codeExample: "T(N) = 2T(N/2) + O(N) -> O(N log N) by Master Theorem"
+    codeExample: "T(N) = 2T(N/2) + O(N) → O(N log N) by Master Theorem"
   }
 ];
 

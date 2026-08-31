@@ -192,10 +192,10 @@ const questions = [
   {
     question: "Can a lambda expression inside a `for` loop body capture the loop counter `i` directly?",
     shortAnswer: "No! A lambda can only capture `final` or effectively final variables; since `i` is mutated by `i++`, the compiler rejects capturing `i` directly.",
-    explanation: "Requires creating an effectively final local copy: `int copy = i; Runnable r = () -> print(copy);`.",
+    explanation: "Requires creating an effectively final local copy: `int copy = i; Runnable r = () → print(copy);`.",
     hint: "Cannot capture mutating counter; requires an effectively final copy.",
     level: "advanced",
-    codeExample: "for (int i = 0; i < 5; i++) {\n    int copy = i; // Effectively final\n    list.add(() -> System.out.println(copy));\n}"
+    codeExample: "for (int i = 0; i < 5; i++) {\n    int copy = i; // Effectively final\n    list.add(() → System.out.println(copy));\n}"
   },
   {
     question: "What is 'Variable Bleed' and how does header scoping prevent it?",

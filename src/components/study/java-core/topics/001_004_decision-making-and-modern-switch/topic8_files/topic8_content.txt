@@ -38,7 +38,7 @@ Without the `default` block, the compiler cannot prove that `code` is assigned o
 4. DEFENSIVE PROGRAMMING: FAILING FAST ON UNKNOWN INPUTS
 In enterprise domain modeling, receiving an unhandled selector value is frequently a symptom of an upstream software defect or corrupt payload.
 Instead of silently ignoring or swallowing the error:
-  default -> throw new IllegalArgumentException("Unsupported command code: " + code);
+  default → throw new IllegalArgumentException("Unsupported command code: " + code);
 This enforces the Fail-Fast Principle, preventing corrupted states from persisting in databases.
 
 5. CLASSROOM PEDAGOGY IN BARRACKPORE

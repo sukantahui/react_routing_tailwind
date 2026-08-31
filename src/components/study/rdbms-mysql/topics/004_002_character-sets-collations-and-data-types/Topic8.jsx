@@ -9,11 +9,11 @@ import questions from "./topic8_files/topic8_questions";
 import noteText from "./topic8_files/topic8_note.txt?raw";
 
 /**
- * Topic8 – JSON Path Operators: -> (Extract) and ->> (Extract & Unquote)
+ * Topic8 – JSON Path Operators: → (Extract) and ->> (Extract & Unquote)
  * Module: 004_002_character-sets-collations-and-data-types
  *
  * @component
- * @returns {JSX.Element} Interactive JSON path operators workbench: exploring $ path navigation, distinguishing -> (JSON_EXTRACT) and ->> (JSON_UNQUOTE), debugging the quoted string WHERE clause trap, and executing array slices and recursive descent in MySQL.
+ * @returns {JSX.Element} Interactive JSON path operators workbench: exploring $ path navigation, distinguishing → (JSON_EXTRACT) and ->> (JSON_UNQUOTE), debugging the quoted string WHERE clause trap, and executing array slices and recursive descent in MySQL.
  */
 const Topic8 = () => {
   // Interactive Path State
@@ -21,11 +21,11 @@ const Topic8 = () => {
 
   const pathPhases = {
     phase1_operator_diff: {
-      phaseNumber: "Phase 1: -> vs ->>",
-      title: "1. The Crucial Difference: -> (JSON) vs ->> (Unquoted String)",
+      phaseNumber: "Phase 1: → vs ->>",
+      title: "1. The Crucial Difference: → (JSON) vs ->> (Unquoted String)",
       badge: "Operator Comparison",
       badgeColor: "emerald",
-      sqlSnippet: `-- 🔍 COMPARING -> AND ->> OPERATORS:
+      sqlSnippet: `-- 🔍 COMPARING → AND ->> OPERATORS:
 -- Sample Table with JSON Data:
 CREATE TABLE candidate_profiles (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -36,7 +36,7 @@ CREATE TABLE candidate_profiles (
 INSERT INTO candidate_profiles (student_name, profile) VALUES
 ('Mamata Banerjee', '{"city": "Barrackpore", "age": 22, "skills": ["MySQL", "React"]}');
 
--- 1. Using -> (JSON_EXTRACT): Returns JSON value with quotes:
+-- 1. Using → (JSON_EXTRACT): Returns JSON value with quotes:
 SELECT profile->'$.city' AS quoted_json FROM candidate_profiles;
 -- Result: "\"Barrackpore\"" (JSON String with double quotes!)
 
@@ -76,10 +76,10 @@ SELECT profile->'$.skills[0 to 1]' AS top_two_skills FROM candidate_profiles;
 -- 5. Special Keys with Hyphens / Spaces (Must be quoted!):
 SELECT profile->>'$.\"postal-code\"' AS pincode FROM candidate_profiles;`,
       metricsTable: [
-        { syntaxToken: "$.key", target: "Named Object Property", example: "$.address.city &rarr; 'Barrackpore'" },
-        { syntaxToken: "$[0]", target: "First Array Element", example: "$.skills[0] &rarr; 'MySQL'" },
-        { syntaxToken: "$[last]", target: "Last Array Element", example: "$.skills[last] &rarr; 'React'" },
-        { syntaxToken: "$[1 to 3]", target: "Array Sub-Slice", example: "$.tags[0 to 2] &rarr; ['a', 'b']" }
+        { syntaxToken: "$.key", target: "Named Object Property", example: "$.address.city → 'Barrackpore'" },
+        { syntaxToken: "$[0]", target: "First Array Element", example: "$.skills[0] → 'MySQL'" },
+        { syntaxToken: "$[last]", target: "Last Array Element", example: "$.skills[last] → 'React'" },
+        { syntaxToken: "$[1 to 3]", target: "Array Sub-Slice", example: "$.tags[0 to 2] → ['a', 'b']" }
       ],
       explanation:
         "JSON paths navigate hierarchies using `$` as the root anchor. Dot notation accesses object keys (`$.address.city`), while bracket notation accesses array indices (`$[0]`, `$[last]`, `$[0 to 2]`)."
@@ -107,8 +107,8 @@ WHERE profile->>'$.city' = 'Barrackpore';
 SELECT * FROM candidate_profiles 
 WHERE profile->>'$.city' LIKE 'Barrack%';`,
       metricsTable: [
-        { queryForm: "WHERE col->'$.key' = 'val'", evaluation: "\"val\" = 'val' &rarr; FALSE ❌", impact: "Silent bug: 0 rows returned" },
-        { queryForm: "WHERE col->>'$.key' = 'val'", evaluation: "'val' = 'val' &rarr; TRUE ✅", impact: "Matches correct rows reliably" },
+        { queryForm: "WHERE col->'$.key' = 'val'", evaluation: "\"val\" = 'val' → FALSE ❌", impact: "Silent bug: 0 rows returned" },
+        { queryForm: "WHERE col->>'$.key' = 'val'", evaluation: "'val' = 'val' → TRUE ✅", impact: "Matches correct rows reliably" },
         { queryForm: "WHERE col->>'$.key' LIKE '%'", evaluation: "Plain VARCHAR LIKE Match", impact: "Supports SQL wildcard pattern searches" },
         { queryForm: "Missing Path (NULL)", evaluation: "col->>'$.missing' IS NULL", impact: "Non-existent keys return SQL NULL gracefully" }
       ],
@@ -168,7 +168,7 @@ FROM candidate_profiles;`,
               JSON Path Operators
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             JSON Path Operators: -&gt; (Extract) and -&gt;&gt; (Extract &amp; Unquote)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -271,7 +271,7 @@ FROM candidate_profiles;`,
                   </marker>
                 </defs>
 
-                {/* Left Box: -> Operator */}
+                {/* Left Box: → Operator */}
                 <rect x="20" y="40" width="440" height="280" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="1.5" />
                 <text x="240" y="70" fill="#fb7185" fontSize="13" fontWeight="bold" textAnchor="middle">
                   1. THE -&gt; OPERATOR (JSON_EXTRACT)
@@ -288,7 +288,7 @@ FROM candidate_profiles;`,
 
                 <rect x="40" y="215" width="400" height="65" rx="4" fill="#1e293b" stroke="#334155" />
                 <text x="50" y="235" fill="#fca5a5" fontSize="10" fontWeight="bold">WHERE Filter Trap:</text>
-                <text x="50" y="250" fill="#f87171" fontSize="9">WHERE profile-&gt;'$.city' = 'Barrackpore' &rarr; FALSE! ❌</text>
+                <text x="50" y="250" fill="#f87171" fontSize="9">WHERE profile-&gt;'$.city' = 'Barrackpore' → FALSE! ❌</text>
                 <text x="50" y="265" fill="#94a3b8" fontSize="8">"\"Barrackpore\"" != 'Barrackpore'</text>
 
                 {/* Right Box: ->> Operator */}
@@ -308,7 +308,7 @@ FROM candidate_profiles;`,
 
                 <rect x="510" y="215" width="400" height="65" rx="4" fill="#1e293b" stroke="#10b981" />
                 <text x="520" y="235" fill="#34d399" fontSize="10" fontWeight="bold">WHERE Filter Success:</text>
-                <text x="520" y="250" fill="#34d399" fontSize="9">WHERE profile-&gt;&gt;'$.city' = 'Barrackpore' &rarr; TRUE! ✅</text>
+                <text x="520" y="250" fill="#34d399" fontSize="9">WHERE profile-&gt;&gt;'$.city' = 'Barrackpore' → TRUE! ✅</text>
                 <text x="520" y="265" fill="#bae6fd" fontSize="8">Matches rows cleanly; compatible with LIKE, ORDER BY</text>
               </svg>
             </div>
@@ -627,7 +627,7 @@ FROM candidate_profiles;`,
 
           <PlainTextPrint
             content={noteText}
-            title="JSON Path Operators: -> (Extract) and ->> (Extract & Unquote)"
+            title="JSON Path Operators: → (Extract) and ->> (Extract & Unquote)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Topic Note (.txt)"
@@ -635,7 +635,7 @@ FROM candidate_profiles;`,
           />
 
           <Teacher
-            note="Querying JSON in MySQL is fast and expressive once you master JSON path syntax ($). The number one bug developers run into when querying JSON is using -> instead of ->> in WHERE clauses—because -> retains the surrounding double quotes ('&quot;Barrackpore&quot;'), comparing it to 'Barrackpore' fails silently and returns 0 rows! Remember the golden rule: use -> when you want raw JSON, but always use ->> when you are filtering in WHERE, sorting in ORDER BY, or joining tables!"
+            note="Querying JSON in MySQL is fast and expressive once you master JSON path syntax ($). The number one bug developers run into when querying JSON is using → instead of ->> in WHERE clauses—because → retains the surrounding double quotes ('&quot;Barrackpore&quot;'), comparing it to 'Barrackpore' fails silently and returns 0 rows! Remember the golden rule: use → when you want raw JSON, but always use ->> when you are filtering in WHERE, sorting in ORDER BY, or joining tables!"
           />
         </section>
       </main>

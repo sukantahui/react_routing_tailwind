@@ -42,7 +42,7 @@ export default function Topic1() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Standard <code className="text-sky-400">&apos;for&apos;</code> Loop: Initialization, Condition, Update &amp; Execution Lifecycle
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -137,8 +137,8 @@ export default function Topic1() {
             <text x="335" y="65" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">(2) Condition (Pre-test)</text>
             <rect x="255" y="80" width="160" height="80" rx="6" fill="#451a03" />
             <text x="265" y="105" fill="#fde68a" fontSize="11" fontFamily="monospace">i &lt;= 4</text>
-            <text x="265" y="125" fill="#fef3c7" fontSize="9">true &rarr; proceed to (3)</text>
-            <text x="265" y="145" fill="#fca5a5" fontSize="9">false &rarr; EXIT loop immediately</text>
+            <text x="265" y="125" fill="#fef3c7" fontSize="9">true → proceed to (3)</text>
+            <text x="265" y="145" fill="#fca5a5" fontSize="9">false → EXIT loop immediately</text>
             <text x="335" y="190" fill="#fef3c7" fontSize="10" textAnchor="middle" fontWeight="bold">
               Boundary Check
             </text>
@@ -196,7 +196,7 @@ export default function Topic1() {
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono text-slate-300">1</td>
                 <td className="p-3 font-mono text-amber-400">1</td>
-                <td className="p-3 text-xs text-emerald-400 font-mono">1 &lt;= 4 &rarr; true</td>
+                <td className="p-3 text-xs text-emerald-400 font-mono">1 &lt;= 4 → true</td>
                 <td className="p-3 text-xs font-mono">₹4,500.00</td>
                 <td className="p-3 text-xs text-cyan-300 font-bold font-mono">₹4,500.00</td>
                 <td className="p-3 font-mono text-rose-300">2</td>
@@ -204,7 +204,7 @@ export default function Topic1() {
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono text-slate-300">2</td>
                 <td className="p-3 font-mono text-amber-400">2</td>
-                <td className="p-3 text-xs text-emerald-400 font-mono">2 &lt;= 4 &rarr; true</td>
+                <td className="p-3 text-xs text-emerald-400 font-mono">2 &lt;= 4 → true</td>
                 <td className="p-3 text-xs font-mono">₹4,500.00</td>
                 <td className="p-3 text-xs text-cyan-300 font-bold font-mono">₹9,000.00</td>
                 <td className="p-3 font-mono text-rose-300">3</td>
@@ -212,7 +212,7 @@ export default function Topic1() {
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono text-slate-300">3</td>
                 <td className="p-3 font-mono text-amber-400">3</td>
-                <td className="p-3 text-xs text-emerald-400 font-mono">3 &lt;= 4 &rarr; true</td>
+                <td className="p-3 text-xs text-emerald-400 font-mono">3 &lt;= 4 → true</td>
                 <td className="p-3 text-xs font-mono">₹4,500.00</td>
                 <td className="p-3 text-xs text-cyan-300 font-bold font-mono">₹13,500.00</td>
                 <td className="p-3 font-mono text-rose-300">4</td>
@@ -220,7 +220,7 @@ export default function Topic1() {
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono text-slate-300">4</td>
                 <td className="p-3 font-mono text-amber-400">4</td>
-                <td className="p-3 text-xs text-emerald-400 font-mono">4 &lt;= 4 &rarr; true</td>
+                <td className="p-3 text-xs text-emerald-400 font-mono">4 &lt;= 4 → true</td>
                 <td className="p-3 text-xs font-mono">₹4,500.00</td>
                 <td className="p-3 text-xs text-cyan-300 font-bold font-mono">₹18,000.00</td>
                 <td className="p-3 font-mono text-rose-300">5</td>
@@ -228,7 +228,7 @@ export default function Topic1() {
               <tr className="hover:bg-slate-800/30 transition-colors bg-rose-950/20">
                 <td className="p-3 font-mono text-rose-400">Exit</td>
                 <td className="p-3 font-mono text-rose-400">5</td>
-                <td className="p-3 text-xs text-rose-400 font-mono font-bold">5 &lt;= 4 &rarr; FALSE</td>
+                <td className="p-3 text-xs text-rose-400 font-mono font-bold">5 &lt;= 4 → FALSE</td>
                 <td className="p-3 text-xs text-slate-500">—</td>
                 <td className="p-3 text-xs text-cyan-300 font-bold font-mono">₹18,000.00 (Final)</td>
                 <td className="p-3 text-xs text-rose-400">Loop Terminates</td>
@@ -325,7 +325,7 @@ export default function Topic1() {
       {/* Section 9: Teacher's Note */}
       <section className="space-y-4">
         <Teacher
-          note="To Swadeep, Tuhina, Abhronila, and Debangshu: The standard for loop is your workhorse for definite iteration. Keep its 5-step lifecycle crystal clear: Init (once) -> Condition -> Body -> Update -> Condition. In Topic 2, we explore Variable Scope within for loop headers! — Sukanta Hui"
+          note="To Swadeep, Tuhina, Abhronila, and Debangshu: The standard for loop is your workhorse for definite iteration. Keep its 5-step lifecycle crystal clear: Init (once) → Condition → Body → Update → Condition. In Topic 2, we explore Variable Scope within for loop headers! — Sukanta Hui"
         />
       </section>
     </div>

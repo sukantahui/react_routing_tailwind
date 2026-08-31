@@ -10,7 +10,7 @@ Generating automated Teams/Slack notifications and PDF reports from Excel via Po
 It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Notifications & PDF: Run Script (Calculate KPI & Generate Summary) -> Create File (SharePoint .pdf) -> Post message in a chat or channel (Teams / Slack) -> Send Email (Outlook)
+Operational Architecture: Notifications & PDF: Run Script (Calculate KPI & Generate Summary) → Create File (SharePoint .pdf) → Post message in a chat or channel (Teams / Slack) → Send Email (Outlook)
 
 3. CORE TECHNICAL MECHANICS
 1. Rich Adaptive Cards in Microsoft Teams:

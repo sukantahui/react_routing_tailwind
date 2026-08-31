@@ -69,7 +69,7 @@ A real-world e-commerce shipping calculation combining membership, order thresho
 6. KEY TAKEAWAYS & REVISION SUMMARY
 --------------------------------------------------------------------------------
 • Production control flow combines input validation, business rules, and deterministic outputs.
-• Follow the 3-step pipeline: Validate -> Evaluate -> Return.
+• Follow the 3-step pipeline: Validate → Evaluate → Return.
 • Practice machine-coding scenarios to build fast, intuitive problem-solving skills.
 
 ================================================================================

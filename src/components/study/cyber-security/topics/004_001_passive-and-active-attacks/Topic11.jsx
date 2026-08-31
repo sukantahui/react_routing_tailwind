@@ -232,7 +232,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
     computed_tag = hmac.new(secret_key, payload_bytes, hashlib.sha256).hexdigest()
     
     if not hmac.compare_digest(computed_tag, received_tag):
-        # 2. Tampering Detected -> Execute SOAR Automated Containment (<150ms)
+        # 2. Tampering Detected → Execute SOAR Automated Containment (<150ms)
         print("[!] ACTIVE TAMPERING DETECTED: Discarding packet & isolating port!")
         
         # Shutdown switch port via RESTCONF API
@@ -470,7 +470,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                 </text>
               </g>
 
-              {/* PATH 1: Passive -> Active */}
+              {/* PATH 1: Passive → Active */}
               <path d="M 220 160 L 340 160" stroke="#f59e0b" strokeWidth="3" strokeDasharray="4 4" fill="none" />
               <circle r="4" fill="#f59e0b">
                 <animateMotion path="M 220 160 L 340 160" dur="2s" repeatCount="indefinite" />
@@ -497,7 +497,7 @@ def verify_and_contain(payload_bytes, received_tag, secret_key, switch_ip, port)
                 </text>
               </g>
 
-              {/* PATH 2: Active -> Zero Trust Defense */}
+              {/* PATH 2: Active → Zero Trust Defense */}
               <path d="M 530 160 L 650 160" stroke="#10b981" strokeWidth="3" fill="none" />
               <circle r="5" fill="#10b981">
                 <animateMotion path="M 530 160 L 650 160" dur="1.5s" repeatCount="indefinite" />

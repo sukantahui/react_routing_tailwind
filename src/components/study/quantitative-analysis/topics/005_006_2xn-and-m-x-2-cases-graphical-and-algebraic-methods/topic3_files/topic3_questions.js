@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Plotting Strategy Lines?",
     shortAnswer: "'Mark (0, a2j) on the left axis and (1, a1j) on the right axis; join endpoints to form straight lines; compute slopes and intersection points; shade the active boundary envelope; and label all values in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all strategy line plotting mechanics.",
-    hint: "Mark endpoints -> Join lines -> Slopes & intersections -> Shade envelope in ₹.",
+    hint: "Mark endpoints → Join lines → Slopes & intersections → Shade envelope in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: MarkEndpoints() -> DrawLines() -> CalcIntersections() -> ShadeEnvelope(₹)."
+    codeExample: "GoldenRule: MarkEndpoints() → DrawLines() → CalcIntersections() → ShadeEnvelope(₹)."
   }
 ];
 

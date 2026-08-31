@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 To calculate YoY Growth in DAX: Step 1: `Sales_LY := CALCULATE([TotalSales], SAMEPERIODLASTYEAR(Dim_Calendar[Date]))`. Step 2: `YoY_Growth := DIVIDE([TotalSales] - [Sales_LY], [Sales_LY])`. It dynamically adapts to days, months, or years.
 
 COMMON TRAPS TO AVOID:
-- Comparing Incomplete Months (Apples-to-Oranges): Comparing 15 days of current month against full 30 days of prior year month. -> Fix: Ensure date range is synchronized to equivalent elapsed days using `DATESBETWEEN()`.
-- Division by Zero in YoY Growth Measure: Prior year sales being zero returns `#DIV/0!`. -> Fix: Always wrap in `DIVIDE([Sales] - [SalesLY], [SalesLY], 0)`.
-- Passing Inactive Date Column into DATEADD: Passing non-continuous fact table dates. -> Fix: Always pass the master `Dim_Calendar[Date]` column.
+- Comparing Incomplete Months (Apples-to-Oranges): Comparing 15 days of current month against full 30 days of prior year month. → Fix: Ensure date range is synchronized to equivalent elapsed days using `DATESBETWEEN()`.
+- Division by Zero in YoY Growth Measure: Prior year sales being zero returns `#DIV/0!`. → Fix: Always wrap in `DIVIDE([Sales] - [SalesLY], [SalesLY], 0)`.
+- Passing Inactive Date Column into DATEADD: Passing non-continuous fact table dates. → Fix: Always pass the master `Dim_Calendar[Date]` column.
 ================================================================================

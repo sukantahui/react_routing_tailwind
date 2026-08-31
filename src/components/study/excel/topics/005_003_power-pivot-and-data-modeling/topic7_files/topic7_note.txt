@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Always write Explicit Measures! In the Power Pivot calculation area, type: `TotalSales := SUM(Sales[Amount])`. Explicit measures can be reused inside other formulas and ported directly to Power BI.
 
 COMMON TRAPS TO AVOID:
-- Relying on Implicit Auto-Sums for Multi-Table Models: Dragging raw columns from multiple tables into a single pivot can result in disconnected Cartesian cross-joins if relationships are complex. -> Fix: Always write explicit DAX measures using `SUM()`, `SUMX()`, or `CALCULATE()`.
-- Measure Definition Duplication: Re-typing `=SUM(Sales[Amount])` inside 10 different formulas instead of referencing `[TotalSales]` directly. -> Fix: Practice Measure Branching: reference base measures by name `[BaseMeasure]`.
-- Exposing Raw Numeric Fact Columns to Users: Leaving raw numeric columns unhidden encourages end-users to create broken implicit sums. -> Fix: Hide raw numeric fact columns in the Data Model so users ONLY interact with approved explicit measures.
+- Relying on Implicit Auto-Sums for Multi-Table Models: Dragging raw columns from multiple tables into a single pivot can result in disconnected Cartesian cross-joins if relationships are complex. → Fix: Always write explicit DAX measures using `SUM()`, `SUMX()`, or `CALCULATE()`.
+- Measure Definition Duplication: Re-typing `=SUM(Sales[Amount])` inside 10 different formulas instead of referencing `[TotalSales]` directly. → Fix: Practice Measure Branching: reference base measures by name `[BaseMeasure]`.
+- Exposing Raw Numeric Fact Columns to Users: Leaving raw numeric columns unhidden encourages end-users to create broken implicit sums. → Fix: Hide raw numeric fact columns in the Data Model so users ONLY interact with approved explicit measures.
 ================================================================================

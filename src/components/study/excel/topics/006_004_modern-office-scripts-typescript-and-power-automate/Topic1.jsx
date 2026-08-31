@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Comparing_VBA_vs_O"
+            sheetName="EX2702"
             title={"Comparing VBA vs Office Scripts: TypeScript/JavaScript vs Visual Basic, Cloud vs Desktop - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic1() {
                 Step 1: Open Monaco Editor in Excel for Web
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Excel in browser, click <strong>Automate &gt; New Script</strong> to launch the Monaco Code Editor.
+                Open Excel in browser, click <strong>Automate > New Script</strong> to launch the Monaco Code Editor.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic1() {
                 Step 3: Connect to Microsoft Power Automate Flow
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Automate, add <strong>Excel Online (Business) &gt; Run script</strong> and pass dynamic flow tokens.
+                In Power Automate, add <strong>Excel Online (Business) > Run script</strong> and pass dynamic flow tokens.
               </p>
             </div>
 

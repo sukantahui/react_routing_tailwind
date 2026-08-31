@@ -67,7 +67,7 @@ const Topic6 = () => {
       step: 4,
       title: "4. JMP ESP Trampoline Redirection",
       eipValue: "0x625011AF (JMP ESP in essfunc.dll)",
-      espValue: "0x0012FF88 -> Points to Payload",
+      espValue: "0x0012FF88 → Points to Payload",
       ebpValue: "0x41414141",
       cpuStatus: "CPU executes JMP ESP instruction, jumping directly to stack pointer in RAM!",
       stackState: [
@@ -81,7 +81,7 @@ const Topic6 = () => {
     {
       step: 5,
       title: "5. NOP Sled Slide & Shellcode Execution",
-      eipValue: "0x0012FF88 -> 0x0012FFA8 (Shellcode)",
+      eipValue: "0x0012FF88 → 0x0012FFA8 (Shellcode)",
       espValue: "0x0012FFA8",
       ebpValue: "0x41414141",
       cpuStatus: "SUCCESS: CPU executes NOP instructions and jumps into diagnostic test payload!",
@@ -238,7 +238,7 @@ const Topic6 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_003 • Topic 6 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             System Exploitation, Buffer Overflows, and Credential Attacks
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

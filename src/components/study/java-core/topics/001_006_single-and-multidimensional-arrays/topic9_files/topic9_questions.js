@@ -227,7 +227,7 @@ const questions = [
     explanation: "Mastery of for-each iteration mechanics.",
     hint: "Concise read-only traversal; primitive variables are local copies; objects allow state mutation.",
     level: "basic",
-    codeExample: "// Summary: for (Type x : arr) -> Read-only primitives, mutable object states"
+    codeExample: "// Summary: for (Type x : arr) → Read-only primitives, mutable object states"
   },
   {
     question: "What is the next topic (Topic 10) in Module 001_006?",

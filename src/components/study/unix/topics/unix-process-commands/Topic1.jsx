@@ -45,7 +45,7 @@ const Topic1 = () => {
         {/* --- Section 1: Title & Introduction --- */}
         <div className="animate-fade-slide-up">
           <div className="border-l-4 border-green-500 pl-4 mb-6">
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-700 to-teal-600 dark:from-green-400 dark:to-teal-300 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-700 to-teal-600 dark:from-green-400 dark:to-teal-300 bg-clip-text text-transparent">
               ps Command – Peeking into Active Processes
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">

@@ -144,7 +144,7 @@ const questions = [
     explanation: "Ecosystem migration safety and compatibility verification.",
     hint: "Tests verify that updating libraries didn't break application behavior.",
     level: "basic",
-    codeExample: "# Upgrade dependency -> run pytest -> verify all green"
+    codeExample: "# Upgrade dependency → run pytest → verify all green"
   },
   {
     question: "What is the relationship between automated testing and software architecture modularity?",

@@ -13,7 +13,7 @@ const topic10_questions = [
     "explanation": "Prevents excessive CPU thread context switching on the database engine.",
     "hint": "pool_size = (cores * 2) + spindle_count",
     "level": "Intermediate",
-    "codeExample": "4 Cores -> Pool size of ~10 connections."
+    "codeExample": "4 Cores → Pool size of ~10 connections."
   }
 ];
 

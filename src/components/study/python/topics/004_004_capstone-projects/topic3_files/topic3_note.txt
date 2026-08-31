@@ -10,7 +10,7 @@ Website: https://www.codernaccotax.co.in
 --------------------------------------------------------------------------------
 1. GOOGLE-STYLE DOCSTRING FORMAT
 --------------------------------------------------------------------------------
-  def calculate_waiver(base_fee: float, score: float) -> float:
+  def calculate_waiver(base_fee: float, score: float) → float:
       """Calculates net tuition fee after applying institutional merit rules.
 
       Args:
@@ -35,7 +35,7 @@ Website: https://www.codernaccotax.co.in
 
   CampusName = Literal["Barrackpore", "Kolkata", "Ichapur", "Jadavpur"]
 
-  def get_campus_grant(campus: CampusName) -> float:
+  def get_campus_grant(campus: CampusName) → float:
       return 0.15 if campus == "Barrackpore" else 0.05
 
 --------------------------------------------------------------------------------

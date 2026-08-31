@@ -12,7 +12,7 @@ export default function Topic17() {
         {/* Header */}
         <div className="animate-[fadeInUp_0.5s_ease-out] motion-safe:animate-[fadeInUp_0.5s_ease-out]">
           <div className="border-b-4 border-emerald-500 dark:border-emerald-400 inline-block pb-1 mb-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
               <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-emerald-600 dark:text-emerald-400">vimtutor</code> – The Built‑in Interactive Tutorial
             </h1>
           </div>

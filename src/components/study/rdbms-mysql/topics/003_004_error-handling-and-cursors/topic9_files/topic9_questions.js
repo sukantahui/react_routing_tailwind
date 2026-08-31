@@ -24,7 +24,7 @@ const questions = [
   },
   {
     question: "How do student records for Mamata, Susmita, Abhronila, and Debangshu illustrate cursor loop termination?",
-    shortAnswer: "1. Loop fetches Mamata -> 2. Fetches Susmita -> 3. Fetches Abhronila -> 4. Fetches Debangshu -> 5. 5th FETCH raises NOT FOUND, sets `v_done = TRUE`, `LEAVE` exits before processing phantom 5th row.",
+    shortAnswer: "1. Loop fetches Mamata → 2. Fetches Susmita → 3. Fetches Abhronila → 4. Fetches Debangshu → 5. 5th FETCH raises NOT FOUND, sets `v_done = TRUE`, `LEAVE` exits before processing phantom 5th row.",
     explanation: "Loop termination trace across student records.",
     hint: "5th fetch sets v_done=TRUE, LEAVE exits immediately.",
     level: "basic"

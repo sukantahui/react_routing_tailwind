@@ -17,7 +17,7 @@ const questions = [
   },
   {
     question: "What is the mathematical notation for Generalized Projection with computed expressions?",
-    shortAnswer: "$$\\pi_{F_1, F_2, \\dots, F_n}(R)$$, where each $F_i$ is an attribute or expression of the form $E_i \\rightarrow B_i$ (expression $E_i$ renamed to $B_i$).",
+    shortAnswer: "$$\\pi_{F_1, F_2, \\dots, F_n}(R)$$, where each $F_i$ is an attribute or expression of the form $E_i \→ B_i$ (expression $E_i$ renamed to $B_i$).",
     explanation: "Mathematical formalization of generalized projection.",
     hint: "π_{F1, ..., Fn}(R) where Fi is an expression or column.",
     level: "basic"
@@ -32,9 +32,9 @@ const questions = [
   },
   {
     question: "How do you calculate net salary after a 12% PF deduction using Generalized Projection?",
-    shortAnswer: "$$\\pi_{\\text{emp\\_id, name, basic\\_salary, basic\\_salary} \\times 0.88 \\rightarrow \\text{net\\_salary}}(\\text{Employees})$$.",
+    shortAnswer: "$$\\pi_{\\text{emp\\_id, name, basic\\_salary, basic\\_salary} \\times 0.88 \→ \\text{net\\_salary}}(\\text{Employees})$$.",
     explanation: "Arithmetic projection expression.",
-    hint: "π_{id, name, salary * 0.88 -> net_salary}(Employees).",
+    hint: "π_{id, name, salary * 0.88 → net_salary}(Employees).",
     level: "basic"
   },
   {
@@ -53,9 +53,9 @@ const questions = [
   },
   {
     question: "How do you express string concatenation in Generalized Projection?",
-    shortAnswer: "$$\\pi_{\\text{CONCAT(first\\_name, ' ', last\\_name)} \\rightarrow \\text{full\\_name}}(\\text{Students})$$.",
+    shortAnswer: "$$\\pi_{\\text{CONCAT(first\\_name, ' ', last\\_name)} \→ \\text{full\\_name}}(\\text{Students})$$.",
     explanation: "String scalar generalized projection.",
-    hint: "π_{CONCAT(first, ' ', last) -> full_name}(Students).",
+    hint: "π_{CONCAT(first, ' ', last) → full_name}(Students).",
     level: "basic"
   },
   {
@@ -119,9 +119,9 @@ const questions = [
   },
   {
     question: "What is the equivalent relational algebra notation for SQL `CASE WHEN` conditional projection?",
-    shortAnswer: "$$\\pi_{\\text{name, IF(marks } \\ge 40, \\text{'PASS', 'FAIL'}) \\rightarrow \\text{result}}(\\text{Students})$$.",
+    shortAnswer: "$$\\pi_{\\text{name, IF(marks } \\ge 40, \\text{'PASS', 'FAIL'}) \→ \\text{result}}(\\text{Students})$$.",
     explanation: "Functional conditional notation in extended relational algebra.",
-    hint: "π_{name, IF(marks >= 40, 'PASS', 'FAIL') -> result}(Students).",
+    hint: "π_{name, IF(marks >= 40, 'PASS', 'FAIL') → result}(Students).",
     level: "moderate"
   },
   {
@@ -140,9 +140,9 @@ const questions = [
   },
   {
     question: "How do you convert all city names to uppercase using Generalized Projection?",
-    shortAnswer: "$$\\pi_{\\text{student\\_id, UPPER(city)} \\rightarrow \\text{city\\_upper}}(\\text{Students})$$.",
+    shortAnswer: "$$\\pi_{\\text{student\\_id, UPPER(city)} \→ \\text{city\\_upper}}(\\text{Students})$$.",
     explanation: "String scalar function projection.",
-    hint: "π_{id, UPPER(city) -> city_upper}(Students).",
+    hint: "π_{id, UPPER(city) → city_upper}(Students).",
     level: "basic"
   },
   {
@@ -160,7 +160,7 @@ const questions = [
     level: "basic"
   },
   {
-    question: "Can Generalized Projection create constant/literal columns: $\\pi_{\\text{id, name, 'Kolkata Campus'} \\rightarrow \\text{branch}}(\\text{Students})$?",
+    question: "Can Generalized Projection create constant/literal columns: $\\pi_{\\text{id, name, 'Kolkata Campus'} \→ \\text{branch}}(\\text{Students})$?",
     shortAnswer: "Yes! Literal constants can be projected as fixed-value attributes for all tuples.",
     explanation: "Literal projection in generalized projection.",
     hint: "Yes, projecting literal constants across all rows.",
@@ -181,7 +181,7 @@ const questions = [
     level: "basic"
   },
   {
-    question: "What is the arity of $\\pi_{A, B + C \\rightarrow D, E \\times 2 \\rightarrow F}(R(A, B, C, E))$?",
+    question: "What is the arity of $\\pi_{A, B + C \→ D, E \\times 2 \→ F}(R(A, B, C, E))$?",
     shortAnswer: "3 attributes ($A$, $D$, and $F$).",
     explanation: "Degree count calculation.",
     hint: "3 attributes.",

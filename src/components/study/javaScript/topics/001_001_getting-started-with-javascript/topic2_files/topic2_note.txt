@@ -15,8 +15,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
   3. JavaScript: The dynamic behavioral engine intercepting user interactions, mutating 
      the DOM/CSSOM trees, handling business logic, and fetching data over network streams.
 - The Critical Rendering Path (CRP):
-  * Step 1: HTML bytes -> Tokens -> Nodes -> DOM (Document Object Model) Tree.
-  * Step 2: CSS bytes -> Tokens -> Nodes -> CSSOM (CSS Object Model) Tree.
+  * Step 1: HTML bytes → Tokens → Nodes → DOM (Document Object Model) Tree.
+  * Step 2: CSS bytes → Tokens → Nodes → CSSOM (CSS Object Model) Tree.
   * Step 3: DOM + CSSOM are combined into the Render Tree (visible elements only).
   * Step 4: Layout (Reflow) calculates precise geometry (x, y, width, height) of each box.
   * Step 5: Paint (Rasterization) fills pixels with colors, borders, images, and text.

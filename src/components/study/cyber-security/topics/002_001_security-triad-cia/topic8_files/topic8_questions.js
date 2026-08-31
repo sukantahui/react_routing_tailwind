@@ -20,11 +20,11 @@ const questions = [
   },
   {
     question: "Why does NIST SP 800-63B explicitly advise against mandatory periodic password changes (e.g., every 90 days) without evidence of compromise?",
-    shortAnswer: "Forced frequent password rotations cause users to adopt predictable pattern shifts (e.g., Winter2025! -> Spring2025!), significantly weakening cryptographic entropy.",
+    shortAnswer: "Forced frequent password rotations cause users to adopt predictable pattern shifts (e.g., Winter2025! → Spring2025!), significantly weakening cryptographic entropy.",
     explanation: "Empirical studies proved that when forced to change passwords every 30 to 90 days, users do not create stronger passwords; instead, they make predictable incremental transformations to existing passwords, choose shorter strings, or write them down, yielding weaker overall organizational security.",
     hint: "Think about human cognitive limitations when forced to memorize a new complex string every quarter.",
     level: "expert",
-    codeExample: "// Predictable transformation anti-pattern\n'Kolkata#2025' -> 'Kolkata#2026' -> 'Kolkata#2027!'"
+    codeExample: "// Predictable transformation anti-pattern\n'Kolkata#2025' → 'Kolkata#2026' → 'Kolkata#2027!'"
   },
   {
     question: "How does 'Shadow IT' emerge as a direct consequence of poor security usability?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "By reducing dozens of passwords down to a single master authentication event protected by robust MFA and adaptive conditional access, SSO eliminates password fatigue, drastically cuts helpdesk reset requests, and allows security teams to instantly revoke access enterprise-wide with one click.",
     hint: "Think of a master identity pass that unlocks all authorized workplace apps.",
     level: "moderate",
-    codeExample: "// SAML 2.0 / OIDC Flow\nUser -> App -> Redirects to IdP -> Authenticates with MFA -> Returns JWT/Assertion -> App grants session"
+    codeExample: "// SAML 2.0 / OIDC Flow\nUser → App → Redirects to IdP → Authenticates with MFA → Returns JWT/Assertion → App grants session"
   },
   {
     question: "What is 'MFA Fatigue' (Push Notification Bombing) and how do usability enhancements prevent it?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "When attackers obtain valid passwords, they trigger dozens of MFA push prompts at night until an exhausted employee in Jadavpur hits 'Approve'. Modern usability fixes replace simple 'Approve/Deny' buttons with 'Number Matching', requiring the user to type a 2-digit number displayed on the login screen into their authenticator app.",
     hint: "Think about requiring the user to enter the specific two digits shown on their browser screen.",
     level: "expert",
-    codeExample: "// MFA Number Matching Challenge\nBrowser: 'Enter code 47 on your mobile app'\nMobile App: [ Input: 47 ] -> Verified"
+    codeExample: "// MFA Number Matching Challenge\nBrowser: 'Enter code 47 on your mobile app'\nMobile App: [ Input: 47 ] → Verified"
   },
   {
     question: "How does the principle of 'Default Opt-Out vs Default Opt-In' influence security usability?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "A 4-word passphrase like 'mango-barrackpore-train-river' possesses ~52 bits of entropy and is effortless to type on mobile keyboards. In contrast, 'Tr#8$k9!' has only ~38 bits of entropy, is difficult to remember, and triggers constant typo lockouts.",
     hint: "Think of combining 4 to 5 common random words instead of scrambling 8 unreadable characters.",
     level: "moderate",
-    codeExample: "// Entropy comparison\n'P@$$w0rd1' -> ~32 bits entropy (hard to type, cracked in seconds)\n'jadavpur-bengal-river-metro' -> ~60 bits entropy (easy to type, impossible to crack)"
+    codeExample: "// Entropy comparison\n'P@$$w0rd1' → ~32 bits entropy (hard to type, cracked in seconds)\n'jadavpur-bengal-river-metro' → ~60 bits entropy (easy to type, impossible to crack)"
   },
   {
     question: "What is 'Usable Cryptography' and why is PGP/GPG often cited as its historic failure?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Full Mobile Device Management (MDM) allows corporate admins to factory-reset an employee's personal phone or track GPS location, sparking intense user pushback. MAM isolates corporate apps (Outlook, Teams) into an encrypted sandbox, allowing remote enterprise wipes while leaving personal data untouched.",
     hint: "Think about creating an encrypted work container on a personal smartphone.",
     level: "moderate",
-    codeExample: "// Containerized Corporate Sandbox\nPersonalProfile -> Unrestricted personal apps\nWorkProfile -> Encrypted container (AES-256), DLP enforced, remote wipeable"
+    codeExample: "// Containerized Corporate Sandbox\nPersonalProfile → Unrestricted personal apps\nWorkProfile → Encrypted container (AES-256), DLP enforced, remote wipeable"
   },
   {
     question: "What is 'Frictionless Security' and what are its realistic limitations?",

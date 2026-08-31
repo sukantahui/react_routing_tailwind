@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. STATIC METHOD REFERENCES:
    - Syntax: 'ClassName::staticMethodName'.
-   - Equivalence: '(args) -> ClassName.staticMethodName(args)'.
+   - Equivalence: '(args) → ClassName.staticMethodName(args)'.
    - Examples: 'Math::max', 'Integer::parseInt', 'Double::valueOf'.
    - Arguments match 1:1 with SAM parameters.
 

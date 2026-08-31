@@ -8,7 +8,7 @@ const questions = [
     explanation: "Sorted costs in Row 1 are [4, 6, 8]. Lowest is ₹4 (cell 1,3), second-lowest is ₹6 (cell 1,1). Penalty P_1 = ₹6 - ₹4 = ₹2.",
     hint: "Identify the two smallest costs in [6, 8, 4].",
     level: "moderate",
-    codeExample: "Row 1: [4, 6, 8] -> P_1 = 6 - 4 = ₹2"
+    codeExample: "Row 1: [4, 6, 8] → P_1 = 6 - 4 = ₹2"
   },
   {
     question: "Exercise 1 (cont.): For the above problem, what are all row penalties and column penalties in Pass 1?",
@@ -24,7 +24,7 @@ const questions = [
     explanation: "Comparing min unit rates: min(Row 3) = ₹2 vs min(Col 2) = ₹5. Row 3 offers the lower unit cost and is chosen.",
     hint: "Compare unit rate 2 vs 5.",
     level: "expert",
-    codeExample: "Tie at P=3 -> min_cost(R3)=2 < min_cost(C2)=5 => Select Row 3."
+    codeExample: "Tie at P=3 → min_cost(R3)=2 < min_cost(C2)=5 => Select Row 3."
   },
   {
     question: "Exercise 1 (cont.): In winning Row 3, what is the allocated quantity to cell (3, 3)?",
@@ -36,7 +36,7 @@ const questions = [
   },
   {
     question: "Exercise 1 (cont.): After completing all 5 allocation passes, what is the total transportation cost Z for this problem?",
-    shortAnswer: "₹370 ( (30*6) + (10*4) + (40*9... wait: x_11=30@6=180, x_22=40@9=... ) let's calculate exact: x_11=30@6=180, x_21=0, x_22=40@9=360? No, let's verify exact VAM solution: x_33=20@2=40, x_23=10@3=30, x_21=30@4=120, x_22=10@9=90, x_12=30@8=240 -> Total = 40+30+120+90+240 = ₹520.",
+    shortAnswer: "₹370 ( (30*6) + (10*4) + (40*9... wait: x_11=30@6=180, x_22=40@9=... ) let's calculate exact: x_11=30@6=180, x_21=0, x_22=40@9=360? No, let's verify exact VAM solution: x_33=20@2=40, x_23=10@3=30, x_21=30@4=120, x_22=10@9=90, x_12=30@8=240 → Total = 40+30+120+90+240 = ₹520.",
     explanation: "Allocations: x_33=20@₹2 (₹40), x_23=10@₹3 (₹30), x_21=30@₹4 (₹120), x_22=10@₹9 (₹90), x_12=30@₹8 (₹240). Total Cost Z = 40+30+120+90+240 = ₹520.",
     hint: "Sum all products: 40 + 30 + 120 + 90 + 240 = 520.",
     level: "expert",
@@ -86,7 +86,7 @@ const questions = [
     question: "Exercise 2 (cont.): How many basic cells were generated and is it non-degenerate?",
     shortAnswer: "3 basic cells generated (needed 2 + 3 - 1 = 4); the simultaneous zero caused degeneracy, requiring placing 1 epsilon (ε) in loop-free cell (1, 2).",
     explanation: "Because S2 = 40 and D2 = 40 reached zero together, only 3 allocations occurred. Placing ε in cell (1, 2) restores the basis count to 4.",
-    hint: "3 cells < 4 required -> Add 1 epsilon.",
+    hint: "3 cells < 4 required → Add 1 epsilon.",
     level: "expert",
     codeExample: "Allocations: x_22=40, x_11=30, x_13=30, x_12=ε (Total 4 basic cells)."
   },
@@ -94,7 +94,7 @@ const questions = [
     question: "Exercise 3 (Unbalanced): Mamata in Kolkata has supplies [50, 70] and demands [40, 30, 20]. Is it balanced? What is the dummy requirement?",
     shortAnswer: "Total Supply = 120; Total Demand = 90. Unbalanced with 30 units excess supply. Add Dummy Column D4 with demand 30 and rate ₹0.",
     explanation: "Sum S_i = 120, Sum D_j = 90. Difference = 120 - 90 = 30. Add Dummy Column D4 with demand 30 and unit costs ₹0.",
-    hint: "120 - 90 = 30 excess supply -> Dummy Column.",
+    hint: "120 - 90 = 30 excess supply → Dummy Column.",
     level: "moderate",
     codeExample: "D_dummy = 120 - 90 = 30 units @ ₹0."
   },
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Eliminating Row 2 leaves [4, 7]. Lowest is 4, second-lowest is 7. New penalty = 7 - 4 = ₹3.",
     hint: "7 - 4 = 3.",
     level: "moderate",
-    codeExample: "Remaining in Col 3: [4, 7] -> P' = 7 - 4 = ₹3"
+    codeExample: "Remaining in Col 3: [4, 7] → P' = 7 - 4 = ₹3"
   },
   {
     question: "Exercise 4 (cont.): After full execution, final allocations are: x_23=40@1, x_11=40@2, x_13=10@4, x_32=50@4, x_33=10@7. What is total cost Z?",
@@ -221,7 +221,7 @@ const questions = [
   {
     question: "Exercise 5 (cont.): What is the total transportation cost Z for Exercise 5?",
     shortAnswer: "₹550 ( (50*5) + (10*10) + (40*5) = 250 + 100 + 200 = ₹550 ).",
-    explanation: "Allocations: x_11=50@5 (250), x_12=10@10 (100), x_22=40@5... wait, cell (2,2) is rate 10 -> x_22=40@10 = 400? Let's check: x_11=50@5=250, x_12=10@10=100, x_21=0, x_22=40@10=400 -> Total = 250+100+400 = ₹750.",
+    explanation: "Allocations: x_11=50@5 (250), x_12=10@10 (100), x_22=40@5... wait, cell (2,2) is rate 10 → x_22=40@10 = 400? Let's check: x_11=50@5=250, x_12=10@10=100, x_21=0, x_22=40@10=400 → Total = 250+100+400 = ₹750.",
     hint: "Sum products: (50*5) + (10*10) + (40*10) = 750.",
     level: "moderate",
     codeExample: "Z = 250 + 100 + 400 = ₹750"

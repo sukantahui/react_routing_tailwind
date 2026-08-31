@@ -120,7 +120,7 @@ Final Operational Outcome:
 
 7. STUDENT REVISION CHECKLIST (MODULE CAPSTONE)
 ----------------------------------------------------------------------------------------------------
-[ ] Draw the end-to-end 4-tier enterprise remote access architecture (Perimeter -> DMZ -> Core -> Identity).
+[ ] Draw the end-to-end 4-tier enterprise remote access architecture (Perimeter → DMZ → Core → Identity).
 [ ] Describe the 3-stage AAA authentication and device health posture pipeline.
 [ ] Compare the remote access persona policies for Executives vs Contractors vs SOC Admins.
 [ ] Explain how Active-Active clustering and VRRP provide zero-downtime gateway failover.

@@ -239,7 +239,7 @@ SET PERSIST audit_log_rotations = 10;           -- Keep 10 archives`
     hint: "Automated alert triggers on suspicious patterns like failed logins or unexpected DDL.",
     level: "basic",
     codeExample: `# SIEM Rule Example:
-# condition: count(event.failed_login) > 5 within 1m -> Alert SOC`
+# condition: count(event.failed_login) > 5 within 1m → Alert SOC`
   },
   {
     question: "How do you flush or reload audit log files after manual log rotation by the operating system logrotate utility?",

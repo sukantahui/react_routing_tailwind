@@ -10,7 +10,7 @@ Power Query M Transformation & Unpivoting Practical is an essential evaluation m
 It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: M-Code Transformation: Table.SelectRows -> Table.TransformColumnTypes -> Table.UnpivotOtherColumns -> Table.AddColumn -> Table.Group
+Operational Architecture: M-Code Transformation: Table.SelectRows → Table.TransformColumnTypes → Table.UnpivotOtherColumns → Table.AddColumn → Table.Group
 
 3. CORE TECHNICAL MECHANICS
 1. Unpivoting Wide Matrix Tables:

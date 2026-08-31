@@ -88,7 +88,7 @@ export default class Topic18 extends React.Component {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
               Topic 19: Common Mistakes Beginners Make While Navigating File Systems
             </h1>
           </div>

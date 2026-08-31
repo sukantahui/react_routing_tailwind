@@ -181,7 +181,7 @@ const questions = [
   {
     question: "What is the effect of right‑associativity on chained ternaries?",
     shortAnswer: "It means nested ternaries are grouped from the right.",
-    explanation: "Example: `a ? b : c ? d : e` -> `a ? b : (c ? d : e)`.",
+    explanation: "Example: `a ? b : c ? d : e` → `a ? b : (c ? d : e)`.",
     hint: "Right‑associative.",
     level: "intermediate",
     codeExample: "int result = x > 0 ? 1 : y > 0 ? 2 : 3; // right‑associative",

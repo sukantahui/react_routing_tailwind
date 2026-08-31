@@ -71,7 +71,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Protecting and locking VBA Project code with passwords and obfuscation principles"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic11() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"VBA Security: Tools &gt; VBAProject Properties &gt; Protection &gt; Check 'Lock project for viewing' + Enter Password"}
+            {"VBA Security: Tools > VBAProject Properties > Protection > Check 'Lock project for viewing' + Enter Password"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic11() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"VBA Intellectual Property Security Stack: Code Obfuscation -> Project Lock -> Compiled Add-In Distribution"}
+              Visual Dataflow: {"VBA Intellectual Property Security Stack: Code Obfuscation → Project Lock → Compiled Add-In Distribution"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               System Pipeline
@@ -286,7 +286,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Protecting_and_loc"
+            sheetName="EX2512"
             title={"Protecting and locking VBA Project code with passwords and obfuscation principles - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic11() {
                 Step 2: Author Event Listener or GUI Controls
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Implement the event procedure <code className="text-cyan-300 font-mono font-bold">{"VBA Security: Tools &gt; VBAProject Properties &gt; Protection &gt; Check 'Lock project for viewing' + Enter Password"}</code> with appropriate guard rails.
+                Implement the event procedure <code className="text-cyan-300 font-mono font-bold">{"VBA Security: Tools > VBAProject Properties > Protection > Check 'Lock project for viewing' + Enter Password"}</code> with appropriate guard rails.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic11() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"To protect your proprietary code: In VBE, go to Tools -> VBAProject Properties -> Protection -> check 'Lock project for viewing' and set a strong password. Now nobody can see your code without the password."}
+            note={"To protect your proprietary code: In VBE, go to Tools → VBAProject Properties → Protection → check 'Lock project for viewing' and set a strong password. Now nobody can see your code without the password."}
           />
         </div>
       </div>

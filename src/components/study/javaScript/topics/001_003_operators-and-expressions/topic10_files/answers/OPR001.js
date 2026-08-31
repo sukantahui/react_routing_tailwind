@@ -14,4 +14,4 @@ function calculateCompoundGrowth(principal, rate, timesPerYear, years) {
 }
 calculateCompoundGrowth(10000, 0.08, 4, 3);
 
-console.log("Expected Result Verified:", "Principal: ₹10,000 | 8% Quarterly for 3 Yrs -> Total: ₹12,682.42");
+console.log("Expected Result Verified:", "Principal: ₹10,000 | 8% Quarterly for 3 Yrs → Total: ₹12,682.42");

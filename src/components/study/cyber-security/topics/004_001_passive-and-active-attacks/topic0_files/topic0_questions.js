@@ -6,8 +6,8 @@ const questions = [
     hint: "Think about whether data is merely observed or actively altered/disrupted.",
     level: "moderate",
     codeExample: `// Threat Classification Matrix:
-// Passive: Attacker reads payload -> System state unchanged -> Log traces: 0
-// Active:  Attacker modifies payload -> System state corrupted -> Log traces: Generated`
+// Passive: Attacker reads payload → System state unchanged → Log traces: 0
+// Active:  Attacker modifies payload → System state corrupted → Log traces: Generated`
   },
   {
     question: "How does the CIA Triad map directly to Active and Passive cyber attacks?",
@@ -27,7 +27,7 @@ const questions = [
     hint: "No logs, no latency, no data modification means no alarms.",
     level: "moderate",
     codeExample: `// Promiscuous Sniffing Impact:
-// Interface eth0 entered promiscuous mode -> Packets captured in RAM
+// Interface eth0 entered promiscuous mode → Packets captured in RAM
 // Outbound traffic generated: 0 bytes
 // Target Server Status: 200 OK (Completely unaware of eavesdropper)`
   },
@@ -161,7 +161,7 @@ if (computedTag !== receivedTag) {
     level: "expert",
     codeExample: `// Linux Kernel SYN Cookie Activation:
 // sysctl -w net.ipv4.tcp_syncookies=1
-// Verification: Is (AckNum - 1) == Hash(IPs, Ports, Secret, Timestamp)? If yes -> establish connection`
+// Verification: Is (AckNum - 1) == Hash(IPs, Ports, Secret, Timestamp)? If yes → establish connection`
   },
   {
     question: "What is Man-in-the-Middle (MitM) SSL/TLS Stripping, and is it an Active or Passive attack?",
@@ -199,9 +199,9 @@ add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; prelo
     hint: "Civil liability under Sec 43; Criminal hacking under Sec 66; Cyber terrorism under Sec 66F.",
     level: "moderate",
     codeExample: `// Legal Summary (India IT Act 2000):
-// Sec 43(a): Unauthorized access / data extraction -> Compensation up to ₹1 Crore
-// Sec 66:    Hacking with malicious intent -> 3 Years Prison + ₹5 Lakh Fine
-// Sec 66F:   Active Attack on Critical Grid -> Life Imprisonment`
+// Sec 43(a): Unauthorized access / data extraction → Compensation up to ₹1 Crore
+// Sec 66:    Hacking with malicious intent → 3 Years Prison + ₹5 Lakh Fine
+// Sec 66F:   Active Attack on Critical Grid → Life Imprisonment`
   },
   {
     question: "What is the role of CERT-In regarding mandatory incident reporting for Active Cyber Attacks in India?",
@@ -231,7 +231,7 @@ add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; prelo
     hint: "Listen silently first to steal the badge, then put on the badge to walk through the door.",
     level: "moderate",
     codeExample: `// 2-Phase Hybrid Attack Progression:
-// Step 1 (Passive): Wireshark captures HTTP GET /dashboard -> Cookie: SESSION=auth_99812
+// Step 1 (Passive): Wireshark captures HTTP GET /dashboard → Cookie: SESSION=auth_99812
 // Step 2 (Active):  curl -H "Cookie: SESSION=auth_99812" https://api.bank.in/transfer`
   },
   {
@@ -281,7 +281,7 @@ Set-Cookie: sessionId=38afes7a8; Secure; HttpOnly; SameSite=Strict; Path=/; Max-
     hint: "Phishing fools the person; Masquerade fools the machine.",
     level: "moderate",
     codeExample: `// Attack Pipeline:
-// Phase 1 (Social Engineering): Phishing email tricks employee -> Password harvested
+// Phase 1 (Social Engineering): Phishing email tricks employee → Password harvested
 // Phase 2 (Active Attack)     : Masquerade attack logs into corporate VPN using harvested password`
   },
   {
@@ -291,9 +291,9 @@ Set-Cookie: sessionId=38afes7a8; Secure; HttpOnly; SameSite=Strict; Path=/; Max-
     hint: "Two-way digital passport check: server proves who it is, and client proves who it is.",
     level: "expert",
     codeExample: `// mTLS Handshake Verification:
-// Client -> ClientHello
-// Server -> ServerHello + ServerCertificate + CertificateRequest
-// Client -> ClientCertificate + CertificateVerify (signs handshake with private key)
+// Client → ClientHello
+// Server → ServerHello + ServerCertificate + CertificateRequest
+// Client → ClientCertificate + CertificateVerify (signs handshake with private key)
 // Result: 100% immune to unauthorized rogue client masquerade`
   },
   {

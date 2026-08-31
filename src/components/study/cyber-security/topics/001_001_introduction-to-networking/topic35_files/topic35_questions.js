@@ -22,7 +22,7 @@ const questions = [
     question: "How does the TCP 3-Way Handshake establish a reliable, connection-oriented session?",
     shortAnswer: "1. Client sends SYN (Synchronize Sequence Number: seq=x); 2. Server replies with SYN-ACK (seq=y, ack=x+1); 3. Client sends ACK (ack=y+1). Both sides synchronize sequence numbers and agree upon TCP window scaling options.",
     explanation: "The 3-way handshake prevents duplicate old connection requests from establishing false sessions and initializes bidirectional sequence tracking.",
-    hint: "Step 1: SYN -> Step 2: SYN-ACK -> Step 3: ACK.",
+    hint: "Step 1: SYN → Step 2: SYN-ACK → Step 3: ACK.",
     level: "basic",
     codeExample: "Handshake: Client --SYN(seq=100)--> Server --SYN-ACK(seq=300, ack=101)--> Client --ACK(ack=301)--> ESTABLISHED"
   },
@@ -110,9 +110,9 @@ const questions = [
     question: "What is the 4-Way TCP Connection Teardown process?",
     shortAnswer: "1. Sender sends FIN; 2. Receiver replies with ACK; 3. Receiver sends its own FIN when finished sending data; 4. Sender replies with ACK and enters TIME_WAIT state (typically 2 * MSL = 60–120s) to guarantee final ACK delivery.",
     explanation: "Because TCP is full-duplex, each direction of the connection must be terminated independently using its own FIN/ACK pair.",
-    hint: "FIN -> ACK -> FIN -> ACK completes full bidirectional connection closing.",
+    hint: "FIN → ACK → FIN → ACK completes full bidirectional connection closing.",
     level: "moderate",
-    codeExample: "Teardown: HostA --FIN--> HostB --ACK--> HostB --FIN--> HostA --ACK--> TIME_WAIT -> CLOSED"
+    codeExample: "Teardown: HostA --FIN--> HostB --ACK--> HostB --FIN--> HostA --ACK--> TIME_WAIT → CLOSED"
   },
   {
     question: "What is the function of the TCP TIME_WAIT state and why does it prevent packet confusion?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Protocol state machines ensure deterministic behavior, rejecting invalid packet sequences that violate protocol rules.",
     hint: "Mathematical model defining the exact states and valid transitions of a protocol.",
     level: "expert",
-    codeExample: "TCP_StateMachine: CLOSED -> (rcv SYN) -> SYN_RCVD -> (rcv ACK) -> ESTABLISHED"
+    codeExample: "TCP_StateMachine: CLOSED → (rcv SYN) → SYN_RCVD → (rcv ACK) → ESTABLISHED"
   },
   {
     question: "What is ICMP (Internet Control Message Protocol) and why is it vital for IP error reporting?",
@@ -213,10 +213,10 @@ const questions = [
   {
     question: "What is Protocol Encapsulation and Decapsulation?",
     shortAnswer: "Encapsulation is the process where each lower OSI layer wraps data from the layer above with its own protocol header/trailer before transmission; Decapsulation is the reverse process where the receiving node strips off headers as data moves up the stack.",
-    explanation: "Application Data -> wrapped in TCP Segment -> wrapped in IP Packet -> wrapped in Ethernet Frame -> transmitted as bits.",
+    explanation: "Application Data → wrapped in TCP Segment → wrapped in IP Packet → wrapped in Ethernet Frame → transmitted as bits.",
     hint: "Encapsulation adds headers as data moves down; Decapsulation removes headers as data moves up.",
     level: "basic",
-    codeExample: "Encapsulation: L7 Data -> L4 Segment -> L3 Packet -> L2 Frame -> L1 Physical Bits"
+    codeExample: "Encapsulation: L7 Data → L4 Segment → L3 Packet → L2 Frame → L1 Physical Bits"
   },
   {
     question: "What is Wireshark Protocol Dissection and how do protocol dissectors work?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes protocol architecture, transport reliability, cryptographic security, threat mitigation, and financial hardware budgeting.",
     hint: "Syntax/Semantics/Timing + TLS 1.3 PFS + SYN Cookies + DNSSEC/RPKI + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: MasterProtocolPillars() -> EnforceTLS13PFS() -> DeploySYNCookies() -> ValidateDNSSECandRPKI() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: MasterProtocolPillars() → EnforceTLS13PFS() → DeploySYNCookies() → ValidateDNSSECandRPKI() → BudgetInRupees(₹);"
   }
 ];
 

@@ -49,7 +49,7 @@ const Topic3 = () => {
       {/* Header Section */}
       <div className="max-w-5xl mx-auto animate-fadeSlideUp">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400">
             Use of Abstract Class in Inheritance
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 You don't need to wait for Microsoft Copilot—you can connect Excel directly to OpenAI or Claude using Power Query or VBA! You can send 1,000 customer feedback comments to GPT-4 and get back sentiment scores and categories in 10 seconds.
 
 COMMON TRAPS TO AVOID:
-- Exposing Production API Keys in Plaintext M-Code / VBA: Hardcoding `Bearer sk-proj-12345` inside Power Query formulas or VBA code. -> Fix: Store API keys in environment variables, secure SharePoint parameter tables, or Azure Key Vault.
-- API Rate Limit Exhaustion (HTTP 429 Too Many Requests): Sending 10,000 individual row requests simultaneously in Power Query without throttling. -> Fix: Batch requests into chunks of 50 or use asynchronous queue endpoints.
-- High API Token Costs on Massive Datasets: Using expensive frontier models (GPT-4o) with giant system prompts on 100,000 rows. -> Fix: Use lightweight cost-effective models (e.g. `gpt-4o-mini` or `claude-3-haiku`) with concise prompts.
+- Exposing Production API Keys in Plaintext M-Code / VBA: Hardcoding `Bearer sk-proj-12345` inside Power Query formulas or VBA code. → Fix: Store API keys in environment variables, secure SharePoint parameter tables, or Azure Key Vault.
+- API Rate Limit Exhaustion (HTTP 429 Too Many Requests): Sending 10,000 individual row requests simultaneously in Power Query without throttling. → Fix: Batch requests into chunks of 50 or use asynchronous queue endpoints.
+- High API Token Costs on Massive Datasets: Using expensive frontier models (GPT-4o) with giant system prompts on 100,000 rows. → Fix: Use lightweight cost-effective models (e.g. `gpt-4o-mini` or `claude-3-haiku`) with concise prompts.
 ================================================================================

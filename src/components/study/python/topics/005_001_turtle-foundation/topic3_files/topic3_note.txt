@@ -27,11 +27,11 @@ Website: https://www.codernaccotax.co.in
 --------------------------------------------------------------------------------
 2. TURTLE LIFECYCLE & STATE ATTRIBUTES
 --------------------------------------------------------------------------------
-  - t.shape("turtle")   -> Built-in shapes: "arrow", "turtle", "circle", "square", "triangle", "classic"
-  - t.shapesize(2, 2)   -> Multiplies turtle cursor width and length (stretch_wid, stretch_len)
-  - t.clone()           -> Creates an exact duplicate turtle with identical position, heading & pen
-  - t.hideturtle()      -> Makes cursor invisible for crisp vector art rendering
-  - t.showturtle()      -> Restores cursor visibility
+  - t.shape("turtle")   → Built-in shapes: "arrow", "turtle", "circle", "square", "triangle", "classic"
+  - t.shapesize(2, 2)   → Multiplies turtle cursor width and length (stretch_wid, stretch_len)
+  - t.clone()           → Creates an exact duplicate turtle with identical position, heading & pen
+  - t.hideturtle()      → Makes cursor invisible for crisp vector art rendering
+  - t.showturtle()      → Restores cursor visibility
 
 ================================================================================
        END OF STUDY NOTE • TOPIC 3: TURTLE OBJECT LIFECYCLE

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Set 'Number of items to retain per field' to NONE in PivotTable Options. This stops deleted obsolete data from haunting your filter dropdowns forever.
 
 COMMON TRAPS TO AVOID:
-- Omitting Newly Appended Rows: Source data was defined as a static range ($A$1:$G$500); rows 501-600 are silently ignored on refresh. -> Fix: Convert source range to an Excel Table (Ctrl + T) or use dynamic named ranges.
-- Ghost Items Linger in Filter Dropdowns: Items deleted from source data still appear in pivot filter lists due to cache retention. -> Fix: PivotTable Options > Data > Set 'Number of items to retain per field' to None, then refresh.
-- VBA / Macro Refresh Interruption: Running macros while background queries are still refreshing causes race condition data errors. -> Fix: Disable Background Refresh on queries in Connection Properties before macro execution.
+- Omitting Newly Appended Rows: Source data was defined as a static range ($A$1:$G$500); rows 501-600 are silently ignored on refresh. → Fix: Convert source range to an Excel Table (Ctrl + T) or use dynamic named ranges.
+- Ghost Items Linger in Filter Dropdowns: Items deleted from source data still appear in pivot filter lists due to cache retention. → Fix: PivotTable Options > Data > Set 'Number of items to retain per field' to None, then refresh.
+- VBA / Macro Refresh Interruption: Running macros while background queries are still refreshing causes race condition data errors. → Fix: Disable Background Refresh on queries in Connection Properties before macro execution.
 ================================================================================

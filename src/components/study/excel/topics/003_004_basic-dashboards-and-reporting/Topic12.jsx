@@ -71,7 +71,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Designing clean print/PDF report layouts for C-suite executive briefings"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic12() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Print Layout: Page Layout &gt; Page Setup &gt; Print Area (Alt+P+R+S) | Fit to 1 Page Wide by 1 Tall (Alt+P+S+P) | Export to PDF (Alt+F+E+A)"}
+            {"Print Layout: Page Layout > Page Setup > Print Area (Alt+P+R+S) | Fit to 1 Page Wide by 1 Tall (Alt+P+S+P) | Export to PDF (Alt+F+E+A)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic12() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Executive PDF Publication Pipeline: Dashboard Canvas -> Page Setup Engine -> Pixel-Perfect 1-Page PDF"}
+              Visual Dataflow: {"Executive PDF Publication Pipeline: Dashboard Canvas → Page Setup Engine → Pixel-Perfect 1-Page PDF"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Dashboard Architecture
@@ -286,7 +286,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Designing_clean_pr"
+            sheetName="EX1513"
             title={"Designing clean print/PDF report layouts for C-suite executive briefings - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic12() {
                 Step 1: Set Up Clean Presentation Canvas &amp; Hide Gridlines
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View &gt; Gridlines</kbd>, and define the 4-quadrant layout bounds.
+                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View > Gridlines</kbd>, and define the 4-quadrant layout bounds.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic12() {
                 Step 2: Construct KPI Summary Cards &amp; Delta Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Build top KPI summary cards and apply custom Unicode format masks <code className="text-cyan-300 font-mono font-bold">{"Print Layout: Page Layout &gt; Page Setup &gt; Print Area (Alt+P+R+S) | Fit to 1 Page Wide by 1 Tall (Alt+P+S+P) | Export to PDF (Alt+F+E+A)"}</code>.
+                Build top KPI summary cards and apply custom Unicode format masks <code className="text-cyan-300 font-mono font-bold">{"Print Layout: Page Layout > Page Setup > Print Area (Alt+P+R+S) | Fit to 1 Page Wide by 1 Tall (Alt+P+S+P) | Export to PDF (Alt+F+E+A)"}</code>.
               </p>
             </div>
 
@@ -502,7 +502,7 @@ export default function Topic12() {
                 <span>⚡</span> {"Page Break Preview"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Drag blue boundary lines to visually adjust exact page boundaries."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"View &gt; Page Break Preview (Alt + W + I)"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"View > Page Break Preview (Alt + W + I)"}</kbd>
             </div>
             
           </div>

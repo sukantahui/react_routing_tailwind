@@ -13,7 +13,7 @@ const topic15_questions = [
     "explanation": "Pins the leak down to the specific line of code.",
     "hint": "Thread Details / Stack Trace section.",
     "level": "Intermediate",
-    "codeExample": "Thread Details -> Displays call stack and local variable anchors."
+    "codeExample": "Thread Details → Displays call stack and local variable anchors."
   }
 ];
 

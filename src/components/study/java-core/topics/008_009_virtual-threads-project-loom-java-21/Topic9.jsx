@@ -21,7 +21,7 @@ export default function Topic9() {
             startVirtualThread()
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           The <code className="text-emerald-400 font-mono">Thread.startVirtualThread()</code> Instant One-Line Launcher
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic9() {
       </section>
 
       <Teacher
-        note="Whenever you just want to run a quick task in the background without creating thread pools or builders, just write 'Thread.startVirtualThread(() -> doWork())'! It is the simplest and cleanest way to run asynchronous code in Java 21! — Sukanta Hui"
+        note="Whenever you just want to run a quick task in the background without creating thread pools or builders, just write 'Thread.startVirtualThread(() → doWork())'! It is the simplest and cleanest way to run asynchronous code in Java 21! — Sukanta Hui"
       />
     </div>
   );

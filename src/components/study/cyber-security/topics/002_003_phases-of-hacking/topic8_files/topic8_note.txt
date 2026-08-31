@@ -18,7 +18,7 @@ In Phase 4 of ethical hacking, technical operators execute two essential discipl
 2. VERTICAL VS HORIZONTAL PRIVILEGE ESCALATION
 --------------------------------------------------------------------------------
 
-  * VERTICAL ESCALATION   : Moving UPWARD in privilege hierarchy (e.g. `www-data` -> `root`).
+  * VERTICAL ESCALATION   : Moving UPWARD in privilege hierarchy (e.g. `www-data` → `root`).
   * HORIZONTAL ESCALATION : Moving SIDEWAYS to access data of another peer user at the same level.
 
 --------------------------------------------------------------------------------
@@ -48,12 +48,12 @@ In Phase 4 of ethical hacking, technical operators execute two essential discipl
 [1. SUID / SGID BINARIES]
   * Flaw: Binary runs with file owner (root) privileges (`chmod u+s`).
   * Discovery: `find / -perm -4000 2>/dev/null`
-  * Exploit (GTFOBins): `/usr/bin/find . -exec /bin/sh -p \; -quit` -> Instant Root Shell!
+  * Exploit (GTFOBins): `/usr/bin/find . -exec /bin/sh -p \; -quit` → Instant Root Shell!
 
 [2. SUDO MISCONFIGURATIONS (NOPASSWD)]
   * Flaw: `/etc/sudoers` permits running commands as root without a password.
   * Discovery: `sudo -l`
-  * Exploit (Vim): `sudo vim -c ':!/bin/bash'` -> Escapes into root shell.
+  * Exploit (Vim): `sudo vim -c ':!/bin/bash'` → Escapes into root shell.
 
 [3. KERNEL EXPLOITS (LAST RESORT)]
   * Dirty Pipe (CVE-2022-0847): Overwrites read-only `/etc/passwd` page cache in memory.

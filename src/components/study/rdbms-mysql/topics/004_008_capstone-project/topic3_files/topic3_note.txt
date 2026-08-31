@@ -22,9 +22,9 @@ SQL Implementation:
 -- 🔬 FUNCTIONAL DEPENDENCY ANALYSIS:
 -- Relation: StudentCourse (student_id, course_id, student_name, instructor, room)
 -- Dependencies:
--- FD1: student_id -> student_name
--- FD2: course_id -> instructor, room
--- FD3: {student_id, course_id} -> Grade
+-- FD1: student_id → student_name
+-- FD2: course_id → instructor, room
+-- FD3: {student_id, course_id} → Grade
 -- Candidate Key: {student_id, course_id}
 -- Violations: FD1 and FD2 are Partial Dependencies! (Violates 2NF)
 
@@ -47,7 +47,7 @@ SQL Implementation:
 Takeaways:
 - 1NF guarantees all column values are atomic scalar primitives.
 - 2NF removes partial key dependencies in composite key tables.
-- 3NF removes transitive dependencies (Non-Key -> Non-Key).
+- 3NF removes transitive dependencies (Non-Key → Non-Key).
 
 --------------------------------------------------------------------------------
 [3. BCNF RIGOR]
@@ -55,10 +55,10 @@ BCNF eliminates anomalies when non-trivial determinants exist that are candidate
 
 SQL Implementation:
 -- 🎯 BCNF RULE:
--- In every functional dependency X -> Y, X MUST be a Superkey!
+-- In every functional dependency X → Y, X MUST be a Superkey!
 -- Example: Clinic (doctor_id, patient_id, appointment_slot)
--- FD1: {doctor_id, appointment_slot} -> patient_id
--- FD2: patient_id -> doctor_id (Patient can only see one assigned doctor)
+-- FD1: {doctor_id, appointment_slot} → patient_id
+-- FD2: patient_id → doctor_id (Patient can only see one assigned doctor)
 -- In FD2, patient_id is NOT a superkey! Violates BCNF!
 -- Decomposition: Assign (patient_id PK, doctor_id) and Slots (patient_id, appointment_slot PK)
 

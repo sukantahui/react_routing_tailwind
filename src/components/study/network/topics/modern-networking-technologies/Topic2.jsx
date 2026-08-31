@@ -48,7 +48,7 @@ const Topic2 = () => {
 
         {/* Header */}
         <section className="space-y-4 text-center animate-[fadeSlideUp_0.6s_ease-out] motion-safe:animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Software Defined Networking (SDN)
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">

@@ -483,7 +483,7 @@ policy-map type pbr DDoS-DROP-POLICY
                 </text>
               </g>
 
-              {/* PATH 1: Botnet -> Anycast PoPs */}
+              {/* PATH 1: Botnet → Anycast PoPs */}
               <path d="M 220 165 L 360 165" stroke="#f43f5e" strokeWidth="4" fill="none" />
               <circle r="6" fill="#f43f5e">
                 <animateMotion path="M 220 165 L 360 165" dur="1s" repeatCount="indefinite" />
@@ -519,7 +519,7 @@ policy-map type pbr DDoS-DROP-POLICY
                 </text>
               </g>
 
-              {/* PATH 2: Anycast -> Clean Origin */}
+              {/* PATH 2: Anycast → Clean Origin */}
               <path d="M 590 165 L 690 165" stroke="#10b981" strokeWidth="3" fill="none" />
               <circle r="4" fill="#10b981">
                 <animateMotion path="M 590 165 L 690 165" dur="1.5s" repeatCount="indefinite" />

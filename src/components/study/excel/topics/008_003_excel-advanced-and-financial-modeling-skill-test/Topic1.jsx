@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Data Validation & Tamper-Proof Sheet Protection Test"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic1() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Protection & Validation: Data Validation &gt; Custom Formula: =AND(ISNUMBER(B2), B2>0) | Protect Sheet: Password + Allow User to Edit Ranges"}
+            {"Protection & Validation: Data Validation > Custom Formula: =AND(ISNUMBER(B2), B2>0) | Protect Sheet: Password + Allow User to Edit Ranges"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic1() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Spreadsheet Protection Architecture: Cell Selection -> Data Validation Interceptor -> Formula Locking -> Protected Worksheet Shield"}
+              Visual Dataflow: {"Spreadsheet Protection Architecture: Cell Selection → Data Validation Interceptor → Formula Locking → Protected Worksheet Shield"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Assessment Pipeline
@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Data_Validation___"
+            sheetName="EX3202"
             title={"Data Validation & Tamper-Proof Sheet Protection Test - Assessment Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic1() {
                 Step 1: Understand Schema &amp; Requirements
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Protection & Validation: Data Validation &gt; Custom Formula: =AND(ISNUMBER(B2), B2>0) | Protect Sheet: Password + Allow User to Edit Ranges"}</code>.
+                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Protection & Validation: Data Validation > Custom Formula: =AND(ISNUMBER(B2), B2>0) | Protect Sheet: Password + Allow User to Edit Ranges"}</code>.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic1() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Protect your models from user mistakes! 1. Highlight your input cells, press Ctrl + 1, and uncheck 'Locked'. 2. Go to Review -> Protect Sheet and set a password. Now users can ONLY type in the input cells and can never break your formulas."}
+            note={"Protect your models from user mistakes! 1. Highlight your input cells, press Ctrl + 1, and uncheck 'Locked'. 2. Go to Review → Protect Sheet and set a password. Now users can ONLY type in the input cells and can never break your formulas."}
           />
         </div>
       </div>

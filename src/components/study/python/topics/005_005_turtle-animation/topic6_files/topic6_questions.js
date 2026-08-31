@@ -67,7 +67,7 @@ const questions = [
   },
   {
     question: "How do you fade out particles as they age?",
-    shortAnswer: "Reduce particle radius or cycle color from bright yellow -> orange -> dark red -> transparent based on `age / max_lifetime`.",
+    shortAnswer: "Reduce particle radius or cycle color from bright yellow → orange → dark red → transparent based on `age / max_lifetime`.",
     explanation: "Progressive lifetime scaling creates realistic burning ember and fading smoke effects.",
     hint: "How does particle lifetime alter appearance over time?",
     level: "moderate",

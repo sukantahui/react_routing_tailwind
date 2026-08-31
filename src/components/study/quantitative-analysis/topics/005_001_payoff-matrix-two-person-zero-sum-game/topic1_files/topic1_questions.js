@@ -118,9 +118,9 @@ const questions = [
     question: "What is the ultimate golden rule of Players and Strategies in Game Theory?",
     shortAnswer: "'Players are rational decision-makers; Player A maximizes (Maximin) and Player B minimizes (Minimax); Pure strategies are 100% deterministic choices; Mixed strategies randomize with probabilities summing to 1.0 to eliminate predictability in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all player and strategy mechanics.",
-    hint: "Rational players -> Row maximizes, Col minimizes -> Pure vs Mixed probabilities sum to 1 -> Eliminate predictability in ₹.",
+    hint: "Rational players → Row maximizes, Col minimizes → Pure vs Mixed probabilities sum to 1 → Eliminate predictability in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: RationalPlayers() -> DefineStrategySets() -> PureOrMixedProbabilities() -> MaximinVsMinimax(₹)."
+    codeExample: "GoldenRule: RationalPlayers() → DefineStrategySets() → PureOrMixedProbabilities() → MaximinVsMinimax(₹)."
   }
 ];
 

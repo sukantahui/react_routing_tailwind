@@ -21,7 +21,7 @@ export default function Topic10() {
             Immutable Factories
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Unmodifiable Collection Factories (Java 9+): <code className="text-emerald-400 font-mono">List.of()</code>, <code className="text-sky-400 font-mono">Set.of()</code> &amp; <code className="text-purple-400 font-mono">Map.of()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on mastering Power Pivot and Data Modeling! You now command the same enterprise-grade data architecture used by Fortune 500 companies. Your models can handle millions of rows, complex relationships, and lightning-fast calculations.
 
 COMMON TRAPS TO AVOID:
-- Connecting Two Fact Tables Directly: Attempting to create a relationship between `Fact_Sales` and `Fact_Inventory` directly. -> Fix: Connect both Fact tables independently to shared Conformed Dimension tables (`Dim_Product`, `Dim_Store`, `Dim_Calendar`).
-- Inconsistent Key Formatting Across Tables: StoreKey formatted as Text in Dim_Store but Whole Number in Fact_Sales, breaking relationship creation. -> Fix: Standardize key column data types across all tables in Power Query.
-- Hardcoding Calculations in Worksheet Grid: Bypassing the Data Model and writing manual SUMIFS formulas on large datasets. -> Fix: Perform all calculations using explicit DAX measures in the Data Model.
+- Connecting Two Fact Tables Directly: Attempting to create a relationship between `Fact_Sales` and `Fact_Inventory` directly. → Fix: Connect both Fact tables independently to shared Conformed Dimension tables (`Dim_Product`, `Dim_Store`, `Dim_Calendar`).
+- Inconsistent Key Formatting Across Tables: StoreKey formatted as Text in Dim_Store but Whole Number in Fact_Sales, breaking relationship creation. → Fix: Standardize key column data types across all tables in Power Query.
+- Hardcoding Calculations in Worksheet Grid: Bypassing the Data Model and writing manual SUMIFS formulas on large datasets. → Fix: Perform all calculations using explicit DAX measures in the Data Model.
 ================================================================================

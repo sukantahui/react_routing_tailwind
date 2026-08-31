@@ -26,7 +26,7 @@ const Topic1 = () => {
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <header className="text-center space-y-4 motion-safe:animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
             What is a Programming Language?
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">

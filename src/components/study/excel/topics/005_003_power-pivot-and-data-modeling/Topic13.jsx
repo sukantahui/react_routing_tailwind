@@ -71,7 +71,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Real_world_project"
+            sheetName="EX2214"
             title={"Real-world project: Designing an Enterprise Retail Data Model with multi-table relationships - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic13() {
                 Step 1: Load Data Tables to Data Model
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> &gt; Check <strong>Add this data to the Data Model</strong>.
+                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> > Check <strong>Add this data to the Data Model</strong>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic13() {
                 Step 3: Define Calendar Dimension &amp; Mark as Date Table
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design &gt; Mark as Date Table</strong>.
+                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design > Mark as Date Table</strong>.
               </p>
             </div>
 
@@ -494,7 +494,7 @@ export default function Topic13() {
                 <span>⚡</span> {"Clean 3-Tier Layering"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Standard visual layout in Power Pivot Diagram View."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Dimensions Top -> Facts Bottom"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Dimensions Top → Facts Bottom"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

@@ -10,10 +10,10 @@ const topic14_questions = [
   {
     "question": "What functional interface does the parameter of toArray(generator) represent?",
     "shortAnswer": "It represents java.util.function.IntFunction<A[]>, which receives the required array size (int) and returns a newly allocated array of that size.",
-    "explanation": "The method reference Type[]::new matches IntFunction<Type[]>: (int size) -> new Type[size].",
+    "explanation": "The method reference Type[]::new matches IntFunction<Type[]>: (int size) → new Type[size].",
     "hint": "IntFunction<A[]>",
     "level": "Intermediate",
-    "codeExample": "IntFunction<String[]> gen = String[]::new; // size -> new String[size]"
+    "codeExample": "IntFunction<String[]> gen = String[]::new; // size → new String[size]"
   }
 ];
 

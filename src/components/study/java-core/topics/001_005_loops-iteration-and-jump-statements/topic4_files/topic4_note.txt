@@ -15,8 +15,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Entry-Controlled Nature (Pre-test):
   * The condition is evaluated BEFORE entering the body.
-  * If initial condition is FALSE -> Body executes ZERO (0) times.
-  * If condition is TRUE -> Body executes -> Condition re-evaluated.
+  * If initial condition is FALSE → Body executes ZERO (0) times.
+  * If condition is TRUE → Body executes → Condition re-evaluated.
 
 - Primary Use Cases:
   1. Indefinite Iteration : Unknown iteration count (network polling, stream reading).

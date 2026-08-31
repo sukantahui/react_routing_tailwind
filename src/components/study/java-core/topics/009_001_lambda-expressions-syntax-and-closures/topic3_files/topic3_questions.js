@@ -5,7 +5,7 @@ const topic3_questions = [
     "explanation": "Core type inference mechanism of Java 8 Lambda Expressions.",
     "hint": "Lambda has no type of its own; compiler infers its interface type from variable assignment, method parameter, or cast context.",
     "level": "Intermediate",
-    "codeExample": "Callable<String> c = () -> \"Hello\"; Supplier<String> s = () -> \"Hello\"; // Same lambda, different target types!"
+    "codeExample": "Callable<String> c = () → \"Hello\"; Supplier<String> s = () → \"Hello\"; // Same lambda, different target types!"
   }
 ];
 

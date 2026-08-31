@@ -10,7 +10,7 @@ Step-by-step formula evaluation using Evaluate Formula tool is an essential disc
 It provides the core protocols required to prevent data corruption, audit complex formulas, and encrypt sensitive corporate assets.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Formula Stepping: Formulas > Evaluate Formula (Alt + M + V) -> Step In / Step Out -> Evaluate (Space / Enter)
+Operational Architecture: Formula Stepping: Formulas > Evaluate Formula (Alt + M + V) → Step In / Step Out → Evaluate (Space / Enter)
 
 3. CORE TECHNICAL MECHANICS
 1. Sub-Expression Underline Stepping:

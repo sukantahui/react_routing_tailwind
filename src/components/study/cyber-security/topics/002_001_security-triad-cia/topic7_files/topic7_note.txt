@@ -168,13 +168,13 @@ C. STATUTORY & LEGAL FRAMEWORK (INDIA & GLOBAL)
 
 [A] Hexad-Driven Threat Modeling
     When analyzing system threats (e.g. STRIDE mapping):
-    - Spoofing -> Authenticity Breach
-    - Tampering -> Integrity Breach
-    - Repudiation -> Non-Repudiation Breach
-    - Information Disclosure -> Confidentiality Breach
-    - Denial of Service -> Availability Breach
-    - Elevation of Privilege -> Possession / Control Breach
-    - Crypto Ransomware -> Utility Breach
+    - Spoofing → Authenticity Breach
+    - Tampering → Integrity Breach
+    - Repudiation → Non-Repudiation Breach
+    - Information Disclosure → Confidentiality Breach
+    - Denial of Service → Availability Breach
+    - Elevation of Privilege → Possession / Control Breach
+    - Crypto Ransomware → Utility Breach
 
 [B] Digital Signature & Verification Flow:
     +-------------------+                  +-------------------+
@@ -183,7 +183,7 @@ C. STATUTORY & LEGAL FRAMEWORK (INDIA & GLOBAL)
               |                                      |
        [Document M]                                  |
               |                                      |
-         [SHA-256] -> Digest H                       |
+         [SHA-256] → Digest H                       |
               |                                      |
       [HSM Private Key]                              |
               |                                      |

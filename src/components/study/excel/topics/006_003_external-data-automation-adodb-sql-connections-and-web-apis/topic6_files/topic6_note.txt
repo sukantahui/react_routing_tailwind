@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Excel can talk to the internet! Use `MSXML2.ServerXMLHTTP.6.0` to fetch live stock prices, weather data, or currency rates from any REST API in the world. It takes 5 lines of code.
 
 COMMON TRAPS TO AVOID:
-- Using MSXML2.XMLHTTP Instead of ServerXMLHTTP (Caching Bug): `XMLHTTP` caches responses in Internet Explorer cache, returning stale exchange rates rather than fresh data. -> Fix: Always use `MSXML2.ServerXMLHTTP.6.0` to guarantee fresh, non-cached server responses.
-- Freezing Excel on Slow / Timed-Out Web Servers: Synchronous HTTP requests hanging indefinitely if external API server is down. -> Fix: Configure explicit timeouts: `http.setTimeouts 5000, 5000, 10000, 10000` (Resolve, Connect, Send, Receive in milliseconds).
-- Exposing Production API Keys in Unlocked Workbooks: Hardcoding proprietary API keys in exposed VBA modules. -> Fix: Lock VBA Project with password protection.
+- Using MSXML2.XMLHTTP Instead of ServerXMLHTTP (Caching Bug): `XMLHTTP` caches responses in Internet Explorer cache, returning stale exchange rates rather than fresh data. → Fix: Always use `MSXML2.ServerXMLHTTP.6.0` to guarantee fresh, non-cached server responses.
+- Freezing Excel on Slow / Timed-Out Web Servers: Synchronous HTTP requests hanging indefinitely if external API server is down. → Fix: Configure explicit timeouts: `http.setTimeouts 5000, 5000, 10000, 10000` (Resolve, Connect, Send, Receive in milliseconds).
+- Exposing Production API Keys in Unlocked Workbooks: Hardcoding proprietary API keys in exposed VBA modules. → Fix: Lock VBA Project with password protection.
 ================================================================================

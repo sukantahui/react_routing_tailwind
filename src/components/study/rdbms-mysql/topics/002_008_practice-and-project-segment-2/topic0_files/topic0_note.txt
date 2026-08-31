@@ -37,28 +37,28 @@ memberships, book issuance/returns, and overdue fine collection.
    - `book_id` INT AUTO_INCREMENT PRIMARY KEY
    - `isbn_13` VARCHAR(17) NOT NULL UNIQUE
    - `title` VARCHAR(255) NOT NULL
-   - `publisher_id` INT NOT NULL (FK -> publishers)
+   - `publisher_id` INT NOT NULL (FK → publishers)
    - `category` VARCHAR(50) NOT NULL
    - `edition_year` SMALLINT NOT NULL
    - `total_copies` INT DEFAULT 0
    - `available_copies` INT DEFAULT 0
 
 5. `book_authors` (Many-to-Many Bridge Table)
-   - `book_id` INT NOT NULL (FK -> books)
-   - `author_id` INT NOT NULL (FK -> authors)
+   - `book_id` INT NOT NULL (FK → books)
+   - `author_id` INT NOT NULL (FK → authors)
    - PRIMARY KEY (`book_id`, `author_id`)
 
 6. `book_items` (Physical Copy / Barcode Tracking Level)
    - `barcode_id` VARCHAR(30) PRIMARY KEY
-   - `book_id` INT NOT NULL (FK -> books)
+   - `book_id` INT NOT NULL (FK → books)
    - `shelf_location` VARCHAR(30) NOT NULL
    - `item_status` ENUM('AVAILABLE', 'LOANED', 'LOST', 'DAMAGED') DEFAULT 'AVAILABLE'
    - `acquisition_date` DATE NOT NULL
 
 7. `loans` (Circulation Ledger)
    - `loan_id` BIGINT AUTO_INCREMENT PRIMARY KEY
-   - `barcode_id` VARCHAR(30) NOT NULL (FK -> book_items)
-   - `member_id` INT NOT NULL (FK -> members)
+   - `barcode_id` VARCHAR(30) NOT NULL (FK → book_items)
+   - `member_id` INT NOT NULL (FK → members)
    - `issue_date` DATE NOT NULL
    - `due_date` DATE NOT NULL
    - `return_date` DATE NULL
@@ -66,7 +66,7 @@ memberships, book issuance/returns, and overdue fine collection.
 
 8. `fines` (Penalty Ledger)
    - `fine_id` BIGINT AUTO_INCREMENT PRIMARY KEY
-   - `loan_id` BIGINT NOT NULL UNIQUE (FK -> loans)
+   - `loan_id` BIGINT NOT NULL UNIQUE (FK → loans)
    - `overdue_days` INT NOT NULL
    - `fine_amount_inr` DECIMAL(8,2) NOT NULL
    - `payment_status` ENUM('UNPAID', 'PAID', 'WAIVED') DEFAULT 'UNPAID'

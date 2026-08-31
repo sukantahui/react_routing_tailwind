@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. MODULE 009_001 GRAND SUMMARY:
    - Functional Programming: Unifies OOP with declarative, immutable data pipelines.
-   - Lambda Anatomy: '(parameters) -> { body }'.
+   - Lambda Anatomy: '(parameters) → { body }'.
    - Syntax Shortcuts: Inferred types, single-param no-parentheses, single-expression no-return.
    - Target Typing: Compiler infers lambda type from assignment/argument context.
    - SAM Rule: Functional Interfaces declare exactly ONE abstract method.

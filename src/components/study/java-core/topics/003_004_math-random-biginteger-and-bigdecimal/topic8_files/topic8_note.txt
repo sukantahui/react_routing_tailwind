@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. INSTANTIATION RULES:
-   - FORBIDDEN : 'new BigDecimal(0.1)' &rarr; Imprecise double input.
-   - PREFERRED : 'new BigDecimal("0.1")' &rarr; Pristine string input.
-   - ACCEPTABLE: 'BigDecimal.valueOf(0.1)' &rarr; Uses Double.toString().
+   - FORBIDDEN : 'new BigDecimal(0.1)' → Imprecise double input.
+   - PREFERRED : 'new BigDecimal("0.1")' → Pristine string input.
+   - ACCEPTABLE: 'BigDecimal.valueOf(0.1)' → Uses Double.toString().
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

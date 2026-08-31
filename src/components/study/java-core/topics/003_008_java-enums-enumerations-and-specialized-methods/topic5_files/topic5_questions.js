@@ -5,7 +5,7 @@ const topic5_questions = [
     "explanation": "Eliminates subtle runtime missing-branch bugs across large codebases.",
     "hint": "Provides compile-time exhaustiveness checking without requiring a default branch.",
     "level": "Intermediate",
-    "codeExample": "String text = switch (status) { case ACTIVE -> \"On\"; case INACTIVE -> \"Off\"; };"
+    "codeExample": "String text = switch (status) { case ACTIVE → \"On\"; case INACTIVE → \"Off\"; };"
   }
 ];
 

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never concatenate user input directly into SQL strings! If a user types `' OR '1'='1`, your macro could expose your entire database. Use `ADODB.Command` with `?` placeholders for bulletproof enterprise security.
 
 COMMON TRAPS TO AVOID:
-- Concatenating User Input Directly into SQL (Fatal Security Vulnerability): Writing `sql = "SELECT * FROM Users WHERE User='" & txtUser.Text & "'"` leaves systems 100% exposed to catastrophic SQL injection data deletion. -> Fix: Always use `ADODB.Command` with `?` placeholders and parameters.
-- Parameter Data Type Mismatch (adInteger vs adVarChar): Passing string text into an integer parameter causes ADO to reject the execution. -> Fix: Match ADO parameter data types (`adVarChar`, `adInteger`, `adDate`, `adDouble`) to database column schema.
-- Missing Parameter Size on Variable Strings: Omitting the size parameter on `adVarChar` throws runtime error. -> Fix: Specify maximum string length: `cmd.CreateParameter(..., adVarChar, adParamInput, 100, strVal)`.
+- Concatenating User Input Directly into SQL (Fatal Security Vulnerability): Writing `sql = "SELECT * FROM Users WHERE User='" & txtUser.Text & "'"` leaves systems 100% exposed to catastrophic SQL injection data deletion. → Fix: Always use `ADODB.Command` with `?` placeholders and parameters.
+- Parameter Data Type Mismatch (adInteger vs adVarChar): Passing string text into an integer parameter causes ADO to reject the execution. → Fix: Match ADO parameter data types (`adVarChar`, `adInteger`, `adDate`, `adDouble`) to database column schema.
+- Missing Parameter Size on Variable Strings: Omitting the size parameter on `adVarChar` throws runtime error. → Fix: Specify maximum string length: `cmd.CreateParameter(..., adVarChar, adParamInput, 100, strVal)`.
 ================================================================================

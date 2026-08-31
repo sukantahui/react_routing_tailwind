@@ -9,7 +9,7 @@ const questions = [
     explanation: "Tables convert static coordinates into relational entities with self-expanding structured references.",
     hint: "Auto-expansion and automatic formula propagation.",
     level: "basic",
-    codeExample: "Ctrl + T &rarr; Table Object"
+    codeExample: "Ctrl + T → Table Object"
   },
   {
     question: "How do structured table references (`[@Gross] * 0.18`) improve formula reliability?",
@@ -113,7 +113,7 @@ const questions = [
     explanation: "Power Query records repeatable transformation steps, refreshing data with a single click.",
     hint: "Automated ETL engine running on M formula language.",
     level: "basic",
-    codeExample: "Data &rarr; Get Data &rarr; From Folder / Database"
+    codeExample: "Data → Get Data → From Folder / Database"
   },
   {
     question: "What is the primary function of `Table.UnpivotOtherColumns` in Power Query M code?",
@@ -129,7 +129,7 @@ const questions = [
     explanation: "Column and bar visual encodings require a zero baseline.",
     hint: "Always anchor column and bar chart baselines at zero.",
     level: "basic",
-    codeExample: "Format Axis &rarr; Minimum Bound = 0"
+    codeExample: "Format Axis → Minimum Bound = 0"
   },
   {
     question: "How do you plot metrics with vast scale differences (e.g. Sales in Lakhs vs Margin %) on one chart?",
@@ -137,7 +137,7 @@ const questions = [
     explanation: "Secondary axis provides an independent right-hand scale.",
     hint: "Assign Margin % to a Secondary Axis in Combo Chart settings.",
     level: "moderate",
-    codeExample: "Combo Chart &rarr; Margin % on Secondary Axis"
+    codeExample: "Combo Chart → Margin % on Secondary Axis"
   },
   {
     question: "What are Sparklines and where do they live in Excel?",
@@ -145,7 +145,7 @@ const questions = [
     explanation: "Provide quick historical trajectory context right alongside tabular row figures.",
     hint: "Sparklines live inside individual spreadsheet cells.",
     level: "basic",
-    codeExample: "Insert &rarr; Sparklines &rarr; Line"
+    codeExample: "Insert → Sparklines → Line"
   },
   {
     question: "How do you open the Multi-Level Sort dialog box via keyboard?",
@@ -217,15 +217,15 @@ const questions = [
     explanation: "Eliminates formula errors caused by invalid user inputs.",
     hint: "Constrains cell inputs to valid predefined choices.",
     level: "basic",
-    codeExample: "Data Validation &rarr; List &rarr; Source: =tbl_SKU[Code]"
+    codeExample: "Data Validation → List → Source: =tbl_SKU[Code]"
   },
   {
     question: "How do you format Slicers into a multi-column horizontal dashboard toolbar?",
-    shortAnswer: "Select Slicer &rarr; Slicer ribbon tab &rarr; Increase 'Columns' to 4 or 5.",
+    shortAnswer: "Select Slicer → Slicer ribbon tab → Increase 'Columns' to 4 or 5.",
     explanation: "Converts vertical button stacks into horizontal navigation ribbons.",
     hint: "Increase Slicer Columns count on the Slicer ribbon.",
     level: "basic",
-    codeExample: "Slicer Ribbon &rarr; Columns = 4"
+    codeExample: "Slicer Ribbon → Columns = 4"
   },
   {
     question: "What is the primary difference between `COUNT` and `COUNTA`?",

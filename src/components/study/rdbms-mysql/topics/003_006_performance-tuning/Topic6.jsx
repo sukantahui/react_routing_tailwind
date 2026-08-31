@@ -211,7 +211,7 @@ WHERE address LIKE '%Ichapur%';
               Access Path Engineering
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Table Scan vs Index Scan vs Index Range Scan vs Const Lookup
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -342,21 +342,21 @@ WHERE address LIKE '%Ichapur%';
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-emerald-400">const</td>
                   <td className="py-3 px-4">`WHERE pk = 101`</td>
-                  <td className="py-3 px-4">Root &rarr; Branch &rarr; Single Leaf Page</td>
+                  <td className="py-3 px-4">Root → Branch → Single Leaf Page</td>
                   <td className="py-3 px-4 font-mono text-emerald-300">1 Page</td>
                   <td className="py-3 px-4 text-emerald-300 font-medium">Near Zero (RAM Hit)</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-teal-300">ref</td>
                   <td className="py-3 px-4">`WHERE city = 'Barrackpore'`</td>
-                  <td className="py-3 px-4">Root &rarr; Leaf &rarr; Contiguous Keys</td>
+                  <td className="py-3 px-4">Root → Leaf → Contiguous Keys</td>
                   <td className="py-3 px-4 font-mono text-teal-300">3 - 6 Pages</td>
                   <td className="py-3 px-4 text-teal-300 font-medium">Minimal Cache Pin</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-cyan-300">range</td>
                   <td className="py-3 px-4">`WHERE fee BETWEEN 10k AND 25k`</td>
-                  <td className="py-3 px-4">Probe lower bound &rarr; Traverse linked leaves</td>
+                  <td className="py-3 px-4">Probe lower bound → Traverse linked leaves</td>
                   <td className="py-3 px-4 font-mono text-cyan-300">8 - 25 Pages</td>
                   <td className="py-3 px-4 text-cyan-300 font-medium">Low to Moderate</td>
                 </tr>
@@ -640,7 +640,7 @@ WHERE address LIKE '%Ichapur%';
                     Secondary Index Range Scan + Random Seeks
                   </text>
                   <text x="230" y="90" fill="#94a3b8" fontSize="11" textAnchor="middle">
-                    Secondary Index (idx_city) &rarr; Clustered Primary Key Table
+                    Secondary Index (idx_city) → Clustered Primary Key Table
                   </text>
 
                   <rect x="60" y="110" width="140" height="60" rx="6" fill="#1e293b" stroke="#0284c7" />
@@ -905,7 +905,7 @@ WHERE address LIKE '%Ichapur%';
 {`-- Add Unique Constraint to enable const lookup:
 ALTER TABLE student_applications ADD UNIQUE INDEX uq_reg_code (reg_code);
 
--- Result: EXPLAIN type transforms from ALL (65 ms) -> const (0.04 ms)! ⚡`}
+-- Result: EXPLAIN type transforms from ALL (65 ms) → const (0.04 ms)! ⚡`}
                 </pre>
               </div>
             </div>

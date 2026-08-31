@@ -6,10 +6,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. PARSING METHODS:
-   - 'Integer.parseInt(str)'    &rarr; Returns primitive 'int'.
-   - 'Double.parseDouble(str)'  &rarr; Returns primitive 'double'.
-   - 'Boolean.parseBoolean(str)'&rarr; Returns 'true' (case-insensitive) or 'false'.
-   - 'Integer.valueOf(str)'     &rarr; Returns cached 'Integer' object.
+   - 'Integer.parseInt(str)'    → Returns primitive 'int'.
+   - 'Double.parseDouble(str)'  → Returns primitive 'double'.
+   - 'Boolean.parseBoolean(str)'→ Returns 'true' (case-insensitive) or 'false'.
+   - 'Integer.valueOf(str)'     → Returns cached 'Integer' object.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

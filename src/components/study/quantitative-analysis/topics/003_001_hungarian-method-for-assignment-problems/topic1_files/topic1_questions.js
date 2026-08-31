@@ -230,7 +230,7 @@ const questions = [
     question: "What is the ultimate golden rule of the Assignment Model?",
     shortAnswer: "'Formulate n^2 binary variables with 2n 1-to-1 constraints; leverage Total Unimodularity to solve as a continuous linear program; apply the Hungarian dual reduction to extract the optimal permutation matrix!'",
     explanation: "This complete rule captures the entire mathematical architecture of the assignment model.",
-    hint: "n^2 binary variables -> 2n constraints -> TUM -> Hungarian dual reduction.",
+    hint: "n^2 binary variables → 2n constraints → TUM → Hungarian dual reduction.",
     level: "moderate",
     codeExample: "Golden Rule: n^2 Vars + 2n Constraints + TUM + Hungarian Duality = Optimal Permutation."
   }

@@ -76,7 +76,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Extracting Suffixes and Trailing Data with TEXTAFTER
           </h1>
 
@@ -201,7 +201,7 @@ export default function Topic8() {
                 returning the true file extension <code className="text-emerald-300 font-mono">"xlsx"</code> without being confused by preceding dots!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                =TEXTAFTER("Audit.final.xlsx", ".", -1) &rarr; "xlsx"
+                =TEXTAFTER("Audit.final.xlsx", ".", -1) → "xlsx"
               </div>
             </div>
 
@@ -215,7 +215,7 @@ export default function Topic8() {
                 <code className="text-emerald-300 font-mono">=TEXTBEFORE(TEXTAFTER(A2, "["), "]")</code> in 1 clean step!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                =TEXTBEFORE(TEXTAFTER("[INFO] Server Up", "["), "]") &rarr; "INFO"
+                =TEXTBEFORE(TEXTAFTER("[INFO] Server Up", "["), "]") → "INFO"
               </div>
             </div>
           </div>
@@ -228,7 +228,7 @@ export default function Topic8() {
               Extract everything following the protocol <code className="text-purple-300 font-mono">"://"</code>:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                =TEXTAFTER("https://codernaccotax.co.in/tax/gst", "://") &rarr; "codernaccotax.co.in/tax/gst"
+                =TEXTAFTER("https://codernaccotax.co.in/tax/gst", "://") → "codernaccotax.co.in/tax/gst"
               </code>
             </p>
           </div>
@@ -330,7 +330,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_TEXTAFTER"
+            sheetName="EX1909"
             title="Suffix & Trailing Text Extraction Dataset (Record ID, Raw Text, Delimiter, Instance, Extracted Suffix)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -369,7 +369,7 @@ export default function Topic8() {
                 Enables instant clustering of corporate accounts versus generic public webmail providers.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =TEXTAFTER(Email, "@") &rarr; "corp.in"
+                Formula: =TEXTAFTER(Email, "@") → "corp.in"
               </div>
             </div>
 
@@ -423,7 +423,7 @@ export default function Topic8() {
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 HR Manager <strong>Debangshu Ghosh</strong> extracts employee surnames: 
                 <code className="text-amber-300 font-mono">=TEXTAFTER(FullName, " ", -1)</code>, 
-                handling multi-part names like <code className="text-slate-300 font-mono">Debangshu Kumar Ghosh</code> &rarr; <code className="text-emerald-300 font-mono">Ghosh</code> perfectly!
+                handling multi-part names like <code className="text-slate-300 font-mono">Debangshu Kumar Ghosh</code> → <code className="text-emerald-300 font-mono">Ghosh</code> perfectly!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
                 Negative instance -1 handles middle names effortlessly

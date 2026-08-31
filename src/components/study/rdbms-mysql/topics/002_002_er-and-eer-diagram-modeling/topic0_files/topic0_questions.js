@@ -5,7 +5,7 @@ const questions = [
     question: "What are the three distinct phases of the standard Database Design Lifecycle?",
     shortAnswer: "1) Conceptual Design (ER/EER Modeling), 2) Logical Design (Relational Schema & Normalization), and 3) Physical Design (Storage Engine, Indexes & DDL Optimization).",
     explanation: "Standard 3-tier ANSI/SPARC database design methodology.",
-    hint: "Conceptual -> Logical -> Physical.",
+    hint: "Conceptual → Logical → Physical.",
     level: "basic"
   },
   {
@@ -25,7 +25,7 @@ const questions = [
   {
     question: "What is the primary objective of Logical Database Design?",
     shortAnswer: "To translate the conceptual ER model into a formal relational model consisting of normalized tables (relations), primary keys, foreign keys, and integrity constraints.",
-    explanation: "Eliminates redundancy and anomalies using normalization theory (1NF -> BCNF).",
+    explanation: "Eliminates redundancy and anomalies using normalization theory (1NF → BCNF).",
     hint: "Translates ER into normalized relational tables.",
     level: "basic"
   },
@@ -75,7 +75,7 @@ const questions = [
     question: "How does the target audience differ across the three database design phases?",
     shortAnswer: "Conceptual: Business domain experts & stakeholders; Logical: Data modelers & software engineers; Physical: Database administrators (DBAs) & performance engineers.",
     explanation: "Different stakeholder audiences for each level of abstraction.",
-    hint: "Business experts -> Software engineers -> DBAs.",
+    hint: "Business experts → Software engineers → DBAs.",
     level: "moderate"
   },
   {
@@ -89,7 +89,7 @@ const questions = [
     question: "What is the difference between an Entity in Conceptual design vs a Relation in Logical design vs a Table in Physical design?",
     shortAnswer: "An Entity is a real-world business object; a Relation is a mathematical set of tuples; a Table is the physical storage representation on disk pages.",
     explanation: "Evolution of the entity concept across the three design tiers.",
-    hint: "Real-world object -> Mathematical relation -> Physical disk table.",
+    hint: "Real-world object → Mathematical relation → Physical disk table.",
     level: "expert"
   },
   {
@@ -159,7 +159,7 @@ const questions = [
     question: "What is the ANSI/SPARC Three-Schema Architecture, and how does it map to the design lifecycle?",
     shortAnswer: "External Schema (User Views) maps to Conceptual/Application views; Conceptual Schema maps to Logical Relational Design; Internal Schema maps to Physical Storage Layout.",
     explanation: "Classic architectural framework for data independence.",
-    hint: "External -> Conceptual -> Internal schema mapping.",
+    hint: "External → Conceptual → Internal schema mapping.",
     level: "expert"
   },
   {
@@ -201,14 +201,14 @@ const questions = [
     question: "What software tools are commonly used for each design phase?",
     shortAnswer: "Conceptual: Lucidchart, draw.io, ERwin; Logical: MySQL Workbench, DbSchema, ERStudio; Physical: MySQL Workbench, DBeaver, Flyway/Liquibase.",
     explanation: "Industry-standard data modeling toolchains.",
-    hint: "ER diagramming tools -> Schema modelers -> Migration/DBA tools.",
+    hint: "ER diagramming tools → Schema modelers → Migration/DBA tools.",
     level: "basic"
   },
   {
     question: "What is the recommended checklist for managing the 3-tier database design lifecycle?",
     shortAnswer: "1) Gather and document business requirements. 2) Construct a pure Conceptual ER diagram. 3) Validate ER model with business users. 4) Map ER into Logical relations and normalize to 3NF/BCNF. 5) Implement Physical MySQL DDL with InnoDB, data types, and workload-driven indexes.",
     explanation: "Following these 5 steps ensures enterprise database projects succeed on schedule without architectural defects.",
-    hint: "Requirements -> Conceptual ER -> Business validation -> Logical 3NF -> Physical MySQL DDL.",
+    hint: "Requirements → Conceptual ER → Business validation → Logical 3NF → Physical MySQL DDL.",
     level: "basic"
   }
 ];

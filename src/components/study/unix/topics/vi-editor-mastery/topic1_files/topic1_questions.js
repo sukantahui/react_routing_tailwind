@@ -6,7 +6,7 @@ const questions = [
     explanation: "On many Linux distributions `vi` is actually a symlink to `vim` in compatibility mode. But on embedded systems or older Unix, `vi` might be `nvi` or `busybox vi`. Using `vim` explicitly ensures you get the full feature set if installed.",
     hint: "Run `vi --version` and `vim --version` on your system. Do they point to the same binary?",
     level: "moderate",
-    codeExample: "$ ls -l $(which vi)\n/usr/bin/vi -> /usr/bin/vim"
+    codeExample: "$ ls -l $(which vi)\n/usr/bin/vi → /usr/bin/vim"
   },
   {
     question: "How do you open a file and immediately go to line 25 with vi?",

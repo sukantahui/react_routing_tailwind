@@ -52,8 +52,8 @@ ORDER BY l.balance_inr DESC
 LIMIT 50000, 20;
 
 -- 📋 EXPLAIN ANALYZE Metrics:
--- -> Table scan on s (cost=52412 rows=500000) (actual time=0.15..5180.2 ms, rows=50020)
--- -> Using filesort (Disk temporary sort file: 28MB)
+-- → Table scan on s (cost=52412 rows=500000) (actual time=0.15..5180.2 ms, rows=50020)
+-- → Using filesort (Disk temporary sort file: 28MB)
 -- Total Actual Execution Time: 5,200 ms 🚨 (Severe System Bottleneck!)`,
       metricsTable: [
         { metric: "Execution Latency", value: "5,200.00 ms (5.2 seconds) 🚨" },
@@ -74,7 +74,7 @@ LIMIT 50000, 20;
       latency: "840.00 ms",
       speedup: "6.2x Faster",
       sqlCode: `-- ⚡ PHASE 2: SARGABILITY & PROJECTION REFACTORING (840 ms):
--- 1. Eliminated SELECT * -> Project ONLY explicit columns needed by frontend.
+-- 1. Eliminated SELECT * → Project ONLY explicit columns needed by frontend.
 -- 2. Converted YEAR(s.registration_date) = 2026 into half-open date boundaries:
 --    s.registration_date >= '2026-01-01 00:00:00' AND s.registration_date < '2027-01-01 00:00:00'
 -- 3. Quoted phone string literal: s.phone_number = '9830012345' to eliminate implicit cast!
@@ -96,7 +96,7 @@ ORDER BY l.balance_inr DESC
 LIMIT 50000, 20;
 
 -- 📋 EXPLAIN ANALYZE Metrics:
--- -> Index range scan on s (idx_reg_date) (actual time=0.08..820.5 ms, rows=12000)
+-- → Index range scan on s (idx_reg_date) (actual time=0.08..820.5 ms, rows=12000)
 -- Total Actual Execution Time: 840 ms ⚡ (6.2x faster!)`,
       metricsTable: [
         { metric: "Execution Latency", value: "840.00 ms (Down from 5,200 ms!) ⚡" },
@@ -143,7 +143,7 @@ ORDER BY l.balance_inr DESC
 LIMIT 50000, 20;
 
 -- 📋 EXPLAIN ANALYZE Metrics:
--- -> Hash join on (s.student_id = f.student_id) (actual time=0.12..175.4 ms)
+-- → Hash join on (s.student_id = f.student_id) (actual time=0.12..175.4 ms)
 -- Total Actual Execution Time: 180 ms ⚡ (28.8x cumulative speedup!)`,
       metricsTable: [
         { metric: "Execution Latency", value: "180.00 ms (Down from 840 ms!) ⚡" },
@@ -164,7 +164,7 @@ LIMIT 50000, 20;
       latency: "14.00 ms",
       speedup: "371x Faster",
       sqlCode: `-- ⚡ PHASE 4: TARGETED COMPOSITE COVERING INDEX (14 ms):
--- Created index following the Equality -> Range -> Sort rule:
+-- Created index following the Equality → Range → Sort rule:
 -- DDL: CREATE INDEX idx_student_ledger_cov ON student_records (city, registration_date, student_id, name);
 -- DDL: CREATE INDEX idx_ledger_balance ON student_ledgers (student_id, balance_inr);
 
@@ -190,7 +190,7 @@ ORDER BY l.balance_inr DESC
 LIMIT 50000, 20;
 
 -- 📋 EXPLAIN ANALYZE Metrics:
--- -> Index-only seek on s (Using index) (actual time=0.04..13.5 ms)
+-- → Index-only seek on s (Using index) (actual time=0.04..13.5 ms)
 -- Total Actual Execution Time: 14 ms ⚡ (371x cumulative speedup!)`,
       metricsTable: [
         { metric: "Execution Latency", value: "14.00 ms (Down from 180 ms!) ⚡" },
@@ -239,8 +239,8 @@ ORDER BY s.student_id ASC
 LIMIT 20;
 
 -- 📋 EXPLAIN ANALYZE Final Metrics:
--- -> Index range scan on s (s.student_id > 50000) (actual time=0.03..4.65 ms, rows=20)
--- -> Single-row point lookups on d and l (actual time=0.01 ms)
+-- → Index range scan on s (s.student_id > 50000) (actual time=0.03..4.65 ms, rows=20)
+-- → Single-row point lookups on d and l (actual time=0.01 ms)
 -- 🚀 FINAL ACTUAL EXECUTION TIME: 4.80 ms (1,083x faster than baseline 5,200 ms!)`,
       metricsTable: [
         { metric: "Final Execution Latency", value: "4.80 ms (Down from 5,200 ms!) 🚀" },
@@ -282,7 +282,7 @@ LIMIT 20;
               1,000x Performance Workshop
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Hands-on Performance Tuning Workshop: 5-Second Query to 5 Milliseconds
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -336,7 +336,7 @@ LIMIT 20;
               </span>
               <h3 className="font-bold text-white text-base">5-Phase Refactoring</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Step 1: Baseline ground truth &rarr; Step 2: Sargability &amp; projection &rarr; Step 3: Set-based CTE &rarr; Step 4: Covering index &rarr; Step 5: Keyset pagination.
+                Step 1: Baseline ground truth → Step 2: Sargability &amp; projection → Step 3: Set-based CTE → Step 4: Covering index → Step 5: Keyset pagination.
               </p>
             </div>
 
@@ -437,7 +437,7 @@ LIMIT 20;
             <div className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
               <div className="flex items-center justify-between">
                 <h3 className="text-base font-bold text-cyan-300">
-                  Figure 14.1: The 1,000x Performance Tuning Latency Waterfall (5,200 ms &rarr; 4.8 ms)
+                  Figure 14.1: The 1,000x Performance Tuning Latency Waterfall (5,200 ms → 4.8 ms)
                 </h3>
                 <span className="text-xs text-slate-400 font-mono">Benchmark Metrics</span>
               </div>
@@ -766,7 +766,7 @@ LIMIT 20;
                 Creating separate single-column indexes on every column in a table degrades write throughput on `INSERT`/`UPDATE` without satisfying composite sorting or covering needs.
               </p>
               <div className="text-xs font-mono text-emerald-400 p-2 bg-slate-950 rounded border border-slate-800">
-                Rule: Create targeted composite indexes (Equality &rarr; Range &rarr; Sort &rarr; Covered).
+                Rule: Create targeted composite indexes (Equality → Range → Sort → Covered).
               </div>
             </div>
 

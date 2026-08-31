@@ -9,9 +9,9 @@ const topic12_questions = [
   },
   {
     question: "In what order do SIBs and IIBs execute in a parent-child inheritance hierarchy?",
-    shortAnswer: "1. Parent SIB -> 2. Child SIB -> 3. Parent IIB -> 4. Parent Constructor -> 5. Child IIB -> 6. Child Constructor.",
+    shortAnswer: "1. Parent SIB → 2. Child SIB → 3. Parent IIB → 4. Parent Constructor → 5. Child IIB → 6. Child Constructor.",
     explanation: "Class loading must complete for the entire hierarchy before any instance allocation begins.",
-    hint: "Parent SIB -> Child SIB -> Parent IIB -> Parent Const -> Child IIB -> Child Const.",
+    hint: "Parent SIB → Child SIB → Parent IIB → Parent Const → Child IIB → Child Const.",
     level: "Intermediate",
     codeExample: "// Full JVM hierarchy order"
   },

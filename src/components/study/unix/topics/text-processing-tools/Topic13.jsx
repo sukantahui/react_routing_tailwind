@@ -29,7 +29,7 @@ const Topic13 = () => {
                             </svg>
                         </div>
                         <div>
-                            <h1 className="text-4xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
                                 Topic 13: Aggregations Using awk
                             </h1>
                             <p className="text-gray-400 mt-2">Sum, Average, Min, Max - Data Analysis Made Simple</p>

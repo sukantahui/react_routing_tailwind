@@ -6,7 +6,7 @@ const questions = [
     hint: "A security guard who checks a static list of 5 rules vs an experienced detective who notices that someone's subtle behavior is unusual.",
     level: "basic",
     codeExample: `// Traditional SIEM Rule vs UEBA ML Behavioral Anomaly:
-// SIEM Rule : Alert if (Failed_Logins > 5) -> Misses slow, authenticated attacks!
+// SIEM Rule : Alert if (Failed_Logins > 5) → Misses slow, authenticated attacks!
 // UEBA ML   : Calculates Z-Score on File Download Volume & Login Timestamps across 90-day peer baseline!`
   },
   {

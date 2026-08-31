@@ -10,7 +10,7 @@ Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization is a
 It provides the foundation for dynamic in-memory summarization, multi-dimensional slicing, and interactive dashboards.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid
+Operational Architecture: Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid
 
 3. CORE TECHNICAL MECHANICS
 1. The In-Memory Pivot Cache:

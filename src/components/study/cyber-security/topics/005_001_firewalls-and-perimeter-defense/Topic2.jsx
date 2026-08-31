@@ -37,7 +37,7 @@ const Topic2 = () => {
       matchType: "Exact Host (/32) or Subnet Prefix (CIDR)",
       functionDesc: "Identifies the network layer origin of the packet. Used for Bogon filtering, Geo-IP blocking, and ingress spoofing detection.",
       vulnerabilityContext: "Easily spoofed in connectionless UDP and raw TCP SYN packets unless border routers enforce strict uRPF (RFC 3704).",
-      example: "198.51.100.25 -> Mask: 255.255.255.255"
+      example: "198.51.100.25 → Mask: 255.255.255.255"
     },
     dst_ip: {
       key: "dst_ip",
@@ -201,7 +201,7 @@ const Topic2 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold uppercase tracking-wider">
             <span>⚡ Module 005_001 • Topic 2</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Packet Filtering Firewalls (Stateless Inspection)
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">

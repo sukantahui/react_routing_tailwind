@@ -46,7 +46,7 @@ const questions = [
   {
     question: "In the `Student_Advisor` table, why does `advisor_name → major` violate BCNF?",
     shortAnswer: "Because `advisor_name` is NOT a Super Key of the relation (it cannot determine `student_id`).",
-    explanation: "Why advisor_name -> major fails BCNF.",
+    explanation: "Why advisor_name → major fails BCNF.",
     hint: "advisor_name is not a super key.",
     level: "basic"
   },
@@ -151,7 +151,7 @@ const questions = [
   {
     question: "In relation R(A, B, C) with FDs {AB → C, C → B}, why does C → B violate BCNF?",
     shortAnswer: "Because C is not a super key (its closure C+ is only {B, C}, missing attribute A).",
-    explanation: "Analysis of C -> B BCNF violation.",
+    explanation: "Analysis of C → B BCNF violation.",
     hint: "C+ does not contain A, so C is not a super key.",
     level: "moderate"
   },

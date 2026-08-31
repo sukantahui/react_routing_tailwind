@@ -25,8 +25,8 @@ Website: https://www.codernaccotax.co.in
 --------------------------------------------------------------------------------
 2. RELATIVE VS ABSOLUTE DISPLACEMENT
 --------------------------------------------------------------------------------
-  - Relative: t.forward(100) -> Depends on where the turtle is currently facing.
-  - Absolute: t.goto(100, 50) -> Moves directly to (100, 50) regardless of heading.
+  - Relative: t.forward(100) → Depends on where the turtle is currently facing.
+  - Absolute: t.goto(100, 50) → Moves directly to (100, 50) regardless of heading.
 
 ================================================================================
        END OF STUDY NOTE • TOPIC 5: MOVEMENT FUNDAMENTALS

@@ -98,7 +98,7 @@ const questions = [
     explanation: "The quantifier `+` matches one or more consecutive digit characters.",
     hint: "\\d+ extracts consecutive digits.",
     level: "basic",
-    codeExample: "=REGEXEXTRACT(\"SKU-88421-BKP\", \"\\d+\") &rarr; Returns \"88421\""
+    codeExample: "=REGEXEXTRACT(\"SKU-88421-BKP\", \"\\d+\") → Returns \"88421\""
   },
   {
     question: "How do you strip all HTML tags from a scraped text block using REGEXREPLACE?",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "Matches `<` followed by one or more non-`>` characters and `>`, replacing with empty string `\"\"`.",
     hint: "<[^>]+> matches all HTML tags.",
     level: "moderate",
-    codeExample: "=REGEXREPLACE(\"<b>Swadeep</b>\", \"<[^>]+>\", \"\") &rarr; \"Swadeep\""
+    codeExample: "=REGEXREPLACE(\"<b>Swadeep</b>\", \"<[^>]+>\", \"\") → \"Swadeep\""
   },
   {
     question: "What is the return_mode parameter in REGEXEXTRACT?",
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Blank cells evaluate to empty strings during regex evaluation.",
     hint: "Blank cell evaluated as \"\".",
     level: "basic",
-    codeExample: "Blank Cell &rarr; Tested as \"\""
+    codeExample: "Blank Cell → Tested as \"\""
   },
   {
     question: "Can REGEX functions be combined with Dynamic Array functions like FILTER and BYROW?",
@@ -218,7 +218,7 @@ const questions = [
     explanation: "Coerces numeric values to string tokens before pattern evaluation.",
     hint: "Automatically coerced to string representation.",
     level: "basic",
-    codeExample: "Number 2026 &rarr; Evaluated as \"2026\""
+    codeExample: "Number 2026 → Evaluated as \"2026\""
   },
   {
     question: "How do you match a literal period `.` or literal plus `+` in a regex pattern?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Excel 365 native regular expressions modernize spreadsheet data engineering, turning chaotic unstructured text into pristine structured corporate records in pure formula memory!",
     hint: "Always replace fragile legacy string formulas with native Excel Regex!",
     level: "expert",
-    codeExample: "Rule: Text Validation & Extraction &rarr; Use Native Excel 365 REGEX!"
+    codeExample: "Rule: Text Validation & Extraction → Use Native Excel 365 REGEX!"
   }
 ];
 

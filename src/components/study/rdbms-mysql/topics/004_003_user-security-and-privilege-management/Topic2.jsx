@@ -38,9 +38,9 @@ CREATE USER 'app_remote'@'%' IDENTIFIED BY 'PassRemote#2026';
 
 -- ⚠️ CRUCIAL TAKEAWAYS:
 -- 1. Connecting via: mysql -u admin_local -p
---    -> Routes through /var/run/mysqld/mysqld.sock (Matches 'localhost'!) ✅
+--    → Routes through /var/run/mysqld/mysqld.sock (Matches 'localhost'!) ✅
 -- 2. Connecting via: mysql -h 127.0.0.1 -u admin_local -p
---    -> Routes through TCP/IP stack (FAILS because 'localhost' != '127.0.0.1'!) ❌
+--    → Routes through TCP/IP stack (FAILS because 'localhost' != '127.0.0.1'!) ❌
 -- 3. '%' matches any TCP host, but does NOT match Unix socket localhost!`,
       metricsTable: [
         { hostSpecifier: "localhost", transportProtocol: "UNIX Domain Socket (Linux) / Named Pipe (Win)", tcpNetworking: "NO (Bypasses network stack) ⚡", matchesWildcard: "NO ('%' does not match socket)" },
@@ -65,11 +65,11 @@ CREATE USER 'developer'@'%' IDENTIFIED BY 'PassUniversal';              -- Prior
 
 -- SCENARIO: A client connects from IP 192.168.1.50:
 -- MySQL evaluates accounts in memory sorted by specificity:
--- 1. Exact IP '192.168.1.50' matches first! -> Authenticates against 'PassExact' ✅
+-- 1. Exact IP '192.168.1.50' matches first! → Authenticates against 'PassExact' ✅
 --
 -- SCENARIO: A client connects from IP 192.168.1.88:
--- 1. '192.168.1.50' -> No match
--- 2. '192.168.1.0/24' matches! -> Authenticates against 'PassSubnet' ✅
+-- 1. '192.168.1.50' → No match
+-- 2. '192.168.1.0/24' matches! → Authenticates against 'PassSubnet' ✅
 
 -- Verify which rule matched using CURRENT_USER():
 SELECT USER(), CURRENT_USER();
@@ -126,8 +126,8 @@ CREATE USER 'pos_terminal'@'172.16.5.%'
 CREATE USER 'analytics'@'app-server-01.internal.net' IDENTIFIED BY 'Pass#1';
 -- When 'analytics' connects:
 -- 1. MySQL takes client IP 10.0.1.25 and performs a REVERSE DNS LOOKUP!
--- 2. If DNS is slow -> Handshake delays by 500ms - 2,000ms! ⏳
--- 3. If DNS crashes -> ALL DATABASE CONNECTIONS FAIL! 💥
+-- 2. If DNS is slow → Handshake delays by 500ms - 2,000ms! ⏳
+-- 3. If DNS crashes → ALL DATABASE CONNECTIONS FAIL! 💥
 
 -- ✅ PRODUCTION BEST PRACTICE:
 -- Step 1: Enable skip_name_resolve in my.cnf:
@@ -174,7 +174,7 @@ CREATE USER 'analytics'@'10.0.1.25' IDENTIFIED BY 'Pass#1';
               Host Security &amp; Networking
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Host Matching Rules (localhost, IP addresses, % wildcards, subnet masks)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -277,7 +277,7 @@ CREATE USER 'analytics'@'10.0.1.25' IDENTIFIED BY 'Pass#1';
                   PRIORITY 1 (MOST SPECIFIC): Exact IP Address / Hostname
                 </text>
                 <text x="170" y="82" fill="#a7f3d0" fontSize="10">
-                  Example: 'mamata'@'192.168.1.50' &rarr; Evaluated first; exact match wins! ⚡
+                  Example: 'mamata'@'192.168.1.50' → Evaluated first; exact match wins! ⚡
                 </text>
 
                 {/* Priority 2 */}
@@ -286,7 +286,7 @@ CREATE USER 'analytics'@'10.0.1.25' IDENTIFIED BY 'Pass#1';
                   PRIORITY 2: Subnet Mask / CIDR Range
                 </text>
                 <text x="210" y="152" fill="#bae6fd" fontSize="10">
-                  Example: 'mamata'@'192.168.1.0/255.255.255.0' &rarr; Matches corporate subnets
+                  Example: 'mamata'@'192.168.1.0/255.255.255.0' → Matches corporate subnets
                 </text>
 
                 {/* Priority 3 */}
@@ -295,7 +295,7 @@ CREATE USER 'analytics'@'10.0.1.25' IDENTIFIED BY 'Pass#1';
                   PRIORITY 3: IP Prefix Wildcard
                 </text>
                 <text x="250" y="222" fill="#fde68a" fontSize="10">
-                  Example: 'mamata'@'192.168.1.%' &rarr; Matches any client starting with 192.168.1.
+                  Example: 'mamata'@'192.168.1.%' → Matches any client starting with 192.168.1.
                 </text>
 
                 {/* Priority 4 */}
@@ -304,7 +304,7 @@ CREATE USER 'analytics'@'10.0.1.25' IDENTIFIED BY 'Pass#1';
                   PRIORITY 4 (LEAST SPECIFIC): Universal '%' Wildcard
                 </text>
                 <text x="290" y="292" fill="#fca5a5" fontSize="10">
-                  Example: 'mamata'@'%' &rarr; Matches any TCP host (Fallback only)
+                  Example: 'mamata'@'%' → Matches any TCP host (Fallback only)
                 </text>
               </svg>
             </div>

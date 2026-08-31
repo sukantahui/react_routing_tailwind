@@ -13,7 +13,7 @@ const topic10_questions = [
     "explanation": "Allocated directly into Old generation memory space.",
     "hint": "Stores single objects larger than 50% of a G1 region.",
     "level": "Advanced",
-    "codeExample": "Object size > 50% region -> Allocated in Humongous Region."
+    "codeExample": "Object size > 50% region → Allocated in Humongous Region."
   }
 ];
 

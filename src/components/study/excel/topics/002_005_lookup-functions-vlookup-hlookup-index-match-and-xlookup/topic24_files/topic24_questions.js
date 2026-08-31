@@ -129,7 +129,7 @@ const questions = [
     explanation: "INDEX extracts the cell value at the specified ordinal index.",
     hint: "INDEX returns the value at the given position.",
     level: "basic",
-    codeExample: "INDEX(Array, 2) &rarr; \"Beta\""
+    codeExample: "INDEX(Array, 2) → \"Beta\""
   },
   {
     question: "How do you configure `XLOOKUP` to return `0` instead of `#N/A` for arithmetic formulas?",
@@ -165,11 +165,11 @@ const questions = [
   },
   {
     question: "How do you create a dynamic Data Validation dropdown list connected to a structured table column?",
-    shortAnswer: "Data &rarr; Data Validation &rarr; List &rarr; `=INDIRECT(\"tbl_Products[SKU]\")`.",
+    shortAnswer: "Data → Data Validation → List → `=INDIRECT(\"tbl_Products[SKU]\")`.",
     explanation: "Dropdown automatically expands as new SKUs are appended to the table.",
     hint: "Use INDIRECT(\"TableName[Column]\") in Data Validation.",
     level: "moderate",
-    codeExample: "Data Validation &rarr; =INDIRECT(\"tbl_Products[SKU]\")"
+    codeExample: "Data Validation → =INDIRECT(\"tbl_Products[SKU]\")"
   },
   {
     question: "Why should primary key columns always contain 100% unique values in dimension tables?",

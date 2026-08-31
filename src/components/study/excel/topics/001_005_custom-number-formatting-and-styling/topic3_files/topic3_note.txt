@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 In corporate India, reporting in Lakhs and Crores is mandatory for statutory compliance. Master [$-402] ##,##,##0.00 to build authentic Indian financial reports.
 
 COMMON TRAPS TO AVOID:
-- Western vs Indian Grouping: Default #,##0.00 groups in thousands (1,250,000) instead of Indian lakhs (12,50,000). -> Fix: Use explicit Indian locale code [$-402] ##,##,##0.00 or custom group format.
-- Currency Symbol Math Lock: Typing 'Rs. 5000' converts cell to text, breaking arithmetic formulas. -> Fix: Always apply currency format masks to raw numbers.
-- Locale Code Syntax Drift: Using outdated country codes can cause unexpected currency symbols across Office versions. -> Fix: Use explicit LCID format codes like [$₹-hi-IN] or [$₹-402].
+- Western vs Indian Grouping: Default #,##0.00 groups in thousands (1,250,000) instead of Indian lakhs (12,50,000). → Fix: Use explicit Indian locale code [$-402] ##,##,##0.00 or custom group format.
+- Currency Symbol Math Lock: Typing 'Rs. 5000' converts cell to text, breaking arithmetic formulas. → Fix: Always apply currency format masks to raw numbers.
+- Locale Code Syntax Drift: Using outdated country codes can cause unexpected currency symbols across Office versions. → Fix: Use explicit LCID format codes like [$₹-hi-IN] or [$₹-402].
 ================================================================================

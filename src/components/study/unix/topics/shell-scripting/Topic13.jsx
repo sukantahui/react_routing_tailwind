@@ -111,7 +111,7 @@ const Topic13 = () => {
                         animation: 'motion-safe:animate-[fadeInUp_0.8s_ease-out]'
                     }}
                 >
-                    <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white mb-4">
                         Loops: for, while, until with Practical Patterns
                     </h1>
                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">

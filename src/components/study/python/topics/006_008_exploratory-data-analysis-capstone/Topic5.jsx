@@ -76,7 +76,7 @@ const Topic5 = () => {
             <span>🐍</span>
             <span>Python Masterclass · Module 008 · Topic 5</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Phase 5 – Bivariate &amp; Multivariate Analysis (Correlations, Cross-tabulations, Group Trends)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">

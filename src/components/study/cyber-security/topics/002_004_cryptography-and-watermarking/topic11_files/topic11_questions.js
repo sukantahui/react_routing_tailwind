@@ -20,7 +20,7 @@ const questions = [
     codeExample: `// RBI Card Tokenization Flow:
 Actual Card PAN:  "4532 8901 2345 6789" (Stored ONLY inside Card Network HSM)
 Merchant Token:   "4532 0918 7654 1122" (Unique to Kolkata_Merchant_ID)
-Compromise Impact: Hacker steals Token -> Cannot charge card at any other store!`
+Compromise Impact: Hacker steals Token → Cannot charge card at any other store!`
   },
   {
     question: "What is the 'Signal Protocol' (Double Ratchet Algorithm + X3DH), and how does it achieve End-to-End Encryption (E2EE) and self-healing Forward Secrecy in WhatsApp and Signal?",
@@ -29,9 +29,9 @@ Compromise Impact: Hacker steals Token -> Cannot charge card at any other store!
     hint: "Think of an interlocking mechanical gear that clicks forward with every word spoken, so an old key can never open future conversations.",
     level: "expert",
     codeExample: `// Double Ratchet Lifecycle:
-Message 1: Key_1 derived from KDF_Chain -> Encrypts "Hello Mamata" -> Key_1 WIPED!
-Message 2: Key_2 derived from KDF_Chain -> Encrypts "Meeting at 5 PM" -> Key_2 WIPED!
-Bob Replies: DH Ratchet Steps -> Root Key REFRESHED -> Future messages self-healed!`
+Message 1: Key_1 derived from KDF_Chain → Encrypts "Hello Mamata" → Key_1 WIPED!
+Message 2: Key_2 derived from KDF_Chain → Encrypts "Meeting at 5 PM" → Key_2 WIPED!
+Bob Replies: DH Ratchet Steps → Root Key REFRESHED → Future messages self-healed!`
   },
   {
     question: "How does 'IEC 62351' standard enforce cryptography and message authentication in electrical power grid SCADA networks (DNP3 and IEC 60870-5-104)?",
@@ -43,7 +43,7 @@ Bob Replies: DH Ratchet Steps -> Root Key REFRESHED -> Future messages self-heal
 Control Center sends: "TRIP BREAKER 220KV-SUBSTATION-4"
 RTU responds:         "CHALLENGE: Random_Nonce_9812"
 Control Center signs: HMAC_SHA256( MasterKey, Command || Nonce )
-RTU verifies:         Signature MATCH -> Breaker Tripped Safely!`
+RTU verifies:         Signature MATCH → Breaker Tripped Safely!`
   },
   {
     question: "What is 'Digital Rights Management' (DRM / Widevine L1 / Apple FairPlay), and how does hardware cryptography protect 4K streaming video pipelines inside Smart TVs and mobile devices?",
@@ -114,8 +114,8 @@ Failure to Report: Criminal prosecution and statutory penalties under IT Act Sec
 PCR[0] = SHA256( PCR[0] || Hash(UEFI_BIOS) )
 PCR[4] = SHA256( PCR[4] || Hash(Bootloader) )
 PCR[7] = SHA256( PCR[7] || Hash(SecureBoot_Certificates) )
-// If PCRs match baseline -> TPM unseals AES-256 Full Disk Encryption Key -> OS Boots!
-// If Rootkit injected -> PCR mismatch -> TPM LOCKS VAULT ZERO DATA EXPOSED!`
+// If PCRs match baseline → TPM unseals AES-256 Full Disk Encryption Key → OS Boots!
+// If Rootkit injected → PCR mismatch → TPM LOCKS VAULT ZERO DATA EXPOSED!`
   },
   {
     question: "What is 'Zero-Knowledge Proofs' (ZKP / e.g. zk-SNARKs), and how does ZKP revolutionize privacy-preserving identity verification and blockchain scalability?",
@@ -127,7 +127,7 @@ PCR[7] = SHA256( PCR[7] || Hash(SecureBoot_Certificates) )
 Public Statement: "User Age >= 18"
 Private Witness:  Aadhaar Birthdate = "1998-05-14"
 ZKP Proof:        pi = zk_Prove( ProvingKey, PublicStatement, PrivateWitness )
-Verifier:         isValid = zk_Verify( VerifyingKey, PublicStatement, pi ) -> TRUE! (ZERO DATA LEAKED!)`
+Verifier:         isValid = zk_Verify( VerifyingKey, PublicStatement, pi ) → TRUE! (ZERO DATA LEAKED!)`
   },
   {
     question: "What is 'Database Envelope Encryption' with 'Crypto-Shredding', and how does it satisfy the 'Right to be Forgotten' under the Digital Personal Data Protection (DPDP) Act 2023?",
@@ -166,7 +166,7 @@ Block 1000:
     codeExample: `// Forensic Traitor Tracing Pipeline:
 Screener 1: Watermarked with "REC-9812-REVIEWER-MAMATA"
 Screener 2: Watermarked with "REC-4410-DUBBING-DEBANGSHU"
-Pirated Torrent Found Online -> Extraction Engine extracts: "REC-9812-REVIEWER-MAMATA"
+Pirated Torrent Found Online → Extraction Engine extracts: "REC-9812-REVIEWER-MAMATA"
 Outcome: Legal prosecution initiated under Indian Copyright Act Section 65B!`
   },
   {

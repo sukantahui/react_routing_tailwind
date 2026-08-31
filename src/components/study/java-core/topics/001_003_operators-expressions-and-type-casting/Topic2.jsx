@@ -42,7 +42,7 @@ export default function Topic2() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Integer Division Truncation vs. Floating-Point Division
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -107,8 +107,8 @@ export default function Topic2() {
             <rect x="30" y="40" width="260" height="180" rx="10" fill="url(#gradIntDiv)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Integer Division (idiv)</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#4c0519" />
-            <text x="55" y="105" fill="#fca5a5" fontSize="12" fontFamily="monospace">int a = 7 / 2; // &rarr; 3</text>
-            <text x="55" y="125" fill="#fca5a5" fontSize="12" fontFamily="monospace">double d = 7 / 2; // &rarr; 3.0</text>
+            <text x="55" y="105" fill="#fca5a5" fontSize="12" fontFamily="monospace">int a = 7 / 2; // → 3</text>
+            <text x="55" y="125" fill="#fca5a5" fontSize="12" fontFamily="monospace">double d = 7 / 2; // → 3.0</text>
             <text x="55" y="145" fill="#fecdd3" fontSize="10">0.5 is truncated towards 0</text>
             <text x="160" y="195" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               Truncation happens BEFORE assignment!
@@ -118,8 +118,8 @@ export default function Topic2() {
             <rect x="310" y="40" width="260" height="180" rx="10" fill="url(#gradFloatDiv)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Float Division (ddiv)</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
-            <text x="335" y="105" fill="#a7f3d0" fontSize="12" fontFamily="monospace">7.0 / 2 &rarr; 3.5</text>
-            <text x="335" y="125" fill="#a7f3d0" fontSize="12" fontFamily="monospace">(double) 7 / 2 &rarr; 3.5</text>
+            <text x="335" y="105" fill="#a7f3d0" fontSize="12" fontFamily="monospace">7.0 / 2 → 3.5</text>
+            <text x="335" y="125" fill="#a7f3d0" fontSize="12" fontFamily="monospace">(double) 7 / 2 → 3.5</text>
             <text x="335" y="145" fill="#d1fae5" fontSize="10">Binary promotion preserves decimals</text>
             <text x="440" y="195" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✓ Accurate Decimal Fraction
@@ -129,8 +129,8 @@ export default function Topic2() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradFloorDiv)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Math.floorDiv()</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#1e1b4b" />
-            <text x="615" y="105" fill="#c7d2fe" fontSize="12" fontFamily="monospace">-7 / 2 &rarr; -3 (Truncation)</text>
-            <text x="615" y="125" fill="#fde68a" fontSize="12" fontFamily="monospace">floorDiv(-7, 2) &rarr; -4</text>
+            <text x="615" y="105" fill="#c7d2fe" fontSize="12" fontFamily="monospace">-7 / 2 → -3 (Truncation)</text>
+            <text x="615" y="125" fill="#fde68a" fontSize="12" fontFamily="monospace">floorDiv(-7, 2) → -4</text>
             <text x="615" y="145" fill="#e0e7ff" fontSize="10">Floors toward negative infinity</text>
             <text x="720" y="195" fill="#e0e7ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Java 8+ Algebraic Floor Math

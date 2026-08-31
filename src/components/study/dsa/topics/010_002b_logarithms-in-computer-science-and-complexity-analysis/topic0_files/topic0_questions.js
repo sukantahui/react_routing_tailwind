@@ -52,7 +52,7 @@ const topic0_questions = [
       "sqrt(N) is an upper bound on N^2 while log_2(N) is not"
     ],
     correctAnswer: 0,
-    explanation: "As N -> infinity, log(N) / sqrt(N) -> 0. Therefore, O(log N) is strictly faster and grows much more slowly than sub-linear O(sqrt(N))."
+    explanation: "As N → infinity, log(N) / sqrt(N) → 0. Therefore, O(log N) is strictly faster and grows much more slowly than sub-linear O(sqrt(N))."
   },
   {
     question: "What is the value of log_2(1) for any valid logarithm base?",
@@ -96,7 +96,7 @@ const topic0_questions = [
       "8 times"
     ],
     correctAnswer: 1,
-    explanation: "64 -> 32 -> 16 -> 8 -> 4 -> 2 -> 1. That is exactly 6 halving steps, since 2^6 = 64, so log_2(64) = 6."
+    explanation: "64 → 32 → 16 → 8 → 4 → 2 → 1. That is exactly 6 halving steps, since 2^6 = 64, so log_2(64) = 6."
   },
   {
     question: "What is the floor of log_2(100)?",
@@ -154,7 +154,7 @@ const topic0_questions = [
     explanation: "1,000,000 = 1,000^2. log_2(10^6) = 2 * log_2(10^3) ≈ 2 * 10 = 20 steps. Squaring the dataset only doubles the step count!"
   },
   {
-    question: "What is the time complexity of an algorithm that reduces problem size by a factor of 3 at each step (N -> N/3)?",
+    question: "What is the time complexity of an algorithm that reduces problem size by a factor of 3 at each step (N → N/3)?",
     options: [
       "O(N / 3)",
       "O(log_3 N) = O(log N)",
@@ -165,7 +165,7 @@ const topic0_questions = [
     explanation: "Reducing by a factor of 3 at each step yields k = log_3(N) steps. Asymptotically, O(log_3 N) is O(log N)."
   },
   {
-    question: "What happens to the value of log_2(x) as x approaches 0 from the positive side (x -> 0+)?",
+    question: "What happens to the value of log_2(x) as x approaches 0 from the positive side (x → 0+)?",
     options: [
       "It approaches 0",
       "It approaches 1",
@@ -173,10 +173,10 @@ const topic0_questions = [
       "It approaches +infinity"
     ],
     correctAnswer: 2,
-    explanation: "As x -> 0+, 2^y = x requires y to become an increasingly large negative number, so log_2(x) -> -infinity."
+    explanation: "As x → 0+, 2^y = x requires y to become an increasingly large negative number, so log_2(x) → -infinity."
   },
   {
-    question: "Which of the following functions grows the SLOWEST as N -> infinity?",
+    question: "Which of the following functions grows the SLOWEST as N → infinity?",
     options: [
       "f(N) = N",
       "f(N) = sqrt(N)",

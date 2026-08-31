@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. HIERARCHY STRUCTURE:
-   - 'Object' &rarr; 'Number' (abstract) &rarr; Byte, Short, Integer, Long, Float, Double.
-   - 'Object' &rarr; Character.
-   - 'Object' &rarr; Boolean.
+   - 'Object' → 'Number' (abstract) → Byte, Short, Integer, Long, Float, Double.
+   - 'Object' → Character.
+   - 'Object' → Boolean.
    - 'Number' provides: 'intValue()', 'doubleValue()', 'longValue()'.
 
 ================================================================================

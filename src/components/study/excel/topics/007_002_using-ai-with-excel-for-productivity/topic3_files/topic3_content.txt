@@ -10,7 +10,7 @@ Using Copilot to generate complex nested formulas, dynamic arrays, and regular e
 It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Complex Formula Generation: Prompt -> Copilot outputs: =LET(rev, [Revenue], cost, [COGS], margin, (rev-cost)/rev, IF(margin>0.2, rev*0.08, rev*0.03))
+Operational Architecture: Complex Formula Generation: Prompt → Copilot outputs: =LET(rev, [Revenue], cost, [COGS], margin, (rev-cost)/rev, IF(margin>0.2, rev*0.08, rev*0.03))
 
 3. CORE TECHNICAL MECHANICS
 1. Synthesizing Clean LET Formulas:

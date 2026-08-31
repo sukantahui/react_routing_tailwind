@@ -8,7 +8,7 @@ const questions = [
     explanation: "Core purpose of matrix dimensionality reduction in Operations Research.",
     hint: "Avoids complex LP tableaus and isolates the core 2x2/graphical strategy support.",
     level: "moderate",
-    codeExample: "target: reduce(m_x_n) -> (2x2_ClosedForm || Graphical_2xn_mx2);"
+    codeExample: "target: reduce(m_x_n) → (2x2_ClosedForm || Graphical_2xn_mx2);"
   },
   {
     question: "What are the three possible reduced target architectures for an m x n matrix?",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Module 005_005 Reduction of mxn Games?",
     shortAnswer: "'Iteratively prune large m x n matrices via strict, weak, and convex dominance; extract the solvable 2x2, 2xn, or 1x1 sub-game; reconstruct full-dimensional strategy vectors; verify global optimality; and report all budgets in Indian Rupees (₹)!'",
     explanation: "This master synthesis captures all matrix reduction principles.",
-    hint: "Prune via dominance -> Extract sub-game -> Reconstruct full vectors -> Audit in ₹.",
+    hint: "Prune via dominance → Extract sub-game → Reconstruct full vectors → Audit in ₹.",
     level: "moderate",
-    codeExample: "MasterGoldenRule: PruneMatrix() -> ExtractSubgame() -> ReconstructFullVectors() -> GlobalAudit(₹)."
+    codeExample: "MasterGoldenRule: PruneMatrix() → ExtractSubgame() → ReconstructFullVectors() → GlobalAudit(₹)."
   }
 ];
 

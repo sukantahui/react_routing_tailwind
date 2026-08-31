@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. MAXBY & MINBY COLLECTORS:
-   - 'Collectors.maxBy(Comparator<? super T> comp)' -> Collector<T, ?, Optional<T>>.
-   - 'Collectors.minBy(Comparator<? super T> comp)' -> Collector<T, ?, Optional<T>>.
+   - 'Collectors.maxBy(Comparator<? super T> comp)' → Collector<T, ?, Optional<T>>.
+   - 'Collectors.minBy(Comparator<? super T> comp)' → Collector<T, ?, Optional<T>>.
 
 2. UNWRAPPING OPTIONAL PATTERN:
    - By default, 'groupingBy(k, maxBy(comp))' returns 'Map<K, Optional<T>>'.

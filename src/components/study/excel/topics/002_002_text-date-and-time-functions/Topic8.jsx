@@ -71,7 +71,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Modern_text_manipu"
+            sheetName="EX709"
             title={"Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -538,7 +538,7 @@ export default function Topic8() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"Why does TEXTSPLIT replace the manual Data &gt; Text to Columns wizard for automated pipelines?"}
+                <span className="text-teal-400">💭</span> Question 2: {"Why does TEXTSPLIT replace the manual Data > Text to Columns wizard for automated pipelines?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the computational and data engineering implications in large-scale enterprise models.

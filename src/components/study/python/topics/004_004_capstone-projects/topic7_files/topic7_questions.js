@@ -32,15 +32,15 @@ const questions = [
     explanation: "The STAR behavioral interview storytelling framework.",
     hint: "Situation, Task, Action, Result.",
     level: "basic",
-    codeExample: "# STAR: Context -> Challenge -> Engineering Action -> Measurable Impact"
+    codeExample: "# STAR: Context → Challenge → Engineering Action → Measurable Impact"
   },
   {
     question: "What should you do when an interviewer asks: 'Tell me about a difficult bug you solved'?",
     shortAnswer: "Use STAR to explain: 1. The bug's symptom and business impact, 2. The diagnostic hypothesis and tools used (logging, debugger, git bisect), 3. The root cause analysis, 4. The surgical fix, and 5. The preventive automated regression test added to CI.",
     explanation: "Root cause analysis storytelling and regression prevention.",
-    hint: "Explain symptom -> diagnostic tools -> root cause -> surgical fix -> regression test added.",
+    hint: "Explain symptom → diagnostic tools → root cause → surgical fix → regression test added.",
     level: "moderate",
-    codeExample: "# Structure: Symptom -> Debugging -> Root Cause -> Fix -> Automated Test"
+    codeExample: "# Structure: Symptom → Debugging → Root Cause → Fix → Automated Test"
   },
   {
     question: "Why should every portfolio repository include an architectural diagram in its README.md?",
@@ -48,7 +48,7 @@ const questions = [
     explanation: "Visual communication of software architecture.",
     hint: "Visually communicates system design, data flow, and decoupled layers at a glance.",
     level: "basic",
-    codeExample: "```mermaid\ngraph LR\nClient --> API_Gateway --> Gunicorn --> SQLite\n```"
+    codeExample: "```mermaid\ngraph LR\nClient → API_Gateway → Gunicorn → SQLite\n```"
   },
   {
     question: "What length should a software engineer's resume be?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Standard engineering resume length guidelines.",
     hint: "1 page is standard for under 8-10 years of experience.",
     level: "basic",
-    codeExample: "# 1-Page Clean Layout: Contact -> Skills -> Experience -> Projects -> Education"
+    codeExample: "# 1-Page Clean Layout: Contact → Skills → Experience → Projects → Education"
   },
   {
     question: "How do you demonstrate 'Seniority' in a Python portfolio without 10 years of formal experience?",
@@ -70,9 +70,9 @@ const questions = [
     question: "What is the best way to handle live technical coding whiteboard/screen-share rounds?",
     shortAnswer: "1. Clarify requirements and constraints upfront, 2. State assumptions and edge cases, 3. Discuss Time/Space Big-O complexity before writing code, 4. Think out loud, 5. Write clean modular code, and 6. Walk through test cases manually to verify correctness.",
     explanation: "Live technical coding interview protocol.",
-    hint: "Clarify inputs/edge cases -> state Big-O -> think out loud -> write code -> verify with test cases.",
+    hint: "Clarify inputs/edge cases → state Big-O → think out loud → write code → verify with test cases.",
     level: "moderate",
-    codeExample: "# Step 1: Clarify -> Step 2: Big-O -> Step 3: Code -> Step 4: Trace"
+    codeExample: "# Step 1: Clarify → Step 2: Big-O → Step 3: Code → Step 4: Trace"
   },
   {
     question: "How should you list your technical skills on a resume to maximize ATS matching?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "System design preparation strategies for backend interviews.",
     hint: "Master stateless app tiers, Redis caching, DB indexing/replicas, and message queues.",
     level: "moderate",
-    codeExample: "# Diagram: Client -> NGINX -> Gunicorn -> Redis / PostgreSQL"
+    codeExample: "# Diagram: Client → NGINX → Gunicorn → Redis / PostgreSQL"
   },
   {
     question: "Why should you deploy a live demo or provide pre-recorded asciinema/GIFs in your GitHub README?",

@@ -9,20 +9,20 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 - Syntax & Usage (Java 14+ JEP 361):
   * Comma-separated list of compile-time constants:
-    case CONST_1, CONST_2, CONST_3 -> expression;
+    case CONST_1, CONST_2, CONST_3 → expression;
 
 - Canonical Use Cases:
   1. Days in Month:
-     case 1, 3, 5, 7, 8, 10, 12 -> 31;
-     case 4, 6, 9, 11           -> 30;
-     case 2                     -> isLeap ? 29 : 28;
+     case 1, 3, 5, 7, 8, 10, 12 → 31;
+     case 4, 6, 9, 11           → 30;
+     case 2                     → isLeap ? 29 : 28;
 
   2. Weekday vs Weekend Categorization:
-     case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> "Weekday";
-     case SATURDAY, SUNDAY -> "Weekend";
+     case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY → "Weekday";
+     case SATURDAY, SUNDAY → "Weekend";
 
   3. Affirmative Response Normalization:
-     case "Y", "YES", "TRUE", "1", "OK" -> true;
+     case "Y", "YES", "TRUE", "1", "OK" → true;
 
 - Rules & Restrictions:
   * No duplicate constants within the same comma list or across lists.

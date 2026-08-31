@@ -82,7 +82,7 @@ const topic8_questions = [
     explanation: "When an instance method is called via 'invokevirtual', the JVM indexes into the runtime object's vtable to find the exact memory address of the target method's compiled machine code, enabling rapid polymorphic dispatch.",
     hint: "O(1) function pointer lookup table for virtual methods.",
     level: "Advanced",
-    codeExample: "// HotSpot JVM: object -> Klass metadata -> vtable[method_index] -> native code pointer"
+    codeExample: "// HotSpot JVM: object → Klass metadata → vtable[method_index] → native code pointer"
   },
   {
     question: "What is 'Monomorphic Inline Caching' in JVM JIT compilation?",
@@ -194,7 +194,7 @@ const topic8_questions = [
     explanation: "'invokespecial' uses non-virtual early binding. 'invokevirtual' uses class vtable indexing. 'invokeinterface' uses an itable (interface table) because a class can implement multiple interfaces in arbitrary order.",
     hint: "Bytecode instruction dispatch taxonomy.",
     level: "Advanced",
-    codeExample: "// super.toString() -> invokespecial\n// account.credit()   -> invokevirtual\n// list.add()         -> invokeinterface"
+    codeExample: "// super.toString() → invokespecial\n// account.credit()   → invokevirtual\n// list.add()         → invokeinterface"
   },
   {
     question: "Can an instance method return an array or another object instance?",

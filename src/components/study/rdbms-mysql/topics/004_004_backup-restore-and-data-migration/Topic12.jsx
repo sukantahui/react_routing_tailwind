@@ -106,7 +106,7 @@ RESET REPLICA ALL;
 SET GLOBAL read_only = OFF;
 
 -- 3. Repoint Route53 DNS / ProxySQL:
--- CNAME 'db.kolkata-retail.internal' -> staging-primary.internal!
+-- CNAME 'db.kolkata-retail.internal' → staging-primary.internal!
 
 -- RESULT: Total Outage = 26 Mins (RTO), Data Loss = 0 Seconds (RPO)! ⚡`,
       explanation:
@@ -133,7 +133,7 @@ SET GLOBAL read_only = OFF;
             Topic 12 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Disaster Recovery Simulation: <span className="text-rose-400">Accidental DROP DATABASE</span> Recovery
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

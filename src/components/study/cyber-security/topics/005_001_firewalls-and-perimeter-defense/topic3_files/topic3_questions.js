@@ -66,7 +66,7 @@ const questions = [
     hint: "It validates who opens the pipe, but does not inspect what flows through the pipe.",
     level: "Moderate",
     codeExample: `// Blind Spot Illustration:
-// Permitted Circuit: Client -> SOCKS5 -> Target:443
+// Permitted Circuit: Client → SOCKS5 → Target:443
 // Payload Transmitted: "GET /api?id=1' UNION SELECT * FROM passwords--"
 // Circuit Gateway Action: RELAYED (Zero inspection of SQL query!)`
   },
@@ -100,8 +100,8 @@ const questions = [
     hint: "Using a TCP control channel to coordinate a secondary UDP packet relay socket.",
     level: "Expert",
     codeExample: `// SOCKS5 UDP Request (CMD = 0x03 UDP ASSOCIATE):
-// Client -> Proxy (TCP 1080): VER=5, CMD=3, RSV=0, ATYP=1, Client_IP, Client_Port
-// Proxy -> Client: VER=5, REP=0, RSV=0, ATYP=1, Relay_UDP_IP, Relay_UDP_Port`
+// Client → Proxy (TCP 1080): VER=5, CMD=3, RSV=0, ATYP=1, Client_IP, Client_Port
+// Proxy → Client: VER=5, REP=0, RSV=0, ATYP=1, Relay_UDP_IP, Relay_UDP_Port`
   },
   {
     id: 10,
@@ -111,7 +111,7 @@ const questions = [
     hint: "The external server only ever sees the gateway's IP address on the wire.",
     level: "Basic",
     codeExample: `// Topology Concealment:
-// Internal Client (10.10.1.50) -> [Circuit Gateway (203.0.113.10)] -> External Server (140.82.121.4)
+// Internal Client (10.10.1.50) → [Circuit Gateway (203.0.113.10)] → External Server (140.82.121.4)
 // External Server sees: Src IP = 203.0.113.10 (Gateway IP only!)`
   },
   {
@@ -143,7 +143,7 @@ const questions = [
     hint: "Symmetrically closing both paired socket circuits and freeing memory.",
     level: "Moderate",
     codeExample: `// Circuit Teardown Sequence:
-// Client sends FIN -> Gateway forwards FIN to Server -> Server replies ACK/FIN -> Gateway closes both sockets!`
+// Client sends FIN → Gateway forwards FIN to Server → Server replies ACK/FIN → Gateway closes both sockets!`
   },
   {
     id: 14,
@@ -195,7 +195,7 @@ const questions = [
     hint: "Protocol-agnostic: if it runs over TCP or UDP, the circuit gateway can proxy it.",
     level: "Basic",
     codeExample: `// Custom Protocol Support:
-// Custom SCADA / Financial TCP Protocol (Port 9999) -> SOCKS5 Gateway proxies data with zero parser errors!`
+// Custom SCADA / Financial TCP Protocol (Port 9999) → SOCKS5 Gateway proxies data with zero parser errors!`
   },
   {
     id: 19,
@@ -215,12 +215,12 @@ const questions = [
     hint: "Kerberos ticket-based enterprise Single Sign-On authentication for SOCKS proxies.",
     level: "Expert",
     codeExample: `// SOCKSv5 GSS-API Authentication:
-// Client requests Method 0x01 -> Exchanges Kerberos AP_REQ ticket -> Gateway verifies with KDC!`
+// Client requests Method 0x01 → Exchanges Kerberos AP_REQ ticket → Gateway verifies with KDC!`
   },
   {
     id: 21,
     question: "What is 'Chained SOCKS Proxying' and why is it used in privacy-enhancing networks like Tor?",
-    shortAnswer: "Routing traffic sequentially through multiple SOCKS proxies (Proxy A -> Proxy B -> Proxy C), ensuring that no single proxy knows both the client's identity and the destination server.",
+    shortAnswer: "Routing traffic sequentially through multiple SOCKS proxies (Proxy A → Proxy B → Proxy C), ensuring that no single proxy knows both the client's identity and the destination server.",
     explanation: "In multi-hop proxy chains, the client connects to Proxy 1, asks it to connect to Proxy 2, which connects to Proxy 3, which finally connects to the destination. Proxy 1 knows the client but not the destination; Proxy 3 knows the destination but not the client.",
     hint: "Passing traffic through a chain of multiple proxies so no single node knows the full path.",
     level: "Moderate",
@@ -246,7 +246,7 @@ const questions = [
     hint: "The gateway absorbs the handshake; incomplete SYN handshakes never reach the internal server.",
     level: "Moderate",
     codeExample: `// Handshake Shielding:
-// Attacker sends SYN flood -> Circuit Gateway absorbs SYN -> No handshake completed -> Internal Server protected!`
+// Attacker sends SYN flood → Circuit Gateway absorbs SYN → No handshake completed → Internal Server protected!`
   },
   {
     id: 24,
@@ -266,8 +266,8 @@ const questions = [
     hint: "Restricting which external destination IPs users are permitted to open circuits to.",
     level: "Moderate",
     codeExample: `// SOCKS Gateway Egress Whitelist:
-// ALLOW: Authenticated_Users -> Destination: 203.0.113.0/24 (Banking Partner API)
-// DROP : Authenticated_Users -> Destination: ANY (Prevents unauthorized proxy tunneling)`
+// ALLOW: Authenticated_Users → Destination: 203.0.113.0/24 (Banking Partner API)
+// DROP : Authenticated_Users → Destination: ANY (Prevents unauthorized proxy tunneling)`
   },
   {
     id: 26,

@@ -141,7 +141,7 @@
         {
           "q": "Explain the concept of encapsulation and decapsulation with a step-by-step example of sending a web request.",
           "marks": 5,
-          "answer": "Encapsulation (sender): Application (HTTP data) -> Transport (TCP segment) -> Network (IP packet) -> Data Link (Ethernet frame) -> Physical (bits). Decapsulation (receiver): reverse process – each layer removes its header and passes data up."
+          "answer": "Encapsulation (sender): Application (HTTP data) → Transport (TCP segment) → Network (IP packet) → Data Link (Ethernet frame) → Physical (bits). Decapsulation (receiver): reverse process – each layer removes its header and passes data up."
         },
         {
           "q": "What are the functions of the Session Layer? Explain checkpointing with an example.",

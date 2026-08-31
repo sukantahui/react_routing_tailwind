@@ -24,11 +24,11 @@ const Topic35 = () => {
       layer: 'Layer 4 Transport (Reliable Stream)',
       syntax: 'Source Port (16b), Dest Port (16b), Seq Num (32b), Ack Num (32b), Flags (SYN, ACK)',
       semantics: 'SYN initiates sequence synchronization; SYN-ACK confirms and responds; ACK confirms receipt.',
-      timing: 'State Transition: CLOSED -> SYN_SENT -> SYN_RCVD -> ESTABLISHED (Timeout RTO = 1000ms)',
+      timing: 'State Transition: CLOSED → SYN_SENT → SYN_RCVD → ESTABLISHED (Timeout RTO = 1000ms)',
       securityThreat: 'SYN Flood attacks exhausting kernel memory buffers (mitigated by SYN Cookies).',
       estApplianceCost: '₹45,000 (Stateful Firewall Module)',
       desc: 'Reliable connection establishment between client browser in Barrackpore and university web portal in Kolkata.',
-      simResult: 'Step 1: Client -> SYN(seq=100) -> Step 2: Server -> SYN-ACK(seq=300, ack=101) -> Step 3: Client -> ACK(ack=301) -> Socket ESTABLISHED.',
+      simResult: 'Step 1: Client → SYN(seq=100) → Step 2: Server → SYN-ACK(seq=300, ack=101) → Step 3: Client → ACK(ack=301) → Socket ESTABLISHED.',
     },
     {
       id: 'dns-udp',
@@ -40,7 +40,7 @@ const Topic35 = () => {
       securityThreat: 'DNS Cache Poisoning / Kaminsky Spoofing (mitigated by DNSSEC cryptographic signing).',
       estApplianceCost: '₹95,000 (Authoritative DNSSEC Appliance)',
       desc: 'High-speed name resolution resolving regional web services in under 4ms.',
-      simResult: 'Client sends UDP query for "wb.gov.in" -> Server replies with A-Record (103.25.10.4) + RRSIG DNSSEC signature.',
+      simResult: 'Client sends UDP query for "wb.gov.in" → Server replies with A-Record (103.25.10.4) + RRSIG DNSSEC signature.',
     },
     {
       id: 'tls-13',
@@ -52,7 +52,7 @@ const Topic35 = () => {
       securityThreat: 'SSL Stripping and Protocol Downgrade attacks (mitigated by HSTS Preload headers).',
       estApplianceCost: '₹65,000 (TLS Hardware Acceleration Card)',
       desc: 'State-of-the-art encryption protecting banking and medical records across West Bengal.',
-      simResult: 'ClientHello with ECDHE Curve25519 -> ServerHello returns ephemeral public key -> Session keys derived in 1-RTT.',
+      simResult: 'ClientHello with ECDHE Curve25519 → ServerHello returns ephemeral public key → Session keys derived in 1-RTT.',
     },
     {
       id: 'syn-flood-sim',
@@ -64,7 +64,7 @@ const Topic35 = () => {
       securityThreat: 'Server connection table exhaustion (mitigated by kernel SYN Cookies allocating 0 memory).',
       estApplianceCost: '₹1,20,000 (Enterprise DDoS Mitigation Sensor)',
       desc: 'Botnet attack targeting hospital database servers in Ichapur; defended by Linux SYN Cookies.',
-      simResult: 'Firewall detects 800K SYN/sec -> Enables SYN Cookies -> Connection state encoded in ISN -> 0 bytes kernel RAM consumed.',
+      simResult: 'Firewall detects 800K SYN/sec → Enables SYN Cookies → Connection state encoded in ISN → 0 bytes kernel RAM consumed.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic35 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Protocol
           </h1>
 

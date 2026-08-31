@@ -42,7 +42,7 @@ export default function Topic5() {
             Object Aliasing &amp; Shared State
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Multiple Reference Variables Pointing to the Same Object
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -95,7 +95,7 @@ export default function Topic5() {
       {/* Section 2: Semantic Visual Diagram */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
-          <span>⚙️</span> Converging Reference Architecture: 3 Stack Handles &rarr; 1 Heap Object
+          <span>⚙️</span> Converging Reference Architecture: 3 Stack Handles → 1 Heap Object
         </h2>
         <p className="text-sm md:text-base text-slate-400 leading-relaxed">
           Visualizing 3 Stack reference variables pointing to the exact same physical Heap instance:
@@ -203,7 +203,7 @@ export default function Topic5() {
             <text x="525" y="205" fill="#f87171" fontSize="10" fontFamily="monospace">totalExpenses   = ₹30,500.00 [Mutated by Tuhina &amp; Auditor]</text>
             <text x="525" y="225" fill="#4ade80" fontSize="10" fontFamily="monospace">remainingBudget = ₹44,500.00</text>
 
-            <text x="697" y="270" fill="#a7f3d0" fontSize="9" textAnchor="middle">Active GC Roots Count = 3 &rarr; 2 &rarr; 1 &rarr; 0 (Collected)</text>
+            <text x="697" y="270" fill="#a7f3d0" fontSize="9" textAnchor="middle">Active GC Roots Count = 3 → 2 → 1 → 0 (Collected)</text>
           </svg>
         </div>
       </section>

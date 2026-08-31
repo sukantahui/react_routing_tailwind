@@ -6,10 +6,10 @@ Topic 3: Cleaning and profiling data: Column quality, Column distribution, and C
 ================================================================================
 
 1. DATA PROFILING TOGGLES:
-- View &rarr; Check [X] Column quality
-- View &rarr; Check [X] Column distribution
-- View &rarr; Check [X] Column profile
-- View &rarr; Check [X] Monospaced font
+- View → Check [X] Column quality
+- View → Check [X] Column distribution
+- View → Check [X] Column profile
+- View → Check [X] Monospaced font
 
 2. DATA HYGIENE M FUNCTIONS:
 - Clean: Table.TransformColumns(Source, {{"Customer", Text.Clean, type text}})

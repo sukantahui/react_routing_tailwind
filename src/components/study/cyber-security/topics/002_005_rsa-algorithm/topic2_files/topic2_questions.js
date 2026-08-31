@@ -8,7 +8,7 @@ const questions = [
     codeExample: `// Modular Multiplicative Inverse Definition:
 e * d ≡ 1 (mod phi(N))
 Example: e = 7, phi(N) = 20
-Check:   7 * 3 = 21 ≡ 1 (mod 20) -> Private Key d = 3!`
+Check:   7 * 3 = 21 ≡ 1 (mod 20) → Private Key d = 3!`
   },
   {
     question: "What is 'Bezout's Identity', and how does it guarantee that the Extended Euclidean Algorithm can find the modular inverse $d$?",
@@ -49,7 +49,7 @@ function mod_exp(base, exp, mod):
 Radix: R = 2^2048 (Power of 2, so modulo R is a simple bit-mask!)
 Montgomery Form: a_bar = (a * R) mod N,  b_bar = (b * R) mod N
 Montgomery Multiply: MontMul(a_bar, b_bar) = (a_bar * b_bar * R^(-1)) mod N
-Hardware Cost: ZERO DIVISIONS -> Replaced with fast 64-bit word additions and shifts!`
+Hardware Cost: ZERO DIVISIONS → Replaced with fast 64-bit word additions and shifts!`
   },
   {
     question: "What is a 'Simple Power Analysis' (SPA) and 'Timing Attack' on naive Square-and-Multiply, and how does the 'Montgomery Ladder' achieve constant-time security?",
@@ -66,7 +66,7 @@ for bit in binary_bits_of_d:
     else:
         R0 = MontMul(R0, R1)
         R1 = MontMul(R1, R1)
-// EXACTLY TWO MULTIPLICATIONS PER BIT ALWAYS -> ZERO SPA POWER LEAKAGE!`
+// EXACTLY TWO MULTIPLICATIONS PER BIT ALWAYS → ZERO SPA POWER LEAKAGE!`
   },
   {
     question: "How does the 'Chinese Remainder Theorem' (CRT) split 2048-bit modular exponentiation into two independent 1024-bit operations to achieve a $4\\times$ speedup?",
@@ -92,7 +92,7 @@ for bit in binary_bits_of_d:
 Faulty Signature: S' (Computed with corrupted m1' mod p, but correct m2 mod q)
 Attacker evaluates:
   Factor_q = gcd( (S')^e - M, N )
-Result: gcd yields exact prime factor q in 0.001 ms -> TOTAL SYSTEM COMPROMISE!
+Result: gcd yields exact prime factor q in 0.001 ms → TOTAL SYSTEM COMPROMISE!
 Defense: ALWAYS verify signature ( (S')^e mod N == M ) BEFORE transmitting!`
   },
   {
@@ -115,8 +115,8 @@ Defense: ALWAYS verify signature ( (S')^e mod N == M ) BEFORE transmitting!`
     hint: "Remember how mathematical side-channel security prevents repudiation claims in legal court proceedings.",
     level: "basic",
     codeExample: `// Legal Non-Repudiation Defense:
-Flawed Library: Variable-time modular exponentiation -> Key theft claimed in court -> Legal dispute.
-Hardened HSM:  Constant-time Montgomery Ladder + Blinding -> Mathematically irrepudiable under IT Act Section 5!`
+Flawed Library: Variable-time modular exponentiation → Key theft claimed in court → Legal dispute.
+Hardened HSM:  Constant-time Montgomery Ladder + Blinding → Mathematically irrepudiable under IT Act Section 5!`
   },
   {
     question: "How does the 'Extended Euclidean Algorithm' handle negative Bezout coefficients when computing the private key $d$?",
@@ -127,7 +127,7 @@ Hardened HSM:  Constant-time Montgomery Ladder + Blinding -> Mathematically irre
     codeExample: `// Handling Negative Modular Inverses:
 Raw EEA Output: x = -15, phi(N) = 3120
 Correction:     d = (-15 + 3120) % 3120 = 3105
-Verification:   (17 * 3105) mod 3120 = 52785 mod 3120 = 1 -> CORRECT!`
+Verification:   (17 * 3105) mod 3120 = 52785 mod 3120 = 1 → CORRECT!`
   },
   {
     question: "What is 'Modular Reduction' by Barrett Reduction, and how does pre-computing $\\mu = \\lfloor 2^{2k} / N \\rfloor$ accelerate RSA signature verification?",
@@ -152,7 +152,7 @@ return r // ZERO CPU DIVISION INSTRUCTIONS!`
     codeExample: `// Coprimality Failure Condition:
 If gcd(e, phi(N)) != 1:
   EEA fails: Bezout identity e*x + phi(N)*y = g != 1
-  Result: NO UNIQUE INVERSE d EXISTS -> RSA Key Generation ABORTS!`
+  Result: NO UNIQUE INVERSE d EXISTS → RSA Key Generation ABORTS!`
   },
   {
     question: "How do modern cryptographic libraries (OpenSSL, BoringSSL) prevent 'Cache-Timing Attacks' (e.g. Flush+Reload) during modular exponentiation?",
@@ -166,7 +166,7 @@ function constant_time_lookup(table, index):
     for i = 0 to 15:
         mask = -(i == index) // 0xFFFFFFFF if match, 0x00000000 otherwise
         result = result | (table[i] & mask)
-    return result // ALL 16 ENTRIES ACCESSED EVERY TIME -> ZERO CACHE LEAKS!`
+    return result // ALL 16 ENTRIES ACCESSED EVERY TIME → ZERO CACHE LEAKS!`
   },
   {
     question: "Synthesizing Modular Arithmetic and Multiplicative Inverses in RSA: what is the master algorithmic sequence of RSA mathematical execution?",

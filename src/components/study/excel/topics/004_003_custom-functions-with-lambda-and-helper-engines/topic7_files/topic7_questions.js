@@ -34,7 +34,7 @@ const questions = [
     explanation: "BYROW reduces an M-row matrix into M aggregated scalar values.",
     hint: "Returns an M x 1 vertical column vector.",
     level: "basic",
-    codeExample: "(M x N) Matrix &rarr; (M x 1) Vector"
+    codeExample: "(M x N) Matrix → (M x 1) Vector"
   },
   {
     question: "How do you calculate the weighted average of each student across 4 subjects using BYROW and SUMPRODUCT?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "BYROW is the quintessential row-wise aggregation engine in modern spreadsheet architecture, turning entire gradebooks, financial schedules, and appraisal matrices into dynamic, self-calculating reports!",
     hint: "Use BYROW for all single-formula row-wise aggregations.",
     level: "expert",
-    codeExample: "Rule: Matrix Row Aggregations &rarr; Use BYROW!"
+    codeExample: "Rule: Matrix Row Aggregations → Use BYROW!"
   }
 ];
 

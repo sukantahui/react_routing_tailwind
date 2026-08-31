@@ -76,7 +76,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Loading Options: Close &amp; Load to Table, Connection Only &amp; The Data Model
           </h1>
 
@@ -223,7 +223,7 @@ export default function Topic13() {
               <span className="text-amber-400">💡</span> Auto-Refresh on File Open &amp; Periodic Polling
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed">
-              In Query Properties &rarr; Usage Tab, check <strong>Refresh data when opening the file</strong> so executives always see live data upon launch. 
+              In Query Properties → Usage Tab, check <strong>Refresh data when opening the file</strong> so executives always see live data upon launch. 
               For operational control room displays, check <strong>Refresh every 15 minutes</strong> to poll live SQL databases automatically!
             </p>
           </div>
@@ -360,7 +360,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Close_And_Load"
+            sheetName="EX2014"
             title="Loading Destination Master Architecture (Query Name, Load Target, In Data Model, Row Count, Compressed RAM Size, Refresh Mode)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -398,7 +398,7 @@ export default function Topic13() {
                 selecting <strong>Only Create Connection + [X] Add to Data Model</strong>, loading the entire multi-year dataset into Power Pivot without exceeding sheet limits!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                8M Rows Loaded to VertiPaq &rarr; 45 MB Compressed Workbook
+                8M Rows Loaded to VertiPaq → 45 MB Compressed Workbook
               </div>
             </div>
 
@@ -416,7 +416,7 @@ export default function Topic13() {
                 eliminating 12 redundant worksheet tabs and saving 300 MB of duplicate RAM allocation.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Connection Only &rarr; Zero Worksheet Clutter &amp; 300 MB RAM Saved
+                Connection Only → Zero Worksheet Clutter &amp; 300 MB RAM Saved
               </div>
             </div>
 
@@ -434,7 +434,7 @@ export default function Topic13() {
                 preventing a VBA PDF export macro from executing prematurely before Power Query finished loading data!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Synchronous Refresh &rarr; 100% Reliable Automated PDF Exports
+                Synchronous Refresh → 100% Reliable Automated PDF Exports
               </div>
             </div>
 
@@ -452,7 +452,7 @@ export default function Topic13() {
                 powering a live TV dashboard display in the regional management control room.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Periodic Auto-Refresh &rarr; Live Unattended Executive Dashboard
+                Periodic Auto-Refresh → Live Unattended Executive Dashboard
               </div>
             </div>
           </div>
@@ -482,7 +482,7 @@ export default function Topic13() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Always Choose 'Close &amp; Load To...'</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Never click the default Close &amp; Load icon. Click the small arrow underneath &rarr; <strong>Close &amp; Load To...</strong>.
+                  Never click the default Close &amp; Load icon. Click the small arrow underneath → <strong>Close &amp; Load To...</strong>.
                 </p>
               </div>
             </div>
@@ -518,7 +518,7 @@ export default function Topic13() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 4: Configure Background Refresh &amp; Auto-Refresh Options</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Right-click query in Queries &amp; Connections &rarr; <strong>Properties</strong> &rarr; Configure refresh timers and background execution.
+                  Right-click query in Queries &amp; Connections → <strong>Properties</strong> → Configure refresh timers and background execution.
                 </p>
               </div>
             </div>

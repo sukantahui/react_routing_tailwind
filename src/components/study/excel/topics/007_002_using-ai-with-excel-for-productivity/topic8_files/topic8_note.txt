@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Custom AI formulas are pure wizardry. You write `=ASK_AI("What country is this city in?", A2)` and Excel fills in the answer! Always include an in-memory cache so it doesn't re-charge your API account every time you press Enter.
 
 COMMON TRAPS TO AVOID:
-- API Token Storm on Sheet Recalculation (No Caching): Pressing F9 recalculates 1,000 `=ASK_AI()` cells simultaneously, incurring massive API billing charges and hitting rate limits. -> Fix: Implement a Dictionary cache in VBA returning stored responses for identical cell inputs.
-- Making Custom AI Functions Volatile (`Application.Volatile`): Declaring AI UDFs as Volatile causes them to re-call OpenAI every time any cell in the workbook changes! -> Fix: Never declare AI custom functions as Volatile; allow normal dependency recalculation.
-- LLM Returning Chatty Conversational Filler: AI returning 'Sure! Here is your answer: Electronics' instead of just 'Electronics'. -> Fix: Instruct AI in system prompt: 'Return ONLY the classification category. Zero conversational text'.
+- API Token Storm on Sheet Recalculation (No Caching): Pressing F9 recalculates 1,000 `=ASK_AI()` cells simultaneously, incurring massive API billing charges and hitting rate limits. → Fix: Implement a Dictionary cache in VBA returning stored responses for identical cell inputs.
+- Making Custom AI Functions Volatile (`Application.Volatile`): Declaring AI UDFs as Volatile causes them to re-call OpenAI every time any cell in the workbook changes! → Fix: Never declare AI custom functions as Volatile; allow normal dependency recalculation.
+- LLM Returning Chatty Conversational Filler: AI returning 'Sure! Here is your answer: Electronics' instead of just 'Electronics'. → Fix: Instruct AI in system prompt: 'Return ONLY the classification category. Zero conversational text'.
 ================================================================================

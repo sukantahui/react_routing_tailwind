@@ -13,7 +13,7 @@ const topic7_questions = [
     "explanation": "Unreferenced classes cannot unload if their ClassLoader is still referenced.",
     "hint": "ClassLoader memory leaks and uncontrolled dynamic bytecode generation.",
     "level": "Advanced",
-    "codeExample": "ClassLoader leak -> Class metadata accumulates -> Metaspace OOM"
+    "codeExample": "ClassLoader leak → Class metadata accumulates → Metaspace OOM"
   }
 ];
 

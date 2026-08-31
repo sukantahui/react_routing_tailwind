@@ -78,7 +78,7 @@ CREATE TABLE order_items (
 );
 
 Takeaways:
-- Use ON DELETE CASCADE for tightly-bound child records (e.g., Order -> Order_Items).
+- Use ON DELETE CASCADE for tightly-bound child records (e.g., Order → Order_Items).
 - Use ON DELETE RESTRICT for master data (e.g., Products, Users, Doctors).
 - Use ON DELETE SET NULL for optional associations (e.g., assigned coupon code).
 
@@ -88,12 +88,12 @@ Sequencing DDL scripts prevents foreign key dependency errors during automated d
 
 SQL Implementation:
 -- 📂 SCRIPT SEQUENCING (FLYWAY / LIQUIBASE PATTERN):
--- 01_cleanup.sql         -> DROP TABLE IF EXISTS in reverse dependency order
--- 02_schema_master.sql   -> Parent tables (users, roles, categories, branches)
--- 03_schema_child.sql    -> Child tables (orders, accounts, appointments)
--- 04_schema_junction.sql -> M:N junction tables (user_roles, doctor_specialties)
--- 05_indexes.sql         -> Secondary & composite indexes
--- 06_views.sql           -> Security & reporting views
+-- 01_cleanup.sql         → DROP TABLE IF EXISTS in reverse dependency order
+-- 02_schema_master.sql   → Parent tables (users, roles, categories, branches)
+-- 03_schema_child.sql    → Child tables (orders, accounts, appointments)
+-- 04_schema_junction.sql → M:N junction tables (user_roles, doctor_specialties)
+-- 05_indexes.sql         → Secondary & composite indexes
+-- 06_views.sql           → Security & reporting views
 
 Takeaways:
 - Create independent master tables first before referencing child tables.

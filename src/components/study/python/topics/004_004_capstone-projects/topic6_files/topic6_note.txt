@@ -16,9 +16,9 @@ Website: https://www.codernaccotax.co.in
      - Enables adding/removing server instances behind a Load Balancer seamlessly
 
   2. Caching Strategies:
-     - Cache-Aside (Lazy Loading): App checks cache -> on miss, reads DB -> populates cache
+     - Cache-Aside (Lazy Loading): App checks cache → on miss, reads DB → populates cache
      - Write-Through: App writes to cache and DB simultaneously
-     - Write-Behind (Write-Back): App writes to cache -> background worker syncs to DB
+     - Write-Behind (Write-Back): App writes to cache → background worker syncs to DB
 
   3. Rate Limiting:
      - Token Bucket: Refills tokens at constant rate; bursts allowed up to bucket capacity

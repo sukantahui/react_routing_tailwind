@@ -219,7 +219,7 @@ util.loadDump('/backups/shell_dump', {resetProgress: false});`
     explanation: "This minimizes the global lock duration while ensuring non-transactional tables are captured in a consistent state.",
     hint: "Dumps non-InnoDB tables under lock first, then releases lock for InnoDB MVCC dumps.",
     level: "expert",
-    codeExample: `-- Non-InnoDB dumped under lock -> UNLOCK TABLES -> InnoDB dumped in parallel.`
+    codeExample: `-- Non-InnoDB dumped under lock → UNLOCK TABLES → InnoDB dumped in parallel.`
   },
   {
     question: "What is the CPU and disk I/O overhead of running `mydumper` with `--threads=16` on an active production master?",
@@ -236,7 +236,7 @@ mydumper --threads=4 --rows=100000 -o /backups/throttled/`
     explanation: "Building secondary indexes in bulk from pre-sorted data is up to 4x faster than maintaining indexes during row-by-row insertion.",
     hint: "Loads rows via PK first, then builds secondary indexes in bulk.",
     level: "expert",
-    codeExample: `-- Bulk load data chunks -> Post-load secondary index build.`
+    codeExample: `-- Bulk load data chunks → Post-load secondary index build.`
   },
   {
     question: "What is the recommended tool comparison for logical backups on a 50GB database?",

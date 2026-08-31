@@ -42,7 +42,7 @@ export default function Topic8() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Infinite Loops (<code className="text-sky-400 font-mono">for(;;)</code>, <code className="text-emerald-400 font-mono">while(true)</code>): Legitimate Patterns &amp; Accidental Traps
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -133,7 +133,7 @@ export default function Topic8() {
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Byte Overflow Trap</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#4c0519" />
             <text x="335" y="102" fill="#fca5a5" fontSize="10" fontFamily="monospace">for (byte b=0; b&lt;=127; b++)</text>
-            <text x="335" y="122" fill="#fca5a5" fontSize="10">127 + 1 &rarr; -128 (Wraps!)</text>
+            <text x="335" y="122" fill="#fca5a5" fontSize="10">127 + 1 → -128 (Wraps!)</text>
             <text x="335" y="142" fill="#fecdd3" fontSize="10">-128 is still &lt;= 127! (Infinite)</text>
             <text x="440" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               ⚠️ Numeric Wrap Bug

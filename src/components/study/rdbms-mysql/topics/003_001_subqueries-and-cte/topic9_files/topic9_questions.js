@@ -61,7 +61,7 @@ const questions = [
     question: "How do student records for Mamata, Susmita, Abhronila, and Debangshu demonstrate chained CTEs?",
     shortAnswer: "By chaining raw enrollment counts (`EnrollmentStage`), joining with payment totals (`PaymentStage`), and computing academic scholarship eligibility in the final report.",
     explanation: "Demonstrates practical multi-stage student analytics.",
-    hint: "EnrollmentStage -> PaymentStage -> Final Scholarship Ranking.",
+    hint: "EnrollmentStage → PaymentStage → Final Scholarship Ranking.",
     level: "basic"
   },
   {
@@ -117,7 +117,7 @@ const questions = [
     question: "How do you calculate Month-over-Month (MoM) revenue growth using chained CTEs?",
     shortAnswer: "CTE 1 aggregates monthly revenue (`MonthlyRevenue`); CTE 2 uses `LAG()` to pull prior month revenue (`GrowthStage`); the main query calculates percentage growth.",
     explanation: "Classic 3-stage financial analytics pipeline.",
-    hint: "MonthlyRevenue CTE -> GrowthStage with LAG() -> Final % calculation.",
+    hint: "MonthlyRevenue CTE → GrowthStage with LAG() → Final % calculation.",
     level: "expert"
   },
   {
@@ -131,7 +131,7 @@ const questions = [
     question: "How do you calculate the academy-wide median score using chained CTEs and `ROW_NUMBER()`?",
     shortAnswer: "CTE 1 assigns ordered row numbers (`RankedScores`), CTE 2 counts total rows (`TotalCount`), and the main query filters where `row_num IN (FLOOR((total+1)/2), CEIL((total+1)/2))`.",
     explanation: "Classic SQL median calculation without specialized extensions.",
-    hint: "RankedScores CTE -> TotalCount CTE -> Middle row filter.",
+    hint: "RankedScores CTE → TotalCount CTE → Middle row filter.",
     level: "expert"
   },
   {
@@ -180,7 +180,7 @@ const questions = [
     question: "How do you calculate customer Recency, Frequency, and Monetary (RFM) scores using chained CTEs?",
     shortAnswer: "CTE 1 aggregates raw transactions (`RawMetrics`), CTE 2 computes NTILE quartiles (`RFMScores`), and the main query concatenates RFM cell segments.",
     explanation: "Standard enterprise marketing segmentation pipeline.",
-    hint: "RawMetrics CTE -> RFMScores with NTILE -> Final RFM segment.",
+    hint: "RawMetrics CTE → RFMScores with NTILE → Final RFM segment.",
     level: "expert"
   },
   {

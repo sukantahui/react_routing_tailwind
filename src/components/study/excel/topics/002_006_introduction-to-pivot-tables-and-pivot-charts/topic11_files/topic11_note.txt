@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Mastering PivotTable layout architectures: Compact Form, Outline Form, and Tabular Form (with label repetition), subtotals positioning, and blank row insertion
 
 TEACHER'S ADVICE:
-If you plan to use PivotTable output in VLOOKUPs or downstream models, ALWAYS switch to 'Design -> Report Layout -> Tabular Form' and select 'Repeat All Item Labels'. It creates a perfect database grid.
+If you plan to use PivotTable output in VLOOKUPs or downstream models, ALWAYS switch to 'Design → Report Layout → Tabular Form' and select 'Repeat All Item Labels'. It creates a perfect database grid.
 
 COMMON TRAPS TO AVOID:
-- Missing Item Labels in Downstream Lookups: Tabular form leaves blank cells below category headers by default, breaking VLOOKUP / XLOOKUP on downstream formulas. -> Fix: Design tab > Report Layout > Select 'Repeat All Item Labels'.
-- Subtotal Visual Clutter: Having subtotals on every single row level creates a messy, repetitive report. -> Fix: Design tab > Subtotals > Select 'Do Not Show Subtotals' or toggle specific fields.
-- Column Width Auto-Reset on Refresh: Refreshing a PivotTable resets manually adjusted column widths back to default. -> Fix: PivotTable Options > Format > Uncheck 'Autofit column widths on update'.
+- Missing Item Labels in Downstream Lookups: Tabular form leaves blank cells below category headers by default, breaking VLOOKUP / XLOOKUP on downstream formulas. → Fix: Design tab > Report Layout > Select 'Repeat All Item Labels'.
+- Subtotal Visual Clutter: Having subtotals on every single row level creates a messy, repetitive report. → Fix: Design tab > Subtotals > Select 'Do Not Show Subtotals' or toggle specific fields.
+- Column Width Auto-Reset on Refresh: Refreshing a PivotTable resets manually adjusted column widths back to default. → Fix: PivotTable Options > Format > Uncheck 'Autofit column widths on update'.
 ================================================================================

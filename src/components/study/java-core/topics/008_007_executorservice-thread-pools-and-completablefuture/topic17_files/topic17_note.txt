@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Executor Framework: Decouples Task (Runnable/Callable) from Execution (Pool).
    - Executors traps: Unbounded queues & thread explosions (OOM).
    - Custom ThreadPoolExecutor: 7 parameters + CallerRunsPolicy backpressure.
-   - Graceful 2-Phase Shutdown: shutdown() &rarr; await() &rarr; shutdownNow().
+   - Graceful 2-Phase Shutdown: shutdown() → await() → shutdownNow().
    - Future<T>: Bounded 'get(timeout)' to enforce SLAs.
    - CompletableFuture: Non-blocking reactive async pipelines.
    - Operators: supplyAsync, runAsync, thenApply, thenAccept, thenRun.

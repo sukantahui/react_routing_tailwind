@@ -52,11 +52,11 @@ const Topic9 = () => {
 const shardId = hash(tenantId) % SHARD_COUNT;
 const targetDb = connectionPools[shardId];
 await targetDb.query("INSERT INTO orders VALUES (...)");
-// -> Zero proxy latency! Direct socket connection!
+// → Zero proxy latency! Direct socket connection!
 
 // 🛡️ 2. MIDDLEWARE-LEVEL SHARDING (Apache ShardingSphere / Vitess):
-// App connects to standard MySQL port (3307) -> Proxy parses SQL & routes:
-// Client -> [ShardingSphere Proxy] -> Dispatches to Shard 0 / Shard 1 -> Merges`,
+// App connects to standard MySQL port (3307) → Proxy parses SQL & routes:
+// Client → [ShardingSphere Proxy] → Dispatches to Shard 0 / Shard 1 → Merges`,
       explanation:
         "Application-level sharding offers zero-latency direct socket connections but requires custom routing logic in code. Middleware sharding intercepts standard SQL transparently, handling distributed routing and result merges automatically.",
       keyTakeaways: [
@@ -73,12 +73,12 @@ await targetDb.query("INSERT INTO orders VALUES (...)");
       sqlSnippet: `-- 🎯 1. POINT ROUTING (Single Shard Execution - FAST):
 -- Query filters on Shard Key (customer_id = 105):
 SELECT * FROM orders WHERE customer_id = 105;
--- -> Router dispatches ONLY to Shard 1! Returns in 2 milliseconds!
+-- → Router dispatches ONLY to Shard 1! Returns in 2 milliseconds!
 
 -- 💥 2. SCATTER-GATHER BROADCAST (Omits Shard Key - EXPENSIVE):
 SELECT SUM(amount) FROM orders WHERE order_status = 'COMPLETED';
--- -> Router MUST broadcast query to ALL Shards (0, 1, 2, 3) in parallel!
--- -> Incurs Tail Latency: Bound by slowest responding shard node in cluster!`,
+-- → Router MUST broadcast query to ALL Shards (0, 1, 2, 3) in parallel!
+-- → Incurs Tail Latency: Bound by slowest responding shard node in cluster!`,
       explanation:
         "Point routing dispatches queries directly to a single shard in 1–5ms. Scatter-gather queries broadcast to all nodes in parallel, multiplying network I/O and binding total query latency to the slowest responding node.",
       keyTakeaways: [
@@ -100,7 +100,7 @@ SELECT SUM(amount) FROM orders WHERE order_status = 'COMPLETED';
 
 -- 🔗 2. ER TABLE GROUPS (Co-Sharded Parent-Child Entities):
 -- Customers, Orders, and Items all share the SAME Shard Key (customer_id):
--- All orders for customer 105 reside on Shard 1 -> 100% Local Joins!`,
+-- All orders for customer 105 reside on Shard 1 → 100% Local Joins!`,
       explanation:
         "Global tables replicate reference data across all shard nodes for local joins. ER Table Groups co-locate parent and child entities (e.g. customers and orders) onto the same physical node using a shared shard key.",
       keyTakeaways: [
@@ -125,7 +125,7 @@ SELECT SUM(amount) FROM orders WHERE order_status = 'COMPLETED';
             Topic 9 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Horizontal Sharding</span>: Application-Level vs <span className="text-cyan-400">Middleware Proxies</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

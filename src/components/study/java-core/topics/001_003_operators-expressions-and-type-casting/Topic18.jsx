@@ -42,8 +42,8 @@ export default function Topic18() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          Automatic Type Promotion Rules in Expressions (<code className="text-sky-400">byte/short/char &rarr; int</code>)
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
+          Automatic Type Promotion Rules in Expressions (<code className="text-sky-400">byte/short/char → int</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
           Master JVM numeric type widening in arithmetic: Unary Numeric Promotion (JLS §5.6.1), Binary Numeric Promotion hierarchy (<code className="text-emerald-400 font-mono">double</code> &gt; <code className="text-sky-300 font-mono">float</code> &gt; <code className="text-purple-300 font-mono">long</code> &gt; <code className="text-amber-300 font-mono">int</code>), the classic <code className="text-rose-400 font-mono">byte + byte</code> compilation trap, character arithmetic, and exam percentage auditing in Indian Rupees (₹).
@@ -62,13 +62,13 @@ export default function Topic18() {
           <p>
             <strong>Binary Numeric Promotion Hierarchy (JLS §5.6.2):</strong>
             <br />
-            1. If any operand is <code className="text-emerald-400 font-mono">double</code> &rarr; the whole expression promotes to <code className="text-emerald-400 font-mono">double</code>.
+            1. If any operand is <code className="text-emerald-400 font-mono">double</code> → the whole expression promotes to <code className="text-emerald-400 font-mono">double</code>.
             <br />
-            2. Else if any operand is <code className="text-sky-300 font-mono">float</code> &rarr; promotes to <code className="text-sky-300 font-mono">float</code>.
+            2. Else if any operand is <code className="text-sky-300 font-mono">float</code> → promotes to <code className="text-sky-300 font-mono">float</code>.
             <br />
-            3. Else if any operand is <code className="text-purple-300 font-mono">long</code> &rarr; promotes to <code className="text-purple-300 font-mono">long</code>.
+            3. Else if any operand is <code className="text-purple-300 font-mono">long</code> → promotes to <code className="text-purple-300 font-mono">long</code>.
             <br />
-            4. Otherwise &rarr; BOTH operands promote to <code className="text-amber-300 font-mono">int</code>!
+            4. Otherwise → BOTH operands promote to <code className="text-amber-300 font-mono">int</code>!
           </p>
           
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-sky-500 text-slate-300 space-y-2">
@@ -116,8 +116,8 @@ export default function Topic18() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Narrow to Int Promotion</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">byte, short, char</text>
-            <text x="55" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">&rarr; Promoted to 32-bit INT</text>
-            <text x="55" y="142" fill="#e0f2fe" fontSize="10">&apos;A&apos; + &apos;B&apos; &rarr; 65 + 66 = 131 (int)</text>
+            <text x="55" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">→ Promoted to 32-bit INT</text>
+            <text x="55" y="142" fill="#e0f2fe" fontSize="10">&apos;A&apos; + &apos;B&apos; → 65 + 66 = 131 (int)</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               JVM Stack Arithmetic (iadd)
             </text>
@@ -127,8 +127,8 @@ export default function Topic18() {
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Promotion Hierarchy</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="335" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">double &gt; float &gt; long &gt; int</text>
-            <text x="335" y="122" fill="#d1fae5" fontSize="10">long (500L) + float (2.5f) &rarr; float</text>
-            <text x="335" y="142" fill="#d1fae5" fontSize="10">int (10) + double (5.5) &rarr; double</text>
+            <text x="335" y="122" fill="#d1fae5" fontSize="10">long (500L) + float (2.5f) → float</text>
+            <text x="335" y="142" fill="#d1fae5" fontSize="10">int (10) + double (5.5) → double</text>
             <text x="440" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Widest Type Unification
             </text>

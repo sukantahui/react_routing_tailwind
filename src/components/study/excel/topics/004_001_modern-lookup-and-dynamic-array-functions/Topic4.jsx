@@ -77,7 +77,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Sorting Spilled Arrays Dynamically with SORT (Single Index, Ascending/Descending)
           </h1>
 
@@ -316,7 +316,7 @@ export default function Topic4() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic4_Sort_Dynamics"
+              sheetName="EX1605"
               title="Quarterly Consultant Performance & Revenue Log"
               rowsPerPage={10}
               showSheetSelector={true}

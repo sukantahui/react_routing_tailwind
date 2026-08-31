@@ -5,7 +5,7 @@ const topic11_questions = [
     "explanation": "Eliminates global lock contention during high-throughput allocation.",
     "hint": "Allocates private Eden chunks per thread using lock-free pointer bumping.",
     "level": "Intermediate",
-    "codeExample": "Thread A -> TLAB A; Thread B -> TLAB B (Concurrent & Lock-Free)"
+    "codeExample": "Thread A → TLAB A; Thread B → TLAB B (Concurrent & Lock-Free)"
   },
   {
     "question": "What happens when an object is too large to fit into a thread's current TLAB?",
@@ -13,7 +13,7 @@ const topic11_questions = [
     "explanation": "Controlled by the TLAB refill waste limit threshold.",
     "hint": "Allocated in a new TLAB or directly on shared Eden/Old Gen.",
     "level": "Advanced",
-    "codeExample": "Large object -> Direct Eden/Old Gen allocation via CAS."
+    "codeExample": "Large object → Direct Eden/Old Gen allocation via CAS."
   }
 ];
 

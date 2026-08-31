@@ -40,7 +40,7 @@ const questions = [
     explanation: "Total cost is Z = sum(c_ij * x_ij). Every unit shipped at the minimum rate c_min replaces a unit that would otherwise be shipped at c_second or worse, producing a net saving of x_kl * (c_second - c_min).",
     hint: "Multiplying maximum volume by the penalty difference maximizes financial regret avoidance.",
     level: "expert",
-    codeExample: "Savings = x_kl * (c_second - c_min) -> Maximized when x_kl is as large as possible."
+    codeExample: "Savings = x_kl * (c_second - c_min) → Maximized when x_kl is as large as possible."
   },
   {
     question: "If there is a tie between two cells in the winning line having the identical minimum cost, how is the tie resolved?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Within the winning column, the lowest cost cell is Row 1 at ₹4/unit. Allocation x_1j = min(30, 80) = 30 units. Row 1 is crossed out, leaving remaining demand of 50 units in the column.",
     hint: "Pick the cheapest row in that column and allocate as much as possible.",
     level: "moderate",
-    codeExample: "c_1j = ₹4 is min -> x_1j = min(30, 80) = 30 units."
+    codeExample: "c_1j = ₹4 is min → x_1j = min(30, 80) = 30 units."
   },
   {
     question: "What is the remaining demand for Mamata's column after allocating 30 units in the above scenario?",

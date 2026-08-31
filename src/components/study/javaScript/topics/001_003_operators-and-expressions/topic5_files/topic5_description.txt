@@ -21,11 +21,11 @@ If 0, false, or "" are valid actual inputs, || will overwrite them!
 
 2. The Nullish Coalescing Operator (??):
 Nullish Coalescing (??) ONLY falls back when the value is null or undefined.
-- 0 ?? 50 -> 0 (Preserved!)
-- "" ?? "Default" -> "" (Preserved!)
-- false ?? true -> false (Preserved!)
-- null ?? "Default" -> "Default"
-- undefined ?? "Default" -> "Default"
+- 0 ?? 50 → 0 (Preserved!)
+- "" ?? "Default" → "" (Preserved!)
+- false ?? true → false (Preserved!)
+- null ?? "Default" → "Default"
+- undefined ?? "Default" → "Default"
 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
 --------------------------------------------------------------------------------

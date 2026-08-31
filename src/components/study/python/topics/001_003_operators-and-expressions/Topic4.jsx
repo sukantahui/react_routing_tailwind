@@ -114,7 +114,7 @@ export default function Topic4() {
             Module 001_003 · Operators & Expressions · Topic 4
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Logical Operators & <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400">String Formatting (f-strings)</span>
           </h1>
 
@@ -403,11 +403,11 @@ print("Selected City:", city_name)  # Falls back to "Kolkata"`}
 falsy_items = [None, False, 0, 0.0, "", [], (), {}, set()]
 print("Testing Falsy items:")
 for item in falsy_items:
-    print(f"bool({repr(item):<8}) -> {bool(item)}")
+    print(f"bool({repr(item):<8}) → {bool(item)}")
 
 # Truthy return values of 'and' & 'or'
 print("\\nOperand return behavior:")
-print("10 and 20         :", 10 and 20)          # 20 (both truthy -> returns last)
+print("10 and 20         :", 10 and 20)          # 20 (both truthy → returns last)
 print("0 and 'Python'    :", 0 and "Python")     # 0  (first falsy)
 print("'' or 'Default'   :", "" or "Default")    # 'Default' (first truthy)`}
         />
@@ -538,7 +538,7 @@ print(f"Access Verification for Mamata: {'GRANTED' if has_lab_access else 'DENIE
 
             <EditablePythonCodeBlock
               initialCode={`# Commuter: Debangshu (Barrackpore Station)
-route = "Barrackpore -> Kolkata Esplanade"
+route = "Barrackpore → Kolkata Esplanade"
 ticket_count = 10
 price_per_ticket = 25.0
 is_student = True

@@ -74,7 +74,7 @@ const questions = [
     explanation: "Matches all characters from start of string up to the `@` character.",
     hint: "^([^@]+).",
     level: "moderate",
-    codeExample: "=REGEXEXTRACT(\"swadeep.b@corp.in\", \"^([^@]+)\") &rarr; \"swadeep.b\""
+    codeExample: "=REGEXEXTRACT(\"swadeep.b@corp.in\", \"^([^@]+)\") → \"swadeep.b\""
   },
   {
     question: "How do you extract the domain name after the `@` symbol from an email address?",
@@ -130,7 +130,7 @@ const questions = [
     explanation: "Matches alphanumeric characters after the final dot at the end of the string.",
     hint: "(?<=\\.)[a-zA-Z0-9]+$.",
     level: "moderate",
-    codeExample: "=REGEXEXTRACT(Path, \"(?<=\\.)[a-zA-Z0-9]+$\") &rarr; \"xlsx\""
+    codeExample: "=REGEXEXTRACT(Path, \"(?<=\\.)[a-zA-Z0-9]+$\") → \"xlsx\""
   },
   {
     question: "How do you extract Indian GSTINs (15 alphanumeric characters) from free-form invoice notes?",
@@ -194,7 +194,7 @@ const questions = [
     explanation: "Matches the first word from the beginning of the string.",
     hint: "^\\w+.",
     level: "basic",
-    codeExample: "=REGEXEXTRACT(\"Swadeep Banerjee\", \"^\\w+\") &rarr; \"Swadeep\""
+    codeExample: "=REGEXEXTRACT(\"Swadeep Banerjee\", \"^\\w+\") → \"Swadeep\""
   },
   {
     question: "How do you extract the last word of a string using REGEXEXTRACT?",
@@ -202,7 +202,7 @@ const questions = [
     explanation: "Matches the word immediately preceding the end of string anchor `$()`.",
     hint: "\\w+$.",
     level: "basic",
-    codeExample: "=REGEXEXTRACT(\"Swadeep Banerjee\", \"\\w+$\") &rarr; \"Banerjee\""
+    codeExample: "=REGEXEXTRACT(\"Swadeep Banerjee\", \"\\w+$\") → \"Banerjee\""
   },
   {
     question: "How do you extract IP addresses (e.g. `192.168.1.45`) from system event logs?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "REGEXEXTRACT turns chaotic banking narrations, ERP dumps, and customer emails into clean, structured database fields with zero manual effort!",
     hint: "Lookarounds + Word Boundaries (\\b) + IFNA Wrapper = Clean Data Extraction!",
     level: "expert",
-    codeExample: "Rule: Unstructured Text Parsing &rarr; Deploy REGEXEXTRACT + IFNA!"
+    codeExample: "Rule: Unstructured Text Parsing → Deploy REGEXEXTRACT + IFNA!"
   }
 ];
 

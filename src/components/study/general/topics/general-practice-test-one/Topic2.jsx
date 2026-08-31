@@ -45,7 +45,7 @@ export default class Topic2 extends Component {
 
         {/* ================= HEADER ================= */}
         <header className={`space-y-3 ${reveal}`}>
-          <h1 className="text-3xl font-bold text-indigo-700 dark:text-indigo-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-700 dark:text-indigo-400">
             Computer Viruses & Other Harmful Software
           </h1>
           <p className="text-slate-600 dark:text-slate-400">

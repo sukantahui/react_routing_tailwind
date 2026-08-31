@@ -6,8 +6,8 @@ const questions = [
     hint: "Passive is looking through a window without touching anything; Active is breaking the lock or rearranging the furniture inside.",
     level: "basic",
     codeExample: `// Mathematical State Formalism:
-// Passive: S_final = S_initial  (Delta S = Empty Set -> Violates Confidentiality)
-// Active : S_final != S_initial (Delta S != Empty Set -> Violates Integrity / Availability)`
+// Passive: S_final = S_initial  (Delta S = Empty Set → Violates Confidentiality)
+// Active : S_final != S_initial (Delta S != Empty Set → Violates Integrity / Availability)`
   },
   {
     question: "Why are Passive Attacks often the mandatory precursor (Reconnaissance Phase) to devastating Active Cyber Attacks in the Cyber Kill Chain?",
@@ -31,7 +31,7 @@ const questions = [
   },
   {
     question: "How does the Defensive Strategy differ between Passive Threats (Proactive Prevention) and Active Threats (Dynamic Feedback Loop)?",
-    shortAnswer: "Passive defense relies on 100% proactive encryption and traffic masking; Active defense operates on a dynamic feedback loop: Detect -> Verify -> Contain (SOAR) -> Recover.",
+    shortAnswer: "Passive defense relies on 100% proactive encryption and traffic masking; Active defense operates on a dynamic feedback loop: Detect → Verify → Contain (SOAR) → Recover.",
     explanation: "Because passive attacks cannot be detected in real time on standard IT networks, security teams must enforce 100% proactive prevention (assume every cable is tapped: enforce TLS 1.3, MACsec, and CBR padding). For active attacks, organizations deploy active verification (AEAD tags, mTLS) paired with real-time detection and automated SOAR playbooks to isolate rogue nodes within milliseconds.",
     hint: "Armoring the car before leaving (passive prevention) vs having active anti-lock brakes and airbags (active mitigation).",
     level: "expert",
@@ -58,7 +58,7 @@ const questions = [
     codeExample: `// Financial Heist Attack Progression:
 // 1. Passive Sniffing : Intercepts cleartext session token on VLAN 10 (Zero logs)
 // 2. Active Masquerade: Submits POST /api/wire-transfer with stolen token
-// 3. Active Tampering : Changes recipient to offshore account -> ₹12 Crore Loss`
+// 3. Active Tampering : Changes recipient to offshore account → ₹12 Crore Loss`
   },
   {
     question: "Analyze Scenario 2: A power transmission substation in Barrackpore experiences an unexpected blackout. How were passive and active techniques combined?",
@@ -69,7 +69,7 @@ const questions = [
     codeExample: `// Power Grid Attack Blueprint:
 // 1. Passive Analysis : Measures 100 Hz acoustic hum + SCADA polling intervals
 // 2. Active DoS (L4)  : Floods gateway with 500k SYN packets/sec (Blocks operator control)
-// 3. Active Replay(L7): Replays recorded Modbus 0x05 breaker trip command -> Blackout!`
+// 3. Active Replay(L7): Replays recorded Modbus 0x05 breaker trip command → Blackout!`
   },
   {
     question: "Analyze Scenario 3: An oncology hospital in Ichapur suffers a medical data breach and ransomware outage. Trace the passive and active attack progression.",
@@ -289,8 +289,8 @@ location /api/ {
     hint: "One wants to shut down the store; the other wants the store open so they can use counterfeit currency.",
     level: "moderate",
     codeExample: `// Objective Comparison:
-// DoS Attack        : Target = Offline (0% transactions processed -> Availability Destroyed)
-// Modification Attack: Target = Online (100% tampered transactions processed -> Integrity Destroyed)`
+// DoS Attack        : Target = Offline (0% transactions processed → Availability Destroyed)
+// Modification Attack: Target = Online (100% tampered transactions processed → Integrity Destroyed)`
   },
   {
     question: "Under the Indian IT Act Section 43, what are the civil compensation boundaries for unauthorized computer access and damage?",

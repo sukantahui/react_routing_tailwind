@@ -77,7 +77,7 @@
       "description": "Given a string S, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together. Compute the LPS array for S: if `lps[N-1] > 0` and `N % (N - lps[N-1]) == 0`, S is a repeated pattern! In this project, you will build a Repeated Substring Checker in C in O(N) time.",
       "learningOutcome": "KMP LPS Structural Invariants, Periodicity Proofs & Substring Repeat Detection",
       "exampleText": "Check if 'abcabcabc' is a repeated pattern",
-      "exampleOutput": "--- Repeated Substring Pattern via KMP LPS ---\n'abcabcabc' -> REPEATED Pattern",
+      "exampleOutput": "--- Repeated Substring Pattern via KMP LPS ---\n'abcabcabc' → REPEATED Pattern",
       "logicExplanation": "1. **LPS End**: Extract `len = lps[N-1]`.\n2. **Periodicity Condition**: `len > 0 && N % (N - len) == 0` confirms repeated substring periodicity.",
       "answerFile": "./answers/answer6.c",
       "codeExplanation": "1. `repeated_substring_pattern()`: Detects repeated substring periodicity via LPS array."
@@ -101,7 +101,7 @@
       "description": "You are given a string S. You can convert it to a Palindrome by adding characters in front of it. Find the shortest palindrome you can create. Form string `temp = S + '#' + Reverse(S)`. The last value of `lps[len-1]` gives the length of the longest palindromic prefix of S! In this project, you will build a Shortest Palindrome Engine in C in O(N) time.",
       "learningOutcome": "Palindromic Prefix Identification, Reversed String Inversion & LPS Table Exploitation",
       "exampleText": "Find shortest palindrome for 'aacecaaa'",
-      "exampleOutput": "--- Shortest Palindrome Addition (LPS Inversion) ---\nShortest Palindrome of 'aacecaaa' -> 'aaacecaaa'",
+      "exampleOutput": "--- Shortest Palindrome Addition (LPS Inversion) ---\nShortest Palindrome of 'aacecaaa' → 'aaacecaaa'",
       "logicExplanation": "1. **Combined String**: Form `temp = S + '#' + Rev(S)`.\n2. **LPS Prefix**: `lps[len-1]` gives length of longest palindrome starting at index 0.",
       "answerFile": "./answers/answer8.c",
       "codeExplanation": "1. `shortest_palindrome_demo()`: Solves shortest palindrome addition using LPS table."
@@ -209,7 +209,7 @@
       "description": "A Happy Prefix is a non-empty prefix which is also a suffix (excluding the string itself). Find the longest happy prefix of S. Compute KMP LPS array for S: `lps[N-1]` gives length of longest happy prefix! Extract `S[0 .. lps[N-1]-1]`. In this project, you will build a Longest Happy Prefix Finder in C in O(N) time.",
       "learningOutcome": "Longest Happy Prefix, LPS Array Applications & String Prefix Extraction",
       "exampleText": "Find happy prefix for 'level'",
-      "exampleOutput": "--- Longest Happy Prefix (Equal Prefix & Suffix via LPS) ---\nLongest Happy Prefix for 'level' -> 'l'",
+      "exampleOutput": "--- Longest Happy Prefix (Equal Prefix & Suffix via LPS) ---\nLongest Happy Prefix for 'level' → 'l'",
       "logicExplanation": "1. **LPS Computation**: Build LPS array for string S.\n2. **Prefix Slice**: Extract prefix substring of length `lps[N-1]`.",
       "answerFile": "./answers/answer17.c",
       "codeExplanation": "1. `happy_prefix_demo()`: Finds longest happy prefix using KMP LPS array."

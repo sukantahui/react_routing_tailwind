@@ -306,14 +306,14 @@ if (avg_latency < 5.0 && KeystrokeCount > 50) { // < 5ms per keypress = Machine 
     hint: "A safe that only allows documents to be placed inside approved armored deposit bags.",
     level: "moderate",
     codeExample: `# PowerShell Command to Enforce BitLocker To Go on Removable Storage:
-# Path: Computer Configuration -> Administrative Templates -> Windows Components -> BitLocker Drive Encryption
+# Path: Computer Configuration → Administrative Templates → Windows Components → BitLocker Drive Encryption
 # Policy: Deny write access to removable drives not protected by BitLocker = Enabled`
   },
   {
     question: "Synthesize the mathematical relationship between Bait Allure Factor (A_allure), Pretext Credibility (C_credibility), Endpoint & Policy Hardening (R_hardening), and Baiting/Pretexting Compromise Probability (P_pretext).",
     shortAnswer: "Baiting/Pretexting compromise probability is modeled as P_pretext = 1 - e^(- (A_allure * C_credibility) / R_hardening); deploying GPO USB blocking and out-of-band verification (R_hardening = 1000) reduces compromise probability below 1.5%.",
     explanation: "Let $A_{\\text{allure}} \\ge 1.0$ represent the bait allure score (free executive bonuses = 4.0), $C_{\\text{credibility}} \\ge 1.0$ represent the pretext contextual credibility (regulatory inspector persona = 4.0), and $R_{\\text{hardening}}$ represent the endpoint and policy hardening strength (GPO USB device restrictions, 802.1X NAC, out-of-band master directory verification). The compromise probability is: $P_{\\text{pretext}} = 1 - e^{-\\frac{A_{\\text{allure}} \\times C_{\\text{credibility}}}{R_{\\text{hardening}}}}$. When organizations enforce strict GPO USB device blocking and out-of-band pretext validation ($R_{\\text{hardening}} \\to \\infty$), breach probability collapses to zero.",
-    hint: "Mathematical formula proving that GPO USB blocking and out-of-band pretext checks (R_hardening -> infinity) drive compromise probability to zero.",
+    hint: "Mathematical formula proving that GPO USB blocking and out-of-band pretext checks (R_hardening → infinity) drive compromise probability to zero.",
     level: "expert",
     codeExample: `// Baiting & Pretexting Mathematical Proof:
 // A_allure = 4.0 (High Allure Bonus USB) | C_credibility = 4.0 (Official Regulatory Inspector Pretext)

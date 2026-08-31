@@ -69,7 +69,7 @@ Outcome WITH `WITH CHECK OPTION`:
     SET centre_city = 'Kolkata'
     WHERE student_id = 101;
     
-    --> Fails with MySQL Error 1369 (HY000): 
+    → Fails with MySQL Error 1369 (HY000): 
         CHECK OPTION failed 'academy_db.view_barrackpore_students'
 
 5. CASCADED VS LOCAL CHECK OPTION

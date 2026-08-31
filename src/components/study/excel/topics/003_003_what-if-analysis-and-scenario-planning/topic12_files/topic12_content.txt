@@ -45,6 +45,6 @@ Operational Architecture: Production Mix Optimization: Maximize Profit = SUMPROD
 
 6. PRO TIPS & SHORTCUTS
 • Save Solver Model (Solver > Options > Save Model): Stores entire optimization configuration permanently in worksheet cells.
-• Clean 3-Block Layout (Unit Margins -> Variables -> Constraint Matrix): The industrial standard layout for optimization workbooks.
+• Clean 3-Block Layout (Unit Margins → Variables → Constraint Matrix): The industrial standard layout for optimization workbooks.
 • Capacity Slack Column (=Available - Used): Visual indicator showing remaining unused capacity for each resource.
 ================================================================================

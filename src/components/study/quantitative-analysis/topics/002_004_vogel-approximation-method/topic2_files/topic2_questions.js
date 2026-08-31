@@ -16,7 +16,7 @@ const questions = [
     explanation: "When max(P) is tied (e.g. Row 1 and Column 2 both have P = ₹8), Tier 1 checks min(c_ij) in each tied line. If still tied, Tier 2 evaluates the volume min(Supply, Demand) that can be dispatched immediately to maximize total cost savings. If still tied, arbitrary selection preserves feasibility and near-optimality.",
     hint: "Tier 1 = lowest rate; Tier 2 = highest volume; Tier 3 = arbitrary.",
     level: "expert",
-    codeExample: "Tier 1: min(c_ij) -> Tier 2: max(min(S_i, D_j)) -> Tier 3: arbitrary"
+    codeExample: "Tier 1: min(c_ij) → Tier 2: max(min(S_i, D_j)) → Tier 3: arbitrary"
   },
   {
     question: "Suppose Row 1 has P_1 = ₹10 with minimum cost ₹2, while Column 3 has P_3 = ₹10 with minimum cost ₹4. Which line is selected?",
@@ -24,7 +24,7 @@ const questions = [
     explanation: "Under Tier 1 tie-breaking, both lines share the same maximum penalty of ₹10, but Row 1 offers a cheaper absolute route at ₹2/unit compared to ₹4/unit in Column 3.",
     hint: "Compare unit cost ₹2 against unit cost ₹4.",
     level: "moderate",
-    codeExample: "P_1 = P_3 = ₹10 -> min_cost(R1)=₹2 < min_cost(C3)=₹4 => Select Row 1."
+    codeExample: "P_1 = P_3 = ₹10 → min_cost(R1)=₹2 < min_cost(C3)=₹4 => Select Row 1."
   },
   {
     question: "Suppose Row 2 and Row 3 both have P = ₹7, and both have identical minimum cost ₹3. Row 2 supply is 80 (demand 50), while Row 3 supply is 30 (demand 50). Which is chosen?",
@@ -48,7 +48,7 @@ const questions = [
     explanation: "When a universal tie occurs across all rows and columns, Tier 1 tie-breaking compares the minimum cost of all lines, which naturally selects the global minimum cell in the entire tableau.",
     hint: "Universal penalty tie causes VAM to gracefully adopt Least Cost cell selection.",
     level: "expert",
-    codeExample: "All P = ₹3 -> Select argmin_{(i,j)} c_ij across entire active matrix."
+    codeExample: "All P = ₹3 → Select argmin_{(i,j)} c_ij across entire active matrix."
   },
   {
     question: "What happens after the highest penalty line is selected?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Once the winning row or column is fixed, VAM does NOT allocate to the highest cost cell; it allocates to the CHEAPEST cell inside that highest-penalty line.",
     hint: "Highest penalty chooses the LINE; lowest cost chooses the CELL inside that line.",
     level: "moderate",
-    codeExample: "Line = argmax(Penalties) -> Cell = argmin_{in Line} (c_ij) -> x = min(Supply, Demand)"
+    codeExample: "Line = argmax(Penalties) → Cell = argmin_{in Line} (c_ij) → x = min(Supply, Demand)"
   },
   {
     question: "If Mamata in Kolkata has row penalties [₹4, ₹9, ₹2] and column penalties [₹6, ₹9, ₹3], what are the tied maximum penalty candidates?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "When every cell costs ₹8, all 1st and 2nd minimums are ₹8, so all P = ₹0. Total transportation cost will be identical regardless of allocation pattern.",
     hint: "Uniform cost matrix means zero regret everywhere.",
     level: "moderate",
-    codeExample: "All c_ij = ₹8 -> All P = ₹0 -> Total Cost Z = 8 * Total Demand."
+    codeExample: "All c_ij = ₹8 → All P = ₹0 → Total Cost Z = 8 * Total Demand."
   },
   {
     question: "How does selecting the highest penalty line help prevent 'bottlenecks' in multi-echelon supply chains?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "This concise rule prevents the frequent error of confusing line selection (maximization of regret) with cell selection (minimization of rate).",
     hint: "Max for Line, Min for Cell.",
     level: "moderate",
-    codeExample: "Max(Penalty) -> Line; Min(Cost) -> Cell."
+    codeExample: "Max(Penalty) → Line; Min(Cost) → Cell."
   },
   {
     question: "Why should an operations research practitioner circle the chosen maximum penalty in every tableau?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "Circling the maximum penalty prevents confusion during multi-pass calculations and makes verification immediate.",
     hint: "Visual audit markers streamline grading and error detection.",
     level: "intermediate",
-    codeExample: "Circle: (P_2 = ₹14)* -> Guides allocation x_21."
+    codeExample: "Circle: (P_2 = ₹14)* → Guides allocation x_21."
   },
   {
     question: "If two columns have the same maximum penalty and the same minimum unit cost, but Column 1 has demand 50 and Column 2 has demand 20, which is preferred under Tier 2?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "Selecting the highest penalty lines systematically drives the initial basis toward dual feasibility, drastically reducing computation time in enterprise dispatch engines.",
     hint: "High quality initial basis = minimal post-optimization runtime.",
     level: "expert",
-    codeExample: "VAM IBFS -> 0 to 1 MODI pivots vs NWCR -> 5 to 12 MODI pivots."
+    codeExample: "VAM IBFS → 0 to 1 MODI pivots vs NWCR → 5 to 12 MODI pivots."
   }
 ];
 

@@ -62,10 +62,10 @@ export default class Topic3 extends Component {
           <div className="mermaid">
             {`
 flowchart TD
-  A["Is Student Present?"] -->|Yes| B["Attendance >= 75?"]
-  A -->|No| D["Reject : Absent"]
-  B -->|Yes| C["Allow Exam"]
-  B -->|No| E["Reject : Low Attendance"]
+  A["Is Student Present?"] ──→|Yes| B["Attendance >= 75?"]
+  A ──→|No| D["Reject : Absent"]
+  B ──→|Yes| C["Allow Exam"]
+  B ──→|No| E["Reject : Low Attendance"]
             `}
           </div>
         </div>

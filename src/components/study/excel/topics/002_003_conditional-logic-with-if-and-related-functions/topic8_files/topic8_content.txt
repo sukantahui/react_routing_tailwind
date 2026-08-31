@@ -46,5 +46,5 @@ Formula Code: =XLOOKUP(score, threshold_array, tier_array, , -1, 1) | =INDEX(tie
 6. PRO TIPS & SHORTCUTS
 • Approximate XLOOKUP (=XLOOKUP(Score, Tiers[MinScore], Tiers[Grade], , -1)): The modern gold standard for tier classification tables.
 • Always Start at Zero (Tier 1: Min = 0): Guarantees that all non-negative numbers find a valid matching bracket.
-• Named Range Table (Ctrl + T -> Name Table): Makes tier formulas self-documenting and automatically expanding.
+• Named Range Table (Ctrl + T → Name Table): Makes tier formulas self-documenting and automatically expanding.
 ================================================================================

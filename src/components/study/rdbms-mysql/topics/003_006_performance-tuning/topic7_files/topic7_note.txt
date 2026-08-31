@@ -16,11 +16,11 @@ In MySQL EXPLAIN, a covering index is identified by:
 2. THE TWO-STEP LOOKUP VS INDEX-ONLY ACCESS
 --------------------------------------------------------------------------------
 Non-Covering Secondary Index Lookup:
-  Step 1: Traverse Secondary B+Tree -> Fetch matching Primary Key (PK).
-  Step 2: Clustered Index Seek (Bookmark Lookup / Random I/O) -> Fetch remaining columns.
+  Step 1: Traverse Secondary B+Tree → Fetch matching Primary Key (PK).
+  Step 2: Clustered Index Seek (Bookmark Lookup / Random I/O) → Fetch remaining columns.
 
 Covering Index Access (Index-Only):
-  Step 1: Traverse Secondary B+Tree -> All requested columns exist in the leaf node!
+  Step 1: Traverse Secondary B+Tree → All requested columns exist in the leaf node!
   Step 2: ELIMINATED! Zero base table reads.
 
 3. INNODB IMPLICIT PRIMARY KEY INCLUSION

@@ -20,9 +20,9 @@ Execution efficiency is identical ($O(1)$ or $O(\log N)$), but code readability 
 
 3. DOMAIN MODELING PATTERNS: ENUMS, STRINGS, AND INTEGERS
 A. Enum Grouping:
-   Mapping domain subsets to category types (e.g. `case MON, TUE, WED, THU, FRI -> DayType.WEEKDAY;`).
+   Mapping domain subsets to category types (e.g. `case MON, TUE, WED, THU, FRI → DayType.WEEKDAY;`).
 B. String Normalization:
-   Normalizing varied user input formats into clean domain values (e.g. `case "Y", "YES", "TRUE", "1" -> Boolean.TRUE;`).
+   Normalizing varied user input formats into clean domain values (e.g. `case "Y", "YES", "TRUE", "1" → Boolean.TRUE;`).
 C. Calendar Interval Computation:
    Aggregating months into calendar quarters and day counts.
 
@@ -33,5 +33,5 @@ Static analysis engines (e.g., Checkstyle, PMD, SonarQube) favor comma-separated
 - It clarifies branch mapping during pull request reviews.
 
 5. CLASSROOM PEDAGOGY IN BARRACKPORE
-In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu refactored their academic scheduling and quarterly fee billing engines in Indian Rupees (₹). By grouping weekdays (`MONDAY` through `FRIDAY`), calendar months (`case 1, 3, 5, 7, 8, 10, 12 -> 31;`), and quarterly tuition slabs into clean multi-label arrow rules, their codebase condensed 120 lines of legacy switch boilerplate into 25 lines of elegant, maintainable code across institutes in Naihati and Shyamnagar.
+In our Barrackpore laboratory, Swadeep, Tuhina, Abhronila, and Debangshu refactored their academic scheduling and quarterly fee billing engines in Indian Rupees (₹). By grouping weekdays (`MONDAY` through `FRIDAY`), calendar months (`case 1, 3, 5, 7, 8, 10, 12 → 31;`), and quarterly tuition slabs into clean multi-label arrow rules, their codebase condensed 120 lines of legacy switch boilerplate into 25 lines of elegant, maintainable code across institutes in Naihati and Shyamnagar.
 ================================================================================

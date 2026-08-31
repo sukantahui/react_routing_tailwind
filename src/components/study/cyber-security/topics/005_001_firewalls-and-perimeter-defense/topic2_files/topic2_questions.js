@@ -73,7 +73,7 @@ const packetTuple = {
     hint: "Parallel search memory that evaluates thousands of ACL rules in a single clock tick.",
     level: "Expert",
     codeExample: `// TCAM 3-State Matching:
-// Rule: IP 192.168.1.0/24 -> TCAM Mask: 11000000.10101000.00000001.XXXXXXXX (X = Don't Care)`
+// Rule: IP 192.168.1.0/24 → TCAM Mask: 11000000.10101000.00000001.XXXXXXXX (X = Don't Care)`
   },
   {
     id: 7,
@@ -85,7 +85,7 @@ const packetTuple = {
     codeExample: `// Active FTP Port Dilemma:
 // 1. Client connects to Server:21 (Control channel - Allowed)
 // 2. Client sends: "PORT 10,10,1,50,211,215" (Requests server connect back to port 54231)
-// 3. Server connects to Client:54231 -> Stateless filter drops it unless ports 1024-65535 are open!`
+// 3. Server connects to Client:54231 → Stateless filter drops it unless ports 1024-65535 are open!`
   },
   {
     id: 8,
@@ -175,9 +175,9 @@ const packetTuple = {
     hint: "The catch-all drop rule at the very bottom of the rule table.",
     level: "Basic",
     codeExample: `// Implicit Deny at Bottom of Rule Base:
-// Rule 1: PERMIT TCP ANY -> 172.16.1.10:443
-// Rule 2: PERMIT UDP ANY -> 172.16.1.20:53
-// Rule 999: DENY IP ANY -> ANY (Implicit Deny Catch-All!)`
+// Rule 1: PERMIT TCP ANY → 172.16.1.10:443
+// Rule 2: PERMIT UDP ANY → 172.16.1.20:53
+// Rule 999: DENY IP ANY → ANY (Implicit Deny Catch-All!)`
   },
   {
     id: 16,
@@ -187,8 +187,8 @@ const packetTuple = {
     hint: "A broad rule above completely hides a specific rule below.",
     level: "Moderate",
     codeExample: `// Shadowed Rule Example:
-// Rule 10: PERMIT TCP ANY -> 172.16.1.0/24 eq 80 (Allows entire subnet)
-// Rule 20: DENY   TCP ANY -> host 172.16.1.50 eq 80 (SHADOWED! Never evaluated)`
+// Rule 10: PERMIT TCP ANY → 172.16.1.0/24 eq 80 (Allows entire subnet)
+// Rule 20: DENY   TCP ANY → host 172.16.1.50 eq 80 (SHADOWED! Never evaluated)`
   },
   {
     id: 17,
@@ -204,7 +204,7 @@ const packetTuple = {
     id: 18,
     question: "What is a 'Land Attack' and how does a stateless packet filter detect and drop it?",
     shortAnswer: "A Denial of Service attack where a packet is crafted with identical Source IP/Port and Destination IP/Port, causing vulnerable operating systems to loop endlessly trying to reply to themselves.",
-    explanation: "In a Land Attack, the packet has `Src IP = 192.168.1.10, Dst IP = 192.168.1.10, Src Port = 80, Dst Port = 80`. Stateless filters drop this by checking: `IF Packet.SrcIP == Packet.DstIP -> DROP`.",
+    explanation: "In a Land Attack, the packet has `Src IP = 192.168.1.10, Dst IP = 192.168.1.10, Src Port = 80, Dst Port = 80`. Stateless filters drop this by checking: `IF Packet.SrcIP == Packet.DstIP → DROP`.",
     hint: "A packet where sender and receiver IP and port are identical.",
     level: "Moderate",
     codeExample: `// Land Attack Detection Rule:
@@ -225,7 +225,7 @@ const packetTuple = {
     id: 20,
     question: "What is 'Stateless BGP FlowSpec' and how does it mitigate distributed volumetric flood attacks in backbone networks?",
     shortAnswer: "An extension to Border Gateway Protocol (RFC 5575) that distributes stateless filtering rules (5-tuple matches) across hundreds of upstream provider routers within seconds to drop attack traffic at the ISP core.",
-    explanation: "When a multi-gigabit NTP reflection flood (UDP port 123) targets an enterprise, border firewalls are overwhelmed. Using BGP FlowSpec, the enterprise router announces a stateless filter rule (`match udp src-port 123 dst-ip 203.0.113.10 -> action discard`) to upstream Tier-1 ISPs, dropping the attack inside the Internet backbone.",
+    explanation: "When a multi-gigabit NTP reflection flood (UDP port 123) targets an enterprise, border firewalls are overwhelmed. Using BGP FlowSpec, the enterprise router announces a stateless filter rule (`match udp src-port 123 dst-ip 203.0.113.10 → action discard`) to upstream Tier-1 ISPs, dropping the attack inside the Internet backbone.",
     hint: "Distributing stateless drop rules to upstream ISP routers via BGP.",
     level: "Expert",
     codeExample: `// BGP FlowSpec Stateless Ingress Match:
@@ -251,8 +251,8 @@ const packetTuple = {
     level: "Moderate",
     codeExample: `// SYN Flood Behavior:
 // Attacker sends 1,000,000 SYN packets with spoofed IPs to port 443
-// Stateless Filter: Matches Rule 'PERMIT ANY -> 172.16.1.10:443' -> Forwards all 1,000,000 SYNs!
-// Web Server: Kernel backlog queue overflows -> Server crashes!`
+// Stateless Filter: Matches Rule 'PERMIT ANY → 172.16.1.10:443' → Forwards all 1,000,000 SYNs!
+// Web Server: Kernel backlog queue overflows → Server crashes!`
   },
   {
     id: 23,
@@ -317,7 +317,7 @@ const packetTuple = {
     hint: "Stateless filters open the door based on port number but cannot verify passwords or MFA.",
     level: "Basic",
     codeExample: `// Stateless Limitation on Port 22:
-// Rule: PERMIT ANY -> 192.168.1.5:22 (Allows attacker to attempt 100,000 password guesses!)`
+// Rule: PERMIT ANY → 192.168.1.5:22 (Allows attacker to attempt 100,000 password guesses!)`
   },
   {
     id: 29,
@@ -327,7 +327,7 @@ const packetTuple = {
     hint: "Place the most frequently matched rules at the top to minimize CPU comparisons.",
     level: "Moderate",
     codeExample: `// Rule Optimization by Traffic Frequency:
-// Top: Rule 1: PERMIT HTTPS (90% of traffic) -> Evaluated in 1 comparison!
+// Top: Rule 1: PERMIT HTTPS (90% of traffic) → Evaluated in 1 comparison!
 // Mid: Rule 2: PERMIT DNS (8% of traffic)
 // Bot: Rule 3: PERMIT SSH (2% of traffic)`
   },

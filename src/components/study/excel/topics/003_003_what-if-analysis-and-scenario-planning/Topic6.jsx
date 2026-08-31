@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Generating Scenario Summary Reports and Pivot Scenario Views"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic6() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Scenario Manager &gt; Summary: Report Type: Scenario Summary | Result Cells: $NetProfit, $IRR, $NPV"}
+            {"Scenario Manager > Summary: Report Type: Scenario Summary | Result Cells: $NetProfit, $IRR, $NPV"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic6() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Scenario Summary Report Pipeline: Scenario Matrix Ingestion -> Executive Comparison Sheet"}
+              Visual Dataflow: {"Scenario Summary Report Pipeline: Scenario Matrix Ingestion → Executive Comparison Sheet"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Optimization Pipeline
@@ -286,7 +286,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Generating_Scenari"
+            sheetName="EX1407"
             title={"Generating Scenario Summary Reports and Pivot Scenario Views - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic6() {
                 Step 2: Configure What-If Tool / Solver Parameters
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Launch Data Table (Alt + A + W + T), Scenario Manager (Alt + A + W + S), or Solver (Alt + A + Y + 2) and map input ranges <code className="text-cyan-300 font-mono font-bold">{"Scenario Manager &gt; Summary: Report Type: Scenario Summary | Result Cells: $NetProfit, $IRR, $NPV"}</code>.
+                Launch Data Table (Alt + A + W + T), Scenario Manager (Alt + A + W + S), or Solver (Alt + A + Y + 2) and map input ranges <code className="text-cyan-300 font-mono font-bold">{"Scenario Manager > Summary: Report Type: Scenario Summary | Result Cells: $NetProfit, $IRR, $NPV"}</code>.
               </p>
             </div>
 

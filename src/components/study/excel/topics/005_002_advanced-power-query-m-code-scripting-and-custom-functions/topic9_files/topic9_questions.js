@@ -10,7 +10,7 @@ const questions = [
     explanation: "Delegates data transformation and filtering to the database server rather than pulling raw tables into client RAM.",
     hint: "Translating M code into native SQL executed on the server.",
     level: "basic",
-    codeExample: "Table.SelectRows(Source, each [Region] = \"East\") &rarr; WHERE [Region] = 'East'"
+    codeExample: "Table.SelectRows(Source, each [Region] = \"East\") → WHERE [Region] = 'East'"
   },
   {
     question: "Why is Query Folding critical for enterprise dataset performance?",
@@ -18,15 +18,15 @@ const questions = [
     explanation: "Minimizes network latency, client RAM consumption, and data refresh duration.",
     hint: "Filtering at the server level drastically reduces bandwidth and memory footprint.",
     level: "basic",
-    codeExample: "10M rows in SQL &rarr; Folded filter &rarr; Only 5k rows transferred to client"
+    codeExample: "10M rows in SQL → Folded filter → Only 5k rows transferred to client"
   },
   {
     question: "How can you visually verify if a specific step is folding in Power Query Editor?",
     shortAnswer: "Right-click the step in the 'Applied Steps' list; if 'View Native Query' is enabled and clickable, that step is folding. If greyed out, folding has stopped.",
     explanation: "Native Query context menu inspection.",
-    hint: "Right-click step &rarr; check if 'View Native Query' is enabled.",
+    hint: "Right-click step → check if 'View Native Query' is enabled.",
     level: "basic",
-    codeExample: "Right-click 'Filtered Rows' &rarr; 'View Native Query'"
+    codeExample: "Right-click 'Filtered Rows' → 'View Native Query'"
   },
   {
     question: "What happens when a non-foldable transformation step is applied in an M query?",
@@ -34,7 +34,7 @@ const questions = [
     explanation: "Folding is continuous from the source; once broken, downstream steps cannot fold.",
     hint: "Folding is linear; once interrupted, no subsequent steps can fold back.",
     level: "moderate",
-    codeExample: "Step1 (Folded) &rarr; Step2 (Broken: Text.Proper) &rarr; Step3 (Unfolded client filter)"
+    codeExample: "Step1 (Folded) → Step2 (Broken: Text.Proper) → Step3 (Unfolded client filter)"
   },
   {
     question: "Which data source connectors natively support Query Folding?",
@@ -58,7 +58,7 @@ const questions = [
     explanation: "Direct relational algebra primitives.",
     hint: "Row filtering, column projection, joins, grouping, and sorting.",
     level: "moderate",
-    codeExample: "Table.SelectRows &rarr; WHERE | Table.Group &rarr; GROUP BY | Table.Join &rarr; JOIN"
+    codeExample: "Table.SelectRows → WHERE | Table.Group → GROUP BY | Table.Join → JOIN"
   },
   {
     question: "Which common M transformations break Query Folding immediately?",
@@ -90,7 +90,7 @@ const questions = [
     explanation: "Maximizes server-side processing before falling back to client memory.",
     hint: "Filter and prune columns in SQL before applying custom text transformations.",
     level: "moderate",
-    codeExample: "Source &rarr; Filter Rows &rarr; Select Columns &rarr; [Folded] &rarr; Custom M Function [Unfolded]"
+    codeExample: "Source → Filter Rows → Select Columns → [Folded] → Custom M Function [Unfolded]"
   },
   {
     question: "How does `Table.AddIndexColumn` affect Query Folding?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "Index calculation forces data into local client memory.",
     hint: "Index generation is evaluated sequentially by the local Power Query engine.",
     level: "moderate",
-    codeExample: "Table.AddIndexColumn(Source, \"Index\", 1, 1) &rarr; Folding Broken"
+    codeExample: "Table.AddIndexColumn(Source, \"Index\", 1, 1) → Folding Broken"
   },
   {
     question: "How can you inspect the generated SQL query when 'View Native Query' is greyed out but you suspect folding is occurring?",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "Network/database telemetry logging captures the raw SQL payload.",
     hint: "SQL Profiler, Extended Events, or Power Query Query Diagnostics tool.",
     level: "advanced",
-    codeExample: "Start Diagnostics in Power Query &rarr; View detailed telemetry trace table."
+    codeExample: "Start Diagnostics in Power Query → View detailed telemetry trace table."
   },
   {
     question: "What is Partial Query Folding?",
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Hybrid execution: Server handles first chunk; Mashup Engine handles remainder.",
     hint: "Server executes first steps; local engine processes remaining steps.",
     level: "moderate",
-    codeExample: "SQL Server (Steps 1-3) &rarr; Network Stream &rarr; Mashup Engine (Steps 4-6)"
+    codeExample: "SQL Server (Steps 1-3) → Network Stream → Mashup Engine (Steps 4-6)"
   },
   {
     question: "Does merging (joining) two separate SQL queries fold if both queries originate from the same database?",
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Same-server relational joins fold seamlessly.",
     hint: "Joins between tables on the same database fold into SQL JOIN syntax.",
     level: "advanced",
-    codeExample: "Table.NestedJoin(FactSales, {\"CustID\"}, DimCustomer, {\"CustID\"}, \"Cust\") &rarr; SQL JOIN"
+    codeExample: "Table.NestedJoin(FactSales, {\"CustID\"}, DimCustomer, {\"CustID\"}, \"Cust\") → SQL JOIN"
   },
   {
     question: "Does merging two queries fold if one query is from SQL Server and the other is from an Excel spreadsheet?",
@@ -130,7 +130,7 @@ const questions = [
     explanation: "Cross-system joins cannot be executed by a single backend engine.",
     hint: "Cross-source joins break folding and force local in-memory joins.",
     level: "basic",
-    codeExample: "SQL Fact + Excel Budget &rarr; In-Memory Hash Join in Client Mashup Engine"
+    codeExample: "SQL Fact + Excel Budget → In-Memory Hash Join in Client Mashup Engine"
   },
   {
     question: "How does Privacy Levels (Data Privacy Firewall) impact Query Folding across multiple sources?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Buffers data in memory, permanently decoupling from the server query planner.",
     hint: "Forces table into local RAM buffer, terminating folding.",
     level: "moderate",
-    codeExample: "Table.Buffer(Source) &rarr; Evaluates and stores entire table in local memory."
+    codeExample: "Table.Buffer(Source) → Evaluates and stores entire table in local memory."
   },
   {
     question: "How does `Table.Distinct` translate into SQL during Query Folding?",
@@ -154,7 +154,7 @@ const questions = [
     explanation: "Native deduplication pushdown.",
     hint: "Translates directly to SQL `SELECT DISTINCT`.",
     level: "basic",
-    codeExample: "Table.Distinct(Source, {\"CustomerID\"}) &rarr; SELECT DISTINCT CustomerID..."
+    codeExample: "Table.Distinct(Source, {\"CustomerID\"}) → SELECT DISTINCT CustomerID..."
   },
   {
     question: "What is Query Folding in OData feeds and Web APIs?",
@@ -162,7 +162,7 @@ const questions = [
     explanation: "URL-level query parameter pushdown for RESTful OData services.",
     hint: "Pushes transformations into OData URL query params like $filter and $select.",
     level: "advanced",
-    codeExample: "Table.SelectRows(Feed, each [Status]=\"Active\") &rarr; URL?$filter=Status eq 'Active'"
+    codeExample: "Table.SelectRows(Feed, each [Status]=\"Active\") → URL?$filter=Status eq 'Active'"
   },
   {
     question: "Can date and time transformations fold in SQL Server?",
@@ -170,7 +170,7 @@ const questions = [
     explanation: "Direct SQL date scalar function mapping.",
     hint: "Standard date extractors fold into SQL DATEPART and YEAR functions.",
     level: "moderate",
-    codeExample: "Date.Year([OrderDate]) &rarr; DATEPART(year, [OrderDate])"
+    codeExample: "Date.Year([OrderDate]) → DATEPART(year, [OrderDate])"
   },
   {
     question: "Why does changing a column's data type sometimes break Query Folding?",
@@ -210,7 +210,7 @@ const questions = [
     explanation: "Pushes row limit constraints to the database engine.",
     hint: "Translates to SQL `TOP N` or `LIMIT N`.",
     level: "basic",
-    codeExample: "Table.FirstN(Source, 100) &rarr; SELECT TOP (100) * FROM dbo.Orders"
+    codeExample: "Table.FirstN(Source, 100) → SELECT TOP (100) * FROM dbo.Orders"
   },
   {
     question: "Does renaming a column break Query Folding in SQL Server?",
@@ -218,7 +218,7 @@ const questions = [
     explanation: "Standard projection aliasing in relational SQL.",
     hint: "Folds as SQL `AS` alias without breaking server pushdown.",
     level: "basic",
-    codeExample: "Table.RenameColumns(Source, {{\"CustName\", \"Customer_Name\"}}) &rarr; SELECT CustName AS Customer_Name"
+    codeExample: "Table.RenameColumns(Source, {{\"CustName\", \"Customer_Name\"}}) → SELECT CustName AS Customer_Name"
   },
   {
     question: "Why does writing a custom SQL query in the connector's 'SQL Statement' box sometimes break downstream folding?",
@@ -226,7 +226,7 @@ const questions = [
     explanation: "Subquery wrapping and connector limitations.",
     hint: "Custom SQL can disable subsequent visual step folding in older connectors.",
     level: "advanced",
-    codeExample: "Sql.Database(\"server\", \"db\", [Query=\"SELECT ...\"]) &rarr; May block UI step folding."
+    codeExample: "Sql.Database(\"server\", \"db\", [Query=\"SELECT ...\"]) → May block UI step folding."
   },
   {
     question: "What is Query Folding telemetry in Power BI Query Diagnostics?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Maximizes server-side filtering and reduces dataset volume before breaking folding.",
     hint: "Filter and prune first; apply custom non-foldable transformations last.",
     level: "basic",
-    codeExample: "Golden Rule: Fold early (Filter/Select/Join) &rarr; Transform late (Custom functions)"
+    codeExample: "Golden Rule: Fold early (Filter/Select/Join) → Transform late (Custom functions)"
   }
 ];
 

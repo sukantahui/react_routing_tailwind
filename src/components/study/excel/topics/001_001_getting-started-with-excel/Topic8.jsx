@@ -71,7 +71,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Practice Multiple Choice Questions (MCQ): Comprehensive Interface &amp; Navigation Mastery
           </h1>
 
@@ -280,7 +280,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Practice_MCQ"
+            sheetName="Topic8"
             title="Module 1.1 - Practice Multiple Choice Questions (MCQ): Comprehensive Interface &amp; Navigation Mastery"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -363,7 +363,7 @@ export default function Topic8() {
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Task</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Shortcut_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Time_Taken</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Show all formulas</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Ctrl + `</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">1 second</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Find uncalculated constants in formula columns</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Special &amp;rarr; Constants</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2 seconds</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Find uncalculated constants in formula columns</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 → Special → Constants</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">2 seconds</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -495,7 +495,7 @@ export default function Topic8() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Thinking Ctrl+C Copies Formulas as Constants</td>
                   <td className="py-3 px-4 text-slate-300">Expecting regular paste to fix calculated values.</td>
                   <td className="py-3 px-4 text-amber-300">Pasted formulas recalculate based on new relative coordinates.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Use Paste Special &amp;rarr; Values (Alt + E + S + V) to freeze numbers as static constants.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Use Paste Special → Values (Alt + E + S + V) to freeze numbers as static constants.</td>
                 </tr>
               </tbody>
             </table>

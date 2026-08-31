@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Numerical Exercises for 2x2 Mixed Strategy Games?",
     shortAnswer: "'Check saddle point first; compute Delta, p*, q*, and v*; verify that expected payoffs against pure moves equal v*; and state all financial results in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all steps in solving 2x2 numerical game theory problems.",
-    hint: "Check saddle -> Compute Delta & p*, q* -> Verify indifference -> Report in ₹.",
+    hint: "Check saddle → Compute Delta & p*, q* → Verify indifference → Report in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CheckSaddle() -> Solve2x2Formulas() -> VerifyIndifference() -> ReportInRupees(₹)."
+    codeExample: "GoldenRule: CheckSaddle() → Solve2x2Formulas() → VerifyIndifference() → ReportInRupees(₹)."
   }
 ];
 

@@ -45,6 +45,6 @@ Operational Architecture: Aggregation Formulas: =SUM(B2:B100) | =AVERAGE(B2:B100
 
 6. PRO TIPS & SHORTCUTS
 • Instant AutoSum (Alt + =): Automatically writes =SUM() for active row or column.
-• Toggle Lock ($) (Press F4 while in formula): Cycles through $A$1 -> A$1 -> $A1 -> A1.
+• Toggle Lock ($) (Press F4 while in formula): Cycles through $A$1 → A$1 → $A1 → A1.
 • Highlight All Cells (Ctrl + Shift + 8 (or Ctrl + A)): Selects contiguous table range.
 ================================================================================

@@ -115,7 +115,7 @@ const questions = [
     explanation: "Instance method state mutation.",
     hint: "Decreased from ₹18,000 to ₹12,000.",
     level: "basic",
-    codeExample: "swadeep.makePayment(6000.0); // ₹18,000 -> ₹12,000"
+    codeExample: "swadeep.makePayment(6000.0); // ₹18,000 → ₹12,000"
   },
   {
     question: "Where are Static Methods and Static Variables stored in JVM memory?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Tuhina account mutation calculation.",
     hint: "₹15,000.00.",
     level: "basic",
-    codeExample: "tuhina.makePayment(10000.0); // ₹25,000 -> ₹15,000"
+    codeExample: "tuhina.makePayment(10000.0); // ₹25,000 → ₹15,000"
   },
   {
     question: "Can a static method be overridden with `@Override` annotation?",

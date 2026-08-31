@@ -44,8 +44,8 @@ Over years of operations, enterprise rule bases accumulate thousands of rules, i
      - Occurs when a broad rule higher in the table matches all traffic intended for a specific rule below it, 
        rendering the lower rule completely dead and unreachable.
      - Example:
-       Rule 10: ACCEPT Source: 10.10.1.0/24 -> Dest: ANY (Broad subnet allow)
-       Rule 25: DROP   Source: 10.10.1.50   -> Dest: ANY (SHADOWED! Compromised host is NEVER blocked!)
+       Rule 10: ACCEPT Source: 10.10.1.0/24 → Dest: ANY (Broad subnet allow)
+       Rule 25: DROP   Source: 10.10.1.50   → Dest: ANY (SHADOWED! Compromised host is NEVER blocked!)
 
   2. REDUNDANCY ANOMALY:
      - Occurs when two rules perform identical actions on overlapping traffic, unnecessarily bloating the 

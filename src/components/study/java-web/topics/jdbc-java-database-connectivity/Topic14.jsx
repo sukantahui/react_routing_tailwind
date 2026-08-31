@@ -42,7 +42,7 @@ const Topic14 = () => {
           className="animate-[fadeSlideUp_0.6s_ease-out]"
           aria-label="Introduction to Scrollable and Updatable ResultSet"
         >
-          <h1 className="text-4xl font-bold text-indigo-700 dark:text-indigo-300 mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-indigo-700 dark:text-indigo-300 mb-4">
             🔄 Scrollable and Updatable ResultSet
           </h1>
           <p className="text-lg leading-relaxed">

@@ -5,7 +5,7 @@ const topic11_questions = [
     "explanation": "Strict LIFO (Last-In, First-Out) resource cleanup order.",
     "hint": "Reverse order of declaration (LIFO): ResultSet, Statement, then Connection.",
     "level": "Beginner",
-    "codeExample": "try (Conn c = ...; Stmt s = ...; RS r = ...) -> Closes r, then s, then c."
+    "codeExample": "try (Conn c = ...; Stmt s = ...; RS r = ...) → Closes r, then s, then c."
   },
   {
     "question": "What fatal consequence occurs if an application forgets to close a borrowed connection in an exception catch block when using a connection pool?",

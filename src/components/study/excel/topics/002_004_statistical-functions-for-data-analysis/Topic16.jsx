@@ -71,7 +71,7 @@ export default function Topic16() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             STDEV.P Function (Population Standard Deviation)
           </h1>
 
@@ -271,7 +271,7 @@ export default function Topic16() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic16_STDEV_P_Function__"
+            sheetName="EX917"
             title="Module 2.4 - STDEV.P Function (Population Standard Deviation)"
             rowsPerPage={25}
             showSheetSelector={true}

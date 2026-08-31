@@ -103,7 +103,7 @@ const questions = [
   {
     question: "Which function rotates an (M x N) matrix into an (N x M) matrix by swapping row and column axes?",
     shortAnswer: "=TRANSPOSE(Matrix)",
-    explanation: "TRANSPOSE swaps coordinate indices (i, j &rarr; j, i) dynamically in memory.",
+    explanation: "TRANSPOSE swaps coordinate indices (i, j → j, i) dynamically in memory.",
     hint: "Swaps row and column axes.",
     level: "basic",
     codeExample: "=TRANSPOSE(A2:E6)"

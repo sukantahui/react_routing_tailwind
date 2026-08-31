@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. HASHSET PERFORMANCE:
-   - add(), remove(), contains() &rarr; O(1) average.
+   - add(), remove(), contains() → O(1) average.
    - Jump to bucket via: '(length - 1) & hash'.
    - Load factor: 0.75 default before rehashing.
    - Java 8+ Treeification: bucket converts to Red-Black tree at 8 nodes (O(log n) worst-case).

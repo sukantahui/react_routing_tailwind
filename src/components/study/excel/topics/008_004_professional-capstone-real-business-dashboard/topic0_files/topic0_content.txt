@@ -10,7 +10,7 @@ Capstone Architecture: Problem Statement, Data Pipeline & System Specification i
 It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Capstone Architecture: Enterprise Business Problem -> Requirements Spec -> Multi-Source Data Architecture -> Star Schema Blueprint
+Operational Architecture: Capstone Architecture: Enterprise Business Problem → Requirements Spec → Multi-Source Data Architecture → Star Schema Blueprint
 
 3. CORE TECHNICAL MECHANICS
 1. Enterprise Problem Framing:

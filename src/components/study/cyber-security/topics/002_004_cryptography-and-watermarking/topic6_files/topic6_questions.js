@@ -6,8 +6,8 @@ const questions = [
     hint: "Think of using a small diplomat to deliver a secret house key, and then using that metal key to quickly unlock heavy shipping containers.",
     level: "basic",
     codeExample: `// The Hybrid Cryptosystem Pipeline:
-1. Asymmetric Phase: ECDH Key Agreement -> Establishes Shared Secret Key K_session (Microseconds)
-2. Symmetric Phase:  AES-256-GCM -> Encrypts 10 GB Video/Database Payload at 8 GB/s (High Speed!)`
+1. Asymmetric Phase: ECDH Key Agreement → Establishes Shared Secret Key K_session (Microseconds)
+2. Symmetric Phase:  AES-256-GCM → Encrypts 10 GB Video/Database Payload at 8 GB/s (High Speed!)`
   },
   {
     question: "What is the approximate computational speed and throughput difference between Symmetric encryption (AES-256-NI) and Asymmetric encryption (RSA-2048)?",
@@ -36,8 +36,8 @@ Asymmetric (PKI):   2 * 5000 = 10,000 Keys (Easily Managed in LDAP / X.509 Direc
     hint: "Think about why a personal wax seal that only you own proves you signed the letter, while a shared stamp used by two people proves nothing.",
     level: "basic",
     codeExample: `// Legal Non-Repudiation Comparison:
-Symmetric (HMAC):   Tag = HMAC( Key_K, Message ) -> Both Alice & Bob hold Key_K (Repudiable!)
-Asymmetric (ECDSA): Sig = Sign( Alice_PrivKey, Hash ) -> ONLY Alice holds PrivKey (Non-Repudiable under IT Act Section 5!)`
+Symmetric (HMAC):   Tag = HMAC( Key_K, Message ) → Both Alice & Bob hold Key_K (Repudiable!)
+Asymmetric (ECDSA): Sig = Sign( Alice_PrivKey, Hash ) → ONLY Alice holds PrivKey (Non-Repudiable under IT Act Section 5!)`
   },
   {
     question: "What are the four discrete phases of a standard 'Hybrid Cryptosystem' session handshake (e.g. TLS 1.3 or PGP/GPG)?",
@@ -46,10 +46,10 @@ Asymmetric (ECDSA): Sig = Sign( Alice_PrivKey, Hash ) -> ONLY Alice holds PrivKe
     hint: "Recall the 4 steps: Authenticate & Agree, Derive Session Key, Encrypt Bulk Data, and Wipe Keys.",
     level: "expert",
     codeExample: `// 4-Phase Hybrid Lifecycle:
-Phase 1: Alice & Bob run ECDHE with X.509 CAs -> Compute Master Secret (Z)
+Phase 1: Alice & Bob run ECDHE with X.509 CAs → Compute Master Secret (Z)
 Phase 2: K_session = HKDF_Expand( Z, "TLS-1.3-SESSION-KEY", 32 )
 Phase 3: Payload = AES_256_GCM_Encrypt( File_10GB, K_session, Nonce )
-Phase 4: Connection Close -> memset_s( K_session, 0, 32 ) (Memory Zeroized!)`
+Phase 4: Connection Close → memset_s( K_session, 0, 32 ) (Memory Zeroized!)`
   },
   {
     question: "How do Symmetric and Asymmetric algorithms compare in their vulnerability to 'Quantum Computing Attacks' (Grover's Algorithm vs Shor's Algorithm)?",
@@ -90,7 +90,7 @@ Data-in-Transit: Hybrid TLS 1.3 (ECDHE Key Exchange + AES-256-GCM Payload + X.50
     level: "moderate",
     codeExample: `// IoT Energy Consumption Benchmark:
 RSA-4096 Key Generation & Handshake: ~1,200 mJ (Drains IoT battery rapidly!)
-ECDH-256 Key Exchange:               ~18 mJ (98.5% Energy Savings -> 5-Year Battery Life!)`
+ECDH-256 Key Exchange:               ~18 mJ (98.5% Energy Savings → 5-Year Battery Life!)`
   },
   {
     question: "What is 'Forward Secrecy' in hybrid TLS connections, and what happens if a server uses static RSA key exchange instead of Ephemeral Diffie-Hellman (ECDHE)?",
@@ -99,8 +99,8 @@ ECDH-256 Key Exchange:               ~18 mJ (98.5% Energy Savings -> 5-Year Batt
     hint: "Think about destroying the physical padlock after every conversation so past conversations can never be reopened even if the master factory blueprint is leaked.",
     level: "expert",
     codeExample: `// Static RSA vs Ephemeral ECDHE:
-Static RSA (Insecure):  C = RSA_Encrypt( PreMasterSecret, Server_Static_PublicKey ) -> Stolen Key decrypts ALL past traffic!
-ECDHE (Forward Secret): Key = ECDH( Client_Ephemeral_Priv, Server_Ephemeral_Pub ) -> Ephemeral keys wiped -> Past traffic remains 100% UNREADABLE!`
+Static RSA (Insecure):  C = RSA_Encrypt( PreMasterSecret, Server_Static_PublicKey ) → Stolen Key decrypts ALL past traffic!
+ECDHE (Forward Secret): Key = ECDH( Client_Ephemeral_Priv, Server_Ephemeral_Pub ) → Ephemeral keys wiped → Past traffic remains 100% UNREADABLE!`
   },
   {
     question: "What is 'Envelope Encryption' (Key Wrapping), and how does a Key Management Service (AWS KMS / Azure Key Vault / Google Cloud KMS) manage symmetric and asymmetric keys in enterprise cloud storage?",
@@ -109,11 +109,11 @@ ECDHE (Forward Secret): Key = ECDH( Client_Ephemeral_Priv, Server_Ephemeral_Pub 
     hint: "Think of an armored safe company providing you with disposable metal lockboxes, where the lockbox keys are stored inside their master bank vault.",
     level: "expert",
     codeExample: `// Envelope Encryption Flow (AWS KMS / Cloud KMS):
-1. App -> KMS.GenerateDataKey( KEK_ID )
-2. KMS -> Returns: { Plaintext_DEK (32 bytes), Encrypted_DEK (wrapped by KEK) }
-3. App -> Ciphertext = AES_256_GCM( Database_1TB, Plaintext_DEK )
-4. App -> SecureZeroMemory( Plaintext_DEK )
-5. Storage -> Stores [ Encrypted_DEK ] + [ Ciphertext ] on S3 / Cloud Disk`
+1. App → KMS.GenerateDataKey( KEK_ID )
+2. KMS → Returns: { Plaintext_DEK (32 bytes), Encrypted_DEK (wrapped by KEK) }
+3. App → Ciphertext = AES_256_GCM( Database_1TB, Plaintext_DEK )
+4. App → SecureZeroMemory( Plaintext_DEK )
+5. Storage → Stores [ Encrypted_DEK ] + [ Ciphertext ] on S3 / Cloud Disk`
   },
   {
     question: "Why is Symmetric encryption considered 'Malleable' when unauthenticated, and how do Digital Signatures or AEAD tags prevent bit-flipping manipulation?",
@@ -122,8 +122,8 @@ ECDHE (Forward Secret): Key = ECDH( Client_Ephemeral_Priv, Server_Ephemeral_Pub 
     hint: "Think of altering the numbers on a handwritten paper check versus a digital check protected by a tamper-evident holographic seal.",
     level: "moderate",
     codeExample: `// Bit-Flipping Malleability Defense:
-Unauthenticated Stream: C[5] ^= ('1' ^ '9') -> Plaintext becomes "PAY ₹90,000" (Undetected manipulation!)
-Authenticated Hybrid:   AES_GCM_Verify() FAILS -> Throws TagMismatchException & Discards Packet!`
+Unauthenticated Stream: C[5] ^= ('1' ^ '9') → Plaintext becomes "PAY ₹90,000" (Undetected manipulation!)
+Authenticated Hybrid:   AES_GCM_Verify() FAILS → Throws TagMismatchException & Discards Packet!`
   },
   {
     question: "What is 'Authenticated Key Exchange' (AKE), and how does the Sigma Protocol (used in IKEv2 and TLS 1.3) prevent identity misbinding and replay attacks?",
@@ -134,7 +134,7 @@ Authenticated Hybrid:   AES_GCM_Verify() FAILS -> Throws TagMismatchException & 
     codeExample: `// SIGMA Authenticated Key Exchange (TLS 1.3):
 Transcript = Hash( Client_Hello || Server_Hello || ECDHE_PublicKeys || Nonces )
 Signature  = Sign( Transcript, Server_PrivateKey )
-// Client verifies Signature using Server_Certificate -> Guarantees Identity Binding & Zero Replay!`
+// Client verifies Signature using Server_Certificate → Guarantees Identity Binding & Zero Replay!`
   },
   {
     question: "What is the memory and CPU footprint difference when running Symmetric AES-GCM versus Asymmetric RSA-4096 on embedded microcontrollers (e.g. ARM Cortex-M0)?",
@@ -154,7 +154,7 @@ RSA-4096  | 8,400 Bytes  | 4,200 ms       | Severe (High Battery Drain)`
     hint: "Think of ensuring that the secret recipe arrived at by two chefs is both secret (CDH) and tastes completely unique and unpredictable (DDH).",
     level: "expert",
     codeExample: `// CDH & DDH Cryptographic Guarantees:
-CDH Assumption: Given (g, g^a, g^b) -> Finding g^(ab) is COMPUTATIONALLY INFEASIBLE.
+CDH Assumption: Given (g, g^a, g^b) → Finding g^(ab) is COMPUTATIONALLY INFEASIBLE.
 DDH Assumption: Distribution (g^a, g^b, g^(ab)) ≈ (g^a, g^b, g^r) (INDISTINGUISHABLE FROM RANDOM NOISE!)`
   },
   {
@@ -177,8 +177,8 @@ CertificatePinner certificatePinner = new CertificatePinner.Builder()
     level: "expert",
     codeExample: `// Quantum Key Distribution (BB84 Protocol):
 Alice sends: Photons polarized in Rectilinear (+) and Diagonal (x) bases.
-Eavesdropper (Eve) intercepts -> Quantum state collapses -> QBER Error Rate spikes above 11%!
-Alice & Bob detect anomaly -> Abort Key Exchange -> Zero Secret Key Material Leaked!`
+Eavesdropper (Eve) intercepts → Quantum state collapses → QBER Error Rate spikes above 11%!
+Alice & Bob detect anomaly → Abort Key Exchange → Zero Secret Key Material Leaked!`
   },
   {
     question: "Synthesizing Symmetric vs Asymmetric Encryption: what is the master design rule for enterprise cybersecurity architectures?",

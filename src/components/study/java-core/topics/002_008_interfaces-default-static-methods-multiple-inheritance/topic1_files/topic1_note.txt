@@ -7,8 +7,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. INTERFACE SYNTAX & IMPLICIT MODIFIERS:
    - 'public interface Name { ... }'
-   - Variables &rarr; Implicitly 'public static final'.
-   - Methods &rarr; Implicitly 'public abstract'.
+   - Variables → Implicitly 'public static final'.
+   - Methods → Implicitly 'public abstract'.
    - Stored in its own '.java' / '.class' file.
 
 ================================================================================

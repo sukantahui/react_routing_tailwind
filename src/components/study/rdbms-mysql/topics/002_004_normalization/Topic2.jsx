@@ -39,7 +39,7 @@ const Topic2 = () => {
       verdict: "VALID FUNCTIONAL DEPENDENCY",
       verdictColor: "emerald",
       explanation: "Every unique student_id maps to exactly ONE student name and city. No two rows with the same student_id have different names.",
-      sqlSchema: `-- Enforcing student_id -> { student_name, city } in SQL:
+      sqlSchema: `-- Enforcing student_id → { student_name, city } in SQL:
 CREATE TABLE students (
     student_id VARCHAR(10) PRIMARY KEY, -- Determinant is PRIMARY KEY
     student_name VARCHAR(100) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE students (
       verdict: "VALID FUNCTIONAL DEPENDENCY",
       verdictColor: "emerald",
       explanation: "Every course_id (e.g. 'C101') consistently maps to the same title ('MySQL Master') and tuition fee ('₹4,500') across all tuples.",
-      sqlSchema: `-- Enforcing course_id -> { course_title, course_fee } in SQL:
+      sqlSchema: `-- Enforcing course_id → { course_title, course_fee } in SQL:
 CREATE TABLE courses (
     course_id VARCHAR(10) PRIMARY KEY, -- Determinant is PRIMARY KEY
     course_title VARCHAR(100) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE courses (
       verdict: "VALID COMPOSITE FUNCTIONAL DEPENDENCY",
       verdictColor: "emerald",
       explanation: "A student in a specific course receives exactly ONE final grade. The combination of (student_id, course_id) uniquely determines the grade.",
-      sqlSchema: `-- Enforcing (student_id, course_id) -> grade in SQL:
+      sqlSchema: `-- Enforcing (student_id, course_id) → grade in SQL:
 CREATE TABLE enrollments (
     student_id VARCHAR(10),
     course_id VARCHAR(10),
@@ -88,7 +88,7 @@ CREATE TABLE enrollments (
       verdict: "INVALID / VIOLATED DEPENDENCY",
       verdictColor: "rose",
       explanation: "Multiple students reside in 'Barrackpore' (Mamata, Abhronila, Debangshu). Knowing the city does NOT uniquely determine a single student name!",
-      sqlSchema: `-- ❌ Cannot enforce city -> student_name as a functional dependency
+      sqlSchema: `-- ❌ Cannot enforce city → student_name as a functional dependency
 -- because City is NOT a unique key (One city contains many students).`,
       conflicts: ["#101 (Mamata)", "#103 (Abhronila)", "#105 (Debangshu)"],
     },
@@ -161,7 +161,7 @@ CREATE TABLE enrollments (
             Module 002_004 · Database Normalization · Topic 2
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Understanding Functional Dependencies:{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Determinants &amp; Dependents (X → Y)
@@ -247,7 +247,7 @@ CREATE TABLE enrollments (
                 <text x="10" y="85" fill="#38bdf8" fontSize="10" fontWeight="bold">Invariant: t1[X] = t2[X]</text>
               </g>
 
-              {/* Arrow X -> Y */}
+              {/* Arrow X → Y */}
               <g transform="translate(260, 60)">
                 <line x1="0" y1="10" x2="80" y2="10" stroke="#10b981" strokeWidth="3" />
                 <polygon points="80,5 95,10 80,15" fill="#10b981" />

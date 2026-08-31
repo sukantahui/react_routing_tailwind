@@ -9,8 +9,8 @@ const questions = [
     explanation: "Allows scaling read capacity horizontally without increasing hardware load on the single write master.",
     hint: "Routes writes to primary and balances SELECT reads across read replicas.",
     level: "basic",
-    codeExample: `# App writes -> Primary (Node 1)
-# App reads  -> Replica Pool (Node 2, Node 3, Node 4)`
+    codeExample: `# App writes → Primary (Node 1)
+# App reads  → Replica Pool (Node 2, Node 3, Node 4)`
   },
   {
     question: "What is the primary advantage of Proxy-level Read/Write splitting (ProxySQL) over Application-level splitting (Dual DataSources)?",
@@ -73,7 +73,7 @@ mysql -u app_user -p -h 127.0.0.1 -P 6033 # Traffic Port`
     question: "What is the 3-tier configuration architecture in ProxySQL (Memory, Runtime, Disk)?",
     shortAnswer: "1. **In-Memory (CONFIG)**: Modified by `INSERT`/`UPDATE` statements; 2. **RUNTIME**: Active configuration loaded into execution engine (`LOAD ... TO RUNTIME`); 3. **DISK**: Persistent storage saved across restarts (`SAVE ... TO DISK`).",
     explanation: "Allows testing configuration changes in memory before promoting them to active runtime and persisting them to disk.",
-    hint: "Config (Memory) -> Runtime (Active Execution) -> Disk (Persistent SQLite DB).",
+    hint: "Config (Memory) → Runtime (Active Execution) → Disk (Persistent SQLite DB).",
     level: "intermediate",
     codeExample: `LOAD MYSQL QUERY RULES TO RUNTIME;
 SAVE MYSQL QUERY RULES TO DISK;`
@@ -153,7 +153,7 @@ VALUES (10, 1, '^SELECT.*FROM categories', 60000, 1); -- Cache for 60s`
     explanation: "Ensures proxy layer redundancy with instant failover if a proxy node crashes.",
     hint: "Deploy multiple ProxySQL nodes behind Keepalived Virtual IP with ProxySQL Cluster sync.",
     level: "intermediate",
-    codeExample: `# Keepalived provides Virtual IP (VIP): 192.168.1.100 -> Active ProxySQL Node`
+    codeExample: `# Keepalived provides Virtual IP (VIP): 192.168.1.100 → Active ProxySQL Node`
   },
   {
     question: "What is the primary difference between ProxySQL and MySQL Router?",

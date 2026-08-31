@@ -182,7 +182,7 @@ DELIMITER ;`,
       badgeColor: "rose",
       sqlQuery: `-- ❌ SLOW RBAR ANTI-PATTERN (Cursor Loop for simple update):
 -- Processes 10,000 rows in 8.5 seconds (10,000 interpreter loops & roundtrips)
--- OPEN cur; LOOP FETCH -> UPDATE students SET fee = fee * 1.05 WHERE id = v_id; END LOOP; CLOSE cur;
+-- OPEN cur; LOOP FETCH → UPDATE students SET fee = fee * 1.05 WHERE id = v_id; END LOOP; CLOSE cur;
 
 -- ✅ FAST SET-BASED SQL ALTERNATIVE (Single relational query):
 -- Processes 10,000 rows in 0.02 seconds (400x faster! Direct storage engine execution):
@@ -224,7 +224,7 @@ WHERE department_id = 1;`,
               Procedural Cursors
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Introduction to Database Cursors
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

@@ -70,7 +70,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-emerald-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-emerald-300 bg-clip-text text-transparent leading-tight">
             Quick Check Quiz &amp; Visual Storytelling Assessment
           </h1>
 
@@ -302,7 +302,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic8"
+            sheetName="Topic8"
             title="Module 1.4 Assessment Candidate Scorecard (Question ID, Candidate Name, Chart Domain, Design Score, Accuracy Score, Total Score, Grade)"
             rowsPerPage={10}
             showSheetSelector={true}

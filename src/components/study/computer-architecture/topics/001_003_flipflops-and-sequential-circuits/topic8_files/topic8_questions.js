@@ -33,12 +33,12 @@ const questions = [
     "codeExample": "// Frequency Divider by 2:\nalways @(posedge clk) begin\n  q <= ~q; // D connected to ~Q\nend"
   },
   {
-    "question": "What is the excitation table requirement for a D Flip-Flop for any transition Q(t) -> Q(t+1)?",
+    "question": "What is the excitation table requirement for a D Flip-Flop for any transition Q(t) → Q(t+1)?",
     "shortAnswer": "D = Q(t+1) for all transitions.",
     "explanation": "Because Q(t+1) = D, to achieve any next state Q(t+1), the excitation input D must simply be set to that exact desired target value regardless of what Q(t) currently is.",
     "hint": "Check the relationship between D and the target next state.",
     "level": "basic",
-    "codeExample": "// Excitation Table for D Flip-Flop:\n// Q(t)=0 -> Q(t+1)=0 => D=0\n// Q(t)=0 -> Q(t+1)=1 => D=1\n// Q(t)=1 -> Q(t+1)=0 => D=0\n// Q(t)=1 -> Q(t+1)=1 => D=1"
+    "codeExample": "// Excitation Table for D Flip-Flop:\n// Q(t)=0 → Q(t+1)=0 => D=0\n// Q(t)=0 → Q(t+1)=1 => D=1\n// Q(t)=1 → Q(t+1)=0 => D=0\n// Q(t)=1 → Q(t+1)=1 => D=1"
   },
   {
     "question": "What is setup time (t_su) in a D Flip-Flop and what happens if it is violated?",

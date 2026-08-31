@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. DYNAMIC REPLACEMENT (Java 9+):
-   - 'matcher.replaceAll(matchResult -> ...)'
+   - 'matcher.replaceAll(matchResult → ...)'
    - Eliminates legacy 'appendReplacement' / 'appendTail' boilerplate.
    - Evaluates lambda per matching token.
 

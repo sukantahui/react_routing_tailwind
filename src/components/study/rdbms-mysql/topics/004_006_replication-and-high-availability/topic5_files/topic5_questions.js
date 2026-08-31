@@ -65,7 +65,7 @@ START REPLICA SQL_THREAD;`
     question: "What is `replicate_rewrite_db` and when is it used in production?",
     shortAnswer: "It rewrites database names on the replica, replicating tables from `source_db` on the primary into a differently named `replica_db` on the replica (e.g. `replicate_rewrite_db = 'prod_finance->staging_finance'`).",
     explanation: "Allows developers to replicate production data into staging or reporting databases with different names.",
-    hint: "Renames database schemas during replication (source_db -> replica_db).",
+    hint: "Renames database schemas during replication (source_db → replica_db).",
     level: "intermediate",
     codeExample: `[mysqld]
 replicate_rewrite_db = 'kolkata_production->kolkata_analytics'`
@@ -145,7 +145,7 @@ replicate_ignore_db = test_scratch_db`
     explanation: "Ignore rules override whitelist rules when conflicts occur.",
     hint: "Ignore rules take precedence over do rules.",
     level: "intermediate",
-    codeExample: `-- If do = 'sales.%' and ignore = 'sales.temp_%' -> sales.temp_orders is IGNORED.`
+    codeExample: `-- If do = 'sales.%' and ignore = 'sales.temp_%' → sales.temp_orders is IGNORED.`
   },
   {
     question: "What is the performance benefit of using replication filters on dedicated reporting replicas?",
@@ -169,7 +169,7 @@ replicate_ignore_db = test_scratch_db`
     explanation: "Protects replica schemas from modifications on ignored tables.",
     hint: "Skips the DDL statement on the ignored table and continues replication.",
     level: "intermediate",
-    codeExample: `-- ALTER TABLE ignored_db.table ADD COLUMN x INT; -> Skipped on replica.`
+    codeExample: `-- ALTER TABLE ignored_db.table ADD COLUMN x INT; → Skipped on replica.`
   },
   {
     question: "How do you specify multiple `replicate_wild_ignore_table` rules in `my.cnf`?",

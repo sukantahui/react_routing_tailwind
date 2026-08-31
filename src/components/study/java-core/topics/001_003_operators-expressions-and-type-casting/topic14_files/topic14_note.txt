@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - The Compilation Paradox Explained:
-  * Standard: byte b = 5; b = b + 2;   --> COMPILATION ERROR (int cannot assign to byte)
-  * Compound: byte b = 5; b += 2;      --> COMPILES CLEANLY!
+  * Standard: byte b = 5; b = b + 2;   → COMPILATION ERROR (int cannot assign to byte)
+  * Compound: byte b = 5; b += 2;      → COMPILES CLEANLY!
 
 - Why It Compiles (JLS §15.26.2):
   * The Java compiler automatically inserts a narrowing cast:

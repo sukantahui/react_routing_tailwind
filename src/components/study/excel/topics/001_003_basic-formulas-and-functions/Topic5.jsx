@@ -71,7 +71,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             High-Speed AutoSum Mastery: Multi-Directional Summing and Keyboard Shortcuts
           </h1>
 
@@ -133,7 +133,7 @@ export default function Topic5() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">2D Block AutoSum</td>
                   <td className="py-3 px-4 text-teal-400">Matrix Sum</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Productivity</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Highlight data matrix + extra row + extra column &amp;rarr; Press Alt+= to populate all totals simultaneously.</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Highlight data matrix + extra row + extra column → Press Alt+= to populate all totals simultaneously.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Table Total Row</td>
@@ -275,7 +275,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Copying_formulas_u"
+            sheetName="Topic5"
             title="Module 1.3 - High-Speed AutoSum Mastery: Multi-Directional Summing and Keyboard Shortcuts"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -316,7 +316,7 @@ export default function Topic5() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Select Range B2:F4 &amp;rarr; Press Alt + =</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Select Range B2:F4 → Press Alt + =</div>
                 <div className="text-emerald-400 font-semibold">Result: All 5 row totals, 4 column totals, and grand total populated in 0.1 seconds.</div>
                 <div className="text-slate-400 text-[11px]">Pre-selecting the bounding box allows Alt+= to populate the entire perimeter in 1 keystroke.</div>
               </div>
@@ -340,7 +340,7 @@ export default function Topic5() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Multi-Selection (Ctrl + Click) &amp;rarr; Alt + =</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Multi-Selection (Ctrl + Click) → Alt + =</div>
                 <div className="text-emerald-400 font-semibold">Result: 10 column sums inserted simultaneously.</div>
                 <div className="text-slate-400 text-[11px]">AutoSum operates across non-contiguous multi-cell selections.</div>
               </div>

@@ -240,7 +240,7 @@ const questions = [
     explanation: "In enterprise financial modeling across Barrackpore and Kolkata, `SEQUENCE` creates automated cashflow periods, loan schedules, and matrix coordinate systems that adjust dynamically with zero maintenance.",
     hint: "SEQUENCE enables fully elastic timeline and index modeling.",
     level: "expert",
-    codeExample: "// Elastic Schedule: Loan Tenure -> SEQUENCE(Months) -> Dynamic Amortization Table"
+    codeExample: "// Elastic Schedule: Loan Tenure → SEQUENCE(Months) → Dynamic Amortization Table"
   }
 ];
 

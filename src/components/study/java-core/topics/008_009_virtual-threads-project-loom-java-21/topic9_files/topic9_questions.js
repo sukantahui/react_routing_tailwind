@@ -5,7 +5,7 @@ const topic9_questions = [
     "explanation": "Static helper method for instant virtual thread creation in Java 21.",
     "hint": "Convenience method to immediately create and start an anonymous virtual thread in one line.",
     "level": "Beginner",
-    "codeExample": "Thread.startVirtualThread(() -> System.out.println(\"Running virtually!\"));"
+    "codeExample": "Thread.startVirtualThread(() → System.out.println(\"Running virtually!\"));"
   }
 ];
 

@@ -24,7 +24,7 @@ Variables:
 Low-Link Updates:
   • If (u, v) is a Back-Edge:    `low[u] = min(low[u], tin[v])`
   • If (u, v) is a Tree-Edge:    `low[u] = min(low[u], low[v])`
-  • Bridge Condition:            `if (low[v] > tin[u]) -> Edge (u, v) is a Bridge!`
+  • Bridge Condition:            `if (low[v] > tin[u]) → Edge (u, v) is a Bridge!`
 
 3. FORD-FULKERSON & EDMONDS-KARP MAXIMUM FLOW
 --------------------------------------------------------------------------------

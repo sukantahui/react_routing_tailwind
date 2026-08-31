@@ -203,7 +203,7 @@ const questions = [
     explanation: "JVM bytecode invocation mechanics.",
     hint: "aload pushes reference to operand stack, then invokestatic.",
     level: "advanced",
-    codeExample: "// Bytecode: aload_0 -> invokestatic MyClass.process([I)V"
+    codeExample: "// Bytecode: aload_0 → invokestatic MyClass.process([I)V"
   },
   {
     question: "Can a generic method accept and return primitive arrays (`<T> T[] process(T[] arr)`)?",

@@ -5,7 +5,7 @@ const topic4_questions = [
     "explanation": "Defined explicitly in the JVM Specification Section 2.5.1.",
     "hint": "Undefined",
     "level": "Intermediate",
-    "codeExample": "Executing Native C -> PC Register is Undefined"
+    "codeExample": "Executing Native C → PC Register is Undefined"
   },
   {
     "question": "Which JVM memory area is the only one guaranteed by the specification never to throw an OutOfMemoryError?",

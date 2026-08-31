@@ -10,7 +10,7 @@ const questions = [
   },
   {
     "question": "Why is the T Flip-Flop universally used in frequency division?",
-    "shortAnswer": "Because in Toggle mode (T=1), it requires two input clock cycles to complete one full output cycle (0 -> 1 -> 0), dividing the clock frequency by 2.",
+    "shortAnswer": "Because in Toggle mode (T=1), it requires two input clock cycles to complete one full output cycle (0 → 1 → 0), dividing the clock frequency by 2.",
     "explanation": "Each clock pulse toggles the output once. Two positive edges are required for Q to go from 0 to 1 and back to 0, halving the frequency.",
     "hint": "Count how many clock pulses complete one full period of Q.",
     "level": "moderate",

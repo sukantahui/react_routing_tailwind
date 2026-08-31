@@ -96,7 +96,7 @@ const questions = [
     explanation: "Reallocating warehouse surplus can relieve active factories and unlock cheaper real freight assignments.",
     hint: "Surplus reassignment saves ₹5 per unit.",
     level: "expert",
-    codeExample: "Negative dummy evaluation -> reassigning surplus reduces total real freight."
+    codeExample: "Negative dummy evaluation → reassigning surplus reduces total real freight."
   },
   {
     question: "Why do some textbooks define the evaluation index as Delta_ij = (u_i + v_j) - c_ij?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Stopping at the first negative d_ij may pick a weak candidate (e.g. -₹1) when a much more lucrative candidate (e.g. -₹8) exists.",
     hint: "Evaluate all empty cells to find the global minimum d_ij.",
     level: "intermediate",
-    codeExample: "Rule: Evaluate all (m-1)(n-1) cells -> pick min(d_ij)."
+    codeExample: "Rule: Evaluate all (m-1)(n-1) cells → pick min(d_ij)."
   },
   {
     question: "Suppose Susmita calculates d_ij for all empty cells in a 3x3 matrix and finds: d_13 = +2, d_21 = -5, d_31 = 0, d_32 = +4. Which cell enters?",
@@ -238,9 +238,9 @@ const questions = [
     question: "What is the ultimate golden rule for calculating opportunity costs?",
     shortAnswer: "'First compute the sum (u_i + v_j); then subtract it from direct cost: d_ij = c_ij - (u_i + v_j); the most negative value wins the entry!'",
     explanation: "This two-step sequence prevents subtraction slip-ups and guarantees finding the optimal entering cell.",
-    hint: "Sum potentials -> subtract from cost -> pick most negative.",
+    hint: "Sum potentials → subtract from cost → pick most negative.",
     level: "moderate",
-    codeExample: "Golden Rule: (1) sum = u_i + v_j -> (2) d_ij = c_ij - sum -> (3) argmin(d_ij)."
+    codeExample: "Golden Rule: (1) sum = u_i + v_j → (2) d_ij = c_ij - sum → (3) argmin(d_ij)."
   }
 ];
 

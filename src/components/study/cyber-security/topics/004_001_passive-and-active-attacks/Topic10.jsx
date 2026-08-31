@@ -461,7 +461,7 @@ interface GigabitEthernet0/1
                 </text>
               </g>
 
-              {/* PATH 1: Attack -> Zero Trust Gateway */}
+              {/* PATH 1: Attack → Zero Trust Gateway */}
               <path d="M 210 160 L 330 160" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 210 160 L 330 160" dur="1.5s" repeatCount="indefinite" />
@@ -502,7 +502,7 @@ interface GigabitEthernet0/1
                 </text>
               </g>
 
-              {/* PATH 2: Gateway -> Clean Protected Core */}
+              {/* PATH 2: Gateway → Clean Protected Core */}
               <path d="M 550 160 L 680 160" stroke="#10b981" strokeWidth="3" fill="none" />
               <circle r="4" fill="#10b981">
                 <animateMotion path="M 550 160 L 680 160" dur="1.5s" repeatCount="indefinite" />

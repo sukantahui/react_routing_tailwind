@@ -77,7 +77,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Real-World Project: Building an Automated Live Search and Filter Table Without VBA
           </h1>
 
@@ -263,7 +263,7 @@ export default function Topic12() {
                 <text x="100" y="162" fill="#ffffff" fontSize="9" fontWeight="bold" textAnchor="middle">Dynamic SORT</text>
                 <text x="100" y="176" fill="#c7d2fe" fontSize="8" textAnchor="middle">Orders by Gross Revenue</text>
 
-                <text x="100" y="215" fill="#a5b4fc" fontSize="9" textAnchor="middle">Calculates in &lt; 15ms</text>
+                <text x="100" y="215" fill="#a5b4fc" fontSize="9" textAnchor="middle">Calculates in < 15ms</text>
               </g>
 
               {/* Arrow */}
@@ -324,7 +324,7 @@ export default function Topic12() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic3_Filter_MultiCriteria"
+              sheetName="EX1613"
               title="Enterprise Billing & Invoice Search Register"
               rowsPerPage={10}
               showSheetSelector={true}
@@ -357,7 +357,7 @@ export default function Topic12() {
                 Formula: (J1="") + ISNUMBER(SEARCH(J1, Table1[Course_Program]))
               </div>
               <p className="text-xs text-slate-400">
-                <strong>Outcome:</strong> Filters 6 transactions in &lt; 10ms with zero manual clicking!
+                <strong>Outcome:</strong> Filters 6 transactions in < 10ms with zero manual clicking!
               </p>
             </div>
 
@@ -522,7 +522,7 @@ export default function Topic12() {
                 <span>Highlight Top 3 Invoices</span>
               </div>
               <p className="text-slate-300">
-                Apply Conditional Formatting to the revenue column: <code className="text-emerald-400 font-mono">=$G6 &gt;= LARGE($G$6#, 3)</code> to highlight top transactions dynamically!
+                Apply Conditional Formatting to the revenue column: <code className="text-emerald-400 font-mono">=$G6 >= LARGE($G$6#, 3)</code> to highlight top transactions dynamically!
               </p>
             </div>
 

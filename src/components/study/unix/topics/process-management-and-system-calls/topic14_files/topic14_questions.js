@@ -38,7 +38,7 @@ const questions = [
     explanation: "You can use 9 (SIGKILL) to forcibly terminate. Verify PID before confirming.",
     hint: "'k' key.",
     level: "intermediate",
-    codeExample: "top -> press k -> enter PID -> 9 -> enter"
+    codeExample: "top → press k → enter PID → 9 → enter"
   },
   {
     question: "How to display only processes belonging to a specific user in top?",
@@ -46,7 +46,7 @@ const questions = [
     explanation: "This filters the process list. Press 'u' again with blank to show all.",
     hint: "'u' key.",
     level: "intermediate",
-    codeExample: "top -> press u -> swadeep"
+    codeExample: "top → press u → swadeep"
   },
   {
     question: "What does the '%CPU' column represent?",
@@ -78,7 +78,7 @@ const questions = [
     explanation: "Default is 3 seconds. Use smaller values for faster refresh (but more overhead).",
     hint: "'s' key.",
     level: "intermediate",
-    codeExample: "top -> press s -> 1"
+    codeExample: "top → press s → 1"
   },
   {
     question: "How to save your top configuration?",
@@ -86,7 +86,7 @@ const questions = [
     explanation: "Saved fields, sort order, colour scheme, and delay will be restored next time.",
     hint: "capital W.",
     level: "advanced",
-    codeExample: "top -> configure -> press W"
+    codeExample: "top → configure → press W"
   },
   {
     question: "What is batch mode in top?",
@@ -126,7 +126,7 @@ const questions = [
     explanation: "Shows the complete command line instead of just the truncated command name.",
     hint: "'c' key.",
     level: "basic",
-    codeExample: "top -> press c"
+    codeExample: "top → press c"
   },
   {
     question: "How to view process tree (forest view) in top?",
@@ -134,7 +134,7 @@ const questions = [
     explanation: "Displays processes in a tree structure, showing parent‑child relationships.",
     hint: "capital V.",
     level: "intermediate",
-    codeExample: "top -> press V"
+    codeExample: "top → press V"
   },
   {
     question: "What is the difference between 'top' and 'htop'?",
@@ -150,7 +150,7 @@ const questions = [
     explanation: "Lower nice value = higher priority. Default is 0.",
     hint: "'r' key.",
     level: "intermediate",
-    codeExample: "top -> press r -> PID -> -5"
+    codeExample: "top → press r → PID → -5"
   },
   {
     question: "How to display cumulative CPU time (TIME+) instead of %CPU?",
@@ -158,7 +158,7 @@ const questions = [
     explanation: "Useful to find which process has used the most CPU time overall.",
     hint: "capital T.",
     level: "basic",
-    codeExample: "top -> press T"
+    codeExample: "top → press T"
   },
   {
     question: "How to filter displayed fields in top?",
@@ -166,7 +166,7 @@ const questions = [
     explanation: "You can add/remove columns and reorder them.",
     hint: "'f' key.",
     level: "advanced",
-    codeExample: "top -> f -> move cursor -> space to select"
+    codeExample: "top → f → move cursor → space to select"
   },
   {
     question: "What does the 'ni' column (nice value) mean?",
@@ -174,7 +174,7 @@ const questions = [
     explanation: "Lower nice = higher priority. Only root can lower nice (increase priority).",
     hint: "nice command.",
     level: "intermediate",
-    codeExample: "top -> look at NI column"
+    codeExample: "top → look at NI column"
   },
   {
     question: "How to run top in a single iteration (non‑interactive) for scripting?",
@@ -198,7 +198,7 @@ const questions = [
     explanation: "Each thread of a process appears as a separate entry.",
     hint: "'H' key.",
     level: "advanced",
-    codeExample: "top -> press H"
+    codeExample: "top → press H"
   },
   {
     question: "Why does top show a process with negative nice when I haven't set it?",
@@ -214,7 +214,7 @@ const questions = [
     explanation: "'e' toggles: KiB, MiB, GiB, TiB, PiB, EiB for memory columns.",
     hint: "'e' key.",
     level: "intermediate",
-    codeExample: "top -> press e a few times"
+    codeExample: "top → press e a few times"
   },
   {
     question: "What is the purpose of `top -d` option?",
@@ -230,7 +230,7 @@ const questions = [
     explanation: "The current sort column is highlighted; you can also use colour configuration.",
     hint: "'R' toggles reverse sort.",
     level: "intermediate",
-    codeExample: "top -> press P (sort by CPU) then R (reverse)"
+    codeExample: "top → press P (sort by CPU) then R (reverse)"
   },
   {
     question: "What does the 'st' (stolen time) mean in CPU summary?",
@@ -238,7 +238,7 @@ const questions = [
     explanation: "High 'st' indicates that the host is overcommitted, affecting performance.",
     hint: "Especially relevant in cloud VMs.",
     level: "advanced",
-    codeExample: "top -> look at the CPU line"
+    codeExample: "top → look at the CPU line"
   }
 ];
 

@@ -5,7 +5,7 @@ const topic18_questions = [
     "explanation": "Eliminates false leads from cache mechanisms.",
     "hint": "Isolates strong references that actually prevent GC from freeing memory.",
     "level": "Intermediate",
-    "codeExample": "MAT -> Path to GC Roots -> Exclude all phantom/weak/soft references"
+    "codeExample": "MAT → Path to GC Roots → Exclude all phantom/weak/soft references"
   },
   {
     "question": "What information does the Path to GC Roots tree reveal about a leaked object?",
@@ -13,7 +13,7 @@ const topic18_questions = [
     "explanation": "Provides the exact code path requiring refactoring or nullification.",
     "hint": "Shows GC Root type, class names, field names, and reference chain.",
     "level": "Beginner",
-    "codeExample": "GC Root (Thread) -> Class A (field b) -> Class B (field c) -> Leaked Object"
+    "codeExample": "GC Root (Thread) → Class A (field b) → Class B (field c) → Leaked Object"
   }
 ];
 

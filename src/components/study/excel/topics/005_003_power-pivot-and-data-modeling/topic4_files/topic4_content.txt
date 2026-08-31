@@ -10,10 +10,10 @@ Cross-filter direction: Single vs Both directions and avoiding ambiguous relatio
 It provides the core protocols required to shatter Excel's 1-million row limit, establish clean relational schemas, and build high-performance data models.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships
+Operational Architecture: Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships
 
 3. CORE TECHNICAL MECHANICS
-1. Natural Single-Direction Flow (Dim -> Fact):
+1. Natural Single-Direction Flow (Dim → Fact):
    By default, filters placed on a Dimension table flow DOWN to the Fact table. Filters placed on a Fact table do NOT flow back up to dimensions.
 
 2. The Danger of Bi-Directional Filtering ('Both'):

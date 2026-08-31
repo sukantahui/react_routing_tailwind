@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. CHRONOUNIT RULES:
-   - 'ChronoUnit.DAYS.between(d1, d2)'   &rarr; Total elapsed days.
-   - 'ChronoUnit.MONTHS.between(d1, d2)' &rarr; Total elapsed months.
-   - 'ChronoUnit.HOURS.between(t1, t2)'  &rarr; Total elapsed hours.
+   - 'ChronoUnit.DAYS.between(d1, d2)'   → Total elapsed days.
+   - 'ChronoUnit.MONTHS.between(d1, d2)' → Total elapsed months.
+   - 'ChronoUnit.HOURS.between(t1, t2)'  → Total elapsed hours.
    - Avoid 'Period.getDays()' for total day calculations.
 
 ================================================================================

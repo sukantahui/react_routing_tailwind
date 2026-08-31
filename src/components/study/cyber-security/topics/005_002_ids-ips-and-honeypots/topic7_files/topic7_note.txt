@@ -19,7 +19,7 @@ Rule Header Format:
   `Action Protocol Source_IP Source_Port Direction Destination_IP Destination_Port`
 
 Example Rule:
-  `alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80 (msg:"EXPLOIT SQL Injection"; content:"UNION SELECT"; nocase; sid:1000001; rev:1;)`
+  `alert tcp $EXTERNAL_NET any → $HTTP_SERVERS 80 (msg:"EXPLOIT SQL Injection"; content:"UNION SELECT"; nocase; sid:1000001; rev:1;)`
 
 Breakdown of Rule Header Fields:
   1. Action: `alert` (generate alert), `log` (log packet), `pass` (ignore), `drop` (IPS drop & block), 
@@ -33,19 +33,19 @@ Breakdown of Rule Header Fields:
 3. ADVANCED SNORT RULE OPTIONS & PAYLOAD MATCHING MODIFIERS
 ----------------------------------------------------------------------------------------------------
 1. METADATA OPTIONS:
-   - `msg:"..."` -> Human-readable alert description.
-   - `sid:1000001` -> Snort Rule ID (< 100: Reserved; 100-999,999: Custom local rules; > 1,000,000: Official Talos/ET rules).
-   - `rev:1` -> Revision number of the signature.
-   - `classtype:web-application-attack` -> Severity classification mapped to priority.
+   - `msg:"..."` → Human-readable alert description.
+   - `sid:1000001` → Snort Rule ID (< 100: Reserved; 100-999,999: Custom local rules; > 1,000,000: Official Talos/ET rules).
+   - `rev:1` → Revision number of the signature.
+   - `classtype:web-application-attack` → Severity classification mapped to priority.
 
 2. PAYLOAD POSITION MODIFIERS:
-   - `content:"|00 01 02|"` -> Binary hex matching enclosed in pipes.
-   - `nocase` -> Case-insensitive string matching.
-   - `depth:10` -> Search for content within first 10 bytes of payload.
-   - `offset:5` -> Start searching after skipping first 5 bytes.
-   - `distance:4` -> Relative offset from previous content match.
-   - `within:8` -> Relative depth from previous content match.
-   - `fast_pattern` -> Designates the specific content string used by the Multi-Pattern Matcher (MPM).
+   - `content:"|00 01 02|"` → Binary hex matching enclosed in pipes.
+   - `nocase` → Case-insensitive string matching.
+   - `depth:10` → Search for content within first 10 bytes of payload.
+   - `offset:5` → Start searching after skipping first 5 bytes.
+   - `distance:4` → Relative offset from previous content match.
+   - `within:8` → Relative depth from previous content match.
+   - `fast_pattern` → Designates the specific content string used by the Multi-Pattern Matcher (MPM).
 
 3. APPLICATION-LAYER HTTP MODIFIERS:
    - `http_uri`, `http_header`, `http_client_body`, `http_method`, `http_cookie`, `http_stat_code`.
@@ -91,7 +91,7 @@ A 100 Gbps telecommunications gateway in Barrackpore routing citizen digital tra
 
 7. STUDENT MINI CHECKLIST (EXAM & CAREER ESSENTIALS)
 ----------------------------------------------------------------------------------------------------
-[ ] Snort Rule Header syntax: Action Protocol SrcIP SrcPort -> DstIP DstPort.
+[ ] Snort Rule Header syntax: Action Protocol SrcIP SrcPort → DstIP DstPort.
 [ ] Local custom Snort SIDs must be numbered between 100 and 999,999.
 [ ] `content` modifiers: `nocase`, `offset`, `depth`, `distance`, `within`, `fast_pattern`.
 [ ] Suricata is natively multi-threaded; Snort 2 is single-threaded; Snort 3 uses Lua multi-threading.

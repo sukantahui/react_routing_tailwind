@@ -17,7 +17,7 @@ const questions = [
     hint: "One person shouting is easy to ignore; ten thousand people shouting at once deafens the whole room.",
     level: "basic",
     codeExample: `// Botnet Orchestration Command:
-// C2 Server -> 500,000 Bots: "ATTACK target=103.25.10.50 port=443 duration=3600 method=UDP_FLOOD"`
+// C2 Server → 500,000 Bots: "ATTACK target=103.25.10.50 port=443 duration=3600 method=UDP_FLOOD"`
   },
   {
     question: "What are the three primary categories of DDoS Attacks?",
@@ -120,9 +120,9 @@ flowspec {
     hint: "Pressing the elevator call button and cancel button 10,000 times a second to jam the elevator computer.",
     level: "expert",
     codeExample: `// HTTP/2 Rapid Reset Exploit Flow:
-// Client -> Server: HEADERS (Stream 1) -> Requests /expensive-query
-// Client -> Server: RST_STREAM (Stream 1) -> Cancels request
-// Client -> Server: HEADERS (Stream 3) -> Requests /expensive-query ... [Repeats 500k times/sec]`
+// Client → Server: HEADERS (Stream 1) → Requests /expensive-query
+// Client → Server: RST_STREAM (Stream 1) → Cancels request
+// Client → Server: HEADERS (Stream 3) → Requests /expensive-query ... [Repeats 500k times/sec]`
   },
   {
     question: "What is Regular Expression Denial of Service (ReDoS), and how does catastrophic backtracking crash application servers?",
@@ -259,7 +259,7 @@ client_max_body_size 10m;`
     level: "moderate",
     codeExample: `// Ping of Death Calculation:
 // Fragment 1: Offset = 0, Length = 60,000
-// Fragment 2: Offset = 60,000, Length = 6,000 -> Total = 66,000 Bytes (> 65,535 Maximum!)`
+// Fragment 2: Offset = 60,000, Length = 6,000 → Total = 66,000 Bytes (> 65,535 Maximum!)`
   },
   {
     question: "How does the Memcached UDP Reflection attack achieve a 50,000x amplification factor?",

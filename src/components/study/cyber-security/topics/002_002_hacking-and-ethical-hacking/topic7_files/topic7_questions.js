@@ -29,7 +29,7 @@ Impact: High Public Visibility, Reputational Damage, Website Downtime (Low Techn
     level: "basic",
     codeExample: `// Script Kiddie Attack Pattern:
 Tool: Downloaded "Auto-SQLi-Scanner.exe" from Discord / YouTube
-Action: Ingests 50,000 public Google Dorks -> Blasts automated SQL payloads indiscriminately
+Action: Ingests 50,000 public Google Dorks → Blasts automated SQL payloads indiscriminately
 Risk: Can accidentally crash production databases or wipe tables via malformed payloads.`
   },
   {
@@ -39,9 +39,9 @@ Risk: Can accidentally crash production databases or wipe tables via malformed p
     hint: "Recall the state-sponsored North Korean hacking group famous for the Bangladesh Bank SWIFT heist and crypto bridge thefts.",
     level: "moderate",
     codeExample: `// Lazarus Group Financial Heists:
-2016: Bangladesh Bank SWIFT Heist -> ₹650 Crores ($81M stolen via fake wire transfers)
-2017: WannaCry Global Ransomware   -> 200,000 systems encrypted worldwide
-2022: Ronin Network (Axie Infinity) -> ₹5,000 Crores ($620M) cryptocurrency stolen in one transaction`
+2016: Bangladesh Bank SWIFT Heist → ₹650 Crores ($81M stolen via fake wire transfers)
+2017: WannaCry Global Ransomware   → 200,000 systems encrypted worldwide
+2022: Ronin Network (Axie Infinity) → ₹5,000 Crores ($620M) cryptocurrency stolen in one transaction`
   },
   {
     question: "What is the 'Diamond Model of Intrusion Analysis', and what are its four core interconnected vertices?",
@@ -88,7 +88,7 @@ Negligent Insider: Junior developer commits AWS Root API keys to a public GitHub
     level: "moderate",
     codeExample: `// LulzSec 50-Day Campaign Timeline (2011):
 Day 01: Compromised Fox.com employee database
-Day 15: Breached Sony Pictures -> Leaked 1,000,000 user passwords in cleartext
+Day 15: Breached Sony Pictures → Leaked 1,000,000 user passwords in cleartext
 Day 25: DDoS attack taking down CIA.gov
 Day 50: Released final data dump and disbanded; Sabu later unmasked by FBI`
   },
@@ -140,8 +140,8 @@ Encrypted HTTP Host Header (To CDN):    "Host: attacker-c2.net" (Routes secretly
     hint: "Recall the private surveillance companies like NSO Group that sell the Pegasus zero-click spyware to governments.",
     level: "moderate",
     codeExample: `// Pegasus Zero-Click Infection Vector (e.g., FORCEDENTRY):
-Attacker sends invisible iMessage containing malicious PDF / JBIG2 image -> 
-Integer overflow in CoreGraphics parses font -> Remote Code Execution with Root privileges (Zero clicks required)`
+Attacker sends invisible iMessage containing malicious PDF / JBIG2 image → 
+Integer overflow in CoreGraphics parses font → Remote Code Execution with Root privileges (Zero clicks required)`
   },
   {
     question: "Under the Indian IT Act 2000, how does Section 66F specifically target Nation-State and Terrorist Threat Actors?",
@@ -173,7 +173,7 @@ Get-CimInstance -ClassName Win32_DeviceGuard -Namespace root\\Microsoft\\Windows
     codeExample: `// Operation Dream Job Pretexting Workflow:
 1. Attacker creates fake LinkedIn profile: "Senior Talent Lead @ Premier Defense Aerospace".
 2. Contacts engineer: "We are offering a ₹60 Lakhs/yr Chief Propulsion Engineer role."
-3. Sends: "Aerospace_Salary_Breakdown.docx" containing CVE-2021-40444 exploit -> Backdoor deployed.`
+3. Sends: "Aerospace_Salary_Breakdown.docx" containing CVE-2021-40444 exploit → Backdoor deployed.`
   },
   {
     question: "How do 'Watering Hole Attacks' by APTs differ from generic malicious spam campaigns?",
@@ -218,8 +218,8 @@ Stuxnet Attack Sequence:
     hint: "Think about publishing someone's private home address and phone number online to cause harassment.",
     level: "moderate",
     codeExample: `// Doxxing Legal Penalties in India:
-IT Act 2000 Section 66E: Privacy Violation / Leaking Personal Data -> Up to 3 Years Imprisonment
-DPDP Act 2023 Section 33: Data Fiduciary Breach Penalty -> Up to ₹250 Crores`
+IT Act 2000 Section 66E: Privacy Violation / Leaking Personal Data → Up to 3 Years Imprisonment
+DPDP Act 2023 Section 33: Data Fiduciary Breach Penalty → Up to ₹250 Crores`
   },
   {
     question: "Synthesizing the entire Threat Actor spectrum: why is threat attribution one of the most difficult challenges in modern cyber intelligence?",

@@ -22,7 +22,7 @@ Level: Advanced | Estimated Study Time: 4 Hours
 --------------------------------------------------------------------------------
 UNNORMALIZED / NON-COMPLIANT STATE:
 In relation (student, subject, advisor), each advisor teaches only one subject, and a student has at most one advisor per subject.
-Root Cause: Candidate keys are {student, subject} and {student, advisor}. FD advisor -> subject satisfies 3NF because subject is prime, yet redundancy remains!
+Root Cause: Candidate keys are {student, subject} and {student, advisor}. FD advisor → subject satisfies 3NF because subject is prime, yet redundancy remains!
 
 NORMALIZED STATE:
 All tables are in strict BCNF; advisor subject is stored in exactly 1 row.

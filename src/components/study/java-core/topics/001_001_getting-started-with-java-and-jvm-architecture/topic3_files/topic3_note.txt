@@ -15,11 +15,11 @@ system, or CPU architecture with an installed Java Virtual Machine (JVM).
 2. COMPILED (C/C++) VS INTERPRETED (PYTHON) VS HYBRID (JAVA)
 --------------------------------------------------------------------------------
 - C / C++ (Pure Native Compilation):
-  Source -> Native Machine Code (x86 .exe / ARM ELF).
+  Source → Native Machine Code (x86 .exe / ARM ELF).
   Fastest speed, ZERO portability (must recompile per OS/CPU).
 
 - Python / Ruby (Pure Interpretation):
-  Source -> Line-by-line interpreter.
+  Source → Line-by-line interpreter.
   High portability, but significantly slower execution speed.
 
 - Java (Two-Stage Hybrid Architecture):

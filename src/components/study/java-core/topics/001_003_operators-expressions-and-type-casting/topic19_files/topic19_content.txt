@@ -26,7 +26,7 @@ When an `int` greater than $2^{24}$ ($16,777,216$) is converted to `float`, the 
 3. SIGN EXTENSION VS ZERO EXTENSION DURING WIDENING
 - Signed types (`byte`, `short`, `int`) undergo Sign Extension during widening to larger signed types: vacated upper bits are populated with copies of the MSB (preserving negative values).
 - Unsigned type (`char`) undergoes Zero Extension: vacated upper bits are always populated with zeroes.
-Classic Trap: `short s = -1; char c = (char)s; int i = c;` -> `i` evaluates to `65535` because `char` to `int` is zero-extended!
+Classic Trap: `short s = -1; char c = (char)s; int i = c;` → `i` evaluates to `65535` because `char` to `int` is zero-extended!
 
 4. CONVERSION CONTEXTS IN JAVA
 Widening occurs implicitly in five distinct language contexts:

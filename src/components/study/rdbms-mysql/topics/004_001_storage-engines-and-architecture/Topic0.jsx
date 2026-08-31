@@ -53,7 +53,7 @@ SELECT user, host, plugin FROM mysql.user WHERE user = 'root';
       badge: "SQL Core Layer",
       badgeColor: "cyan",
       sqlSnippet: `-- ⚙️ TIER 2: SQL QUERY PROCESSING & OPTIMIZER EXECUTION:
--- 1. Parser generates Parse Tree (AST) -> Throws Error 1064 on syntax failure.
+-- 1. Parser generates Parse Tree (AST) → Throws Error 1064 on syntax failure.
 -- 2. Preprocessor validates tables & columns against Information Schema.
 -- 3. Cost-Based Optimizer (CBO) evaluates indexes and access costs.
 
@@ -86,11 +86,11 @@ SELECT @@version, @@version_comment;`,
 -- The core server communicates with storage engines via the C++ 'handler' base class:
 -- 
 -- Key Handler Methods:
--- 1. handler::ha_index_read_map() -> Reads row via B+ Tree index seek
--- 2. handler::ha_index_next()     -> Iterates next entry in index scan
--- 3. handler::ha_rnd_next()       -> Full table scan next record
--- 4. handler::ha_write_row()      -> Inserts new physical row record
--- 5. handler::ha_delete_row()     -> Deletes physical row record
+-- 1. handler::ha_index_read_map() → Reads row via B+ Tree index seek
+-- 2. handler::ha_index_next()     → Iterates next entry in index scan
+-- 3. handler::ha_rnd_next()       → Full table scan next record
+-- 4. handler::ha_write_row()      → Inserts new physical row record
+-- 5. handler::ha_delete_row()     → Deletes physical row record
 
 -- Inspecting all active storage engines:
 SHOW ENGINES;
@@ -166,7 +166,7 @@ CREATE TABLE system_audit_logs (
               Segment 4: Enterprise DBA
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             MySQL Server Architecture: Client Layer, Core Server Layer, and Storage Engine API
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

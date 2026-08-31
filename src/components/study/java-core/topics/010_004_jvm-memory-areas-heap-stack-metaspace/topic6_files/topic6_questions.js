@@ -5,7 +5,7 @@ const topic6_questions = [
     "explanation": "String pool moved in Java 7; static variables moved in Java 8.",
     "hint": "Moved to the main Java Heap Area.",
     "level": "Intermediate",
-    "codeExample": "String Pool & Statics -> Java Heap; Class Bytecode -> Metaspace"
+    "codeExample": "String Pool & Statics → Java Heap; Class Bytecode → Metaspace"
   },
   {
     "question": "What happens if a Java application running on Java 8+ does not specify -XX:MaxMetaspaceSize?",

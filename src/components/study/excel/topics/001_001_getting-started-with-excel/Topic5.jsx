@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_001_getting_started_with_excel_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -71,7 +70,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             High-Speed Navigation: Keyboard Shortcuts, Range Selection, Name Box Teleportation &amp; Go To Special
           </h1>
 
@@ -169,7 +168,7 @@ export default function Topic5() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>Ctrl + Arrow keys scan the underlying memory array and jump past contiguous populated cells until an empty cell boundary is reached.</p>
             <p>The Name Box (top-left of the formula bar) allows direct coordinate input (e.g. typing 'B5000' and pressing Enter teleports the cursor immediately).</p>
-            <p>Go To Special (F5 &amp;rarr; Alt+S) performs array filtering directly in the DOM, allowing batch operations such as filling all blank cells in a 10,000-row column simultaneously.</p>
+            <p>Go To Special (F5 → Alt+S) performs array filtering directly in the DOM, allowing batch operations such as filling all blank cells in a 10,000-row column simultaneously.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -326,7 +325,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-101</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata CA General Audit Model</td>
                   <td className="py-2.5 px-3 text-sky-300">Standard OpenXML Workbook</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xlsx`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.xlsx`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.xlsx` File</td>
                   <td className="py-2.5 px-3 text-slate-300">Standard XML container ensuring high macro-free security.</td>
                 </tr>
@@ -334,7 +333,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-102</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Payroll Macro Generator</td>
                   <td className="py-2.5 px-3 text-sky-300">Macro-Enabled Workbook</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xlsm`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.xlsm`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.xlsm` File</td>
                   <td className="py-2.5 px-3 text-slate-300">Preserves VBA automation code without stripping modules.</td>
                 </tr>
@@ -342,7 +341,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-103</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket 80MB Model</td>
                   <td className="py-2.5 px-3 text-sky-300">Excel Binary Workbook</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xlsb`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.xlsb`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.xlsb` File</td>
                   <td className="py-2.5 px-3 text-slate-300">Reduces file size by 50% and loads 4x faster.</td>
                 </tr>
@@ -350,7 +349,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-104</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS Database Export</td>
                   <td className="py-2.5 px-3 text-sky-300">Comma-Separated Values</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.csv`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.csv`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.csv` Text</td>
                   <td className="py-2.5 px-3 text-slate-300">Flat text file for SQL database ingestion.</td>
                 </tr>
@@ -358,7 +357,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-105</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant Boardroom Report</td>
                   <td className="py-2.5 px-3 text-sky-300">PDF Fixed Document Export</td>
-                  <td className="py-2.5 px-3 text-amber-300">Export $\rightarrow$ Create PDF/XPS</td>
+                  <td className="py-2.5 px-3 text-amber-300">Export → Create PDF/XPS</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.pdf` File</td>
                   <td className="py-2.5 px-3 text-slate-300">Un-editable visual report preserving exact print layout.</td>
                 </tr>
@@ -366,7 +365,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-106</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Titagarh Mill Legacy Unix Ingestion</td>
                   <td className="py-2.5 px-3 text-sky-300">Tab Delimited Text</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.txt` (Tab delimited)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.txt` (Tab delimited)</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.txt` File</td>
                   <td className="py-2.5 px-3 text-slate-300">Interoperable with mainframe batch processing.</td>
                 </tr>
@@ -374,7 +373,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-107</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Pharmacy Old PC Compatibility</td>
                   <td className="py-2.5 px-3 text-sky-300">Excel 97–2003 Format</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xls`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.xls`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.xls` File</td>
                   <td className="py-2.5 px-3 text-slate-300">Backwards compatibility for legacy Office installation.</td>
                 </tr>
@@ -382,7 +381,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-108</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Store Master Invoice Template</td>
                   <td className="py-2.5 px-3 text-sky-300">Excel Template File</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xltx`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.xltx`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.xltx` Template</td>
                   <td className="py-2.5 px-3 text-slate-300">Opens a fresh un-saved copy preventing template overwrite.</td>
                 </tr>
@@ -390,7 +389,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-109</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Howrah Freight Macro Invoice Template</td>
                   <td className="py-2.5 px-3 text-sky-300">Macro-Enabled Template</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.xltm`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.xltm`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.xltm` Template</td>
                   <td className="py-2.5 px-3 text-slate-300">Combines master template behavior with embedded VBA.</td>
                 </tr>
@@ -398,7 +397,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-110</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel OpenSource Exchange</td>
                   <td className="py-2.5 px-3 text-sky-300">OpenDocument Spreadsheet</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ `.ods`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → `.ods`</td>
                   <td className="py-2.5 px-3 text-emerald-400">`.ods` File</td>
                   <td className="py-2.5 px-3 text-slate-300">Complies with open-source software standards.</td>
                 </tr>
@@ -406,7 +405,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-111</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Power Confidential Audit Lock</td>
                   <td className="py-2.5 px-3 text-sky-300">Backstage Encrypt with Password</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Protect Workbook</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Protect Workbook</td>
                   <td className="py-2.5 px-3 text-emerald-400">AES-256 Encrypted</td>
                   <td className="py-2.5 px-3 text-slate-300">Locks workbook behind mandatory password prompt.</td>
                 </tr>
@@ -414,7 +413,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-112</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea AutoRecover Configuration</td>
                   <td className="py-2.5 px-3 text-sky-300">Backstage Save Interval</td>
-                  <td className="py-2.5 px-3 text-amber-300">Options $\rightarrow$ Save $\rightarrow$ Every 3 Min</td>
+                  <td className="py-2.5 px-3 text-amber-300">Options → Save → Every 3 Min</td>
                   <td className="py-2.5 px-3 text-emerald-400">3 Min Auto-Save</td>
                   <td className="py-2.5 px-3 text-slate-300">Minimizes unsaved data loss during sudden crashes.</td>
                 </tr>
@@ -422,7 +421,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-113</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port Final Audit Distribution</td>
                   <td className="py-2.5 px-3 text-sky-300">Mark as Final Command</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Mark as Final</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Mark as Final</td>
                   <td className="py-2.5 px-3 text-emerald-400">Read-Only Banner</td>
                   <td className="py-2.5 px-3 text-slate-300">Disables editing controls signaling completed state.</td>
                 </tr>
@@ -430,7 +429,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-114</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Hidden Comment Scrub</td>
                   <td className="py-2.5 px-3 text-sky-300">Inspect Document Privacy Check</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Inspect Document</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Inspect Document</td>
                   <td className="py-2.5 px-3 text-emerald-400">Metadata Scrubbed</td>
                   <td className="py-2.5 px-3 text-slate-300">Removes author tags, hidden comments, and revision logs.</td>
                 </tr>
@@ -438,7 +437,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-115</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Screen Reader Check</td>
                   <td className="py-2.5 px-3 text-sky-300">Check Accessibility Audit</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Check Accessibility</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Check Accessibility</td>
                   <td className="py-2.5 px-3 text-emerald-400">Alt Text Verified</td>
                   <td className="py-2.5 px-3 text-slate-300">Ensures charts contain Alt Text for screen reader accessibility.</td>
                 </tr>
@@ -446,7 +445,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-116</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Kharagpur Library Feature Downgrade Check</td>
                   <td className="py-2.5 px-3 text-sky-300">Check Compatibility Wizard</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Check Compatibility</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Check Compatibility</td>
                   <td className="py-2.5 px-3 text-emerald-400">Warnings Flagged</td>
                   <td className="py-2.5 px-3 text-slate-300">Flags features unsupported in older .xls Excel versions.</td>
                 </tr>
@@ -454,7 +453,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-117</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute Trust Center Folder</td>
                   <td className="py-2.5 px-3 text-sky-300">Trusted Locations Whitelist</td>
-                  <td className="py-2.5 px-3 text-amber-300">Options $\rightarrow$ Trust Center $\rightarrow$ Locations</td>
+                  <td className="py-2.5 px-3 text-amber-300">Options → Trust Center → Locations</td>
                   <td className="py-2.5 px-3 text-emerald-400">Folder Trusted</td>
                   <td className="py-2.5 px-3 text-slate-300">Allows macros in specified directory to run automatically.</td>
                 </tr>
@@ -462,7 +461,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-118</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed External Link Shield</td>
                   <td className="py-2.5 px-3 text-sky-300">External Content Security Bar</td>
-                  <td className="py-2.5 px-3 text-amber-300">Trust Center $\rightarrow$ External Content</td>
+                  <td className="py-2.5 px-3 text-amber-300">Trust Center → External Content</td>
                   <td className="py-2.5 px-3 text-emerald-400">Prompt Mode Active</td>
                   <td className="py-2.5 px-3 text-slate-300">Blocks unauthorized background workbook data links.</td>
                 </tr>
@@ -470,7 +469,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-119</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Author Tagging</td>
                   <td className="py-2.5 px-3 text-sky-300">Document Properties Metadata</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Properties $\rightarrow$ Author</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Properties → Author</td>
                   <td className="py-2.5 px-3 text-emerald-400">`Sukanta Hui` Tagged</td>
                   <td className="py-2.5 px-3 text-slate-300">Establishes copyright ownership metadata inside workbook.</td>
                 </tr>
@@ -478,7 +477,7 @@ export default function Topic5() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">FF-120</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Bankura Craft Write Password Lock</td>
                   <td className="py-2.5 px-3 text-sky-300">Password-to-Modify Guard</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ Tools $\rightarrow$ General Options</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → Tools → General Options</td>
                   <td className="py-2.5 px-3 text-emerald-400">Write Password Set</td>
                   <td className="py-2.5 px-3 text-slate-300">Allows public reading but restricts editing to key-holders.</td>
                 </tr>
@@ -615,10 +614,8 @@ export default function Topic5() {
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Select contiguous blocks of cells from active position to the edge boundary.</p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                F5 &amp;rarr; Alt + S
-              </kbd>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex flex-col gap-2">
+              <div className="flex items-center gap-1.5 flex-wrap"><kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">F5</kbd><span className="text-purple-300 font-mono text-xs font-semibold">→ Alt + S</span></div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Go To Special dialog for precision cell filtering (Blanks, Formulas, etc.).</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
@@ -654,7 +651,7 @@ export default function Topic5() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the mathematical principle behind Go To Special &amp;rarr; Differences (Row/Column differences) in formula auditing?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the mathematical principle behind Go To Special → Differences (Row/Column differences) in formula auditing?</p>
             </div>
           </div>
         </section>
@@ -674,7 +671,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Throw away the mouse for navigation! Master Ctrl+Arrows and Ctrl+Shift+Arrows. When cleaning messy client data, F5 &rarr; Special &rarr; Blanks combined with Ctrl+Enter is the single most powerful productivity technique in spreadsheet engineering."
+            note="Throw away the mouse for navigation! Master Ctrl+Arrows and Ctrl+Shift+Arrows. When cleaning messy client data, F5 → Special → Blanks combined with Ctrl+Enter is the single most powerful productivity technique in spreadsheet engineering."
           />
         </div>
       </div>

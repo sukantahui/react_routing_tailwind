@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Goal Seek: Finding the exact input required to hit a targeted financial outcome"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic1() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Data &gt; What-If Analysis &gt; Goal Seek: Set cell: TargetCell | To value: ExactTargetValue | By changing cell: InputCell"}
+            {"Data > What-If Analysis > Goal Seek: Set cell: TargetCell | To value: ExactTargetValue | By changing cell: InputCell"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic1() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Goal Seek Backwards-Solving Engine: Target Output Constraint -> Iterative Input Convergence"}
+              Visual Dataflow: {"Goal Seek Backwards-Solving Engine: Target Output Constraint → Iterative Input Convergence"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Optimization Pipeline
@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Goal_Seek__Finding"
+            sheetName="EX1402"
             title={"Goal Seek: Finding the exact input required to hit a targeted financial outcome - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic1() {
                 Step 2: Configure What-If Tool / Solver Parameters
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Launch Data Table (Alt + A + W + T), Scenario Manager (Alt + A + W + S), or Solver (Alt + A + Y + 2) and map input ranges <code className="text-cyan-300 font-mono font-bold">{"Data &gt; What-If Analysis &gt; Goal Seek: Set cell: TargetCell | To value: ExactTargetValue | By changing cell: InputCell"}</code>.
+                Launch Data Table (Alt + A + W + T), Scenario Manager (Alt + A + W + S), or Solver (Alt + A + Y + 2) and map input ranges <code className="text-cyan-300 font-mono font-bold">{"Data > What-If Analysis > Goal Seek: Set cell: TargetCell | To value: ExactTargetValue | By changing cell: InputCell"}</code>.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic1() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Overwriting Target Cell Value"}</td>
                   <td className="py-3 px-4">{"Typing the target number directly into the formula cell destroys the dynamic calculation."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always use Data &gt; What-If Analysis > Goal Seek dialog to solve backwards."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always use Data > What-If Analysis > Goal Seek dialog to solve backwards."}</td>
                 </tr>
                 
               </tbody>

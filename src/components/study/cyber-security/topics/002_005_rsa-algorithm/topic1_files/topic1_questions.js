@@ -6,8 +6,8 @@ const questions = [
     hint: "Think of counting how many numbers smaller than $N$ share zero common factors with $N$ other than 1.",
     level: "basic",
     codeExample: `// Euler's Totient Examples:
-For Prime p = 7:       Coprimes = {1, 2, 3, 4, 5, 6} -> phi(7) = 6 = (p - 1)
-For Composite N = 10:  Coprimes = {1, 3, 7, 9}       -> phi(10) = 4
+For Prime p = 7:       Coprimes = {1, 2, 3, 4, 5, 6} → phi(7) = 6 = (p - 1)
+For Composite N = 10:  Coprimes = {1, 3, 7, 9}       → phi(10) = 4
 For RSA Modulus N=p*q: phi(N) = (p - 1) * (q - 1)`
   },
   {
@@ -96,7 +96,7 @@ for all integers a in [1, 2*sqrt(phi(r))*log(N)]`
     codeExample: `// Pollard's p-1 Factoring Attack:
 If p - 1 = 2 * 3 * 3 * 5 * 7 (Smooth Number!):
 Compute: M = 2 * 3 * 4 * ... * B
-Evaluate: Factor p = gcd( 2^M - 1, N ) -> Factorization extracted in milliseconds!
+Evaluate: Factor p = gcd( 2^M - 1, N ) → Factorization extracted in milliseconds!
 Defensive Rule: Enforce p = 2 * p' + 1 where p' is a huge 1023-bit prime!`
   },
   {
@@ -174,8 +174,8 @@ function modular_inverse(e, phi):
     hint: "Think about why knowing the lock design does not give you the metal key in asymmetric mathematics.",
     level: "moderate",
     codeExample: `// Classical vs Asymmetric Reversibility:
-Caesar Cipher:   Enc: (x + 3) mod 26 -> Dec: (x - 3) mod 26 (Trivially Reversible!)
-RSA Trapdoor:    Enc: (M^e) mod N     -> Dec: (C^d) mod N   (Requires Secret phi(N) = (p-1)(q-1)!)`
+Caesar Cipher:   Enc: (x + 3) mod 26 → Dec: (x - 3) mod 26 (Trivially Reversible!)
+RSA Trapdoor:    Enc: (M^e) mod N     → Dec: (C^d) mod N   (Requires Secret phi(N) = (p-1)(q-1)!)`
   },
   {
     question: "Synthesizing Mathematical Foundations of RSA: what is the master equation that links prime factorization, Euler's totient, and public-key decryption?",

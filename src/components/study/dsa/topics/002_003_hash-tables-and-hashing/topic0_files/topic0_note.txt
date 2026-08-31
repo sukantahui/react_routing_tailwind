@@ -8,7 +8,7 @@ Mentor: Sukanta Hui (Barrackpore, West Bengal)
 
 1. HASH TABLE CONVERGENCE
 --------------------------------------------------------------------------------
-Key space -> [ Hash Function h(k) ] -> Index [ 0 ... N-1 ]
+Key space → [ Hash Function h(k) ] → Index [ 0 ... N-1 ]
 
 Load Factor Formula:
   alpha = n / m  (n = total elements stored, m = table capacity)

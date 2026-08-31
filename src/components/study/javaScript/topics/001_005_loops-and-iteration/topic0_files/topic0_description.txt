@@ -24,11 +24,11 @@ for (Initialization; Condition; Final Expression) {
 - Part 3 (Final Expression): Runs AFTER every lap to update the counter (e.g. i++).
 
 2. How the Engine Executes Each Lap:
-Lap 1: let i = 1 -> is 1 <= 10? (Yes) -> Run body -> i++ (i becomes 2).
-Lap 2: is 2 <= 10? (Yes) -> Run body -> i++ (i becomes 3).
+Lap 1: let i = 1 → is 1 <= 10? (Yes) → Run body → i++ (i becomes 2).
+Lap 2: is 2 <= 10? (Yes) → Run body → i++ (i becomes 3).
 ...
-Lap 10: is 10 <= 10? (Yes) -> Run body -> i++ (i becomes 11).
-Lap 11: is 11 <= 10? (No! False) -> Loop ends!
+Lap 10: is 10 <= 10? (Yes) → Run body → i++ (i becomes 11).
+Lap 11: is 11 <= 10? (No! False) → Loop ends!
 
 3. Counting Backwards:
 You can also count down by initializing high and decrementing:

@@ -67,7 +67,7 @@ const Topic9 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 002 · Topic 9</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Speculative Execution: Executing Instructions Past Unresolved Branches
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -222,7 +222,7 @@ const Topic9 = () => {
           {/* Data Forwarding Bypass */}
           <path d="M 470,170 C 470,225 295,225 295,170" fill="none" stroke="#f59e0b" strokeWidth="3" strokeDasharray="5 2" />
           <polygon points="295,170 290,185 300,185" fill="#f59e0b" />
-          <text x="382" y="235" fill="#f59e0b" textAnchor="middle" fontWeight="bold" fontSize="12">Hardware Forwarding (EX/MEM &rarr; ID/EX Bypass)</text>
+          <text x="382" y="235" fill="#f59e0b" textAnchor="middle" fontWeight="bold" fontSize="12">Hardware Forwarding (EX/MEM → ID/EX Bypass)</text>
         </svg>
                 </div>
               </div>
@@ -263,7 +263,7 @@ const Topic9 = () => {
                 <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
                   
         <svg viewBox="0 0 940 220" className="w-full h-auto text-xs font-mono select-none">
-          <text x="470" y="30" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">Pipelined Multi-Instruction Execution Grid (IPC &rarr; 1.0)</text>
+          <text x="470" y="30" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">Pipelined Multi-Instruction Execution Grid (IPC → 1.0)</text>
           {["Inst 1 (ADD)", "Inst 2 (SUB)", "Inst 3 (AND)", "Inst 4 (OR)"].map((inst, row) => (
             <g key={row} transform={`translate(40, ${50 + row * 38})`}>
               <text x="0" y="22" fill="#cbd5e1" fontWeight="bold" fontSize="11">{inst}</text>

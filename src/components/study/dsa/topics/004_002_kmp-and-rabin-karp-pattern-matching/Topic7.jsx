@@ -84,7 +84,7 @@ export default function Topic7() {
             <span>DSA Segment 4 · Topic 7</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
             Classroom Lab Dialogue: Sukanta Sir on Why KMP is Preferred for Stream Processing without Buffering
           </h1>
 
@@ -200,7 +200,7 @@ export default function Topic7() {
                         <span className="text-[9px] font-mono text-cyan-500/80">0x{(2048 + idx * 8).toString(16)}</span>
                       </div>
                       {idx < items.length - 1 && (
-                        <span className="text-cyan-600 font-bold text-sm select-none">&rarr;</span>
+                        <span className="text-cyan-600 font-bold text-sm select-none">→</span>
                       )}
                     </div>
                   );

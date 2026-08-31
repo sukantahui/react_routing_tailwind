@@ -26,7 +26,7 @@ const questions = [
     question: "What is the hierarchy of `EXPLAIN` join types from fastest to slowest?",
     shortAnswer: "`system` > `const` > `eq_ref` > `ref` > `range` > `index` > `ALL`.",
     explanation: "Knowing this hierarchy allows evaluating execution plan quality at a glance.",
-    hint: "const -> eq_ref -> ref -> range -> index -> ALL.",
+    hint: "const → eq_ref → ref → range → index → ALL.",
     level: "basic"
   },
   {
@@ -208,7 +208,7 @@ const questions = [
     question: "What is the senior architect's summary rule for debugging slow queries?",
     shortAnswer: "Capture slow queries with the slow query log, profile with `EXPLAIN ANALYZE`, eliminate non-SARGable expressions, create composite covering indexes adhering to the (Equality, Range, Sort) formula, and prune unused indexes.",
     explanation: "The complete end-to-end performance tuning blueprint.",
-    hint: "Slow log -> EXPLAIN ANALYZE -> SARGable predicates -> Composite covering indexes.",
+    hint: "Slow log → EXPLAIN ANALYZE → SARGable predicates → Composite covering indexes.",
     level: "expert"
   }
 ];

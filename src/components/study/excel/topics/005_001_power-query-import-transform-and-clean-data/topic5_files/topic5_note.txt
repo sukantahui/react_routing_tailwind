@@ -13,8 +13,8 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 • Filter Rows: Table.SelectRows(Table, each [Condition])
 • Sort Columns: Table.Sort(Table, {{"Col", Order.Ascending/Order.Descending}})
 • Deduplicate: Table.Distinct(Table, [CompositeKeyList])
-• Keep Duplicates: Home &rarr; Keep Rows &rarr; Keep Duplicates (Audit Triage)
-• Table Buffer: Table.Buffer(Table.Sort(...)) -> Guarantees latest record retention!
+• Keep Duplicates: Home → Keep Rows → Keep Duplicates (Audit Triage)
+• Table Buffer: Table.Buffer(Table.Sort(...)) → Guarantees latest record retention!
 
 2. PERFORMANCE BEST PRACTICES:
 --------------------------------------------------------------------------------
@@ -25,6 +25,6 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
 --------------------------------------------------------------------------------
 • Never deduplicate transaction fact tables on customer ID alone!
-• When retaining the latest record per customer: Sort Date Descending &rarr; Table.Buffer &rarr; Table.Distinct.
+• When retaining the latest record per customer: Sort Date Descending → Table.Buffer → Table.Distinct.
 • Use "Keep Duplicates" to catch double-billing fraud during financial audits.
 ================================================================================

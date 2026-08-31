@@ -46,11 +46,11 @@ const Topic0 = () => {
       title: "2. Disaster Recovery Objectives: RPO & RTO",
       badge: "Disaster Recovery",
       badgeColor: "cyan",
-      sqlSnippet: `# 🎯 1. RPO (RECOVERY POINT OBJECTIVE) -> MAX TOLERABLE DATA LOSS:
+      sqlSnippet: `# 🎯 1. RPO (RECOVERY POINT OBJECTIVE) → MAX TOLERABLE DATA LOSS:
 # - RPO = 0 : ZERO Data Loss (Requires Lossless Semi-Sync or Group Replication)
 # - RPO > 0 : Eventual Consistency (Async Replication with potential lag loss)
 
-# ⏱️ 2. RTO (RECOVERY TIME OBJECTIVE) -> MAX TOLERABLE DOWNTIME:
+# ⏱️ 2. RTO (RECOVERY TIME OBJECTIVE) → MAX TOLERABLE DOWNTIME:
 # - RTO < 30s : Automated Proxy + Orchestrator Failover (InnoDB Cluster)
 # - RTO > 1h  : Manual backup restoration from cold storage dumps`,
       explanation:
@@ -67,11 +67,11 @@ const Topic0 = () => {
       badge: "Scaling Architecture",
       badgeColor: "purple",
       sqlSnippet: `# ⬆️ 1. SCALE-UP (VERTICAL SCALING):
-# - Upgrade single node: 16 Core / 64GB RAM -> 128 Core / 1TB RAM + NVMe.
+# - Upgrade single node: 16 Core / 64GB RAM → 128 Core / 1TB RAM + NVMe.
 # - Limitation: Hardware ceiling and remains a Single Point of Failure (SPOF)!
 
 # ➡️ 2. SCALE-OUT (HORIZONTAL SCALING):
-# - Read Scaling: 1 Primary (Writes) -> ProxySQL -> 5 Read Replicas (Reads).
+# - Read Scaling: 1 Primary (Writes) → ProxySQL → 5 Read Replicas (Reads).
 # - Write Scaling: Horizontal Database Sharding by Shard Key (e.g. Vitess).`,
       explanation:
         "Vertical scaling upgrades a single server's hardware but remains a SPOF. Horizontal scaling distributes read queries across multiple read replicas via intelligent proxies and partitions write traffic across shards.",
@@ -90,8 +90,8 @@ const Topic0 = () => {
 # Quorum Required = floor(N / 2) + 1  (Where N = Total Cluster Nodes)
 
 # 🌐 3-NODE CLUSTER PARTITION BEHAVIOR:
-# Partition A (2 Nodes) : Holds Majority (2/3) -> Continues processing WRITES!
-# Partition B (1 Node)  : Isolated Minority (1/3) -> Automatically Read-Only / Fenced!
+# Partition A (2 Nodes) : Holds Majority (2/3) → Continues processing WRITES!
+# Partition B (1 Node)  : Isolated Minority (1/3) → Automatically Read-Only / Fenced!
 
 # 🚫 Split-Brain Avoidance:
 # Fencing (STONITH) ensures old primaries are isolated before standby promotion!`,
@@ -119,7 +119,7 @@ const Topic0 = () => {
             Topic 0 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           High Availability &amp; <span className="text-emerald-400">Horizontal Scalability</span> in <span className="text-cyan-400">Database Engineering</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

@@ -13,7 +13,7 @@ const topic6_questions = [
     "explanation": "Indicates Old Gen fragmentation or undersized Old Gen capacity.",
     "hint": "Old Gen lacks sufficient contiguous space to receive promoted survivor objects.",
     "level": "Advanced",
-    "codeExample": "Promotion Failure -> Emergency Stop-The-World Full GC."
+    "codeExample": "Promotion Failure → Emergency Stop-The-World Full GC."
   }
 ];
 

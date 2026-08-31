@@ -149,7 +149,7 @@ const Topic7 = () => {
       id: "saltlake_clearinghouse",
       title: "Salt Lake Sector V Interbank Clearinghouse Dual-DMZ",
       location: "Sector V, Salt Lake City, Kolkata, West Bengal",
-      topology: "3-Tier Multi-Tier Dual DMZ (Web DMZ -> App DMZ -> Core Vault)",
+      topology: "3-Tier Multi-Tier Dual DMZ (Web DMZ → App DMZ → Core Vault)",
       threatScenario: "Sophisticated API exploit targeting transaction submission endpoints across 50,000 requests/second.",
       solution: "Mamata and Mahima deployed a Dual-DMZ architecture: Web presentation tier connects only to Application middleware in DMZ 2 via gRPC mTLS; zero direct database reachability exists from the web tier.",
       outcome: "Maintained 99.999% uptime for core UPI transactions with complete database isolation."
@@ -169,7 +169,7 @@ const Topic7 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold uppercase tracking-wider">
             <span>🏛️ Module 005_001 • Topic 7</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Firewall Architectures: Dual-Homed, Screened Host &amp; DMZ
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">

@@ -18,7 +18,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
      "Total: " + (a + b)  ==> "Total: 30"    (CORRECT!)
 
   2. Bitmask Check:
-     flags & MASK != 0    ==> flags & (MASK != 0) -> COMPILATION ERROR!
+     flags & MASK != 0    ==> flags & (MASK != 0) → COMPILATION ERROR!
      ((flags & MASK) != 0)==> CORRECT!
 
   3. Quadratic Formula:

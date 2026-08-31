@@ -42,7 +42,7 @@ export default function Topic11() {
             Object vs Class Scope
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Static Methods vs. Instance Methods in Java
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -80,7 +80,7 @@ export default function Topic11() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Academic Accounts):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, calling the static method <code className="text-sky-300 font-mono">calculateStandardGst(20000.0)</code> computed 18% GST (₹3,600) globally without creating any objects. When <strong>Swadeep</strong> (₹18,000 &rarr; ₹12,000), <strong>Tuhina</strong> (₹25,000 &rarr; ₹15,000), and <strong>Abhronila</strong> (₹12,000 &rarr; ₹8,000) made payments in Indian Rupees (<code className="text-emerald-400 font-semibold">₹4,000 to ₹10,000</code>), their instance methods mutated their private Heap balances while incrementing the shared static counter to 3 students.
+              In our Barrackpore laboratory, calling the static method <code className="text-sky-300 font-mono">calculateStandardGst(20000.0)</code> computed 18% GST (₹3,600) globally without creating any objects. When <strong>Swadeep</strong> (₹18,000 → ₹12,000), <strong>Tuhina</strong> (₹25,000 → ₹15,000), and <strong>Abhronila</strong> (₹12,000 → ₹8,000) made payments in Indian Rupees (<code className="text-emerald-400 font-semibold">₹4,000 to ₹10,000</code>), their instance methods mutated their private Heap balances while incrementing the shared static counter to 3 students.
             </p>
           </div>
         </div>
@@ -123,11 +123,11 @@ export default function Topic11() {
 
             <rect x="45" y="70" width="340" height="45" rx="6" fill="#082f49" />
             <text x="55" y="90" fill="#bae6fd" fontSize="10" fontFamily="monospace">static calculateStandardGst(amt)</text>
-            <text x="55" y="105" fill="#7dd3fc" fontSize="9">&rarr; Pure calculation utility (NO &apos;this&apos; pointer)</text>
+            <text x="55" y="105" fill="#7dd3fc" fontSize="9">→ Pure calculation utility (NO &apos;this&apos; pointer)</text>
 
             <rect x="45" y="125" width="340" height="45" rx="6" fill="#082f49" />
             <text x="55" y="145" fill="#bae6fd" fontSize="10" fontFamily="monospace">static totalEnrolledStudents = 3</text>
-            <text x="55" y="160" fill="#7dd3fc" fontSize="9">&rarr; Shared counter across all instances</text>
+            <text x="55" y="160" fill="#7dd3fc" fontSize="9">→ Shared counter across all instances</text>
 
             <text x="215" y="200" fill="#38bdf8" fontSize="10" textAnchor="middle">Called via: StudentAccount.method()</text>
             <text x="215" y="218" fill="#e0f2fe" fontSize="10" fontWeight="bold" textAnchor="middle">Zero Object Creation Required</text>
@@ -140,14 +140,14 @@ export default function Topic11() {
             <rect x="455" y="70" width="185" height="110" rx="8" fill="url(#gradInst1)" />
             <text x="547" y="90" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">Instance: Swadeep</text>
             <text x="547" y="110" fill="#d1fae5" fontSize="9" textAnchor="middle">Course: Java Core</text>
-            <text x="547" y="130" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹18,000 &rarr; ₹12,000</text>
+            <text x="547" y="130" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹18,000 → ₹12,000</text>
             <text x="547" y="165" fill="#ffffff" fontSize="9" fontFamily="monospace" textAnchor="middle">swadeep.makePayment()</text>
 
             {/* Instance 2 */}
             <rect x="650" y="70" width="185" height="110" rx="8" fill="url(#gradInst2)" />
             <text x="742" y="90" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">Instance: Tuhina</text>
             <text x="742" y="110" fill="#ede9fe" fontSize="9" textAnchor="middle">Course: FullStack</text>
-            <text x="742" y="130" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹25,000 &rarr; ₹15,000</text>
+            <text x="742" y="130" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹25,000 → ₹15,000</text>
             <text x="742" y="165" fill="#ffffff" fontSize="9" fontFamily="monospace" textAnchor="middle">tuhina.makePayment()</text>
 
             <text x="645" y="210" fill="#a7f3d0" fontSize="10" textAnchor="middle">Each object holds independent state via &apos;this&apos; pointer</text>

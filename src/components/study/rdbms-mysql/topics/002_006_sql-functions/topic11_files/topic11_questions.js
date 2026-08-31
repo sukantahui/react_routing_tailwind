@@ -11,8 +11,8 @@ const questions = [
   {
     question: "What is the logical execution order of the `GROUP BY` clause relative to `WHERE` and `HAVING`?",
     shortAnswer: "`WHERE` executes first (row-level filtering), then `GROUP BY` (creates groups), then `HAVING` (filters aggregated groups).",
-    explanation: "Execution lifecycle order: WHERE -> GROUP BY -> HAVING.",
-    hint: "WHERE -> GROUP BY -> HAVING.",
+    explanation: "Execution lifecycle order: WHERE → GROUP BY → HAVING.",
+    hint: "WHERE → GROUP BY → HAVING.",
     level: "basic"
   },
   {

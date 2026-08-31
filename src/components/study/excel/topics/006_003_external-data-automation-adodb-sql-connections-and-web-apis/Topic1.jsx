@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic1() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Database Connection String Architecture: Provider/Driver -> Server Endpoint -> Security Authentication Handshake"}
+              Visual Dataflow: {"Database Connection String Architecture: Provider/Driver → Server Endpoint → Security Authentication Handshake"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Database Pipeline
@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Establishing_conne"
+            sheetName="EX2602"
             title={"Establishing connection strings for MySQL, PostgreSQL, SQL Server, and Microsoft Access - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -442,7 +442,7 @@ export default function Topic1() {
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Driver Architecture Bitness Mismatch (Fatal Connection Error)"}</td>
                   <td className="py-3 px-4">{"Installing a 64-bit MySQL driver when using 32-bit Excel (or vice-versa) throws '[Microsoft][ODBC Driver Manager] Data source name not found'."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Install the exact ODBC driver bitness matching your Excel version (Check File &gt; Account > About Excel)."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Install the exact ODBC driver bitness matching your Excel version (Check File > Account > About Excel)."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">

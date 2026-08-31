@@ -6,11 +6,11 @@ const questions = [
     hint: "Remember the 5 steps: Reconnaissance, Scanning, Gaining Access, Maintaining Access, and Clearing Tracks.",
     level: "basic",
     codeExample: `// The 5 Phases of Hacking Lifecycle:
-Phase 1: Reconnaissance  -> WHOIS, DNS enumeration, OSINT, Google Dorking
-Phase 2: Scanning        -> Nmap port scan, service banner grabbing, Nessus
-Phase 3: Gaining Access  -> Metasploit, SQL injection, buffer overflow, password cracking
-Phase 4: Maintaining    -> Backdoors, netcat listener, registry run keys, C2 beacons
-Phase 5: Clearing Tracks -> Log wiping, timestomping, deleting dropped binaries`
+Phase 1: Reconnaissance  → WHOIS, DNS enumeration, OSINT, Google Dorking
+Phase 2: Scanning        → Nmap port scan, service banner grabbing, Nessus
+Phase 3: Gaining Access  → Metasploit, SQL injection, buffer overflow, password cracking
+Phase 4: Maintaining    → Backdoors, netcat listener, registry run keys, C2 beacons
+Phase 5: Clearing Tracks → Log wiping, timestomping, deleting dropped binaries`
   },
   {
     question: "What is the crucial operational difference between how a Black Hat Hacker and an Ethical White Hat Hacker handles Phase 5 (Clearing Tracks)?",
@@ -60,10 +60,10 @@ Phase 5 (Actions)          <--> 7. Actions on Objectives (Data Theft / Ransomwar
     hint: "Think of MITRE ATT&CK as a comprehensive encyclopedia detailing every single technical trick real-world hackers use.",
     level: "moderate",
     codeExample: `// MITRE ATT&CK Tactic Hierarchy:
-TA0001: Initial Access       --> T1566: Phishing
-TA0004: Privilege Escalation --> T1068: Exploitation for Privilege Escalation
-TA0006: Credential Access    --> T1003: OS Credential Dumping (Mimikatz)
-TA0005: Defense Evasion      --> T1070: Indicator Removal (Log Clearing)`
+TA0001: Initial Access       → T1566: Phishing
+TA0004: Privilege Escalation → T1068: Exploitation for Privilege Escalation
+TA0006: Credential Access    → T1003: OS Credential Dumping (Mimikatz)
+TA0005: Defense Evasion      → T1070: Indicator Removal (Log Clearing)`
   },
   {
     question: "In Phase 3 (Gaining Access), what are the three primary vectors used to compromise target systems?",
@@ -72,9 +72,9 @@ TA0005: Defense Evasion      --> T1070: Indicator Removal (Log Clearing)`
     hint: "Think about breaking in via unpatched network ports, web application bugs, or tricking employees with phishing.",
     level: "basic",
     codeExample: `// Phase 3 Attack Vectors:
-1. Network Exploit: Metasploit exploit/windows/smb/ms17_010_eternalblue -> Root shell
-2. Web Exploit:     POST /search?q=' UNION SELECT 1,password FROM users-- -> Admin hash leak
-3. Social Vector:   Malicious macro Excel sheet sent to finance officer -> Reverse TCP beacon`
+1. Network Exploit: Metasploit exploit/windows/smb/ms17_010_eternalblue → Root shell
+2. Web Exploit:     POST /search?q=' UNION SELECT 1,password FROM users-- → Admin hash leak
+3. Social Vector:   Malicious macro Excel sheet sent to finance officer → Reverse TCP beacon`
   },
   {
     question: "In Phase 4 (Maintaining Access), why do attackers deploy 'Command and Control' (C2) agents and persistence mechanisms?",
@@ -170,9 +170,9 @@ void vulnerableFunction(char *input) {
     hint: "Remember the primary Indian cyber law statute that punishes hacking and unauthorized access with 3 years in prison.",
     level: "basic",
     codeExample: `// IT Act 2000 Applicability across Hacking Phases:
-Phase 2 (Probing / Scanning)     -> Section 43(a) Unauthorized Access
-Phase 3 (Exploitation / Breach)  -> Section 66 Hacking (Cognizable, 3 Years Prison + ₹5L Fine)
-Phase 5 (Log Tampering / Wipe)   -> Section 65 / 66 Tampering & System Damage`
+Phase 2 (Probing / Scanning)     → Section 43(a) Unauthorized Access
+Phase 3 (Exploitation / Breach)  → Section 66 Hacking (Cognizable, 3 Years Prison + ₹5L Fine)
+Phase 5 (Log Tampering / Wipe)   → Section 65 / 66 Tampering & System Damage`
   },
   {
     question: "What is 'Privilege Escalation' (Vertical vs Horizontal), and why is it essential in Phase 4?",
@@ -193,9 +193,9 @@ find / -perm -4000 2>/dev/null
     hint: "Think of an automated robotic training dummy constantly testing your security alarms 24 hours a day.",
     level: "expert",
     codeExample: `// BAS Automated Atomic Test Simulation:
-[ Test 1 ]: Execute LSASS memory dump test -> Verifies Sysmon Event ID 10 alerts in Splunk.
-[ Test 2 ]: Execute Registry Run key persistence test -> Verifies CrowdStrike EDR triggers IOA.
-[ Test 3 ]: Execute DNS tunneling C2 test -> Verifies Next-Gen Firewall blocks link.`
+[ Test 1 ]: Execute LSASS memory dump test → Verifies Sysmon Event ID 10 alerts in Splunk.
+[ Test 2 ]: Execute Registry Run key persistence test → Verifies CrowdStrike EDR triggers IOA.
+[ Test 3 ]: Execute DNS tunneling C2 test → Verifies Next-Gen Firewall blocks link.`
   },
   {
     question: "What is 'Centralized Immutable SIEM Logging', and how does it defeat adversary Phase 5 Anti-Forensics attempts?",
@@ -204,9 +204,9 @@ find / -perm -4000 2>/dev/null
     hint: "Think about security cameras streaming live video to a secure off-site cloud bank vault that the burglar cannot touch.",
     level: "expert",
     codeExample: `// Centralized Real-time Syslog Streaming:
-Workstation (192.168.1.50) -> [ TLS Encrypted Syslog Stream ] -> Splunk SIEM Server (10.0.0.99)
+Workstation (192.168.1.50) → [ TLS Encrypted Syslog Stream ] → Splunk SIEM Server (10.0.0.99)
 // Attacker on workstation runs: "wevtutil cl Security"
-// Splunk records: Event ID 1102 ("The audit log was cleared by User Admin") -> Instant SOC Critical Alert!`
+// Splunk records: Event ID 1102 ("The audit log was cleared by User Admin") → Instant SOC Critical Alert!`
   },
   {
     question: "Synthesizing the entire 5 Phases of Hacking methodology: what is the single most important lesson for an ethical security professional?",
@@ -215,7 +215,7 @@ Workstation (192.168.1.50) -> [ TLS Encrypted Syslog Stream ] -> Splunk SIEM Ser
     hint: "Conclude by recognizing that understanding the adversary's full lifecycle is the ultimate foundation of effective defense.",
     level: "expert",
     codeExample: `// The Ethical Defense Paradigm:
-Understand_The_Phases() -> Break_The_Kill_Chain_Early() -> Guarantee_Resilience();`
+Understand_The_Phases() → Break_The_Kill_Chain_Early() → Guarantee_Resilience();`
   }
 ];
 

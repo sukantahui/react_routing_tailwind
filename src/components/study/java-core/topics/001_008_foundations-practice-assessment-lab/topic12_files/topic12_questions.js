@@ -27,19 +27,19 @@ const questions = [
     explanation: "Diagonal sum calculation verification.",
     hint: "250.",
     level: "basic",
-    codeExample: "computeMatrixDiagonalSum(scoreGrid) -> 250"
+    codeExample: "computeMatrixDiagonalSum(scoreGrid) → 250"
   },
   {
     question: "How do Java 14+ Enhanced Switch Expressions improve scholarship tier dispatch?",
-    shortAnswer: "They return values directly as expressions using arrow syntax (`case DISTINCTION -> baseFee * 0.25;`), ensuring exhaustiveness and eliminating `break` statements.",
+    shortAnswer: "They return values directly as expressions using arrow syntax (`case DISTINCTION → baseFee * 0.25;`), ensuring exhaustiveness and eliminating `break` statements.",
     explanation: "Modern switch expressions in business logic dispatch.",
     hint: "Yields discount values directly with arrow syntax and compiler exhaustiveness checks.",
     level: "basic",
-    codeExample: "return switch (tier) { case DISTINCTION -> base * 0.25; ... };"
+    codeExample: "return switch (tier) { case DISTINCTION → base * 0.25; ... };"
   },
   {
     question: "In the Coder & AccoTax Barrackpore assessment, what was Swadeep's scholarship award on ₹20,000 base fee (Distinction: 25% waiver)?",
-    shortAnswer: "₹20,000 $\\times 0.25 =$ **₹5,000.00** waiver (Net before tax: ₹15,000 &rarr; Net payable with 18% GST: **₹17,700.00**).",
+    shortAnswer: "₹20,000 $\\times 0.25 =$ **₹5,000.00** waiver (Net before tax: ₹15,000 → Net payable with 18% GST: **₹17,700.00**).",
     explanation: "Swadeep capstone fee breakdown.",
     hint: "Waiver: ₹5,000.00 | Net Payable: ₹17,700.00.",
     level: "basic",
@@ -47,7 +47,7 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore assessment, what was Tuhina's scholarship award on ₹25,000 base fee (Distinction: 25% waiver)?",
-    shortAnswer: "₹25,000 $\\times 0.25 =$ **₹6,250.00** waiver (Net before tax: ₹18,750 &rarr; Net payable with 18% GST: **₹22,125.00**).",
+    shortAnswer: "₹25,000 $\\times 0.25 =$ **₹6,250.00** waiver (Net before tax: ₹18,750 → Net payable with 18% GST: **₹22,125.00**).",
     explanation: "Tuhina capstone fee breakdown.",
     hint: "Waiver: ₹6,250.00 | Net Payable: ₹22,125.00.",
     level: "basic",
@@ -59,11 +59,11 @@ const questions = [
     explanation: "Prime roll numbers identification.",
     hint: "101, 103, 107 are prime.",
     level: "basic",
-    codeExample: "sieveTable[101] -> true | sieveTable[110] -> false"
+    codeExample: "sieveTable[101] → true | sieveTable[110] → false"
   },
   {
     question: "In the Coder & AccoTax Barrackpore assessment, what was Abhronila's scholarship award on ₹18,000 base fee (First Class: 15% waiver)?",
-    shortAnswer: "₹18,000 $\\times 0.15 =$ **₹2,700.00** waiver (Net before tax: ₹15,300 &rarr; Net payable with 18% GST: **₹18,054.00**).",
+    shortAnswer: "₹18,000 $\\times 0.15 =$ **₹2,700.00** waiver (Net before tax: ₹15,300 → Net payable with 18% GST: **₹18,054.00**).",
     explanation: "Abhronila capstone fee breakdown.",
     hint: "Waiver: ₹2,700.00 | Net Payable: ₹18,054.00.",
     level: "basic",
@@ -71,7 +71,7 @@ const questions = [
   },
   {
     question: "In the Coder & AccoTax Barrackpore assessment, what was Debangshu's scholarship award on ₹22,000 base fee (Second Class: 5% waiver)?",
-    shortAnswer: "₹22,000 $\\times 0.05 =$ **₹1,100.00** waiver (Net before tax: ₹20,900 &rarr; Net payable with 18% GST: **₹24,662.00**).",
+    shortAnswer: "₹22,000 $\\times 0.05 =$ **₹1,100.00** waiver (Net before tax: ₹20,900 → Net payable with 18% GST: **₹24,662.00**).",
     explanation: "Debangshu capstone fee breakdown.",
     hint: "Waiver: ₹1,100.00 | Net Payable: ₹24,662.00.",
     level: "basic",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Binary search optimality.",
     hint: "O(log N) divide-and-conquer efficiency.",
     level: "basic",
-    codeExample: "// T(N) = T(N/2) + O(1) -> O(log N)"
+    codeExample: "// T(N) = T(N/2) + O(1) → O(log N)"
   },
   {
     question: "Why should utility classes declare a private constructor?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Tier boundary check verification.",
     hint: "FIRST_CLASS.",
     level: "basic",
-    codeExample: "tier for 82.0% -> FIRST_CLASS"
+    codeExample: "tier for 82.0% → FIRST_CLASS"
   },
   {
     question: "In the Coder & AccoTax Barrackpore assessment, what was the tier assigned to Debangshu (score 72.0%)?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "Tier boundary check verification.",
     hint: "SECOND_CLASS.",
     level: "basic",
-    codeExample: "tier for 72.0% -> SECOND_CLASS"
+    codeExample: "tier for 72.0% → SECOND_CLASS"
   },
   {
     question: "What is the significance of the `final` keyword on class `Segment1TimedCodingAssessmentDemo`?",
@@ -227,7 +227,7 @@ const questions = [
     explanation: "Mastery of Segment 1 capstone timed assessment.",
     hint: "Unifies matrices, algorithms, recursion, switch expressions, and clean code.",
     level: "basic",
-    codeExample: "// Summary: Complete Foundations Mastery -> Ready for Segment 2 OOP!"
+    codeExample: "// Summary: Complete Foundations Mastery → Ready for Segment 2 OOP!"
   },
   {
     question: "What is the next module in the Java Core Roadmap?",

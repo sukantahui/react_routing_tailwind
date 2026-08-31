@@ -3,7 +3,7 @@
 const questions = [
   {
     question: "What are the four discrete lifecycle states of a MySQL database cursor?",
-    shortAnswer: "1. `DECLARE` (define query) -> 2. `OPEN` (materialize result set) -> 3. `FETCH` (retrieve row into variables) -> 4. `CLOSE` (deallocate memory).",
+    shortAnswer: "1. `DECLARE` (define query) → 2. `OPEN` (materialize result set) → 3. `FETCH` (retrieve row into variables) → 4. `CLOSE` (deallocate memory).",
     explanation: "The 4 fundamental phases of cursor execution.",
     hint: "DECLARE, OPEN, FETCH, CLOSE.",
     level: "basic"
@@ -24,7 +24,7 @@ const questions = [
   },
   {
     question: "How do student records for Mamata, Susmita, Abhronila, and Debangshu illustrate the cursor lifecycle?",
-    shortAnswer: "1. DECLARE for students -> 2. OPEN cur -> 3. FETCH Mamata -> FETCH Susmita -> FETCH Abhronila -> FETCH Debangshu -> 4. FETCH triggers NOT FOUND -> 5. CLOSE cur.",
+    shortAnswer: "1. DECLARE for students → 2. OPEN cur → 3. FETCH Mamata → FETCH Susmita → FETCH Abhronila → FETCH Debangshu → 4. FETCH triggers NOT FOUND → 5. CLOSE cur.",
     explanation: "Step-by-step cursor progression through student rows.",
     hint: "Sequential fetch from Mamata through Debangshu until NOT FOUND triggers CLOSE.",
     level: "basic"
@@ -208,7 +208,7 @@ const questions = [
     question: "What is the senior architect's summary rule for the Cursor Lifecycle?",
     shortAnswer: "Master the 4-phase sequence: always `DECLARE` cursors after variables and before handlers; `OPEN` to materialize result sets; `FETCH` into compatible local variables while strictly monitoring the `NOT FOUND` flag; and always explicitly `CLOSE` cursors to release memory and temporary table resources immediately.",
     explanation: "Authoritative architectural best practices for cursor lifecycle management.",
-    hint: "DECLARE (order) -> OPEN -> FETCH (check NOT FOUND) -> CLOSE (resource cleanup).",
+    hint: "DECLARE (order) → OPEN → FETCH (check NOT FOUND) → CLOSE (resource cleanup).",
     level: "expert"
   }
 ];

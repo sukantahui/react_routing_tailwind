@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Speedometer gauge charts are amateur; Bullet charts are executive. A bullet chart packs Actual performance, Target benchmark, and 3 Qualitative performance bands into a 1-inch bar. Master this layout.
 
 COMMON TRAPS TO AVOID:
-- Using Gimmicky Circular Gauge Charts: Circular 3D speedometer gauges waste 80% of dashboard screen space while showing only a single number. -> Fix: Replace circular speedometers with sleek, compact horizontal Bullet Charts.
-- Clashing Qualitative Band Colors: Using bright saturated neon colors for Poor, Satisfactory, and Good bands distracts from the actual performance bar. -> Fix: Use progressive grayscale tones (#E2E8F0, #CBD5E1, #94A3B8) for background bands.
-- Axis Scale Inconsistency Across Multiple Bullets: Allowing each bullet chart in a series to use different axis scales creates misleading visual comparisons. -> Fix: Lock horizontal axis maximum bounds uniformly across all compared bullet charts.
+- Using Gimmicky Circular Gauge Charts: Circular 3D speedometer gauges waste 80% of dashboard screen space while showing only a single number. → Fix: Replace circular speedometers with sleek, compact horizontal Bullet Charts.
+- Clashing Qualitative Band Colors: Using bright saturated neon colors for Poor, Satisfactory, and Good bands distracts from the actual performance bar. → Fix: Use progressive grayscale tones (#E2E8F0, #CBD5E1, #94A3B8) for background bands.
+- Axis Scale Inconsistency Across Multiple Bullets: Allowing each bullet chart in a series to use different axis scales creates misleading visual comparisons. → Fix: Lock horizontal axis maximum bounds uniformly across all compared bullet charts.
 ================================================================================

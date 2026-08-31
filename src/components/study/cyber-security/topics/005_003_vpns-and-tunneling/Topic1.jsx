@@ -108,7 +108,7 @@ const Topic1 = () => {
         status: "SECURED",
         verdict: "🛡️ 100% SECURE: Encapsulated & Encrypted with AES-256-GCM!",
         badgeColor: "bg-emerald-950 text-emerald-300 border-emerald-700",
-        adversaryView: `[ENCRYPTED ESP TUNNEL] Public Header: 203.0.113.88 -> 198.51.100.1 | Encrypted Payload: 7F4A99B812C450E72B33880F1A29D4E6...`,
+        adversaryView: `[ENCRYPTED ESP TUNNEL] Public Header: 203.0.113.88 → 198.51.100.1 | Encrypted Payload: 7F4A99B812C450E72B33880F1A29D4E6...`,
         stolenData: "[UNREADABLE ENCRYPTED CIPHERTEXT (0% Plaintext Stolen)]",
         explanation: "The VPN encapsulated the transmission inside an encrypted IPsec ESP tunnel. The eavesdropper captured only indecipherable mathematical ciphertext."
       };
@@ -167,7 +167,7 @@ const Topic1 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold uppercase tracking-wider">
             <span>🛡️ Module 005_003 • Topic 1</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             The Need for Secure Remote Access &amp; Site-to-Site Connectivity
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">

@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "Allows the JIT to make aggressive speculative optimizations with total safety.",
     "hint": "Safely reverts compiled machine code back to the Interpreter when assumptions fail.",
     "level": "Intermediate",
-    "codeExample": "Assumption broken -> Uncommon Trap -> De-optimize to Interpreter."
+    "codeExample": "Assumption broken → Uncommon Trap → De-optimize to Interpreter."
   },
   {
     "question": "What triggers an 'Uncommon Trap' in JIT-compiled code?",
@@ -13,7 +13,7 @@ const topic10_questions = [
     "explanation": "Ensures seamless execution continuity.",
     "hint": "Loading new classes, unexpected nulls, or taking previously untaken branches.",
     "level": "Advanced",
-    "codeExample": "New subclass loaded -> Invalidation of speculatively inlined call."
+    "codeExample": "New subclass loaded → Invalidation of speculatively inlined call."
   }
 ];
 

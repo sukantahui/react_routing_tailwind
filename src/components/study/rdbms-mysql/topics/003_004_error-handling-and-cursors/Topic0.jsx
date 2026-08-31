@@ -34,7 +34,7 @@ CREATE PROCEDURE sp_register_student_safe(
     OUT p_status_code VARCHAR(20)
 )
 BEGIN
-    -- 1. Declaration Order: Variables -> Handlers
+    -- 1. Declaration Order: Variables → Handlers
     DECLARE v_error_occurred BOOLEAN DEFAULT FALSE;
     
     -- 2. Declare EXIT Handler for any SQLEXCEPTION:
@@ -215,7 +215,7 @@ DELIMITER ;`,
               Defensive Programming
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Exception Handling Architecture in Stored Routines
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -606,7 +606,7 @@ END;`}
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-400 font-bold font-mono">04.</span>
-                  <span>Follow the strict order: Variables &rarr; Conditions &rarr; Cursors &rarr; Handlers.</span>
+                  <span>Follow the strict order: Variables → Conditions → Cursors → Handlers.</span>
                 </li>
               </ul>
             </div>
@@ -667,7 +667,7 @@ END;`}
           />
 
           <Teacher
-            note="Exception handling is what separates brittle toy scripts from enterprise-grade database applications. Never let a stored procedure execute multi-statement DML without an explicit EXIT HANDLER FOR SQLEXCEPTION to perform a ROLLBACK on error. Follow the strict declaration order (Variables -> Conditions -> Cursors -> Handlers) and inspect the Diagnostics Area to log meaningful telemetry!"
+            note="Exception handling is what separates brittle toy scripts from enterprise-grade database applications. Never let a stored procedure execute multi-statement DML without an explicit EXIT HANDLER FOR SQLEXCEPTION to perform a ROLLBACK on error. Follow the strict declaration order (Variables → Conditions → Cursors → Handlers) and inspect the Diagnostics Area to log meaningful telemetry!"
           />
         </section>
       </main>

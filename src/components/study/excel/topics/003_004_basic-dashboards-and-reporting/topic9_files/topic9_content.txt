@@ -10,7 +10,7 @@ In-cell data visualization: Micro-charts with Sparklines (Line, Column, Win/Loss
 It provides the core protocols required to transform dense tabular data into intuitive, interactive, single-screen command centers.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Insert > Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) -> Format: High Point / Low Point Markers
+Operational Architecture: Insert > Sparklines: Line (Trend) | Column (Volume) | Win/Loss (Binary) → Format: High Point / Low Point Markers
 
 3. CORE TECHNICAL MECHANICS
 1. Word-Sized Micro-Graphics (Edward Tufte Concept):

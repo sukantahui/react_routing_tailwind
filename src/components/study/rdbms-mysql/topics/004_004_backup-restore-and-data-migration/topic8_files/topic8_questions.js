@@ -30,7 +30,7 @@ DROP TABLE orders                               <-- Statement
     question: "What is the 3-step formula to find the exact safe stop position for Point-in-Time Recovery?",
     shortAnswer: "Step 1: Search the binary log for the destructive query text (`DROP TABLE`, `TRUNCATE`). Step 2: Identify the `# at <pos>` immediately preceding that statement. Step 3: Set `--stop-position` to that `# at <pos>` value.",
     explanation: "Setting `--stop-position` to the starting byte of the destructive query ensures the MySQL server replays everything up to that byte and stops immediately before executing the disaster.",
-    hint: "Search for query -> note pre-query '# at <pos>' -> set as --stop-position.",
+    hint: "Search for query → note pre-query '# at <pos>' → set as --stop-position.",
     level: "intermediate",
     codeExample: `# Step 1: Search
 mysqlbinlog -v binlog.000045 | grep -n -C 5 "DROP TABLE"

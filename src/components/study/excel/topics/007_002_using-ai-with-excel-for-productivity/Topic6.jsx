@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic6() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"AI Data Cleansing Pipeline: Messy Text String -> AI Pattern Recognizer -> Clean Structured Columns (Flash Fill / AI Formulas)"}
+              Visual Dataflow: {"AI Data Cleansing Pipeline: Messy Text String → AI Pattern Recognizer → Clean Structured Columns (Flash Fill / AI Formulas)"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               AI Pipeline
@@ -286,7 +286,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_AI_assisted_data_c"
+            sheetName="EX2907"
             title={"AI-assisted data cleaning: Extracting entities, standardizing messy text, and pattern recognition - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

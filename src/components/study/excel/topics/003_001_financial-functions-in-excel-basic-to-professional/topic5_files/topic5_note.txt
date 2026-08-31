@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Contrast this carefully: In standard NPV, Year 0 is OUTSIDE the formula. In XNPV, Year 0 is INSIDE the formula! Knowing this difference is what separates financial pros from amateurs.
 
 COMMON TRAPS TO AVOID:
-- Adding Initial Outflow Separately in XNPV (Double Deduction): Applying the standard NPV rule to XNPV (`=XNPV(...) + CF0`) double-deducts the initial capex. -> Fix: In XNPV, include the initial cash flow (CF0) and its date directly inside the formula ranges.
-- Unsorted Chronological Dates (#NUM!): If the first date in dates_range is not the earliest date, XNPV returns a #NUM! error. -> Fix: Sort cash flow schedules in strict ascending chronological date order.
-- Text Date Entry in Dates Range: Dates entered as text strings ('27/08/2026') trigger a #VALUE! error. -> Fix: Ensure the dates range contains genuine Excel serial date numbers.
+- Adding Initial Outflow Separately in XNPV (Double Deduction): Applying the standard NPV rule to XNPV (`=XNPV(...) + CF0`) double-deducts the initial capex. → Fix: In XNPV, include the initial cash flow (CF0) and its date directly inside the formula ranges.
+- Unsorted Chronological Dates (#NUM!): If the first date in dates_range is not the earliest date, XNPV returns a #NUM! error. → Fix: Sort cash flow schedules in strict ascending chronological date order.
+- Text Date Entry in Dates Range: Dates entered as text strings ('27/08/2026') trigger a #VALUE! error. → Fix: Ensure the dates range contains genuine Excel serial date numbers.
 ================================================================================

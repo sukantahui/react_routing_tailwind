@@ -241,7 +241,7 @@ if (!isNonceValid) {
     hint: "Calling the central office to verify the authenticity of an executive ID badge before opening the vault.",
     level: "expert",
     codeExample: `// Windows Server PAC Validation Policy:
-// Group Policy: Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> Security Options
+// Group Policy: Computer Configuration → Windows Settings → Security Settings → Local Policies → Security Options
 // Policy: "Domain controller: Refuse machine account password changes" + PAC validation enforcement`
   },
   {

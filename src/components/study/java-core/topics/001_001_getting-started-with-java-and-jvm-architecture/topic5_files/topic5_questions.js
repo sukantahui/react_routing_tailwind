@@ -233,9 +233,9 @@ const questions = [
   },
   {
     question: "How do JDK, JRE, and JVM work together in harmony during a complete software lifecycle?",
-    shortAnswer: "Developer writes code using the JDK -> javac creates Bytecode -> JRE provides runtime libraries -> JVM executes bytecode on the host CPU.",
+    shortAnswer: "Developer writes code using the JDK → javac creates Bytecode → JRE provides runtime libraries → JVM executes bytecode on the host CPU.",
     explanation: "The three layers form a seamless pipeline: JDK for authoring/compiling, JRE for bundling standard class libraries, and JVM for high-performance memory-safe execution.",
-    hint: "Write (JDK) -> Package (JRE) -> Execute (JVM).",
+    hint: "Write (JDK) → Package (JRE) → Execute (JVM).",
     level: "basic",
     codeExample: "// Source Code (.java) --[JDK / javac]--> Bytecode (.class) --[JRE + JVM]--> CPU Execution"
   }

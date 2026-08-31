@@ -139,7 +139,7 @@ SCENARIO 4 : ASN.1 PEM RSA KEYGEN VISUALIZER LAB (JADAVPUR UNIVERSITY)
 --------------------------------------------------------------------------------
 8. STUDENT MINI CHECKLIST (POINTS TO REMEMBER FOR EXAMS & INTERVIEWS)
 --------------------------------------------------------------------------------
-[ ] 5 Keygen Steps: Primes (p,q) -> Modulus (N) -> Totient (phi) -> Exponent (e) -> Inversion (d).
+[ ] 5 Keygen Steps: Primes (p,q) → Modulus (N) → Totient (phi) → Exponent (e) → Inversion (d).
 [ ] Public Key is (e, N); Private Key is (d, N) with CRT parameters (d_p, d_q, q_inv).
 [ ] PKCS#1 is RSA-specific (`BEGIN RSA PRIVATE KEY`); PKCS#8 is universal & password-encrypted.
 [ ] X.509 SubjectPublicKeyInfo defines the standard format for public keys (`BEGIN PUBLIC KEY`).

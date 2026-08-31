@@ -218,8 +218,8 @@ const questions = [
     hint: "Asking to borrow a pencil first, and once that is granted, asking to borrow the entire car.",
     level: "expert",
     codeExample: `// Foot-in-the-Door Social Engineering Sequence:
-// Request 1 (Trivial)   : "Hi Mamata, is the Salt Lake office open today?" -> (User: Yes)
-// Request 2 (Dangerous) : "Great! Could you approve this internal vendor invoice link for us?" -> (User Complies!)`
+// Request 1 (Trivial)   : "Hi Mamata, is the Salt Lake office open today?" → (User: Yes)
+// Request 2 (Dangerous) : "Great! Could you approve this internal vendor invoice link for us?" → (User Complies!)`
   },
   {
     question: "How does the 'Bystander Effect' in Shared Email Inboxes cause Phishing Emails to go Unreported?",
@@ -268,7 +268,7 @@ const questions = [
     hint: "Thinking a secret handshake is unbreakable when everyone in town uses the exact same handshake variation.",
     level: "moderate",
     codeExample: `# Hashcat Rule-Based Mutation:
-# Input: "Password2026" -> Rule: toggles '@' and '0' -> Automatically tries "P@ssw0rd2026!" in 0.002 seconds!`
+# Input: "Password2026" → Rule: toggles '@' and '0' → Automatically tries "P@ssw0rd2026!" in 0.002 seconds!`
   },
   {
     question: "How does Visual Homoglyph (IDN Typosquatting) exploit Human Visual Perception Limits?",

@@ -52,7 +52,7 @@ ORDER BY s.exam_score_pct DESC;`,
       badge: "Column List (Nx1)",
       badgeColor: "cyan",
       sqlQuery: `-- Finding all students enrolled in branches located in 'Barrackpore':
--- Phase 1 (Inner Query): Evaluates 'SELECT branch_id FROM branches WHERE city = 'Barrackpore' -> [1, 4].
+-- Phase 1 (Inner Query): Evaluates 'SELECT branch_id FROM branches WHERE city = 'Barrackpore' → [1, 4].
 -- Phase 2 (Outer Query): Evaluates 'WHERE branch_id IN (1, 4)'.
 
 SELECT 
@@ -162,7 +162,7 @@ ORDER BY total_active_courses DESC;`,
               Advanced SQL Foundations
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Subqueries Concept & Execution Phases
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

@@ -7,4 +7,4 @@ Key Takeaways:
 - The 'Unique records only' checkbox deduplicates records across all columns in linear time during extraction.
 
 Teacher Note:
-Pro tip for Advanced Filter: If you want to copy filtered records to a brand new worksheet, you MUST navigate to the destination sheet FIRST before clicking Data -> Advanced! Point back to your data sheet for List Range, and Excel will export the records cleanly!
+Pro tip for Advanced Filter: If you want to copy filtered records to a brand new worksheet, you MUST navigate to the destination sheet FIRST before clicking Data → Advanced! Point back to your data sheet for List Range, and Excel will export the records cleanly!

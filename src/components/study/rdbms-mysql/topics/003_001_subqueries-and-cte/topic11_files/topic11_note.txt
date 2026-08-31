@@ -39,7 +39,7 @@ Find all direct and indirect subordinates under the Academy Director (Root):
             e.emp_name, 
             e.manager_id, 
             o.hierarchy_level + 1,
-            CONCAT(o.breadcrumb_path, ' -> ', e.emp_name)
+            CONCAT(o.breadcrumb_path, ' → ', e.emp_name)
         FROM employees e
         JOIN OrgChart o ON e.manager_id = o.emp_id
     )

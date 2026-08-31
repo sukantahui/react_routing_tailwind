@@ -24,7 +24,7 @@ const questions = [
     explanation: "If a single bit in a file changes, the resulting SHA-256 hash completely changes due to the avalanche effect.",
     hint: "Hashes and digital signatures verify that data has not been modified or tampered with.",
     level: "basic",
-    codeExample: "String originalHash = sha256(data);\n// If receivedHash.equals(originalHash) -> Integrity Guaranteed"
+    codeExample: "String originalHash = sha256(data);\n// If receivedHash.equals(originalHash) → Integrity Guaranteed"
   },
   {
     question: "How is the Availability pillar defined and technically maintained in enterprise infrastructure?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "Integrity violations invalidate ledger trust and require forensic audit reconstruction.",
     hint: "Modifying or tampering with financial numbers violates data accuracy.",
     level: "basic",
-    codeExample: "// Unauthorized SQL update: UPDATE accounts SET balance = 10000000 WHERE id = 42; -> Integrity Breach!"
+    codeExample: "// Unauthorized SQL update: UPDATE accounts SET balance = 10000000 WHERE id = 42; → Integrity Breach!"
   },
   {
     question: "Which pillar of the CIA Triad is violated by an unauthorized Wi-Fi Packet Sniffing attack capturing unencrypted cleartext credentials?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "Packet sniffing on open Wi-Fi captures cleartext HTTP or Telnet traffic without modifying the packets.",
     hint: "Unauthorized third parties are reading secret transmission data.",
     level: "basic",
-    codeExample: "// Wireshark capturing plaintext HTTP Authorization header -> Confidentiality Breach!"
+    codeExample: "// Wireshark capturing plaintext HTTP Authorization header → Confidentiality Breach!"
   },
   {
     question: "What is the principle of Defense-in-Depth and how does it safeguard the CIA Triad?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Snort and Suricata detect attack patterns in real time and alert Security Operations Center (SOC) analysts.",
     hint: "Monitors network traffic and server logs to catch tampering and flood attacks.",
     level: "moderate",
-    codeExample: "alert tcp any any -> 192.168.1.0/24 80 (msg:'SQL Injection Attempt'; content:'UNION SELECT'; sid:10001;)"
+    codeExample: "alert tcp any any → 192.168.1.0/24 80 (msg:'SQL Injection Attempt'; content:'UNION SELECT'; sid:10001;)"
   },
   {
     question: "What is the principle of Fail-Safe Defaults (Fail-Secure vs Fail-Open)?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures risk-based alignment, cryptographic safeguards, operational uptime, and enterprise procurement budgeting.",
     hint: "Align controls with risk, balance all three pillars, document trade-offs, and budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: Balance(Confidentiality, Integrity, Availability) -> EnforceControls() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: Balance(Confidentiality, Integrity, Availability) → EnforceControls() → BudgetInRupees(₹);"
   }
 ];
 

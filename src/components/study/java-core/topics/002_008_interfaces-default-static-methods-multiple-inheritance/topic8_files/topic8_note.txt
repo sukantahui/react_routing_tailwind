@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. DEFAULT CONFLICT RESOLUTION RULES:
    - Rule 1 (Classes Win): A method declared in a class/superclass always wins over interface defaults.
    - Rule 2 (Sub-interfaces Win): More specific sub-interface defaults win over parent interface defaults.
-   - Rule 3 (Explicit Resolution): Sibling interface collision &rarr; Child MUST override and use 'Interface.super.method()'.
+   - Rule 3 (Explicit Resolution): Sibling interface collision → Child MUST override and use 'Interface.super.method()'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

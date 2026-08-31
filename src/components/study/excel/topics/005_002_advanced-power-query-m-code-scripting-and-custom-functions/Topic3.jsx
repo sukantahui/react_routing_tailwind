@@ -76,7 +76,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Writing Custom M Functions to Automate Repetitive Transformations
           </h1>
 
@@ -91,7 +91,7 @@ export default function Topic3() {
           <div className="mt-8 pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-teal-400 text-base">✓</span>
-              <span><strong>Lambda Function Syntax:</strong> <code className="text-teal-300">(param as type) as returnType =&gt; let...in</code></span>
+              <span><strong>Lambda Function Syntax:</strong> <code className="text-teal-300">(param as type) as returnType => let...in</code></span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -234,7 +234,7 @@ in
             <p className="text-sm text-slate-300 leading-relaxed">
               To write recursive functions (e.g. hierarchical bill-of-materials traversal or factorial math), 
               M uses the scoping prefix <code className="text-teal-300 font-mono">@</code> to allow a function to invoke itself inside its own body: 
-              <code className="text-teal-300 font-mono">fx_BOM = (parentID) =&gt; ... @fx_BOM(childID)</code>.
+              <code className="text-teal-300 font-mono">fx_BOM = (parentID) => ... @fx_BOM(childID)</code>.
             </p>
           </div>
         </section>
@@ -378,7 +378,7 @@ in
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Custom_M_Functions"
+            sheetName="EX2104"
             title="Custom Function Ingestion Test Pipeline (Transaction ID, Raw Dirty String, Clean Parsed Amount, USD FX Rate, Converted USD Amount, Custom M Function Invoked)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -415,7 +415,7 @@ in
                 Financial Analyst <strong>Swadeep Banerjee</strong> writes a custom function <code className="text-teal-300 font-mono">fx_CleanAndConvert</code> that strips rupee symbols, parses Dr/Cr polarity, and applies live FX rates, invoking it across 100k rows in 1.4 seconds.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                fx_CleanAndConvert &rarr; 100k Multi-Currency Rows Standardized
+                fx_CleanAndConvert → 100k Multi-Currency Rows Standardized
               </div>
             </div>
 
@@ -432,7 +432,7 @@ in
                 Senior Accountant <strong>Tuhina Mukherjee</strong> attaches <code className="text-emerald-300 font-mono">Documentation.Name</code> and sample code records to <code className="text-emerald-300 font-mono">fx_ComputeGST</code>, allowing junior accountants to invoke it through the graphical UI without writing code.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Documentation Meta &rarr; Graphical UI Parameter Dialog
+                Documentation Meta → Graphical UI Parameter Dialog
               </div>
             </div>
 
@@ -449,7 +449,7 @@ in
                 ERP Lead <strong>Abhronila Sengupta</strong> authors a custom function that accepts an Excel file binary and returns a clean normalized table, transforming multi-workbook ingestion into a single <code className="text-indigo-300 font-mono">Table.AddColumn</code> step!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                (binary) as table =&gt; &rarr; 1-Line Multi-Workbook Ingestion
+                (binary) as table => → 1-Line Multi-Workbook Ingestion
               </div>
             </div>
 
@@ -466,7 +466,7 @@ in
                 Operations Lead <strong>Debangshu Ghosh</strong> writes a recursive M function using <code className="text-fuchsia-300 font-mono">@fx_GetParentCategory</code> to traverse multi-level product subcategories up to the top root department.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                @fx_Recursion &rarr; Full Multi-Tier Hierarchy Flattening
+                @fx_Recursion → Full Multi-Tier Hierarchy Flattening
               </div>
             </div>
           </div>
@@ -496,7 +496,7 @@ in
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Declare Parameters with Nullable Types</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Start with typed parameters: <code className="text-teal-300 font-mono">(input as nullable text, optional rate as nullable number) as nullable number =&gt;</code>.
+                  Start with typed parameters: <code className="text-teal-300 font-mono">(input as nullable text, optional rate as nullable number) as nullable number =></code>.
                 </p>
               </div>
             </div>

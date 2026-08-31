@@ -48,7 +48,7 @@ const questions = [
     explanation: "AAA protocols (e.g. RADIUS, TACACS+, OAuth 2.0) provide comprehensive identity governance across enterprise networks.",
     hint: "Authentication (who you are), Authorization (what you can do), Accounting (tracking your actions).",
     level: "basic",
-    codeExample: "AAA_Flow: Authenticate(UserCredentials) -> Authorize(CheckRoles) -> Account(LogSessionEvents);"
+    codeExample: "AAA_Flow: Authenticate(UserCredentials) → Authorize(CheckRoles) → Account(LogSessionEvents);"
   },
   {
     question: "What is Non-Repudiation in Cyber Security and how is it cryptographically achieved?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "SOC teams in Kolkata correlate logs from firewalls, servers, and endpoints to intercept stealth intrusions in real time.",
     hint: "24/7 security center; Tier-1 monitors and filters alerts; Tier-2 investigates and neutralizes attacks.",
     level: "moderate",
-    codeExample: "SOC_Workflow: SIEM_Alert -> Tier1_Triage(ValidateThreat) -> Tier2_Containment(IsolateHost) -> Tier3_ThreatHunt"
+    codeExample: "SOC_Workflow: SIEM_Alert → Tier1_Triage(ValidateThreat) → Tier2_Containment(IsolateHost) → Tier3_ThreatHunt"
   },
   {
     question: "What is a Man-in-the-Middle (MitM) Attack and how does TLS encryption defeat it?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "Threat hunters in Barrackpore analyze anomalous process execution chains to discover zero-day APT infections.",
     hint: "Detection waits for alerts automatically; Threat hunting proactively searches for stealth hackers.",
     level: "expert",
-    codeExample: "ThreatHunting: Hypothesis('Adversary using PowerShell WMI persistence') -> QueryEDRTelemetry() -> NeutralizeLurkingAttacker"
+    codeExample: "ThreatHunting: Hypothesis('Adversary using PowerShell WMI persistence') → QueryEDRTelemetry() → NeutralizeLurkingAttacker"
   },
   {
     question: "What is Role-Based Access Control (RBAC) vs Attribute-Based Access Control (ABAC)?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Security teams in Jadavpur map their EDR detections against MITRE ATT&CK IDs (e.g. T1059 Command and Scripting Interpreter).",
     hint: "Standardized encyclopedia of real-world hacker tactics and techniques used to test defenses.",
     level: "expert",
-    codeExample: "ATT&CK_Mapping: Tactic 'Credential Access' -> Technique 'T1003.001 LSASS Memory Dumping' -> DetectionRule 'Alert on Mimikatz'"
+    codeExample: "ATT&CK_Mapping: Tactic 'Credential Access' → Technique 'T1003.001 LSASS Memory Dumping' → DetectionRule 'Alert on Mimikatz'"
   },
   {
     question: "What is a Denial-of-Service (DoS) vs Distributed Denial-of-Service (DDoS) Attack?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "PAM eliminates static administrative root passwords and records all terminal keystrokes during admin sessions in Barrackpore.",
     hint: "IAM manages standard user logins; PAM vaults and records high-privilege root/admin sessions.",
     level: "moderate",
-    codeExample: "PAM_Workflow: Admin requests temporary root access -> PAM grants 1-hour vaulted token -> Keystrokes recorded."
+    codeExample: "PAM_Workflow: Admin requests temporary root access → PAM grants 1-hour vaulted token → Keystrokes recorded."
   },
   {
     question: "What is Air-Gap Security and how do adversaries attempt to bridge it (e.g. Stuxnet)?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "Transforms human employees from the weakest security link into the first line of proactive cyber defense in Kolkata.",
     hint: "Training employees continuously so they recognize and report phishing emails immediately.",
     level: "basic",
-    codeExample: "SecurityCulture: ConductSimulatedPhishing() -> TrainClickers() -> RewardEmployeesWhoReport();"
+    codeExample: "SecurityCulture: ConductSimulatedPhishing() → TrainClickers() → RewardEmployeesWhoReport();"
   },
   {
     question: "What is the ultimate golden rule for mastering, implementing, and governing Cyber Security?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures foundational security models, identity verification, continuous behavioral telemetry, architecture resiliency, and financial procurement budgeting.",
     hint: "CIA Triad + Defense-in-Depth + Zero Trust MFA + EDR/SIEM monitoring + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: EnforceCIATriad() -> BuildDefenseInDepth() -> ImplementZeroTrustMFA() -> MonitorWithEDR_SIEM() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: EnforceCIATriad() → BuildDefenseInDepth() → ImplementZeroTrustMFA() → MonitorWithEDR_SIEM() → BudgetInRupees(₹);"
   }
 ];
 

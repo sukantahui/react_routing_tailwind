@@ -242,7 +242,7 @@ const questions = [
     explanation: "MAKEARRAY is the procedural generative engine in Excel 365, turning mathematical formulas into complete 2D dynamic array grids in zero milliseconds!",
     hint: "Use MAKEARRAY for procedural 2D grid generation from coordinates.",
     level: "expert",
-    codeExample: "Rule: Procedural 2D Grid Synthesis &rarr; Use MAKEARRAY(r, c, LAMBDA)!"
+    codeExample: "Rule: Procedural 2D Grid Synthesis → Use MAKEARRAY(r, c, LAMBDA)!"
   }
 ];
 

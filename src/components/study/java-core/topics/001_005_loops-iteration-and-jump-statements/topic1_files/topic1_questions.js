@@ -17,9 +17,9 @@ const questions = [
     question: "What is the exact execution order of clauses in a `for` loop?",
     shortAnswer: "1. Initialization (once); 2. Condition check; 3. Loop Body; 4. Update expression; 5. Loop back to step 2.",
     explanation: "Fundamental operational sequence of the standard for loop.",
-    hint: "Init -> Condition -> Body -> Update -> Condition.",
+    hint: "Init → Condition → Body → Update → Condition.",
     level: "basic",
-    codeExample: "// 1. int i = 0 -> 2. i < 5 -> 3. body -> 4. i++ -> 2. i < 5..."
+    codeExample: "// 1. int i = 0 → 2. i < 5 → 3. body → 4. i++ → 2. i < 5..."
   },
   {
     question: "How many times is the Initialization clause in a `for` loop executed?",
@@ -155,7 +155,7 @@ const questions = [
     explanation: "Uses `iinc` for efficient register-based increments.",
     hint: "Uses if_icmpge comparison, iinc increment, and goto jump.",
     level: "advanced",
-    codeExample: "// Bytecode: istore_1 -> if_icmpge L_EXIT -> body -> iinc 1, 1 -> goto L_START"
+    codeExample: "// Bytecode: istore_1 → if_icmpge L_EXIT → body → iinc 1, 1 → goto L_START"
   },
   {
     question: "Can a `float` or `double` variable be used as a `for` loop counter (`for (double d = 0.0; d <= 1.0; d += 0.1)`)?",

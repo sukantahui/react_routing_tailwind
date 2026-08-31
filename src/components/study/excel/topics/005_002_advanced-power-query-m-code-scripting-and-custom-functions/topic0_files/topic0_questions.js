@@ -54,11 +54,11 @@ const questions = [
   },
   {
     question: "How do you open the M code script window for any query in Power Query Editor?",
-    shortAnswer: "Home Tab (or View Tab) &rarr; Click 'Advanced Editor' (or press Alt + H + V + A).",
+    shortAnswer: "Home Tab (or View Tab) → Click 'Advanced Editor' (or press Alt + H + V + A).",
     explanation: "Opens the full raw M script editor window.",
-    hint: "Home Tab &rarr; Advanced Editor.",
+    hint: "Home Tab → Advanced Editor.",
     level: "basic",
-    codeExample: "Home &rarr; Advanced Editor"
+    codeExample: "Home → Advanced Editor"
   },
   {
     question: "How do single-line and multi-line comments work in M code?",

@@ -38,7 +38,7 @@ const questions = [
     question: "What are the Six Stages of the Digital Asset Lifecycle?",
     shortAnswer: "1. Creation/Acquisition ➔ 2. Classification & Tagging ➔ 3. Storage & Encryption ➔ 4. Usage & Access Governance ➔ 5. Archiving & Backup ➔ 6. Secure Destruction / Sanitization.",
     explanation: "Security controls must govern the asset at every single phase; neglecting stage 6 (sanitization) leaves discarded hard drives readable by dump-diver hackers in Ichapur.",
-    hint: "Create -> Classify -> Encrypt -> Use -> Archive -> Destroy/Sanitize.",
+    hint: "Create → Classify → Encrypt → Use → Archive → Destroy/Sanitize.",
     level: "expert",
     codeExample: "AssetLifecycle = ['Creation', 'Classification', 'Encryption', 'AccessGovernance', 'Archival', 'Sanitization'];"
   },
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Mandated by the Reserve Bank of India (RBI) for all card-on-file e-commerce merchants in Kolkata.",
     hint: "Replacing real credit card numbers with fake random tokens so stolen database records are useless.",
     level: "moderate",
-    codeExample: "Tokenization: '4532-7589-2234-1190' --> TokenVault --> 'TKN_88392_Z' (Stored in web database)"
+    codeExample: "Tokenization: '4532-7589-2234-1190' → TokenVault → 'TKN_88392_Z' (Stored in web database)"
   },
   {
     question: "What is a Software Bill of Materials (SBOM) and why is it a critical software asset inventory?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "Leaves confidential company blueprints unencrypted on public internet servers in Barrackpore.",
     hint: "Unapproved apps or cloud servers set up by staff without IT department permission or protection.",
     level: "basic",
-    codeExample: "ShadowAssetRisk: Developer sets up personal AWS EC2 server -> Leaves port 22 open -> Infiltrated by botnet"
+    codeExample: "ShadowAssetRisk: Developer sets up personal AWS EC2 server → Leaves port 22 open → Infiltrated by botnet"
   },
   {
     question: "What is the difference between Data Masking (Static vs Dynamic) in asset protection?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Guarantees 100% recovery of financial ledgers in Kolkata even if the entire production domain controller is wiped.",
     hint: "A backup storage system that cannot be edited or deleted by hackers once written.",
     level: "moderate",
-    codeExample: "WORM_Vault: FileWritten('Backup_2026.bak') -> LockRetentionPeriod('365 Days') -> ImmutablyLocked"
+    codeExample: "WORM_Vault: FileWritten('Backup_2026.bak') → LockRetentionPeriod('365 Days') → ImmutablyLocked"
   },
   {
     question: "How does Hardware Security Module (HSM) key isolation prevent asset theft?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "If an adversary compromises the server operating system in Jadavpur, they cannot extract the private key from the HSM.",
     hint: "A special tamper-proof hardware chip where encryption keys live and can never be exported in cleartext.",
     level: "expert",
-    codeExample: "HSM_Sign: Payload -> SentToHSM -> SignedInsideSilicon(PrivateKey) -> Returns Signature (Key never exposed)"
+    codeExample: "HSM_Sign: Payload → SentToHSM → SignedInsideSilicon(PrivateKey) → Returns Signature (Key never exposed)"
   },
   {
     question: "What is Data Loss Prevention (DLP) Content Inspection (Regex & Machine Learning)?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Prevents junior developers in Jadavpur from accidentally committing production database passwords to public GitHub repos.",
     hint: "A secure digital safe that dispenses database passwords to software apps dynamically at runtime.",
     level: "moderate",
-    codeExample: "SecretsVault: fetchDatabasePassword(Role = 'PaymentService') -> Returns temporary 15-minute token."
+    codeExample: "SecretsVault: fetchDatabasePassword(Role = 'PaymentService') → Returns temporary 15-minute token."
   },
   {
     question: "What is Orphaned Asset and Zombie Server Risk in cloud environments?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Reduces an enterprise's liability and breach blast radius under India's DPDPA 2023 in Kolkata.",
     hint: "Only collecting the minimum personal data you actually need, deleting it as soon as you are done.",
     level: "basic",
-    codeExample: "DataMinimization: Collect(DeliveryAddress) -> CompleteDelivery() -> PurgeAddressAfter30Days();"
+    codeExample: "DataMinimization: Collect(DeliveryAddress) → CompleteDelivery() → PurgeAddressAfter30Days();"
   },
   {
     question: "Why are API Keys and OAuth Tokens high-value digital identity assets?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures full asset lifecycle governance, discovery, classification, cryptographic protection, sanitization, and financial budgeting.",
     hint: "Inventory all assets + Classify data + Protect crown jewels + Crypto-shred at end + Budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: InventoryAllAssets() -> ClassifyTiers() -> TokenizeCrownJewels() -> EnforceCryptoShredding() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: InventoryAllAssets() → ClassifyTiers() → TokenizeCrownJewels() → EnforceCryptoShredding() → BudgetInRupees(₹);"
   }
 ];
 

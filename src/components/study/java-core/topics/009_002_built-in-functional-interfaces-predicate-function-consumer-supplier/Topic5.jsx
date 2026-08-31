@@ -21,7 +21,7 @@ export default function Topic5() {
             Supplier&lt;T&gt;
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">Supplier&lt;T&gt;</code>: Factory Generation &amp; Lazy Evaluation
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -42,7 +42,7 @@ export default function Topic5() {
 
       <section className="space-y-4">
         <FAQTemplate
-          title="Supplier<T> FAQs"
+          title="Supplier&lt;T&gt; FAQs"
           questions={questions}
         />
       </section>
@@ -50,7 +50,7 @@ export default function Topic5() {
       <section className="space-y-4">
         <PlainTextPrint
           content={noteText}
-          title="Module 009_002 Topic 5: Supplier<T> Deep Dive"
+          title="Module 009_002 Topic 5: Supplier&lt;T&gt; Deep Dive"
           stampEnabled={true}
           showDownload={true}
           downloadButtonText="Download Printable Note"

@@ -8,7 +8,7 @@ const questions = [
     codeExample: `// DES Key Specifications:
 Raw Key Input:   64 bits (8 bytes)
 Parity Bits:     8 bits (1 bit per byte discarded during key expansion)
-Effective Key:   56 bits (2^56 ≈ 7.2 x 10^16 keys -> Broken via GPU Brute Force)`
+Effective Key:   56 bits (2^56 ≈ 7.2 x 10^16 keys → Broken via GPU Brute Force)`
   },
   {
     question: "What is 'Triple-DES' (3DES / TDEA), and how does the 'Encrypt-Decrypt-Encrypt' (EDE) sequence provide backward compatibility with single DES?",
@@ -19,7 +19,7 @@ Effective Key:   56 bits (2^56 ≈ 7.2 x 10^16 keys -> Broken via GPU Brute Forc
     codeExample: `// 3DES Encrypt-Decrypt-Encrypt (EDE) Sequence:
 Encryption: C = E_K3( D_K2( E_K1( P ) ) )
 Decryption: P = D_K1( E_K2( D_K3( C ) ) )
-Backward Compatibility: If K1 == K2 == K3 -> C = E_K( D_K( E_K( P ) ) ) = E_K( P ) (Single DES)`
+Backward Compatibility: If K1 == K2 == K3 → C = E_K( D_K( E_K( P ) ) ) = E_K( P ) (Single DES)`
   },
   {
     question: "What is the 'Sweet32 Attack' (CVE-2016-2183), and why did 64-bit block ciphers (3DES, Blowfish) suffer catastrophic collision vulnerability after $2^{32}$ blocks (~32 GB)?",
@@ -80,10 +80,10 @@ Output Byte: Z`
     level: "moderate",
     codeExample: `// ShiftRows Matrix Transformation:
 Before ShiftRows:      After ShiftRows:
-[ s0  s4  s8  s12 ] -> [ s0   s4   s8   s12 ] (Shift 0)
-[ s1  s5  s9  s13 ] -> [ s5   s9   s13  s1  ] (Shift 1)
-[ s2  s6  s10 s14 ] -> [ s10  s14  s2   s6  ] (Shift 2)
-[ s3  s7  s11 s15 ] -> [ s15  s3   s7   s11 ] (Shift 3)`
+[ s0  s4  s8  s12 ] → [ s0   s4   s8   s12 ] (Shift 0)
+[ s1  s5  s9  s13 ] → [ s5   s9   s13  s1  ] (Shift 1)
+[ s2  s6  s10 s14 ] → [ s10  s14  s2   s6  ] (Shift 2)
+[ s3  s7  s11 s15 ] → [ s15  s3   s7   s11 ] (Shift 3)`
   },
   {
     question: "What mathematical matrix multiplication occurs during the AES `MixColumns` step, and why is it omitted in the final round?",
@@ -114,8 +114,8 @@ Meet-in-the-Middle: 2^80 Operations (Classified as INSECURE & Cryptographically 
     hint: "Remember that 3DES is officially illegal for processing financial transactions in India.",
     level: "basic",
     codeExample: `// RBI Banking Regulatory Compliance:
-Legacy Algorithm: 3DES / TDEA -> STATUS: BANNED / DEPRECATED (Dec 2023)
-Mandated Standard: AES-256-GCM (Hardware HSM Enforced) -> STATUS: FULL COMPLIANCE`
+Legacy Algorithm: 3DES / TDEA → STATUS: BANNED / DEPRECATED (Dec 2023)
+Mandated Standard: AES-256-GCM (Hardware HSM Enforced) → STATUS: FULL COMPLIANCE`
   },
   {
     question: "What is the structural difference between the Feistel structure in DES and the Substitution-Permutation Network (SPN) in AES?",
@@ -134,8 +134,8 @@ AES (SPN):     State = AddRoundKey( MixColumns( ShiftRows( SubBytes( State ) ) )
     hint: "Think of an open, labeled cable organizer that routes wires in plain view without locking anything.",
     level: "moderate",
     codeExample: `// DES Initial Permutation (IP) Table Snippet:
-// Bit 58 -> Pos 1, Bit 50 -> Pos 2, Bit 42 -> Pos 3...
-// Has NO SECRET KEY -> Completely transparent to cryptanalysts!`
+// Bit 58 → Pos 1, Bit 50 → Pos 2, Bit 42 → Pos 3...
+// Has NO SECRET KEY → Completely transparent to cryptanalysts!`
   },
   {
     question: "Why does AES-256 use 14 rounds while AES-128 uses 10 rounds?",
@@ -146,7 +146,7 @@ AES (SPN):     State = AddRoundKey( MixColumns( ShiftRows( SubBytes( State ) ) )
     codeExample: `// AES Round Count Hierarchy:
 AES-128: 10 Rounds (Security Margin: ~3.5 Rounds unpenetrated)
 AES-192: 12 Rounds (Security Margin: ~4.5 Rounds unpenetrated)
-AES-256: 14 Rounds (Security Margin: ~6 Rounds unpenetrated -> Quantum Resistant)`
+AES-256: 14 Rounds (Security Margin: ~6 Rounds unpenetrated → Quantum Resistant)`
   },
   {
     question: "What is 'Biclique Cryptanalysis' (Bogdanov, Khovratovich, Rechberger, 2011), and why did it fail to break AES in any practical sense?",
@@ -166,8 +166,8 @@ Practical Impact:        ZERO (AES remains computationally impregnable!)`
     hint: "Contrast a single-file line where everyone must wait for the person in front, versus a parallel superhighway with automated security checkpoints.",
     level: "moderate",
     codeExample: `// Modern TLS 1.3 Cipher Suite:
-TLS_AES_256_GCM_SHA384  -> High-Speed Parallel AEAD (Mandatory in TLS 1.3)
-// TLS_RSA_WITH_AES_256_CBC_SHA -> FORBIDDEN & DEPRECATED in TLS 1.3!`
+TLS_AES_256_GCM_SHA384  → High-Speed Parallel AEAD (Mandatory in TLS 1.3)
+// TLS_RSA_WITH_AES_256_CBC_SHA → FORBIDDEN & DEPRECATED in TLS 1.3!`
   },
   {
     question: "How does the 'Expansion Permutation' (E-Box) in DES expand a 32-bit half-block into 48 bits before XORing with the round subkey?",
@@ -177,8 +177,8 @@ TLS_AES_256_GCM_SHA384  -> High-Speed Parallel AEAD (Mandatory in TLS 1.3)
     level: "expert",
     codeExample: `// DES Expansion Permutation (E-Box):
 32-bit Input: [ 4 bits ] [ 4 bits ] ... (8 blocks of 4 bits)
-E-Box: Duplicates edge bits -> [ 6 bits ] [ 6 bits ] ... (8 blocks of 6 bits = 48 bits)
-48-bit Expanded Data ⊕ 48-bit Round SubKey -> Feeds into 8 DES S-Boxes!`
+E-Box: Duplicates edge bits → [ 6 bits ] [ 6 bits ] ... (8 blocks of 6 bits = 48 bits)
+48-bit Expanded Data ⊕ 48-bit Round SubKey → Feeds into 8 DES S-Boxes!`
   },
   {
     question: "What are 'DES S-Boxes', and what was the historic controversy regarding NSA involvement in their design parameters in 1976?",
@@ -188,8 +188,8 @@ E-Box: Duplicates edge bits -> [ 6 bits ] [ 6 bits ] ... (8 blocks of 6 bits = 4
     level: "expert",
     codeExample: `// DES S-Box Mechanics:
 Input: 6 bits [ b1 b2 b3 b4 b5 b6 ]
-Row Selection: Bits (b1, b6) -> Integer 0 to 3
-Column Selection: Bits (b2, b3, b4, b5) -> Integer 0 to 15
+Row Selection: Bits (b1, b6) → Integer 0 to 3
+Column Selection: Bits (b2, b3, b4, b5) → Integer 0 to 15
 Output: 4-bit value from 4x16 S-Box lookup table`
   },
   {
@@ -209,9 +209,9 @@ Hardware AES-NI:  ~8,400 MB/s (8.4 GB/s, 0.6 cycles/byte, constant-time)`
     hint: "Conclude by recognizing the complete evolutionary triumph of AES-256-GCM over all legacy ciphers.",
     level: "expert",
     codeExample: `// The Symmetric Evolution Summary:
-DES (1977, 56-bit Key, 64-bit Block)   -> BROKEN (GPU Brute Force)
-3DES (1998, 112-bit Key, 64-bit Block) -> RETIRED (Sweet32 Collision Attack)
-AES-256 (2001, 256-bit Key, 128-bit Block, SPN) -> GLOBAL GOLD STANDARD (UNBREAKABLE)`
+DES (1977, 56-bit Key, 64-bit Block)   → BROKEN (GPU Brute Force)
+3DES (1998, 112-bit Key, 64-bit Block) → RETIRED (Sweet32 Collision Attack)
+AES-256 (2001, 256-bit Key, 128-bit Block, SPN) → GLOBAL GOLD STANDARD (UNBREAKABLE)`
   }
 ];
 

@@ -5,7 +5,7 @@ const topic5_questions = [
     "explanation": "Helps developers decide objectively whether to call .parallel().",
     "hint": "N = element count, Q = CPU work per element; N * Q > 10,000.",
     "level": "Intermediate",
-    "codeExample": "N = 100_000, Q = simple filter -> N*Q = 100,000 > 10,000 (Parallel is viable)"
+    "codeExample": "N = 100_000, Q = simple filter → N*Q = 100,000 > 10,000 (Parallel is viable)"
   },
   {
     "question": "Why can small datasets (e.g. N = 50) run slower with parallel streams?",
@@ -13,7 +13,7 @@ const topic5_questions = [
     "explanation": "Parallelism has a non-zero startup and coordination cost.",
     "hint": "Thread creation, scheduling, and result merging overhead exceeds sequential compute time.",
     "level": "Beginner",
-    "codeExample": "List.of(1, 2, 3, 4, 5).parallelStream().map(x -> x * 2).toList(); // Slower than sequential!"
+    "codeExample": "List.of(1, 2, 3, 4, 5).parallelStream().map(x → x * 2).toList(); // Slower than sequential!"
   }
 ];
 

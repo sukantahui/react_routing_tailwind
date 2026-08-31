@@ -115,11 +115,11 @@ const questions = [
   },
   {
     question: "What is a State Machine in event-driven applications?",
-    shortAnswer: "A computational model with discrete states where events trigger transitions from one state to another (e.g. Red -> Green -> Yellow).",
+    shortAnswer: "A computational model with discrete states where events trigger transitions from one state to another (e.g. Red → Green → Yellow).",
     explanation: "State machines organize complex event interactions cleanly.",
     hint: "What model represents discrete states and event transitions?",
     level: "advanced",
-    codeExample: "# State Machine: 'menu' -> 'playing' -> 'game_over'"
+    codeExample: "# State Machine: 'menu' → 'playing' → 'game_over'"
   },
   {
     question: "How does `functools.partial` compare to `lambda` for event binding?",
@@ -143,7 +143,7 @@ const questions = [
     explanation: "Decouples event emitters from event consumers across large codebases.",
     hint: "What design pattern decouples event producers from consumers?",
     level: "expert",
-    codeExample: "# EventBus.publish('player_died') -> [play_sound, update_ui, show_gameover]"
+    codeExample: "# EventBus.publish('player_died') → [play_sound, update_ui, show_gameover]"
   },
   {
     question: "Why should mutable global variables be encapsulated in a state dictionary for callbacks?",
@@ -231,7 +231,7 @@ const questions = [
     explanation: "This 3-step blueprint forms the backbone of all interactive graphical software.",
     hint: "What 3 steps build interactive event-driven Turtle programs?",
     level: "basic",
-    codeExample: "# 1. Define callbacks -> 2. Bind & listen() -> 3. mainloop()"
+    codeExample: "# 1. Define callbacks → 2. Bind & listen() → 3. mainloop()"
   },
   {
     question: "How does mastering event callbacks accelerate a student's career into full-stack development?",

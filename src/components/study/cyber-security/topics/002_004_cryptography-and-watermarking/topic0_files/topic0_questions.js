@@ -16,7 +16,7 @@ Cryptology = Cryptography (Cipher Design & Encryption) + Cryptanalysis (Cipher B
     level: "moderate",
     codeExample: `// Kerckhoffs's Principle in Practice:
 AES-256 Algorithm: 100% Open & Public Standard (Published in NIST FIPS 197)
-Secret Key:        256-bit Random Secret Key held ONLY by authorized user -> SECURE!`
+Secret Key:        256-bit Random Secret Key held ONLY by authorized user → SECURE!`
   },
   {
     question: "What are the four core security goals achieved by modern cryptographic systems?",
@@ -25,10 +25,10 @@ Secret Key:        256-bit Random Secret Key held ONLY by authorized user -> SEC
     hint: "Recall the 4 cryptographic pillars: Privacy, Tamper-resistance, Identity, and Undeniability.",
     level: "basic",
     codeExample: `// The 4 Cryptographic Pillars:
-Confidentiality -> Symmetric / Asymmetric Encryption (AES / RSA)
-Integrity       -> Cryptographic Hash Functions (SHA-256)
-Authentication  -> Digital Certificates & Public Key Infrastructure (PKI)
-Non-Repudiation -> Asymmetric Digital Signatures (ECDSA / RSA)`
+Confidentiality → Symmetric / Asymmetric Encryption (AES / RSA)
+Integrity       → Cryptographic Hash Functions (SHA-256)
+Authentication  → Digital Certificates & Public Key Infrastructure (PKI)
+Non-Repudiation → Asymmetric Digital Signatures (ECDSA / RSA)`
   },
   {
     question: "What is a 'Ciphertext-Only Attack' (COA), and how does 'Frequency Analysis' allow cryptanalysts to break classical monoalphabetic substitution ciphers?",
@@ -38,8 +38,8 @@ Non-Repudiation -> Asymmetric Digital Signatures (ECDSA / RSA)`
     level: "moderate",
     codeExample: `// Frequency Analysis Attack:
 Ciphertext: "WKH TXLFN EURZQ IRA MXPSV..."
-Letter 'K' appears 13% of the time -> Maps to English 'E'
-Letter 'W' appears 9% of the time  -> Maps to English 'T'
+Letter 'K' appears 13% of the time → Maps to English 'E'
+Letter 'W' appears 9% of the time  → Maps to English 'T'
 Decoded Shift: Key = 3 (Caesar Cipher Broken!)`
   },
   {
@@ -51,7 +51,7 @@ Decoded Shift: Key = 3 (Caesar Cipher Broken!)`
     codeExample: `// Known-Plaintext Attack (Enigma Cribbing):
 Known Plaintext:  W E T T E R V O R H E R S A G E
 Intercepted Cipher: K X R M P L Q Z B V C W T Y U I
--> Cryptanalytic Bombe eliminates non-matching rotor wirings -> Recovers daily master key!`
+-> Cryptanalytic Bombe eliminates non-matching rotor wirings → Recovers daily master key!`
   },
   {
     question: "What is a 'Chosen-Plaintext Attack' (CPA), and how does 'Differential Cryptanalysis' evaluate how changes in input plaintexts affect output ciphertexts?",
@@ -84,7 +84,7 @@ Server response: "Padding Error" (Invalid 0x00 0x02) OR "Silent Drop"
     codeExample: `// Constant-Time Cryptographic Comparison (Defeating Timing Attacks):
 // VULNERABLE:
 int insecure_compare(char *a, char *b, int len) {
-    for (int i=0; i<len; i++) if (a[i] != b[i]) return 0; // Exits early -> Leaks matching byte count!
+    for (int i=0; i<len; i++) if (a[i] != b[i]) return 0; // Exits early → Leaks matching byte count!
     return 1;
 }
 // SECURE (Constant Time):
@@ -101,8 +101,8 @@ int constant_time_compare(char *a, char *b, int len) {
     hint: "Remember: Confusion hides the Key (Substitution); Diffusion spreads the Plaintext (Transposition/Avalanche).",
     level: "moderate",
     codeExample: `// Shannon's Cryptographic Principles:
-Confusion (S-Boxes)  -> Complex non-linear byte substitution: Hides Key statistics.
-Diffusion (P-Boxes)  -> 1-bit Plaintext flip flips ~50% of Ciphertext bits (Avalanche Effect).`
+Confusion (S-Boxes)  → Complex non-linear byte substitution: Hides Key statistics.
+Diffusion (P-Boxes)  → 1-bit Plaintext flip flips ~50% of Ciphertext bits (Avalanche Effect).`
   },
   {
     question: "What is the 'Avalanche Effect', and why is it a mandatory requirement for modern symmetric block ciphers and cryptographic hash functions?",
@@ -111,8 +111,8 @@ Diffusion (P-Boxes)  -> 1-bit Plaintext flip flips ~50% of Ciphertext bits (Aval
     hint: "Think of a small pebble triggering a massive snow avalanche that reshapes the entire mountain.",
     level: "basic",
     codeExample: `// Strict Avalanche Effect (SHA-256 Example):
-Input 1: "Kolkata2026"  -> SHA-256: 4a8b9f... (256 bits)
-Input 2: "Kolkata2027"  -> SHA-256: e3c12d... (131 out of 256 bits flipped! ~51.2% change)`
+Input 1: "Kolkata2026"  → SHA-256: 4a8b9f... (256 bits)
+Input 2: "Kolkata2027"  → SHA-256: e3c12d... (131 out of 256 bits flipped! ~51.2% change)`
   },
   {
     question: "What is a 'Stream Cipher' vs a 'Block Cipher', and how do their encryption mechanics differ at the byte and bit level?",
@@ -121,7 +121,7 @@ Input 2: "Kolkata2027"  -> SHA-256: e3c12d... (131 out of 256 bits flipped! ~51.
     hint: "Contrast continuous flowing water from a faucet (Stream Cipher) with loading discrete standardized shipping crates (Block Cipher).",
     level: "moderate",
     codeExample: `// Stream vs Block Cipher Processing:
-Stream Cipher (ChaCha20): Byte[0] XOR Keystream[0] -> CipherByte[0] (Continuous flow)
+Stream Cipher (ChaCha20): Byte[0] XOR Keystream[0] → CipherByte[0] (Continuous flow)
 Block Cipher (AES-128):  [ 128-bit Plaintext Block ] ──[ 10 AES Rounds ]──> [ 128-bit Ciphertext Block ]`
   },
   {
@@ -144,7 +144,7 @@ Crucial Rule: NEVER REUSE THE KEY! (Reusing key allows Two-Time Pad crib draggin
     level: "expert",
     codeExample: `// Two-Time Pad Vulnerability:
 C1 ⊕ C2 = P1 ⊕ P2 (Key is completely eliminated!)
-Crib Guess: "the " ⊕ (P1 ⊕ P2) -> Reveals corresponding readable text in P2!`
+Crib Guess: "the " ⊕ (P1 ⊕ P2) → Reveals corresponding readable text in P2!`
   },
   {
     question: "Under the Indian Information Technology Act 2000, what are the legal ramifications of unauthorized interception and decryption of encrypted communications?",
@@ -153,8 +153,8 @@ Crib Guess: "the " ⊕ (P1 ⊕ P2) -> Reveals corresponding readable text in P2!
     hint: "Remember the legal provisions in India governing cryptographic interception and mandatory decryption assistance.",
     level: "basic",
     codeExample: `// Indian IT Act 2000 Cryptographic Provisions:
-Section 66: Unauthorized Decryption / Interception -> Up to 3 Years Imprisonment + Fine
-Section 69: Refusal to assist authorized agencies with Decryption -> Up to 7 Years Imprisonment`
+Section 66: Unauthorized Decryption / Interception → Up to 3 Years Imprisonment + Fine
+Section 69: Refusal to assist authorized agencies with Decryption → Up to 7 Years Imprisonment`
   },
   {
     question: "What is 'Polyalphabetic Substitution' (e.g. Vigenère Cipher), and how did the 'Kasiski Examination' solve the mystery of breaking it in 1863?",
@@ -165,7 +165,7 @@ Section 69: Refusal to assist authorized agencies with Decryption -> Up to 7 Yea
     codeExample: `// Kasiski Examination for Key Length:
 Repeated Ciphertext String: "XYZ" appears at position 12 and position 36
 Distance between repetitions: 36 - 12 = 24
-Factors of 24: 2, 3, 4, 6, 8, 12, 24 -> Key length is likely 4 or 6 letters!`
+Factors of 24: 2, 3, 4, 6, 8, 12, 24 → Key length is likely 4 or 6 letters!`
   },
   {
     question: "What is the 'Man-in-the-Middle' (MitM) Attack on unauthenticated Key Exchange (such as Diffie-Hellman), and how do Digital Certificates prevent it?",
@@ -175,7 +175,7 @@ Factors of 24: 2, 3, 4, 6, 8, 12, 24 -> Key length is likely 4 or 6 letters!`
     level: "moderate",
     codeExample: `// Unauthenticated Diffie-Hellman vs PKI:
 Without PKI: Alice <──[Key 1]──> Mallory (Attacker) <──[Key 2]──> Bob (Compromised!)
-With PKI:    Alice verifies Bob's Certificate signed by DigiCert CA -> Mallory's fake key is rejected!`
+With PKI:    Alice verifies Bob's Certificate signed by DigiCert CA → Mallory's fake key is rejected!`
   },
   {
     question: "What is 'Brute-Force Cryptanalysis', and what is the mathematical formula for the search space of an $n$-bit cryptographic key?",
@@ -195,7 +195,7 @@ With PKI:    Alice verifies Bob's Certificate signed by DigiCert CA -> Mallory's
     hint: "Think about quantum computers using quantum superposition to factor huge prime numbers in seconds.",
     level: "expert",
     codeExample: `// Quantum Impact on Cryptographic Standards:
-RSA-2048 / ECC-256: 100% BROKEN by Shor's Algorithm -> Must migrate to Post-Quantum Kyber (ML-KEM)!
+RSA-2048 / ECC-256: 100% BROKEN by Shor's Algorithm → Must migrate to Post-Quantum Kyber (ML-KEM)!
 AES-128:            Weakened to 64-bit by Grover's Algorithm (Vulnerable!)
 AES-256:            Reduced to 128-bit by Grover's Algorithm (STILL SECURE!)`
   },
@@ -208,7 +208,7 @@ AES-256:            Reduced to 128-bit by Grover's Algorithm (STILL SECURE!)`
     codeExample: `// Fully Homomorphic Encryption (FHE) Concept:
 Hospital Encrypts:   Cipher_A = Encrypt(10), Cipher_B = Encrypt(20)
 Cloud Computes:      Cipher_Result = Cipher_A * Cipher_B (Cloud NEVER sees numbers 10 or 20!)
-Hospital Decrypts:   Decrypt(Cipher_Result) -> 200 (100% Privacy Preserved!)`
+Hospital Decrypts:   Decrypt(Cipher_Result) → 200 (100% Privacy Preserved!)`
   },
   {
     question: "Synthesizing Introduction to Cryptography and Cryptanalysis: what is the master principle that ensures long-term cryptographic integrity?",

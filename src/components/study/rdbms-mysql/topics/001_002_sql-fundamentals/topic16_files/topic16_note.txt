@@ -18,8 +18,8 @@ A. BASIC SYNTAX:
    ORDER BY sort_column [ASC | DESC];
 
 B. ASCENDING (ASC) VS DESCENDING (DESC):
-• `ASC` (Default): Lowest to highest (0 -> 9, A -> Z, oldest date -> newest date).
-• `DESC`: Highest to lowest (9 -> 0, Z -> A, newest date -> oldest date).
+• `ASC` (Default): Lowest to highest (0 → 9, A → Z, oldest date → newest date).
+• `DESC`: Highest to lowest (9 → 0, Z → A, newest date → oldest date).
 
 
 2. MULTI-COLUMN (HIERARCHICAL) SORTING

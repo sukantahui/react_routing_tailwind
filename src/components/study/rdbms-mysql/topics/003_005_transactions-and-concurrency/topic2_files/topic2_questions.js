@@ -80,9 +80,9 @@ const questions = [
   },
   {
     question: "What is the transaction state lifecycle from start to finish?",
-    shortAnswer: "1. Active -> 2. Partially Committed (after last statement) -> 3. Committed (after redo flush), OR 1. Active -> 2. Failed -> 3. Aborted (after rollback).",
+    shortAnswer: "1. Active → 2. Partially Committed (after last statement) → 3. Committed (after redo flush), OR 1. Active → 2. Failed → 3. Aborted (after rollback).",
     explanation: "Standard database transaction state machine.",
-    hint: "Active -> Partially Committed -> Committed OR Active -> Failed -> Aborted.",
+    hint: "Active → Partially Committed → Committed OR Active → Failed → Aborted.",
     level: "expert"
   },
   {

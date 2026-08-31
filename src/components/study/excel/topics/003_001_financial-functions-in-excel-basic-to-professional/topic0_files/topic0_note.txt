@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The #1 rule in Excel financial modeling: Respect the Cash Flow Sign Convention! Money leaving your pocket is NEGATIVE (-); money entering your pocket is POSITIVE (+).
 
 COMMON TRAPS TO AVOID:
-- Cash Flow Sign Reversal Trap: Entering both PV and PMT as positive numbers causes FV to return a negative or distorted output. -> Fix: Follow strict accounting signs: Cash Outflow is Negative (-), Cash Inflow is Positive (+).
-- Rate/Period Frequency Mismatch: Using an annual rate (8%) with monthly periods (120 months) without dividing rate by 12 overcharges interest by 12x. -> Fix: Always align rate and nper: `Rate/12` with `Years*12` for monthly compounding.
-- Annuity Type Misconfiguration (0 vs 1): Leaving type as 0 (End of period) for advance lease payments (Start of period) underestimates interest accrual. -> Fix: Set type = 1 for payments due at the beginning of the period (Annuity Due).
+- Cash Flow Sign Reversal Trap: Entering both PV and PMT as positive numbers causes FV to return a negative or distorted output. → Fix: Follow strict accounting signs: Cash Outflow is Negative (-), Cash Inflow is Positive (+).
+- Rate/Period Frequency Mismatch: Using an annual rate (8%) with monthly periods (120 months) without dividing rate by 12 overcharges interest by 12x. → Fix: Always align rate and nper: `Rate/12` with `Years*12` for monthly compounding.
+- Annuity Type Misconfiguration (0 vs 1): Leaving type as 0 (End of period) for advance lease payments (Start of period) underestimates interest accrual. → Fix: Set type = 1 for payments due at the beginning of the period (Annuity Due).
 ================================================================================

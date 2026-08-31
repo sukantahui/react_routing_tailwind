@@ -420,7 +420,7 @@ export default function BooleanAlgebraPracticeTemplate({ data }) {
             <span className="text-3xl">🧠</span>
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-sky-400 tracking-wide">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400 tracking-wide">
               {data.title}
             </h1>
             <p className="text-sm text-zinc-400">

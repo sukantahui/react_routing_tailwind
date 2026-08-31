@@ -23,7 +23,7 @@ const questions = [
   {
     question: "How do 'Generic Routing Encapsulation' (GRE) and 'IPsec' Tunnels Return Clean Traffic from Scrubbers to Customer Origins?",
     shortAnswer: "The scrubbing center encapsulates clean, filtered IP packets inside a GRE/IPsec wrapper (`IP-in-IP`) and transmits them across the public internet to the customer's border router, which decapsulates the packets and forwards them to internal application servers.",
-    explanation: "Because the customer's public IP addresses are announced by the cloud scrubbing provider, the customer's on-premise data center router cannot receive packets directly via standard BGP. The scrubber wraps clean packets inside a GRE tunnel header (`Protocol 47`): `[Scrubber IP -> Customer Router IP][Original Client IP -> Target Server IP][Data Payload]`. The customer router strips the GRE header, delivering clean packets to backend servers.",
+    explanation: "Because the customer's public IP addresses are announced by the cloud scrubbing provider, the customer's on-premise data center router cannot receive packets directly via standard BGP. The scrubber wraps clean packets inside a GRE tunnel header (`Protocol 47`): `[Scrubber IP → Customer Router IP][Original Client IP → Target Server IP][Data Payload]`. The customer router strips the GRE header, delivering clean packets to backend servers.",
     hint: "Placing a clean verified letter inside a second registered postal envelope addressed directly to the recipient's private office.",
     level: "expert",
     codeExample: `// Cisco Router GRE Tunnel Configuration for Cloud DDoS Scrubbing Return:
@@ -101,7 +101,7 @@ paths:
   {
     question: "What is 'WAF Virtual Patching' (e.g. Log4Shell CVE-2021-44228 Mitigation), and how does it protect vulnerable backend servers in minutes?",
     shortAnswer: "Deploying a centralized Layer 7 WAF inspection rule that detects and blocks exploitation payloads targeting a newly disclosed zero-day vulnerability at the cloud edge, shielding thousands of backend servers before application code can be patched.",
-    explanation: "When Log4Shell was disclosed in December 2021, patching thousands of Java application servers took weeks. Cloud WAF providers (Cloudflare, AWS WAF) deployed a virtual patch rule within 2 hours: `Match: Request contains '${jndi:ldap://' or '${jndi:dns://' -> Block HTTP 403`. All exploit payloads were dropped at the cloud edge, giving backend engineering teams time to upgrade Java libraries safely.",
+    explanation: "When Log4Shell was disclosed in December 2021, patching thousands of Java application servers took weeks. Cloud WAF providers (Cloudflare, AWS WAF) deployed a virtual patch rule within 2 hours: `Match: Request contains '${jndi:ldap://' or '${jndi:dns://' → Block HTTP 403`. All exploit payloads were dropped at the cloud edge, giving backend engineering teams time to upgrade Java libraries safely.",
     hint: "Placing a physical filter over the main air vent of a building during a gas leak while engineers work to repair the broken pipe inside.",
     level: "expert",
     codeExample: `// AWS WAF Virtual Patching Rule for Log4Shell (CVE-2021-44228):

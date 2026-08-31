@@ -3,7 +3,7 @@ const topic2_questions = [
     "question": "How is Atomicity achieved in JDBC application code?",
     "shortAnswer": "By calling connection.setAutoCommit(false) before executing operations, calling connection.commit() when all statements succeed, and calling connection.rollback() inside the catch block if an exception occurs.",
     "explanation": "Ensures no partial updates are committed to the database.",
-    "hint": "setAutoCommit(false) -> execute statements -> commit() / rollback().",
+    "hint": "setAutoCommit(false) → execute statements → commit() / rollback().",
     "level": "Beginner",
     "codeExample": "conn.setAutoCommit(false); try { ... conn.commit(); } catch(e) { conn.rollback(); }"
   },

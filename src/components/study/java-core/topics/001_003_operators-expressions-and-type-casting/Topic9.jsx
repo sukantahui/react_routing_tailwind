@@ -42,7 +42,7 @@ export default function Topic9() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Logical Operators: Logical AND (<code className="text-indigo-400">&amp;&amp;</code>), Logical OR (<code className="text-indigo-400">||</code>), Logical NOT (<code className="text-indigo-400">!</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -114,7 +114,7 @@ export default function Topic9() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Precedence: ! &gt; &amp;&amp; &gt; ||</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">a || b &amp;&amp; c</text>
-            <text x="55" y="122" fill="#e0f2fe" fontSize="10">&rarr; Grouped as: a || (b &amp;&amp; c)</text>
+            <text x="55" y="122" fill="#e0f2fe" fontSize="10">→ Grouped as: a || (b &amp;&amp; c)</text>
             <text x="55" y="142" fill="#e0f2fe" fontSize="10">&amp;&amp; binds tighter than ||</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Always use ( ) for clarity!
@@ -124,9 +124,9 @@ export default function Topic9() {
             <rect x="310" y="40" width="260" height="180" rx="10" fill="url(#gradOr)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Truth Evaluation</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#1e1b4b" />
-            <text x="335" y="102" fill="#c7d2fe" fontSize="11" fontFamily="monospace">T &amp;&amp; T &rarr; true</text>
-            <text x="335" y="122" fill="#c7d2fe" fontSize="11" fontFamily="monospace">F &amp;&amp; T &rarr; false</text>
-            <text x="335" y="142" fill="#c7d2fe" fontSize="11" fontFamily="monospace">F || T &rarr; true</text>
+            <text x="335" y="102" fill="#c7d2fe" fontSize="11" fontFamily="monospace">T &amp;&amp; T → true</text>
+            <text x="335" y="122" fill="#c7d2fe" fontSize="11" fontFamily="monospace">F &amp;&amp; T → false</text>
+            <text x="335" y="142" fill="#c7d2fe" fontSize="11" fontFamily="monospace">F || T → true</text>
             <text x="440" y="190" fill="#e0e7ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Conjunction vs Disjunction
             </text>

@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Grand architectural capstone of Module 009_002.",
     "hint": "Eliminates auto-boxing memory allocations and GC overhead when processing millions of numeric primitives.",
     "level": "Advanced",
-    "codeExample": "IntPredicate p = x -> x > 0; // boolean test(int) - 0 boxing overhead!"
+    "codeExample": "IntPredicate p = x → x > 0; // boolean test(int) - 0 boxing overhead!"
   }
 ];
 

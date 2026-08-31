@@ -13,8 +13,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Range Creation: 'IntStream.range(1, 10)' (exclusive), 'IntStream.rangeClosed(1, 10)' (inclusive).
    - Numeric Reductions: '.sum()', '.average()', '.min()', '.max()', '.summaryStatistics()'.
    - Conversions:
-     * Object -> Primitive: 'stream.mapToInt(...)', 'stream.mapToLong(...)', 'stream.mapToDouble(...)'.
-     * Primitive -> Object: 'intStream.boxed()' (Stream<Integer>) or 'intStream.mapToObj(...)'.
+     * Object → Primitive: 'stream.mapToInt(...)', 'stream.mapToLong(...)', 'stream.mapToDouble(...)'.
+     * Primitive → Object: 'intStream.boxed()' (Stream<Integer>) or 'intStream.mapToObj(...)'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

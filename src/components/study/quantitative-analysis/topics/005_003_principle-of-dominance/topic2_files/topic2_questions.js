@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Column Dominance in Game Theory?",
     shortAnswer: "'For Player B (Minimizer), compare columns pairwise: if Column r <= Column s across ALL rows, eliminate the larger Column s; assign probability 0 to the eliminated column while preserving the Value of the Game in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all column dominance mechanics.",
-    hint: "Compare pairwise -> Column r <= Column s -> Delete larger Column s in ₹.",
+    hint: "Compare pairwise → Column r <= Column s → Delete larger Column s in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CompareColsPairwise() -> DeleteLargerCol() -> SetProbabilityZero(₹)."
+    codeExample: "GoldenRule: CompareColsPairwise() → DeleteLargerCol() → SetProbabilityZero(₹)."
   }
 ];
 

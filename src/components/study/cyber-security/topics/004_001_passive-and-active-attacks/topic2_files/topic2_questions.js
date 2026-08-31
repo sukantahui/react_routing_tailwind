@@ -6,8 +6,8 @@ const questions = [
     hint: "Sniffing reads the letter inside; Traffic Analysis studies the weight, postmark, and frequency of envelopes.",
     level: "basic",
     codeExample: `// Sniffing vs Traffic Analysis:
-// Sniffing (Payload Inspect)  : Payload = "GET /transfer?amt=5000 HTTP/1.1" -> Reads ₹5,000 transfer
-// Traffic Analysis (Metadata): Size = 1420B, Time = 02:00:01, Freq = 50k pkts/sec -> Infers DB backup`
+// Sniffing (Payload Inspect)  : Payload = "GET /transfer?amt=5000 HTTP/1.1" → Reads ₹5,000 transfer
+// Traffic Analysis (Metadata): Size = 1420B, Time = 02:00:01, Freq = 50k pkts/sec → Infers DB backup`
   },
   {
     question: "How does Website Fingerprinting operate over encrypted VPN and Tor connections?",
@@ -17,7 +17,7 @@ const questions = [
     level: "expert",
     codeExample: `// Website Fingerprint Feature Vector:
 // Trace = [+512, +1420, -512, +1420, +1420, -1024, ...] (+ = Outbound, - = Inbound)
-// ML Classifier: Model.predict(Trace) -> "Result: https://portal.kolkata-fintech.in" (94% confidence)`
+// ML Classifier: Model.predict(Trace) → "Result: https://portal.kolkata-fintech.in" (94% confidence)`
   },
   {
     question: "How does Keystroke Timing Analysis extract information from encrypted SSH interactive sessions?",
@@ -27,8 +27,8 @@ const questions = [
     level: "expert",
     codeExample: `// Inter-Arrival Keystroke Time Deltas:
 // Packet 1: Time = 10.120s (Keypress 's')
-// Packet 2: Time = 10.185s (Keypress 'u', Delta = 65ms -> Adjacent key)
-// Packet 3: Time = 10.390s (Keypress 'k', Delta = 205ms -> Farther key)`
+// Packet 2: Time = 10.185s (Keypress 'u', Delta = 65ms → Adjacent key)
+// Packet 3: Time = 10.390s (Keypress 'k', Delta = 205ms → Farther key)`
   },
   {
     question: "What is Constant-Bitrate (CBR) Traffic Padding, and how does it neutralize Traffic Flow Analysis?",
@@ -110,8 +110,8 @@ if (sock_raw < 0) {
     hint: "Humans are unpredictable; robots click at exact mathematical intervals.",
     level: "expert",
     codeExample: `// Autocorrelation Analysis of Inter-Arrival Times (IAT):
-// Human Traffic: IAT variance is high (e.g. 2.1s, 14.5s, 0.4s, 45.0s) -> Low periodicity
-// Bot C2 Beacon: IAT = 60.0s ± 0.2s -> Sharp spectral spike at Frequency = 0.0167 Hz`
+// Human Traffic: IAT variance is high (e.g. 2.1s, 14.5s, 0.4s, 45.0s) → Low periodicity
+// Bot C2 Beacon: IAT = 60.0s ± 0.2s → Sharp spectral spike at Frequency = 0.0167 Hz`
   },
   {
     question: "How does TShark enable automated CLI packet sniffing and telemetry extraction in production environments?",
@@ -188,9 +188,9 @@ event file_new(f: fa_file) {
     level: "expert",
     codeExample: `// Tor Layered Decryption Circuit:
 // Client encrypts: E_Guard( E_Middle( E_Exit( Payload ) ) )
-// Guard Node  : Decrypts outer layer -> Forwards E_Middle( E_Exit( Payload ) ) to Middle Node
-// Middle Node : Decrypts middle layer -> Forwards E_Exit( Payload ) to Exit Node
-// Exit Node   : Decrypts final layer -> Dispatches Payload to Destination Server`
+// Guard Node  : Decrypts outer layer → Forwards E_Middle( E_Exit( Payload ) ) to Middle Node
+// Middle Node : Decrypts middle layer → Forwards E_Exit( Payload ) to Exit Node
+// Exit Node   : Decrypts final layer → Dispatches Payload to Destination Server`
   },
   {
     question: "Under the Indian DPDP Act 2023, what are the compliance obligations for organizations regarding network traffic logging and telemetry?",
@@ -234,7 +234,7 @@ nmap --script sniffer-detect 192.168.1.0/24
     level: "expert",
     codeExample: `// DTW Distance Matrix:
 // D(i, j) = |Trace1[i] - Trace2[j]| + min(D(i-1, j), D(i, j-1), D(i-1, j-1))
-// If DTW_Distance(CapturedTrace, "kolkata_bank_login") < Threshold -> Match Confirmed!`
+// If DTW_Distance(CapturedTrace, "kolkata_bank_login") < Threshold → Match Confirmed!`
   },
   {
     question: "What is an Obfuscated Transport (e.g. obfs4 / Shadowsocks), and how does it defeat DPI traffic classification?",
@@ -254,7 +254,7 @@ nmap --script sniffer-detect 192.168.1.0/24
     level: "expert",
     codeExample: `// Flow Watermark Modulation:
 // Ingress Stream: Delay Packet #10 by +30ms, Packet #20 by +50ms (Bit pattern '101')
-// Egress Stream : Detect +30ms at #10 and +50ms at #20 -> Connection linked with 99.9% certainty!`
+// Egress Stream : Detect +30ms at #10 and +50ms at #20 → Connection linked with 99.9% certainty!`
   },
   {
     question: "What is the difference between Layer 3 NetFlow sampling and Full PCAP Capture in forensic traffic analysis?",
@@ -315,7 +315,7 @@ flowspec {
     codeExample: `# Passive OS Fingerprinting with p0f:
 sudo p0f -i eth0 -s /var/log/p0f.sock
 # Output:
-# 192.168.1.100:51422 -> Linux 5.x (Ubuntu 22.04) [MTU: 1500, Window: 29200, Scale: 7]`
+# 192.168.1.100:51422 → Linux 5.x (Ubuntu 22.04) [MTU: 1500, Window: 29200, Scale: 7]`
   },
   {
     question: "How does the Indian Computer Emergency Response Team (CERT-In) mandate traffic telemetry synchronization across organizations?",

@@ -21,7 +21,7 @@ Core Mechanics:
 --------------------------------------------------------------------------------
 • Vectorizes functions that otherwise collapse ranges (e.g. AND, OR, TEXTJOIN).
 • Eliminates manual formula dragging down thousands of rows.
-• Pairs parallel data columns (e.g. Days + Performance Score &rarr; Bonus Tier).
+• Pairs parallel data columns (e.g. Days + Performance Score → Bonus Tier).
 
 3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
 --------------------------------------------------------------------------------

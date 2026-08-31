@@ -110,9 +110,9 @@ const questions = [
     question: "What is the ultimate golden rule of Earliest Event Time Computations?",
     shortAnswer: "'Initialize E_1 = 0; move forward from left to right; for every event j, evaluate all incoming paths (E_i + d_ij) and select the MAXIMUM; E_n defines the certified minimum project duration in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all forward pass mechanics.",
-    hint: "E_1 = 0 -> Forward left to right -> Take MAX at merge nodes -> E_n = Project Duration.",
+    hint: "E_1 = 0 → Forward left to right → Take MAX at merge nodes → E_n = Project Duration.",
     level: "moderate",
-    codeExample: "GoldenRule: E_1 = 0 -> E_j = max(E_i + d_ij) -> ProjectDuration = E_n."
+    codeExample: "GoldenRule: E_1 = 0 → E_j = max(E_i + d_ij) → ProjectDuration = E_n."
   }
 ];
 

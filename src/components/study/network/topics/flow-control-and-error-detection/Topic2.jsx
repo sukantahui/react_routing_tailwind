@@ -63,7 +63,7 @@ export default function Topic2() {
         
         {/* Hero Section */}
         <section className="space-y-4 animate-[fadeSlideUp_0.4s_ease-out_forwards]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 to-cyan-700 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-700 to-cyan-700 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
             Error Detection: Parity, CRC, Checksum
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 border-l-4 border-blue-500 pl-4">

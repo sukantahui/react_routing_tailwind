@@ -134,7 +134,7 @@ const questions = [
     question: "What is the ultimate golden rule of Column Reduction?",
     shortAnswer: "'Find min(Col j) in the row-reduced matrix; if min > 0, subtract it down Col j; ensure all entries >= 0 and every row and column has at least one zero; track dual column shift Sum v_j!'",
     explanation: "This complete rule captures all mechanics of Column Reduction.",
-    hint: "Find col min -> Subtract if > 0 -> Ensure >= 1 zero per row/col -> Track Sum v_j.",
+    hint: "Find col min → Subtract if > 0 → Ensure >= 1 zero per row/col → Track Sum v_j.",
     level: "moderate",
     codeExample: "Golden Rule: for each col j: v_j = min(col_j); if (v_j > 0) col_j -= v_j; assert all rows/cols have 0."
   }

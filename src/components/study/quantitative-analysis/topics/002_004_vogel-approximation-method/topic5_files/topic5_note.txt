@@ -61,7 +61,7 @@ Origins:
 Destinations:
   D1 (Jadavpur Works):    Demand = 60 tons
   D2 (Salt Lake Hub):     Demand = 80 tons
-  D3 (Howrah Rail):       Demand = 80 tons  (Total Demand = 220 tons -> BALANCED!)
+  D3 (Howrah Rail):       Demand = 80 tons  (Total Demand = 220 tons → BALANCED!)
 
 Cost Matrix (₹/ton):
        D1    D2    D3    Supply  P_R(1)  P_R(2)  P_R(3)

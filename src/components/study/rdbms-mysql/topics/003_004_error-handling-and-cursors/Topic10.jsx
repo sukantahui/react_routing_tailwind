@@ -21,7 +21,7 @@ const Topic10 = () => {
 
   const nestedScenarios = {
     nested_block_master_detail: {
-      title: "1. The Correct Pattern: Nested Block Scoping (Department -> Student)",
+      title: "1. The Correct Pattern: Nested Block Scoping (Department → Student)",
       badge: "Nested Block Scope",
       badgeColor: "emerald",
       sqlQuery: `-- ✅ THE AUTHORITATIVE NESTED CURSOR ARCHITECTURE:
@@ -149,7 +149,7 @@ DELIMITER ;`,
         "In a flat block, when the inner cursor reaches EOF for Dept 1, the shared `NOT FOUND` handler sets `v_done = TRUE`. When the outer loop checks `v_done`, it exits immediately, skipping all remaining departments!",
     },
     three_tier_deep_nesting: {
-      title: "3. Deep Nesting: 3-Tier Hierarchy (Faculty -> Department -> Student)",
+      title: "3. Deep Nesting: 3-Tier Hierarchy (Faculty → Department → Student)",
       badge: "3-Tier Hierarchy",
       badgeColor: "cyan",
       sqlQuery: `-- 3-Tier Nested Block Cursor Hierarchy:
@@ -205,7 +205,7 @@ END //
 
 DELIMITER ;`,
       resultRows: [
-        { outerRecord: "Tier 1: Engineering Faculty", innerRecord: "Tier 2: CS -> Tier 3: Mamata", handlerState: "3 Scoped Handlers", scopingStatus: "3 Nested Blocks", clientResult: "Granular 3-Tier Traversal", status: "Full Hierarchy ✅" },
+        { outerRecord: "Tier 1: Engineering Faculty", innerRecord: "Tier 2: CS → Tier 3: Mamata", handlerState: "3 Scoped Handlers", scopingStatus: "3 Nested Blocks", clientResult: "Granular 3-Tier Traversal", status: "Full Hierarchy ✅" },
       ],
       explanation:
         "Nesting three `BEGIN ... END` blocks allows arbitrary depth hierarchical traversal while maintaining complete handler isolation across all three tiers.",
@@ -259,7 +259,7 @@ JOIN students s ON d.department_id = s.department_id;`,
               Nested Cursors
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Nested Cursors &amp; Multiple Active Result Sets
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

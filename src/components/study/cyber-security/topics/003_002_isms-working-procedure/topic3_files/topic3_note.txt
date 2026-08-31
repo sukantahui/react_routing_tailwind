@@ -117,7 +117,7 @@ SCENARIO 4 : SoA MATRIX BUILDER & SCOPE VALIDATOR LAB (JADAVPUR UNIVERSITY)
   4. Document Boundary Interfaces: Map external connections to NPCI, payment gateways, and cloud APIs.
 
 * COMMON BEGINNER SCOPE PITFALLS:
-  - "Scope Slicing" (Excluding core production databases to make the audit easy -> Certification denied!).
+  - "Scope Slicing" (Excluding core production databases to make the audit easy → Certification denied!).
   - Excluded Control Laziness (Excluding controls without formal risk/architectural justification).
   - Failing to link SoA controls to internal operational policy documents.
   - Assuming cloud hosting excuses you from technological controls (Shared Responsibility Model).

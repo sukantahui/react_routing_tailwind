@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Speed starts with your fingers! Master `Ctrl + Arrows` and `Ctrl + Shift + Arrows`. If you never touch the mouse, you will work 5 times faster than anyone else in your office.
 
 COMMON TRAPS TO AVOID:
-- Touching the Mouse for Basic Navigation: Scrolling 10,000 rows with the mouse scroll wheel. -> Fix: Use `Ctrl + Down Arrow` to jump to table bottom instantly.
-- Freezing Wrong Rows with Freeze Panes: Placing cursor in cell A1 before clicking Freeze Panes. -> Fix: Place active cursor in cell B2 to freeze Row 1 and Column A simultaneously.
-- Accidentally Hiding Formula Bar / Ribbon: Pressing Ctrl + F1 hiding ribbon tabs. -> Fix: Press `Ctrl + F1` to restore full ribbon.
+- Touching the Mouse for Basic Navigation: Scrolling 10,000 rows with the mouse scroll wheel. → Fix: Use `Ctrl + Down Arrow` to jump to table bottom instantly.
+- Freezing Wrong Rows with Freeze Panes: Placing cursor in cell A1 before clicking Freeze Panes. → Fix: Place active cursor in cell B2 to freeze Row 1 and Column A simultaneously.
+- Accidentally Hiding Formula Bar / Ribbon: Pressing Ctrl + F1 hiding ribbon tabs. → Fix: Press `Ctrl + F1` to restore full ribbon.
 ================================================================================

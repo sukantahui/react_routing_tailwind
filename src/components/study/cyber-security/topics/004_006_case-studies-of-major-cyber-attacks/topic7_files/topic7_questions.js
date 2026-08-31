@@ -44,7 +44,7 @@ const attributionDetails = {
 const detectionTrigger = {
   alertType: "ANOMALOUS_MFA_DEVICE_REGISTRATION",
   analystAction: "SOC contacted employee via out-of-band phone call",
-  outcome: "Employee confirmed fraud -> Triggered global forensic investigation led by Kevin Mandia"
+  outcome: "Employee confirmed fraud → Triggered global forensic investigation led by Kevin Mandia"
 };`
   },
   {
@@ -183,9 +183,9 @@ const dllSignature = {
     hint: "Independent build clusters producing bit-for-bit identical cryptographic hashes from source.",
     level: "Expert",
     codeExample: `// Reproducible Build Verification Workflow:
-// Build Pipeline 1 (Cluster Alpha): Hashes output -> SHA-256: 7f8a9...b10
-// Build Pipeline 2 (Cluster Beta):  Hashes output -> SHA-256: 7f8a9...b10
-// If Hash(Alpha) !== Hash(Beta) -> ABORT RELEASE AND ALERT DEVSECOPS!`
+// Build Pipeline 1 (Cluster Alpha): Hashes output → SHA-256: 7f8a9...b10
+// Build Pipeline 2 (Cluster Beta):  Hashes output → SHA-256: 7f8a9...b10
+// If Hash(Alpha) !== Hash(Beta) → ABORT RELEASE AND ALERT DEVSECOPS!`
   },
   {
     id: 13,
@@ -257,7 +257,7 @@ const eo14028Directives = [
     level: "Moderate",
     codeExample: `// Hardware Code Signing Quorum (M-of-N):
 // Signing a release binary requires 2 out of 3 senior security officers to approve:
-// Officer 1 (YubiKey Touch) + Officer 2 (YubiKey Touch) -> HSM Signs Binary`
+// Officer 1 (YubiKey Touch) + Officer 2 (YubiKey Touch) → HSM Signs Binary`
   },
   {
     id: 18,
@@ -393,9 +393,9 @@ const csrbCharter = {
     hint: "Sending only the hash to an air-gapped signing server that verifies provenance before signing.",
     level: "Expert",
     codeExample: `// Air-Gapped Code Signing Pipeline:
-// 1. Ephemeral Build Runner compiles binary -> SHA-256: e3b0c44...
+// 1. Ephemeral Build Runner compiles binary → SHA-256: e3b0c44...
 // 2. Transmits SHA-256 hash + SLSA Attestation to Air-Gapped Signing HSM
-// 3. Signing HSM verifies cryptographic provenance -> Appends Authenticode signature`
+// 3. Signing HSM verifies cryptographic provenance → Appends Authenticode signature`
   },
   {
     id: 28,

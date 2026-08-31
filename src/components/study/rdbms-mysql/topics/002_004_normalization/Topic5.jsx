@@ -145,7 +145,7 @@ CREATE TABLE students (
             Module 002_004 · Database Normalization · Topic 5
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Transitive Dependencies:{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Chains (X → Y and Y → Z) &amp; 3NF
@@ -206,7 +206,7 @@ CREATE TABLE students (
             <div className="p-3.5 rounded-xl border border-rose-500/30 bg-slate-950 space-y-1">
               <span className="text-xs font-mono font-bold text-rose-400 uppercase">3. Transitive Dependent (Z)</span>
               <strong className="text-white text-xs block font-mono">dept_head, building</strong>
-              <p className="text-[11px] text-slate-400">Determined by Y. Indirectly dependent on X ($X \rightarrow Y \rightarrow Z$). Violates 3NF.</p>
+              <p className="text-[11px] text-slate-400">Determined by Y. Indirectly dependent on X ($X → Y → Z$). Violates 3NF.</p>
             </div>
           </div>
 
@@ -230,7 +230,7 @@ CREATE TABLE students (
                 <text x="15" y="68" fill="#94a3b8" fontSize="10">student_name</text>
               </g>
 
-              {/* Arrow X -> Y */}
+              {/* Arrow X → Y */}
               <g transform="translate(205, 55)">
                 <line x1="0" y1="15" x2="60" y2="15" stroke="#38bdf8" strokeWidth="3" />
                 <polygon points="60,10 75,15 60,20" fill="#38bdf8" />
@@ -246,7 +246,7 @@ CREATE TABLE students (
                 <text x="15" y="68" fill="#f59e0b" fontSize="10">Non-Key Determinant!</text>
               </g>
 
-              {/* Arrow Y -> Z */}
+              {/* Arrow Y → Z */}
               <g transform="translate(470, 55)">
                 <line x1="0" y1="15" x2="60" y2="15" stroke="#f43f5e" strokeWidth="3" strokeDasharray="3 3" />
                 <polygon points="60,10 75,15 60,20" fill="#f43f5e" />

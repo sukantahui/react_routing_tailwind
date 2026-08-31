@@ -71,7 +71,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Best practices for debugging and auditing AI-generated formulas and VBA code"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic10() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) -> Evaluate Formula Tool (Alt+M+V) -> Trace Precedents (Ctrl+[) -> Error Bounds Testing"}
+            {"Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) → Evaluate Formula Tool (Alt+M+V) → Trace Precedents (Ctrl+[) → Error Bounds Testing"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic10() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"AI Formula Auditing & Verification Pipeline: AI Generated Formula -> Formula Evaluation (Alt+M+V) -> Boundary Testing -> Final Audit Sign-Off"}
+              Visual Dataflow: {"AI Formula Auditing & Verification Pipeline: AI Generated Formula → Formula Evaluation (Alt+M+V) → Boundary Testing → Final Audit Sign-Off"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               AI Pipeline
@@ -286,7 +286,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Best_practices_for"
+            sheetName="EX2911"
             title={"Best practices for debugging and auditing AI-generated formulas and VBA code - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic10() {
                 Step 2: Construct Structured Natural Language Prompt
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Formulate prompt with bracketed columns: <code className="text-cyan-300 font-mono font-bold">{"Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) -> Evaluate Formula Tool (Alt+M+V) -> Trace Precedents (Ctrl+[) -> Error Bounds Testing"}</code>.
+                Formulate prompt with bracketed columns: <code className="text-cyan-300 font-mono font-bold">{"Auditing Checklist: Formula Bar Inspection (Ctrl+Shift+U) → Evaluate Formula Tool (Alt+M+V) → Trace Precedents (Ctrl+[) → Error Bounds Testing"}</code>.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic10() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Always audit AI code like a strict professor. Use `Alt + M + V` (Evaluate Formula) to watch Excel calculate the formula step-by-step. If AI wrote VBA code, always click 'Debug -> Compile VBAProject' to make sure every line is valid."}
+            note={"Always audit AI code like a strict professor. Use `Alt + M + V` (Evaluate Formula) to watch Excel calculate the formula step-by-step. If AI wrote VBA code, always click 'Debug → Compile VBAProject' to make sure every line is valid."}
           />
         </div>
       </div>

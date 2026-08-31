@@ -76,7 +76,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-emerald-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-emerald-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Flattening 2D Tables into 1D Horizontal Vectors with TOROW
           </h1>
 
@@ -90,7 +90,7 @@ export default function Topic2() {
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-teal-400 text-base">✓</span>
-              <span><strong>Horizontal Flattening:</strong> 2D Matrix &rarr; 1D Row Vector</span>
+              <span><strong>Horizontal Flattening:</strong> 2D Matrix → 1D Row Vector</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -363,7 +363,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_TOROW"
+            sheetName="EX1703"
             title="Multi-Channel Marketing Spend Matrix (Jan-May)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -402,7 +402,7 @@ export default function Topic2() {
                 spilling 50 values sequentially from Jan to May.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Formula: =TOROW(B2:F11, 1, TRUE) &rarr; Continuous 50-Month Timeline
+                Formula: =TOROW(B2:F11, 1, TRUE) → Continuous 50-Month Timeline
               </div>
             </div>
 
@@ -420,7 +420,7 @@ export default function Topic2() {
                 For the board presentation dashboard, she uses <code className="text-amber-300 font-mono">=TOROW(N2:N15)</code> to project branch revenues horizontally across row 1 headers.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =TOROW(N2:N15, 1) &rarr; Self-Updating Row 1 Banner
+                Formula: =TOROW(N2:N15, 1) → Self-Updating Row 1 Banner
               </div>
             </div>
 
@@ -438,7 +438,7 @@ export default function Topic2() {
                 Applying <code className="text-amber-300 font-mono">=TOROW(DeprecMatrix, 3)</code> instantly cleans zero-value write-offs and errors into a single horizontal audit ribbon.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =TOROW(AssetGrid, 3) &rarr; Zero Formula Errors in Audit Trail
+                Formula: =TOROW(AssetGrid, 3) → Zero Formula Errors in Audit Trail
               </div>
             </div>
 
@@ -457,7 +457,7 @@ export default function Topic2() {
                 she builds an automated breadcrumb header for dynamic reporting without VBA.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =TEXTJOIN(" • ", TRUE, TOROW(DeptGrid, 1)) &rarr; Clean Breadcrumb
+                Formula: =TEXTJOIN(" • ", TRUE, TOROW(DeptGrid, 1)) → Clean Breadcrumb
               </div>
             </div>
           </div>
@@ -563,7 +563,7 @@ export default function Topic2() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL! (Horizontal)</td>
                   <td className="py-3 px-4 text-slate-300">Cells to the right of the anchor contain notes, merged cells, or text.</td>
-                  <td className="py-3 px-4 text-slate-400">Error tag &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Error tag → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing columns or move formula to an empty row.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">

@@ -42,7 +42,7 @@ export default function Topic16() {
             Advanced Architecture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Jagged &amp; Ragged Arrays: Dynamic Row Allocations &amp; Memory Mechanics
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -133,10 +133,10 @@ export default function Topic16() {
             <rect x="30" y="30" width="220" height="210" rx="10" fill="url(#gradOuterJg)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="140" y="55" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">OUTER ARRAY (4 Rows)</text>
             <rect x="45" y="70" width="190" height="150" rx="6" fill="#0c4a6e" />
-            <text x="55" y="95" fill="#bae6fd" fontSize="11" fontFamily="monospace">[0] &rarr; Barrackpore (len=3)</text>
-            <text x="55" y="130" fill="#bae6fd" fontSize="11" fontFamily="monospace">[1] &rarr; Naihati (len=2)</text>
-            <text x="55" y="165" fill="#bae6fd" fontSize="11" fontFamily="monospace">[2] &rarr; Shyamnagar (len=4)</text>
-            <text x="55" y="200" fill="#bae6fd" fontSize="11" fontFamily="monospace">[3] &rarr; Ichapur (len=1)</text>
+            <text x="55" y="95" fill="#bae6fd" fontSize="11" fontFamily="monospace">[0] → Barrackpore (len=3)</text>
+            <text x="55" y="130" fill="#bae6fd" fontSize="11" fontFamily="monospace">[1] → Naihati (len=2)</text>
+            <text x="55" y="165" fill="#bae6fd" fontSize="11" fontFamily="monospace">[2] → Shyamnagar (len=4)</text>
+            <text x="55" y="200" fill="#bae6fd" fontSize="11" fontFamily="monospace">[3] → Ichapur (len=1)</text>
 
             {/* Row 1: 3 Elements */}
             <rect x="290" y="30" width="400" height="45" rx="8" fill="url(#gradJgRow1)" opacity="0.9" />

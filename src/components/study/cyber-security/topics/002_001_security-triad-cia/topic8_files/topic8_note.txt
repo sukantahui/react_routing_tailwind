@@ -19,7 +19,7 @@ comply—they route around the barriers.
 This gives rise to:
   1. Security Fatigue (mental exhaustion leading to indiscriminate clicking).
   2. Shadow IT (unauthorized personal cloud drives, messaging apps, and USB drives).
-  3. Predictable Password Rotations (e.g., 'Kolkata#2025' -> 'Kolkata#2026!').
+  3. Predictable Password Rotations (e.g., 'Kolkata#2025' → 'Kolkata#2026!').
   4. Workstation Lockout Bypass (physical mouse-wigglers, taped door latches).
 
 The contemporary mandate for Cyber Security Architects is to build "Frictionless 
@@ -62,7 +62,7 @@ B. Symptoms in the Enterprise:
    +-----------------------+---------------------------------------------------+---------------------------------------------+
    | Security Friction     | Human Coping Mechanism                            | Resulting Vulnerability                     |
    +-----------------------+---------------------------------------------------+---------------------------------------------+
-   | 90-Day Password Reset | User increments trailing digit (Pass#1 -> Pass#2) | Trivial pattern prediction by attackers     |
+   | 90-Day Password Reset | User increments trailing digit (Pass#1 → Pass#2) | Trivial pattern prediction by attackers     |
    | 2-Minute Screen Lock  | User inserts unauthorized USB mouse jiggler       | Physical hardware tampering & malware risk  |
    | 5 MB Email Attachment | User uploads files to personal unmonitored cloud  | Shadow IT, data leakage outside enterprise  |
    | 20+ Daily MFA Prompts | User reflexively hits 'Approve' (MFA Fatigue)     | Push notification bombing compromise        |

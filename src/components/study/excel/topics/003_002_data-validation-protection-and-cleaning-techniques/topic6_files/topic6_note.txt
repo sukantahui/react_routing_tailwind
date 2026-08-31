@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Formula Stepping: Formulas > Evaluate Formula (Alt + M + V) -> Step In / Step Out -> Evaluate (Space / Enter)
+Formula Stepping: Formulas > Evaluate Formula (Alt + M + V) → Step In / Step Out → Evaluate (Space / Enter)
 
 PRIMARY CONCEPT:
 Deconstructing and debugging complex nested formulas step-by-step using the Evaluate Formula tool to pinpoint the exact sub-expression causing calculation errors
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 When a complex nested formula returns #VALUE! or #N/A, do not rewrite it from scratch! Press Alt + M + V (Evaluate Formula) and step through it. Excel will show you the exact broken token in seconds.
 
 COMMON TRAPS TO AVOID:
-- Evaluating Volatile Functions Repeatedly: Stepping through formulas containing volatile functions (TODAY, NOW, RAND) causes values to update dynamically during evaluation. -> Fix: Be aware that volatile timestamps refresh during evaluation.
-- Stepping into External Unopened Workbooks: Stepping into formula links referencing closed external files causes dialog freezing. -> Fix: Open all referenced external workbooks prior to launching Evaluate Formula.
-- Rushing Through Evaluation Steps: Rapidly pressing Enter passes the buggy sub-expression without identifying the error source. -> Fix: Carefully inspect the underlined token before each click.
+- Evaluating Volatile Functions Repeatedly: Stepping through formulas containing volatile functions (TODAY, NOW, RAND) causes values to update dynamically during evaluation. → Fix: Be aware that volatile timestamps refresh during evaluation.
+- Stepping into External Unopened Workbooks: Stepping into formula links referencing closed external files causes dialog freezing. → Fix: Open all referenced external workbooks prior to launching Evaluate Formula.
+- Rushing Through Evaluation Steps: Rapidly pressing Enter passes the buggy sub-expression without identifying the error source. → Fix: Carefully inspect the underlined token before each click.
 ================================================================================

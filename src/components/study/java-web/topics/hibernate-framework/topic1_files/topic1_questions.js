@@ -104,7 +104,7 @@ const questions = [
     explanation: "This allows running custom SQL or stored procedures while still participating in the same transaction. Also unwrap(Connection.class) may work with certain configurations.",
     hint: "Be careful not to close the connection manually – Hibernate manages it.",
     level: "expert",
-    codeExample: "session.doWork(connection -> {\n    PreparedStatement st = connection.prepareStatement(\"...\");\n    st.execute();\n});"
+    codeExample: "session.doWork(connection → {\n    PreparedStatement st = connection.prepareStatement(\"...\");\n    st.execute();\n});"
   },
   {
     question: "What is the difference between Hibernate's JPA EntityManager and Session?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "This pattern ties session lifetime to request scope, avoiding LazyInitializationException when rendering views. However, it can cause N+1 queries if not careful.",
     hint: "Spring's OpenSessionInViewFilter implements this pattern.",
     level: "expert",
-    codeExample: "// Filter: open session -> process request -> close session"
+    codeExample: "// Filter: open session → process request → close session"
   },
   {
     question: "What are the differences between Hibernate 5 and 6 architecture?",
@@ -179,7 +179,7 @@ const questions = [
     codeExample: "session.setFlushMode(FlushMode.COMMIT); // no flush before queries"
   },
   {
-    question: "What is the lifecycle of a Session? Open -> ... -> Close. What operations are illegal after close?",
+    question: "What is the lifecycle of a Session? Open → ... → Close. What operations are illegal after close?",
     shortAnswer: "After close, any operation using the session throws IllegalStateException. You cannot fetch, update, or refresh entities.",
     explanation: "Closed session cannot be reused. Any lazily loaded associations after close cause LazyInitializationException.",
     hint: "Always check session.isOpen() before using.",

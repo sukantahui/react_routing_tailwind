@@ -83,7 +83,7 @@ const Topic1 = () => {
             Module 005_004 · Modular Graphics with Functions · Topic 1
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
             Parameterized Graphics: Position, Scale, Color & Rotation
           </h1>
 

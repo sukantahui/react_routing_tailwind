@@ -76,7 +76,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Flattening 2D Tables into 1D Vertical Vectors with TOCOL
           </h1>
 
@@ -194,7 +194,7 @@ export default function Topic1() {
                 Use this setting when each row represents a complete entity whose attributes must stay grouped in sequence.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono">
-                Order: (R1,C1) &rarr; (R1,C2) &rarr; (R2,C1) &rarr; (R2,C2)
+                Order: (R1,C1) → (R1,C2) → (R2,C1) → (R2,C2)
               </div>
             </div>
 
@@ -208,7 +208,7 @@ export default function Topic1() {
                 This is essential for chronological quarterly and monthly time-series unpivoting.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono">
-                Order: (R1,C1) &rarr; (R2,C1) &rarr; (R1,C2) &rarr; (R2,C2)
+                Order: (R1,C1) → (R2,C1) → (R1,C2) → (R2,C2)
               </div>
             </div>
           </div>
@@ -393,7 +393,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_TOCOL"
+            sheetName="EX1702"
             title="Regional Quarterly Sales Dataset (Barrackpore & Kolkata Suburbs)"
             rowsPerPage={15}
             showSheetSelector={true}
@@ -432,7 +432,7 @@ export default function Topic1() {
                 Using <code className="text-amber-300 font-mono">=TOCOL(B2:E26, 1)</code>, Swadeep flattens all 100 cells into an active 94-record vertical vector in 1 formula cell.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Formula: =TOCOL(B2:E26, 1) &rarr; Output: 94 Active Revenue Entries
+                Formula: =TOCOL(B2:E26, 1) → Output: 94 Active Revenue Entries
               </div>
             </div>
 
@@ -450,7 +450,7 @@ export default function Topic1() {
                 She constructs a clean master faculty list using <code className="text-amber-300 font-mono">=SORT(UNIQUE(TOCOL(C3:G8, 1)))</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =SORT(UNIQUE(TOCOL(C3:G8, 1))) &rarr; 12 Distinct Mentors
+                Formula: =SORT(UNIQUE(TOCOL(C3:G8, 1))) → 12 Distinct Mentors
               </div>
             </div>
 
@@ -468,7 +468,7 @@ export default function Topic1() {
                 She writes <code className="text-amber-300 font-mono">=TOCOL(TaxGrid, 3)</code> to strip both errors and blanks simultaneously.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =TOCOL(TaxGrid, 3) &rarr; Zero Formula Errors in Audit Ledger
+                Formula: =TOCOL(TaxGrid, 3) → Zero Formula Errors in Audit Ledger
               </div>
             </div>
 
@@ -486,7 +486,7 @@ export default function Topic1() {
                 Setting <code className="text-amber-300 font-mono">scan_by_column = TRUE</code>: <code className="text-amber-300 font-mono">=TOCOL(QtrRevenueMatrix, 1, TRUE)</code> ensures Q1 across all branches is processed before Q2, preserving time-series continuity.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =TOCOL(B2:E26, 1, TRUE) &rarr; Sequential Chronological Vector
+                Formula: =TOCOL(B2:E26, 1, TRUE) → Sequential Chronological Vector
               </div>
             </div>
           </div>
@@ -593,7 +593,7 @@ export default function Topic1() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Cells below anchor cell are occupied by static data or merged cells.</td>
-                  <td className="py-3 px-4 text-slate-400">Click the error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click the error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear contents of obstructing cells or relocate anchor formula.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -642,7 +642,7 @@ export default function Topic1() {
                 <span>Prevent Double Computation</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                When filtering TOCOL outputs, define a variable with LET to avoid flattening the array twice: <code className="text-amber-300 font-mono">=LET(v, TOCOL(Data, 1), FILTER(v, v&gt;50000))</code>.
+                When filtering TOCOL outputs, define a variable with LET to avoid flattening the array twice: <code className="text-amber-300 font-mono">=LET(v, TOCOL(Data, 1), FILTER(v, v>50000))</code>.
               </p>
             </div>
 
@@ -698,7 +698,7 @@ export default function Topic1() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Reflect on formula blanks:</strong> If a cell in your 2D table contains <code className="text-sky-300 font-mono">=IF(A1&gt;0, A1, "")</code>, why does <code className="text-amber-300 font-mono">TOCOL(Range, 1)</code> still return the empty text string? How does Excel distinguish a genuine empty cell from a zero-length string?
+                <strong>Reflect on formula blanks:</strong> If a cell in your 2D table contains <code className="text-sky-300 font-mono">=IF(A1>0, A1, "")</code>, why does <code className="text-amber-300 font-mono">TOCOL(Range, 1)</code> still return the empty text string? How does Excel distinguish a genuine empty cell from a zero-length string?
               </p>
             </div>
 

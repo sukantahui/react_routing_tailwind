@@ -28,11 +28,11 @@ const Topic8 = () => {
   // Compute D Flip-Flop response when D or CLK changes
   useEffect(() => {
     if (!clkInput) {
-      // Clock is LOW (0) -> Memory Hold (No change to Q or Q_bar)
+      // Clock is LOW (0) → Memory Hold (No change to Q or Q_bar)
       return;
     }
 
-    // Clock is HIGH (1) -> Latch captures input D directly
+    // Clock is HIGH (1) → Latch captures input D directly
     if (dInput) {
       setQState(true);
       setQBarState(false);
@@ -92,7 +92,7 @@ const Topic8 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 8</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             D Flip-Flop (Data / Delay): Internal NAND Schematic, Characteristic Equation &amp; Register Storage
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -145,7 +145,7 @@ const Topic8 = () => {
                   In a Clocked SR Flip-Flop, if software or a hardware glitch ever caused <code className="text-rose-300 font-mono">S = 1</code> and <code className="text-rose-300 font-mono">R = 1</code> simultaneously, the chip crashed into metastability.
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  S = D &amp; R = D̄ &rarr; S · R = D · D̄ = 0 (ALWAYS SAFE!)
+                  S = D &amp; R = D̄ → S · R = D · D̄ = 0 (ALWAYS SAFE!)
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
                   By tying input <code className="text-teal-300 font-mono">D</code> directly to Set and its inverted signal <code className="text-teal-300 font-mono">D̄</code> to Reset, the invalid state becomes mathematically impossible!
@@ -600,29 +600,29 @@ const Topic8 = () => {
                   <table className="w-full text-left text-xs font-mono">
                     <thead className="bg-slate-900 border-b border-slate-800 text-slate-400">
                       <tr>
-                        <th className="p-2">Q(t) &rarr; Q(t+1)</th>
+                        <th className="p-2">Q(t) → Q(t+1)</th>
                         <th className="p-2">Required D Input</th>
                         <th className="p-2">Synthesis Meaning</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800/60 text-slate-300">
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">0 &rarr; 0</td>
+                        <td className="p-2 font-bold text-teal-400">0 → 0</td>
                         <td className="p-2 text-rose-400 font-bold">0</td>
                         <td className="p-2 text-slate-500">Hold 0 (Apply D=0)</td>
                       </tr>
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">0 &rarr; 1</td>
+                        <td className="p-2 font-bold text-teal-400">0 → 1</td>
                         <td className="p-2 text-emerald-400 font-bold">1</td>
                         <td className="p-2 text-slate-500">Set to 1 (Apply D=1)</td>
                       </tr>
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">1 &rarr; 0</td>
+                        <td className="p-2 font-bold text-teal-400">1 → 0</td>
                         <td className="p-2 text-rose-400 font-bold">0</td>
                         <td className="p-2 text-slate-500">Reset to 0 (Apply D=0)</td>
                       </tr>
                       <tr>
-                        <td className="p-2 font-bold text-teal-400">1 &rarr; 1</td>
+                        <td className="p-2 font-bold text-teal-400">1 → 1</td>
                         <td className="p-2 text-emerald-400 font-bold">1</td>
                         <td className="p-2 text-slate-500">Hold 1 (Apply D=1)</td>
                       </tr>

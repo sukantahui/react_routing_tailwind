@@ -6,8 +6,8 @@ const questions = [
     hint: "Think of an old master key that opens all historical sealed letters if it is ever stolen.",
     level: "basic",
     codeExample: `// TLS 1.2 (Static RSA) vs TLS 1.3 (PFS):
-TLS 1.2 Static RSA: Client encrypts pre-master secret with Server RSA PubKey -> NO FORWARD SECRECY!
-TLS 1.3 Modern:     Ephemeral X25519 Key Exchange + RSA-PSS Signature Authentication -> 100% FORWARD SECRECY!`
+TLS 1.2 Static RSA: Client encrypts pre-master secret with Server RSA PubKey → NO FORWARD SECRECY!
+TLS 1.3 Modern:     Ephemeral X25519 Key Exchange + RSA-PSS Signature Authentication → 100% FORWARD SECRECY!`
   },
   {
     question: "How does Perfect Forward Secrecy (PFS) protect enterprise network communications even after a private RSA key is compromised?",
@@ -16,10 +16,10 @@ TLS 1.3 Modern:     Ephemeral X25519 Key Exchange + RSA-PSS Signature Authentica
     hint: "Think of burning the physical conversation tape immediately after listening to it.",
     level: "moderate",
     codeExample: `// Perfect Forward Secrecy (PFS) in Action:
-Session #101: Ephemeral Key Pair A1, B1 -> Derived AES Key K1 -> Erased from RAM after handshake!
-Session #102: Ephemeral Key Pair A2, B2 -> Derived AES Key K2 -> Erased from RAM after handshake!
+Session #101: Ephemeral Key Pair A1, B1 → Derived AES Key K1 → Erased from RAM after handshake!
+Session #102: Ephemeral Key Pair A2, B2 → Derived AES Key K2 → Erased from RAM after handshake!
 Attacker Steals Server RSA Key in 2030:
-Outcome: K1 and K2 cannot be calculated -> ALL PAST SESSIONS REMAIN 100% SECURE!`
+Outcome: K1 and K2 cannot be calculated → ALL PAST SESSIONS REMAIN 100% SECURE!`
   },
   {
     question: "What is the difference between `rsa-sha2-256` / `rsa-sha2-512` (RFC 8332) and legacy `ssh-rsa` in modern OpenSSH?",
@@ -28,7 +28,7 @@ Outcome: K1 and K2 cannot be calculated -> ALL PAST SESSIONS REMAIN 100% SECURE!
     hint: "Recall how SHA-1 hash collisions forced SSH to upgrade to SHA-2 digests for RSA signatures.",
     level: "moderate",
     codeExample: `// OpenSSH Signature Algorithm Modernization:
-Legacy (Insecure):  ssh-rsa (Uses SHA-1 digest) -> DISABLED by default in OpenSSH 8.8+!
+Legacy (Insecure):  ssh-rsa (Uses SHA-1 digest) → DISABLED by default in OpenSSH 8.8+!
 Modern (Secure):    rsa-sha2-256 (Uses SHA-256 digest) / rsa-sha2-512 (Uses SHA-512 digest)
 Modern Alternative: ssh-ed25519 (Elliptic Curve Ed25519 - Gold Standard)`
   },
@@ -81,7 +81,7 @@ Cert Status: Good`
     codeExample: `// ROBOT Attack (CVE-2017-13099):
 Attacker sends: Adapted TLS 1.2 ClientKeyExchange messages with modified RSA ciphertext
 Server returns: Different TLS Alert timing for invalid PKCS#1 v1.5 padding
-Attacker:      Recovers Pre-Master Secret in ~100,000 requests -> Decrypts HTTPS Session!
+Attacker:      Recovers Pre-Master Secret in ~100,000 requests → Decrypts HTTPS Session!
 Permanent Fix: Upgrade to TLS 1.3 (Strictly bans RSA key exchange!)`
   },
   {
@@ -118,7 +118,7 @@ Host internal-db-*
     hint: "Remember the danger of orphaned SSH keys providing permanent backdoor root access.",
     level: "basic",
     codeExample: `// DPDP Act 2023 SSH Key Hygiene Policy:
-Risk: Orphaned Public Keys in ~/.ssh/authorized_keys -> Permanent Unauthorized Root Access!
+Risk: Orphaned Public Keys in ~/.ssh/authorized_keys → Permanent Unauthorized Root Access!
 Remediation: Deploy Short-Lived SSH Certificates (Vault / Teleport) with 8-Hour Lifespans.
 Penalty for Data Breach: Up to ₹250 Crores under DPDP Act Section 33!`
   },

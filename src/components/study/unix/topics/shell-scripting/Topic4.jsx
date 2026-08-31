@@ -19,7 +19,7 @@ const Topic4 = () => {
                             </svg>
                         </div>
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
                                 Topic 4: Shell Variables
                             </h1>
                             <p className="text-gray-600 dark:text-gray-400 mt-1">Local, Global, and Environment Variables - Understanding variable scope in shell scripting</p>

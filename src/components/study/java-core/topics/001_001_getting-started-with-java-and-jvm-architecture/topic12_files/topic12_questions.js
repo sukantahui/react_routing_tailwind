@@ -133,7 +133,7 @@ const questions = [
     explanation: "The Java compiler enforces strict case-sensitive matching between public class names and source file names.",
     hint: "Filename must match public class name.",
     level: "basic",
-    codeExample: "// File: test.java with public class Test -> Compile error!"
+    codeExample: "// File: test.java with public class Test → Compile error!"
   },
   {
     question: "What is the role of the `-sourcepath` flag in `javac`?",

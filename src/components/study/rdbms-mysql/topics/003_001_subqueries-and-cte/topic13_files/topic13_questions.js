@@ -12,7 +12,7 @@ const questions = [
     question: "How do you build a 4-stage chained CTE for an Executive Merit Scholarship pipeline?",
     shortAnswer: "Stage 1: Filter active students; Stage 2: Pre-aggregate department average scores; Stage 3: Apply `DENSE_RANK()` partitioned by department; Stage 4: Assign scholarship tiers in the main query.",
     explanation: "Demonstrates modular data processing pipelines.",
-    hint: "ActiveStudents -> DeptBenchmarks -> RankedStudents with DENSE_RANK -> Final Scholarship Tiers.",
+    hint: "ActiveStudents → DeptBenchmarks → RankedStudents with DENSE_RANK → Final Scholarship Tiers.",
     level: "moderate"
   },
   {
@@ -144,7 +144,7 @@ const questions = [
   {
     question: "Can you combine Window Functions and `GROUP BY` inside the same CTE block?",
     shortAnswer: "YES; the Window Function evaluates *after* the `GROUP BY` aggregation, allowing you to rank aggregated department metrics directly.",
-    explanation: "Evaluation order: WHERE -> GROUP BY -> HAVING -> WINDOW -> SELECT.",
+    explanation: "Evaluation order: WHERE → GROUP BY → HAVING → WINDOW → SELECT.",
     hint: "Yes, Window Functions evaluate after GROUP BY aggregations in the execution lifecycle.",
     level: "expert"
   },
@@ -194,7 +194,7 @@ const questions = [
     question: "How do you calculate Month-over-Month (MoM) student enrollment growth using chained CTEs?",
     shortAnswer: "CTE 1 aggregates monthly enrollments; CTE 2 uses `LAG()` to pull previous month counts; main query calculates growth percentage.",
     explanation: "Standard 3-stage business intelligence pipeline.",
-    hint: "MonthlyCounts CTE -> LaggedCounts with LAG() -> Final Growth % calculation.",
+    hint: "MonthlyCounts CTE → LaggedCounts with LAG() → Final Growth % calculation.",
     level: "moderate"
   },
   {

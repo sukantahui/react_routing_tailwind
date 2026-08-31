@@ -8,8 +8,8 @@ Mentor: Sukanta Hui (Barrackpore, West Bengal)
 
 1. HUFFMAN CODING PRINCIPLE
 --------------------------------------------------------------------------------
-Frequent characters get shorter binary codes (e.g., 'f' -> 0).
-Rare characters get longer binary codes (e.g., 'a' -> 1100).
+Frequent characters get shorter binary codes (e.g., 'f' → 0).
+Rare characters get longer binary codes (e.g., 'a' → 1100).
 Prefix-free property: No code is a prefix of another code!
 
 ================================================================================

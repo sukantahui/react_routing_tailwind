@@ -14,7 +14,7 @@ const questions = [
     question: "What is the Row Scanning Protocol in Step 5 of the Hungarian Method?",
     shortAnswer: "Examine each row sequentially from 1 to n; if a row contains EXACTLY ONE zero, enclose that zero in a square [0] (assign x_ij = 1) and immediately CROSS OUT (X) all other zeros in that SAME COLUMN.",
     explanation: "Crossing out other zeros in that column prevents assigning multiple workers to the same task.",
-    hint: "Find row with 1 zero -> Box it [0] -> Cross out (X) other zeros in its column.",
+    hint: "Find row with 1 zero → Box it [0] → Cross out (X) other zeros in its column.",
     level: "moderate",
     codeExample: "RowScan: if (rowZeros.length === 1) { assign(i, j); crossOutColZeros(j); }"
   },
@@ -22,7 +22,7 @@ const questions = [
     question: "What is the Column Scanning Protocol in Step 5 of the Hungarian Method?",
     shortAnswer: "Examine each column sequentially from 1 to n; if a column contains EXACTLY ONE zero, enclose that zero in a square [0] (assign x_ij = 1) and immediately CROSS OUT (X) all other zeros in that SAME ROW.",
     explanation: "Crossing out other zeros in that row prevents assigning multiple tasks to the same worker.",
-    hint: "Find column with 1 zero -> Box it [0] -> Cross out (X) other zeros in its row.",
+    hint: "Find column with 1 zero → Box it [0] → Cross out (X) other zeros in its row.",
     level: "moderate",
     codeExample: "ColScan: if (colZeros.length === 1) { assign(i, j); crossOutRowZeros(i); }"
   },
@@ -64,7 +64,7 @@ const questions = [
     explanation: "Crossing out Cell (2, 2) leaves Cell (2, 3) as the only remaining zero in Row 2.",
     hint: "Box (3, 2) and cross out (2, 2) in Column 2.",
     level: "moderate",
-    codeExample: "Assign(3, 2) -> CrossOut(2, 2)."
+    codeExample: "Assign(3, 2) → CrossOut(2, 2)."
   },
   {
     question: "What zero is assigned to Row 2 after Cell (2, 2) is crossed out?",
@@ -132,11 +132,11 @@ const questions = [
   },
   {
     question: "What is the ultimate golden rule of Selecting Independent Zeros?",
-    shortAnswer: "'Scan rows with 1 zero -> box [0] and cross out (X) column zeros; scan cols with 1 zero -> box [0] and cross out (X) row zeros; repeat until n zeros are boxed; pull rates from original matrix in ₹!'",
+    shortAnswer: "'Scan rows with 1 zero → box [0] and cross out (X) column zeros; scan cols with 1 zero → box [0] and cross out (X) row zeros; repeat until n zeros are boxed; pull rates from original matrix in ₹!'",
     explanation: "This complete rule captures all mechanics of Step 5.",
-    hint: "Scan rows with 1 zero -> box & cross out col; scan cols with 1 zero -> box & cross out row; sum original rates in ₹.",
+    hint: "Scan rows with 1 zero → box & cross out col; scan cols with 1 zero → box & cross out row; sum original rates in ₹.",
     level: "moderate",
-    codeExample: "Golden Rule: Scan1ZeroRows() -> CrossCol() -> Scan1ZeroCols() -> CrossRow() -> PullOrigRates(₹)."
+    codeExample: "Golden Rule: Scan1ZeroRows() → CrossCol() → Scan1ZeroCols() → CrossRow() → PullOrigRates(₹)."
   }
 ];
 

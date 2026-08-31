@@ -53,7 +53,7 @@ const questions = [
     codeExample: "=EXACT(C5, REGEXEXTRACT(D5, \"[A-Z]{5}\\d{4}[A-Z]\"))"
   },
   {
-    question: "How do you extract the State Name from a GSTIN's leading 2-digit state code (e.g. `19` &rarr; `West Bengal`) in 1 formula?",
+    question: "How do you extract the State Name from a GSTIN's leading 2-digit state code (e.g. `19` → `West Bengal`) in 1 formula?",
     shortAnswer: "=VLOOKUP(LEFT(GSTIN, 2), StateCodeTable, 2, FALSE)",
     explanation: "LEFT extracts the 2-digit state identifier and VLOOKUP returns state name.",
     hint: "VLOOKUP(LEFT(GSTIN, 2), StateTable, 2, FALSE).",
@@ -93,7 +93,7 @@ const questions = [
     codeExample: "=TEXTSPLIT(A2, \", \")"
   },
   {
-    question: "How do you mask the Customer Mobile Number for GDPR / DPDP compliance (e.g. `9876543210` &rarr; `XXXXXX3210`)?",
+    question: "How do you mask the Customer Mobile Number for GDPR / DPDP compliance (e.g. `9876543210` → `XXXXXX3210`)?",
     shortAnswer: "=REGEXREPLACE(Phone, \"^\\d{6}(\\d{4})$\", \"XXXXXX$1\")",
     explanation: "Masks the first 6 digits and retains the last 4 digits with capturing group $1.",
     hint: "REGEXREPLACE(Phone, \"^\\d{6}(\\d{4})$\", \"XXXXXX$1\").",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Clean master data guarantees that enterprise billing, tax filings, reconciliations, and CRM pipelines operate with zero audit defects!",
     hint: "Sanitization + Multi-Field Regex Validation + Dynamic Exception Flags + FILTER RAM Segregation = 100% Data Governance!",
     level: "expert",
-    codeExample: "Rule: Enterprise Customer Master &rarr; Build Live Formulaic Governance Pipelines!"
+    codeExample: "Rule: Enterprise Customer Master → Build Live Formulaic Governance Pipelines!"
   }
 ];
 

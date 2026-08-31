@@ -42,7 +42,7 @@ export default function Topic6() {
             State Mutation &amp; Pointer Semantics
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Parameter Re-assignment vs. Mutating Object Internal State
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -119,16 +119,16 @@ export default function Topic6() {
 
             <rect x="45" y="70" width="150" height="40" rx="6" fill="#1e293b" />
             <text x="120" y="88" fill="#ffffff" fontSize="9" textAnchor="middle">Caller: swadeep</text>
-            <text x="120" y="102" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x30A0 &rarr;</text>
+            <text x="120" y="102" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x30A0 →</text>
 
             <rect x="45" y="120" width="150" height="40" rx="6" fill="#1e293b" />
             <text x="120" y="138" fill="#ffffff" fontSize="9" textAnchor="middle">Method: account</text>
-            <text x="120" y="152" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x30A0 &rarr;</text>
+            <text x="120" y="152" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x30A0 →</text>
 
             <rect x="225" y="70" width="180" height="90" rx="8" fill="url(#gradMut)" />
             <text x="315" y="95" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">Shared Heap Object</text>
             <text x="315" y="118" fill="#d1fae5" fontSize="10" textAnchor="middle">Swadeep</text>
-            <text x="315" y="138" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹20,000 &rarr; ₹15,000</text>
+            <text x="315" y="138" fill="#fef08a" fontSize="11" fontWeight="bold" textAnchor="middle">₹20,000 → ₹15,000</text>
 
             <text x="225" y="195" fill="#a7f3d0" fontSize="10" textAnchor="middle">Dereferences pointer and mutates Heap!</text>
             <text x="225" y="215" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">Caller reflects the discounted fee!</text>
@@ -139,7 +139,7 @@ export default function Topic6() {
 
             <rect x="465" y="70" width="150" height="40" rx="6" fill="#1e293b" />
             <text x="540" y="88" fill="#ffffff" fontSize="9" textAnchor="middle">Caller: tuhina</text>
-            <text x="540" y="102" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x70C0 &rarr;</text>
+            <text x="540" y="102" fill="#10b981" fontSize="9" fontFamily="monospace" textAnchor="middle">ptr: 0x70C0 →</text>
 
             <rect x="465" y="120" width="150" height="40" rx="6" fill="#1e293b" />
             <text x="540" y="138" fill="#ffffff" fontSize="9" textAnchor="middle">Method: account</text>

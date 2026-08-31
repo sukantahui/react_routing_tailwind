@@ -10,15 +10,15 @@ const questions = [
     explanation: "Provides visual taxonomy and operational structure for scalable BI models.",
     hint: "Structures dozens of queries into logical folders like Parameters, Functions, Staging, and Facts.",
     level: "basic",
-    codeExample: "Folder hierarchy: 01_Parameters &rarr; 02_Functions &rarr; 03_Staging &rarr; 04_DataModel"
+    codeExample: "Folder hierarchy: 01_Parameters → 02_Functions → 03_Staging → 04_DataModel"
   },
   {
     question: "How do you create a Query Group (Folder) in the Power Query Editor UI?",
     shortAnswer: "In the Queries pane on the left, right-click any blank area or existing query and select 'New Group...', assign a folder name and optional description.",
     explanation: "Standard UI query organization method.",
-    hint: "Right-click Queries pane &rarr; New Group.",
+    hint: "Right-click Queries pane → New Group.",
     level: "basic",
-    codeExample: "Right-click Queries Pane &rarr; 'New Group...' &rarr; Name: '01_Staging_Queries'"
+    codeExample: "Right-click Queries Pane → 'New Group...' → Name: '01_Staging_Queries'"
   },
   {
     question: "What is the industry-standard folder numbering convention for enterprise Power Query models?",
@@ -56,7 +56,7 @@ const questions = [
     question: "How do you add step-level descriptions in the Applied Steps pane?",
     shortAnswer: "Right-click any step in the Applied Steps list, select 'Properties...', and enter a clear description in the Description text box; a visual information tooltip icon will appear beside the step.",
     explanation: "Step-level descriptions document why specific filtering or transformation logic was chosen.",
-    hint: "Right-click step &rarr; Properties &rarr; Description.",
+    hint: "Right-click step → Properties → Description.",
     level: "basic",
     codeExample: "Step Properties: 'Filters out pre-GST transactions prior to July 1, 2017.'"
   },
@@ -74,7 +74,7 @@ const questions = [
     explanation: "Staging queries act purely as ETL pipeline processors, loading only the final curated models.",
     hint: "Uncheck 'Enable Load' so intermediate tables don't clutter the report canvas.",
     level: "basic",
-    codeExample: "Staging_Raw_Sales &rarr; Uncheck 'Enable Load' (Italicized query name in Queries pane)"
+    codeExample: "Staging_Raw_Sales → Uncheck 'Enable Load' (Italicized query name in Queries pane)"
   },
   {
     question: "How do you identify non-loading staging queries in the Queries pane?",
@@ -90,7 +90,7 @@ const questions = [
     explanation: "Kimball dimensional modeling naming conventions.",
     hint: "Use `stg_` for staging, `Dim_` for dimensions, and `Fact_` for transactional tables.",
     level: "moderate",
-    codeExample: "stg_ERP_Extract &rarr; Dim_Branch, Fact_Revenue"
+    codeExample: "stg_ERP_Extract → Dim_Branch, Fact_Revenue"
   },
   {
     question: "How do query parameters help in organizing environment configurations (Dev, Test, Prod)?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "Centralizes environment variables without editing individual M scripts.",
     hint: "Central parameter values change source servers across all queries simultaneously.",
     level: "moderate",
-    codeExample: "Sql.Database(pServerName, pDatabaseName) &rarr; Switch pServerName from 'DEV-SRV' to 'PROD-SRV'"
+    codeExample: "Sql.Database(pServerName, pDatabaseName) → Switch pServerName from 'DEV-SRV' to 'PROD-SRV'"
   },
   {
     question: "How do you organize reusable custom M functions in enterprise environments?",
@@ -110,11 +110,11 @@ const questions = [
   },
   {
     question: "What is Query Dependency View in Power Query Editor?",
-    shortAnswer: "A visual architectural DAG (Directed Acyclic Graph) diagram accessible via `View &rarr; Query Dependencies` showing how queries, parameters, staging steps, and data sources connect together.",
+    shortAnswer: "A visual architectural DAG (Directed Acyclic Graph) diagram accessible via `View → Query Dependencies` showing how queries, parameters, staging steps, and data sources connect together.",
     explanation: "Provides high-level topological visualization of the entire ETL lineage.",
-    hint: "View &rarr; Query Dependencies displays the graphical data lineage tree.",
+    hint: "View → Query Dependencies displays the graphical data lineage tree.",
     level: "basic",
-    codeExample: "View &rarr; Query Dependencies &rarr; Visual DAG graph of all sources, staging, and facts."
+    codeExample: "View → Query Dependencies → Visual DAG graph of all sources, staging, and facts."
   },
   {
     question: "How does Query Dependency View assist during performance optimization and debugging?",
@@ -154,7 +154,7 @@ const questions = [
     explanation: "Cognitive overload and maintenance hazards in unorganized projects.",
     hint: "Lack of structure leads to accidental edits and maintenance chaos.",
     level: "basic",
-    codeExample: "50 flat queries &rarr; Refactor into 5 structured numbered groups."
+    codeExample: "50 flat queries → Refactor into 5 structured numbered groups."
   },
   {
     question: "How do you enforce consistent datetime formatting across all enterprise queries?",
@@ -178,7 +178,7 @@ const questions = [
     explanation: "Hierarchical sub-grouping isolates branch-specific quirks before consolidation.",
     hint: "Stage each branch separately in a subfolder before merging into the central Fact table.",
     level: "moderate",
-    codeExample: "Staging/Branches: stg_Barrackpore, stg_Shyamnagar &rarr; Facts: Fact_Sales"
+    codeExample: "Staging/Branches: stg_Barrackpore, stg_Shyamnagar → Facts: Fact_Sales"
   },
   {
     question: "How does organizing queries into Dataflows improve enterprise report governance?",
@@ -186,7 +186,7 @@ const questions = [
     explanation: "Single version of the truth across the entire enterprise reporting ecosystem.",
     hint: "Dataflows host shared cloud ETL entities consumed by multiple reports.",
     level: "advanced",
-    codeExample: "Power BI Dataflow (Cloud M ETL) &rarr; Model 1, Model 2, Model 3"
+    codeExample: "Power BI Dataflow (Cloud M ETL) → Model 1, Model 2, Model 3"
   },
   {
     question: "What is the benefit of keeping the Advanced Editor M script formatted with consistent indentation and variable naming?",
@@ -202,13 +202,13 @@ const questions = [
     explanation: "Graceful query lifecycle retirement without breaking dependent assets.",
     hint: "Archive in a `99_Deprecated` folder with clear retirement notices.",
     level: "moderate",
-    codeExample: "Folder: 99_Deprecated_Queries &rarr; stg_OldSales_RetireDec2026 (Enable Load: Off)"
+    codeExample: "Folder: 99_Deprecated_Queries → stg_OldSales_RetireDec2026 (Enable Load: Off)"
   },
   {
     question: "Can Query Groups be nested in Power Query Editor?",
-    shortAnswer: "Yes; you can create sub-groups inside parent groups (e.g. `03_Staging &rarr; ERP_Extracts`, `03_Staging &rarr; FlatFiles`) for deep hierarchical structure.",
+    shortAnswer: "Yes; you can create sub-groups inside parent groups (e.g. `03_Staging → ERP_Extracts`, `03_Staging → FlatFiles`) for deep hierarchical structure.",
     explanation: "Supports multi-tier folder taxonomy.",
-    hint: "Right-click an existing group &rarr; New Group to create a nested subfolder.",
+    hint: "Right-click an existing group → New Group to create a nested subfolder.",
     level: "basic",
     codeExample: "03_Staging / 01_SQL_Databases, 03_Staging / 02_REST_APIs"
   },

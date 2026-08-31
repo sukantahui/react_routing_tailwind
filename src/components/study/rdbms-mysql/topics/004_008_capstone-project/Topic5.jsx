@@ -115,7 +115,7 @@ IGNORE 1 ROWS
             Topic 5 of 11
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Phase 4: Synthetic Seed Data Generation (100,000+ Realistic Records)
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

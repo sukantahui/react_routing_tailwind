@@ -130,7 +130,7 @@ if (ip_request_rate > 50_req_per_sec) {
     question: "In distributed database design, how does PACELC theorem extend the CAP theorem regarding latency and consistency trade-offs during normal (non-partitioned) operations?",
     shortAnswer: "PACELC states: If there is a Partition (P), choose Availability (A) or Consistency (C); Else (E), choose Latency (L) or Consistency (C).",
     explanation: "Developed by Daniel Abadi, PACELC recognizes that network partitions are rare, but trade-offs occur 100% of the time. Even when the network is completely healthy (Else), an architect must choose between Latency (L - returning fast responses before replicating to all nodes) and Consistency/Integrity (C - waiting for all distributed replicas to acknowledge write before responding).",
-    hint: "Remember the mnemonic: If Partition -> A or C; Else -> Latency or Consistency.",
+    hint: "Remember the mnemonic: If Partition → A or C; Else → Latency or Consistency.",
     level: "expert",
     codeExample: `// PACELC Classification Examples:
 MongoDB   ==> PC/EC (Prioritizes Consistency during partition, Consistency in normal operation)
@@ -155,7 +155,7 @@ DB_Disk_IO_Overhead = "+12% query latency during snapshot freeze";`
     level: "expert",
     codeExample: `// mTLS Trade-Off Matrix:
 Security_Gain = "100% encryption between microservices + cryptographic identity";
-Observability_Cost = "Standard Wireshark/SPAN ports blinded -> Requires Envoy Sidecar Proxy (+15MB RAM per pod)";`
+Observability_Cost = "Standard Wireshark/SPAN ports blinded → Requires Envoy Sidecar Proxy (+15MB RAM per pod)";`
   },
   {
     question: "In e-commerce flash sales (e.g., Flipkart Big Billion Days or Jadavpur hub logistics), what trade-off is made between inventory lock Integrity and checkout Availability?",
@@ -288,12 +288,12 @@ Utility         = PRESERVED FOR NONE (Neither party can use cleartext);`
     hint: "Think about booking a flight and hotel: if hotel booking fails, the system automatically cancels the flight ticket retroactively.",
     level: "expert",
     codeExample: `// Saga Compensating Workflow:
-1. Reserve_Flight()    --> SUCCESS
-2. Charge_CreditCard() --> SUCCESS
-3. Book_Hotel()        --> FAILED (No rooms)
+1. Reserve_Flight()    → SUCCESS
+2. Charge_CreditCard() → SUCCESS
+3. Book_Hotel()        → FAILED (No rooms)
 // COMPENSATING ACTIONS:
-4. Refund_CreditCard() --> RESTORES BALANCE
-5. Cancel_Flight()     --> RESTORES SEAT`
+4. Refund_CreditCard() → RESTORES BALANCE
+5. Cancel_Flight()     → RESTORES SEAT`
   },
   {
     question: "What is the security trade-off of using 'Immutable Infrastructure' (destroying and recreating cloud VMs for every deployment) versus in-place patching?",
@@ -303,7 +303,7 @@ Utility         = PRESERVED FOR NONE (Neither party can use cleartext);`
     level: "moderate",
     codeExample: `// Immutable Infrastructure Pipeline:
 // Instead of: ssh admin@production-server && sudo apt-get upgrade (Vulnerable to drift)
-// Enforce: Packer build new AMI -> Automated Vulnerability Scan -> Terraform Blue/Green Rollout -> Terminate Old Fleet`
+// Enforce: Packer build new AMI → Automated Vulnerability Scan → Terraform Blue/Green Rollout → Terminate Old Fleet`
   },
   {
     question: "Why do Content Delivery Networks (CDNs) cache static web assets at the edge without querying the origin server's authorization database on every request?",

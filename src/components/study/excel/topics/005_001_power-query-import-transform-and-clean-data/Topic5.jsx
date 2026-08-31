@@ -76,7 +76,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Filtering Rows, Sorting Columns &amp; Removing Duplicates at Scale
           </h1>
 
@@ -125,7 +125,7 @@ export default function Topic5() {
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-sm sm:text-base text-teal-300 space-y-2">
             <span className="text-slate-500">// 1. Row Filter with Logical AND</span>
             <div className="text-white font-bold text-xs sm:text-sm">
-              {'= Table.SelectRows(Source, each [Amount_INR] &gt; 10000 and [Branch_City] = "Barrackpore")'}
+              {'= Table.SelectRows(Source, each [Amount_INR] > 10000 and [Branch_City] = "Barrackpore")'}
             </div>
             <span className="text-slate-500">// 2. Multi-Column Hierarchical Sort</span>
             <div className="text-white font-bold text-xs sm:text-sm">
@@ -151,7 +151,7 @@ export default function Topic5() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-teal-400 font-sans">Filter Rows</td>
                   <td className="py-3 px-4 text-teal-300">Table.SelectRows</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">each [Col] &gt; 10000</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">each [Col] > 10000</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Purges non-compliant rows in memory; folds to SQL WHERE.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -204,7 +204,7 @@ export default function Topic5() {
                 The server filters 10 million rows down to 5,000 before sending a single byte across the network!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-teal-300">
-                M Filter &rarr; Server SQL: WHERE [Date] &gt;= '2026-01-01'
+                M Filter → Server SQL: WHERE [Date] >= '2026-01-01'
               </div>
             </div>
 
@@ -228,7 +228,7 @@ export default function Topic5() {
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed">
               During statutory year-end audits, select the <code className="text-rose-400 font-mono">Invoice_Number</code> column 
-              and click <strong>Home Tab &rarr; Keep Rows &rarr; Keep Duplicates</strong>. 
+              and click <strong>Home Tab → Keep Rows → Keep Duplicates</strong>. 
               This instantly surfaces all duplicate billing submissions, invoice number collisions, and fraudulent double-payments in seconds!
             </p>
           </div>
@@ -277,7 +277,7 @@ export default function Topic5() {
                 <text x="8" y="82" fill="#FCA5A5">TXN-101 | Swadeep | ₹45,000 (Dup)</text>
 
                 <rect y="96" width="200" height="28" fill="#1E293B" />
-                <text x="8" y="114" fill="#94A3B8">TXN-104 | Susmita | ₹4,500 (&lt;10k)</text>
+                <text x="8" y="114" fill="#94A3B8">TXN-104 | Susmita | ₹4,500 (<10k)</text>
               </g>
 
               <rect x="35" y="225" width="200" height="55" rx="6" fill="#134E4A" stroke="#14B8A6" />
@@ -297,7 +297,7 @@ export default function Topic5() {
 
               <g transform="translate(340, 70)" fontSize="8.5" fontFamily="sans-serif">
                 <rect width="220" height="32" rx="4" fill="#134E4A" stroke="#14B8A6" />
-                <text x="10" y="20" fill="#5EEAD4" fontWeight="bold">1. Table.SelectRows ([Amount] &gt; 10000)</text>
+                <text x="10" y="20" fill="#5EEAD4" fontWeight="bold">1. Table.SelectRows ([Amount] > 10000)</text>
 
                 <rect y="38" width="220" height="32" rx="4" fill="#0369A1" fillOpacity="0.3" stroke="#38BDF8" />
                 <text x="10" y="58" fill="#BAE6FD" fontWeight="bold">2. Table.Sort (Date Descending)</text>
@@ -367,7 +367,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Filter_Sort_Dedup"
+            sheetName="EX2006"
             title="Filtering & Deduplication Pipeline (Txn ID, Customer Name, Branch City, Amount INR, Is Duplicate, Filter Status)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -406,7 +406,7 @@ export default function Topic5() {
                 he catches 18 duplicate submissions worth ₹ 1,450,000 before payment disbursement!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Keep Duplicates &rarr; Saved ₹ 1.45M in Double Payments
+                Keep Duplicates → Saved ₹ 1.45M in Double Payments
               </div>
             </div>
 
@@ -425,7 +425,7 @@ export default function Topic5() {
                 allowing the SQL server to stream only 12,000 rows across the network instead of 4 million!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Native SQL Query Folding &rarr; 99% Bandwidth Reduction
+                Native SQL Query Folding → 99% Bandwidth Reduction
               </div>
             </div>
 
@@ -444,7 +444,7 @@ export default function Topic5() {
                 building a 100% accurate CRM dimension table.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Table.Buffer &rarr; Locks Latest Record per Customer
+                Table.Buffer → Locks Latest Record per Customer
               </div>
             </div>
 
@@ -463,7 +463,7 @@ export default function Topic5() {
                 eliminating accidental retry duplicates without deleting genuine repeat customer purchases.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Composite Key Dedup &rarr; Preserves Valid Repeat Sales
+                Composite Key Dedup → Preserves Valid Repeat Sales
               </div>
             </div>
           </div>
@@ -529,7 +529,7 @@ export default function Topic5() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 4: Select Composite Key &amp; Remove Duplicates</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Hold Ctrl and select your composite key columns &rarr; Right-click &rarr; <strong>Remove Duplicates</strong>.
+                  Hold Ctrl and select your composite key columns → Right-click → <strong>Remove Duplicates</strong>.
                 </p>
               </div>
             </div>

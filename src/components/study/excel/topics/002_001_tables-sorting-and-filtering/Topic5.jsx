@@ -68,18 +68,18 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Removing Duplicates & Unique Record Extraction Engine
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Master single-column and multi-column duplicate removal in Excel. Explore the Data -&gt; Remove Duplicates feature, case-insensitivity rules, leading/trailing space pitfalls, and dynamic array =UNIQUE() extraction.
+            Master single-column and multi-column duplicate removal in Excel. Explore the Data → Remove Duplicates feature, case-insensitivity rules, leading/trailing space pitfalls, and dynamic array =UNIQUE() extraction.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Deduplication:</strong> Data -&gt; Remove Duplicates (Alt + A + M)</span>
+              <span><strong>Deduplication:</strong> Data → Remove Duplicates (Alt + A + M)</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -300,7 +300,7 @@ export default function Topic5() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Data -&gt; Remove Duplicates -&gt; Select All Columns</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Data → Remove Duplicates → Select All Columns</div>
                 <div className="text-emerald-400 font-semibold">Result: Clean client registry.</div>
                 <div className="text-slate-400 text-[11px]">Selecting multiple columns enforces multi-key uniqueness.</div>
               </div>
@@ -366,7 +366,7 @@ export default function Topic5() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: TRIM() -&gt; Remove Duplicates</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: TRIM() → Remove Duplicates</div>
                 <div className="text-emerald-400 font-semibold">Result: 100% accurate SKU count.</div>
                 <div className="text-slate-400 text-[11px]">Hidden trailing spaces cause Excel to view identical text as unique.</div>
               </div>
@@ -391,7 +391,7 @@ export default function Topic5() {
               <div>
                 <h3 className="text-sm font-bold text-white">Backup Raw Data Worksheet</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Right-click worksheet tab -&gt; Move or Copy -&gt; Create a copy (Safeguard raw data).
+                  Right-click worksheet tab → Move or Copy → Create a copy (Safeguard raw data).
                 </p>
               </div>
             </div>
@@ -486,7 +486,7 @@ export default function Topic5() {
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
                 Alt + A + M
               </kbd>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Data -&gt; Remove Duplicates dialog instantly.</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Open Data → Remove Duplicates dialog instantly.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
               <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
@@ -549,7 +549,7 @@ export default function Topic5() {
           <Teacher
             topicName="Removing Duplicates & Unique Record Extraction Engine"
             noteTitle="Sukanta Hui's Master Mentor Guide"
-            mentorAdvice="Always duplicate your worksheet tab before running Data -&gt; Remove Duplicates! Remove Duplicates is a destructive operation. Keeping a raw backup sheet ensures you can verify deleted records against audit logs!"
+            mentorAdvice="Always duplicate your worksheet tab before running Data → Remove Duplicates! Remove Duplicates is a destructive operation. Keeping a raw backup sheet ensures you can verify deleted records against audit logs!"
             note="Master deduplication mechanics! Use TRIM() to clean hidden text spaces and leverage =UNIQUE() for live, non-destructive summary lists!"
           />
         </div>

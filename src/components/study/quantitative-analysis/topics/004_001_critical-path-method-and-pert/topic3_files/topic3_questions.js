@@ -62,7 +62,7 @@ const questions = [
     question: "What are the 4 procedural steps of Fulkerson's Node Numbering Algorithm?",
     shortAnswer: "1. Find the initial event (indegree = 0) and label it 1; 2. Delete all outgoing arrows from event 1; 3. Identify all newly created nodes with indegree = 0 and number them consecutively (2, 3, ...); 4. Repeat until the terminal sink node is numbered.",
     explanation: "Guarantees proper topological ordering across the entire network graph.",
-    hint: "Number start node 1 -> delete outgoing arrows -> number new indegree 0 nodes -> repeat.",
+    hint: "Number start node 1 → delete outgoing arrows → number new indegree 0 nodes → repeat.",
     level: "expert",
     codeExample: "FulkersonAlgorithm: while (unassignedNodes.length) { assignNextRank(); removeOutgoingEdges(); }"
   },
@@ -126,9 +126,9 @@ const questions = [
     question: "What is the ultimate golden rule of Event & Node Modeling in CPM/PERT?",
     shortAnswer: "'Events consume 0 time and ₹0 cost; apply Fulkerson's rule so i < j; compute E_j via Forward Pass (max) and L_i via Backward Pass (min); critical events satisfy E_i = L_i!'",
     explanation: "This complete rule captures all mechanics of event analysis.",
-    hint: "Events consume 0 time/cost -> Fulkerson i < j -> Forward Pass max -> Backward Pass min -> Slack = 0.",
+    hint: "Events consume 0 time/cost → Fulkerson i < j → Forward Pass max → Backward Pass min → Slack = 0.",
     level: "moderate",
-    codeExample: "GoldenRule: FulkersonNumbering() -> ForwardPassMax() -> BackwardPassMin() -> IsolateZeroSlack()."
+    codeExample: "GoldenRule: FulkersonNumbering() → ForwardPassMax() → BackwardPassMin() → IsolateZeroSlack()."
   }
 ];
 

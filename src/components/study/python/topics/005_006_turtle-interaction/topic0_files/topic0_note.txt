@@ -25,8 +25,8 @@
 3. FIRST-CLASS FUNCTIONS & CALLBACK RULES
 --------------------------------------------------------------------------------
 - Pass the function name WITHOUT parentheses:
-  `screen.onclick(my_function)`  -> CORRECT (Passes reference)
-  `screen.onclick(my_function())` -> BUG (Calls immediately and passes None)
+  `screen.onclick(my_function)`  → CORRECT (Passes reference)
+  `screen.onclick(my_function())` → BUG (Calls immediately and passes None)
 
 ================================================================================
   END OF NOTE - Coder & AccoTax Classroom Reference Series

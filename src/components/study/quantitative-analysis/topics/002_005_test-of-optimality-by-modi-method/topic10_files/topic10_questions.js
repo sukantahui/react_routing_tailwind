@@ -206,9 +206,9 @@ const questions = [
     question: "What is the ultimate golden rule for the Final Minimum Transportation Cost?",
     shortAnswer: "'Once all d_ij >= 0, compute Z* = Sum(c_ij * x_ij) in Indian Rupees (₹); verify using Strong Duality; present the dispatch manifest clearly!'",
     explanation: "This complete rule concludes the entire transportation optimization pipeline.",
-    hint: "Compute Z* in ₹ -> verify with Strong Duality -> present dispatch manifest.",
+    hint: "Compute Z* in ₹ → verify with Strong Duality → present dispatch manifest.",
     level: "moderate",
-    codeExample: "Golden Rule: CertifiedOptimal -> Compute Z* in ₹ -> Dual Audit -> Dispatch Manifest."
+    codeExample: "Golden Rule: CertifiedOptimal → Compute Z* in ₹ → Dual Audit → Dispatch Manifest."
   }
 ];
 

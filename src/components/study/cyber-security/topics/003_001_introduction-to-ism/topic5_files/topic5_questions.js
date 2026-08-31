@@ -6,9 +6,9 @@ const questions = [
     hint: "Think of a three-legged stool: cutting any one leg causes the entire stool to tip over.",
     level: "basic",
     codeExample: `// The PPT Golden Triangle Framework:
-[ People ]     -> Culture, Phishing Awareness, Role-Based Training, Executive Buy-in
-[ Process ]    -> ISO 27001 Policies, Change Control, Access Reviews, Incident Playbooks
-[ Technology ] -> Next-Gen Firewalls, EDR, AES-256 Encryption, SIEM, HSMs
+[ People ]     → Culture, Phishing Awareness, Role-Based Training, Executive Buy-in
+[ Process ]    → ISO 27001 Policies, Change Control, Access Reviews, Incident Playbooks
+[ Technology ] → Next-Gen Firewalls, EDR, AES-256 Encryption, SIEM, HSMs
 Resilience Rule: Enterprise Security = MIN(People, Process, Technology)!`
   },
   {
@@ -21,7 +21,7 @@ Resilience Rule: Enterprise Security = MIN(People, Process, Technology)!`
 Technology: ₹50 Lakh Next-Gen Firewall & SIEM deployed
 Process:    Zero documented alert playbooks; no change management
 Outcome:    Firewall logs attacker exfiltrating 500GB of customer records at 3:00 AM;
-            No process exists to alert the on-call engineer -> ₹250 Cr DPDP Breach!`
+            No process exists to alert the on-call engineer → ₹250 Cr DPDP Breach!`
   },
   {
     question: "What occurs in a 'Process-Heavy / Technology-Weak' security failure mode ('The Shelfware Trap')?",
@@ -32,7 +32,7 @@ Outcome:    Firewall logs attacker exfiltrating 500GB of customer records at 3:0
     codeExample: `// Process-Heavy / Technology-Weak Failure:
 Process:    250-page ISO 27001 manual requiring 5 physical signatures to deploy code
 Technology: Manual FTP deployment; no automated SAST/DAST or CI/CD scanning
-Outcome:    Developers bypass manual review to fix urgent bug -> Push unpatched SQL injection -> Core DB breached!`
+Outcome:    Developers bypass manual review to fix urgent bug → Push unpatched SQL injection → Core DB breached!`
   },
   {
     question: "What occurs in a 'People-Heavy / Process & Tech Weak' security failure mode?",
@@ -44,7 +44,7 @@ Outcome:    Developers bypass manual review to fix urgent bug -> Push unpatched 
 People:     100% Phishing training pass rate; staff never click malicious links
 Technology: Outdated signature antivirus; unsegmented flat network
 Outcome:    Attacker exploits zero-day vulnerability in public VPN gateway ->
-            Propagates ransomware laterally in seconds -> Staff powerless to stop it!`
+            Propagates ransomware laterally in seconds → Staff powerless to stop it!`
   },
   {
     question: "What is the four-tier hierarchy of security governance documentation in the 'Process' dimension?",
@@ -88,9 +88,9 @@ Organizational: ISO 27001 Policies + DPO Oversight + Staff Training (People & Pr
     hint: "Think of the complete journey of an employee entering, moving within, and exiting the company.",
     level: "basic",
     codeExample: `// JML Identity Lifecycle Process:
-1. Joiner: HR creates employee profile -> Automated provisioning of baseline Slack & Email
-2. Mover:  Promoted from QA to DevOps -> Old QA permissions REVOKED; DevOps IAM granted
-3. Leaver: Resignation confirmed -> Automated de-provisioning in < 15 mins (0 Orphan Accounts!)`
+1. Joiner: HR creates employee profile → Automated provisioning of baseline Slack & Email
+2. Mover:  Promoted from QA to DevOps → Old QA permissions REVOKED; DevOps IAM granted
+3. Leaver: Resignation confirmed → Automated de-provisioning in < 15 mins (0 Orphan Accounts!)`
   },
   {
     question: "What is the 'Maker-Checker' (Dual Authorization) principle in process governance, and how does it prevent financial fraud?",
@@ -144,8 +144,8 @@ UEBA Automated Action: Suspends session + Revokes OAuth token + Alerts SOC Tier 
     level: "expert",
     codeExample: `// The Master PPT Harmonic Equilibrium Formula:
 Resilience = 3 / ((1/People_Score) + (1/Process_Score) + (1/Tech_Score));
-Example: People=20, Process=90, Tech=95 -> Resilience = 43.8% (VULNERABLE!)
-Equilibrium: People=85, Process=85, Tech=85 -> Resilience = 85.0% (RESILIENT!)`
+Example: People=20, Process=90, Tech=95 → Resilience = 43.8% (VULNERABLE!)
+Equilibrium: People=85, Process=85, Tech=85 → Resilience = 85.0% (RESILIENT!)`
   }
 ];
 

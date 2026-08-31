@@ -32,15 +32,15 @@ const questions = [
     explanation: "Because ₹0 is smaller than any positive transportation cost, each row's previous minimum becomes its second-lowest cost, while the dummy column's own penalty is usually ₹0 (₹0 - ₹0 = ₹0).",
     hint: "In each row, 0 is the smallest element, so the previous smallest becomes the second smallest.",
     level: "expert",
-    codeExample: "Row costs: [₹6, ₹10, ₹14] + Dummy [₹0] -> New sorted: [₹0, ₹6, ₹10, ₹14] -> P_i = 6 - 0 = ₹6."
+    codeExample: "Row costs: [₹6, ₹10, ₹14] + Dummy [₹0] → New sorted: [₹0, ₹6, ₹10, ₹14] → P_i = 6 - 0 = ₹6."
   },
   {
     question: "Suppose Debangshu in Barrackpore has factory supplies [50, 70, 80] and destination demands [60, 50, 60]. Is the problem balanced? If not, what dummy is needed?",
     shortAnswer: "Total supply = 200 tons; Total demand = 170 tons. It is unbalanced with 30 tons excess supply. Add a Dummy Column with demand D_dummy = 30 tons and unit costs ₹0.",
     explanation: "Sum S_i = 50 + 70 + 80 = 200 tons. Sum D_j = 60 + 50 + 60 = 170 tons. Excess supply = 200 - 170 = 30 tons. A dummy destination D4 is added with demand 30 tons and costs [₹0, ₹0, ₹0]^T.",
-    hint: "200 - 170 = 30 excess supply -> Dummy column of 30.",
+    hint: "200 - 170 = 30 excess supply → Dummy column of 30.",
     level: "moderate",
-    codeExample: "Total S = 200; Total D = 170 -> Add Dummy Col D4 (Demand = 30, cost = ₹0)."
+    codeExample: "Total S = 200; Total D = 170 → Add Dummy Col D4 (Demand = 30, cost = ₹0)."
   },
   {
     question: "What is the physical managerial interpretation if 30 units are allocated to cell (S2, D_dummy) at the end of VAM?",
@@ -54,9 +54,9 @@ const questions = [
     question: "Suppose Mamata in Kolkata has factory supplies [60, 40] and destination demands [50, 40, 30]. Is the problem balanced? What dummy is needed?",
     shortAnswer: "Total supply = 100 boxes; Total demand = 120 boxes. Unbalanced with 20 boxes shortage. Add a Dummy Row with supply S_dummy = 20 boxes and unit costs ₹0.",
     explanation: "Sum S_i = 100, Sum D_j = 120. Shortage = 120 - 100 = 20 boxes. A dummy origin S3 is added with supply 20 boxes and costs [₹0, ₹0, ₹0].",
-    hint: "120 - 100 = 20 excess demand -> Dummy row of 20.",
+    hint: "120 - 100 = 20 excess demand → Dummy row of 20.",
     level: "moderate",
-    codeExample: "Total S = 100; Total D = 120 -> Add Dummy Row S3 (Supply = 20, cost = ₹0)."
+    codeExample: "Total S = 100; Total D = 120 → Add Dummy Row S3 (Supply = 20, cost = ₹0)."
   },
   {
     question: "What is the managerial meaning if 20 units are allocated to cell (S_dummy, D3) at the end of VAM?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "Just as dummy columns shift row penalties, dummy rows shift column penalties symmetrically.",
     hint: "Each column's minimum becomes 0, so penalty becomes old minimum.",
     level: "expert",
-    codeExample: "Col costs: [₹5, ₹9] + Dummy [₹0] -> P_j = 5 - 0 = ₹5."
+    codeExample: "Col costs: [₹5, ₹9] + Dummy [₹0] → P_j = 5 - 0 = ₹5."
   },
   {
     question: "Can a dummy line in VAM have non-zero unit costs (e.g. storage holding cost or stockout penalty)?",
@@ -120,13 +120,13 @@ const questions = [
     explanation: "Transportation simplex theory relies on exact conservation of flow (Sum S_i = Sum D_j). Without a dummy line, the algorithm breaks.",
     hint: "Flow conservation requires exact supply-demand balance.",
     level: "intermediate",
-    codeExample: "Infeasible: Sum(S) != Sum(D) -> Solver failure."
+    codeExample: "Infeasible: Sum(S) != Sum(D) → Solver failure."
   },
   {
     question: "Suppose Abhronila in Jadavpur has supplies [40, 60] and demands [30, 40, 50]. Total supply = 100, total demand = 120. Where should the dummy be placed?",
     shortAnswer: "Add a Dummy Row (S3) with supply 20 and costs [₹0, ₹0, ₹0].",
     explanation: "Demand exceeds supply by 20 units. A third row S3 is added with capacity 20 and zero unit costs.",
-    hint: "Shortage of 20 units in supply -> Add Dummy Row.",
+    hint: "Shortage of 20 units in supply → Add Dummy Row.",
     level: "moderate",
     codeExample: "Dummy Row S3: Supply = 20, costs = [0, 0, 0]."
   },
@@ -144,7 +144,7 @@ const questions = [
     explanation: "Real routes with large positive penalties represent urgent financial hazards; the dummy line has zero regret.",
     hint: "Zero penalty line can wait safely.",
     level: "moderate",
-    codeExample: "P_dummy = ₹0 -> Low priority for initial line selection."
+    codeExample: "P_dummy = ₹0 → Low priority for initial line selection."
   },
   {
     question: "When are allocations to the dummy line usually made during the VAM procedure?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This rule guarantees that every penalty calculation is mathematically sound from Step 1.",
     hint: "Balance first, compute penalties second.",
     level: "moderate",
-    codeExample: "Rule: Balance Check -> Add Dummy if needed -> Calculate VAM Penalties."
+    codeExample: "Rule: Balance Check → Add Dummy if needed → Calculate VAM Penalties."
   }
 ];
 

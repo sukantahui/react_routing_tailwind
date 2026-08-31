@@ -151,7 +151,7 @@ ORDER BY total_latency DESC LIMIT 5;`
     explanation: "A high examination-to-sent ratio is the definitive signature of a missing index.",
     hint: "High examined-to-sent ratio indicates missing index and inefficient row scanning.",
     level: "basic",
-    codeExample: `# Examined: 2,500,000  Sent: 1  -> Needs Index!
+    codeExample: `# Examined: 2,500,000  Sent: 1  → Needs Index!
 SELECT query, rows_examined_avg, rows_sent_avg 
 FROM sys.statement_analysis 
 ORDER BY (rows_examined_avg / (rows_sent_avg + 1)) DESC LIMIT 5;`

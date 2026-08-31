@@ -703,7 +703,7 @@ const Topic6 = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-blue-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-400 to-blue-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
                 useState Hook: React's State Foundation 🏗️
               </h1>
               <p className={clsx(
@@ -737,7 +737,7 @@ const Topic6 = () => {
               ? "bg-gradient-to-r from-gray-800 to-gray-700 shadow-2xl" 
               : "bg-gradient-to-r from-white to-sky-50 shadow-xl"
           )}>
-            <h2 className="text-4xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
               Meet useState: Your First React Hook 🎣
             </h2>
             <p className={clsx(

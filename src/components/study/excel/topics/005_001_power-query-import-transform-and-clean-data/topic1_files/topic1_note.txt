@@ -13,13 +13,13 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 • From File:
   - Excel.Workbook(File.Contents("path.xlsx"))
   - Csv.Document(File.Contents("path.csv"))
-  - Folder.Files("C:\Monthly_Sales\") -> Recursive directory stacking!
+  - Folder.Files("C:\Monthly_Sales\") → Recursive directory stacking!
 • From Database:
-  - Sql.Database("server", "db") -> Native Query Folding!
+  - Sql.Database("server", "db") → Native Query Folding!
   - Access.Database, PostgreSQL.Database, Oracle.Database
 • From Web & Cloud:
-  - Json.Document(Web.Contents("url")) -> REST APIs & Web Tables
-  - SharePoint.Tables -> Online M365 List sync
+  - Json.Document(Web.Contents("url")) → REST APIs & Web Tables
+  - SharePoint.Tables → Online M365 List sync
 • From Active Sheet:
   - Excel.CurrentWorkbook(){[Name="tbl_Name"]}[Content]
 

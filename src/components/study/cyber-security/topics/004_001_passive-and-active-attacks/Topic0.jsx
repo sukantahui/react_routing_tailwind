@@ -62,9 +62,9 @@ ssl_prefer_server_ciphers off;`
       mechanism:
         "Even when payloads are strongly encrypted with AES-256, the adversary analyzes packet timing intervals, burst volumes, and endpoint IP pairs to deduce military, commercial, or operational activity.",
       attackVectorCode: `// Statistical Burst Analyzer:
-// Inter-packet arrival time: [0.001s, 0.001s, 0.002s] -> Keystroke typing cadence identified
+// Inter-packet arrival time: [0.001s, 0.001s, 0.002s] → Keystroke typing cadence identified
 // Volume Surge: 120,000 pkts/min between Barrackpore Military Substation & Kolkata Command at 03:00 AM`,
-      realWorldPayload: "[Encrypted TLS 1.3 ApplicationData]\nSrc: 192.168.10.5:5432 -> Dst: 10.0.1.20:443\nLength: 1420 Bytes | Burst Duration: 45.2s (Inferred DB Dump)",
+      realWorldPayload: "[Encrypted TLS 1.3 ApplicationData]\nSrc: 192.168.10.5:5432 → Dst: 10.0.1.20:443\nLength: 1420 Bytes | Burst Duration: 45.2s (Inferred DB Dump)",
       countermeasure: "Traffic Padding (Continuous dummy packet injection), Constant-Rate Transmission, and Onion Routing (Tor).",
       countermeasureCode: `// Constant-Bitrate Dummy Packet Injector:
 def transmit_with_padding(payload, target_rate_bps=10000000):
@@ -86,7 +86,7 @@ def transmit_with_padding(payload, target_rate_bps=10000000):
       mechanism:
         "Adversary attaches a clip-on optical coupler that slightly curves the glass fiber core. Leaked light is focused onto a high-sensitivity photodiode receiver, cloning gigabit backbone data streams.",
       attackVectorCode: `// Optical Tapping Physics:
-// Light Ray Angle > Critical Angle -> Core Confinement broken -> Photon leakage
+// Light Ray Angle > Critical Angle → Core Confinement broken → Photon leakage
 // Attenuation Delta: -0.22 dB (Ignored by standard network monitoring alarms)`,
       realWorldPayload: "[Optical Bitstream Raw] 10 Gbps Ethernet Frame Cloned in Real-Time at Physical Fiber Sheath",
       countermeasure: "Optical Time-Domain Reflectometry (OTDR), Armored Conduit Enclosures, and Layer 2/3 Link-Level Encryption (MACsec / IPsec).",
@@ -117,7 +117,7 @@ function unsafeCompare(a, b) {
   }
   return true;
 }`,
-      realWorldPayload: "Probe: 'P' -> Time: 4.12ms | Probe: 'Pa' -> Time: 4.18ms | Probe: 'Pas' -> Time: 4.25ms (Key Leaked!)",
+      realWorldPayload: "Probe: 'P' → Time: 4.12ms | Probe: 'Pa' → Time: 4.18ms | Probe: 'Pas' → Time: 4.25ms (Key Leaked!)",
       countermeasure: "Constant-Time Cryptographic Primitives (crypto.timingSafeEqual), Hardware Masking, and Cache Flush Defenses.",
       countermeasureCode: `// Constant-Time Secure Comparison in Node.js / WebCrypto:
 const crypto = require('crypto');
@@ -195,7 +195,7 @@ ssl_verify_depth 2;`
 for i in {1..10}; do
   curl -X POST https://api.bank.in/transfer -d '{"cipher": "d8a7ef90bc..."}' -H "Content-Type: application/json"
 done`,
-      realWorldPayload: "Valid Ciphertext Captured at 10:00:01 AM -> Replayed at 10:00:05 AM, 10:00:10 AM, 10:00:15 AM...",
+      realWorldPayload: "Valid Ciphertext Captured at 10:00:01 AM → Replayed at 10:00:05 AM, 10:00:10 AM, 10:00:15 AM...",
       countermeasure: "Cryptographic Nonces (UUID), Monotonic Sequence Numbers, Synchronized Timestamps with strict 500ms sliding TTL windows.",
       countermeasureCode: `// Redis Distributed Anti-Replay Nonce Verification:
 async function verifyTransaction(nonce, timestamp, signature) {

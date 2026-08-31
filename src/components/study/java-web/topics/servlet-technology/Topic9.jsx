@@ -41,7 +41,7 @@ const Topic9 = () => {
       <div className="max-w-5xl mx-auto space-y-12">
         {/* Header */}
         <header className="text-center space-y-4 animate-slide-up">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-red-400 to-pink-500 bg-clip-text text-transparent">
             Asynchronous Servlets
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -188,7 +188,7 @@ const Topic9 = () => {
           />
         </section>
 
-        {/* <!-- web.xml configuration (alternative) --> */}
+        {/* <!-- web.xml configuration (alternative) → */}
         <section className="bg-gray-900/50 rounded-2xl p-6 border border-gray-800">
           <h2 className="text-2xl font-semibold text-red-400">📄 Configuring Async in web.xml</h2>
           <p className="mt-3 text-gray-300">If you prefer XML over annotations, add <code>&lt;async-supported&gt;true&lt;/async-supported&gt;</code> to servlet and filter definitions.</p>

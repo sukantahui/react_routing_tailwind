@@ -71,12 +71,12 @@ export default class Topic4 extends Component {
           <div className="mermaid">
 {`
 flowchart TD
-  A["Read gradeCode"] --> B{"gradeCode"}
-  B -->|A| C["Excellent"]
-  B -->|B| D["Very Good"]
-  B -->|C| E["Good"]
-  B -->|D| F["Needs Improvement"]
-  B -->|default| G["Invalid Grade"]
+  A["Read gradeCode"] → B{"gradeCode"}
+  B ──→|A| C["Excellent"]
+  B ──→|B| D["Very Good"]
+  B ──→|C| E["Good"]
+  B ──→|D| F["Needs Improvement"]
+  B ──→|default| G["Invalid Grade"]
 `}
           </div>
         </div>

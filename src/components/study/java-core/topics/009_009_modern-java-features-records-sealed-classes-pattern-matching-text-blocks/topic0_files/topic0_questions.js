@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "Java 17 (2021) and Java 21 (2023) represent recent LTS versions.",
     "hint": "Feature release every 6 months; LTS designated every 2 years.",
     "level": "Beginner",
-    "codeExample": "Java 17 (LTS) -> Java 21 (LTS) -> Java 25 (LTS)"
+    "codeExample": "Java 17 (LTS) → Java 21 (LTS) → Java 25 (LTS)"
   },
   {
     "question": "Why do enterprise organizations standardize primarily on LTS versions of Java?",

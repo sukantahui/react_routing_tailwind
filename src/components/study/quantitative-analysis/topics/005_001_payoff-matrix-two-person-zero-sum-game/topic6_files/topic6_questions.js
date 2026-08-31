@@ -6,7 +6,7 @@ const questions = [
     question: "What are the 4 fundamental steps to formulate any Game Theory Payoff Matrix from a real-world problem statement?",
     shortAnswer: "1. Identify the two competing players (Player A and Player B); 2. Define the discrete, exhaustive strategy sets for each player; 3. Calculate the net payoff a_ij in Indian Rupees (₹) for every joint strategy pair from Player A's perspective; 4. Assemble the m x n matrix and compute Row Minima and Column Maxima.",
     explanation: "Standard 4-step formulation pipeline in Operations Research.",
-    hint: "Identify players -> Define strategies -> Compute net payoffs in ₹ -> Assemble m x n matrix.",
+    hint: "Identify players → Define strategies → Compute net payoffs in ₹ → Assemble m x n matrix.",
     level: "moderate",
     codeExample: "FormulateGame = { Step1: 'Players', Step2: 'Strategies', Step3: 'PayoffsInRupees', Step4: 'MatrixAssembly' };"
   },
@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Formulating Game Matrices in Game Theory?",
     shortAnswer: "'Formulate games in 4 steps: identify players, define exhaustive strategies, compute net payoffs in Indian Rupees (₹) from Player A’s perspective, and assemble the m x n matrix; always verify Maximin <= Minimax to find equilibrium!'",
     explanation: "This complete rule captures all formulation principles.",
-    hint: "Players -> Strategies -> Net payoffs in ₹ -> Assemble m x n matrix -> Verify Maximin <= Minimax.",
+    hint: "Players → Strategies → Net payoffs in ₹ → Assemble m x n matrix → Verify Maximin <= Minimax.",
     level: "moderate",
-    codeExample: "GoldenRule: IdentifyPlayers() -> DefineStrategies() -> CalculateNetPayoff(₹) -> AssembleMatrix() -> ValidateEquilibrium()."
+    codeExample: "GoldenRule: IdentifyPlayers() → DefineStrategies() → CalculateNetPayoff(₹) → AssembleMatrix() → ValidateEquilibrium()."
   }
 ];
 

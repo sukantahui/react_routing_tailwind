@@ -71,7 +71,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Formatting and Visual Polish: Corporate Color Palettes, Callout Cards and Modern Dashboard Aesthetics
           </h1>
 
@@ -139,7 +139,7 @@ export default function Topic5() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Visual Hierarchy</td>
                   <td className="py-3 px-4 text-teal-400">Layout Flow</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Cognition</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Top-to-bottom, left-to-right reading order: KPI Cards &amp;rarr; Trend Charts &amp;rarr; Detail Tables.</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Top-to-bottom, left-to-right reading order: KPI Cards → Trend Charts → Detail Tables.</td>
                 </tr>
               </tbody>
             </table>
@@ -332,7 +332,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic5"
+            sheetName="Topic5"
             title="Module 1.4 - Formatting and Visual Polish: Corporate Color Palettes, Callout Cards and Modern Dashboard Aesthetics"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -567,7 +567,7 @@ export default function Topic5() {
               <div>
                 <h3 className="text-sm font-bold text-white">Optimize Gap Width & Remove Clutter</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Right-click columns &rarr; Format Data Series &rarr; Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
+                  Right-click columns → Format Data Series → Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
                 </p>
               </div>
             </div>
@@ -587,7 +587,7 @@ export default function Topic5() {
               <div>
                 <h3 className="text-sm font-bold text-white">Snap to Grid & Hide Sheet Gridlines</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View &rarr; uncheck Gridlines.
+                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View → uncheck Gridlines.
                 </p>
               </div>
             </div>

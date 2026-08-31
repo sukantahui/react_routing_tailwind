@@ -14,7 +14,7 @@ const questions = [
     question: "What sequence of network protocols executes when a user types 'https://wb.gov.in' into a web browser?",
     shortAnswer: "1. DHCP (Local IP/Gateway/DNS setup); 2. ARP (Resolves Gateway MAC); 3. DNS (Resolves domain to IP); 4. TCP 3-Way Handshake (Port 443); 5. TLS 1.3 Handshake (ECDHE Key Exchange); 6. HTTP/2 or HTTP/3 GET request and page rendering.",
     explanation: "This complete multi-layer sequence spans Physical, Data Link, Network, Transport, and Application layers within 100–300 milliseconds.",
-    hint: "DHCP -> ARP -> DNS -> TCP Handshake -> TLS 1.3 Key Exchange -> HTTP GET.",
+    hint: "DHCP → ARP → DNS → TCP Handshake → TLS 1.3 Key Exchange → HTTP GET.",
     level: "moderate",
     codeExample: "PacketTrace = ['DHCP_Ack', 'ARP_Request', 'DNS_Query', 'TCP_SYN_ACK', 'TLS_ClientHello', 'HTTP2_GET'];"
   },
@@ -24,7 +24,7 @@ const questions = [
     explanation: "Instead of millions of users in Kolkata hitting a single origin server in Mumbai, requests are served from local edge caches in Kolkata.",
     hint: "Uses BGP Anycast and local edge caching at regional Internet Exchange Points.",
     level: "expert",
-    codeExample: "CDN_Routing: User_In_Kolkata -> BGP_Anycast -> Nearest_Kolkata_IXP_Cache -> Serves Video in 4ms"
+    codeExample: "CDN_Routing: User_In_Kolkata → BGP_Anycast → Nearest_Kolkata_IXP_Cache → Serves Video in 4ms"
   },
   {
     question: "What is a 3-Tier Enterprise Campus Network Architecture (Core, Distribution, Access)?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "Even if an attacker taps the physical ATM network cable, transaction payloads are encrypted with AES-256 ciphertexts.",
     hint: "Encrypted IPsec VPN tunnels with PCI-DSS isolated VLANs and Hardware Security Modules.",
     level: "basic",
-    codeExample: "ATM_Network: POS_Terminal -> IPsec_Cellular_Router -> Encrypted_Tunnel -> Banking_Core_HSM"
+    codeExample: "ATM_Network: POS_Terminal → IPsec_Cellular_Router → Encrypted_Tunnel → Banking_Core_HSM"
   },
   {
     question: "What is High Availability (HA) First Hop Redundancy (HSRP / VRRP) in corporate networks?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Eliminates Spanning Tree Protocol port blocking and provides massive, non-blocking bisectional bandwidth.",
     hint: "Every Leaf switch connects to every Spine switch, giving consistent 2-hop speed for all servers.",
     level: "expert",
-    codeExample: "LeafSpine: Server1 -> Leaf1 -> Spine2 -> Leaf4 -> Server8 (Constant 2-Hop Latency: 1.2 μs)"
+    codeExample: "LeafSpine: Server1 → Leaf1 → Spine2 → Leaf4 → Server8 (Constant 2-Hop Latency: 1.2 μs)"
   },
   {
     question: "What is Network Time Protocol (NTP) and why is precise clock synchronization critical for cyber security logs?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "If a misconfigured firewall drops all production traffic in Barrackpore, OOB console access allows engineers to log in and roll back the configuration.",
     hint: "Dedicated backup network allowing engineers to recover hardware when the main network is down.",
     level: "expert",
-    codeExample: "OOB_Network: Dedicated_1G_Switch -> Serial_Console_Port / iDRAC (Isolated from Production Data)"
+    codeExample: "OOB_Network: Dedicated_1G_Switch → Serial_Console_Port / iDRAC (Isolated from Production Data)"
   },
   {
     question: "How does Dynamic ARP Inspection (DAI) prevent Man-in-the-Middle attacks in corporate campus LANs?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "Prevents attackers from logging into corporate intranets even if they steal an employee's password via phishing.",
     hint: "Requires a password plus a phone authenticator code before connecting to corporate VPN.",
     level: "basic",
-    codeExample: "VPN_Auth: UserPassword + Authenticator_TOTP_Code -> MFA_Server (Radius) -> Access_Granted"
+    codeExample: "VPN_Auth: UserPassword + Authenticator_TOTP_Code → MFA_Server (Radius) → Access_Granted"
   },
   {
     question: "What is a Network Loop and what visual symptom appears on unmanaged switch indicator LEDs?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "NGFWs in Kolkata detect and block advanced ransomware communications disguised inside standard HTTPS Port 443 traffic.",
     hint: "NGFW inspects Layer 7 applications and decrypts SSL traffic, going beyond basic IP/port filtering.",
     level: "moderate",
-    codeExample: "NGFW_Policy: Allow User -> Service 'Office365'; Block Service 'BitTorrent' on ALL Ports;"
+    codeExample: "NGFW_Policy: Allow User → Service 'Office365'; Block Service 'BitTorrent' on ALL Ports;"
   },
   {
     question: "What is the ultimate golden rule for designing, operating, and budgeting Real-Life Computer Networks?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures modular hierarchy, high availability, edge security, operational observability, and financial procurement budgeting.",
     hint: "Hierarchical modularity + Zero SPOF + VRRP/BGP + DHCP Snooping/DAI + NetFlow + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: BuildHierarchicalTopology() -> EliminateSPOF() -> DeployVRRP_and_BGP() -> SecureLayer2and7() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: BuildHierarchicalTopology() → EliminateSPOF() → DeployVRRP_and_BGP() → SecureLayer2and7() → BudgetInRupees(₹);"
   }
 ];
 

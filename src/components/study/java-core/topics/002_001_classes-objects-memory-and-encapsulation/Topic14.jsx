@@ -42,7 +42,7 @@ export default function Topic14() {
             Domain Invariant &amp; Integrity Defense
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Adding Business Validation Logic Inside Setters to Protect Object Integrity
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -109,7 +109,7 @@ export default function Topic14() {
       {/* Section 2: Semantic Visual Diagram */}
       <section className="space-y-5 bg-slate-800/40 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-lg hover:border-slate-700 transition-all duration-300">
         <h2 className="text-2xl font-bold text-indigo-400 flex items-center gap-2">
-          <span>⚙️</span> The Setter Checkpoint Pipeline: Input &rarr; Inspection &rarr; Safe Mutation vs Exception
+          <span>⚙️</span> The Setter Checkpoint Pipeline: Input → Inspection → Safe Mutation vs Exception
         </h2>
         <p className="text-sm md:text-base text-slate-400 leading-relaxed">
           Visualizing the decision flow of a guarded setter method defending object integrity:

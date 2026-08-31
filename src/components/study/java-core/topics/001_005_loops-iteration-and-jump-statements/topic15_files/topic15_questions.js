@@ -131,7 +131,7 @@ const questions = [
     explanation: "Translates visual shapes into precise mathematical loop bounds.",
     hint: "Tabulate row, spaces, and stars to derive linear bounding formulas.",
     level: "intermediate",
-    codeExample: "// Row 1: s=3, st=1 | Row 2: s=2, st=3 -> Derive formulas s=N-r, st=2r-1"
+    codeExample: "// Row 1: s=3, st=1 | Row 2: s=2, st=3 → Derive formulas s=N-r, st=2r-1"
   },
   {
     question: "How do you print a Rhombus pattern of stars?",

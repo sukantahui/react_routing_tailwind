@@ -64,7 +64,7 @@ const questions = [
     hint: "Uses quantum superposition and QFT interference to measure the period r of modular exponentiation in polynomial time.",
     level: "Expert",
     codeExample: `// Shor's Quantum Period Pipeline:
-// Superposition |x> -> Modular Exponentiation |a^x mod N> -> QFT -> Measure Peak -> Period r -> GCD -> (p, q) found!`
+// Superposition |x> → Modular Exponentiation |a^x mod N> → QFT → Measure Peak → Period r → GCD → (p, q) found!`
   },
   {
     id: 7,
@@ -129,7 +129,7 @@ const questions = [
     level: "Expert",
     codeExample: `// Bitcoin Quantum Exposure:
 // Address A (Never spent): Public key hashed (Safe behind SHA-256) ✔
-// Address B (Spent once) : Public key visible in mempool -> CRQC derives private key -> Steals funds! 🚨`
+// Address B (Spent once) : Public key visible in mempool → CRQC derives private key → Steals funds! 🚨`
   },
   {
     id: 13,
@@ -149,7 +149,7 @@ const questions = [
     hint: "Constructs a 2D QFT to solve the discrete logarithm problem g^x mod p in polynomial time.",
     level: "Expert",
     codeExample: `// Quantum DH Attack:
-// Public: g, g^a, g^b -> CRQC runs Shor's Discrete Log -> Extracts private key 'a' in minutes -> Decrypts TLS session!`
+// Public: g, g^a, g^b → CRQC runs Shor's Discrete Log → Extracts private key 'a' in minutes → Decrypts TLS session!`
   },
   {
     id: 15,
@@ -193,7 +193,7 @@ const questions = [
     hint: "Designing software so cryptographic algorithms can be swapped via configuration without code changes.",
     level: "Moderate",
     codeExample: `// Crypto-Agile Config:
-// cipher_suite: "TLS_AES_256_GCM_SHA384" -> Can be swapped to "TLS_ML_KEM_768_AES_256" via JSON config update.`
+// cipher_suite: "TLS_AES_256_GCM_SHA384" → Can be swapped to "TLS_ML_KEM_768_AES_256" via JSON config update.`
   },
   {
     id: 19,

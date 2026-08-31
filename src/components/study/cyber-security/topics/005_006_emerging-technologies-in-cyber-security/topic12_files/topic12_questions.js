@@ -92,7 +92,7 @@ const questions = [
     hint: "Automatically destroying compromised container pods and launching fresh verified copies in seconds.",
     level: "Basic",
     codeExample: `// K8s Self-Healing Action:
-// Pod 'payment-svc-78' anomaly score > 90 -> 'kubectl delete pod payment-svc-78 --now' -> Clean Pod spawned in 1.4s`
+// Pod 'payment-svc-78' anomaly score > 90 → 'kubectl delete pod payment-svc-78 --now' → Clean Pod spawned in 1.4s`
   },
   {
     id: 10,
@@ -134,7 +134,7 @@ const questions = [
     hint: "Modular code architecture allowing cipher algorithms to be changed via config files and automated pipelines.",
     level: "Moderate",
     codeExample: `// GitOps Crypto-Agility:
-// commit: "security: update cipher_suite from ML-KEM-768 to ML-KEM-1024" -> ArgoCD updates 500 pods in 3 mins.`
+// commit: "security: update cipher_suite from ML-KEM-768 to ML-KEM-1024" → ArgoCD updates 500 pods in 3 mins.`
   },
   {
     id: 14,
@@ -145,7 +145,7 @@ const questions = [
     level: "Moderate",
     codeExample: `// ZK Age Verification:
 // Prover inputs: DOB = 2002-05-14
-// Proof: zk-SNARK proof string -> Verifier output: "TRUE (Age >= 18)" (DOB never exposed ✔)`
+// Proof: zk-SNARK proof string → Verifier output: "TRUE (Age >= 18)" (DOB never exposed ✔)`
   },
   {
     id: 15,
@@ -280,7 +280,7 @@ const questions = [
     hint: "Autonomous software testing enterprise defenses 24/7/365 to verify security controls are working.",
     level: "Basic",
     codeExample: `// CART Automated Drill:
-// 03:00 AM: Bot launches simulated credential stuffing against login portal -> Confirms WAF auto-blocked in 800ms ✔`
+// 03:00 AM: Bot launches simulated credential stuffing against login portal → Confirms WAF auto-blocked in 800ms ✔`
   },
   {
     id: 28,
@@ -305,7 +305,7 @@ const questions = [
 // 00.000s : Zero-day exploit packet arrives
 // 00.080s : Symbolic execution pinpoints integer overflow
 // 00.180s : Genetic AST patch synthesized & regression passed
-// 00.280s : eBPF hot-patch deployed -> Exploit neutralized, server stays online ✔`
+// 00.280s : eBPF hot-patch deployed → Exploit neutralized, server stays online ✔`
   },
   {
     id: 30,

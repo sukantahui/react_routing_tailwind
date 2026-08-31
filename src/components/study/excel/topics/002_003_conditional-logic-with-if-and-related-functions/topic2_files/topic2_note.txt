@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 When testing bounded numeric ranges (between X and Y), ALWAYS use AND. Using OR on bounded ranges is the most common beginner logical error in Excel.
 
 COMMON TRAPS TO AVOID:
-- Array Range Compression in AND/OR: AND(A1:A5 > 10) aggregates the ENTIRE range into a single TRUE/FALSE scalar, not row-by-row arrays. -> Fix: Use Boolean arithmetic `=(A1:A5 > 10) * (B1:B5 < 50)` for row-by-row array operations.
-- Confusing AND vs OR in Inclusive Ranges: Writing OR(A1 >= 10, A1 <= 20) evaluates to TRUE for ALL numbers from negative infinity to infinity. -> Fix: Use AND(A1 >= 10, A1 <= 20) for bounded intervals.
-- Premature Closing Parentheses: Closing IF before completing AND arguments (e.g. IF(AND(A1>5), B1>10, ...)) triggers logic errors. -> Fix: Carefully align parentheses: IF(AND(A1>5, B1>10), "True", "False").
+- Array Range Compression in AND/OR: AND(A1:A5 > 10) aggregates the ENTIRE range into a single TRUE/FALSE scalar, not row-by-row arrays. → Fix: Use Boolean arithmetic `=(A1:A5 > 10) * (B1:B5 < 50)` for row-by-row array operations.
+- Confusing AND vs OR in Inclusive Ranges: Writing OR(A1 >= 10, A1 <= 20) evaluates to TRUE for ALL numbers from negative infinity to infinity. → Fix: Use AND(A1 >= 10, A1 <= 20) for bounded intervals.
+- Premature Closing Parentheses: Closing IF before completing AND arguments (e.g. IF(AND(A1>5), B1>10, ...)) triggers logic errors. → Fix: Carefully align parentheses: IF(AND(A1>5, B1>10), "True", "False").
 ================================================================================

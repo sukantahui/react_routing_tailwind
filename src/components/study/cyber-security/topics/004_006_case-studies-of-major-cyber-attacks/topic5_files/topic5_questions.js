@@ -58,9 +58,9 @@ BOOL CheckKillSwitch() {
     if (hUrl != NULL) {
         InternetCloseHandle(hUrl);
         InternetCloseHandle(hInternet);
-        return TRUE; // Domain resolves -> EXIT PROCESS AND STOP PROPAGATING!
+        return TRUE; // Domain resolves → EXIT PROCESS AND STOP PROPAGATING!
     }
-    return FALSE; // Domain fails -> PROCEED WITH ETERNALBLUE & ENCRYPTION
+    return FALSE; // Domain fails → PROCEED WITH ETERNALBLUE & ENCRYPTION
 }`
   },
   {
@@ -255,10 +255,10 @@ DWORD WINAPI ScanGlobalSubnetsThread(LPVOID lpParam) {
     level: "Moderate",
     codeExample: `// The Shadow Brokers Lost in Translation Dump (April 14, 2017):
 const leakedExploitSuite = [
-  "ETERNALBLUE  -> SMBv1 Remote Code Execution (MS17-010)",
+  "ETERNALBLUE  → SMBv1 Remote Code Execution (MS17-010)",
   "ETERNALROMANCE-> SMBv1/v2 Arbitrary Read/Write (MS17-010)",
   "ETERNALSYNERGY-> SMBv3 Memory Corruption (MS17-010)",
-  "DOUBLEPULSAR   -> Kernel-mode Ring-0 Backdoor Payload Injector"
+  "DOUBLEPULSAR   → Kernel-mode Ring-0 Backdoor Payload Injector"
 ];`
   },
   {
@@ -395,7 +395,7 @@ const dojIndictment = {
     hint: "Inspecting SMB traffic for malformed transaction buffer allocations.",
     level: "Expert",
     codeExample: `// Suricata Rule for EternalBlue SMBv1 Detection:
-alert smb any any -> any 445 (
+alert smb any any → any 445 (
   msg:"ET EXPLOIT Possible MS17-010 EternalBlue Exploit Attempt";
   flow:to_server,established;
   content:"|FF|SMB|32|"; offset:4; depth:5; // SMB_COM_TRANSACTION2

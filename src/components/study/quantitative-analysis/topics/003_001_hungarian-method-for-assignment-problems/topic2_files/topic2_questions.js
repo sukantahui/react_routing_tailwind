@@ -120,7 +120,7 @@ const questions = [
     explanation: "Diagonal ones map each resource to its identical task index.",
     hint: "Worker i gets Task i (Identity Assignment).",
     level: "moderate",
-    codeExample: "P = IdentityMatrix(n) => Worker_i -> Task_i."
+    codeExample: "P = IdentityMatrix(n) => Worker_i → Task_i."
   },
   {
     question: "What is the cost of a one-to-one allocation schedule given by permutation matrix P = [x_ij]?",

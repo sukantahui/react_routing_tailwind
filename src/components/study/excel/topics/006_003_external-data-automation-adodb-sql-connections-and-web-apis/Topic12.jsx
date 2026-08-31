@@ -71,7 +71,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world project: Automated daily exchange rate and stock price fetcher via web API"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic12() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"}
+            {"Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic12() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Live Market Intelligence Ingestion Engine: Cloud Web API Endpoints -> ServerXMLHTTP -> JSON Parser -> Live Dashboard HUD"}
+              Visual Dataflow: {"Live Market Intelligence Ingestion Engine: Cloud Web API Endpoints → ServerXMLHTTP → JSON Parser → Live Dashboard HUD"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Database Pipeline
@@ -286,7 +286,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Real_world_project"
+            sheetName="EX2613"
             title={"Real-world project: Automated daily exchange rate and stock price fetcher via web API - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic12() {
                 Step 2: Open Connection &amp; Execute Query / REST Request
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open database socket or send HTTP request with custom headers: <code className="text-cyan-300 font-mono font-bold">{"Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"}</code>.
+                Open database socket or send HTTP request with custom headers: <code className="text-cyan-300 font-mono font-bold">{"Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"}</code>.
               </p>
             </div>
 

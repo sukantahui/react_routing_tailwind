@@ -13,7 +13,7 @@ const questions = [
     codeExample: "=REGEXREPLACE(text, pattern, replacement, [occurrence], [case_sensitivity])"
   },
   {
-    question: "How do you mask the first 8 digits of a 12-digit Indian Aadhaar number (e.g. `5482-9921-3344` &rarr; `XXXX-XXXX-3344`)?",
+    question: "How do you mask the first 8 digits of a 12-digit Indian Aadhaar number (e.g. `5482-9921-3344` → `XXXX-XXXX-3344`)?",
     shortAnswer: "=REGEXREPLACE(A2, \"^\\d{4}-\\d{4}-(\\d{4})$\", \"XXXX-XXXX-$1\")",
     explanation: "Captures the last 4 digits in group 1 and references them with `$1` in the replacement.",
     hint: "Use backreference $1 for the last 4 digits.",
@@ -34,7 +34,7 @@ const questions = [
     explanation: "`<[^>]+>` matches any HTML tag from `<` to `>` and replaces it with an empty string.",
     hint: "<[^>]+> replaced with \"\".",
     level: "basic",
-    codeExample: "=REGEXREPLACE(\"<p>Hello <b>World</b></p>\", \"<[^>]+>\", \"\") &rarr; \"Hello World\""
+    codeExample: "=REGEXREPLACE(\"<p>Hello <b>World</b></p>\", \"<[^>]+>\", \"\") → \"Hello World\""
   },
   {
     question: "How do you reformat a date from `DD/MM/YYYY` to standard SQL `YYYY-MM-DD` using backreferences?",
@@ -66,7 +66,7 @@ const questions = [
     explanation: "Default occurrence = 0 performs global replacement.",
     hint: "Default is 0 (all occurrences).",
     level: "basic",
-    codeExample: "occurrence = 0 &rarr; Global Replace"
+    codeExample: "occurrence = 0 → Global Replace"
   },
   {
     question: "How do you replace only the 1st occurrence of a pattern while leaving subsequent matches untouched?",
@@ -88,7 +88,7 @@ const questions = [
     question: "How do you convert unformatted 10-digit phone numbers `9830111223` into standard format `(983) 011-1223`?",
     shortAnswer: "=REGEXREPLACE(A2, \"^(\\d{3})(\\d{3})(\\d{4})$\", \"($1) $2-$3\")",
     explanation: "Splits 10 digits into 3-3-4 groups and inserts parentheses and hyphens.",
-    hint: "^(\\d{3})(\\d{3})(\\d{4})$ &rarr; ($1) $2-$3.",
+    hint: "^(\\d{3})(\\d{3})(\\d{4})$ → ($1) $2-$3.",
     level: "moderate",
     codeExample: "=REGEXREPLACE(\"9830111223\", \"^(\\d{3})(\\d{3})(\\d{4})$\", \"($1) $2-$3\")"
   },
@@ -98,13 +98,13 @@ const questions = [
     explanation: "`\\D` matches any non-digit character and replaces it with empty string `\"\"`.",
     hint: "\\D replaced with \"\".",
     level: "basic",
-    codeExample: "=REGEXREPLACE(\"+91 (033) 2592-1144\", \"\\D\", \"\") &rarr; \"9103325921144\""
+    codeExample: "=REGEXREPLACE(\"+91 (033) 2592-1144\", \"\\D\", \"\") → \"9103325921144\""
   },
   {
     question: "How do you swap a `Last Name, First Name` string into `First Name Last Name` format in 1 formula?",
     shortAnswer: "=REGEXREPLACE(A2, \"^([^,]+),\\s*(.+)$\", \"$2 $1\")",
     explanation: "Group 1 captures last name, Group 2 captures first name, and `$2 $1` swaps their position.",
-    hint: "^([^,]+),\\s*(.+)$ &rarr; $2 $1.",
+    hint: "^([^,]+),\\s*(.+)$ → $2 $1.",
     level: "moderate",
     codeExample: "=REGEXREPLACE(\"Banerjee, Swadeep\", \"^([^,]+),\\s*(.+)$\", \"$2 $1\")"
   },
@@ -114,7 +114,7 @@ const questions = [
     explanation: "`^0+` matches one or more zeros at the start of the string.",
     hint: "^0+ replaced with \"\".",
     level: "basic",
-    codeExample: "=REGEXREPLACE(\"000088421\", \"^0+\", \"\") &rarr; \"88421\""
+    codeExample: "=REGEXREPLACE(\"000088421\", \"^0+\", \"\") → \"88421\""
   },
   {
     question: "How do you replace multiple alternative spelling variations of a city name (e.g. `Calcutta|Kolkata`) with standard `Kolkata`?",
@@ -130,7 +130,7 @@ const questions = [
     explanation: "Graceful no-op behavior when patterns do not match.",
     hint: "Returns original text unmodified.",
     level: "basic",
-    codeExample: "No match &rarr; Original text returned"
+    codeExample: "No match → Original text returned"
   },
   {
     question: "How do you sanitize SQL query parameters by removing semicolons, quotes, and comment dashes?",
@@ -168,7 +168,7 @@ const questions = [
     question: "How do you convert camelCase or PascalCase strings like `CustomerMasterData` into space-separated words `Customer Master Data`?",
     shortAnswer: "=REGEXREPLACE(A2, \"([a-z])([A-Z])\", \"$1 $2\")",
     explanation: "Captures lowercase character followed by uppercase character and inserts a space between them.",
-    hint: "([a-z])([A-Z]) &rarr; $1 $2.",
+    hint: "([a-z])([A-Z]) → $1 $2.",
     level: "advanced",
     codeExample: "=REGEXREPLACE(\"CustomerMasterData\", \"([a-z])([A-Z])\", \"$1 $2\")"
   },
@@ -184,7 +184,7 @@ const questions = [
     question: "How do you strip markdown formatting like bold `**text**` and italic `*text*` from text strings?",
     shortAnswer: "=REGEXREPLACE(A2, \"\\*{1,2}([^*]+)\\*{1,2}\", \"$1\")",
     explanation: "Matches surrounding asterisks and preserves only the inner text content `$1`.",
-    hint: "\\*{1,2}([^*]+)\\*{1,2} &rarr; $1.",
+    hint: "\\*{1,2}([^*]+)\\*{1,2} → $1.",
     level: "advanced",
     codeExample: "=REGEXREPLACE(\"**Urgent** Notice\", \"\\*+([^*]+)\\*+\", \"$1\")"
   },
@@ -192,7 +192,7 @@ const questions = [
     question: "How do you standardize Indian currency symbols by converting `Rs.`, `Rs`, `INR `, or `Rs. ` to standard `₹`?",
     shortAnswer: "=REGEXREPLACE(A2, \"\\b(Rs\\.?|INR)\\s*\", \"₹\")",
     explanation: "Matches common currency abbreviations with optional trailing spaces and replaces with `₹`.",
-    hint: "\\b(Rs\\.?|INR)\\s* &rarr; ₹.",
+    hint: "\\b(Rs\\.?|INR)\\s* → ₹.",
     level: "moderate",
     codeExample: "=REGEXREPLACE(\"Rs. 45000\", \"\\b(Rs\\.?|INR)\\s*\", \"₹\")"
   },
@@ -205,7 +205,7 @@ const questions = [
     codeExample: "FX_CLEAN_TEXT = LAMBDA(t, TRIM(REGEXREPLACE(REGEXREPLACE(t, \"<[^>]+>\", \"\"), \"\\s+\", \" \")))"
   },
   {
-    question: "How do you remove file extensions from filenames (e.g. `Audit_Report_2026.xlsx` &rarr; `Audit_Report_2026`)?",
+    question: "How do you remove file extensions from filenames (e.g. `Audit_Report_2026.xlsx` → `Audit_Report_2026`)?",
     shortAnswer: "=REGEXREPLACE(A2, \"\\.[a-zA-Z0-9]+$\", \"\")",
     explanation: "Matches the dot and extension at the end of the string and replaces with empty string.",
     hint: "\\.[a-zA-Z0-9]+$ replaced with \"\".",
@@ -234,7 +234,7 @@ const questions = [
     explanation: "Matches everything up to the `@` symbol and deletes it, leaving only the domain.",
     hint: "^[^@]+@ replaced with \"\".",
     level: "basic",
-    codeExample: "=REGEXREPLACE(\"tuhina@shyamnagar.org\", \"^[^@]+@\", \"\") &rarr; \"shyamnagar.org\""
+    codeExample: "=REGEXREPLACE(\"tuhina@shyamnagar.org\", \"^[^@]+@\", \"\") → \"shyamnagar.org\""
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for data cleaning and masking with REGEXREPLACE?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Mastering REGEXREPLACE ensures absolute data privacy compliance and pristine ETL data hygiene!",
     hint: "Backreferences ($1, $2) + Capturing Groups + Single-Pass Cleaning = Pristine Data Hygiene!",
     level: "expert",
-    codeExample: "Rule: Data Privacy & ETL Cleansing &rarr; Deploy REGEXREPLACE + Backreferences!"
+    codeExample: "Rule: Data Privacy & ETL Cleansing → Deploy REGEXREPLACE + Backreferences!"
   }
 ];
 

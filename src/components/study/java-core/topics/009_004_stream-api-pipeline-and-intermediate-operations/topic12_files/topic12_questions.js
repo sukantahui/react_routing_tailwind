@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Returning true keeps the element in the pipeline; returning false discards it.",
     "hint": "Must return boolean.",
     "level": "Beginner",
-    "codeExample": "stream.filter(s -> s.length() > 5) // returns boolean"
+    "codeExample": "stream.filter(s → s.length() > 5) // returns boolean"
   },
   {
     "question": "Is chaining two filter() calls slower than combining them with the && operator?",
@@ -13,7 +13,7 @@ const topic12_questions = [
     "explanation": "Chaining often improves code readability without any measurable performance penalty.",
     "hint": "Loop fusion evaluates chained filters in the same single traversal pass.",
     "level": "Intermediate",
-    "codeExample": "stream.filter(Student::isActive).filter(s -> s.getScore() > 80)"
+    "codeExample": "stream.filter(Student::isActive).filter(s → s.getScore() > 80)"
   }
 ];
 

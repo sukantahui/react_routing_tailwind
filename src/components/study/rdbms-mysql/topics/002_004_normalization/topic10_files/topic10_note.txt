@@ -17,7 +17,7 @@ A relation schema R is in Third Normal Form (3NF) if and only if:
 2. NO non-prime attribute in R is transitively dependent on any candidate key of R.
 
 Disjunctive Condition Definition (Mathematical Test):
-A relation schema R is in 3NF if for EVERY non-trivial functional dependency $X \rightarrow A$ 
+A relation schema R is in 3NF if for EVERY non-trivial functional dependency $X → A$ 
 holding on R, AT LEAST ONE of the following conditions is satisfied:
 • Condition 1: X is a Super Key of R (X is a candidate key or superset of a candidate key).
 • Condition 2: A is a Prime Attribute of R (A is a member of at least one candidate key of R).
@@ -53,7 +53,7 @@ Production Modification Anomalies:
 3. THE 3NF DECOMPOSITION PROCEDURE
 --------------------------------------------------------------------------------
 To convert a 2NF relation into 3NF:
-1. Identify each violating dependency $X \rightarrow Y$ where X is not a super key and Y is non-prime.
+1. Identify each violating dependency $X → Y$ where X is not a super key and Y is non-prime.
 2. Create a dedicated relation $R_1(X, Y)$ with X as the Primary Key.
 3. In the original relation, remove Y and retain X as a Foreign Key referencing $R_1$.
 
@@ -76,7 +76,7 @@ Resulting 3NF Decomposed Schema:
 5. SUMMARY CHECKLIST FOR 3NF
 --------------------------------------------------------------------------------
 [x] 3NF requires 2NF compliance + zero transitive dependencies between non-prime attributes.
-[x] 3NF Rule: For every non-trivial $X \rightarrow A$, either X is a Super Key OR A is a Prime Attribute.
+[x] 3NF Rule: For every non-trivial $X → A$, either X is a Super Key OR A is a Prime Attribute.
 [x] Non-key columns must NEVER determine other non-key columns.
 [x] Decompose by promoting the non-key determinant into a Primary Key in its own dedicated table.
 [x] 3NF mathematically guarantees BOTH Lossless Join and Dependency Preservation.

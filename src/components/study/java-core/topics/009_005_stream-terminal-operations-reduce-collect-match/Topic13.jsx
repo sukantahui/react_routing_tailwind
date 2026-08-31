@@ -21,7 +21,7 @@ export default function Topic13() {
             Terminal Operations & Reductions
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Convenience Aggregations: <code className="text-emerald-400 font-mono">count(), min() & max()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic13() {
       </section>
 
       <Teacher
-        note="min() and max() take a Comparator and return an Optional<T>. For numbers, you can easily use Comparator.naturalOrder() or Comparator.comparingDouble(Student::getScore)! — Sukanta Hui"
+        note="min() and max() take a Comparator and return an Optional&lt;T&gt;. For numbers, you can easily use Comparator.naturalOrder() or Comparator.comparingDouble(Student::getScore)! — Sukanta Hui"
       />
     </div>
   );

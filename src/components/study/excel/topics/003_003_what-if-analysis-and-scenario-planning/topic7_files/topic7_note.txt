@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Solver is Excel's most powerful analytical tool. If you know how to formulate an objective cell, decision variables, and constraints, you can solve complex logistics and portfolio problems that seem impossible to ordinary users.
 
 COMMON TRAPS TO AVOID:
-- Solver Add-In Disabled by Default: Solver does not appear in Data ribbon until explicitly activated in Excel options. -> Fix: File > Options > Add-ins > Manage: Excel Add-ins > Go > Check 'Solver Add-in'.
-- Unbounded Problem ('Set Cell values do not converge'): Omitting constraints on production capacity allows Solver to propose producing infinite units for infinite profit. -> Fix: Always supply realistic upper bound constraints on all decision variables.
-- Linearity Violation in Simplex LP: Using non-linear formulas (like IF, VLOOKUP, MAX, MIN) in a model solved with Simplex LP triggers 'Linearly Conditions not satisfied'. -> Fix: Use pure linear math for Simplex LP, or switch solving method to GRG Nonlinear or Evolutionary.
+- Solver Add-In Disabled by Default: Solver does not appear in Data ribbon until explicitly activated in Excel options. → Fix: File > Options > Add-ins > Manage: Excel Add-ins > Go > Check 'Solver Add-in'.
+- Unbounded Problem ('Set Cell values do not converge'): Omitting constraints on production capacity allows Solver to propose producing infinite units for infinite profit. → Fix: Always supply realistic upper bound constraints on all decision variables.
+- Linearity Violation in Simplex LP: Using non-linear formulas (like IF, VLOOKUP, MAX, MIN) in a model solved with Simplex LP triggers 'Linearly Conditions not satisfied'. → Fix: Use pure linear math for Simplex LP, or switch solving method to GRG Nonlinear or Evolutionary.
 ================================================================================

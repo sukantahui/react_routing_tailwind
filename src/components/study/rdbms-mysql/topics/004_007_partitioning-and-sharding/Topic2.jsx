@@ -127,7 +127,7 @@ WHERE a.branch_id = 101;
             Topic 2 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Partition Pruning</span>: Optimizer Mechanics &amp; <span className="text-cyan-400">Query Acceleration</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

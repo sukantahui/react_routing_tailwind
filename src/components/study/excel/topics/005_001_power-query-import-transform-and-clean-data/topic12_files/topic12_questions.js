@@ -26,7 +26,7 @@ const questions = [
     explanation: "A threshold of 0 requires zero commonality for a match.",
     hint: "Matches everything (creates massive false positive Cartesian product).",
     level: "moderate",
-    codeExample: "Threshold = 0.00 &rarr; 100% False Positives"
+    codeExample: "Threshold = 0.00 → 100% False Positives"
   },
   {
     question: "What happens if you set the Similarity Threshold to 1.00?",
@@ -46,7 +46,7 @@ const questions = [
   },
   {
     question: "What is a 'Transformation Table' in Power Query Fuzzy Matching?",
-    shortAnswer: "A separate 2-column mapping query (containing `From` and `To` columns) that maps custom domain-specific synonyms, acronyms, or non-phonetic abbreviations (e.g. `BKP` &rarr; `Barrackpore`, `MSFT` &rarr; `Microsoft`).",
+    shortAnswer: "A separate 2-column mapping query (containing `From` and `To` columns) that maps custom domain-specific synonyms, acronyms, or non-phonetic abbreviations (e.g. `BKP` → `Barrackpore`, `MSFT` → `Microsoft`).",
     explanation: "Allows teaching Power Query business-specific translation rules.",
     hint: "A 2-column [From, To] mapping table for custom domain abbreviations.",
     level: "expert",
@@ -58,13 +58,13 @@ const questions = [
     explanation: "Power Query's fuzzy engine requires these exact column names.",
     hint: "Must be named 'From' and 'To'.",
     level: "moderate",
-    codeExample: "Columns: [From] and [To] (e.g. 'WB' &rarr; 'West Bengal')"
+    codeExample: "Columns: [From] and [To] (e.g. 'WB' → 'West Bengal')"
   },
   {
     question: "What does the 'Match by combining text parts' (Ignore Spaces / Token Recombination) option do?",
     shortAnswer: "It allows matching text even when words are concatenated or spaced differently (e.g. `Micro Soft` matches `Microsoft`, or `JohnDoe` matches `John Doe`).",
     explanation: "Tokenizes substrings and recombines them during similarity computation.",
-    hint: "Matches strings with space variations (e.g. 'Micro Soft' &rarr; 'Microsoft').",
+    hint: "Matches strings with space variations (e.g. 'Micro Soft' → 'Microsoft').",
     level: "moderate",
     codeExample: "[IgnoreSpaces = true]"
   },
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Deduplicate first, fuzzy-match the distinct list, then merge back.",
     hint: "CPU-heavy; fuzzy match distinct keys, not raw millions of fact rows!",
     level: "expert",
-    codeExample: "1. Distinct Raw Keys &rarr; 2. Fuzzy Match Dimension &rarr; 3. Exact Merge to Fact"
+    codeExample: "1. Distinct Raw Keys → 2. Fuzzy Match Dimension → 3. Exact Merge to Fact"
   },
   {
     question: "How do you resolve a situation where 'Swadeep Banerjee' matches both 'Swadeep Banerjee' and 'Sandeep Banerjee' at threshold 0.70?",
@@ -130,7 +130,7 @@ const questions = [
     explanation: "Higher threshold isolates genuine single-character typos from different names.",
     hint: "Raise threshold to 0.85+ or add secondary composite keys.",
     level: "moderate",
-    codeExample: "Raise Threshold: 0.70 &rarr; 0.88"
+    codeExample: "Raise Threshold: 0.70 → 0.88"
   },
   {
     question: "Can you use multiple Transformation Tables in a single Fuzzy Merge step?",
@@ -146,13 +146,13 @@ const questions = [
     explanation: "Unmatched records are handled gracefully without errors.",
     hint: "Populates null in the merged column.",
     level: "basic",
-    codeExample: "No match above threshold &rarr; returns null"
+    codeExample: "No match above threshold → returns null"
   },
   {
     question: "How do you create a custom Transformation Table in Power Query from scratch?",
-    shortAnswer: "Home &rarr; Enter Data &rarr; Name columns 'From' and 'To' &rarr; Enter abbreviation pairs &rarr; Name query `tbl_Synonyms`.",
+    shortAnswer: "Home → Enter Data → Name columns 'From' and 'To' → Enter abbreviation pairs → Name query `tbl_Synonyms`.",
     explanation: "Standard manual mapping table creation.",
-    hint: "Enter Data &rarr; Columns 'From' and 'To' &rarr; Populate mappings.",
+    hint: "Enter Data → Columns 'From' and 'To' → Populate mappings.",
     level: "basic",
     codeExample: "Table with columns [From, To] entered via Enter Data"
   },
@@ -162,7 +162,7 @@ const questions = [
     explanation: "Recognizes common typing slip transpositions.",
     hint: "Levenshtein distance handles adjacent letter transpositions easily.",
     level: "moderate",
-    codeExample: "'Brakacpore' &rarr; Matches 'Barrackpore' at 0.80 threshold"
+    codeExample: "'Brakacpore' → Matches 'Barrackpore' at 0.80 threshold"
   },
   {
     question: "Can you combine exact matching on one column with fuzzy matching on another column in the same merge?",
@@ -170,7 +170,7 @@ const questions = [
     explanation: "Standard two-phase ETL matching architecture.",
     hint: "Fuzzy match text column first, then perform exact multi-column merge.",
     level: "expert",
-    codeExample: "Phase 1: Fuzzy Match Name &rarr; Phase 2: Exact Merge [StandardName + City]"
+    codeExample: "Phase 1: Fuzzy Match Name → Phase 2: Exact Merge [StandardName + City]"
   },
   {
     question: "What is the difference between Fuzzy Matching in Power Query vs Excel's Fuzzy Lookup Add-in?",
@@ -186,11 +186,11 @@ const questions = [
     explanation: "Text sanitization dramatically improves fuzzy match quality.",
     hint: "Clean, Trim, and Upper on both tables before fuzzy matching.",
     level: "basic",
-    codeExample: "Clean + Trim + Upper &rarr; Fuzzy Match"
+    codeExample: "Clean + Trim + Upper → Fuzzy Match"
   },
   {
     question: "How do you isolate ONLY the records that required fuzzy matching (i.e. had typos and did not match exactly)?",
-    shortAnswer: "Expand the matched Master Name &rarr; Add custom column: `[Raw_Name] <> [Master_Name]` &rarr; Filter for `true`.",
+    shortAnswer: "Expand the matched Master Name → Add custom column: `[Raw_Name] <> [Master_Name]` → Filter for `true`.",
     explanation: "Isolates corrected typos for audit logging.",
     hint: "Filter where [Raw_Name] <> [Master_Name] and [Master_Name] <> null.",
     level: "moderate",
@@ -206,9 +206,9 @@ const questions = [
   },
   {
     question: "How do you handle Indian corporate entity suffix variations (e.g. 'Pvt Ltd', 'Private Limited', 'Ltd') in Fuzzy Matching?",
-    shortAnswer: "Add entries in the Transformation Table mapping 'Pvt Ltd' &rarr; 'Private Limited' and 'Ltd' &rarr; 'Limited', or strip corporate suffixes before matching.",
+    shortAnswer: "Add entries in the Transformation Table mapping 'Pvt Ltd' → 'Private Limited' and 'Ltd' → 'Limited', or strip corporate suffixes before matching.",
     explanation: "Eliminates legal entity suffix noise.",
-    hint: "Map 'Pvt Ltd' &rarr; 'Private Limited' in Transformation Table.",
+    hint: "Map 'Pvt Ltd' → 'Private Limited' in Transformation Table.",
     level: "moderate",
     codeExample: "TransformationTable: From='Pvt Ltd', To='Private Limited'"
   },
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Smart fuzzy matching transforms messy real-world corporate data into pristine analytics!",
     hint: "Clean & Trim + Threshold 0.80-0.85 + Transformation Table + Match on Distinct Keys = AI-Level Data Cleansing!",
     level: "expert",
-    codeExample: "Rule: Clean Text &rarr; Distinct Keys &rarr; Transformation Table &rarr; FuzzyNestedJoin(Threshold=0.82)!"
+    codeExample: "Rule: Clean Text → Distinct Keys → Transformation Table → FuzzyNestedJoin(Threshold=0.82)!"
   }
 ];
 

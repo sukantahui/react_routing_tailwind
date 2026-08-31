@@ -102,7 +102,7 @@ const Topic42 = () => {
               XONSH
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
             XONSH: Unix Shell with{" "}
             <span className="text-indigo-600 dark:text-indigo-400">
               Python Integration

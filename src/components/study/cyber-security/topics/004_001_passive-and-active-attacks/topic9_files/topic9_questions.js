@@ -2,7 +2,7 @@ const questions = [
   {
     question: "Why is defensive strategy against Passive Cyber Attacks heavily weighted toward Proactive Prevention rather than Real-Time Detection?",
     shortAnswer: "Because passive attacks (sniffing, wiretapping) generate zero log events, zero packet re-transmissions, and zero system state changes, making real-time detection on standard IT infrastructure practically impossible.",
-    explanation: "Traditional security operations rely on 'Detect -> Contain -> Remediate'. With passive surveillance, standard firewalls and SIEM engines remain 100% blind because the adversary only reads passing signals without transmitting. Security architects must embrace the Prevention Paradox: assume every wire and wireless frequency is already tapped, enforcing end-to-end cryptography so intercepted ciphertext is mathematically unreadable.",
+    explanation: "Traditional security operations rely on 'Detect → Contain → Remediate'. With passive surveillance, standard firewalls and SIEM engines remain 100% blind because the adversary only reads passing signals without transmitting. Security architects must embrace the Prevention Paradox: assume every wire and wireless frequency is already tapped, enforcing end-to-end cryptography so intercepted ciphertext is mathematically unreadable.",
     hint: "Assume the tap is already on the wire: encrypt everything so the eavesdropper gets only useless noise.",
     level: "basic",
     codeExample: `// Passive Defense Philosophy:
@@ -18,7 +18,7 @@ const questions = [
     codeExample: `// C-OTDR Optical Telemetry Event:
 // Supervisory Wavelength: 1625 nm
 // Attenuation Baseline  : -0.21 dB/km
-// Telemetry Anomaly     : Localized drop of -0.07 dB detected at Marker 14,208.5 meters -> Physical Tap Alert!`
+// Telemetry Anomaly     : Localized drop of -0.07 dB detected at Marker 14,208.5 meters → Physical Tap Alert!`
   },
   {
     question: "What is IEEE 802.1AE MACsec, and how does it prevent Layer 2 passive sniffing across internal switch links?",
@@ -144,7 +144,7 @@ switch(config-vlan)# private-vlan isolated`
     level: "expert",
     codeExample: `// TDR Reflection Coefficient Formula:
 // Gamma = (Z_Load - Z_0) / (Z_Load + Z_0)
-// If Z_Load drops to 85 Ohms due to tap capacitance -> Gamma = -0.081 (Negative Reflection Peak)`
+// If Z_Load drops to 85 Ohms due to tap capacitance → Gamma = -0.081 (Negative Reflection Peak)`
   },
   {
     question: "How does DNS-over-HTTPS (DoH) prevent ISP passive browsing profiling?",
@@ -287,8 +287,8 @@ sysctl -w net.core.bpf_jit_harden=2 # Blinds all immediate constants in BPF byte
     hint: "Locking both the phonebook query and the address on the envelope so the mail carrier learns nothing.",
     level: "expert",
     codeExample: `// Complete Anti-ISP Surveillance Pipeline:
-// 1. Lookup Domain : DoH over TLS 1.3 (Port 443) -> Fetches ECH public key
-// 2. Connect to Site: TLS 1.3 + ECH -> Hostname "portal.kolkata.in" is 100% encrypted inside ClientHello`
+// 1. Lookup Domain : DoH over TLS 1.3 (Port 443) → Fetches ECH public key
+// 2. Connect to Site: TLS 1.3 + ECH → Hostname "portal.kolkata.in" is 100% encrypted inside ClientHello`
   },
   {
     question: "What is Passive OS Fingerprinting (p0f) via IP Time-to-Live (TTL) and DF flags?",

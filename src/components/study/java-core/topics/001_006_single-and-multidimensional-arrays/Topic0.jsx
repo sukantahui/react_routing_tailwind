@@ -42,7 +42,7 @@ export default function Topic0() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           What is an Array? Fixed-Size Reference Types in Java
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -158,7 +158,7 @@ export default function Topic0() {
             <text x="740" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">O(1) Address Math</text>
             <rect x="645" y="80" width="190" height="80" rx="6" fill="#2e1065" />
             <text x="655" y="102" fill="#ddd6fe" fontSize="10" fontFamily="monospace">Addr = Base + i*Size</text>
-            <text x="655" y="122" fill="#ddd6fe" fontSize="10">i=2 &rarr; Base + 2*8B</text>
+            <text x="655" y="122" fill="#ddd6fe" fontSize="10">i=2 → Base + 2*8B</text>
             <text x="655" y="142" fill="#a7f3d0" fontSize="10">Instant 0-overhead fetch</text>
             <text x="740" y="190" fill="#f5f3ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               O(1) Random Access

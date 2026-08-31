@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Principle of Dominance in Game Theory?",
     shortAnswer: "'The Principle of Dominance eliminates inferior choices: delete smaller rows for Player A and larger columns for Player B; this shrinks matrix dimensionality while preserving the exact Value of the Game in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all dominance mechanics.",
-    hint: "Delete smaller rows, delete larger columns -> Matrix shrinks, game value preserved in ₹.",
+    hint: "Delete smaller rows, delete larger columns → Matrix shrinks, game value preserved in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CompareStrategies() -> DeleteInferior(SmallerRow, LargerCol) -> PreserveVStar(₹)."
+    codeExample: "GoldenRule: CompareStrategies() → DeleteInferior(SmallerRow, LargerCol) → PreserveVStar(₹)."
   }
 ];
 

@@ -76,7 +76,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Appending Queries: Union &amp; Stacking Datasets Vertically from Monthly Files
           </h1>
 
@@ -156,7 +156,7 @@ export default function Topic10() {
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">From Folder (Auto)</td>
-                  <td className="py-3 px-4 text-emerald-300">Folder.Files &rarr; Combine</td>
+                  <td className="py-3 px-4 text-emerald-300">Folder.Files → Combine</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">Transform Sample File Recipe</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Automatically stacks 50+ monthly files on disk.</td>
                 </tr>
@@ -206,7 +206,7 @@ export default function Topic10() {
                 Power Query uses them as lightweight memory streams without duplicating RAM or bloating workbook file size!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Uncheck 'Enable Load' &rarr; Saves 50% Memory Footprint
+                Uncheck 'Enable Load' → Saves 50% Memory Footprint
               </div>
             </div>
           </div>
@@ -364,7 +364,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Append_Queries"
+            sheetName="EX2011"
             title="Appended Master Dataset (Invoice ID, Invoice Date, Branch City, Customer Name, Net Amount INR, Source Period)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -402,7 +402,7 @@ export default function Topic10() {
                 using <code className="text-teal-300 font-mono">Table.Combine</code> to stack 85,000 transaction rows into a single annual master table in 2 seconds.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                12 Monthly Sheets &rarr; 85,000-Row Unified Annual Fact Table
+                12 Monthly Sheets → 85,000-Row Unified Annual Fact Table
               </div>
             </div>
 
@@ -420,7 +420,7 @@ export default function Topic10() {
                 eliminating 5,000 null cell errors across the combined ledger.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Schema Standardization &rarr; 0 Jagged Null Columns
+                Schema Standardization → 0 Jagged Null Columns
               </div>
             </div>
 
@@ -438,7 +438,7 @@ export default function Topic10() {
                 cutting workbook RAM consumption from 450 MB down to 180 MB and speeding up refresh times by 3x!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Disable Staging Loads &rarr; 60% Memory Footprint Reduction
+                Disable Staging Loads → 60% Memory Footprint Reduction
               </div>
             </div>
 
@@ -456,7 +456,7 @@ export default function Topic10() {
                 dropping new monthly CSVs automatically combines them into the live operational report on every scheduled refresh!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Folder Connector &rarr; Zero-Touch Automated Monthly Ingestion
+                Folder Connector → Zero-Touch Automated Monthly Ingestion
               </div>
             </div>
           </div>
@@ -498,7 +498,7 @@ export default function Topic10() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Click 'Append Queries as New'</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Go to <strong>Home Tab &rarr; Append Queries &rarr; Append Queries as New</strong>. Select <strong>Three or more tables</strong> and add all monthly staging queries.
+                  Go to <strong>Home Tab → Append Queries → Append Queries as New</strong>. Select <strong>Three or more tables</strong> and add all monthly staging queries.
                 </p>
               </div>
             </div>
@@ -566,7 +566,7 @@ export default function Topic10() {
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Duplicate RAM Ingestion</td>
                   <td className="py-3 px-4 text-slate-300">Left 'Enable Load' checked on 12 staging queries as well as the Master query.</td>
                   <td className="py-3 px-4 text-slate-400">Excel creates 13 sheets and memory consumption doubles.</td>
-                  <td className="py-3 px-4 text-emerald-400">Right-click staging queries &rarr; Uncheck <strong>Enable Load</strong>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Right-click staging queries → Uncheck <strong>Enable Load</strong>.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Column Position Misconception</td>

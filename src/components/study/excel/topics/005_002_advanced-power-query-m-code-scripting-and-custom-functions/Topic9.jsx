@@ -76,7 +76,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Query Folding: How Power Query Pushes ETL to Backend SQL Servers
           </h1>
 
@@ -115,7 +115,7 @@ export default function Topic9() {
               <span className="text-blue-400">⚡</span> Relational Translation Matrix &amp; Value.NativeQuery
             </h2>
             <span className="text-xs font-mono text-blue-300 bg-blue-950/60 px-3 py-1 rounded-lg border border-blue-800">
-              M &rarr; SQL Translation Mapping
+              M → SQL Translation Mapping
             </span>
           </div>
 
@@ -223,7 +223,7 @@ export default function Topic9() {
               </h3>
               <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
                 In Power BI Service, Incremental Refresh partitions massive multi-billion-row enterprise tables by date. 
-                It requires the <code className="text-indigo-300 font-mono">RangeStart</code> and <code className="text-indigo-300 font-mono">RangeEnd</code> parameter filters to fold directly into the SQL <code className="text-indigo-300 font-mono">WHERE OrderDate &gt;= @RangeStart AND OrderDate &lt; @RangeEnd</code> clause. 
+                It requires the <code className="text-indigo-300 font-mono">RangeStart</code> and <code className="text-indigo-300 font-mono">RangeEnd</code> parameter filters to fold directly into the SQL <code className="text-indigo-300 font-mono">WHERE OrderDate >= @RangeStart AND OrderDate < @RangeEnd</code> clause. 
                 If folding breaks before the date filter, Incremental Refresh fails completely.
               </p>
             </div>
@@ -333,7 +333,7 @@ export default function Topic9() {
                 fill="none"
               />
               <text x="320" y="110" textAnchor="middle" fill="#38bdf8" fontSize="10" fontWeight="bold">
-                M &rarr; T-SQL
+                M → T-SQL
               </text>
 
               {/* SQL Server Backend Box */}
@@ -427,7 +427,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Query_Folding_SQL"
+            sheetName="EX2110"
             title="Query Folding Step &amp; SQL Pushdown Engine (Step Name, Power Query M Step, Folded SQL Clause, Folding Engine Status)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -466,7 +466,7 @@ export default function Topic9() {
                 the filter folds into a SQL <code className="text-cyan-300 font-mono">WHERE</code> clause, reducing the data transfer from 10 million rows to 12,000 rows.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-blue-300">
-                SQL WHERE Pushdown &rarr; 99.8% Network Bandwidth Reduction
+                SQL WHERE Pushdown → 99.8% Network Bandwidth Reduction
               </div>
             </div>
 
@@ -481,11 +481,11 @@ export default function Topic9() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Financial Analyst <strong>Tuhina Mukherjee</strong> configures Incremental Refresh for a 5-year ledger table. 
-                She verifies that <code className="text-cyan-300 font-mono">OrderDate &gt;= RangeStart and OrderDate &lt; RangeEnd</code> folds natively into SQL Server, 
+                She verifies that <code className="text-cyan-300 font-mono">OrderDate >= RangeStart and OrderDate < RangeEnd</code> folds natively into SQL Server, 
                 enabling automated cloud refresh of only the current month's transactions in under 15 seconds.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-cyan-300">
-                RangeStart/End &rarr; T-SQL WHERE &rarr; 100% Incremental Refresh
+                RangeStart/End → T-SQL WHERE → 100% Incremental Refresh
               </div>
             </div>
 
@@ -504,7 +504,7 @@ export default function Topic9() {
                 Moving the index step to the very end allows the two tables to fold into a single server-side <code className="text-indigo-300 font-mono">INNER JOIN</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Move Index Column to End &rarr; Server SQL INNER JOIN Restored
+                Move Index Column to End → Server SQL INNER JOIN Restored
               </div>
             </div>
 
@@ -523,7 +523,7 @@ export default function Topic9() {
                 his Power Query script executes the CTE and allows downstream visual filters to fold into outer SQL queries.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Value.NativeQuery([EnableFolding=true]) &rarr; CTE + Visual Filters Folded
+                Value.NativeQuery([EnableFolding=true]) → CTE + Visual Filters Folded
               </div>
             </div>
           </div>
@@ -674,7 +674,7 @@ in
                 <span>⚡</span> Tip 1: The Golden Order: Filter First, Transform Last
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Always arrange your query sequence: Source &rarr; Select Rows &rarr; Select Columns &rarr; Joins &rarr; [Folded in SQL] &rarr; Custom Formatting [Client RAM].
+                Always arrange your query sequence: Source → Select Rows → Select Columns → Joins → [Folded in SQL] → Custom Formatting [Client RAM].
               </p>
             </div>
 
@@ -692,7 +692,7 @@ in
                 <span>⚡</span> Tip 3: Inspect Real T-SQL with Query Diagnostics
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Use Power BI Desktop's <strong>Tools &rarr; Start Diagnostics</strong> to record the exact T-SQL query text and database server query duration.
+                Use Power BI Desktop's <strong>Tools → Start Diagnostics</strong> to record the exact T-SQL query text and database server query duration.
               </p>
             </div>
 

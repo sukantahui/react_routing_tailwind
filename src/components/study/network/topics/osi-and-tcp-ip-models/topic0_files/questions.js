@@ -21,7 +21,7 @@ const questions = [
     explanation: "Encapsulation wraps the upper layer data with control information (headers). For example, a transport header is added, then a network header, then a data link header.",
     hint: "Like putting a letter into an envelope, then into a bigger package.",
     level: "intermediate",
-    codeExample: "// Pseudo: Application data -> TCP segment (TCP header) -> IP packet (IP header) -> Ethernet frame (Ethernet header + trailer)."
+    codeExample: "// Pseudo: Application data → TCP segment (TCP header) → IP packet (IP header) → Ethernet frame (Ethernet header + trailer)."
   },
   {
     question: "Name one key benefit of modular design in layered architectures.",

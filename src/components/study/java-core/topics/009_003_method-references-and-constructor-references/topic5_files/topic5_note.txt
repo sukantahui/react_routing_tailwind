@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. UNBOUND INSTANCE REFERENCES:
    - Syntax: 'ClassName::instanceMethodName'.
-   - Equivalence: '(obj, args) -> obj.instanceMethodName(args)'.
+   - Equivalence: '(obj, args) → obj.instanceMethodName(args)'.
    - First parameter of SAM becomes the target receiver object.
    - Examples: 'String::toLowerCase', 'String::length', 'Employee::getSalary'.
    - Most commonly used method reference type in 'Stream.map()'!

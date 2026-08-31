@@ -13,7 +13,7 @@ Website: https://www.codernaccotax.co.in
   1. screen.setup(width, height, startx, starty):
      - Sets the physical OS window dimensions and screen positioning.
      - Integers represent pixels (e.g. width=800, height=600).
-     - Floats represent fraction of user display screen (e.g. width=0.75 -> 75% of monitor).
+     - Floats represent fraction of user display screen (e.g. width=0.75 → 75% of monitor).
      - startx, starty define top-left corner coordinates on the physical monitor.
 
   2. screen.title("Text"):

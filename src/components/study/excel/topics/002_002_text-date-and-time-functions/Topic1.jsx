@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Substring_extracti"
+            sheetName="EX702"
             title={"Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -318,7 +318,7 @@ export default function Topic1() {
                 <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Branch Code & Account Slicing"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Extracts 4-digit branch codes from structured account numbers (e.g. 'BKP-98214-WB' -> =LEFT(A2, 3)) for divisional reporting."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Extracts 4-digit branch codes from structured account numbers (e.g. 'BKP-98214-WB' → =LEFT(A2, 3)) for divisional reporting."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -336,7 +336,7 @@ export default function Topic1() {
                 <span className="text-xs font-mono text-slate-400">{"Ichapur Heavy Works"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Abhronila Das: SKU Part-Number Decomposition"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Parses middle thickness specifications from engineering codes ('STEEL-25MM-GRADEA' -> =MID(A2, 7, 4))."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Parses middle thickness specifications from engineering codes ('STEEL-25MM-GRADEA' → =MID(A2, 7, 4))."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">

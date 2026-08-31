@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 `XLOOKUP` is the king of lookups! It looks left, it looks right, it doesn't care if someone inserts a column, and it has error handling built right in. If you are still using VLOOKUP, switch to XLOOKUP today!
 
 COMMON TRAPS TO AVOID:
-- VLOOKUP Column Insertion Breakage Bug: Inserting a new column in source data breaks hardcoded `col_index_num = 3`. -> Fix: Use `XLOOKUP` which references columns directly by range.
-- Omitting Exact Match Parameter (FALSE / 0) in VLOOKUP: Defaulting to approximate match on unsorted tables returning random incorrect values. -> Fix: Always pass `FALSE` in VLOOKUP: `=VLOOKUP(A2, Table, 3, FALSE)`.
-- Approximate Match on Unsorted Reference Tables: Running approximate lookup (`match_mode = 1`) on unsorted data. -> Fix: Ensure reference lookup table is sorted ascending when using approximate lookups.
+- VLOOKUP Column Insertion Breakage Bug: Inserting a new column in source data breaks hardcoded `col_index_num = 3`. → Fix: Use `XLOOKUP` which references columns directly by range.
+- Omitting Exact Match Parameter (FALSE / 0) in VLOOKUP: Defaulting to approximate match on unsorted tables returning random incorrect values. → Fix: Always pass `FALSE` in VLOOKUP: `=VLOOKUP(A2, Table, 3, FALSE)`.
+- Approximate Match on Unsorted Reference Tables: Running approximate lookup (`match_mode = 1`) on unsorted data. → Fix: Ensure reference lookup table is sorted ascending when using approximate lookups.
 ================================================================================

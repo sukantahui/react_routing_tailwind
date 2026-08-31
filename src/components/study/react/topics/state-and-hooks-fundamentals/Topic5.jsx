@@ -286,7 +286,7 @@ const TimerExample = () => {
       <h4 className="font-bold mb-4 text-orange-400">⏱️ Timer with useRef</h4>
       
       <div className="text-center mb-6">
-        <div className="text-5xl font-bold mb-2 text-orange-300">{seconds}</div>
+        <div className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-orange-300">{seconds}</div>
         <div className="text-sm opacity-70">seconds elapsed</div>
       </div>
       
@@ -703,7 +703,7 @@ const inputRef = useRef(null);`,
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
                 State Management: When & When Not 🎯
               </h1>
               <p className={clsx(
@@ -737,7 +737,7 @@ const inputRef = useRef(null);`,
               ? "bg-gradient-to-r from-gray-800 to-gray-700 shadow-2xl" 
               : "bg-gradient-to-r from-white to-emerald-50 shadow-xl"
           )}>
-            <h2 className="text-4xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
               Smart State Management 🧠
             </h2>
             <p className={clsx(

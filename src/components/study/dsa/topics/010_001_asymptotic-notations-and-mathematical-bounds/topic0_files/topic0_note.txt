@@ -21,10 +21,10 @@ Given algorithm execution step function f(n) and reference bounding function g(n
                          0 <= c1 * g(n) <= f(n) <= c2 * g(n)  for all n >= n0.
 
 • Little-o (o) - Strict Non-Tight Upper Bound:
-    f(n) = o(g(n))  <=>  lim_{n -> inf} [ f(n) / g(n) ] = 0.
+    f(n) = o(g(n))  <=>  lim_{n → inf} [ f(n) / g(n) ] = 0.
 
 • Little-omega (ω) - Strict Non-Tight Lower Bound:
-    f(n) = ω(g(n))  <=>  lim_{n -> inf} [ f(n) / g(n) ] = inf.
+    f(n) = ω(g(n))  <=>  lim_{n → inf} [ f(n) / g(n) ] = inf.
 
 2. THE COMPLEXITY HIERARCHY (GROWTH RATES)
 --------------------------------------------------------------------------------

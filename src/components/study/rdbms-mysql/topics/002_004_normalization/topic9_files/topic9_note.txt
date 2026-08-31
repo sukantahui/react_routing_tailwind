@@ -18,7 +18,7 @@ A relation schema R is in Second Normal Form (2NF) if and only if:
    (Every non-prime attribute must be FULLY functionally dependent on EVERY candidate key).
 
 Mathematical Rule:
-For every non-trivial functional dependency $X \rightarrow A$ where A is a non-prime attribute:
+For every non-trivial functional dependency $X → A$ where A is a non-prime attribute:
 - X must NOT be a proper subset of any candidate key of R.
 
 Key Theorem:
@@ -51,7 +51,7 @@ Why this table causes severe production anomalies:
 3. THE 2NF DECOMPOSITION PROCEDURE
 --------------------------------------------------------------------------------
 To eliminate partial dependencies, apply the 2NF Decomposition Algorithm:
-1. Identify all partial dependencies $X_{sub} \rightarrow Y$ where $X_{sub}$ is a proper subset of a composite candidate key.
+1. Identify all partial dependencies $X_{sub} → Y$ where $X_{sub}$ is a proper subset of a composite candidate key.
 2. For each partial dependency, create a dedicated relation $R_i(X_{sub}, Y)$ where $X_{sub}$ becomes the Primary Key.
 3. Remove the partially dependent attributes Y from the original relation.
 4. Keep the remaining full functional dependencies in a bridge/junction table with the original composite key.

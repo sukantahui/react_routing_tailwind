@@ -73,7 +73,7 @@ const questions = [
     hint: "Temporary elevation of administrative rights for a fixed time window tied to a change ticket.",
     level: "Moderate",
     codeExample: `// JIT Elevation Workflow:
-// Ticket #4018 Approved -> Issues 30-min Ephemeral SSH Certificate -> Access automatically expires at 15:30 IST.`
+// Ticket #4018 Approved → Issues 30-min Ephemeral SSH Certificate → Access automatically expires at 15:30 IST.`
   },
   {
     id: 8,
@@ -94,7 +94,7 @@ const questions = [
     hint: "Active accounts belonging to former employees or contractors that were never de-provisioned.",
     level: "Basic",
     codeExample: `// Orphan Account Threat:
-// Contractor departs in 2024 -> VPN account remains active -> Attacker buys VPN credentials on dark web in 2026 -> Undetected breach! 🚨`
+// Contractor departs in 2024 → VPN account remains active → Attacker buys VPN credentials on dark web in 2026 → Undetected breach! 🚨`
   },
   {
     id: 10,
@@ -126,7 +126,7 @@ const questions = [
     hint: "Periodic manager audit formally certifying and revoking unnecessary subordinate permissions.",
     level: "Moderate",
     codeExample: `// Access Certification Campaign:
-// Manager receives list: [Susmita: ERP_Admin (Revoke?), Salesforce_Viewer (Approve?)] -> Manager clicks REVOKE on ERP_Admin.`
+// Manager receives list: [Susmita: ERP_Admin (Revoke?), Salesforce_Viewer (Approve?)] → Manager clicks REVOKE on ERP_Admin.`
   },
   {
     id: 13,
@@ -136,7 +136,7 @@ const questions = [
     hint: "Emergency root access stored in physical safes, used only during catastrophic system outages.",
     level: "Moderate",
     codeExample: `// Break-Glass Protocol:
-// 1. Central SSO offline -> Director breaks physical safe seal for 'emergency_root' credentials.
+// 1. Central SSO offline → Director breaks physical safe seal for 'emergency_root' credentials.
 // 2. Automated SMS/Email dispatches to CISO: "EMERGENCY BREAK-GLASS ACCOUNT CHECKED OUT 🚨"`
   },
   {
@@ -172,7 +172,7 @@ const questions = [
     hint: "Generates unique, temporary database credentials on-demand that auto-delete after a few minutes.",
     level: "Expert",
     codeExample: `// Vault Dynamic Database Credential:
-// App queries Vault -> Vault creates PostgreSQL user: 'v-app-usr-8f9a2' (TTL: 15m) -> Auto-dropped after 15 minutes ✔`
+// App queries Vault → Vault creates PostgreSQL user: 'v-app-usr-8f9a2' (TTL: 15m) → Auto-dropped after 15 minutes ✔`
   },
   {
     id: 17,
@@ -305,8 +305,8 @@ const questions = [
     hint: "ABAC limits, Maker-Checker dual custody, and mandatory Treasury Director FIDO2 step-up approval.",
     level: "Expert",
     codeExample: `// Defense Execution:
-// 1. Clerk attempts ₹45,00,000 transfer -> BLOCKED: Role limit is ₹50,000 ❌
-// 2. Transferred to Director for Checker Approval -> Demands FIDO2 Touch on Office Subnet ✔`
+// 1. Clerk attempts ₹45,00,000 transfer → BLOCKED: Role limit is ₹50,000 ❌
+// 2. Transferred to Director for Checker Approval → Demands FIDO2 Touch on Office Subnet ✔`
   },
   {
     id: 30,

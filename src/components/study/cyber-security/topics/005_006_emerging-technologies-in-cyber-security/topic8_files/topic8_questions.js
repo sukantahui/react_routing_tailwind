@@ -7,8 +7,8 @@ const questions = [
     hint: "QKD security is based on physical laws (quantum mechanics); PQC security is based on mathematical hardness.",
     level: "Basic",
     codeExample: `// Security Foundation:
-// PQC : Hard Math (Lattices) -> Could theoretically be broken by future algorithms
-// QKD : Quantum Physics -> Eavesdropping physically perturbs photons and reveals attacker ✔`
+// PQC : Hard Math (Lattices) → Could theoretically be broken by future algorithms
+// QKD : Quantum Physics → Eavesdropping physically perturbs photons and reveals attacker ✔`
   },
   {
     id: 2,
@@ -77,7 +77,7 @@ const questions = [
     hint: "Eve splits multi-photon pulses, keeping one photon in memory to measure later with zero induced error.",
     level: "Expert",
     codeExample: `// PNS Attack:
-// Laser pulse contains 2 photons -> Eve steals 1 photon, sends 1 to Bob -> Zero QBER induced! 🚨`
+// Laser pulse contains 2 photons → Eve steals 1 photon, sends 1 to Bob → Zero QBER induced! 🚨`
   },
   {
     id: 8,
@@ -98,7 +98,7 @@ const questions = [
     level: "Moderate",
     codeExample: `// Optical Attenuation:
 // At 100 km : 99% of photons absorbed
-// At 200 km : 99.99% absorbed -> Signal drowned in detector dark count noise.`
+// At 200 km : 99.99% absorbed → Signal drowned in detector dark count noise.`
   },
   {
     id: 10,
@@ -109,7 +109,7 @@ const questions = [
     level: "Moderate",
     codeExample: `// Trusted Node Relay:
 // Alice <---(QKD K1)---> [Trusted Bunker] <---(QKD K2)---> Bob
-// Bunker transmits K1 ^ K2 -> Bob computes K2 ^ (K1 ^ K2) = K1 ✔`
+// Bunker transmits K1 ^ K2 → Bob computes K2 ^ (K1 ^ K2) = K1 ✔`
   },
   {
     id: 11,
@@ -273,7 +273,7 @@ const questions = [
     hint: "ETSI REST APIs allow enterprise routers and VPNs to request fresh QKD keys dynamically.",
     level: "Moderate",
     codeExample: `// ETSI QKD API Call:
-// GET /api/v1/keys/target_node_kolkata/enc_keys -> Returns 256-bit quantum-distributed symmetric key.`
+// GET /api/v1/keys/target_node_kolkata/enc_keys → Returns 256-bit quantum-distributed symmetric key.`
   },
   {
     id: 27,

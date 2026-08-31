@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Batch processing is where you save real human hours. Write a `Dir()` loop, point it at a folder with 100 files, and let Excel open, copy data, and close every file in 10 seconds. Always skip files starting with `~$`!
 
 COMMON TRAPS TO AVOID:
-- The 'Infinite Same File' Loop Trap: Forgetting to write `strFile = Dir()` before the `Loop` statement causes the loop to re-open the first file forever. -> Fix: Always call `strFile = Dir()` at the bottom of the loop to advance to the next file.
-- Saving Changes to Source Files Accidentally: Calling `wbSource.Close SaveChanges:=True` modifies client source files. -> Fix: Always close extraction sources safely with `wbSource.Close SaveChanges:=False`.
-- Opening Temporary Lock Files (~$filename.xlsx): `Dir("*.xlsx")` picking up hidden Excel lock files (~$) created when a file is open. -> Fix: Filter out temporary files: `If Left(strFile, 2) <> "~$" Then ...`.
+- The 'Infinite Same File' Loop Trap: Forgetting to write `strFile = Dir()` before the `Loop` statement causes the loop to re-open the first file forever. → Fix: Always call `strFile = Dir()` at the bottom of the loop to advance to the next file.
+- Saving Changes to Source Files Accidentally: Calling `wbSource.Close SaveChanges:=True` modifies client source files. → Fix: Always close extraction sources safely with `wbSource.Close SaveChanges:=False`.
+- Opening Temporary Lock Files (~$filename.xlsx): `Dir("*.xlsx")` picking up hidden Excel lock files (~$) created when a file is open. → Fix: Filter out temporary files: `If Left(strFile, 2) <> "~$" Then ...`.
 ================================================================================

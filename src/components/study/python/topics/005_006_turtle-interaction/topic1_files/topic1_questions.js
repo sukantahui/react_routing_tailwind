@@ -231,7 +231,7 @@ const questions = [
     explanation: "This 3-step blueprint guarantees permanent, glitch-free keyboard responsiveness across all environments.",
     hint: "What 3 steps guarantee robust keyboard focus in Turtle?",
     level: "basic",
-    codeExample: "# 1. Bind keys -> 2. screen.listen() -> 3. Auto-refocus on click"
+    codeExample: "# 1. Bind keys → 2. screen.listen() → 3. Auto-refocus on click"
   },
   {
     question: "How does understanding window focus prepare developers for web frontends?",

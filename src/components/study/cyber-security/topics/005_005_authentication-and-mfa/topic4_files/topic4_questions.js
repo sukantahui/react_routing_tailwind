@@ -117,7 +117,7 @@ for (let i = 1; i <= lookAheadWindow; i++) {
     hint: "Calculations rely entirely on local hardware time and the pre-shared key stored in the app.",
     level: "Basic",
     codeExample: `// Offline Generation:
-// Device has: 1. Base32 Secret Key + 2. Internal RTC Clock -> Generates TOTP offline with zero Wi-Fi/cellular.`
+// Device has: 1. Base32 Secret Key + 2. Internal RTC Clock → Generates TOTP offline with zero Wi-Fi/cellular.`
   },
   {
     id: 11,
@@ -139,7 +139,7 @@ for (let i = 1; i <= lookAheadWindow; i++) {
     hint: "Possessing the secret key allows cloning the authenticator and generating valid codes forever.",
     level: "Moderate",
     codeExample: `// Stolen Secret Impact:
-// Attacker imports secret "JBSWY3DPEHPK3PXP" into their own phone -> Attacker's app produces identical valid codes!`
+// Attacker imports secret "JBSWY3DPEHPK3PXP" into their own phone → Attacker's app produces identical valid codes!`
   },
   {
     id: 13,
@@ -163,8 +163,8 @@ if (isMatch) {
     hint: "6 digits = 1 million combinations; 8 digits = 100 million combinations (100x harder).",
     level: "Basic",
     codeExample: `// Keyspace Comparison:
-// 6-digit: 000000 to 999999 -> 10^6 combinations
-// 8-digit: 00000000 to 99999999 -> 10^8 combinations`
+// 6-digit: 000000 to 999999 → 10^6 combinations
+// 8-digit: 00000000 to 99999999 → 10^8 combinations`
   },
   {
     id: 15,
@@ -176,7 +176,7 @@ if (isMatch) {
     codeExample: `// AitM TOTP Interception:
 // 1. User enters 6-digit TOTP on 'fake-bank-portal.net'
 // 2. Evilginx proxy submits code to 'realbank.com' within 10 seconds
-// 3. Real server accepts TOTP -> Issues session cookie -> Proxy steals cookie!`
+// 3. Real server accepts TOTP → Issues session cookie → Proxy steals cookie!`
   },
   {
     id: 16,
@@ -223,7 +223,7 @@ if (isMatch) {
     codeExample: `// Border Condition:
 // Generated at 14:00:29.8 (Counter 500)
 // Received at 14:00:30.4 (Server at Counter 501)
-// Server verifies Counter 500 in [500, 501, 502] -> PERMITTED ✔`
+// Server verifies Counter 500 in [500, 501, 502] → PERMITTED ✔`
   },
   {
     id: 20,
@@ -233,8 +233,8 @@ if (isMatch) {
     hint: "Convenient backup vs risk of exposing all 2FA seeds if the master cloud account is compromised.",
     level: "Moderate",
     codeExample: `// Cloud Sync Debate:
-// Benefit: User buys new phone -> All 20 TOTP accounts restore instantly.
-// Risk: Master Google account phished -> Attacker gains all 20 TOTP seeds simultaneously.`
+// Benefit: User buys new phone → All 20 TOTP accounts restore instantly.
+// Risk: Master Google account phished → Attacker gains all 20 TOTP seeds simultaneously.`
   },
   {
     id: 21,
@@ -245,7 +245,7 @@ if (isMatch) {
     level: "Moderate",
     codeExample: `// Bitwise Mask:
 // 0x7FFFFFFF in binary = 01111111 11111111 11111111 11111111
-// Clears bit 31 (sign bit) -> Guarantees positive 31-bit integer.`
+// Clears bit 31 (sign bit) → Guarantees positive 31-bit integer.`
   },
   {
     id: 22,
@@ -255,7 +255,7 @@ if (isMatch) {
     hint: "Prevents automated botnets from submitting thousands of guesses within a single 30-second window.",
     level: "Basic",
     codeExample: `// Rate Limiting Policy:
-// Max 5 attempts per user per 30-second window -> Exceeding triggers 5-minute cooldown.`
+// Max 5 attempts per user per 30-second window → Exceeding triggers 5-minute cooldown.`
   },
   {
     id: 23,
@@ -277,8 +277,8 @@ const base32Secret = base32Encode(secretBytes);`
     hint: "Large window means the server checks thousands of codes per guess, drastically increasing attack success probability.",
     level: "Expert",
     codeExample: `// Vulnerable Large Look-Ahead Window:
-// s = 10,000 -> 10,000 valid codes accepted simultaneously!
-// Attacker submits 100 random guesses -> ~63% probability of breaching account! ❌`
+// s = 10,000 → 10,000 valid codes accepted simultaneously!
+// Attacker submits 100 random guesses → ~63% probability of breaching account! ❌`
   },
   {
     id: 25,
@@ -289,7 +289,7 @@ const base32Secret = base32Encode(secretBytes);`
     level: "Basic",
     codeExample: `// Ephemeral Nature:
 // Stored in DB: Encrypted Seed Key (AES-256)
-// Generated in RAM: Active Code [ 849201 ] -> Discarded from memory after 30 seconds.`
+// Generated in RAM: Active Code [ 849201 ] → Discarded from memory after 30 seconds.`
   },
   {
     id: 26,
@@ -299,9 +299,9 @@ const base32Secret = base32Encode(secretBytes);`
     hint: "Mandatory lockout or progressive delay after failed HOTP attempts to defeat brute-force scripts.",
     level: "Moderate",
     codeExample: `// RFC 4226 Throttling:
-// Failed Attempts: 1 -> OK
-// Failed Attempts: 2 -> OK
-// Failed Attempts: 3 -> LOCKOUT! Requires administrator intervention or re-enrollment.`
+// Failed Attempts: 1 → OK
+// Failed Attempts: 2 → OK
+// Failed Attempts: 3 → LOCKOUT! Requires administrator intervention or re-enrollment.`
   },
   {
     id: 27,
@@ -351,9 +351,9 @@ const match = crypto.timingSafeEqual(
     level: "Expert",
     codeExample: `// Forensic Findings:
 // Real UTC Time   : 10:00:00 (Time Counter = 1200)
-// Server Clock    : 10:00:48 (Time Counter = 1201.6 -> 1201)
+// Server Clock    : 10:00:48 (Time Counter = 1201.6 → 1201)
 // Client Code Gen : Counter 1200
-// Server Check    : [1201, 1202] -> Mismatch ❌
+// Server Check    : [1201, 1202] → Mismatch ❌
 // Fix: Restart Chrony NTP daemon + configure Nagios alert for clock drift > 2 seconds.`
   }
 ];

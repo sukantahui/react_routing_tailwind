@@ -42,7 +42,7 @@ export default function Topic10() {
             Core OOP Principles
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Encapsulation Principle: Bundling Data and Methods into a Single Unit
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -131,7 +131,7 @@ export default function Topic10() {
             <text x="50" y="222" fill="#fca5a5" fontSize="9">&bull; Zero Invariant Validation (Negative balance allowed)</text>
             <text x="50" y="238" fill="#fca5a5" fontSize="9">&bull; Zero Audit Trail (Untracked field writes)</text>
             <text x="50" y="254" fill="#fca5a5" fontSize="9">&bull; Tight Coupling (Renaming field breaks all callers)</text>
-            <text x="50" y="270" fill="#f87171" fontSize="9" fontWeight="bold">&rarr; Complete Data Integrity Failure</text>
+            <text x="50" y="270" fill="#f87171" fontSize="9" fontWeight="bold">→ Complete Data Integrity Failure</text>
 
             {/* Right Box: Encapsulated Protective Capsule */}
             <rect x="450" y="25" width="445" height="270" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="2" />

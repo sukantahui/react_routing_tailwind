@@ -24,7 +24,7 @@ const questions = [
     question: "How does page-number based pagination work in M using `List.Generate`?",
     shortAnswer: "Initialize at `Page = 1`, fetch data, increment `Page + 1` on each step, and terminate when the response returns zero records or an empty array.",
     explanation: "Numeric page increment loop.",
-    hint: "Page = 1 &rarr; Page + 1 until records list is empty.",
+    hint: "Page = 1 → Page + 1 until records list is empty.",
     level: "moderate",
     codeExample: "List.Generate(()=> [P=1, D=Fetch(1)], each not List.IsEmpty([D]), each [P=[P]+1, D=Fetch([P]+1)], each [D])"
   },
@@ -46,9 +46,9 @@ const questions = [
   },
   {
     question: "How do you generate an OAuth2 Bearer token dynamically in M before requesting protected API data?",
-    shortAnswer: "Make an HTTP POST request to the token URL using `Web.Contents` with `[Content = Text.ToBinary(\"grant_type=client_credentials&client_id=...\")]` &rarr; parse JSON &rarr; extract `[access_token]`.",
+    shortAnswer: "Make an HTTP POST request to the token URL using `Web.Contents` with `[Content = Text.ToBinary(\"grant_type=client_credentials&client_id=...\")]` → parse JSON → extract `[access_token]`.",
     explanation: "Automated two-step authentication handshake in M.",
-    hint: "POST to /token endpoint &rarr; extract [access_token] from JSON response.",
+    hint: "POST to /token endpoint → extract [access_token] from JSON response.",
     level: "expert",
     codeExample: "Token = Json.Document(Web.Contents(TokenURL, [Content=CredentialsBinary]))[access_token]"
   },
@@ -70,7 +70,7 @@ const questions = [
   },
   {
     question: "How do you extract the `Retry-After` header value when an API responds with HTTP 429 in M?",
-    shortAnswer: "Enable `ManualStatusHandling = {429}` &rarr; retrieve header via `Value.Metadata(Response)[Headers][#\"retry-after\"]`.",
+    shortAnswer: "Enable `ManualStatusHandling = {429}` → retrieve header via `Value.Metadata(Response)[Headers][#\"retry-after\"]`.",
     explanation: "Inspects server-mandated cooldown duration.",
     hint: "Value.Metadata(Response)[Headers][#\"retry-after\"].",
     level: "expert",
@@ -118,9 +118,9 @@ const questions = [
   },
   {
     question: "How do you handle APIs that return total page count in the first response (e.g. `\"total_pages\": 25`)?",
-    shortAnswer: "Fetch page 1 to read `total_pages` &rarr; generate a list of page numbers `{1..total_pages}` &rarr; apply `List.Transform` to fetch all pages concurrently &rarr; `Table.Combine`.",
+    shortAnswer: "Fetch page 1 to read `total_pages` → generate a list of page numbers `{1..total_pages}` → apply `List.Transform` to fetch all pages concurrently → `Table.Combine`.",
     explanation: "Fixed-bound concurrent pagination using List.Transform.",
-    hint: "Read total_pages &rarr; {1..total_pages} &rarr; List.Transform &rarr; Table.Combine.",
+    hint: "Read total_pages → {1..total_pages} → List.Transform → Table.Combine.",
     level: "advanced",
     codeExample: "PagesList = {1..TotalPages}, AllData = Table.Combine(List.Transform(PagesList, each fx_GetPage(_)))"
   },
@@ -134,9 +134,9 @@ const questions = [
   },
   {
     question: "How do you handle nested `data` arrays within each paginated response?",
-    shortAnswer: "Extract `[data]` from each page record &rarr; convert each to a Table with `Table.FromRecords` &rarr; union all with `Table.Combine`.",
+    shortAnswer: "Extract `[data]` from each page record → convert each to a Table with `Table.FromRecords` → union all with `Table.Combine`.",
     explanation: "Unpacks page records into uniform tabular blocks.",
-    hint: "Extract [data] list &rarr; Table.FromRecords &rarr; Table.Combine.",
+    hint: "Extract [data] list → Table.FromRecords → Table.Combine.",
     level: "moderate",
     codeExample: "PageTable = Table.FromRecords(JsonResponse[data])"
   },
@@ -150,9 +150,9 @@ const questions = [
   },
   {
     question: "How do you pass basic authentication credentials securely in an API call in M?",
-    shortAnswer: "Encode `username:password` to Base64 using `Binary.ToText(Text.ToBinary(\"user:pass\"), BinaryEncoding.Base64)` &rarr; pass in `[Headers = [#\"Authorization\" = \"Basic \" & Base64Str]]`.",
+    shortAnswer: "Encode `username:password` to Base64 using `Binary.ToText(Text.ToBinary(\"user:pass\"), BinaryEncoding.Base64)` → pass in `[Headers = [#\"Authorization\" = \"Basic \" & Base64Str]]`.",
     explanation: "Standard HTTP Basic authentication header construction.",
-    hint: "Base64 encode 'user:pass' &rarr; 'Authorization: Basic ...'.",
+    hint: "Base64 encode 'user:pass' → 'Authorization: Basic ...'.",
     level: "moderate",
     codeExample: "BasicAuth = \"Basic \" & Binary.ToText(Text.ToBinary(\"user:secret\"), BinaryEncoding.Base64)"
   },
@@ -182,7 +182,7 @@ const questions = [
   },
   {
     question: "How do you handle API pagination when the endpoint uses Link headers (RFC 5988)?",
-    shortAnswer: "Extract the `Link` header from `Value.Metadata(Response)[Headers][#\"link\"]` &rarr; parse the URL bounded by `<...>; rel=\"next\"` using `Text.BetweenDelimiters`.",
+    shortAnswer: "Extract the `Link` header from `Value.Metadata(Response)[Headers][#\"link\"]` → parse the URL bounded by `<...>; rel=\"next\"` using `Text.BetweenDelimiters`.",
     explanation: "RFC 5988 Link header pagination.",
     hint: "Extract URL from Link header where rel=\"next\".",
     level: "expert",
@@ -194,7 +194,7 @@ const questions = [
     explanation: "Modular authentication caching.",
     hint: "Evaluates token once and shares across all downstream queries.",
     level: "moderate",
-    codeExample: "qry_OAuthToken &rarr; Referenced by qry_PaginatedSales"
+    codeExample: "qry_OAuthToken → Referenced by qry_PaginatedSales"
   },
   {
     question: "How do you log the number of pages fetched during an automated pagination run?",

@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Data wrangling with pandas in Excel: Filtering, grouping, merging, and reshaping DataFrames"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic3() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"pandas Wrangling: df_filtered = df[df['Revenue'] &gt; 500000] | GroupBy: df.groupby('Region')['Profit'].sum().reset_index() | Merge: pd.merge(df1, df2, on='ID', how='inner')"}
+            {"pandas Wrangling: df_filtered = df[df['Revenue'] > 500000] | GroupBy: df.groupby('Region')['Profit'].sum().reset_index() | Merge: pd.merge(df1, df2, on='ID', how='inner')"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic3() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"pandas Data Wrangling Pipeline: Ingest -> Filter & Clean -> Multi-Column GroupBy Aggregation -> Relational Merge"}
+              Visual Dataflow: {"pandas Data Wrangling Pipeline: Ingest → Filter & Clean → Multi-Column GroupBy Aggregation → Relational Merge"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Data Science Pipeline
@@ -286,7 +286,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Data_wrangling_wit"
+            sheetName="EX2804"
             title={"Data wrangling with pandas in Excel: Filtering, grouping, merging, and reshaping DataFrames - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic3() {
                 Step 2: Reference Data via xl() &amp; Build Python Logic
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Ingest ranges: <code className="text-cyan-300 font-mono font-bold">{"pandas Wrangling: df_filtered = df[df['Revenue'] &gt; 500000] | GroupBy: df.groupby('Region')['Profit'].sum().reset_index() | Merge: pd.merge(df1, df2, on='ID', how='inner')"}</code>.
+                Ingest ranges: <code className="text-cyan-300 font-mono font-bold">{"pandas Wrangling: df_filtered = df[df['Revenue'] > 500000] | GroupBy: df.groupby('Region')['Profit'].sum().reset_index() | Merge: pd.merge(df1, df2, on='ID', how='inner')"}</code>.
               </p>
             </div>
 

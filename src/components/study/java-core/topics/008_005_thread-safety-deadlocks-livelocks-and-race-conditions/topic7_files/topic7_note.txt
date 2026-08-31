@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. COFFMAN 4: CIRCULAR WAIT:
-   - Closed loop of lock dependencies: T1 &rarr; T2 &rarr; T3 &rarr; T1.
+   - Closed loop of lock dependencies: T1 → T2 → T3 → T1.
    - Forms a cycle in the Resource Allocation Graph (RAG).
    - The primary target for deadlock prevention in industry.
    - Solution: Enforce strict Global Lock Ordering.

@@ -57,7 +57,7 @@ and J = {c_1, c_2}:
 
 CASE STUDY 1: Precision Foundry 4x4 Grid Multi-Pass Reduction (Debangshu)
 Debangshu in Barrackpore reduced a 4x4 bidding grid across 3 cascading passes:
-Pass 1 (Row 4 deleted) -> Pass 2 (Col 2 and Col 4 deleted) -> Pass 3 (Row 3 deleted).
+Pass 1 (Row 4 deleted) → Pass 2 (Col 2 and Col 4 deleted) → Pass 3 (Row 3 deleted).
 Final 2x2 submatrix solved to p* = [0.6, 0.4, 0, 0] and locked in ₹28,000 profit.
 
 --------------------------------------------------------------------------------

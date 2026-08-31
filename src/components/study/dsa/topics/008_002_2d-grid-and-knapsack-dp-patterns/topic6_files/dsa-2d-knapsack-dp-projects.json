@@ -158,7 +158,7 @@
       "projectId": "DP2D_013",
       "title": "Cherry Pickup I (2-Person Simultaneous Grid Path DP)",
       "difficulty": "Intermediate",
-      "description": "Find max cherries collected going `(0,0) -> (N-1,N-1)` and returning `(N-1,N-1) -> (0,0)`. Model as TWO people moving simultaneously from `(0,0)` to `(N-1,N-1)`. State `dp[step][r1][r2]` tracks step count `r1 + c1 == r2 + c2`, reducing 4D state to 3D in O(N^3) time! In this project, you will build Cherry Pickup 3D DP Engine in C.",
+      "description": "Find max cherries collected going `(0,0) → (N-1,N-1)` and returning `(N-1,N-1) → (0,0)`. Model as TWO people moving simultaneously from `(0,0)` to `(N-1,N-1)`. State `dp[step][r1][r2]` tracks step count `r1 + c1 == r2 + c2`, reducing 4D state to 3D in O(N^3) time! In this project, you will build Cherry Pickup 3D DP Engine in C.",
       "learningOutcome": "Simultaneous 2-Path Grid DP, State Dimension Reduction (4D to 3D) & Shared Cell Adjustments",
       "exampleText": "Collect maximum cherries via simultaneous 2-path DP",
       "exampleOutput": "--- Cherry Pickup I (2-Person Simultaneous Grid DP) ---\nMaximum Cherries Collected = 5",

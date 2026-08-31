@@ -216,7 +216,7 @@ const Topic2 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_004 • Topic 2 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Classical Ciphers: Substitution and Transposition
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
@@ -501,7 +501,7 @@ const Topic2 = () => {
                     <text x="125" y="145" fill="#c7d2fe" font-family="monospace" textAnchor="middle" fontSize="9">E   F   G  I/J  K</text>
                     <text x="125" y="170" fill="#c7d2fe" font-family="monospace" textAnchor="middle" fontSize="9">L   P   Q   S   T</text>
                     <text x="125" y="195" fill="#c7d2fe" font-family="monospace" textAnchor="middle" fontSize="9">U   V   W   X   Z</text>
-                    <text x="125" y="225" fill="#94a3b8" textAnchor="middle" fontSize="7.5">Digram Rectangle Rule: "EA" &rarr; "IM"</text>
+                    <text x="125" y="225" fill="#94a3b8" textAnchor="middle" fontSize="7.5">Digram Rectangle Rule: "EA" → "IM"</text>
                   </g>
 
                   {/* Right: Modern AES SPN Round */}

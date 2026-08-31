@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-M-Code Transformation: Table.SelectRows -> Table.TransformColumnTypes -> Table.UnpivotOtherColumns -> Table.AddColumn -> Table.Group
+M-Code Transformation: Table.SelectRows → Table.TransformColumnTypes → Table.UnpivotOtherColumns → Table.AddColumn → Table.Group
 
 PRIMARY CONCEPT:
 Testing candidate ETL data engineering skills in Power Query: unpivoting multi-month matrix tables, merging multi-file folders, cleaning data types, custom M-Code transformations, and loading to Data Models
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Power Query is the greatest time-saver in the history of spreadsheets. Always use 'Unpivot Other Columns' so your query never breaks when next month's column is added. Click 'Refresh', and your entire report updates in 2 seconds.
 
 COMMON TRAPS TO AVOID:
-- Unpivoting Selected Columns Instead of 'Unpivot Other Columns': Using 'Unpivot Columns' hardcodes column names; when next month's data arrives, the query fails. -> Fix: Always select fixed ID columns and click 'Unpivot Other Columns'.
-- Leaving Dirty 'Changed Type' Steps Hardcoding Deleted Columns: Auto-generated Changed Type step referencing deleted columns breaking refresh. -> Fix: Clean up intermediate M-code steps before publishing queries.
-- Loading Massive Data to Worksheet Grid Instead of Data Model Only: Loading 5 million rows into Excel crashes sheet row limit (1,048,576). -> Fix: Select 'Only Create Connection' and check 'Add this data to the Data Model'.
+- Unpivoting Selected Columns Instead of 'Unpivot Other Columns': Using 'Unpivot Columns' hardcodes column names; when next month's data arrives, the query fails. → Fix: Always select fixed ID columns and click 'Unpivot Other Columns'.
+- Leaving Dirty 'Changed Type' Steps Hardcoding Deleted Columns: Auto-generated Changed Type step referencing deleted columns breaking refresh. → Fix: Clean up intermediate M-code steps before publishing queries.
+- Loading Massive Data to Worksheet Grid Instead of Data Model Only: Loading 5 million rows into Excel crashes sheet row limit (1,048,576). → Fix: Select 'Only Create Connection' and check 'Add this data to the Data Model'.
 ================================================================================

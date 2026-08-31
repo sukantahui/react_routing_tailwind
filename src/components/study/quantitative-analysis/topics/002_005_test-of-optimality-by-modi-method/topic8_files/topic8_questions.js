@@ -8,7 +8,7 @@ const questions = [
     explanation: "Improving the solution moves along an edge of the transportation polytope to a lower-cost extreme point vertex.",
     hint: "Transition to an adjacent basis with lower total cost.",
     level: "moderate",
-    codeExample: "Improvement Step: Basis_k -> Basis_{k+1} such that Z_{k+1} < Z_k."
+    codeExample: "Improvement Step: Basis_k → Basis_{k+1} such that Z_{k+1} < Z_k."
   },
   {
     question: "What is the exact formula for the new total transportation cost Z_{k+1} after pivoting?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "Drawing a separate tableau avoids messy overwriting and ensures clear grading.",
     hint: "Draw a clean separate tableau labeled Tableau II.",
     level: "intermediate",
-    codeExample: "Layout: Tableau I (IBFS) -> Pivot -> Tableau II (Improved Basis)."
+    codeExample: "Layout: Tableau I (IBFS) → Pivot → Tableau II (Improved Basis)."
   },
   {
     question: "What happens to the cell that LEFT the basis in the previous iteration?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "The leaving cell becomes part of the non-basic candidate pool.",
     hint: "Leaves basis, becomes non-basic, and gets evaluated in next pass.",
     level: "moderate",
-    codeExample: "Leaving cell status: Basic -> NonBasic (evaluated in step 3)."
+    codeExample: "Leaving cell status: Basic → NonBasic (evaluated in step 3)."
   },
   {
     question: "Can an improved solution have the EXACT SAME basic cells as the starting solution?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "Constraint violations invalidate the solution.",
     hint: "Sign error in loop arithmetic violated column demand.",
     level: "moderate",
-    codeExample: "Error: Column sum != Demand -> Re-trace loop signs."
+    codeExample: "Error: Column sum != Demand → Re-trace loop signs."
   },
   {
     question: "How many iterations does a typical 3x3 or 3x4 transportation problem require to reach optimality when starting from NWCR versus VAM?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "The trajectory represents the systematic optimization path toward minimal cost.",
     hint: "Monotonically decreasing cost sequence across iterations.",
     level: "expert",
-    codeExample: "Trajectory: Z_0 (₹2,740) -> Z_1 (₹2,260) -> Z_2 (₹2,060 - Optimal)."
+    codeExample: "Trajectory: Z_0 (₹2,740) → Z_1 (₹2,260) → Z_2 (₹2,060 - Optimal)."
   },
   {
     question: "Can an improvement step open a new shipping route that was never considered in the initial heuristic?",
@@ -198,9 +198,9 @@ const questions = [
     question: "What is the recommended student strategy when drawing the second iteration tableau under time pressure in university exams?",
     shortAnswer: "Copy the unit costs c_ij from the original problem, write the updated allocations x_ij from your loop calculation, audit row/column sums immediately, then compute u' and v' potentials on the new basic cells.",
     explanation: "Following this standardized procedure minimizes exam time and avoids copying errors.",
-    hint: "Copy costs -> write new allocations -> audit sums -> solve new u-v potentials.",
+    hint: "Copy costs → write new allocations → audit sums → solve new u-v potentials.",
     level: "intermediate",
-    codeExample: "Exam Flow: Copy c_ij -> Write x_new -> Audit sums -> Solve u', v'."
+    codeExample: "Exam Flow: Copy c_ij → Write x_new → Audit sums → Solve u', v'."
   },
   {
     question: "Why is the solution improvement phase in MODI considered a 'greedy' algorithm with global guarantees?",
@@ -230,9 +230,9 @@ const questions = [
     question: "What is the golden rule for improving the transportation solution in the MODI method?",
     shortAnswer: "'Pivot flow along the closed loop (x_new = x_old +/- θ); audit row and column sums; recompute u' and v' potentials; re-evaluate opportunity costs; repeat until all d' >= 0!'",
     explanation: "This complete rule captures the entire iterative transition lifecycle.",
-    hint: "Pivot flow -> audit sums -> solve new u-v -> re-evaluate d -> repeat until optimal.",
+    hint: "Pivot flow → audit sums → solve new u-v → re-evaluate d → repeat until optimal.",
     level: "moderate",
-    codeExample: "Golden Rule: Pivot -> Audit -> Recompute u,v -> Re-evaluate d -> Repeat."
+    codeExample: "Golden Rule: Pivot → Audit → Recompute u,v → Re-evaluate d → Repeat."
   }
 ];
 

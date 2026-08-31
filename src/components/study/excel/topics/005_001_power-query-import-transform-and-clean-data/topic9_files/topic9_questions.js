@@ -26,7 +26,7 @@ const questions = [
     explanation: "Provides full statistical aggregation capabilities during pivoting.",
     hint: "Sum, Count, Average, Min, Max, Median, Don't Aggregate.",
     level: "moderate",
-    codeExample: "Advanced Options &rarr; Aggregate Value Function: Sum"
+    codeExample: "Advanced Options → Aggregate Value Function: Sum"
   },
   {
     question: "When should you select 'Don't Aggregate' in the Pivot Column dialog?",
@@ -58,13 +58,13 @@ const questions = [
     explanation: "Advanced Group By enables multi-key hierarchical summarization.",
     hint: "Basic: 1 key + 1 aggregation; Advanced: multi-key + multi-aggregations.",
     level: "basic",
-    codeExample: "Advanced Group By: [Branch, Dept] &rarr; Sum(Amount), Count(ID), Avg(Margin)"
+    codeExample: "Advanced Group By: [Branch, Dept] → Sum(Amount), Count(ID), Avg(Margin)"
   },
   {
     question: "What does the 'All Rows' operation do in the Group By dialog?",
     shortAnswer: "It groups records into a nested `Table` object for each key, allowing you to retain the underlying granular detail rows alongside group aggregates.",
     explanation: "Creates sub-tables per group for advanced rank and running total computations.",
-    hint: "Operation: All Rows &rarr; returns nested Table objects.",
+    hint: "Operation: All Rows → returns nested Table objects.",
     level: "expert",
     codeExample: "{{\"GroupDetails\", each _, type table}}"
   },
@@ -72,7 +72,7 @@ const questions = [
     question: "How do you extract the Top 1 highest sale per customer using 'Group By All Rows'?",
     shortAnswer: "Group by Customer with Operation 'All Rows', then add a custom column: `Table.FirstN(Table.Sort([GroupDetails], {{\"Amount\", Order.Descending}}), 1)`, then expand.",
     explanation: "Power Query pattern for Top N per group ranking.",
-    hint: "Group All Rows &rarr; Table.Sort &rarr; Table.FirstN(1) &rarr; Expand.",
+    hint: "Group All Rows → Table.Sort → Table.FirstN(1) → Expand.",
     level: "expert",
     codeExample: "= Table.AddColumn(#\"Grouped\", \"TopSale\", each Table.FirstN(Table.Sort([AllRows], {{\"Amount\", Order.Descending}}), 1))"
   },
@@ -86,9 +86,9 @@ const questions = [
   },
   {
     question: "How do you calculate 'Count Distinct Rows' during a Group By transformation?",
-    shortAnswer: "Select Operation &rarr; 'Count Distinct Rows' (`List.NonNullCount(List.Distinct([Col]))`).",
+    shortAnswer: "Select Operation → 'Count Distinct Rows' (`List.NonNullCount(List.Distinct([Col]))`).",
     explanation: "Counts unique items per group (e.g. distinct active customers per branch).",
-    hint: "Operation &rarr; Count Distinct Rows.",
+    hint: "Operation → Count Distinct Rows.",
     level: "moderate",
     codeExample: "{{\"Unique_Customers\", each Table.RowCount(Table.Distinct(_)), type number}}"
   },
@@ -126,7 +126,7 @@ const questions = [
   },
   {
     question: "How do you concatenate text strings per group (e.g. list all employee names in a department as comma-separated text)?",
-    shortAnswer: "Group By &rarr; Add Custom Column: `Text.Combine([GroupDetails][EmployeeName], \", \")`.",
+    shortAnswer: "Group By → Add Custom Column: `Text.Combine([GroupDetails][EmployeeName], \", \")`.",
     explanation: "Performs group string concatenation equivalent to SQL `STRING_AGG` or `GROUP_CONCAT`.",
     hint: "Text.Combine([Table][Column], ', ').",
     level: "advanced",
@@ -136,7 +136,7 @@ const questions = [
     question: "How do you compute the percentage contribution of each row to its group total in Power Query?",
     shortAnswer: "1. Group by Key with Sum(Total) and 'All Rows', 2. Expand All Rows, 3. Add Custom Column: `[Amount] / [GroupTotal]` formatted as percentage.",
     explanation: "Multi-level group percentage calculation pattern.",
-    hint: "Group with Sum + All Rows &rarr; Expand &rarr; [Amount] / [GroupTotal].",
+    hint: "Group with Sum + All Rows → Expand → [Amount] / [GroupTotal].",
     level: "expert",
     codeExample: "= Table.AddColumn(#\"Expanded\", \"PctOfGroup\", each [Amount] / [TotalDeptSales])"
   },
@@ -150,9 +150,9 @@ const questions = [
   },
   {
     question: "How do you calculate running totals within each group in Power Query?",
-    shortAnswer: "Group by Key with 'All Rows' &rarr; Add Index column to each nested sub-table via `Table.AddIndexColumn` &rarr; Compute cumulative sum using `List.Range` &rarr; Expand sub-tables.",
+    shortAnswer: "Group by Key with 'All Rows' → Add Index column to each nested sub-table via `Table.AddIndexColumn` → Compute cumulative sum using `List.Range` → Expand sub-tables.",
     explanation: "Standard M pattern for partitioned running totals.",
-    hint: "Group All Rows &rarr; Add Index to sub-tables &rarr; List.Range running sum.",
+    hint: "Group All Rows → Add Index to sub-tables → List.Range running sum.",
     level: "expert",
     codeExample: "Table.AddColumn(subTable, \"RunningTotal\", each List.Sum(List.Range(subTable[Amount], 0, [Index]+1)))"
   },
@@ -182,9 +182,9 @@ const questions = [
   },
   {
     question: "How do you count total rows including blanks per group?",
-    shortAnswer: "Select Operation &rarr; 'Count Rows' (`Table.RowCount(_)`).",
+    shortAnswer: "Select Operation → 'Count Rows' (`Table.RowCount(_)`).",
     explanation: "Returns the integer count of all rows in that group.",
-    hint: "Operation &rarr; Count Rows.",
+    hint: "Operation → Count Rows.",
     level: "basic",
     codeExample: "{{\"Total_Orders\", each Table.RowCount(_), type number}}"
   },
@@ -194,7 +194,7 @@ const questions = [
     explanation: "Handles sparse matrices and optional attributes cleanly.",
     hint: "Inserts null for missing attribute keys.",
     level: "moderate",
-    codeExample: "Sparse Attribute Pivot &rarr; Populates nulls for missing keys"
+    codeExample: "Sparse Attribute Pivot → Populates nulls for missing keys"
   },
   {
     question: "What is the impact of performing Group By on a SQL database source in Power Query?",
@@ -202,21 +202,21 @@ const questions = [
     explanation: "Massive performance optimization that offloads computing to the database.",
     hint: "Folds into server-side SQL GROUP BY clause.",
     level: "expert",
-    codeExample: "M Table.Group &rarr; SQL: SELECT Dept, SUM(Salary) FROM Emps GROUP BY Dept"
+    codeExample: "M Table.Group → SQL: SELECT Dept, SUM(Salary) FROM Emps GROUP BY Dept"
   },
   {
     question: "How do you filter a grouped table to keep only groups having a sum greater than ₹100,000 (equivalent to SQL `HAVING`)?",
     shortAnswer: "Apply `Table.Group` first, then add a `Table.SelectRows` step filtering on the aggregated sum column (`each [Total_Sales] > 100000`).",
     explanation: "Power Query folds this sequence into SQL `GROUP BY ... HAVING SUM(...) > 100000`.",
-    hint: "Table.Group &rarr; Table.SelectRows([Total_Sales] > 100000).",
+    hint: "Table.Group → Table.SelectRows([Total_Sales] > 100000).",
     level: "moderate",
     codeExample: "= Table.SelectRows(#\"Grouped\", each [Total_Sales] > 100000)"
   },
   {
     question: "How do you rank rows within each group in Power Query (e.g. rank sales reps within each branch)?",
-    shortAnswer: "Group by Branch with 'All Rows' &rarr; Sort sub-table descending &rarr; Add Index column `[Index] + 1` as Rank &rarr; Expand sub-tables.",
+    shortAnswer: "Group by Branch with 'All Rows' → Sort sub-table descending → Add Index column `[Index] + 1` as Rank → Expand sub-tables.",
     explanation: "Equivalent to SQL `ROW_NUMBER() OVER (PARTITION BY Branch ORDER BY Sales DESC)`.",
-    hint: "Group All Rows &rarr; Sort &rarr; Add Index &rarr; Expand.",
+    hint: "Group All Rows → Sort → Add Index → Expand.",
     level: "expert",
     codeExample: "Nested Table.AddIndexColumn = SQL PARTITION BY Rank"
   },
@@ -234,7 +234,7 @@ const questions = [
     explanation: "Pivoting and Unpivoting are complementary inverse matrix operations.",
     hint: "Yes, Unpivot is the inverse operation of Pivot.",
     level: "basic",
-    codeExample: "Pivot &rarr; Unpivot = Returns to normalized tabular structure"
+    codeExample: "Pivot → Unpivot = Returns to normalized tabular structure"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Pivoting & Aggregations?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Pivoting and custom Group By transformations turn raw data into executive business intelligence!",
     hint: "Tall for DAX + Group By 'All Rows' for Partitioned Ranking + SQL Query Folding!",
     level: "expert",
-    codeExample: "Rule: Keep Tabular for Modeling &rarr; Group By All Rows for Advanced Ranking &rarr; SQL Folding!"
+    codeExample: "Rule: Keep Tabular for Modeling → Group By All Rows for Advanced Ranking → SQL Folding!"
   }
 ];
 

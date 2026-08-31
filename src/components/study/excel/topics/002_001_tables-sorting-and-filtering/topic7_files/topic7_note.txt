@@ -6,7 +6,7 @@ Lead Academic Mentor: Sukanta Hui | Coder & AccoTax (Barrackpore, Kolkata)
 
 PRACTICAL LAB WORKFLOW:
 1. Converting Raw Data to Structured Table:
-   - Command: Ctrl + T &rarr; Name table `tbl_CommercialOperations`
+   - Command: Ctrl + T → Name table `tbl_CommercialOperations`
    - Structured formula columns: `[@Total_Payable] = [@Tuition_Fee] * 1.18`
 
 2. Multi-Level Sort Configuration:
@@ -15,5 +15,5 @@ PRACTICAL LAB WORKFLOW:
    - Tertiary Level: Realized Revenue (Largest to Smallest)
 
 3. Slicer Ribbon & Dynamic Subtotals:
-   - Insert Slicers for Branch and Department &rarr; 4-column horizontal header ribbon
-   - Enable Total Row &rarr; SUBTOTAL(109, [Realized_Revenue])
+   - Insert Slicers for Branch and Department → 4-column horizontal header ribbon
+   - Enable Total Row → SUBTOTAL(109, [Realized_Revenue])

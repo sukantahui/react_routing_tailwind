@@ -11,7 +11,7 @@ Think about genetic biological inheritance. You inherited your eye color and hei
 
 2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
 --------------------------------------------------------------------------------
-Swadeep created an empty array: `let arr = [];`. When he typed `arr.push(10)`, it worked. He asked: 'Sir, I never wrote a push function inside arr, so where did push come from?' I drew the Prototype Chain on the board: `arr` -> `Array.prototype` (where push, pop, and map live) -> `Object.prototype` (where toString lives) -> `null`. I showed how JavaScript walks up the chain step by step until it finds the property.
+Swadeep created an empty array: `let arr = [];`. When he typed `arr.push(10)`, it worked. He asked: 'Sir, I never wrote a push function inside arr, so where did push come from?' I drew the Prototype Chain on the board: `arr` → `Array.prototype` (where push, pop, and map live) → `Object.prototype` (where toString lives) → `null`. I showed how JavaScript walks up the chain step by step until it finds the property.
 
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
@@ -20,10 +20,10 @@ Every JavaScript object has an internal hidden link called `[[Prototype]]` (acce
 
 2. Property Lookup Algorithm:
 When you access `obj.someProp`:
-- Step 1: Does `obj` own `someProp` directly? (Yes -> Return it!).
+- Step 1: Does `obj` own `someProp` directly? (Yes → Return it!).
 - Step 2: If No, inspect `obj`'s prototype.
 - Step 3: Repeat up the chain until `Object.prototype`.
-- Step 4: If still not found, `Object.prototype.[[Prototype]]` is `null` -> returns `undefined`.
+- Step 4: If still not found, `Object.prototype.[[Prototype]]` is `null` → returns `undefined`.
 
 3. Functions vs Objects:
 - Every Function has a `.prototype` object property (used as the blueprint for instances created with `new`).

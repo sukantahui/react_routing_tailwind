@@ -1,7 +1,7 @@
 ================================================================================
 JAVA CORE TUTORIAL - QUICK REVISION GUIDE
 Module 012_006: JUnit 5, Mockito, Clean Code & Maven
-Topic 10: TDD Workflow (Red -> Green -> Refactor)
+Topic 10: TDD Workflow (Red → Green → Refactor)
 Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 

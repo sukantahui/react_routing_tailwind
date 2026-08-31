@@ -103,11 +103,11 @@ const questions = [
   },
   {
     question: "How does Java 21 permit handling `null` in String switch expressions?",
-    shortAnswer: "By allowing an explicit `case null -> handleNull();` or `case null, default -> handleFallback();` branch.",
+    shortAnswer: "By allowing an explicit `case null → handleNull();` or `case null, default → handleFallback();` branch.",
     explanation: "Modern pattern matching enhancement in Java 21.",
-    hint: "case null -> is permitted in Java 21.",
+    hint: "case null → is permitted in Java 21.",
     level: "advanced",
-    codeExample: "switch (s) { case null -> \"Null Input\"; case \"A\" -> \"A\"; default -> \"Other\"; }"
+    codeExample: "switch (s) { case null → \"Null Input\"; case \"A\" → \"A\"; default → \"Other\"; }"
   },
   {
     question: "What is the bytecode overhead of switching on 5 Strings compared to switching on 5 integers?",
@@ -239,7 +239,7 @@ const questions = [
   },
   {
     question: "What is the next topic (Topic 11) in Module 001_004?",
-    shortAnswer: "Modern Switch Expressions (introduced in Java 14+): arrow syntax (case X -> Y).",
+    shortAnswer: "Modern Switch Expressions (introduced in Java 14+): arrow syntax (case X → Y).",
     explanation: "Topic 11 explores modern switch expressions, arrow syntax, elimination of boilerplate, and concise single-line branches.",
     hint: "Modern Switch Expressions and arrow syntax.",
     level: "basic",

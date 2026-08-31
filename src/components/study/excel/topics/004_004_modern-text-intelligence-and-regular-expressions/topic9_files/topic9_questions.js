@@ -242,7 +242,7 @@ const questions = [
     explanation: "Vectorized regex pipelines represent the apex of modern spreadsheet architecture!",
     hint: "Regex Functions + Dynamic Array Pipelines (FILTER, BYROW, TOCOL) = Ultra-Fast RAM ETL!",
     level: "expert",
-    codeExample: "Rule: Vectorized Regex Pipelines &rarr; Combine Regex with Dynamic Arrays!"
+    codeExample: "Rule: Vectorized Regex Pipelines → Combine Regex with Dynamic Arrays!"
   }
 ];
 

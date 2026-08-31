@@ -48,7 +48,7 @@ const questions = [
     question: "How do you query all prescriptions issued by Dr. Sukanta Hui on '2026-08-24'?",
     shortAnswer: "`SELECT p.prescription_id, pat.full_name, p.issued_at FROM prescriptions p JOIN appointments a ON p.appointment_id = a.appointment_id JOIN doctors d ON a.doctor_id = d.doctor_id JOIN patients pat ON a.patient_id = pat.patient_id WHERE d.full_name LIKE '%Sukanta%' AND DATE(p.issued_at) = '2026-08-24';`.",
     explanation: "Multi-table join across medical consultation tables.",
-    hint: "JOIN prescriptions -> appointments -> doctors -> patients.",
+    hint: "JOIN prescriptions → appointments → doctors → patients.",
     level: "basic"
   },
   {

@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. RESTRICTION 7: NO OVERLOAD CLASHES:
    - Cannot overload methods where parameters erase to same raw type.
-   - 'method(List<String>)' and 'method(List<Integer>)' &rarr; both erase to 'method(List)'.
+   - 'method(List<String>)' and 'method(List<Integer>)' → both erase to 'method(List)'.
    - Triggers compiler 'name clash' error.
    - Solution: Use distinct method names.
 

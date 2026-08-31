@@ -348,7 +348,7 @@
             "The 'default' case and placement best practices",
             "Comparing 'switch' vs 'else-if' ladder: readability, jump tables, and performance",
             "Switch with Strings (introduced in Java 7) and internal hashcode matching",
-            "Modern Switch Expressions (introduced in Java 14+): arrow syntax (case X -> Y)",
+            "Modern Switch Expressions (introduced in Java 14+): arrow syntax (case X → Y)",
             "Elimination of fall-through in arrow switch expressions",
             "Multiple case labels per branch (case 1, 2, 3 ->)",
             "Using switch as an expression that returns a value",
@@ -931,7 +931,7 @@
             "Java Language Specification - Constructor Declarations"
           ],
           "teachingTips": [
-            "Walk through the initialization order: Static fields -> SIB -> Instance fields -> IIB -> Constructor.",
+            "Walk through the initialization order: Static fields → SIB → Instance fields → IIB → Constructor.",
             "Show how this() avoids repeating field assignments across 4 overloaded constructors."
           ],
           "preReading": [
@@ -1146,7 +1146,7 @@
             "Composition (Strong Association): ownership and shared lifecycle (e.g. Car and Engine)",
             "Why 'Favor Composition over Inheritance' is a premier software engineering principle",
             "Fragile Base Class problem explained",
-            "Real-world modeling: Employee -> Manager -> Executive hierarchy vs Employee HAS-A Address/Department"
+            "Real-world modeling: Employee → Manager → Executive hierarchy vs Employee HAS-A Address/Department"
           ],
           "learningOutcomes": [
             "Construct clean class hierarchies utilizing single and multilevel inheritance",
@@ -1272,7 +1272,7 @@
             "Java Language Specification - Overriding and Hiding"
           ],
           "teachingTips": [
-            "Show: Parent ref = new Child(); ref.method(); -> executes Child's method, but ref.childOnlyMethod() doesn't compile.",
+            "Show: Parent ref = new Child(); ref.method(); → executes Child's method, but ref.childOnlyMethod() doesn't compile.",
             "Demonstrate Java 16's pattern matching 'if (obj instanceof Employee e) e.getSalary();'."
           ],
           "preReading": [
@@ -2051,7 +2051,7 @@
             "Effective Java Item 60: Avoid float and double if exact answers are required"
           ],
           "teachingTips": [
-            "Show 'System.out.println(2.00 - 1.10);' -> prints 0.8999999999999999 to show the float bug immediately.",
+            "Show 'System.out.println(2.00 - 1.10);' → prints 0.8999999999999999 to show the float bug immediately.",
             "Show how BigDecimal.valueOf(2.00).subtract(BigDecimal.valueOf(1.10)) prints exactly 0.90."
           ],
           "preReading": [
@@ -2351,7 +2351,7 @@
             "Adding custom fields, properties, and constructors to Enums (e.g. ErrorCode, HttpStatus)",
             "Why Enum constructors are strictly private by default",
             "Adding concrete and abstract methods to Enums (Constant-Specific Method Implementations)",
-            "Building finite state machines with Enums (e.g. OrderState: PENDING -> PAID -> SHIPPED -> DELIVERED)",
+            "Building finite state machines with Enums (e.g. OrderState: PENDING → PAID → SHIPPED → DELIVERED)",
             "Enum implementing interfaces (e.g. Operation enum implementing MathFunction interface)",
             "High-performance Enum collections: java.util.EnumSet (bit-vector backing) and java.util.EnumMap",
             "Why Enum is the most recommended way to implement thread-safe Singleton in Java"
@@ -2762,7 +2762,7 @@
             "The 'Swallow and Ignore' Anti-Pattern: why empty catch blocks are disastrous in production",
             "The 'Catch Generic Throwable/Exception' Anti-Pattern",
             "Documenting exceptions in Javadoc using the @throws tag",
-            "Clean error handling architecture for multi-tiered enterprise applications (Controller -> Service -> Repository)"
+            "Clean error handling architecture for multi-tiered enterprise applications (Controller → Service → Repository)"
           ],
           "learningOutcomes": [
             "Trace exception propagation across multi-layered application call stacks",
@@ -2773,7 +2773,7 @@
             "004_004_try-with-resources-and-autocloseable"
           ],
           "miniProjects": [
-            "Multi-Tier Application Exception Chaining & Logging Architecture (Repository -> Service -> Controller)",
+            "Multi-Tier Application Exception Chaining & Logging Architecture (Repository → Service → Controller)",
             "Stack Trace Parser & Error Analyzer Utility"
           ],
           "exercises": {
@@ -2804,7 +2804,7 @@
             "Effective Java Item 77: Don't ignore exceptions"
           ],
           "teachingTips": [
-            "Show a 3-method call chain (main -> service -> dao) and throw an exception in dao to observe the stack unwinding.",
+            "Show a 3-method call chain (main → service → dao) and throw an exception in dao to observe the stack unwinding.",
             "Demonstrate how e.getCause() reveals the original root issue in chained exceptions."
           ],
           "preReading": [
@@ -4684,7 +4684,7 @@
             "  6. TERMINATED / DEAD: run method completed or threw unhandled exception",
             "Creation Method 1: Extending java.lang.Thread class and overriding run()",
             "Creation Method 2: Implementing java.lang.Runnable interface and passing to Thread constructor (Preferred)",
-            "Creation Method 3: Lambda expressions with Runnable (( ) -> { ... })",
+            "Creation Method 3: Lambda expressions with Runnable (( ) → { ... })",
             "Creation Method 4: Implementing java.util.concurrent.Callable<V> to return values and throw checked exceptions",
             "Starting a Thread: why we MUST call thread.start() instead of calling thread.run() directly",
             "Thread naming and identification: Thread.currentThread(), getName(), setName(), getId()",
@@ -4898,7 +4898,7 @@
             "Effective Java Item 78"
           ],
           "teachingTips": [
-            "Run 10 threads incrementing a non-synchronized count variable 1,000 times -> total is < 10,000. Add synchronized -> total is exactly 10,000.",
+            "Run 10 threads incrementing a non-synchronized count variable 1,000 times → total is < 10,000. Add synchronized → total is exactly 10,000.",
             "Demonstrate why `private final Object lock = new Object()` is safer than `synchronized(this)`."
           ],
           "preReading": [
@@ -5405,7 +5405,7 @@
             "Inside Java - State of Loom by Ron Pressler"
           ],
           "teachingTips": [
-            "Run a loop creating 100,000 Virtual Threads performing Thread.sleep(1000) -> uses negligible memory and completes smoothly.",
+            "Run a loop creating 100,000 Virtual Threads performing Thread.sleep(1000) → uses negligible memory and completes smoothly.",
             "Contrast that with trying to create 10,000 Platform Threads which crashes the JVM with OutOfMemoryError: unable to create native thread."
           ],
           "preReading": [
@@ -5443,7 +5443,7 @@
           ],
           "topics": [
             "What is Functional Programming and how Java 8 unified OOP with declarative functional paradigms",
-            "Anatomy of a Lambda Expression: (parameters) -> { body }",
+            "Anatomy of a Lambda Expression: (parameters) → { body }",
             "Lambda Syntax variations: omitting parameter types, omitting parentheses for single parameter, omitting curly braces/return for single expression",
             "Target Typing: how the Java compiler determines the exact type of a lambda expression from context",
             "Functional Interfaces: the required target type for any lambda expression (Single Abstract Method - SAM)",
@@ -5494,7 +5494,7 @@
           ],
           "teachingTips": [
             "Refactor a 7-line anonymous Comparator inner class into a 1-line lambda expression.",
-            "Demonstrate why `int count = 0; () -> count++` fails compilation."
+            "Demonstrate why `int count = 0; () → count++` fails compilation."
           ],
           "preReading": [
             "Anonymous Inner Classes and Interfaces"
@@ -5578,7 +5578,7 @@
           ],
           "teachingTips": [
             "Build a user registration validator by composing 5 small Predicates: isAdult.and(hasValidEmail).and(hasUniqueUsername).",
-            "Show how Supplier enables lazy evaluation (e.g. logger.debug(() -> expensiveDataCalculation()))."
+            "Show how Supplier enables lazy evaluation (e.g. logger.debug(() → expensiveDataCalculation()))."
           ],
           "preReading": [
             "Generics and Lambda Syntax"
@@ -5655,7 +5655,7 @@
             "Effective Java Item 43: Prefer method references to lambdas"
           ],
           "teachingTips": [
-            "Show side-by-side: `s -> s.length()` vs `String::length`; `x -> System.out.println(x)` vs `System.out::println`.",
+            "Show side-by-side: `s → s.length()` vs `String::length`; `x → System.out.println(x)` vs `System.out::println`.",
             "Demonstrate `list.stream().toArray(String[]::new)` creating a properly typed String array."
           ],
           "preReading": [
@@ -5694,7 +5694,7 @@
             "  - From Values: Stream.of(v1, v2, v3)",
             "  - Infinite Streams: Stream.iterate(seed, unaryOperator), Stream.generate(supplier)",
             "  - Primitive Streams: IntStream.range(1, 10), LongStream, DoubleStream",
-            "Anatomy of a Stream Pipeline: Source -> 0 or more Intermediate Operations -> 1 Terminal Operation",
+            "Anatomy of a Stream Pipeline: Source → 0 or more Intermediate Operations → 1 Terminal Operation",
             "Understanding Lazy Evaluation: intermediate operations are NOT executed until a terminal operation is invoked",
             "Intermediate Operations deep dive:",
             "  - filter(Predicate): selecting elements matching condition",
@@ -5833,7 +5833,7 @@
             "Effective Java Item 46: Prefer side-effect-free functions in streams"
           ],
           "teachingTips": [
-            "Show: `numbers.stream().reduce(0, (a, b) -> a + b)` vs `numbers.stream().mapToInt(x -> x).sum()`.",
+            "Show: `numbers.stream().reduce(0, (a, b) → a + b)` vs `numbers.stream().mapToInt(x → x).sum()`.",
             "Demonstrate how anyMatch() stops evaluating immediately on the first matching element."
           ],
           "preReading": [
@@ -5864,7 +5864,7 @@
           "topics": [
             "The collect(Collector) terminal operation: mutable reduction into containers (lists, sets, maps, custom accumulators)",
             "Basic Collectors: Collectors.toList(), toSet(), toCollection(TreeSet::new), toUnmodifiableList() (Java 10+)",
-            "Collecting to Map: Collectors.toMap(keyMapper, valueMapper), handling duplicate keys with merge function (toMap(k, v, (oldVal, newVal) -> newVal))",
+            "Collecting to Map: Collectors.toMap(keyMapper, valueMapper), handling duplicate keys with merge function (toMap(k, v, (oldVal, newVal) → newVal))",
             "String concatenation: Collectors.joining(), joining(delimiter), joining(delimiter, prefix, suffix)",
             "Summarization collectors: Collectors.counting(), summingInt(), averagingDouble(), summarizingLong() (IntSummaryStatistics)",
             "Classification with Collectors.groupingBy():",
@@ -6040,7 +6040,7 @@
             "  - orElseGet(Supplier): returns value or lazily computed fallback via Supplier",
             "  - orElseThrow(): throws NoSuchElementException if empty",
             "  - orElseThrow(Supplier<Exception>): throws custom domain exception if empty",
-            "Crucial Performance Difference: orElse(expensiveComputation()) vs orElseGet(() -> expensiveComputation())",
+            "Crucial Performance Difference: orElse(expensiveComputation()) vs orElseGet(() → expensiveComputation())",
             "Functional transformations on Optional:",
             "  - ifPresent(Consumer) & ifPresentOrElse(Consumer, Runnable) (Java 9+)",
             "  - filter(Predicate): returns Optional if value matches predicate, else empty",
@@ -6094,7 +6094,7 @@
           ],
           "teachingTips": [
             "Show a 5-level nested null-check `if (user != null && user.getAddress() != null ...)` refactored into a clean 3-line Optional chain.",
-            "Demonstrate why `orElse(makeDbCall())` executes every time while `orElseGet(() -> makeDbCall())` only runs when empty."
+            "Demonstrate why `orElse(makeDbCall())` executes every time while `orElseGet(() → makeDbCall())` only runs when empty."
           ],
           "preReading": [
             "Null References and Lambdas"
@@ -6835,7 +6835,7 @@
           ],
           "topics": [
             "What is JDBC: the standard Java Database Connectivity API for relational databases (MySQL, PostgreSQL, Oracle, SQLite)",
-            "JDBC Architecture: Application -> JDBC API (interfaces) -> JDBC Driver Manager -> Database-Specific Driver -> Database Engine",
+            "JDBC Architecture: Application → JDBC API (interfaces) → JDBC Driver Manager → Database-Specific Driver → Database Engine",
             "The 4 Types of JDBC Drivers: Type 1 (JDBC-ODBC bridge - obsolete), Type 2 (Native-API driver), Type 3 (Network-Protocol driver), Type 4 (Direct-to-Database Pure Java Thin Driver - standard)",
             "Connecting via DriverManager: DriverManager.getConnection(url, user, password)",
             "Understanding JDBC Connection URLs (e.g. jdbc:mysql://localhost:3306/db_name, jdbc:postgresql://localhost:5432/db_name)",
@@ -7183,7 +7183,7 @@
             "  - Decoupling business logic from database access technologies",
             "  - Generic Base DAO Interface: interface GenericDao<T, ID> { T findById(ID id); List<T> findAll(); void save(T entity); void update(T entity); void deleteById(ID id); }",
             "  - Concrete Implementation (e.g. UserDaoImpl) encapsulating all SQL and connection handling",
-            "Building a clean multi-tier architecture in pure Core Java: Model / Entity -> DAO Layer -> Service Layer -> Presentation / Controller Layer",
+            "Building a clean multi-tier architecture in pure Core Java: Model / Entity → DAO Layer → Service Layer → Presentation / Controller Layer",
             "Unit testing DAOs with in-memory SQLite / H2 databases"
           ],
           "learningOutcomes": [
@@ -7227,7 +7227,7 @@
           ],
           "teachingTips": [
             "Time inserting 10,000 records: single inserts take ~45 seconds; batching with size 500 takes 0.4 seconds!",
-            "Walk through the complete DAO interface -> Implementation -> Service class architecture on a whiteboard."
+            "Walk through the complete DAO interface → Implementation → Service class architecture on a whiteboard."
           ],
           "preReading": [
             "SOLID Principles and Interfaces"
@@ -7682,7 +7682,7 @@
             "  - Creating mocks: mock(Class.class), @Mock, @InjectMocks, MockitoAnnotations.openMocks()",
             "  - Stubbing method behavior: Mockito.when(mock.method()).thenReturn(value), doThrow()",
             "  - Verifying interactions: Mockito.verify(mock, times(1)).method(), verifyNoMoreInteractions()",
-            "Test-Driven Development (TDD) workflow: Red -> Green -> Refactor cycle",
+            "Test-Driven Development (TDD) workflow: Red → Green → Refactor cycle",
             "Maven Project Management & Build Lifecycle:",
             "  - Anatomy of pom.xml: groupId, artifactId, version, dependencies, plugins",
             "  - Core Maven Lifecycle phases: validate, compile, test, package, verify, install, deploy",

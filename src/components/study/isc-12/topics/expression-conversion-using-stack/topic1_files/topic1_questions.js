@@ -213,10 +213,10 @@ const questions = [
   {
     question: "Can a lambda expression be an operand?",
     shortAnswer: "Yes, a lambda expression can be an operand when assigned to a functional interface.",
-    explanation: "For example, `Runnable r = () -> System.out.println(\"Hi\");` – the lambda is the operand of the assignment.",
+    explanation: "For example, `Runnable r = () → System.out.println(\"Hi\");` – the lambda is the operand of the assignment.",
     hint: "Lambdas are treated as values.",
     level: "advanced",
-    codeExample: "Comparator<String> comp = (s1, s2) -> s1.compareTo(s2);",
+    codeExample: "Comparator<String> comp = (s1, s2) → s1.compareTo(s2);",
   },
   {
     question: "What is the role of operands in polymorphism?",

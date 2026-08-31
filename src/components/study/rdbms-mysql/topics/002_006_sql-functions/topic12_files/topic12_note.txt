@@ -38,9 +38,9 @@ Explanation:
 - Therefore, `WHERE COUNT(*) > 5` is logically impossible at this stage.
 
 Solution:
-- If filtering by an aggregate condition across groups -> Use `HAVING`.
+- If filtering by an aggregate condition across groups → Use `HAVING`.
   `SELECT batch_name, COUNT(*) FROM batches GROUP BY batch_name HAVING COUNT(*) >= 10;`
-- If filtering individual rows against a table-wide average -> Use a Subquery in WHERE:
+- If filtering individual rows against a table-wide average → Use a Subquery in WHERE:
   `SELECT student_name, marks FROM students WHERE marks > (SELECT AVG(marks) FROM students);`
 
 4. COMBINING WHERE AND HAVING IN A SINGLE QUERY

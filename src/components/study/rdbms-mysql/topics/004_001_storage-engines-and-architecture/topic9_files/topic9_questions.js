@@ -56,7 +56,7 @@ const questions = [
     question: "What is the four-step workflow for moving a large table to a new server using Transportable Tablespaces?",
     shortAnswer: "1) Source: `FLUSH TABLES tbl FOR EXPORT;`\n2) Copy `tbl.ibd` and `tbl.cfg` to destination schema dir\n3) Source: `UNLOCK TABLES;`\n4) Destination: `ALTER TABLE tbl DISCARD TABLESPACE;` followed by `ALTER TABLE tbl IMPORT TABLESPACE;`.",
     explanation: "Migrates multi-hundred gigabyte tables in minutes at raw filesystem copy speeds.",
-    hint: "FLUSH FOR EXPORT &rarr; Copy .ibd/.cfg &rarr; DISCARD TABLESPACE &rarr; IMPORT TABLESPACE.",
+    hint: "FLUSH FOR EXPORT → Copy .ibd/.cfg → DISCARD TABLESPACE → IMPORT TABLESPACE.",
     level: "expert"
   },
   {

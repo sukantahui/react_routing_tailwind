@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. ANTI-PATTERNS CATALOG:
-   - God Object     &rarr; Cured by SRP.
-   - Hardcoded 'new' &rarr; Cured by DIP & Dependency Injection.
-   - Giant Switches &rarr; Cured by OCP & Strategy Pattern.
-   - Fat Interfaces &rarr; Cured by ISP.
-   - Fragile Child  &rarr; Cured by LSP.
+   - God Object     → Cured by SRP.
+   - Hardcoded 'new' → Cured by DIP & Dependency Injection.
+   - Giant Switches → Cured by OCP & Strategy Pattern.
+   - Fat Interfaces → Cured by ISP.
+   - Fragile Child  → Cured by LSP.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

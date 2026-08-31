@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. QUANTIFIER MODES:
-   - Greedy     : '*', '+', '?', '{n,m}' &rarr; Matches maximum length.
-   - Reluctant  : '*?', '+?', '??' &rarr; Matches minimum length (lazy).
-   - Possessive : '*+', '++', '?+' &rarr; Never backtracks (fastest & ReDoS safe).
+   - Greedy     : '*', '+', '?', '{n,m}' → Matches maximum length.
+   - Reluctant  : '*?', '+?', '??' → Matches minimum length (lazy).
+   - Possessive : '*+', '++', '?+' → Never backtracks (fastest & ReDoS safe).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

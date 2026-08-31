@@ -206,7 +206,7 @@ const questions = [
   },
   {
     question: "What is the golden rule for ordering columns in `WITH ROLLUP` queries?",
-    shortAnswer: "Place columns in order from highest/broadest hierarchy to lowest/finest hierarchy (e.g., Year -> Quarter -> Month -> Day, or Country -> State -> City).",
+    shortAnswer: "Place columns in order from highest/broadest hierarchy to lowest/finest hierarchy (e.g., Year → Quarter → Month → Day, or Country → State → City).",
     explanation: "ROLLUP drops columns from right to left; placing the highest hierarchy first produces logical, intuitive subtotal breakdowns.",
     hint: "Order from broadest category on the left to finest detail on the right.",
     level: "basic"

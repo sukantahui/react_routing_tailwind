@@ -45,7 +45,7 @@ const Topic27 = () => {
     </div>
   );
 }`,
-      explanation: "JSX must return a single parent element. Use <div>, <>, or React.Fragment",
+      explanation: "JSX must return a single parent element. Use <div>, &lt;&gt;, or React.Fragment",
       errorMessage: "Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag"
     },
     classNameVsClass: {
@@ -311,7 +311,7 @@ const Topic27 = () => {
             </div>
 
             <h1 className={clsx(
-              "text-4xl md:text-5xl font-bold mb-6",
+              "text-xl sm:text-2xl md:text-3xl font-bold mb-6",
               isDark ? "text-white" : "text-gray-900",
               "motion-safe:animate-[slideUp_0.8s_ease-out]"
             )}>
@@ -936,7 +936,7 @@ return;
                             "text-sm",
                             isDark ? "text-gray-400" : "text-gray-600"
                           )}>
-                            Use <>&lt;&gt;&lt;/&gt;</> or React.Fragment to avoid extra divs
+                            Use &lt;&gt;&lt;&gt;&lt;/&gt;</> or React.Fragment to avoid extra divs
                           </p>
                           <pre className="text-xs mt-2 p-2 rounded bg-gray-900/50 text-green-300">
 {`return (

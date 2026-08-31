@@ -1,13 +1,13 @@
 ================================================================================
 CODER & ACCOTAX - JAVASCRIPT COMPLETE ROADMAP
 MODULE [002_004_arrays-with-objects-advanced]: Advanced Array Pipelines & Object Data Processing
-TOPIC [7]: The Full Processing Pipeline: Filter -> Sort -> Map Transformations
+TOPIC [7]: The Full Processing Pipeline: Filter → Sort → Map Transformations
 Educator: Sukanta Hui | Barrackpore, West Bengal, India
 ================================================================================
 
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
-- The Full Processing Pipeline: Filter -> Sort -> Map Transformations is a foundational pillar of modern JavaScript application architecture.
+- The Full Processing Pipeline: Filter → Sort → Map Transformations is a foundational pillar of modern JavaScript application architecture.
 - Execution is governed by ECMAScript specification rules and V8 engine JIT compilation.
 - Follows the single-threaded event loop concurrency model with microtask priority.
 - Adheres to lexical scoping, strict mode ('use strict') standards, and defensive coding.
@@ -17,10 +17,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
 // Standard ES6+ JavaScript implementation
 const executeTopicRoutine = (payload = {}) => {
   const timestamp = new Date().toISOString();
-  console.log("[JS-PRO-101] Executing topic: The Full Processing Pipeline: Filter -> Sort -> Map Transformations");
+  console.log("[JS-PRO-101] Executing topic: The Full Processing Pipeline: Filter → Sort → Map Transformations");
   return {
     success: true,
-    topic: "The Full Processing Pipeline: Filter -> Sort -> Map Transformations",
+    topic: "The Full Processing Pipeline: Filter → Sort → Map Transformations",
     timestamp,
     ...payload
   };

@@ -10,7 +10,7 @@ export default function DisplayPropertyTraining() {
     <section className="min-h-screen bg-slate-900 text-slate-200 p-10 font-sans space-y-14">
 
       <header>
-        <h1 className="text-4xl font-bold text-sky-400 mb-2">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400 mb-2">
           🏋️ Mastering CSS Display Property
         </h1>
         <p className="text-slate-400 max-w-3xl">

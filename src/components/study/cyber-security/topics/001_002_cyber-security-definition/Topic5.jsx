@@ -27,7 +27,7 @@ const Topic5 = () => {
       protectionControl: 'Format-Preserving Tokenization Vault + Dynamic Data Masking',
       estBudget: '₹4,80,000 (Database Tokenization Gateway & PCI-DSS HSM Vault)',
       desc: 'Replaces sensitive payment cards and Aadhaar IDs with non-exploitable random tokens.',
-      simResult: 'Attacker executes unauthenticated SQL dump -> Tokenization engine returns random surrogate strings (TKN-8839-X) -> Zero PII breached.',
+      simResult: 'Attacker executes unauthenticated SQL dump → Tokenization engine returns random surrogate strings (TKN-8839-X) → Zero PII breached.',
     },
     {
       id: 'source-code-dlp',
@@ -38,7 +38,7 @@ const Topic5 = () => {
       protectionControl: 'Endpoint Data Loss Prevention (DLP) + Steganographic Document Watermarking',
       estBudget: '₹3,50,000 (200-Seat Endpoint DLP Licenses & Watermarking Engine)',
       desc: 'Monitors endpoints and network channels to block unauthorized intellectual property leaks.',
-      simResult: 'Employee copies proprietary CAD blueprint to USB -> Endpoint DLP agent intercepts write request -> Blocks file transfer in 1.4s.',
+      simResult: 'Employee copies proprietary CAD blueprint to USB → Endpoint DLP agent intercepts write request → Blocks file transfer in 1.4s.',
     },
     {
       id: 'hsm-master-keys',
@@ -49,7 +49,7 @@ const Topic5 = () => {
       protectionControl: 'Hardware Security Module (HSM) On-Chip Cryptographic Execution',
       estBudget: '₹8,20,000 (FIPS 140-2 Level 3 Physical HSM Appliance Cluster)',
       desc: 'Ensures cryptographic keys live and execute strictly inside physical tamper-proof hardware.',
-      simResult: 'Adversary gains root admin shell on application server -> Attempts memory dump -> Master keys reside inside HSM silicon -> Zero key leakage.',
+      simResult: 'Adversary gains root admin shell on application server → Attempts memory dump → Master keys reside inside HSM silicon → Zero key leakage.',
     },
     {
       id: 'crypto-shredding',
@@ -60,7 +60,7 @@ const Topic5 = () => {
       protectionControl: 'Instant Master Key Crypto-Shredding + NIST SP 800-88 Degaussing Verification',
       estBudget: '₹1,60,000 (Automated KMS Key Crypto-Shredding & Storage Erasure Tool)',
       desc: 'Permanently renders massive encrypted datasets unreadable in milliseconds by destroying master keys.',
-      simResult: 'Storage array decommissioning triggered -> KMS purges master encryption key -> 50 TB of ciphertext rendered permanently undecodable in 0.2s.',
+      simResult: 'Storage array decommissioning triggered → KMS purges master encryption key → 50 TB of ciphertext rendered permanently undecodable in 0.2s.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic5 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Digital Assets
           </h1>
 

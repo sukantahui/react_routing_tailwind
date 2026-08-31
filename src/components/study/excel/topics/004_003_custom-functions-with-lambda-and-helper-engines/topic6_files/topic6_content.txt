@@ -19,8 +19,8 @@ Topic 6: Iterating across arrays element-by-element with the MAP function
   =MAP(Principals, Rates, Years, LAMBDA(p, r, t, p * (1 + r)^t))
 
 3. ERROR CONDITIONS:
-- Mismatched Array Dimensions &rarr; #VALUE!
-- Non-LAMBDA Final Argument &rarr; #VALUE!
-- Obstructed Destination Spill Zone &rarr; #SPILL!
-- Nested Array Return &rarr; #CALC!
+- Mismatched Array Dimensions → #VALUE!
+- Non-LAMBDA Final Argument → #VALUE!
+- Obstructed Destination Spill Zone → #SPILL!
+- Nested Array Return → #CALC!
 ================================================================================

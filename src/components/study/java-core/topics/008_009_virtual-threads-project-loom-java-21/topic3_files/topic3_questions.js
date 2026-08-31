@@ -5,7 +5,7 @@ const topic3_questions = [
     "explanation": "Core architecture of Java 21 Project Loom.",
     "hint": "JVM-managed user-mode threads with tiny dynamic heap stacks (~few hundred bytes) multiplexed M:N onto OS carrier threads.",
     "level": "Intermediate",
-    "codeExample": "Thread vThread = Thread.ofVirtual().start(() -> doWork());"
+    "codeExample": "Thread vThread = Thread.ofVirtual().start(() → doWork());"
   }
 ];
 

@@ -5,7 +5,7 @@ const topic7_questions = [
     "explanation": "Short-circuiting operations can safely process infinite streams if the termination condition is met.",
     "hint": "Terminates immediately once the first match is encountered.",
     "level": "Intermediate",
-    "codeExample": "Stream.iterate(1, n -> n + 1).anyMatch(n -> n == 100); // Returns true and terminates in 100 iterations!"
+    "codeExample": "Stream.iterate(1, n → n + 1).anyMatch(n → n == 100); // Returns true and terminates in 100 iterations!"
   },
   {
     "question": "Why does allMatch() return true when called on an EMPTY stream?",
@@ -13,7 +13,7 @@ const topic7_questions = [
     "explanation": "Similarly, noneMatch() returns true on an empty stream, while anyMatch() returns false.",
     "hint": "Vacuous truth in logic: no elements exist to violate the condition.",
     "level": "Intermediate",
-    "codeExample": "List.<String>of().stream().allMatch(s -> s.length() > 100); // Returns true (Vacuous truth)!"
+    "codeExample": "List.<String>of().stream().allMatch(s → s.length() > 100); // Returns true (Vacuous truth)!"
   }
 ];
 

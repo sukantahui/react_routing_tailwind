@@ -330,7 +330,7 @@ export default function Topic1() {
       <div className="max-w-5xl mx-auto px-5 py-10 space-y-12">
         {/* HEADER */}
         <div className="text-center animate-fadeSlideUp">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-700 to-cyan-600 dark:from-teal-400 dark:to-cyan-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-700 to-cyan-600 dark:from-teal-400 dark:to-cyan-300 bg-clip-text text-transparent">
             HTTP Request & Response in Servlets
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">

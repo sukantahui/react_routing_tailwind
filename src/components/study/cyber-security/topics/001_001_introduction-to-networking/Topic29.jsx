@@ -28,7 +28,7 @@ const Topic29 = () => {
       netVsHost: '24 Network Bits (192.168.1.0) • 8 Host Bits (100)',
       usableHosts: '254 Usable Hosts (.1 to .254)',
       desc: 'Standard local address for laptops and desktop workstations in Barrackpore and Kolkata offices.',
-      simulation: 'Host dispatches packet -> Switch checks local /24 mask -> Directly delivers to local file server.',
+      simulation: 'Host dispatches packet → Switch checks local /24 mask → Directly delivers to local file server.',
     },
     {
       id: 'class-b-private',
@@ -40,7 +40,7 @@ const Topic29 = () => {
       netVsHost: '16 Network Bits (172.16.0.0) • 16 Host Bits (45.10)',
       usableHosts: '65,534 Usable Hosts',
       desc: 'Mid-to-large enterprise campus grid in Jadavpur supporting multiple faculty buildings and Wi-Fi pools.',
-      simulation: 'Packet enters Core Layer-3 switch -> Inter-VLAN routing forwards across high-speed 40G fiber trunk.',
+      simulation: 'Packet enters Core Layer-3 switch → Inter-VLAN routing forwards across high-speed 40G fiber trunk.',
     },
     {
       id: 'public-class-a',
@@ -52,7 +52,7 @@ const Topic29 = () => {
       netVsHost: '8 Network Bits • 24 Host Bits',
       usableHosts: 'Global Anycast DNS Service',
       desc: 'Globally unique public IP address routed via BGP to the nearest regional Internet exchange point in Kolkata.',
-      simulation: 'Client query -> BGP routes to topologically nearest Kolkata ISP POP in 4.2ms.',
+      simulation: 'Client query → BGP routes to topologically nearest Kolkata ISP POP in 4.2ms.',
     },
     {
       id: 'ipv6-gua',
@@ -64,7 +64,7 @@ const Topic29 = () => {
       netVsHost: '64 Routing Prefix Bits • 64 Interface ID Host Bits',
       usableHosts: '18.4 Quintillion Hosts (2^64) per Subnet',
       desc: 'Next-generation Internet address configured via SLAAC; eliminates NAT and provides direct end-to-end security.',
-      simulation: 'Router Advertisement received -> SLAAC autoconfigures Interface ID -> Direct end-to-end TLS session.',
+      simulation: 'Router Advertisement received → SLAAC autoconfigures Interface ID → Direct end-to-end TLS session.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic29 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             IP Address
           </h1>
 

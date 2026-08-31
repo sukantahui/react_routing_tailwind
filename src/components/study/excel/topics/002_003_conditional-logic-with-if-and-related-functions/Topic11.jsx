@@ -71,7 +71,7 @@ export default function Topic11() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world case study: Automated student grade generator with honors and pass/fail rules"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic11() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Academic Performance Engine: Scores & Attendance -> Grade & Honors Classification"}
+              Visual Dataflow: {"Academic Performance Engine: Scores & Attendance → Grade & Honors Classification"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Decision Diagram
@@ -286,7 +286,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic11_Real_world_case_st"
+            sheetName="EX812"
             title={"Real-world case study: Automated student grade generator with honors and pass/fail rules - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

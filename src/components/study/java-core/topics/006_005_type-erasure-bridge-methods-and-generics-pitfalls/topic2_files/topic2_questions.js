@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "Automatic cast insertion is the second half of the type erasure transformation.",
     "hint": "The compiler automatically inserts a 'checkcast' instruction in bytecode after reading from erased Object collections.",
     "level": "Intermediate",
-    "codeExample": "// Bytecode: invokevirtual List.get() -> checkcast java/lang/String"
+    "codeExample": "// Bytecode: invokevirtual List.get() → checkcast java/lang/String"
   }
 ];
 

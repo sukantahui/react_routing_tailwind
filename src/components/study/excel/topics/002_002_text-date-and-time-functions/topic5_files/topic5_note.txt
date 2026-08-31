@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never use simple addition (Date + 30) for contractual deadlines! Statutory contracts require =WORKDAY.INTL with explicit holiday schedules to avoid costly legal disputes.
 
 COMMON TRAPS TO AVOID:
-- Default Weekend Misalignment in India/Middle East: Standard NETWORKDAYS assumes Sat/Sun off, miscalculating factories operating on 6-day (Sunday-only) workweeks. -> Fix: Use NETWORKDAYS.INTL with weekend code 11 (Sunday only) or custom 7-character string mask.
-- Holiday Falls on Weekend Double-Counting: Worrying that a holiday falling on a Sunday subtracts 2 days (Excel handles this correctly). -> Fix: Provide complete holiday lists; Excel automatically avoids double-deducting weekend holidays.
-- Start Date Exceeds End Date Negative Result: Passing a start_date later than end_date to NETWORKDAYS returns negative day counts. -> Fix: Ensure chronological order or wrap in ABS() if unsigned duration is needed.
+- Default Weekend Misalignment in India/Middle East: Standard NETWORKDAYS assumes Sat/Sun off, miscalculating factories operating on 6-day (Sunday-only) workweeks. → Fix: Use NETWORKDAYS.INTL with weekend code 11 (Sunday only) or custom 7-character string mask.
+- Holiday Falls on Weekend Double-Counting: Worrying that a holiday falling on a Sunday subtracts 2 days (Excel handles this correctly). → Fix: Provide complete holiday lists; Excel automatically avoids double-deducting weekend holidays.
+- Start Date Exceeds End Date Negative Result: Passing a start_date later than end_date to NETWORKDAYS returns negative day counts. → Fix: Ensure chronological order or wrap in ABS() if unsigned duration is needed.
 ================================================================================

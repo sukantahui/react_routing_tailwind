@@ -21,7 +21,7 @@ export default function Topic12() {
             Lazy Stream I/O
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Stream-Based File Processing: <code className="text-emerald-400 font-mono">Files.lines()</code>, <code className="text-sky-400 font-mono">list()</code>, <code className="text-amber-400 font-mono">walk()</code> &amp; <code className="text-purple-400 font-mono">find()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

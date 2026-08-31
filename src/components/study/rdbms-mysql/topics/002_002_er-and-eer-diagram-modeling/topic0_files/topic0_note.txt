@@ -21,7 +21,7 @@ PHASE 1: CONCEPTUAL DESIGN (HIGH-LEVEL BUSINESS ABSTRACTION)
 PHASE 2: LOGICAL DESIGN (RELATIONAL SCHEMA MODELING)
 • Focus: HOW conceptual models translate into relational structures and normal forms.
 • Target Audience: Database Designers, Software Engineers.
-• Tooling & Artifacts: Relational Schema Tables, Foreign Key Pointers, Normalization (1NF -> BCNF).
+• Tooling & Artifacts: Relational Schema Tables, Foreign Key Pointers, Normalization (1NF → BCNF).
 • Technology Independence: DBMS-Independent (works on MySQL, PostgreSQL, Oracle) but Relational Model-Specific.
 • Core Elements: Relations (Tables), Attributes (Columns), Primary Keys, Foreign Keys, Referential Integrity.
 

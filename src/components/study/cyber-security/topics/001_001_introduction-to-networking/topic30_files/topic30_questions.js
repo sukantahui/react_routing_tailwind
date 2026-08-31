@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes network bandwidth capacity planning, transport layer optimization, traffic prioritization, and cyber defense against volumetric attacks.",
     hint: "1:1 Leased lines + BDP buffer tuning + QoS prioritization + Cloud DDoS scrubbing + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeploySymmetricILL() -> TuneBDPBuffers() -> PrioritizeWithQoS() -> MitigateDDoS() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeploySymmetricILL() → TuneBDPBuffers() → PrioritizeWithQoS() → MitigateDDoS() → BudgetInRupees(₹);"
   }
 ];
 

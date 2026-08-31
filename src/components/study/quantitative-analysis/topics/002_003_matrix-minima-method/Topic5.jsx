@@ -120,7 +120,7 @@ const Topic5 = () => {
           <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-blue-500/10 text-blue-400 border border-blue-500/30 mb-4 shadow-sm">
             Quantitative Analysis • Transportation Models • Topic 5
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mb-4 bg-gradient-to-r from-emerald-400 via-teal-300 to-blue-400 bg-clip-text text-transparent">
             Calculating Initial Transportation Cost
           </h1>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
@@ -338,19 +338,19 @@ const Topic5 = () => {
                 {/* 4 Route Multipliers (Left) */}
                 <g>
                   <rect x="30" y="30" width="220" height="50" rx="8" fill="#0f172a" stroke="#334155" />
-                  <text x="40" y="52" fill="#93c5fd" fontSize="10">Ichapur &rarr; Jadavpur</text>
+                  <text x="40" y="52" fill="#93c5fd" fontSize="10">Ichapur → Jadavpur</text>
                   <text x="40" y="68" fill="#ffffff" fontSize="11" fontWeight="bold">50 tons × ₹3 = ₹150</text>
 
                   <rect x="30" y="95" width="220" height="50" rx="8" fill="#0f172a" stroke="#334155" />
-                  <text x="40" y="117" fill="#93c5fd" fontSize="10">Barrackpore &rarr; Kolkata</text>
+                  <text x="40" y="117" fill="#93c5fd" fontSize="10">Barrackpore → Kolkata</text>
                   <text x="40" y="133" fill="#ffffff" fontSize="11" fontWeight="bold">40 tons × ₹4 = ₹160</text>
 
                   <rect x="30" y="160" width="220" height="50" rx="8" fill="#0f172a" stroke="#334155" />
-                  <text x="40" y="182" fill="#93c5fd" fontSize="10">Ichapur &rarr; Salt Lake</text>
+                  <text x="40" y="182" fill="#93c5fd" fontSize="10">Ichapur → Salt Lake</text>
                   <text x="40" y="198" fill="#ffffff" fontSize="11" fontWeight="bold">20 tons × ₹5 = ₹100</text>
 
                   <rect x="30" y="225" width="220" height="50" rx="8" fill="#0f172a" stroke="#334155" />
-                  <text x="40" y="247" fill="#93c5fd" fontSize="10">Barrackpore &rarr; Salt Lake</text>
+                  <text x="40" y="247" fill="#93c5fd" fontSize="10">Barrackpore → Salt Lake</text>
                   <text x="40" y="263" fill="#ffffff" fontSize="11" fontWeight="bold">10 tons × ₹6 = ₹60</text>
                 </g>
 

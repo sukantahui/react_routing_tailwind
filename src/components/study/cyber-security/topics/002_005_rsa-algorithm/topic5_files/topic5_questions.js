@@ -29,7 +29,7 @@ lambda(N) = lcm(60, 52) = (60 * 52) / 4 = 3120 / 4 = 780`
     codeExample: `// Extended Euclidean Inversion:
 Equation: (17 * d) mod 3120 = 1
 Bezout:   (17 * 2753) + (3120 * -15) = 1
-Modulo 3120: 17 * 2753 = 46801 ≡ 1 (mod 3120) -> Private Key d = 2753!`
+Modulo 3120: 17 * 2753 = 46801 ≡ 1 (mod 3120) → Private Key d = 2753!`
   },
   {
     question: "Using public key $(e = 17, N = 3233)$, how is plaintext message $M = 65$ encrypted into ciphertext $C$?",
@@ -43,7 +43,7 @@ Modulo 3120: 17 * 2753 = 46801 ≡ 1 (mod 3120) -> Private Key d = 2753!`
 65^4  mod 3233 = 1374
 65^8  mod 3233 = 3152
 65^16 mod 3233 = 1083
-65^17 mod 3233 = (1083 * 65) mod 3233 = 70395 mod 3233 = 2790 -> Ciphertext C = 2790!`
+65^17 mod 3233 = (1083 * 65) mod 3233 = 70395 mod 3233 = 2790 → Ciphertext C = 2790!`
   },
   {
     question: "Using private key $(d = 2753, N = 3233)$, how is ciphertext $C = 2790$ decrypted back to plaintext $M$?",
@@ -53,7 +53,7 @@ Modulo 3120: 17 * 2753 = 46801 ≡ 1 (mod 3120) -> Private Key d = 2753!`
     level: "moderate",
     codeExample: `// Decryption Calculation (C = 2790, d = 2753, N = 3233):
 Plaintext M = (2790 ^ 2753) mod 3233 = 65 (ASCII 'A')
-Verification: M == 65 -> 100% RECOVERY SUCCESS!`
+Verification: M == 65 → 100% RECOVERY SUCCESS!`
   },
   {
     question: "For $p = 61, q = 53, d = 2753$, what are the Chinese Remainder Theorem (RSA-CRT) pre-computed constants $d_p, d_q$, and $q_{inv}$?",
@@ -142,8 +142,8 @@ Decrypt: M = (62 ^ 65) mod 133 = 6`
     hint: "Contrast academic classroom examples with 617-digit commercial RSA keys.",
     level: "basic",
     codeExample: `// Pedagogical vs Production Scale:
-Classroom:  p = 61, q = 53     -> N = 3233 (12 bits)  -> Factored in 0.0001 ms!
-Production: p, q = 1024-bit     -> N = 2048 bits (617 digits) -> Secure for 100 Billion Years!`
+Classroom:  p = 61, q = 53     → N = 3233 (12 bits)  → Factored in 0.0001 ms!
+Production: p, q = 1024-bit     → N = 2048 bits (617 digits) → Secure for 100 Billion Years!`
   },
   {
     question: "Synthesizing Hands-on RSA Calculation: what is the master numerical summary of the canonical $p=61, q=53$ RSA cryptosystem?",

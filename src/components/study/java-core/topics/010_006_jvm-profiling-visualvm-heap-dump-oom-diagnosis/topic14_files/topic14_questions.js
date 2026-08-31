@@ -13,7 +13,7 @@ const topic14_questions = [
     "explanation": "Fast-tracks finding the root cause of 90% of memory leaks.",
     "hint": "The Leak Suspects Report.",
     "level": "Beginner",
-    "codeExample": "MAT -> Run 'Leak Suspects Report'"
+    "codeExample": "MAT → Run 'Leak Suspects Report'"
   }
 ];
 

@@ -88,7 +88,7 @@ const questions = [
   },
   {
     question: "What is Generalized Projection in Extended Relational Algebra?",
-    shortAnswer: "An extension to basic projection that allows arithmetic expressions, string transformations, and scalar functions in the projection list (e.g. $\\pi_{\\text{id, salary * 1.10 \\rightarrow new\\_salary}}(R)$).",
+    shortAnswer: "An extension to basic projection that allows arithmetic expressions, string transformations, and scalar functions in the projection list (e.g. $\\pi_{\\text{id, salary * 1.10 \→ new\\_salary}}(R)$).",
     explanation: "Extended relational algebra allowing computed columns.",
     hint: "Allows computed expressions and arithmetic in the projection list.",
     level: "moderate"

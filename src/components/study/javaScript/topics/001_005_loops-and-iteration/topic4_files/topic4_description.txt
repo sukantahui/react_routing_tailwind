@@ -43,7 +43,7 @@ let studentProfile = {
 
 for (let key in studentProfile) {
   if (Object.hasOwn(studentProfile, key)) {
-    console.log(key + " -> " + studentProfile[key]);
+    console.log(key + " → " + studentProfile[key]);
   }
 }
 

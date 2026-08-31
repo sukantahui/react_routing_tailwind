@@ -42,7 +42,7 @@ export default function Topic16() {
             Canonical Algorithm Master Suite
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Classic Recursive Algorithms Master Suite
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -88,7 +88,7 @@ export default function Topic16() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Algorithm Suite):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> calculated <code className="text-emerald-400 font-mono">6! = 720</code>, <strong>Tuhina</strong> computed <code className="text-sky-300 font-mono">fib(40) = 102,334,155</code> instantaneously via memoization, <strong>Abhronila</strong> decomposed roll number <code className="text-purple-300 font-mono">98452 &rarr; 28</code>, and <strong>Debangshu</strong> solved the 3-disk Tower of Hanoi in exactly <code className="text-amber-400 font-semibold">7 moves</code>.
+              In our Barrackpore laboratory, <strong>Swadeep</strong> calculated <code className="text-emerald-400 font-mono">6! = 720</code>, <strong>Tuhina</strong> computed <code className="text-sky-300 font-mono">fib(40) = 102,334,155</code> instantaneously via memoization, <strong>Abhronila</strong> decomposed roll number <code className="text-purple-300 font-mono">98452 → 28</code>, and <strong>Debangshu</strong> solved the 3-disk Tower of Hanoi in exactly <code className="text-amber-400 font-semibold">7 moves</code>.
             </p>
           </div>
         </div>
@@ -126,13 +126,13 @@ export default function Topic16() {
             <text x="225" y="55" fill="#38bdf8" fontSize="13" fontWeight="bold" textAnchor="middle">1. FAST POWER (Divide &amp; Conquer O(log N))</text>
 
             <rect x="45" y="70" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="92" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^10 &rarr; (2^5)^2 = 32^2 = 1024</text>
+            <text x="55" y="92" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^10 → (2^5)^2 = 32^2 = 1024</text>
 
             <rect x="45" y="110" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="132" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^5  &rarr; 2 * (2^2)^2 = 2 * 16 = 32 (Odd power)</text>
+            <text x="55" y="132" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^5  → 2 * (2^2)^2 = 2 * 16 = 32 (Odd power)</text>
 
             <rect x="45" y="150" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^2  &rarr; (2^1)^2 = 2^2 = 4 (Even power)</text>
+            <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">2^2  → (2^1)^2 = 2^2 = 4 (Even power)</text>
 
             <text x="225" y="215" fill="#7dd3fc" fontSize="10" textAnchor="middle">Only 4 recursive steps instead of 10! (O(log N))</text>
 
@@ -141,13 +141,13 @@ export default function Topic16() {
             <text x="650" y="55" fill="#f59e0b" fontSize="13" fontWeight="bold" textAnchor="middle">2. TOWER OF HANOI (3 Pegs, 2^N - 1 Moves)</text>
 
             <rect x="465" y="70" width="370" height="35" rx="4" fill="#451a03" />
-            <text x="475" y="92" fill="#fef3c7" fontSize="10" fontFamily="monospace">Step 1: Move (n - 1) disks: Source &rarr; Helper</text>
+            <text x="475" y="92" fill="#fef3c7" fontSize="10" fontFamily="monospace">Step 1: Move (n - 1) disks: Source → Helper</text>
 
             <rect x="465" y="110" width="370" height="35" rx="4" fill="#78350f" />
-            <text x="475" y="132" fill="#ffffff" fontSize="10" fontFamily="monospace" fontWeight="bold">Step 2: Move disk n: Source &rarr; Destination</text>
+            <text x="475" y="132" fill="#ffffff" fontSize="10" fontFamily="monospace" fontWeight="bold">Step 2: Move disk n: Source → Destination</text>
 
             <rect x="465" y="150" width="370" height="35" rx="4" fill="#451a03" />
-            <text x="475" y="172" fill="#fef3c7" fontSize="10" fontFamily="monospace">Step 3: Move (n - 1) disks: Helper &rarr; Destination</text>
+            <text x="475" y="172" fill="#fef3c7" fontSize="10" fontFamily="monospace">Step 3: Move (n - 1) disks: Helper → Destination</text>
 
             <text x="650" y="215" fill="#fde68a" fontSize="10" fontWeight="bold" textAnchor="middle">3 Disks = 2^3 - 1 = 7 Total Moves</text>
 

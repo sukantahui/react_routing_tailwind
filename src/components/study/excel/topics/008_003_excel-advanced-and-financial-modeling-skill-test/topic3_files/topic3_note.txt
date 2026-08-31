@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Dynamic arrays are the biggest upgrade in Excel history. One formula in cell A1 can filter, sort, reshape, and spill 1,000 rows across your sheet. Always use the `#` operator (like `=SUM(A1#)`) to reference spilled data!
 
 COMMON TRAPS TO AVOID:
-- Spill Blockage Collision (#SPILL! Error): Non-empty cells or text blocking the dynamic array spill path. -> Fix: Clear all cells below and to the right of the formula cell.
-- Forgetting Empty String Ignore Flag in TOCOL: `TOCOL(Range)` keeping blank rows. -> Fix: Pass `ignore = 1` to skip blanks: `=TOCOL(Range, 1)`.
-- Referencing Single Cell Instead of Spill Range (#): Writing `=SUM(E2)` instead of `=SUM(E2#)` to reference the entire spilled array. -> Fix: Use the `#` spill operator: `=SUM(E2#)`.
+- Spill Blockage Collision (#SPILL! Error): Non-empty cells or text blocking the dynamic array spill path. → Fix: Clear all cells below and to the right of the formula cell.
+- Forgetting Empty String Ignore Flag in TOCOL: `TOCOL(Range)` keeping blank rows. → Fix: Pass `ignore = 1` to skip blanks: `=TOCOL(Range, 1)`.
+- Referencing Single Cell Instead of Spill Range (#): Writing `=SUM(E2)` instead of `=SUM(E2#)` to reference the entire spilled array. → Fix: Use the `#` spill operator: `=SUM(E2#)`.
 ================================================================================

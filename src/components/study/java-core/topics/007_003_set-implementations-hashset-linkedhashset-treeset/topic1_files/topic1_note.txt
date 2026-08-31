@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. HASHSET INTERNALS:
    - Backed by 'private transient HashMap<E, Object> map;'.
-   - 'set.add(e)' &rarr; calls 'map.put(e, PRESENT)'.
+   - 'set.add(e)' → calls 'map.put(e, PRESENT)'.
    - Set elements are stored as KEYS in the internal HashMap.
    - Reuses HashMap's hash bucket and red-black tree architecture.
 

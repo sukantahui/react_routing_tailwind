@@ -131,7 +131,7 @@ const questions = [
     explanation: "Loop rotation optimization in bytecode.",
     hint: "Uses goto to condition and conditional jump to body.",
     level: "advanced",
-    codeExample: "// Bytecode: goto L_COND -> L_BODY: ... -> L_COND: if_icmplt L_BODY"
+    codeExample: "// Bytecode: goto L_COND → L_BODY: ... → L_COND: if_icmplt L_BODY"
   },
   {
     question: "In algorithm design, how is a `while` loop used to Reverse a Number mathematically?",

@@ -80,7 +80,7 @@ const Topic20 = () => {
       {/* Header Section */}
       <header className="max-w-6xl mx-auto mb-12">
         <div className={`${animationClass} opacity-0`}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-400 dark:to-orange-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-400 dark:to-orange-400">
             Props Immutability & Read-Only Behavior
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -765,7 +765,7 @@ function UserCard({ user }) {
                     </div>
                     <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded">
                       <div className="font-bold text-sm">TypeScript</div>
-                      <code className="text-xs">{`Readonly<Type>`}</code>
+                      <code className="text-xs">{`Readonly&lt;Type&gt;`}</code>
                     </div>
                   </div>
                 </div>

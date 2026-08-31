@@ -159,7 +159,7 @@ WHERE student_name = 'Mamata Banerjee';
               Native JSON Engine
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Native JSON Data Type: Storage Format, Validation, and Advantages over Plain Text
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -286,8 +286,8 @@ WHERE student_name = 'Mamata Banerjee';
                   2. SORTED KEY DICTIONARY
                 </text>
                 <line x1="250" y1="145" x2="470" y2="145" stroke="#334155" />
-                <text x="260" y="170" fill="#a7f3d0" fontSize="10" fontWeight="bold">Key[0]: 'age' (Offset &rarr; 0x1A)</text>
-                <text x="260" y="195" fill="#a7f3d0" fontSize="10" fontWeight="bold">Key[1]: 'city' (Offset &rarr; 0x22)</text>
+                <text x="260" y="170" fill="#a7f3d0" fontSize="10" fontWeight="bold">Key[0]: 'age' (Offset → 0x1A)</text>
+                <text x="260" y="195" fill="#a7f3d0" fontSize="10" fontWeight="bold">Key[1]: 'city' (Offset → 0x22)</text>
                 <text x="260" y="230" fill="#38bdf8" fontSize="9" fontWeight="bold">Sorted alphabetically!</text>
                 <text x="260" y="250" fill="#94a3b8" fontSize="8">Enables O(log K) Binary Search</text>
 

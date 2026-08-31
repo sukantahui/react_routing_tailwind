@@ -44,7 +44,7 @@ Time Complexity: O(amount * number_of_coins)
 5. LONGEST INCREASING SUBSEQUENCE (LIS)
 --------------------------------------------------------------------------------
 • Standard DP:
-    `dp[i] = 1 + max_{j < i, arr[j] < arr[i]} dp[j]` -> O(N^2) time.
+    `dp[i] = 1 + max_{j < i, arr[j] < arr[i]} dp[j]` → O(N^2) time.
 
 • Patience Sorting with Binary Search (Optimal):
     Maintain `tails[]` array where `tails[len]` is the smallest tail of an 

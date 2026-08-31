@@ -6,7 +6,7 @@ const questions = [
     hint: "Recall that White Hats always operate with explicit legal authorization and defensive intent.",
     level: "basic",
     codeExample: `// White Hat Fiduciary Duty:
-Objective: Find vulnerabilities -> Document Root Cause -> Propose Remediation -> Verify Patch
+Objective: Find vulnerabilities → Document Root Cause → Propose Remediation → Verify Patch
 Authorization: Signed Rules of Engagement (RoE) + Non-Disclosure Agreement (NDA)`
   },
   {
@@ -53,9 +53,9 @@ Statutory Compliance: RBI Master Direction on Cyber Security Framework in Banks`
     hint: "Remember the 3 pillars of NIST SP 800-115: Review, Identify & Analyze, and Validate.",
     level: "expert",
     codeExample: `// NIST SP 800-115 Testing Framework:
-1. Review Techniques             --> Source Code Review & Firewall Ruleset Auditing
-2. Target Identification         --> Port Scanning, OSINT & Service Fingerprinting
-3. Vulnerability Validation      --> Active Exploitation & Privilege Escalation`
+1. Review Techniques             → Source Code Review & Firewall Ruleset Auditing
+2. Target Identification         → Port Scanning, OSINT & Service Fingerprinting
+3. Vulnerability Validation      → Active Exploitation & Privilege Escalation`
   },
   {
     question: "What is the primary role of a 'Vulnerability Researcher' and 'Reverse Engineer' in the white-hat cybersecurity ecosystem?",
@@ -97,9 +97,9 @@ index=endpoint_telemetry parent_process="winword.exe" process="powershell.exe"
     hint: "Recall the famous 24-hour hands-on practical penetration testing certification from Offensive Security.",
     level: "basic",
     codeExample: `// Top White Hat Certifications:
-1. OSCP (Offensive Security) --> Practical hands-on exploitation & reporting (24-hr exam)
-2. CRTO (Zero-Point Security) --> Active Directory & Red Team Command-and-Control
-3. CISSP ((ISC)²)            --> Strategic enterprise security governance & management`
+1. OSCP (Offensive Security) → Practical hands-on exploitation & reporting (24-hr exam)
+2. CRTO (Zero-Point Security) → Active Directory & Red Team Command-and-Control
+3. CISSP ((ISC)²)            → Strategic enterprise security governance & management`
   },
   {
     question: "What is 'Physical Penetration Testing', and what legal safeguards must a White Hat tester enforce before picking locks or cloning RFID badges?",
@@ -169,7 +169,7 @@ Prohibited: Fake termination notices, tax audit threats, or personal family emer
     codeExample: `// CodeQL Taint Analysis Concept:
 // Source: function get_user_input(req)
 // Sink:   db_execute_raw_string(query)
-// Taint Rule: If untrusted input flows from Source to Sink without Passing Sanitizer -> Flag Critical SQLi`
+// Taint Rule: If untrusted input flows from Source to Sink without Passing Sanitizer → Flag Critical SQLi`
   },
   {
     question: "How does a White Hat 'Bug Bounty Hunter' maintain legal safe harbor while hunting on platforms like HackerOne or Bugcrowd?",
@@ -178,8 +178,8 @@ Prohibited: Fake termination notices, tax audit threats, or personal family emer
     hint: "Recall that dumping an entire database when discovering an SQL injection vulnerability violates bug bounty safe harbor.",
     level: "moderate",
     codeExample: `// Bug Bounty Safe Proof-of-Concept Rule:
-// ALLOWED: SELECT version(); -> Proves SQL injection exists with zero data privacy breach.
-// FORBIDDEN: SELECT * FROM customer_credit_cards; -> Violates privacy, breaches safe harbor!`
+// ALLOWED: SELECT version(); → Proves SQL injection exists with zero data privacy breach.
+// FORBIDDEN: SELECT * FROM customer_credit_cards; → Violates privacy, breaches safe harbor!`
   },
   {
     question: "What is the 'National Critical Information Infrastructure Protection Centre' (NCIIPC) in India, and how does it collaborate with White Hat researchers?",

@@ -42,7 +42,7 @@ export default function Topic18() {
             Critical Memory Semantics
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Deep Copy vs. Shallow Copy of Arrays in Java
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -124,12 +124,12 @@ export default function Topic18() {
             {/* Orig array container */}
             <rect x="45" y="75" width="150" height="60" rx="6" fill="#1e293b" />
             <text x="120" y="95" fill="#ffffff" fontSize="11" textAnchor="middle">Original Array</text>
-            <text x="120" y="115" fill="#38bdf8" fontSize="10" fontFamily="monospace">ptr: 0x50A0 &rarr;</text>
+            <text x="120" y="115" fill="#38bdf8" fontSize="10" fontFamily="monospace">ptr: 0x50A0 →</text>
 
             {/* Shallow array container */}
             <rect x="45" y="150" width="150" height="60" rx="6" fill="#1e293b" />
             <text x="120" y="170" fill="#fca5a5" fontSize="11" textAnchor="middle">Shallow Copy</text>
-            <text x="120" y="190" fill="#38bdf8" fontSize="10" fontFamily="monospace">ptr: 0x50A0 &rarr;</text>
+            <text x="120" y="190" fill="#38bdf8" fontSize="10" fontFamily="monospace">ptr: 0x50A0 →</text>
 
             {/* Shared Heap Object */}
             <rect x="230" y="105" width="170" height="75" rx="8" fill="url(#gradSharedObj)" />
@@ -144,12 +144,12 @@ export default function Topic18() {
             {/* Orig container */}
             <rect x="475" y="75" width="150" height="60" rx="6" fill="#1e293b" />
             <text x="550" y="95" fill="#ffffff" fontSize="11" textAnchor="middle">Original Array</text>
-            <text x="550" y="115" fill="#10b981" fontSize="10" fontFamily="monospace">ptr: 0x50A0 &rarr;</text>
+            <text x="550" y="115" fill="#10b981" fontSize="10" fontFamily="monospace">ptr: 0x50A0 →</text>
 
             {/* Deep container */}
             <rect x="475" y="150" width="150" height="60" rx="6" fill="#1e293b" />
             <text x="550" y="170" fill="#a7f3d0" fontSize="11" textAnchor="middle">Deep Copy</text>
-            <text x="550" y="190" fill="#a7f3d0" fontSize="10" fontFamily="monospace">ptr: 0x70C0 &rarr;</text>
+            <text x="550" y="190" fill="#a7f3d0" fontSize="10" fontFamily="monospace">ptr: 0x70C0 →</text>
 
             {/* Obj 1 */}
             <rect x="660" y="75" width="170" height="60" rx="6" fill="#065f46" />

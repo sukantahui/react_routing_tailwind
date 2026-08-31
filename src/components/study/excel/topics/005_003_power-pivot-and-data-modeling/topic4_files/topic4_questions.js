@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering VertiPaq Engine & Columnar Compression is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how in-memory columnar storage, dictionary encoding, and run-length compression operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Big Data Ingestion & Connection Protocols regarding bypassing the 1-million row limit, 64-bit architecture, and query folding (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Big Data Ingestion & Connection Protocols is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how bypassing the 1-million row limit, 64-bit architecture, and query folding operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Dimensional Modeling & Star Schemas regarding Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Dimensional Modeling & Star Schemas is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Relationships & Filter Propagation regarding 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Relationships & Filter Propagation is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calendar Tables & Time Intelligence Setup regarding contiguous date sequences, Indian fiscal calendars, and Sort by Column rules (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calendar Tables & Time Intelligence Setup is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how contiguous date sequences, Indian fiscal calendars, and Sort by Column rules operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calculated Columns vs Explicit DAX Measures regarding RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calculated Columns vs Explicit DAX Measures is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage VertiPaq Engine & Columnar Compression regarding in-memory columnar storage, dictionary encoding, and run-length compression (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering VertiPaq Engine & Columnar Compression is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how in-memory columnar storage, dictionary encoding, and run-length compression operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Big Data Ingestion & Connection Protocols regarding bypassing the 1-million row limit, 64-bit architecture, and query folding (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Big Data Ingestion & Connection Protocols is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how bypassing the 1-million row limit, 64-bit architecture, and query folding operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Dimensional Modeling & Star Schemas regarding Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Dimensional Modeling & Star Schemas is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Relationships & Filter Propagation regarding 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Relationships & Filter Propagation is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering operates within Power Pivot's in-memory tabular architecture.",
     "level": "basic",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calendar Tables & Time Intelligence Setup regarding contiguous date sequences, Indian fiscal calendars, and Sort by Column rules (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calendar Tables & Time Intelligence Setup is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how contiguous date sequences, Indian fiscal calendars, and Sort by Column rules operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calculated Columns vs Explicit DAX Measures regarding RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calculated Columns vs Explicit DAX Measures is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage VertiPaq Engine & Columnar Compression regarding in-memory columnar storage, dictionary encoding, and run-length compression (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering VertiPaq Engine & Columnar Compression is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how in-memory columnar storage, dictionary encoding, and run-length compression operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Big Data Ingestion & Connection Protocols regarding bypassing the 1-million row limit, 64-bit architecture, and query folding (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Big Data Ingestion & Connection Protocols is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how bypassing the 1-million row limit, 64-bit architecture, and query folding operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Dimensional Modeling & Star Schemas regarding Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Dimensional Modeling & Star Schemas is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Relationships & Filter Propagation regarding 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Relationships & Filter Propagation is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calendar Tables & Time Intelligence Setup regarding contiguous date sequences, Indian fiscal calendars, and Sort by Column rules (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calendar Tables & Time Intelligence Setup is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how contiguous date sequences, Indian fiscal calendars, and Sort by Column rules operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calculated Columns vs Explicit DAX Measures regarding RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calculated Columns vs Explicit DAX Measures is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage VertiPaq Engine & Columnar Compression regarding in-memory columnar storage, dictionary encoding, and run-length compression (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering VertiPaq Engine & Columnar Compression is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how in-memory columnar storage, dictionary encoding, and run-length compression operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Big Data Ingestion & Connection Protocols regarding bypassing the 1-million row limit, 64-bit architecture, and query folding (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Big Data Ingestion & Connection Protocols is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how bypassing the 1-million row limit, 64-bit architecture, and query folding operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Dimensional Modeling & Star Schemas regarding Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Dimensional Modeling & Star Schemas is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Relationships & Filter Propagation regarding 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Relationships & Filter Propagation is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering operates within Power Pivot's in-memory tabular architecture.",
     "level": "moderate",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calendar Tables & Time Intelligence Setup regarding contiguous date sequences, Indian fiscal calendars, and Sort by Column rules (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calendar Tables & Time Intelligence Setup is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how contiguous date sequences, Indian fiscal calendars, and Sort by Column rules operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calculated Columns vs Explicit DAX Measures regarding RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calculated Columns vs Explicit DAX Measures is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage VertiPaq Engine & Columnar Compression regarding in-memory columnar storage, dictionary encoding, and run-length compression (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering VertiPaq Engine & Columnar Compression is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how in-memory columnar storage, dictionary encoding, and run-length compression operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Big Data Ingestion & Connection Protocols regarding bypassing the 1-million row limit, 64-bit architecture, and query folding (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Big Data Ingestion & Connection Protocols is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how bypassing the 1-million row limit, 64-bit architecture, and query folding operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Dimensional Modeling & Star Schemas regarding Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Dimensional Modeling & Star Schemas is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how Fact vs Dimension tables, Star vs Snowflake schemas, and conformed dimensions operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Relationships & Filter Propagation regarding 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Relationships & Filter Propagation is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how 1-to-Many cardinality, unique primary keys, and single vs bi-directional filtering operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calendar Tables & Time Intelligence Setup regarding contiguous date sequences, Indian fiscal calendars, and Sort by Column rules (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calendar Tables & Time Intelligence Setup is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how contiguous date sequences, Indian fiscal calendars, and Sort by Column rules operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   },
   {
     "question": "In the context of Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, how does Power Pivot manage Calculated Columns vs Explicit DAX Measures regarding RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Cross-filter direction: Single vs Both directions and avoiding ambiguous relationship paths, mastering Calculated Columns vs Explicit DAX Measures is vital for enterprise scalability. Power Pivot combines columnar compression, strict 1-to-Many relational integrity, and high-performance DAX calculation pipelines, ensuring that multi-million row corporate datasets aggregate seamlessly in real time without spreadsheet bloat or calculation lag.",
     "hint": "Think about how RAM vs CPU evaluation, measure branching, display folders, and memory diagnostics operates within Power Pivot's in-memory tabular architecture.",
     "level": "advanced",
-    "codeExample": "Cross-Filter Direction: Single Direction (Dim -> Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
+    "codeExample": "Cross-Filter Direction: Single Direction (Dim → Fact) | Both Directions (Bi-Directional Filtering) | Manage Relationships"
   }
 ];
 

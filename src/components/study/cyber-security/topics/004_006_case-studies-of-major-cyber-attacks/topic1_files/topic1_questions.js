@@ -45,8 +45,8 @@ function isTargetIndustrialEnvironment(scadaContext) {
     level: "Moderate",
     codeExample: `// CVE-2010-2568 LNK Shortcut Exploit Mechanism:
 // Malicious .lnk file invokes Control_RunDLL to execute payload DLL silently:
-// Shortcut path -> C:\\Windows\\system32\\shell32.dll
-// Target argument -> "~WTR4141.tmp" (Stuxnet DLL on USB root)`
+// Shortcut path → C:\\Windows\\system32\\shell32.dll
+// Target argument → "~WTR4141.tmp" (Stuxnet DLL on USB root)`
   },
   {
     id: 4,
@@ -102,7 +102,7 @@ function readCentrifugePressure(sensorRawValue) {
     hint: "A shim DLL intercepting Step 7 SCADA communications to hide malicious PLC blocks.",
     level: "Expert",
     codeExample: `// Stuxnet DLL Interception Hook:
-// Legitimate STEP 7 calls -> intercepted by rogue s7otbxdx.dll:
+// Legitimate STEP 7 calls → intercepted by rogue s7otbxdx.dll:
 FARPROC original_s7_read_block = GetProcAddress(hRealDll, "s7_read_block");
 int hooked_s7_read_block(int blockId, void* buffer) {
   if (blockId == MALICIOUS_STUXNET_BLOCK_DB89) {
@@ -353,8 +353,8 @@ function verifyCentrifugeCascadeLayout(plcTelemetry) {
     level: "Moderate",
     codeExample: `// MC7 Bytecode Disassembly excerpt:
 // Symantec mapped raw hex instructions to Siemens STL instructions:
-// 0x002B -> L PEW (Load Peripheral Input Word)
-// 0x005E -> T PAW (Transfer to Peripheral Output Word - Manipulating Motor Speed!)`
+// 0x002B → L PEW (Load Peripheral Input Word)
+// 0x005E → T PAW (Transfer to Peripheral Output Word - Manipulating Motor Speed!)`
   },
   {
     id: 26,
@@ -410,7 +410,7 @@ const internationalLawThreshold = {
     hint: "Industrial networks are deterministic; unexpected PLC bytecode write commands trigger alarms.",
     level: "Expert",
     codeExample: `// OT Intrusion Detection Rule (Suricata / Snort S7Comm):
-alert s7comm any any -> any 102 (
+alert s7comm any any → any 102 (
   msg:"SCADA-ALARM: Unauthorized PLC Block Write Attempt on S7-300";
   s7comm.function == 0x1A; // Block Write Function
   s7comm.block_type == "OB35";

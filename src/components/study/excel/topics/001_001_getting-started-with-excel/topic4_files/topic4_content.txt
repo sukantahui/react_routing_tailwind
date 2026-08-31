@@ -12,20 +12,20 @@ Return Type: File Metadata / Path Coordinates
 Real-World Business Scenarios:
 [Kolkata Corporate MIS 80 MB Financial Model Optimization]
 Context: A multi-branch model takes 45 seconds to open in standard .xlsx format.
-Applied: Save As &rarr; Excel Binary Workbook (*.xlsb)
+Applied: Save As → Excel Binary Workbook (*.xlsb)
 Result: File size reduced by 58%, opening time reduced from 42s to 11s.
 
 [Barrackpore Payroll AutoRecover Emergency Restoration]
 Context: Sudden power failure occurred while preparing monthly salary registers at Coder & AccoTax.
-Applied: File &rarr; Info &rarr; Manage Workbook &rarr; Recover Unsaved Workbooks
+Applied: File → Info → Manage Workbook → Recover Unsaved Workbooks
 Result: Restored full payroll sheet without re-entering data.
 
 [Naihati Wholesale ERP CSV Bank Transaction Export]
 Context: Exporting 25,000 ledger transactions to an external MySQL accounting database.
-Applied: Save As &rarr; CSV (Comma delimited) (*.csv)
+Applied: Save As → CSV (Comma delimited) (*.csv)
 Result: Clean flat file ingested into MySQL database with zero formatting errors.
 
 [Shyamnagar Corporate Automated GST Invoice Generator]
 Context: An automated billing system with VBA macro buttons to print client invoices.
-Applied: Save As &rarr; Excel Macro-Enabled Workbook (*.xlsm)
+Applied: Save As → Excel Macro-Enabled Workbook (*.xlsm)
 Result: VBA billing automation functions without macro stripping.

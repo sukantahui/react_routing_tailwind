@@ -108,9 +108,9 @@ const questions = [
   },
   {
     question: "What is the recommended structure for an enterprise data mutation stored procedure?",
-    shortAnswer: "1. Declarations (variables, handlers) -> 2. `START TRANSACTION;` -> 3. Validation & DML operations -> 4. `COMMIT;` -> 5. Set success status code.",
+    shortAnswer: "1. Declarations (variables, handlers) → 2. `START TRANSACTION;` → 3. Validation & DML operations → 4. `COMMIT;` → 5. Set success status code.",
     explanation: "Standard enterprise stored procedure architecture.",
-    hint: "Declarations -> START TRANSACTION -> DML -> COMMIT -> Return Success.",
+    hint: "Declarations → START TRANSACTION → DML → COMMIT → Return Success.",
     level: "basic"
   },
   {

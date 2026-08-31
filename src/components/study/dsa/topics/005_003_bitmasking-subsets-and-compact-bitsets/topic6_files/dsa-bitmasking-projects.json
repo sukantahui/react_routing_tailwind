@@ -233,7 +233,7 @@
       "description": "Given array of strings, find shortest string that contains every string as a substring. Compute overlap length `overlap[i][j]` between all pairs of strings. Reduce problem to Travelling Salesperson Problem (TSP) finding maximum overlap path visiting all strings! In this project, you will build Shortest Superstring Solver in C.",
       "learningOutcome": "String Overlap Graphs, TSP Reduction for Superstrings & Bitmask Dynamic Programming",
       "exampleText": "Find shortest superstring for 3 words",
-      "exampleOutput": "--- Find Shortest Superstring (Bitmask TSP Reduction) ---\nShortest Superstring for ['alex', 'loves', 'leetcode'] -> 'alexlovesleetcode'",
+      "exampleOutput": "--- Find Shortest Superstring (Bitmask TSP Reduction) ---\nShortest Superstring for ['alex', 'loves', 'leetcode'] → 'alexlovesleetcode'",
       "logicExplanation": "1. **Overlap Matrix**: Precompute `overlap[i][j]`.\n2. **TSP Reduction**: Bitmask DP finds ordering maximizing total overlap.",
       "answerFile": "./answers/answer19.c",
       "codeExplanation": "1. `shortest_superstring_demo()`: Solves shortest superstring via TSP Bitmask DP."

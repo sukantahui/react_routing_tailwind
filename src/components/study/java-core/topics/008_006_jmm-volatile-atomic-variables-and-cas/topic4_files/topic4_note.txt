@@ -11,7 +11,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Volatile Variable: Write(V) happens-before Read(V).
    - Thread Start: start() happens-before thread's run().
    - Thread Join: All thread actions happen-before join() returns.
-   - Transitivity: A &rarr; B and B &rarr; C implies A &rarr; C.
+   - Transitivity: A → B and B → C implies A → C.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

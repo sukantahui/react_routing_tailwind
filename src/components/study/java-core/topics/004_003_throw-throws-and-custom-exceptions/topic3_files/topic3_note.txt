@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. COMPARISON MATRIX:
-   - 'throw' : Action inside body &rarr; 'throw new MyException();' (singular object).
-   - 'throws': Declaration in header &rarr; 'void m() throws A, B' (class names).
+   - 'throw' : Action inside body → 'throw new MyException();' (singular object).
+   - 'throws': Declaration in header → 'void m() throws A, B' (class names).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

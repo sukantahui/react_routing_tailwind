@@ -62,7 +62,7 @@ Every topic generated MUST thoroughly satisfy these 4 technical content pillars:
 │ PILLAR 1: IN-DEPTH DETAILED DISCUSSION & CONCEPTUAL EXPOSITION                │
 ├───────────────────────────────────────────────────────────────────────────────┤
 │ • What exact problem does this language feature or concept solve?             │
-│ • History and evolution across ECMAScript editions (ES5 -> ES6 -> ES2024).   │
+│ • History and evolution across ECMAScript editions (ES5 → ES6 → ES2024).   │
 │ • Clear mental models, intuitive metaphors, and analogies.                   │
 │ • Real-world classroom lab scenarios featuring Sukanta Hui and students       │
 │   (Swadeep, Tuhina, Abhronila, Debangshu) tackling realistic bugs and code.  │

@@ -42,7 +42,7 @@ export default function Topic8() {
             Algorithmic Lab 8 · Modular Arithmetic
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Armstrong Numbers in a Given Range: Architecture &amp; Optimization
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -141,11 +141,11 @@ export default function Topic8() {
 
             <rect x="465" y="70" width="370" height="40" rx="4" fill="#451a03" />
             <text x="475" y="90" fill="#fde68a" fontSize="10" fontFamily="monospace">Precomputed int[10] array for D = 3:</text>
-            <text x="475" y="103" fill="#fcd34d" fontSize="9" fontFamily="monospace">0&rarr;0, 1&rarr;1, 2&rarr;8, 3&rarr;27, 4&rarr;64, 5&rarr;125, 6&rarr;216...</text>
+            <text x="475" y="103" fill="#fcd34d" fontSize="9" fontFamily="monospace">0→0, 1→1, 2→8, 3→27, 4→64, 5→125, 6→216...</text>
 
             <rect x="465" y="120" width="370" height="40" rx="4" fill="#022c22" />
             <text x="475" y="140" fill="#a7f3d0" fontSize="10" fontWeight="bold">EARLY PRUNING CHECK:</text>
-            <text x="475" y="153" fill="#6ee7b7" fontSize="9" fontFamily="monospace">If (partialSum &gt; N) &rarr; immediately return FALSE!</text>
+            <text x="475" y="153" fill="#6ee7b7" fontSize="9" fontFamily="monospace">If (partialSum &gt; N) → immediately return FALSE!</text>
 
             <text x="650" y="215" fill="#fde68a" fontSize="10" fontWeight="bold" textAnchor="middle">Zero Math.pow() | O(1) Memory | Fast Integer Math</text>
 

@@ -5,7 +5,7 @@ const topic4_questions = [
     "explanation": "Scalability benchmark illustrating Project Loom memory and scheduling efficiency.",
     "hint": "Virtual threads use ~2 KB heap memory and unmount during sleep, allowing 16 OS threads to handle 100,000 virtual threads.",
     "level": "Intermediate",
-    "codeExample": "for (int i = 0; i < 100_000; i++) Thread.ofVirtual().start(() -> Thread.sleep(1000));"
+    "codeExample": "for (int i = 0; i < 100_000; i++) Thread.ofVirtual().start(() → Thread.sleep(1000));"
   }
 ];
 

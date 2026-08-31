@@ -40,7 +40,7 @@ const questions = [
     explanation: "Repository Pattern decoupling domain models from storage mechanisms.",
     hint: "Mediates between domain entities and SQL/JSON queries, keeping business logic clean.",
     level: "moderate",
-    codeExample: "class StudentRepository:\n    def get_by_id(self, sid: str) -> Student:\n        # Encapsulates SQL queries"
+    codeExample: "class StudentRepository:\n    def get_by_id(self, sid: str) → Student:\n        # Encapsulates SQL queries"
   },
   {
     question: "How can you serialize custom dataclasses and datetime objects to JSON in Python?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Automated error recovery and rollback mechanics.",
     hint: "The transaction is rolled back automatically to prevent corrupted partial state.",
     level: "basic",
-    codeExample: "# Unhandled error -> ROLLBACK -> database remains in consistent valid state"
+    codeExample: "# Unhandled error → ROLLBACK → database remains in consistent valid state"
   },
   {
     question: "Why should you never store database connection objects as global module-level singletons in multi-threaded applications?",

@@ -34,7 +34,7 @@ While fast, stateless filtering suffers from major structural vulnerabilities:
 
   1. THE TCP ACK SPOOFING / ESTABLISHED BYPASS:
      - To permit inbound reply traffic for web browsing, stateless firewalls use rules like:
-       `PERMIT TCP ANY:ANY -> LAN:ANY IF TCP.FLAGS contains ACK`
+       `PERMIT TCP ANY:ANY → LAN:ANY IF TCP.FLAGS contains ACK`
      - Attack Vector: An external attacker crafts an unsolicited packet with the ACK flag bit set (`0x10`). 
        The stateless filter assumes it is a reply to an internal session and permits it through!
 

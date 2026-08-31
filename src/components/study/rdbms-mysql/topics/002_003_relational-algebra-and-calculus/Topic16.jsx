@@ -157,7 +157,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
             Module 002_003 · Relational Algebra &amp; Calculus · Topic 16
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Translating Relational Algebra into{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Equivalent SQL Queries
@@ -471,7 +471,7 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);`,
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                {"Relational Algebra: $\\pi_{\full_name, course_title, fee \\times 1.18 \\rightarrow \total}(\\sigma_{\city='Barrackpore'}(\Students \\bowtie \Enrollments \\bowtie \Courses))$"}
+                {"Relational Algebra: $\\pi_{\full_name, course_title, fee \\times 1.18 \→ \total}(\\sigma_{\city='Barrackpore'}(\Students \\bowtie \Enrollments \\bowtie \Courses))$"}
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT s.full_name, c.course_title, ROUND(c.fee * 1.18, 2) AS total_fee

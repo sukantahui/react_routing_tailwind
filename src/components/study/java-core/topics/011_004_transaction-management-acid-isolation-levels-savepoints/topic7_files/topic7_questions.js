@@ -13,7 +13,7 @@ const topic7_questions = [
     "explanation": "Uncommitted transactions are never saved without an explicit commit.",
     "hint": "The database rolls back uncommitted changes upon connection closure.",
     "level": "Beginner",
-    "codeExample": "No commit() called -> Changes discarded on disconnect."
+    "codeExample": "No commit() called → Changes discarded on disconnect."
   }
 ];
 

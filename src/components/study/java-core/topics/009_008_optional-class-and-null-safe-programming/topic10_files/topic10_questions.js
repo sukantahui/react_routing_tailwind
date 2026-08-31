@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "Introduced in Java 9 to complete Optional branch handling.",
     "hint": "Eliminates imperative if-else and prevents unsafe get() calls.",
     "level": "Beginner",
-    "codeExample": "opt.ifPresentOrElse(System.out::println, () -> System.out.println('Missing'));"
+    "codeExample": "opt.ifPresentOrElse(System.out::println, () → System.out.println('Missing'));"
   },
   {
     "question": "What functional interface types are used by ifPresentOrElse()?",

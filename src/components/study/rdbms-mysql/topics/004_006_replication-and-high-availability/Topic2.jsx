@@ -74,7 +74,7 @@ SET GLOBAL rpl_semi_sync_master_timeout = 10000; -- 10s fallback`,
 -- 2. Concurrent sessions can now SEE the new un-replicated data!
 -- 3. Source sends event to Replica & waits for ACK
 -- 4. 💥 CRASH SCENARIO: Source crashes before ACK!
--- -> Failover promotes Replica, but transaction is GONE (Phantom Read)!`,
+-- → Failover promotes Replica, but transaction is GONE (Phantom Read)!`,
       explanation:
         "In legacy AFTER_COMMIT, the Source commits to storage engine before waiting for replica acknowledgment. If the Source crashes during the wait, concurrent sessions saw phantom data that disappears upon replica promotion.",
       keyTakeaways: [
@@ -120,7 +120,7 @@ SHOW GLOBAL STATUS LIKE 'Rpl_semi_sync_master_%';
             Topic 2 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Asynchronous</span> vs <span className="text-cyan-400">Lossless Semi-Sync</span> Replication
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

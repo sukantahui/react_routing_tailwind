@@ -76,7 +76,7 @@ SAVE MYSQL QUERY RULES TO DISK;`,
       sqlSnippet: `-- 🛡️ AUTOMATED REPLICATION LAG SHUNNING:
 -- If Seconds_Behind_Source > max_replication_lag (5s), ProxySQL marks node SHUNNED!
 SELECT hostgroup_id, hostname, status, max_replication_lag FROM mysql_servers;
--- Output: Hostgroup 20 | 192.168.1.20 | SHUNNED | 5 (Lag: 12s -> Shunted!)
+-- Output: Hostgroup 20 | 192.168.1.20 | SHUNNED | 5 (Lag: 12s → Shunted!)
 
 -- 🧹 ZERO-DOWNTIME MAINTENANCE (OFFLINE_SOFT):
 UPDATE mysql_servers SET status = 'OFFLINE_SOFT' WHERE hostname = '192.168.1.20';
@@ -127,7 +127,7 @@ mysqlrouter --bootstrap cluster_admin@192.168.1.10:3306 --user=mysqlrouter
             Topic 7 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Read/Write Splitting</span> Architectures: <span className="text-cyan-400">ProxySQL</span> &amp; MySQL Router
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

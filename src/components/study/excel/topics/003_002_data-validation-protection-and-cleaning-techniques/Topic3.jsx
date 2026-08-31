@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Custom data validation with advanced formulas (preventing duplicates, regex-like rules)"}
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic3() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Custom Formula Validation Engine: In-Flight Logical Verification -> Gate Action"}
+              Visual Dataflow: {"Custom Formula Validation Engine: In-Flight Logical Verification → Gate Action"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Security Pipeline
@@ -286,7 +286,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Custom_data_valida"
+            sheetName="EX1304"
             title={"Custom data validation with advanced formulas (preventing duplicates, regex-like rules) - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -318,7 +318,7 @@ export default function Topic3() {
                 <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Unique Corporate Loan Account Number Gate"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Blocks duplicate loan account numbers across 50,000 accounts using Allow: Custom -> =COUNTIF($A:$A, A2) <= 1."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Blocks duplicate loan account numbers across 50,000 accounts using Allow: Custom → =COUNTIF($A:$A, A2) <= 1."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -336,7 +336,7 @@ export default function Topic3() {
                 <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Abhronila Das: Multiple of 50 Batch Order Constraint"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enforces pallet ordering rules: Allow: Custom -> =AND(ISNUMBER(A2), A2>0, MOD(A2, 50)=0)."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enforces pallet ordering rules: Allow: Custom → =AND(ISNUMBER(A2), A2>0, MOD(A2, 50)=0)."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -345,7 +345,7 @@ export default function Topic3() {
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Debangshu Roy: Sequential Waybill Serial Number Enforcer"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enforces strictly sequential odometer entries: Allow: Custom -> =A2 > A1."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enforces strictly sequential odometer entries: Allow: Custom → =A2 > A1."}</p>
             </div>
             
           </div>

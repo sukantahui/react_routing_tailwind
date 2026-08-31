@@ -14,7 +14,7 @@ const questions = [
     question: "What is the standard 5-step algorithm to identify Optimal Pure Strategies in an m x n matrix?",
     shortAnswer: "1. Compute Row Minima (min_j a_ij); 2. Identify Maximin row i*; 3. Compute Column Maxima (max_i a_ij); 4. Identify Minimax column j*; 5. Verify a_i*j* = Maximin = Minimax = v*; then A_i* and B_j* are the optimal pure strategies.",
     explanation: "Systematic algorithm to locate pure strategy Nash equilibria.",
-    hint: "Row mins -> Maximin row i* -> Col maxes -> Minimax col j* -> Saddle point validation.",
+    hint: "Row mins → Maximin row i* → Col maxes → Minimax col j* → Saddle point validation.",
     level: "moderate",
     codeExample: "findOptimalPure: (m) => ({ iStar: argmax(rowMins(m)), jStar: argmin(colMaxs(m)) });"
   },
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Optimal Pure Strategies in Game Theory?",
     shortAnswer: "'Extract optimal pure strategies via the 5-step Maximin/Minimax algorithm; Player A chooses A_i* and Player B chooses B_j*; optimal pure strategies are self-enforcing and immune to information leakage in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all optimal pure strategy principles.",
-    hint: "5-step algorithm -> A_i* and B_j* at saddle point -> Self-enforcing and unexploitable in ₹.",
+    hint: "5-step algorithm → A_i* and B_j* at saddle point → Self-enforcing and unexploitable in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: FiveStepAlgorithm() -> ExtractIStarJStar() -> ValidateUnexploitableNash(₹)."
+    codeExample: "GoldenRule: FiveStepAlgorithm() → ExtractIStarJStar() → ValidateUnexploitableNash(₹)."
   }
 ];
 

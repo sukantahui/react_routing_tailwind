@@ -49,7 +49,7 @@ export default function Topic3() {
       description: "Returns True if the values of both operands are different.",
       trueCase: "10 != 20",
       falseCase: "5 != 5.0",
-      tip: "Exact opposite of ==. Never use <> (deprecated in Python 3).",
+      tip: "Exact opposite of ==. Never use &lt;&gt; (deprecated in Python 3).",
       category: "equality"
     },
     {
@@ -128,7 +128,7 @@ export default function Topic3() {
             Module 001_003 · Operators & Expressions · Topic 3
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Comparison <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400">(Relational) Operators</span>
           </h1>
 

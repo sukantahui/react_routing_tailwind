@@ -97,7 +97,7 @@ export default class Topic2 extends React.Component {
                     staggerDelay(0)
                 )}>
                     <div className="mb-10 transform transition-all duration-500 hover:scale-[1.02]">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">
                             Topic 2: Advanced Regex: Quantifiers, Anchors, Character Classes
                         </h1>
                         <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">

@@ -146,7 +146,7 @@ const questions = [
     explanation: "Guarantees that the function can be reused across any sheet or workbook in the company without broken references.",
     hint: "Zero hard-coded cell references; operate only on input parameters.",
     level: "expert",
-    codeExample: "Pure Function Principle: Inputs &rarr; Calculation &rarr; Output"
+    codeExample: "Pure Function Principle: Inputs → Calculation → Output"
   },
   {
     question: "How do you export a corporate LAMBDA library for company-wide distribution?",

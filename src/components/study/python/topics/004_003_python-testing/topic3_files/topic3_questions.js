@@ -16,7 +16,7 @@ const questions = [
     explanation: "Automatic discovery conventions in pytest.",
     hint: "Finds files named test_*.py or *_test.py and functions named test_*().",
     level: "basic",
-    codeExample: "# Discovers test_billing.py -> def test_payment():"
+    codeExample: "# Discovers test_billing.py → def test_payment():"
   },
   {
     question: "What is 'AST Assert Rewriting' in PyTest and why is it a game-changer?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Single-phase return vs dual-phase yield generator fixtures.",
     hint: "return has only setup; yield supports setup before and teardown after.",
     level: "basic",
-    codeExample: "# return -> setup only | yield -> setup + teardown"
+    codeExample: "# return → setup only | yield → setup + teardown"
   },
   {
     question: "How does PyTest's test output differ from unittest when an assertion fails?",

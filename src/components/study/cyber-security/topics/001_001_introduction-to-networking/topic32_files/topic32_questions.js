@@ -152,7 +152,7 @@ const questions = [
     explanation: "Eliminating an entire network round trip allows API responses to begin streaming data to client devices twice as fast.",
     hint: "TLS 1.3 cuts the encryption handshake in half (1-RTT), starting data transfers faster.",
     level: "moderate",
-    codeExample: "TLS_1_3_Handshake: 1_RTT_Setup -> Client immediately streams encrypted HTTP payload;"
+    codeExample: "TLS_1_3_Handshake: 1_RTT_Setup → Client immediately streams encrypted HTTP payload;"
   },
   {
     question: "What is Content Compression (Brotli / Gzip) and how does it boost effective Application Goodput?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "Compressing a 10 MB JSON database export to 1.5 MB allows a 10 Mbps connection to deliver the data in 1.2 seconds instead of 8 seconds.",
     hint: "Shrinks file sizes by up to 85% so data transfers complete much faster over the wire.",
     level: "basic",
-    codeExample: "Content-Encoding: br // Brotli shrinks 10MB payload to 1.4MB -> 7x Goodput Speedup"
+    codeExample: "Content-Encoding: br // Brotli shrinks 10MB payload to 1.4MB → 7x Goodput Speedup"
   },
   {
     question: "What is Asymmetric Routing and how can it severely degrade Stateful Firewall throughput?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Enterprise multihomed networks in Kolkata resolve this by implementing BGP path prepending or state-synchronization clusters between firewalls.",
     hint: "Outbound and return packets take different paths, confusing firewalls and causing dropped packets.",
     level: "expert",
-    codeExample: "AsymmetricRouting: Outbound via WAN1, Inbound via WAN2 -> Firewall drops untracked SYN-ACK;"
+    codeExample: "AsymmetricRouting: Outbound via WAN1, Inbound via WAN2 → Firewall drops untracked SYN-ACK;"
   },
   {
     question: "What is Storage Area Network (SAN) Throughput and why do Fibre Channel and iSCSI mandate lossless Ethernet?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures bottleneck theory, transport layer optimization, hardware acceleration, security appliance sizing, and financial infrastructure planning.",
     hint: "Bottleneck elimination + Threat inspection sizing + TCP BBR + NIC offload + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: EliminateBottlenecks() -> SizeNGFWForThreatInspection() -> DeployTCPBBR() -> EnableNICOffload() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: EliminateBottlenecks() → SizeNGFWForThreatInspection() → DeployTCPBBR() → EnableNICOffload() → BudgetInRupees(₹);"
   }
 ];
 

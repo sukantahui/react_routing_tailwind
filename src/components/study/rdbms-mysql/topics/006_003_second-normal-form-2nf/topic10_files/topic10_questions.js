@@ -8,7 +8,7 @@ const questions = [
     "explanation": "Under Exceptions and Real-World Trade-offs: When Intermediate 2NF Forms are Maintained During Migration, the relation must be refactored so that all constraints and dependencies satisfy the formal normal form definition without data redundancy.",
     "hint": "Think about determinant keys, prime attributes, and functional dependencies.",
     "level": "Beginner",
-    "codeExample": "-- 2NF Violation: Partial Dependency in Flat Table\n-- Candidate Key: {student_id, course_id}\n-- Partial FD 1: student_id -> student_name (Depends only on part of PK!)\n-- Partial FD 2: course_id -> course_title, fee_inr (Depends only on part of PK!)"
+    "codeExample": "-- 2NF Violation: Partial Dependency in Flat Table\n-- Candidate Key: {student_id, course_id}\n-- Partial FD 1: student_id → student_name (Depends only on part of PK!)\n-- Partial FD 2: course_id → course_title, fee_inr (Depends only on part of PK!)"
   },
   {
     "question": "How does decomposing a table under Exceptions and Real-World Trade-offs: When Intermediate 2NF Forms are Maintained During Migration resolve data modification anomalies?",

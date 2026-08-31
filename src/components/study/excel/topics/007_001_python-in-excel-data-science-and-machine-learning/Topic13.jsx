@@ -71,7 +71,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Assessment: Advanced Python in Excel Data Science Lab"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Assessment__Advanc"
+            sheetName="EX2814"
             title={"Assessment: Advanced Python in Excel Data Science Lab - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -486,7 +486,7 @@ export default function Topic13() {
                 <span>⚡</span> {"Universal Python Formula Pattern"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"The standard 4-step template for all Python cells."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Import -> Ingest xl() -> Transform -> Return"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Import → Ingest xl() → Transform → Return"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

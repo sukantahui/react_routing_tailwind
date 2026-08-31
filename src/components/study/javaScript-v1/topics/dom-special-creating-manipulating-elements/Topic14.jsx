@@ -13,7 +13,7 @@ export default class Topic14 extends Component {
             HEADER
         ============================================================ */}
                 <header className="space-y-3">
-                    <h1 className="text-3xl font-bold text-sky-400">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400">
                         Advanced DOM Engineering — Essential Tools for Real-World UI Systems
                     </h1>
 
@@ -646,10 +646,10 @@ incBtn.onclick = () => {
 
                     <EditableCodeBlock
                         language="html"
-                        initialCode={`<!-- HTML works without JS -->
+                        initialCode={`<!-- HTML works without JS ──→
 <button class="buy-btn">Buy Now</button>
 
-<!-- JS enhances with modal -->
+<!-- JS enhances with modal ──→
 <script>
   document.querySelector(".buy-btn").onclick = showModal;
 </script>`}

@@ -33,7 +33,7 @@ const Topic5 = () => {
             <div className="max-w-6xl mx-auto px-4 py-8 space-y-12">
                 {/* Header Section */}
                 <div className="text-center space-y-4 animate-[slideUpFade_0.6s_ease-out]">
-                    <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                         Declaration and Initialization of 2D Arrays
                     </h1>
                     <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">

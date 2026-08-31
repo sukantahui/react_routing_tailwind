@@ -42,7 +42,7 @@ const questions = [
     level: "basic",
     codeExample: `// CHECK Phase Evaluation Matrix:
 - Security Telemetry: MTTD = 14 Seconds | MTTR = 42 Seconds
-- Internal Audit:     Audit completed across 500 payment nodes -> 4 Minor NCs identified
+- Internal Audit:     Audit completed across 500 payment nodes → 4 Minor NCs identified
 - Management Review:  Board reviews audit findings, allocates ₹15 Lakhs for automated DLP tooling`
   },
   {
@@ -88,8 +88,8 @@ Why 5? (ROOT CAUSE): Vendor Risk Management policy (A.5.19) was missing operatio
     hint: "Contrast a total system collapse (Major) with an isolated clerical oversight (Minor).",
     level: "expert",
     codeExample: `// Audit Findings Classification:
-Major NC: "Enterprise has no documented Risk Assessment methodology (Clause 6.1.2)." -> CERTIFICATION BLOCKED!
-Minor NC: "1 of 500 servers had clock drift of 4 seconds against IST NTP server."        -> CERTIFIED WITH CAPA PLAN!`
+Major NC: "Enterprise has no documented Risk Assessment methodology (Clause 6.1.2)." → CERTIFICATION BLOCKED!
+Minor NC: "1 of 500 servers had clock drift of 4 seconds against IST NTP server."        → CERTIFIED WITH CAPA PLAN!`
   },
   {
     question: "How does an ISMS maintain unbroken 'Audit Trail Integrity' during the CHECK phase under Section 65B of the Indian Evidence Act?",
@@ -134,7 +134,7 @@ ACT:   Automated Lambda function remediates buckets and blocks manual console cr
     level: "basic",
     codeExample: `// CERT-In 6-Hour SLA Optimization Loop:
 PLAN:  Establish 6-hour incident escalation SLA to incident@cert-in.org.in
-DO:    SOC detects ransomware outbreak -> Escalates to CISO in 12 mins
+DO:    SOC detects ransomware outbreak → Escalates to CISO in 12 mins
 CHECK: Drill evaluation shows report sent in 2 hours 15 minutes (Compliant with 6h law!)
 ACT:   Automate SOAR webhook to reduce notification time to < 30 minutes`
   },

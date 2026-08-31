@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_002_data_entry_editing_and_formatting_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -71,7 +70,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Date and Time Mechanics: Serial Numbers, Epoch 1900, Elapsed Time and Custom Date Codes
           </h1>
 
@@ -520,10 +519,16 @@ export default function Topic5() {
               </kbd>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Apply standard Time format (HH:MM AM/PM).</p>
             </div>
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">
-              <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
-                Ctrl + ; followed by Space followed by Ctrl + Shift + :
-              </kbd>
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex flex-col gap-2">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                  Ctrl + ;
+                </kbd>
+                <span className="text-slate-400 text-xs">followed by Space followed by</span>
+                <kbd className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 font-mono text-xs font-bold shrink-0">
+                  Ctrl + Shift + :
+                </kbd>
+              </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Insert combined Current Date and Time timestamp in one cell.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-purple-500/40 transition-all duration-200 flex items-start gap-3">

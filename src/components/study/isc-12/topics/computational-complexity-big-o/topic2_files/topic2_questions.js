@@ -45,7 +45,7 @@ const questions = [
     explanation: "The call stack depth can be O(n) in the worst case, leading to O(n) space even without explicit data structures.",
     hint: "Think about how many nested calls happen.",
     level: "intermediate",
-    codeExample: "// Recursive factorial: calls n times -> O(n) stack space"
+    codeExample: "// Recursive factorial: calls n times → O(n) stack space"
   },
   {
     question: "How can we reduce space complexity in recursive algorithms?",

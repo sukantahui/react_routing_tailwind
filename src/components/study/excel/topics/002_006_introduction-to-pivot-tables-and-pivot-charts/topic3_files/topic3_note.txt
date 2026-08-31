@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Configuring Value Field Settings to calculate Sum, Count, Average, Min, Max, and generating Distinct Count aggregations via the Excel Data Model
 
 TEACHER'S ADVICE:
-Never format PivotTable numbers with the Home tab! Always right-click and choose Value Field Settings -> Number Format. That locks your currency and comma formatting permanently.
+Never format PivotTable numbers with the Home tab! Always right-click and choose Value Field Settings → Number Format. That locks your currency and comma formatting permanently.
 
 COMMON TRAPS TO AVOID:
-- Formatting Cells Directly (The Refresh Wipe): Applying number formatting via Home tab causes formatting to disappear when the PivotTable is refreshed or restructured. -> Fix: Always apply formatting through: Right-click value cell > Value Field Settings > Number Format.
-- Missing Distinct Count Option: Distinct Count does not appear in standard PivotTables created without the Data Model. -> Fix: When inserting the PivotTable, check the box: 'Add this data to the Data Model'.
-- Averaging an Average (Statistical Distortion): Averaging pre-aggregated percentage columns in PivotTables produces mathematically incorrect weighted averages. -> Fix: Use Calculated Fields or DAX Measures to calculate true weighted averages: `=Sum(Margin) / Sum(Revenue)`.
+- Formatting Cells Directly (The Refresh Wipe): Applying number formatting via Home tab causes formatting to disappear when the PivotTable is refreshed or restructured. → Fix: Always apply formatting through: Right-click value cell > Value Field Settings > Number Format.
+- Missing Distinct Count Option: Distinct Count does not appear in standard PivotTables created without the Data Model. → Fix: When inserting the PivotTable, check the box: 'Add this data to the Data Model'.
+- Averaging an Average (Statistical Distortion): Averaging pre-aggregated percentage columns in PivotTables produces mathematically incorrect weighted averages. → Fix: Use Calculated Fields or DAX Measures to calculate true weighted averages: `=Sum(Margin) / Sum(Revenue)`.
 ================================================================================

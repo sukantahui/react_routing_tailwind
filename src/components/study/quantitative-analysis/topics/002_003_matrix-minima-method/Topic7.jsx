@@ -56,11 +56,11 @@ const Topic7 = () => {
       origins: ['Kolkata (60)', 'Barrackpore (80)', 'Ichapur (60)'],
       destinations: ['Jadavpur (80)', 'Howrah (70)', 'Barasat (50)'],
       steps: [
-        { step: 1, action: 'Min cost ₹1 at (Ichapur, Barasat) &rarr; Allocate min(60, 50) = 50 crates. Barasat satisfied.', subtotal: '₹50' },
-        { step: 2, action: 'Min cost ₹2 at (Kolkata, Jadavpur) &rarr; Allocate min(60, 80) = 60 crates. Kolkata exhausted.', subtotal: '₹120' },
-        { step: 3, action: 'Min cost ₹3 at (Barrackpore, Howrah) &rarr; Allocate min(80, 70) = 70 crates. Howrah satisfied.', subtotal: '₹210' },
-        { step: 4, action: 'Min cost ₹5 at (Ichapur, Jadavpur) &rarr; Allocate min(10, 20) = 10 crates. Ichapur exhausted.', subtotal: '₹50' },
-        { step: 5, action: 'Final cell ₹6 at (Barrackpore, Jadavpur) &rarr; Allocate min(10, 10) = 10 crates. All satisfied.', subtotal: '₹60' },
+        { step: 1, action: 'Min cost ₹1 at (Ichapur, Barasat) → Allocate min(60, 50) = 50 crates. Barasat satisfied.', subtotal: '₹50' },
+        { step: 2, action: 'Min cost ₹2 at (Kolkata, Jadavpur) → Allocate min(60, 80) = 60 crates. Kolkata exhausted.', subtotal: '₹120' },
+        { step: 3, action: 'Min cost ₹3 at (Barrackpore, Howrah) → Allocate min(80, 70) = 70 crates. Howrah satisfied.', subtotal: '₹210' },
+        { step: 4, action: 'Min cost ₹5 at (Ichapur, Jadavpur) → Allocate min(10, 20) = 10 crates. Ichapur exhausted.', subtotal: '₹50' },
+        { step: 5, action: 'Final cell ₹6 at (Barrackpore, Jadavpur) → Allocate min(10, 10) = 10 crates. All satisfied.', subtotal: '₹60' },
       ],
       totalCost: '₹490',
       nwcrCost: '₹840',
@@ -79,10 +79,10 @@ const Topic7 = () => {
       origins: ['Barrackpore (50)', 'Ichapur (70)'],
       destinations: ['Kolkata (40)', 'Jadavpur (50)', 'Salt Lake (30)'],
       steps: [
-        { step: 1, action: 'Min cost ₹3 at (Ichapur, Jadavpur) &rarr; Allocate min(70, 50) = 50 tons. Jadavpur satisfied.', subtotal: '₹150' },
-        { step: 2, action: 'Min cost ₹4 at (Barrackpore, Kolkata) &rarr; Allocate min(50, 40) = 40 tons. Kolkata satisfied.', subtotal: '₹160' },
-        { step: 3, action: 'Min cost ₹5 at (Ichapur, Salt Lake) &rarr; Allocate min(20, 30) = 20 tons. Ichapur exhausted.', subtotal: '₹100' },
-        { step: 4, action: 'Final cell ₹6 at (Barrackpore, Salt Lake) &rarr; Allocate min(10, 10) = 10 tons. All satisfied.', subtotal: '₹60' },
+        { step: 1, action: 'Min cost ₹3 at (Ichapur, Jadavpur) → Allocate min(70, 50) = 50 tons. Jadavpur satisfied.', subtotal: '₹150' },
+        { step: 2, action: 'Min cost ₹4 at (Barrackpore, Kolkata) → Allocate min(50, 40) = 40 tons. Kolkata satisfied.', subtotal: '₹160' },
+        { step: 3, action: 'Min cost ₹5 at (Ichapur, Salt Lake) → Allocate min(20, 30) = 20 tons. Ichapur exhausted.', subtotal: '₹100' },
+        { step: 4, action: 'Final cell ₹6 at (Barrackpore, Salt Lake) → Allocate min(10, 10) = 10 tons. All satisfied.', subtotal: '₹60' },
       ],
       totalCost: '₹470',
       nwcrCost: '₹670',
@@ -102,10 +102,10 @@ const Topic7 = () => {
       origins: ['Plant 1 (50)', 'Plant 2 (60)', 'Plant 3 (40)'],
       destinations: ['City A (40)', 'City B (50)', 'City C (30)', 'Dummy (30)'],
       steps: [
-        { step: 1, action: 'Min cost ₹0 at (Plant 2, Dummy) &rarr; Allocate min(60, 30) = 30 units. Dummy closed.', subtotal: '₹0' },
-        { step: 2, action: 'Min cost ₹2 at (Plant 2, City C) &rarr; Allocate min(30, 30) = 30 units. Plant 2 & City C closed (Epsilon added).', subtotal: '₹60' },
-        { step: 3, action: 'Min cost ₹3 at (Plant 1, City B) &rarr; Allocate min(50, 50) = 50 units. Plant 1 & City B closed.', subtotal: '₹150' },
-        { step: 4, action: 'Final cell ₹8 at (Plant 3, City A) &rarr; Allocate min(40, 40) = 40 units. All closed.', subtotal: '₹320' },
+        { step: 1, action: 'Min cost ₹0 at (Plant 2, Dummy) → Allocate min(60, 30) = 30 units. Dummy closed.', subtotal: '₹0' },
+        { step: 2, action: 'Min cost ₹2 at (Plant 2, City C) → Allocate min(30, 30) = 30 units. Plant 2 & City C closed (Epsilon added).', subtotal: '₹60' },
+        { step: 3, action: 'Min cost ₹3 at (Plant 1, City B) → Allocate min(50, 50) = 50 units. Plant 1 & City B closed.', subtotal: '₹150' },
+        { step: 4, action: 'Final cell ₹8 at (Plant 3, City A) → Allocate min(40, 40) = 40 units. All closed.', subtotal: '₹320' },
       ],
       totalCost: '₹530',
       nwcrCost: '₹790',
@@ -124,8 +124,8 @@ const Topic7 = () => {
       origins: ['Kolkata (100 cyl)', 'Barrackpore (150 cyl)'],
       destinations: ['Jadavpur Medical (120)', 'Ichapur General (130)'],
       steps: [
-        { step: 1, action: 'Min cost ₹5 at (Barrackpore, Ichapur) &rarr; Allocate min(150, 130) = 130 cyl. Ichapur closed.', subtotal: '₹650' },
-        { step: 2, action: 'Min cost ₹6 at (Kolkata, Jadavpur) &rarr; Allocate min(100, 120) = 100 cyl. Kolkata closed.', subtotal: '₹600' },
+        { step: 1, action: 'Min cost ₹5 at (Barrackpore, Ichapur) → Allocate min(150, 130) = 130 cyl. Ichapur closed.', subtotal: '₹650' },
+        { step: 2, action: 'Min cost ₹6 at (Kolkata, Jadavpur) → Allocate min(100, 120) = 100 cyl. Kolkata closed.', subtotal: '₹600' },
         { step: 3, action: 'Remaining link: 20 cyl must detour via emergency transshipment to bypass Big-M link.', subtotal: 'Detour Active' },
       ],
       totalCost: '₹1,470 (Standard)',
@@ -143,7 +143,7 @@ const Topic7 = () => {
           <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-blue-500/10 text-blue-400 border border-blue-500/30 mb-4 shadow-sm">
             Quantitative Analysis • Transportation Models • Topic 7
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mb-4 bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
             Numerical Exercises & Solved Problem Sets
           </h1>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">

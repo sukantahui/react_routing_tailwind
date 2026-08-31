@@ -8,7 +8,7 @@ const questions = [
     "explanation": "Under Bernstein's 3NF Synthesis Algorithm: Creating 3NF Schemas from Minimal Functional Dependency Sets, the relation must be refactored so that all constraints and dependencies satisfy the formal normal form definition without data redundancy.",
     "hint": "Think about determinant keys, prime attributes, and functional dependencies.",
     "level": "Beginner",
-    "codeExample": "-- Transitive Dependency Chain:\n-- emp_id -> dept_id\n-- dept_id -> dept_name, dept_location\n-- Transitive: emp_id -> dept_location (Violates 3NF!)"
+    "codeExample": "-- Transitive Dependency Chain:\n-- emp_id → dept_id\n-- dept_id → dept_name, dept_location\n-- Transitive: emp_id → dept_location (Violates 3NF!)"
   },
   {
     "question": "How does decomposing a table under Bernstein's 3NF Synthesis Algorithm: Creating 3NF Schemas from Minimal Functional Dependency Sets resolve data modification anomalies?",

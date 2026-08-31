@@ -35,7 +35,7 @@ const questions = [
     explanation: "Fundamental rule: return types are not part of the method signature.",
     hint: "No, return type alone is not sufficient to overload methods.",
     level: "basic",
-    codeExample: "// int compute(int x) and double compute(int x) -> COMPILE ERROR!"
+    codeExample: "// int compute(int x) and double compute(int x) → COMPILE ERROR!"
   },
   {
     question: "Can two methods be overloaded if they differ ONLY by their Parameter Variable Names (`void m(int a)` vs `void m(int b)`)?",

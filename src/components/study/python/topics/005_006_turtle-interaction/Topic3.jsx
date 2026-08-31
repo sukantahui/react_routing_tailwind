@@ -112,7 +112,7 @@ const Topic3 = () => {
             Module 005_006 · Event Handling & Interaction · Topic 3
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-rose-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">
             Mouse Click Handling: screen.onclick() & turtle.onclick()
           </h1>
 

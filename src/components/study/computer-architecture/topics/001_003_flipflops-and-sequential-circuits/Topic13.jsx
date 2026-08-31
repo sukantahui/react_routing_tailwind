@@ -189,7 +189,7 @@ const Topic13 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 13</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Master-Slave Flip-Flop: Two-Stage Operation &amp; Race-Around Elimination
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -1011,9 +1011,9 @@ const Topic13 = () => {
               )}
               {timelineStep === 2 && (
                 <div>
-                  <strong className="text-cyan-300 text-sm block mb-1">Step 2: Clock Rising Edge (CLK 0 &rarr; 1 Transition)</strong>
+                  <strong className="text-cyan-300 text-sm block mb-1">Step 2: Clock Rising Edge (CLK 0 → 1 Transition)</strong>
                   <p className="text-slate-300 leading-relaxed">
-                    The inverter immediately pulls <code className="text-purple-300">CLK̄ &rarr; 0</code>, locking the Slave stage and freezing output Q. At the same instant, Master stage enable rises to 1, beginning input sampling.
+                    The inverter immediately pulls <code className="text-purple-300">CLK̄ → 0</code>, locking the Slave stage and freezing output Q. At the same instant, Master stage enable rises to 1, beginning input sampling.
                   </p>
                 </div>
               )}
@@ -1027,9 +1027,9 @@ const Topic13 = () => {
               )}
               {timelineStep === 4 && (
                 <div>
-                  <strong className="text-emerald-300 text-sm block mb-1">Step 4: Clock Falling Edge (CLK 1 &rarr; 0 Transition, Slave Commits)</strong>
+                  <strong className="text-emerald-300 text-sm block mb-1">Step 4: Clock Falling Edge (CLK 1 → 0 Transition, Slave Commits)</strong>
                   <p className="text-slate-300 leading-relaxed">
-                    Master is disabled and isolated from inputs. Concurrently, <code className="text-purple-300">CLK̄ &rarr; 1</code> enables the Slave, transferring intermediate bit Y to final output Q with exactly 1 clean toggle.
+                    Master is disabled and isolated from inputs. Concurrently, <code className="text-purple-300">CLK̄ → 1</code> enables the Slave, transferring intermediate bit Y to final output Q with exactly 1 clean toggle.
                   </p>
                 </div>
               )}

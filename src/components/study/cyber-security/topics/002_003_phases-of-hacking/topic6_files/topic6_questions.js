@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     hint: "Remember that EIP is the CPU's navigation compass telling it where to go next.",
     level: "moderate",
     codeExample: `// Overwriting EIP in Memory:
-[ Buffer (64 bytes) ] -> [ EBP (4 bytes) ] -> [ Saved EIP (4 bytes: 0x42424242 / 'BBBB') ]
+[ Buffer (64 bytes) ] → [ EBP (4 bytes) ] → [ Saved EIP (4 bytes: 0x42424242 / 'BBBB') ]
 // When function returns: CPU attempts to execute instructions at memory address 0x42424242!`
   },
   {
@@ -45,7 +45,7 @@ buffer = overflow + retn + nopsled + payload`
     hint: "Think of creating a slippery runway of ice so even if a plane lands slightly off-target, it slides into the hangar safely.",
     level: "moderate",
     codeExample: `// NOP Sled Execution in RAM:
-CPU Jumps to: 0x0012FF40 -> [ 0x90 NOP ] -> [ 0x90 NOP ] -> [ 0x90 NOP ] -> [ SHELLCODE EXECUTION! ]`
+CPU Jumps to: 0x0012FF40 → [ 0x90 NOP ] → [ 0x90 NOP ] → [ 0x90 NOP ] → [ SHELLCODE EXECUTION! ]`
   },
   {
     question: "What is a 'Bad Character' (such as `\x00` NULL byte), and how does an exploit author identify and remove bad characters from shellcode?",
@@ -63,9 +63,9 @@ CPU Jumps to: 0x0012FF40 -> [ 0x90 NOP ] -> [ 0x90 NOP ] -> [ 0x90 NOP ] -> [ SH
     hint: "Contrast trying 1,000 keys on one front door versus trying 1 common key on 1,000 different houses on the street.",
     level: "basic",
     codeExample: `// Password Spraying Strategy:
-User 1 (mamata):    Test "Winter2026!" -> (Failed - Attempt 1/5)
-User 2 (debangshu): Test "Winter2026!" -> (SUCCESS - Logged in!)
-User 3 (mahima):    Test "Winter2026!" -> (Failed - Attempt 1/5)`
+User 1 (mamata):    Test "Winter2026!" → (Failed - Attempt 1/5)
+User 2 (debangshu): Test "Winter2026!" → (SUCCESS - Logged in!)
+User 3 (mahima):    Test "Winter2026!" → (Failed - Attempt 1/5)`
   },
   {
     question: "What is 'Hashcat', and why is GPU-accelerated cracking millions of times faster than CPU cracking for offline password recovery?",
@@ -94,8 +94,8 @@ NetNTLMv2 (Network Nonce): mamata::DOMAIN:1122334455667788:A9C8... (Crack via Ha
     hint: "Think of putting a fragile wax seal on an envelope: if someone tampers with the letter, the seal breaks and alarms sound.",
     level: "moderate",
     codeExample: `// Stack Frame with Canary Protection:
-[ Local Buffer ] -> [ Stack Canary (0x0041F89A) ] -> [ Saved EBP ] -> [ Return Address EIP ]
-// If buffer overflows, the Canary is corrupted -> CPU calls __stack_chk_fail() and halts!`
+[ Local Buffer ] → [ Stack Canary (0x0041F89A) ] → [ Saved EBP ] → [ Return Address EIP ]
+// If buffer overflows, the Canary is corrupted → CPU calls __stack_chk_fail() and halts!`
   },
   {
     question: "What is 'Address Space Layout Randomization' (ASLR), and how does it prevent an exploit from jumping to a hardcoded `JMP ESP` memory address?",
@@ -104,8 +104,8 @@ NetNTLMv2 (Network Nonce): mamata::DOMAIN:1122334455667788:A9C8... (Crack via Ha
     hint: "Think of reshuffling all the hotel room numbers every single morning so nobody can remember where the secret door is.",
     level: "moderate",
     codeExample: `// ASLR in Action across Reboots:
-Boot 1: ntdll.dll loaded at 0x77050000 -> JMP ESP is at 0x77081234
-Boot 2: ntdll.dll loaded at 0x75120000 -> JMP ESP is at 0x75151234 (Hardcoded exploit crashes!)`
+Boot 1: ntdll.dll loaded at 0x77050000 → JMP ESP is at 0x77081234
+Boot 2: ntdll.dll loaded at 0x75120000 → JMP ESP is at 0x75151234 (Hardcoded exploit crashes!)`
   },
   {
     question: "What is 'Return-Oriented Programming' (ROP), and how do advanced binary exploit authors use it to bypass Data Execution Prevention (DEP/NX)?",
@@ -114,9 +114,9 @@ Boot 2: ntdll.dll loaded at 0x75120000 -> JMP ESP is at 0x75151234 (Hardcoded ex
     hint: "Think of creating a new ransom letter by cutting out individual printed words from legitimate magazines.",
     level: "expert",
     codeExample: `// ROP Gadget Chain (Calling VirtualProtect):
-Gadget 1: 0x62501020 (pop eax; ret)           -> Loads 0x40 (PAGE_EXECUTE_READWRITE) into EAX
-Gadget 2: 0x62501045 (pop ebx; ret)           -> Loads Target Stack Address into EBX
-Gadget 3: 0x62501080 (call VirtualProtect; ret) -> Disables DEP protection on stack!`
+Gadget 1: 0x62501020 (pop eax; ret)           → Loads 0x40 (PAGE_EXECUTE_READWRITE) into EAX
+Gadget 2: 0x62501045 (pop ebx; ret)           → Loads Target Stack Address into EBX
+Gadget 3: 0x62501080 (call VirtualProtect; ret) → Disables DEP protection on stack!`
   },
   {
     question: "What is 'Kerberoasting', and how does it allow an authenticated domain user to extract and crack service account password hashes offline?",
@@ -148,8 +148,8 @@ Kolkata2026!     (mamata)`
     hint: "Think of adding a unique secret pinch of seasoning to every recipe so no two dishes ever look or taste identical.",
     level: "basic",
     codeExample: `// Unsalted vs Salted Hashes:
-Unsalted:  MD5("Secret123")         -> 5ebe2294ecd0e0f08eab7690d2a6ee69 (Instant Rainbow Table Lookup!)
-Salted:    SHA256("Secret123" + "9f!k2@") -> 8a4c12b98e... (Unique per user, Rainbow Tables defeated!)`
+Unsalted:  MD5("Secret123")         → 5ebe2294ecd0e0f08eab7690d2a6ee69 (Instant Rainbow Table Lookup!)
+Salted:    SHA256("Secret123" + "9f!k2@") → 8a4c12b98e... (Unique per user, Rainbow Tables defeated!)`
   },
   {
     question: "What is 'Pass-the-Hash' (PtH), and how does it allow an attacker to authenticate across Windows systems without knowing the plaintext password?",
@@ -192,7 +192,7 @@ memcpy(buf, user_data, num * sizeof(int)); // Heap Buffer Overflow!`
     codeExample: `// GDB GEF Crash Inspection:
 gdb-gef ./vulnerable_binary
 gef> run $(python -c 'print "A"*1000')
-// Displays: [!] Stopped at 0x41414141 in ?? () -> EIP Overwrite Confirmed!`
+// Displays: [!] Stopped at 0x41414141 in ?? () → EIP Overwrite Confirmed!`
   },
   {
     question: "Under the Indian Information Technology Act 2000, what are the criminal penalties for executing buffer overflow exploits and harvesting corporate credentials?",
@@ -201,8 +201,8 @@ gef> run $(python -c 'print "A"*1000')
     hint: "Remember the specific Indian cyber law section (Section 66C) that punishes password and credential theft.",
     level: "basic",
     codeExample: `// Indian IT Act 2000 Prosecution:
-Buffer Overflow / System Exploitation -> Section 66 (Up to 3 Years Prison + ₹5 Lakhs Fine)
-Password Dumping / Hash Harvesting    -> Section 66C Identity Theft (Up to 3 Years Prison + ₹1 Lakh Fine)`
+Buffer Overflow / System Exploitation → Section 66 (Up to 3 Years Prison + ₹5 Lakhs Fine)
+Password Dumping / Hash Harvesting    → Section 66C Identity Theft (Up to 3 Years Prison + ₹1 Lakh Fine)`
   },
   {
     question: "Synthesizing System Exploitation, Buffer Overflows, and Credential Attacks: what is the single most important architectural lesson for ethical developers and defenders?",

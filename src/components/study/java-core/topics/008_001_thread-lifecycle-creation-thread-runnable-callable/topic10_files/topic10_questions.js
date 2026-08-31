@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "Core enhancement introduced in Java 5 JSR-166.",
     "hint": "Callable returns a generic value (V) and can throw checked exceptions.",
     "level": "Intermediate",
-    "codeExample": "Callable<Integer> c = () -> 42; FutureTask<Integer> ft = new FutureTask<>(c); new Thread(ft).start();"
+    "codeExample": "Callable<Integer> c = () → 42; FutureTask<Integer> ft = new FutureTask<>(c); new Thread(ft).start();"
   }
 ];
 

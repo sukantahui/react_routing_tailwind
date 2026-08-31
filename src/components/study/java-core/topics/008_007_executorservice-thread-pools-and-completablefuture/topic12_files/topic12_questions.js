@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Core async task initiation and thread pool isolation rules.",
     "hint": "supplyAsync returns a value (Supplier); runAsync returns void (Runnable); custom executor prevents commonPool thread starvation.",
     "level": "Intermediate",
-    "codeExample": "CompletableFuture.supplyAsync(() -> queryDb(), customThreadPool);"
+    "codeExample": "CompletableFuture.supplyAsync(() → queryDb(), customThreadPool);"
   }
 ];
 

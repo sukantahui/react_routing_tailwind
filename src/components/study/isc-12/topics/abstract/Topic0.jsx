@@ -54,7 +54,7 @@ const Topic0 = () => {
       {/* Header Section */}
       <div className="max-w-5xl mx-auto animate-fadeSlideUp">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
             Concept of Abstraction
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">
@@ -100,7 +100,7 @@ const Topic0 = () => {
                 <text x="100" y="175" textAnchor="middle" fill="#94a3b8" fontSize="9">(Hidden details)</text>
               </g>
 
-              {/* Arrow 1 -> 2 */}
+              {/* Arrow 1 → 2 */}
               <g>
                 <line x1="240" y1="130" x2="290" y2="130" stroke="#f59e0b" strokeWidth="3" markerEnd="url(#arrowhead)" />
                 <text x="265" y="115" textAnchor="middle" fill="#f59e0b" fontSize="11">Abstract</text>
@@ -118,7 +118,7 @@ const Topic0 = () => {
                 <text x="90" y="165" textAnchor="middle" fill="#cbd5e1" fontSize="12">accelerate()</text>
               </g>
 
-              {/* Arrow 2 -> 3 */}
+              {/* Arrow 2 → 3 */}
               <g>
                 <line x1="500" y1="130" x2="550" y2="130" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrowhead)" />
                 <text x="525" y="115" textAnchor="middle" fill="#10b981" fontSize="11">Use</text>

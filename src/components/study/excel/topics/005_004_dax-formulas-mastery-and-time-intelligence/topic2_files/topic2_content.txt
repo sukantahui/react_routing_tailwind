@@ -10,7 +10,7 @@ Context Transition: Transforming Row Context into Filter Context with CALCULATE 
 It provides the core protocols required to construct complex multi-dimensional financial measures, calculate period-over-period growth, and evaluate dynamic rankings.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Context Transition: Inside Row Context -> Invoke CALCULATE([Measure]) -> Row Context transforms into an Equivalent Filter Context
+Operational Architecture: Context Transition: Inside Row Context → Invoke CALCULATE([Measure]) → Row Context transforms into an Equivalent Filter Context
 
 3. CORE TECHNICAL MECHANICS
 1. The Context Transition Mechanism:

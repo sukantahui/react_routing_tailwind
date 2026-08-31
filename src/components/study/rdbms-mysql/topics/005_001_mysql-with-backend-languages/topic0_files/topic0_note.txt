@@ -20,7 +20,7 @@ Communication between backend language drivers and MySQL Server occurs over a bi
 
 Code / SQL Implementation:
 -- 🌐 MYSQL CLIENT-SERVER PROTOCOL LIFECYCLE:
--- 1. TCP 3-Way Handshake (SYN -> SYN-ACK -> ACK) [Port 3306]
+-- 1. TCP 3-Way Handshake (SYN → SYN-ACK → ACK) [Port 3306]
 -- 2. Initial Handshake Packet from Server (Server version, auth plugin, capabilities)
 -- 3. Handshake Response Packet from Client (Username, encrypted password, database)
 -- 4. AuthSwitch / Authentication Confirmation (OK Packet / ERR Packet)

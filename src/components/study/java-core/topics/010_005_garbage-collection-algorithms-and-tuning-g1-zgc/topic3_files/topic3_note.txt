@@ -11,7 +11,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    3. References from Old Generation objects to Young Generation objects are rare.
 
 2. WHY IT REVOLUTIONIZED GC DESIGN:
-   - In a Copying Collector (Eden &rarr; Survivor), the cost of GC is proportional ONLY to the number
+   - In a Copying Collector (Eden → Survivor), the cost of GC is proportional ONLY to the number
      of LIVE objects, not the size of memory or number of dead objects!
    - Since 98% of objects are dead, Minor GC completes almost instantaneously!
 

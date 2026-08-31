@@ -117,9 +117,9 @@ FROM sys.memory_global_by_current_bytes
 LIMIT 10;
 
 -- 🔍 KEY SUBSYSTEMS TO WATCH:
--- memory/innodb/buf_buf_pool        -> InnoDB Buffer Pool Allocation
--- memory/sql/THD::main_mem_root    -> Per-Connection Thread Memory
--- memory/innodb/adaptive hash index -> AHI Memory Overhead`,
+-- memory/innodb/buf_buf_pool        → InnoDB Buffer Pool Allocation
+-- memory/sql/THD::main_mem_root    → Per-Connection Thread Memory
+-- memory/innodb/adaptive hash index → AHI Memory Overhead`,
       explanation:
         "sys.memory_global_by_current_bytes provides granular internal database memory attribution, displaying current and historical peak memory allocations across all internal MySQL subsystems to prevent Linux OOM crashes.",
       keyTakeaways: [
@@ -144,7 +144,7 @@ LIMIT 10;
             Topic 8 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Key <span className="text-emerald-400">sys Views</span>: Queries, Indexes, <span className="text-cyan-400">Locks &amp; Memory</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

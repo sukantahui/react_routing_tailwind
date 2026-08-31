@@ -122,7 +122,7 @@ SET GLOBAL innodb_redo_log_capacity = 8589934592; -- 8 GB Capacity!`,
 -- Level 6: Disables Redo Log roll-forward completely.
 
 -- ⚠️ EMERGENCY PROTOCOL:
--- Start server in read-only mode -> Export full mysqldump -> Re-init database!`,
+-- Start server in read-only mode → Export full mysqldump → Re-init database!`,
       metricsTable: [
         { metric: "Level 1-3", value: "Skips corrupt pages & undo rollback", role: "Allows read-only export of healthy tables" },
         { metric: "Level 4-6", value: "Bypasses all logs & redo replay", role: "Last resort for severely damaged filesystems" },
@@ -159,11 +159,11 @@ SET GLOBAL innodb_redo_log_capacity = 8589934592; -- 8 GB Capacity!`,
               WAL &amp; Crash Recovery
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             InnoDB Redo Log (WAL - Write-Ahead Logging) and Crash Recovery Mechanics
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
-            Master the engine of MySQL durability: explore Write-Ahead Logging (WAL), circular Redo Log ring buffers, Log Sequence Number (LSN) checkpoints, and the 3-step crash recovery pipeline (Doublewrite check &rarr; Redo roll-forward &rarr; Undo roll-back).
+            Master the engine of MySQL durability: explore Write-Ahead Logging (WAL), circular Redo Log ring buffers, Log Sequence Number (LSN) checkpoints, and the 3-step crash recovery pipeline (Doublewrite check → Redo roll-forward → Undo roll-back).
           </p>
         </div>
       </header>

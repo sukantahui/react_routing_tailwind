@@ -5,7 +5,7 @@ const topic3_questions = [
     "explanation": "Makes collection of high-mortality young spaces extremely fast.",
     "hint": "Cost depends only on copying live objects; dead memory is wiped in one operation.",
     "level": "Intermediate",
-    "codeExample": "Live objects copied -> Eden pointer reset to zero."
+    "codeExample": "Live objects copied → Eden pointer reset to zero."
   },
   {
     "question": "What proportion of objects in typical enterprise Java applications die in the Young Generation?",

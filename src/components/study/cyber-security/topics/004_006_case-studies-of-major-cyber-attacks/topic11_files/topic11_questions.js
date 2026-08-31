@@ -56,7 +56,7 @@ const diamondModelInstance = {
   adversary: "APT29 / Cozy Bear (Russian Foreign Intelligence Service - SVR)",
   capability: "SUNBURST Trojanized DLL + Golden SAML Token Forgery",
   infrastructure: "DNS DGA Subdomain Tunneling ('avsvmcloud.com') + Dedicated US Residential Proxies",
-  victim: "SolarWinds CI/CD Build Pipeline -> US Government Cabinet Agencies & Tech Vendors"
+  victim: "SolarWinds CI/CD Build Pipeline → US Government Cabinet Agencies & Tech Vendors"
 };`
   },
   {
@@ -69,9 +69,9 @@ const diamondModelInstance = {
     codeExample: `// SOAR Automated Playbook Execution:
 /*
 TRIGGER: High-Entropy DNS DGA Resolution + Mimikatz Memory Alert
-ACTION 1: API Call -> Firewall: Block C2 Domain & Ingress IP
-ACTION 2: API Call -> EDR: Isolate Host WKSTN-0982 from Corporate LAN
-ACTION 3: API Call -> Entra ID: Revoke User Refresh Tokens & Invalidate Session
+ACTION 1: API Call → Firewall: Block C2 Domain & Ingress IP
+ACTION 2: API Call → EDR: Isolate Host WKSTN-0982 from Corporate LAN
+ACTION 3: API Call → Entra ID: Revoke User Refresh Tokens & Invalidate Session
 ACTION 4: Generate P1 Ticket in ServiceNow and Notify SOC On-Call via PagerDuty
 */`
   },
@@ -193,7 +193,7 @@ const identityAssertion = {
 // Step 1: Red Team executes atomic test: 'Invoke-Mimikatz -DumpCreds'
 // Step 2: Blue Team verifies if Sysmon Event ID 10 flagged LSASS process access
 // Step 3: If missed, Blue Team writes new Sigma rule and deploys to EDR
-// Step 4: Red Team re-runs attack -> Confirms 100% detection and automated host isolation!`
+// Step 4: Red Team re-runs attack → Confirms 100% detection and automated host isolation!`
   },
   {
     id: 14,
@@ -224,8 +224,8 @@ ZONE: Enterprise_Corporate_IT (Zone 4)
 ZONE: Industrial_IDMZ (Zone 3.5)
 ZONE: SCADA_Process_Control (Zone 3)
 
-RULE 1: IT (Zone 4) -> IDMZ Jump-Host (Zone 3.5) [ALLOWED: Port 443 with Hardware MFA]
-RULE 2: IDMZ Jump-Host (Zone 3.5) -> SCADA Master (Zone 3) [ALLOWED: Port 3389 Protocol Break]
+RULE 1: IT (Zone 4) → IDMZ Jump-Host (Zone 3.5) [ALLOWED: Port 443 with Hardware MFA]
+RULE 2: IDMZ Jump-Host (Zone 3.5) → SCADA Master (Zone 3) [ALLOWED: Port 3389 Protocol Break]
 RULE 3: IT (Zone 4) DIRECT TO SCADA (Zone 3) [EXPLICIT DROP & ALERT!]
 */`
   },
@@ -320,7 +320,7 @@ const tpmAttestation = {
   pcrBank: "SHA-256 Measured Boot Hash Bank",
   firmwareIntegrity: "VERIFIED_AUTHENTIC",
   secureBootState: "ENABLED (UEFI Level)",
-  verdict: "DEVICE_HEALTHY_AND_COMPLIANT -> Proceed to Conditional Access Evaluation"
+  verdict: "DEVICE_HEALTHY_AND_COMPLIANT → Proceed to Conditional Access Evaluation"
 };`
   },
   {
@@ -383,7 +383,7 @@ const insuranceWarrantyAudit = [
     level: "Moderate",
     codeExample: `// Continuous vs Point-in-Time Comparison:
 const auditComparison = {
-  pointInTimeCompliance: "Annual 3-day checklist audit -> Passes audit but remains vulnerable to new zero-days 364 days a year",
+  pointInTimeCompliance: "Annual 3-day checklist audit → Passes audit but remains vulnerable to new zero-days 364 days a year",
   continuousValidation: "24/7 automated telemetry monitoring, real-time vulnerability scoring, and continuous BAS attack simulation"
 };`
   },

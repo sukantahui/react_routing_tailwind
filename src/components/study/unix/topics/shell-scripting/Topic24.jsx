@@ -43,7 +43,7 @@ export default function Topic24() {
             : "translate-y-8 opacity-0"
         )}
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
           Topic 24: Debugging Techniques
         </h1>
         <p className="text-xl text-gray-300 mb-6">

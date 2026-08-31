@@ -13,7 +13,7 @@ const topic2_questions = [
     "explanation": "Use dedicated ThreadPoolExecutors or Java 21 Virtual Threads for blocking I/O.",
     "hint": "Starves the shared JVM-wide common pool.",
     "level": "Advanced",
-    "codeExample": "// BAD: Blocks common pool threads!\\nlist.parallelStream().map(url -> httpGet(url));"
+    "codeExample": "// BAD: Blocks common pool threads!\\nlist.parallelStream().map(url → httpGet(url));"
   }
 ];
 

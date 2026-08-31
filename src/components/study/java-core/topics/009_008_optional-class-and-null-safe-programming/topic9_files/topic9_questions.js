@@ -13,7 +13,7 @@ const topic9_questions = [
     "explanation": "Enables declarative conditional validation.",
     "hint": "Returns Optional.empty() if predicate is false.",
     "level": "Beginner",
-    "codeExample": "Optional.of('Java').filter(s -> s.length() > 10); // Returns Optional.empty()"
+    "codeExample": "Optional.of('Java').filter(s → s.length() > 10); // Returns Optional.empty()"
   }
 ];
 

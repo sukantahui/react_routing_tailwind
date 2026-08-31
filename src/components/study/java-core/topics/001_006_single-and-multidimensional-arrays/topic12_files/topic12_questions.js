@@ -147,7 +147,7 @@ const questions = [
     explanation: "Concrete demonstration of instability.",
     hint: "Long-range swaps jump equal elements, inverting their relative positions.",
     level: "intermediate",
-    codeExample: "// [4A, 4B, 2] -> [2, 4B, 4A] (Order of 4A and 4B is inverted!)"
+    codeExample: "// [4A, 4B, 2] → [2, 4B, 4A] (Order of 4A and 4B is inverted!)"
   },
   {
     question: "What algorithm does `Arrays.sort(int[] arr)` use in modern Java?",

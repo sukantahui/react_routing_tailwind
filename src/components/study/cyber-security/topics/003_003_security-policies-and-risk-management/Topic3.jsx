@@ -71,7 +71,7 @@ const Topic3 = () => {
       triggerTime: "T+0m (Loss Discovered)",
       mdmAction: "Employee reports to SOC via emergency hotline; MAM triggers Selective Enterprise Wipe in < 15 seconds.",
       dataOutcome: "Corporate Outlook, Slack, and encryption keys permanently erased; personal photos remain 100% safe.",
-      statutoryShield: "Zero personal data exposure under Section 8 of DPDP Act 2023 -> Immunized from ₹250 Cr fines!",
+      statutoryShield: "Zero personal data exposure under Section 8 of DPDP Act 2023 → Immunized from ₹250 Cr fines!",
       badgeClass: "bg-indigo-950 text-indigo-300 border-indigo-800"
     },
     evil_twin_wifi: {
@@ -203,7 +203,7 @@ const Topic3 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Course Module 3: Information Security Management • Module 003_003 • Topic 3 of 14
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             BYOD (Bring Your Own Device) and Remote Work Policies
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

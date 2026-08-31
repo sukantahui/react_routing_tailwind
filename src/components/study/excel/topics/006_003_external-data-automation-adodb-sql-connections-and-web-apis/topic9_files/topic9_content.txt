@@ -44,7 +44,7 @@ Operational Architecture: Database Transactions: conn.BeginTrans | On Error GoTo
   Diagnostic Fix: Track transaction state with a Boolean flag (`inTransaction = True`).
 
 6. PRO TIPS & SHORTCUTS
-• Transaction Pattern (conn.BeginTrans -> SQLs -> conn.CommitTrans (ErrorHandler: conn.RollbackTrans)): The universal ACID transaction template.
+• Transaction Pattern (conn.BeginTrans → SQLs → conn.CommitTrans (ErrorHandler: conn.RollbackTrans)): The universal ACID transaction template.
 • No UI Inside Transactions (Never put MsgBox inside BeginTrans...CommitTrans): Keeps transaction duration under 50 milliseconds to prevent lock contention.
 • Atomicity Guarantee (All succeed or all fail together): Eliminates half-completed corrupted database records.
 ================================================================================

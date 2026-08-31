@@ -41,7 +41,7 @@ C. IPSEC SLIDING WINDOW ANTI-REPLAY ALGORITHM (RFC 4303) :
    - Uses a 64-bit or 128-bit sliding bitmap over monotonically increasing Sequence Numbers:
        1. If Seq > Seq_max : Window slides right, Seq_max = Seq, bitmap |= 1.
        2. If Seq ≤ Seq_max - 64 : Packet dropped (Too old).
-       3. If inside window : Checks bitmap bit (if 1 -> DROP DUPLICATE; if 0 -> ACCEPT).
+       3. If inside window : Checks bitmap bit (if 1 → DROP DUPLICATE; if 0 → ACCEPT).
 
 D. HTTP IDEMPOTENCY KEYS (RFC 9440) & JWT `jti` CLAIMS :
    - REST API clients include `Idempotency-Key: UUIDv4` header.

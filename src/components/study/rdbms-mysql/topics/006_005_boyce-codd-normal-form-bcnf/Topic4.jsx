@@ -7,7 +7,7 @@ import questions from "./topic4_files/topic4_questions";
 import noteText from "./topic4_files/topic4_note.txt?raw";
 
 /**
- * Topic4 – Classic Example: Student-Subject-Advisor Schema (Advisor -> Subject, Student, Subject -> Advisor)
+ * Topic4 – Classic Example: Student-Subject-Advisor Schema (Advisor → Subject, Student, Subject → Advisor)
  * Module: 006_005_boyce-codd-normal-form-bcnf
  *
  * @component
@@ -70,7 +70,7 @@ const Topic4 = () => {
             <span>📐</span>
             <span>Relational Normalization Masterclass · Topic 4</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Classic Example: Student-Subject-Advisor Schema (Advisor {"->"} Subject, Student, Subject {"->"} Advisor)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -339,7 +339,7 @@ const Topic4 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Classic Example: Student-Subject-Advisor Schema (Advisor -> Subject, Student, Subject -> Advisor)"
+            title="Classic Example: Student-Subject-Advisor Schema (Advisor → Subject, Student, Subject → Advisor)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
@@ -361,7 +361,7 @@ const Topic4 = () => {
         {/* ─── FAQ & Practice Questions ───────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Classic Example: Student-Subject-Advisor Schema (Advisor -> Subject, Student, Subject -> Advisor) – Practice Questions"
+            title="Classic Example: Student-Subject-Advisor Schema (Advisor → Subject, Student, Subject → Advisor) – Practice Questions"
             questions={questions}
             subtitle="Test your comprehension with 30 deep-dive questions"
             showPrint

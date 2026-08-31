@@ -110,7 +110,7 @@ const questions = [
     question: "What is the ultimate golden rule of Critical Activities in CPM?",
     shortAnswer: "'An activity is critical if and only if TF = 0 (satisfying E_i = L_i, E_j = L_j, and E_j - E_i = d_ij); zero buffer means zero tolerance for delay; prioritize oversight and crash only critical tasks in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all critical activity principles.",
-    hint: "TF = 0 -> All 3 conditions hold -> Zero buffer -> Crash only critical tasks in ₹.",
+    hint: "TF = 0 → All 3 conditions hold → Zero buffer → Crash only critical tasks in ₹.",
     level: "moderate",
     codeExample: "GoldenRule: (TF === 0 && E_i===L_i && E_j===L_j && E_j-E_i===d) => CriticalActivity."
   }

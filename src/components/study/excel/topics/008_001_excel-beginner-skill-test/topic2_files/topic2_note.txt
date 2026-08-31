@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Always remember PEMDAS! If you want profit margin, write `=(Revenue - Cost) / Revenue`. If you forget the parentheses, Excel will divide cost by revenue first. And always press F4 to lock tax rate cells!
 
 COMMON TRAPS TO AVOID:
-- Missing Absolute Lock ($) on Multiplier Cell: Writing `=A2*B1` and dragging down becomes `=A3*B2` (multiplying against wrong blank cells). -> Fix: Press F4 on multiplier cell to lock coordinates: `=A2*$B$1`.
-- Omitting Parentheses in Percentage Calculations: Writing `=A2-B2/A2` calculates `A2 - (B2/A2)` instead of `(A2-B2)/A2` due to operator precedence. -> Fix: Wrap subtraction in parentheses: `=(A2-B2)/A2`.
-- Using COUNT on Text Columns: `COUNT(NamesRange)` returns 0 because names are text strings. -> Fix: Use `COUNTA()` for text columns.
+- Missing Absolute Lock ($) on Multiplier Cell: Writing `=A2*B1` and dragging down becomes `=A3*B2` (multiplying against wrong blank cells). → Fix: Press F4 on multiplier cell to lock coordinates: `=A2*$B$1`.
+- Omitting Parentheses in Percentage Calculations: Writing `=A2-B2/A2` calculates `A2 - (B2/A2)` instead of `(A2-B2)/A2` due to operator precedence. → Fix: Wrap subtraction in parentheses: `=(A2-B2)/A2`.
+- Using COUNT on Text Columns: `COUNT(NamesRange)` returns 0 because names are text strings. → Fix: Use `COUNTA()` for text columns.
 ================================================================================

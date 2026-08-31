@@ -37,7 +37,7 @@ WHERE student_aadhaar = '8901-2345-6789';
 -- EXPLAIN Execution Plan:
 -- Type: const / ref
 -- Key: idx_student_aadhaar (B-Tree)
--- Pages Read from Disk: 3 Pages (Root -> Branch -> Leaf)
+-- Pages Read from Disk: 3 Pages (Root → Branch → Leaf)
 -- Rows Examined: 1 row
 -- Execution Latency: 0.6 milliseconds!`,
       resultRows: [
@@ -83,11 +83,11 @@ WHERE phone_number = '98300-12345';
       badgeColor: "amber",
       sqlQuery: `-- 3. Evaluating the cost of indexing during batch INSERT operations:
 -- Table A: 0 Secondary Indexes (Clustered PK only)
--- -> Single write operation per row. Throughput: 18,500 inserts/sec.
+-- → Single write operation per row. Throughput: 18,500 inserts/sec.
 
 -- Table B: 7 Secondary Indexes (Email, Phone, City, Stream, Status, etc.)
--- -> 1 Base write + 7 Secondary Tree Insertions & Re-balances per row!
--- -> Throughput drops to 3,800 inserts/sec (79% slowdown!).
+-- → 1 Base write + 7 Secondary Tree Insertions & Re-balances per row!
+-- → Throughput drops to 3,800 inserts/sec (79% slowdown!).
 
 -- Golden Rule: Index strictly for critical search queries; avoid over-indexing write-heavy tables.`,
       resultRows: [
@@ -127,7 +127,7 @@ WHERE phone_number = '98300-12345';
               Indexing Fundamentals
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Introduction to Database Indexing & Search Cost Reductions
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

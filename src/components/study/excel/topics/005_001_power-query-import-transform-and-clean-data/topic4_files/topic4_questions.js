@@ -46,33 +46,33 @@ const questions = [
   },
   {
     question: "How do you parse international date formats (e.g. UK `DD/MM/YYYY` vs US `MM/DD/YYYY`) correctly without errors?",
-    shortAnswer: "Right-click the column header &rarr; Change Type &rarr; 'Using Locale...' &rarr; Select Data Type 'Date' and choose the source region's Locale (e.g. English (United Kingdom) or English (India)).",
+    shortAnswer: "Right-click the column header → Change Type → 'Using Locale...' → Select Data Type 'Date' and choose the source region's Locale (e.g. English (United Kingdom) or English (India)).",
     explanation: "Guarantees 100% accurate date parsing regardless of your computer's local Windows OS regional settings.",
-    hint: "Change Type &rarr; Using Locale &rarr; Select Source Country Locale.",
+    hint: "Change Type → Using Locale → Select Source Country Locale.",
     level: "advanced",
     codeExample: "= Table.TransformColumnTypes(Source, {{\"Date\", type date}}, \"en-GB\")"
   },
   {
     question: "How do you parse European numbers that use periods for thousands separators and commas for decimals (e.g. `1.250,50`)?",
-    shortAnswer: "Right-click column &rarr; Change Type &rarr; 'Using Locale...' &rarr; Select 'Decimal Number' and choose Locale (e.g. German (Germany)).",
+    shortAnswer: "Right-click column → Change Type → 'Using Locale...' → Select 'Decimal Number' and choose Locale (e.g. German (Germany)).",
     explanation: "Handles continental European decimal notation seamlessly.",
-    hint: "Change Type &rarr; Using Locale &rarr; German (Germany).",
+    hint: "Change Type → Using Locale → German (Germany).",
     level: "advanced",
     codeExample: "= Table.TransformColumnTypes(Source, {{\"Amount\", type number}}, \"de-DE\")"
   },
   {
     question: "How do you remove entirely blank rows from a table in Power Query?",
-    shortAnswer: "Click 'Remove Rows' on the Home tab &rarr; 'Remove Blank Rows' (`Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null})))`).",
+    shortAnswer: "Click 'Remove Rows' on the Home tab → 'Remove Blank Rows' (`Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null})))`).",
     explanation: "Eliminates rows where every single cell is empty or null.",
-    hint: "Home Tab &rarr; Remove Rows &rarr; Remove Blank Rows.",
+    hint: "Home Tab → Remove Rows → Remove Blank Rows.",
     level: "basic",
     codeExample: "= Table.SelectRows(Source, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null})))"
   },
   {
     question: "How do you filter out rows where a SPECIFIC key column is blank or null?",
-    shortAnswer: "Click the filter dropdown arrow on the specific column header &rarr; Uncheck '(null)' and '(blank)', or select 'Remove Empty'.",
+    shortAnswer: "Click the filter dropdown arrow on the specific column header → Uncheck '(null)' and '(blank)', or select 'Remove Empty'.",
     explanation: "Filters rows based on that specific column's values.",
-    hint: "Column Filter Dropdown &rarr; Uncheck (null) or click Remove Empty.",
+    hint: "Column Filter Dropdown → Uncheck (null) or click Remove Empty.",
     level: "basic",
     codeExample: "= Table.SelectRows(#\"Prior\", each [Customer_ID] <> null and [Customer_ID] <> \"\")"
   },
@@ -94,9 +94,9 @@ const questions = [
   },
   {
     question: "How do you replace all `null` values in a numeric column with `0` in Power Query?",
-    shortAnswer: "Right-click column header &rarr; Replace Values &rarr; Value to Find: `null` (or leave blank) &rarr; Replace With: `0`.",
+    shortAnswer: "Right-click column header → Replace Values → Value to Find: `null` (or leave blank) → Replace With: `0`.",
     explanation: "Generates `= Table.ReplaceValue(#\"Prior\", null, 0, Replacer.ReplaceValue, {\"Amount\"})`.",
-    hint: "Replace Values: Find `null` &rarr; Replace with `0`.",
+    hint: "Replace Values: Find `null` → Replace with `0`.",
     level: "basic",
     codeExample: "= Table.ReplaceValue(#\"Prior\", null, 0, Replacer.ReplaceValue, {\"Amount\"})"
   },
@@ -112,7 +112,7 @@ const questions = [
     question: "How do you rename a column directly in the Power Query grid?",
     shortAnswer: "Double-click the column header text, type the new name, and press Enter (generates `Table.RenameColumns`).",
     explanation: "Renames column in the table schema definition.",
-    hint: "Double-click column header &rarr; Type new name &rarr; Enter.",
+    hint: "Double-click column header → Type new name → Enter.",
     level: "basic",
     codeExample: "= Table.RenameColumns(#\"Prior\", {{\"Cust_Name\", \"Customer_Name\"}})"
   },
@@ -126,9 +126,9 @@ const questions = [
   },
   {
     question: "How do you change the order of columns in Power Query?",
-    shortAnswer: "Click and drag the column header horizontally to the desired position, or right-click &rarr; Move &rarr; To Beginning / Left / Right / To End.",
+    shortAnswer: "Click and drag the column header horizontally to the desired position, or right-click → Move → To Beginning / Left / Right / To End.",
     explanation: "Generates `= Table.ReorderColumns(Table, {\"Col1\", \"Col2\", ...})`.",
-    hint: "Drag and drop header, or Right-Click &rarr; Move.",
+    hint: "Drag and drop header, or Right-Click → Move.",
     level: "basic",
     codeExample: "= Table.ReorderColumns(#\"Prior\", {\"Invoice_Date\", \"Customer_ID\", \"Amount\"})"
   },
@@ -150,9 +150,9 @@ const questions = [
   },
   {
     question: "How do you duplicate an existing column to preserve the original before applying destructive transforms?",
-    shortAnswer: "Right-click the column header &rarr; Duplicate Column (`Table.DuplicateColumn`).",
+    shortAnswer: "Right-click the column header → Duplicate Column (`Table.DuplicateColumn`).",
     explanation: "Creates an exact copy with ' - Copy' appended to the header.",
-    hint: "Right-click &rarr; Duplicate Column.",
+    hint: "Right-click → Duplicate Column.",
     level: "basic",
     codeExample: "= Table.DuplicateColumn(#\"Prior\", \"Gross_Amount\", \"Gross_Amount_Backup\")"
   },
@@ -162,7 +162,7 @@ const questions = [
     explanation: "You must strip currency symbols and trim spaces before coercing to numeric.",
     hint: "Triggers red cell Errors due to unparsed currency symbols.",
     level: "moderate",
-    codeExample: "Fix: Replace '₹' with '' &rarr; Trim &rarr; Changed Type to Number"
+    codeExample: "Fix: Replace '₹' with '' → Trim → Changed Type to Number"
   },
   {
     question: "How do you convert a Unix epoch timestamp (e.g. `1740614400`) into an Excel DateTime in Power Query?",
@@ -174,9 +174,9 @@ const questions = [
   },
   {
     question: "How do you replace all Errors in a column with `0` without breaking the query?",
-    shortAnswer: "Right-click column header &rarr; Replace Errors &rarr; Enter `0` (`Table.ReplaceErrorValues`).",
+    shortAnswer: "Right-click column header → Replace Errors → Enter `0` (`Table.ReplaceErrorValues`).",
     explanation: "Gracefully handles arithmetic or type conversion failures.",
-    hint: "Right-Click Column &rarr; Replace Errors &rarr; Enter 0.",
+    hint: "Right-Click Column → Replace Errors → Enter 0.",
     level: "basic",
     codeExample: "= Table.ReplaceErrorValues(#\"Prior\", {{\"Amount\", 0}})"
   },
@@ -184,7 +184,7 @@ const questions = [
     question: "What is the 'Remove Top Rows' transformation used for?",
     shortAnswer: "To strip metadata header rows (e.g. company titles, export dates) that appear above the actual data table in raw ERP dumps.",
     explanation: "Clears top noise rows so row 1 becomes the real column header row.",
-    hint: "Home Tab &rarr; Remove Rows &rarr; Remove Top Rows.",
+    hint: "Home Tab → Remove Rows → Remove Top Rows.",
     level: "basic",
     codeExample: "= Table.Skip(Source, 3) (Skips top 3 title rows)"
   },
@@ -192,7 +192,7 @@ const questions = [
     question: "What is the 'Remove Bottom Rows' transformation used for?",
     shortAnswer: "To strip trailing summary rows (e.g. 'Total', 'Report Generated on...') from the bottom of ingested spreadsheets.",
     explanation: "Prevents summary rows from corrupting tabular fact tables.",
-    hint: "Home Tab &rarr; Remove Rows &rarr; Remove Bottom Rows.",
+    hint: "Home Tab → Remove Rows → Remove Bottom Rows.",
     level: "basic",
     codeExample: "= Table.RemoveLastN(#\"Prior\", 2) (Removes 2 trailing total rows)"
   },
@@ -208,7 +208,7 @@ const questions = [
     question: "How do you convert text containing boolean words ('TRUE', 'FALSE', 'Yes', 'No') into native M Booleans?",
     shortAnswer: "Replace 'Yes' with 'TRUE' and 'No' with 'FALSE', then change the column data type to `type logical`.",
     explanation: "Converts strings into true True/False boolean bit flags.",
-    hint: "Replace values &rarr; Change type to Logical (Boolean).",
+    hint: "Replace values → Change type to Logical (Boolean).",
     level: "moderate",
     codeExample: "= Table.TransformColumnTypes(#\"Replaced\", {{\"Is_Active\", type logical}})"
   },
@@ -224,9 +224,9 @@ const questions = [
     question: "How do you promote headers when raw data has headers spread across two rows (e.g. Category in Row 1, Metric in Row 2)?",
     shortAnswer: "Transpose the table, merge the two column rows with a delimiter, transpose back, and then apply 'Use First Row as Headers'.",
     explanation: "Classic Power Query technique for handling multi-level headers.",
-    hint: "Transpose &rarr; Merge Columns &rarr; Transpose &rarr; Promote Headers.",
+    hint: "Transpose → Merge Columns → Transpose → Promote Headers.",
     level: "expert",
-    codeExample: "Table.Transpose &rarr; Table.CombineColumns &rarr; Table.Transpose &rarr; Table.PromoteHeaders"
+    codeExample: "Table.Transpose → Table.CombineColumns → Table.Transpose → Table.PromoteHeaders"
   },
   {
     question: "How do you replace case-sensitive text (e.g. replacing only 'kolkata' in lowercase without touching 'Kolkata')?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Rigorous core transformations prevent 99% of downstream calculation bugs in Power Pivot and DAX!",
     hint: "Promote Headers + Locale Type Coercion + Remove Blanks = Flawless Schema!",
     level: "expert",
-    codeExample: "Rule: Clean &rarr; Promote Headers &rarr; Locale-Aware Type Coercion &rarr; Explicit Typing!"
+    codeExample: "Rule: Clean → Promote Headers → Locale-Aware Type Coercion → Explicit Typing!"
   }
 ];
 

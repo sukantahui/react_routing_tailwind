@@ -14,9 +14,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - The 4 Production Overflow Defense Patterns:
   1. Java 8+ Math.*Exact() Methods:
-     * Math.addExact(a, b)       --> Throws ArithmeticException on overflow
-     * Math.multiplyExact(a, b)  --> Throws ArithmeticException
-     * Math.toIntExact(longVal)  --> Safe downcasting to int
+     * Math.addExact(a, b)       → Throws ArithmeticException on overflow
+     * Math.multiplyExact(a, b)  → Throws ArithmeticException
+     * Math.toIntExact(longVal)  → Safe downcasting to int
 
   2. Pre-Addition Upcasting to Long:
      * long total = (long) a + b; // Upcast AT LEAST ONE operand to long first!

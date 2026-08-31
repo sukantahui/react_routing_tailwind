@@ -64,7 +64,7 @@ const questions = [
     explanation: "The dummy from 2 to 3 gives C both A and B, while D receives only B.",
     hint: "Dummy from Node 2 (end of B) to Node 3 (end of A); C starts from 3, D starts from 2.",
     level: "expert",
-    codeExample: "PrecedenceGrammar: A -> Node 3; B -> Node 2; Dummy(2 -> 3); C starts at 3; D starts at 2."
+    codeExample: "PrecedenceGrammar: A → Node 3; B → Node 2; Dummy(2 → 3); C starts at 3; D starts at 2."
   },
   {
     question: "What is a 'Burst' in a network diagram?",
@@ -118,9 +118,9 @@ const questions = [
     question: "What is the ultimate golden rule of Drawing Network Diagrams in CPM/PERT?",
     shortAnswer: "'Ensure single start and single sink nodes; maintain left-to-right flow; eliminate dangling and looping errors; enforce unique node pairs via necessary dummies; verify Fulkerson numbering i < j!'",
     explanation: "This complete rule captures all drawing and validation protocols.",
-    hint: "Single start/end -> Left-to-right flow -> No dangling/looping -> Use dummies correctly -> Number i < j.",
+    hint: "Single start/end → Left-to-right flow → No dangling/looping → Use dummies correctly → Number i < j.",
     level: "moderate",
-    codeExample: "GoldenRule: SingleStartEnd() -> NoDangling() -> NoLooping() -> DisambiguateDummies() -> FulkersonOrder()."
+    codeExample: "GoldenRule: SingleStartEnd() → NoDangling() → NoLooping() → DisambiguateDummies() → FulkersonOrder()."
   }
 ];
 

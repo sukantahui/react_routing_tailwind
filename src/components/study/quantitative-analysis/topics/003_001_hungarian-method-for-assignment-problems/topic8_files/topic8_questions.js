@@ -158,7 +158,7 @@ const questions = [
     question: "What is the ultimate golden rule of Row Reduction?",
     shortAnswer: "'Find min(Row i); subtract it from every entry in Row i (ignoring Big-M); ensure all entries are non-negative with at least one zero per row; track total row potential shift Sum u_i!'",
     explanation: "This complete rule captures all mechanics of Row Reduction.",
-    hint: "Find row min -> Subtract from row -> Ensure non-negative with >= 1 zero -> Track Sum u_i.",
+    hint: "Find row min → Subtract from row → Ensure non-negative with >= 1 zero → Track Sum u_i.",
     level: "moderate",
     codeExample: "Golden Rule: for each row i: u_i = min(row_i); row_i -= u_i; assert min(row_i) === 0."
   }

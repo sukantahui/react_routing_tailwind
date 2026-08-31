@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
      all its dependents are notified and updated automatically.
 
 2. REAL-WORLD ADOPTIONS:
-   - Java Swing: 'button.addActionListener(e -> ...)'
+   - Java Swing: 'button.addActionListener(e → ...)'
    - Java Flow API (Reactive Streams)
    - Spring ApplicationEventPublisher
 

@@ -5,7 +5,7 @@ const topic15_questions = [
     explanation: "This introduces a true 5th layer of encapsulation beyond private, default, protected, and public.",
     hint: "Public classes in unexported packages are completely hidden from external modules.",
     level: "Advanced",
-    codeExample: "// Package not exported -> Public classes inside are inaccessible outside"
+    codeExample: "// Package not exported → Public classes inside are inaccessible outside"
   }
 ];
 

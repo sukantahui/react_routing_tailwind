@@ -134,7 +134,7 @@ SET GTID_NEXT = 'AUTOMATIC';
             Topic 8 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Locating Binary Log Positions &amp; <span className="text-emerald-400">Target Coordinates</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -167,7 +167,7 @@ SET GTID_NEXT = 'AUTOMATIC';
               <span className="text-xs font-mono text-cyan-400 font-bold uppercase">Pillar 2</span>
               <h3 className="font-bold text-white text-base">The 3-Step Formula</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Search query text &rarr; note preceding <code># at &lt;pos&gt;</code> &rarr; set as <code>--stop-position</code>.
+                Search query text → note preceding <code># at &lt;pos&gt;</code> → set as <code>--stop-position</code>.
               </p>
             </div>
 

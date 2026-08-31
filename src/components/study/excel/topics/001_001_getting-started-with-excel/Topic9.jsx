@@ -71,7 +71,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals
           </h1>
 
@@ -280,7 +280,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Quick_Check_Quiz"
+            sheetName="Topic9"
             title="Module 1.1 - Quick Check Quiz: Interface Ergonomics, Grid Mechanics &amp; Spreadsheet Fundamentals"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -387,8 +387,8 @@ export default function Topic9() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">QA_Check</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Diagnostic_Tool</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Circular References</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status Bar / Formulas &amp;rarr; Error Checking</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Circular References Found</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula Syntax Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Special &amp;rarr; Formulas &amp;rarr; Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 #VALUE! or #REF! Errors Found</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Circular References</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status Bar / Formulas → Error Checking</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 Circular References Found</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Formula Syntax Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 → Special → Formulas → Errors</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">0 #VALUE! or #REF! Errors Found</td></tr>
                   </tbody>
                 </table>
               </div>

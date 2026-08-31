@@ -6,10 +6,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. RADIX PARSING RULES:
-   - 'Integer.parseInt(str, 2)'  &rarr; Binary.
-   - 'Integer.parseInt(str, 8)'  &rarr; Octal.
-   - 'Integer.parseInt(str, 16)' &rarr; Hexadecimal.
-   - 'Integer.parseInt(str, 36)' &rarr; Base-36 Alphanumeric.
+   - 'Integer.parseInt(str, 2)'  → Binary.
+   - 'Integer.parseInt(str, 8)'  → Octal.
+   - 'Integer.parseInt(str, 16)' → Hexadecimal.
+   - 'Integer.parseInt(str, 36)' → Base-36 Alphanumeric.
    - Min Radix = 2, Max Radix = 36.
 
 ================================================================================

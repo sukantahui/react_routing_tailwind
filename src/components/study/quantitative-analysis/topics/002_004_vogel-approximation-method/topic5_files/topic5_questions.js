@@ -8,7 +8,7 @@ const questions = [
     explanation: "VAM operates as an integrated algorithm. It first verifies balance (adding ₹0 dummy if unbalanced), computes initial row and column penalties, selects the highest penalty line, allocates min(Supply, Demand) to the cheapest cell in that line, updates balances, strikes out the exhausted line, recalculates penalties for the reduced sub-matrix, and repeats until all demands are met.",
     hint: "Think from initial balance check to final total cost calculation Z.",
     level: "moderate",
-    codeExample: "VAM Pipeline: Balance -> Penalties -> MaxPenalty -> MinCostAlloc -> StrikeOut -> Repeat -> Compute Z."
+    codeExample: "VAM Pipeline: Balance → Penalties → MaxPenalty → MinCostAlloc → StrikeOut → Repeat → Compute Z."
   },
   {
     question: "How is the total initial transportation cost Z mathematically formulated upon completing all VAM allocations?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "Although VAM produces solutions that are often optimal on iteration 1 (or within 1-2% of optimal), it is technically a heuristic. True optimality requires evaluating all non-basic opportunity costs (u_i + v_j - c_ij <= 0).",
     hint: "VAM builds the starting point; MODI proves global optimality.",
     level: "expert",
-    codeExample: "IBFS (via VAM) -> Optimality Test (via MODI) -> Global Optimal Solution."
+    codeExample: "IBFS (via VAM) → Optimality Test (via MODI) → Global Optimal Solution."
   },
   {
     question: "What is the first mandatory step before computing any penalties in the complete VAM procedure?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Degeneracy occurs when simultaneous row and column exhaustion eliminated two lines at once. Placing ε in an independent cell restores m + n - 1 basic variables so MODI multipliers (u_i, v_j) can be computed.",
     hint: "Add ε to an independent cell to reach m + n - 1.",
     level: "expert",
-    codeExample: "Basic Cells = 5 < 6 -> Place epsilon in cell (i, j) with no closed loop."
+    codeExample: "Basic Cells = 5 < 6 → Place epsilon in cell (i, j) with no closed loop."
   },
   {
     question: "Why is VAM widely recognized as the industry standard manual heuristic for transportation modeling in business schools and logistics firms?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "By penalizing large opportunity costs, VAM aligns with dual linear programming potentials from step 1.",
     hint: "Penalties intuitively approximate LP dual shadow prices.",
     level: "expert",
-    codeExample: "VAM basis -> often satisfies d_ij >= 0 directly on Tableau 1."
+    codeExample: "VAM basis → often satisfies d_ij >= 0 directly on Tableau 1."
   },
   {
     question: "Suppose a 2 x 2 problem has costs [[3, 7], [5, 6]] with supplies [50, 40] and demands [30, 60]. What is VAM's complete step 1 allocation?",
@@ -149,7 +149,7 @@ const questions = [
   {
     question: "Continuing the 2 x 2 problem above, what are the remaining allocations in Pass 2?",
     shortAnswer: "Allocate remaining 20 units of S_1 to cell (1, 2) @ ₹7, and all 40 units of S_2 to cell (2, 2) @ ₹6.",
-    explanation: "Col 1 is crossed out. Only Col 2 remains (demand = 60). S_1 has 20 units -> x_12 = 20 @ ₹7. S_2 has 40 units -> x_22 = 40 @ ₹6. Demand of Col 2 (20 + 40 = 60) is fully satisfied.",
+    explanation: "Col 1 is crossed out. Only Col 2 remains (demand = 60). S_1 has 20 units → x_12 = 20 @ ₹7. S_2 has 40 units → x_22 = 40 @ ₹6. Demand of Col 2 (20 + 40 = 60) is fully satisfied.",
     hint: "Col 2 takes remaining 20 from S_1 and 40 from S_2.",
     level: "moderate",
     codeExample: "Allocations: x_11=30, x_12=20, x_22=40."
@@ -176,7 +176,7 @@ const questions = [
     explanation: "This full presentation allows technical auditors and operations directors to verify feasibility, basis count, and cost calculations instantly.",
     hint: "Clear tableaus, margin audit, final allocation matrix, and itemized Z.",
     level: "intermediate",
-    codeExample: "Report Structure: Tableau -> Multi-pass Audit -> Allocations Matrix -> Cost Breakdown Z."
+    codeExample: "Report Structure: Tableau → Multi-pass Audit → Allocations Matrix → Cost Breakdown Z."
   },
   {
     question: "Why does VAM outclass the Matrix Minima (Least Cost) method in multi-facility industrial distribution?",

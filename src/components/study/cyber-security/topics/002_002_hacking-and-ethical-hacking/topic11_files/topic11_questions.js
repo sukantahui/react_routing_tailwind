@@ -6,7 +6,7 @@ const questions = [
     hint: "Think about cheap unsegmented network switches and a printer DLL hook that concealed fake wire transfers.",
     level: "expert",
     codeExample: `// Bangladesh Bank Attack Sequence:
-1. Ingress: Phishing email -> Lateral movement to SWIFT Alliance Access server.
+1. Ingress: Phishing email → Lateral movement to SWIFT Alliance Access server.
 2. Malware Injection: evtdt.exe & nroff.exe hooked database transaction tables.
 3. Evasion: Modified printer DLL to suppress printed debit confirmation receipts.
 4. Remediation: Enforce HSM hardware isolation, 2FA hardware tokens, and network air-gaps.`
@@ -44,7 +44,7 @@ Remediation:   Deployment of Air-Gapped S3 WORM Backups & Micro-segmented Hospit
     codeExample: `// Ukraine Power Grid Attack Chain:
 1. Spear-phishing macro deployed BlackEnergy 3 trojan.
 2. Pivot from corporate IT into SCADA OT control network.
-3. Attackers hijacked operator HMIs -> Sent open commands to 30 substation breakers.
+3. Attackers hijacked operator HMIs → Sent open commands to 30 substation breakers.
 4. Deployed KillDisk to brick SCADA servers and flashed UPS firmware to kill power.`
   },
   {
@@ -79,8 +79,8 @@ Defense:     Clinical Micro-segmentation & Hardware-Enforced Layer 7 Firewalls`
     level: "moderate",
     codeExample: `// HSM Key Protection Workflow:
 Master Keys stored inside FIPS 140-2 Level 3 Silicon (Never in RAM)
-Transaction -> Ingested by HSM -> PIN Translated & Signed -> Clean Output Returned
-Physical Tamper Attempt -> Micro-switches trigger instant cryptographic ZEROIZATION!`
+Transaction → Ingested by HSM → PIN Translated & Signed → Clean Output Returned
+Physical Tamper Attempt → Micro-switches trigger instant cryptographic ZEROIZATION!`
   },
   {
     question: "Under the ISA/IEC 62443 standard for Industrial Automation, what are 'Zones' and 'Conduits' in SCADA security architecture?",
@@ -102,8 +102,8 @@ Physical Tamper Attempt -> Micro-switches trigger instant cryptographic ZEROIZAT
     hint: "Think about tricking the internet's global road map (BGP) to divert traffic meant for a bank to a fake server.",
     level: "expert",
     codeExample: `// BGP Route Hijacking Attack:
-Legitimate ASN: AS16509 (Amazon AWS) -> Announces 52.84.0.0/16
-Attacker ASN:   AS398324 (Rogue ASN)  -> Maliciously announces MORE SPECIFIC 52.84.10.0/24
+Legitimate ASN: AS16509 (Amazon AWS) → Announces 52.84.0.0/16
+Attacker ASN:   AS398324 (Rogue ASN)  → Maliciously announces MORE SPECIFIC 52.84.10.0/24
 Result: Global routers follow BGP Longest Prefix Match rule, sending all user traffic to attacker!`
   },
   {
@@ -117,7 +117,7 @@ Result: Global routers follow BGP Longest Prefix Match rule, sending all user tr
   "Effect": "Allow",
   "Action": [
     "iam:PassRole",       // Allows attaching Admin Role to a new EC2 instance
-    "ec2:RunInstances"    // Allows launching an EC2 instance -> Instant Cloud Admin Escalation!
+    "ec2:RunInstances"    // Allows launching an EC2 instance → Instant Cloud Admin Escalation!
   ],
   "Resource": "*"
 }`
@@ -129,7 +129,7 @@ Result: Global routers follow BGP Longest Prefix Match rule, sending all user tr
     hint: "Think about securing hospital CT and MRI scan databases from unauthorized tampering.",
     level: "expert",
     codeExample: `// Vulnerable Cleartext DICOM Query (Port 104):
-C-FIND-RQ: PatientName = "Mamata*" -> Returns unencrypted MRI scans and patient Aadhaar numbers.
+C-FIND-RQ: PatientName = "Mamata*" → Returns unencrypted MRI scans and patient Aadhaar numbers.
 Defense: Enforce DICOM-over-TLS (Port 2762) with client certificate authentication (mTLS).`
   },
   {
@@ -139,9 +139,9 @@ Defense: Enforce DICOM-over-TLS (Port 2762) with client certificate authenticati
     hint: "Think about testing the virtual security walls that separate emergency vehicle 5G data from ordinary phone traffic.",
     level: "expert",
     codeExample: `// 5G Core Network Slicing Architecture:
-[ Slice 1: Mission-Critical SCADA / Ambulance ] -> Ultra-Reliable Low-Latency (URLLC)
+[ Slice 1: Mission-Critical SCADA / Ambulance ] → Ultra-Reliable Low-Latency (URLLC)
                  | (Strict Virtualized Isolation Barrier - Zero Inter-Slice Routing)
-[ Slice 2: Consumer Mobile Broadband (eMBB) ]   -> High Bandwidth Video Streaming
+[ Slice 2: Consumer Mobile Broadband (eMBB) ]   → High Bandwidth Video Streaming
 Audit Task: Validate that compromising Slice 2 container cannot inject packets into Slice 1.`
   },
   {
@@ -151,7 +151,7 @@ Audit Task: Validate that compromising Slice 2 container cannot inject packets i
     hint: "Recall the famous breach where hackers broke into an air-conditioning vendor to steal millions of retail credit cards.",
     level: "basic",
     codeExample: `// Target Breach Supply Chain Pivot:
-Phish HVAC Contractor -> Log into Vendor Billing Portal -> Pivot to Flat Internal Network -> Infect 40,000 POS Terminals`
+Phish HVAC Contractor → Log into Vendor Billing Portal → Pivot to Flat Internal Network → Infect 40,000 POS Terminals`
   },
   {
     question: "What is 'Optical Data Diode' technology, and why is it mandatory for protecting 220kV power grids and nuclear reactor telemetry?",
@@ -160,7 +160,7 @@ Phish HVAC Contractor -> Log into Vendor Billing Portal -> Pivot to Flat Interna
     hint: "Think of a physical one-way mirror made of light where data can only flow out, making it physically impossible for hacks to flow in.",
     level: "basic",
     codeExample: `// Optical Data Diode Physical Architecture:
-[ SCADA 220kV Grid ] -> [ Physical LED Transmitter ] ---- (One-Way Light Beam) ----> [ Photoreceiver ] -> [ Public Corporate Dashboard ]
+[ SCADA 220kV Grid ] → [ Physical LED Transmitter ] ---- (One-Way Light Beam) ----> [ Photoreceiver ] → [ Public Corporate Dashboard ]
 // Result: Corporate users can view live power output, but 0.00 bits of attack traffic can flow back!`
   },
   {
@@ -209,11 +209,11 @@ document.querySelector('#checkout-form').addEventListener('submit', function() {
     hint: "Think about keeping the factory machines working even if the front-office accounting computers get locked by ransomware.",
     level: "moderate",
     codeExample: `// Purdue Enterprise Architecture (IT vs OT Separation):
-Level 4/5: Corporate IT (Email, Accounting, Web) -> INFECTED BY RANSOMWARE!
+Level 4/5: Corporate IT (Email, Accounting, Web) → INFECTED BY RANSOMWARE!
      || [ STRICT IDMZ LEVEL 3.5 BARRIER: No Direct Routing / Protocol Break ]
-Level 3:   Plant Operations (SCADA Historian, Engineering Console) -> SAFE
-Level 2:   Control Systems (HMI, SCADA Servers)                    -> SAFE
-Level 1/0: Physical Devices (PLCs, Robots, Turbines)               -> SAFE & RUNNING!`
+Level 3:   Plant Operations (SCADA Historian, Engineering Console) → SAFE
+Level 2:   Control Systems (HMI, SCADA Servers)                    → SAFE
+Level 1/0: Physical Devices (PLCs, Robots, Turbines)               → SAFE & RUNNING!`
   },
   {
     question: "What is 'Digital Twin Security Modeling' in industrial cyber defense?",

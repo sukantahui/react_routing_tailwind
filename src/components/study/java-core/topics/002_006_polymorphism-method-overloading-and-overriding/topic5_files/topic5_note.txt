@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. VISIBILITY RULES IN OVERRIDING:
-   - Parent 'public' &rarr; Child MUST be 'public'.
-   - Parent 'protected' &rarr; Child can be 'protected' or 'public'.
-   - Parent 'default' &rarr; Child can be 'default', 'protected', or 'public'.
+   - Parent 'public' → Child MUST be 'public'.
+   - Parent 'protected' → Child can be 'protected' or 'public'.
+   - Parent 'default' → Child can be 'default', 'protected', or 'public'.
    - Stricter access in child causes: "attempting to assign weaker access privileges".
 
 ================================================================================

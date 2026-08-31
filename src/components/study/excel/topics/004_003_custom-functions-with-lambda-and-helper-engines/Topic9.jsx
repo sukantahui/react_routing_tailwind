@@ -76,7 +76,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Generating Dynamic Procedural Grids with the MAKEARRAY Function
           </h1>
 
@@ -148,13 +148,13 @@ export default function Topic9() {
                   <td className="py-3 px-4 font-bold text-amber-300">rows</td>
                   <td className="py-3 px-4 text-slate-300">Total Row Count</td>
                   <td className="py-3 px-4 text-emerald-400">Integer &ge; 1</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Number of rows in the generated matrix. Values &lt; 1 trigger #CALC!.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Number of rows in the generated matrix. Values < 1 trigger #CALC!.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-yellow-300">cols</td>
                   <td className="py-3 px-4 text-slate-300">Total Column Count</td>
                   <td className="py-3 px-4 text-emerald-400">Integer &ge; 1</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Number of columns in the generated matrix. Values &lt; 1 trigger #CALC!.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Number of columns in the generated matrix. Values < 1 trigger #CALC!.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-300">LAMBDA(r, c)</td>
@@ -199,7 +199,7 @@ export default function Topic9() {
                 At each intersection, the LAMBDA evaluates its expression using the specific coordinate pair, creating a fully formed 2D grid in contiguous C++ memory!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                Parametric Synthesis: (r, c) &rarr; Memory Cell Allocation
+                Parametric Synthesis: (r, c) → Memory Cell Allocation
               </div>
             </div>
 
@@ -296,9 +296,9 @@ export default function Topic9() {
               </g>
 
               <text x="445" y="160" fill="#38BDF8" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">Sample Coordinate Tests:</text>
-              <text x="445" y="182" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">r=1, c=1 &rarr; 1 * 1 = 1</text>
-              <text x="445" y="200" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">r=3, c=4 &rarr; 3 * 4 = 12</text>
-              <text x="445" y="218" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">r=5, c=5 &rarr; 5 * 5 = 25</text>
+              <text x="445" y="182" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">r=1, c=1 → 1 * 1 = 1</text>
+              <text x="445" y="200" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">r=3, c=4 → 3 * 4 = 12</text>
+              <text x="445" y="218" fill="#F5D0FE" fontSize="9" textAnchor="middle" fontFamily="monospace">r=5, c=5 → 5 * 5 = 25</text>
               <text x="445" y="250" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ 25 Values Evaluated in RAM</text>
 
               {/* Arrow */}
@@ -361,7 +361,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_MAKEARRAY"
+            sheetName="EX1810"
             title="Procedural 5x5 Multiplication Table & Interest Rate Sensitivity Grid"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -400,7 +400,7 @@ export default function Topic9() {
                 Produces a complete two-variable loan matrix in 1 formula without data tables.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =MAKEARRAY(5, 4, ...) &rarr; 20 Loan Scenarios Spilled
+                Formula: =MAKEARRAY(5, 4, ...) → 20 Loan Scenarios Spilled
               </div>
             </div>
 
@@ -415,7 +415,7 @@ export default function Topic9() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Shift Coordinator <strong>Tuhina Mukherjee</strong> generates a 5-week x 7-day calendar roster: 
-                <code className="text-amber-300 font-mono">=MAKEARRAY(5, 7, LAMBDA(r, c, LET(d, (r-1)*7 + c, IF(d&lt;=31, d, ""))))</code>. 
+                <code className="text-amber-300 font-mono">=MAKEARRAY(5, 7, LAMBDA(r, c, LET(d, (r-1)*7 + c, IF(d<=31, d, ""))))</code>. 
                 Instantly builds monthly schedule grids without manual date typing.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
@@ -438,7 +438,7 @@ export default function Topic9() {
                 Generates a 36-cell distance matrix for delivery routing.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =MAKEARRAY(6, 6, LAMBDA(r, c, SQRT(...))) &rarr; Distance Matrix
+                Formula: =MAKEARRAY(6, 6, LAMBDA(r, c, SQRT(...))) → Distance Matrix
               </div>
             </div>
 
@@ -559,7 +559,7 @@ export default function Topic9() {
               <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#CALC! (Invalid Dimensions)</td>
-                  <td className="py-3 px-4 text-slate-300">Passed rows or cols &lt; 1 (e.g. MAKEARRAY(0, 5, ...)).</td>
+                  <td className="py-3 px-4 text-slate-300">Passed rows or cols < 1 (e.g. MAKEARRAY(0, 5, ...)).</td>
                   <td className="py-3 px-4 text-slate-400">Check row/col arguments.</td>
                   <td className="py-3 px-4 text-emerald-400">Ensure both row and column counts are positive integers &ge; 1.</td>
                 </tr>

@@ -108,7 +108,7 @@ const questions = [
   },
   {
     question: "How does a multi-item e-commerce order checkout use Savepoints for optional add-on purchases?",
-    shortAnswer: "1. Charge main item -> 2. `SAVEPOINT main_ok;` -> 3. Attempt to charge optional gift wrap -> 4. If gift wrap fails, `ROLLBACK TO main_ok;` -> 5. `COMMIT;` main purchase.",
+    shortAnswer: "1. Charge main item → 2. `SAVEPOINT main_ok;` → 3. Attempt to charge optional gift wrap → 4. If gift wrap fails, `ROLLBACK TO main_ok;` → 5. `COMMIT;` main purchase.",
     explanation: "Real-world optional workflow savepoint pattern.",
     hint: "Rolls back optional add-on failure while preserving main purchase.",
     level: "basic"

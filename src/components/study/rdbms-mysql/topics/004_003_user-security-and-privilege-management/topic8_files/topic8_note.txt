@@ -78,7 +78,7 @@ Roles can be nested to form modular security graphs:
 
 5. DATA DICTIONARY SYSTEM TABLES FOR ROLES
 --------------------------------------------------------------------------------
-- `mysql.role_edges`: Stores directed edges representing role grants (`FROM_USER` -> `TO_USER`).
+- `mysql.role_edges`: Stores directed edges representing role grants (`FROM_USER` → `TO_USER`).
 - `mysql.default_roles`: Stores default activated roles per user.
 - Dynamic Privilege for RBAC: `ROLE_ADMIN` allows delegating role management.
 
@@ -88,6 +88,6 @@ Roles can be nested to form modular security graphs:
    confusion where users cannot access tables upon login.
 2. Enable `activate_all_roles_on_login = ON` if your architecture expects all assigned
    roles to be active by default without session DDL.
-3. Structure role hierarchies logically: Read-Only -> Read-Write -> Admin.
+3. Structure role hierarchies logically: Read-Only → Read-Write → Admin.
 4. When dropping roles via `DROP ROLE`, MySQL automatically updates `mysql.role_edges`.
 ================================================================================

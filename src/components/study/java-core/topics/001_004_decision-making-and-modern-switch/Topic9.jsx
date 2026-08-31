@@ -42,7 +42,7 @@ export default function Topic9() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Comparing <code className="text-purple-400">&apos;switch&apos;</code> vs <code className="text-sky-300">&apos;else-if&apos;</code> Ladder: Readability, Jump Tables &amp; Performance
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -130,7 +130,7 @@ export default function Topic9() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradCascade)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. else-if Cascade [O(N)]</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
-            <text x="615" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">ifeq L1 &rarr; ifeq L2 &rarr; ...</text>
+            <text x="615" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">ifeq L1 → ifeq L2 → ...</text>
             <text x="615" y="122" fill="#e0f2fe" fontSize="10">Sequential conditional tests</text>
             <text x="615" y="142" fill="#a7f3d0" fontSize="10">Mandatory for ranges/floats</text>
             <text x="720" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">

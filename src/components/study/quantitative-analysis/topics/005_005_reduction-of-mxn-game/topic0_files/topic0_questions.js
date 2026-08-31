@@ -56,7 +56,7 @@ const questions = [
     explanation: "Hierarchy of game reduction methods.",
     hint: "Test convex combinations, use graphical method, or solve via Linear Programming.",
     level: "expert",
-    codeExample: "FallbackHierarchy: PureDominance -> ConvexBlend -> Graphical -> SimplexLP."
+    codeExample: "FallbackHierarchy: PureDominance → ConvexBlend → Graphical → SimplexLP."
   },
   {
     question: "How does matrix reduction help in identifying the 'Support' of the equilibrium strategy?",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Need for Reducing Larger Payoff Matrices?",
     shortAnswer: "'Always prune large m x n matrices before solving: eliminate dominated strategies to isolate the core support, reduce computational complexity to 2x2 or graphical forms, and preserve the exact Value of the Game in Indian Rupees (₹)!'",
     explanation: "This complete rule captures the core motivation of matrix dimensionality reduction.",
-    hint: "Prune large matrices -> Isolate core support -> Solve 2x2/graphical in ₹.",
+    hint: "Prune large matrices → Isolate core support → Solve 2x2/graphical in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: PruneLargeMatrix() -> IsolateCoreSupport() -> SolveReducedModel(₹)."
+    codeExample: "GoldenRule: PruneLargeMatrix() → IsolateCoreSupport() → SolveReducedModel(₹)."
   }
 ];
 

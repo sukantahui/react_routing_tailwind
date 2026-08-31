@@ -357,7 +357,7 @@ export default function Topic40() {
 
         {/* HEADER */}
         <header className="animate-fadeUp">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
             Evaluation of Postfix Expressions
           </h1>
           <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">

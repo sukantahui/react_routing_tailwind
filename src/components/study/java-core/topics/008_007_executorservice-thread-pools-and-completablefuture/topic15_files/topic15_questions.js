@@ -5,7 +5,7 @@ const topic15_questions = [
     "explanation": "Classic fork-join parallel fan-in pattern in CompletableFuture.",
     "hint": "Executes both futures concurrently in parallel and combines their results with a BiFunction when both finish.",
     "level": "Intermediate",
-    "codeExample": "futureA.thenCombine(futureB, (resA, resB) -> combine(resA, resB));"
+    "codeExample": "futureA.thenCombine(futureB, (resA, resB) → combine(resA, resB));"
   }
 ];
 

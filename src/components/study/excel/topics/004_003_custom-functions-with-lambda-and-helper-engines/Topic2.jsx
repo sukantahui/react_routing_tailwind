@@ -76,7 +76,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-pink-300 bg-clip-text text-transparent leading-tight">
             Registering & Naming LAMBDA Functions in Excel Name Manager
           </h1>
 
@@ -204,7 +204,7 @@ export default function Topic2() {
                 With Name Manager registration, updating the LAMBDA formula once instantly cascades the new logic across all 10,000 dependent cells in RAM!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                1 Edit in Name Manager &rarr; 10,000 Cells Instantly Updated
+                1 Edit in Name Manager → 10,000 Cells Instantly Updated
               </div>
             </div>
 
@@ -293,19 +293,19 @@ export default function Topic2() {
                 <rect width="360" height="70" rx="10" fill="#0F172A" stroke="#38BDF8" />
                 <text x="15" y="22" fill="#38BDF8" fontSize="10" fontWeight="bold" fontFamily="sans-serif">Sheet: 'Barrackpore_Payroll'</text>
                 <text x="15" y="42" fill="#E2E8F0" fontSize="9.5" fontFamily="monospace">=FX_GROSS_SALARY(E5, F5, G5)</text>
-                <text x="15" y="58" fill="#94A3B8" fontSize="8.5" fontFamily="sans-serif">&rarr; Returns ₹68,850.00 for Swadeep</text>
+                <text x="15" y="58" fill="#94A3B8" fontSize="8.5" fontFamily="sans-serif">→ Returns ₹68,850.00 for Swadeep</text>
 
                 {/* Consumer 2 */}
                 <rect y="85" width="360" height="70" rx="10" fill="#0F172A" stroke="#10B981" />
                 <text x="15" y="107" fill="#10B981" fontSize="10" fontWeight="bold" fontFamily="sans-serif">Sheet: 'Shyamnagar_Operations'</text>
                 <text x="15" y="127" fill="#E2E8F0" fontSize="9.5" fontFamily="monospace">=FX_GROSS_SALARY(E5, F5, G5)</text>
-                <text x="15" y="143" fill="#94A3B8" fontSize="8.5" fontFamily="sans-serif">&rarr; Returns ₹64,260.00 for Tuhina</text>
+                <text x="15" y="143" fill="#94A3B8" fontSize="8.5" fontFamily="sans-serif">→ Returns ₹64,260.00 for Tuhina</text>
 
                 {/* Consumer 3 */}
                 <rect y="170" width="360" height="70" rx="10" fill="#0F172A" stroke="#F59E0B" />
                 <text x="15" y="192" fill="#F59E0B" fontSize="10" fontWeight="bold" fontFamily="sans-serif">Sheet: 'Ichapur_Engineering'</text>
                 <text x="15" y="212" fill="#E2E8F0" fontSize="9.5" fontFamily="monospace">=FX_GROSS_SALARY(E5, F5, G5)</text>
-                <text x="15" y="228" fill="#94A3B8" fontSize="8.5" fontFamily="sans-serif">&rarr; Returns ₹78,030.00 for Abhronila</text>
+                <text x="15" y="228" fill="#94A3B8" fontSize="8.5" fontFamily="sans-serif">→ Returns ₹78,030.00 for Abhronila</text>
               </g>
             </svg>
           </div>
@@ -341,7 +341,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Name_Manager"
+            sheetName="EX1803"
             title="Campus Payroll Register (Basic Pay, DA %, HRA % Matrix)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -379,7 +379,7 @@ export default function Topic2() {
                 Payroll clerks in Barrackpore, Shyamnagar, and Ichapur simply call <code className="text-purple-300 font-mono">=FX_GROSS_SALARY(E5, F5, G5)</code>, eliminating messy helper columns.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =FX_GROSS_SALARY(E5, F5, G5) &rarr; Standardized Across All Campuses
+                Formula: =FX_GROSS_SALARY(E5, F5, G5) → Standardized Across All Campuses
               </div>
             </div>
 
@@ -397,7 +397,7 @@ export default function Topic2() {
                 When the government revises the rate to 12%, Tuhina modifies the formula once in Name Manager, and 4,500 active invoice cells update instantaneously!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                1 Edit in Name Manager &rarr; 4,500 Invoices Automatically Updated
+                1 Edit in Name Manager → 4,500 Invoices Automatically Updated
               </div>
             </div>
 
@@ -464,7 +464,7 @@ export default function Topic2() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Open Name Manager Dialog</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 text-xs font-mono">Ctrl+F3</kbd> (or go to Formulas tab &rarr; Name Manager) &rarr; Click the <strong>New...</strong> button.
+                  Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 text-xs font-mono">Ctrl+F3</kbd> (or go to Formulas tab → Name Manager) → Click the <strong>New...</strong> button.
                 </p>
               </div>
             </div>
@@ -489,7 +489,7 @@ export default function Topic2() {
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Paste LAMBDA in 'Refers to'</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                   In the 'Refers to' box at the bottom, paste: <code className="text-emerald-400 font-mono">=LAMBDA(basic, da, hra, basic * (1 + da + hra))</code>. 
-                  Add help text in the 'Comment' field &rarr; Click <strong>OK</strong>.
+                  Add help text in the 'Comment' field → Click <strong>OK</strong>.
                 </p>
               </div>
             </div>

@@ -5,7 +5,7 @@ const questions = [
     explanation: "Bytecode is a hardware-independent virtual machine instruction set. Each operating system has its own native JVM that translates the universal bytecode into native CPU instructions.",
     hint: "Think about the role of the intermediate bytecode and the JVM.",
     level: "basic",
-    codeExample: "// Developer compiles once: javac App.java -> App.class\n// Runs on Win/Mac/Linux with: java App"
+    codeExample: "// Developer compiles once: javac App.java → App.class\n// Runs on Win/Mac/Linux with: java App"
   },
   {
     question: "Is the Java Virtual Machine (JVM) itself platform-independent?",
@@ -29,7 +29,7 @@ const questions = [
     explanation: "In C++, an executable compiled on Windows (PE format x86) will not run on Linux (ELF format) without recompiling from source. Java bytecode runs on all operating systems without recompilation.",
     hint: "Native binary vs virtual bytecode.",
     level: "basic",
-    codeExample: "// C++: Source -> Machine Code (OS Dependent)\n// Java: Source -> Bytecode (OS Independent) -> JVM Machine Code"
+    codeExample: "// C++: Source → Machine Code (OS Dependent)\n// Java: Source → Bytecode (OS Independent) → JVM Machine Code"
   },
   {
     question: "Why is Java often referred to as a 'Hybrid' (compiled and interpreted) language?",
@@ -235,9 +235,9 @@ const questions = [
     question: "Why does WORA remain a critical competitive advantage for businesses today?",
     shortAnswer: "It drastically lowers development, distribution, cloud hosting, and testing costs while preventing vendor lock-in.",
     explanation: "Organizations can develop on macOS/Windows laptops, test in Linux CI/CD pipelines, and deploy onto AWS Graviton (ARM) or Intel (x86) Kubernetes clusters without modifying application code.",
-    hint: "Dev on Mac/Win -> Deploy on Linux Cloud.",
+    hint: "Dev on Mac/Win → Deploy on Linux Cloud.",
     level: "basic",
-    codeExample: "// Code once in Barrackpore -> Deploy to global AWS Cloud with zero friction."
+    codeExample: "// Code once in Barrackpore → Deploy to global AWS Cloud with zero friction."
   }
 ];
 

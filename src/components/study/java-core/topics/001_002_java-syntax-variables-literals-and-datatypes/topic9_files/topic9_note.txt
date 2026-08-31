@@ -26,9 +26,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   +------------------+-------------------+--------------------+
 
 - IEEE 754 Special Values:
-  * 100.0 / 0.0  --> Double.POSITIVE_INFINITY
-  * -100.0 / 0.0 --> Double.NEGATIVE_INFINITY
-  * 0.0 / 0.0    --> Double.NaN (Not-a-Number)
+  * 100.0 / 0.0  → Double.POSITIVE_INFINITY
+  * -100.0 / 0.0 → Double.NEGATIVE_INFINITY
+  * 0.0 / 0.0    → Double.NaN (Not-a-Number)
   * Math.sqrt(-9)--> Double.NaN
   * IMPORTANT: (NaN == NaN) is ALWAYS FALSE. Use Double.isNaN(val) instead!
 
@@ -45,7 +45,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * double electron = 1.6e-19;     // 1.6 * 10^-19
 
 - Float/Double to Integer Truncation:
-  * (int) 9.99  --> 9 (fractional portion truncated toward zero).
+  * (int) 9.99  → 9 (fractional portion truncated toward zero).
   * Use Math.round(9.99) for rounding to nearest whole integer (returns 10L).
 
 2. ESSENTIAL CHECKLIST

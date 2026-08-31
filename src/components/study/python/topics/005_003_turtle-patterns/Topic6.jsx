@@ -73,7 +73,7 @@ const Topic6 = () => {
             Module 005_003 · Turtle Patterns & Geometric Mathematics · Topic 6
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
             Pattern Optimization & Computational Efficiency
           </h1>
 

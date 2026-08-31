@@ -76,7 +76,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Introduction to Excel's Native Regular Expression Functions
           </h1>
 
@@ -160,7 +160,7 @@ export default function Topic0() {
                 Replaces pattern matches with new text or backreferences (<code className="text-emerald-300 font-mono">$1, $2</code>).
               </p>
               <div className="p-2 bg-slate-900 rounded-lg text-amber-300 text-xs">
-                =REGEXREPLACE(A2, "&lt;[^&gt;]+&gt;", "")
+                =REGEXREPLACE(A2, "<[^>]+>", "")
               </div>
             </div>
           </div>
@@ -322,15 +322,15 @@ export default function Topic0() {
               <g transform="translate(340, 75)">
                 <rect width="210" height="42" rx="4" fill="#3B0764" stroke="#A855F7" />
                 <text x="10" y="16" fill="#F5D0FE" fontSize="9" fontWeight="bold" fontFamily="monospace">1. REGEXTEST</text>
-                <text x="10" y="32" fill="#A7F3D0" fontSize="8" fontFamily="sans-serif">^[A-Z]{"{5}"}\d{"{4}"}[A-Z]$ &rarr; Matches?</text>
+                <text x="10" y="32" fill="#A7F3D0" fontSize="8" fontFamily="sans-serif">^[A-Z]{"{5}"}\d{"{4}"}[A-Z]$ → Matches?</text>
 
                 <rect y="50" width="210" height="42" rx="4" fill="#0369A1" fillOpacity="0.3" stroke="#38BDF8" />
                 <text x="10" y="66" fill="#BAE6FD" fontSize="9" fontWeight="bold" fontFamily="monospace">2. REGEXEXTRACT</text>
-                <text x="10" y="82" fill="#FDE047" fontSize="8" fontFamily="sans-serif">INV-\d{"{4,5}"} &rarr; Token Extract</text>
+                <text x="10" y="82" fill="#FDE047" fontSize="8" fontFamily="sans-serif">INV-\d{"{4,5}"} → Token Extract</text>
 
                 <rect y="100" width="210" height="42" rx="4" fill="#065F46" fillOpacity="0.3" stroke="#10B981" />
                 <text x="10" y="116" fill="#A7F3D0" fontSize="9" fontWeight="bold" fontFamily="monospace">3. REGEXREPLACE</text>
-                <text x="10" y="132" fill="#E2E8F0" fontSize="8" fontFamily="sans-serif">\d{"{4}"}-\d{"{4}"}-... &rarr; Mask String</text>
+                <text x="10" y="132" fill="#E2E8F0" fontSize="8" fontFamily="sans-serif">\d{"{4}"}-\d{"{4}"}-... → Mask String</text>
               </g>
 
               <text x="445" y="275" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ Native Multi-Threaded SIMD</text>
@@ -397,7 +397,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Overview"
+            sheetName="EX1901"
             title="Raw Business Text & Regex Goals (ID, Business Narration, Sample Target, Pattern Goal)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -436,7 +436,7 @@ export default function Topic0() {
                 Instantly flags incorrect tax records before filing statutory returns.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =REGEXTEST(PAN, "^[A-Z]{5}\d{4}[A-Z]$") &rarr; TRUE/FALSE
+                Formula: =REGEXTEST(PAN, "^[A-Z]{5}\d{4}[A-Z]$") → TRUE/FALSE
               </div>
             </div>
 
@@ -489,7 +489,7 @@ export default function Topic0() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Systems Engineer <strong>Debangshu Ghosh</strong> cleans web portal customer comments: 
-                <code className="text-amber-300 font-mono">=REGEXREPLACE(RawHTML, "&lt;[^&gt;]+&gt;", "")</code>, 
+                <code className="text-amber-300 font-mono">=REGEXREPLACE(RawHTML, "<[^>]+>", "")</code>, 
                 converting rich text tags into clean plain text in 1 millisecond.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">

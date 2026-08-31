@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. BINARY CONVERSION RULES:
-   - 'str.toCharArray()'                     &rarr; Generates fresh copy of 'char[]'.
-   - 'str.getBytes(StandardCharsets.UTF_8)'  &rarr; Encodes into UTF-8 byte stream.
-   - 'new String(bytes, UTF_8)'              &rarr; Decodes UTF-8 bytes back to String.
+   - 'str.toCharArray()'                     → Generates fresh copy of 'char[]'.
+   - 'str.getBytes(StandardCharsets.UTF_8)'  → Encodes into UTF-8 byte stream.
+   - 'new String(bytes, UTF_8)'              → Decodes UTF-8 bytes back to String.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

@@ -21,7 +21,7 @@ export default function Topic7() {
             Optional & Null-Safety
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">orElseThrow(Supplier&lt;Exception&gt;)</code>: Domain-Specific Error Handling
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic7() {
       </section>
 
       <Teacher
-        note="This is standard practice in Spring Boot REST APIs! When a user or student is not found by ID, throw your custom ResourceNotFoundException directly with .orElseThrow(() -> new ResourceNotFoundException('ID not found'))! — Sukanta Hui"
+        note="This is standard practice in Spring Boot REST APIs! When a user or student is not found by ID, throw your custom ResourceNotFoundException directly with .orElseThrow(() → new ResourceNotFoundException('ID not found'))! — Sukanta Hui"
       />
     </div>
   );

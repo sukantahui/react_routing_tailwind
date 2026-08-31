@@ -189,7 +189,7 @@ const questions = [
   {
     "question": "Which feature in Excel creates an automated ETS forecast with confidence bands?",
     "options": [
-      "Data Tab -> Forecast Sheet",
+      "Data Tab → Forecast Sheet",
       "Pie Chart",
       "Radar Chart",
       "Treemap"

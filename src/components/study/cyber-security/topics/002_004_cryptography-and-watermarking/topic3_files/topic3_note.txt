@@ -28,9 +28,9 @@ communicating parties and used for both Encryption and Decryption:
 * THE N(N-1)/2 KEY SCALING CRISIS:
   - In a network of N users where every pair requires a distinct private symmetric key:
                     Total Keys Required = [ N * (N - 1) ] / 2
-  - N = 10 Users   -> 45 Shared Keys
-  - N = 100 Users  -> 4,950 Shared Keys
-  - N = 1,000 Users -> 499,500 Shared Keys! (Administratively Impossible to Manage)
+  - N = 10 Users   → 45 Shared Keys
+  - N = 100 Users  → 4,950 Shared Keys
+  - N = 1,000 Users → 499,500 Shared Keys! (Administratively Impossible to Manage)
 
 * ARCHITECTURAL SOLUTIONS:
   1. Key Distribution Centers (KDC / Kerberos): Centralized server issues ephemeral session tickets; 

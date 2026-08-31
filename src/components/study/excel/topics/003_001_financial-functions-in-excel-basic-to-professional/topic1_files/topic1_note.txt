@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 In corporate banking, every loan schedule must verify: IPMT + PPMT = PMT. Master this decomposition to construct audited bank loan schedules effortlessly.
 
 COMMON TRAPS TO AVOID:
-- Period Index Out of Bounds (#NUM!): Passing a period argument (per) less than 1 or greater than nper to PPMT/IPMT returns #NUM!. -> Fix: Ensure 1 <= per <= nper in amortization row formulas.
-- Forgetting Rate Frequency Division: Passing annual interest rate directly without dividing by 12 inflates monthly PMT payments by 10x. -> Fix: Always pass `AnnualRate / 12` into monthly PMT formulas.
-- Summing IPMT + PPMT Discrepancy: Rounding errors occurring when individual payments are formatted as rounded integers. -> Fix: Verify that `=ROUND(PPMT + IPMT, 2)` exactly equals `=ROUND(PMT, 2)`.
+- Period Index Out of Bounds (#NUM!): Passing a period argument (per) less than 1 or greater than nper to PPMT/IPMT returns #NUM!. → Fix: Ensure 1 <= per <= nper in amortization row formulas.
+- Forgetting Rate Frequency Division: Passing annual interest rate directly without dividing by 12 inflates monthly PMT payments by 10x. → Fix: Always pass `AnnualRate / 12` into monthly PMT formulas.
+- Summing IPMT + PPMT Discrepancy: Rounding errors occurring when individual payments are formatted as rounded integers. → Fix: Verify that `=ROUND(PPMT + IPMT, 2)` exactly equals `=ROUND(PMT, 2)`.
 ================================================================================

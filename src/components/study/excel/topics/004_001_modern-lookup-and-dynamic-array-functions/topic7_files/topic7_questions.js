@@ -232,7 +232,7 @@ const questions = [
     explanation: "Excel recalculates all volatile formula cells whenever any worksheet change occurs.",
     hint: "Volatile functions recalculate on every worksheet edit.",
     level: "basic",
-    codeExample: "// Edit any cell -> RANDARRAY generates fresh random numbers"
+    codeExample: "// Edit any cell → RANDARRAY generates fresh random numbers"
   },
   {
     question: "Why is RANDARRAY an indispensable tool for corporate financial modeling and risk analysis?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "Financial risk managers across Barrackpore and Kolkata use `RANDARRAY` to model thousand-scenario stress tests directly inside Excel workbooks, providing executive decision-makers with robust probability forecasts.",
     hint: "Brings powerful Monte Carlo risk modeling natively into Excel.",
     level: "expert",
-    codeExample: "// Risk Pipeline: Baseline -> RANDARRAY Perturbation -> Scenario Matrix -> VaR Percentiles"
+    codeExample: "// Risk Pipeline: Baseline → RANDARRAY Perturbation → Scenario Matrix → VaR Percentiles"
   }
 ];
 

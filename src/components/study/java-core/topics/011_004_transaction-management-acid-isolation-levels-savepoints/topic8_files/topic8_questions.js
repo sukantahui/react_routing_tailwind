@@ -13,7 +13,7 @@ const topic8_questions = [
     "explanation": "Releasing locks terminates lock contention.",
     "hint": "All acquired database locks are immediately released.",
     "level": "Intermediate",
-    "codeExample": "commit() -> Releases X-Locks on updated rows."
+    "codeExample": "commit() → Releases X-Locks on updated rows."
   }
 ];
 

@@ -33,16 +33,16 @@ WHERE student_id = 101 AND date = '2026-08-25';
 -- 1. Client Connection: Authenticated via TCP/IP; Thread 42 assigned.
 -- 2. Lexical Parser: Tokenized [SELECT, student_id, FROM, ...]; Valid grammar tree built.
 -- 3. Preprocessor: Verified table 'student_attendance' exists; resolved columns; privileges OK.
--- 4. Optimizer: Evaluated plans -> Selected 'idx_student_date' (Cost: 1.2 vs Table Scan: 1450.0).
+-- 4. Optimizer: Evaluated plans → Selected 'idx_student_date' (Cost: 1.2 vs Table Scan: 1450.0).
 -- 5. Execution Engine: Sent command to Storage Engine via Handler API.
--- 6. Storage Engine (InnoDB): ha_innodb::index_read() -> Fetched 1 row from Buffer Pool -> Streamed to Client!`,
+-- 6. Storage Engine (InnoDB): ha_innodb::index_read() → Fetched 1 row from Buffer Pool → Streamed to Client!`,
       resultRows: [
         { stage: "1. Connection Pool", subsystem: "Network Layer", action: "TCP Handshake & Auth", outputState: "Thread Allocated (ID 42)", latency: "0.05ms", status: "Connected ✅" },
         { stage: "2. Lexical Parser", subsystem: "SQL Parser", action: "Tokenization & Grammar Tree", outputState: "Abstract Syntax Tree (AST)", latency: "0.02ms", status: "Parsed Validly ✅" },
         { stage: "3. Preprocessor", subsystem: "Semantic Analyzer", action: "Metadata & Privilege Checks", outputState: "Resolved Table/Column Objects", latency: "0.03ms", status: "Semantic OK ✅" },
         { stage: "4. Cost Optimizer", subsystem: "Cost-Based Optimizer", action: "Calculates Plan Costs", outputState: "Execution Plan: idx_student_date (Cost: 1.2)", latency: "0.15ms", status: "Plan Chosen ⚡" },
         { stage: "5. Engine Executor", subsystem: "Execution Engine", action: "Orchestrates Plan Steps", outputState: "Calls ha_innodb::index_read()", latency: "0.01ms", status: "Executing" },
-        { stage: "6. Storage Engine", subsystem: "InnoDB Handler API", action: "Buffer Pool Page Read", outputState: "1 Row Fetched -> Transmitted", latency: "0.08ms", status: "Completed ✅" },
+        { stage: "6. Storage Engine", subsystem: "InnoDB Handler API", action: "Buffer Pool Page Read", outputState: "1 Row Fetched → Transmitted", latency: "0.08ms", status: "Completed ✅" },
       ],
       explanation:
         "Every SQL statement traverses 6 distinct architectural stages before returning results. The Cost-Based Optimizer chooses the lowest cost execution path, and the Storage Engine Handler API retrieves data pages from the in-memory Buffer Pool.",
@@ -87,7 +87,7 @@ SELECT * FORM student_records; -- Typo in 'FROM' keyword!
 
 -- 💥 PREPROCESSOR SEMANTIC ERROR (Stage 3 Failure):
 SELECT * FROM non_existent_students; -- Valid SQL syntax, but table does not exist!
--- 🚨 Passes Parser -> Fails in Preprocessor!
+-- 🚨 Passes Parser → Fails in Preprocessor!
 -- ERROR 1146 (42S02): Table 'school_db.non_existent_students' doesn't exist`,
       resultRows: [
         { stage: "Lexical Parser", subsystem: "Grammar Engine", action: "Checks SQL Keywords", outputState: "Syntax Typo ('FORM')", latency: "0.01ms", status: "💥 ERROR 1064 (Syntax)" },
@@ -151,7 +151,7 @@ DEALLOCATE PREPARE stmt_student;`,
               Query Lifecycle
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             MySQL Query Execution Lifecycle
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

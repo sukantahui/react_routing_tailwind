@@ -29,10 +29,10 @@ const questions = [
   {
     question: "How does the 'Epsilon (ε) Perturbation Technique' resolve degeneracy in a transportation tableau?",
     shortAnswer: "By assigning an infinitesimally small positive quantity epsilon (ε > 0) to an independent non-basic cell, restoring the total basic cell count to m + n - 1.",
-    explanation: "Epsilon (ε) is treated as a very small quantity (ε -> 0) that occupies a cell without affecting capacity sums (S_i + ε ≈ S_i) or total cost (Z + c_ij * ε ≈ Z), while allowing dual potentials u_i + v_j = c_ij to be solved uniquely.",
+    explanation: "Epsilon (ε) is treated as a very small quantity (ε → 0) that occupies a cell without affecting capacity sums (S_i + ε ≈ S_i) or total cost (Z + c_ij * ε ≈ Z), while allowing dual potentials u_i + v_j = c_ij to be solved uniquely.",
     hint: "Place a tiny ε in an independent cell to reach m + n - 1.",
     level: "expert",
-    codeExample: "Allocate x_ij = ε (where ε > 0, ε -> 0); Basic Count restored to m + n - 1."
+    codeExample: "Allocate x_ij = ε (where ε > 0, ε → 0); Basic Count restored to m + n - 1."
   },
   {
     question: "Where should the epsilon (ε) be placed in the tableau to ensure it is mathematically valid?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Required basis count = 3 + 4 - 1 = 6. Since only 5 cells are allocated, adding 1 epsilon restores non-degeneracy.",
     hint: "6 - 5 = 1 epsilon needed.",
     level: "moderate",
-    codeExample: "Required = 6; Actual = 5 -> Deficit = 1 epsilon (ε)."
+    codeExample: "Required = 6; Actual = 5 → Deficit = 1 epsilon (ε)."
   },
   {
     question: "How can a student prevent degeneracy from occurring during the VAM procedure when S_k = D_l?",
@@ -76,11 +76,11 @@ const questions = [
   },
   {
     question: "Does the addition of epsilon (ε) change the numerical value of the total initial transportation cost Z?",
-    shortAnswer: "No, because ε is infinitesimally small (ε -> 0), so c_ij * ε is effectively zero in real financial terms.",
+    shortAnswer: "No, because ε is infinitesimally small (ε → 0), so c_ij * ε is effectively zero in real financial terms.",
     explanation: "Total cost remains Z = sum (c_ij * x_ij) for real shipments. Epsilon serves purely as a mathematical device to maintain rank.",
     hint: "Limit as ε approaches 0 yields 0 cost contribution.",
     level: "moderate",
-    codeExample: "lim_{ε -> 0} (Z + c_ij * ε) = Z"
+    codeExample: "lim_{ε → 0} (Z + c_ij * ε) = Z"
   },
   {
     question: "Suppose Mamata in Kolkata places ε in cell (1, 3). If cell (1, 3) has unit cost ₹8, what is its cost contribution in linear equations?",
@@ -118,9 +118,9 @@ const questions = [
     question: "If a 2 x 3 problem has allocations at (1,1)=50, (1,2)=30, (2,3)=40, is it degenerate?",
     shortAnswer: "Yes, because only 3 cells are allocated (needed 4). One epsilon (ε) must be placed in a loop-free cell.",
     explanation: "Count of basic cells is 3 < 4. Adding ε to an independent cell like (2, 2) or (2, 1) restores the basis count to 4.",
-    hint: "3 cells < 4 required cells -> Degenerate.",
+    hint: "3 cells < 4 required cells → Degenerate.",
     level: "moderate",
-    codeExample: "Count = 3 < 4 -> Degenerate. Add 1 ε."
+    codeExample: "Count = 3 < 4 → Degenerate. Add 1 ε."
   },
   {
     question: "Can degeneracy cause an optimization algorithm to get trapped in an infinite cycle (cycling)?",
@@ -134,9 +134,9 @@ const questions = [
     question: "Suppose Mahima in Barrackpore has supplies [30, 70] and demands [30, 40, 30]. Why is degeneracy guaranteed here?",
     shortAnswer: "Because the supply of S1 (30) exactly equals the demand of D1 (30), fulfilling the subset rim condition S_1 = D_1.",
     explanation: "When allocating to cell (1, 1), 30 units satisfies both Row 1 and Column 1 at the same time, triggering simultaneous zero balances.",
-    hint: "S1 = 30 and D1 = 30 -> Subset rim condition.",
+    hint: "S1 = 30 and D1 = 30 → Subset rim condition.",
     level: "expert",
-    codeExample: "S_1 = 30 === D_1 = 30 -> Sub-problem isolates immediately."
+    codeExample: "S_1 = 30 === D_1 = 30 → Sub-problem isolates immediately."
   },
   {
     question: "How should Mahima resolve the simultaneous zero in the above problem during Pass 1?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "The explicit zero allocation x_21 = 0 counts as a valid basic variable, ensuring full non-degeneracy.",
     hint: "4 basic cells including the 0 allocation.",
     level: "moderate",
-    codeExample: "4 basic cells >= 4 -> Non-degenerate."
+    codeExample: "4 basic cells >= 4 → Non-degenerate."
   },
   {
     question: "Why do computer linear programming solvers (like CPLEX, Gurobi, or SciPy) handle degeneracy automatically?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Epsilon behaves algebraically as a positive quantity: ε - ε = 0, allowing basis pivoting to proceed normally.",
     hint: "Epsilon is a valid basic variable with value ε.",
     level: "expert",
-    codeExample: "Pivot: x_out = ε -> cell becomes non-basic."
+    codeExample: "Pivot: x_out = ε → cell becomes non-basic."
   },
   {
     question: "Can an unbalanced problem experience degeneracy?",
@@ -212,11 +212,11 @@ const questions = [
   },
   {
     question: "Suppose Debangshu finds that cells (1,1), (1,2), (2,1), (2,2) are all allocated. Is this basis valid?",
-    shortAnswer: "No, because these 4 cells form a closed 2x2 rectangular loop ( (1,1) -> (1,2) -> (2,2) -> (2,1) -> (1,1) ), violating linear independence.",
+    shortAnswer: "No, because these 4 cells form a closed 2x2 rectangular loop ( (1,1) → (1,2) → (2,2) → (2,1) → (1,1) ), violating linear independence.",
     explanation: "A closed loop means one variable is linearly dependent on the other three; the basis is invalid.",
     hint: "Four corner cells of a rectangle form a closed loop.",
     level: "expert",
-    codeExample: "Loop detected: (1,1) - (1,2) - (2,2) - (2,1) - (1,1) -> Basis is dependent."
+    codeExample: "Loop detected: (1,1) - (1,2) - (2,2) - (2,1) - (1,1) → Basis is dependent."
   },
   {
     question: "How does VAM naturally prevent forming a loop during its normal execution?",
@@ -238,9 +238,9 @@ const questions = [
     question: "What is the ultimate rule for handling degeneracy in operations research exams and industry practice?",
     shortAnswer: "'Always verify Basis Count = m + n - 1; if degenerate, place epsilon (ε) in a loop-free, lowest-cost cell before calculating u_i and v_j!'",
     explanation: "This rule guarantees seamless transition from initial VAM solutions to formal MODI optimality proofs.",
-    hint: "Verify count -> Add ε to cheapest loop-free cell -> Proceed to MODI.",
+    hint: "Verify count → Add ε to cheapest loop-free cell → Proceed to MODI.",
     level: "moderate",
-    codeExample: "Golden Rule: Check m + n - 1 -> Add ε if needed -> Compute MODI."
+    codeExample: "Golden Rule: Check m + n - 1 → Add ε if needed → Compute MODI."
   }
 ];
 

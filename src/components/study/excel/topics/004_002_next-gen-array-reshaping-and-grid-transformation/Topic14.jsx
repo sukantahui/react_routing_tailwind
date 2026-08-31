@@ -59,7 +59,7 @@ export default function Topic14() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800 text-sky-300 text-xs font-semibold uppercase tracking-wider mb-4">
             <span>📊</span> Excel Masterclass · Topic 14
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent tracking-tight">
             Dynamic Array Boundary Trimming with TRIMRANGE
           </h1>
           <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed max-w-4xl">
@@ -101,10 +101,10 @@ export default function Topic14() {
             </p>
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs text-sky-200 overflow-x-auto space-y-1">
               <div className="text-slate-400 font-sans font-semibold mb-2">Step-by-Step Evaluation Lifecycle:</div>
-              <div>1. [Input Ingestion] &rarr; Sanitizes range bounds and validates data types</div>
-              <div>2. [Matrix Evaluation] &rarr; Performs algorithmic transformation in memory</div>
-              <div>3. [Spill Allocation] &rarr; Allocates dynamic spilled grid dimensions automatically</div>
-              <div>4. [Audit Verification] &rarr; Computes integrity bounds and returns calibrated result</div>
+              <div>1. [Input Ingestion] → Sanitizes range bounds and validates data types</div>
+              <div>2. [Matrix Evaluation] → Performs algorithmic transformation in memory</div>
+              <div>3. [Spill Allocation] → Allocates dynamic spilled grid dimensions automatically</div>
+              <div>4. [Audit Verification] → Computes integrity bounds and returns calibrated result</div>
             </div>
           </div>
         </section>
@@ -168,7 +168,7 @@ export default function Topic14() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic14_Trimrange_Boundaries"
+            sheetName="EX1715"
             title="Interactive Practice Grid"
             rowsPerPage={25}
             showSheetSelector={true}

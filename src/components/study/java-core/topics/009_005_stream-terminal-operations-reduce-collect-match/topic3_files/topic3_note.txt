@@ -9,9 +9,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - 'Optional<T> reduce(BinaryOperator<T> accumulator)'
 
 2. EXECUTION SEMANTICS:
-   - If stream is empty &rarr; returns 'Optional.empty()'.
-   - If stream has 1 element &rarr; returns 'Optional.of(element)' without invoking accumulator.
-   - If stream has N elements &rarr; first element is used as initial accumulator, then combined
+   - If stream is empty → returns 'Optional.empty()'.
+   - If stream has 1 element → returns 'Optional.of(element)' without invoking accumulator.
+   - If stream has N elements → first element is used as initial accumulator, then combined
      with remaining N-1 elements.
 
 3. COMMON USE CASES:

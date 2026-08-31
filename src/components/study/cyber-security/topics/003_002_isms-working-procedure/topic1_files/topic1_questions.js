@@ -29,9 +29,9 @@ A.8.28 Secure Coding              |`
     hint: "Think of a universal building foundation upon which you can build security, quality, and privacy floors.",
     level: "moderate",
     codeExample: `// Integrated Management System (Harmonized Structure):
-Clause 5 (Leadership)      -> Governs ISO 27001 (ISMS) + ISO 22301 (BCMS) + ISO 27701 (Privacy)
-Clause 6 (Risk Planning)   -> Shared Enterprise Risk Register across Quality, Security, and Cloud
-Clause 9 (Internal Audits) -> Single Combined Audit Team auditing all management systems simultaneously!`
+Clause 5 (Leadership)      → Governs ISO 27001 (ISMS) + ISO 22301 (BCMS) + ISO 27701 (Privacy)
+Clause 6 (Risk Planning)   → Shared Enterprise Risk Register across Quality, Security, and Cloud
+Clause 9 (Internal Audits) → Single Combined Audit Team auditing all management systems simultaneously!`
   },
   {
     question: "What are the mandatory requirements of ISO/IEC 27001:2022 Clause 4 (Context of the Organization)?",

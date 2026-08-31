@@ -5,15 +5,15 @@ Subject Code: EXCEL-PRO-502 | Target: React 19 + Tailwind CSS + Power Query Engi
 ================================================================================
 
 1. QUERY FOLDING RELATIONAL TRANSLATION MATRIX
-M Step Expression                                 --> Translated Native SQL Construct
+M Step Expression                                 → Translated Native SQL Construct
 --------------------------------------------------------------------------------------
-Table.SelectRows(Source, each [Region]="East")    --> WHERE ([Region] = 'East')
-Table.SelectColumns(Source, {"ID", "Amount"})     --> SELECT [ID], [Amount] FROM ...
-Table.RenameColumns(Source, {{"Amt", "Revenue"}}) --> SELECT [Amt] AS [Revenue]
-Table.Sort(Source, {{"OrderDate", Order.Asc}})    --> ORDER BY [OrderDate] ASC
+Table.SelectRows(Source, each [Region]="East")    → WHERE ([Region] = 'East')
+Table.SelectColumns(Source, {"ID", "Amount"})     → SELECT [ID], [Amount] FROM ...
+Table.RenameColumns(Source, {{"Amt", "Revenue"}}) → SELECT [Amt] AS [Revenue]
+Table.Sort(Source, {{"OrderDate", Order.Asc}})    → ORDER BY [OrderDate] ASC
 Table.Group(Source, {"Dept"}, {{"Tot", List.Sum}})--> GROUP BY [Dept], SUM([Tot])
-Table.NestedJoin(Fact, {"ID"}, Dim, {"ID"})       --> INNER JOIN / LEFT OUTER JOIN
-Table.FirstN(Source, 100)                         --> SELECT TOP (100) ...
+Table.NestedJoin(Fact, {"ID"}, Dim, {"ID"})       → INNER JOIN / LEFT OUTER JOIN
+Table.FirstN(Source, 100)                         → SELECT TOP (100) ...
 
 2. OPERATIONS THAT BREAK QUERY FOLDING
 - Adding Index Columns (`Table.AddIndexColumn`).

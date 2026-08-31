@@ -22,7 +22,7 @@ const questions = [
     question: "How does the 'Cache-Aside' (Lazy Loading) pattern work?",
     shortAnswer: "The application first checks the cache for the requested key; on a cache hit, it returns data immediately; on a cache miss, it queries the database, writes the result to the cache with a TTL, and returns the response to the client.",
     explanation: "The standard Cache-Aside lazy loading pattern.",
-    hint: "Check cache -> on miss, read DB -> populate cache -> return data.",
+    hint: "Check cache → on miss, read DB → populate cache → return data.",
     level: "basic",
     codeExample: "val = cache.get(key)\nif not val:\n    val = db.fetch(key)\n    cache.set(key, val, ttl=300)"
   },
@@ -88,7 +88,7 @@ const questions = [
     explanation: "API Gateway pattern and centralized cross-cutting concerns.",
     hint: "Centralized entrypoint handling SSL, auth, rate limiting, and reverse proxy routing.",
     level: "basic",
-    codeExample: "# Client -> API Gateway (Auth & Rate Limit) -> Python Backend Services"
+    codeExample: "# Client → API Gateway (Auth & Rate Limit) → Python Backend Services"
   },
   {
     question: "What is the difference between Write-Through and Write-Behind (Write-Back) caching?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Cascading failure prevention via Circuit Breaker.",
     hint: "Trips open when downstream service fails, returning fallback errors and preventing cascading crashes.",
     level: "moderate",
-    codeExample: "# Closed (Normal) -> Open (Fast Fail) -> Half-Open (Testing Recovery)"
+    codeExample: "# Closed (Normal) → Open (Fast Fail) → Half-Open (Testing Recovery)"
   },
   {
     question: "What is 'Idempotency' in REST APIs and why is it critical for payment and admission endpoints?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Load balancing scheduling algorithms.",
     hint: "Round Robin rotates sequentially; Least Connections picks the least busy server.",
     level: "basic",
-    codeExample: "# Round Robin: Server 1 -> 2 -> 3 -> 1 | Least Connections: server with min active load"
+    codeExample: "# Round Robin: Server 1 → 2 → 3 → 1 | Least Connections: server with min active load"
   },
   {
     question: "How do you handle Distributed Transactions across independent microservices?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "Distributed transaction patterns (Sagas & compensating actions).",
     hint: "Use Saga Pattern with compensating rollback transactions instead of 2-Phase Commit.",
     level: "complex",
-    codeExample: "# Saga: EnrollStudent -> DeductBalance (Fail) -> Compensate: UnenrollStudent"
+    codeExample: "# Saga: EnrollStudent → DeductBalance (Fail) → Compensate: UnenrollStudent"
   },
   {
     question: "What is 'Database Indexing' and what are the trade-offs of adding too many indexes?",

@@ -19,8 +19,8 @@ if (has_valid_signed_RoE(client_signature, scope_definition, validity_dates) ===
     hint: "Recall that Section 43 is for civil compensation, while Section 66 carries criminal jail time.",
     level: "moderate",
     codeExample: `// IT Act 2000 Section 43 vs 66 Mapping:
-Section 43: Civil Penalty -> Financial compensation to affected data owner.
-Section 66: Criminal Offense -> Up to 3 years imprisonment + ₹5,00,000 fine.`
+Section 43: Civil Penalty → Financial compensation to affected data owner.
+Section 66: Criminal Offense → Up to 3 years imprisonment + ₹5,00,000 fine.`
   },
   {
     question: "What does Section 66F of the Indian IT Act 2000 prescribe regarding 'Cyber Terrorism', and what is the maximum statutory penalty?",
@@ -63,9 +63,9 @@ Enforcement_Body      = Data Protection Board of India (DPBI);`
     hint: "Think about which document protects confidential information (NDA) versus which outlines project tasks and budget (SoW).",
     level: "moderate",
     codeExample: `// Ethical Hacking Contractual Triad:
-1. Non-Disclosure Agreement (NDA)   --> Confidentiality Guarantee
-2. Statement of Work (SoW)          --> Scope, Deliverables & Budget (₹)
-3. Rules of Engagement (RoE)        --> Legal Authorization & Safety Controls`
+1. Non-Disclosure Agreement (NDA)   → Confidentiality Guarantee
+2. Statement of Work (SoW)          → Scope, Deliverables & Budget (₹)
+3. Rules of Engagement (RoE)        → Legal Authorization & Safety Controls`
   },
   {
     question: "What constitutes 'Scope Creep' during a penetration test, and why is it legally dangerous for an ethical hacker?",
@@ -89,8 +89,8 @@ function isTargetAuthorized(targetIP, inScopeSubnets) {
     hint: "Think of the landmark US Supreme Court case distinguishing technical access violations from workplace policy misuse.",
     level: "expert",
     codeExample: `// Van Buren Ruling Distinction:
-Technical Access Violation (No credentials / Bypassed lock)  --> CFAA Violation (Criminal)
-Policy Misuse (Valid credentials used for improper purpose)    --> Contract / Policy Breach (Not CFAA Criminal Hacking)`
+Technical Access Violation (No credentials / Bypassed lock)  → CFAA Violation (Criminal)
+Policy Misuse (Valid credentials used for improper purpose)    → Contract / Policy Breach (Not CFAA Criminal Hacking)`
   },
   {
     question: "Why are 'Denial of Service' (DoS) stress-testing techniques strictly forbidden in production penetration tests unless explicitly authorized in writing?",

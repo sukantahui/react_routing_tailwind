@@ -64,7 +64,7 @@ RECOMMENDED DIRECTIVES:
 --------------------------------------------------------------------------------
 
 Coordinated Vulnerability Disclosure balances public security with engineering reality:
-  * Day 00: Researcher discovers zero-day -> Submits private report with non-destructive PoC.
+  * Day 00: Researcher discovers zero-day → Submits private report with non-destructive PoC.
   * Day 01-07: Enterprise triage team validates report and calculates CVSS score.
   * Day 08-60: Engineering squad develops, tests, and deploys patch to production clusters.
   * Day 61-90: Bounty awarded in ₹ INR; coordinated public disclosure blog released.

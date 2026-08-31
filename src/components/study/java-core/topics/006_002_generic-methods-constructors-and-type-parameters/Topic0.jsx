@@ -21,7 +21,7 @@ export default function Topic0() {
             Generic Methods
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           What is a Generic Method: Parameterizing Types at Method Scope
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic0() {
       </section>
 
       <Teacher
-        note="You don't need to make your entire class generic just to write one reusable helper method! You can make just that one method generic by adding '<T>' before its return type! — Sukanta Hui"
+        note="You don't need to make your entire class generic just to write one reusable helper method! You can make just that one method generic by adding '&lt;T&gt;' before its return type! — Sukanta Hui"
       />
     </div>
   );

@@ -16,7 +16,7 @@ const questions = [
     explanation: "Proved conclusively that software code can cause severe, physical kinetic destruction to industrial machinery.",
     hint: "First military cyber weapon that physically destroyed nuclear centrifuges by manipulating PLC motor speeds.",
     level: "expert",
-    codeExample: "Stuxnet_Action: if (PLC == 'Siemens S7-315') overrideFrequency(1410Hz -> 2Hz -> 1064Hz) -> Centrifuge_Destruction;"
+    codeExample: "Stuxnet_Action: if (PLC == 'Siemens S7-315') overrideFrequency(1410Hz → 2Hz → 1064Hz) → Centrifuge_Destruction;"
   },
   {
     question: "What is the Tallinn Manual and how does it apply International Law to Cyber Warfare?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Discovered by intelligence agencies inside Western and Asian critical infrastructure networks.",
     hint: "Planting secret dormant malware in another country's power grids years in advance, waiting for wartime.",
     level: "expert",
-    codeExample: "PrePositioning: MaintainDormantAccess(Grid_SCADA) -> ZeroActivity -> AwaitActivationSignalInWartime"
+    codeExample: "PrePositioning: MaintainDormantAccess(Grid_SCADA) → ZeroActivity → AwaitActivationSignalInWartime"
   },
   {
     question: "What is NotPetya (2017) and why is it categorized as a destructive Cyber Warfare Wiper?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "Encrypted disks with an unrecoverable XOR key, making decryption mathematically impossible even if ransom was paid.",
     hint: "A destructive Russian military wiper disguised as ransomware that caused $10 Billion in global damage.",
     level: "moderate",
-    codeExample: "NotPetya_Wiper: OverwriteMasterBootRecord(MBR) -> EncryptMFTWithFakeKey() -> ForceReboot() -> TotalDiskDestruction"
+    codeExample: "NotPetya_Wiper: OverwriteMasterBootRecord(MBR) → EncryptMFTWithFakeKey() → ForceReboot() → TotalDiskDestruction"
   },
   {
     question: "What is the Defence Cyber Agency (DCyA) of India and what is its strategic mandate?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "Creates severe global risk because if the stockpile leaks (as with EternalBlue), criminal gangs use the weapons against civilian hospitals.",
     hint: "Secret collection of unpatched software bugs stockpiled by military spies for wartime attacks.",
     level: "expert",
-    codeExample: "StockpileRisk: MilitaryWeapon(EternalBlue) -> LeakedByShadowBrokers -> WeaponizedByWannaCryRansomware"
+    codeExample: "StockpileRisk: MilitaryWeapon(EternalBlue) → LeakedByShadowBrokers → WeaponizedByWannaCryRansomware"
   },
   {
     question: "What is Jus ad Bellum and Jus in Bello in the context of Cyber Warfare law?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Stuxnet infected contractor laptops in Iran, which were then plugged into isolated uranium centrifuge networks.",
     hint: "Using infected employee USB drives or hidden radio signals to jump across air-gapped computers.",
     level: "expert",
-    codeExample: "AirGapJump: InfectedUSB -> ExploitsWindowsLNK_ZeroDay -> ExecutesMalwareOnIsolatedCentrifugeWorkstation"
+    codeExample: "AirGapJump: InfectedUSB → ExploitsWindowsLNK_ZeroDay → ExecutesMalwareOnIsolatedCentrifugeWorkstation"
   },
   {
     question: "What is Cyber Collateral Damage and how did WannaCry and NotPetya demonstrate it?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "WannaCry disabled the UK National Health Service (NHS), forcing doctors to cancel thousands of heart and cancer surgeries.",
     hint: "Cyber weapons spreading out of control and shutting down civilian hospitals in neutral countries.",
     level: "moderate",
-    codeExample: "CollateralDamage: Target('Ukrainian Utility') -> SelfReplicatingSMBWorm -> Disrupts(UK_Hospitals, US_Ports)"
+    codeExample: "CollateralDamage: Target('Ukrainian Utility') → SelfReplicatingSMBWorm → Disrupts(UK_Hospitals, US_Ports)"
   },
   {
     question: "What is Electronic Warfare (EW) vs Cyber Warfare and how do they converge in modern military operations?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Allows military aircraft to remotely hack enemy air defense missile batteries from 50 kilometers away.",
     hint: "Electronic warfare jams radio waves; Cyber warfare hacks software code; Cyber-EW hacks computers via radio.",
     level: "expert",
-    codeExample: "CyberEW_Convergence: AirbornePod transmits crafted RF waveform -> Injects buffer overflow into radar firmware."
+    codeExample: "CyberEW_Convergence: AirbornePod transmits crafted RF waveform → Injects buffer overflow into radar firmware."
   },
   {
     question: "What is Satellite Uplink Hijacking and Cyber Anti-Satellite (ASAT) warfare?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "During the 2022 Viasat KA-SAT cyber attack (AcidRain wiper), tens of thousands of satellite terminals across Europe were permanently bricked in minutes.",
     hint: "Hacking satellite ground stations to jam GPS and military communications during wartime.",
     level: "expert",
-    codeExample: "AcidRain_Wiper: Overwrites SPI flash memory of satellite modem -> Modem physically bricked permanently."
+    codeExample: "AcidRain_Wiper: Overwrites SPI flash memory of satellite modem → Modem physically bricked permanently."
   },
   {
     question: "What is the role of National Cyber Command (e.g. USCYBERCOM, DCyA) in Active Defense?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Cyber operators deploy to allied networks to uncover adversary zero-day tools before they are launched against India.",
     hint: "Proactively hacking into enemy military server infrastructure to shut down their attacks before they launch.",
     level: "moderate",
-    codeExample: "ActiveDefense: LocateAdversaryC2Server() -> DisruptBotnetInfrastructure() -> NeutralizeImminentAttack"
+    codeExample: "ActiveDefense: LocateAdversaryC2Server() → DisruptBotnetInfrastructure() → NeutralizeImminentAttack"
   },
   {
     question: "What is Industrial Control Systems (ICS) / SCADA PLC Firmware Tampering?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "Defended using cryptographic firmware signature checks and physical hardware interlocks in Ichapur.",
     hint: "Rewriting factory PLC software to over-pressurize pipes or blow up electrical transformers.",
     level: "expert",
-    codeExample: "PLCTampering: if (overpressureSafetyValveTriggered) suppressSafetyAlarm() -> Pipeline_Explosion"
+    codeExample: "PLCTampering: if (overpressureSafetyValveTriggered) suppressSafetyAlarm() → Pipeline_Explosion"
   },
   {
     question: "What is Cognitive Disinformation Warfare in military hybrid campaigns?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Deepfake videos of national leaders surrendering were broadcast during the opening days of the Ukraine conflict.",
     hint: "Broadcasting AI deepfakes of government leaders surrendering to confuse soldiers and citizens in wartime.",
     level: "basic",
-    codeExample: "CognitiveCampaign: BroadcastDeepfakePresidentSurrender() -> HackStateTVFeed -> ErodeMilitaryMorale"
+    codeExample: "CognitiveCampaign: BroadcastDeepfakePresidentSurrender() → HackStateTVFeed → ErodeMilitaryMorale"
   },
   {
     question: "What is the Principle of Proportionality in Cyber Warfare Rules of Engagement?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Revealed in historic intelligence disclosures where hardware routers were secretly backdoored during transit.",
     hint: "Military spies intercepting new computer shipments in transit to solder secret spy chips onto motherboards.",
     level: "expert",
-    codeExample: "Interdiction: InterceptRouterInTransit -> SolderHardwareBeacon -> ResealPackaging -> ShipToTarget"
+    codeExample: "Interdiction: InterceptRouterInTransit → SolderHardwareBeacon → ResealPackaging → ShipToTarget"
   },
   {
     question: "What is the Difference between Cyber Espionage and Cyber Warfare?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Guarantees Indian Armed Forces maintain uninterrupted communications during hybrid conflict in West Bengal.",
     hint: "Automatic switching to military space satellites if hackers cut terrestrial internet cables during war.",
     level: "moderate",
-    codeExample: "MilitaryResilience: TerrestrialFiberCut -> BGP_Failover_To_GSAT7_Space_Uplink(Latency < 180ms) -> CommandPreserved"
+    codeExample: "MilitaryResilience: TerrestrialFiberCut → BGP_Failover_To_GSAT7_Space_Uplink(Latency < 180ms) → CommandPreserved"
   },
   {
     question: "What is Threat Attribution in Cyber Warfare and why does it require multi-source intelligence (SIGINT + HUMINT + GEOINT)?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures military domain doctrine, international legal constraints, physical hardware isolation, deterrence strategy, and sovereign budgeting.",
     hint: "5th Domain + Tallinn Manual + Optical Data Diodes + Mechanical Interlocks + Sovereign Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: Master5thWarfareDomain() -> EnforceTallinnManual() -> DeployOpticalDataDiodes() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: Master5thWarfareDomain() → EnforceTallinnManual() → DeployOpticalDataDiodes() → BudgetInRupees(₹);"
   }
 ];
 

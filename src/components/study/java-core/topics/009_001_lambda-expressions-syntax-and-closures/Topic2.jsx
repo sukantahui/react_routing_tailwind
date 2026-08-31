@@ -21,7 +21,7 @@ export default function Topic2() {
             Syntax Variations
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-purple-400 font-mono">Lambda Syntax Variations</code>: Type Inference &amp; Compact Expressions
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic2() {
       </section>
 
       <Teacher
-        note="If your lambda is just 1 parameter and 1 calculation, you can strip away the types, parentheses, curly braces, and return keyword! '(Integer x) -> { return x * 2; }' shrinks down to just 'x -> x * 2'! Ultra clean! — Sukanta Hui"
+        note="If your lambda is just 1 parameter and 1 calculation, you can strip away the types, parentheses, curly braces, and return keyword! '(Integer x) → { return x * 2; }' shrinks down to just 'x → x * 2'! Ultra clean! — Sukanta Hui"
       />
     </div>
   );

@@ -21,7 +21,7 @@ const questions = [
     explanation: "For Θ(n), you need both O(n) and Ω(n).",
     hint: "Bounds must match.",
     level: "intermediate",
-    codeExample: "// Linear search: O(n), Ω(1) -> no Θ"
+    codeExample: "// Linear search: O(n), Ω(1) → no Θ"
   },
   {
     question: "What is the Θ complexity of merge sort?",

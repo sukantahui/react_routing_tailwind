@@ -24,4 +24,4 @@ function getStudentScholarshipTier(score) {
 }
 getStudentScholarshipTier(96);
 
-console.log("Expected Result Verified:", "Score 96 -> Tier: '100% Full Platinum Scholarship'");
+console.log("Expected Result Verified:", "Score 96 → Tier: '100% Full Platinum Scholarship'");

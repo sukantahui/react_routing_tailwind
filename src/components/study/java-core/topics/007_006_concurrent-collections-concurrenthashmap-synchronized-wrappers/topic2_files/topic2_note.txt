@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Multiple threads accessing different buckets block each other.
    - Reads block reads; writes block writes.
    - Multi-core scalability collapses under high concurrency.
-   - Obsolete in modern Java &rarr; use 'ConcurrentHashMap'.
+   - Obsolete in modern Java → use 'ConcurrentHashMap'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

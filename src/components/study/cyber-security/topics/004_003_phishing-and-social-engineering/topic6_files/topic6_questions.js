@@ -39,8 +39,8 @@ const questions = [
     hint: "A paper photocopy of a key (125kHz) vs a cryptographic smart chip with an encrypted handshake (DESFire EV3).",
     level: "expert",
     codeExample: `# Flipper Zero 125kHz RFID Badge Clone (Proxmark3):
-lf search -> Found EM4100 / HID Prox Tag [Card ID: 2006A48F]
-lf clone 2006A48F -> Written to blank T5577 card in 1.8 seconds (PERIMETER BREACHED!)`
+lf search → Found EM4100 / HID Prox Tag [Card ID: 2006A48F]
+lf clone 2006A48F → Written to blank T5577 card in 1.8 seconds (PERIMETER BREACHED!)`
   },
   {
     question: "What is an Anti-Tailgating Mantrap Portal (Security Airlock / Interlocking Portal)?",
@@ -101,7 +101,7 @@ lf clone 2006A48F -> Written to blank T5577 card in 1.8 seconds (PERIMETER BREAC
     hint: "Locking your diary in a drawer and locking the front door whenever you leave the room.",
     level: "basic",
     codeExample: `# Group Policy Object (GPO) for Clear Screen Enforcement:
-# Path: Computer Configuration -> Administrative Templates -> Control Panel -> Personalization
+# Path: Computer Configuration → Administrative Templates → Control Panel → Personalization
 # Policy: Screen saver timeout = 180 seconds (3 Minutes)
 # Policy: Password protect the screen saver = Enabled`
   },
@@ -122,7 +122,7 @@ lf clone 2006A48F -> Written to blank T5577 card in 1.8 seconds (PERIMETER BREAC
     hint: "Using a free smartphone app that can read and copy an old hotel room key in 2 seconds.",
     level: "expert",
     codeExample: `# Android NFC MIFARE Classic Key Recovery:
-mfcuk -C -R 0:A -v 3 -> Recovering Key A for Sector 0...
+mfcuk -C -R 0:A -v 3 → Recovering Key A for Sector 0...
 Found valid Key: FFFFFFFFFFFF (Default Key) or Cracked Key: A0B1C2D3E4F5
 Cloned to blank UID changeable card in 3.2 seconds!`
   },
@@ -302,7 +302,7 @@ if (humanCount > 1 && BadgeScans == 1) {
     question: "Synthesize the mathematical relationship between Physical Proximity Probability (P_proximity), Opportunity Factor (O_opportunity), Physical Armor Strength (R_mantrap), and Physical Social Engineering Breach Probability (P_physical).",
     shortAnswer: "Physical breach probability is modeled as P_physical = 1 - e^(- (P_proximity * O_opportunity) / R_mantrap); deploying optical anti-tailgating mantraps and DESFire EV3 cards (R_mantrap = 1000) reduces physical breach probability below 1.5%.",
     explanation: "Let $P_{\\text{proximity}} \\ge 1.0$ represent the physical proximity score (high foot traffic in open lobbies = 4.0), $O_{\\text{opportunity}} \\ge 1.0$ represent the social opportunity factor (carrying heavy boxes, un-shredded bins), and $R_{\\text{mantrap}}$ represent the physical armor strength (optical mantraps with 3D depth sensors, DESFire EV3 AES-128 smart cards, DIN P-5 micro-shredding). The physical breach probability is: $P_{\\text{physical}} = 1 - e^{-\\frac{P_{\\text{proximity}} \\times O_{\\text{opportunity}}}{R_{\\text{mantrap}}}}$. When organizations deploy optical mantraps and cryptographic smart cards ($R_{\\text{mantrap}} \\to \\infty$), physical breach probability collapses to zero.",
-    hint: "Mathematical formula proving that optical mantraps and cryptographic smart cards (R_mantrap -> infinity) reduce physical breach probability to zero.",
+    hint: "Mathematical formula proving that optical mantraps and cryptographic smart cards (R_mantrap → infinity) reduce physical breach probability to zero.",
     level: "expert",
     codeExample: `// Physical Breach Mathematical Proof:
 // P_proximity = 4.0 (Busy Metro Station Lobby) | O_opportunity = 3.5 (Tailgating with Heavy Boxes)

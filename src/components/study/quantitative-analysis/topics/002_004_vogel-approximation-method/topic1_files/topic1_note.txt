@@ -10,8 +10,8 @@ AUTHOR & MENTOR: SUKANTA HUI
 --------------------------------------------------------------------------------
 In Vogel's Approximation Method (VAM), the transportation matrix is analyzed
 symmetrically along two distinct operational dimensions:
-1. Horizontal (Supply Dimension) -> ROW PENALTIES (P_i)
-2. Vertical (Demand Dimension)   -> COLUMN PENALTIES (P_j)
+1. Horizontal (Supply Dimension) → ROW PENALTIES (P_i)
+2. Vertical (Demand Dimension)   → COLUMN PENALTIES (P_j)
 
 DEFINITION OF ROW PENALTY (P_i):
 For an active supply row i, the row penalty represents the supplier's regret.
@@ -100,13 +100,13 @@ Cost Matrix (₹/ton):
 Demand 60   80    80     220
 
 Row Penalties:
-  Row 1 (S1): [8, 12, 14] -> P_1 = 12 - 8 = ₹4
-  Row 2 (S2): [5, 10, 19] -> P_2 = 10 - 5 = ₹5
-  Row 3 (S3): [7, 11, 13] -> P_3 = 11 - 7 = ₹4
+  Row 1 (S1): [8, 12, 14] → P_1 = 12 - 8 = ₹4
+  Row 2 (S2): [5, 10, 19] → P_2 = 10 - 5 = ₹5
+  Row 3 (S3): [7, 11, 13] → P_3 = 11 - 7 = ₹4
 Column Penalties:
-  Col 1 (D1): [5, 8, 11]  -> P_1 = 8 - 5 = ₹3
+  Col 1 (D1): [5, 8, 11]  → P_1 = 8 - 5 = ₹3
   Col 2 (D2): [13, 14, 19]-> P_2 = 14 - 13 = ₹1
-  Col 3 (D3): [7, 10, 12] -> P_3 = 10 - 7 = ₹3
+  Col 3 (D3): [7, 10, 12] → P_3 = 10 - 7 = ₹3
 
 Analysis:
 Max Penalty is P_2 (Row 2, Ichapur) = ₹5.
@@ -131,11 +131,11 @@ Cost Matrix (₹/box):
 Demand 60   70    50    180
 
 Penalties:
-  Row 1 (S1): [6, 9, 18]  -> P_1 = 9 - 6 = ₹3
-  Row 2 (S2): [4, 15, 25] -> P_2 = 15 - 4 = ₹11 (MAX ROW)
-  Col 1 (D1): [4, 6]      -> P_1 = 6 - 4 = ₹2
-  Col 2 (D2): [18, 25]    -> P_2 = 25 - 18 = ₹7
-  Col 3 (D3): [9, 15]     -> P_3 = 15 - 9 = ₹6
+  Row 1 (S1): [6, 9, 18]  → P_1 = 9 - 6 = ₹3
+  Row 2 (S2): [4, 15, 25] → P_2 = 15 - 4 = ₹11 (MAX ROW)
+  Col 1 (D1): [4, 6]      → P_1 = 6 - 4 = ₹2
+  Col 2 (D2): [18, 25]    → P_2 = 25 - 18 = ₹7
+  Col 3 (D3): [9, 15]     → P_3 = 15 - 9 = ₹6
 
 Analysis:
 Max Penalty is P_2 = ₹11 at Row 2 (Barrackpore).
@@ -154,12 +154,12 @@ Cost Matrix:
   S2  ₹7    ₹5    ₹8     60
   S3  ₹6    ₹7    ₹3     40
 Penalties:
-  Row 1: [4, 9, 11] -> P_1 = 9 - 4 = ₹5
-  Row 2: [5, 7, 8]  -> P_2 = 7 - 5 = ₹2
-  Row 3: [3, 6, 7]  -> P_3 = 6 - 3 = ₹3
-  Col 1: [4, 6, 7]  -> P_1 = 6 - 4 = ₹2
-  Col 2: [5, 7, 9]  -> P_2 = 7 - 5 = ₹2
-  Col 3: [3, 8, 11] -> P_3 = 8 - 3 = ₹5 (TIE WITH ROW 1!)
+  Row 1: [4, 9, 11] → P_1 = 9 - 4 = ₹5
+  Row 2: [5, 7, 8]  → P_2 = 7 - 5 = ₹2
+  Row 3: [3, 6, 7]  → P_3 = 6 - 3 = ₹3
+  Col 1: [4, 6, 7]  → P_1 = 6 - 4 = ₹2
+  Col 2: [5, 7, 9]  → P_2 = 7 - 5 = ₹2
+  Col 3: [3, 8, 11] → P_3 = 8 - 3 = ₹5 (TIE WITH ROW 1!)
 
 Tie-Breaking Analysis:
 Row 1 has P_1 = ₹5 (min cost = ₹4 in cell S1, D1).

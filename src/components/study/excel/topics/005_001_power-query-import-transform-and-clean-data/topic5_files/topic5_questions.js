@@ -58,7 +58,7 @@ const questions = [
     explanation: "Essential for duplicate invoice detection.",
     hint: "Filters table to show ONLY rows that appear more than once.",
     level: "moderate",
-    codeExample: "Home Tab &rarr; Keep Rows &rarr; Keep Duplicates"
+    codeExample: "Home Tab → Keep Rows → Keep Duplicates"
   },
   {
     question: "Why is placing Row Filter steps early in the Applied Steps list critical for SQL databases?",
@@ -66,13 +66,13 @@ const questions = [
     explanation: "Dramatically reduces network latency and local memory consumption.",
     hint: "Enables server-side SQL WHERE clause query folding.",
     level: "expert",
-    codeExample: "Early Filter &rarr; SQL: SELECT * FROM Tbl WHERE Amount > 10000"
+    codeExample: "Early Filter → SQL: SELECT * FROM Tbl WHERE Amount > 10000"
   },
   {
     question: "How do you filter text using wildcards or partial substring matches (e.g. contains 'Corp')?",
-    shortAnswer: "Click the column filter dropdown &rarr; Text Filters &rarr; Contains &rarr; Enter 'Corp' (`Table.SelectRows(Source, each Text.Contains([Name], \"Corp\")))`.",
+    shortAnswer: "Click the column filter dropdown → Text Filters → Contains → Enter 'Corp' (`Table.SelectRows(Source, each Text.Contains([Name], \"Corp\")))`.",
     explanation: "Filters rows based on substring presence.",
-    hint: "Text Filters &rarr; Contains (`Text.Contains`).",
+    hint: "Text Filters → Contains (`Text.Contains`).",
     level: "basic",
     codeExample: "= Table.SelectRows(Source, each Text.Contains([Company], \"Corp\"))"
   },
@@ -86,15 +86,15 @@ const questions = [
   },
   {
     question: "How do you filter for dates falling within the current calendar year dynamically?",
-    shortAnswer: "Click Date filter dropdown &rarr; Date Filters &rarr; 'This Year' (`Date.IsInCurrentYear([Invoice_Date])`).",
+    shortAnswer: "Click Date filter dropdown → Date Filters → 'This Year' (`Date.IsInCurrentYear([Invoice_Date])`).",
     explanation: "Dynamic date predicate that automatically shifts when a new year begins.",
-    hint: "Date Filters &rarr; This Year (`Date.IsInCurrentYear`).",
+    hint: "Date Filters → This Year (`Date.IsInCurrentYear`).",
     level: "moderate",
     codeExample: "= Table.SelectRows(Source, each Date.IsInCurrentYear([Invoice_Date]))"
   },
   {
     question: "How do you filter for the previous 30 rolling days dynamically?",
-    shortAnswer: "Click Date Filters &rarr; 'In the Previous...' &rarr; Enter 30 Days (`Date.IsInPreviousNDays([Date], 30)`).",
+    shortAnswer: "Click Date Filters → 'In the Previous...' → Enter 30 Days (`Date.IsInPreviousNDays([Date], 30)`).",
     explanation: "Creates live operational dashboard feeds for trailing month performance.",
     hint: "Date.IsInPreviousNDays([Date], 30).",
     level: "moderate",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "If you want the latest record, sort the table descending by Date BEFORE applying Table.Distinct.",
     hint: "Retains the first occurrence; sort before deduplicating.",
     level: "advanced",
-    codeExample: "1. Table.Sort(Date Descending) &rarr; 2. Table.Distinct(Cust_ID) = Keeps Latest Record!"
+    codeExample: "1. Table.Sort(Date Descending) → 2. Table.Distinct(Cust_ID) = Keeps Latest Record!"
   },
   {
     question: "Why should you use `Table.Buffer` before deduplicating sorted rows to guarantee the latest record is preserved?",
@@ -118,7 +118,7 @@ const questions = [
   },
   {
     question: "How do you filter out records with `null` or blank values in a text column?",
-    shortAnswer: "Click filter dropdown &rarr; Uncheck '(null)' and '(blank)', generating `= Table.SelectRows(Source, each [Name] <> null and [Name] <> \"\")`.",
+    shortAnswer: "Click filter dropdown → Uncheck '(null)' and '(blank)', generating `= Table.SelectRows(Source, each [Name] <> null and [Name] <> \"\")`.",
     explanation: "Removes missing customer or invoice records.",
     hint: "each [Col] <> null and [Col] <> ''.",
     level: "basic",
@@ -128,7 +128,7 @@ const questions = [
     question: "What is the 'Keep Top Rows' transformation in Power Query?",
     shortAnswer: "It keeps a specified number of rows from the top of the table (e.g. top 100 sales) and discards all others (`Table.FirstN`).",
     explanation: "Used to create leaderboard reports.",
-    hint: "Home Tab &rarr; Keep Rows &rarr; Keep Top Rows (`Table.FirstN`).",
+    hint: "Home Tab → Keep Rows → Keep Top Rows (`Table.FirstN`).",
     level: "basic",
     codeExample: "= Table.FirstN(Source, 100)"
   },
@@ -136,7 +136,7 @@ const questions = [
     question: "What is the 'Keep Bottom Rows' transformation in Power Query?",
     shortAnswer: "It retains a specified number of rows from the bottom of the table (`Table.LastN`).",
     explanation: "Used for bottom-performer analysis.",
-    hint: "Home Tab &rarr; Keep Rows &rarr; Keep Bottom Rows (`Table.LastN`).",
+    hint: "Home Tab → Keep Rows → Keep Bottom Rows (`Table.LastN`).",
     level: "basic",
     codeExample: "= Table.LastN(Source, 50)"
   },
@@ -144,7 +144,7 @@ const questions = [
     question: "What is the 'Keep Range of Rows' transformation in Power Query?",
     shortAnswer: "It keeps rows starting from a specific starting row index and spanning a specified row count (`Table.Range`).",
     explanation: "Extracts an exact slice of records.",
-    hint: "Keep Rows &rarr; Keep Range of Rows (`Table.Range`).",
+    hint: "Keep Rows → Keep Range of Rows (`Table.Range`).",
     level: "moderate",
     codeExample: "= Table.Range(Source, 50, 100) (Keeps 100 rows starting at row 50)"
   },
@@ -166,9 +166,9 @@ const questions = [
   },
   {
     question: "How do you remove errors from an entire table in one step?",
-    shortAnswer: "Home Tab &rarr; Remove Rows &rarr; Remove Errors (`Table.RemoveRowsWithErrors`).",
+    shortAnswer: "Home Tab → Remove Rows → Remove Errors (`Table.RemoveRowsWithErrors`).",
     explanation: "Discards any row containing a cell conversion error.",
-    hint: "Remove Rows &rarr; Remove Errors.",
+    hint: "Remove Rows → Remove Errors.",
     level: "basic",
     codeExample: "= Table.RemoveRowsWithErrors(Source, {\"Amount\", \"Date\"})"
   },
@@ -198,9 +198,9 @@ const questions = [
   },
   {
     question: "How do you perform a numerical range filter (e.g. Amount between ₹10,000 and ₹50,000)?",
-    shortAnswer: "Click Amount filter &rarr; Number Filters &rarr; Between (`[Amount] >= 10000 and [Amount] <= 50000`).",
+    shortAnswer: "Click Amount filter → Number Filters → Between (`[Amount] >= 10000 and [Amount] <= 50000`).",
     explanation: "Restricts records to specific value intervals.",
-    hint: "Number Filters &rarr; Between.",
+    hint: "Number Filters → Between.",
     level: "basic",
     codeExample: "= Table.SelectRows(Source, each [Amount] >= 10000 and [Amount] <= 50000)"
   },
@@ -232,9 +232,9 @@ const questions = [
     question: "How do you clear a filter step in the Power Query Editor without deleting other steps?",
     shortAnswer: "Click the funnel icon on the column header and click 'Clear filter', or delete that specific 'Filtered Rows' step from the Applied Steps pane.",
     explanation: "Restores filtered rows to the active data stream.",
-    hint: "Column Header Funnel &rarr; Clear Filter, or delete step.",
+    hint: "Column Header Funnel → Clear Filter, or delete step.",
     level: "basic",
-    codeExample: "Click Funnel &rarr; Clear Filter"
+    codeExample: "Click Funnel → Clear Filter"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Filtering, Sorting & Deduplication?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Smart filtering and deduplication keep enterprise datasets ultra-lean and razor-sharp!",
     hint: "Early Filters (Query Folding) + Composite Key Dedup + Table.Buffer = Pristine Master Data!",
     level: "expert",
-    codeExample: "Rule: Filter Early &rarr; Buffer Sorted Tables &rarr; Composite Key Dedup!"
+    codeExample: "Rule: Filter Early → Buffer Sorted Tables → Composite Key Dedup!"
   }
 ];
 

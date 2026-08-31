@@ -8,7 +8,7 @@ const questions = [
     explanation: "Combinatorial submatrix evaluation principle.",
     hint: "Enumerate all 2x2 submatrices and filter by probability validity and global optimality.",
     level: "moderate",
-    codeExample: "solveAlgebraic: enumeratePairs() -> solve2x2() -> filterAdmissible() -> filterGlobalOptimal();"
+    codeExample: "solveAlgebraic: enumeratePairs() → solve2x2() → filterAdmissible() → filterGlobalOptimal();"
   },
   {
     question: "How many 2x2 candidate submatrices exist for a 2x4 game?",
@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Algebraic Method for 2xn and mx2 Games?",
     shortAnswer: "'Enumerate all C(n, 2) or C(m, 2) candidate 2x2 submatrices; solve each algebraically; filter out inadmissible probabilities; verify global minimax optimality against all original options; and report the Game Value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all algebraic submatrix evaluation mechanics.",
-    hint: "Enumerate pairs -> Solve 2x2 -> Filter admissibility & global optimality in ₹.",
+    hint: "Enumerate pairs → Solve 2x2 → Filter admissibility & global optimality in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: EnumeratePairs() -> Solve2x2() -> FilterAdmissible() -> FilterGlobalOptimal(₹)."
+    codeExample: "GoldenRule: EnumeratePairs() → Solve2x2() → FilterAdmissible() → FilterGlobalOptimal(₹)."
   }
 ];
 

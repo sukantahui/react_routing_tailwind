@@ -13,7 +13,7 @@ const topic6_questions = [
     "explanation": "Designed specifically to replace ThreadLocal in Virtual Thread architectures.",
     "hint": "Scoped Values (ScopedValue.where(...).run(...)).",
     "level": "Advanced",
-    "codeExample": "ScopedValue.where(USER_CTX, user).run(() -> { ... });"
+    "codeExample": "ScopedValue.where(USER_CTX, user).run(() → { ... });"
   }
 ];
 

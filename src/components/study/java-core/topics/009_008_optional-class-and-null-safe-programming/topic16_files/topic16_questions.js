@@ -5,7 +5,7 @@ const topic16_questions = [
     "explanation": "Always return an empty collection rather than null or Optional<Collection>.",
     "hint": "Return an empty collection (e.g. List.of()) instead of Optional<List<T>>.",
     "level": "Intermediate",
-    "codeExample": "// BAD: Optional<List<Student>> findAll()\\n// GOOD: List<Student> findAll() -> returns List.of() if empty"
+    "codeExample": "// BAD: Optional<List<Student>> findAll()\\n// GOOD: List<Student> findAll() → returns List.of() if empty"
   },
   {
     "question": "What is the benefit of returning Optional<T> from database repository methods?",

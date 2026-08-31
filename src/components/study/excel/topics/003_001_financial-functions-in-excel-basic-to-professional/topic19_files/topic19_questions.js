@@ -101,7 +101,7 @@ const questions = [
   {
     "question": "How is circular interest resolution enabled in Excel Options?",
     "options": [
-      "File -> Options -> Formulas -> Enable iterative calculation",
+      "File → Options → Formulas → Enable iterative calculation",
       "Enable macros",
       "Enable developer tab",
       "Press F9"

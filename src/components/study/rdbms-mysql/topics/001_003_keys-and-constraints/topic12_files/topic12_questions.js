@@ -159,7 +159,7 @@ const questions = [
     question: "What is the recommended 3-step migration pattern for applying a NOT NULL constraint to a legacy column?",
     shortAnswer: "1) Audit: `SELECT COUNT(*) FROM tbl WHERE col IS NULL;` 2) Backfill: `UPDATE tbl SET col = 'fallback' WHERE col IS NULL;` 3) Enforce: `ALTER TABLE tbl MODIFY col type NOT NULL;`.",
     explanation: "Guarantees zero migration downtime and 100% success rate.",
-    hint: "Audit -> Backfill -> Enforce pattern.",
+    hint: "Audit → Backfill → Enforce pattern.",
     level: "moderate"
   },
   {

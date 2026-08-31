@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. SERIALIZATION ESSENTIALS:
-   - Converts in-memory heap object &rarr; binary byte stream.
+   - Converts in-memory heap object → binary byte stream.
    - Stream magic header: '0xAC 0xED' (STREAM_MAGIC).
    - Used for disk persistence, HTTP/RMI transport, and deep cloning.
    - Class must implement 'java.io.Serializable'.

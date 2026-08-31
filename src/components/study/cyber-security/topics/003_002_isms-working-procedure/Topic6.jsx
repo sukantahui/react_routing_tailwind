@@ -203,7 +203,7 @@ const Topic6 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Course Module 3: Information Security Management • Module 003_002 • Topic 6 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Incident Management Procedures and Escalation Paths
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
@@ -663,7 +663,7 @@ const Topic6 = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-rose-400 font-bold">•</span>
-                  <span><strong>Concealing Data Breaches:</strong> Violates DPDP Act Section 8(6) &rarr; ₹250 Cr statutory fines.</span>
+                  <span><strong>Concealing Data Breaches:</strong> Violates DPDP Act Section 8(6) → ₹250 Cr statutory fines.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-rose-400 font-bold">•</span>

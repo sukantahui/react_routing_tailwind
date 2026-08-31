@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "Finding even one matching element disproves the assertion that 'none match'.",
     "hint": "Short-circuits on the first true evaluation.",
     "level": "Beginner",
-    "codeExample": "List.of(1, 3, 4, 7).stream().noneMatch(n -> n % 2 == 0); // Stops at 4 and returns false"
+    "codeExample": "List.of(1, 3, 4, 7).stream().noneMatch(n → n % 2 == 0); // Stops at 4 and returns false"
   },
   {
     "question": "How does noneMatch(p) relate to allMatch() and anyMatch() in boolean logic?",
@@ -13,7 +13,7 @@ const topic10_questions = [
     "explanation": "This follows De Morgan's laws applied to stream quantifiers.",
     "hint": "noneMatch(p) === !anyMatch(p) === allMatch(!p).",
     "level": "Intermediate",
-    "codeExample": "stream.noneMatch(x -> x < 0) === !stream.anyMatch(x -> x < 0)"
+    "codeExample": "stream.noneMatch(x → x < 0) === !stream.anyMatch(x → x < 0)"
   }
 ];
 

@@ -21,7 +21,7 @@ export default function Topic5() {
             Escaping Architecture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Java Escaping Requirement: Why Double Backslashes (<code className="text-amber-400 font-mono">\d</code>, <code className="text-amber-400 font-mono">\.</code>) Are Mandatory
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

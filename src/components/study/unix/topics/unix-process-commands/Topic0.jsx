@@ -55,7 +55,7 @@ const Topic0 = () => {
         {/* --- SECTION 1: Title & Introduction (Reveal animation) --- */}
         <div className="animate-fade-slide-up">
           <div className="border-l-4 border-blue-500 pl-4 mb-6">
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
               Introduction to Process Management
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">

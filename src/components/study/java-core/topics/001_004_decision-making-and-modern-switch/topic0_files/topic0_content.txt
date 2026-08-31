@@ -29,7 +29,7 @@ A. The `if` and `if-else` family:
 B. The traditional `switch` statement:
    Matches discrete integral, string, or enum constants, governed by manual `break` control and fall-through behavior.
 C. Modern Java 14+ Switch Expressions:
-   Functional, value-producing expressions using arrow syntax (`case X -> Y`), multiple labels, and the `yield` keyword, eliminating accidental fall-through bugs.
+   Functional, value-producing expressions using arrow syntax (`case X → Y`), multiple labels, and the `yield` keyword, eliminating accidental fall-through bugs.
 
 4. CLEAN CODE ARCHITECTURE: GUARD CLAUSES VS DEEP NESTING
 In enterprise software engineering, deeply nested `if-else` blocks (the "Arrow Anti-Pattern" or "Pyramid of Doom") drastically elevate Cyclomatic Complexity, rendering code difficult to unit-test.

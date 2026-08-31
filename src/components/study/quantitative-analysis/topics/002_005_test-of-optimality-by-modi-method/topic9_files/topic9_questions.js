@@ -8,13 +8,13 @@ const questions = [
     explanation: "Linear programming simplex algorithms visit adjacent vertices along extreme rays until the global minimizer is reached.",
     hint: "Each pivot moves one vertex along the polytope.",
     level: "moderate",
-    codeExample: "Iteration Sequence: Vertex_0 -> Vertex_1 -> Vertex_2 -> ... -> Vertex_Optimal."
+    codeExample: "Iteration Sequence: Vertex_0 → Vertex_1 → Vertex_2 → ... → Vertex_Optimal."
   },
   {
     question: "In the 3x3 Foundry Problem, what is the sequence of total transportation costs across successive MODI iterations starting from NWCR?",
     shortAnswer: "Iteration 0 (NWCR): Z = ₹2,740 ➔ Iteration 1: Z = ₹2,260 ➔ Iteration 2 (Optimal): Z = ₹2,060.",
     explanation: "Cost decreases by ₹480 in iteration 1 and by ₹200 in iteration 2, achieving the minimum of ₹2,060.",
-    hint: "₹2,740 -> ₹2,260 -> ₹2,060.",
+    hint: "₹2,740 → ₹2,260 → ₹2,060.",
     level: "moderate",
     codeExample: "Z_history = [2740, 2260, 2060]; Total Savings = ₹680."
   },
@@ -64,7 +64,7 @@ const questions = [
     explanation: "Monotonic descent is a mathematical hallmark of valid simplex optimization.",
     hint: "Strictly decreasing cost sequence.",
     level: "moderate",
-    codeExample: "Z_0 (4500) > Z_1 (4100) > Z_2 (3950) -> Monotonic."
+    codeExample: "Z_0 (4500) > Z_1 (4100) > Z_2 (3950) → Monotonic."
   },
   {
     question: "Can an iteration have θ = 0 in the presence of degeneracy?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "This structured progression demonstrates complete mastery of the optimization pipeline.",
     hint: "Document each tableau, loop pivot, and potential audit in sequence.",
     level: "intermediate",
-    codeExample: "Workflow: T_0 -> Loop_1 -> T_1 -> Loop_2 -> T_2 -> Final Audit."
+    codeExample: "Workflow: T_0 → Loop_1 → T_1 → Loop_2 → T_2 → Final Audit."
   },
   {
     question: "Suppose Mahima in Barrackpore has 2 candidate entering cells with d_A = -₹6 and d_B = -₹2 on Iteration 1. Why does picking Cell A instead of Cell B usually reduce the TOTAL number of subsequent iterations?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Pivoting that single candidate may satisfy all d_ij >= 0 on the next pass.",
     hint: "At least 1 more iteration; may achieve optimality immediately.",
     level: "moderate",
-    codeExample: "1 negative evaluation -> Execute 1 pivot -> Check if optimal."
+    codeExample: "1 negative evaluation → Execute 1 pivot → Check if optimal."
   },
   {
     question: "Why should an operations manager never stop after Iteration 1 just because 'the cost already dropped significantly'?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Sequential pivots systematically activated the cheapest regional lanes.",
     hint: "Iter 1: Cell (2, 1); Iter 2: Cell (3, 2).",
     level: "moderate",
-    codeExample: "Pivots: Iter 1 -> Enter (2,1); Iter 2 -> Enter (3,2)."
+    codeExample: "Pivots: Iter 1 → Enter (2,1); Iter 2 → Enter (3,2)."
   },
   {
     question: "How does tracing the iteration trajectory help logistics auditors verify software algorithms?",
@@ -230,7 +230,7 @@ const questions = [
     question: "What is the ultimate golden rule for repeated MODI iterations?",
     shortAnswer: "'Evaluate tableau (d_ij); if any d < 0, pivot closed loop to get Tableau_{k+1}; recompute potentials and re-evaluate; repeat until all d >= 0, then certify the global minimum!'",
     explanation: "This complete rule captures the entire algorithmic loop of the MODI method.",
-    hint: "Evaluate -> Pivot -> Update -> Recompute -> Repeat until all d >= 0.",
+    hint: "Evaluate → Pivot → Update → Recompute → Repeat until all d >= 0.",
     level: "moderate",
     codeExample: "Golden Rule: while(any(d < 0)) { Pivot(); Recompute(); } return CertifiedOptimal;"
   }

@@ -212,7 +212,7 @@ const questions = [
   {
     question: "How do you draw a multi-layered neon glowing line effect?",
     shortAnswer: "Draw a thick semi-transparent outer line, then overlay thinner brighter lines on top.",
-    explanation: "Layering pensize(12) deep blue -> pensize(6) light blue -> pensize(2) white creates a neon glow illusion.",
+    explanation: "Layering pensize(12) deep blue → pensize(6) light blue → pensize(2) white creates a neon glow illusion.",
     hint: "How do glow shaders work in 2D graphic design?",
     level: "advanced",
     codeExample: "# Layered stroke technique"

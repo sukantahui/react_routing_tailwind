@@ -61,7 +61,7 @@ const Topic0 = () => {
                     <div className="inline-block px-4 py-1 mb-4 text-sm font-semibold text-teal-700 dark:text-teal-300 bg-teal-100 dark:bg-teal-900/30 rounded-full">
                         Topic 0
                     </div>
-                    <h1 className="text-4xl font-bold leading-tight mb-4 bg-gradient-to-r from-teal-600 to-cyan-600 dark:from-teal-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-4 bg-gradient-to-r from-teal-600 to-cyan-600 dark:from-teal-400 dark:to-cyan-400 bg-clip-text text-transparent">
                         Introduction to Transportation Problems
                     </h1>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">

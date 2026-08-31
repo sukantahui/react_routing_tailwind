@@ -14,9 +14,9 @@ applying optimality tests such as the MODI (Modified Distribution) Method or
 the Stepping-Stone Method.
 
 Three classical algorithms exist for constructing an IBFS:
-1. North-West Corner Rule (NWCR) -> Purely positional, cost-blind.
-2. Matrix Minima (Least Cost Method) -> Purely greedy, locally optimal.
-3. Vogel's Approximation Method (VAM) -> Penalty-based, regret-minimizing heuristic.
+1. North-West Corner Rule (NWCR) → Purely positional, cost-blind.
+2. Matrix Minima (Least Cost Method) → Purely greedy, locally optimal.
+3. Vogel's Approximation Method (VAM) → Penalty-based, regret-minimizing heuristic.
 
 Vogel's Approximation Method (VAM) is mathematically recognized as the most
 robust, efficient, and reliable method among all initial solution heuristics.
@@ -173,11 +173,11 @@ Cost Matrix (₹/ton):
 Demand 50   50    40     140
 
 Penalty Calculation:
-- Row 1 (S1): Lowest = 12, 2nd lowest = 14 -> Penalty P(S1) = 14 - 12 = ₹2
-- Row 2 (S2): Lowest = 6, 2nd lowest = 10 -> Penalty P(S2) = 10 - 6 = ₹4
-- Col 1 (D1): Lowest = 6, 2nd lowest = 12 -> Penalty P(D1) = 12 - 6 = ₹6
-- Col 2 (D2): Lowest = 18, 2nd lowest = 26 -> Penalty P(D2) = 26 - 18 = ₹8
-- Col 3 (D3): Lowest = 10, 2nd lowest = 14 -> Penalty P(D3) = 14 - 10 = ₹4
+- Row 1 (S1): Lowest = 12, 2nd lowest = 14 → Penalty P(S1) = 14 - 12 = ₹2
+- Row 2 (S2): Lowest = 6, 2nd lowest = 10 → Penalty P(S2) = 10 - 6 = ₹4
+- Col 1 (D1): Lowest = 6, 2nd lowest = 12 → Penalty P(D1) = 12 - 6 = ₹6
+- Col 2 (D2): Lowest = 18, 2nd lowest = 26 → Penalty P(D2) = 26 - 18 = ₹8
+- Col 3 (D3): Lowest = 10, 2nd lowest = 14 → Penalty P(D3) = 14 - 10 = ₹4
 
 Observation:
 Max Penalty is ₹8 at Column 2 (Jadavpur Depot).
@@ -203,11 +203,11 @@ Cost Matrix (₹/box):
 Demand 80   70    70     220
 
 Penalties:
-- Row 1 (S1): [5, 8, 15] -> P(S1) = 8 - 5 = ₹3
-- Row 2 (S2): [4, 18, 22] -> P(S2) = 18 - 4 = ₹14
-- Col 1 (D1): [4, 5] -> P(D1) = 5 - 4 = ₹1
-- Col 2 (D2): [15, 22] -> P(D2) = 22 - 15 = ₹7
-- Col 3 (D3): [8, 18] -> P(D3) = 18 - 8 = ₹10
+- Row 1 (S1): [5, 8, 15] → P(S1) = 8 - 5 = ₹3
+- Row 2 (S2): [4, 18, 22] → P(S2) = 18 - 4 = ₹14
+- Col 1 (D1): [4, 5] → P(D1) = 5 - 4 = ₹1
+- Col 2 (D2): [15, 22] → P(D2) = 22 - 15 = ₹7
+- Col 3 (D3): [8, 18] → P(D3) = 18 - 8 = ₹10
 
 Maximum Penalty:
 P(S2) = ₹14 (Row 2, Barrackpore Bio-Depot).
@@ -235,12 +235,12 @@ Cost Matrix (₹/pallet):
 Demand 45   35    40     120
 
 Initial Penalties:
-- Row 1: [3, 7, 9] -> P = 7 - 3 = ₹4
-- Row 2: [4, 6, 8] -> P = 6 - 4 = ₹2
-- Row 3: [2, 5, 6] -> P = 5 - 2 = ₹3
-- Col 1: [3, 5, 6] -> P = 5 - 3 = ₹2
-- Col 2: [4, 6, 7] -> P = 6 - 4 = ₹2
-- Col 3: [2, 8, 9] -> P = 8 - 2 = ₹6 (MAX PENALTY!)
+- Row 1: [3, 7, 9] → P = 7 - 3 = ₹4
+- Row 2: [4, 6, 8] → P = 6 - 4 = ₹2
+- Row 3: [2, 5, 6] → P = 5 - 2 = ₹3
+- Col 1: [3, 5, 6] → P = 5 - 3 = ₹2
+- Col 2: [4, 6, 7] → P = 6 - 4 = ₹2
+- Col 3: [2, 8, 9] → P = 8 - 2 = ₹6 (MAX PENALTY!)
 
 Maximum Penalty is in Column 3 (Gariahat Retail) with P = ₹6.
 Lowest cost in Col 3 is Cell (S3, D3) at ₹2.

@@ -33,7 +33,7 @@ mysqldumpslow -s t -t 10 /var/log/mysql/slow_query.log
 SELECT price, stock FROM kolkata_retail.products WHERE barcode = 'S';
 
 # Analysis:
-# - Query ran 8,000 times at 0.60s avg -> 4,800s total CPU time consumed!
+# - Query ran 8,000 times at 0.60s avg → 4,800s total CPU time consumed!
 # - Optimizing this saves 80 minutes of server load daily! ⚡`,
       explanation:
         "Sorting by total cumulative execution time (-s t) identifies high-frequency queries that drain the greatest total CPU and I/O capacity over time, delivering the largest compound server performance gains.",
@@ -88,7 +88,7 @@ zcat /var/log/mysql/slow_query.log.1.gz | mysqldumpslow -s t -t 10 -`,
     },
     phase4_explain_analyze_workflow: {
       phaseNumber: "Phase 4: Full Tuning Workflow",
-      title: "4. End-to-End Tuning: mysqldumpslow &rarr; EXPLAIN ANALYZE",
+      title: "4. End-to-End Tuning: mysqldumpslow → EXPLAIN ANALYZE",
       badge: "Optimization Runbook",
       badgeColor: "rose",
       sqlSnippet: `# 🛠️ END-TO-END QUERY OPTIMIZATION RUNBOOK:
@@ -130,7 +130,7 @@ CREATE INDEX idx_status_total_date ON kolkata_retail.orders(status, total_amount
             Topic 5 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Analyzing Slow Queries using <span className="text-emerald-400">mysqldumpslow</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

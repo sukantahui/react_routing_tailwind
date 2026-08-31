@@ -150,7 +150,7 @@ const questions = [
   },
   {
     question: "How should an application handle external payment gateways without holding database locks during network calls?",
-    shortAnswer: "1. Stage intent -> 2. Commit -> 3. Make HTTP call outside transaction -> 4. Open new transaction to record result using `FOR UPDATE` or optimistic versioning.",
+    shortAnswer: "1. Stage intent → 2. Commit → 3. Make HTTP call outside transaction → 4. Open new transaction to record result using `FOR UPDATE` or optimistic versioning.",
     explanation: "Decoupled transaction pattern for external API calls.",
     hint: "Make external API calls outside database transaction boundaries.",
     level: "expert"

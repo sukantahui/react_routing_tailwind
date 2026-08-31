@@ -36,7 +36,7 @@ const questions = [
   {
     question: "How do Threat Actors use Hidden Inbox Forwarding & Delete Rules to maintain Persistence in Compromised Mailboxes (EAC)?",
     shortAnswer: "Attackers create automated inbox rules that silently forward incoming financial emails to an external attacker address and automatically delete or move replies to the 'RSS Feeds' or 'Deleted Items' folder.",
-    explanation: "Once an attacker gains access to an Exchange Online mailbox in Kolkata, they configure a stealthy transport rule: `if Subject contains ('invoice' or 'wire' or 'payment') -> Forward to badactor@gmail.com AND DeleteMessage()`. When accounting replies to a payment inquiry, the legitimate user never sees the email in their Inbox, allowing the attacker to converse with the finance team unnoticed for weeks.",
+    explanation: "Once an attacker gains access to an Exchange Online mailbox in Kolkata, they configure a stealthy transport rule: `if Subject contains ('invoice' or 'wire' or 'payment') → Forward to badactor@gmail.com AND DeleteMessage()`. When accounting replies to a payment inquiry, the legitimate user never sees the email in their Inbox, allowing the attacker to converse with the finance team unnoticed for weeks.",
     hint: "Setting up a trap door under the mailbox that catches all bank letters and drops them into a secret tunnel before the homeowner opens the door.",
     level: "expert",
     codeExample: `# PowerShell Script to Detect Malicious Exchange Inbox Rules:
@@ -244,7 +244,7 @@ Subject: Updated Q3 Gateway Hardware Invoice with New Axis Bank Remittance Accou
   {
     question: "How do Exchange Online Mailbox Transport Rules block Inbound External Emails with Executive Display Names?",
     shortAnswer: "By creating mail flow rules that inspect inbound external emails and quarantine messages where the Header From display name matches internal C-suite names.",
-    explanation: "Microsoft Exchange transport rules scan message headers at the perimeter. A rule is configured: `if (Sender is External) AND (Header 'From' contains 'Mamata' or 'Managing Director') -> QuarantineMessage() AND NotifySOC()`. This ensures that even if an attacker creates a Gmail account named 'Mamata - Lead Architect', the email is blocked before reaching employees' inboxes.",
+    explanation: "Microsoft Exchange transport rules scan message headers at the perimeter. A rule is configured: `if (Sender is External) AND (Header 'From' contains 'Mamata' or 'Managing Director') → QuarantineMessage() AND NotifySOC()`. This ensures that even if an attacker creates a Gmail account named 'Mamata - Lead Architect', the email is blocked before reaching employees' inboxes.",
     hint: "A mailroom policy that automatically discards any incoming letter from outside the company that claims to be from the company president.",
     level: "moderate",
     codeExample: `# PowerShell Script to Create Executive Display Name Transport Rule:
@@ -308,7 +308,7 @@ New-TransportRule -Name "Block_External_Executive_Display_Spoofing" \`
     question: "Synthesize the mathematical relationship between BEC Wire Transfer Value (A_amount), Executive Authority Factor (T_authority), Dual-Authorization Verification Strength (R_dual_auth), and BEC Wire Fraud Success Probability (P_bec).",
     shortAnswer: "BEC wire fraud success probability is modeled as P_bec = 1 - e^(- (A_amount * T_authority) / R_dual_auth); high authority drives P_bec to 1.0, but enforcing Out-of-Band Dual-Authorization (R_dual_auth = 1000) drives fraud probability to zero.",
     explanation: "Let $A_{\\text{amount}} \\ge 1.0$ represent the normalized financial transfer amount, $T_{\\text{authority}} \\ge 1.0$ represent the perceived authority multiplier (CEO / Board = 4.0), and $R_{\\text{dual\\_auth}}$ represent the dual-authorization verification strength (Out-of-Band voice calls on registered phone rosters, multi-party signoff). The BEC fraud success probability is: $P_{\\text{bec}} = 1 - e^{-\\frac{A_{\\text{amount}} \\times T_{\\text{authority}}}{R_{\\text{dual\\_auth}}}}$. When organizations enforce strict Out-of-Band Dual-Authorization ($R_{\\text{dual\\_auth}} \\to \\infty$), wire fraud success probability collapses to zero regardless of transfer amount or executive authority.",
-    hint: "Mathematical formula proving that strict Out-of-Band Dual-Authorization (R_dual_auth -> infinity) drives BEC wire fraud probability to zero.",
+    hint: "Mathematical formula proving that strict Out-of-Band Dual-Authorization (R_dual_auth → infinity) drives BEC wire fraud probability to zero.",
     level: "expert",
     codeExample: `// BEC Wire Fraud Mathematical Proof:
 // A_amount = 4.0 (₹4.1 Crore Transfer) | T_authority = 4.0 (CEO Authority Impersonation)

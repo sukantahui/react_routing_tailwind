@@ -5,7 +5,7 @@ const topic16_questions = [
     "explanation": "Collector.of provides a fluent functional way to build custom collectors.",
     "hint": "Use Collector.of() static factory method.",
     "level": "Intermediate",
-    "codeExample": "Collector<T, List<T>, List<T>> c = Collector.of(ArrayList::new, List::add, (a, b) -> { a.addAll(b); return a; });"
+    "codeExample": "Collector<T, List<T>, List<T>> c = Collector.of(ArrayList::new, List::add, (a, b) → { a.addAll(b); return a; });"
   },
   {
     "question": "Why must the combiner function return one of the modified lists rather than void?",
@@ -13,7 +13,7 @@ const topic16_questions = [
     "explanation": "BinaryOperator<A> requires returning type A.",
     "hint": "Combiner is a BinaryOperator<A> which must return the merged container.",
     "level": "Advanced",
-    "codeExample": "(l1, l2) -> { l1.addAll(l2); return l1; }"
+    "codeExample": "(l1, l2) → { l1.addAll(l2); return l1; }"
   }
 ];
 

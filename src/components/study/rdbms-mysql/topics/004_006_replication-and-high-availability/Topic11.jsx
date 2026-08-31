@@ -26,9 +26,9 @@ const Topic11 = () => {
       badge: "Consensus Quorum",
       badgeColor: "emerald",
       sqlSnippet: `-- 🧮 QUORUM & FAULT TOLERANCE FORMULA: N = 2F + 1
--- 3 Nodes -> Tolerate F = 1 Failure (Majority Quorum = 2)
--- 5 Nodes -> Tolerate F = 2 Failures (Majority Quorum = 3)
--- 7 Nodes -> Tolerate F = 3 Failures (Majority Quorum = 4)
+-- 3 Nodes → Tolerate F = 1 Failure (Majority Quorum = 2)
+-- 5 Nodes → Tolerate F = 2 Failures (Majority Quorum = 3)
+-- 7 Nodes → Tolerate F = 3 Failures (Majority Quorum = 4)
 
 -- ⚙️ PORT 33061 (Paxos Group Communication System / GCS):
 [mysqld]
@@ -52,8 +52,8 @@ group_replication_group_seeds = "192.168.1.10:33061,192.168.1.20:33061,192.168.1
 -- 2. At COMMIT, Node A extracts row hashes (XXHASH64 write sets).
 -- 3. Paxos Total Order Broadcast delivers write sets to all nodes in identical sequence.
 -- 4. Certification Check: Every node checks for conflicting in-flight rows:
---    -> No Conflict: Certified! Commits locally on all nodes.
---    -> Conflict: First-Committer-Wins! Later transaction aborts & rolls back.`,
+--    → No Conflict: Certified! Commits locally on all nodes.
+--    → Conflict: First-Committer-Wins! Later transaction aborts & rolls back.`,
       explanation:
         "All nodes receive transaction write sets in the exact same deterministic sequence. Because every node executes the identical certification algorithm, all members reach independent but 100% unanimous commit/rollback decisions.",
       keyTakeaways: [
@@ -127,7 +127,7 @@ FROM performance_schema.replication_group_member_stats;`,
             Topic 11 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           MySQL <span className="text-emerald-400">Group Replication</span>: Paxos Consensus &amp; <span className="text-cyan-400">High Availability</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

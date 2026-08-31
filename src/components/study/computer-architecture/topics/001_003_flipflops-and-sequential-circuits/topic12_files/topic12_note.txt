@@ -13,7 +13,7 @@ A. Characteristic Table (Analysis Tool):
    - Output Column: Next State Q(t+1)
 
 B. Excitation Table (Design & Synthesis Tool):
-   - Definition: Answers "To cause a transition from Q(t) -> Q(t+1), what Inputs are required?"
+   - Definition: Answers "To cause a transition from Q(t) → Q(t+1), what Inputs are required?"
    - Purpose: Used by design engineers to synthesize counters, registers, and FSMs.
    - Input Columns: Present State Q(t) + Next State Q(t+1)
    - Output Columns: Required Flip-Flop Inputs (S, R / J, K / D / T)
@@ -21,12 +21,12 @@ B. Excitation Table (Design & Synthesis Tool):
 2. MASTER EXCITATION TABLES FOR ALL 4 FLIP-FLOPS
 --------------------------------------------------------------------------------
   Transition   |  SR Flip-Flop  |  JK Flip-Flop  |  D Flip-Flop  |  T Flip-Flop
-  Q(t) -> Q(t+1) |   S      R     |   J      K     |       D       |       T
+  Q(t) → Q(t+1) |   S      R     |   J      K     |       D       |       T
   ---------------+----------------+----------------+---------------+---------------
-    0  ->   0    |   0      X     |   0      X     |       0       |       0
-    0  ->   1    |   1      0     |   1      X     |       1       |       1
-    1  ->   0    |   0      1     |   X      1     |       0       |       1
-    1  ->   1    |   X      0     |   X      0     |       1       |       0
+    0  →   0    |   0      X     |   0      X     |       0       |       0
+    0  →   1    |   1      0     |   1      X     |       1       |       1
+    1  →   0    |   0      1     |   X      1     |       0       |       1
+    1  →   1    |   X      0     |   X      0     |       1       |       0
 
 3. EXAM MNEMONICS & SHORTCUT TRICKS
 --------------------------------------------------------------------------------
@@ -37,9 +37,9 @@ B. D Flip-Flop Trick:
    - D is always identical to the Next State: D = Q(t+1).
 C. T Flip-Flop Trick:
    - T is the XOR of Present State and Next State: T = Q(t) ^ Q(t+1).
-     (If state stays same -> T=0; if state toggles -> T=1).
+     (If state stays same → T=0; if state toggles → T=1).
 D. SR Flip-Flop Trick:
-   - To make Q=0 -> S=0, R=X; to make Q=1 -> S=X, R=0.
+   - To make Q=0 → S=0, R=X; to make Q=1 → S=X, R=0.
 
 4. STEP-BY-STEP FLIP-FLOP CONVERSION METHODOLOGY
 --------------------------------------------------------------------------------

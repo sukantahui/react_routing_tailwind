@@ -193,7 +193,7 @@ DELIMITER ;
               Architectural Analysis
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Stored Procedures vs Stored Functions
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -364,14 +364,14 @@ DELIMITER ;
                     <text x="180" y="92" fill="#c7d2fe" fontSize="8 font-mono" textAnchor="middle">or Multi-Table DML?</text>
                   </g>
 
-                  {/* Yes -> Procedure */}
+                  {/* Yes → Procedure */}
                   <g>
                     <rect x="360" y="30" width="200" height="45" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="460" y="52" fill="#34d399" fontSize="9 font-bold" textAnchor="middle">YES → USE PROCEDURE ✅</text>
                     <text x="460" y="65" fill="#a7f3d0" fontSize="7 font-mono" textAnchor="middle">CALL sp_name(IN, OUT)</text>
                   </g>
 
-                  {/* No -> Function */}
+                  {/* No → Function */}
                   <g>
                     <rect x="360" y="95" width="200" height="45" rx="6" fill="#1e1b4b" stroke="#818cf8" strokeWidth="1.5" />
                     <text x="460" y="117" fill="#c7d2fe" fontSize="9 font-bold" textAnchor="middle">NO → USE FUNCTION ✅</text>

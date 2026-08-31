@@ -24,7 +24,7 @@ DATABASE BENCHMARK SCHEMA:
 EXERCISE 1: High-Value Student Roster with GST Calculation
 -- Question: Find names of Barrackpore students with admission fee > ₹4000 and calculate 18% GST.
 -- Relational Algebra:
-   $$\pi_{\text{full\_name, admission\_fee}, \text{admission\_fee} \times 1.18 \rightarrow \text{fee\_with\_gst}}(\sigma_{\text{city='Barrackpore'} \land \text{admission\_fee} > 4000}(\text{Students}))$$
+   $$\pi_{\text{full\_name, admission\_fee}, \text{admission\_fee} \times 1.18 → \text{fee\_with\_gst}}(\sigma_{\text{city='Barrackpore'} \land \text{admission\_fee} > 4000}(\text{Students}))$$
 -- SQL:
    SELECT full_name, admission_fee, ROUND(admission_fee * 1.18, 2) AS fee_with_gst
    FROM students
@@ -53,7 +53,7 @@ EXERCISE 3: Relational Division for Universal Core Completers
 EXERCISE 4: City-Wise Revenue Breakdown with HAVING Filter
 -- Question: Find cities with at least 2 enrolled students and average fee >= ₹4500.
 -- Relational Algebra:
-   $$\sigma_{\text{cnt} \ge 2 \land \text{avg} \ge 4500}({}_{\text{city}} \mathcal{G}_{\text{COUNT}(*) \rightarrow \text{cnt}, \text{AVG(fee)} \rightarrow \text{avg}}(\text{Students}))$$
+   $$\sigma_{\text{cnt} \ge 2 \land \text{avg} \ge 4500}({}_{\text{city}} \mathcal{G}_{\text{COUNT}(*) → \text{cnt}, \text{AVG(fee)} → \text{avg}}(\text{Students}))$$
 -- SQL:
    SELECT city, COUNT(*) AS student_count, AVG(admission_fee) AS avg_fee
    FROM students

@@ -127,7 +127,7 @@ const questions = [
     level: "Moderate",
     codeExample: `// Contextual Enrichment Filter:
 // IF Alert.TargetOS == "Linux" AND Exploit.TargetPlatform == "Windows_IIS":
-//     Severity = "INFORMATIONAL" (Non-Applicable Target -> No Alert Escalation)`
+//     Severity = "INFORMATIONAL" (Non-Applicable Target → No Alert Escalation)`
   },
   {
     id: 13,
@@ -231,8 +231,8 @@ const questions = [
     hint: "Locking down internal network segments so that any unexpected connection is definitely an attack.",
     level: "Moderate",
     codeExample: `// Microsegmentation Zero-Trust Rule:
-// ALLOW: AppServer(10.10.1.10) -> DB(10.10.2.10:5432)
-// ANY OTHER TRAFFIC -> 100% TRUE POSITIVE INTRUSION ALERT!`
+// ALLOW: AppServer(10.10.1.10) → DB(10.10.2.10:5432)
+// ANY OTHER TRAFFIC → 100% TRUE POSITIVE INTRUSION ALERT!`
   },
   {
     id: 23,
@@ -253,8 +253,8 @@ const questions = [
     hint: "Cutting off packets too short so the sensor misses the virus hidden deeper in the message body.",
     level: "Moderate",
     codeExample: `// Snaplen Configuration:
-// Insecure: snaplen = 500 (Truncates large payloads -> False Negatives!)
-// Secure  : snaplen = 65535 (Full Packet Capture -> 100% Payload Inspection)`
+// Insecure: snaplen = 500 (Truncates large payloads → False Negatives!)
+// Secure  : snaplen = 65535 (Full Packet Capture → 100% Payload Inspection)`
   },
   {
     id: 25,

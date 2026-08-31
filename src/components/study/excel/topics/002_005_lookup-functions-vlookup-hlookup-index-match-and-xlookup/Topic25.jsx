@@ -174,7 +174,7 @@ export default function Topic25() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Dynamic Range Construction with OFFSET &amp; Coordinate Geometry
           </h1>
 
@@ -588,7 +588,7 @@ export default function Topic25() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Ex4_Rolling_Moving_Average"
+            sheetName="EX1026"
             title="Dedicated OFFSET Dynamic Ranges Master Workbook"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -660,7 +660,7 @@ export default function Topic25() {
               <div className="space-y-2">
                 <span className="text-xs font-bold text-sky-300 uppercase tracking-wider">Production Formula &amp; Parameter Breakdown:</span>
                 <div className="p-3.5 rounded-xl bg-slate-900 font-mono text-xs sm:text-sm text-sky-300 border border-slate-800 overflow-x-auto shadow-inner">
-                  =IF(ROW()-ROW($C$2) &lt; 29, "Building Baseline...", AVERAGE(OFFSET(C32, 0, 0, -30, 1)))
+                  =IF(ROW()-ROW($C$2) < 29, "Building Baseline...", AVERAGE(OFFSET(C32, 0, 0, -30, 1)))
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 pt-1 text-xs">
                   <div className="p-2 rounded-lg bg-slate-900/40 border border-slate-800">
@@ -808,7 +808,7 @@ export default function Topic25() {
               <div className="space-y-2">
                 <span className="text-xs font-bold text-sky-300 uppercase tracking-wider">Production Formula &amp; Parameter Breakdown:</span>
                 <div className="p-3.5 rounded-xl bg-slate-900 font-mono text-xs sm:text-sm text-sky-300 border border-slate-800 overflow-x-auto shadow-inner">
-                  =IF(B50 &gt; (AVERAGE(OFFSET(B50, 0, 0, -5, 1)) + 2 * STDEV.S(OFFSET(B50, 0, 0, -5, 1))), "⚠️ THERMAL ANOMALY", "NORMAL")
+                  =IF(B50 > (AVERAGE(OFFSET(B50, 0, 0, -5, 1)) + 2 * STDEV.S(OFFSET(B50, 0, 0, -5, 1))), "⚠️ THERMAL ANOMALY", "NORMAL")
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 pt-1 text-xs">
                   <div className="p-2 rounded-lg bg-slate-900/40 border border-slate-800">
@@ -970,7 +970,7 @@ export default function Topic25() {
                 Step 4: Audit Volatility &amp; Performance
               </div>
               <p className="text-slate-300 leading-relaxed">
-                For massive models with &gt;50,000 rows, consider switching to non-volatile <code className="text-cyan-300 font-mono font-bold">INDEX:INDEX</code> syntax.
+                For massive models with >50,000 rows, consider switching to non-volatile <code className="text-cyan-300 font-mono font-bold">INDEX:INDEX</code> syntax.
               </p>
             </div>
           </div>
@@ -1011,7 +1011,7 @@ export default function Topic25() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">#VALUE! Error</td>
                   <td className="py-3 px-4">Height or width parameter passed as zero (0) or non-numeric text.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Ensure height &gt;= 1 (or &lt;= -1) and width &gt;= 1.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Ensure height >= 1 (or <= -1) and width >= 1.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">Severe Workbook Lag</td>

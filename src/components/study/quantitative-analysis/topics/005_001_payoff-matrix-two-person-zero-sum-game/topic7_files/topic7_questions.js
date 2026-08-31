@@ -102,7 +102,7 @@ const questions = [
     question: "What are the 4 steps to formulate a Game Matrix from a word problem?",
     shortAnswer: "1. Identify the competing players (A and B); 2. Define exhaustive strategy sets; 3. Compute net financial payoffs in Indian Rupees (₹) from Player A's perspective; 4. Assemble the m x n matrix and compute Row Minima and Column Maxima.",
     explanation: "The complete 4-step formulation pipeline.",
-    hint: "Players -> Strategies -> Net Payoffs in ₹ -> Assemble m x n Matrix.",
+    hint: "Players → Strategies → Net Payoffs in ₹ → Assemble m x n Matrix.",
     level: "moderate",
     codeExample: "FormulatePipeline: ['Players', 'Strategies', 'NetPayoffs', 'AssembleMatrix'];"
   },
@@ -118,9 +118,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Payoff Matrix & Two-Person Zero-Sum Game Module?",
     shortAnswer: "'Formulate 2-person zero-sum games in 4 steps; Player A maximizes (Maximin) and Player B minimizes (Minimax); Maximin <= Minimax strictly; if equal, a pure saddle point exists; if not, apply the Minimax Theorem with mixed strategies in Indian Rupees (₹)!'",
     explanation: "This master synthesis captures all foundational principles of Module 005_001.",
-    hint: "Formulate in 4 steps -> Row maximizes, Col minimizes -> Maximin <= Minimax -> Saddle point or Minimax theorem in ₹.",
+    hint: "Formulate in 4 steps → Row maximizes, Col minimizes → Maximin <= Minimax → Saddle point or Minimax theorem in ₹.",
     level: "moderate",
-    codeExample: "MasterGoldenRule: FormulateGame() -> ComputeMaximinMinimax() -> ApplyMinimaxTheorem(v*, ₹)."
+    codeExample: "MasterGoldenRule: FormulateGame() → ComputeMaximinMinimax() → ApplyMinimaxTheorem(v*, ₹)."
   }
 ];
 

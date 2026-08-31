@@ -34,7 +34,7 @@ const questions = [
     explanation: "The standard auto-generated architecture for multi-file folder pipelines.",
     hint: "Sample File, Parameter1, Transform Sample File, Transform File (fx).",
     level: "moderate",
-    codeExample: "Helper Queries Folder: Sample File &rarr; fx_TransformFile"
+    codeExample: "Helper Queries Folder: Sample File → fx_TransformFile"
   },
   {
     question: "How do you parse Excel workbooks stored in the `[Content]` binary column in M?",
@@ -94,15 +94,15 @@ const questions = [
   },
   {
     question: "How do you ingest only the latest file from a folder in M?",
-    shortAnswer: "Sort `[Date modified]` descending (`Order.Descending`) &rarr; Keep first row (`Table.FirstN(Source, 1)`) &rarr; Parse binary content.",
+    shortAnswer: "Sort `[Date modified]` descending (`Order.Descending`) → Keep first row (`Table.FirstN(Source, 1)`) → Parse binary content.",
     explanation: "Standard pattern for latest-snapshot extraction pipelines.",
-    hint: "Sort [Date modified] Descending &rarr; Table.FirstN(1).",
+    hint: "Sort [Date modified] Descending → Table.FirstN(1).",
     level: "moderate",
     codeExample: "Latest = Table.FirstN(Table.Sort(Source, {{\"Date modified\", Order.Descending}}), 1)"
   },
   {
     question: "How do you consolidate multi-tab workbooks where each tab represents a different branch?",
-    shortAnswer: "Parse workbook binaries &rarr; Filter `[Kind] = \"Sheet\"` &rarr; Filter out summary sheets &rarr; Expand `[Data]` &rarr; Retain `[Item]` (Tab Name) as Branch dimension.",
+    shortAnswer: "Parse workbook binaries → Filter `[Kind] = \"Sheet\"` → Filter out summary sheets → Expand `[Data]` → Retain `[Item]` (Tab Name) as Branch dimension.",
     explanation: "Multi-tab multi-file consolidation pattern.",
     hint: "Filter [Kind]=\"Sheet\" and preserve [Item] column as Branch identifier.",
     level: "moderate",
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Early reduction of I/O operations.",
     hint: "Reduces disk I/O; never read/parse files you intend to discard.",
     level: "moderate",
-    codeExample: "Filter by Extension/Date &rarr; THEN Table.AddColumn(..., each Csv.Document(...))"
+    codeExample: "Filter by Extension/Date → THEN Table.AddColumn(..., each Csv.Document(...))"
   },
   {
     question: "How do you handle schema variations where some branch files have extra unexpected columns?",
@@ -134,9 +134,9 @@ const questions = [
   },
   {
     question: "How do you consolidate JSON files from a folder in M?",
-    shortAnswer: "Filter `[Extension] = \".json\"` &rarr; Apply `Json.Document([Content])` &rarr; Convert resulting Records/Lists to Table with `Record.ToTable` or `Table.FromList`.",
+    shortAnswer: "Filter `[Extension] = \".json\"` → Apply `Json.Document([Content])` → Convert resulting Records/Lists to Table with `Record.ToTable` or `Table.FromList`.",
     explanation: "JSON multi-file ingestion pipeline.",
-    hint: "Json.Document([Content]) &rarr; Record.ToTable / Table.FromList.",
+    hint: "Json.Document([Content]) → Record.ToTable / Table.FromList.",
     level: "moderate",
     codeExample: "= Table.AddColumn(Filtered, \"Data\", each Json.Document([Content]))"
   },
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Visual template for auto-generated M function.",
     hint: "Visual template query where you record steps on 1 sample file.",
     level: "basic",
-    codeExample: "Record steps on Transform Sample File &rarr; Auto-replicated to all files"
+    codeExample: "Record steps on Transform Sample File → Auto-replicated to all files"
   },
   {
     question: "How do you modify the data types of columns consolidated from multiple files without breaking when new columns appear?",
@@ -182,17 +182,17 @@ const questions = [
   },
   {
     question: "How do you exclude corrupted files that fail during parsing without crashing the entire consolidation pipeline?",
-    shortAnswer: "Wrap the file parsing call in `try...otherwise`: `Table.AddColumn(Files, \"Data\", each try fx_Extract([Content]) otherwise null)` &rarr; Filter out `null` rows.",
+    shortAnswer: "Wrap the file parsing call in `try...otherwise`: `Table.AddColumn(Files, \"Data\", each try fx_Extract([Content]) otherwise null)` → Filter out `null` rows.",
     explanation: "Error resilience in large enterprise file batches.",
-    hint: "Use try fx([Content]) otherwise null &rarr; Filter out nulls.",
+    hint: "Use try fx([Content]) otherwise null → Filter out nulls.",
     level: "expert",
     codeExample: "= Table.AddColumn(Files, \"Data\", each try fx_Parse([Content]) otherwise null)"
   },
   {
     question: "How do you handle files where table headers start on row 4 instead of row 1?",
-    shortAnswer: "In `Transform Sample File`, use `Table.Skip(Source, 3)` &rarr; `Table.PromoteHeaders(SkippedTable)` before expanding data.",
+    shortAnswer: "In `Transform Sample File`, use `Table.Skip(Source, 3)` → `Table.PromoteHeaders(SkippedTable)` before expanding data.",
     explanation: "Standard header offset correction.",
-    hint: "Table.Skip(3) &rarr; Table.PromoteHeaders.",
+    hint: "Table.Skip(3) → Table.PromoteHeaders.",
     level: "basic",
     codeExample: "Table.PromoteHeaders(Table.Skip(RawTable, 3))"
   },
@@ -234,7 +234,7 @@ const questions = [
     explanation: "Zero-touch automated ETL maintenance.",
     hint: "Click 'Refresh All'; new file is ingested automatically.",
     level: "basic",
-    codeExample: "Zero-Touch Maintenance: Add file &rarr; Click Refresh"
+    codeExample: "Zero-Touch Maintenance: Add file → Click Refresh"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Folder Data Ingestion?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Dynamic folder consolidation is the bedrock of enterprise ETL engineering!",
     hint: "Filter Early + Exclude Lock Files (~$) + Filename Lineage + Dynamic Schema Union = Enterprise Dominance!",
     level: "expert",
-    codeExample: "Rule: Folder.Files(p_Path) &rarr; Filter Extension/~$ &rarr; Extract Lineage &rarr; Dynamic Expand!"
+    codeExample: "Rule: Folder.Files(p_Path) → Filter Extension/~$ → Extract Lineage → Dynamic Expand!"
   }
 ];
 

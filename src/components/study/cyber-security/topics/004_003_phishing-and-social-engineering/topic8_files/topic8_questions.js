@@ -333,7 +333,7 @@ aws s3api put-public-access-block \
     question: "Synthesize the mathematical relationship between Insider Motive Score (M_motive), Access Authorization Level (A_access), Insider Threat Controls Strength (R_ueba_controls), and Insider Breach Probability (P_insider).",
     shortAnswer: "Insider breach probability is modeled as P_insider = 1 - e^(- (M_motive * A_access) / R_ueba_controls); deploying UEBA baselines, JIT access, and two-person rules (R_ueba_controls = 1000) reduces insider breach probability below 1.5%.",
     explanation: "Let $M_{\\text{motive}} \\ge 1.0$ represent the insider motivation/disgruntlement factor (resignation/layoff stressor = 4.0), $A_{\\text{access}} \\ge 1.0$ represent the standing access authorization level (Domain Admin = 4.0), and $R_{\\text{ueba\\_controls}}$ represent the insider threat mitigation strength (UEBA anomaly engines, JIT PAM, two-person rules, automated SCIM offboarding). The insider breach probability is: $P_{\\text{insider}} = 1 - e^{-\\frac{M_{\\text{motive}} \\times A_{\\text{access}}}{R_{\\text{ueba\\_controls}}}}$. When organizations enforce strict UEBA monitoring, JIT access, and two-person rules ($R_{\\text{ueba\\_controls}} \\to \\infty$), insider breach probability collapses to zero.",
-    hint: "Mathematical formula proving that UEBA baselines, JIT access, and two-person rules (R_ueba_controls -> infinity) drive insider breach probability to zero.",
+    hint: "Mathematical formula proving that UEBA baselines, JIT access, and two-person rules (R_ueba_controls → infinity) drive insider breach probability to zero.",
     level: "expert",
     codeExample: `// Insider Threat Mathematical Proof:
 // M_motive = 4.0 (High Grievance Resignation) | A_access = 4.0 (Standing Domain Admin Rights)

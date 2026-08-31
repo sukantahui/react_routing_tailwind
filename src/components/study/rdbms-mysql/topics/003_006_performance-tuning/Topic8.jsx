@@ -25,7 +25,7 @@ const Topic8 = () => {
       badge: "Date Function Refactoring",
       badgeColor: "emerald",
       sqlQuery: `-- ❌ NON-SARGABLE (YEAR() function wraps indexed column):
--- Forces MySQL to compute YEAR() on all 100,000 rows -> Full Table Scan (ALL)!
+-- Forces MySQL to compute YEAR() on all 100,000 rows → Full Table Scan (ALL)!
 SELECT student_id, name, registration_date 
 FROM student_records 
 WHERE YEAR(registration_date) = 2026;
@@ -42,7 +42,7 @@ WHERE registration_date >= '2026-01-01 00:00:00'
 
 -- 📋 Sargable EXPLAIN:
 -- type = 'range', key = 'idx_reg_date', rows = 1200, Extra = 'Using index condition'
--- ⚡ Execution time drops from 78.0 ms -> 0.65 ms (120x faster)!`,
+-- ⚡ Execution time drops from 78.0 ms → 0.65 ms (120x faster)!`,
       resultRows: [
         {
           variant: "Non-Sargable WHERE YEAR(reg_date) = 2026",
@@ -228,7 +228,7 @@ CREATE INDEX idx_student_code_prefix ON student_records ((SUBSTRING(student_code
               Query Refactoring &amp; Sargability
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Sargable Queries: Avoiding Function Wrapping on Indexed Columns
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -456,7 +456,7 @@ CREATE INDEX idx_student_code_prefix ON student_records ((SUBSTRING(student_code
                   {/* B+Tree Range Tree */}
                   <rect x="520" y="110" width="370" height="75" rx="8" fill="#1e293b" stroke="#047857" strokeWidth="1.5" />
                   <text x="705" y="135" fill="#a7f3d0" fontSize="11" fontWeight="bold" textAnchor="middle">
-                    B+Tree Index Root &rarr; Branch &rarr; Leaf Navigation
+                    B+Tree Index Root → Branch → Leaf Navigation
                   </text>
                   <text x="705" y="155" fill="#6ee7b7" fontSize="10" textAnchor="middle">
                     1. Probe Start: '2026-01-01 00:00:00' (3 page reads in RAM)
@@ -679,7 +679,7 @@ SELECT student_id, student_name, balance_fee
 FROM student_ledgers 
 WHERE due_date < DATE_SUB(NOW(), INTERVAL 30 DAY);
 
--- Result: type = range on idx_due_date (Duration dropped from 115 ms -> 0.72 ms)!`}
+-- Result: type = range on idx_due_date (Duration dropped from 115 ms → 0.72 ms)!`}
                 </pre>
               </div>
             </div>
@@ -706,7 +706,7 @@ SELECT candidate_id, hall_ticket_no, exam_center
 FROM candidate_registrations 
 WHERE mobile_no = '9830099887'; -- Explicit string literal!
 
--- Result: type = const on uq_mobile_no (Latency dropped from 89 ms -> 0.04 ms)!`}
+-- Result: type = const on uq_mobile_no (Latency dropped from 89 ms → 0.04 ms)!`}
                 </pre>
               </div>
             </div>

@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. FIELD INJECTION ALGORITHM:
    - Iterate over 'clazz.getDeclaredFields()'.
    - Check 'field.isAnnotationPresent(Autowired.class)'.
-   - 'field.setAccessible(true)' -> 'field.set(targetInstance, dependencyInstance)'.
+   - 'field.setAccessible(true)' → 'field.set(targetInstance, dependencyInstance)'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

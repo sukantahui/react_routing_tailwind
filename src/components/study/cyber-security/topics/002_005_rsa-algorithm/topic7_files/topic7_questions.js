@@ -153,7 +153,7 @@ Penalty for Non-Compliance: Up to ₹250 Crores per data breach incident!`
     hint: "Remember that post-quantum security is achieved through lattice cryptography (ML-KEM), not massive RSA keys.",
     level: "expert",
     codeExample: `// Enterprise Post-Quantum Transition Roadmap:
-Stage 1 (Immediate): Decommission all RSA-1024 -> Enforce RSA-2048 / RSA-3072 baseline.
+Stage 1 (Immediate): Decommission all RSA-1024 → Enforce RSA-2048 / RSA-3072 baseline.
 Stage 2 (Hybrid):    Deploy X25519 + ML-KEM-768 (Kyber) Hybrid TLS 1.3 Handshakes.
 Stage 3 (Full PQC):  Migrate Root PKI to FIPS 204 ML-DSA (Dilithium) & FIPS 205 SLH-DSA (SPHINCS+).`
   },

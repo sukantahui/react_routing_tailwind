@@ -8,7 +8,7 @@ LOCATION: Barrackpore, West Bengal, India
 
 1. THE CLASSIFICATION OF FUNCTIONAL DEPENDENCIES
 --------------------------------------------------------------------------------
-In relational database theory, every functional dependency $X \rightarrow Y$ 
+In relational database theory, every functional dependency $X → Y$ 
 (where X is the determinant and Y is the dependent) is categorized into one of three 
 distinct mathematical classes based on the relationship between attribute sets X and Y:
 
@@ -21,7 +21,7 @@ distinct mathematical classes based on the relationship between attribute sets X
 --------------------------------------------------------------------------------
 
 CLASS 1: TRIVIAL FUNCTIONAL DEPENDENCY
-• Definition: A dependency $X \rightarrow Y$ is trivial if and only if the dependent set Y 
+• Definition: A dependency $X → Y$ is trivial if and only if the dependent set Y 
   is a subset of the determinant set X ($Y \subseteq X$).
 • Key Characteristic: Trivial dependencies are universally true in EVERY conceivable 
   relation instance regardless of the data, because knowing the value of a larger set 
@@ -29,12 +29,12 @@ CLASS 1: TRIVIAL FUNCTIONAL DEPENDENCY
 • Examples:
   - `{student_id, student_name} → student_id` (Trivial because `student_id ⊆ {student_id, student_name}`).
   - `{student_id, course_id, city} → {course_id, city}` (Trivial because `{course_id, city} ⊆ {student_id, course_id, city}`).
-  - `student_id → student_id` (Reflexive trivial dependency: $X \rightarrow X$).
+  - `student_id → student_id` (Reflexive trivial dependency: $X → X$).
 • Normalization Role: Trivial dependencies do NOT represent new business rules and 
   are IGNORED during normal form testing (e.g. BCNF definition explicitly says "for every non-trivial FD...").
 
 CLASS 2: COMPLETELY NON-TRIVIAL FUNCTIONAL DEPENDENCY
-• Definition: A dependency $X \rightarrow Y$ is completely non-trivial if and only if the 
+• Definition: A dependency $X → Y$ is completely non-trivial if and only if the 
   intersection of X and Y is completely empty ($X \cap Y = \emptyset$).
 • Key Characteristic: Y contains ZERO attributes from X. The determinant X delivers 
   completely new, distinct facts not already present in X.
@@ -46,7 +46,7 @@ CLASS 2: COMPLETELY NON-TRIVIAL FUNCTIONAL DEPENDENCY
   that drive 2NF, 3NF, and BCNF normalization.
 
 CLASS 3: SEMI-TRIVIAL (PARTIALLY NON-TRIVIAL) FUNCTIONAL DEPENDENCY
-• Definition: A dependency $X \rightarrow Y$ is semi-trivial if Y is not a subset of X ($Y \not\subseteq X$), 
+• Definition: A dependency $X → Y$ is semi-trivial if Y is not a subset of X ($Y \not\subseteq X$), 
   but X and Y share some common attributes ($X \cap Y \neq \emptyset$).
 • Decomposition: A semi-trivial FD can always be broken down into a trivial part and a completely non-trivial part.
 • Example:
@@ -59,10 +59,10 @@ CLASS 3: SEMI-TRIVIAL (PARTIALLY NON-TRIVIAL) FUNCTIONAL DEPENDENCY
 3. WHY THE DISTINCTION MATTERS IN NORMALIZATION
 --------------------------------------------------------------------------------
 1. Filtering Out Mathematical Noise:
-   Since trivial dependencies ($X \rightarrow Y$ with $Y \subseteq X$) hold by mathematical tautology, 
+   Since trivial dependencies ($X → Y$ with $Y \subseteq X$) hold by mathematical tautology, 
    checking them would waste computational cycles in normalization algorithms.
 2. Boyce-Codd Normal Form (BCNF) Definition:
-   "A relation R is in BCNF if for every NON-TRIVIAL functional dependency $X \rightarrow Y$, 
+   "A relation R is in BCNF if for every NON-TRIVIAL functional dependency $X → Y$, 
    X is a super key of R." 
    If trivial dependencies were not excluded, NO relation could ever be in BCNF (because `{student_id, name} → student_id` 
    holds even if `{student_id, name}` is not a minimal key).

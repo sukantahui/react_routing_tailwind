@@ -8,7 +8,7 @@ const questions = [
     explanation: "The loop forms an alternating cycle on the bipartite transportation graph, allowing mass balance conservation when shifting flow into the entering cell.",
     hint: "A closed path of 90-degree horizontal-vertical turns on basic cells.",
     level: "moderate",
-    codeExample: "Loop Path: (Enter) -> (Basic_1) -> (Basic_2) -> (Basic_3) -> (Enter)."
+    codeExample: "Loop Path: (Enter) → (Basic_1) → (Basic_2) → (Basic_3) → (Enter)."
   },
   {
     question: "Why is the closed loop guaranteed to be UNIQUE for any chosen entering cell in a non-degenerate basic feasible solution?",
@@ -46,9 +46,9 @@ const questions = [
     question: "Suppose Debangshu in Barrackpore wants to trace a closed loop for entering cell (2, 1). If basic cells are (1, 1), (1, 2), (2, 2), (2, 3), (3, 3), what is the 4-corner loop?",
     shortAnswer: "Loop: (2, 1) ➔ (1, 1) ➔ (1, 2) ➔ (2, 2) ➔ (2, 1).",
     explanation: "Starting at entering cell (2, 1), move vertically to basic cell (1, 1), horizontally to basic cell (1, 2), vertically to basic cell (2, 2), and horizontally back to (2, 1).",
-    hint: "(2,1) -> (1,1) -> (1,2) -> (2,2) -> (2,1).",
+    hint: "(2,1) → (1,1) → (1,2) → (2,2) → (2,1).",
     level: "moderate",
-    codeExample: "Loop: (2,1)[+] -> (1,1)[-] -> (1,2)[+] -> (2,2)[-] -> (2,1)."
+    codeExample: "Loop: (2,1)[+] → (1,1)[-] → (1,2)[+] → (2,2)[-] → (2,1)."
   },
   {
     question: "Can a closed loop include diagonal line segments?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "In larger or staggered tableaus, tracing the fundamental cycle requires navigating through 3 or more row-column pairs.",
     hint: "6 or 8 corners when basic cells are not arranged in a simple 2x2 rectangle.",
     level: "expert",
-    codeExample: "6-Corner Loop: (Enter) -> (B1) -> (B2) -> (B3) -> (B4) -> (B5) -> (Enter)."
+    codeExample: "6-Corner Loop: (Enter) → (B1) → (B2) → (B3) → (B4) → (B5) → (Enter)."
   },
   {
     question: "Suppose Susmita in Ichapur traces a 6-corner loop: (3, 1) ➔ (1, 1) ➔ (1, 3) ➔ (2, 3) ➔ (2, 2) ➔ (3, 2) ➔ (3, 1). How many rows and columns are involved?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "If the entering cell connects to a disconnected sub-tree, no return path exists without an epsilon (ε) bridge edge.",
     hint: "Degeneracy can prevent closing the loop without epsilon.",
     level: "expert",
-    codeExample: "Degenerate Basis -> Disconnected Tree -> Path blocked."
+    codeExample: "Degenerate Basis → Disconnected Tree → Path blocked."
   },
   {
     question: "How does placing epsilon (ε) in an independent cell resolve a blocked loop path?",
@@ -134,7 +134,7 @@ const questions = [
     question: "In the above problem, what happens to the allocation at cell (1, 1) after pivoting with θ = 60?",
     shortAnswer: "Its new allocation becomes 60 - 60 = 0 tons; cell (1, 1) LEAVES the basis and becomes an empty non-basic cell.",
     explanation: "The cell that drops to zero exits the basis, ensuring exactly m + n - 1 basic variables remain.",
-    hint: "60 - 60 = 0 -> becomes non-basic.",
+    hint: "60 - 60 = 0 → becomes non-basic.",
     level: "moderate",
     codeExample: "x_11_new = 60 - 60 = 0 (Leaves Basis)."
   },
@@ -230,9 +230,9 @@ const questions = [
     question: "What is the golden rule for tracing closed loops in the MODI method?",
     shortAnswer: "'Start at the entering cell (+θ); make ONLY 90° turns on occupied basic cells (-θ, +θ...); find θ = min(minus corners); pivot flow cleanly!'",
     explanation: "This rule encapsulates the entire stepping-stone loop construction and pivoting protocol.",
-    hint: "Start at enter (+θ) -> turn on basic cells -> θ = min(minus) -> pivot.",
+    hint: "Start at enter (+θ) → turn on basic cells → θ = min(minus) → pivot.",
     level: "moderate",
-    codeExample: "Golden Rule: (1) Enter (+θ) -> (2) 90° on Basic -> (3) θ = min(minus) -> (4) Update."
+    codeExample: "Golden Rule: (1) Enter (+θ) → (2) 90° on Basic → (3) θ = min(minus) → (4) Update."
   }
 ];
 

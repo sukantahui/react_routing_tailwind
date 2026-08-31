@@ -13,7 +13,7 @@ const questions = [
     question: "What is the structure of the standard 3-Year ISO/IEC 27001 Certification and Surveillance Audit Cycle?",
     shortAnswer: "Year 0 (Initial Certification Audit: Stage 1 Documentation + Stage 2 Technical Audit); Year 1 (Surveillance Audit 1); Year 2 (Surveillance Audit 2); Year 3 (Full Comprehensive Recertification Audit).",
     explanation: "ISO 27001 certificates are valid for exactly 3 years, subject to annual surveillance: 1. Year 0 (Initial Certification): Stage 1 reviews documentation and scope; Stage 2 audits operational control effectiveness across all 93 controls; 2. Year 1 (Surveillance 1): External auditors review mandatory clauses (4-10), closed CAPAs, and a subset of Annex A controls; 3. Year 2 (Surveillance 2): Audits remaining Annex A controls, incident telemetry, and continual improvement; 4. Year 3 (Recertification): Full re-audit of the entire management system.",
-    hint: "Remember: Initial Certification -> Year 1 Surveillance -> Year 2 Surveillance -> Year 3 Recertification.",
+    hint: "Remember: Initial Certification → Year 1 Surveillance → Year 2 Surveillance → Year 3 Recertification.",
     level: "basic",
     codeExample: `// 3-Year ISO 27001 Audit Roadmap:
 Year 0: Stage 1 (Doc Review) + Stage 2 (Deep Technical Audit) ➔ CERTIFIED (3-Year Validity)
@@ -94,7 +94,7 @@ Requirement:   DPDP Section 8(5) Continuous Reasonable Safeguards
 Evidence:      1. Quarterly User Access Reviews (A.8.2)
                2. Weekly Automated Vulnerability Scans (A.8.8)
                3. Semi-annual Management Review Board Minutes (Clause 9.3)
-Statutory Shield:Proves active due diligence -> Complete immunity from Section 33 fines!`
+Statutory Shield:Proves active due diligence → Complete immunity from Section 33 fines!`
   },
   {
     question: "What is a 'Quarterly User Access Review' (Control A.8.2), and why is it a vital component of ISMS maintenance?",
@@ -104,8 +104,8 @@ Statutory Shield:Proves active due diligence -> Complete immunity from Section 3
     level: "basic",
     codeExample: `// Automated Access Certification Workflow:
 1. Trigger:    Quarterly Okta / Active Directory access review campaign dispatched to all managers
-2. Review:     Engineering Lead reviews 45 developer accounts -> Identifies 3 departed contractors
-3. Action:     Manager clicks 'Revoke' -> Accounts suspended within 60 seconds across all cloud consoles!`
+2. Review:     Engineering Lead reviews 45 developer accounts → Identifies 3 departed contractors
+3. Action:     Manager clicks 'Revoke' → Accounts suspended within 60 seconds across all cloud consoles!`
   },
   {
     question: "What role does Threat Intelligence ingestion (ISO 27001:2022 Control A.5.7) play in continuous ISMS maintenance?",
@@ -117,7 +117,7 @@ Statutory Shield:Proves active due diligence -> Complete immunity from Section 3
 Feed:        CERT-In Vulnerability Advisory Bulletin CIVN-2026-0442
 Threat:      Remote Code Execution flaw in OpenSSL 3.x
 Maintenance: SOAR automatically triggers vulnerability scan across 500 payment nodes ->
-             Identifies 4 vulnerable nodes -> Pushes automated patch in 45 minutes!`
+             Identifies 4 vulnerable nodes → Pushes automated patch in 45 minutes!`
   },
   {
     question: "What is the difference between a 'Corrective Action' and a 'Correction' during audit non-conformity triage?",

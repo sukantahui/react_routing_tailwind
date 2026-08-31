@@ -67,7 +67,7 @@ const Topic11 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 003 · Topic 11</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             Capstone Comprehensive Architectural Design: Synthesizing a High-Performance, Secure Microprocessor
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">

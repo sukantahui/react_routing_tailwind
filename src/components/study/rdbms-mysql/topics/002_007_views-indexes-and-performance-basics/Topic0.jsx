@@ -138,7 +138,7 @@ SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
               Relational View Fundamentals
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             What is a Database View? Benefits of Abstraction & Security
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -345,7 +345,7 @@ SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
                     <text x="425" y="153" fill="#a5b4fc" fontSize="10" textAnchor="middle">Logical schema abstraction (Zero bytes stored on disk)</text>
                   </g>
 
-                  {/* Flow Arrow Client -> View */}
+                  {/* Flow Arrow Client → View */}
                   <path d="M 425 70 L 425 110" stroke="#38bdf8" strokeWidth="2" />
 
                   {/* Bottom: Physical Base Tables */}
@@ -369,7 +369,7 @@ SELECT * FROM view_student_academic_summary WHERE average_exam_score >= 80;`,
                     <text x="690" y="264" fill="#64748b" fontSize="9" textAnchor="middle">(Physical InnoDB storage)</text>
                   </g>
 
-                  {/* Flow Arrows View -> Base Tables */}
+                  {/* Flow Arrows View → Base Tables */}
                   <path d="M 300 170 L 160 210" stroke="#818cf8" strokeWidth="1.5" strokeDasharray="3 2" />
                   <path d="M 425 170 L 425 210" stroke="#818cf8" strokeWidth="1.5" strokeDasharray="3 2" />
                   <path d="M 550 170 L 690 210" stroke="#818cf8" strokeWidth="1.5" strokeDasharray="3 2" />

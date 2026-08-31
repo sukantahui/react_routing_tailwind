@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Modified Dominance Rule in Game Theory?",
     shortAnswer: "'When pure dominance stalls, test convex combinations: if a weighted average of rows exceeds another row, delete the smaller row; if a weighted average of columns is less than another column, delete the larger column in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all convex combination dominance mechanics.",
-    hint: "Weighted average >= Row -> delete row; Weighted average <= Col -> delete col in ₹.",
+    hint: "Weighted average >= Row → delete row; Weighted average <= Col → delete col in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: TestConvexAverage() -> EliminateDominatedStrategy() -> PreserveGameValue(₹)."
+    codeExample: "GoldenRule: TestConvexAverage() → EliminateDominatedStrategy() → PreserveGameValue(₹)."
   }
 ];
 

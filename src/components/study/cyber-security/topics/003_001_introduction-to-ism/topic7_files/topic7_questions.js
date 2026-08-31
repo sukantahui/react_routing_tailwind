@@ -6,8 +6,8 @@ const questions = [
     hint: "Think of organizing valuables in a bank: free flyers on the counter, office supplies in staff desks, and cash/gold in the reinforced vault.",
     level: "basic",
     codeExample: `// Why Classification is Mandatory:
-Public Data:      Marketing brochure -> Standard HTTP/HTTPS | No encryption needed | ₹0 Breach Loss
-Restricted Data:  Customer Aadhaar/PAN DB -> AES-256-GCM + HSM + MFA -> Unprotected = ₹250 Cr DPDP Fine!`
+Public Data:      Marketing brochure → Standard HTTP/HTTPS | No encryption needed | ₹0 Breach Loss
+Restricted Data:  Customer Aadhaar/PAN DB → AES-256-GCM + HSM + MFA → Unprotected = ₹250 Cr DPDP Fine!`
   },
   {
     question: "What are the four standard tiers of a commercial Information Classification scheme?",
@@ -16,10 +16,10 @@ Restricted Data:  Customer Aadhaar/PAN DB -> AES-256-GCM + HSM + MFA -> Unprotec
     hint: "Remember the 4 levels: Public, Internal, Confidential, and Restricted.",
     level: "basic",
     codeExample: `// 4-Tier Commercial Classification Scheme:
-Tier 1: Public       -> Press releases, marketing flyers, open-source documentation
-Tier 2: Internal     -> Intranet phonebook, internal process guidelines, holiday calendar
-Tier 3: Confidential -> Proprietary source code, Q4 financial forecasts, vendor contracts
-Tier 4: Restricted   -> Customer KYC databases (Aadhaar/PAN), banking PINs, HSM master keys`
+Tier 1: Public       → Press releases, marketing flyers, open-source documentation
+Tier 2: Internal     → Intranet phonebook, internal process guidelines, holiday calendar
+Tier 3: Confidential → Proprietary source code, Q4 financial forecasts, vendor contracts
+Tier 4: Restricted   → Customer KYC databases (Aadhaar/PAN), banking PINs, HSM master keys`
   },
   {
     question: "How does the Government and Military classification scheme differ from commercial enterprise classification?",
@@ -88,8 +88,8 @@ Metadata Tagging:  File Header: { "Classification": "RESTRICTED", "Policy_ID": "
     hint: "Contrast locking paper towels in a bank vault (over-classification) versus leaving gold bars on the front porch (under-classification).",
     level: "basic",
     codeExample: `// Classification Calibration Errors:
-Over-Classification:  Marketing flyer marked "RESTRICTED" -> Sales team cannot send to clients -> ₹50L deal delayed!
-Under-Classification: Customer KYC database marked "INTERNAL" -> Unencrypted S3 bucket -> ₹250 CR DPDP FINE!`
+Over-Classification:  Marketing flyer marked "RESTRICTED" → Sales team cannot send to clients → ₹50L deal delayed!
+Under-Classification: Customer KYC database marked "INTERNAL" → Unencrypted S3 bucket → ₹250 CR DPDP FINE!`
   },
   {
     question: "What is 'De-Classification' or 'Re-Classification', and when is it executed in the information lifecycle?",
@@ -98,9 +98,9 @@ Under-Classification: Customer KYC database marked "INTERNAL" -> Unencrypted S3 
     hint: "Think of an embargoed news release that is top secret until 9:00 AM, when it becomes public news.",
     level: "moderate",
     codeExample: `// Re-Classification Lifecycle Example:
-Phase 1 (Pre-Launch):   Q4 Earnings Report -> RESTRICTED (Insider trading protection)
+Phase 1 (Pre-Launch):   Q4 Earnings Report → RESTRICTED (Insider trading protection)
 Phase 2 (SEBI Filing):  Official Stock Exchange Disclosure at 10:00 AM IST
-Phase 3 (Post-Launch):  Asset Owner executes de-classification -> PUBLIC (Published on company website)`
+Phase 3 (Post-Launch):  Asset Owner executes de-classification → PUBLIC (Published on company website)`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, why must all employee and customer personal data be mapped to the highest classification tier?",

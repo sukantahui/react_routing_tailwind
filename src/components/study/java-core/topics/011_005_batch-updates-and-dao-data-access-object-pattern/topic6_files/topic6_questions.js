@@ -5,7 +5,7 @@ const topic6_questions = [
     "explanation": "Promotes separation of concerns and single responsibility.",
     "hint": "Isolates SQL queries and data access logic behind clean Java interfaces.",
     "level": "Beginner",
-    "codeExample": "Service Layer -> StudentDao (Interface) -> StudentDaoJdbcImpl (SQL/JDBC)"
+    "codeExample": "Service Layer → StudentDao (Interface) → StudentDaoJdbcImpl (SQL/JDBC)"
   },
   {
     "question": "How does the DAO pattern enable easy unit testing of business service components?",

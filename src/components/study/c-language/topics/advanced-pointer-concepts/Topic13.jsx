@@ -43,7 +43,7 @@ const Topic13 = () => {
         
         {/* Header */}
         <div className="space-y-4 animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
             Topic 13: Concept and Need for Generic Data Handling
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">

@@ -223,7 +223,7 @@ const questions = [
     explanation: "This 3-step blueprint guarantees scalable, professional graphical user interfaces.",
     hint: "What 3 steps build custom interactive UI toolbars in Turtle?",
     level: "basic",
-    codeExample: "# 1. Button data list -> 2. Batch render -> 3. Hit-test in onclick"
+    codeExample: "# 1. Button data list → 2. Batch render → 3. Hit-test in onclick"
   },
   {
     question: "How does building custom UI components in Python prepare students for React, Flutter, and TailwindCSS?",

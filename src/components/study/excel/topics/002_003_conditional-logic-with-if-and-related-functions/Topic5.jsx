@@ -71,7 +71,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Value branching and condition mapping with the SWITCH function"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Value_branching_an"
+            sheetName="EX806"
             title={"Value branching and condition mapping with the SWITCH function - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -318,7 +318,7 @@ export default function Topic5() {
                 <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: General Ledger Department Code Mapping"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Translates numeric GL department codes (100 -> 'Sales', 200 -> 'Engineering', 300 -> 'Finance', 'Other') in single-line formulas."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Translates numeric GL department codes (100 → 'Sales', 200 → 'Engineering', 300 → 'Finance', 'Other') in single-line formulas."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -327,7 +327,7 @@ export default function Topic5() {
                 <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: GST Tax Rate Lookup by HSN Category"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Maps tax slab codes (A -> 5%, B -> 12%, C -> 18%, D -> 28%, 0%) across 20,000 product line items."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Maps tax slab codes (A → 5%, B → 12%, C → 18%, D → 28%, 0%) across 20,000 product line items."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -336,7 +336,7 @@ export default function Topic5() {
                 <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Abhronila Das: Factory Shift Name Decoding"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Converts shift code integers (1 -> 'Morning 06:00-14:00', 2 -> 'Evening 14:00-22:00', 3 -> 'Night 22:00-06:00', 'Off')."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Converts shift code integers (1 → 'Morning 06:00-14:00', 2 → 'Evening 14:00-22:00', 3 → 'Night 22:00-06:00', 'Off')."}</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
@@ -345,7 +345,7 @@ export default function Topic5() {
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics Hub"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Debangshu Roy: Carrier Service Level Assignment"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Maps courier service codes (EXP -> 'Express Air', STD -> 'Surface', ECO -> 'Economy', 'Standard')."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Maps courier service codes (EXP → 'Express Air', STD → 'Surface', ECO → 'Economy', 'Standard')."}</p>
             </div>
             
           </div>
@@ -572,7 +572,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"SWITCH is the most elegant way to decode corporate category keys (1 -> HQ, 2 -> Plant). It evaluates faster than IFS because it only reads the input cell once."}
+            note={"SWITCH is the most elegant way to decode corporate category keys (1 → HQ, 2 → Plant). It evaluates faster than IFS because it only reads the input cell once."}
           />
         </div>
       </div>

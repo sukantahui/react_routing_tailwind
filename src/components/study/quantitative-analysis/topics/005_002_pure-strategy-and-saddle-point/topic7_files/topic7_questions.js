@@ -70,7 +70,7 @@ const questions = [
     question: "What are the 5 steps to extract Optimal Pure Strategies in any matrix game?",
     shortAnswer: "1. Compute Row Minima; 2. Identify Maximin row i*; 3. Compute Column Maxima; 4. Identify Minimax column j*; 5. Verify a_i*j* = Maximin = Minimax = v*; then (A_i*, B_j*) is optimal.",
     explanation: "The standard 5-step optimal pure strategy extraction algorithm.",
-    hint: "Row mins -> Maximin i* -> Col maxes -> Minimax j* -> Verify equality.",
+    hint: "Row mins → Maximin i* → Col maxes → Minimax j* → Verify equality.",
     level: "moderate",
     codeExample: "OptimalProfile = ['A_' + iStar, 'B_' + jStar];"
   },
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Pure Strategy & Saddle Point Module?",
     shortAnswer: "'Calculate Row Minima for Player A (Maximin) and Column Maxima for Player B (Minimax); if Maximin = Minimax, the intersection is a stable Saddle Point with optimal pure strategies (A_i*, B_j*) and Game Value v* in Indian Rupees (₹)!'",
     explanation: "This master synthesis captures all foundational principles of Module 005_002.",
-    hint: "Maximin = Minimax -> Saddle point at (A_i*, B_j*) with Game Value v* in ₹.",
+    hint: "Maximin = Minimax → Saddle point at (A_i*, B_j*) with Game Value v* in ₹.",
     level: "moderate",
-    codeExample: "MasterGoldenRule: ExtractRowMinColMax() -> TestSaddlePoint() -> StateEquilibrium(v*, ₹)."
+    codeExample: "MasterGoldenRule: ExtractRowMinColMax() → TestSaddlePoint() → StateEquilibrium(v*, ₹)."
   }
 ];
 

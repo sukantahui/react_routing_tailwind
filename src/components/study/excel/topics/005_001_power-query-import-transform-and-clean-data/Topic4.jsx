@@ -76,7 +76,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Core Transformations: Promoting Headers, Changing Data Types &amp; Replacing Values
           </h1>
 
@@ -199,7 +199,7 @@ export default function Topic4() {
               <p className="leading-relaxed">
                 When importing text dates formatted as <code className="text-teal-300 font-mono">05/08/2026</code> (5th August), 
                 standard US Windows systems mistakenly parse it as May 8th! 
-                Using <strong>Change Type &rarr; Using Locale &rarr; English (United Kingdom / India)</strong> 
+                Using <strong>Change Type → Using Locale → English (United Kingdom / India)</strong> 
                 forces Power Query to parse day-first with 100% geographic immunity.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-teal-300">
@@ -229,7 +229,7 @@ export default function Topic4() {
             <p className="text-sm text-slate-300 leading-relaxed">
               If an imported ERP column contains formatted currency strings like <code className="text-rose-400 font-mono">"₹ 45,000.00"</code> or <code className="text-rose-400 font-mono">"$ 12,500.50"</code>, 
               directly casting to Decimal Number produces red cell Errors. 
-              Always apply: <strong>Replace "₹ " with "" &rarr; Replace "," with "" &rarr; Trim &rarr; Changed Type to Number</strong>.
+              Always apply: <strong>Replace "₹ " with "" → Replace "," with "" → Trim → Changed Type to Number</strong>.
             </p>
           </div>
         </section>
@@ -370,7 +370,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Core_Transforms"
+            sheetName="EX2005"
             title="Core Transformations Pipeline (Raw ID, Raw Name, Raw Amount Str, Promoted Status, Cleaned Type, Final Amount Val)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -409,7 +409,7 @@ export default function Topic4() {
                 converting text strings into genuine Decimal Numbers ready for immediate DAX aggregation!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Replaces '₹ ' &rarr; Coerces to Decimal Number
+                Replaces '₹ ' → Coerces to Decimal Number
               </div>
             </div>
 
@@ -427,7 +427,7 @@ export default function Topic4() {
                 using <code className="text-emerald-300 font-mono">Using Locale... English (United Kingdom)</code>, preventing May 8th vs August 5th date swaps.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Culture 'en-GB' &rarr; 100% Date Integrity
+                Culture 'en-GB' → 100% Date Integrity
               </div>
             </div>
 
@@ -446,7 +446,7 @@ export default function Topic4() {
                 eliminating blank propagation errors in profit margin formulas.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Exact Null &rarr; 0 Substitution
+                Exact Null → 0 Substitution
               </div>
             </div>
 
@@ -465,7 +465,7 @@ export default function Topic4() {
                 then promotes the true column titles into official table headers in 1 click.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Table.Skip(4) &rarr; Table.PromoteHeaders
+                Table.Skip(4) → Table.PromoteHeaders
               </div>
             </div>
           </div>
@@ -507,7 +507,7 @@ export default function Topic4() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Remove Entirely Blank Rows</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Click <strong>Remove Rows</strong> &rarr; <strong>Remove Blank Rows</strong> to purge empty spreadsheet spacer rows.
+                  Click <strong>Remove Rows</strong> → <strong>Remove Blank Rows</strong> to purge empty spreadsheet spacer rows.
                 </p>
               </div>
             </div>
@@ -575,7 +575,7 @@ export default function Topic4() {
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Inverted International Dates</td>
                   <td className="py-3 px-4 text-slate-300">Parsing UK/India <code className="text-amber-300 font-mono">DD/MM/YYYY</code> dates on a US Windows machine.</td>
                   <td className="py-3 px-4 text-slate-400">August 5th (<code className="text-rose-300 font-mono">05/08</code>) parsed as May 8th.</td>
-                  <td className="py-3 px-4 text-emerald-400">Right-click &rarr; Change Type &rarr; 'Using Locale...' &rarr; English (United Kingdom).</td>
+                  <td className="py-3 px-4 text-emerald-400">Right-click → Change Type → 'Using Locale...' → English (United Kingdom).</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Replacer.ReplaceText on Numbers Error</td>

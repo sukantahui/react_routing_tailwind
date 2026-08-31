@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Always structure your LP models cleanly: Top block for Unit Profit coefficients, Middle block for Decision Variables, and Bottom block for Constraints using SUMPRODUCT. It makes Solver setup effortless.
 
 COMMON TRAPS TO AVOID:
-- Using Non-Linear Functions in LP (IF, MAX, MIN): Embedding IF(), MAX(), or lookup functions inside constraint cells breaks mathematical linearity, causing Simplex LP to fail. -> Fix: Reformulate logic into linear inequalities: replace `MAX(0, X-50)` with auxiliary slack variables.
-- Dimension Mismatch in SUMPRODUCT Constraint Rows: Multiplying a 4-item decision variable range by a 3-item resource usage row returns `#VALUE!`. -> Fix: Ensure resource consumption coefficients span identical dimensions to decision variables.
-- Infeasible Solution ('Solver could not find a feasible solution'): Conflicting constraints that cannot be satisfied simultaneously (e.g. `X <= 10` and `X >= 50`). -> Fix: Audit constraint boundaries to eliminate mutually exclusive requirements.
+- Using Non-Linear Functions in LP (IF, MAX, MIN): Embedding IF(), MAX(), or lookup functions inside constraint cells breaks mathematical linearity, causing Simplex LP to fail. → Fix: Reformulate logic into linear inequalities: replace `MAX(0, X-50)` with auxiliary slack variables.
+- Dimension Mismatch in SUMPRODUCT Constraint Rows: Multiplying a 4-item decision variable range by a 3-item resource usage row returns `#VALUE!`. → Fix: Ensure resource consumption coefficients span identical dimensions to decision variables.
+- Infeasible Solution ('Solver could not find a feasible solution'): Conflicting constraints that cannot be satisfied simultaneously (e.g. `X <= 10` and `X >= 50`). → Fix: Audit constraint boundaries to eliminate mutually exclusive requirements.
 ================================================================================

@@ -13,7 +13,7 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 Syntax: =LAMBDA([param1, param2, ...], calculation)
 
 Immediate Execution Syntax in a Worksheet Cell:
-  =(LAMBDA(price, qty, price * qty * 1.18))(1500, 4) &rarr; Returns 7080
+  =(LAMBDA(price, qty, price * qty * 1.18))(1500, 4) → Returns 7080
 
 2. WHY IMMEDIATE EXECUTION IS ESSENTIAL
 --------------------------------------------------------------------------------

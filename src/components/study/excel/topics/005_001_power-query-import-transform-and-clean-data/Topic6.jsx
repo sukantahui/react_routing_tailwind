@@ -76,7 +76,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Text Transformations: Splitting Columns, Trimming, Case &amp; Delimiter Slicing
           </h1>
 
@@ -200,11 +200,11 @@ export default function Topic6() {
               <p className="leading-relaxed">
                 When a spreadsheet cell contains multiple items (e.g. <code className="text-teal-300 font-mono">"ItemA, ItemB, ItemC"</code>), 
                 splitting into columns creates wide un-pivotable matrices. 
-                Using <strong>Split Column &rarr; Advanced Options &rarr; Split into Rows</strong> unrolls list values 
+                Using <strong>Split Column → Advanced Options → Split into Rows</strong> unrolls list values 
                 into individual normalized records automatically!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-teal-300">
-                1 Cell with 3 Items &rarr; 3 Normalized Rows
+                1 Cell with 3 Items → 3 Normalized Rows
               </div>
             </div>
 
@@ -229,7 +229,7 @@ export default function Topic6() {
             </h3>
             <p className="text-sm text-slate-300 leading-relaxed">
               When raw alphanumeric codes like <code className="text-teal-300 font-mono">"INV1042"</code> or <code className="text-teal-300 font-mono">"EMP88421"</code> lack delimiters, 
-              apply <strong>Split Column &rarr; By Non-Digit to Digit</strong> to automatically separate letters from numbers without writing complex regex formulas!
+              apply <strong>Split Column → By Non-Digit to Digit</strong> to automatically separate letters from numbers without writing complex regex formulas!
             </p>
           </div>
         </section>
@@ -367,7 +367,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Text_Transforms"
+            sheetName="EX2007"
             title="Text Transformations Pipeline (Raw Input String, Delimiter Used, Extracted Prefix, Extracted Suffix, Title Case, Trimmed Output)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -405,7 +405,7 @@ export default function Topic6() {
                 into Department, Branch, and ID using <code className="text-teal-300 font-mono">Table.SplitColumn</code> with hyphen delimiters in 1 click.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Split by '-' &rarr; [Dept, Branch, EmpID]
+                Split by '-' → [Dept, Branch, EmpID]
               </div>
             </div>
 
@@ -441,7 +441,7 @@ export default function Topic6() {
                 into individual normalized rows using <strong>Split into Rows</strong>, creating a pure 1NF relational schema!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Split Column &rarr; Advanced Options &rarr; Split into Rows
+                Split Column → Advanced Options → Split into Rows
               </div>
             </div>
 
@@ -459,7 +459,7 @@ export default function Topic6() {
                 <code className="text-amber-300 font-mono">{'Table.AddColumn(Source, "Phone", each Text.Select([RawPhone], {"0".."9"}))'}</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Text.Select &rarr; Retains Only Digits 0-9
+                Text.Select → Retains Only Digits 0-9
               </div>
             </div>
           </div>
@@ -489,7 +489,7 @@ export default function Topic6() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Clean &amp; Trim Text Fields</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Right-click column header &rarr; <strong>Transform</strong> &rarr; <strong>Clean</strong>, then <strong>Transform</strong> &rarr; <strong>Trim</strong>.
+                  Right-click column header → <strong>Transform</strong> → <strong>Clean</strong>, then <strong>Transform</strong> → <strong>Trim</strong>.
                 </p>
               </div>
             </div>
@@ -501,7 +501,7 @@ export default function Topic6() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Split by Delimiter or Transition</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Select <strong>Split Column</strong> &rarr; By Delimiter (or By Non-Digit to Digit). Set QuoteStyle to CSV if quoted commas exist.
+                  Select <strong>Split Column</strong> → By Delimiter (or By Non-Digit to Digit). Set QuoteStyle to CSV if quoted commas exist.
                 </p>
               </div>
             </div>
@@ -513,7 +513,7 @@ export default function Topic6() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Extract Substrings via Delimiter Functions</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Use <strong>Add Column &rarr; Extract &rarr; Text Before/After Delimiter</strong> to isolate tokens without modifying raw source columns.
+                  Use <strong>Add Column → Extract → Text Before/After Delimiter</strong> to isolate tokens without modifying raw source columns.
                 </p>
               </div>
             </div>
@@ -525,7 +525,7 @@ export default function Topic6() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 4: Harmonize Casing with Capitalize Each Word</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Apply <strong>Transform &rarr; Format &rarr; Capitalize Each Word</strong> (<code className="text-emerald-400 font-mono">Text.Proper</code>) for standardized customer names.
+                  Apply <strong>Transform → Format → Capitalize Each Word</strong> (<code className="text-emerald-400 font-mono">Text.Proper</code>) for standardized customer names.
                 </p>
               </div>
             </div>

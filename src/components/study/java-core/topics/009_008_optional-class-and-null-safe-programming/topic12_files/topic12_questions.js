@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Protects against legacy getter methods returning null.",
     "hint": "Returns Optional.empty() safely.",
     "level": "Intermediate",
-    "codeExample": "Optional.of('text').map(s -> (String) null); // Returns Optional.empty()"
+    "codeExample": "Optional.of('text').map(s → (String) null); // Returns Optional.empty()"
   },
   {
     "question": "How does Optional.map() prevent nested null checks in deep object graphs?",

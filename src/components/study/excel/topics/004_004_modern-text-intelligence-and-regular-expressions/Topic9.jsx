@@ -76,7 +76,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Combining Regex Functions with Dynamic Arrays (FILTER, BYROW, TOCOL)
           </h1>
 
@@ -394,7 +394,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Dynamic_Arrays"
+            sheetName="EX1910"
             title="Dynamic Array Regex Pipeline Dataset (Record ID, Customer Name, PAN Code, Email, Phone, Status)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -486,7 +486,7 @@ export default function Topic9() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Systems Engineer <strong>Debangshu Ghosh</strong> strips HTML tags across a 3-column feedback table: 
-                <code className="text-amber-300 font-mono">=MAP(B5:D20, LAMBDA(c, TRIM(REGEXREPLACE(c, "&lt;[^&gt;]+&gt;", ""))))</code>, 
+                <code className="text-amber-300 font-mono">=MAP(B5:D20, LAMBDA(c, TRIM(REGEXREPLACE(c, "<[^>]+>", ""))))</code>, 
                 cleansing entire 2D grids in pure RAM.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">

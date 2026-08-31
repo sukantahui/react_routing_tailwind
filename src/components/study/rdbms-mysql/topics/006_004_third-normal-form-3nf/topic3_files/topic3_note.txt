@@ -15,7 +15,7 @@ Level: Intermediate | Estimated Study Time: 4 Hours
 --------------------------------------------------------------------------------
 - Core Concept: Relational normalization ensures that data dependencies are modeled
   strictly according to business invariants, preventing update, deletion, and insertion anomalies.
-- Formal Rule: 1. Transitive Dependency (X -> Y and Y -> Z where X is Primary Key)
+- Formal Rule: 1. Transitive Dependency (X → Y and Y → Z where X is Primary Key)
 - Decomposition Strategy: Extract Department entity into its own relation with dept_id as Primary Key.
 
 3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION

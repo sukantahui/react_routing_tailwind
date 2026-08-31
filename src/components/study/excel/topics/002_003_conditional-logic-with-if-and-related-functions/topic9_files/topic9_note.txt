@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 To highlight entire rows in conditional formatting, ALWAYS lock the column with a dollar sign (=$C2="Active"). It transforms simple lists into dynamic, interactive dashboards.
 
 COMMON TRAPS TO AVOID:
-- Missing Column Dollar Anchor ($): Writing =C2="Critical" instead of =$C2="Critical" highlights only individual cells in column C rather than entire rows. -> Fix: Anchor the column letter with `$`: `=$C2="Critical"`.
-- Relative Row Reference Mismatch: Selecting range A2:G100 but writing formula relative to =$C1 shifts formatting one row out of sync. -> Fix: Always write the formula referencing the top-left row of your active selection (row 2).
-- Conditional Formatting Rule Bloat: Copying and pasting formatted cells creates dozens of duplicate fragmented rules, causing severe workbook lag. -> Fix: Clean rules regularly via Home > Conditional Formatting > Manage Rules > Clear Duplicate Rules.
+- Missing Column Dollar Anchor ($): Writing =C2="Critical" instead of =$C2="Critical" highlights only individual cells in column C rather than entire rows. → Fix: Anchor the column letter with `$`: `=$C2="Critical"`.
+- Relative Row Reference Mismatch: Selecting range A2:G100 but writing formula relative to =$C1 shifts formatting one row out of sync. → Fix: Always write the formula referencing the top-left row of your active selection (row 2).
+- Conditional Formatting Rule Bloat: Copying and pasting formatted cells creates dozens of duplicate fragmented rules, causing severe workbook lag. → Fix: Clean rules regularly via Home > Conditional Formatting > Manage Rules > Clear Duplicate Rules.
 ================================================================================

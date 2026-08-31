@@ -110,7 +110,7 @@ const questions = [
     explanation: "Examples: Runnable, Comparator, Predicate.",
     hint: "If your interface has only one abstract method, consider @FunctionalInterface.",
     level: "intermediate",
-    codeExample: "Runnable r = () -> System.out.println(\"Hello\");"
+    codeExample: "Runnable r = () → System.out.println(\"Hello\");"
   },
   {
     question: "Can you use an interface to define constants that multiple classes share?",
@@ -166,7 +166,7 @@ const questions = [
     explanation: "Common in GUI programming (e.g., ActionListener) and asynchronous operations.",
     hint: "Callback interfaces are often functional interfaces.",
     level: "intermediate",
-    codeExample: "interface ClickListener { void onClick(); } button.setListener(() -> System.out.println(\"Clicked\"));"
+    codeExample: "interface ClickListener { void onClick(); } button.setListener(() → System.out.println(\"Clicked\"));"
   },
   {
     question: "How would you use interfaces to implement dependency injection manually?",

@@ -16,9 +16,9 @@ Present (Mandatory): "Under DPDP Act Section 33, failure to implement reasonable
     hint: "Remember the ₹250 Crore apex penalty under Schedule 1 of the Indian DPDP Act 2023.",
     level: "basic",
     codeExample: `// DPDP Act 2023 Statutory Penalties (Schedule 1):
-Section 8(5) Breach: Failure to implement reasonable security safeguards -> UP TO ₹250 CRORES
-Section 8(6) Breach: Failure to notify Data Protection Board & Users     -> UP TO ₹200 CRORES
-Section 9 Breach:   Violation of duties regarding Children's Data        -> UP TO ₹200 CRORES`
+Section 8(5) Breach: Failure to implement reasonable security safeguards → UP TO ₹250 CRORES
+Section 8(6) Breach: Failure to notify Data Protection Board & Users     → UP TO ₹200 CRORES
+Section 9 Breach:   Violation of duties regarding Children's Data        → UP TO ₹200 CRORES`
   },
   {
     question: "Under Section 70B of the Information Technology Act 2000 and CERT-In Cyber Security Directions 2022, what are the mandatory reporting and operational requirements for Indian organizations?",

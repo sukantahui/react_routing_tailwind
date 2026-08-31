@@ -8,7 +8,7 @@ const questions = [
     explanation: "Standard 2xn game definition and graphical solution approach.",
     hint: "2 rows and n >= 3 cols; solved by Maximin on Lower Envelope.",
     level: "moderate",
-    codeExample: "solve2xn: (matrix2xn) => plotLines() -> findLowerEnvelope() -> findMaximinPeak();"
+    codeExample: "solve2xn: (matrix2xn) => plotLines() → findLowerEnvelope() → findMaximinPeak();"
   },
   {
     question: "What is an 'mx2 game' and what analytical method is used to solve it?",
@@ -16,7 +16,7 @@ const questions = [
     explanation: "Standard mx2 game definition and graphical solution approach.",
     hint: "m >= 3 rows and 2 cols; solved by Minimax on Upper Envelope.",
     level: "moderate",
-    codeExample: "solve_mx2: (matrix_mx2) => plotLines() -> findUpperEnvelope() -> findMinimaxTrough();"
+    codeExample: "solve_mx2: (matrix_mx2) => plotLines() → findUpperEnvelope() → findMinimaxTrough();"
   },
   {
     question: "Why do we construct the LOWER Envelope in a 2xn game?",
@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Reduction to 2xn and mx2 Cases?",
     shortAnswer: "'Plot expected payoff lines over the probability axis; find the Maximin peak on the Lower Envelope (for 2xn) or Minimax trough on the Upper Envelope (for mx2); extract the active 2x2 submatrix; and report the Game Value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all 2xn and mx2 graphical reduction mechanics.",
-    hint: "Plot lines -> Lower/Upper envelope -> Extract 2x2 -> Report in ₹.",
+    hint: "Plot lines → Lower/Upper envelope → Extract 2x2 → Report in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: PlotLines() -> Envelopes() -> Extract2x2() -> ReportInRupees(₹)."
+    codeExample: "GoldenRule: PlotLines() → Envelopes() → Extract2x2() → ReportInRupees(₹)."
   }
 ];
 

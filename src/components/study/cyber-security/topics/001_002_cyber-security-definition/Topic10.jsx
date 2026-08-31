@@ -26,7 +26,7 @@ const Topic10 = () => {
       complianceSLA: 'Sub-35ms Transaction Velocity Scoring • 100% Zero Cleartext PIN/CVV Exposure',
       estBudget: '₹14,50,000 (PCI-DSS HSM Appliance & AI Real-Time Fraud Gateway)',
       desc: 'Secures high-throughput digital financial ledgers, preventing fraudulent transactions in milliseconds.',
-      simResult: 'Adversary attempts credential-stuffing payments (50 txns/sec) -> AI engine flags velocity anomaly -> Blocks card handoff in 28ms -> ₹18,00,000 Saved.',
+      simResult: 'Adversary attempts credential-stuffing payments (50 txns/sec) → AI engine flags velocity anomaly → Blocks card handoff in 28ms → ₹18,00,000 Saved.',
     },
     {
       id: 'healthcare-iomt',
@@ -36,7 +36,7 @@ const Topic10 = () => {
       complianceSLA: 'DPDPA 2023 & HIPAA Compliance • 100% Non-Repudiable Pathologist Signatures',
       estBudget: '₹5,50,000 (Healthcare EHR Cryptographic Vault & Microsegmented IoMT Switches)',
       desc: 'Protects electronic health records from data theft and isolates connected ICU medical devices.',
-      simResult: 'Billing PC infected with trojan -> Attempts lateral scan to infusion pumps -> Microsegmentation drops all unauthorized biomedical packets.',
+      simResult: 'Billing PC infected with trojan → Attempts lateral scan to infusion pumps → Microsegmentation drops all unauthorized biomedical packets.',
     },
     {
       id: 'ecommerce-retail',
@@ -46,7 +46,7 @@ const Topic10 = () => {
       complianceSLA: 'Real-Time OWASP Top 10 Blocking • Zero Client-Side Form Sniffing (Anti-Magecart)',
       estBudget: '₹4,80,000 (Cloud WAF & Client-Side Script Integrity Gateway)',
       desc: 'Protects online shoppers from credit card skimming and automated scalping bots during flash sales.',
-      simResult: 'Malicious third-party ad script attempts to read credit card input fields -> Strict CSP header blocks unauthorized script execution in 4ms.',
+      simResult: 'Malicious third-party ad script attempts to read credit card input fields → Strict CSP header blocks unauthorized script execution in 4ms.',
     },
     {
       id: 'smartgrid-transport',
@@ -56,7 +56,7 @@ const Topic10 = () => {
       complianceSLA: 'Five Nines (99.999%) Operational Reliability • Sub-18ms Failsafe Interlock Trigger',
       estBudget: '₹12,50,000 (SCADA Optical Data Diode & Smart Grid mTLS Head-End Hub)',
       desc: 'Guarantees uninterrupted electrical power distribution and tamper-proof autonomous train control.',
-      simResult: 'Rogue substation packet attempts to open 220kV circuit breaker -> SCADA optical diode blocks transmission -> Grid frequency remains 50.0 Hz.',
+      simResult: 'Rogue substation packet attempts to open 220kV circuit breaker → SCADA optical diode blocks transmission → Grid frequency remains 50.0 Hz.',
     },
   ];
 
@@ -151,7 +151,7 @@ const Topic10 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Applications of Cyber Security
           </h1>
 

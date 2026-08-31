@@ -5,7 +5,7 @@ const topic3_questions = [
     "explanation": "Pre-compiles the query structure prior to receiving parameter data.",
     "hint": "Parses syntax, checks permissions, generates execution plan, and caches it.",
     "level": "Intermediate",
-    "codeExample": "conn.prepareStatement(sql) -> Generates & caches DB execution plan."
+    "codeExample": "conn.prepareStatement(sql) → Generates & caches DB execution plan."
   },
   {
     "question": "Why does re-executing the same PreparedStatement inside a loop with different parameter values provide a massive performance boost?",

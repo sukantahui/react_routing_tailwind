@@ -126,9 +126,9 @@ const questions = [
     question: "What is the ultimate golden rule of Minimization Problems in Operations Research?",
     shortAnswer: "'Define quantifiable penalty matrix (₹, hours, km, defects); verify balance (m = n); execute standard 5-step Hungarian reductions; certified minimum cost Z* equals sum of original rates for assigned pairings!'",
     explanation: "This complete rule captures all handling of minimization assignment problems.",
-    hint: "Define penalty matrix -> Verify balance -> Solve Hungarian -> Sum original rates in ₹.",
+    hint: "Define penalty matrix → Verify balance → Solve Hungarian → Sum original rates in ₹.",
     level: "moderate",
-    codeExample: "Golden Rule: DefinePenaltyMatrix -> Balance -> SolveHungarian -> SumOrigRates(₹)."
+    codeExample: "Golden Rule: DefinePenaltyMatrix → Balance → SolveHungarian → SumOrigRates(₹)."
   }
 ];
 

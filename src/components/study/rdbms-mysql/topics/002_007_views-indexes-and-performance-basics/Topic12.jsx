@@ -118,7 +118,7 @@ WHERE MATCH(course_title, course_syllabus)
               Specialized Indexing
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             UNIQUE Indexes & FULLTEXT Indexes Overview
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -308,7 +308,7 @@ WHERE MATCH(course_title, course_syllabus)
                   {/* Flow Arrow 1 */}
                   <path d="M 250 90 L 280 90" stroke="#38bdf8" strokeWidth="2" />
 
-                  {/* Yes -> Error 1062 */}
+                  {/* Yes → Error 1062 */}
                   <g>
                     <rect x="540" y="20" width="280" height="65" rx="6" fill="#450a0a" stroke="#ef4444" strokeWidth="1.5" />
                     <text x="680" y="42" fill="#fca5a5" fontSize="10" fontWeight="bold" textAnchor="middle">YES → Reject with ERROR 1062</text>
@@ -316,7 +316,7 @@ WHERE MATCH(course_title, course_syllabus)
                   </g>
                   <path d="M 430 65 L 540 50" stroke="#ef4444" strokeWidth="2" />
 
-                  {/* No -> Insert OK */}
+                  {/* No → Insert OK */}
                   <g>
                     <rect x="540" y="95" width="280" height="65" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1.5" />
                     <text x="680" y="120" fill="#34d399" fontSize="10" fontWeight="bold" textAnchor="middle">NO → Write Row to Leaf Node</text>

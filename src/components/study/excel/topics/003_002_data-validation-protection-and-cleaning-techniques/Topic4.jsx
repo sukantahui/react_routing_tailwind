@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Input messages, error alerts (Stop, Warning, Information), and circle invalid data"}
           </h1>
 
@@ -291,7 +291,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Input_messages__er"
+            sheetName="EX1305"
             title={"Input messages, error alerts (Stop, Warning, Information), and circle invalid data - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -350,7 +350,7 @@ export default function Topic4() {
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Debangshu Roy: Auditing Legacy Waybill Database"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uses Data &gt; Circle Invalid Data to highlight 350 non-compliant legacy phone numbers in red circles."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uses Data > Circle Invalid Data to highlight 350 non-compliant legacy phone numbers in red circles."}</p>
             </div>
             
           </div>
@@ -507,7 +507,7 @@ export default function Topic4() {
                 <span>⚡</span> {"Circle Invalid Data"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Visual audit tool to instantly spot non-compliant records."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data &gt; Validation > Circle Invalid Data"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data > Validation > Circle Invalid Data"}</kbd>
             </div>
             
           </div>

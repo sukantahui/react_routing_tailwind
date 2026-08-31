@@ -5,7 +5,7 @@ const topic7_questions = [
     "explanation": "Standard production deadlock prevention architecture.",
     "hint": "Enforcing consistent global lock ordering eliminates cycles in the Resource Allocation Graph with zero performance penalty.",
     "level": "Intermediate",
-    "codeExample": "// Global Order: Always lock smaller ID first -> No cycle possible!"
+    "codeExample": "// Global Order: Always lock smaller ID first → No cycle possible!"
   }
 ];
 

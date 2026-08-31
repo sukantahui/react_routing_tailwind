@@ -223,7 +223,7 @@ const questions = [
     explanation: "This 3-step blueprint guarantees rock-solid, glitch-free dragging and snapping.",
     hint: "What 3 steps build robust drag and drop interactions in Turtle?",
     level: "basic",
-    codeExample: "# 1. ondrag + unbind -> 2. clamp bounds -> 3. onrelease snap"
+    codeExample: "# 1. ondrag + unbind → 2. clamp bounds → 3. onrelease snap"
   },
   {
     question: "How does learning `ondrag()` prepare students for modern frontend and mobile development?",

@@ -5,7 +5,7 @@ const topic19_questions = [
     "explanation": "Industry-standard root cause analysis workflow.",
     "hint": "1. Capture dump, 2. Leak suspects, 3. Dominator tree, 4. Path to GC roots, 5. Fix code.",
     "level": "Beginner",
-    "codeExample": "Dump -> MAT -> Dominator Tree -> Path to GC Roots -> Code Fix"
+    "codeExample": "Dump → MAT → Dominator Tree → Path to GC Roots → Code Fix"
   },
   {
     "question": "Why should session or transaction data always be cleared in a finally block or interceptor completion callback?",

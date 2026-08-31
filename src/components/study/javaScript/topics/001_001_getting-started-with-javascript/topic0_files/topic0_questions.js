@@ -3,7 +3,7 @@ const questions = [
     question: "What is JavaScript and who invented it?",
     shortAnswer: "JavaScript is a high-level, single-threaded, multi-paradigm programming language created by Brendan Eich in 1995.",
     explanation: "Brendan Eich developed JavaScript in May 1995 at Netscape. It was standardized as ECMAScript (ECMA-262) in 1997 and has evolved into the universal programming language for the web, servers, and cross-platform desktop/mobile applications.",
-    hint: "Think: 1995 Netscape, Mocha -> LiveScript -> JavaScript.",
+    hint: "Think: 1995 Netscape, Mocha → LiveScript → JavaScript.",
     level: "basic",
     codeExample: "console.log('JavaScript Engine:', typeof globalThis !== 'undefined');"
   },
@@ -27,7 +27,7 @@ const questions = [
     question: "What is the V8 engine and how does its JIT pipeline work?",
     shortAnswer: "V8 is Google's open-source C++ JavaScript engine combining the Ignition bytecode interpreter and TurboFan optimizing JIT compiler.",
     explanation: "V8 parses JS code into an AST, interprets it into Ignition bytecode for fast startup, collects runtime type feedback via Inline Caches, and optimizes hot functions into machine code with TurboFan.",
-    hint: "V8 = Parser -> Ignition Interpreter -> TurboFan JIT Optimizer.",
+    hint: "V8 = Parser → Ignition Interpreter → TurboFan JIT Optimizer.",
     level: "intermediate",
     codeExample: "function add(a, b) { return a + b; }\n// TurboFan optimizes this monomorphic call site\nadd(10, 20);"
   },
@@ -99,7 +99,7 @@ const questions = [
     question: "What is Garbage Collection in JavaScript and how does Mark-and-Sweep work?",
     shortAnswer: "The engine automatically frees memory by marking reachable root objects and sweeping away unreachable objects.",
     explanation: "The V8 Garbage Collector starts from roots (global window, current stack frames) and traverses all references. Objects not reachable from any root are swept and reclaimed into free memory lists.",
-    hint: "Roots -> Reachable Graph -> Mark & Sweep unreachable memory.",
+    hint: "Roots → Reachable Graph → Mark & Sweep unreachable memory.",
     level: "advanced",
     codeExample: "let obj = { data: 'temp' };\nobj = null; // Original heap object is now unreachable and eligible for GC"
   },
@@ -139,7 +139,7 @@ const questions = [
     question: "What is the ECMAScript TC39 committee and its 5-stage proposal process?",
     shortAnswer: "TC39 governs JS evolution through Stage 0 (Strawperson) to Stage 4 (Finished Standard).",
     explanation: "TC39 consists of academics, browser vendors, and tech leaders. Proposals progress through Stage 0 (Idea), Stage 1 (Proposal), Stage 2 (Draft), Stage 3 (Candidate), and Stage 4 (Approved for yearly ECMAScript release).",
-    hint: "TC39 Stages: 0 (Idea) -> 1 -> 2 -> 3 (Candidate) -> 4 (Finished Standard).",
+    hint: "TC39 Stages: 0 (Idea) → 1 → 2 → 3 (Candidate) → 4 (Finished Standard).",
     level: "expert",
     codeExample: "// Stage 4 features land in standard yearly releases like ES2024 / ES2025"
   },

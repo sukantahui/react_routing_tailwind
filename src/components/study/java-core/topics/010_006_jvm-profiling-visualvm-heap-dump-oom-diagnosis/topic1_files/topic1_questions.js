@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Off-Heap leaks do not trigger Heap OOM and must be tracked via OS metrics.",
     "hint": "Heap leak is Java objects on heap; off-heap leak is direct native OS memory.",
     "level": "Intermediate",
-    "codeExample": "ByteBuffer.allocateDirect(1024) -> Lives in native off-heap memory."
+    "codeExample": "ByteBuffer.allocateDirect(1024) → Lives in native off-heap memory."
   },
   {
     "question": "Why does an unclosed JDBC ResultSet or Connection cause a memory leak?",

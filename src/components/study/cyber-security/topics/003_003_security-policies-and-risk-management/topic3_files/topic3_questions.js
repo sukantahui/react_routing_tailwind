@@ -72,7 +72,7 @@ Mandate: "When working remotely from public venues in Kolkata, employees MUST us
     codeExample: `// DPDP Statutory Safeguard Defense:
 Incident: Remote employee laptop stolen from a vehicle in Kolkata
 Defense:  Full-disk AES-XTS-256 BitLocker encryption active + TPM 2.0 PIN enforced
-DPBI Ruling: Ciphertext cannot be decrypted without TPM key -> Zero personal data breach occurred -> Immunized from fines!`
+DPBI Ruling: Ciphertext cannot be decrypted without TPM key → Zero personal data breach occurred → Immunized from fines!`
   },
   {
     question: "What is 'Shoulder Surfing' (Visual Eavesdropping), and what physical controls does a Remote Work Policy mandate to mitigate it?",
@@ -93,7 +93,7 @@ Operational Rule:     Employees processing Tier 1 financial data must sit with b
     codeExample: `// Mobile Root Detection Trigger:
 Check:       MAM detects ` + "`/system/xbin/su`" + ` or Cydia Substrate framework present on device
 Response:    AUTOMATIC DEVICE QUARANTINE!
-Action:      Corporate encryption key deleted -> Corporate sandbox rendered inaccessible within 1 second`
+Action:      Corporate encryption key deleted → Corporate sandbox rendered inaccessible within 1 second`
   },
   {
     question: "What mandatory incident reporting timeframe must a Remote Work Policy enforce for lost or stolen hardware assets?",

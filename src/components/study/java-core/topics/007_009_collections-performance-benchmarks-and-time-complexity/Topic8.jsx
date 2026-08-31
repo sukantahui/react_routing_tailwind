@@ -21,7 +21,7 @@ export default function Topic8() {
             Segment 7 Grand Capstone
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Timed High-Performance Collections Coding Challenge (Grand Capstone)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

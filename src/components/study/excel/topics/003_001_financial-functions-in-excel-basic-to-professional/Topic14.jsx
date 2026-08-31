@@ -71,7 +71,7 @@ export default function Topic14() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Advanced financial modeling best practices: Color coding, dynamic inputs, and auditing"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic14() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic14_Advanced_financial"
+            sheetName="EX1215"
             title={"Advanced financial modeling best practices: Color coding, dynamic inputs, and auditing - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

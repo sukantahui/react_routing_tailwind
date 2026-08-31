@@ -14,7 +14,7 @@ with multiple overlapping composite candidate keys.
 
 Formal Definition of BCNF:
 A relation schema R is in Boyce-Codd Normal Form (BCNF) if and only if:
-For EVERY non-trivial functional dependency $X \rightarrow Y$ holding on R:
+For EVERY non-trivial functional dependency $X → Y$ holding on R:
       X MUST BE A SUPER KEY OF R.
 
 Plain English Meaning:
@@ -25,7 +25,7 @@ If an attribute determines anything, it must be capable of uniquely determining 
 
 2. 3NF VS BCNF: THE CRITICAL DIFFERENCE
 --------------------------------------------------------------------------------
-Let $X \rightarrow A$ be a non-trivial functional dependency:
+Let $X → A$ be a non-trivial functional dependency:
 • 3NF allows: Either X is a Super Key OR A is a Prime Attribute.
 • BCNF requires: X MUST be a Super Key (No exceptions allowed).
 
@@ -76,7 +76,7 @@ Anomalies in this 3NF (non-BCNF) table:
 
 4. THE BCNF DECOMPOSITION ALGORITHM
 --------------------------------------------------------------------------------
-To decompose a relation R violating BCNF with FD $X \rightarrow Y$ (where X is not a super key):
+To decompose a relation R violating BCNF with FD $X → Y$ (where X is not a super key):
 1. Split R into two relations:
    - $R_1 = X \cup Y$ with $X$ as the Primary Key.
    - $R_2 = R - Y$ (or $(R - Y) \cup X$).
@@ -95,7 +95,7 @@ Trade-off of BCNF: The Dependency Preservation Dilemma
 
 5. SUMMARY CHECKLIST FOR BCNF
 --------------------------------------------------------------------------------
-[x] BCNF Rule: For every non-trivial $X \rightarrow Y$, X MUST be a Super Key.
+[x] BCNF Rule: For every non-trivial $X → Y$, X MUST be a Super Key.
 [x] BCNF has zero exceptions for prime attributes.
 [x] Resolves anomalies caused by overlapping composite candidate keys.
 [x] All BCNF tables are automatically in 3NF, 2NF, and 1NF.

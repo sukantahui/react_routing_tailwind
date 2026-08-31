@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Standard JVM Linking specification.",
     "hint": "Verification, Preparation, Resolution.",
     "level": "Intermediate",
-    "codeExample": "Linking = Verify -> Prepare -> Resolve"
+    "codeExample": "Linking = Verify → Prepare → Resolve"
   },
   {
     "question": "What triggers Phase 3 (Initialization) of a class?",

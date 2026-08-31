@@ -13,7 +13,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - The Böhm-Jacopini Structured Programming Theorem:
   * Proved that ANY computable algorithm can be written using ONLY 3 structures:
-    1. SEQUENCE   : Linear execution of statements (A -> B -> C).
+    1. SEQUENCE   : Linear execution of statements (A → B → C).
     2. SELECTION  : Conditional branching (if, if-else, switch).
     3. ITERATION  : Repeating blocks (for, while, do-while).
 
@@ -22,7 +22,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * 'if-else'         : Binary branching (True path vs False path).
   * 'else-if' ladder  : Multi-tier sequential evaluation.
   * Traditional Switch: Jump-table multi-branch routing with break/default.
-  * Modern Switch (14+): Arrow expressions (case X -> Y), yield, no fall-through.
+  * Modern Switch (14+): Arrow expressions (case X → Y), yield, no fall-through.
 
 - Hardware & JVM Level:
   * Branches alter the CPU Instruction Pointer (PC register).

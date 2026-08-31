@@ -115,7 +115,7 @@ const questions = [
     question: "How do you insert records into a Shared Primary Key 1:1 relationship in SQL?",
     shortAnswer: "1) Insert the parent student row and retrieve `LAST_INSERT_ID()`, 2) Insert the child profile row using that exact ID as its primary key.",
     explanation: "Explicit ID assignment for identifying relationships.",
-    hint: "Parent insert -> LAST_INSERT_ID() -> Child insert.",
+    hint: "Parent insert → LAST_INSERT_ID() → Child insert.",
     level: "basic",
     codeExample: "INSERT INTO students (first_name) VALUES ('Mamata');\nSET @id = LAST_INSERT_ID();\nINSERT INTO student_profiles (student_id, biography) VALUES (@id, 'RDBMS Developer');"
   },

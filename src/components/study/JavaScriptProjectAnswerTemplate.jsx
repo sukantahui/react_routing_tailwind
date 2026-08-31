@@ -168,7 +168,7 @@ export default function JavaScriptProjectAnswerTemplate({ data }) {
   const [onlyBookmarks, setOnlyBookmarks] = useState(false);
   const [onlyCompleted, setOnlyCompleted] = useState(false);
   
-  // Expanded answers state: map of projectId -> boolean
+  // Expanded answers state: map of projectId → boolean
   const [visibleAnswers, setVisibleAnswers] = useState({});
 
   // Student progress state: set of completed project IDs
@@ -314,7 +314,7 @@ export default function JavaScriptProjectAnswerTemplate({ data }) {
 
           {/* Main Title */}
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-indigo-200 tracking-tight">
+            <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-indigo-200 tracking-tight">
               {projectCategory}
             </h1>
             <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">

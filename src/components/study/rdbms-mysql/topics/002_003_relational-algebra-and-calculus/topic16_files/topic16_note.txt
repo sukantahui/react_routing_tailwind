@@ -50,7 +50,7 @@ To translate any complex mathematical Relational Algebra expression into clean S
 --------------------------------------------------------------------------------
 CASE 1: Complex Multi-Table Join with Scalar Projections
 -- Relational Algebra:
--- $\pi_{\text{full\_name, course\_title, fee} \times 1.18 \rightarrow \text{total\_fee}}(\sigma_{\text{city='Barrackpore' \land grade='A+'}}(\text{Students} \bowtie \text{Enrollments} \bowtie \text{Courses}))$
+-- $\pi_{\text{full\_name, course\_title, fee} \times 1.18 → \text{total\_fee}}(\sigma_{\text{city='Barrackpore' \land grade='A+'}}(\text{Students} \bowtie \text{Enrollments} \bowtie \text{Courses}))$
 -- Equivalent SQL:
 SELECT s.full_name, c.course_title, ROUND(c.fee * 1.18, 2) AS total_fee
 FROM students s
@@ -79,8 +79,8 @@ HAVING COUNT(DISTINCT e.course_id) = (SELECT COUNT(*) FROM core_courses);
 
 5. BEST PRACTICES & SUMMARY CHECKLIST
 --------------------------------------------------------------------------------
-[x] Map $\sigma \rightarrow$ `WHERE`, $\pi \rightarrow$ `SELECT`, $\bowtie \rightarrow$ `JOIN ... ON`.
-[x] Map ${}_G \mathcal{G} \rightarrow$ `GROUP BY`, and $\sigma_{\text{agg}}({}_G \mathcal{G}) \rightarrow$ `HAVING`.
+[x] Map $\sigma →$ `WHERE`, $\pi →$ `SELECT`, $\bowtie →$ `JOIN ... ON`.
+[x] Map ${}_G \mathcal{G} →$ `GROUP BY`, and $\sigma_{\text{agg}}({}_G \mathcal{G}) →$ `HAVING`.
 [x] Use `DISTINCT` when exact mathematical projection set semantics are required.
 [x] Translate Division queries using `GROUP BY ... HAVING COUNT(DISTINCT)`.
 

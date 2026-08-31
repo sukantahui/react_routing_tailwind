@@ -58,7 +58,7 @@ const Topic0 = () => {
               Java Generics Series • Topic 1
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
               Introduction to Generics in Java
             </h1>
             
@@ -360,7 +360,7 @@ class StudentAgeList {
 }
 
 // AFTER GENERICS - Elegant solution
-class StudentContainer<T> {
+class StudentContainer&lt;T&gt; {
     private T[] items;
     
     public void add(T item) {
@@ -374,9 +374,9 @@ class StudentContainer<T> {
 }
 
 // Usage
-StudentContainer<String> nameList = new StudentContainer<>();
-StudentContainer<Integer> ageList = new StudentContainer<>();
-StudentContainer<Double> gradeList = new StudentContainer<>();`}
+StudentContainer<String> nameList = new StudentContainer&lt;&gt;();
+StudentContainer<Integer> ageList = new StudentContainer&lt;&gt;();
+StudentContainer<Double> gradeList = new StudentContainer&lt;&gt;();`}
                 language="java"
                 showLineNumbers={true}
               />
@@ -439,7 +439,7 @@ import java.util.List;
 public class WithGenericsExample {
     public static void main(String[] args) {
         // Create a type-safe list
-        List<String> studentNames = new ArrayList<>();
+        List<String> studentNames = new ArrayList&lt;&gt;();
         
         // Now compiler ensures only Strings are added
         studentNames.add("Swadeep");
@@ -455,7 +455,7 @@ public class WithGenericsExample {
         }
         
         // Also works with custom types
-        List<Student> studentsFromBarrackpore = new ArrayList<>();
+        List<Student> studentsFromBarrackpore = new ArrayList&lt;&gt;();
         studentsFromBarrackpore.add(new Student("Raj", 22));
         // studentsFromBarrackpore.add("String error"); // Compile-time error
     }
@@ -546,7 +546,7 @@ public class WithGenericsExample {
                   title: "Using Raw Types",
                   desc: "Forgetting to specify type parameters leads to compiler warnings and loses type safety",
                   example: "List list = new ArrayList(); // Should be List<String>",
-                  fix: "Always specify type parameters: List<String> list = new ArrayList<>();"
+                  fix: "Always specify type parameters: List<String> list = new ArrayList&lt;&gt;();"
                 },
                 {
                   title: "Type Erasure Confusion",
@@ -557,7 +557,7 @@ public class WithGenericsExample {
                 {
                   title: "Incompatible Type Arguments",
                   desc: "Trying to assign generic types with incompatible type arguments",
-                  example: "List<Number> numbers = new ArrayList<Integer>(); // Error!",
+                  example: "List&lt;Number&gt; numbers = new ArrayList<Integer>(); // Error!",
                   fix: "Use wildcards: List<? extends Number> numbers = new ArrayList<Integer>();"
                 },
                 {
@@ -599,17 +599,17 @@ public class WithGenericsExample {
                 {
                   practice: "Use Descriptive Type Parameter Names",
                   details: "Use single uppercase letters (T, E, K, V, N) or descriptive names in angle brackets",
-                  code: "class Container<ITEM_TYPE> { } // or class Box<T> { }"
+                  code: "class Container<ITEM_TYPE> { } // or class Box&lt;T&gt; { }"
                 },
                 {
-                  practice: "Always Use Diamond Operator <>",
+                  practice: "Always Use Diamond Operator &lt;&gt;",
                   details: "Let the compiler infer type arguments from the context",
-                  code: "List<String> names = new ArrayList<>(); // Not new ArrayList<String>();"
+                  code: "List<String> names = new ArrayList&lt;&gt;(); // Not new ArrayList<String>();"
                 },
                 {
                   practice: "Avoid Raw Types in New Code",
                   details: "Raw types exist only for backward compatibility",
-                  code: "// Always specify type parameters\nMap<String, Integer> map = new HashMap<>();"
+                  code: "// Always specify type parameters\nMap<String, Integer> map = new HashMap&lt;&gt;();"
                 },
                 {
                   practice: "Use Bounded Type Parameters When Needed",
@@ -750,11 +750,11 @@ public class WithGenericsExample {
             <div className="grid gap-4">
               {[
                 "Generics provide type safety at compile time, preventing ClassCastException",
-                "Use angle brackets <> to specify type parameters",
+                "Use angle brackets &lt;&gt; to specify type parameters",
                 "Common type parameter names: T (Type), E (Element), K (Key), V (Value)",
                 "Generics eliminate the need for explicit type casting",
                 "Type information is erased at runtime (type erasure)",
-                "Always use the diamond operator <> for type inference",
+                "Always use the diamond operator &lt;&gt; for type inference",
                 "Avoid raw types in new code",
                 "Generics make code more reusable and maintainable"
               ].map((item, index) => (

@@ -35,7 +35,7 @@ export default function Topic7() {
               "motion-safe:animate-[slideUp_0.5s_ease-out]"
             )}
           >
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
               WAR File Structure and Deployment
             </h1>
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">

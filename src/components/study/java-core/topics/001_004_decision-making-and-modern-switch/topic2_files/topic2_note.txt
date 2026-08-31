@@ -16,8 +16,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Exactly ONE branch executes.
 
 - 'if-else' vs Ternary Operator (? :):
-  * 'if-else' is a STATEMENT  --> Best for multi-step logic & side effects.
-  * '? :' is an EXPRESSION    --> Best for assigning a single value.
+  * 'if-else' is a STATEMENT  → Best for multi-step logic & side effects.
+  * '? :' is an EXPRESSION    → Best for assigning a single value.
   * Example: final String status = (score >= 40) ? "PASS" : "FAIL";
 
 - Definite Assignment Rule (JLS §16):

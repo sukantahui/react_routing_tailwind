@@ -4,6 +4,6 @@ Mentor: Sukanta Hui (28+ Years Experience)
 
 KEY CONCEPTS:
 1. Formula Signature: =MMULT(array1, array2) / =MINVERSE(array) / =MDETERM(array)
-2. Core Mechanics: Executes matrix multiplication, calculates matrix inverses, and computes determinants to solve systems of linear equations (A*X = B -> X = A^-1 * B).
+2. Core Mechanics: Executes matrix multiplication, calculates matrix inverses, and computes determinants to solve systems of linear equations (A*X = B → X = A^-1 * B).
 3. Questions Bank: Exactly 30 structured assessment MCQs
 4. Practice Worksheet: Topic15_Matrix_Algebra

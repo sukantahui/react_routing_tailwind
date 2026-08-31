@@ -51,7 +51,7 @@ const Topic6 = () => {
     drop_jsp_shell: {
       cmd: "echo 'HEALTH_CHECK_ACTIVE_OK' > /opt/acis/webapps/ROOT/health_probe.txt",
       description: "Persistence: Deploy persistent test probe endpoint",
-      rawOutput: "File written successfully: /opt/acis/webapps/ROOT/health_probe.txt -> Probe file ACTIVE at https://dispute.equifax.com/health_probe.txt",
+      rawOutput: "File written successfully: /opt/acis/webapps/ROOT/health_probe.txt → Probe file ACTIVE at https://dispute.equifax.com/health_probe.txt",
       severity: "HIGH (Unauthorized File Creation)"
     }
   };
@@ -153,7 +153,7 @@ const Topic6 = () => {
               <span>•</span>
               <span>Module 004.006 — Topic 6</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
               Case Study 6: Equifax Data Breach (2017) — Unpatched Apache Struts Flaw
             </h1>
             <p className="text-gray-300 text-sm sm:text-lg max-w-4xl leading-relaxed">

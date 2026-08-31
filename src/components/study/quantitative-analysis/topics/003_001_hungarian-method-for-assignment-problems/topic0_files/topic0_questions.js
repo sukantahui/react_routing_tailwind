@@ -152,7 +152,7 @@ const questions = [
     explanation: "Row and column reductions require an equal number of dimensions.",
     hint: "Must add dummy rows/columns to make the matrix square (n x n).",
     level: "moderate",
-    codeExample: "Pre-processing: If rows != cols -> Add dummy row/col with cost = 0."
+    codeExample: "Pre-processing: If rows != cols → Add dummy row/col with cost = 0."
   },
   {
     question: "Suppose Mahima in Barrackpore has 10 delivery vans and 10 delivery routes. How many possible van-route assignments exist?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Square matrix structure is the prerequisite for row and column reduction.",
     hint: "Check if matrix is square; add dummy lines if unbalanced.",
     level: "intermediate",
-    codeExample: "Step 1: Check balance -> Add dummy row/col if needed."
+    codeExample: "Step 1: Check balance → Add dummy row/col if needed."
   },
   {
     question: "Why can each row and each column contain only ONE assigned cell (x_ij = 1)?",
@@ -238,9 +238,9 @@ const questions = [
     question: "What is the golden rule of Assignment Problems?",
     shortAnswer: "'Ensure the matrix is square (n x n); enforce strict 1-to-1 matching (Sum rows = 1, Sum cols = 1, x in {0, 1}); apply the Hungarian Method to find n independent zeros!'",
     explanation: "This rule encapsulates the entire assignment problem paradigm.",
-    hint: "Square matrix -> 1-to-1 matching -> Hungarian method independent zeros.",
+    hint: "Square matrix → 1-to-1 matching → Hungarian method independent zeros.",
     level: "moderate",
-    codeExample: "Golden Rule: (1) Square Matrix -> (2) 1-to-1 Constraints -> (3) Hungarian Matching."
+    codeExample: "Golden Rule: (1) Square Matrix → (2) 1-to-1 Constraints → (3) Hungarian Matching."
   }
 ];
 

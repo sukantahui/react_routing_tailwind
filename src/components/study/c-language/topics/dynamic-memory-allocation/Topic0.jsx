@@ -68,7 +68,7 @@ const Topic0 = () => {
           className={getSectionClass(0)}
           style={{ animationDelay: sectionDelays[0] }}
         >
-          <h1 className="text-4xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-purple-400">
             Stack vs Heap Memory
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">

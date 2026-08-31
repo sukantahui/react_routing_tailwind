@@ -21,7 +21,7 @@ export default function Topic2() {
             Safe Element Removal
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Removing Elements Safely: <code className="text-emerald-400 font-mono">iterator.remove()</code> &amp; <code className="text-sky-400 font-mono">removeIf()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic2() {
       </section>
 
       <Teacher
-        note="Never call 'list.remove(item)' inside a for-each loop! That crashes with ConcurrentModificationException! Always use 'iterator.remove()' or 'list.removeIf(item -> condition)'! — Sukanta Hui"
+        note="Never call 'list.remove(item)' inside a for-each loop! That crashes with ConcurrentModificationException! Always use 'iterator.remove()' or 'list.removeIf(item → condition)'! — Sukanta Hui"
       />
     </div>
   );

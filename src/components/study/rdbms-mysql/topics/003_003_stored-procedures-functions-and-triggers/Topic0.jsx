@@ -30,7 +30,7 @@ const Topic0 = () => {
 -- Hop 3: SELECT current_discount FROM scholarship_rules WHERE id = 101;
 -- Hop 4: UPDATE student_ledger SET balance = balance - 15000 WHERE id = 101;
 -- Hop 5: INSERT INTO payment_receipts (student_id, amount, gst) VALUES (101, 15000, 2700);
--- (5 more queries for invoice numbering, audit logs, SMS dispatch...) -> 280 ms total!
+-- (5 more queries for invoice numbering, audit logs, SMS dispatch...) → 280 ms total!
 
 -- ✅ Modern Server-Side Stored Procedure (1 Single Network Call):
 CALL sp_process_student_fee_payment(
@@ -149,7 +149,7 @@ TO 'receptionist_user'@'%';
               Server-Side Programming
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Introduction to Procedural SQL &amp; Server-Side Programming
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

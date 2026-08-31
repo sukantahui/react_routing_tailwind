@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 pandas is the king of data manipulation. In 3 lines of Python code, you can filter 100,000 rows, group by Region, calculate average margin, and merge with your customer database. Always add `.reset_index()` at the end!
 
 COMMON TRAPS TO AVOID:
-- Forgetting .reset_index() After GroupBy (Missing Column Names): Grouping without `.reset_index()` leaves grouping keys in the DataFrame index, causing missing headers when spilled. -> Fix: Always append `.reset_index()` to GroupBy operations: `df.groupby(...).sum().reset_index()`.
-- Merge Key Type Mismatch (String vs Integer): Joining tables where ID in Table A is integer `101` and in Table B is string `"101"` returns empty DataFrame. -> Fix: Cast join keys: `df1['ID'] = df1['ID'].astype(str)`.
-- Chained Indexing Assignment Warning: Modifying DataFrame slices with `df[df['A']>5]['B'] = 10`. -> Fix: Use `.loc`: `df.loc[df['A'] > 5, 'B'] = 10`.
+- Forgetting .reset_index() After GroupBy (Missing Column Names): Grouping without `.reset_index()` leaves grouping keys in the DataFrame index, causing missing headers when spilled. → Fix: Always append `.reset_index()` to GroupBy operations: `df.groupby(...).sum().reset_index()`.
+- Merge Key Type Mismatch (String vs Integer): Joining tables where ID in Table A is integer `101` and in Table B is string `"101"` returns empty DataFrame. → Fix: Cast join keys: `df1['ID'] = df1['ID'].astype(str)`.
+- Chained Indexing Assignment Warning: Modifying DataFrame slices with `df[df['A']>5]['B'] = 10`. → Fix: Use `.loc`: `df.loc[df['A'] > 5, 'B'] = 10`.
 ================================================================================

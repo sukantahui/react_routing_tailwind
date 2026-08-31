@@ -109,7 +109,7 @@ class Topic5 extends React.Component {
           {/* Header Section */}
           <div className="max-w-4xl mx-auto">
             <div className="animate-fade-slide-up motion-safe:animate-fade-slide-up">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4 leading-tight">
                 Topic 6: File Overwrite Behavior and Safety Prompts
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
@@ -395,7 +395,7 @@ class Topic5 extends React.Component {
                       <code>{'$ cp -v source.txt destination.txt'}</code>
                     </pre>
                     <pre className="mt-2 p-3 bg-gray-800 text-cyan-300 rounded-lg overflow-x-auto">
-                      <code>{'\'source.txt\' -> \'destination.txt\''}</code>
+                      <code>{'\'source.txt\' → \'destination.txt\''}</code>
                     </pre>
                     <p className="text-gray-600 dark:text-gray-400 mt-2 text-sm">
                       The command shows exactly what it did, creating an audit trail of operations.
@@ -420,19 +420,19 @@ class Topic5 extends React.Component {
                     </text>
                     
                     <text x="40" y="60" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/main.py -> backup/main.py'}
+                      {'project/main.py → backup/main.py'}
                     </text>
                     
                     <text x="40" y="75" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/config.json -> backup/config.json'}
+                      {'project/config.json → backup/config.json'}
                     </text>
                     
                     <text x="40" y="90" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/data/ -> backup/data/'}
+                      {'project/data/ → backup/data/'}
                     </text>
                     
                     <text x="40" y="105" fill="#22d3ee" fontFamily="monospace" fontSize="10">
-                      {'project/data/file1.txt -> backup/data/file1.txt'}
+                      {'project/data/file1.txt → backup/data/file1.txt'}
                     </text>
                     
                     {/* Verbose Visualization */}

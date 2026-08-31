@@ -24,7 +24,7 @@ This guarantees runtime safety against division-by-zero or null pointer exceptio
 The static type of a conditional expression is determined at compile time according to rigorous JLS type unification rules:
 - Identical Types: If both branches have the same type `T`, the result type is `T`.
 - Numeric Promotion: If one operand is `int` and the other is `double`, the entire expression has type `double`.
-  Example: `Object o = true ? 10 : 20.5;` -> `o` contains a `Double` object with value `10.0`.
+  Example: `Object o = true ? 10 : 20.5;` → `o` contains a `Double` object with value `10.0`.
 - Constant Narrowing: If one operand is `byte`, `short`, or `char` and the other is an `int` constant representable in that type, the result has the narrower type.
 - Reference Types: The type is the Least Upper Bound (LUB) of the two object reference types.
 

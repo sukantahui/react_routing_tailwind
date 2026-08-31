@@ -46,5 +46,5 @@ Operational Architecture: Data Hygiene Standard: 1 Row = 1 Fact | 1 Col = 1 Attr
 6. PRO TIPS & SHORTCUTS
 • Convert to Official Table (Ctrl + T): Always convert source data to an official Excel Table before creating PivotTables.
 • Unmerge All Cells (Alt + H + M + C): Strip all merged formatting from source tables before building pivot caches.
-• Fill Down Blanks (F5 > Special > Blanks -> =UpCell (Ctrl+Enter)): Quickly populate repeated categorical labels down a column.
+• Fill Down Blanks (F5 > Special > Blanks → =UpCell (Ctrl+Enter)): Quickly populate repeated categorical labels down a column.
 ================================================================================

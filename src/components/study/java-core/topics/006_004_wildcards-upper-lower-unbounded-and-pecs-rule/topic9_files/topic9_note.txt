@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. JOSHUA BLOCH'S PECS PRINCIPLE:
-   - P - Producer &rarr; Extends ('? extends T' for reading).
-   - C - Consumer &rarr; Super ('? super T' for writing).
-   - If both reading AND writing &rarr; exact type '<T>'.
+   - P - Producer → Extends ('? extends T' for reading).
+   - C - Consumer → Super ('? super T' for writing).
+   - If both reading AND writing → exact type '<T>'.
    - Maximizes API flexibility for client callers.
 
 ================================================================================

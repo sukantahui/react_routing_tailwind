@@ -24,7 +24,7 @@ const questions = [
     explanation: "Static typing benefits in dynamic Python.",
     hint: "Enables IDE autocomplete, Mypy bug catching before runtime, and self-documenting code.",
     level: "basic",
-    codeExample: "def calculate_fee(base: float, discount: float = 0.0) -> float:"
+    codeExample: "def calculate_fee(base: float, discount: float = 0.0) → float:"
   },
   {
     question: "What is 'typing.Protocol' (Structural Subtyping / Static Duck Typing) introduced in PEP 544?",
@@ -32,7 +32,7 @@ const questions = [
     explanation: "Structural subtyping via Protocol vs nominal subclassing.",
     hint: "Allows static duck typing: if it has the required methods, it satisfies the Protocol without subclassing.",
     level: "complex",
-    codeExample: "class Renderable(Protocol):\n    def render(self) -> str: ..."
+    codeExample: "class Renderable(Protocol):\n    def render(self) → str: ..."
   },
   {
     question: "What are the essential sections every professional GitHub 'README.md' must contain?",
@@ -48,7 +48,7 @@ const questions = [
     explanation: "PEP 604 union syntax via the pipe operator.",
     hint: "Use 'str | None' instead of 'Optional[str]' or 'Union[str, None]'.",
     level: "basic",
-    codeExample: "def find_student(sid: str) -> Student | None:"
+    codeExample: "def find_student(sid: str) → Student | None:"
   },
   {
     question: "What does 'typing.Literal' represent and when should it be used?",
@@ -60,11 +60,11 @@ const questions = [
   },
   {
     question: "What is the difference between 'typing.TypeVar' and concrete types in generic programming?",
-    shortAnswer: "'TypeVar' is a type variable used in generic functions or classes to declare that an input type and output type are linked (e.g. 'def first(items: list[T]) -> T:'), preserving exact type information across transformations.",
+    shortAnswer: "'TypeVar' is a type variable used in generic functions or classes to declare that an input type and output type are linked (e.g. 'def first(items: list[T]) → T:'), preserving exact type information across transformations.",
     explanation: "Generic type parameters via TypeVar.",
     hint: "T = TypeVar('T') preserves the exact type across function inputs and outputs.",
     level: "moderate",
-    codeExample: "T = TypeVar('T')\ndef get_first(items: list[T]) -> T: return items[0]"
+    codeExample: "T = TypeVar('T')\ndef get_first(items: list[T]) → T: return items[0]"
   },
   {
     question: "What is the Diátaxis documentation framework and what are its 4 distinct quadrants?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Function signature typing with Callable.",
     hint: "Annotates callback functions and function parameters: Callable[[int, int], str].",
     level: "moderate",
-    codeExample: "def apply_discount(fee: float, strategy: Callable[[float], float]) -> float:"
+    codeExample: "def apply_discount(fee: float, strategy: Callable[[float], float]) → float:"
   },
   {
     question: "What is the purpose of 'typing.overload'?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Function signature overloading in Python static typing.",
     hint: "Declares different return types depending on input types for IDEs and type checkers.",
     level: "complex",
-    codeExample: "@overload\ndef get_val(key: str) -> str: ...\n@overload\ndef get_val(key: int) -> int: ..."
+    codeExample: "@overload\ndef get_val(key: str) → str: ...\n@overload\ndef get_val(key: int) → int: ..."
   },
   {
     question: "What is 'typing.Final' and '@final' in Python?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Fluent builder typing with Self.",
     hint: "Represents the returning class instance type for method chaining.",
     level: "moderate",
-    codeExample: "def set_name(self, name: str) -> Self:\n    self.name = name\n    return self"
+    codeExample: "def set_name(self, name: str) → Self:\n    self.name = name\n    return self"
   },
   {
     question: "How do you document exceptions that a function is expected to raise?",

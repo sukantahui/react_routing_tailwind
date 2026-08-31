@@ -59,7 +59,7 @@ const questions = [
     explanation: "Enhanced switch expression mechanics (Module 001_004).",
     hint: "Arrow syntax executes only the matched case without falling through.",
     level: "basic",
-    codeExample: "case 1 -> \"Monday\";"
+    codeExample: "case 1 → \"Monday\";"
   },
   {
     question: "What is the key difference between a `while` loop and a `do-while` loop?",
@@ -227,7 +227,7 @@ const questions = [
     explanation: "Segment 1 synthesis conclusion.",
     hint: "Rock-solid mastery of procedural, memory, array, and algorithmic foundations.",
     level: "basic",
-    codeExample: "// Segment 1 Complete -> Ready for Segment 2 OOP!"
+    codeExample: "// Segment 1 Complete → Ready for Segment 2 OOP!"
   },
   {
     question: "What is the next topic (Topic 12) in Module 001_008?",

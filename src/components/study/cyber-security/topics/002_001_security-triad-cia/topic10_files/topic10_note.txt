@@ -91,7 +91,7 @@ based on mission criticality, failure tolerance, and regulatory compliance.
 
 4. PARKERIAN HEXAD (Granular 6-Dimensional Evaluation):
    - Expands CIA to: Confidentiality, Possession, Integrity, Authenticity, Availability, Utility.
-   - Example: Encrypted laptop stolen -> Possession lost, Confidentiality preserved, Utility lost.
+   - Example: Encrypted laptop stolen → Possession lost, Confidentiality preserved, Utility lost.
 
 --------------------------------------------------------------------------------
 5. LOCALIZED ENGINEERING SCENARIOS (WEST BENGAL CASE STUDIES)

@@ -77,7 +77,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Resolving #SPILL! Errors: Blocked Cells, Merged Cells, and Dynamic Range Clashes
           </h1>
 
@@ -302,7 +302,7 @@ export default function Topic9() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic0_Spill_Engine"
+              sheetName="EX1610"
               title="Spill Collision & Boundary Practice Register"
               rowsPerPage={10}
               showSheetSelector={true}

@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. TYPE REPLACEMENT RULES:
-   - '<T>' &rarr; replaced with 'Object'.
-   - '<T extends SuperType>' &rarr; replaced with 'SuperType'.
-   - '<T extends Bound1 & Bound2>' &rarr; replaced with 'Bound1'.
+   - '<T>' → replaced with 'Object'.
+   - '<T extends SuperType>' → replaced with 'SuperType'.
+   - '<T extends Bound1 & Bound2>' → replaced with 'Bound1'.
    - Guarantees valid non-generic JVM bytecode.
 
 ================================================================================

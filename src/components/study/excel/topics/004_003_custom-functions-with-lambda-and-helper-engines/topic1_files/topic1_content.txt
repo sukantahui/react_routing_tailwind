@@ -13,7 +13,7 @@ Topic 1: LAMBDA syntax: Parameters, Calculation expressions, and immediate execu
 
 2. IMMEDIATE EXECUTION PATTERNS:
 - Single Parameter:
-  =(LAMBDA(x, x^2))(9) &rarr; 81
+  =(LAMBDA(x, x^2))(9) → 81
 
 - Multi-Parameter Commercial Billing:
   =(LAMBDA(price, qty, disc, price * qty * (1 - disc)))(C5, D5, E5)
@@ -22,7 +22,7 @@ Topic 1: LAMBDA syntax: Parameters, Calculation expressions, and immediate execu
   =(LAMBDA(net, HSTACK(net, net*0.18, net*1.18)))(50000)
 
 3. ERROR DIAGNOSTICS:
-- Naked LAMBDA &rarr; #CALC!
-- Argument Count Mismatch &rarr; #VALUE!
-- Non-numeric Input in Math Expression &rarr; #VALUE!
+- Naked LAMBDA → #CALC!
+- Argument Count Mismatch → #VALUE!
+- Non-numeric Input in Math Expression → #VALUE!
 ================================================================================

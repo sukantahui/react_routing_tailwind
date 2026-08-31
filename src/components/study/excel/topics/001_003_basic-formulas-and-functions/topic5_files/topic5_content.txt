@@ -12,12 +12,12 @@ Return Type: Instant Summation Formula Array
 Real-World Business Scenarios:
 [Barrackpore Academy 4-Quarter Departmental Matrix Sum in 1 Keystroke]
 Context: Summing 5 department rows and 4 quarterly columns simultaneously.
-Applied: Select Range B2:F4 &rarr; Press Alt + =
+Applied: Select Range B2:F4 → Press Alt + =
 Result: All 5 row totals, 4 column totals, and grand total populated in 0.1 seconds.
 
 [Kolkata Retail Daily Multi-Counter Settlement]
 Context: Inserting sub-totals under 10 cash counter registers instantly.
-Applied: Multi-Selection (Ctrl + Click) &rarr; Alt + =
+Applied: Multi-Selection (Ctrl + Click) → Alt + =
 Result: 10 column sums inserted simultaneously.
 
 [Shyamnagar Regional Wholesale Table Total Row (Ctrl+Shift+T)]

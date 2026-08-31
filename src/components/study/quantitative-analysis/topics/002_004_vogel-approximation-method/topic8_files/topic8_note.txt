@@ -22,7 +22,7 @@ designed to test every dimension of Vogel's Approximation Method (VAM):
 
 PROBLEM SET 1: Standard Balanced 3x3 Matrix
 Origins: S1 (30), S2 (50), S3 (20) [Total S = 100]
-Destinations: D1 (30), D2 (40), D3 (30) [Total D = 100 -> Balanced]
+Destinations: D1 (30), D2 (40), D3 (30) [Total D = 100 → Balanced]
 Cost Matrix (₹/unit):
        D1    D2    D3   Supply  P_R(1)  P_R(2)  P_R(3)
   S1  ₹6    ₹8    ₹4     30      ₹2      ₹2      —
@@ -44,7 +44,7 @@ Basis Count: 5 basic cells (matches 3 + 3 - 1 = 5).
 --------------------------------------------------------------------------------
 PROBLEM SET 2: Degenerate 2x3 Matrix (Simultaneous Zero)
 Origins: S1 (60), S2 (40) [Total = 100]
-Destinations: D1 (30), D2 (40), D3 (30) [Total = 100 -> Balanced]
+Destinations: D1 (30), D2 (40), D3 (30) [Total = 100 → Balanced]
 Cost Matrix:
        D1    D2    D3   Supply  P_R(1)
   S1  ₹3    ₹8    ₹5     60      ₹2
@@ -64,7 +64,7 @@ Basis Count: 4 basic cells (matches 2 + 3 - 1 = 4).
 --------------------------------------------------------------------------------
 PROBLEM SET 3: Excess Supply (Dummy Column)
 Origins: S1 (50), S2 (70) [Total Supply = 120]
-Destinations: D1 (40), D2 (30), D3 (20) [Total Demand = 90 -> Deficit = 30]
+Destinations: D1 (40), D2 (30), D3 (20) [Total Demand = 90 → Deficit = 30]
 Augmented Matrix with Dummy Column D4 (Demand = 30 @ ₹0):
        D1    D2    D3   D_Dummy  Supply  P_R(1)
   S1  ₹4    ₹7    ₹6     ₹0       50      ₹4

@@ -112,7 +112,7 @@ cursor.execute(query, (user_phone,))`,
       sqlSnippet: `// 🔒 SECURE DYNAMIC SORTING VIA PROGRAMMATIC ALLOWLISTING:
 
 // Dynamic column names CANNOT use '?' placeholders!
-// Vulnerable Anti-Pattern: \`ORDER BY \${req.query.sortBy}\` -> SQLi!
+// Vulnerable Anti-Pattern: \`ORDER BY \${req.query.sortBy}\` → SQLi!
 
 // Production Best Practice (Strict Dictionary Allowlist):
 const ALLOWED_SORT_COLUMNS = {
@@ -152,7 +152,7 @@ const [results] = await db.execute(sql);`,
             Topic 10 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           SQL Injection (SQLi) Defense: <span className="text-emerald-400">Prepared Statements</span> &amp; Attack Vectors
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

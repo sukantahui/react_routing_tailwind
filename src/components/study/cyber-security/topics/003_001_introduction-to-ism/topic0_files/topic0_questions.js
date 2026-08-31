@@ -16,11 +16,11 @@ Enterprise ISM:      Policy-driven, risk-based, continuous, board-aligned, audit
     hint: "Think of strategic alignment, risk control, smart spending, business value, and measurable scorecards.",
     level: "moderate",
     codeExample: `// 5 Pillars of Strategic ISM:
-1. Business Alignment    -> Security enables enterprise growth & digital transformation
-2. Risk Management       -> Asset valuation, threat analysis, and risk treatment (ALE/SLE)
-3. Resource Optimization -> Maximum ROI on cybersecurity personnel & tools
-4. Value Delivery        -> Competitive advantage & unshakeable customer trust
-5. Performance Metrics   -> KPIs: MTTD < 15 mins, MTTR < 1 hr, 100% Patch Compliance`
+1. Business Alignment    → Security enables enterprise growth & digital transformation
+2. Risk Management       → Asset valuation, threat analysis, and risk treatment (ALE/SLE)
+3. Resource Optimization → Maximum ROI on cybersecurity personnel & tools
+4. Value Delivery        → Competitive advantage & unshakeable customer trust
+5. Performance Metrics   → KPIs: MTTD < 15 mins, MTTR < 1 hr, 100% Patch Compliance`
   },
   {
     question: "What are the three fundamental dimensions of Information Security Management, and why is technology alone insufficient?",
@@ -29,9 +29,9 @@ Enterprise ISM:      Policy-driven, risk-based, continuous, board-aligned, audit
     hint: "Recall the classic Golden Triangle of enterprise security management.",
     level: "basic",
     codeExample: `// The ISM Golden Triangle (PPT Framework):
-[ People ]    -> Culture, Phishing Awareness, Role-Based Training, Executive Buy-in
-[ Process ]   -> ISO 27001 Policies, Change Management, Access Reviews, Incident Playbooks
-[ Technology] -> Next-Gen Firewalls, EDR, AES-256 Encryption, SIEM, HSMs
+[ People ]    → Culture, Phishing Awareness, Role-Based Training, Executive Buy-in
+[ Process ]   → ISO 27001 Policies, Change Management, Access Reviews, Incident Playbooks
+[ Technology] → Next-Gen Firewalls, EDR, AES-256 Encryption, SIEM, HSMs
 Failure Rule: Compromising ANY single dimension collapses enterprise defense!`
   },
   {
@@ -55,17 +55,17 @@ Annex A:      93 Controls categorized into 4 themes:
     hint: "Remember the 6 capitalized verbs that structure the updated NIST CSF 2.0 framework.",
     level: "moderate",
     codeExample: `// NIST CSF 2.0 Core Lifecycle:
-[ GOVERN ]   -> Strategy, Policy, Roles & Board Oversight
+[ GOVERN ]   → Strategy, Policy, Roles & Board Oversight
      |
-[ IDENTIFY ] -> Asset Inventory & Risk Assessment
+[ IDENTIFY ] → Asset Inventory & Risk Assessment
      |
-[ PROTECT ]  -> IAM, Zero Trust, Data Encryption & Training
+[ PROTECT ]  → IAM, Zero Trust, Data Encryption & Training
      |
-[ DETECT ]   -> 24/7 SOC Monitoring, SIEM & EDR Telemetry
+[ DETECT ]   → 24/7 SOC Monitoring, SIEM & EDR Telemetry
      |
-[ RESPOND ]  -> Incident Containment, Eradication & CERT-In Reporting
+[ RESPOND ]  → Incident Containment, Eradication & CERT-In Reporting
      |
-[ RECOVER ]  -> Business Continuity, Disaster Recovery & Post-Mortem`
+[ RECOVER ]  → Business Continuity, Disaster Recovery & Post-Mortem`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, what are the mandatory obligations of a Data Fiduciary regarding Information Security Management?",
@@ -96,11 +96,11 @@ Failure Penalty:   Imprisonment up to 1 year or statutory financial penalties un
     hint: "Think of climbing from chaotic firefighting to predictable, quantitatively managed, and self-optimizing security.",
     level: "moderate",
     codeExample: `// 5 Levels of Security Maturity (CMMI):
-Level 1 (Initial)    -> Ad-hoc firefighting, zero documentation, extreme breach risk
-Level 2 (Repeatable) -> Project-level controls, inconsistent enterprise enforcement
-Level 3 (Defined)    -> Enterprise-wide documented ISMS (ISO 27001 Certified)
-Level 4 (Managed)    -> Quantitative metrics (KPIs/KRIs), automated SOC telemetry
-Level 5 (Optimizing) -> AI threat hunting, automated SOAR, continuous adaptive hardening`
+Level 1 (Initial)    → Ad-hoc firefighting, zero documentation, extreme breach risk
+Level 2 (Repeatable) → Project-level controls, inconsistent enterprise enforcement
+Level 3 (Defined)    → Enterprise-wide documented ISMS (ISO 27001 Certified)
+Level 4 (Managed)    → Quantitative metrics (KPIs/KRIs), automated SOC telemetry
+Level 5 (Optimizing) → AI threat hunting, automated SOAR, continuous adaptive hardening`
   },
   {
     question: "What is the difference between a Key Performance Indicator (KPI) and a Key Risk Indicator (KRI) in Information Security Management?",
@@ -134,9 +134,9 @@ Security KRI (Early Warning): Number of privileged accounts without MFA = 12 (Hi
     hint: "Think of the players on the field, the team coaches setting the strategy, and the independent referee.",
     level: "expert",
     codeExample: `// The Three Lines of Defense (3LoD) Model:
-1st Line (Operations):   DevOps, SysAdmins, DBAs -> Directly implement controls & patch systems
-2nd Line (Governance):   CISO Office, Risk & Compliance -> Author policies, monitor SIEM, run audits
-3rd Line (Assurance):    Internal Audit Team -> Independent objective evaluation reporting to the Board`
+1st Line (Operations):   DevOps, SysAdmins, DBAs → Directly implement controls & patch systems
+2nd Line (Governance):   CISO Office, Risk & Compliance → Author policies, monitor SIEM, run audits
+3rd Line (Assurance):    Internal Audit Team → Independent objective evaluation reporting to the Board`
   },
   {
     question: "Why is an Information Asset Register (IAR) the non-negotiable prerequisite for implementing any Information Security Management framework?",

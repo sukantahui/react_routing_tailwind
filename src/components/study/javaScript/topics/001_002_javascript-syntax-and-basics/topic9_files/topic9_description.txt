@@ -16,17 +16,17 @@ Abhronila had `'10' + 20` resulting in `'1020'`, while `'10' - 5` resulted in `5
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
 1. Explicit Conversion (Best Practice):
-- `Number('42')` -> 42
-- `String(100)` -> '100'
-- `Boolean(1)` -> true
+- `Number('42')` → 42
+- `String(100)` → '100'
+- `Boolean(1)` → true
 
 2. Implicit Coercion Rules:
-- String Coercion: `str + any` -> converts any to string.
-- Number Coercion: `str - num`, `str * num` -> converts str to number.
+- String Coercion: `str + any` → converts any to string.
+- Number Coercion: `str - num`, `str * num` → converts str to number.
 - Boolean Coercion: In `if (val)`, evaluates truthy/falsy rules.
 
 3. Common Coercion Quirks:
-- `+true` -> 1, `+false` -> 0, `+null` -> 0, `+undefined` -> NaN.
+- `+true` → 1, `+false` → 0, `+null` → 0, `+undefined` → NaN.
 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
 --------------------------------------------------------------------------------

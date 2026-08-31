@@ -71,7 +71,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Time Intelligence setup: Requirements for standard date tables and continuous dates"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Time_Intelligence_"
+            sheetName="EX2309"
             title={"Time Intelligence setup: Requirements for standard date tables and continuous dates - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -494,7 +494,7 @@ export default function Topic8() {
                 <span>⚡</span> {"Mark as Date Table"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Disables hidden auto-date tables and optimizes DAX time engine."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design &gt; Mark as Date Table"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design > Mark as Date Table"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

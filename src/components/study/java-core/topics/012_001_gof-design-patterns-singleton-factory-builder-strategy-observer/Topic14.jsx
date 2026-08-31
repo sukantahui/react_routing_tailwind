@@ -21,7 +21,7 @@ export default function Topic14() {
             GoF Design Patterns
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           The Strategy Pattern: <code className="text-emerald-400 font-mono">Interchangeable Algorithms</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic14() {
       </section>
 
       <Teacher
-        note="In Java 8+, the Strategy pattern became effortless! Instead of creating 5 separate strategy classes, any Functional Interface (like Function<Double, Double> or Comparator<T>) is instantly a Strategy! — Sukanta Hui"
+        note="In Java 8+, the Strategy pattern became effortless! Instead of creating 5 separate strategy classes, any Functional Interface (like Function<Double, Double> or Comparator&lt;T&gt;) is instantly a Strategy! — Sukanta Hui"
       />
     </div>
   );

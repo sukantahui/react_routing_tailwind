@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Applying precision filtering protocols: Top 10 rankings, threshold Value Filters, text Label Filters, and multi-key custom sorting
 
 TEACHER'S ADVICE:
-To apply both a Label filter ('Begins with BKP') and a Value filter ('Revenue > 10 Lakhs') on the same field, go to PivotTable Options -> Totals & Filters -> check 'Allow multiple filters per field'.
+To apply both a Label filter ('Begins with BKP') and a Value filter ('Revenue > 10 Lakhs') on the same field, go to PivotTable Options → Totals & Filters → check 'Allow multiple filters per field'.
 
 COMMON TRAPS TO AVOID:
-- Label Filter vs Value Filter Mutual Exclusion: Applying a Value Filter clears your active Label Filter because Excel defaults to one filter per field. -> Fix: PivotTable Options > Totals & Filters > Check 'Allow multiple filters per field'.
-- Static Top 10 Visual Misconception: Thinking Top 10 filters are static; Top 10 dynamically recalculates when slicers or page filters change. -> Fix: Understand that Top 10 is dynamic and adapts to slicer selections automatically.
-- Sorting by Label Instead of Value: Sorting a PivotTable alphabetically when management expects descending ranking by revenue. -> Fix: Click row header dropdown > More Sort Options > Descending by Sum of Revenue.
+- Label Filter vs Value Filter Mutual Exclusion: Applying a Value Filter clears your active Label Filter because Excel defaults to one filter per field. → Fix: PivotTable Options > Totals & Filters > Check 'Allow multiple filters per field'.
+- Static Top 10 Visual Misconception: Thinking Top 10 filters are static; Top 10 dynamically recalculates when slicers or page filters change. → Fix: Understand that Top 10 is dynamic and adapts to slicer selections automatically.
+- Sorting by Label Instead of Value: Sorting a PivotTable alphabetically when management expects descending ranking by revenue. → Fix: Click row header dropdown > More Sort Options > Descending by Sum of Revenue.
 ================================================================================

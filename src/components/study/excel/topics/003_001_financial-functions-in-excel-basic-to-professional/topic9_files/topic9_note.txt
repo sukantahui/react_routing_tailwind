@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Modified Duration is the ultimate bond risk metric. If a bond has an MDURATION of 6.5, a 1% rise in interest rates will cause its market price to drop by approximately 6.5%. Institutional treasurers live by this rule.
 
 COMMON TRAPS TO AVOID:
-- Pricing Stated per 100 Par vs Total Value: Forgetting that Excel's PRICE and YIELD functions output values per ₹100 face value, not total currency. -> Fix: Multiply output by `(FaceValue / 100)` to calculate total trade settlement value.
-- Settlement Date >= Maturity Date (#NUM!): Settlement date must be strictly earlier than maturity date. -> Fix: Ensure settlement date precedes maturity date.
-- Frequency Parameter Invalid Code: Passing invalid frequency integers (only 1 = Annual, 2 = Semi-Annual, 4 = Quarterly are supported). -> Fix: Use frequency code 2 for standard semi-annual corporate and sovereign bonds.
+- Pricing Stated per 100 Par vs Total Value: Forgetting that Excel's PRICE and YIELD functions output values per ₹100 face value, not total currency. → Fix: Multiply output by `(FaceValue / 100)` to calculate total trade settlement value.
+- Settlement Date >= Maturity Date (#NUM!): Settlement date must be strictly earlier than maturity date. → Fix: Ensure settlement date precedes maturity date.
+- Frequency Parameter Invalid Code: Passing invalid frequency integers (only 1 = Annual, 2 = Semi-Annual, 4 = Quarterly are supported). → Fix: Use frequency code 2 for standard semi-annual corporate and sovereign bonds.
 ================================================================================

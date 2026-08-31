@@ -63,7 +63,7 @@ const questions = [
       "=DIVIDE(Vector_B, Matrix_A)"
     ],
     "correctAnswer": 0,
-    "explanation": "Solving A*X = B gives X = A^-1 * B -> =MMULT(MINVERSE(A), B)."
+    "explanation": "Solving A*X = B gives X = A^-1 * B → =MMULT(MINVERSE(A), B)."
   },
   {
     "question": "What error does MMULT return if columns in array1 do not equal rows in array2?",

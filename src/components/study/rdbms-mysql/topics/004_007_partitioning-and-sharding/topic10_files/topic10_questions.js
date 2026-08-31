@@ -18,7 +18,7 @@ const shardId = CRC32(userUuid) % 8; // Routes to Node 0 through 7`
     explanation: "The foundational scaling algorithm for modern distributed cloud storage systems.",
     hint: "Maps nodes and keys onto a circular hash ring; adding a node moves only 1/N data.",
     level: "intermediate",
-    codeExample: `// Consistent Hash Ring: Key hashes to position on [0, 2^32-1] -> Assigned to first clockwise node`
+    codeExample: `// Consistent Hash Ring: Key hashes to position on [0, 2^32-1] → Assigned to first clockwise node`
   },
   {
     question: "What are 'Virtual Nodes' (VNodes) in Consistent Hashing and why are they essential in production?",
@@ -66,7 +66,7 @@ if (region === 'MAHARASHTRA') return shardMumbaiNode;`
   },
   {
     question: "What is Directory-Based (Lookup) Sharding and how does it work?",
-    shortAnswer: "A centralized lookup database or high-speed cache (e.g. **Redis**) maintains an explicit key-to-shard mapping table (`tenant_id -> shard_node_ip`); the router queries the lookup directory first and then connects to the designated database node.",
+    shortAnswer: "A centralized lookup database or high-speed cache (e.g. **Redis**) maintains an explicit key-to-shard mapping table (`tenant_id → shard_node_ip`); the router queries the lookup directory first and then connects to the designated database node.",
     explanation: "Provides dynamic flexibility to move individual high-volume tenants between shards.",
     hint: "Central lookup service (Redis) stores explicit mappings from entity IDs to shard node addresses.",
     level: "intermediate",
@@ -78,7 +78,7 @@ if (region === 'MAHARASHTRA') return shardMumbaiNode;`
     explanation: "Requires maintaining a dedicated distributed lookup infrastructure.",
     hint: "Adds an extra network lookup hop and creates a critical dependency on the lookup cache.",
     level: "intermediate",
-    codeExample: `-- Extra network hop: App -> Redis Lookup -> MySQL Shard Node`
+    codeExample: `-- Extra network hop: App → Redis Lookup → MySQL Shard Node`
   },
   {
     question: "What is 'Composite Sharding' (Two-Tier Sharding Algorithm)?",
@@ -86,15 +86,15 @@ if (region === 'MAHARASHTRA') return shardMumbaiNode;`
     explanation: "Combines data residency compliance with high-throughput hash scalability.",
     hint: "Combines two algorithms: e.g. List by region at Tier 1 + Consistent Hash across nodes at Tier 2.",
     level: "expert",
-    codeExample: `Tier 1: List (Bengal Region) -> Tier 2: Consistent Hash (8 MySQL Nodes in Kolkata DC)`
+    codeExample: `Tier 1: List (Bengal Region) → Tier 2: Consistent Hash (8 MySQL Nodes in Kolkata DC)`
   },
   {
     question: "What is the 'Double-Write & CDC Catch-Up' zero-downtime resharding pattern?",
     shortAnswer: "1. Baseline bulk copy from old shards to new shards; 2. Application enables double-writes or uses CDC (Debezium/binlogs) to replicate delta changes in real time; 3. Run data checksum verification (`pt-table-checksum`); 4. Atomically switch router pointers to the new shards; 5. Decommission old shards.",
     explanation: "Enables multi-terabyte cluster resharding with zero application downtime.",
-    hint: "Bulk copy baseline -> Stream real-time binlogs -> Verify checksums -> Cut over traffic atomically.",
+    hint: "Bulk copy baseline → Stream real-time binlogs → Verify checksums → Cut over traffic atomically.",
     level: "expert",
-    codeExample: `// Zero-Downtime Migration: CDC binlog replication catch-up -> Checksum verification -> Cutover`
+    codeExample: `// Zero-Downtime Migration: CDC binlog replication catch-up → Checksum verification → Cutover`
   },
   {
     question: "Why does MurmurHash3 or MD5 serve as a better hashing function for Consistent Hashing than simple integer modulo?",
@@ -176,7 +176,7 @@ hashRing.addNode("server-light-02", 256); // Takes 1x data`
     explanation: "Maintains cluster-wide state synchronization across all application nodes.",
     hint: "Stores shard topology and hash ring state, notifying routers of node changes via watch triggers.",
     level: "expert",
-    codeExample: `// Router watches etcd key: /database/shards/topology -> Updates local hash ring on changes`
+    codeExample: `// Router watches etcd key: /database/shards/topology → Updates local hash ring on changes`
   },
   {
     question: "What is `pt-table-checksum`'s role during a live resharding migration?",
@@ -192,7 +192,7 @@ hashRing.addNode("server-light-02", 256); // Takes 1x data`
     explanation: "The standard auto-scaling pattern in NewSQL databases (like TiDB and CockroachDB).",
     hint: "Splits the range boundary in metadata and migrates half the data to a new node.",
     level: "expert",
-    codeExample: `-- Split Range: [1 - 1,000,000] -> [1 - 500,000] (Node 1) & [500,001 - 1,000,000] (Node 2)`
+    codeExample: `-- Split Range: [1 - 1,000,000] → [1 - 500,000] (Node 1) & [500,001 - 1,000,000] (Node 2)`
   },
   {
     question: "What happens if a query filters on an un-sharded secondary index (e.g. `WHERE email = 'mamata@bengal.in'`) when the shard key is `user_id`?",
@@ -204,9 +204,9 @@ hashRing.addNode("server-light-02", 256); // Takes 1x data`
   },
   {
     question: "How do you eliminate the Scatter-Gather penalty for secondary index lookups in sharded systems?",
-    shortAnswer: "By building a **Global Secondary Index (GSI) Lookup Table or Redis Cache** that maps `email -> user_id`; the application looks up `user_id` in Redis in 0.5ms and then executes a Point Query directly to the correct shard node.",
+    shortAnswer: "By building a **Global Secondary Index (GSI) Lookup Table or Redis Cache** that maps `email → user_id`; the application looks up `user_id` in Redis in 0.5ms and then executes a Point Query directly to the correct shard node.",
     explanation: "Converts scatter-gather broadcast scans into deterministic point lookups.",
-    hint: "Use a global lookup cache (Redis: email -> user_id) to convert queries into point lookups.",
+    hint: "Use a global lookup cache (Redis: email → user_id) to convert queries into point lookups.",
     level: "intermediate",
     codeExample: `const userId = await redis.get(\`email_idx:\${email}\`); // Returns 105
 const user = await getShard(userId).query("SELECT * FROM users WHERE user_id = ?", [userId]);`
@@ -235,8 +235,8 @@ const user = await getShard(userId).query("SELECT * FROM users WHERE user_id = ?
     level: "basic",
     codeExample: `-- Master Consistent Hashing Router Blueprint:
 # 1. Algorithm: Consistent Hashing with 256 Virtual Nodes per Server
-# 2. Key: MurmurHash3(account_uuid) -> Position on [0, 2^32-1] Ring
-# 3. Secondary Index: Redis GSI cache (email -> account_uuid)
+# 2. Key: MurmurHash3(account_uuid) → Position on [0, 2^32-1] Ring
+# 3. Secondary Index: Redis GSI cache (email → account_uuid)
 # 4. Resharding: CDC binlog catch-up + pt-table-checksum validation`
   },
   {

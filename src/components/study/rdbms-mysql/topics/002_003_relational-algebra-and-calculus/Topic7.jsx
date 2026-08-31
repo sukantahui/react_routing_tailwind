@@ -152,7 +152,7 @@ const Topic7 = () => {
             Module 002_003 · Relational Algebra &amp; Calculus · Topic 7
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Theta Join (⨝θ) &amp;{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Equijoin Operations
@@ -220,7 +220,7 @@ const Topic7 = () => {
           {/* ── Semantic SVG 1: Theta Join Derivation Flow ── */}
           <div className="mt-8 rounded-xl border border-slate-800 bg-slate-950 p-4">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 text-center">
-              Visual Guide: Theta Join Derivation Flow ($R \times S \rightarrow \sigma_\theta \rightarrow R \bowtie_\theta S$)
+              Visual Guide: Theta Join Derivation Flow ($R \times S → \sigma_\theta → R \bowtie_\theta S$)
             </h3>
             <svg
               viewBox="0 0 780 140"

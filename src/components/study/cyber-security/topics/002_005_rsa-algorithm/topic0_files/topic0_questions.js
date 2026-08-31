@@ -18,7 +18,7 @@ Core Hardness: Integer Factorization Problem (N = p * q)`
     level: "moderate",
     codeExample: `// One-Way Trapdoor Mathematics:
 Forward Direction (Easy): p * q = N (Takes 0.0001 ms)
-Adversary Inverse (Hard): Given N -> Find p, q (Takes 10 Billion CPU Years via GNFS!)
+Adversary Inverse (Hard): Given N → Find p, q (Takes 10 Billion CPU Years via GNFS!)
 Legitimate Inverse (Trapdoor): Compute M = C^d mod N (Takes 2 ms using private key d!)`
   },
   {
@@ -28,8 +28,8 @@ Legitimate Inverse (Trapdoor): Compute M = C^d mod N (Takes 2 ms using private k
     hint: "Remember the two numbers in the public tuple $(e, N)$ and the secret number in the private tuple $(d, N)$.",
     level: "basic",
     codeExample: `// RSA Key Pair Structure:
-Public Key:  ( e, N ) -> Published in X.509 Digital Certificates
-Private Key: ( d, N ) -> Stored inside FIPS 140-3 Hardware Crypto USB Tokens
+Public Key:  ( e, N ) → Published in X.509 Digital Certificates
+Private Key: ( d, N ) → Stored inside FIPS 140-3 Hardware Crypto USB Tokens
 Where: N = p * q  and  e * d ≡ 1 (mod (p-1)(q-1))`
   },
   {
@@ -94,8 +94,8 @@ Operation        | Key Material Used       | CPU Time (2048-bit)
     hint: "Remember the quantum algorithm that transforms exponential factoring difficulty into trivial polynomial time.",
     level: "expert",
     codeExample: `// Classical vs Quantum Factoring Complexity:
-Classical (GNFS): O( exp( (64/9 * b)^(1/3) * (log b)^(2/3) ) ) -> Infeasible for 2048-bit N!
-Quantum (Shor):   O( b^3 ) [Polynomial Time -> Cracks RSA-2048 & RSA-4096 in Minutes!]`
+Classical (GNFS): O( exp( (64/9 * b)^(1/3) * (log b)^(2/3) ) ) → Infeasible for 2048-bit N!
+Quantum (Shor):   O( b^3 ) [Polynomial Time → Cracks RSA-2048 & RSA-4096 in Minutes!]`
   },
   {
     question: "Under the Indian Information Technology Act 2000, how does the Controller of Certifying Authorities (CCA) mandate RSA key lengths for Class-3 Digital Signature Certificates (DSC)?",
@@ -129,7 +129,7 @@ Rule: ALWAYS generate d with full 2048-bit entropy!`
     codeExample: `// Bleichenbacher Padding Oracle Flow:
 Attacker submits: C' = (C * s^e) mod N
 Server response:  "200 OK" (Decrypted bytes start with 0x0002) vs "500 Bad Padding"
-Attacker iterates: Narrows interval [2B, 3B-1] -> Plaintext recovered after ~1,000,000 queries!`
+Attacker iterates: Narrows interval [2B, 3B-1] → Plaintext recovered after ~1,000,000 queries!`
   },
   {
     question: "What is a 'Coppersmith Attack' (1996) on RSA, and how does lattice reduction (LLL algorithm) find small roots of polynomials to break flawed RSA implementations?",
@@ -140,7 +140,7 @@ Attacker iterates: Narrows interval [2B, 3B-1] -> Plaintext recovered after ~1,0
     codeExample: `// Coppersmith Lattice Reduction Condition:
 Polynomial: f(x) ≡ 0 (mod N) with degree e
 Root Bound: |x_0| < N^(1/e)
-Action:     Apply LLL Lattice Reduction to polynomial matrix -> Finds root x_0 in polynomial time!`
+Action:     Apply LLL Lattice Reduction to polynomial matrix → Finds root x_0 in polynomial time!`
   },
   {
     question: "Why did the RSA algorithm require a minimum key length migration from 512-bit to 1024-bit, and subsequently from 1024-bit to 2048-bit/4096-bit over the last three decades?",
@@ -191,7 +191,7 @@ Output:       Digital Signature with FIPS 140-3 Non-Repudiation Guarantee!`
 2. Blind:   C_blinded = (C * (r^e mod N)) mod N
 3. Decrypt: M_blinded = (C_blinded ^ d) mod N = (M * r) mod N
 4. Unblind: M = (M_blinded * r^(-1)) mod N
-// Execution time is decoupled from Plaintext M -> TIMING ATTACK DEFEATED!`
+// Execution time is decoupled from Plaintext M → TIMING ATTACK DEFEATED!`
   },
   {
     question: "What is the role of 'Euler's Totient Function' $\\phi(N) = (p-1)(q-1)$ in the foundational proof of the RSA algorithm?",

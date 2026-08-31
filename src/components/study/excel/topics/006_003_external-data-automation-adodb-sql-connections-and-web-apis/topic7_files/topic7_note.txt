@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Modern APIs return data in JSON format. With a lightweight JSON parser class, you can parse any API response into a VBA Dictionary in 1 line: `Set json = ParseJson(http.responseText)`. Then just write `ws.Range("A1").Value = json("rates")("INR")`.
 
 COMMON TRAPS TO AVOID:
-- Dictionary vs Collection Indexing Confusion: Attempting to access a Dictionary with numeric index `json(1)` or a Collection with a string key `json("name")` throws runtime error. -> Fix: Use string keys `dict("key")` for Objects `{}`; use numeric index or `For Each` for Arrays `[]`.
-- Missing Scripting Runtime Reference for Dictionaries: JSON parsers relying on `Scripting.Dictionary` failing if reference is missing. -> Fix: Enable `Microsoft Scripting Runtime` or use late-bound Dictionary objects.
-- Crashing on Null or Missing JSON Keys: Accessing a key that does not exist in the API response. -> Fix: Check if key exists: `If json.Exists("key") Then ...`.
+- Dictionary vs Collection Indexing Confusion: Attempting to access a Dictionary with numeric index `json(1)` or a Collection with a string key `json("name")` throws runtime error. → Fix: Use string keys `dict("key")` for Objects `{}`; use numeric index or `For Each` for Arrays `[]`.
+- Missing Scripting Runtime Reference for Dictionaries: JSON parsers relying on `Scripting.Dictionary` failing if reference is missing. → Fix: Enable `Microsoft Scripting Runtime` or use late-bound Dictionary objects.
+- Crashing on Null or Missing JSON Keys: Accessing a key that does not exist in the API response. → Fix: Check if key exists: `If json.Exists("key") Then ...`.
 ================================================================================

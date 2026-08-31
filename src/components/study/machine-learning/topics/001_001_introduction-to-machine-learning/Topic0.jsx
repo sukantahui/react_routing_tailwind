@@ -190,7 +190,7 @@ const Topic0 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Meaning and Scope of Machine Learning
           </h1>
 
@@ -320,7 +320,7 @@ const Topic0 = () => {
               <text x="130" y="165" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Retinopathy Diagnosis</text>
             </g>
 
-            {/* Arrow T -> P */}
+            {/* Arrow T → P */}
             <g>
               <line x1="230" y1="110" x2="300" y2="110" stroke="#64748b" strokeWidth="2" strokeDasharray="4 2" />
               <polygon points="305,110 295,105 295,115" fill="#64748b" />
@@ -337,7 +337,7 @@ const Topic0 = () => {
               <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• AUC-ROC / Sensitivity</text>
             </g>
 
-            {/* Arrow P -> E */}
+            {/* Arrow P → E */}
             <g>
               <line x1="510" y1="110" x2="580" y2="110" stroke="#64748b" strokeWidth="2" strokeDasharray="4 2" />
               <polygon points="585,110 575,105 575,115" fill="#64748b" />
@@ -354,7 +354,7 @@ const Topic0 = () => {
               <text x="690" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• 10M UPI Transaction Logs</text>
             </g>
 
-            {/* Feedback Loop Arc E -> T */}
+            {/* Feedback Loop Arc E → T */}
             <path d="M 690 175 Q 410 225 130 175" fill="none" stroke="#a855f7" strokeWidth="2" strokeDasharray="5 3" />
             <polygon points="125,175 137,170 135,180" fill="#a855f7" />
             <text x="410" y="210" textAnchor="middle" fill="#e9d5ff" fontSize="10" fontWeight="bold">
@@ -867,7 +867,7 @@ model.fit(X_historical, y_historical)
                   2. Now a brand-new incoming email arrives: <span className="font-mono text-white">[6, 12, 3, ...]</span>.
                 </p>
                 <p>
-                  3. The learned model calculates: <span className="font-mono text-emerald-400 font-bold">h(x) = 0.94</span> &rarr; <strong className="text-white">94% probability of Spam</strong>!
+                  3. The learned model calculates: <span className="font-mono text-emerald-400 font-bold">h(x) = 0.94</span> → <strong className="text-white">94% probability of Spam</strong>!
                 </p>
                 <p className="text-slate-400 italic text-[11px] pt-1">
                   The programmer created the learning mechanism. The training data allowed the system to learn the parameters.

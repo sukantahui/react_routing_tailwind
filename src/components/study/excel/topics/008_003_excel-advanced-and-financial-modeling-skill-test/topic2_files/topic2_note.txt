@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 What-If Data Tables are the secret weapon of corporate finance. Build a 2-variable table for Price vs Volume, and your C-suite can see 50 financial scenarios on one screen instantly. And use Solver when you want to find the exact mix that makes the most money!
 
 COMMON TRAPS TO AVOID:
-- Reversing Row and Column Input Cells in Two-Variable Data Table: Swapping row/column inputs produces a matrix of completely inverted nonsensical numbers. -> Fix: Ensure Row Input Cell matches top header variable; Column Input Cell matches left header variable.
-- Unbounded Solver Models (Infinite Profit / Crash): Forgetting to add non-negativity constraint (`Make Unconstrained Variables Non-Negative`). -> Fix: Always check 'Make Unconstrained Variables Non-Negative' in Solver.
-- Data Table Formulas Not Recalculating: Excel calculation options set to 'Automatic Except for Data Tables'. -> Fix: Press F9 or set Calculation Options to Automatic.
+- Reversing Row and Column Input Cells in Two-Variable Data Table: Swapping row/column inputs produces a matrix of completely inverted nonsensical numbers. → Fix: Ensure Row Input Cell matches top header variable; Column Input Cell matches left header variable.
+- Unbounded Solver Models (Infinite Profit / Crash): Forgetting to add non-negativity constraint (`Make Unconstrained Variables Non-Negative`). → Fix: Always check 'Make Unconstrained Variables Non-Negative' in Solver.
+- Data Table Formulas Not Recalculating: Excel calculation options set to 'Automatic Except for Data Tables'. → Fix: Press F9 or set Calculation Options to Automatic.
 ================================================================================

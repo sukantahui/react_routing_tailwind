@@ -39,7 +39,7 @@ export default function Topic1() {
         <main className="max-w-6xl mx-auto px-4 py-10 space-y-12">
           {/* Hero Section */}
           <section className="animate-[fade-up_0.5s_ease-out] motion-safe:animate-[fade-up_0.5s_ease-out] text-center">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400 bg-clip-text text-transparent">
               Shortest Path Algorithms
             </h1>
             <p className="text-lg mt-4 max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
@@ -102,7 +102,7 @@ export default function Topic1() {
                     <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
                   </marker>
                 </defs>
-                {/* <!-- Nodes (routers) --> */}
+                {/* <!-- Nodes (routers) → */}
                 <circle cx="80" cy="200" r="28" fill="#3b82f6" stroke="#1e3a8a" strokeWidth="2" />
                 <text x="80" y="206" textAnchor="middle" fill="white" fontSize="14">A</text>
                 <circle cx="260" cy="120" r="28" fill="#10b981" stroke="#064e3b" strokeWidth="2" />
@@ -114,7 +114,7 @@ export default function Topic1() {
                 <circle cx="720" cy="200" r="28" fill="#8b5cf6" stroke="#4c1d95" strokeWidth="2" />
                 <text x="720" y="206" textAnchor="middle" fill="white" fontSize="14">E</text>
 
-                {/* <!-- Edges with weights --> */}
+                {/* <!-- Edges with weights → */}
                 <line x1="108" y1="200" x2="232" y2="120" stroke="#9ca3af" strokeWidth="3" marker-end="url(#arrowhead)" />
                 <text x="160" y="145" fill="currentColor" fontSize="16" className="text-gray-700 dark:text-gray-300">4</text>
                 <line x1="108" y1="200" x2="372" y2="240" stroke="#9ca3af" strokeWidth="3" marker-end="url(#arrowhead)" />
@@ -130,7 +130,7 @@ export default function Topic1() {
                 <line x1="588" y1="120" x2="692" y2="200" stroke="#9ca3af" strokeWidth="3" marker-end="url(#arrowhead)" />
                 <text x="630" y="150" fill="currentColor" fontSize="16">2</text>
 
-                {/* <!-- Animated packet exploring nodes (simple moving dot along the final shortest path A->B->C? Actually shortest from A to E: A->B->D->E cost 4+3+2=9? Let's compute: A->B(4), B->D(3), D->E(2) total 9; or A->C(2)+C->D(5)+D->E(2)=9 same; we'll show A->B->D->E) --> */}
+                {/* <!-- Animated packet exploring nodes (simple moving dot along the final shortest path A->B->C? Actually shortest from A to E: A->B->D->E cost 4+3+2=9? Let's compute: A->B(4), B->D(3), D->E(2) total 9; or A->C(2)+C->D(5)+D->E(2)=9 same; we'll show A->B->D->E) → */}
                 <path id="shortestPath" d="M108,200 L232,120 L532,120 L692,200" fill="none" stroke="none" />
                 <circle r="6" fill="#ff0080" stroke="white" strokeWidth="1.5">
                   <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">

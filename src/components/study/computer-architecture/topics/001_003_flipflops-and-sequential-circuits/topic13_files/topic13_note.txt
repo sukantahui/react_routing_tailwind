@@ -16,7 +16,7 @@ INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
   2. This new inverted output immediately travels back through the feedback wires
      to the input NAND steering gates.
   3. Because CLK is still HIGH, the flip-flop toggles again after another t_pd!
-  4. This cycle repeats continuously (0 -> 1 -> 0 -> 1 -> 0...) throughout the
+  4. This cycle repeats continuously (0 → 1 → 0 → 1 → 0...) throughout the
      entire clock pulse duration.
   5. When CLK finally drops to LOW, the state in which Q freezes is completely
      unpredictable and non-deterministic! This is the RACE-AROUND CONDITION.

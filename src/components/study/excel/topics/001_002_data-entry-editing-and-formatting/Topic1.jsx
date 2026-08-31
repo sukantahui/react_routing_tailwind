@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Efficient Data Entry Techniques, AutoComplete, Pick from Drop-Down and Keyboard Shortcuts
           </h1>
 
@@ -308,7 +308,7 @@ export default function Topic1() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Row_No</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action_Sequence</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Key_Combination</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Speed_Advantage</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Row 15</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Press Alt + Down Arrow &amp;rarr; Select 'Taxation &amp; GST'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Alt + Down &amp;rarr; Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% spelling accuracy, zero typos</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Row 15</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Press Alt + Down Arrow → Select 'Taxation &amp; GST'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Alt + Down → Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% spelling accuracy, zero typos</td></tr>
                   </tbody>
                 </table>
               </div>
@@ -378,7 +378,7 @@ export default function Topic1() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Workflow_Technique</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Navigation_Behavior</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Efficiency_Gain</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Pre-select range A2:C200 &amp;rarr; Type data &amp;rarr; Press Tab &amp;rarr; Tab &amp;rarr; Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Enter automatically wraps cursor to start of next row</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">3x faster than manual arrow key navigation</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Pre-select range A2:C200 → Type data → Press Tab → Tab → Enter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Enter automatically wraps cursor to start of next row</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">3x faster than manual arrow key navigation</td></tr>
                   </tbody>
                 </table>
               </div>

@@ -6,9 +6,9 @@ const questions = [
     hint: "Think of an encrypted locked box (Cryptography), a secret compartment hidden behind a mirror (Steganography), and an artist's signature carved into a stone statue (Watermarking).",
     level: "basic",
     codeExample: `// The 3 Paradigms:
-Cryptography:   Ciphertext = Encrypt( Plaintext, Key )     -> Existence is KNOWN, Meaning is HIDDEN
-Steganography:  StegoObject = Hide( CoverObject, Secret )  -> Existence is CONCEALED completely
-Watermarking:   Watermarked = Embed( HostMedia, Copyright) -> Protects the HOST MEDIA itself`
+Cryptography:   Ciphertext = Encrypt( Plaintext, Key )     → Existence is KNOWN, Meaning is HIDDEN
+Steganography:  StegoObject = Hide( CoverObject, Secret )  → Existence is CONCEALED completely
+Watermarking:   Watermarked = Embed( HostMedia, Copyright) → Protects the HOST MEDIA itself`
   },
   {
     question: "What is 'Steganalysis', and what is the primary objective of a steganalyst compared to a cryptanalyst?",
@@ -17,8 +17,8 @@ Watermarking:   Watermarked = Embed( HostMedia, Copyright) -> Protects the HOST 
     hint: "Think of a prison guard searching for secret hidden notes inside inmates' innocent letters rather than trying to crack a code.",
     level: "moderate",
     codeExample: `// Cryptanalysis vs Steganalysis Objectives:
-Cryptanalyst: Target = Decrypt( Ciphertext ) -> Recover Plaintext P
-Steganalyst:  Target = Detect( CoverImage )  -> Output: { "CLEAN_IMAGE", "STEGO_PAYLOAD_DETECTED" }`
+Cryptanalyst: Target = Decrypt( Ciphertext ) → Recover Plaintext P
+Steganalyst:  Target = Detect( CoverImage )  → Output: { "CLEAN_IMAGE", "STEGO_PAYLOAD_DETECTED" }`
   },
   {
     question: "How does the relationship between the 'Embedded Payload' and the 'Cover Carrier' differ between Steganography and Digital Watermarking?",
@@ -39,7 +39,7 @@ Watermarking:  Host  = "MRI_Brain.dcm" | Watermark = "Patient_Mamata_Kolkata_Hos
     codeExample: `// Chi-Square (χ²) PoV Detection:
 Expected Count: E_k = ( Count(2k) + Count(2k+1) ) / 2
 Chi-Square:     χ² = Sum( (Count(2k) - E_k)^2 / E_k )
-Result: In pristine image, χ² is high; in LSB stego image, χ² drops near 0 -> STEGO DETECTED!`
+Result: In pristine image, χ² is high; in LSB stego image, χ² drops near 0 → STEGO DETECTED!`
   },
   {
     question: "What is 'Network / Protocol Steganography', and how do adversaries hide covert data in standard TCP/IP packet headers?",
@@ -50,7 +50,7 @@ Result: In pristine image, χ² is high; in LSB stego image, χ² drops near 0 -
     codeExample: `// TCP ISN Network Steganography:
 Normal TCP SYN: ISN = Random 32-bit Integer
 Covert TCP SYN: ISN = (Covert_Byte_1 << 24) | (Covert_Byte_2 << 16) | ...
-// Packet travels across enterprise firewall -> Firewall inspects headers and sees normal traffic!`
+// Packet travels across enterprise firewall → Firewall inspects headers and sees normal traffic!`
   },
   {
     question: "What is 'Linguistic Steganography' (Text Steganography), and how do techniques like Zero-Width Unicode characters hide data in plain text documents?",
@@ -117,8 +117,8 @@ Input: 512x512 Image ──> [ High-Pass Residual Filters ] (Suppresses image co
     level: "moderate",
     codeExample: `// SOC DLP Active Sanitization Rule:
 Outgoing File: "profile_pic.png" (Uploaded by Employee to Social Media)
-DLP Action:   1. Detect χ² Anomaly -> Flag Incident: "Steganography Suspected"
-              2. Active Sanitization -> Re-encode PNG to JPEG (QF=80) in memory
+DLP Action:   1. Detect χ² Anomaly → Flag Incident: "Steganography Suspected"
+              2. Active Sanitization → Re-encode PNG to JPEG (QF=80) in memory
               3. Result: Any hidden LSB payload is 100% DESTROYED before leaving network!`
   },
   {
@@ -129,7 +129,7 @@ DLP Action:   1. Detect χ² Anomaly -> Flag Incident: "Steganography Suspected"
     level: "moderate",
     codeExample: `// Printer Tracking Dots (MIC) Grid Matrix:
 [ Parity Bits ] [ Serial Number Bits: "SN-98214-KOLKATA" ] [ Timestamp: "2026-08-23-01:52" ]
-// Yellow dots printed at 1/10th mm spacing -> Invisible to human eye without blue light!`
+// Yellow dots printed at 1/10th mm spacing → Invisible to human eye without blue light!`
   },
   {
     question: "What is 'Audio Steganography' via 'Echo Hiding', and how does introducing microscopic acoustic delays ($<1$ ms) hide secret binary data in voice recordings?",
@@ -140,7 +140,7 @@ DLP Action:   1. Detect χ² Anomaly -> Flag Incident: "Steganography Suspected"
     codeExample: `// Echo Hiding Parameter Matrix:
 Bit 0: Delay Delta_0 = 0.5 ms (Echo offset = 22 samples @ 44.1 kHz)
 Bit 1: Delay Delta_1 = 1.0 ms (Echo offset = 44 samples @ 44.1 kHz)
-Cepstrum Analysis: Peak at Offset 44 -> Extracted Bit = 1!`
+Cepstrum Analysis: Peak at Offset 44 → Extracted Bit = 1!`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, why is 'Malicious Steganography' considered a severe aggravating factor during data breach penalty assessments?",
@@ -150,7 +150,7 @@ Cepstrum Analysis: Peak at Offset 44 -> Extracted Bit = 1!`
     level: "basic",
     codeExample: `// DPDP Act 2023 Penalty Aggravation:
 Standard Accidental Leak:    Statutory fine evaluated based on mitigation efforts.
-Steganographic Exfiltration: Premeditated Evasion -> MAXIMUM ₹250 CRORES PENALTY + CRIMINAL PROSECUTION!`
+Steganographic Exfiltration: Premeditated Evasion → MAXIMUM ₹250 CRORES PENALTY + CRIMINAL PROSECUTION!`
   },
   {
     question: "What is 'Steganographic Capacity' vs 'Steganographic Security', and what is the fundamental trade-off governed by 'Simmons's Prisoners' Problem'?",
@@ -159,8 +159,8 @@ Steganographic Exfiltration: Premeditated Evasion -> MAXIMUM ₹250 CRORES PENAL
     hint: "Think of packing a backpack: stuffing it full makes the bulge obvious to guards; packing just a tiny envelope keeps it invisible.",
     level: "moderate",
     codeExample: `// Capacity vs Security Trade-off:
-Payload = 0.50 bits/pixel (High Capacity) -> Chi-Square χ² easily detects stego (0% Security!)
-Payload = 0.05 bits/pixel (Low Capacity)  -> Statistically indistinguishable from noise (100% Secure!)`
+Payload = 0.50 bits/pixel (High Capacity) → Chi-Square χ² easily detects stego (0% Security!)
+Payload = 0.05 bits/pixel (Low Capacity)  → Statistically indistinguishable from noise (100% Secure!)`
   },
   {
     question: "What is 'Spread Spectrum Steganography' (Direct Sequence / Frequency Hopping), and how does it prevent statistical detection by spreading secret energy below the noise floor?",
@@ -172,7 +172,7 @@ Payload = 0.05 bits/pixel (Low Capacity)  -> Statistically indistinguishable fro
 Cover Vector:    I = [120, 145, 132, 180, 110, ...]
 PRNG Sequence:   P = [+1,  -1,  +1,  +1,  -1,  ...] (Shared Secret Key)
 Embedded Signal: I' = I + (0.5 * Secret_Bit * P)
-Noise Variance:  Added delta (+0.5) is smaller than sensor noise (+-2.0) -> UNTOUCHED BY STEGANALYSIS!`
+Noise Variance:  Added delta (+0.5) is smaller than sensor noise (+-2.0) → UNTOUCHED BY STEGANALYSIS!`
   },
   {
     question: "Synthesizing Steganography, Watermarking, and Cryptography: what is the master taxonomy that unifies all three information-hiding disciplines?",

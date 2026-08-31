@@ -6,16 +6,16 @@
 const questions = [
   {
     question: "How do you calculate employee Age in years from a Birth Date column in Power Query?",
-    shortAnswer: "Select Birth Date &rarr; Add Column &rarr; Date &rarr; Age (creates duration), then Transform &rarr; Total Years, then Round Down (`Number.RoundDown(Duration.Days(DateTime.Date(DateTime.LocalNow()) - [BirthDate]) / 365.25)`).",
+    shortAnswer: "Select Birth Date → Add Column → Date → Age (creates duration), then Transform → Total Years, then Round Down (`Number.RoundDown(Duration.Days(DateTime.Date(DateTime.LocalNow()) - [BirthDate]) / 365.25)`).",
     explanation: "Standard 3-step visual workflow for accurate age calculation.",
-    hint: "Date &rarr; Age &rarr; Total Years &rarr; Round Down.",
+    hint: "Date → Age → Total Years → Round Down.",
     level: "moderate",
     codeExample: "= Table.AddColumn(Source, \"Age\", each Number.RoundDown(Duration.Days(DateTime.Date(DateTime.LocalNow()) - [Birth_Date]) / 365.25))"
   },
   {
     question: "What M function returns the first calendar date of the month for any given date?",
     shortAnswer: "`Date.StartOfMonth(Date)`.",
-    explanation: "Returns the 1st day of that month (e.g. `2026-08-27` &rarr; `2026-08-01`).",
+    explanation: "Returns the 1st day of that month (e.g. `2026-08-27` → `2026-08-01`).",
     hint: "Date.StartOfMonth.",
     level: "basic",
     codeExample: "= Table.AddColumn(Source, \"MonthStart\", each Date.StartOfMonth([Invoice_Date]))"
@@ -23,7 +23,7 @@ const questions = [
   {
     question: "What M function returns the last calendar date of the month for any given date?",
     shortAnswer: "`Date.EndOfMonth(Date)` (equivalent to Excel EOMONTH with 0 offset).",
-    explanation: "Returns the final day of that month (e.g. `2026-02-15` &rarr; `2026-02-28`).",
+    explanation: "Returns the final day of that month (e.g. `2026-02-15` → `2026-02-28`).",
     hint: "Date.EndOfMonth.",
     level: "basic",
     codeExample: "= Table.AddColumn(Source, \"MonthEnd\", each Date.EndOfMonth([Invoice_Date]))"
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Represents elapsed time intervals in M.",
     hint: "The Duration data type.",
     level: "moderate",
-    codeExample: "[EndDate] - [StartDate] &rarr; Returns a Duration object"
+    codeExample: "[EndDate] - [StartDate] → Returns a Duration object"
   },
   {
     question: "How do you extract the total elapsed days from a Duration object?",
@@ -232,7 +232,7 @@ const questions = [
     question: "How do you calculate business working days between two dates excluding weekends in Power Query?",
     shortAnswer: "Generate a list of days with `List.Dates([Start], Duration.Days([End] - [Start]) + 1, #duration(1,0,0,0))`, filter where `Date.DayOfWeek(_, Day.Monday) < 5`, and count with `List.Count`.",
     explanation: "Pure in-memory business days calculation without Excel NETWORKDAYS formula dependencies.",
-    hint: "List.Dates &rarr; filter DayOfWeek < 5 &rarr; List.Count.",
+    hint: "List.Dates → filter DayOfWeek < 5 → List.Count.",
     level: "expert",
     codeExample: "= List.Count(List.Select(List.Dates([Start], Duration.Days([End]-[Start])+1, #duration(1,0,0,0)), each Date.DayOfWeek(_, Day.Monday) < 5))"
   },
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Accurate date and numeric transformations are the engine of corporate financial intelligence!",
     hint: "Date.StartOfMonth + Duration.Days / 365.25 + Banker's Rounding Awareness = Flawless Financial ETL!",
     level: "expert",
-    codeExample: "Rule: Date Hygiene &rarr; Date.StartOfMonth &rarr; Duration.Days &rarr; Locale-Aware Math!"
+    codeExample: "Rule: Date Hygiene → Date.StartOfMonth → Duration.Days → Locale-Aware Math!"
   }
 ];
 

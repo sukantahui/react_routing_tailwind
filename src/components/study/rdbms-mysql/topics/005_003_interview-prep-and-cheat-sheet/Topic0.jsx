@@ -70,7 +70,7 @@ const Topic0 = () => {
 -- 1NF: Atomic values only; no repeating arrays or comma-delimited CSV columns.
 -- 2NF: In 1NF + No Partial Functional Dependencies (All non-key attributes fully depend on whole PK).
 -- 3NF: In 2NF + No Transitive Dependencies (Non-Key attribute cannot determine another Non-Key attribute).
--- BCNF: In 3NF + In every non-trivial FD X &rarr; Y, X MUST be a Superkey!`,
+-- BCNF: In 3NF + In every non-trivial FD X → Y, X MUST be a Superkey!`,
       explanation: "Mastering step-by-step schema decomposition and attribute closure calculations guarantees high scores in technical interview rounds.",
       keyTakeaways: ["Memorize the definition of Partial, Transitive, and Multi-valued dependencies.","Show how 2NF applies only to composite primary keys.","Explain why BCNF is strictly stronger than 3NF when overlapping candidate keys exist."]
     }
@@ -90,7 +90,7 @@ const Topic0 = () => {
             Topic 0 of 10
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Top 25 Core RDBMS & Theoretical Interview Questions (ACID, Codd's Rules, Normalization, Keys)
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -305,7 +305,7 @@ const Topic0 = () => {
                 <span>✓</span> Best Practice 1: Structure Interview Answers Methodically
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Answer with: 1. Formal Definition &rarr; 2. Underlying Mechanism &rarr; 3. Real-World SQL Example &rarr; 4. Trade-offs.
+                Answer with: 1. Formal Definition → 2. Underlying Mechanism → 3. Real-World SQL Example → 4. Trade-offs.
               </p>
               <div className="text-xs text-slate-400">
                 Demonstrates clear structured engineering communication.
@@ -316,7 +316,7 @@ const Topic0 = () => {
                 <span>✓</span> Best Practice 2: Draw Schema Diagrams on Whiteboards
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-3">
-                Illustrate functional dependencies (X &rarr; Y) visually during technical interviews.
+                Illustrate functional dependencies (X → Y) visually during technical interviews.
               </p>
               <div className="text-xs text-slate-400">
                 Makes theoretical normalization proofs intuitive and convincing.

@@ -70,7 +70,7 @@ export default function Topic14() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed
           </h1>
 
@@ -274,7 +274,7 @@ export default function Topic14() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_Advantages_of_INDE"
+            sheetName="EX1015"
             title="Module 2.5 - Advantages of INDEX-MATCH over VLOOKUP: Left Lookup, Column Insertion Immunity &amp; Speed"
             rowsPerPage={25}
             showSheetSelector={true}

@@ -25,15 +25,15 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Word vs Full Line Distinction:
   * Input: "Swadeep Hui"
-  * scanner.next()     --> Returns "Swadeep"
-  * scanner.nextLine() --> Returns "Swadeep Hui"
+  * scanner.next()     → Returns "Swadeep"
+  * scanner.nextLine() → Returns "Swadeep Hui"
 
 - Reading Single Character:
   * char ch = scanner.next().charAt(0);
 
 - Radix-Aware Parsing:
-  * scanner.nextInt(16); // Parses hexadecimal (e.g. "FF" -> 255)
-  * scanner.nextInt(2);  // Parses binary (e.g. "1010" -> 10)
+  * scanner.nextInt(16); // Parses hexadecimal (e.g. "FF" → 255)
+  * scanner.nextInt(2);  // Parses binary (e.g. "1010" → 10)
 
 - Defensive Validation Loop Pattern:
   * while (!scanner.hasNextInt()) {

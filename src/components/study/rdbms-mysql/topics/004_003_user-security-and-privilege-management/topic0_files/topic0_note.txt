@@ -20,11 +20,11 @@ Every client interaction with MySQL undergoes a strict two-stage verification:
 
 2. THE 5-TIER PRIVILEGE HIERARCHY
 --------------------------------------------------------------------------------
-Level 1: Global Privileges      -> Applies to all databases (*.*)         -> `mysql.user`
-Level 2: Database Privileges    -> Applies to a database (db.*)          -> `mysql.db`
-Level 3: Table Privileges       -> Applies to a table (db.tbl)           -> `mysql.tables_priv`
-Level 4: Column Privileges      -> Applies to specific columns           -> `mysql.columns_priv`
-Level 5: Routine Privileges     -> Applies to Stored Procedures/Funcs    -> `mysql.procs_priv`
+Level 1: Global Privileges      → Applies to all databases (*.*)         → `mysql.user`
+Level 2: Database Privileges    → Applies to a database (db.*)          → `mysql.db`
+Level 3: Table Privileges       → Applies to a table (db.tbl)           → `mysql.tables_priv`
+Level 4: Column Privileges      → Applies to specific columns           → `mysql.columns_priv`
+Level 5: Routine Privileges     → Applies to Stored Procedures/Funcs    → `mysql.procs_priv`
 
 3. IN-MEMORY GRANT TABLE CACHING & THE FLUSH PRIVILEGES MYTH
 --------------------------------------------------------------------------------

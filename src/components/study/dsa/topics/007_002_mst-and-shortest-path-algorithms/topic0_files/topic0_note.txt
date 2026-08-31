@@ -41,7 +41,7 @@ For edge `(u, v)` with weight `w`:
 --------------------------------------------------------------------------------
 • Pass 1 to V - 1: Relax all E edges.
 • Pass V (Verification): If any edge `(u, v)` can still be relaxed:
-    `if (dist[u] + w < dist[v]) -> Negative Cycle Exists!`
+    `if (dist[u] + w < dist[v]) → Negative Cycle Exists!`
 
 5. MEMORY SAFETY & SYSTEM TRAPS IN C
 --------------------------------------------------------------------------------

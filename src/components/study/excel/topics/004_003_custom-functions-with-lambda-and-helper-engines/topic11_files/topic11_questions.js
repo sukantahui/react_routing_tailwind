@@ -106,7 +106,7 @@ const questions = [
     explanation: "If there are zero elements to iterate over, the seed state is returned immediately.",
     hint: "Returns initial_value without executing LAMBDA.",
     level: "moderate",
-    codeExample: "Empty Array &rarr; initial_value"
+    codeExample: "Empty Array → initial_value"
   },
   {
     question: "How do you calculate the maximum value across a complex non-standard collection of ranges using REDUCE?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "REDUCE is the ultimate higher-order folding engine in Excel 365, turning complex multi-step procedural algorithms and table consolidations into elegant, sub-millisecond functional pipelines!",
     hint: "Use REDUCE for custom multi-step reductions, text pipelines, and dynamic table consolidations.",
     level: "expert",
-    codeExample: "Rule: Multi-Step Reductions & Table Folding &rarr; Use REDUCE!"
+    codeExample: "Rule: Multi-Step Reductions & Table Folding → Use REDUCE!"
   }
 ];
 

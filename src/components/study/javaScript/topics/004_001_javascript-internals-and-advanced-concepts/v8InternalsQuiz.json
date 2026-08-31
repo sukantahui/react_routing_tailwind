@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Beginner",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #1)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #1)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#1): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#1): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 2,
@@ -156,18 +156,18 @@
   },
   {
     "id": 11,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Beginner",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #11)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #11)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#11): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#11): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 12,
@@ -311,18 +311,18 @@
   },
   {
     "id": 21,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Beginner",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #21)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #21)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#21): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#21): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 22,
@@ -466,18 +466,18 @@
   },
   {
     "id": 31,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Beginner",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #31)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #31)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#31): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#31): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 32,
@@ -621,18 +621,18 @@
   },
   {
     "id": 41,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Beginner",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #41)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #41)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#41): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#41): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 42,
@@ -776,18 +776,18 @@
   },
   {
     "id": 51,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Beginner",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #51)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #51)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#51): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#51): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 52,
@@ -931,18 +931,18 @@
   },
   {
     "id": 61,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Beginner",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #61)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #61)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#61): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#61): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 62,
@@ -1086,18 +1086,18 @@
   },
   {
     "id": 71,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Intermediate",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #71)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #71)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#71): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#71): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 72,
@@ -1241,18 +1241,18 @@
   },
   {
     "id": 81,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Intermediate",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #81)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #81)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#81): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#81): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 82,
@@ -1396,18 +1396,18 @@
   },
   {
     "id": 91,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Intermediate",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #91)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #91)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#91): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#91): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 92,
@@ -1551,18 +1551,18 @@
   },
   {
     "id": 101,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Intermediate",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #101)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #101)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#101): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#101): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 102,
@@ -1706,18 +1706,18 @@
   },
   {
     "id": 111,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Intermediate",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #111)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #111)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#111): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#111): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 112,
@@ -1861,18 +1861,18 @@
   },
   {
     "id": 121,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Intermediate",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #121)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #121)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#121): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#121): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 122,
@@ -2016,18 +2016,18 @@
   },
   {
     "id": 131,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Intermediate",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #131)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #131)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#131): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#131): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 132,
@@ -2171,18 +2171,18 @@
   },
   {
     "id": 141,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Advanced",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #141)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #141)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#141): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#141): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 142,
@@ -2326,18 +2326,18 @@
   },
   {
     "id": 151,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Advanced",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #151)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #151)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#151): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#151): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 152,
@@ -2481,18 +2481,18 @@
   },
   {
     "id": 161,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Advanced",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #161)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #161)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#161): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#161): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 162,
@@ -2636,18 +2636,18 @@
   },
   {
     "id": 171,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Advanced",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #171)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #171)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#171): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#171): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 172,
@@ -2791,18 +2791,18 @@
   },
   {
     "id": 181,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Advanced",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #181)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #181)?",
     "options": [
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 0,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#181): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#181): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 182,
@@ -2946,18 +2946,18 @@
   },
   {
     "id": 191,
-    "topic": "V8 Pipeline: Parser -> AST -> Ignition",
+    "topic": "V8 Pipeline: Parser → AST → Ignition",
     "level": "Advanced",
     "type": "mcq",
-    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\" (Question #191)?",
+    "question": "In V8 Engine Architecture & JavaScript Internals, which statement accurately describes the runtime behavior and standard specifications of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\" (Question #191)?",
     "options": [
       "It bypasses the V8 compiler execution pipeline and forces immediate synchronous deoptimization.",
       "It throws a fatal SyntaxError in strict mode and cannot be used in modern ES2026+ environments.",
-      "Adheres to the ECMAScript standard for V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
+      "Adheres to the ECMAScript standard for V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code), ensuring deterministic memory allocation, lexical scope binding, and runtime execution guarantees.",
       "It causes an immediate memory leak by permanently binding references to the global root scope without garbage collection."
     ],
     "answerIndex": 2,
-    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#191): Explains the fundamental mechanics of \"V8 Pipeline: Parser -> AST -> Ignition (Bytecode) -> TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
+    "explanation": "Conceptual Overview for V8 Engine Architecture & JavaScript Internals (Q#191): Explains the fundamental mechanics of \"V8 Pipeline: Parser → AST → Ignition (Bytecode) → TurboFan (JIT Machine Code)\". In modern JavaScript engineering, this invariant dictates scope lifecycle, variable resolution, and optimal compiler efficiency."
   },
   {
     "id": 192,

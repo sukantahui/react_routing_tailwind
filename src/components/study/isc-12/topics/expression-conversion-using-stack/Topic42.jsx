@@ -187,7 +187,7 @@ export default function Topic42() {
 
         {/* HEADER */}
         <header className="animate-fadeUp">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
             Common Errors in Expression Conversion
           </h1>
           <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
@@ -274,7 +274,7 @@ export default function Topic42() {
           </div>
         </section>
 
-        {/* <!-- COMMON PITFALLS (Recap) --> */}
+        {/* <!-- COMMON PITFALLS (Recap) → */}
         <section className="animate-fadeUp delay-500">
           <div className="rounded-2xl bg-gray-50 dark:bg-gray-900/60 p-6 sm:p-8 border border-gray-200 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/10 dark:hover:shadow-red-400/10">
             <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">

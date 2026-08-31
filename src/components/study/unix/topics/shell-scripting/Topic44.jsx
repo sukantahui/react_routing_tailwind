@@ -243,7 +243,7 @@ const Topic44 = () => {
               XONSH Basic Examples
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
             XONSH in Action:{" "}
             <span className="text-indigo-600 dark:text-indigo-400">
               10 Fundamental Examples

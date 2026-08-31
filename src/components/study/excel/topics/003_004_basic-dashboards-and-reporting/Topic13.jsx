@@ -71,7 +71,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world capstone: Building an Executive C-Suite Sales & Profitability Dashboard from scratch"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Real_world_capston"
+            sheetName="EX1514"
             title={"Real-world capstone: Building an Executive C-Suite Sales & Profitability Dashboard from scratch - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic13() {
                 Step 1: Set Up Clean Presentation Canvas &amp; Hide Gridlines
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View &gt; Gridlines</kbd>, and define the 4-quadrant layout bounds.
+                Create a dedicated 'Dashboard' sheet, uncheck <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">View > Gridlines</kbd>, and define the 4-quadrant layout bounds.
               </p>
             </div>
 
@@ -502,7 +502,7 @@ export default function Topic13() {
                 <span>⚡</span> {"Export to Interactive PDF"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Delivers publication-grade executive briefing documents."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File &gt; Export > PDF"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"File > Export > PDF"}</kbd>
             </div>
             
           </div>
@@ -538,7 +538,7 @@ export default function Topic13() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"Why is separating your workbook into Data -> Calculations -> Presentation Canvas essential for enterprise modeling?"}
+                <span className="text-teal-400">💭</span> Question 2: {"Why is separating your workbook into Data → Calculations → Presentation Canvas essential for enterprise modeling?"}
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the cognitive ergonomics and executive decision science implications.

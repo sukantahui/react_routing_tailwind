@@ -37,7 +37,7 @@ export default class Topic10 extends Component {
           changed: '2024-01-14 10:00'
         },
         symbolic: {
-          filename: 'current_sem -> fall_2024',
+          filename: 'current_sem → fall_2024',
           inode: 123458,
           permissions: 'lrwxrwxrwx',
           links: 1,
@@ -245,28 +245,28 @@ export default class Topic10 extends Component {
                   <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700 animate-[fadeIn_0.3s_ease-out]">
                     <div className="text-sm text-blue-800 dark:text-blue-200">
                       {highlightField === 'filename' && (
-                        <>Name of the file as stored in the directory</>
+                        &lt;&gt;Name of the file as stored in the directory</>
                       )}
                       {highlightField === 'inode' && (
-                        <>Unique identification number for this file in the filesystem</>
+                        &lt;&gt;Unique identification number for this file in the filesystem</>
                       )}
                       {highlightField === 'permissions' && (
-                        <>File type and access permissions for owner, group, and others</>
+                        &lt;&gt;File type and access permissions for owner, group, and others</>
                       )}
                       {highlightField === 'links' && (
-                        <>Number of hard links pointing to this inode</>
+                        &lt;&gt;Number of hard links pointing to this inode</>
                       )}
                       {highlightField === 'size' && (
-                        <>Actual data size in bytes (human-readable format shown)</>
+                        &lt;&gt;Actual data size in bytes (human-readable format shown)</>
                       )}
                       {highlightField === 'modified' && (
-                        <>When file content was last changed (mtime)</>
+                        &lt;&gt;When file content was last changed (mtime)</>
                       )}
                       {highlightField === 'accessed' && (
-                        <>When file was last read (atime)</>
+                        &lt;&gt;When file was last read (atime)</>
                       )}
                       {highlightField === 'changed' && (
-                        <>When file metadata was last changed (ctime)</>
+                        &lt;&gt;When file metadata was last changed (ctime)</>
                       )}
                     </div>
                   </div>
@@ -1147,7 +1147,7 @@ export default class Topic10 extends Component {
               <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium mb-4">
                 Topic 10: File Metadata
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-white leading-tight">
                 stat Command – Reading File Metadata
                 <span className="block text-xl text-gray-600 dark:text-gray-400 mt-2">
                   Master file system forensics and metadata analysis

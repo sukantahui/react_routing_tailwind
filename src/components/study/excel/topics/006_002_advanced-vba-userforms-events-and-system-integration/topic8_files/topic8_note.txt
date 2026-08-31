@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-PowerPoint Automation: Set pptApp = CreateObject("PowerPoint.Application") | Set pres = pptApp.Presentations.Add | pres.Slides.AddSlide | chartObj.CopyPicture -> Slide.Shapes.Paste
+PowerPoint Automation: Set pptApp = CreateObject("PowerPoint.Application") | Set pres = pptApp.Presentations.Add | pres.Slides.AddSlide | chartObj.CopyPicture → Slide.Shapes.Paste
 
 PRIMARY CONCEPT:
 Automating Microsoft PowerPoint from Excel VBA: launching PowerPoint, creating presentation decks, copying Excel charts and KPI cards as vector images, and pasting them onto formatted slide layouts
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never build weekly PowerPoint decks manually again! Write a VBA macro that loops through your Excel charts, copies them with `.CopyPicture`, and pastes them onto PowerPoint slides in exact coordinates. It saves hours of executive prep time.
 
 COMMON TRAPS TO AVOID:
-- Paste Timing Lag (Clipboard Sync Failure): Pasting into PowerPoint before Excel finishes copying to the Windows clipboard throws runtime error. -> Fix: Include a short `DoEvents` or 1-second pause between Copy and Paste.
-- Pasting Blurry Low-Resolution Bitmaps: Using standard `.Copy` instead of `.CopyPicture Appearance:=xlScreen, Format:=xlPicture`. -> Fix: Always use `.CopyPicture` for crisp vector visuals.
-- Leaving Hidden PowerPoint Background Processes: Failing to make PowerPoint visible (`pptApp.Visible = True`) leaves phantom PowerPoint instances in Task Manager. -> Fix: Always set `.Visible = True` or close cleanly.
+- Paste Timing Lag (Clipboard Sync Failure): Pasting into PowerPoint before Excel finishes copying to the Windows clipboard throws runtime error. → Fix: Include a short `DoEvents` or 1-second pause between Copy and Paste.
+- Pasting Blurry Low-Resolution Bitmaps: Using standard `.Copy` instead of `.CopyPicture Appearance:=xlScreen, Format:=xlPicture`. → Fix: Always use `.CopyPicture` for crisp vector visuals.
+- Leaving Hidden PowerPoint Background Processes: Failing to make PowerPoint visible (`pptApp.Visible = True`) leaves phantom PowerPoint instances in Task Manager. → Fix: Always set `.Visible = True` or close cleanly.
 ================================================================================

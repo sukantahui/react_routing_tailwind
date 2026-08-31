@@ -25,7 +25,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
     * Result: x remains 5 (unchanged).
 
 - Built-in Narrowing Cast:
-  * byte b = 127; b++; // Evaluates to (byte)(b + 1) -> wraps to -128!
+  * byte b = 127; b++; // Evaluates to (byte)(b + 1) → wraps to -128!
   * char c = 'A'; c++; // Becomes 'B'
 
 - Concurrency Warning:

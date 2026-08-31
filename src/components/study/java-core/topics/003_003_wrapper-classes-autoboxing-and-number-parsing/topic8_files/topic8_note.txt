@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. UNBOXING NPE TRAP:
-   - 'Integer x = null; int y = x;' &rarr; Throws NPE.
+   - 'Integer x = null; int y = x;' → Throws NPE.
    - Reason: Translated to 'int y = x.intValue()'.
    - Fix: Always check for null or use 'Optional' before unboxing.
 

@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. TREESET PERFORMANCE:
-   - add(), remove(), contains() &rarr; O(log n).
+   - add(), remove(), contains() → O(log n).
    - Driven by Red-Black tree height.
    - For 100,000 elements: at most ~34 node visits.
    - Continuous sorted order maintained at all times.

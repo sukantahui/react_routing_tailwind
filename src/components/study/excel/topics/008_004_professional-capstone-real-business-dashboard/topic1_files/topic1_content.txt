@@ -10,7 +10,7 @@ Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipel
 It measures candidate proficiency in applying formulas, structuring data, diagnosing errors, and building commercial-grade solutions.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load
+Operational Architecture: Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load
 
 3. CORE TECHNICAL MECHANICS
 1. Heterogeneous Ingestion:

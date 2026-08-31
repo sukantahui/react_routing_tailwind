@@ -71,7 +71,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Looping constructs: For...Next, For Each...Next (Looping over sheets, cells, shapes), and Do While/Until"}
           </h1>
 
@@ -291,7 +291,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Looping_constructs"
+            sheetName="EX2409"
             title={"Looping constructs: For...Next, For Each...Next (Looping over sheets, cells, shapes), and Do While/Until - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -380,7 +380,7 @@ export default function Topic8() {
                 Step 1: Open VBE &amp; Insert Standard Module
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert &gt; Module</strong>.
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert > Module</strong>.
               </p>
             </div>
 

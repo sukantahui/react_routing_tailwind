@@ -9,7 +9,7 @@ export default function CProjectPage() {
     // 1. Import all .c files from the answers folder (as raw strings)
     const modules = import.meta.glob("./topic59_files/answers/*.c", { query: "?raw", import: "default", eager: true });
 
-    // 2. Build a lookup map: filename -> source code
+    // 2. Build a lookup map: filename → source code
     const fileMap = {};
     Object.keys(modules).forEach((path) => {
       const fileName = path.split("/").pop(); // e.g., "E001.c"

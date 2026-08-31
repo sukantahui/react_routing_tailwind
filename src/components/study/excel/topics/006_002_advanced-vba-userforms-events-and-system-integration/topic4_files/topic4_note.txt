@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 When your UserForm has more than 10 fields, do not make the window huge—use a MultiPage control! Put Basic Info on Tab 1, Financials on Tab 2, and Notes on Tab 3. It looks like a high-end enterprise application.
 
 COMMON TRAPS TO AVOID:
-- Placing Controls Directly on Form Instead of MultiPage Tab: Drawing a textbox on the form canvas causes it to show across ALL pages rather than staying on Page 1. -> Fix: Click the specific MultiPage tab header first before drawing controls onto that page.
-- Confusing 0-Based Page Indexing in Navigation: Writing `MultiPage1.Value = 1` to go to Page 1 navigates to Page 2 (because index is 0-based). -> Fix: Page 1 = Index 0; Page 2 = Index 1; Page 3 = Index 2.
-- Submitting Incomplete Data from Unvisited Tabs: Failing to validate hidden background tabs before writing to worksheet. -> Fix: Run a global validation loop across all tabs upon submit.
+- Placing Controls Directly on Form Instead of MultiPage Tab: Drawing a textbox on the form canvas causes it to show across ALL pages rather than staying on Page 1. → Fix: Click the specific MultiPage tab header first before drawing controls onto that page.
+- Confusing 0-Based Page Indexing in Navigation: Writing `MultiPage1.Value = 1` to go to Page 1 navigates to Page 2 (because index is 0-based). → Fix: Page 1 = Index 0; Page 2 = Index 1; Page 3 = Index 2.
+- Submitting Incomplete Data from Unvisited Tabs: Failing to validate hidden background tabs before writing to worksheet. → Fix: Run a global validation loop across all tabs upon submit.
 ================================================================================

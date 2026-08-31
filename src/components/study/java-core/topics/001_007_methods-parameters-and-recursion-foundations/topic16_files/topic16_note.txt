@@ -13,10 +13,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 2. Fibonacci (fib(n)) :
    - Formula: fib(n) = fib(n - 1) + fib(n - 2) | Base Cases: fib(0)=0, fib(1)=1
-   - Complexity: Naive O(2^N) -> Memoized O(N) Linear Time
+   - Complexity: Naive O(2^N) → Memoized O(N) Linear Time
 
 3. Sum of Digits :
-   - Formula: sum(n) = (n % 10) + sum(n / 10) | Base Case: n == 0 -> 0
+   - Formula: sum(n) = (n % 10) + sum(n / 10) | Base Case: n == 0 → 0
    - Complexity: O(log10 N) Logarithmic Time
 
 4. Fast Exponentiation (Binary Power) :

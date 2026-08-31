@@ -163,7 +163,7 @@ SHOW VARIABLES LIKE 'innodb_temp_data_file_path';
               On-Disk Tablespaces
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             InnoDB On-Disk Components: System Tablespace, File-Per-Table Tablespaces (.ibd), General Tablespaces, Undo Tablespaces, Temporary Tablespaces
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -278,7 +278,7 @@ SHOW VARIABLES LIKE 'innodb_temp_data_file_path';
 
                 <rect x="35" y="210" width="250" height="60" rx="4" fill="#1e293b" stroke="#10b981" />
                 <text x="45" y="230" fill="#34d399" fontSize="10" fontWeight="bold">DROP TABLE students;</text>
-                <text x="45" y="246" fill="#bae6fd" fontSize="9">students.ibd is unlinked &rarr; 10 GB freed to OS! ✅</text>
+                <text x="45" y="246" fill="#bae6fd" fontSize="9">students.ibd is unlinked → 10 GB freed to OS! ✅</text>
 
                 {/* Box 2: System Tablespace ibdata1 */}
                 <rect x="335" y="40" width="280" height="280" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="1.5" />

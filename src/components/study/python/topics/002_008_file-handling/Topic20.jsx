@@ -70,7 +70,7 @@ const Topic20 = () => {
             Core
           </span>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
           Appending Data to Files
         </h1>
         <p className="text-xl text-gray-600 dark:text-gray-400 mt-3 max-w-3xl">

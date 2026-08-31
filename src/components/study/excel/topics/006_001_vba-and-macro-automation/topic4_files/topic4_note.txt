@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Mastering VBA language fundamentals: mandatory Option Explicit declaration, primitive and object data types (Long vs Integer, Double, String, Boolean, Range), and variable scope (Dim, Public, Private)
 
 TEACHER'S ADVICE:
-Go to VBE -> Tools -> Options -> check 'Require Variable Declaration'. This puts 'Option Explicit' at the top of every module. It will save you hundreds of hours by catching misspelled variable typos instantly.
+Go to VBE → Tools → Options → check 'Require Variable Declaration'. This puts 'Option Explicit' at the top of every module. It will save you hundreds of hours by catching misspelled variable typos instantly.
 
 COMMON TRAPS TO AVOID:
-- Omitting Option Explicit (The Silent Typo Trap): Misspelling `TotalTax = TotlTax + 100` creates a new blank Variant variable with value 0, silently corrupting financial calculations. -> Fix: Always place `Option Explicit` at the very top of every single module (Tools > Options > Check 'Require Variable Declaration').
-- Overflow Error (Error 6) with Integer Data Type: Using `Dim i As Integer` on a loop exceeding 32,767 rows throws runtime error 'Overflow'. -> Fix: Always declare row counters as `Long`.
-- Omitting 'Set' on Object Assignment: Writing `rng = Sheets(1).Range("A1")` throws runtime error 'Object variable not set'. -> Fix: Use `Set`: `Set rng = Sheets(1).Range("A1")`.
+- Omitting Option Explicit (The Silent Typo Trap): Misspelling `TotalTax = TotlTax + 100` creates a new blank Variant variable with value 0, silently corrupting financial calculations. → Fix: Always place `Option Explicit` at the very top of every single module (Tools > Options > Check 'Require Variable Declaration').
+- Overflow Error (Error 6) with Integer Data Type: Using `Dim i As Integer` on a loop exceeding 32,767 rows throws runtime error 'Overflow'. → Fix: Always declare row counters as `Long`.
+- Omitting 'Set' on Object Assignment: Writing `rng = Sheets(1).Range("A1")` throws runtime error 'Object variable not set'. → Fix: Use `Set`: `Set rng = Sheets(1).Range("A1")`.
 ================================================================================

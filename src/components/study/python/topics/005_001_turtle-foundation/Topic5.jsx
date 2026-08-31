@@ -51,7 +51,7 @@ export default function Topic5() {
 
     setCumulativeOdometer((prev) => prev + Math.abs(dist));
     setMotionLogs((prev) => [
-      `[${isForward ? "FORWARD" : "BACKWARD"}] ${dist} px -> New Pos: (${newX}, ${newY})`,
+      `[${isForward ? "FORWARD" : "BACKWARD"}] ${dist} px → New Pos: (${newX}, ${newY})`,
       ...prev.slice(0, 4)
     ]);
 
@@ -61,7 +61,7 @@ export default function Topic5() {
 
   const handleTurn = (deg) => {
     setHeadingAngle((prev) => (prev + deg) % 360);
-    setMotionLogs((prev) => [`[TURN] ${deg}° -> New Heading: ${(headingAngle + deg) % 360}°`, ...prev.slice(0, 4)]);
+    setMotionLogs((prev) => [`[TURN] ${deg}° → New Heading: ${(headingAngle + deg) % 360}°`, ...prev.slice(0, 4)]);
   };
 
   const handleResetMotion = () => {
@@ -140,7 +140,7 @@ export default function Topic5() {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Movement Fundamentals: <span className="text-teal-400">forward(), backward() &amp; Precision</span>
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">

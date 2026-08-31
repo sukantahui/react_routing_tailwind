@@ -7,7 +7,7 @@ Topic 8: Column-by-column matrix processing with BYCOL
 
 1. BYCOL MATHEMATICAL MODEL:
 - Input: 2D Matrix (M rows x N cols)
-- Operation: Slices along Axis 1 &rarr; passes 1D vertical vector (M x 1) to LAMBDA
+- Operation: Slices along Axis 1 → passes 1D vertical vector (M x 1) to LAMBDA
 - Output: 1D Horizontal Row Vector (1 row x N cols)
 
 2. CORE ENTERPRISE PATTERNS:

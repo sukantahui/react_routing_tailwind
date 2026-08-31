@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Core Pivot Engine & Cache Architecture is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how in-memory caching, dimension vs measure allocation, and aggregation speed operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Source Data Normalization & Data Model regarding flat table rules, Excel Table integration, and Distinct Count modeling (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Source Data Normalization & Data Model is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how flat table rules, Excel Table integration, and Distinct Count modeling operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Relative & Calculated Metrics regarding Show Values As calculations, running totals, and calculated fields (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Relative & Calculated Metrics is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Show Values As calculations, running totals, and calculated fields operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Interactive UI & Dashboard Filtering regarding Slicers, Timelines, Report Connections, and multi-pivot synchronization (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Interactive UI & Dashboard Filtering is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Slicers, Timelines, Report Connections, and multi-pivot synchronization operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Visual Formatting & Chart Integration regarding dual-axis combo charts, field button de-cluttering, and tabular layouts (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Visual Formatting & Chart Integration is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how dual-axis combo charts, field button de-cluttering, and tabular layouts operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Lifecycle Management & Enterprise Best Practices regarding refresh protocols, ghost item flushing, and executive presentation standards (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Lifecycle Management & Enterprise Best Practices is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how refresh protocols, ghost item flushing, and executive presentation standards operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Core Pivot Engine & Cache Architecture regarding in-memory caching, dimension vs measure allocation, and aggregation speed (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Core Pivot Engine & Cache Architecture is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how in-memory caching, dimension vs measure allocation, and aggregation speed operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Source Data Normalization & Data Model regarding flat table rules, Excel Table integration, and Distinct Count modeling (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Source Data Normalization & Data Model is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how flat table rules, Excel Table integration, and Distinct Count modeling operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Relative & Calculated Metrics regarding Show Values As calculations, running totals, and calculated fields (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Relative & Calculated Metrics is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Show Values As calculations, running totals, and calculated fields operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Interactive UI & Dashboard Filtering regarding Slicers, Timelines, Report Connections, and multi-pivot synchronization (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Interactive UI & Dashboard Filtering is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Slicers, Timelines, Report Connections, and multi-pivot synchronization operates within the PivotTable engine architecture.",
     "level": "basic",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Visual Formatting & Chart Integration regarding dual-axis combo charts, field button de-cluttering, and tabular layouts (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Visual Formatting & Chart Integration is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how dual-axis combo charts, field button de-cluttering, and tabular layouts operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Lifecycle Management & Enterprise Best Practices regarding refresh protocols, ghost item flushing, and executive presentation standards (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Lifecycle Management & Enterprise Best Practices is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how refresh protocols, ghost item flushing, and executive presentation standards operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Core Pivot Engine & Cache Architecture regarding in-memory caching, dimension vs measure allocation, and aggregation speed (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Core Pivot Engine & Cache Architecture is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how in-memory caching, dimension vs measure allocation, and aggregation speed operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Source Data Normalization & Data Model regarding flat table rules, Excel Table integration, and Distinct Count modeling (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Source Data Normalization & Data Model is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how flat table rules, Excel Table integration, and Distinct Count modeling operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Relative & Calculated Metrics regarding Show Values As calculations, running totals, and calculated fields (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Relative & Calculated Metrics is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Show Values As calculations, running totals, and calculated fields operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Interactive UI & Dashboard Filtering regarding Slicers, Timelines, Report Connections, and multi-pivot synchronization (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Interactive UI & Dashboard Filtering is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Slicers, Timelines, Report Connections, and multi-pivot synchronization operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Visual Formatting & Chart Integration regarding dual-axis combo charts, field button de-cluttering, and tabular layouts (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Visual Formatting & Chart Integration is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how dual-axis combo charts, field button de-cluttering, and tabular layouts operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Lifecycle Management & Enterprise Best Practices regarding refresh protocols, ghost item flushing, and executive presentation standards (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Lifecycle Management & Enterprise Best Practices is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how refresh protocols, ghost item flushing, and executive presentation standards operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Core Pivot Engine & Cache Architecture regarding in-memory caching, dimension vs measure allocation, and aggregation speed (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Core Pivot Engine & Cache Architecture is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how in-memory caching, dimension vs measure allocation, and aggregation speed operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Source Data Normalization & Data Model regarding flat table rules, Excel Table integration, and Distinct Count modeling (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Source Data Normalization & Data Model is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how flat table rules, Excel Table integration, and Distinct Count modeling operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Relative & Calculated Metrics regarding Show Values As calculations, running totals, and calculated fields (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Relative & Calculated Metrics is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Show Values As calculations, running totals, and calculated fields operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Interactive UI & Dashboard Filtering regarding Slicers, Timelines, Report Connections, and multi-pivot synchronization (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Interactive UI & Dashboard Filtering is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Slicers, Timelines, Report Connections, and multi-pivot synchronization operates within the PivotTable engine architecture.",
     "level": "moderate",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Visual Formatting & Chart Integration regarding dual-axis combo charts, field button de-cluttering, and tabular layouts (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Visual Formatting & Chart Integration is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how dual-axis combo charts, field button de-cluttering, and tabular layouts operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Lifecycle Management & Enterprise Best Practices regarding refresh protocols, ghost item flushing, and executive presentation standards (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Lifecycle Management & Enterprise Best Practices is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how refresh protocols, ghost item flushing, and executive presentation standards operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Core Pivot Engine & Cache Architecture regarding in-memory caching, dimension vs measure allocation, and aggregation speed (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Core Pivot Engine & Cache Architecture is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how in-memory caching, dimension vs measure allocation, and aggregation speed operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Source Data Normalization & Data Model regarding flat table rules, Excel Table integration, and Distinct Count modeling (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Source Data Normalization & Data Model is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how flat table rules, Excel Table integration, and Distinct Count modeling operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Relative & Calculated Metrics regarding Show Values As calculations, running totals, and calculated fields (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Relative & Calculated Metrics is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Show Values As calculations, running totals, and calculated fields operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Interactive UI & Dashboard Filtering regarding Slicers, Timelines, Report Connections, and multi-pivot synchronization (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Interactive UI & Dashboard Filtering is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how Slicers, Timelines, Report Connections, and multi-pivot synchronization operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Visual Formatting & Chart Integration regarding dual-axis combo charts, field button de-cluttering, and tabular layouts (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Visual Formatting & Chart Integration is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how dual-axis combo charts, field button de-cluttering, and tabular layouts operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   },
   {
     "question": "In the context of Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, how does Excel manage Lifecycle Management & Enterprise Best Practices regarding refresh protocols, ghost item flushing, and executive presentation standards (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Understanding Pivot Tables: Dimensions, Measures, and Tabular Summarization, mastering Lifecycle Management & Enterprise Best Practices is vital for enterprise BI reporting. Excel decouples the analytical cache from sheet formulas, ensuring that large-scale transaction datasets can be sliced, filtered, and aggregated dynamically without formula corruption or performance degradation.",
     "hint": "Think about how refresh protocols, ghost item flushing, and executive presentation standards operates within the PivotTable engine architecture.",
     "level": "advanced",
-    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) -> Cross-Tabular Grid"
+    "codeExample": "Pivot Cache Architecture: Dimensions (Attributes) x Measures (Aggregates) → Cross-Tabular Grid"
   }
 ];
 

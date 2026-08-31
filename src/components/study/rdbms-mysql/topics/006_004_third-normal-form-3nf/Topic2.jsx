@@ -7,14 +7,14 @@ import questions from "./topic2_files/topic2_questions";
 import noteText from "./topic2_files/topic2_note.txt?raw";
 
 /**
- * Topic2 – Dissecting Codd's 3NF Rule: For every X -> A, either X is a Superkey OR A is a Prime Attribute
+ * Topic2 – Dissecting Codd's 3NF Rule: For every X → A, either X is a Superkey OR A is a Prime Attribute
  * Module: 006_004_third-normal-form-3nf
  *
  * @component
  * @returns {JSX.Element} Rich interactive tutorial component.
  */
 const conf = {
-  badge1: "TRANSITIVE VIOLATION (dept_id -> location)",
+  badge1: "TRANSITIVE VIOLATION (dept_id → location)",
   badge2: "CODD'S 3NF TEST: X IS NOT SUPERKEY",
   badge3: "BERNSTEIN'S 3NF SYNTHESIS",
   badge4: "3NF NORMALIZED (DECOMPOSED INTO 2 RELATIONS)",
@@ -29,7 +29,7 @@ CREATE TABLE emp_dept_violating (
     salary_inr DECIMAL(12, 2) NOT NULL,
     dept_id INT NOT NULL,
     dept_name VARCHAR(100) NOT NULL,
-    location VARCHAR(100) NOT NULL -- Transitive: emp_id -> dept_id -> location
+    location VARCHAR(100) NOT NULL -- Transitive: emp_id → dept_id → location
 );`,
   sql4: `-- 3NF Normalized Schema: Lossless Join & Dependency Preserving
 CREATE TABLE departments (
@@ -46,10 +46,10 @@ CREATE TABLE employees (
     CONSTRAINT fk_emp_dept FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
 );`,
   prob1: "Storing department location alongside employee records creates update anomalies when a department moves offices, and insertion anomalies when creating a new department without employees.",
-  prob2: "In the dependency emp_id -> dept_id -> location, dept_id is neither a candidate superkey of the table nor is location a prime attribute.",
-  prob3: "Synthesizing minimal covers isolates X -> A into separate relations where X is guaranteed to form a candidate primary key.",
+  prob2: "In the dependency emp_id → dept_id → location, dept_id is neither a candidate superkey of the table nor is location a prime attribute.",
+  prob3: "Synthesizing minimal covers isolates X → A into separate relations where X is guaranteed to form a candidate primary key.",
   prob4: "Decomposing into employees (emp_id, emp_name, salary, dept_id) and departments (dept_id, dept_name, location) eliminates transitive anomalies.",
-  cause1: "Functional dependency chain: emp_id -> dept_id and dept_id -> location where dept_id is a non-prime determinant.",
+  cause1: "Functional dependency chain: emp_id → dept_id and dept_id → location where dept_id is a non-prime determinant.",
   cause2: "Violation of Codd's 3NF Rule: neither side satisfies the superkey or prime attribute condition.",
   cause3: "Decomposition algorithm ensures all original dependencies are preserved across relational projections.",
   cause4: "Relational boundaries enforced via InnoDB Foreign Key constraint with ON DELETE RESTRICT.",
@@ -122,8 +122,8 @@ const Topic2 = () => {
             <span>📐</span>
             <span>Relational Normalization Masterclass · Topic 2</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Dissecting Codd&apos;s 3NF Rule: For every X &rarr; A, either X is a Superkey OR A is a Prime Attribute
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
+            Dissecting Codd&apos;s 3NF Rule: For every X → A, either X is a Superkey OR A is a Prime Attribute
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Explore Third Normal Form (3NF), the gold standard for OLTP transactional database design. Master transitive dependency detection, the prime-attribute condition, 3NF synthesis (Bernstein's algorithm), and edge cases.
@@ -391,7 +391,7 @@ const Topic2 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Dissecting Codd's 3NF Rule: For every X -> A, either X is a Superkey OR A is a Prime Attribute"
+            title="Dissecting Codd's 3NF Rule: For every X → A, either X is a Superkey OR A is a Prime Attribute"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
@@ -413,7 +413,7 @@ const Topic2 = () => {
         {/* ─── FAQ & Practice Questions ───────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Dissecting Codd's 3NF Rule: For every X -> A, either X is a Superkey OR A is a Prime Attribute – Practice Questions"
+            title="Dissecting Codd's 3NF Rule: For every X → A, either X is a Superkey OR A is a Prime Attribute – Practice Questions"
             questions={questions}
             subtitle="Test your comprehension with 30 deep-dive questions"
             showPrint
@@ -426,7 +426,7 @@ const Topic2 = () => {
         {/* ─── Footer ─────────────────────────────────────────── */}
         <footer className="max-w-5xl mx-auto pt-8 border-t border-slate-800 text-center text-xs text-slate-400">
           <span>
-            Topic 2 · Dissecting Codd&apos;s 3NF Rule: For every X &rarr; A, either X is a Superkey OR A is a Prime Attribute · RDBMS MySQL Masterclass · Coder &amp; AccoTax Barrackpore
+            Topic 2 · Dissecting Codd&apos;s 3NF Rule: For every X → A, either X is a Superkey OR A is a Prime Attribute · RDBMS MySQL Masterclass · Coder &amp; AccoTax Barrackpore
           </span>
         </footer>
       </div>

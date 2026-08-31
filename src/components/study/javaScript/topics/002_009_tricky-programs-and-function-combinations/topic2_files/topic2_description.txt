@@ -7,7 +7,7 @@ Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
 
 1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
 --------------------------------------------------------------------------------
-Think about an automated water treatment plant in Barrackpore: Raw River Water -> Coagulation Tank -> Sand Filter -> Charcoal Filter -> Chlorination -> Clean Drinking Water. Each tank is an independent station. In JavaScript, a Variadic Async Pipeline Engine lets you connect synchronous and asynchronous functions into an automated data highway where data flows effortlessly from station to station!
+Think about an automated water treatment plant in Barrackpore: Raw River Water → Coagulation Tank → Sand Filter → Charcoal Filter → Chlorination → Clean Drinking Water. Each tank is an independent station. In JavaScript, a Variadic Async Pipeline Engine lets you connect synchronous and asynchronous functions into an automated data highway where data flows effortlessly from station to station!
 
 2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
 --------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ Abhronila was fetching user data, hashing passwords, calculating discount slabs,
 3. STEP-BY-STEP CONCEPTUAL BREAKDOWN (WHITEBOARD EXPLANATION)
 --------------------------------------------------------------------------------
 1. Synchronous Pipe and Compose:
-- `pipe(...fns)`: Left-to-right execution: `initialVal -> fn1 -> fn2 -> fn3`.
+- `pipe(...fns)`: Left-to-right execution: `initialVal → fn1 → fn2 → fn3`.
 - `compose(...fns)`: Right-to-left execution: `fn3(fn2(fn1(initialVal)))`.
 
 2. Asynchronous Pipe Engine (`pipeAsync`):

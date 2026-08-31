@@ -160,7 +160,7 @@ const questions = [
     explanation: "Slashing old numbers and writing new balances prevents mixing up original totals with remaining capacities, and provides a clear audit trail for grading.",
     hint: "Slash old balance, write new balance clearly.",
     level: "basic",
-    codeExample: "50 -> ~50~ 10 -> ~10~ 0."
+    codeExample: "50 → ~50~ 10 → ~10~ 0."
   },
   {
     question: "How does updating supply and demand prevent infinite loops in the Matrix Minima algorithm?",

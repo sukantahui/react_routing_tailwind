@@ -44,7 +44,7 @@ Operational Architecture: Python in Excel Data Science Lab Competency Assessment
   Diagnostic Fix: Return `fig` on the last line of visualization formulas.
 
 6. PRO TIPS & SHORTCUTS
-• Universal Python Formula Pattern (Import -> Ingest xl() -> Transform -> Return): The standard 4-step template for all Python cells.
+• Universal Python Formula Pattern (Import → Ingest xl() → Transform → Return): The standard 4-step template for all Python cells.
 • Keyboard Fluency (Ctrl + Alt + Shift + P (Enter Python) | Ctrl + Alt + Shift + M (Toggle Mode)): 10x faster spreadsheet development.
 • End-to-End Mastery (Excel Grid + Python Engine = Superpower): The future of enterprise financial analytics.
 ================================================================================

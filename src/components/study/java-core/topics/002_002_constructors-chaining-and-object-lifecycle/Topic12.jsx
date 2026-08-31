@@ -32,7 +32,7 @@ export default function Topic12() {
             Initialization Architecture
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Static Initialization Blocks (SIB) vs Instance Initialization Blocks (IIB)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -69,7 +69,7 @@ export default function Topic12() {
             <rect x="30" y="30" width="260" height="160" rx="8" fill="#0f172a" stroke="#818cf8" strokeWidth="2" />
             <text x="160" y="55" fill="#a5b4fc" fontSize="11" fontWeight="bold" textAnchor="middle">1. STATIC LOADING (ONCE)</text>
             <rect x="45" y="75" width="230" height="45" rx="4" fill="#1e1b4b" />
-            <text x="55" y="100" fill="#c7d2fe" fontSize="9" fontFamily="monospace">Parent SIB &rarr; Child SIB</text>
+            <text x="55" y="100" fill="#c7d2fe" fontSize="9" fontFamily="monospace">Parent SIB → Child SIB</text>
             <text x="160" y="150" fill="#94a3b8" fontSize="8" textAnchor="middle">Class Loaded in Metaspace</text>
 
             <path d="M 300 110 L 350 110" stroke="#818cf8" strokeWidth="2" />
@@ -77,7 +77,7 @@ export default function Topic12() {
             <rect x="360" y="30" width="260" height="160" rx="8" fill="#0f172a" stroke="#0284c7" strokeWidth="2" />
             <text x="490" y="55" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">2. PARENT INSTANCE</text>
             <rect x="375" y="75" width="230" height="45" rx="4" fill="#0c4a6e" />
-            <text x="385" y="100" fill="#bae6fd" fontSize="9" fontFamily="monospace">Parent IIB &rarr; Parent Const</text>
+            <text x="385" y="100" fill="#bae6fd" fontSize="9" fontFamily="monospace">Parent IIB → Parent Const</text>
             <text x="490" y="150" fill="#94a3b8" fontSize="8" textAnchor="middle">Base Object Constructed</text>
 
             <path d="M 630 110 L 680 110" stroke="#818cf8" strokeWidth="2" />
@@ -85,7 +85,7 @@ export default function Topic12() {
             <rect x="690" y="30" width="210" height="160" rx="8" fill="#0f172a" stroke="#10b981" strokeWidth="2" />
             <text x="795" y="55" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">3. CHILD INSTANCE</text>
             <rect x="700" y="75" width="190" height="45" rx="4" fill="#064e3b" />
-            <text x="710" y="100" fill="#a7f3d0" fontSize="9" fontFamily="monospace">Child IIB &rarr; Child Const</text>
+            <text x="710" y="100" fill="#a7f3d0" fontSize="9" fontFamily="monospace">Child IIB → Child Const</text>
             <text x="795" y="150" fill="#94a3b8" fontSize="8" textAnchor="middle">Child Object Ready</text>
           </svg>
         </div>

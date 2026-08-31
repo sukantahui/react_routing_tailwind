@@ -41,12 +41,12 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
 [!] The Return Object Trap:
     return
     { id: 101 };
-    -> Parsed as 'return;' followed by an isolated block. Returns undefined!
+    → Parsed as 'return;' followed by an isolated block. Returns undefined!
     Fix: Place opening brace on same line: return { id: 101 };
 [!] Leading Parenthesis TypeError:
     const a = 1
     (function() {})()
-    -> Parsed as: const a = 1(function() {})(); -> Throws TypeError: 1 is not a function!
+    → Parsed as: const a = 1(function() {})(); → Throws TypeError: 1 is not a function!
 [!] Regex Division Ambiguity: A slash '/' can represent division or a RegExp literal. 
     Whitespace and semicolons resolve ambiguity.
 

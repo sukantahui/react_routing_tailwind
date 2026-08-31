@@ -55,7 +55,7 @@ const questions = [
   {
     question: "How does TRANSPOSE handle data types, formulas, and date serial numbers?",
     shortAnswer: "All underlying data types and serial values are transferred faithfully to their new transposed coordinate slots.",
-    explanation: "TRANSPOSE changes only coordinate indices (i, j &rarr; j, i) without altering data values or precision.",
+    explanation: "TRANSPOSE changes only coordinate indices (i, j → j, i) without altering data values or precision.",
     hint: "Underlying data types and values are preserved.",
     level: "basic",
     codeExample: "=TRANSPOSE(FinancialGrid)"
@@ -87,10 +87,10 @@ const questions = [
   {
     question: "What is the output shape of =TRANSPOSE(Array) if Array has dimensions 12 rows by 4 columns?",
     shortAnswer: "4 rows by 12 columns.",
-    explanation: "TRANSPOSE swaps row height and column width: (12 x 4) &rarr; (4 x 12).",
-    hint: "Swaps dimensions: (R x C) &rarr; (C x R).",
+    explanation: "TRANSPOSE swaps row height and column width: (12 x 4) → (4 x 12).",
+    hint: "Swaps dimensions: (R x C) → (C x R).",
     level: "basic",
-    codeExample: "(12 x 4) &rarr; (4 x 12)"
+    codeExample: "(12 x 4) → (4 x 12)"
   },
   {
     question: "How can you align two datasets where one has fields arranged vertically and the other horizontally?",
@@ -162,7 +162,7 @@ const questions = [
     explanation: "TRANSPOSE(3x4) yields a 4x3 matrix. TOROW(3x4) unrolls all 12 items into a 1x12 row vector.",
     hint: "Matrix axis swapping vs complete 1D vector flattening.",
     level: "moderate",
-    codeExample: "=TRANSPOSE(3x4) &rarr; 4x3 vs =TOROW(3x4) &rarr; 1x12"
+    codeExample: "=TRANSPOSE(3x4) → 4x3 vs =TOROW(3x4) → 1x12"
   },
   {
     question: "How can you rotate a table 90 degrees clockwise using TRANSPOSE and CHOOSEROWS?",

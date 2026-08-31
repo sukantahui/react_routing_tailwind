@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
      regardless of who is sending and who is receiving!
 
 2. TRANSACTION GUARANTEE:
-   - 'conn.setAutoCommit(false)' -> Debit -> Credit -> Write Audit -> 'conn.commit()'.
+   - 'conn.setAutoCommit(false)' → Debit → Credit → Write Audit → 'conn.commit()'.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

@@ -38,7 +38,7 @@ const questions = [
     question: "What is the formal systematic tick-marking algorithm for drawing the minimum number of lines?",
     shortAnswer: "1. Mark (✓) all rows with NO assigned zero; 2. For each marked row, mark columns with a zero in that row; 3. For each marked column, mark rows with an assigned zero in that column; 4. Draw lines through UNMARKED ROWS and MARKED COLUMNS.",
     explanation: "This graph-theoretic protocol guarantees the absolute minimum number of covering lines.",
-    hint: "Mark rows with no assigned zero -> mark cols -> mark rows -> draw lines through unmarked rows and marked cols.",
+    hint: "Mark rows with no assigned zero → mark cols → mark rows → draw lines through unmarked rows and marked cols.",
     level: "expert",
     codeExample: "DrawLines: through UnmarkedRows and MarkedColumns."
   },
@@ -158,7 +158,7 @@ const questions = [
     question: "What is the ultimate golden rule of Covering Zeros?",
     shortAnswer: "'Draw the absolute MINIMUM number of horizontal and vertical lines L to cover all zeros; if L = n, celebrate optimality and assign independent zeros; if L < n, proceed to additional reduction with smallest uncovered element e!'",
     explanation: "This complete rule captures all logic of the line covering test.",
-    hint: "Draw min lines L -> If L = n (Optimal); if L < n (Additional Reduction).",
+    hint: "Draw min lines L → If L = n (Optimal); if L < n (Additional Reduction).",
     level: "moderate",
     codeExample: "Golden Rule: L = MinLines(Zeros); if (L === n) Assign() else AdditionalReduce(e)."
   }

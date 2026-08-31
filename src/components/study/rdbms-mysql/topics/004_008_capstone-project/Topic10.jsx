@@ -25,18 +25,18 @@ const Topic10 = () => {
       badge: "GitHub Repo",
       badgeColor: "emerald",
       sqlSnippet: `-- 📁 CAPSTONE GITHUB REPOSITORY STRUCTURE:
--- ├── README.md                 &rarr; Executive summary, architecture overview, setup guide
+-- ├── README.md                 → Executive summary, architecture overview, setup guide
 -- ├── docs/
--- │   ├── eer_diagram.png       &rarr; High-res Crow's Foot EER diagram
+-- │   ├── eer_diagram.png       → High-res Crow's Foot EER diagram
 -- │   ├── normalization_proof.md-&gt; Functional dependencies & 3NF proofs
--- │   ├── data_dictionary.md    &rarr; Complete table & column specifications
--- │   └── disaster_recovery.md  &rarr; Backup & PITR runbook
+-- │   ├── data_dictionary.md    → Complete table & column specifications
+-- │   └── disaster_recovery.md  → Backup & PITR runbook
 -- ├── sql/
--- │   ├── 01_schema.sql         &rarr; Production DDL scripts
--- │   ├── 02_seeds.sql          &rarr; 100,000+ mock records
--- │   ├── 03_analytics.sql      &rarr; 15 Analytical queries (Window / CTEs)
--- │   ├── 04_procedures.sql     &rarr; Stored procedures, triggers, events
--- │   └── 05_optimization.sql   &rarr; EXPLAIN benchmark reports`,
+-- │   ├── 01_schema.sql         → Production DDL scripts
+-- │   ├── 02_seeds.sql          → 100,000+ mock records
+-- │   ├── 03_analytics.sql      → 15 Analytical queries (Window / CTEs)
+-- │   ├── 04_procedures.sql     → Stored procedures, triggers, events
+-- │   └── 05_optimization.sql   → EXPLAIN benchmark reports`,
       explanation: "A clean, modular repository layout ensures evaluators and prospective employers can clone, inspect, and run your project seamlessly.",
       keyTakeaways: ["Include a clear README.md with architecture badges, setup commands, and quick-start instructions.","Separate DDL, seed data, analytical queries, and stored routines into numbered files.","Provide visual EER diagrams and markdown data dictionaries."]
     },
@@ -101,7 +101,7 @@ const Topic10 = () => {
             Topic 10 of 11
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Final Project Documentation, GitHub Repository Submission & Viva Defense
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

@@ -28,7 +28,7 @@ const Topic39 = () => {
       latencySla: '1.2 Seconds Total End-to-End Latency • 99.99% Availability',
       estApplianceCost: '₹22,00,000 (High-Throughput NPCI UPI Financial Switch Gateway)',
       desc: 'Instant 24/7 retail fund transfer across Indian banks in Barrackpore with real-time settlement.',
-      simResult: 'Payer App -> NPCI Hub -> Remitter Debit CBS (₹2,500) -> Beneficiary Credit CBS -> SMS OTP & 200 OK.',
+      simResult: 'Payer App → NPCI Hub → Remitter Debit CBS (₹2,500) → Beneficiary Credit CBS → SMS OTP & 200 OK.',
     },
     {
       id: 'atm-withdrawal',
@@ -40,7 +40,7 @@ const Topic39 = () => {
       latencySla: '2.4 Seconds RTT • Zero PIN Memory Exposure (FIPS 140-2 Level 3)',
       estApplianceCost: '₹16,50,000 (Dual Payment Hardware Security Module Pair)',
       desc: 'Interbank card transaction verifying user PIN in tamper-proof hardware before dispensing physical cash.',
-      simResult: 'ATM Card Swiped -> ISO 8583 MTI 0200 -> Payment HSM verifies PIN Block -> CBS debits account -> Cash Dispensed.',
+      simResult: 'ATM Card Swiped → ISO 8583 MTI 0200 → Payment HSM verifies PIN Block → CBS debits account → Cash Dispensed.',
     },
     {
       id: 'swift-wire',
@@ -52,7 +52,7 @@ const Topic39 = () => {
       latencySla: '45 Seconds Settlement • Sanctions & AML Screening Engine Verified',
       estApplianceCost: '₹35,00,000 (SWIFT Alliance Gateway & High-Security HSM Node)',
       desc: 'Secure cross-border interbank messaging settling international manufacturing trade payments.',
-      simResult: 'SWIFT Terminal -> SAG Gateway (MT103) -> SWIFTNet PKI -> London Bank accepts pacs.008 -> Account Settled.',
+      simResult: 'SWIFT Terminal → SAG Gateway (MT103) → SWIFTNet PKI → London Bank accepts pacs.008 → Account Settled.',
     },
     {
       id: 'jackpotting-defense',
@@ -64,7 +64,7 @@ const Topic39 = () => {
       latencySla: 'Zero Cash Dispensed • Instant Switch Port Shutdown & Police Dispatch',
       estApplianceCost: '₹45,000 per ATM (Hardware Dispenser Encryption Board & Sensor)',
       desc: 'Defeats physical ATM jackpotting by ensuring cash dispensers reject unsigned command pulses.',
-      simResult: 'Intrusion sensor triggered -> Dispenser detects missing cryptographic signature -> Rejects command -> Alarms SOC.',
+      simResult: 'Intrusion sensor triggered → Dispenser detects missing cryptographic signature → Rejects command → Alarms SOC.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic39 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Networking in Banking
           </h1>
 

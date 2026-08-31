@@ -20,7 +20,7 @@ Operational Architecture: Calendar Table: Power Pivot > Design > Date Table > Ne
    Embeds Indian Fiscal Year (`FY 2026-27`), Fiscal Quarter (Q1 = Apr-Jun), and Fiscal Month Number (Apr = Month 1) columns.
 
 3. Sort by Column Configuration:
-   Month Name ('April', 'May') must be configured with 'Sort by Column -> MonthNumberOfYear' to prevent alphabetical sorting ('April', 'August', 'December').
+   Month Name ('April', 'May') must be configured with 'Sort by Column → MonthNumberOfYear' to prevent alphabetical sorting ('April', 'August', 'December').
 
 4. REAL-WORLD BUSINESS APPLICATION
 • Swadeep Banerjee (Director of FP&A, Barrackpore HQ):

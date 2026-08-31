@@ -6,14 +6,14 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. THE 8 WRAPPERS:
-   - byte    &rarr; Byte
-   - short   &rarr; Short
-   - int     &rarr; Integer
-   - long    &rarr; Long
-   - float   &rarr; Float
-   - double  &rarr; Double
-   - char    &rarr; Character
-   - boolean &rarr; Boolean
+   - byte    → Byte
+   - short   → Short
+   - int     → Integer
+   - long    → Long
+   - float   → Float
+   - double  → Double
+   - char    → Character
+   - boolean → Boolean
    - All are 'public final class' and immutable.
 
 ================================================================================

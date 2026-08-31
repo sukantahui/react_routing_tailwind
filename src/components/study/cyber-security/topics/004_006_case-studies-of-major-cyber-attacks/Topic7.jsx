@@ -86,7 +86,7 @@ const Topic7 = () => {
     let verdictColor = "";
 
     if (targetOrganizationType === "high_value_gov") {
-      c2Response = "CNAME: c2-us-east.trafficmanager.net -> A: 13.59.xxx.xxx (Second-Stage Payload Ready)";
+      c2Response = "CNAME: c2-us-east.trafficmanager.net → A: 13.59.xxx.xxx (Second-Stage Payload Ready)";
       actionVerdict = "SECOND-STAGE TEARDROP ACTIVATED: High-value target recognized (US Cabinet Agency). SVR sent memory loader for Cobalt Strike!";
       verdictColor = "text-rose-400 font-bold";
     } else {
@@ -150,7 +150,7 @@ const Topic7 = () => {
               <span>•</span>
               <span>Module 004.006 — Topic 7</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
               Case Study 7: SolarWinds Supply Chain Attack (2020) — SUNBURST Backdoor
             </h1>
             <p className="text-gray-300 text-sm sm:text-lg max-w-4xl leading-relaxed">

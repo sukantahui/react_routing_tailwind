@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. THENCOMBINE (PARALLEL FAN-IN):
    - Combines 2 independent futures executing in parallel.
-   - Accepts a BiFunction '(resA, resB) &rarr; combinedResult'.
+   - Accepts a BiFunction '(resA, resB) → combinedResult'.
    - Total latency = 'max(DurationA, DurationB)' (not sum!).
    - If either future throws an exception, the combined stage fails immediately.
 

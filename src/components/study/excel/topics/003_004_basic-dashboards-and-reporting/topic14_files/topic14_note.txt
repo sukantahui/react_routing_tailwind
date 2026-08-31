@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on achieving complete mastery of Basic Dashboards and Reporting! You now command the full visual and analytical power of Microsoft Excel to transform complex corporate data into inspiring visual intelligence.
 
 COMMON TRAPS TO AVOID:
-- Unanchored Floating Objects: Leaving floating chart containers unlocked causes them to skew when stakeholders view on different resolutions. -> Fix: Lock all visual elements to cell grids with 'Don't move or size with cells'.
-- Missing Zero-Baseline on Bar Charts: Truncating the vertical axis on bar charts distorts visual comparisons and misleads executives. -> Fix: Always start bar chart axes at zero.
-- Over-Complicated Navigation: Requiring users to click through 10 menus to find basic summary numbers. -> Fix: Keep core KPIs front-and-center on the landing screen.
+- Unanchored Floating Objects: Leaving floating chart containers unlocked causes them to skew when stakeholders view on different resolutions. → Fix: Lock all visual elements to cell grids with 'Don't move or size with cells'.
+- Missing Zero-Baseline on Bar Charts: Truncating the vertical axis on bar charts distorts visual comparisons and misleads executives. → Fix: Always start bar chart axes at zero.
+- Over-Complicated Navigation: Requiring users to click through 10 menus to find basic summary numbers. → Fix: Keep core KPIs front-and-center on the landing screen.
 ================================================================================

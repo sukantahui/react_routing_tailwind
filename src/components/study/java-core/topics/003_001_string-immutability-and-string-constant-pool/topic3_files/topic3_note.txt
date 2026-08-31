@@ -7,8 +7,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. SCP REUSE MECHANISM:
    - When a literal is encountered, JVM checks if it exists in SCP.
-   - If present &rarr; Returns existing pooled reference.
-   - If absent  &rarr; Creates new string in SCP and returns reference.
+   - If present → Returns existing pooled reference.
+   - If absent  → Creates new string in SCP and returns reference.
    - Flyweight design pattern implemented at JVM bytecode level.
 
 ================================================================================

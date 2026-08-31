@@ -76,7 +76,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-violet-400 via-purple-300 to-fuchsia-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-violet-400 via-purple-300 to-fuchsia-300 bg-clip-text text-transparent leading-tight">
             Combining VSTACK and HSTACK to Append & Merge Disparate Datasets
           </h1>
 
@@ -301,9 +301,9 @@ export default function Topic10() {
               </g>
 
               <text x="465" y="165" fill="#38BDF8" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">Processing Pipeline:</text>
-              <text x="465" y="185" fill="#E9D5FF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">1. VSTACK &rarr; 8 Combined Rows</text>
-              <text x="465" y="203" fill="#E9D5FF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">2. DROP &rarr; Strip SH Header</text>
-              <text x="465" y="221" fill="#E9D5FF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">3. HSTACK &rarr; Attach GST Vector</text>
+              <text x="465" y="185" fill="#E9D5FF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">1. VSTACK → 8 Combined Rows</text>
+              <text x="465" y="203" fill="#E9D5FF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">2. DROP → Strip SH Header</text>
+              <text x="465" y="221" fill="#E9D5FF" fontSize="9.5" textAnchor="middle" fontFamily="monospace">3. HSTACK → Attach GST Vector</text>
               <text x="465" y="245" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ Unified 8x4 Clean Matrix</text>
 
               {/* Arrow */}
@@ -371,7 +371,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic10_VSTACK_HSTACK"
+            sheetName="EX1711"
             title="Multi-Branch Datasets (Barrackpore & Shyamnagar Branch Registers)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -410,7 +410,7 @@ export default function Topic10() {
                 he merges both campuses into a single unified ledger with 1 master header row.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-violet-300">
-                Formula: =VSTACK(BK_Data, DROP(SH_Data, 1)) &rarr; 8-Record Unified Ledger
+                Formula: =VSTACK(BK_Data, DROP(SH_Data, 1)) → 8-Record Unified Ledger
               </div>
             </div>
 
@@ -428,7 +428,7 @@ export default function Topic10() {
                 <code className="text-amber-300 font-mono">=HSTACK(H2#, CHOOSECOLS(H2#, 4)*0.18, CHOOSECOLS(H2#, 4)*1.18)</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Formula: =HSTACK(H2#, Col4*0.18, Col4*1.18) &rarr; Full Invoiced Grid
+                Formula: =HSTACK(H2#, Col4*0.18, Col4*1.18) → Full Invoiced Grid
               </div>
             </div>
 
@@ -446,7 +446,7 @@ export default function Topic10() {
                 <code className="text-amber-300 font-mono">=VSTACK({"{"}"ID", "Name", "Net", "GST"{"}"}, CleanData, {"{"}"Grand Total", "", SUM(Net), SUM(GST){"}"})</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =VSTACK(Header, Data, Total) &rarr; Full Self-Contained Card
+                Formula: =VSTACK(Header, Data, Total) → Full Self-Contained Card
               </div>
             </div>
 
@@ -580,7 +580,7 @@ export default function Topic10() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by existing text or merged cells.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow multi-dimensional dynamic spill.</td>
                 </tr>
               </tbody>

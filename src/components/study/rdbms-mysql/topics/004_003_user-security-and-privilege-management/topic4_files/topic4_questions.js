@@ -46,7 +46,7 @@ SET GLOBAL validate_password.length = 12;`
     hint: "Think of an expired password sandbox where only password reset queries are allowed.",
     level: "intermediate",
     codeExample: `-- When user logs in with expired password:
--- Query: SELECT * FROM orders; -> ERROR 1820 (HY000)
+-- Query: SELECT * FROM orders; → ERROR 1820 (HY000)
 -- Permitted resolution query:
 ALTER USER USER() IDENTIFIED BY 'MyNewValidP@ss2026!';`
   },
@@ -93,7 +93,7 @@ ALTER USER 'kolkata_api'@'10.10.%.%'
     question: "What is the 3-step workflow for performing a Zero-Downtime Microservice Password Rotation using Dual Passwords?",
     shortAnswer: "1. `ALTER USER ... IDENTIFIED BY 'new' RETAIN CURRENT PASSWORD;` 2. Perform rolling deployment of application configs. 3. `ALTER USER ... DISCARD OLD PASSWORD;`.",
     explanation: "Step 1 creates the dual password state. Step 2 allows pods running old configs to connect using the secondary password while newly booted pods connect using the primary. Step 3 cleans up the secondary password once all instances have successfully transitioned.",
-    hint: "Remember: Retain -> Rolling Deploy -> Discard.",
+    hint: "Remember: Retain → Rolling Deploy → Discard.",
     level: "expert",
     codeExample: `-- Step 1: Retain old password
 ALTER USER 'app_user'@'%' IDENTIFIED BY 'PassV2#2026' RETAIN CURRENT PASSWORD;
@@ -214,7 +214,7 @@ CREATE USER 'test'@'localhost' IDENTIFIED BY '123';
     explanation: "An account with an expired password can still establish a TCP session to execute `ALTER USER USER() IDENTIFIED BY ...`. An account with `ACCOUNT LOCK` is rejected immediately during connection establishment and cannot execute any SQL statements.",
     hint: "Differentiate between restricted login for password reset vs complete connection refusal.",
     level: "basic",
-    codeExample: `-- Expired password: Login allowed -> sandbox mode
+    codeExample: `-- Expired password: Login allowed → sandbox mode
 ALTER USER 'dev_user'@'localhost' PASSWORD EXPIRE;
 
 -- Locked account: Login blocked immediately

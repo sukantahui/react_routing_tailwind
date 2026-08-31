@@ -12,6 +12,6 @@ compareEquality(NaN, NaN);
 compareEquality(+0, -0);
 compareEquality('0', 0);
 
-console.log("Expected Result Verified:", "NaN vs NaN -> ==: false | ===: false | Object.is: true
-+0 vs -0 -> ==: true | ===: true | Object.is: false
-'0' vs 0 -> ==: true | ===: false | Object.is: false");
+console.log("Expected Result Verified:", "NaN vs NaN → ==: false | ===: false | Object.is: true
++0 vs -0 → ==: true | ===: true | Object.is: false
+'0' vs 0 → ==: true | ===: false | Object.is: false");

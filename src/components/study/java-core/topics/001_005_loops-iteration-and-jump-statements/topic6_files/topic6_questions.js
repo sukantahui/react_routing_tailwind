@@ -163,7 +163,7 @@ const questions = [
     explanation: "Quick mental heuristic for clean algorithmic design.",
     hint: "Count-based = for; State-based = while.",
     level: "basic",
-    codeExample: "// Count -> for; State -> while"
+    codeExample: "// Count → for; State → while"
   },
   {
     question: "What happens if a developer uses `do-while` for a collection traversal where the collection might be empty?",

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 If you only learn one function in DAX, make it CALCULATE. It allows you to change the rules of the game: you can ignore slicers, inject new filters, and compare anything against anything.
 
 COMMON TRAPS TO AVOID:
-- Attempting Multiple Columns in Simple Boolean Filter: Writing `CALCULATE([Sales], Product[Price] > Product[Cost])` throws a DAX syntax error (simple Boolean filters cannot compare two columns directly). -> Fix: Wrap multi-column comparisons inside the `FILTER()` table function: `CALCULATE([Sales], FILTER(Product, Product[Price] > Product[Cost]))`.
-- Measure References in Boolean Filter Argument: Writing `CALCULATE([Sales], [Margin%] > 0.2)` throws an error (measures cannot be used as simple Boolean filter parameters). -> Fix: Use `FILTER(Dim_Product, [Margin%] > 0.2)`.
-- Order of Operations Confusion: CALCULATE modifies the filter context BEFORE evaluating the primary expression. -> Fix: undefined
+- Attempting Multiple Columns in Simple Boolean Filter: Writing `CALCULATE([Sales], Product[Price] > Product[Cost])` throws a DAX syntax error (simple Boolean filters cannot compare two columns directly). → Fix: Wrap multi-column comparisons inside the `FILTER()` table function: `CALCULATE([Sales], FILTER(Product, Product[Price] > Product[Cost]))`.
+- Measure References in Boolean Filter Argument: Writing `CALCULATE([Sales], [Margin%] > 0.2)` throws an error (measures cannot be used as simple Boolean filter parameters). → Fix: Use `FILTER(Dim_Product, [Margin%] > 0.2)`.
+- Order of Operations Confusion: CALCULATE modifies the filter context BEFORE evaluating the primary expression. → Fix: undefined
 ================================================================================

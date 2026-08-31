@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Goal Seek (Alt + A + W + G) is the fastest way to answer 'What price do we need to charge to make ₹1 Crore profit?'. It is one of the most practical tools in Excel.
 
 COMMON TRAPS TO AVOID:
-- Goal Seek May Not Have Found a Solution: If the formula is non-continuous, stepped, or has no mathematical solution, Goal Seek stops at an approximate value. -> Fix: Verify that the changing cell is mathematically linked to the target cell without circular locks.
-- Setting Hardcoded Value in 'Set Cell': Attempting to run Goal Seek on a cell containing a static hardcoded number returns 'Cell must contain a formula'. -> Fix: Ensure 'Set cell' contains a live formula.
-- Overwriting Target Cell Value: Typing the target number directly into the formula cell destroys the dynamic calculation. -> Fix: Always use Data > What-If Analysis > Goal Seek dialog to solve backwards.
+- Goal Seek May Not Have Found a Solution: If the formula is non-continuous, stepped, or has no mathematical solution, Goal Seek stops at an approximate value. → Fix: Verify that the changing cell is mathematically linked to the target cell without circular locks.
+- Setting Hardcoded Value in 'Set Cell': Attempting to run Goal Seek on a cell containing a static hardcoded number returns 'Cell must contain a formula'. → Fix: Ensure 'Set cell' contains a live formula.
+- Overwriting Target Cell Value: Typing the target number directly into the formula cell destroys the dynamic calculation. → Fix: Always use Data > What-If Analysis > Goal Seek dialog to solve backwards.
 ================================================================================

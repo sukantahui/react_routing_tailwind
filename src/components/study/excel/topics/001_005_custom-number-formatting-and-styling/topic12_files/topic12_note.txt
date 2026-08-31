@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 An executive financial statement is a work of art. Clean typography, consistent accounting alignment, and disciplined decimal rules command immediate respect in the boardroom.
 
 COMMON TRAPS TO AVOID:
-- Inconsistent Decimal Precision: Showing 2 decimals on some rows and 0 decimals on others makes statements look amateurish. -> Fix: Enforce consistent 0-decimal or 2-decimal standards across all financial statement lines.
-- Unaligned Totals Underlines: Using cell bottom borders that do not match accounting single/double underline conventions. -> Fix: Use standard Accounting Underline settings (Single for subtotals, Double for Net Income).
-- Missing Zero-Dashes: Leaving raw 0 values creates visual clutter across sparse matrix financial models. -> Fix: Enforce "-" for zero balances across all statement schedules.
+- Inconsistent Decimal Precision: Showing 2 decimals on some rows and 0 decimals on others makes statements look amateurish. → Fix: Enforce consistent 0-decimal or 2-decimal standards across all financial statement lines.
+- Unaligned Totals Underlines: Using cell bottom borders that do not match accounting single/double underline conventions. → Fix: Use standard Accounting Underline settings (Single for subtotals, Double for Net Income).
+- Missing Zero-Dashes: Leaving raw 0 values creates visual clutter across sparse matrix financial models. → Fix: Enforce "-" for zero balances across all statement schedules.
 ================================================================================

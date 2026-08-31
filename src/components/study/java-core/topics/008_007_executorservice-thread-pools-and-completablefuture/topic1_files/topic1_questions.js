@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Core design philosophy of java.util.concurrent (JSR-166).",
     "hint": "Separates the 'What' (Runnable/Callable task) from the 'How' (Thread creation and scheduling).",
     "level": "Intermediate",
-    "codeExample": "ExecutorService pool = Executors.newFixedThreadPool(4); pool.submit(() -> doWork());"
+    "codeExample": "ExecutorService pool = Executors.newFixedThreadPool(4); pool.submit(() → doWork());"
   }
 ];
 

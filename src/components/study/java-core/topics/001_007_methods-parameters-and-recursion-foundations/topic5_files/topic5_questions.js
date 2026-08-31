@@ -131,7 +131,7 @@ const questions = [
     explanation: "Heap object mutation demonstration.",
     hint: "Mutated the shared object state on the Heap via setter method.",
     level: "basic",
-    codeExample: "modifyObjectInternalState(swadeep, 3000.0); // ₹18,000 -> ₹15,000"
+    codeExample: "modifyObjectInternalState(swadeep, 3000.0); // ₹18,000 → ₹15,000"
   },
   {
     question: "What happens if you pass a `String` object to a method and append text to it (`str = str + \" extra\"`)?",

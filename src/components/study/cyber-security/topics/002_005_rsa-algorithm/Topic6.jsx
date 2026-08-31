@@ -54,7 +54,7 @@ const Topic6 = () => {
       category: "Physical Side-Channel & Laser Glitching",
       mathMechanism: "A single laser or voltage glitch corrupts m₁ mod p while m₂ mod q is correct; attacker computes gcd((S')^e - M, N) = q in 1 millisecond.",
       vulnerabilityBound: "Unverified RSA-CRT signature generation",
-      exploitSpeed: "Single fault glitch -> Instant Factorization in 0.001 ms",
+      exploitSpeed: "Single fault glitch → Instant Factorization in 0.001 ms",
       remedy: "Always verify signatures ((S')^e mod N == M) inside hardware BEFORE transmitting to network.",
       badgeClass: "bg-emerald-950 text-emerald-300 border-emerald-800"
     }
@@ -194,7 +194,7 @@ const Topic6 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_005 • Topic 6 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Security Strengths and Factorization Vulnerabilities of RSA
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

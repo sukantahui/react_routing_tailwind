@@ -6,7 +6,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. INSTANTIATION RULES:
-   - 'new AbstractClass()' &rarr; COMPILE ERROR ("cannot be instantiated").
+   - 'new AbstractClass()' → COMPILE ERROR ("cannot be instantiated").
    - Can declare reference variables: 'AbstractClass ref;' (100% legal).
    - Only concrete child subclasses that implement all abstract methods can be instantiated.
 

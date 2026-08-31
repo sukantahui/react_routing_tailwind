@@ -90,7 +90,7 @@ const questions = [
     explanation: "The output column width is the mathematical ceiling of total vector elements divided by wrap_count.",
     hint: "Ceiling division: ROUNDUP(Total / N, 0).",
     level: "moderate",
-    codeExample: "=ROUNDUP(ROWS(A1:A25)/5, 0) &rarr; 5 Columns"
+    codeExample: "=ROUNDUP(ROWS(A1:A25)/5, 0) → 5 Columns"
   },
   {
     question: "How can you create a 7-day vertical weekly calendar column block from a SEQUENCE of 31 days using WRAPCOLS?",

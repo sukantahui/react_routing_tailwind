@@ -325,7 +325,7 @@ void decryptPayload(unsigned char* buffer, size_t len) {
     codeExample: `// Bare-Metal Recovery Workflow Post-Wiper:
 const bareMetalRecoverySteps = [
   "1. Boot from clean, verified offline WinPE / PXE network environment",
-  "2. Format raw drive geometry: diskpart -> clean -> convert gpt",
+  "2. Format raw drive geometry: diskpart → clean → convert gpt",
   "3. Create new EFI system partition & NTFS OS volume",
   "4. Apply gold standard hardened OS image via DISM",
   "5. Restore user data from immutable, scanned WORM backup vault"
@@ -439,7 +439,7 @@ const dpdpSafeguardCompliance = {
     level: "Moderate",
     codeExample: `// The Sony Post-Mortem Defense Checklist:
 const enterpriseResilienceChecklist = [
-  "1. Eliminate all plaintext password files -> Deploy enterprise PAM vault (CyberArk/HashiCorp)",
+  "1. Eliminate all plaintext password files → Deploy enterprise PAM vault (CyberArk/HashiCorp)",
   "2. Implement 3-Tier Active Directory administrative model (Tier 0/1/2 isolation)",
   "3. Enable Windows Defender Credential Guard (Virtualization-Based Security)",
   "4. Deploy Immutable WORM and offline air-gapped backup vaults for bare-metal recovery",

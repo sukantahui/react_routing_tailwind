@@ -304,7 +304,7 @@ const certInRcaReport = {
     hint: "Locking down internal subnets so any cross-network connection is guaranteed to be an attack.",
     level: "Moderate",
     codeExample: `// Microsegmentation Telemetry Rule:
-// App_VLAN(10.10.1.0/24) -> DB_VLAN(10.10.2.0/24) on Port 22 (SSH) ➔ 100% P1 CRITICAL BREACH ALERT!`
+// App_VLAN(10.10.1.0/24) → DB_VLAN(10.10.2.0/24) on Port 22 (SSH) ➔ 100% P1 CRITICAL BREACH ALERT!`
   },
   {
     id: 30,

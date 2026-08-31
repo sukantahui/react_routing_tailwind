@@ -27,7 +27,7 @@ const Topic33 = () => {
       flags: 'DF=1 (Don\'t Fragment) • MF=0',
       offset: '0 (First / Complete Segment)',
       ttlProtocol: 'TTL: 64 • Protocol: 6 (TCP)',
-      srcDst: '192.168.1.50 -> 103.25.10.4',
+      srcDst: '192.168.1.50 → 103.25.10.4',
       checksum: '0x4A2B (Validated 1\'s Complement)',
       desc: 'Standard unfragmented web/HTTPS transaction packet passing through an edge router in Barrackpore.',
       wiresharkTrace: 'Frame 1: 1514 bytes on wire (14B Eth + 20B IP + 20B TCP + 1460B Payload). IP Checksum: 0x4A2B [correct].',
@@ -41,7 +41,7 @@ const Topic33 = () => {
       flags: 'DF=0 • MF=1 (More Fragments Follow)',
       offset: '185 (Byte Offset 1480 = 185 * 8)',
       ttlProtocol: 'TTL: 58 • Protocol: 17 (UDP)',
-      srcDst: '172.16.20.10 -> 103.25.10.8',
+      srcDst: '172.16.20.10 → 103.25.10.8',
       checksum: '0x8F1C (Recomputed Checksum)',
       desc: 'Second fragment of a 4000-byte DNS/NFS payload reassembled by the receiving kernel.',
       wiresharkTrace: 'IPv4 Fragment (offset: 1480, length: 1480, more fragments: true). ID: 0xD3A1.',
@@ -55,7 +55,7 @@ const Topic33 = () => {
       flags: 'Flow Label: 0x8A12F (High-speed hardware flow)',
       offset: 'Next Header: 6 (TCP) • Hop Limit: 64',
       ttlProtocol: 'Hop Limit: 64 (Replaces TTL)',
-      srcDst: '2001:db8:acad:1::50 -> 2001:db8:acad:2::10',
+      srcDst: '2001:db8:acad:1::50 → 2001:db8:acad:2::10',
       checksum: 'Eliminated in IPv6 Header (Processed at Layer 4)',
       desc: 'Fixed 40-byte IPv6 packet routed at hardware ASIC line rate across Kolkata core switches.',
       wiresharkTrace: 'Internet Protocol Version 6, Src: 2001:db8:acad:1::50, Dst: 2001:db8:acad:2::10, Next Header: TCP (6).',
@@ -69,7 +69,7 @@ const Topic33 = () => {
       flags: 'DF=0 • MF=0 (Claims to be final fragment)',
       offset: '35 (Starts at byte 280, overlapping Fragment 1)',
       ttlProtocol: 'TTL: 64 • Protocol: 17 (UDP)',
-      srcDst: '198.51.100.44 (Spoofed) -> 10.0.1.5',
+      srcDst: '198.51.100.44 (Spoofed) → 10.0.1.5',
       checksum: '0x992B (Malicious Craft)',
       desc: 'Overlapping fragment offset engineered by Scapy to trigger kernel memory crash (blocked by DPI firewall).',
       wiresharkTrace: '[WARNING: IP Fragment overlap detected] Firewall Drops Packet: Rule ID 9012 (Teardrop Exploit Mitigation).',
@@ -167,7 +167,7 @@ const Topic33 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Packet
           </h1>
 

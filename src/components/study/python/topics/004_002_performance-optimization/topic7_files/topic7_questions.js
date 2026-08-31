@@ -40,7 +40,7 @@ const questions = [
     explanation: "Eager buffer duplication vs lightweight memory window reference.",
     hint: "Standard bytes slice copies data; memoryview slice points to existing buffer.",
     level: "moderate",
-    codeExample: "# data[:1000] -> Copies 1000 bytes\n# memoryview(data)[:1000] -> Zero copies"
+    codeExample: "# data[:1000] → Copies 1000 bytes\n# memoryview(data)[:1000] → Zero copies"
   },
   {
     question: "Why should high-throughput API services consider using 'orjson' over the standard 'json' library?",

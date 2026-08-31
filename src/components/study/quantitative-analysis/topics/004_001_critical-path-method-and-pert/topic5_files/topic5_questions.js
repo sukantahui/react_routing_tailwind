@@ -14,7 +14,7 @@ const questions = [
     question: "What are the 5 structured phases of the Critical Path Analysis methodology?",
     shortAnswer: "1. Planning & WBS Decomposition; 2. Network Construction & Two-Pass Computations; 3. Float & Slack Quantification; 4. Critical Path Identification; 5. Crashing & Resource Control.",
     explanation: "These 5 phases form the complete operational lifecycle of project network management.",
-    hint: "Planning -> Two-Pass Scheduling -> Float Analysis -> Critical Path -> Crashing/Control.",
+    hint: "Planning → Two-Pass Scheduling → Float Analysis → Critical Path → Crashing/Control.",
     level: "moderate",
     codeExample: "Phases: ['WBS Decomposition', 'Forward/Backward Pass', 'Float Analysis', 'Critical Path Isolation', 'Crashing & Optimization'];"
   },
@@ -118,9 +118,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Critical Path Analysis Working Methodology?",
     shortAnswer: "'Decompose into WBS; execute Forward Pass (max E_j) and Backward Pass (min L_i); compute Total, Free, and Independent Floats; isolate the zero-slack Critical Path; optimize via minimal Cost Slope crashing in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all 5 phases of Critical Path Analysis.",
-    hint: "WBS -> Forward/Backward passes -> Float analysis -> Isolate critical path -> Crash at lowest cost slope in ₹.",
+    hint: "WBS → Forward/Backward passes → Float analysis → Isolate critical path → Crash at lowest cost slope in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: WBS() -> ForwardPassMax() -> BackwardPassMin() -> ComputeFloats() -> IsolateCP() -> Crash(₹)."
+    codeExample: "GoldenRule: WBS() → ForwardPassMax() → BackwardPassMin() → ComputeFloats() → IsolateCP() → Crash(₹)."
   }
 ];
 

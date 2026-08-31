@@ -195,7 +195,7 @@ const Topic7 = () => {
             Module 002 &bull; Topic 007 &bull; Extended Security Models
           </div>
           
-          <h1 className={clsx("text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white")}>
+          <h1 className={clsx("text-3xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white")}>
             Parkerian Hexad, Non-Repudiation & Extended Assurance Models
           </h1>
           

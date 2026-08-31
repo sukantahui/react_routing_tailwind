@@ -24,12 +24,12 @@ const Topic3 = () => {
       title: "1. 300x Speedup: 1,000 Bulk Inserts (Autocommit ON vs Single Transaction)",
       badge: "Performance Benchmark",
       badgeColor: "emerald",
-      sqlQuery: `-- ❌ SLOW: 1,000 Inserts with autocommit = 1 (1,000 Disk fsyncs -> 12.50s):
+      sqlQuery: `-- ❌ SLOW: 1,000 Inserts with autocommit = 1 (1,000 Disk fsyncs → 12.50s):
 -- INSERT INTO student_attendance VALUES (101, 'PRESENT'); -- fsync 1
 -- INSERT INTO student_attendance VALUES (102, 'PRESENT'); -- fsync 2
 -- ... (1,000 physical disk writes!)
 
--- ✅ FAST: 1,000 Inserts in Single Transaction (1 Disk fsync -> 0.04s):
+-- ✅ FAST: 1,000 Inserts in Single Transaction (1 Disk fsync → 0.04s):
 START TRANSACTION;
 INSERT INTO student_attendance VALUES (101, 'PRESENT');
 INSERT INTO student_attendance VALUES (102, 'PRESENT');
@@ -154,7 +154,7 @@ DELIMITER ;`,
               Autocommit Architecture
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Autocommit Mode: Checking, Disabling &amp; Best Practices
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

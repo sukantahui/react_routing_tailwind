@@ -71,7 +71,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Quick Check Quiz: Number Formatting, Data Hygiene &amp; Grid Editing Fundamentals
           </h1>
 
@@ -381,7 +381,7 @@ export default function Topic9() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">QC_Step</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Verification_Method</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Type Validation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 &amp;rarr; Special &amp;rarr; Constants &amp;rarr; Numbers</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Numeric Verified</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Type Validation</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">F5 → Special → Constants → Numbers</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Numeric Verified</td></tr>
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date Validity Check</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=ISNUMBER(Date_Column)</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">100% Valid Date Serials</td></tr>
                   </tbody>
                 </table>

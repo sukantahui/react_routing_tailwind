@@ -45,7 +45,7 @@ const questions = [
     explanation: "BlueJ visually diagrams classes and object instances on an interactive workbench, helping students physically visualize instantiation and encapsulation.",
     hint: "Interactive object workbench without main().",
     level: "basic",
-    codeExample: "// Right-click Class -> new Student() -> Right-click Object -> getAge()"
+    codeExample: "// Right-click Class → new Student() → Right-click Object → getAge()"
   },
   {
     question: "What is the 'Live Template' shortcut in IntelliJ IDEA to generate the main method?",
@@ -74,8 +74,8 @@ const questions = [
   {
     question: "What is the Project SDK setting in IntelliJ IDEA?",
     shortAnswer: "The configured JDK installation used by the IDE to compile and run the project.",
-    explanation: "Configured via File -> Project Structure -> Project -> SDK, this tells the IDE which JDK (e.g. JDK 21) to target for language features and class libraries.",
-    hint: "File -> Project Structure -> SDK.",
+    explanation: "Configured via File → Project Structure → Project → SDK, this tells the IDE which JDK (e.g. JDK 21) to target for language features and class libraries.",
+    hint: "File → Project Structure → SDK.",
     level: "basic",
     codeExample: "// Project SDK: OpenJDK 21 (Temurin)"
   },
@@ -181,7 +181,7 @@ const questions = [
     explanation: "Relying blindly on the green 'Play' button prevents beginners from understanding how the JVM actually locates classes, leading to confusion in CI/CD pipelines.",
     hint: "Understand the fundamentals before using IDE automations.",
     level: "basic",
-    codeExample: "// Master javac in terminal first -> Excel in IDEs forever."
+    codeExample: "// Master javac in terminal first → Excel in IDEs forever."
   },
   {
     question: "What is the 'Evaluate Expression' tool in the IDE Debugger (`Alt + F8`)?",
@@ -197,7 +197,7 @@ const questions = [
     explanation: "If you fix a bug inside a method while debugging, compiling the class allows the JVM to update the method in-place via JVM TI.",
     hint: "Update code live without restarting debug session.",
     level: "advanced",
-    codeExample: "// Compile -> Reload Changed Classes live!"
+    codeExample: "// Compile → Reload Changed Classes live!"
   },
   {
     question: "What is the 'Hierarchy Tool Window' (`Ctrl + H`) in IntelliJ IDEA?",
@@ -205,7 +205,7 @@ const questions = [
     explanation: "Helps navigate large object hierarchies, showing all classes extending or implementing the active type.",
     hint: "Displays class inheritance hierarchies.",
     level: "intermediate",
-    codeExample: "// Ctrl + H: Shows ArrayList -> AbstractList -> AbstractCollection -> Object"
+    codeExample: "// Ctrl + H: Shows ArrayList → AbstractList → AbstractCollection → Object"
   },
   {
     question: "What is the difference between 'Search Everywhere' (`Double Shift`) and 'Find in Files' (`Ctrl + Shift + F`) in IntelliJ?",
@@ -225,7 +225,7 @@ const questions = [
   },
   {
     question: "How do you configure Git version control inside IntelliJ IDEA?",
-    shortAnswer: "Go to Git -> Clone (or VCS -> Enable Version Control), and use the built-in Commit tool window (`Alt + 0`).",
+    shortAnswer: "Go to Git → Clone (or VCS → Enable Version Control), and use the built-in Commit tool window (`Alt + 0`).",
     explanation: "IntelliJ provides visual diff viewers, branch switchers, interactive rebasing, and merge conflict resolvers directly in the UI.",
     hint: "Built-in Git GUI in IntelliJ.",
     level: "basic",

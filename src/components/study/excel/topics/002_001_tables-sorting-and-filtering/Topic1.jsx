@@ -68,7 +68,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Benefits of Tables: Structured References, Auto-Expansion & Built-In Filters
           </h1>
 
@@ -300,7 +300,7 @@ export default function Topic1() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Calculated Column -&gt; Structured Syntax</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Calculated Column → Structured Syntax</div>
                 <div className="text-emerald-400 font-semibold">Result: Automatic calculation across all rows.</div>
                 <div className="text-slate-400 text-[11px]">Structured references evaluate current row context automatically.</div>
               </div>

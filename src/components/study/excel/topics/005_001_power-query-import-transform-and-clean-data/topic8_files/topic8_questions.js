@@ -26,7 +26,7 @@ const questions = [
     explanation: "Allows flexible choice based on whether fixed keys or dynamic attributes are selected.",
     hint: "Unpivot Columns, Unpivot Other Columns, Unpivot Only Selected Columns.",
     level: "moderate",
-    codeExample: "Right-Click Header &rarr; Unpivot Columns / Unpivot Other Columns"
+    codeExample: "Right-Click Header → Unpivot Columns / Unpivot Other Columns"
   },
   {
     question: "Why is 'Unpivot Other Columns' considered the golden enterprise best practice?",
@@ -72,9 +72,9 @@ const questions = [
     question: "How do you unpivot a matrix that has MULTI-LEVEL headers (e.g. Year in Row 1, Month in Row 2, Metric in Row 3)?",
     shortAnswer: "1. Transpose the table, 2. Fill Down parent headers, 3. Merge header columns with a delimiter (e.g. ';'), 4. Transpose back, 5. Promote Headers, 6. Unpivot Other Columns, 7. Split the Attribute column by delimiter.",
     explanation: "The definitive 7-step Power Query algorithm for unpivoting complex stacked matrix headers.",
-    hint: "Transpose &rarr; Fill Down &rarr; Merge &rarr; Transpose &rarr; Promote &rarr; Unpivot &rarr; Split.",
+    hint: "Transpose → Fill Down → Merge → Transpose → Promote → Unpivot → Split.",
     level: "expert",
-    codeExample: "Transpose &rarr; Fill Down &rarr; Combine Columns &rarr; Transpose &rarr; Unpivot &rarr; Split"
+    codeExample: "Transpose → Fill Down → Combine Columns → Transpose → Unpivot → Split"
   },
   {
     question: "What is the difference between 'Unpivoting' and 'Transposing' a table?",
@@ -88,15 +88,15 @@ const questions = [
     question: "How do you convert unpivoted text month names (e.g. 'Jan', 'Feb') into true calendar Dates?",
     shortAnswer: "Merge with the Year column (e.g. 'Jan-2026') or add a custom column parsing the month text, then coerce to `type date` with locale.",
     explanation: "Enables DAX time intelligence functions (YTD, Prior Year).",
-    hint: "Merge Month + Year &rarr; Change Type to Date.",
+    hint: "Merge Month + Year → Change Type to Date.",
     level: "moderate",
     codeExample: "= Table.TransformColumnTypes(#\"Merged\", {{\"Month_Date\", type date}}, \"en-US\")"
   },
   {
     question: "Can you unpivot a table that contains multiple key dimension columns (e.g. Store, Department, Region)?",
-    shortAnswer: "Yes, select all 3 key columns (Store, Dept, Region) &rarr; Right-click &rarr; Unpivot Other Columns.",
+    shortAnswer: "Yes, select all 3 key columns (Store, Dept, Region) → Right-click → Unpivot Other Columns.",
     explanation: "All 3 key columns remain fixed while all numeric columns unpivot.",
-    hint: "Select all key columns &rarr; Unpivot Other Columns.",
+    hint: "Select all key columns → Unpivot Other Columns.",
     level: "basic",
     codeExample: "= Table.UnpivotOtherColumns(Source, {\"Store\", \"Dept\", \"Region\"}, \"Month\", \"Revenue\")"
   },
@@ -110,11 +110,11 @@ const questions = [
   },
   {
     question: "How do you unpivot a table where the column headers contain actual transaction dates (e.g. `01/01/2026`, `02/01/2026`)?",
-    shortAnswer: "Select key dimensions &rarr; Unpivot Other Columns &rarr; Change the resulting 'Attribute' column data type directly to `type date`.",
+    shortAnswer: "Select key dimensions → Unpivot Other Columns → Change the resulting 'Attribute' column data type directly to `type date`.",
     explanation: "Creates a genuine Date fact table in 2 steps.",
-    hint: "Unpivot Other Columns &rarr; Change Attribute type to Date.",
+    hint: "Unpivot Other Columns → Change Attribute type to Date.",
     level: "basic",
-    codeExample: "Attribute &rarr; Changed Type: type date"
+    codeExample: "Attribute → Changed Type: type date"
   },
   {
     question: "How do you preserve zero values during unpivoting when zeros represent valid zero-revenue days?",
@@ -130,15 +130,15 @@ const questions = [
     explanation: "Unpivoting eliminates repeated column groups (Jan, Feb, Mar) into atomic attribute-value pairs.",
     hint: "Relational standard eliminating repeated column groups.",
     level: "advanced",
-    codeExample: "Crosstab Matrix &rarr; 3NF Relational Fact Table"
+    codeExample: "Crosstab Matrix → 3NF Relational Fact Table"
   },
   {
     question: "How do you unpivot two different metric types simultaneously (e.g. Actuals and Budget columns for each month)?",
     shortAnswer: "1. Unpivot all columns, 2. Split the Attribute column into Month and MetricType, 3. Pivot the MetricType column using Value as the aggregation column.",
     explanation: "Generates a clean 4-column table: Product, Month, Actuals, Budget.",
-    hint: "Unpivot all &rarr; Split Attribute &rarr; Pivot MetricType.",
+    hint: "Unpivot all → Split Attribute → Pivot MetricType.",
     level: "expert",
-    codeExample: "Unpivot All &rarr; Split 'Jan_Actual' into 'Jan' | 'Actual' &rarr; Pivot 'Actual' vs 'Budget'"
+    codeExample: "Unpivot All → Split 'Jan_Actual' into 'Jan' | 'Actual' → Pivot 'Actual' vs 'Budget'"
   },
   {
     question: "What is the risk of having trailing total columns (e.g. 'Full Year Total') in your matrix before unpivoting?",
@@ -150,9 +150,9 @@ const questions = [
   },
   {
     question: "How do you remove summary Total columns before applying Unpivot?",
-    shortAnswer: "Select the 'Total' column &rarr; Right-click &rarr; Remove Columns (or filter out during column selection).",
+    shortAnswer: "Select the 'Total' column → Right-click → Remove Columns (or filter out during column selection).",
     explanation: "Ensures only base period attributes are unpivoted.",
-    hint: "Right-click 'Total' &rarr; Remove Column.",
+    hint: "Right-click 'Total' → Remove Column.",
     level: "basic",
     codeExample: "= Table.RemoveColumns(Source, {\"Total_FY26\"})"
   },
@@ -186,13 +186,13 @@ const questions = [
     explanation: "Prevents alphabetical sorting ('April', 'August', 'December').",
     hint: "Convert to Date or map to Month Number (1-12) before sorting.",
     level: "moderate",
-    codeExample: "Add MonthNumber (1-12) &rarr; Sort Ascending"
+    codeExample: "Add MonthNumber (1-12) → Sort Ascending"
   },
   {
     question: "Can Power Query unpivot an arbitrary number of dynamic columns (e.g. 50 regional store columns)?",
     shortAnswer: "Yes, by selecting the non-store key columns (Product, Date) and clicking 'Unpivot Other Columns'.",
     explanation: "Scales effortlessly to hundreds of unpivoted attribute columns.",
-    hint: "Select fixed keys &rarr; Unpivot Other Columns.",
+    hint: "Select fixed keys → Unpivot Other Columns.",
     level: "basic",
     codeExample: "Unpivots 50 Store columns into 1 [Store] attribute column"
   },
@@ -202,7 +202,7 @@ const questions = [
     explanation: "You unpivot to feed PivotTables, not the reverse.",
     hint: "Unpivoted = Raw Normalized Fact; PivotTable = Summarized View.",
     level: "basic",
-    codeExample: "Flat Fact Feed &rarr; Powers Interactive PivotTables"
+    codeExample: "Flat Fact Feed → Powers Interactive PivotTables"
   },
   {
     question: "How do you handle currency symbols embedded inside wide matrix cells before unpivoting?",
@@ -210,7 +210,7 @@ const questions = [
     explanation: "Always unpivot before applying column-level cleaning and numeric type casting.",
     hint: "Unpivot FIRST, then clean the single 'Value' column!",
     level: "expert",
-    codeExample: "Unpivot First &rarr; Clean 1 Value Column (Saves 12 Steps!)"
+    codeExample: "Unpivot First → Clean 1 Value Column (Saves 12 Steps!)"
   },
   {
     question: "Why should you unpivot before changing data types on matrix values?",
@@ -218,15 +218,15 @@ const questions = [
     explanation: "Massive reduction in M code complexity and calculation time.",
     hint: "Reduces 12 type conversion steps down to 1 single step.",
     level: "expert",
-    codeExample: "Unpivot &rarr; 1 Single 'Changed Type' Step on [Value]"
+    codeExample: "Unpivot → 1 Single 'Changed Type' Step on [Value]"
   },
   {
     question: "How do you unpivot an ERP trial balance report that has Debit and Credit in separate column groups?",
     shortAnswer: "Unpivot all account periods, split the attribute into Period and Type (Debit/Credit), and calculate Net Amount (`[Debit] - [Credit]`).",
     explanation: "Standard accounting trial balance ETL pipeline.",
-    hint: "Unpivot &rarr; Split Period/Type &rarr; Net Debit/Credit.",
+    hint: "Unpivot → Split Period/Type → Net Debit/Credit.",
     level: "advanced",
-    codeExample: "Trial Balance Matrix &rarr; Normalized Journal Entry Ledger"
+    codeExample: "Trial Balance Matrix → Normalized Journal Entry Ledger"
   },
   {
     question: "How do you verify that an unpivot operation did not lose or duplicate total revenue?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Unpivoting is the ultimate gateway from amateur spreadsheets to professional data modeling!",
     hint: "Unpivot Other Columns (Resilience) + Drop Totals + Clean Value Post-Unpivot = Flawless Fact Table!",
     level: "expert",
-    codeExample: "Rule: Drop Totals &rarr; Select Keys &rarr; Unpivot Other Columns &rarr; Type Coerce [Value]!"
+    codeExample: "Rule: Drop Totals → Select Keys → Unpivot Other Columns → Type Coerce [Value]!"
   }
 ];
 

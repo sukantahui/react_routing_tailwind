@@ -76,7 +76,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             LAMBDA Syntax & In-Cell Immediate Execution `(LAMBDA(...)(...))`
           </h1>
 
@@ -129,7 +129,7 @@ export default function Topic1() {
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
               <span className="text-slate-500">// Example (Price, Qty, Discount Rate):</span>{" "}
               <span className="text-emerald-400 font-bold">=(LAMBDA(p, q, d, p * q * (1 - d)))(12500, 4, 0.05)</span>{" "}
-              <span className="text-slate-500">&rarr; 47,500</span>
+              <span className="text-slate-500">→ 47,500</span>
             </div>
           </div>
 
@@ -194,7 +194,7 @@ export default function Topic1() {
                 Adding <code className="text-emerald-400 font-mono">(5)</code> triggers evaluation.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-rose-300">
-                Bare =LAMBDA() &rarr; #CALC! | =(LAMBDA())(5) &rarr; 10
+                Bare =LAMBDA() → #CALC! | =(LAMBDA())(5) → 10
               </div>
             </div>
 
@@ -207,7 +207,7 @@ export default function Topic1() {
                 Excel maps the 1st argument to the 1st parameter, the 2nd to the 2nd parameter, and so on. Data types (numbers, dates, text, spilled arrays) are passed with full precision.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Arg 1 &rarr; Param 1 | Arg 2 &rarr; Param 2 | Arg 3 &rarr; Param 3
+                Arg 1 → Param 1 | Arg 2 → Param 2 | Arg 3 → Param 3
               </div>
             </div>
           </div>
@@ -358,7 +358,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Syntax"
+            sheetName="EX1802"
             title="Commercial Billing Dataset (Price, Qty, Discount Testing Grid)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -396,7 +396,7 @@ export default function Topic1() {
                 Writing <code className="text-emerald-300 font-mono">=(LAMBDA(p, q, d, p * q * (1 - d)))(C5, D5, E5)</code> evaluates in-cell instantly, verifying that a 5% discount on ₹50,000 gross yields ₹47,500.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =(LAMBDA(p, q, d, p * q * (1 - d)))(C5, D5, E5) &rarr; ₹47,500.00
+                Formula: =(LAMBDA(p, q, d, p * q * (1 - d)))(C5, D5, E5) → ₹47,500.00
               </div>
             </div>
 
@@ -411,11 +411,11 @@ export default function Topic1() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 HR Manager <strong>Tuhina Mukherjee</strong> tests a tiered commission formula on sales achievements. 
-                Using <code className="text-amber-300 font-mono">=(LAMBDA(sales, IF(sales&gt;500000, sales*0.08, sales*0.05)))(F5)</code>, 
+                Using <code className="text-amber-300 font-mono">=(LAMBDA(sales, IF(sales>500000, sales*0.08, sales*0.05)))(F5)</code>, 
                 she tests tier transitions directly in the cell before registering the commission rule in Name Manager.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =(LAMBDA(s, IF(s&gt;500k, s*8%, s*5%)))(F5)
+                Formula: =(LAMBDA(s, IF(s>500k, s*8%, s*5%)))(F5)
               </div>
             </div>
 
@@ -433,7 +433,7 @@ export default function Topic1() {
                 <code className="text-amber-300 font-mono">=(LAMBDA(P, r, n, t, P * (1 + r/n)^(n*t)))(100000, 0.075, 4, 3)</code>, confirming maturity value of ₹124,972 in 1 formula cell.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =(LAMBDA(P, r, n, t, P*(1+r/n)^(n*t)))(...) &rarr; Verified Return
+                Formula: =(LAMBDA(P, r, n, t, P*(1+r/n)^(n*t)))(...) → Verified Return
               </div>
             </div>
 
@@ -451,7 +451,7 @@ export default function Topic1() {
                 <code className="text-amber-300 font-mono">=(LAMBDA(amt, HSTACK(amt, amt*0.09, amt*0.09, amt*1.18)))(45000)</code>, spilling [Taxable, CGST 9%, SGST 9%, Gross Total] across 4 columns.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Formula: =(LAMBDA(a, HSTACK(a, a*0.09, a*0.09, a*1.18)))(45k) &rarr; Spills 4 Columns
+                Formula: =(LAMBDA(a, HSTACK(a, a*0.09, a*0.09, a*1.18)))(45k) → Spills 4 Columns
               </div>
             </div>
           </div>

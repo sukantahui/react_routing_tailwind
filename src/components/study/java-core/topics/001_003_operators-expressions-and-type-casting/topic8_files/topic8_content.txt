@@ -26,8 +26,8 @@ To optimize memory, the JVM maintains a special String Constant Pool in the Heap
 3. WRAPPER CLASS CACHING ARCHITECTURE (THE INTEGER TRAP)
 Under the Java Language Specification (JLS §5.1.7), autoboxing calls `Integer.valueOf(int)`.
 The `IntegerCache` class pre-allocates and caches `Integer` instances for values between `-128` and `+127`:
-- `Integer a = 127, b = 127; a == b` -> `true` (Both reference cached object #127).
-- `Integer c = 128, d = 128; c == d` -> `false` (Two distinct Heap instances allocated!).
+- `Integer a = 127, b = 127; a == b` → `true` (Both reference cached object #127).
+- `Integer c = 128, d = 128; c == d` → `false` (Two distinct Heap instances allocated!).
 CRITICAL PRODUCTION RULE: Never use `==` to compare numeric wrapper objects; always use `.equals()` or `Objects.equals()`.
 
 4. THE EQUALS AND HASHCODE CONTRACT (JLS & JAVA OBJECT SPECIFICATION)

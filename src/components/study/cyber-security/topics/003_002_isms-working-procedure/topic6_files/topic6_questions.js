@@ -38,7 +38,7 @@ Impact:      Isolated 2 payment worker nodes; zero customer PII exfiltrated; AES
   {
     question: "What are the four standard incident severity tiers (P1 to P4), and how do they determine escalation paths?",
     shortAnswer: "P1 Critical (Enterprise-wide outage, active ransomware, major data breach ➔ Immediate CISO/CEO escalation & CERT-In notification); P2 High (Single critical server compromised ➔ Tier 3 Lead & CISO); P3 Medium (Isolated malware/phishing attempt ➔ Tier 2 Analyst); P4 Low (Benign policy violation ➔ Tier 1 Analyst).",
-    explanation: "Severity triage ensures proportionate operational response: 1. P1 Critical: Core transactional systems down or citizen PII leaking -> War room convened within 15 mins, CISO alerts CEO, legal counsel, and CERT-In within 6h; 2. P2 High: Production database compromised without data leak -> Escalated to Tier 3 within 30 mins; 3. P3 Medium: Employee reports phishing email -> Quarantined by Tier 2 within 2 hours; 4. P4 Low: Single port scan -> Handled via automated SOAR rules.",
+    explanation: "Severity triage ensures proportionate operational response: 1. P1 Critical: Core transactional systems down or citizen PII leaking → War room convened within 15 mins, CISO alerts CEO, legal counsel, and CERT-In within 6h; 2. P2 High: Production database compromised without data leak → Escalated to Tier 3 within 30 mins; 3. P3 Medium: Employee reports phishing email → Quarantined by Tier 2 within 2 hours; 4. P4 Low: Single port scan → Handled via automated SOAR rules.",
     hint: "Think of hospital triage: Emergency surgery (P1) vs minor bandage (P4).",
     level: "moderate",
     codeExample: `// Severity Escalation Matrix:
@@ -54,7 +54,7 @@ P4 Low      ➔ MTTD < 4h  | Automated SOAR Playbook | Ticket Closed in < 24h`
     hint: "Think of applying a tourniquet (short-term) versus surgery in a sterile operating theater (long-term).",
     level: "moderate",
     codeExample: `// Short-Term vs Long-Term Containment:
-Short-Term: AWS Security Group updated -> Revoked all ingress/egress rules for EC2 instance i-0a84f
+Short-Term: AWS Security Group updated → Revoked all ingress/egress rules for EC2 instance i-0a84f
 Long-Term:  Spun up clean warm-standby container cluster in secondary AZ behind Cloudflare Zero Trust`
   },
   {

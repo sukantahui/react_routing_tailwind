@@ -85,7 +85,7 @@ END //
 
 DELIMITER ;
 
--- Insert new student -> Trigger automatically fires and creates audit record!
+-- Insert new student → Trigger automatically fires and creates audit record!
 INSERT INTO students (first_name, last_name, email, dept_id)
 VALUES ('Abhronila', 'Saha', 'abhronila.saha@gmail.com', 2);`,
       resultRows: [
@@ -172,7 +172,7 @@ DELIMITER ;
               Event-Driven Architecture
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Database Triggers &amp; Execution Timing (BEFORE vs AFTER)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

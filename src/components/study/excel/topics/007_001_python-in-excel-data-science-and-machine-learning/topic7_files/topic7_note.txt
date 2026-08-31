@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 No more guessing in meetings! Use `scipy.stats.ttest_ind(groupA, groupB)` to prove mathematically whether Campaign A beat Campaign B. If the p-value is less than 0.05, you have scientific proof.
 
 COMMON TRAPS TO AVOID:
-- Misinterpreting p-value (p < 0.05 vs p >= 0.05): Rejecting null hypothesis when p-value is 0.12 (insufficient statistical evidence). -> Fix: Enforce standard alpha threshold: Reject H0 only if `p_val < 0.05`.
-- Ignoring Normality & Variance Assumptions: Running standard t-tests on highly skewed non-normal data without variance checks. -> Fix: Check variance equality (`stats.levene`) or use non-parametric Mann-Whitney U test (`stats.mannwhitneyu`).
-- Passing Unequal Sample Sizes into Paired T-Test: Calling `stats.ttest_rel()` on arrays with different lengths throws ValueError. -> Fix: Ensure paired observations have identical row lengths.
+- Misinterpreting p-value (p < 0.05 vs p >= 0.05): Rejecting null hypothesis when p-value is 0.12 (insufficient statistical evidence). → Fix: Enforce standard alpha threshold: Reject H0 only if `p_val < 0.05`.
+- Ignoring Normality & Variance Assumptions: Running standard t-tests on highly skewed non-normal data without variance checks. → Fix: Check variance equality (`stats.levene`) or use non-parametric Mann-Whitney U test (`stats.mannwhitneyu`).
+- Passing Unequal Sample Sizes into Paired T-Test: Calling `stats.ttest_rel()` on arrays with different lengths throws ValueError. → Fix: Ensure paired observations have identical row lengths.
 ================================================================================

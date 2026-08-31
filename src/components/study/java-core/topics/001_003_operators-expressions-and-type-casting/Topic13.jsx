@@ -42,7 +42,7 @@ export default function Topic13() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Compound Assignment Operators: <code className="text-emerald-400">+=</code>, <code className="text-emerald-400">-=</code>, <code className="text-emerald-400">*=</code>, <code className="text-emerald-400">/=</code>, <code className="text-emerald-400">%=</code>, <code className="text-emerald-400">&amp;=</code>, <code className="text-emerald-400">|=</code>, <code className="text-emerald-400">^=</code>, <code className="text-emerald-400">&lt;&lt;=</code>, <code className="text-emerald-400">&gt;&gt;=</code>, <code className="text-emerald-400">&gt;&gt;&gt;=</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -109,7 +109,7 @@ export default function Topic13() {
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">+=, -=, *=, /=, %=</text>
             <text x="55" y="122" fill="#e0f2fe" fontSize="10">balance += 5000; // deposit</text>
-            <text x="55" y="142" fill="#e0f2fe" fontSize="10">x *= 2 + 3; &rarr; x = x * (2+3)</text>
+            <text x="55" y="142" fill="#e0f2fe" fontSize="10">x *= 2 + 3; → x = x * (2+3)</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Right Side Fully Grouped
             </text>

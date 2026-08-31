@@ -9,7 +9,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Used when Stage 2 returns another CompletableFuture.
    - 'thenApply()' yields: 'CompletableFuture<CompletableFuture<T>>' (Nested).
    - 'thenCompose()' yields: 'CompletableFuture<T>' (Flattened).
-   - Perfect for dependent asynchronous sequential workflows (e.g. Auth &rarr; Fetch Profile).
+   - Perfect for dependent asynchronous sequential workflows (e.g. Auth → Fetch Profile).
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

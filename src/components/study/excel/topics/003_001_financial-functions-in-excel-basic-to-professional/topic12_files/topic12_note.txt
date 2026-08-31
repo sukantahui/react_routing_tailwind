@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Profit is an opinion; Cash is a fact! A company can show massive accounting profits on paper while bleeding cash due to working capital traps. Always bridge Net Income to FCFF.
 
 COMMON TRAPS TO AVOID:
-- Including Cash in Working Capital Calculation: Including cash balances in Current Assets when calculating Net Working Capital creates double-counting in cash flow models. -> Fix: Use Non-Cash Working Capital: `NWC = (Current Assets - Cash) - (Current Liabilities - Short-term Debt)`.
-- Inverting Change in NWC Sign: Treating an increase in Accounts Receivable as a positive cash flow (it actually represents uncollected cash). -> Fix: Subtract ΔNWC: `Increase in NWC = Cash Outflow (-)`; `Decrease in NWC = Cash Inflow (+)`.
-- Confusing Net Income with FCFF: Using Net Income instead of NOPAT includes interest expense, distorting the firm-level capital-structure-neutral valuation. -> Fix: Always start FCFF from EBIT*(1-t), not Net Income.
+- Including Cash in Working Capital Calculation: Including cash balances in Current Assets when calculating Net Working Capital creates double-counting in cash flow models. → Fix: Use Non-Cash Working Capital: `NWC = (Current Assets - Cash) - (Current Liabilities - Short-term Debt)`.
+- Inverting Change in NWC Sign: Treating an increase in Accounts Receivable as a positive cash flow (it actually represents uncollected cash). → Fix: Subtract ΔNWC: `Increase in NWC = Cash Outflow (-)`; `Decrease in NWC = Cash Inflow (+)`.
+- Confusing Net Income with FCFF: Using Net Income instead of NOPAT includes interest expense, distorting the firm-level capital-structure-neutral valuation. → Fix: Always start FCFF from EBIT*(1-t), not Net Income.
 ================================================================================

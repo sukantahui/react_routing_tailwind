@@ -5,7 +5,7 @@ const topic13_questions = [
     "explanation": "To alter element counts, use filter() (which removes elements) or flatMap() (which flattens 1 element into 0, 1, or many elements).",
     "hint": "map is 1-to-1 and strictly preserves element count.",
     "level": "Beginner",
-    "codeExample": "List.of(1, 2, 3).stream().map(x -> x * 2).count(); // Always 3"
+    "codeExample": "List.of(1, 2, 3).stream().map(x → x * 2).count(); // Always 3"
   },
   {
     "question": "When should you use mapToInt() instead of map(Integer::valueOf)?",

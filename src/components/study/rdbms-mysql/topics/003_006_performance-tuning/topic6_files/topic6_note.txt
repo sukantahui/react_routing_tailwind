@@ -9,12 +9,12 @@ Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
 MySQL accesses tabular data through distinct access methods (indicated by the
 `type` column in EXPLAIN). Ranked from fastest to slowest:
 
-  1. `const` / `system`      -> O(1) direct memory/primary key lookup
-  2. `eq_ref`                -> 1-to-1 unique join lookup
-  3. `ref`                   -> Non-unique index equality lookup
-  4. `range`                 -> B+Tree boundary probe + linked leaf scan
-  5. `index`                 -> Full B+Tree leaf scan (Index Scan)
-  6. `ALL`                   -> Full Table Scan across all 16KB data pages
+  1. `const` / `system`      → O(1) direct memory/primary key lookup
+  2. `eq_ref`                → 1-to-1 unique join lookup
+  3. `ref`                   → Non-unique index equality lookup
+  4. `range`                 → B+Tree boundary probe + linked leaf scan
+  5. `index`                 → Full B+Tree leaf scan (Index Scan)
+  6. `ALL`                   → Full Table Scan across all 16KB data pages
 
 2. DETAILED COMPARISON MATRIX
 --------------------------------------------------------------------------------
@@ -31,8 +31,8 @@ MySQL accesses tabular data through distinct access methods (indicated by the
 --------------------------------------------------------------------------------
 Why does MySQL switch from `range` to `ALL` on indexed columns?
 - Secondary index lookup requires 2 steps:
-  1) Traverse secondary B+Tree -> Obtain Primary Key
-  2) Clustered Index Seek (Random I/O) -> Read full row
+  1) Traverse secondary B+Tree → Obtain Primary Key
+  2) Clustered Index Seek (Random I/O) → Read full row
 - If the range matches > 20%-30% of total rows, random I/O cost exceeds
   the cost of a sequential Full Table Scan. Hence, MySQL chooses `ALL`.
 

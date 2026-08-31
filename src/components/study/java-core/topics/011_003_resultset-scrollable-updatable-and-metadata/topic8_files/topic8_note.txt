@@ -10,8 +10,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - The query must select from a single table (no joins or aggregates).
 
 2. WORKFLOW:
-   - 'rs.updateXxx(column, value)' &rarr; modifies the buffer.
-   - 'rs.updateRow()' &rarr; commits the update to the physical database.
+   - 'rs.updateXxx(column, value)' → modifies the buffer.
+   - 'rs.updateRow()' → commits the update to the physical database.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

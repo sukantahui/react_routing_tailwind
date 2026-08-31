@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on achieving complete mastery of External Data Automation, SQL Connections, and Web APIs! You can now connect Microsoft Excel to ANY database, ANY server, and ANY cloud API in the world. You are a true enterprise data engineer.
 
 COMMON TRAPS TO AVOID:
-- Leaking Connection Handles: Leaving connection objects unclosed. -> Fix: Always close connections and set objects to Nothing.
-- Vulnerable Concatenated SQL: Failing to parameterize dynamic query inputs. -> Fix: Use `ADODB.Command` with parameters.
-- Unprotected Network Failures: Missing error handlers on HTTP web requests. -> Fix: Wrap all network calls in defensive error recovery blocks.
+- Leaking Connection Handles: Leaving connection objects unclosed. → Fix: Always close connections and set objects to Nothing.
+- Vulnerable Concatenated SQL: Failing to parameterize dynamic query inputs. → Fix: Use `ADODB.Command` with parameters.
+- Unprotected Network Failures: Missing error handlers on HTTP web requests. → Fix: Wrap all network calls in defensive error recovery blocks.
 ================================================================================

@@ -12,12 +12,12 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
     body inside a switch expression.
   * Syntax:
     final int fee = switch (tier) {
-        case PROFESSIONAL -> {
+        case PROFESSIONAL → {
             int base = 18000;
             int discount = (score >= 80) ? 3000 : 0;
             yield base - discount; // Yields value and exits switch!
         }
-        default -> 10000;
+        default → 10000;
     };
 
 - Key Differences:
@@ -34,6 +34,6 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 [✓] Use 'yield' whenever a switch branch requires multiple statements in '{ }'.
 [✓] Ensure every execution path through the block yields a value.
-[✓] Do not use 'yield' in single-line arrow expressions (case X -> Y;).
+[✓] Do not use 'yield' in single-line arrow expressions (case X → Y;).
 [✓] Keep yield blocks concise (3-5 lines); extract larger logic to helper methods.
 ================================================================================

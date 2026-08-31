@@ -102,9 +102,9 @@ const questions = [
     question: "What is the ultimate golden rule of Interpreting Payoff Entries in Game Theory?",
     shortAnswer: "'Matrix entries a_ij are ALWAYS from the perspective of Player A; positive is gain to A and negative is gain to B in Indian Rupees (₹); linear transformations a' = k*a + c preserve optimal strategies; always verify that real-world statements translate to correct signs!'",
     explanation: "This complete rule captures all payoff interpretation principles.",
-    hint: "Player A perspective -> Positive is gain to A, negative is gain to B -> Linear transforms preserve strategies in ₹.",
+    hint: "Player A perspective → Positive is gain to A, negative is gain to B → Linear transforms preserve strategies in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ParseVerbalStatement() -> AssignSignConvention(₹) -> ApplyLinearTransform() -> VerifyEquilibrium()."
+    codeExample: "GoldenRule: ParseVerbalStatement() → AssignSignConvention(₹) → ApplyLinearTransform() → VerifyEquilibrium()."
   }
 ];
 

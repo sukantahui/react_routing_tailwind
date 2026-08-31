@@ -106,7 +106,7 @@ const questions = [
   {
     question: "What is a DOM Mutation Breakpoint in DevTools?",
     shortAnswer: "A breakpoint that pauses JavaScript execution the moment a DOM element is modified, removed, or has its attributes changed.",
-    explanation: "Right-click any DOM node in Elements tab -> 'Break on' -> Subtree modifications, Attribute modifications, or Node removal.",
+    explanation: "Right-click any DOM node in Elements tab → 'Break on' → Subtree modifications, Attribute modifications, or Node removal.",
     hint: "Pauses JS when a specific DOM node is mutated.",
     level: "advanced",
     codeExample: "// Pauses execution exactly on the line of JS modifying the element"
@@ -125,7 +125,7 @@ const questions = [
     explanation: "Clicking any frame in the Call Stack pane navigates back in time, letting you inspect local scope variables at that exact parent call site.",
     hint: "LIFO list of active function execution frames.",
     level: "intermediate",
-    codeExample: "// Frame 1: handleClick -> Frame 2: processForm -> Frame 3: validate"
+    codeExample: "// Frame 1: handleClick → Frame 2: processForm → Frame 3: validate"
   },
   {
     question: "What is the Scope pane in DevTools debugger?",

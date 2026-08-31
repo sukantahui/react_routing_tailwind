@@ -40,7 +40,7 @@ const questions = [
     explanation: "When a supplier logs in with their corporate Azure AD, SAML assertions authorize them into the host factory portal without creating a local password.",
     hint: "Allows partner employees to log in using their own company credentials via SAML/OIDC.",
     level: "expert",
-    codeExample: "SAML_Flow: Supplier -> Partner IdP (Authenticate) -> SAML Token -> Host Extranet Portal (Authorized)"
+    codeExample: "SAML_Flow: Supplier → Partner IdP (Authenticate) → SAML Token → Host Extranet Portal (Authorized)"
   },
   {
     question: "What is a Supply Chain Attack (Third-Party Breach) in Extranet security?",
@@ -48,7 +48,7 @@ const questions = [
     explanation: "Attackers stole vendor credentials and traversed an unsegmented extranet VPN into the retailer's payment card network.",
     hint: "Hacking a third-party vendor to gain access to the host enterprise through their Extranet link.",
     level: "moderate",
-    codeExample: "SupplyChainRisk: CompromisedVendorCredentials -> ExtranetVPN -> (LateralMovement) -> CoreIntranet"
+    codeExample: "SupplyChainRisk: CompromisedVendorCredentials → ExtranetVPN → (LateralMovement) → CoreIntranet"
   },
   {
     question: "How does Zero Trust Network Access (ZTNA) protect Extranets against vendor compromise?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "If a contractor's laptop is infected in Ichapur, ZTNA prevents them from scanning or reaching any other server on the network.",
     hint: "Gives partners access to one specific application only, preventing network scanning.",
     level: "expert",
-    codeExample: "ZTNA_Policy: Allow Contractor_Susmita -> App 'Machinery_Monitor' ONLY; Block all other ports/subnets;"
+    codeExample: "ZTNA_Policy: Allow Contractor_Susmita → App 'Machinery_Monitor' ONLY; Block all other ports/subnets;"
   },
   {
     question: "What is the cost in Indian Rupees (₹) for an Enterprise B2B Extranet Gateway / SSL VPN Appliance?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "If a partner portal is compromised, the internal firewall stops the adversary from reaching core customer databases.",
     hint: "Dedicated DMZ zone hosting partner servers, separated from both the Internet and core Intranet.",
     level: "moderate",
-    codeExample: "Perimeter: [Internet / VPN] -> [Extranet DMZ (172.20.1.0/24)] -> [Internal Firewall] -> [Core Intranet]"
+    codeExample: "Perimeter: [Internet / VPN] → [Extranet DMZ (172.20.1.0/24)] → [Internal Firewall] → [Core Intranet]"
   },
   {
     question: "What is Role-Based Access Control (RBAC) vs Attribute-Based Access Control (ABAC) in Extranets?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "Twice NAT translates the partner's overlapping subnet into a virtual non-conflicting subnet (e.g. 10.250.1.0/24) during tunnel transit.",
     hint: "Occurs when both companies use the same private IP range; fixed using Twice NAT on the firewall.",
     level: "expert",
-    codeExample: "TwiceNAT: Translate Partner 192.168.1.0/24 -> 10.250.1.0/24; Translate Host 192.168.1.0/24 -> 10.251.1.0/24"
+    codeExample: "TwiceNAT: Translate Partner 192.168.1.0/24 → 10.250.1.0/24; Translate Host 192.168.1.0/24 → 10.251.1.0/24"
   },
   {
     question: "What is a Clientless SSL VPN (Web-Based Portal) for Extranets?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Clientless SSL VPNs eliminate software deployment headaches when dealing with hundreds of third-party vendor laptops in Jadavpur.",
     hint: "Accesses internal tools directly through a web browser using HTTPS without installing VPN software.",
     level: "moderate",
-    codeExample: "Portal: https://extranet.company.in -> Authenticates Partner -> Renders Internal Web/SSH Apps"
+    codeExample: "Portal: https://extranet.company.in → Authenticates Partner → Renders Internal Web/SSH Apps"
   },
   {
     question: "What is API Token Revocation and Token Expiration in Extranet B2B security?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "If an adversary steals partner credentials, IP whitelisting prevents them from logging in from an unauthorized home or foreign IP address.",
     hint: "Allows logins only from specific known partner company public IP addresses.",
     level: "moderate",
-    codeExample: "firewall.rules: Allow Partner_Kolkata (103.25.10.4/32) -> Extranet_Portal (Port 443); Deny All Other;"
+    codeExample: "firewall.rules: Allow Partner_Kolkata (103.25.10.4/32) → Extranet_Portal (Port 443); Deny All Other;"
   },
   {
     question: "What is an Extranet File Transfer Protocol (SFTP / FTPS / MFT)?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures identity federation, API cryptographic authentication, perimeter DMZ segmentation, zero trust access, and financial infrastructure budgeting.",
     hint: "ZTNA least privilege + mTLS/SAML + Extranet DMZ + Supply-chain mitigation + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeployZTNA() -> Enforce_mTLS_and_SAML() -> SegmentExtranetDMZ() -> BlockLateralMovement() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeployZTNA() → Enforce_mTLS_and_SAML() → SegmentExtranetDMZ() → BlockLateralMovement() → BudgetInRupees(₹);"
   }
 ];
 

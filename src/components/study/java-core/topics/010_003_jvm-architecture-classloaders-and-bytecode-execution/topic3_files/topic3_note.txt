@@ -11,7 +11,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
       - Enforces type safety, access restrictions, and operand stack depth bounds.
    2. Preparation:
       - Allocates static memory in Metaspace/Heap.
-      - Sets default values: 'int' &rarr; 0, 'boolean' &rarr; false, 'Object' &rarr; null.
+      - Sets default values: 'int' → 0, 'boolean' → false, 'Object' → null.
    3. Resolution:
       - Dynamically resolves symbolic references in the Constant Pool to direct memory pointers.
 

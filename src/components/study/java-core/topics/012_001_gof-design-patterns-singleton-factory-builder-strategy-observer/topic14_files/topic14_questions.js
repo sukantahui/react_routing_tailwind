@@ -13,7 +13,7 @@ const topic14_questions = [
     "explanation": "Allows passing custom comparison algorithms dynamically.",
     "hint": "java.util.Comparator interface.",
     "level": "Beginner",
-    "codeExample": "list.sort((a, b) -> Double.compare(a.score(), b.score()));"
+    "codeExample": "list.sort((a, b) → Double.compare(a.score(), b.score()));"
   }
 ];
 

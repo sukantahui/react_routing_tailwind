@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. QUERY METHOD SUITE:
-   - lower(e) / higher(e) &rarr; strictly < / >.
-   - floor(e) / ceiling(e) &rarr; <= / >=.
-   - subSet(from, fInc, to, tInc) &rarr; configurable range view.
+   - lower(e) / higher(e) → strictly < / >.
+   - floor(e) / ceiling(e) → <= / >=.
+   - subSet(from, fInc, to, tInc) → configurable range view.
    - headSet(to, inc) & tailSet(from, inc).
-   - pollFirst() / pollLast() &rarr; retrieve & remove extremes.
+   - pollFirst() / pollLast() → retrieve & remove extremes.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

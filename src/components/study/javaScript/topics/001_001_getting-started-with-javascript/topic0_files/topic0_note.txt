@@ -52,7 +52,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal, India
 [!] Call Stack Freezing: Because JS is single-threaded, running long synchronous 
     CPU loops (e.g., while(true) {}) completely starves the event loop, freezing UI rendering.
 [!] Primitive Value Immutability: Primitives cannot hold custom attached properties. 
-    (e.g., let n = 10; n.flag = true; console.log(n.flag) -> undefined).
+    (e.g., let n = 10; n.flag = true; console.log(n.flag) → undefined).
 
 4. 💎 SPECIAL LANGUAGE FEATURES & SENIOR PRO SECRETS
 --------------------------------------------------------------------------------

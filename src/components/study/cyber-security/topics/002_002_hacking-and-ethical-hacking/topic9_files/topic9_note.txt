@@ -73,12 +73,12 @@ Ethical Hackers play an indispensable strategic role:
 --------------------------------------------------------------------------------
 
 1. Microsoft STRIDE Framework:
-   - S: Spoofing Identity        --> Solution: FIDO2 MFA / mTLS Authentication
-   - T: Tampering with Data      --> Solution: HMAC-SHA256 Signatures & Integrity Checks
-   - R: Repudiation              --> Solution: Immutable Cryptographic Audit Logs
-   - I: Information Disclosure   --> Solution: AES-256 Encryption at Rest & in Transit
-   - D: Denial of Service        --> Solution: Rate-Limiting & Anycast DDoS Scrubbing
-   - E: Elevation of Privilege   --> Solution: Role-Based Access Control (RBAC) & Least Privilege
+   - S: Spoofing Identity        → Solution: FIDO2 MFA / mTLS Authentication
+   - T: Tampering with Data      → Solution: HMAC-SHA256 Signatures & Integrity Checks
+   - R: Repudiation              → Solution: Immutable Cryptographic Audit Logs
+   - I: Information Disclosure   → Solution: AES-256 Encryption at Rest & in Transit
+   - D: Denial of Service        → Solution: Rate-Limiting & Anycast DDoS Scrubbing
+   - E: Elevation of Privilege   → Solution: Role-Based Access Control (RBAC) & Least Privilege
 
 2. DREAD Scoring Formula:
    - `DREAD Score = (Damage + Reproducibility + Exploitability + Affected_Users + Discoverability) / 5`

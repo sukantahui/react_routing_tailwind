@@ -139,7 +139,7 @@ const Topic13 = () => {
             Module 001_003 · Keys & Constraints · Topic 13 (Final)
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Dropping Constraints &{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Foreign Key Dependencies
@@ -384,7 +384,7 @@ const Topic13 = () => {
                   </div>
                   <div className="mt-1 text-[11px] font-mono text-slate-400">
                     • payment_id INT PRIMARY KEY<br />
-                    • student_id INT {fkActive ? "(FK -> students.student_id)" : "(Raw Column)"}
+                    • student_id INT {fkActive ? "(FK → students.student_id)" : "(Raw Column)"}
                   </div>
                 </div>
               </div>

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never allow ambiguous date formats on financial reports. Always format dates with 3-letter months (dd-mmm-yyyy) to prevent multi-million rupee audit errors.
 
 COMMON TRAPS TO AVOID:
-- Month vs Minute Collision (m): The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'. -> Fix: Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss).
-- US vs UK Date Ambiguity: Using 08/09/2026 causes confusion whether it is August 9th or September 8th. -> Fix: Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity.
-- Date Stored as Text: Typing '27th August 2026' as text prevents date math, filtering, and sorting. -> Fix: Enter true date serials and format visually with custom tokens.
+- Month vs Minute Collision (m): The token 'm' represents Month when alone, but Minute when immediately following 'h' or 'hh'. → Fix: Always place minutes directly after hours (hh:mm) or use 's' after minutes (mm:ss).
+- US vs UK Date Ambiguity: Using 08/09/2026 causes confusion whether it is August 9th or September 8th. → Fix: Use 3-letter month tokens (dd-mmm-yyyy) for foolproof international clarity.
+- Date Stored as Text: Typing '27th August 2026' as text prevents date math, filtering, and sorting. → Fix: Enter true date serials and format visually with custom tokens.
 ================================================================================

@@ -37,7 +37,7 @@ const coursePrices = {
 console.log('Courses:', Object.keys(coursePrices));   // ['JavaScript', 'React', 'NodeJS']
 console.log('Prices:', Object.values(coursePrices));   // [4000, 5500, 5000]
 
-// 2. Transform Object via entries -> map -> fromEntries (Add 10% tax):
+// 2. Transform Object via entries → map → fromEntries (Add 10% tax):
 const pricesWithTax = Object.fromEntries(
   Object.entries(coursePrices).map(([course, price]) => [course, price * 1.10])
 );

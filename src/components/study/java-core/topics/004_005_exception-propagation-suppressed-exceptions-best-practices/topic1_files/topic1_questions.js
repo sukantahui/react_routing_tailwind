@@ -5,7 +5,7 @@ const topic1_questions = [
     "explanation": "Guarantees resource integrity across all intermediate method layers.",
     "hint": "The JVM pops stack frames one by one, executing each frame's finally block during teardown.",
     "level": "Intermediate",
-    "codeExample": "// Frame3 (finally runs) -> Frame2 (finally runs) -> Frame1 (catch runs)"
+    "codeExample": "// Frame3 (finally runs) → Frame2 (finally runs) → Frame1 (catch runs)"
   }
 ];
 

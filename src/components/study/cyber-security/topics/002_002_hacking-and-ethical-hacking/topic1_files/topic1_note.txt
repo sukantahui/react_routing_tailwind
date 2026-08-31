@@ -41,7 +41,7 @@ curiosity to weaponization.
 |  Carding Forums)   |                         | - Zeus Banking Trojan & CarderPlanet forums    |
 +--------------------+-------------------------+------------------------------------------------+
 | ERA 5: 2010s       | Nation-State APTs &     | - Stuxnet (2010 - Kinetic SCADA Sabotage)      |
-| (Cyber Warfare &   | Ransomware Extortion    | - Operation Aurora (2009 -> Zero Trust Origin) |
+| (Cyber Warfare &   | Ransomware Extortion    | - Operation Aurora (2009 → Zero Trust Origin) |
 |  Ransomware-as-a-S)|                         | - WannaCry, NotPetya, Double Extortion RaaS    |
 +--------------------+-------------------------+------------------------------------------------+
 | ERA 6: 2020s-Pres. | Supply Chain Attacks &  | - SolarWinds SUNBURST (Build pipeline poison)  |

@@ -137,7 +137,7 @@ SELECT sys.format_bytes(10737418240);   -- Returns: '10.00 GiB'`,
             Topic 7 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           The <span className="text-emerald-400">sys Schema</span>: Diagnostic Views &amp; <span className="text-cyan-400">Lock Triage</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

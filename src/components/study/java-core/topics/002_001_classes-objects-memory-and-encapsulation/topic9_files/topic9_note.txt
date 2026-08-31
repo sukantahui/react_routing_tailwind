@@ -19,7 +19,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    Step 2: Constructor initializes fields and returns Heap pointer.
    Step 3: Target method runs using that pointer as `this`.
    Step 4: Semicolon ends the statement.
-   Step 5: Reference is discarded (0 active GC Roots) -> Immediately GC eligible!
+   Step 5: Reference is discarded (0 active GC Roots) → Immediately GC eligible!
    -----------------------------------------------------------------------------
 
 3. THE 4 VALID PRODUCTION USE CASES:

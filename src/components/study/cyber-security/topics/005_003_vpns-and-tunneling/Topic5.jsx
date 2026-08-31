@@ -81,7 +81,7 @@ const Topic5 = () => {
         badgeColor: isFailed
           ? "bg-rose-950 text-rose-300 border-rose-700"
           : "bg-emerald-950 text-emerald-300 border-emerald-700",
-        outerHeader: "New Public IPv4 Header (203.0.113.88 -> 198.51.100.1)",
+        outerHeader: "New Public IPv4 Header (203.0.113.88 → 198.51.100.1)",
         encryptionScope: "NONE (Payload is in CLEARTEXT! AH provides integrity only)",
         overhead: 44,
         explanation: isFailed
@@ -94,7 +94,7 @@ const Topic5 = () => {
         status: "TRANSPORT_ACTIVE",
         verdict: "✔ TRANSPORT MODE ACTIVE: Payload Encrypted (Original IP Visible)",
         badgeColor: "bg-purple-950 text-purple-300 border-purple-700",
-        outerHeader: "Original IP Header Preserved (10.10.1.5 -> 10.20.1.50)",
+        outerHeader: "Original IP Header Preserved (10.10.1.5 → 10.20.1.50)",
         encryptionScope: "TCP Header + Data Payload ONLY (AES-256-GCM Encrypted)",
         overhead: 48,
         explanation: "Transport mode encrypted the TCP payload while leaving internal IP addresses in cleartext. Saves 20 bytes by omitting the new IP header."
@@ -106,8 +106,8 @@ const Topic5 = () => {
         status: "TUNNEL_ACTIVE",
         verdict: "✔ TUNNEL MODE ACTIVE: Full Inner Packet & Addresses Encrypted!",
         badgeColor: "bg-emerald-950 text-emerald-300 border-emerald-700",
-        outerHeader: "New Public IPv4 Header (203.0.113.88 -> 198.51.100.1) + UDP 4500",
-        encryptionScope: "Inner IP (10.10.1.5 -> 10.20.1.50) + TCP + Payload (100% Encrypted)",
+        outerHeader: "New Public IPv4 Header (203.0.113.88 → 198.51.100.1) + UDP 4500",
+        encryptionScope: "Inner IP (10.10.1.5 → 10.20.1.50) + TCP + Payload (100% Encrypted)",
         overhead: 68,
         explanation: "Tunnel mode encapsulated the entire original IP packet inside a new public IP carrier with AES-256-GCM encryption. 100% immune to NAT translation."
       };
@@ -167,7 +167,7 @@ const Topic5 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold uppercase tracking-wider">
             <span>🛡️ Module 005_003 • Topic 5</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             IPsec VPNs: Tunnel Mode vs Transport Mode
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">

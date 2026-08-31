@@ -42,7 +42,7 @@ export default function Topic8() {
             Signature Specification &amp; Grammar
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Why Return Type Alone Cannot Overload a Method in Java
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -135,13 +135,13 @@ export default function Topic8() {
             <text x="650" y="55" fill="#10b981" fontSize="13" fontWeight="bold" textAnchor="middle">✓ CLEAN SOLUTION: INTENTION-REVEALING NAMES</text>
 
             <rect x="465" y="70" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="92" fill="#a7f3d0" fontSize="10" fontFamily="monospace">int getFeeAsInteger(int id) &rarr; ₹18,001</text>
+            <text x="475" y="92" fill="#a7f3d0" fontSize="10" fontFamily="monospace">int getFeeAsInteger(int id) → ₹18,001</text>
 
             <rect x="465" y="110" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="132" fill="#a7f3d0" fontSize="10" fontFamily="monospace">double getFeeAsDouble(int id) &rarr; ₹18,000.75</text>
+            <text x="475" y="132" fill="#a7f3d0" fontSize="10" fontFamily="monospace">double getFeeAsDouble(int id) → ₹18,000.75</text>
 
             <rect x="465" y="150" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="172" fill="#a7f3d0" fontSize="10" fontFamily="monospace">String getFeeAsFormattedString(int id) &rarr; &quot;₹18,000.75&quot;</text>
+            <text x="475" y="172" fill="#a7f3d0" fontSize="10" fontFamily="monospace">String getFeeAsFormattedString(int id) → &quot;₹18,000.75&quot;</text>
 
             <rect x="465" y="190" width="370" height="40" rx="4" fill="#064e3b" />
             <text x="650" y="215" fill="#d1fae5" fontSize="10" fontWeight="bold" textAnchor="middle">Zero Ambiguity · Crystal Clear · Self-Documenting</text>

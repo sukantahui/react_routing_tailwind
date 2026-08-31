@@ -27,7 +27,7 @@ const Topic24 = () => {
       bestFor: 'Engineering 3D CAD in Barrackpore, video editing, local software compilation.',
       costPerSeat: '₹65,000 – ₹1,50,000 per seat',
       securityProfile: 'Broad attack surface; requires local EDR, full-disk BitLocker encryption, and USB lockdown.',
-      simulation: 'Local CPU computes complex 3D vector model -> Saves final 2MB CAD project to remote server.',
+      simulation: 'Local CPU computes complex 3D vector model → Saves final 2MB CAD project to remote server.',
     },
     {
       id: 'thin',
@@ -38,7 +38,7 @@ const Topic24 = () => {
       bestFor: 'Bank branch teller counters in Ichapur, hospital admission desks, call centers.',
       costPerSeat: '₹15,000 – ₹25,000 per seat (Saves up to 65%)',
       securityProfile: 'High security; zero local data storage, malware cannot persist across reboot, USB blocking.',
-      simulation: 'Boots in 8s -> Opens encrypted TLS session to VDI cluster -> Displays remote Windows desktop.',
+      simulation: 'Boots in 8s → Opens encrypted TLS session to VDI cluster → Displays remote Windows desktop.',
     },
     {
       id: 'zero',
@@ -49,7 +49,7 @@ const Topic24 = () => {
       bestFor: 'University examination digital labs in Kolkata, high-security defense labs.',
       costPerSeat: '₹18,000 – ₹30,000 per seat',
       securityProfile: 'Maximum security; no local OS to infect, no local storage to exfiltrate, zero patch maintenance.',
-      simulation: 'Instant power-on (3s) -> Hardware PCoIP decoder streams 4K display pixels at 60fps.',
+      simulation: 'Instant power-on (3s) → Hardware PCoIP decoder streams 4K display pixels at 60fps.',
     },
     {
       id: 'web',
@@ -60,7 +60,7 @@ const Topic24 = () => {
       bestFor: 'Cloud ERP portals, e-commerce, student examination scorecards.',
       costPerSeat: '₹0 (Runs inside existing browser software)',
       securityProfile: 'Protected by Same-Origin Policy (SOP), Content Security Policy (CSP), and HTTPS encryption.',
-      simulation: 'Parses HTML/CSS -> Builds DOM Tree -> V8 executes React 19 UI in browser sandbox.',
+      simulation: 'Parses HTML/CSS → Builds DOM Tree → V8 executes React 19 UI in browser sandbox.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic24 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Client
           </h1>
 

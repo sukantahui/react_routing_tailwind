@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Exploring the Interface: Ribbon, Tabs, Formula Bar, Quick Access Toolbar &amp; Status Bar Ergonomics
           </h1>
 
@@ -334,7 +334,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-102</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Branch Monthly Budgeting</td>
                   <td className="py-2.5 px-3 text-sky-300">Rename Sheet Tab</td>
-                  <td className="py-2.5 px-3 text-amber-300">Double-Click Tab $\rightarrow$ Type `BKP_Jan26`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Double-Click Tab → Type `BKP_Jan26`</td>
                   <td className="py-2.5 px-3 text-emerald-400">Sheet Renamed `BKP_Jan26`</td>
                   <td className="py-2.5 px-3 text-slate-300">Eliminates generic `Sheet1` default confusion.</td>
                 </tr>
@@ -342,7 +342,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-103</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Shyamnagar Supermarket Departmental Color Coding</td>
                   <td className="py-2.5 px-3 text-sky-300">Set Tab Color</td>
-                  <td className="py-2.5 px-3 text-amber-300">Alt + H + O + T $\rightarrow$ Green</td>
+                  <td className="py-2.5 px-3 text-amber-300">Alt + H + O + T → Green</td>
                   <td className="py-2.5 px-3 text-emerald-400">Green Tab Accent</td>
                   <td className="py-2.5 px-3 text-slate-300">Visual demarcation of high-margin departments.</td>
                 </tr>
@@ -350,7 +350,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-104</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake Tech HR Salary Protection</td>
                   <td className="py-2.5 px-3 text-sky-300">Protect Sheet with Password</td>
-                  <td className="py-2.5 px-3 text-amber-300">Review $\rightarrow$ Protect Sheet (`sukantahui`)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Review → Protect Sheet (`sukantahui`)</td>
                   <td className="py-2.5 px-3 text-emerald-400">Cells Locked</td>
                   <td className="py-2.5 px-3 text-slate-300">Prevents unauthorized salary adjustments.</td>
                 </tr>
@@ -382,7 +382,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-108</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Sodepur Retail Selective Data Entry</td>
                   <td className="py-2.5 px-3 text-sky-300">Unlock Input Cells</td>
-                  <td className="py-2.5 px-3 text-amber-300">Ctrl+1 $\rightarrow$ Uncheck Locked $\rightarrow$ Protect Sheet</td>
+                  <td className="py-2.5 px-3 text-amber-300">Ctrl+1 → Uncheck Locked → Protect Sheet</td>
                   <td className="py-2.5 px-3 text-emerald-400">B2:B10 Editable Only</td>
                   <td className="py-2.5 px-3 text-slate-300">Allows cashiers to type inputs while formulas stay locked.</td>
                 </tr>
@@ -398,7 +398,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-110</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Structure Lockdown</td>
                   <td className="py-2.5 px-3 text-sky-300">Protect Workbook Structure</td>
-                  <td className="py-2.5 px-3 text-amber-300">Review $\rightarrow$ Protect Workbook</td>
+                  <td className="py-2.5 px-3 text-amber-300">Review → Protect Workbook</td>
                   <td className="py-2.5 px-3 text-emerald-400">Structure Locked</td>
                   <td className="py-2.5 px-3 text-slate-300">Prevents users from adding, deleting, or moving tabs.</td>
                 </tr>
@@ -414,7 +414,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-112</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Move Tab to External File</td>
                   <td className="py-2.5 px-3 text-sky-300">Move Sheet to New Workbook</td>
-                  <td className="py-2.5 px-3 text-amber-300">Right-click $\rightarrow$ Move or Copy $\rightarrow$ (new book)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Right-click → Move or Copy → (new book)</td>
                   <td className="py-2.5 px-3 text-emerald-400">Sheet Extracted</td>
                   <td className="py-2.5 px-3 text-slate-300">Isolates specific department data for external email.</td>
                 </tr>
@@ -438,7 +438,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-115</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Midnapore Hospital Security Lock</td>
                   <td className="py-2.5 px-3 text-sky-300">Encrypt Entire File with Password</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Encrypt with Password</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Encrypt with Password</td>
                   <td className="py-2.5 px-3 text-emerald-400">File Encrypted</td>
                   <td className="py-2.5 px-3 text-slate-300">Secures patient medical records under AES-256.</td>
                 </tr>
@@ -454,7 +454,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-117</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Hooghly Jute AutoSave Rollback</td>
                   <td className="py-2.5 px-3 text-sky-300">Version History Rollback</td>
-                  <td className="py-2.5 px-3 text-amber-300">File $\rightarrow$ Info $\rightarrow$ Version History</td>
+                  <td className="py-2.5 px-3 text-amber-300">File → Info → Version History</td>
                   <td className="py-2.5 px-3 text-emerald-400">Restored 10:00 AM State</td>
                   <td className="py-2.5 px-3 text-slate-300">Recovers previous file versions after erroneous updates.</td>
                 </tr>
@@ -462,7 +462,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-118</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Seed Read-Only Distribution</td>
                   <td className="py-2.5 px-3 text-sky-300">Save As Read-Only Recommended</td>
-                  <td className="py-2.5 px-3 text-amber-300">Save As $\rightarrow$ Tools $\rightarrow$ General Options</td>
+                  <td className="py-2.5 px-3 text-amber-300">Save As → Tools → General Options</td>
                   <td className="py-2.5 px-3 text-emerald-400">Read-Only Prompt</td>
                   <td className="py-2.5 px-3 text-slate-300">Warns recipients not to overwrite template formulas.</td>
                 </tr>
@@ -470,7 +470,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">WM-119</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Ungroup Worksheets</td>
                   <td className="py-2.5 px-3 text-sky-300">Ungroup Sheet Tabs</td>
-                  <td className="py-2.5 px-3 text-amber-300">Right-click Tab $\rightarrow$ Ungroup Sheets</td>
+                  <td className="py-2.5 px-3 text-amber-300">Right-click Tab → Ungroup Sheets</td>
                   <td className="py-2.5 px-3 text-emerald-400">Single Sheet Active</td>
                   <td className="py-2.5 px-3 text-slate-300">Prevents accidental simultaneous edits across tabs.</td>
                 </tr>

@@ -43,7 +43,7 @@ const Topic9 = () => {
         
         {/* Header */}
         <div className="space-y-4 animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
             Topic 9: Passing Function Pointers as Arguments
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">

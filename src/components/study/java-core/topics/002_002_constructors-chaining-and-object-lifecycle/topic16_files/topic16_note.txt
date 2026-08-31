@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Constructor chaining MUST be a Directed Acyclic Graph (DAG).
    - Every chain of 'this()' calls MUST terminate at a Master Constructor that
      does NOT call 'this()'.
-   - Any cycle (A -> B -> A) triggers:
+   - Any cycle (A → B → A) triggers:
      "compile-time error: recursive constructor invocation"
 
 ================================================================================

@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Calculated Columns vs Calculated Measures: Memory footprint vs CPU computation at query time"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Calculated_Columns"
+            sheetName="EX2207"
             title={"Calculated Columns vs Calculated Measures: Memory footprint vs CPU computation at query time - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic6() {
                 Step 1: Load Data Tables to Data Model
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> &gt; Check <strong>Add this data to the Data Model</strong>.
+                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> > Check <strong>Add this data to the Data Model</strong>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic6() {
                 Step 3: Define Calendar Dimension &amp; Mark as Date Table
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design &gt; Mark as Date Table</strong>.
+                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design > Mark as Date Table</strong>.
               </p>
             </div>
 

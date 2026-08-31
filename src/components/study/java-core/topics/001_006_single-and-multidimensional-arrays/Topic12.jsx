@@ -42,7 +42,7 @@ export default function Topic12() {
             Algorithm Fundamentals
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Basic Array Sorting: Bubble Sort, Selection Sort &amp; Insertion Sort
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -134,7 +134,7 @@ export default function Topic12() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Bubble Sort (Stable)</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="55" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Compare (a[j], a[j+1])</text>
-            <text x="55" y="122" fill="#a7f3d0" fontSize="10">Max bubbles to end &rarr;</text>
+            <text x="55" y="122" fill="#a7f3d0" fontSize="10">Max bubbles to end →</text>
             <text x="55" y="142" fill="#d1fae5" fontSize="10">Early exit if swapped == false</text>
             <text x="160" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Adjacent Pair Swapping

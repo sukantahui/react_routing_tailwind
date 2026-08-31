@@ -6,9 +6,9 @@ const questions = [
     question: "What is the systematic 5-phase algorithm for reducing an arbitrary m x n payoff matrix?",
     shortAnswer: "1. Saddle check; 2. Pairwise Row Dominance sweep; 3. Pairwise Column Dominance sweep; 4. Cascading feedback loop (re-test until steady state); 5. Convex combination sweeps if deadlocked.",
     explanation: "Standard Operations Research algorithm for matrix reduction.",
-    hint: "Saddle check -> Row sweeps -> Col sweeps -> Feedback loop -> Convex blend.",
+    hint: "Saddle check → Row sweeps → Col sweeps → Feedback loop → Convex blend.",
     level: "moderate",
-    codeExample: "ReductionAlgorithm: CheckSaddle() -> RowSweep() -> ColSweep() -> LoopUntilStable() -> ConvexBlend();"
+    codeExample: "ReductionAlgorithm: CheckSaddle() → RowSweep() → ColSweep() → LoopUntilStable() → ConvexBlend();"
   },
   {
     question: "Why is a cascading feedback loop necessary during matrix reduction?",
@@ -44,11 +44,11 @@ const questions = [
   },
   {
     question: "Suppose Debangshu in Barrackpore is reducing a 4x3 matrix with entries in ₹ Thousands. In Pass 1, Row 3 is deleted. In Pass 2, Col 2 is deleted. In Pass 3, Row 1 dominates Row 4. What is the final size?",
-    shortAnswer: "Starts at 4x3. Pass 1 -> 3x3. Pass 2 -> 3x2. Pass 3 -> 2x2 submatrix!",
+    shortAnswer: "Starts at 4x3. Pass 1 → 3x3. Pass 2 → 3x2. Pass 3 → 2x2 submatrix!",
     explanation: "Demonstrates cascading dimensional step-down.",
-    hint: "4x3 -> 3x3 -> 3x2 -> 2x2.",
+    hint: "4x3 → 3x3 → 3x2 → 2x2.",
     level: "moderate",
-    codeExample: "SizeProgression: 4x3 -> 3x3 -> 3x2 -> 2x2."
+    codeExample: "SizeProgression: 4x3 → 3x3 → 3x2 → 2x2."
   },
   {
     question: "What is the primary advantage of reducing an m x n matrix to 2x2 rather than solving the m x n matrix via the Graphical Method?",
@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Reduction of m x n Games?",
     shortAnswer: "'Iteratively sweep rows and columns in cascading passes; prune inferior actions until a 2x2, 2xn, or 1x1 sub-game is reached; map sub-game probabilities back to the full dimension; and report the invariant Game Value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all mechanics of m x n matrix reduction.",
-    hint: "Iterative sweeps -> Prune to 2x2/2xn -> Map full vectors -> Report in ₹.",
+    hint: "Iterative sweeps → Prune to 2x2/2xn → Map full vectors → Report in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: IterativeSweeps() -> PruneSubgame() -> MapFullVectors() -> ReportInRupees(₹)."
+    codeExample: "GoldenRule: IterativeSweeps() → PruneSubgame() → MapFullVectors() → ReportInRupees(₹)."
   }
 ];
 

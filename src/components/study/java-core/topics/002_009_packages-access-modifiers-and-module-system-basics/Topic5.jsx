@@ -32,7 +32,7 @@ export default function Topic5() {
             Collision Resolution
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Resolving Class Name Ambiguity: <code className="text-sky-300 font-mono">java.util.Date</code> vs <code className="text-emerald-300 font-mono">java.sql.Date</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

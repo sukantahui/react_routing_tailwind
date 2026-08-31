@@ -273,7 +273,7 @@ export default function Topic10() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Text Placeholder Tokens (@), Literals, and Unit Suffixes (KG, Units, Hrs) Without Breaking Math
           </h1>
 
@@ -327,7 +327,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic10"
+            sheetName="Topic10"
           />
         </section>
 
@@ -412,7 +412,7 @@ export default function Topic10() {
                 Enclosing text labels in double quotes (e.g. <code className="text-amber-300">#,##0.00" KG"</code>) instructs Excel's format engine to display unit labels visually while keeping the underlying cell value as a pure IEEE 754 float number.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-cyan-300 border border-slate-800">
-                8450.625 + #,##0.00" KG" -&gt; "8,450.63 KG" (=SUM() Works!)
+                8450.625 + #,##0.00" KG" → "8,450.63 KG" (=SUM() Works!)
               </div>
             </div>
 
@@ -424,7 +424,7 @@ export default function Topic10() {
                 The <code className="text-amber-300">@</code> symbol in the 4th section of format syntax represents text strings entered into the cell. Using <code className="text-amber-300">"Dept: "@</code> automatically prepends 'Dept: ' to any text payload.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-emerald-300 border border-slate-800">
-                "Finance" + "Dept: "@ -&gt; "Dept: Finance"
+                "Finance" + "Dept: "@ → "Dept: Finance"
               </div>
             </div>
           </div>

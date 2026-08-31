@@ -43,7 +43,7 @@ nmap --script vuln -p 445 192.168.1.50
     hint: "Remember the world's most widely used enterprise vulnerability scanner powered by thousands of NASL plugins.",
     level: "basic",
     codeExample: `// Nessus Architecture Workflow:
-Scan Policy -> Host Discovery -> Port Scan -> Service Identification -> Plugin Execution (CVE Matching) -> CVSS Prioritized Report`
+Scan Policy → Host Discovery → Port Scan → Service Identification → Plugin Execution (CVE Matching) → CVSS Prioritized Report`
   },
   {
     question: "What is 'OpenVAS' (Greenbone Vulnerability Management - GVM), and how does it compare to commercial scanners like Nessus and Qualys?",
@@ -62,8 +62,8 @@ gvm-cli socket --xml "<get_tasks/>"
     hint: "Contrast inspecting the outside of a house through the windows versus unlocking the front door with a key to check the electrical wiring inside.",
     level: "moderate",
     codeExample: `// Authenticated vs Unauthenticated Capabilities:
-Unauthenticated: Sees Port 443 -> Guesses Apache 2.4.49 from HTTP Header (Prone to false positives)
-Authenticated:   Logs in via SSH -> Runs 'dpkg -s openssl' -> Confirms exact unpatched library version!`
+Unauthenticated: Sees Port 443 → Guesses Apache 2.4.49 from HTTP Header (Prone to false positives)
+Authenticated:   Logs in via SSH → Runs 'dpkg -s openssl' → Confirms exact unpatched library version!`
   },
   {
     question: "What is 'Nikto', and what specific web application misconfigurations does it uncover during Phase 2 vulnerability scanning?",
@@ -94,11 +94,11 @@ zap-cli quick-scan --self-contained --start-options "-config api.disablekey=true
     hint: "Remember the 0.0 to 10.0 scale where 9.0 to 10.0 is Critical and 7.0 to 8.9 is High.",
     level: "basic",
     codeExample: `// CVSS v3.1 Severity Rating Matrix:
-0.0          -> NONE
-0.1 - 3.9    -> LOW
-4.0 - 6.9    -> MEDIUM
-7.0 - 8.9    -> HIGH
-9.0 - 10.0   -> CRITICAL (Example: Log4j CVE-2021-44228 has CVSS 10.0!)`
+0.0          → NONE
+0.1 - 3.9    → LOW
+4.0 - 6.9    → MEDIUM
+7.0 - 8.9    → HIGH
+9.0 - 10.0   → CRITICAL (Example: Log4j CVE-2021-44228 has CVSS 10.0!)`
   },
   {
     question: "How do server administrators execute 'Banner Suppression' on Apache and Nginx web servers to defeat automated banner grabbing?",
@@ -122,9 +122,9 @@ http {
     hint: "Think of an alarm going off for no reason (False Positive) versus a smoke alarm failing to sound during an actual fire (False Negative).",
     level: "moderate",
     codeExample: `// Vulnerability Scanner Outcome Matrix:
-True Positive:   Bug Exists -> Scanner Flags Bug (Ideal)
-False Positive:  No Bug     -> Scanner Flags Bug (Annoying, wastes time)
-False Negative:  Bug Exists -> Scanner MISSED Bug (CRITICAL DANGER: System remains exploitable!)`
+True Positive:   Bug Exists → Scanner Flags Bug (Ideal)
+False Positive:  No Bug     → Scanner Flags Bug (Annoying, wastes time)
+False Negative:  Bug Exists → Scanner MISSED Bug (CRITICAL DANGER: System remains exploitable!)`
   },
   {
     question: "What is 'HTTP Header Security Scanning', and what are three essential HTTP response headers checked by automated scanners?",
@@ -145,7 +145,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self'`
     hint: "Remember the 5-stage lifecycle: Discover, Prioritize, Assess, Remediate, and Verify.",
     level: "moderate",
     codeExample: `// The 5-Stage Vulnerability Management Loop:
-[ Discover Assets ] -> [ Prioritize by CVSS ] -> [ Triage & Assess ] -> [ Patch & Remediate ] -> [ Rescan to Verify ]`
+[ Discover Assets ] → [ Prioritize by CVSS ] → [ Triage & Assess ] → [ Patch & Remediate ] → [ Rescan to Verify ]`
   },
   {
     question: "Under the Indian CERT-In Directions 2022, what is the mandatory timeline for reporting critical cyber incidents and unpatched zero-day vulnerabilities?",
@@ -185,7 +185,7 @@ testssl.sh --severity HIGH https://kolkata-fintech.co.in:443
     hint: "Think of cloud-native security agents installed on all laptops and servers that report vulnerabilities 24/7.",
     level: "expert",
     codeExample: `// Qualys Cloud Agent Workflow:
-Endpoint Local Daemon -> Analyzes Installed Packages -> Streams Metadata to Qualys Cloud -> Real-Time Zero-Day Triage Dashboard`
+Endpoint Local Daemon → Analyzes Installed Packages → Streams Metadata to Qualys Cloud → Real-Time Zero-Day Triage Dashboard`
   },
   {
     question: "What is 'Port Scanning & Vulnerability Assessment Rate-Limiting' in ethical penetration testing, and why is it legally and operationally mandatory?",
@@ -215,7 +215,7 @@ Vector String:  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H`
     hint: "Conclude by recognizing how the three scanning disciplines fit together sequentially into a complete assessment.",
     level: "expert",
     codeExample: `// The Scanning Triad Synthesis:
-Port_Scanning(Live_Ports) -> Banner_Grabbing(Exact_Versions) -> Vulnerability_Scanning(CVE_Matching) = EXPLOITATION_BLUEPRINT;`
+Port_Scanning(Live_Ports) → Banner_Grabbing(Exact_Versions) → Vulnerability_Scanning(CVE_Matching) = EXPLOITATION_BLUEPRINT;`
   }
 ];
 

@@ -125,7 +125,7 @@
       "description": "In a B+ Tree, ALL data records reside EXCLUSIVELY in leaf nodes; internal nodes store only router search keys. All leaf nodes are linked sequentially via a singly/doubly linked list (`next` pointer), enabling ultra-fast range scans in O(K) time! In this project, you will build B+ Tree Leaf Traversal Engine in C.",
       "learningOutcome": "B+ Tree Leaf Sequence Sets, Linked List Leaf Traversal & Range Query Acceleration",
       "exampleText": "Traverse linked list sequence set of B+ Tree leaves",
-      "exampleOutput": "--- B+ Tree Leaf Node Linked List Traversal ---\nTraversed leaf sequence set: [ 10 -> 20 -> 30 -> 40 -> 50 -> 60 ]",
+      "exampleOutput": "--- B+ Tree Leaf Node Linked List Traversal ---\nTraversed leaf sequence set: [ 10 → 20 → 30 → 40 → 50 → 60 ]",
       "logicExplanation": "1. **Sequence Set**: Follow `leaf->next` pointers directly.\n2. **No Tree Ascent**: Eliminates tree re-traversals during range scans.",
       "answerFile": "./answers/answer10.c",
       "codeExplanation": "1. `bplus_tree_leaf_traversal_demo()`: Demonstrates B+ Tree leaf linked list sequence set traversal."

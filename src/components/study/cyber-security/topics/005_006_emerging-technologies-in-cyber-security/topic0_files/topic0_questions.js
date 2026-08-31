@@ -40,7 +40,7 @@ const questions = [
     hint: "Multi-agent AI programs executing end-to-end attacks autonomously at machine speed.",
     level: "Moderate",
     codeExample: `// Autonomous AI Swarm Pipeline:
-// Agent_Recon -> Agent_Exploit -> Agent_PrivEsc -> Agent_Exfil (Completed in 140 seconds)`
+// Agent_Recon → Agent_Exploit → Agent_PrivEsc → Agent_Exfil (Completed in 140 seconds)`
   },
   {
     id: 5,
@@ -124,7 +124,7 @@ const questions = [
     hint: "Generates flawless, culturally tailored emails and cloned executive voices at scale.",
     level: "Basic",
     codeExample: `// GenAI Phishing Automation:
-// Input: Target LinkedIn Bio + Executive Press Releases -> LLM synthesizes personalized urgent transfer request -> Zero spelling errors!`
+// Input: Target LinkedIn Bio + Executive Press Releases → LLM synthesizes personalized urgent transfer request → Zero spelling errors!`
   },
   {
     id: 13,
@@ -134,7 +134,7 @@ const questions = [
     hint: "Poisoning corrupts training data; Evasion crafts subtle input tweaks to trick trained classifiers.",
     level: "Expert",
     codeExample: `// Evasion Perturbation:
-// Malicious PE Binary + Subtle NOP bytes -> AI Model Confidence: "99.8% BENIGN" -> Malware bypasses AV!`
+// Malicious PE Binary + Subtle NOP bytes → AI Model Confidence: "99.8% BENIGN" → Malware bypasses AV!`
   },
   {
     id: 14,
@@ -164,7 +164,7 @@ const questions = [
     hint: "Connecting industrial machinery to IT networks exposes legacy unencrypted protocols to ransomware.",
     level: "Moderate",
     codeExample: `// IT/OT Risk:
-// Corporate IT Phishing -> Lateral Jump across IT/OT Gateway -> Modbus packet overrides turbine RPM -> Physical Explosion! 🚨`
+// Corporate IT Phishing → Lateral Jump across IT/OT Gateway → Modbus packet overrides turbine RPM → Physical Explosion! 🚨`
   },
   {
     id: 17,
@@ -216,7 +216,7 @@ const questions = [
     hint: "Self-defending AI systems that autonomously isolate threats and patch networks in milliseconds.",
     level: "Expert",
     codeExample: `// Autonomous Response:
-// AI Sensor detects lateral probe -> Instantly reroutes attacker traffic to dynamic honeypot container -> Generates threat signature.`
+// AI Sensor detects lateral probe → Instantly reroutes attacker traffic to dynamic honeypot container → Generates threat signature.`
   },
   {
     id: 22,
@@ -226,10 +226,10 @@ const questions = [
     hint: "Pyramid ranking indicators by how hard they are for attackers to change; TTPs are at the top.",
     level: "Moderate",
     codeExample: `// Pyramid of Pain Hierarchy:
-// [TOP]    TTPs (Tactics, Techniques & Procedures) -> Hardest for attacker to change!
+// [TOP]    TTPs (Tactics, Techniques & Procedures) → Hardest for attacker to change!
 //          Tools (Mimikatz, Cobalt Strike)
 //          Domains & IPs
-// [BOTTOM] Hash Values (MD5/SHA256) -> Trivial for attacker to change`
+// [BOTTOM] Hash Values (MD5/SHA256) → Trivial for attacker to change`
   },
   {
     id: 23,
@@ -262,7 +262,7 @@ const questions = [
     hint: "Physically isolated networks bridged via infected USB drives, ultrasonic sound, or optical signals.",
     level: "Expert",
     codeExample: `// Air-Gap Bridge Vector:
-// Infected Contractor USB -> Stuxnet executes on PLC -> Modbus manipulates centrifuge speeds.`
+// Infected Contractor USB → Stuxnet executes on PLC → Modbus manipulates centrifuge speeds.`
   },
   {
     id: 26,
@@ -282,7 +282,7 @@ const questions = [
     hint: "Decoy credentials or files that trigger instant high-priority alerts when touched by an attacker.",
     level: "Moderate",
     codeExample: `// Honey-Token Deployment:
-// Fake AWS API key placed in git repo -> Attacker queries AWS with key -> Automated alarm alerts SOC instantly!`
+// Fake AWS API key placed in git repo → Attacker queries AWS with key → Automated alarm alerts SOC instantly!`
   },
   {
     id: 28,

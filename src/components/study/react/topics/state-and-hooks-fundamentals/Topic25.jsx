@@ -175,7 +175,7 @@ const Topic30 = () => {
           
           <h1 
             ref={titleRef}
-            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 transition-all duration-500"
+            className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 transition-all duration-500"
           >
             Understanding Side Effects in React
           </h1>
@@ -428,7 +428,7 @@ const Topic30 = () => {
                 </div>
                 
                 <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl">
-                  <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2 font-mono">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2 font-mono">
                     {timer}s
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">

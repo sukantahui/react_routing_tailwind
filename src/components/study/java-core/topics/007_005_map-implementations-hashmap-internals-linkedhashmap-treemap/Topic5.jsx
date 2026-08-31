@@ -21,7 +21,7 @@ export default function Topic5() {
             Power of Two
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Capacity Rules: Default Initial Capacity (<code className="text-emerald-400 font-mono">16</code>) &amp; Power of Two Mandate
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic5() {
       </section>
 
       <Teacher
-        note="If you pass 10 to 'new HashMap<>(10)', Java secretly rounds it up to 16! If you pass 20, it rounds it to 32! Capacity is ALWAYS a power of 2 so Java can use bitwise AND instead of slow division! — Sukanta Hui"
+        note="If you pass 10 to 'new HashMap&lt;&gt;(10)', Java secretly rounds it up to 16! If you pass 20, it rounds it to 32! Capacity is ALWAYS a power of 2 so Java can use bitwise AND instead of slow division! — Sukanta Hui"
       />
     </div>
   );

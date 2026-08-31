@@ -43,7 +43,7 @@ const Topic8 = () => {
         
         {/* Header */}
         <div className="space-y-4 animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
             Topic 8: Calling Functions Using Pointers
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">

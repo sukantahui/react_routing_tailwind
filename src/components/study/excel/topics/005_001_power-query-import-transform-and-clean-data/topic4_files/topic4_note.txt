@@ -26,7 +26,7 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 
 3. CLASSROOM RULES & ADVICE FROM SUKANTA HUI
 --------------------------------------------------------------------------------
-• Handle multi-level headers by Transpose &rarr; Merge &rarr; Transpose &rarr; Promote Headers.
+• Handle multi-level headers by Transpose → Merge → Transpose → Promote Headers.
 • Replace nulls with 0 or fallback strings before loading into DAX mathematical models.
 • Place column reordering as the very last step in your query pipeline.
 ================================================================================

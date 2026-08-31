@@ -30,7 +30,7 @@ const questions = [
     explanation: "Deductive reasoning moves from general universal premises (human-written rules) to specific conclusions. Inductive reasoning observes specific empirical instances (dataset samples) and infers general statistical rules and patterns.",
     hint: "Deductive = General to Specific; Inductive = Specific Observations to General Hypothesis.",
     level: "Moderate",
-    codeExample: "// Deductive: All tax > 5L has 20% slab (General rule -> Specific calculation)\n// Inductive: Observe 10,000 transactions -> Infer fraud boundary"
+    codeExample: "// Deductive: All tax > 5L has 20% slab (General rule → Specific calculation)\n// Inductive: Observe 10,000 transactions → Infer fraud boundary"
   },
   {
     id: 4,
@@ -111,7 +111,7 @@ const questions = [
     explanation: "A sentence like 'Not bad at all for the price!' contains the word 'bad' (negative regex hit), yet conveys high positive sentiment. Traditional keyword-matching fails to capture context, tone, and syntactic composition.",
     hint: "Think about sarcasm: 'Oh brilliant, another train delay!'",
     level: "Basic",
-    codeExample: "# Regex: re.search('bad', text) -> False Negative on 'not bad at all'"
+    codeExample: "# Regex: re.search('bad', text) → False Negative on 'not bad at all'"
   },
   {
     id: 13,
@@ -138,7 +138,7 @@ const questions = [
     explanation: "Traditional rule filters suffer from brittle pattern matches. Machine Learning models with character n-grams or subword tokenization (like BERT) capture semantic similarity automatically without requiring human engineers to anticipate every character permutation.",
     hint: "Adversarial evasion breaks hardcoded regex strings.",
     level: "Moderate",
-    codeExample: "# Hardcoded: if 'FREE LOAN' in email -> Bypassed by 'FR33 L04N'"
+    codeExample: "# Hardcoded: if 'FREE LOAN' in email → Bypassed by 'FR33 L04N'"
   },
   {
     id: 16,
@@ -273,7 +273,7 @@ const questions = [
     explanation: "Modern enterprise applications are hybrid. Traditional code handles routing, authentication, business guardrails, fallback logic, and deterministic constraints, while embedded ML microservices handle perception, ranking, recommendations, and pattern recognition.",
     hint: "The best systems use both paradigms harmoniously where each excels.",
     level: "Expert",
-    codeExample: "# Hybrid Architecture: Guardrails (Code) -> ML Model -> Fallback Heuristic (Code)"
+    codeExample: "# Hybrid Architecture: Guardrails (Code) → ML Model → Fallback Heuristic (Code)"
   }
 ];
 

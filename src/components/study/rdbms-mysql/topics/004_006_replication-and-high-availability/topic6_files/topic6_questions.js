@@ -5,14 +5,14 @@
 const questions = [
   {
     question: "What are the 4 primary replication topologies utilized in enterprise MySQL architectures?",
-    shortAnswer: "1. **Standard Fan-Out** (1 Primary -> $N$ Replicas), 2. **Cascading / Tree Replication** (Primary -> Relay Replica -> Edge Replicas), 3. **Multi-Source / Fan-In** ($N$ Sources -> 1 Central Replica), and 4. **Dual-Master / Master-Master** (Two primaries replicating bidirectionally).",
+    shortAnswer: "1. **Standard Fan-Out** (1 Primary → $N$ Replicas), 2. **Cascading / Tree Replication** (Primary → Relay Replica → Edge Replicas), 3. **Multi-Source / Fan-In** ($N$ Sources → 1 Central Replica), and 4. **Dual-Master / Master-Master** (Two primaries replicating bidirectionally).",
     explanation: "Each topology addresses specific business requirements: read scaling, network bandwidth offloading, data warehouse consolidation, or rapid role switchover.",
     hint: "Fan-Out, Cascading Tree, Multi-Source Fan-In, and Dual-Master.",
     level: "basic",
     codeExample: `# Topologies:
-# 1. Fan-Out: Master -> 5 Replicas
-# 2. Cascading: Master -> Relay Replica -> 20 Edge Replicas
-# 3. Multi-Source: Mumbai + Kolkata + Delhi -> Central DWH
+# 1. Fan-Out: Master → 5 Replicas
+# 2. Cascading: Master → Relay Replica → 20 Edge Replicas
+# 3. Multi-Source: Mumbai + Kolkata + Delhi → Central DWH
 # 4. Dual-Master: Master A <-> Master B`
   },
   {
@@ -21,7 +21,7 @@ const questions = [
     explanation: "Protects primary database resources for high-throughput write transactions.",
     hint: "Protects primary network bandwidth by using an intermediate relay replica to fan out logs.",
     level: "intermediate",
-    codeExample: `# Master (streams 1 copy) -> Relay Replica -> Streams 30 copies to Edge Replicas`
+    codeExample: `# Master (streams 1 copy) → Relay Replica → Streams 30 copies to Edge Replicas`
   },
   {
     question: "What setting is MANDATORY on the intermediate node in a Cascading Replication topology?",
@@ -88,7 +88,7 @@ auto_increment_offset = 2`
     hint: "Lacks conflict detection; concurrent updates to the same row cause silent data divergence.",
     level: "intermediate",
     codeExample: `-- Node A: UPDATE balance = 100 WHERE id=1
--- Node B: UPDATE balance = 500 WHERE id=1 -> Collision & Data Divergence!`
+-- Node B: UPDATE balance = 500 WHERE id=1 → Collision & Data Divergence!`
   },
   {
     question: "How do you start, stop, or check status on a specific replication channel in Multi-Source replication?",
@@ -101,11 +101,11 @@ SHOW REPLICA STATUS FOR CHANNEL 'kolkata_source'\\G`
   },
   {
     question: "How does Circular (Ring) Replication work, and what is its primary vulnerability?",
-    shortAnswer: "Nodes replicate in a closed loop (Node 1 -> Node 2 -> Node 3 -> Node 1); its primary vulnerability is that if any single node in the ring crashes, the entire ring breaks and replication halts for all downstream members.",
+    shortAnswer: "Nodes replicate in a closed loop (Node 1 → Node 2 → Node 3 → Node 1); its primary vulnerability is that if any single node in the ring crashes, the entire ring breaks and replication halts for all downstream members.",
     explanation: "Ring topologies have high operational fragility and are rarely used in modern cloud deployments.",
     hint: "Closed loop replication; failure of any single node halts the entire ring.",
     level: "intermediate",
-    codeExample: `# Ring Topology: A -> B -> C -> A (Fragile SPOF chain)`
+    codeExample: `# Ring Topology: A → B → C → A (Fragile SPOF chain)`
   },
   {
     question: "How does MySQL prevent infinite replication loops in Circular and Dual-Master topologies?",
@@ -145,11 +145,11 @@ SHOW REPLICA STATUS FOR CHANNEL 'kolkata_source'\\G`
     explanation: "Common in distributed retail enterprises with central headquarters.",
     hint: "Hub-and-spoke architecture connecting central hub to distributed spokes.",
     level: "basic",
-    codeExample: `# Central HQ (Hub) -> Branch 1 (Spoke), Branch 2 (Spoke), Branch 3 (Spoke)`
+    codeExample: `# Central HQ (Hub) → Branch 1 (Spoke), Branch 2 (Spoke), Branch 3 (Spoke)`
   },
   {
     question: "What happens if two sources in Multi-Source replication both have a database named `users` with colliding tables?",
-    shortAnswer: "Transactions from both sources will overwrite and collide in the replica's `users` database; DBAs must use `replicate_rewrite_db` per channel (e.g. `source_a.users -> replica.users_a` and `source_b.users -> replica.users_b`) to separate schemas.",
+    shortAnswer: "Transactions from both sources will overwrite and collide in the replica's `users` database; DBAs must use `replicate_rewrite_db` per channel (e.g. `source_a.users → replica.users_a` and `source_b.users → replica.users_b`) to separate schemas.",
     explanation: "Per-channel database rewriting isolates colliding namespaces.",
     hint: "Must use per-channel replicate_rewrite_db to isolate colliding schemas.",
     level: "expert",
@@ -162,7 +162,7 @@ SHOW REPLICA STATUS FOR CHANNEL 'kolkata_source'\\G`
     explanation: "Enables seamless zero-downtime maintenance switchovers.",
     hint: "Allows instant traffic switchover without re-pointing replication channels.",
     level: "basic",
-    codeExample: `-- 1. Shift writes to Master B -> 2. Upgrade Master A -> 3. Shift writes back to Master A.`
+    codeExample: `-- 1. Shift writes to Master B → 2. Upgrade Master A → 3. Shift writes back to Master A.`
   },
   {
     question: "How do you delete a Multi-Source replication channel permanently on a replica?",
@@ -193,11 +193,11 @@ FROM performance_schema.replication_connection_status;`
   },
   {
     question: "What is a 'Hierarchical Replication Tree' and in what environments is it deployed?",
-    shortAnswer: "A multi-tier replication topology (Global Master -> Regional Relay Masters -> Local Read Replicas) deployed in multinational global enterprises to replicate data across continents while minimizing inter-continental WAN bandwidth costs.",
+    shortAnswer: "A multi-tier replication topology (Global Master → Regional Relay Masters → Local Read Replicas) deployed in multinational global enterprises to replicate data across continents while minimizing inter-continental WAN bandwidth costs.",
     explanation: "Only 1 binary log stream crosses the ocean to the continental relay node.",
     hint: "Multi-tier tree minimizing cross-continental WAN traffic via regional relay nodes.",
     level: "expert",
-    codeExample: `# Global Primary (US) -> Transatlantic WAN -> Regional Relay (Europe) -> 10 Local Replicas`
+    codeExample: `# Global Primary (US) → Transatlantic WAN → Regional Relay (Europe) → 10 Local Replicas`
   },
   {
     question: "Why should `auto_increment_increment` be sized larger than the number of active master nodes?",
@@ -274,9 +274,9 @@ WHERE SERVICE_STATE != 'ON';`
     hint: "Summarize Fan-Out for read scaling, Cascading for bandwidth, Multi-Source channels for consolidation, and Active-Passive Dual-Master with auto-increment offsets.",
     level: "basic",
     codeExample: `-- Master Topology Selection Blueprint:
-# 1. Read Scaling: Primary -> ProxySQL -> 5 Read Replicas
-# 2. Large Cluster (>20 nodes): Primary -> Relay Replica (log_replica_updates=ON) -> 20 Edge Replicas
-# 3. Data Warehouse: Mumbai + Kolkata + Delhi -> Central Warehouse (FOR CHANNEL 'city')
+# 1. Read Scaling: Primary → ProxySQL → 5 Read Replicas
+# 2. Large Cluster (>20 nodes): Primary → Relay Replica (log_replica_updates=ON) → 20 Edge Replicas
+# 3. Data Warehouse: Mumbai + Kolkata + Delhi → Central Warehouse (FOR CHANNEL 'city')
 # 4. Safe Dual-Master: Master A (RW) <-> Master B (RO / super_read_only=ON, offset=2)`
   }
 ];

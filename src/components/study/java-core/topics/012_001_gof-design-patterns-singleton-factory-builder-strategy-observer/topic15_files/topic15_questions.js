@@ -5,7 +5,7 @@ const topic15_questions = [
     "explanation": "Enables highly extensible event-driven systems.",
     "hint": "Subject and observers are loosely coupled via interfaces.",
     "level": "Beginner",
-    "codeExample": "subject.subscribe(event -> handle(event));"
+    "codeExample": "subject.subscribe(event → handle(event));"
   },
   {
     "question": "What is the 'Memory Leak' hazard associated with the Observer pattern in Java?",

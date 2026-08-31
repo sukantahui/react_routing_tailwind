@@ -42,7 +42,7 @@ export default function Topic1() {
             Constructor Syntax &amp; Rules
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Rules of Writing Constructors: Name Matches Class, No Return Type
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -133,7 +133,7 @@ export default function Topic1() {
             <rect x="315" y="85" width="290" height="60" rx="6" fill="#1e1b4b" stroke="#a855f7" strokeWidth="1" />
             <text x="325" y="105" fill="#f3e8ff" fontSize="10" fontWeight="bold">Signature Anatomy:</text>
             <text x="325" y="125" fill="#fde047" fontSize="9" fontFamily="monospace">public Student(int id, String name)</text>
-            <text x="325" y="138" fill="#c7d2fe" fontSize="8">&rarr; NO return type! Name matches &apos;Student&apos;</text>
+            <text x="325" y="138" fill="#c7d2fe" fontSize="8">→ NO return type! Name matches &apos;Student&apos;</text>
 
             <rect x="315" y="155" width="290" height="120" rx="6" fill="#022c22" stroke="#10b981" strokeWidth="1" />
             <text x="325" y="175" fill="#34d399" fontSize="9" fontWeight="bold">Execution Characteristics:</text>

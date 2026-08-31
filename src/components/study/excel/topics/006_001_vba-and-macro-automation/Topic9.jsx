@@ -71,7 +71,7 @@ export default function Topic9() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Writing Sub procedures and custom User-Defined Functions (UDFs) callable in worksheet cells"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Writing_Sub_proced"
+            sheetName="EX2410"
             title={"Writing Sub procedures and custom User-Defined Functions (UDFs) callable in worksheet cells - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic9() {
                 Step 1: Open VBE &amp; Insert Standard Module
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert &gt; Module</strong>.
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert > Module</strong>.
               </p>
             </div>
 
@@ -494,7 +494,7 @@ export default function Topic9() {
                 <span>⚡</span> {"Write UDF in Standard Module"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"UDFs must be in Standard Modules to be recognized in worksheet cells."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Insert &gt; Module"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Insert > Module"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

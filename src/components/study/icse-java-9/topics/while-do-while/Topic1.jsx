@@ -73,10 +73,10 @@ export default class Topic1 extends Component {
           <div className="mermaid">
 {`
 flowchart TD
-  A["Start"] --> B["Execute Statements"]
-  B --> C["Check Condition"]
-  C -->|True| B
-  C -->|False| D["Exit Loop"]
+  A["Start"] → B["Execute Statements"]
+  B → C["Check Condition"]
+  C ──→|True| B
+  C ──→|False| D["Exit Loop"]
 `}
           </div>
         </div>

@@ -7,7 +7,7 @@ const questions = [
     level: "expert",
     codeExample: `// Wiener's Low Private Exponent Attack:
 Condition: d < (1/3) * N^(0.25)
-Method:    Compute Continued Fractions of (e / N) -> Generates convergents [k0/d0, k1/d1, ...]
+Method:    Compute Continued Fractions of (e / N) → Generates convergents [k0/d0, k1/d1, ...]
 Result:    One convergent (k_i / d_i) gives exact Private Key d in < 0.1 seconds!`
   },
   {
@@ -58,7 +58,7 @@ If p-1 is B-smooth: Factor_p yields prime p in 0.01 seconds!`
     codeExample: `// Hastad's Broadcast Attack (e = 3):
 C1 = M^3 mod N1,  C2 = M^3 mod N2,  C3 = M^3 mod N3
 CRT Solution:   C_total = M^3 mod (N1 * N2 * N3)
-Direct Root:    Plaintext M = round( C_total ** (1/3) ) -> EXTRACTED INSTANTLY!`
+Direct Root:    Plaintext M = round( C_total ** (1/3) ) → EXTRACTED INSTANTLY!`
   },
   {
     question: "What is 'Bleichenbacher's Padding Oracle Attack' (Million Message Attack, 1998) on PKCS#1 v1.5?",
@@ -69,8 +69,8 @@ Direct Root:    Plaintext M = round( C_total ** (1/3) ) -> EXTRACTED INSTANTLY!`
     codeExample: `// Bleichenbacher Oracle Feedback Loop:
 Attacker submits: C' = (C * s^e) mod N
 Server Response:  "Bad Padding" (Leaks top bits of plaintext M!)
-Attacker Iterates: 1,000,000 queries -> Full Plaintext Extracted!
-OAEP Defense:     Verifies SHA256 integrity tag -> Returns uniform constant-time error -> ATTACK DEFEATED!`
+Attacker Iterates: 1,000,000 queries → Full Plaintext Extracted!
+OAEP Defense:     Verifies SHA256 integrity tag → Returns uniform constant-time error → ATTACK DEFEATED!`
   },
   {
     question: "What is the 'Bellcore Fault Injection Attack' (Boneh, DeMillo, Lipton, 1997) on RSA-CRT, and how does a single hardware glitch factor modulus $N$?",
@@ -82,7 +82,7 @@ OAEP Defense:     Verifies SHA256 integrity tag -> Returns uniform constant-time
 Faulty Signature: S' (Computed with corrupted m1' mod p, but correct m2 mod q)
 Attacker evaluates:
   Factor_q = gcd( (S')^e - M, N )
-Result: gcd yields exact prime factor q in 0.001 ms -> TOTAL SYSTEM COMPROMISE!
+Result: gcd yields exact prime factor q in 0.001 ms → TOTAL SYSTEM COMPROMISE!
 Defense: ALWAYS verify signature ( (S')^e mod N == M ) BEFORE transmitting!`
   },
   {
@@ -106,8 +106,8 @@ Lesson: NEVER use proprietary 'fast prime' shortcuts; enforce standard Miller-Ra
     codeExample: `// Flush+Reload Cache-Timing Attack:
 1. Attacker flushes shared memory: _mm_clflush( &table[i] )
 2. Victim executes RSA Decryption: loads table[d_chunk] into L3 cache
-3. Attacker measures access time: rdtsc() -> table[i] is FAST!
-Outcome: Attacker deduces d_chunk = i -> FULL PRIVATE KEY RECOVERED!`
+3. Attacker measures access time: rdtsc() → table[i] is FAST!
+Outcome: Attacker deduces d_chunk = i → FULL PRIVATE KEY RECOVERED!`
   },
   {
     question: "Under the Indian Information Technology Act 2000 Section 66 and CERT-In Directions 2022, what are the statutory liabilities and reporting requirements when an RSA key factorization vulnerability is exploited?",
@@ -127,8 +127,8 @@ Mandatory Reporting (Enterprise): Notify CERT-In Incident Response Desk within 6
     hint: "Recall the landmark quantum algorithm that solves integer factorization in polynomial time.",
     level: "expert",
     codeExample: `// Classical vs Quantum Factoring Complexity:
-Classical (GNFS): O( exp( (64/9 * b)^(1/3) * (log b)^(2/3) ) ) -> Infeasible for 2048-bit N!
-Quantum (Shor):   O( b^3 ) [Polynomial Time -> Cracks RSA-2048 & RSA-4096 in Minutes!]`
+Classical (GNFS): O( exp( (64/9 * b)^(1/3) * (log b)^(2/3) ) ) → Infeasible for 2048-bit N!
+Quantum (Shor):   O( b^3 ) [Polynomial Time → Cracks RSA-2048 & RSA-4096 in Minutes!]`
   },
   {
     question: "What is the 'Harvest Now, Decrypt Later' (HNDL) threat model, and why are nation-state adversaries intercepting encrypted RSA traffic today?",
@@ -137,8 +137,8 @@ Quantum (Shor):   O( b^3 ) [Polynomial Time -> Cracks RSA-2048 & RSA-4096 in Min
     hint: "Think of an adversary stealing sealed letters today, planning to wait until an unpickable lock-breaker is invented in the future.",
     level: "moderate",
     codeExample: `// Harvest Now, Decrypt Later (HNDL) Attack Lifecycle:
-Year 2026: Adversary taps TLS 1.3 fiber -> Stores Encrypted Petabytes in Cloud Vaults.
-Year 2035: Adversary builds 4,000-qubit Quantum Computer -> Runs Shor's Algorithm.
+Year 2026: Adversary taps TLS 1.3 fiber → Stores Encrypted Petabytes in Cloud Vaults.
+Year 2035: Adversary builds 4,000-qubit Quantum Computer → Runs Shor's Algorithm.
 Year 2035: ALL 2026 DIPLOMATIC & BANKING RECORDS DECRYPTED IN SECONDS!`
   },
   {

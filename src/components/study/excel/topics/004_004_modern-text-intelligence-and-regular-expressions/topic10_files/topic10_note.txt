@@ -10,9 +10,9 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 
 1. THE 4-PHASE DATA SANITIZATION PROTOCOL:
 --------------------------------------------------------------------------------
-Phase 1: Strip HTML/XML Tags: <[^>]+> &rarr; ""
-Phase 2: Remove Non-Alphanumeric Noise: [^a-zA-Z0-9\s.,-] &rarr; ""
-Phase 3: Normalize Irregular Whitespace: \s+ &rarr; " " with TRIM()
+Phase 1: Strip HTML/XML Tags: <[^>]+> → ""
+Phase 2: Remove Non-Alphanumeric Noise: [^a-zA-Z0-9\s.,-] → ""
+Phase 3: Normalize Irregular Whitespace: \s+ → " " with TRIM()
 Phase 4: Case & Typography Normalization: PROPER() / UPPER()
 
 2. POWERFUL CORPORATE SANITIZATION FORMULAS:

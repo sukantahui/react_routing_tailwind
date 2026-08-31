@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Treemaps and Sunburst charts are modern visual powerhouses. When you have 50 products grouped into 5 categories, do not use 50 bars—use a Treemap! It looks stunning on executive presentation slides.
 
 COMMON TRAPS TO AVOID:
-- Unsorted / Interspersed Category Rows: Scattering rows of the same parent category throughout the table fragments Treemap tiles into disconnected blocks. -> Fix: Sort source table by Major Category first, then Sub-Category.
-- Zero or Negative Values in Sunburst (#VALUE!): Hierarchy charts cannot process negative numbers or zero values in area-proportional slices. -> Fix: Filter out zero and negative entries before generating Treemap or Sunburst charts.
-- Excessive Text Label Truncation: Small tile slices truncate long category descriptions. -> Fix: Format Data Labels to show 'Category Name and Value' with concise abbreviations.
+- Unsorted / Interspersed Category Rows: Scattering rows of the same parent category throughout the table fragments Treemap tiles into disconnected blocks. → Fix: Sort source table by Major Category first, then Sub-Category.
+- Zero or Negative Values in Sunburst (#VALUE!): Hierarchy charts cannot process negative numbers or zero values in area-proportional slices. → Fix: Filter out zero and negative entries before generating Treemap or Sunburst charts.
+- Excessive Text Label Truncation: Small tile slices truncate long category descriptions. → Fix: Format Data Labels to show 'Category Name and Value' with concise abbreviations.
 ================================================================================

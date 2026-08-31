@@ -19,7 +19,7 @@ const Topic6 = () => {
                             </svg>
                         </div>
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400 bg-clip-text text-transparent">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400 bg-clip-text text-transparent">
                                 Topic 6: Arrays in Bash
                             </h1>
                             <p className="text-gray-600 dark:text-gray-400 mt-1">Mastering indexed and associative arrays for data organization</p>

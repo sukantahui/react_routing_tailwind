@@ -63,7 +63,7 @@ const questions = [
   {
     question: "What happens if one of the boundary expressions in `BETWEEN` evaluates to `NULL`?",
     shortAnswer: "The entire `BETWEEN` condition evaluates to `UNKNOWN`, returning 0 rows.",
-    explanation: "`val BETWEEN 100 AND NULL` evaluates to `val >= 100 AND val <= NULL` -> `TRUE AND UNKNOWN` = `UNKNOWN`.",
+    explanation: "`val BETWEEN 100 AND NULL` evaluates to `val >= 100 AND val <= NULL` → `TRUE AND UNKNOWN` = `UNKNOWN`.",
     hint: "NULL boundary renders expression UNKNOWN.",
     level: "moderate"
   },

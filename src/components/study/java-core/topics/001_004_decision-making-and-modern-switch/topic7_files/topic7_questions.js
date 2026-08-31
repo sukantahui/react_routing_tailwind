@@ -27,7 +27,7 @@ const questions = [
     explanation: "One of the most notorious bug patterns in software engineering.",
     hint: "Unintended omission of break causing bugs.",
     level: "basic",
-    codeExample: "case 1: deleteRecord(); // Missing break! -> falls into case 2"
+    codeExample: "case 1: deleteRecord(); // Missing break! → falls into case 2"
   },
   {
     question: "What are the two primary patterns for Intentional Fall-Through?",
@@ -103,11 +103,11 @@ const questions = [
   },
   {
     question: "What major innovation did Java 14 introduce to solve the accidental fall-through problem?",
-    shortAnswer: "Switch Expressions with Arrow Syntax (`case X -> Y`), which execute ONLY the single statement/block without any fall-through!",
+    shortAnswer: "Switch Expressions with Arrow Syntax (`case X → Y`), which execute ONLY the single statement/block without any fall-through!",
     explanation: "Topic 11 & 12 explore modern arrow switch expressions in depth.",
     hint: "Java 14 arrow switch syntax (case ->) eliminates fall-through.",
     level: "basic",
-    codeExample: "case 1 -> doAction(); // Zero fall-through!"
+    codeExample: "case 1 → doAction(); // Zero fall-through!"
   },
   {
     question: "What bytecode instruction does `break` translate to inside a switch statement?",

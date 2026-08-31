@@ -94,11 +94,11 @@ const questions = [
   },
   {
     question: "How do you convert an existing Applied Steps query into a parameterized custom function in the UI?",
-    shortAnswer: "In Queries pane &rarr; Right-click the query &rarr; Select 'Create Function...' &rarr; Enter function name and parameter mappings.",
+    shortAnswer: "In Queries pane → Right-click the query → Select 'Create Function...' → Enter function name and parameter mappings.",
     explanation: "UI shortcut to convert parameterized queries into functions.",
-    hint: "Right-click query &rarr; Create Function...",
+    hint: "Right-click query → Create Function...",
     level: "basic",
-    codeExample: "Right-Click Query &rarr; Create Function..."
+    codeExample: "Right-Click Query → Create Function..."
   },
   {
     question: "Can a custom function accept another function as an argument (Higher-Order Function)?",
@@ -118,11 +118,11 @@ const questions = [
   },
   {
     question: "How do you test a custom function directly in the Power Query Editor UI?",
-    shortAnswer: "Click on the function in the Queries pane &rarr; Fill in the input parameter boxes in the preview area &rarr; Click 'Invoke' to generate an invoked test query.",
+    shortAnswer: "Click on the function in the Queries pane → Fill in the input parameter boxes in the preview area → Click 'Invoke' to generate an invoked test query.",
     explanation: "Interactive UI parameter testing harness.",
-    hint: "Select function in Queries pane &rarr; Enter parameters &rarr; Click Invoke.",
+    hint: "Select function in Queries pane → Enter parameters → Click Invoke.",
     level: "basic",
-    codeExample: "UI Function Preview &rarr; Invoke Test"
+    codeExample: "UI Function Preview → Invoke Test"
   },
   {
     question: "How do you share custom M functions across multiple workbooks or Power BI files?",
@@ -150,9 +150,9 @@ const questions = [
   },
   {
     question: "How do you expand a custom function that returns a Record across table columns?",
-    shortAnswer: "Invoke the function into a new column &rarr; Click the column header Expand icon &rarr; Select desired fields to project into individual columns.",
+    shortAnswer: "Invoke the function into a new column → Click the column header Expand icon → Select desired fields to project into individual columns.",
     explanation: "Standard record expansion workflow.",
-    hint: "Invoke function &rarr; Click Expand icon on the generated Record column.",
+    hint: "Invoke function → Click Expand icon on the generated Record column.",
     level: "basic",
     codeExample: "= Table.ExpandRecordColumn(Step, \"CalculatedRecord\", {\"GST\", \"Net\"})"
   },

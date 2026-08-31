@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on achieving complete mastery of Python in Excel! You now wield the most powerful analytical toolset in modern business. You can wrangle massive datasets, run machine learning models, and create world-class data science visualizations directly in your spreadsheets.
 
 COMMON TRAPS TO AVOID:
-- Breaking Top-to-Bottom Execution Order: Placing variable definitions below consuming formula cells. -> Fix: Maintain strict upper-left to bottom-right cell hierarchy.
-- Missing headers=True in xl() Calls: Corrupting column names into data rows. -> Fix: Always pass `headers=True` on tabular datasets.
-- Calling plt.show() in Cloud Cells: Triggering container exceptions. -> Fix: Return `fig` on the last line of visualization formulas.
+- Breaking Top-to-Bottom Execution Order: Placing variable definitions below consuming formula cells. → Fix: Maintain strict upper-left to bottom-right cell hierarchy.
+- Missing headers=True in xl() Calls: Corrupting column names into data rows. → Fix: Always pass `headers=True` on tabular datasets.
+- Calling plt.show() in Cloud Cells: Triggering container exceptions. → Fix: Return `fig` on the last line of visualization formulas.
 ================================================================================

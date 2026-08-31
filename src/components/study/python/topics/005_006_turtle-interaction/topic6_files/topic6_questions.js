@@ -7,7 +7,7 @@ const questions = [
     explanation: "FSMs eliminate chaotic spaghetti flags by establishing clear transitions between discrete application modes.",
     hint: "What pattern models application lifecycle as discrete mutually exclusive states?",
     level: "basic",
-    codeExample: "state = 'MENU'  # 'MENU' -> 'PLAYING' -> 'GAME_OVER'"
+    codeExample: "state = 'MENU'  # 'MENU' → 'PLAYING' → 'GAME_OVER'"
   },
   {
     question: "How does an FSM prevent keyboard inputs from moving a player while the game is paused?",
@@ -47,7 +47,7 @@ const questions = [
     explanation: "Transitions enforce valid state paths (e.g. Cannot transition from PAUSED directly to GAME_OVER without resuming).",
     hint: "What logic validates moving from one state to another?",
     level: "moderate",
-    codeExample: "# State Transition: MENU -> PLAYING -> PAUSED -> PLAYING"
+    codeExample: "# State Transition: MENU → PLAYING → PAUSED → PLAYING"
   },
   {
     question: "Why is an enum or string state variable better than 5 separate booleans (`is_menu`, `is_paused`, `is_gameover`)?",
@@ -82,7 +82,7 @@ const questions = [
     codeExample: "class PlayingState:\n    def update(self): ...\n    def draw(self): ..."
   },
   {
-    question: "How do you handle Level Progression transitions (e.g. Level 1 -> Level 2)?",
+    question: "How do you handle Level Progression transitions (e.g. Level 1 → Level 2)?",
     shortAnswer: "When all enemies are cleared, transition to `LEVEL_TRANSITION` state, display 'LEVEL COMPLETED', and load Level 2 after 2 seconds.",
     explanation: "Staged transitions give players a rewarding pause between difficulty tiers.",
     hint: "What state handles rewards between game stages?",
@@ -111,7 +111,7 @@ const questions = [
     explanation: "Splash states mask asset preloading and initialization.",
     hint: "What initial state displays company logos before the main menu?",
     level: "basic",
-    codeExample: "# SPLASH -> MAIN_MENU"
+    codeExample: "# SPLASH → MAIN_MENU"
   },
   {
     question: "How do you animate a blinking 'PRESS SPACE TO START' banner in the `MENU` state?",
@@ -159,7 +159,7 @@ const questions = [
     explanation: "Consistent Escape routing provides intuitive navigation across desktop applications.",
     hint: "How does Escape key navigation work across game screens?",
     level: "moderate",
-    codeExample: "# Esc: In-Game -> Pause | Pause -> Resume | Menu -> Exit"
+    codeExample: "# Esc: In-Game → Pause | Pause → Resume | Menu → Exit"
   },
   {
     question: "How do you implement a Victory / Game Won state?",
@@ -223,7 +223,7 @@ const questions = [
     explanation: "This 3-step blueprint forms the structural architecture of commercial games.",
     hint: "What 3 steps build robust game state management in Turtle?",
     level: "basic",
-    codeExample: "# 1. state enum -> 2. Branch inputs & physics -> 3. Branch draw"
+    codeExample: "# 1. state enum → 2. Branch inputs & physics → 3. Branch draw"
   },
   {
     question: "How does learning FSMs prepare students for professional software engineering?",

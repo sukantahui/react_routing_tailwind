@@ -275,7 +275,7 @@ const topic4_questions = [
     explanation: "vEB trees are bounded integer data structures requiring space proportional to the universe U (or O(N) with hashing), whereas BSTs work with arbitrary comparison keys."
   },
   {
-    question: "What is the limit of log*(N) as N -> infinity?",
+    question: "What is the limit of log*(N) as N → infinity?",
     options: [
       "5",
       "+infinity",
@@ -283,7 +283,7 @@ const topic4_questions = [
       "1"
     ],
     correctAnswer: 1,
-    explanation: "Mathematically, log*(N) is unbounded and tends to +infinity as N -> infinity, but it grows slower than any standard polynomial or polylogarithmic function."
+    explanation: "Mathematically, log*(N) is unbounded and tends to +infinity as N → infinity, but it grows slower than any standard polynomial or polylogarithmic function."
   },
   {
     question: "What is the relationship between iterated logarithm log*(N) and tower of powers (tetration 2^^k)?",

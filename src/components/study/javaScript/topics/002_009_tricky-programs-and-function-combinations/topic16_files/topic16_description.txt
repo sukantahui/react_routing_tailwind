@@ -7,7 +7,7 @@ Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
 
 1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
 --------------------------------------------------------------------------------
-Think about an airport security checkpoint: Passenger enters -> Station 1 (Ticket Check) -> Station 2 (Luggage X-Ray) -> Station 3 (Body Scan) -> Station 4 (Boarding Gate). Each security officer inspects the passenger and calls 'NEXT' (`next()`) to pass the passenger to the next station. Any station can reject the passenger or add a security stamp. In JavaScript, this is the Onion Middleware Pattern!
+Think about an airport security checkpoint: Passenger enters → Station 1 (Ticket Check) → Station 2 (Luggage X-Ray) → Station 3 (Body Scan) → Station 4 (Boarding Gate). Each security officer inspects the passenger and calls 'NEXT' (`next()`) to pass the passenger to the next station. Any station can reject the passenger or add a security stamp. In JavaScript, this is the Onion Middleware Pattern!
 
 2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
 --------------------------------------------------------------------------------

@@ -14,10 +14,10 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   +---------------+---------------+---------------+----------------------------+
   | Expression    | Operation     | Result        | Rule Applied               |
   +---------------+---------------+---------------+----------------------------+
-  |  15 %  4      |  15 - (3 * 4) | +3            | Dividend +15 -> Result +   |
-  | -15 %  4      | -15 -(-3 * 4) | -3            | Dividend -15 -> Result -   |
+  |  15 %  4      |  15 - (3 * 4) | +3            | Dividend +15 → Result +   |
+  | -15 %  4      | -15 -(-3 * 4) | -3            | Dividend -15 → Result -   |
   |  15 % -4      |  15 -(-3 *-4) | +3            | Divisor sign IGNORED!      |
-  | -15 % -4      | -15 -( 3 *-4) | -3            | Dividend -15 -> Result -   |
+  | -15 % -4      | -15 -( 3 *-4) | -3            | Dividend -15 → Result -   |
   +---------------+---------------+---------------+----------------------------+
 
 - Floating-Point Modulus in Java:

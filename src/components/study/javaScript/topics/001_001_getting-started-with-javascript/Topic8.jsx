@@ -9,7 +9,7 @@ export default function GettingStartedProjectsPage() {
     // 1. Import all .js files from the answers folder (as raw strings)
     const modules = import.meta.glob("./topic8_files/answers/*.js", { query: "?raw", import: "default", eager: true });
 
-    // 2. Build a lookup map: filename -> source code
+    // 2. Build a lookup map: filename → source code
     const fileMap = {};
     Object.keys(modules).forEach((path) => {
       const fileName = path.split("/").pop(); // e.g., "INTRO001.js"

@@ -5,7 +5,7 @@ const topic12_questions = [
     "explanation": "Maintains full key sets in business reporting dashboards.",
     "hint": "Preserves grouping keys with empty collections rather than omitting the key entirely.",
     "level": "Intermediate",
-    "codeExample": "groupingBy(Department::getName, filtering(e -> e.getSalary() > 100000, toList()))"
+    "codeExample": "groupingBy(Department::getName, filtering(e → e.getSalary() > 100000, toList()))"
   },
   {
     "question": "What will the value in the Map be for a group where no elements match the filtering predicate?",

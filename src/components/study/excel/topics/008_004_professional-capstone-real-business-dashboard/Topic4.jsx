@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Phase 4: VBA / Office Script Automation for Scheduled Reporting, PDF Export & Email Dispatch"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic4() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Phase 4 Automation: 1-Click Refresh All -> Format Deck -> Export Vector PDF -> Automated Outlook / Teams Distribution"}
+            {"Phase 4 Automation: 1-Click Refresh All → Format Deck → Export Vector PDF → Automated Outlook / Teams Distribution"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic4() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Phase 4 Automated Distribution Pipeline: Master Controller Trigger -> 1-Click Refresh -> Vector PDF Export -> Outlook Email Dispatch"}
+              Visual Dataflow: {"Phase 4 Automated Distribution Pipeline: Master Controller Trigger → 1-Click Refresh → Vector PDF Export → Outlook Email Dispatch"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Assessment Pipeline
@@ -286,7 +286,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Phase_4__VBA___Off"
+            sheetName="EX3305"
             title={"Phase 4: VBA / Office Script Automation for Scheduled Reporting, PDF Export & Email Dispatch - Assessment Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic4() {
                 Step 1: Understand Schema &amp; Requirements
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Phase 4 Automation: 1-Click Refresh All -> Format Deck -> Export Vector PDF -> Automated Outlook / Teams Distribution"}</code>.
+                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"Phase 4 Automation: 1-Click Refresh All → Format Deck → Export Vector PDF → Automated Outlook / Teams Distribution"}</code>.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic4() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Congratulations on completing the Professional Capstone Business Dashboard! You have mastered the complete, end-to-end enterprise data analytics pipeline: Power Query ETL -> Power Pivot Star Schema -> DAX Measures -> Interactive Dashboard -> VBA/Office Script Automation. You are officially an Excel Ultra Expert!"}
+            note={"Congratulations on completing the Professional Capstone Business Dashboard! You have mastered the complete, end-to-end enterprise data analytics pipeline: Power Query ETL → Power Pivot Star Schema → DAX Measures → Interactive Dashboard → VBA/Office Script Automation. You are officially an Excel Ultra Expert!"}
           />
         </div>
       </div>

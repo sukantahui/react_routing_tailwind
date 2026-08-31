@@ -62,24 +62,24 @@ Step 7: Locate the new maximum penalty Max_P(p+1) and repeat until the tableau
 --------------------------------------------------------------------------------
 
 CASE STUDY 1: Precision Foundry Supply to Kolkata (Debangshu)
-Pass 1: Allocate 60 tons to (S2, D1) @ ₹5 -> Column 1 (Jadavpur) is crossed out!
+Pass 1: Allocate 60 tons to (S2, D1) @ ₹5 → Column 1 (Jadavpur) is crossed out!
 Pass 2 Recalculation:
-  - Row 1 (Barrackpore): Remaining costs [14, 12] -> P_R1(2) = 14 - 12 = ₹2
-  - Row 2 (Ichapur):     Remaining costs [19, 10] -> P_R2(2) = 19 - 10 = ₹9 (JUMP!)
-  - Row 3 (Kolkata):     Remaining costs [13, 7]  -> P_R3(2) = 13 - 7 = ₹6
-  - Col 2 (Salt Lake):   Remaining costs [14, 19, 13] -> P_C2(2) = 14 - 13 = ₹1
-  - Col 3 (Howrah):      Remaining costs [12, 10, 7]  -> P_C3(2) = 10 - 7 = ₹3
+  - Row 1 (Barrackpore): Remaining costs [14, 12] → P_R1(2) = 14 - 12 = ₹2
+  - Row 2 (Ichapur):     Remaining costs [19, 10] → P_R2(2) = 19 - 10 = ₹9 (JUMP!)
+  - Row 3 (Kolkata):     Remaining costs [13, 7]  → P_R3(2) = 13 - 7 = ₹6
+  - Col 2 (Salt Lake):   Remaining costs [14, 19, 13] → P_C2(2) = 14 - 13 = ₹1
+  - Col 3 (Howrah):      Remaining costs [12, 10, 7]  → P_C3(2) = 10 - 7 = ₹3
 Max Penalty in Pass 2: Row 2 with P = ₹9 (Ichapur).
 Action: Allocate min(30, 80) = 30 tons to (S2, D3) @ ₹10/ton!
 
 --------------------------------------------------------------------------------
 CASE STUDY 2: Cold-Chain Vaccine Distribution (Mamata & Mahima)
-Pass 1: Allocate 60 boxes to (S2, D1) @ ₹4 -> Column 1 (Howrah) is eliminated.
+Pass 1: Allocate 60 boxes to (S2, D1) @ ₹4 → Column 1 (Howrah) is eliminated.
 Pass 2:
-  - Row 1 (Kolkata): Remaining [18, 9] -> P_R1(2) = 18 - 9 = ₹9
-  - Row 2 (Barrackpore): Remaining [25, 15] -> P_R2(2) = 25 - 15 = ₹10 (MAX)
-  - Col 2 (Barasat): Remaining [18, 25] -> P_C2(2) = 25 - 18 = ₹7
-  - Col 3 (Jadavpur): Remaining [9, 15] -> P_C3(2) = 15 - 9 = ₹6
+  - Row 1 (Kolkata): Remaining [18, 9] → P_R1(2) = 18 - 9 = ₹9
+  - Row 2 (Barrackpore): Remaining [25, 15] → P_R2(2) = 25 - 15 = ₹10 (MAX)
+  - Col 2 (Barasat): Remaining [18, 25] → P_C2(2) = 25 - 18 = ₹7
+  - Col 3 (Jadavpur): Remaining [9, 15] → P_C3(2) = 15 - 9 = ₹6
 Max Penalty: Row 2 (P = ₹10). Target: (S2, D3) @ ₹15/box.
 
 --------------------------------------------------------------------------------

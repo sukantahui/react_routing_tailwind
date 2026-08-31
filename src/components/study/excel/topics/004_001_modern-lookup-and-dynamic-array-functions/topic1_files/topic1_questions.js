@@ -24,7 +24,7 @@ const questions = [
     explanation: "The `#` operator specifically instructs Excel's calculation engine to inspect the spill table in memory for that cell coordinate. If cell `B5` contains a static number like `500` or a scalar formula like `=SUM(A1:A10)`, no spill range exists, triggering `#REF!`.",
     hint: "Only cells that actively spill multiple values can be referenced with '#'.",
     level: "basic",
-    codeExample: "// Cell B5 = 500 -> =B5# returns #REF!"
+    codeExample: "// Cell B5 = 500 → =B5# returns #REF!"
   },
   {
     question: "How do you reference a spilled array located on a different worksheet?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "If `ArrayA#` has 10 rows and `ArrayB#` has 5 rows, evaluating `=ArrayA# + ArrayB#` computes valid sums for rows 1 to 5, but outputs `#N/A` for rows 6 through 10 because `ArrayB#` lacks matching indices.",
     hint: "Array dimensions must be compatible for element-wise broadcasting.",
     level: "advanced",
-    codeExample: "// 10-row array + 5-row array -> rows 6:10 output #N/A"
+    codeExample: "// 10-row array + 5-row array → rows 6:10 output #N/A"
   },
   {
     question: "How can the '#' operator be used inside the TEXTJOIN function?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Each dynamic array evaluates its own required output footprint. If `A2#` spills successfully, but `=A2# * 1.18` at `F2` is blocked by a value in `F5`, `F2` displays `#SPILL!` while `A2#` continues to display correctly.",
     hint: "Each formula checks its own destination clearance independently.",
     level: "moderate",
-    codeExample: "// F2 = A2# * 1.18 -> #SPILL! if cell F6 contains text"
+    codeExample: "// F2 = A2# * 1.18 → #SPILL! if cell F6 contains text"
   },
   {
     question: "How do you find the last value in a single-column spilled array using the '#' operator?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Because `A2` is the master anchor of the spill, clearing `A2` removes the entire array from memory. Any downstream formula pointing to `A2#` loses its target spill range and resolves to `#REF!`.",
     hint: "Deleting the origin cell destroys the array and breaks '#' pointers.",
     level: "basic",
-    codeExample: "// Clear A2 -> =SUM(A2#) becomes #REF!"
+    codeExample: "// Clear A2 → =SUM(A2#) becomes #REF!"
   },
   {
     question: "Why does `=SUM(A2:A100)` perform slower than `=SUM(A2#)` on dynamically filtered data?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "Models built with `#` operator bindings automatically adjust to fluctuating data volumes without formula dragging, broken cell ranges, or brittle macros. When new invoices or students are added, every downstream total, chart, and validation list updates instantaneously with zero maintenance.",
     hint: "The '#' operator enables zero-maintenance elastic financial engineering.",
     level: "expert",
-    codeExample: "// Elastic Model: Master Log -> Filtered Spill# -> Summary KPIs# -> Executive Dashboard"
+    codeExample: "// Elastic Model: Master Log → Filtered Spill# → Summary KPIs# → Executive Dashboard"
   }
 ];
 

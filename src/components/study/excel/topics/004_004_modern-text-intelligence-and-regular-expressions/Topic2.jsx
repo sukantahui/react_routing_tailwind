@@ -76,7 +76,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Pattern Matching & Data Validation with REGEXTEST
           </h1>
 
@@ -212,7 +212,7 @@ export default function Topic2() {
               <p className="leading-relaxed">
                 Highlighting corrupt inputs in red as users type prevents bad data from ever entering your database:
                 <br />
-                Select column <code className="text-sky-300 font-mono">D5:D500</code> &rarr; Conditional Formatting &rarr; New Rule &rarr; Use Formula:
+                Select column <code className="text-sky-300 font-mono">D5:D500</code> → Conditional Formatting → New Rule → Use Formula:
                 <br />
                 <code className="text-rose-400 font-mono block mt-1">=NOT(REGEXTEST(D5, "^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{"{2,}"}$"))</code>
               </p>
@@ -304,10 +304,10 @@ export default function Topic2() {
               </g>
 
               <g transform="translate(340, 135)" fontFamily="monospace" fontSize="8.5" fill="#E2E8F0">
-                <text x="0" y="15">Row 1: "ABCDE1234F" &rarr; TRUE</text>
-                <text x="0" y="35">Row 2: "BCDEF5678G" &rarr; TRUE</text>
-                <text x="0" y="55" fill="#F87171">Row 3: "INVALID"    &rarr; FALSE</text>
-                <text x="0" y="75">Row 4: "CDEFG9012H" &rarr; TRUE</text>
+                <text x="0" y="15">Row 1: "ABCDE1234F" → TRUE</text>
+                <text x="0" y="35">Row 2: "BCDEF5678G" → TRUE</text>
+                <text x="0" y="55" fill="#F87171">Row 3: "INVALID"    → FALSE</text>
+                <text x="0" y="75">Row 4: "CDEFG9012H" → TRUE</text>
               </g>
 
               <text x="450" y="275" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ Sub-Millisecond SIMD Evaluation</text>
@@ -325,11 +325,11 @@ export default function Topic2() {
 
               <g transform="translate(640, 75)">
                 <rect width="175" height="40" rx="4" fill="#064E3B" stroke="#10B981" />
-                <text x="10" y="18" fill="#34D399" fontSize="9" fontWeight="bold" fontFamily="sans-serif">TRUE &rarr; PASSED</text>
+                <text x="10" y="18" fill="#34D399" fontSize="9" fontWeight="bold" fontFamily="sans-serif">TRUE → PASSED</text>
                 <text x="10" y="32" fill="#A7F3D0" fontSize="8" fontFamily="sans-serif">Approved for Tax Filing</text>
 
                 <rect y="48" width="175" height="40" rx="4" fill="#7F1D1D" stroke="#EF4444" />
-                <text x="10" y="66" fill="#F87171" fontSize="9" fontWeight="bold" fontFamily="sans-serif">FALSE &rarr; RED ALERT</text>
+                <text x="10" y="66" fill="#F87171" fontSize="9" fontWeight="bold" fontFamily="sans-serif">FALSE → RED ALERT</text>
                 <text x="10" y="80" fill="#FECACA" fontSize="8" fontFamily="sans-serif">Highlighted in Red live</text>
               </g>
 
@@ -370,7 +370,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_REGEXTEST"
+            sheetName="EX1903"
             title="Customer Master Data Validation Roster (Customer ID, Name, PAN, Email, Phone, PIN Code)"
             rowsPerPage={10}
             showSheetSelector={true}

@@ -44,7 +44,7 @@ ORDER BY gpa DESC;
 -- 📋 Refactored EXPLAIN:
 -- key = 'idx_student_cov' (city, status, gpa DESC, name)
 -- Extra = 'Using index' ⚡ (Zero table reads, Zero filesort!)
--- Execution time drops from 38.5 ms -> 0.32 ms (120x faster)!`,
+-- Execution time drops from 38.5 ms → 0.32 ms (120x faster)!`,
       resultRows: [
         {
           variant: "SELECT * (Wide Payload)",
@@ -98,7 +98,7 @@ LEFT JOIN (
 WHERE s.city = 'Kolkata';
 
 -- 📋 Refactored EXPLAIN:
--- Executes a single batch hash/index join! Latency drops from 210 ms -> 2.4 ms!`,
+-- Executes a single batch hash/index join! Latency drops from 210 ms → 2.4 ms!`,
       resultRows: [
         {
           variant: "Correlated Subquery in SELECT",
@@ -145,7 +145,7 @@ FROM student_records
 WHERE department_id = 4 AND (city != 'Barrackpore' OR city IS NULL);
 
 -- 📋 Refactored EXPLAIN:
--- Both branches execute as instant 'ref' index seeks! Latency drops from 85 ms -> 0.85 ms!`,
+-- Both branches execute as instant 'ref' index seeks! Latency drops from 85 ms → 0.85 ms!`,
       resultRows: [
         {
           variant: "WHERE city = 'Barrackpore' OR dept = 4",
@@ -240,7 +240,7 @@ LIMIT 20;
               SQL Architecture &amp; Refactoring
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Query Refactoring: Eliminating SELECT *, Subquery Bottlenecks, and Inefficient OR Clauses
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -344,7 +344,7 @@ LIMIT 20;
                   <td className="py-3 px-4 font-bold text-white font-sans">Correlated Subquery</td>
                   <td className="py-3 px-4 text-rose-300">SELECT s.name, (SELECT COUNT(*) FROM ...)</td>
                   <td className="py-3 px-4 text-emerald-300">LEFT JOIN (SELECT id, COUNT(*) FROM ... GROUP BY)</td>
-                  <td className="py-3 px-4 text-emerald-400 font-bold">O(N) Loops &rarr; 1 Batch Scan</td>
+                  <td className="py-3 px-4 text-emerald-400 font-bold">O(N) Loops → 1 Batch Scan</td>
                 </tr>
                 <tr className="hover:bg-slate-800/40 transition-colors">
                   <td className="py-3 px-4 font-bold text-white font-sans">Disjoint OR</td>
@@ -425,15 +425,15 @@ LIMIT 20;
                   <g transform="translate(60, 115)">
                     <rect x="0" y="0" width="100" height="60" rx="4" fill="#1e293b" stroke="#64748b" />
                     <text x="50" y="25" fill="#e2e8f0" fontSize="10" textAnchor="middle">Outer Row 1</text>
-                    <text x="50" y="45" fill="#f43f5e" fontSize="9" textAnchor="middle">&rarr; Subquery 1</text>
+                    <text x="50" y="45" fill="#f43f5e" fontSize="9" textAnchor="middle">→ Subquery 1</text>
 
                     <rect x="130" y="0" width="100" height="60" rx="4" fill="#1e293b" stroke="#64748b" />
                     <text x="180" y="25" fill="#e2e8f0" fontSize="10" textAnchor="middle">Outer Row 2</text>
-                    <text x="180" y="45" fill="#f43f5e" fontSize="9" textAnchor="middle">&rarr; Subquery 2</text>
+                    <text x="180" y="45" fill="#f43f5e" fontSize="9" textAnchor="middle">→ Subquery 2</text>
 
                     <rect x="260" y="0" width="100" height="60" rx="4" fill="#1e293b" stroke="#64748b" />
                     <text x="310" y="25" fill="#e2e8f0" fontSize="10" textAnchor="middle">Outer Row N</text>
-                    <text x="310" y="45" fill="#f43f5e" fontSize="9" textAnchor="middle">&rarr; Subquery N</text>
+                    <text x="310" y="45" fill="#f43f5e" fontSize="9" textAnchor="middle">→ Subquery N</text>
                   </g>
 
                   <rect x="50" y="195" width="380" height="40" rx="4" fill="#1e293b" stroke="#f43f5e" />
@@ -626,7 +626,7 @@ LIMIT 20;
                 When you execute <code className="text-rose-300 font-mono">LIMIT 50000, 20</code>, MySQL must traverse 50,020 rows in the B+Tree and discard 50,000 rows. As users browse deeper into search results, response latency degrades linearly ($O(N)$).
               </p>
               <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs text-rose-400 font-mono">
-                50,000 Offset Rows &rarr; 180 ms Latency &amp; Memory Churn 🚨
+                50,000 Offset Rows → 180 ms Latency &amp; Memory Churn 🚨
               </div>
             </div>
 
@@ -685,7 +685,7 @@ FROM students s
 LEFT JOIN AttendanceAgg a ON s.student_id = a.student_id
 LEFT JOIN ExamAgg e ON s.student_id = e.student_id;
 
--- Result: Execution dropped from 4,500 ms -> 55 ms! ⚡`}
+-- Result: Execution dropped from 4,500 ms → 55 ms! ⚡`}
                 </pre>
               </div>
             </div>

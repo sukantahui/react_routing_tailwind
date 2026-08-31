@@ -14,11 +14,11 @@ const questions = [
   },
   {
     question: "How do you create a new parameter using the Power Query Editor UI?",
-    shortAnswer: "Home Tab &rarr; Manage Parameters &rarr; Click 'New Parameter' &rarr; Enter Name, Type, Suggested Values, and Current Value.",
+    shortAnswer: "Home Tab → Manage Parameters → Click 'New Parameter' → Enter Name, Type, Suggested Values, and Current Value.",
     explanation: "Standard graphical parameter manager interface.",
-    hint: "Home &rarr; Manage Parameters &rarr; New Parameter.",
+    hint: "Home → Manage Parameters → New Parameter.",
     level: "basic",
-    codeExample: "Home Tab &rarr; Manage Parameters &rarr; New Parameter"
+    codeExample: "Home Tab → Manage Parameters → New Parameter"
   },
   {
     question: "What are the 3 'Suggested Values' configuration options available for parameters?",
@@ -62,7 +62,7 @@ const questions = [
   },
   {
     question: "How do you bind a parameter's suggested dropdown values to a dynamic database query?",
-    shortAnswer: "Set 'Suggested Values' to 'Query' &rarr; Select an M query that outputs a 1D List of distinct values (e.g. `List.Distinct(DimBranches[BranchName])`).",
+    shortAnswer: "Set 'Suggested Values' to 'Query' → Select an M query that outputs a 1D List of distinct values (e.g. `List.Distinct(DimBranches[BranchName])`).",
     explanation: "Dynamic parameter lists update automatically as data changes.",
     hint: "Set Suggested Values to 'Query' and select a query returning a List.",
     level: "moderate",
@@ -78,11 +78,11 @@ const questions = [
   },
   {
     question: "How do you change parameter values directly from the main Excel ribbon without opening Power Query?",
-    shortAnswer: "Data Tab &rarr; Queries & Connections &rarr; Click the small arrow on 'Get Data' &rarr; 'Edit Parameters' (or manage via Excel Parameter table cells).",
+    shortAnswer: "Data Tab → Queries & Connections → Click the small arrow on 'Get Data' → 'Edit Parameters' (or manage via Excel Parameter table cells).",
     explanation: "Allows end-users to adjust parameters without launching Power Query Editor.",
-    hint: "Data Tab &rarr; Get Data &rarr; Edit Parameters.",
+    hint: "Data Tab → Get Data → Edit Parameters.",
     level: "moderate",
-    codeExample: "Data &rarr; Get Data &rarr; Edit Parameters"
+    codeExample: "Data → Get Data → Edit Parameters"
   },
   {
     question: "How do parameters interact with Power BI Template (`.pbit`) files?",
@@ -210,7 +210,7 @@ const questions = [
     explanation: "Standard enterprise project organization.",
     hint: "Group parameters into a dedicated '00_Parameters' folder.",
     level: "basic",
-    codeExample: "Queries Pane &rarr; New Group &rarr; '00_Parameters'"
+    codeExample: "Queries Pane → New Group → '00_Parameters'"
   },
   {
     question: "How do you parameterize column selection in M code?",
@@ -226,7 +226,7 @@ const questions = [
     explanation: "Worksheet calculation engine feeds Power Query parameter table.",
     hint: "Yes; worksheet formulas in Excel parameter tables feed Power Query.",
     level: "expert",
-    codeExample: "Excel Cell Formula: =TODAY()-30 &rarr; Feeds Power Query p_StartDate"
+    codeExample: "Excel Cell Formula: =TODAY()-30 → Feeds Power Query p_StartDate"
   },
   {
     question: "Why should you avoid hardcoding the current year (e.g. `2026`) in date filters?",

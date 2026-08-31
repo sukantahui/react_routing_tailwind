@@ -13,7 +13,7 @@ const topic4_questions = [
     "explanation": "Spring's three-level cache architecture (DefaultSingletonBeanRegistry).",
     "hint": "Exposes early un-initialized singleton reference in third-level cache.",
     "level": "Advanced",
-    "codeExample": "singletonFactories.put(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));"
+    "codeExample": "singletonFactories.put(beanName, () → getEarlyBeanReference(beanName, mbd, bean));"
   }
 ];
 

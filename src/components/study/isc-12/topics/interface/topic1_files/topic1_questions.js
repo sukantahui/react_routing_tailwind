@@ -198,7 +198,7 @@ const questions = [
     explanation: "Unlike `Comparable`, it is external to the class.",
     hint: "Useful for sorting by different fields.",
     level: "intermediate",
-    codeExample: "Comparator<Person> byAge = (p1, p2) -> p1.age - p2.age;"
+    codeExample: "Comparator<Person> byAge = (p1, p2) → p1.age - p2.age;"
   },
   {
     question: "Can an interface have a nested class?",

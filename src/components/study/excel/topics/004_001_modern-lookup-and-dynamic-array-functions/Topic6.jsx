@@ -77,7 +77,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Generating Numeric and Date Sequences with SEQUENCE (Rows, Columns, Start, Step)
           </h1>
 
@@ -146,13 +146,13 @@ export default function Topic6() {
               <tbody className="divide-y divide-slate-800/60 font-mono text-xs sm:text-sm">
                 <tr>
                   <td className="py-3 pr-4 text-amber-300 font-bold">rows</td>
-                  <td className="py-3 px-4 text-slate-400">Integer (&gt;= 1)</td>
+                  <td className="py-3 px-4 text-slate-400">Integer (>= 1)</td>
                   <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Required</td>
                   <td className="py-3 pl-4 font-sans text-slate-300">Number of rows to generate down vertically.</td>
                 </tr>
                 <tr>
                   <td className="py-3 pr-4 text-sky-300 font-bold">[columns]</td>
-                  <td className="py-3 px-4 text-slate-400">Integer (&gt;= 1)</td>
+                  <td className="py-3 px-4 text-slate-400">Integer (>= 1)</td>
                   <td className="py-3 px-4 text-slate-500 font-sans font-semibold">Optional (Default: 1)</td>
                   <td className="py-3 pl-4 font-sans text-slate-300">Number of columns to generate across horizontally.</td>
                 </tr>
@@ -189,7 +189,7 @@ export default function Topic6() {
               Unlike standard functions that read and process values from cell ranges, <code className="text-teal-300 font-mono">SEQUENCE</code> generates data purely algorithmically in memory.
             </p>
             <p>
-              For each matrix element at row <span className="font-mono text-amber-300">r</span> (0 ≤ r &lt; rows) and column <span className="font-mono text-amber-300">c</span> (0 ≤ c &lt; columns):
+              For each matrix element at row <span className="font-mono text-amber-300">r</span> (0 ≤ r < rows) and column <span className="font-mono text-amber-300">c</span> (0 ≤ c < columns):
             </p>
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs sm:text-sm text-emerald-300">
               Value(r, c) = start + (r × columns + c) × step
@@ -324,7 +324,7 @@ export default function Topic6() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic6_Sequence_Generators"
+              sheetName="EX1607"
               title="Master Sequence & Timeline Patterns Register"
               rowsPerPage={10}
               showSheetSelector={true}
@@ -487,7 +487,7 @@ export default function Topic6() {
                 <tr>
                   <td className="py-3.5 pr-4 text-rose-300 font-bold">Negative Dimension Count</td>
                   <td className="py-3.5 px-4 text-rose-400 font-mono">#VALUE! Error</td>
-                  <td className="py-3.5 pl-4 text-emerald-400">The <code className="text-sky-300 font-mono">rows</code> and <code className="text-sky-300 font-mono">columns</code> arguments must be positive integers (&gt;= 1).</td>
+                  <td className="py-3.5 pl-4 text-emerald-400">The <code className="text-sky-300 font-mono">rows</code> and <code className="text-sky-300 font-mono">columns</code> arguments must be positive integers (>= 1).</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 pr-4 text-rose-300 font-bold">Dates Appearing as Numbers (46023)</td>

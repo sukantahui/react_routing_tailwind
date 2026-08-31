@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "Without a terminal operation, intermediate operations are never executed.",
     "hint": "Ignites execution, consumes the stream, and produces a final non-stream result or side-effect.",
     "level": "Beginner",
-    "codeExample": "long count = list.stream().filter(s -> s.length() > 5).count(); // count() is terminal"
+    "codeExample": "long count = list.stream().filter(s → s.length() > 5).count(); // count() is terminal"
   },
   {
     "question": "Can a stream have more than one terminal operation?",

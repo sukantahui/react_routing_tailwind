@@ -3,7 +3,7 @@ Instructor: Sukanta Hui | Coder & AccoTax
 
 Key Takeaways:
 - Inserting a row shifts all downstream cell coordinates and automatically updates existing formula reference ranges.
-- Outline Grouping (Data &rarr; Group) is vastly superior to simple Row Hiding because it provides intuitive [+] and [-] expand/collapse buttons in the margin for executive review.
+- Outline Grouping (Data → Group) is vastly superior to simple Row Hiding because it provides intuitive [+] and [-] expand/collapse buttons in the margin for executive review.
 - The Delete key clears only cell contents (data); it leaves cell backgrounds, borders, and number formatting intact. Use Clear All (Alt+H+E+A) for complete sterilization.
 
 Teacher Note:

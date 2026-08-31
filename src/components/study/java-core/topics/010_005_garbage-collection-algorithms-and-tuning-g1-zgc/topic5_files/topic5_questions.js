@@ -5,7 +5,7 @@ const topic5_questions = [
     "explanation": "Ensures heap consistency during critical GC phases.",
     "hint": "Prevents memory corruption while objects are being inspected or moved.",
     "level": "Beginner",
-    "codeExample": "STW pauses mutator threads -> GC moves objects safely."
+    "codeExample": "STW pauses mutator threads → GC moves objects safely."
   },
   {
     "question": "Where does the JIT compiler place Safepoint checks in compiled Java code?",

@@ -32,7 +32,7 @@ const questions = [
     explanation: "Segmentation ensures that a phishing malware infection on a hospital billing computer cannot reach ICU patient ventilators in Ichapur.",
     hint: "Isolates unpatchable medical equipment (ventilators, pumps) into secure private VLANs.",
     level: "expert",
-    codeExample: "Firewall_Rule: Block All Ingress -> ICU_Ventilator_VLAN (VLAN 50) except Authorized Monitoring Station Port 8443;"
+    codeExample: "Firewall_Rule: Block All Ingress → ICU_Ventilator_VLAN (VLAN 50) except Authorized Monitoring Station Port 8443;"
   },
   {
     question: "What is Medjack (Medical Device Hijacking) in healthcare cybersecurity?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "Attackers exploit medical hardware because hospitals rarely restart or patch active life-support equipment.",
     hint: "Hacking unpatched hospital devices like MRI scanners to steal patient databases.",
     level: "expert",
-    codeExample: "MedjackVector: Unpatched_Blood_Analyzer -> Exploited_Over_Port_445 -> Lateral_Movement -> Patient_EHR_Database"
+    codeExample: "MedjackVector: Unpatched_Blood_Analyzer → Exploited_Over_Port_445 → Lateral_Movement → Patient_EHR_Database"
   },
   {
     question: "How do 5G Connected Smart Ambulances transmit real-time patient telemetry to Hospital Emergency Rooms (ER)?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Ensures emergency cardiac arrest alarms are never delayed by campus bandwidth congestion or firewall reboot cycles.",
     hint: "Dedicated emergency alarm network that pages nurses within 500ms during cardiac emergencies.",
     level: "moderate",
-    codeExample: "NurseCall: PatientBed_Alarm -> Dedicated_IP_Bus -> Nurse_Pager_Display (Latency: 180 ms)"
+    codeExample: "NurseCall: PatientBed_Alarm → Dedicated_IP_Bus → Nurse_Pager_Display (Latency: 180 ms)"
   },
   {
     question: "What is Mutual TLS (mTLS) in Hospital EHR API integrations?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "If active hospital servers in Barrackpore are hit by ransomware, doctors can restore complete records from the immutable offline copy.",
     hint: "Storing patient record backups offline so network ransomware cannot reach or encrypt them.",
     level: "basic",
-    codeExample: "Backup_Policy: Daily_Snapshot -> AirGapped_Immutable_Vault (Write Once Read Many - WORM)"
+    codeExample: "Backup_Policy: Daily_Snapshot → AirGapped_Immutable_Vault (Write Once Read Many - WORM)"
   },
   {
     question: "What is Medical Wi-Fi QoS Prioritization (WMM / 802.11e) in hospital wireless networks?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Prevents theft and unauthorized diversion of controlled narcotics and emergency medications.",
     hint: "Biometric smart cabinets that track and log every single medicine vial removed by nurses.",
     level: "basic",
-    codeExample: "ADC_Log: BiometricAuth(NurseMahima) -> DrawerOpen(Fentanyl_Vial) -> TLS_Event_Logged -> CBS_Inventory"
+    codeExample: "ADC_Log: BiometricAuth(NurseMahima) → DrawerOpen(Fentanyl_Vial) → TLS_Event_Logged → CBS_Inventory"
   },
   {
     question: "What is an Emergency Operating Room (OR) Network Isolation Architecture?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes patient life safety, radiological throughput, cryptographic privacy compliance, ransomware resiliency, and financial procurement budgeting.",
     hint: "IoMT microsegmentation + 10G PACS Jumbo Frames + FHIR mTLS + Air-gapped backups + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: Segment_IoMT_VLANs() -> Deploy_10G_PACS() -> Encrypt_ePHI_mTLS() -> AirGapOfflineBackups() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: Segment_IoMT_VLANs() → Deploy_10G_PACS() → Encrypt_ePHI_mTLS() → AirGapOfflineBackups() → BudgetInRupees(₹);"
   }
 ];
 

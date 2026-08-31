@@ -5,7 +5,7 @@ const topic9_questions = [
     "explanation": "Grand architectural capstone of Module 009_001.",
     "hint": "Stack variables die when methods exit while lambdas live on heap, and shared mutable stack variables would cause concurrency race conditions.",
     "level": "Advanced",
-    "codeExample": "// Prohibited: int count = 0; () -> count++; // Permitted: AtomicInteger count = new AtomicInteger(); () -> count.incrementAndGet();"
+    "codeExample": "// Prohibited: int count = 0; () → count++; // Permitted: AtomicInteger count = new AtomicInteger(); () → count.incrementAndGet();"
   }
 ];
 

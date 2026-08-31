@@ -30,7 +30,7 @@ const Topic27 = () => {
       hostBits: 8,
       totalHosts: 254,
       desc: 'Standard local subnetwork for student computer labs and departmental offices in Kolkata.',
-      routingTrace: 'Host 192.168.10.45 & 255.255.255.0 -> Target Network is 192.168.10.0. Local switch delivers frame directly via ARP.',
+      routingTrace: 'Host 192.168.10.45 & 255.255.255.0 → Target Network is 192.168.10.0. Local switch delivers frame directly via ARP.',
     },
     {
       id: 'slash28',
@@ -44,7 +44,7 @@ const Topic27 = () => {
       hostBits: 4,
       totalHosts: 14,
       desc: 'High-security micro-subnet for factory CNC controllers in Barrackpore and healthcare DMZ servers.',
-      routingTrace: 'Host 192.168.50.9 & 255.255.255.240 -> Network 192.168.50.0. Block size = 16. Broadcast = 192.168.50.15.',
+      routingTrace: 'Host 192.168.50.9 & 255.255.255.240 → Network 192.168.50.0. Block size = 16. Broadcast = 192.168.50.15.',
     },
     {
       id: 'slash30',
@@ -72,7 +72,7 @@ const Topic27 = () => {
       hostBits: 16,
       totalHosts: 65534,
       desc: 'Large university campus aggregation grid in Jadavpur supporting multiple faculties and Wi-Fi networks.',
-      routingTrace: '172.16.45.102 & 255.255.0.0 -> Core Layer-3 Switch routes between internal departmental VLANs at 40Gbps.',
+      routingTrace: '172.16.45.102 & 255.255.0.0 → Core Layer-3 Switch routes between internal departmental VLANs at 40Gbps.',
     },
   ];
 
@@ -167,7 +167,7 @@ const Topic27 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Network Address
           </h1>
 

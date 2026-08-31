@@ -28,7 +28,7 @@ const Topic37 = () => {
       securityProtection: 'Twice NAT resolves overlapping 192.168.1.0/24 private subnets.',
       estApplianceCost: '₹1,45,000 (Multi-Gigabit IPsec VPN Gateway)',
       desc: 'Encrypted site-to-site VPN enabling automated nightly raw material inventory feeds into Barrackpore foundry.',
-      simResult: 'Tunnel Negotiated (IKEv2 SA Up) -> Twice NAT Maps Subnets -> Syncs 25,000 Purchase Orders securely.',
+      simResult: 'Tunnel Negotiated (IKEv2 SA Up) → Twice NAT Maps Subnets → Syncs 25,000 Purchase Orders securely.',
     },
     {
       id: 'saml-portal',
@@ -40,7 +40,7 @@ const Topic37 = () => {
       securityProtection: 'Zero client software installation; session cookie bound to partner IP.',
       estApplianceCost: '₹85,000 (WAF & Identity Federation Module)',
       desc: 'Seamless browser-based extranet portal allowing external mechanics in Kolkata to submit warranty claims.',
-      simResult: 'Vendor logs in with Partner Azure AD -> SAML assertion verified by WAF -> Grants scoped portal session.',
+      simResult: 'Vendor logs in with Partner Azure AD → SAML assertion verified by WAF → Grants scoped portal session.',
     },
     {
       id: 'mtls-api-gateway',
@@ -52,7 +52,7 @@ const Topic37 = () => {
       securityProtection: 'Rate limiting (500 req/min) + IP whitelisting + Cryptographic non-repudiation.',
       estApplianceCost: '₹1,20,000 (Hardware Security Module & API Gateway)',
       desc: 'Mission-critical automated financial transaction clearance between Ichapur hospital and banking partner.',
-      simResult: 'mTLS Handshake: Server & Client verify X.509 certs -> 200 OK -> ₹4,50,000 settlement batch processed.',
+      simResult: 'mTLS Handshake: Server & Client verify X.509 certs → 200 OK → ₹4,50,000 settlement batch processed.',
     },
     {
       id: 'ztna-supply-chain',
@@ -64,7 +64,7 @@ const Topic37 = () => {
       securityProtection: 'Zero network-level Layer-3 subnet access; lateral port scanning blocked 100%.',
       estApplianceCost: '₹65,000 (ZTNA Contractor Access Subscription)',
       desc: 'Prevents Target-style supply-chain pivot attacks by granting contractors least-privilege application access.',
-      simResult: 'Contractor connects via ZTNA -> Attempts to port scan 10.0.1.0/24 subnet -> ZTNA broker drops packet & alerts SOC.',
+      simResult: 'Contractor connects via ZTNA → Attempts to port scan 10.0.1.0/24 subnet → ZTNA broker drops packet & alerts SOC.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic37 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Extranet
           </h1>
 

@@ -83,7 +83,7 @@ const questions = [
     explanation: "Every iteration of a while loop enters a new block scope for statements inside `{ ... }`. Using `let` inside the loop body allocates a fresh variable binding per cycle.",
     hint: "Block scoping protects inner loop variables from leaking into parent scopes.",
     level: "basic",
-    codeExample: "let i = 0;\nwhile (i < 1) {\n  let secret = 42; // Block scoped\n  i++;\n}\n// console.log(secret); -> ReferenceError"
+    codeExample: "let i = 0;\nwhile (i < 1) {\n  let secret = 42; // Block scoped\n  i++;\n}\n// console.log(secret); → ReferenceError"
   },
   {
     question: "How can you safely process an array backwards using a while loop?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "In application business logic and Redux reducers, declarative methods like `map` and `filter` express intent cleanly. `while` loops should be reserved for low-level algorithms, custom parsers, data streams, and hardware/performance bottlenecks.",
     hint: "Declarative for UI state; imperative while for algorithmic performance & stream pipelines.",
     level: "expert",
-    codeExample: "// In UI state -> declarative:\nconst activeUsers = users.filter(u => u.isActive);\n// In low-level tokenizer -> while:\nwhile (pos < length && isWhitespace(source[pos])) pos++;"
+    codeExample: "// In UI state → declarative:\nconst activeUsers = users.filter(u => u.isActive);\n// In low-level tokenizer → while:\nwhile (pos < length && isWhitespace(source[pos])) pos++;"
   }
 ];
 

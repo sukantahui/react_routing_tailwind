@@ -42,7 +42,7 @@ export default function Topic10() {
             Engineering Standards · Google Java Style
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Writing Clean, Readable Code Conforming to Google Java Style Guide
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

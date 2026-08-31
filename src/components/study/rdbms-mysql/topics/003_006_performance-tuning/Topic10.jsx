@@ -41,7 +41,7 @@ WHERE city = 'Barrackpore';
 
 -- 📋 Hinted Plan:
 -- type = 'ref', key = 'idx_city', rows = 650, Extra = NULL ⚡
--- Latency drops from 78.0 ms -> 0.45 ms! (170x faster!)`,
+-- Latency drops from 78.0 ms → 0.45 ms! (170x faster!)`,
       resultRows: [
         {
           variant: "Default CBO (Stale Stats)",
@@ -88,11 +88,11 @@ WHERE d.name = 'Computer Science';
 
 -- 📋 Hinted Plan:
 -- Join starts with 'departments' (1 row filtered), then probes 'students' (500 rows),
--- and finally probes 'enrollments' by PK! Latency drops from 340 ms -> 1.8 ms!`,
+-- and finally probes 'enrollments' by PK! Latency drops from 340 ms → 1.8 ms!`,
       resultRows: [
         {
           variant: "Default CBO Join Order (e, s, d)",
-          accessType: "ALL &rarr; ref &rarr; eq_ref",
+          accessType: "ALL → ref → eq_ref",
           keyUsed: "idx_enrollment",
           rowsExamined: "500,000 Rows Driving Loop",
           costCalculation: "Suboptimal Driving Table",
@@ -101,7 +101,7 @@ WHERE d.name = 'Computer Science';
         },
         {
           variant: "/*+ JOIN_ORDER(d, s, e) */",
-          accessType: "const &rarr; ref &rarr; ref",
+          accessType: "const → ref → ref",
           keyUsed: "PRIMARY, idx_dept, idx_student",
           rowsExamined: "510 Rows Total",
           costCalculation: "Pinpoint Small Driving Filter",
@@ -135,7 +135,7 @@ WHERE s.city = 'Barrackpore';
 -- 📋 Hinted Plan:
 -- Extra = 'Using join buffer (Batched Key Access)'
 -- Converts 25,000 random disk seeks into sequential multi-range reads (MRR)!
--- Latency drops from 68 ms -> 4.1 ms!`,
+-- Latency drops from 68 ms → 4.1 ms!`,
       resultRows: [
         {
           variant: "Standard Nested Loop Join",
@@ -239,7 +239,7 @@ ORDER BY total_fees DESC;
               Advanced CBO Control
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Optimizer Hints: USE INDEX, FORCE INDEX, JOIN_ORDER &amp; BATCH_KEY_ACCESS
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -621,7 +621,7 @@ ORDER BY total_fees DESC;
                 In standard Nested Loop Joins, for every row fetched from the outer table, MySQL executes an individual index lookup on the inner table. When the inner index is scattered, this triggers tens of thousands of random disk seeks on physical tablespace pages.
               </p>
               <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs text-rose-400 font-mono">
-                10,000 Outer Rows &rarr; 10,000 Random Disk Seeks 🚨
+                10,000 Outer Rows → 10,000 Random Disk Seeks 🚨
               </div>
             </div>
 
@@ -631,7 +631,7 @@ ORDER BY total_fees DESC;
                 With <code className="text-emerald-300 font-mono">/*+ BATCH_KEY_ACCESS(inner_table) */</code>, MySQL buffers outer keys into <code className="text-cyan-300 font-mono">join_buffer_size</code>, sorts them into physical page order, and reads the inner table pages sequentially.
               </p>
               <div className="p-3 bg-slate-950 rounded-xl border border-slate-800 text-xs text-emerald-400 font-mono">
-                Sorted Key Probes &rarr; Sequential Read-Ahead I/O (16x Faster!) ⚡
+                Sorted Key Probes → Sequential Read-Ahead I/O (16x Faster!) ⚡
               </div>
             </div>
           </div>
@@ -706,7 +706,7 @@ JOIN transaction_payments p ON s.student_id = p.student_id
 WHERE b.branch_code = 'KOL-MAIN'
 GROUP BY b.branch_name, c.course_name;
 
--- Result: Duration dropped from 12,400 ms -> 14.5 ms! ⚡`}
+-- Result: Duration dropped from 12,400 ms → 14.5 ms! ⚡`}
                 </pre>
               </div>
             </div>

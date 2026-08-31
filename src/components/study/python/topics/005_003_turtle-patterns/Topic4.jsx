@@ -75,7 +75,7 @@ const Topic4 = () => {
             Module 005_003 · Turtle Patterns & Geometric Mathematics · Topic 4
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-400 via-rose-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-400 via-rose-300 to-indigo-400 bg-clip-text text-transparent">
             Angle Mathematics in Star Polygons & Mandalas
           </h1>
 

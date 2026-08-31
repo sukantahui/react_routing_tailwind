@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. RACE CONDITIONS:
    - Occur when 2+ threads access shared mutable state without synchronization.
-   - 'counter++' is NOT atomic (Read &rarr; Modify &rarr; Write).
+   - 'counter++' is NOT atomic (Read → Modify → Write).
    - Lost Update Anomaly: Multiple increments overwrite each other.
    - Solution: Synchronization (locks) or Atomic variables (AtomicInteger).
 

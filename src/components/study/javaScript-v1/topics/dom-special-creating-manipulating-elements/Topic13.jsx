@@ -12,7 +12,7 @@ export default class Topic13 extends Component {
             HEADER
         ============================================================ */}
         <header className="space-y-3">
-          <h1 className="text-2xl md:text-3xl font-bold text-sky-300 flex items-center gap-3">
+          <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-sky-300 flex items-center gap-3">
             <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
               <rect
                 x="4"
@@ -165,7 +165,7 @@ export default class Topic13 extends Component {
 
           <EditableCodeBlock
             language="html"
-            initialCode={`<!-- Toast container (fixed on top-right) -->
+            initialCode={`<!-- Toast container (fixed on top-right) ──→
 <div id="toast-root" aria-live="polite" aria-atomic="true"></div>`}
           />
 

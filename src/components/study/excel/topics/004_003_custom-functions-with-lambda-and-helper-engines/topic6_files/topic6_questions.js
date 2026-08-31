@@ -26,7 +26,7 @@ const questions = [
     explanation: "If you pass 2 arrays into MAP, the LAMBDA must have 2 parameters: =MAP(arr1, arr2, LAMBDA(a, b, ...)).",
     hint: "Parameter count must equal the number of input arrays.",
     level: "basic",
-    codeExample: "2 Arrays &rarr; LAMBDA(a, b, ...)"
+    codeExample: "2 Arrays → LAMBDA(a, b, ...)"
   },
   {
     question: "What happens if you pass arrays of mismatched dimensions into MAP (e.g. a 5-row array and a 10-row array)?",
@@ -42,7 +42,7 @@ const questions = [
     explanation: "If the input is a 5x4 matrix, MAP returns a 5x4 matrix where cell (i, j) contains the transformed result of cell (i, j).",
     hint: "Output dimensions match input dimensions exactly.",
     level: "basic",
-    codeExample: "Input (5x4) &rarr; Output (5x4)"
+    codeExample: "Input (5x4) → Output (5x4)"
   },
   {
     question: "How do you evaluate staff bonus tiers based on Attendance Days and Performance Score using MAP?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "MAP provides the ultimate element-by-element transformation engine in Excel 365, turning multi-column matrix processing into an elegant, single-formula spilled architecture!",
     hint: "Use MAP for element-wise logic across parallel array vectors.",
     level: "expert",
-    codeExample: "Rule: Multi-array element transformations &rarr; Use MAP!"
+    codeExample: "Rule: Multi-array element transformations → Use MAP!"
   }
 ];
 

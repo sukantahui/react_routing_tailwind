@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_002_data_entry_editing_and_formatting_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -70,7 +69,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
             Editing Cell Contents: F2, Formula Bar, Find &amp; Replace, Clear, Undo/Redo and Paste Special Fundamentals
           </h1>
 
@@ -342,7 +341,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-101</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Barrackpore Payroll Formula Correction</td>
                   <td className="py-2.5 px-3 text-sky-300">Modify `=SUM(E4:E30)` to `=SUM(E4:E33)`</td>
-                  <td className="py-2.5 px-3 text-amber-300">Press `F2` $\rightarrow$ Edit in-cell</td>
+                  <td className="py-2.5 px-3 text-amber-300">Press `F2` → Edit in-cell</td>
                   <td className="py-2.5 px-3 text-emerald-400">Formula updated without re-typing</td>
                   <td className="py-2.5 px-3 text-slate-300">Prevents complete formula deletion caused by direct overwrite typing.</td>
                 </tr>
@@ -350,7 +349,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-102</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Kolkata Corporate Financial Model Freeze</td>
                   <td className="py-2.5 px-3 text-sky-300">Convert live P&amp;L model to static report</td>
-                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` $\rightarrow$ `Alt+E+S+V` (Values)</td>
+                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` → `Alt+E+S+V` (Values)</td>
                   <td className="py-2.5 px-3 text-emerald-400">Formulas replaced with raw constants</td>
                   <td className="py-2.5 px-3 text-slate-300">Freezes dynamic calculation model before emailing external board members.</td>
                 </tr>
@@ -366,7 +365,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-104</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Plant GST In-Place Calculation</td>
                   <td className="py-2.5 px-3 text-sky-300">Apply 18% GST multiplier directly onto prices</td>
-                  <td className="py-2.5 px-3 text-amber-300">Copy `1.18` $\rightarrow$ `Alt+E+S+M` (Multiply)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Copy `1.18` → `Alt+E+S+M` (Multiply)</td>
                   <td className="py-2.5 px-3 text-emerald-400">All prices scaled up by 18% in-place</td>
                   <td className="py-2.5 px-3 text-slate-300">Eliminates helper columns by performing arithmetic directly via Paste Special.</td>
                 </tr>
@@ -374,15 +373,15 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-105</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Salt Lake SaaS Monthly Transposition</td>
                   <td className="py-2.5 px-3 text-sky-300">Rotate 12 horizontal month columns into vertical rows</td>
-                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` $\rightarrow$ `Alt+E+S+E` (Transpose)</td>
-                  <td className="py-2.5 px-3 text-emerald-400">12x1 horizontal $\rightarrow$ 1x12 vertical</td>
+                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` → `Alt+E+S+E` (Transpose)</td>
+                  <td className="py-2.5 px-3 text-emerald-400">12x1 horizontal → 1x12 vertical</td>
                   <td className="py-2.5 px-3 text-slate-300">Restructures legacy horizontal wide reports into database-ready vertical tables.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-106</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Naihati Campus Multi-Row Header Fill</td>
                   <td className="py-2.5 px-3 text-sky-300">Fill '2026 Audit' header across 15 highlighted cells</td>
-                  <td className="py-2.5 px-3 text-amber-300">Type text $\rightarrow$ `Ctrl+Enter`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Type text → `Ctrl+Enter`</td>
                   <td className="py-2.5 px-3 text-emerald-400">All 15 cells populated instantly</td>
                   <td className="py-2.5 px-3 text-slate-300">Atomic fill across non-contiguous multi-cell selections.</td>
                 </tr>
@@ -406,7 +405,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-109</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Durgapur Steel Table Width Sync</td>
                   <td className="py-2.5 px-3 text-sky-300">Copy column widths from Sheet 1 to Sheet 2</td>
-                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` $\rightarrow$ `Alt+E+S+W` (Widths)</td>
+                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` → `Alt+E+S+W` (Widths)</td>
                   <td className="py-2.5 px-3 text-emerald-400">Column widths matched perfectly</td>
                   <td className="py-2.5 px-3 text-slate-300">Ensures uniform visual layout across multiple report tabs.</td>
                 </tr>
@@ -414,7 +413,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-110</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Energy Grid Wildcard Cleanup</td>
                   <td className="py-2.5 px-3 text-sky-300">Replace all product codes starting with 'TR-1'</td>
-                  <td className="py-2.5 px-3 text-amber-300">Find: `TR-1*` $\rightarrow$ Replace: `NEW-TR`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Find: `TR-1*` → Replace: `NEW-TR`</td>
                   <td className="py-2.5 px-3 text-emerald-400">All matching prefixes replaced</td>
                   <td className="py-2.5 px-3 text-slate-300">Leverages asterisk `*` wildcard for prefix matching.</td>
                 </tr>
@@ -422,7 +421,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-111</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Partial Update Merge</td>
                   <td className="py-2.5 px-3 text-sky-300">Paste revised prices into list without overwriting blanks</td>
-                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+Alt+V` $\rightarrow$ Check 'Skip Blanks'</td>
+                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+Alt+V` → Check 'Skip Blanks'</td>
                   <td className="py-2.5 px-3 text-emerald-400">Existing non-blank prices preserved</td>
                   <td className="py-2.5 px-3 text-slate-300">Prevents empty source cells from erasing destination data.</td>
                 </tr>
@@ -438,7 +437,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-113</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Malda Mango Multi-Line Cell Entry</td>
                   <td className="py-2.5 px-3 text-sky-300">Insert line break between Address Line 1 and Line 2</td>
-                  <td className="py-2.5 px-3 text-amber-300">Type Line 1 $\rightarrow$ `Alt+Enter` $\rightarrow$ Line 2</td>
+                  <td className="py-2.5 px-3 text-amber-300">Type Line 1 → `Alt+Enter` → Line 2</td>
                   <td className="py-2.5 px-3 text-emerald-400">Multi-line text inside single cell</td>
                   <td className="py-2.5 px-3 text-slate-300">Formats multi-line address blocks without creating separate rows.</td>
                 </tr>
@@ -446,7 +445,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-114</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Burdwan Rice Repeat Formatting</td>
                   <td className="py-2.5 px-3 text-sky-300">Apply yellow fill to 10 scattered subtotal rows</td>
-                  <td className="py-2.5 px-3 text-amber-300">Format Row 1 $\rightarrow$ Select Row 2 $\rightarrow$ Press `F4`</td>
+                  <td className="py-2.5 px-3 text-amber-300">Format Row 1 → Select Row 2 → Press `F4`</td>
                   <td className="py-2.5 px-3 text-emerald-400">Yellow fill repeated instantly</td>
                   <td className="py-2.5 px-3 text-slate-300">Uses Redo / Repeat Action `F4` to accelerate repetitive styling.</td>
                 </tr>
@@ -478,7 +477,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-118</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Pump Formula Only Copy</td>
                   <td className="py-2.5 px-3 text-sky-300">Copy calculation logic without overwriting custom styles</td>
-                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` $\rightarrow$ `Alt+E+S+F` (Formulas)</td>
+                  <td className="py-2.5 px-3 text-amber-300">`Ctrl+C` → `Alt+E+S+F` (Formulas)</td>
                   <td className="py-2.5 px-3 text-emerald-400">Formula copied, styles preserved</td>
                   <td className="py-2.5 px-3 text-slate-300">Transfers mathematical logic while preserving custom destination cell borders.</td>
                 </tr>
@@ -494,7 +493,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">ED-120</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Cooch Behar Bank Target Value Adjustment</td>
                   <td className="py-2.5 px-3 text-sky-300">Subtract ₹ 5,000 processing fee from all loans in-place</td>
-                  <td className="py-2.5 px-3 text-amber-300">Copy `5000` $\rightarrow$ `Alt+E+S+S` (Subtract)</td>
+                  <td className="py-2.5 px-3 text-amber-300">Copy `5000` → `Alt+E+S+S` (Subtract)</td>
                   <td className="py-2.5 px-3 text-emerald-400">All loan values reduced by ₹ 5,000</td>
                   <td className="py-2.5 px-3 text-slate-300">Executes atomic in-place subtraction across loan portfolio without helper formulas.</td>
                 </tr>
@@ -680,7 +679,7 @@ export default function Topic4() {
               • **Observe**: What happens if you try to Transpose a range containing live relative formulas (`=A1+B1`) without using Paste Values first?
             </p>
             <p>
-              • **Experiment**: Try copying a cell with value `10` and using Paste Special -&gt; Multiply (`Alt + E + S + M`) over a range of numbers. Notice how every number is multiplied by 10 in-place without generating extra helper columns!
+              • **Experiment**: Try copying a cell with value `10` and using Paste Special → Multiply (`Alt + E + S + M`) over a range of numbers. Notice how every number is multiplied by 10 in-place without generating extra helper columns!
             </p>
           </div>
         </section>

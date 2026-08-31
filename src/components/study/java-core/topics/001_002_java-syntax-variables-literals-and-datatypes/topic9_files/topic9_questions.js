@@ -243,7 +243,7 @@ const questions = [
     explanation: "In science and simulations, slight rounding errors are acceptable and speed is critical. In finance, e-commerce (such as Coder & AccoTax billing), banking, and taxation, exact fractional arithmetic with `BigDecimal` is mandatory.",
     hint: "Physics = float/double; Money & Banking = BigDecimal.",
     level: "basic",
-    codeExample: "// Rule: Physics/Graphics -> double\n// Rule: Banking/Tax -> BigDecimal"
+    codeExample: "// Rule: Physics/Graphics → double\n// Rule: Banking/Tax → BigDecimal"
   }
 ];
 

@@ -3,9 +3,9 @@ const questions = [
     question: "What are the three major architectural subsystems of the Java Virtual Machine?",
     shortAnswer: "ClassLoader Subsystem, Runtime Data Areas (Memory), and the Execution Engine.",
     explanation: "The ClassLoader loads and links class files; Runtime Data Areas organize heap/stack memory; the Execution Engine executes the bytecode via Interpreter, JIT Compiler, and Garbage Collector.",
-    hint: "Loading -> Memory -> Execution.",
+    hint: "Loading → Memory → Execution.",
     level: "basic",
-    codeExample: "// ClassLoader Subsystem -> Runtime Data Areas -> Execution Engine"
+    codeExample: "// ClassLoader Subsystem → Runtime Data Areas → Execution Engine"
   },
   {
     question: "Which JVM memory areas are shared across all threads, and which are private per thread?",
@@ -19,17 +19,17 @@ const questions = [
     question: "What are the three distinct phases of the ClassLoader Subsystem?",
     shortAnswer: "Loading, Linking (Verification, Preparation, Resolution), and Initialization.",
     explanation: "Loading reads binary .class bytes; Linking verifies bytecode, prepares static fields with default values, and resolves symbolic references; Initialization executes static blocks and initializers.",
-    hint: "Load -> Link -> Initialize.",
+    hint: "Load → Link → Initialize.",
     level: "advanced",
-    codeExample: "// Linking: Verification -> Preparation -> Resolution"
+    codeExample: "// Linking: Verification → Preparation → Resolution"
   },
   {
     question: "What is the Delegation-Parent Principle in Java ClassLoaders?",
     shortAnswer: "A ClassLoader always delegates class loading requests to its parent before attempting to load the class itself.",
-    explanation: "This hierarchical delegation (Application -> Platform -> Bootstrap) ensures core security, preventing a malicious user from replacing core classes like java.lang.String.",
+    explanation: "This hierarchical delegation (Application → Platform → Bootstrap) ensures core security, preventing a malicious user from replacing core classes like java.lang.String.",
     hint: "Always ask parent loader first.",
     level: "advanced",
-    codeExample: "// ClassLoader hierarchy: Bootstrap -> Platform -> Application"
+    codeExample: "// ClassLoader hierarchy: Bootstrap → Platform → Application"
   },
   {
     question: "Why does `String.class.getClassLoader()` return `null` in Java?",
@@ -115,7 +115,7 @@ const questions = [
     question: "What are the generations in JVM Generational Heap Architecture?",
     shortAnswer: "Young Generation (Eden, Survivor S0, Survivor S1) and Old / Tenured Generation.",
     explanation: "Based on the Weak Generational Hypothesis ('most objects die young'), newly created objects land in Eden. Surviving objects migrate to Survivor spaces and eventually promote to Old Gen.",
-    hint: "Eden -> Survivor (S0/S1) -> Tenured (Old Gen).",
+    hint: "Eden → Survivor (S0/S1) → Tenured (Old Gen).",
     level: "advanced",
     codeExample: "// Minor GC cleans Young Gen; Major/Full GC cleans Old Gen."
   },
@@ -147,7 +147,7 @@ const questions = [
     question: "What are the C1 (Client) and C2 (Server) JIT compilers?",
     shortAnswer: "C1 compiles code quickly with basic optimizations; C2 performs aggressive, profile-guided native optimizations.",
     explanation: "HotSpot's Tiered Compilation uses C1 for immediate fast execution during application warmup, and promotes hot methods to C2 for peak native speed.",
-    hint: "Tiered compilation: C1 (Tiers 1-3) -> C2 (Tier 4).",
+    hint: "Tiered compilation: C1 (Tiers 1-3) → C2 (Tier 4).",
     level: "expert",
     codeExample: "// Tiered compilation is enabled by default in Java 8+."
   },
@@ -181,7 +181,7 @@ const questions = [
     explanation: "User-defined initial values (e.g. `public static int count = 5;`) are NOT assigned during preparation; `count` is initialized to `0` here and receives `5` during Initialization.",
     hint: "Static fields get default zero/null values.",
     level: "advanced",
-    codeExample: "// static int x = 10; -> x is set to 0 during Preparation, and 10 during Initialization."
+    codeExample: "// static int x = 10; → x is set to 0 during Preparation, and 10 during Initialization."
   },
   {
     question: "What happens during the 'Initialization' phase of Class Loading?",

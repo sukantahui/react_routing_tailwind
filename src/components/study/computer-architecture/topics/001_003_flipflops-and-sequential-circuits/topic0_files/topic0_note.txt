@@ -21,7 +21,7 @@ B. Sequential Circuits:
 
 2. THE FEEDBACK MECHANISM & BIRTH OF SILICON MEMORY
 --------------------------------------------------------------------------------
-- In pure combinational logic, signals travel strictly in one direction (Input -> Output).
+- In pure combinational logic, signals travel strictly in one direction (Input → Output).
 - By routing an inverting output back to an input in a closed circular loop, the circuit
   develops positive feedback, locking itself into one of two stable equilibrium states (0 or 1).
 - This bistable multivibrator action creates 1-bit static RAM (SRAM) storage.

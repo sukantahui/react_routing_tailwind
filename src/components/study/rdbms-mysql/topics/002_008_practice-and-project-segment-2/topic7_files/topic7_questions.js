@@ -114,7 +114,7 @@ const questions = [
     level: "basic"
   },
   {
-    question: "How do you handle hierarchical categories (e.g. Electronics -> Laptops) in a 3NF schema?",
+    question: "How do you handle hierarchical categories (e.g. Electronics → Laptops) in a 3NF schema?",
     shortAnswer: "Use a self-referencing Foreign Key: `parent_category_id INT NULL REFERENCES categories(category_id)`.",
     explanation: "Supports recursive category trees with unlimited depth.",
     hint: "Self-referencing foreign key on parent_category_id.",

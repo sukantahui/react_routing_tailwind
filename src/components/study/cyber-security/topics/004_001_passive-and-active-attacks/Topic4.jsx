@@ -61,7 +61,7 @@ def tamper_pkt(pkt):
       codeSnippet: `// Bit-Flipping Exploit Equation:
 // P'_i = D_K(C_i) ^ C'_{i-1}
 // Delta = Plaintext_Original ^ Plaintext_Target
-// Ciphertext_Prev ^= Delta -> Decrypts cleanly to Target!`
+// Ciphertext_Prev ^= Delta → Decrypts cleanly to Target!`
     },
     padding_oracle: {
       key: "padding_oracle",
@@ -74,12 +74,12 @@ def tamper_pkt(pkt):
       detectabilityScore: 78,
       mechanism:
         "Adversary alters ciphertext bytes and submits them to the server, observing whether the server returns a 'Padding Error' or 'Application Error' to mathematically deduce plaintext bytes.",
-      realWorldPayload: "Altering last byte of C[i-1] -> Server returns 200 OK -> Plaintext byte calculated as (PadVal ^ Guess)",
+      realWorldPayload: "Altering last byte of C[i-1] → Server returns 200 OK → Plaintext byte calculated as (PadVal ^ Guess)",
       mitigation: "Encrypt-then-MAC (EtM) paradigm and constant-time error handling.",
       codeSnippet: `// Encrypt-then-MAC Defense Pipeline:
 // 1. Verify HMAC_K2(Ciphertext) == AuthTag
-// 2. IF INVALID -> Abort immediately! (Never call AES Decrypt)
-// 3. IF VALID   -> Call AES_Decrypt_K1(Ciphertext)`
+// 2. IF INVALID → Abort immediately! (Never call AES Decrypt)
+// 3. IF VALID   → Call AES_Decrypt_K1(Ciphertext)`
     },
     sql_parameter_injection: {
       key: "sql_parameter_injection",
@@ -92,7 +92,7 @@ def tamper_pkt(pkt):
       detectabilityScore: 85,
       mechanism:
         "Altering in-transit HTTP parameters to inject SQL meta-characters (`' OR '1'='1`) into unparameterized database queries, altering the backend execution syntax tree.",
-      realWorldPayload: "POST /login -> user=admin' OR '1'='1' --&pass=x (Bypasses password verification)",
+      realWorldPayload: "POST /login → user=admin' OR '1'='1' --&pass=x (Bypasses password verification)",
       mitigation: "Parameterized Prepared Statements, ORMs with strict type binding, and Web Application Firewalls (WAF).",
       codeSnippet: `// Secure Parameterized Query in Node.js / MySQL:
 const sql = "SELECT * FROM accounts WHERE user_id = ? AND status = ?";
@@ -109,7 +109,7 @@ db.query(sql, [userId, 'ACTIVE'], (err, results) => { ... });`
       detectabilityScore: 88,
       mechanism:
         "Adversary injects extra data bytes into an active TCP connection and continuously recalculates sequence/acknowledgment numbers for both client and server to prevent session reset.",
-      realWorldPayload: "Injected: 'rm -rf /var/log/audit' [Seq: 10420] -> Re-synced client Seq: pkt.seq += 24",
+      realWorldPayload: "Injected: 'rm -rf /var/log/audit' [Seq: 10420] → Re-synced client Seq: pkt.seq += 24",
       mitigation: "TLS 1.3 Record Layer authenticated sequence counters and IPsec ESP.",
       codeSnippet: `// TLS 1.3 Anti-Desync Record Counter:
 // Record sequence numbers are monotonically incremented and sealed inside AEAD tag.
@@ -148,7 +148,7 @@ signtool verify /pa /v /all production_setup.exe
       codeSnippet: `// Merkle Tree Verification Equation:
 // Leaf_A = Hash(Tx1), Leaf_B = Hash(Tx2)
 // Parent_AB = Hash(Leaf_A || Leaf_B)
-// Root = Hash(Parent_AB || Parent_CD) -> Any tampering invalidates Root!`
+// Root = Hash(Parent_AB || Parent_CD) → Any tampering invalidates Root!`
     },
     disk_log_tampering: {
       key: "disk_log_tampering",
@@ -469,7 +469,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                 </text>
               </g>
 
-              {/* PATH 1: Sender -> Attacker */}
+              {/* PATH 1: Sender → Attacker */}
               <path d="M 220 170 L 360 170" stroke="#60a5fa" strokeWidth="3" fill="none" />
               <circle r="5" fill="#60a5fa">
                 <animateMotion path="M 220 170 L 360 170" dur="1.5s" repeatCount="indefinite" />
@@ -502,7 +502,7 @@ function encryptAEAD(plaintext, key, iv, associatedData) {
                 </text>
               </g>
 
-              {/* PATH 2: Attacker -> Receiver */}
+              {/* PATH 2: Attacker → Receiver */}
               <path d="M 560 170 L 680 170" stroke="#f43f5e" strokeWidth="3" fill="none" />
               <circle r="5" fill="#f43f5e">
                 <animateMotion path="M 560 170 L 680 170" dur="1.5s" repeatCount="indefinite" />

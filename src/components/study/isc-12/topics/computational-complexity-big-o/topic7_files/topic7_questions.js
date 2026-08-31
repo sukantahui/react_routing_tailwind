@@ -69,7 +69,7 @@ const questions = [
     explanation: "If at each level you divide the problem size by a constant factor, the number of levels is O(log n).",
     hint: "Think of recursion tree depth.",
     level: "intermediate",
-    codeExample: "// T(n) = T(n/2) + O(1) -> O(log n)"
+    codeExample: "// T(n) = T(n/2) + O(1) → O(log n)"
   },
   {
     question: "What is the time complexity of finding an element in a hash table (average)?",
@@ -181,7 +181,7 @@ const questions = [
     explanation: "This is the standard case for binary search.",
     hint: "a=1, b=2, f(n)=O(1).",
     level: "advanced",
-    codeExample: "// T(n) = T(n/2) + 1 -> O(log n)"
+    codeExample: "// T(n) = T(n/2) + 1 → O(log n)"
   },
   {
     question: "How do you recognize O(log n) in code?",

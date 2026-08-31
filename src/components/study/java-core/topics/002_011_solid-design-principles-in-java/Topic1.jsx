@@ -32,7 +32,7 @@ export default function Topic1() {
             SOLID: S
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           S — Single Responsibility Principle (SRP): <span className="text-emerald-400">"One Reason to Change"</span>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

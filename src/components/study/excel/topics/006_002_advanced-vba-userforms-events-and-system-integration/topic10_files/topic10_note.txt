@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Whenever you use Windows API declarations (like `Sleep` or file dialogs), always include `PtrSafe`: `Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal ms As Long)`. This ensures your code works flawlessly on modern 64-bit Excel.
 
 COMMON TRAPS TO AVOID:
-- Missing PtrSafe on 64-Bit Office (Compile Error): Declaring `Private Declare Function Sleep Lib "kernel32" ...` on 64-bit Office throws 'The code in this project must be updated for use on 64-bit systems'. -> Fix: Add `PtrSafe` keyword: `Private Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)`.
-- Passing Wrong Integer Pointer Types (Fatal Memory Crash): Passing a 32-bit `Long` instead of `LongPtr` to a 64-bit memory address crashes Excel immediately with a blue screen or fatal memory fault. -> Fix: Always use `LongPtr` for memory pointers and window handles (`HWND`).
-- Freezing UI During Long Sleep Delays: Calling `Sleep(10000)` freezes Excel completely for 10 seconds with zero responsiveness to user input. -> Fix: Call `DoEvents` in smaller sleep increments.
+- Missing PtrSafe on 64-Bit Office (Compile Error): Declaring `Private Declare Function Sleep Lib "kernel32" ...` on 64-bit Office throws 'The code in this project must be updated for use on 64-bit systems'. → Fix: Add `PtrSafe` keyword: `Private Declare PtrSafe Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)`.
+- Passing Wrong Integer Pointer Types (Fatal Memory Crash): Passing a 32-bit `Long` instead of `LongPtr` to a 64-bit memory address crashes Excel immediately with a blue screen or fatal memory fault. → Fix: Always use `LongPtr` for memory pointers and window handles (`HWND`).
+- Freezing UI During Long Sleep Delays: Calling `Sleep(10000)` freezes Excel completely for 10 seconds with zero responsiveness to user input. → Fix: Call `DoEvents` in smaller sleep increments.
 ================================================================================

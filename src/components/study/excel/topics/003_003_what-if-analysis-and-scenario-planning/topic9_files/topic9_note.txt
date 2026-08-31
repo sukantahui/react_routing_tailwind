@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Rule of thumb: If your formulas are linear (SUM, SUMPRODUCT, addition), use Simplex LP. If your formulas have exponents or quadratic curves (Portfolio Variance), use GRG Nonlinear. If you have IF statements, use Evolutionary.
 
 COMMON TRAPS TO AVOID:
-- Using GRG Nonlinear on Linear Models (Suboptimal Speed): Running GRG Nonlinear on large linear models is 100x slower and can get stuck in local approximations. -> Fix: Always choose Simplex LP for linear models.
-- GRG Trapped in Local Optima: Nonlinear surfaces have multiple peaks; GRG stops at the first nearby peak instead of the global best. -> Fix: Solver Options > GRG Nonlinear tab > Check 'Use Multistart' with Population Size: 100.
-- Evolutionary Engine Timeouts: Genetic algorithms evaluate millions of random permutations, running for minutes on large models. -> Fix: Set reasonable Mutation Rates (0.075) and specify Maximum Time limits in Solver options.
+- Using GRG Nonlinear on Linear Models (Suboptimal Speed): Running GRG Nonlinear on large linear models is 100x slower and can get stuck in local approximations. → Fix: Always choose Simplex LP for linear models.
+- GRG Trapped in Local Optima: Nonlinear surfaces have multiple peaks; GRG stops at the first nearby peak instead of the global best. → Fix: Solver Options > GRG Nonlinear tab > Check 'Use Multistart' with Population Size: 100.
+- Evolutionary Engine Timeouts: Genetic algorithms evaluate millions of random permutations, running for minutes on large models. → Fix: Set reasonable Mutation Rates (0.075) and specify Maximum Time limits in Solver options.
 ================================================================================

@@ -58,7 +58,7 @@ const Topic36 = () => {
             "motion-safe:animate-[fadeSlideUp_0.6s_ease-out]"
           )}
         >
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight">
             🔁 Example Script: <span className="text-blue-400">Looping Through Files</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 light:text-gray-700 max-w-3xl mx-auto leading-relaxed">

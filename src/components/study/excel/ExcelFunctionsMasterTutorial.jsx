@@ -60,7 +60,7 @@ export default function ExcelFunctionsMasterTutorial() {
               <Sparkles size={16} className="text-amber-400 animate-pulse" />
               <span>OFFICIAL TUTORIAL SUITE • 101 MASTER EXCEL METHODS</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-teal-200">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-teal-200">
               Interactive Excel Functions &amp; Formula Tutorials
             </h1>
             <p className="text-sm text-slate-300 leading-relaxed">

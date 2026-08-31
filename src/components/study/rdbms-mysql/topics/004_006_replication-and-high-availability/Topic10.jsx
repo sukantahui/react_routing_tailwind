@@ -71,14 +71,14 @@ SHOW REPLICA STATUS\\G
       badge: "Incident Triage",
       badgeColor: "rose",
       sqlSnippet: `-- 💥 TRIAGING I/O THREAD ERRORS (Network / Auth / Purged Binlogs):
--- Last_IO_Errno: 2003  -> Can't connect to MySQL server (Firewall / Port 3306)
--- Last_IO_Errno: 1045  -> Access denied for repl_user (Wrong password / grant)
--- Last_IO_Errno: 1236  -> Fatal 1236: Binlog purged on primary before replica synced
+-- Last_IO_Errno: 2003  → Can't connect to MySQL server (Firewall / Port 3306)
+-- Last_IO_Errno: 1045  → Access denied for repl_user (Wrong password / grant)
+-- Last_IO_Errno: 1236  → Fatal 1236: Binlog purged on primary before replica synced
 
 -- 💥 TRIAGING SQL THREAD ERRORS (Schema / Constraint Conflicts):
--- Last_SQL_Errno: 1062 -> Duplicate entry '101' for key 'PRIMARY'
--- Last_SQL_Errno: 1146 -> Table 'db.orders' doesn't exist (Filter missing table)
--- Last_SQL_Errno: 1452 -> Foreign key constraint fails (Parent table missing)`,
+-- Last_SQL_Errno: 1062 → Duplicate entry '101' for key 'PRIMARY'
+-- Last_SQL_Errno: 1146 → Table 'db.orders' doesn't exist (Filter missing table)
+-- Last_SQL_Errno: 1452 → Foreign key constraint fails (Parent table missing)`,
       explanation:
         "Last_IO_Error pinpoints network transport, authentication, or purged binary log failures on the Source. Last_SQL_Error pinpoints schema mismatches, duplicate primary key collisions, or foreign key constraint violations on the replica.",
       keyTakeaways: [
@@ -127,7 +127,7 @@ FROM performance_schema.replication_applier_status_by_worker;`,
             Topic 10 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Monitoring <span className="text-emerald-400">Replication Status</span> &amp; Telemetry (<span className="text-cyan-400">SHOW REPLICA STATUS</span>)
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

@@ -21,7 +21,7 @@ export default function Topic7() {
             Generic Algorithms
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Generic Methods: Swapping Elements, Finding Extremes &amp; Merging
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic7() {
       </section>
 
       <Teacher
-        note="Generic algorithms form the backbone of the Java Collections Framework (like Collections.swap and Collections.max)! Once you write an algorithm generically with '<T>', you can reuse it across every class in your project! — Sukanta Hui"
+        note="Generic algorithms form the backbone of the Java Collections Framework (like Collections.swap and Collections.max)! Once you write an algorithm generically with '&lt;T&gt;', you can reuse it across every class in your project! — Sukanta Hui"
       />
     </div>
   );

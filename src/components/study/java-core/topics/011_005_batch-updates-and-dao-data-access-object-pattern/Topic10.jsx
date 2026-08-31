@@ -21,8 +21,8 @@ export default function Topic10() {
             Batch Updates & DAO Pattern
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          Multi-Tier Architecture in Core Java: <code className="text-emerald-400 font-mono">Model &rarr; DAO &rarr; Service &rarr; Controller</code>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
+          Multi-Tier Architecture in Core Java: <code className="text-emerald-400 font-mono">Model → DAO → Service → Controller</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
           Enterprise application anatomy: structuring clean, scalable Java applications with strict layer boundaries and unidirectional dependencies.
@@ -59,7 +59,7 @@ export default function Topic10() {
       </section>
 
       <Teacher
-        note="This 4-tier architecture (Model -> DAO -> Service -> Controller) is the universal blueprint of enterprise Java! Whether you are building a console app, a Swing GUI, or a massive Spring Boot microservice, this layered architecture is identical! — Sukanta Hui"
+        note="This 4-tier architecture (Model → DAO → Service → Controller) is the universal blueprint of enterprise Java! Whether you are building a console app, a Swing GUI, or a massive Spring Boot microservice, this layered architecture is identical! — Sukanta Hui"
       />
     </div>
   );

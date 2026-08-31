@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_003_basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -71,7 +70,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Anatomy of a Formula: Equal Sign (=), Operators, Operands and BODMAS Order of Precedence
           </h1>
 
@@ -173,7 +172,7 @@ export default function Topic0() {
           </h2>
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>Excel evaluates mathematical expressions using standard mathematical precedence: Parentheses &amp;rarr; Exponents &amp;rarr; Multiplication and Division &amp;rarr; Addition and Subtraction.</p>
+            <p>Excel evaluates mathematical expressions using standard mathematical precedence: Parentheses → Exponents → Multiplication and Division → Addition and Subtraction.</p>
             <p>Comparison operators (=, &lt;&gt;, &gt;, &lt;, &gt;=, &lt;=) have lower precedence than arithmetic operators, and text concatenation (&amp;) evaluates after arithmetic but before comparisons.</p>
             <p>The formula calculation engine maintains an internal expression parse tree. If parentheses are omitted, Excel executes 10 + 5 * 2 as 20 (not 30) because multiplication takes priority.</p>
           </div>
@@ -281,7 +280,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Understanding_form"
+            sheetName="Topic0"
             title="Module 1.3 - Anatomy of a Formula: Equal Sign (=), Operators, Operands and BODMAS Order of Precedence"
             rowsPerPage={25}
             showSheetSelector={true}

@@ -8,7 +8,7 @@ const questions = [
     explanation: "A data breach violates the confidentiality pillar and triggers statutory compliance reporting under data protection laws.",
     hint: "Unauthorized viewing, copying, or theft of sensitive corporate or customer records.",
     level: "basic",
-    codeExample: "DataBreach = (UnauthorizedAccess && DataExfiltrated) -> MandatoryBreachNotification();"
+    codeExample: "DataBreach = (UnauthorizedAccess && DataExfiltrated) → MandatoryBreachNotification();"
   },
   {
     question: "What is Eavesdropping (Packet Sniffing) and how does it compromise confidentiality?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Completely passive: does not sever the connection or cause measurable light loss if calibrated properly.",
     hint: "Physically bending fiber optic cables to snoop on leaking light pulses.",
     level: "expert",
-    codeExample: "MacroBendingLeakage = PhotonsRefractedThroughCladding -> CapturedByPhotoSensor;"
+    codeExample: "MacroBendingLeakage = PhotonsRefractedThroughCladding → CapturedByPhotoSensor;"
   },
   {
     question: "How does Evil Twin Wi-Fi attack capture confidential enterprise credentials?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures defense-in-depth, continuous monitoring, statutory compliance, and enterprise budgeting.",
     hint: "Assume breach, encrypt everywhere, inspect egress DLP, report within 6 hours, and budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: AssumeBreach() -> EncryptAll() -> MonitorEgress() -> ReportWithin6Hours() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: AssumeBreach() → EncryptAll() → MonitorEgress() → ReportWithin6Hours() → BudgetInRupees(₹);"
   }
 ];
 

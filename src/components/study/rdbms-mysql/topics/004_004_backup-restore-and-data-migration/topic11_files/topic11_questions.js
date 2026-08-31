@@ -5,21 +5,21 @@
 const questions = [
   {
     question: "What are the 3 primary database migration archetypes encountered in production MySQL environments?",
-    shortAnswer: "1. Cross-Server Migration (same version hardware/datacenter relocation); 2. Cross-Version Upgrade Migration (major engine upgrade, e.g. 5.7 -> 8.0); 3. Cloud Migration (on-premises to managed AWS RDS / Aurora / GCP Cloud SQL).",
+    shortAnswer: "1. Cross-Server Migration (same version hardware/datacenter relocation); 2. Cross-Version Upgrade Migration (major engine upgrade, e.g. 5.7 → 8.0); 3. Cloud Migration (on-premises to managed AWS RDS / Aurora / GCP Cloud SQL).",
     explanation: "Each archetype has distinct risk profiles, replication compatibility requirements, and cutover strategies.",
     hint: "Cross-Server, Cross-Version Upgrade, and Cloud Migration.",
     level: "basic",
-    codeExample: `-- Archetype 1: On-prem Server A -> Server B
--- Archetype 2: MySQL 5.7 -> MySQL 8.0.x
--- Archetype 3: On-prem Bare Metal -> AWS RDS / Aurora`
+    codeExample: `-- Archetype 1: On-prem Server A → Server B
+-- Archetype 2: MySQL 5.7 → MySQL 8.0.x
+-- Archetype 3: On-prem Bare Metal → AWS RDS / Aurora`
   },
   {
     question: "What are the 4 chronological steps in a Near-Zero-Downtime Replication Cutover runbook?",
     shortAnswer: "Step 1: Capture initial consistent baseline with binlog coordinates. Step 2: Seed target database. Step 3: Configure replication from source to target until lag is 0. Step 4: Set source read-only, promote target to primary master, and switch application traffic.",
     explanation: "Replication streaming allows the target database to continuously catch up in the background, reducing application downtime to less than 30 seconds for DNS switchover.",
-    hint: "1. Seed Baseline -> 2. Replicate to 0 Lag -> 3. Lock Source -> 4. Promote Target & Switch DNS.",
+    hint: "1. Seed Baseline → 2. Replicate to 0 Lag → 3. Lock Source → 4. Promote Target & Switch DNS.",
     level: "basic",
-    codeExample: `# 1. Dump with binlog pos -> 2. Load to Target -> 3. START REPLICA -> 4. Cutover:
+    codeExample: `# 1. Dump with binlog pos → 2. Load to Target → 3. START REPLICA → 4. Cutover:
 SET GLOBAL read_only = ON; -- on source
 -- verify Seconds_Behind_Source = 0 on target
 STOP REPLICA; SET GLOBAL read_only = OFF; -- on target`
@@ -69,7 +69,7 @@ START REPLICA;`
     codeExample: `-- Kolkata Bank 26-Second Cutover Runbook:
 -- 1. Source: SET GLOBAL super_read_only = ON;
 -- 2. Target: CALL mysql.rds_stop_replication;
--- 3. Route53: Switch CNAME 'db.bank.internal' -> Aurora Endpoint.`
+-- 3. Route53: Switch CNAME 'db.bank.internal' → Aurora Endpoint.`
   },
   {
     question: "What tool should be used to verify data consistency between the source and target database before initiating production cutover?",
@@ -102,7 +102,7 @@ START REPLICA;`
     explanation: "Simplifies cross-cloud and heterogeneous migrations with built-in monitoring, transformation rules, and automated failover.",
     hint: "Managed cloud tools for automated CDC replication and migration orchestration.",
     level: "basic",
-    codeExample: `-- AWS DMS: Initial Load + CDC Replication -> AWS RDS / Aurora`
+    codeExample: `-- AWS DMS: Initial Load + CDC Replication → AWS RDS / Aurora`
   },
   {
     question: "What default collation change occurred in MySQL 8.0 for the `utf8mb4` character set?",
@@ -183,8 +183,8 @@ ip link set dev eth0 mtu 9000`
     explanation: "Heterogeneous migrations require schema conversion tools (AWS SCT) and application query refactoring.",
     hint: "Homogeneous is MySQL to MySQL; Heterogeneous is different engines (Oracle to MySQL).",
     level: "basic",
-    codeExample: `-- Homogeneous: MySQL 5.7 -> MySQL 8.0 / Aurora MySQL
--- Heterogeneous: Oracle 19c -> MySQL 8.0`
+    codeExample: `-- Homogeneous: MySQL 5.7 → MySQL 8.0 / Aurora MySQL
+-- Heterogeneous: Oracle 19c → MySQL 8.0`
   },
   {
     question: "How do you verify replication health and lag on the target cloud replica before initiating cutover?",
@@ -220,7 +220,7 @@ tls_version = TLSv1.3`
     explanation: "Logical migration is cleaner and provides zero risk to the original server host, whereas in-place upgrade modifies the live data directory.",
     hint: "In-place modifies existing host data directory; logical loads into a clean new instance.",
     level: "intermediate",
-    codeExample: `-- Logical Migration: Dump from 5.7 -> Load into fresh 8.0 host.`
+    codeExample: `-- Logical Migration: Dump from 5.7 → Load into fresh 8.0 host.`
   },
   {
     question: "How do you handle Foreign Key constraints during the initial logical baseline import on the target migration server?",
@@ -255,7 +255,7 @@ mysql -h target.internal -u root -p < user_grants.sql`
     question: "What is the recommended application rollback procedure if severe bugs are detected 2 hours after cutover?",
     shortAnswer: "1. Set target (new primary) to `read_only = ON`; 2. Wait for Reverse Replication lag to reach 0 on old source; 3. Promote old source (`SET read_only = OFF`); 4. Switch application DNS back to old source.",
     explanation: "Because Reverse Replication kept the old source synchronized with all post-cutover transactions, failing back incurs zero data loss.",
-    hint: "Lock new primary -> wait for reverse lag=0 -> promote old source -> switch DNS.",
+    hint: "Lock new primary → wait for reverse lag=0 → promote old source → switch DNS.",
     level: "expert",
     codeExample: `-- Failback Runbook with Zero Data Loss:
 -- 1. On Cloud Target: SET GLOBAL super_read_only = ON;

@@ -29,7 +29,7 @@ const Topic7 = () => {
 -- 1. InnoDB uses 16KB (16,384 bytes) page frames.
 -- 2. Operating System filesystems (ext4, XFS, NTFS) write in 4KB blocks.
 -- 3. Writing ONE 16KB page requires 4 consecutive 4KB OS block writes:
---      [Block 1: 4KB] -> [Block 2: 4KB] -> [Block 3: 4KB] -> [Block 4: 4KB]
+--      [Block 1: 4KB] → [Block 2: 4KB] → [Block 3: 4KB] → [Block 4: 4KB]
 
 -- 💥 POWER CUT DISASTER:
 -- If power cuts after Block 2 is written, the page on disk is HALF OLD / HALF NEW!
@@ -150,7 +150,7 @@ SHOW VARIABLES LIKE 'innodb_doublewrite%';
               Torn Page Protection
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             InnoDB Doublewrite Buffer: Preventing Torn Pages on Disk Failure
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -302,7 +302,7 @@ SHOW VARIABLES LIKE 'innodb_doublewrite%';
                 <text x="705" y="187" fill="#fde68a" fontSize="10" fontWeight="bold">Flushed to orders.ibd</text>
 
                 <rect x="695" y="225" width="220" height="55" rx="4" fill="#1e293b" stroke="#334155" />
-                <text x="705" y="245" fill="#34d399" fontSize="9" fontWeight="bold">If power cuts here &rarr; Torn Page!</text>
+                <text x="705" y="245" fill="#34d399" fontSize="9" fontWeight="bold">If power cuts here → Torn Page!</text>
                 <text x="705" y="262" fill="#bae6fd" fontSize="9">Restored from Doublewrite on boot! ✅</text>
 
                 {/* Connecting Arrows */}

@@ -5,7 +5,7 @@ const topic0_questions = [
     "explanation": "The foundation of enterprise data integrity.",
     "hint": "An indivisible unit of work where all operations succeed or all are rolled back.",
     "level": "Beginner",
-    "codeExample": "Transaction: Step 1 (Debit) + Step 2 (Credit) -> Commit together."
+    "codeExample": "Transaction: Step 1 (Debit) + Step 2 (Credit) → Commit together."
   },
   {
     "question": "What happens to uncommitted database modifications if a Java application crashes during an active transaction?",
@@ -13,7 +13,7 @@ const topic0_questions = [
     "explanation": "Preserves database consistency even across sudden client/server crashes.",
     "hint": "The database automatically rolls back all uncommitted changes.",
     "level": "Intermediate",
-    "codeExample": "Crash -> Automatic server rollback."
+    "codeExample": "Crash → Automatic server rollback."
   }
 ];
 

@@ -66,7 +66,7 @@ export default function Topic1() {
               Topic 1: Shell Modes & Sessions
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent leading-tight">
             Interactive vs Non-Interactive & Login Shells
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl">

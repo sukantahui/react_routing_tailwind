@@ -31,7 +31,7 @@ WORST-CASE SEQUENCE of operations.
 
 3. DYNAMIC VECTOR GEOMETRIC DOUBLING PROOF
 --------------------------------------------------------------------------------
-Initial Capacity = 1. Double capacity when full: 1 -> 2 -> 4 -> 8 -> ... -> 2^k.
+Initial Capacity = 1. Double capacity when full: 1 → 2 → 4 → 8 → ... → 2^k.
 
 For N = 2^k insertions:
   • Regular insertions:  N operations (cost 1 each).
@@ -52,7 +52,7 @@ Each item is handled exactly 4 times in its entire lifecycle:
   2. Pop from Inbox
   3. Push to Outbox
   4. Pop from Outbox
-Total lifetime cost for N items = 4N operations -> Exactly O(1) amortized!
+Total lifetime cost for N items = 4N operations → Exactly O(1) amortized!
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

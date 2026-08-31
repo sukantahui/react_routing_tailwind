@@ -34,7 +34,7 @@ const topic13_questions = [
     explanation: "Jackson looks for 'getStudentName()' to create the JSON key '\"studentName\"'. Hibernate inspects 'setBalance()' to populate entity state from database rows. Violating conventions breaks framework automation.",
     hint: "Reflection introspection relies on standardized prefixes.",
     level: "Intermediate",
-    codeExample: "// Jackson converts getCourseFee() -> { \"courseFee\": 8500.0 }"
+    codeExample: "// Jackson converts getCourseFee() → { \"courseFee\": 8500.0 }"
   },
   {
     question: "What is the naming rule difference between primitive 'boolean' and wrapper 'Boolean' getters?",
@@ -66,7 +66,7 @@ const topic13_questions = [
     explanation: "The JavaBeans spec dictates that if the first two characters of a property are capitalized (e.g. 'URL'), decapitalization keeps both uppercase. Odd casings like 'uName' or 'eMail' create bugs in Jackson and Spring binding.",
     hint: "Stick to standard camelCase like 'userName' or 'email'.",
     level: "Advanced",
-    codeExample: "// BAD: private String eMail; -> Getter: geteMail() vs getEMail()\n// GOOD: private String email; -> Getter: getEmail()"
+    codeExample: "// BAD: private String eMail; → Getter: geteMail() vs getEMail()\n// GOOD: private String email; → Getter: getEmail()"
   },
   {
     question: "What is the difference between a JavaBean and a POJO (Plain Old Java Object)?",
@@ -250,7 +250,7 @@ const topic13_questions = [
     explanation: "At the Barrackpore academy, Sukanta Hui teaches that an unvalidated setter is an open invitation to data corruption. Validate inputs rigorously at the setter gate, return safe defensive copies from getters, and follow JavaBean naming rules so enterprise frameworks work with your code effortlessly.",
     hint: "Setters are border checkpoints; getters are diplomatic couriers.",
     level: "Beginner",
-    codeExample: "// Sukanta Hui's Rule: Validate at setter -> Guard invariants -> Return unmodifiable/defensive copies from getters"
+    codeExample: "// Sukanta Hui's Rule: Validate at setter → Guard invariants → Return unmodifiable/defensive copies from getters"
   }
 ];
 

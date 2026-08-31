@@ -76,7 +76,7 @@ export default function Topic8() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Unpivoting Columns: Transforming Crosstab Reports into Normalized Tabular Data
           </h1>
 
@@ -204,7 +204,7 @@ export default function Topic8() {
               <p className="leading-relaxed">
                 When matrices have stacked headers (e.g. Year in Row 1, Month in Row 2):
                 <br />
-                <strong>1. Transpose &rarr; 2. Fill Down Year &rarr; 3. Combine Columns with ';' &rarr; 4. Transpose Back &rarr; 5. Promote Headers &rarr; 6. Unpivot Other Columns &rarr; 7. Split Attribute Column</strong>.
+                <strong>1. Transpose → 2. Fill Down Year → 3. Combine Columns with ';' → 4. Transpose Back → 5. Promote Headers → 6. Unpivot Other Columns → 7. Split Attribute Column</strong>.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
                 7-Step Algorithm Flattens Any Stacked Header Matrix
@@ -296,7 +296,7 @@ export default function Topic8() {
                 <text x="10" y="96" fill="#A7F3D0" fontWeight="bold">3. Auto-Discard Matrix Nulls</text>
 
                 <rect y="114" width="220" height="32" rx="4" fill="#854D0E" fillOpacity="0.3" stroke="#EAB308" />
-                <text x="10" y="134" fill="#FEF08A" fontWeight="bold">4. Coerce Month &rarr; Date Type</text>
+                <text x="10" y="134" fill="#FEF08A" fontWeight="bold">4. Coerce Month → Date Type</text>
               </g>
 
               <text x="450" y="270" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ 100% Dynamic Future Months</text>
@@ -363,7 +363,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic8_Unpivot_Crosstab"
+            sheetName="EX2009"
             title="Unpivoting Pipeline (Product Category, Branch City, Month Attribute, Revenue Value, Source Type)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -398,11 +398,11 @@ export default function Topic8() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Financial Analyst <strong>Swadeep Banerjee</strong> transforms a wide 12-month budget spreadsheet: 
-                selecting <code className="text-teal-300 font-mono">Department</code> &rarr; <strong>Unpivot Other Columns</strong>, 
+                selecting <code className="text-teal-300 font-mono">Department</code> → <strong>Unpivot Other Columns</strong>, 
                 converting 50 departmental rows into a 600-row relational fact table in 1 click!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                50 Rows &times; 12 Months &rarr; 600 Relational Fact Rows
+                50 Rows &times; 12 Months → 600 Relational Fact Rows
               </div>
             </div>
 
@@ -420,7 +420,7 @@ export default function Topic8() {
                 (Year in Row 1, Month in Row 2, Metric in Row 3) via the 7-step Transpose-FillDown algorithm, building a unified journal ledger.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Transpose &rarr; Fill Down &rarr; Merge &rarr; Unpivot &rarr; Split
+                Transpose → Fill Down → Merge → Unpivot → Split
               </div>
             </div>
 
@@ -438,7 +438,7 @@ export default function Topic8() {
                 preventing a ₹ 48M double-counting inflation bug in downstream Power BI dashboard visuals.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Table.RemoveColumns("Total") &rarr; Prevents Doubled Revenue
+                Table.RemoveColumns("Total") → Prevents Doubled Revenue
               </div>
             </div>
 
@@ -456,7 +456,7 @@ export default function Topic8() {
                 then applies currency stripping and numeric casting once on the single <code className="text-amber-300 font-mono">Value</code> column, saving 49 repetitive steps!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Unpivot First &rarr; 1 Single Clean Step on [Value]
+                Unpivot First → 1 Single Clean Step on [Value]
               </div>
             </div>
           </div>
@@ -510,7 +510,7 @@ export default function Topic8() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Click 'Unpivot Other Columns'</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Right-click any selected header &rarr; <strong>Unpivot Other Columns</strong>. All dynamic month columns collapse into Attribute and Value fields.
+                  Right-click any selected header → <strong>Unpivot Other Columns</strong>. All dynamic month columns collapse into Attribute and Value fields.
                 </p>
               </div>
             </div>
@@ -566,7 +566,7 @@ export default function Topic8() {
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Future Month Column Loss</td>
                   <td className="py-3 px-4 text-slate-300">Used 'Unpivot Columns' with hardcoded column names instead of 'Unpivot Other Columns'.</td>
                   <td className="py-3 px-4 text-slate-400">November column appears as a static extra column on refresh.</td>
-                  <td className="py-3 px-4 text-emerald-400">Select fixed key columns &rarr; Choose <strong>Unpivot Other Columns</strong>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Select fixed key columns → Choose <strong>Unpivot Other Columns</strong>.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Alphabetical Month Sorting</td>
@@ -672,7 +672,7 @@ export default function Topic8() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Consider multi-level header normalization:</strong> Why is the 7-step Transpose &rarr; Fill Down &rarr; Merge &rarr; Transpose &rarr; Unpivot algorithm essential for converting complex corporate trial balance exports into relational tables?
+                <strong>Consider multi-level header normalization:</strong> Why is the 7-step Transpose → Fill Down → Merge → Transpose → Unpivot algorithm essential for converting complex corporate trial balance exports into relational tables?
               </p>
             </div>
           </div>

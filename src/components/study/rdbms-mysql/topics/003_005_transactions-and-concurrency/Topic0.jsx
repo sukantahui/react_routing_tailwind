@@ -165,7 +165,7 @@ DELIMITER ;`,
               Transaction Fundamentals
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Understanding Database Transactions
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -296,7 +296,7 @@ DELIMITER ;`,
                     <text x="325" y="102" fill="#bae6fd" fontSize="7 font-mono" textAnchor="middle">Staged in Undo/Redo Logs</text>
                   </g>
 
-                  {/* Step 3: Fork -> COMMIT / ROLLBACK */}
+                  {/* Step 3: Fork → COMMIT / ROLLBACK */}
                   <g>
                     {/* COMMIT Path */}
                     <rect x="460" y="15" width="170" height="60" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="2" />

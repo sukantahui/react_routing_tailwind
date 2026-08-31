@@ -76,7 +76,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-pink-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Handling Optional Parameters with ISOMITTED & Default Fallbacks
           </h1>
 
@@ -126,12 +126,12 @@ export default function Topic4() {
               =LAMBDA(<span className="text-amber-300">base_rate</span>, [<span className="text-yellow-300">disc_rate</span>], LET(<span className="text-sky-300">d</span>, IF(ISOMITTED(<span className="text-yellow-300">disc_rate</span>), <span className="text-emerald-300">0.05</span>, <span className="text-yellow-300">disc_rate</span>), <span className="text-amber-300">base_rate</span> * (1 - <span className="text-sky-300">d</span>)))
             </div>
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
-              <span className="text-slate-500">// Usage 1 (Omitted Argument &rarr; Uses default 5% discount):</span>{" "}
+              <span className="text-slate-500">// Usage 1 (Omitted Argument → Uses default 5% discount):</span>{" "}
               <span className="text-emerald-400 font-bold">=CALCULATE_ROOM_FEE(4500)</span>{" "}
-              <span className="text-slate-500">&rarr; 4,275</span> <br />
-              <span className="text-slate-500">// Usage 2 (Custom Argument &rarr; Overrides with 10% discount):</span>{" "}
+              <span className="text-slate-500">→ 4,275</span> <br />
+              <span className="text-slate-500">// Usage 2 (Custom Argument → Overrides with 10% discount):</span>{" "}
               <span className="text-emerald-400 font-bold">=CALCULATE_ROOM_FEE(4500, 0.10)</span>{" "}
-              <span className="text-slate-500">&rarr; 4,050</span>
+              <span className="text-slate-500">→ 4,050</span>
             </div>
           </div>
 
@@ -195,7 +195,7 @@ export default function Topic4() {
                 Writing <code className="text-rose-400 font-mono">=LAMBDA([disc], price, ...)</code> causes a syntax error because Excel cannot determine positional binding if optional parameters appear before required ones.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Rule: Required First &rarr; Optional Last [in brackets]
+                Rule: Required First → Optional Last [in brackets]
               </div>
             </div>
 
@@ -223,7 +223,7 @@ export default function Topic4() {
               users can selectively supply the 3rd argument while omitting the 2nd by leaving an empty slot between commas:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                =CALCULATE_TOTAL(5000, , 0.10)  &rarr; Uses default GST (18%) and custom 10% discount!
+                =CALCULATE_TOTAL(5000, , 0.10)  → Uses default GST (18%) and custom 10% discount!
               </code>
             </p>
           </div>
@@ -287,7 +287,7 @@ export default function Topic4() {
 
               <g transform="translate(355, 90)">
                 <rect width="220" height="36" rx="6" fill="#3B0764" stroke="#A855F7" />
-                <text x="110" y="22" fill="#F5D0FE" fontSize="9.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">ISOMITTED(disc_rate) &rarr; TRUE</text>
+                <text x="110" y="22" fill="#F5D0FE" fontSize="9.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">ISOMITTED(disc_rate) → TRUE</text>
 
                 <rect y="50" width="220" height="55" rx="6" fill="#064E3B" stroke="#10B981" />
                 <text x="110" y="70" fill="#34D399" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">✓ Fallback Triggered</text>
@@ -351,7 +351,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_ISOMITTED"
+            sheetName="EX1805"
             title="Hotel Booking Register (Base Rate, Custom Discount Rate Overrides)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -390,7 +390,7 @@ export default function Topic4() {
                 Regular bookings use <code className="text-purple-300 font-mono">=CALC_ROOM(E5)</code> (5% default discount), while VIP bookings pass custom discounts: <code className="text-purple-300 font-mono">=CALC_ROOM(E6, F6)</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =CALC_ROOM(E5, [F5]) &rarr; Graceful 5% Default Handling
+                Formula: =CALC_ROOM(E5, [F5]) → Graceful 5% Default Handling
               </div>
             </div>
 
@@ -408,7 +408,7 @@ export default function Topic4() {
                 95% of transactions omit the 2nd argument and apply standard 18% GST, while luxury items pass <code className="text-emerald-300 font-mono">0.28</code> explicitly.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Default 18% GST &rarr; Custom Override when Required
+                Default 18% GST → Custom Override when Required
               </div>
             </div>
 
@@ -426,7 +426,7 @@ export default function Topic4() {
                 Junior clerks calculate standard quotes instantly by providing only Principal and Tenure!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Default Repo Rate &rarr; Simplified 2-Argument Invocation
+                Default Repo Rate → Simplified 2-Argument Invocation
               </div>
             </div>
 
@@ -443,7 +443,7 @@ export default function Topic4() {
                 DevOps Engineer <strong>Debangshu Ghosh</strong> builds <code className="text-amber-300 font-mono">CLEAN_PHONE = LAMBDA(phone, [country_code], LET(cc, IF(ISOMITTED(country_code), "+91", country_code), cc & " " & RIGHT(SUBSTITUTE(phone, " ", ""), 10)))</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Default +91 Country Prefix &rarr; Robust Phone Standardization
+                Default +91 Country Prefix → Robust Phone Standardization
               </div>
             </div>
           </div>
@@ -497,8 +497,8 @@ export default function Topic4() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Test Both Scenarios with Immediate Execution</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Test omission: <code className="text-emerald-400 font-mono">=(LAMBDA(r, [d], LET(d_val, IF(ISOMITTED(d), 0.05, d), r*(1-d_val))))(4500)</code> &rarr; Returns 4275. <br />
-                  Test override: <code className="text-emerald-400 font-mono">=(LAMBDA(r, [d], LET(d_val, IF(ISOMITTED(d), 0.05, d), r*(1-d_val))))(4500, 0.10)</code> &rarr; Returns 4050.
+                  Test omission: <code className="text-emerald-400 font-mono">=(LAMBDA(r, [d], LET(d_val, IF(ISOMITTED(d), 0.05, d), r*(1-d_val))))(4500)</code> → Returns 4275. <br />
+                  Test override: <code className="text-emerald-400 font-mono">=(LAMBDA(r, [d], LET(d_val, IF(ISOMITTED(d), 0.05, d), r*(1-d_val))))(4500, 0.10)</code> → Returns 4050.
                 </p>
               </div>
             </div>

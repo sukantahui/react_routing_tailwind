@@ -14,7 +14,7 @@ const questions = [
     question: "What are the 4 sequential passes in the Multi-Pass Iterative Elimination Algorithm?",
     shortAnswer: "Pass 1: Scan and delete dominated rows; Pass 2: Scan and delete dominated columns; Pass 3: Re-evaluate rows in the reduced matrix; Pass 4: Apply modified dominance if pure dominance stalls.",
     explanation: "Standard iterative dominance algorithm.",
-    hint: "Rows -> Columns -> Re-evaluate Rows -> Modified dominance.",
+    hint: "Rows → Columns → Re-evaluate Rows → Modified dominance.",
     level: "moderate",
     codeExample: "while(canReduce()) { deleteDominatedRows(); deleteDominatedCols(); testConvex(); }"
   },
@@ -24,7 +24,7 @@ const questions = [
     explanation: "Dimensionality reduction cascades and creates new dominance relations.",
     hint: "Deleting columns can create new row dominances.",
     level: "expert",
-    codeExample: "CascadingDominance: colDeletion -> newRowDominance."
+    codeExample: "CascadingDominance: colDeletion → newRowDominance."
   },
   {
     question: "When does the iterative dominance reduction process TERMINATE?",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Matrix Size Reduction Using Dominance?",
     shortAnswer: "'Iteratively prune dominated rows and columns in multi-pass cycles; re-inspect after every deletion; reduce large matrices to 2x2 or 1x1 while preserving the exact Value of the Game in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all matrix reduction mechanics.",
-    hint: "Prune rows and cols iteratively -> Re-inspect -> Solve compact 2x2 in ₹.",
+    hint: "Prune rows and cols iteratively → Re-inspect → Solve compact 2x2 in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: IterativePruning() -> ReInspectSubMatrix() -> Solve2x2Reduced(₹)."
+    codeExample: "GoldenRule: IterativePruning() → ReInspectSubMatrix() → Solve2x2Reduced(₹)."
   }
 ];
 

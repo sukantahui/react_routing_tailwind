@@ -158,7 +158,7 @@ WHERE TABLE_SCHEMA = 'academy_database';`,
               View DDL Statements
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             CREATE VIEW, ALTER VIEW & DROP VIEW Syntax
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -352,7 +352,7 @@ FROM student_registry;`}
                     <text x="745" y="80" fill="#f87171" fontSize="9" textAnchor="middle">Metadata removed</text>
                   </g>
 
-                  {/* Flow Arrow 1 -> 2 (CREATE) */}
+                  {/* Flow Arrow 1 → 2 (CREATE) */}
                   <path d="M 210 65 L 330 65" stroke="#10b981" strokeWidth="2" />
                   <text x="270" y="55" fill="#34d399" fontSize="9" fontWeight="bold" textAnchor="middle">CREATE VIEW</text>
 
@@ -361,7 +361,7 @@ FROM student_registry;`}
                   <text x="440" y="180" fill="#38bdf8" fontSize="10" fontWeight="bold" textAnchor="middle">ALTER VIEW / CREATE OR REPLACE</text>
                   <text x="440" y="195" fill="#94a3b8" fontSize="9" textAnchor="middle">(Preserves database user permissions)</text>
 
-                  {/* Flow Arrow 2 -> 3 (DROP) */}
+                  {/* Flow Arrow 2 → 3 (DROP) */}
                   <path d="M 550 65 L 670 65" stroke="#ef4444" strokeWidth="2" />
                   <text x="610" y="55" fill="#f87171" fontSize="9" fontWeight="bold" textAnchor="middle">DROP VIEW</text>
                 </svg>

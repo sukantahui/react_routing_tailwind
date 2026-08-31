@@ -42,7 +42,7 @@ export default function Topic2() {
             Algorithmic Lab 2 · Two-Pointer &amp; Math
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Palindromic Number &amp; String Verification Algorithms
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -80,7 +80,7 @@ export default function Topic2() {
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-emerald-500 text-slate-300 space-y-2">
             <p className="font-medium text-emerald-300">Classroom Case Study (Barrackpore Verification Suite):</p>
             <p className="text-sm leading-relaxed">
-              In our Barrackpore laboratory, <strong>Swadeep</strong> tested odd/even palindromes (<code className="text-emerald-400 font-mono">12321</code> and <code className="text-emerald-400 font-mono">1221</code> &rarr; true), <strong>Tuhina</strong> validated phrase palindromes (<code className="text-sky-300 font-mono">&quot;A man, a plan, a canal: Panama&quot;</code> &rarr; true), and <strong>Abhronila</strong> tested recursive Malayalam strings with 100% precision.
+              In our Barrackpore laboratory, <strong>Swadeep</strong> tested odd/even palindromes (<code className="text-emerald-400 font-mono">12321</code> and <code className="text-emerald-400 font-mono">1221</code> → true), <strong>Tuhina</strong> validated phrase palindromes (<code className="text-sky-300 font-mono">&quot;A man, a plan, a canal: Panama&quot;</code> → true), and <strong>Abhronila</strong> tested recursive Malayalam strings with 100% precision.
             </p>
           </div>
         </div>
@@ -127,20 +127,20 @@ export default function Topic2() {
             <text x="55" y="172" fill="#bae6fd" fontSize="10" fontFamily="monospace">Step 2  : x = 123   | rev = 12</text>
 
             <rect x="45" y="190" width="360" height="35" rx="4" fill="#082f49" />
-            <text x="55" y="212" fill="#fef08a" fontSize="10" fontFamily="monospace" fontWeight="bold">Step 3  : x = 12    | rev = 123 &rarr; x == rev/10 ✓</text>
+            <text x="55" y="212" fill="#fef08a" fontSize="10" fontFamily="monospace" fontWeight="bold">Step 3  : x = 12    | rev = 123 → x == rev/10 ✓</text>
 
             {/* Right Panel: Two-Pointer String Convergence */}
             <rect x="450" y="30" width="400" height="215" rx="10" fill="#0f172a" stroke="#10b981" strokeWidth="1.5" />
             <text x="650" y="55" fill="#10b981" fontSize="13" fontWeight="bold" textAnchor="middle">2. TWO-POINTER STRING CONVERGENCE</text>
 
             <rect x="465" y="70" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="92" fill="#a7f3d0" fontSize="10" fontFamily="monospace">[r] a d a [r] &rarr; &apos;r&apos; == &apos;r&apos; (Pointers step inward)</text>
+            <text x="475" y="92" fill="#a7f3d0" fontSize="10" fontFamily="monospace">[r] a d a [r] → &apos;r&apos; == &apos;r&apos; (Pointers step inward)</text>
 
             <rect x="465" y="110" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="132" fill="#a7f3d0" fontSize="10" fontFamily="monospace">r [a] d [a] r &rarr; &apos;a&apos; == &apos;a&apos; (Pointers step inward)</text>
+            <text x="475" y="132" fill="#a7f3d0" fontSize="10" fontFamily="monospace">r [a] d [a] r → &apos;a&apos; == &apos;a&apos; (Pointers step inward)</text>
 
             <rect x="465" y="150" width="370" height="35" rx="4" fill="#022c22" />
-            <text x="475" y="172" fill="#fef08a" fontSize="10" fontFamily="monospace" fontWeight="bold">r a [d] a r   &rarr; left == right (Halt &amp; return TRUE!)</text>
+            <text x="475" y="172" fill="#fef08a" fontSize="10" fontFamily="monospace" fontWeight="bold">r a [d] a r   → left == right (Halt &amp; return TRUE!)</text>
 
             <text x="650" y="215" fill="#a7f3d0" fontSize="10" fontWeight="bold" textAnchor="middle">O(N) Time | O(1) Memory | In-Place Inward Scan</text>
 

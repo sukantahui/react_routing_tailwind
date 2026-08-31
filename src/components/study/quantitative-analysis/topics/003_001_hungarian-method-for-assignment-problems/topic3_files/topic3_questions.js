@@ -198,7 +198,7 @@ const questions = [
     question: "What is the ultimate golden rule of the Cost Matrix?",
     shortAnswer: "'Ensure the cost matrix is square (n x n); assign M (Big-M) to prohibited pairings; subtract row minimums and column minimums to create the reduced opportunity cost matrix without altering optimal permutations!'",
     explanation: "This complete rule captures all essential handling of the cost matrix in the Hungarian method.",
-    hint: "Square matrix -> Big-M for prohibited -> Row/Col minimum subtractions.",
+    hint: "Square matrix → Big-M for prohibited → Row/Col minimum subtractions.",
     level: "moderate",
     codeExample: "Golden Rule: Square Matrix + Big-M Penalties + Row/Col Reductions = Reduced Matrix."
   }

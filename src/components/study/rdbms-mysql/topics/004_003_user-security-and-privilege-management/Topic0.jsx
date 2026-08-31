@@ -42,8 +42,8 @@ WHERE user = 'app_user';
 -- 1. Does user have Global SELECT in mysql.user?
 -- 2. Does user have DB SELECT in mysql.db for 'billing_db'?
 -- 3. Does user have Table SELECT in mysql.tables_priv for 'invoices'?
--- If YES -> Query Executes! ⚡
--- If NO  -> Error 1142: SELECT command denied to user 'app_user'@'...' ❌`,
+-- If YES → Query Executes! ⚡
+-- If NO  → Error 1142: SELECT command denied to user 'app_user'@'...' ❌`,
       metricsTable: [
         { stage: "Stage 1: Connection", checks: "User, Client Host, Password, Account Lock", outcome: "TCP Session Established or Error 1045 🔒" },
         { stage: "Stage 2: Request", checks: "SQL Command, Target DB, Table, Column", outcome: "Statement Executed or Error 1142 🚫" },
@@ -60,20 +60,20 @@ WHERE user = 'app_user';
       badgeColor: "cyan",
       sqlSnippet: `-- 🏛️ 5 PRIVILEGE SCOPE TIERS & THEIR UNDERLYING SYSTEM TABLES:
 
--- Tier 1: Global Scope (*.*) -> Stored in mysql.user:
+-- Tier 1: Global Scope (*.*) → Stored in mysql.user:
 GRANT SELECT, INSERT ON *.* TO 'super_auditor'@'localhost';
 
--- Tier 2: Database Scope (db_name.*) -> Stored in mysql.db:
+-- Tier 2: Database Scope (db_name.*) → Stored in mysql.db:
 GRANT SELECT, INSERT, UPDATE ON student_portal.* TO 'portal_app'@'192.168.1.%';
 
--- Tier 3: Table Scope (db_name.tbl_name) -> Stored in mysql.tables_priv:
+-- Tier 3: Table Scope (db_name.tbl_name) → Stored in mysql.tables_priv:
 GRANT SELECT ON student_portal.exam_results TO 'teacher_staff'@'%';
 
--- Tier 4: Column Scope (db_name.tbl_name(col)) -> Stored in mysql.columns_priv:
+-- Tier 4: Column Scope (db_name.tbl_name(col)) → Stored in mysql.columns_priv:
 GRANT SELECT (student_id, student_name, grade) 
 ON student_portal.students TO 'report_viewer'@'%';
 
--- Tier 5: Routine Scope (PROCEDURE / FUNCTION) -> Stored in mysql.procs_priv:
+-- Tier 5: Routine Scope (PROCEDURE / FUNCTION) → Stored in mysql.procs_priv:
 GRANT EXECUTE ON PROCEDURE student_portal.CalculateSemesterGPA 
 TO 'academic_dean'@'localhost';`,
       metricsTable: [
@@ -172,7 +172,7 @@ REVOKE INSERT ON college_db.* FROM 'mamata'@'localhost';
               Security Architecture
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             MySQL Security Architecture and Privilege System Overview
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -230,7 +230,7 @@ REVOKE INSERT ON college_db.* FROM 'mamata'@'localhost';
               <span className="text-xs font-mono text-amber-400 font-bold uppercase">3. 5 Scopes</span>
               <h3 className="font-bold text-white">Privilege Tiers</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Global &rarr; Database &rarr; Table &rarr; Column &rarr; Stored Routine privileges.
+                Global → Database → Table → Column → Stored Routine privileges.
               </p>
             </div>
 
@@ -311,7 +311,7 @@ REVOKE INSERT ON college_db.* FROM 'mamata'@'localhost';
 
                 <rect x="310" y="245" width="260" height="50" rx="4" fill="#1e293b" stroke="#10b981" />
                 <text x="320" y="267" fill="#34d399" fontSize="10" fontWeight="bold">Session Handshake Established</text>
-                <text x="320" y="283" fill="#94a3b8" fontSize="8">Fails here &rarr; Error 1045 Access Denied</text>
+                <text x="320" y="283" fill="#94a3b8" fontSize="8">Fails here → Error 1045 Access Denied</text>
 
                 {/* Box 3: Stage 2 Authorization */}
                 <rect x="620" y="40" width="310" height="280" rx="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />
@@ -326,11 +326,11 @@ REVOKE INSERT ON college_db.* FROM 'mamata'@'localhost';
 
                 <rect x="635" y="175" width="280" height="60" rx="4" fill="#1e293b" stroke="#047857" />
                 <text x="645" y="197" fill="#a7f3d0" fontSize="10" fontWeight="bold">Privilege Resolved:</text>
-                <text x="645" y="215" fill="#34d399" fontSize="9">SELECT_PRIV = 'Y' &rarr; AUTHORIZED! ⚡</text>
+                <text x="645" y="215" fill="#34d399" fontSize="9">SELECT_PRIV = 'Y' → AUTHORIZED! ⚡</text>
 
                 <rect x="635" y="245" width="280" height="50" rx="4" fill="#1e293b" stroke="#10b981" />
                 <text x="645" y="267" fill="#34d399" fontSize="10" fontWeight="bold">Query Execution in InnoDB Engine</text>
-                <text x="645" y="283" fill="#94a3b8" fontSize="8">Fails here &rarr; Error 1142 Command Denied</text>
+                <text x="645" y="283" fill="#94a3b8" fontSize="8">Fails here → Error 1142 Command Denied</text>
 
                 {/* Connecting Arrows */}
                 <path d="M 260 140 L 310 140" fill="none" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrSecCyan)" />

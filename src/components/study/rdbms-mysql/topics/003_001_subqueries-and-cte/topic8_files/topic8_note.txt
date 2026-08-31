@@ -25,7 +25,7 @@ Syntax Blueprint:
 --------------------------------------------------------------------------------
 1. Linear Readability:
    - Eliminates messy "inside-out" nesting of derived tables in the `FROM` clause.
-   - SQL queries read linearly from top to bottom (Step 1 -> Step 2 -> Final Report).
+   - SQL queries read linearly from top to bottom (Step 1 → Step 2 → Final Report).
 
 2. Reusability within a Single Statement:
    - A CTE can be referenced MULTIPLE times in the same outer query (e.g. self-joining 

@@ -32,7 +32,7 @@ const questions = [
     explanation: "BEC attacks bypass antivirus scanners because they rely on spoofed domains and urgent psychological pressure.",
     hint: "Tricking accounting staff into wiring money by impersonating company executives via fake emails.",
     level: "moderate",
-    codeExample: "BEC_Attack: Spoofed_CEO_Email -> 'Urgent: Wire ₹45,00,000 to Vendor Account X' -> Finance_Transfers -> Funds_Stolen"
+    codeExample: "BEC_Attack: Spoofed_CEO_Email → 'Urgent: Wire ₹45,00,000 to Vendor Account X' → Finance_Transfers → Funds_Stolen"
   },
   {
     question: "Why is Cyber Security essential for Critical National Infrastructure (CNI)?",
@@ -56,7 +56,7 @@ const questions = [
     explanation: "Compels organizations in Barrackpore to enforce Zero Trust Network Access (ZTNA) and device health posture checks.",
     hint: "Working from home exposes companies to unsecured home Wi-Fi and unmanaged personal devices.",
     level: "basic",
-    codeExample: "BYOD_Security: DevicePostureCheck(AntivirusActive, DiskEncrypted) -> If_Pass_Grant_ZTNA_Tunnel();"
+    codeExample: "BYOD_Security: DevicePostureCheck(AntivirusActive, DiskEncrypted) → If_Pass_Grant_ZTNA_Tunnel();"
   },
   {
     question: "What is Supply Chain Cyber Risk and how did the SolarWinds cyber attack highlight this need?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "SolarWinds Orion software updates were trojanized by nation-state actors, giving hackers access to US government agencies and Fortune 500 networks.",
     hint: "Hackers compromise a trusted software vendor to secretly infect thousands of its corporate customers.",
     level: "expert",
-    codeExample: "SupplyChainRisk: Compromise(VendorBuildPipeline) -> BackdoorInjectedInSignedUpdate -> 18,000_CustomersInfected"
+    codeExample: "SupplyChainRisk: Compromise(VendorBuildPipeline) → BackdoorInjectedInSignedUpdate → 18,000_CustomersInfected"
   },
   {
     question: "Why is Cyber Security critical for Intellectual Property (IP) and Research & Development (R&D)?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "Studies show over 60% of small and mid-sized enterprises go out of business within 6 months of a major public data breach.",
     hint: "Customers leaving and brand trust crashing after sensitive customer data is stolen and leaked.",
     level: "basic",
-    codeExample: "ReputationalImpact: PublicBreachDisclosed -> CustomerChurn(+35%) -> StockPriceDrop(-18%)"
+    codeExample: "ReputationalImpact: PublicBreachDisclosed → CustomerChurn(+35%) → StockPriceDrop(-18%)"
   },
   {
     question: "What is Regulatory Compliance Mandate (e.g. RBI Master Directions on IT & Cyber Security)?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "National election commissions deploy air-gapped electronic voting machines and cryptographic tally audits in India.",
     hint: "Protects voter registries and election tallies from foreign manipulation and hacking.",
     level: "basic",
-    codeExample: "ElectoralSecurity: VoterRolls.encrypt() -> AirGappedVotingMachines() -> CryptographicVVPAT_Audit();"
+    codeExample: "ElectoralSecurity: VoterRolls.encrypt() → AirGappedVotingMachines() → CryptographicVVPAT_Audit();"
   },
   {
     question: "What is Ransomware-as-a-Service (RaaS) and why has it democratized cyber attacks?",
@@ -168,7 +168,7 @@ const questions = [
     explanation: "Allows amateur criminals in West Bengal to launch sophisticated, military-grade cyber extortion campaigns.",
     hint: "Criminal subscription model where malware creators rent out ransomware to amateur hackers for a cut of profits.",
     level: "moderate",
-    codeExample: "RaaS_Model: Developer(Builds Ransomware) <--> Affiliate(Infects Victims) -> Splits Ransom (75% / 25%)"
+    codeExample: "RaaS_Model: Developer(Builds Ransomware) <--> Affiliate(Infects Victims) → Splits Ransom (75% / 25%)"
   },
   {
     question: "What is Shadow IT and how does it create unseen security risks for organizations?",
@@ -184,7 +184,7 @@ const questions = [
     explanation: "Firewalls in Barrackpore automatically block connections to command-and-control servers identified 5 minutes earlier in Tokyo.",
     hint: "Live automated streams of known hacker IPs and virus hashes to block new attacks instantly.",
     level: "expert",
-    codeExample: "STIX_TAXII_Feed: NewMaliciousIP('198.51.100.45') -> Ingested by Firewall -> Inbound Traffic Dropped"
+    codeExample: "STIX_TAXII_Feed: NewMaliciousIP('198.51.100.45') → Ingested by Firewall → Inbound Traffic Dropped"
   },
   {
     question: "Why is Cryptographic Key Management often more critical than the encryption algorithm itself?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Requires strict network segmentation between municipal utility subnets in Kolkata.",
     hint: "Hacking smart city traffic lights or emergency sirens can cause urban chaos and accidents.",
     level: "moderate",
-    codeExample: "SmartCity_Risk: CompromisedTrafficLightController -> AllLightsSetToGreen -> TrafficCollisions"
+    codeExample: "SmartCity_Risk: CompromisedTrafficLightController → AllLightsSetToGreen → TrafficCollisions"
   },
   {
     question: "What is Security through Obscurity and why is it a dangerous misconception?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Kerckhoffs's Principle states that a system must remain secure even if everything about the design is publicly known, except the key.",
     hint: "Thinking that hiding something on a weird port makes it safe; scanners find it in seconds.",
     level: "basic",
-    codeExample: "ObscurityFallacy: AdminPortalOnPort8888 -> NmapScanDetectsPortIn10Seconds -> Breached"
+    codeExample: "ObscurityFallacy: AdminPortalOnPort8888 → NmapScanDetectsPortIn10Seconds → Breached"
   },
   {
     question: "What is Vendor Third-Party Risk Management (TPRM) in enterprise security?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures operational continuity, legal mandates, human safety, national defense, and financial procurement budgeting.",
     hint: "Cyber security is a business survival prerequisite protecting wealth, human life, and sovereignty in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ProtectHumanSafety() -> EnsureBusinessContinuity() -> ComplyWithDPDPA() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: ProtectHumanSafety() → EnsureBusinessContinuity() → ComplyWithDPDPA() → BudgetInRupees(₹);"
   }
 ];
 

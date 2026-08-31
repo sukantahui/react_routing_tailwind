@@ -76,7 +76,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-amber-400 via-yellow-300 to-orange-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-amber-400 via-yellow-300 to-orange-300 bg-clip-text text-transparent leading-tight">
             Assessment: Advanced Grid Reshaping & Dimension Transformation Challenge
           </h1>
 
@@ -144,7 +144,7 @@ export default function Topic13() {
                   <td className="py-3 px-4 font-bold text-sky-300">TOROW</td>
                   <td className="py-3 px-4 text-slate-300">=TOROW(array, [ignore], [scan_col])</td>
                   <td className="py-3 px-4 font-sans text-slate-400">Flattens 2D matrices into 1D horizontal rows.</td>
-                  <td className="py-3 px-4 text-rose-400 font-mono">&gt; 16,384 cols crash</td>
+                  <td className="py-3 px-4 text-rose-400 font-mono">> 16,384 cols crash</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-indigo-300">CHOOSEROWS</td>
@@ -352,7 +352,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Challenge_Lab"
+            sheetName="EX1714"
             title="Capstone Challenge Lab (Multi-Branch Unstructured Enterprise Datasets)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -522,7 +522,7 @@ export default function Topic13() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#CALC!</td>
                   <td className="py-3 px-4 font-mono text-amber-300">DROP, FILTER</td>
                   <td className="py-3 px-4 text-slate-300">Resulting output array is empty (e.g. dropping all rows).</td>
-                  <td className="py-3 px-4 text-emerald-400">Ensure dropped count &lt; total array rows.</td>
+                  <td className="py-3 px-4 text-emerald-400">Ensure dropped count < total array rows.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#VALUE!</td>

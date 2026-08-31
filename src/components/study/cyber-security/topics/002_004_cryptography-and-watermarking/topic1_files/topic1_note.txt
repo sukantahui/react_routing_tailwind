@@ -15,8 +15,8 @@ as a 5-tuple:
   * P (Plaintext Space)   : The set of all possible unencrypted messages.
   * C (Ciphertext Space)  : The set of all possible encrypted ciphertext outputs.
   * K (Key Space)         : The finite set of all possible secret cryptographic keys.
-  * E (Encryption Family) : A set of functions { e_k : P -> C } indexed by key k in K.
-  * D (Decryption Family) : A set of functions { d_k : C -> P } indexed by key k in K.
+  * E (Encryption Family) : A set of functions { e_k : P → C } indexed by key k in K.
+  * D (Decryption Family) : A set of functions { d_k : C → P } indexed by key k in K.
 
 * FUNDAMENTAL DECRYPTION INVARIANCE CONDITION:
   For every plaintext message x in P and every key k in K:

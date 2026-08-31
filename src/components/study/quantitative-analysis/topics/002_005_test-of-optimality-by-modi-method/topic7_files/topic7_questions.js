@@ -208,7 +208,7 @@ const questions = [
     explanation: "The simplex algorithm visits successive vertices on the polyhedron; variables can enter, leave, and re-enter.",
     hint: "Variables can leave and re-enter in later iterations.",
     level: "expert",
-    codeExample: "Basis dynamics: x_ij can transition Basic -> NonBasic -> Basic."
+    codeExample: "Basis dynamics: x_ij can transition Basic → NonBasic → Basic."
   },
   {
     question: "What is the visual convention for drawing the plus and minus signs on the tableau during exams?",
@@ -230,9 +230,9 @@ const questions = [
     question: "What is the ultimate golden rule for applying the plus-minus allocation pattern?",
     shortAnswer: "'Entering cell gets +θ; alternate signs (+, -, +, -) around loop corners; set θ = min(minus corners); add θ to plus cells, subtract θ from minus cells; verify row/column sums!'",
     explanation: "This complete rule guarantees error-free flow pivoting in every MODI problem.",
-    hint: "+θ at enter -> alternate signs -> θ = min(minus) -> update and verify sums.",
+    hint: "+θ at enter → alternate signs → θ = min(minus) → update and verify sums.",
     level: "moderate",
-    codeExample: "Golden Rule: (1) Enter=+θ -> (2) Alternate -> (3) θ=min(minus) -> (4) Pivot -> (5) Audit."
+    codeExample: "Golden Rule: (1) Enter=+θ → (2) Alternate → (3) θ=min(minus) → (4) Pivot → (5) Audit."
   }
 ];
 

@@ -5,7 +5,7 @@ const topic3_questions = [
     "explanation": "For a stream of 1 element, the accumulator is invoked 0 times and the element is returned directly in an Optional.",
     "hint": "Invoked N - 1 times.",
     "level": "Intermediate",
-    "codeExample": "List.of(10).stream().reduce((a, b) -> a + b); // Accumulator called 0 times, returns Optional.of(10)"
+    "codeExample": "List.of(10).stream().reduce((a, b) → a + b); // Accumulator called 0 times, returns Optional.of(10)"
   },
   {
     "question": "What is the primary difference between 1-argument reduce and 2-argument reduce?",

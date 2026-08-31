@@ -42,7 +42,7 @@ export default function Topic3() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Array Instantiation with <code className="text-emerald-400 font-mono">&apos;new&apos;</code> &amp; Default Element Values
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -114,7 +114,7 @@ export default function Topic3() {
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">int n = getCount();</text>
             <text x="55" y="122" fill="#bae6fd" fontSize="11" fontFamily="monospace">new double[n];</text>
-            <text x="55" y="142" fill="#d1fae5" fontSize="10">Guards if n &lt; 0 &rarr; Exception</text>
+            <text x="55" y="142" fill="#d1fae5" fontSize="10">Guards if n &lt; 0 → Exception</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Dynamic Runtime Sizing
             </text>
@@ -134,9 +134,9 @@ export default function Topic3() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradZeroFill)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Bulk Zero-Filling</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#2e1065" />
-            <text x="615" y="102" fill="#ddd6fe" fontSize="11" fontFamily="monospace">double &rarr; 0.0</text>
-            <text x="615" y="122" fill="#ddd6fe" fontSize="11" fontFamily="monospace">int &rarr; 0 | bool &rarr; false</text>
-            <text x="615" y="142" fill="#d1fae5" fontSize="10">Object refs &rarr; null</text>
+            <text x="615" y="102" fill="#ddd6fe" fontSize="11" fontFamily="monospace">double → 0.0</text>
+            <text x="615" y="122" fill="#ddd6fe" fontSize="11" fontFamily="monospace">int → 0 | bool → false</text>
+            <text x="615" y="142" fill="#d1fae5" fontSize="10">Object refs → null</text>
             <text x="720" y="190" fill="#f5f3ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               JVM Type-Safe Guarantee
             </text>

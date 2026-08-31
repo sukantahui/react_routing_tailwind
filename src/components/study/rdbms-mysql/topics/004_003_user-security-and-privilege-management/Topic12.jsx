@@ -27,9 +27,9 @@ const Topic12 = () => {
       badgeColor: "emerald",
       sqlSnippet: `-- 🔑 THE TWO-TIER CRYPTOGRAPHIC HIERARCHY:
 
--- Tier 1: Master Encryption Key (MEK) -> Stored in Keyring Component / Vault
--- Tier 2: Tablespace Encryption Key (DEK) -> Stored in .ibd Header, encrypted by MEK
--- Tier 3: 16KB InnoDB Data Pages -> Stored on physical disk, encrypted with AES-256
+-- Tier 1: Master Encryption Key (MEK) → Stored in Keyring Component / Vault
+-- Tier 2: Tablespace Encryption Key (DEK) → Stored in .ibd Header, encrypted by MEK
+-- Tier 3: 16KB InnoDB Data Pages → Stored on physical disk, encrypted with AES-256
 
 -- 1. Create encrypted table:
 CREATE TABLE kolkata_finance.ledgers (
@@ -147,7 +147,7 @@ SHOW STATUS LIKE 'Innodb_num_pages_decrypted';`,
             Topic 12 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Securing Data at Rest: <span className="text-emerald-400">InnoDB TDE</span> &amp; Keyring Architecture
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

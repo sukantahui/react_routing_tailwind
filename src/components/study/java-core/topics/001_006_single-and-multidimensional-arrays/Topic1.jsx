@@ -42,7 +42,7 @@ export default function Topic1() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Array Memory Allocation: Stack References &amp; Dynamic Heap Objects
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -150,10 +150,10 @@ export default function Topic1() {
             <rect x="620" y="40" width="230" height="180" rx="10" fill="url(#gradDefaults)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="735" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">DEFAULT INITIAL VALUES</text>
             <rect x="635" y="80" width="200" height="80" rx="6" fill="#2e1065" />
-            <text x="645" y="98" fill="#ddd6fe" fontSize="10" fontFamily="monospace">int, long    &rarr; 0</text>
-            <text x="645" y="114" fill="#ddd6fe" fontSize="10" fontFamily="monospace">float, double &rarr; 0.0</text>
-            <text x="645" y="130" fill="#ddd6fe" fontSize="10" fontFamily="monospace">boolean       &rarr; false</text>
-            <text x="645" y="146" fill="#fca5a5" fontSize="10" fontFamily="monospace">Object ref    &rarr; null</text>
+            <text x="645" y="98" fill="#ddd6fe" fontSize="10" fontFamily="monospace">int, long    → 0</text>
+            <text x="645" y="114" fill="#ddd6fe" fontSize="10" fontFamily="monospace">float, double → 0.0</text>
+            <text x="645" y="130" fill="#ddd6fe" fontSize="10" fontFamily="monospace">boolean       → false</text>
+            <text x="645" y="146" fill="#fca5a5" fontSize="10" fontFamily="monospace">Object ref    → null</text>
             <text x="735" y="190" fill="#f5f3ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Zero-Fill Guarantee
             </text>

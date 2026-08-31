@@ -582,7 +582,7 @@
             "Microsoft Excel 365 Formulas and Functions - Chapter 2"
           ],
           "teachingTips": [
-            "Use F4 key drill to toggle through A1 -> $A$1 -> A$1 -> $A1 -> A1.",
+            "Use F4 key drill to toggle through A1 → $A$1 → A$1 → $A1 → A1.",
             "Have students predict formula results before pressing Enter."
           ],
           "preReading": [

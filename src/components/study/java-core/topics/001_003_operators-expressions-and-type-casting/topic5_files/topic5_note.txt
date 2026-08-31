@@ -31,7 +31,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Associativity & Precedence:
   * Unary operators associate RIGHT-TO-LEFT.
-  * Example: - - -10 -> -(-(-(10))) -> -10.
+  * Example: - - -10 → -(-(-(10))) → -10.
   * Higher precedence than all binary arithmetic operators (*, /, +, -).
 
 2. ESSENTIAL CHECKLIST

@@ -197,7 +197,7 @@
       "description": "Build a C++ `std::shared_ptr` equivalent Reference Counting Smart Pointer system in C! Wrap dynamic objects in a header containing `ref_count`. Increment `ref_count++` on copy; decrement `ref_count--` on release. Automatically call `free()` when `ref_count == 0`! In this project, you will build Reference Counting Smart Pointer System in C.",
       "learningOutcome": "Reference Counting Smart Pointers, Automatic Deallocation & Shared Ownership Models",
       "exampleText": "Manage object lifetime via reference counting smart pointers",
-      "exampleOutput": "--- Reference Counting Smart Pointer System ---\nRef Count = 2; decremented to 0 -> Memory block automatically deallocated!",
+      "exampleOutput": "--- Reference Counting Smart Pointer System ---\nRef Count = 2; decremented to 0 → Memory block automatically deallocated!",
       "logicExplanation": "1. **Retain Operation**: Increment `ptr->ref_count++` when adding owner reference.\n2. **Release Operation**: Decrement `ptr->ref_count--`; if `ref_count == 0`, execute `free(ptr)`.",
       "answerFile": "./answers/answer16.c",
       "codeExplanation": "1. `ref_count_smart_ptr_demo()`: Solves Reference Counting Smart Pointer System."

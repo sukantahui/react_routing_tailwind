@@ -70,7 +70,7 @@ const Topic5 = () => {
                             Java Generics Series • Topic 6
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
                             Generic Methods
                         </h1>
 
@@ -337,15 +337,15 @@ const Topic5 = () => {
 public class UtilityClass {
     
     // Generic method declaration
-    // <T> declares the type parameter
+    // &lt;T&gt; declares the type parameter
     // T is the return type
     // T item is the parameter
-    public static <T> T identity(T item) {
+    public static &lt;T&gt; T identity(T item) {
         return item; // Returns the same type as input
     }
     
     // Generic method with multiple parameters
-    public static <T> boolean areEqual(T first, T second) {
+    public static &lt;T&gt; boolean areEqual(T first, T second) {
         if (first == null) {
             return second == null;
         }
@@ -404,7 +404,7 @@ public class Main {
                                             {[
                                                 {
                                                     part: "Type Parameter Declaration",
-                                                    syntax: "<T>",
+                                                    syntax: "&lt;T&gt;",
                                                     position: "Before return type",
                                                     purpose: "Declares type parameter(s) for the method"
                                                 },
@@ -428,7 +428,7 @@ public class Main {
                                                 },
                                                 {
                                                     part: "Type Bounds",
-                                                    syntax: "<T extends Comparable<T>>",
+                                                    syntax: "<T extends Comparable&lt;T&gt;>",
                                                     position: "In type parameter declaration",
                                                     purpose: "Restricts allowed types"
                                                 }
@@ -459,13 +459,13 @@ public class Main {
 
                                         <JavaCodeBlock
                                             code={`// Example 1: Single type parameter
-public <T> void processItem(T item) {
+public &lt;T&gt; void processItem(T item) {
     System.out.println("Processing: " + item.toString());
 }
 
 // Example 2: Multiple type parameters
 public <K, V> Map<K, V> createMap(K key, V value) {
-    Map<K, V> map = new HashMap<>();
+    Map<K, V> map = new HashMap&lt;&gt;();
     map.put(key, value);
     return map;
 }
@@ -476,19 +476,19 @@ public <T extends Number> double square(T number) {
 }
 
 // Example 4: Generic method in generic class
-public class Container<T> {
+public class Container&lt;T&gt; {
     private T value;
     
     // Class-level T is different from method-level U
     public <U> Container<U> transform(Function<T, U> function) {
         U newValue = function.apply(value);
-        return new Container<>(newValue);
+        return new Container&lt;&gt;(newValue);
     }
 }
 
 // Example 5: Static generic method
-public static <T> List<T> createList(T... items) {
-    List<T> list = new ArrayList<>();
+public static &lt;T&gt; List&lt;T&gt; createList(T... items) {
+    List&lt;T&gt; list = new ArrayList&lt;&gt;();
     for (T item : items) {
         list.add(item);
     }
@@ -496,8 +496,8 @@ public static <T> List<T> createList(T... items) {
 }
 
 // Example 6: Returning wildcard types (advanced)
-public static <T> List<? extends T> filterList(
-    List<T> list, Predicate<T> predicate) {
+public static &lt;T&gt; List<? extends T> filterList(
+    List&lt;T&gt; list, Predicate&lt;T&gt; predicate) {
     return list.stream()
                .filter(predicate)
                .collect(Collectors.toList());
@@ -544,12 +544,12 @@ public static <T> List<? extends T> filterList(
                                 <div className="mt-6">
                                     <JavaCodeBlock
                                         code={`// Scope demonstration
-public class ScopeExample<T> {  // Class-level T
+public class ScopeExample&lt;T&gt; {  // Class-level T
     private T classValue;
     
     // Method-level T hides class-level T
     // This is confusing - avoid same names!
-    public <T> void confusingMethod(T methodValue) {
+    public &lt;T&gt; void confusingMethod(T methodValue) {
         // methodValue is method-level T
         // this.classValue is class-level T
         // They can be DIFFERENT types!
@@ -563,7 +563,7 @@ public class ScopeExample<T> {  // Class-level T
     }
     
     // Static method: MUST declare its own type parameters
-    public static <V> V staticMethod(V value) {
+    public static &lt;V&gt; V staticMethod(V value) {
         return value;
         // Cannot use class T here!
     }
@@ -634,7 +634,7 @@ public class ScopeExample<T> {  // Class-level T
 public class InferenceExamples {
     
     // Simple generic method
-    public static <T> T getFirst(List<T> list) {
+    public static &lt;T&gt; T getFirst(List&lt;T&gt; list) {
         return list.isEmpty() ? null : list.get(0);
     }
     
@@ -644,7 +644,7 @@ public class InferenceExamples {
     }
     
     // Bounded type inference
-    public static <T extends Comparable<T>> T max(T a, T b) {
+    public static <T extends Comparable&lt;T&gt;> T max(T a, T b) {
         return a.compareTo(b) >= 0 ? a : b;
     }
     
@@ -655,7 +655,7 @@ public class InferenceExamples {
         String first = getFirst(names); // T inferred as String
         
         // Example 2: Map inference
-        Map<Integer, String> studentMap = new HashMap<>();
+        Map<Integer, String> studentMap = new HashMap&lt;&gt;();
         studentMap.put(101, "Abhronila");
         String student = getValue(studentMap, 101); // K=Integer, V=String
         
@@ -676,8 +676,8 @@ public class InferenceExamples {
     }
     
     // Complex inference scenario
-    public static <T> List<T> mergeLists(List<T> list1, List<T> list2) {
-        List<T> merged = new ArrayList<>(list1);
+    public static &lt;T&gt; List&lt;T&gt; mergeLists(List&lt;T&gt; list1, List&lt;T&gt; list2) {
+        List&lt;T&gt; merged = new ArrayList&lt;&gt;(list1);
         merged.addAll(list2);
         return merged;
     }
@@ -746,7 +746,7 @@ public class InferenceExamples {
 public class InferenceDebugging {
     
     // Problem: Ambiguous null
-    public static <T> void process(T item) {
+    public static &lt;T&gt; void process(T item) {
         System.out.println(item);
     }
     
@@ -767,11 +767,11 @@ public class InferenceDebugging {
     }
     
     // Problem: Chained generic methods
-    public static <T> List<T> filter(List<T> list) {
+    public static &lt;T&gt; List&lt;T&gt; filter(List&lt;T&gt; list) {
         return list;
     }
     
-    public static <T> List<T> transform(List<T> list) {
+    public static &lt;T&gt; List&lt;T&gt; transform(List&lt;T&gt; list) {
         return list;
     }
     
@@ -819,7 +819,7 @@ public class InferenceDebugging {
 public class CollectionUtils {
     
     // Find maximum element in collection
-    public static <T extends Comparable<T>> T findMax(Collection<T> collection) {
+    public static <T extends Comparable&lt;T&gt;> T findMax(Collection&lt;T&gt; collection) {
         if (collection.isEmpty()) {
             throw new IllegalArgumentException("Collection is empty");
         }
@@ -834,7 +834,7 @@ public class CollectionUtils {
     }
     
     // Convert collection to array (type-safe)
-    public static <T> T[] toArray(Collection<T> collection, Class<T> type) {
+    public static &lt;T&gt; T[] toArray(Collection&lt;T&gt; collection, Class&lt;T&gt; type) {
         @SuppressWarnings("unchecked")
         T[] array = (T[]) Array.newInstance(type, collection.size());
         return collection.toArray(array);
@@ -842,17 +842,17 @@ public class CollectionUtils {
     
     // Merge multiple collections
     @SafeVarargs
-    public static <T> List<T> mergeCollections(Collection<T>... collections) {
-        List<T> merged = new ArrayList<>();
-        for (Collection<T> collection : collections) {
+    public static &lt;T&gt; List&lt;T&gt; mergeCollections(Collection&lt;T&gt;... collections) {
+        List&lt;T&gt; merged = new ArrayList&lt;&gt;();
+        for (Collection&lt;T&gt; collection : collections) {
             merged.addAll(collection);
         }
         return merged;
     }
     
     // Filter collection based on predicate
-    public static <T> List<T> filter(Collection<T> collection, Predicate<T> predicate) {
-        List<T> filtered = new ArrayList<>();
+    public static &lt;T&gt; List&lt;T&gt; filter(Collection&lt;T&gt; collection, Predicate&lt;T&gt; predicate) {
+        List&lt;T&gt; filtered = new ArrayList&lt;&gt;();
         for (T item : collection) {
             if (predicate.test(item)) {
                 filtered.add(item);
@@ -862,10 +862,10 @@ public class CollectionUtils {
     }
     
     // Transform collection elements
-    public static <T, R> List<R> transform(
-        Collection<T> collection, 
+    public static <T, R> List&lt;R&gt; transform(
+        Collection&lt;T&gt; collection, 
         Function<T, R> transformer) {
-        List<R> transformed = new ArrayList<>();
+        List&lt;R&gt; transformed = new ArrayList&lt;&gt;();
         for (T item : collection) {
             transformed.add(transformer.apply(item));
         }
@@ -882,11 +882,11 @@ public class CollectionUtils {
             
             // Filter students with grade > 90
             List<Integer> excellentGrades = CollectionUtils.filter(
-                grades, grade -> grade > 90);
+                grades, grade → grade > 90);
             
             // Transform grades to letter grades
             List<String> letterGrades = CollectionUtils.transform(
-                grades, grade -> {
+                grades, grade → {
                     if (grade >= 90) return "A";
                     if (grade >= 80) return "B";
                     return "C";
@@ -916,7 +916,7 @@ public class CollectionUtils {
 public class ValidationUtils {
     
     // Validate not null
-    public static <T> T requireNonNull(T obj, String message) {
+    public static &lt;T&gt; T requireNonNull(T obj, String message) {
         if (obj == null) {
             throw new IllegalArgumentException(message);
         }
@@ -924,7 +924,7 @@ public class ValidationUtils {
     }
     
     // Validate with custom predicate
-    public static <T> T validate(T obj, Predicate<T> validator, String message) {
+    public static &lt;T&gt; T validate(T obj, Predicate&lt;T&gt; validator, String message) {
         if (!validator.test(obj)) {
             throw new IllegalArgumentException(message);
         }
@@ -932,9 +932,9 @@ public class ValidationUtils {
     }
     
     // Validate collection elements
-    public static <T> Collection<T> validateAll(
-        Collection<T> collection, 
-        Predicate<T> validator,
+    public static &lt;T&gt; Collection&lt;T&gt; validateAll(
+        Collection&lt;T&gt; collection, 
+        Predicate&lt;T&gt; validator,
         String message) {
         for (T item : collection) {
             if (!validator.test(item)) {
@@ -945,15 +945,15 @@ public class ValidationUtils {
     }
     
     // Chain validations
-    public static <T> T chainValidate(T obj, Validation<T>... validations) {
-        for (Validation<T> validation : validations) {
+    public static &lt;T&gt; T chainValidate(T obj, Validation&lt;T&gt;... validations) {
+        for (Validation&lt;T&gt; validation : validations) {
             validation.validate(obj);
         }
         return obj;
     }
     
     // Generic validation interface
-    public interface Validation<T> {
+    public interface Validation&lt;T&gt; {
         void validate(T obj) throws IllegalArgumentException;
     }
     
@@ -964,28 +964,28 @@ public class ValidationUtils {
             ValidationUtils.requireNonNull(patient, "Patient cannot be null");
             
             ValidationUtils.validate(patient, 
-                p -> p.getAge() >= 0 && p.getAge() <= 150,
+                p → p.getAge() >= 0 && p.getAge() <= 150,
                 "Invalid age");
                 
             ValidationUtils.validate(patient,
-                p -> p.getName() != null && !p.getName().trim().isEmpty(),
+                p → p.getName() != null && !p.getName().trim().isEmpty(),
                 "Patient name required");
             
             // Validate medications list
             List<Medication> medications = patient.getMedications();
             ValidationUtils.validateAll(medications,
-                med -> med.getDosage() > 0,
+                med → med.getDosage() > 0,
                 "Invalid medication dosage");
         }
         
         // Generic validation method in service class
-        public <T> void validateEntity(T entity, Validator<T> validator) {
+        public &lt;T&gt; void validateEntity(T entity, Validator&lt;T&gt; validator) {
             validator.validate(entity);
         }
     }
     
     // Generic validator interface
-    public interface Validator<T> {
+    public interface Validator&lt;T&gt; {
         boolean isValid(T entity);
         String getErrorMessage();
     }
@@ -1004,7 +1004,7 @@ public class ValidationUtils {
                                 {[
                                     {
                                         pattern: "Factory Methods",
-                                        example: "createInstance(Class<T> type)",
+                                        example: "createInstance(Class&lt;T&gt; type)",
                                         useCase: "Object creation with type safety"
                                     },
                                     {
@@ -1014,22 +1014,22 @@ public class ValidationUtils {
                                     },
                                     {
                                         pattern: "Comparator",
-                                        example: "compare(T a, T b, Comparator<T>)",
+                                        example: "compare(T a, T b, Comparator&lt;T&gt;)",
                                         useCase: "Generic comparison operations"
                                     },
                                     {
                                         pattern: "Predicate Filter",
-                                        example: "filter(Collection<T>, Predicate<T>)",
+                                        example: "filter(Collection&lt;T&gt;, Predicate&lt;T&gt;)",
                                         useCase: "Type-safe filtering"
                                     },
                                     {
                                         pattern: "Converter",
-                                        example: "convert(T source, Class<R> targetType)",
+                                        example: "convert(T source, Class&lt;R&gt; targetType)",
                                         useCase: "Type conversion utilities"
                                     },
                                     {
                                         pattern: "Cache Getter",
-                                        example: "getCached(String key, Class<T> type)",
+                                        example: "getCached(String key, Class&lt;T&gt; type)",
                                         useCase: "Type-safe cache retrieval"
                                     }
                                 ].map((item, index) => (
@@ -1113,7 +1113,7 @@ public class ValidationUtils {
                                             {
                                                 aspect: "Example",
                                                 method: "Collections.sort(), Arrays.asList()",
-                                                class: "ArrayList<T>, HashMap<K,V>",
+                                                class: "ArrayList&lt;T&gt;, HashMap<K,V>",
                                                 methodBadge: "Utilities",
                                                 classBadge: "Collections"
                                             },
@@ -1160,21 +1160,21 @@ public class ValidationUtils {
 
 // 1. Utility classes (static methods)
 public class MathUtils {
-    public static <T extends Number> double average(Collection<T> numbers) {
+    public static <T extends Number> double average(Collection&lt;T&gt; numbers) {
         // Generic method in non-generic class
     }
 }
 
 // 2. Algorithms that work on multiple types
 public class SearchUtils {
-    public static <T> int binarySearch(List<T> list, T key, Comparator<T> comp) {
+    public static &lt;T&gt; int binarySearch(List&lt;T&gt; list, T key, Comparator&lt;T&gt; comp) {
         // Generic search algorithm
     }
 }
 
 // 3. Factory methods
 public class ObjectFactory {
-    public static <T> T createInstance(Class<T> type) {
+    public static &lt;T&gt; T createInstance(Class&lt;T&gt; type) {
         // Creates instance of any type
     }
 }
@@ -1206,33 +1206,33 @@ public class Converter {
                                             code={`// GOOD USE CASES for Generic Classes
 
 // 1. Data containers
-public class Container<T> {
+public class Container&lt;T&gt; {
     private T value;
     // All methods work with T
 }
 
 // 2. Data structures
-public class BinaryTree<T extends Comparable<T>> {
-    private Node<T> root;
+public class BinaryTree<T extends Comparable&lt;T&gt;> {
+    private Node&lt;T&gt; root;
     // Entire tree works with type T
 }
 
 // 3. Repository/DAO patterns
 public interface Repository<T, ID> {
     T findById(ID id);
-    List<T> findAll();
+    List&lt;T&gt; findAll();
     T save(T entity);
 }
 
 // 4. Builder patterns
-public class QueryBuilder<T> {
-    private Class<T> entityType;
-    private List<Predicate<T>> predicates;
+public class QueryBuilder&lt;T&gt; {
+    private Class&lt;T&gt; entityType;
+    private List<Predicate&lt;T&gt;> predicates;
     // Builds queries for type T
 }
 
 // 5. Wrapper/Decorator patterns
-public class LoggingWrapper<T> {
+public class LoggingWrapper&lt;T&gt; {
     private T wrapped;
     // Wraps any type with logging
 }`}
@@ -1267,18 +1267,18 @@ public class LoggingWrapper<T> {
                                         {[
                                             {
                                                 mistake: "Using class type parameter in static method",
-                                                wrong: "class C<T> { static void m(T t) }",
-                                                right: "class C<T> { static <U> void m(U u) }"
+                                                wrong: "class C&lt;T&gt; { static void m(T t) }",
+                                                right: "class C&lt;T&gt; { static <U> void m(U u) }"
                                             },
                                             {
                                                 mistake: "Unnecessary type parameters",
-                                                wrong: "<T> void print(String s)",
+                                                wrong: "&lt;T&gt; void print(String s)",
                                                 right: "void print(String s)"
                                             },
                                             {
                                                 mistake: "Confusing method and class type parameters",
-                                                wrong: "class C<T> { <T> void m(T t) }",
-                                                right: "class C<T> { <U> void m(U u) }"
+                                                wrong: "class C&lt;T&gt; { &lt;T&gt; void m(T t) }",
+                                                right: "class C&lt;T&gt; { <U> void m(U u) }"
                                             },
                                             {
                                                 mistake: "Ignoring @SuppressWarnings",
@@ -1358,27 +1358,27 @@ public class LoggingWrapper<T> {
 
                                     <JavaCodeBlock
                                         code={`// Professional-grade generic builder pattern
-public class GenericBuilder<T> {
-    private final Supplier<T> constructor;
-    private final List<Consumer<T>> modifiers = new ArrayList<>();
+public class GenericBuilder&lt;T&gt; {
+    private final Supplier&lt;T&gt; constructor;
+    private final List<Consumer&lt;T&gt;> modifiers = new ArrayList&lt;&gt;();
     
-    private GenericBuilder(Supplier<T> constructor) {
+    private GenericBuilder(Supplier&lt;T&gt; constructor) {
         this.constructor = constructor;
     }
     
-    public static <T> GenericBuilder<T> of(Supplier<T> constructor) {
-        return new GenericBuilder<>(constructor);
+    public static &lt;T&gt; GenericBuilder&lt;T&gt; of(Supplier&lt;T&gt; constructor) {
+        return new GenericBuilder&lt;&gt;(constructor);
     }
     
-    public <U> GenericBuilder<T> with(BiConsumer<T, U> consumer, U value) {
-        Consumer<T> modifier = instance -> consumer.accept(instance, value);
+    public <U> GenericBuilder&lt;T&gt; with(BiConsumer<T, U> consumer, U value) {
+        Consumer&lt;T&gt; modifier = instance → consumer.accept(instance, value);
         modifiers.add(modifier);
         return this;
     }
     
     public T build() {
         T instance = constructor.get();
-        modifiers.forEach(modifier -> modifier.accept(instance));
+        modifiers.forEach(modifier → modifier.accept(instance));
         modifiers.clear();
         return instance;
     }

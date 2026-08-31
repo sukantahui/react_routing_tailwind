@@ -233,13 +233,13 @@ const questions = [
     explanation: "When debugging nested formulas like =CHOOSECOLS(FILTER(VSTACK(T1, T2), ...), 1, 3), highlight any inner expression (e.g., VSTACK(T1, T2)) and press F9 to preview the intermediate in-memory matrix in curly braces {...}. Press Esc to avoid hardcoding the evaluated preview.",
     hint: "Highlight sub-expression + F9 to inspect in-memory arrays.",
     level: "advanced",
-    codeExample: "Press F9 on VSTACK(T1, T2) -> {\"BK-101\",\"Swadeep\";\"SH-201\",\"Tuhina\"}"
+    codeExample: "Press F9 on VSTACK(T1, T2) → {\"BK-101\",\"Swadeep\";\"SH-201\",\"Tuhina\"}"
   },
   {
     question: "What is the recommended design pattern when building zero-VBA enterprise dashboards using Excel 365 reshaping functions?",
     shortAnswer: "Decouple raw data ingestion from presentation by building an intermediate memory-transformation layer using VSTACK, CHOOSECOLS, and SORT.",
     explanation: "In modern zero-VBA architecture, raw data tables reside in source sheets. A dedicated dynamic transformation layer uses VSTACK and FILTER to consolidate and clean records in memory. Finally, presentation dashboards feed directly from the spilled origin anchors (e.g., SummaryData#), guaranteeing real-time reactivity without macros.",
-    hint: "Structure your model in 3 layers: Raw Data -> Dynamic Transformation -> Spilled Presentation.",
+    hint: "Structure your model in 3 layers: Raw Data → Dynamic Transformation → Spilled Presentation.",
     level: "expert",
     codeExample: "=SORT(CHOOSECOLS(FILTER(VSTACK(Branch1, Branch2), FilterCriteria), 1, 3, 5), 3, -1)"
   }

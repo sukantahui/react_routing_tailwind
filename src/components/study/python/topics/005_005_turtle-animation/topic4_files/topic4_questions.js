@@ -231,7 +231,7 @@ const questions = [
     explanation: "This 3-step kinematic pipeline powers all Newtonian physics engines.",
     hint: "What 3 steps execute Newtonian physics integration?",
     level: "basic",
-    codeExample: "# 1. Forces -> 2. Velocity -> 3. Position & Collisions"
+    codeExample: "# 1. Forces → 2. Velocity → 3. Position & Collisions"
   },
   {
     question: "How does 2D physics simulation connect to engineering and science careers?",

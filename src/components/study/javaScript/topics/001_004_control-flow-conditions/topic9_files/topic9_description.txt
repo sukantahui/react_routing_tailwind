@@ -7,7 +7,7 @@ Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
 
 1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
 --------------------------------------------------------------------------------
-Think about an airport traffic control tower. When 50 airplanes are approaching the runway, the air traffic controller doesn't make haphazard guesses. They follow a strict, standardized decision protocol: Priority to emergencies -> Clear runway for scheduled landings -> Hold departing flights. In programming, adhering to clean conditional best practices ensures your decision logic is bulletproof!
+Think about an airport traffic control tower. When 50 airplanes are approaching the runway, the air traffic controller doesn't make haphazard guesses. They follow a strict, standardized decision protocol: Priority to emergencies → Clear runway for scheduled landings → Hold departing flights. In programming, adhering to clean conditional best practices ensures your decision logic is bulletproof!
 
 2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
 --------------------------------------------------------------------------------

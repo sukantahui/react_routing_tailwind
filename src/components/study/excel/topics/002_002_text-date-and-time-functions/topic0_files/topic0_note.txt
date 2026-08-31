@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Data cleaning represents 80% of real-world analytics work. Master the TRIM + CLEAN + SUBSTITUTE(CHAR(160)) triad to solve data import glitches effortlessly.
 
 COMMON TRAPS TO AVOID:
-- Non-Breaking Space (ASCII 160) Trap: TRIM() only removes ASCII 32 regular spaces; web-scraped ASCII 160 spaces remain untouched. -> Fix: Use =TRIM(CLEAN(SUBSTITUTE(A2, CHAR(160), " "))) to sanitize web text.
-- PROPER() Hyphen / Apostrophe Anomaly: PROPER("o'connor") capitalizes after apostrophes resulting in "O'Connor" but "abc-corp" becomes "Abc-Corp". -> Fix: Inspect names with special prefixes (e.g. McDonald) for post-processing adjustments.
-- Formula Reference Replacement: Overwriting source columns directly without Copy > Paste as Values deletes dynamic formula logic. -> Fix: Always copy cleaned output and Paste Special > Values (Alt + E + S + V).
+- Non-Breaking Space (ASCII 160) Trap: TRIM() only removes ASCII 32 regular spaces; web-scraped ASCII 160 spaces remain untouched. → Fix: Use =TRIM(CLEAN(SUBSTITUTE(A2, CHAR(160), " "))) to sanitize web text.
+- PROPER() Hyphen / Apostrophe Anomaly: PROPER("o'connor") capitalizes after apostrophes resulting in "O'Connor" but "abc-corp" becomes "Abc-Corp". → Fix: Inspect names with special prefixes (e.g. McDonald) for post-processing adjustments.
+- Formula Reference Replacement: Overwriting source columns directly without Copy > Paste as Values deletes dynamic formula logic. → Fix: Always copy cleaned output and Paste Special > Values (Alt + E + S + V).
 ================================================================================

@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"What-If Sensitivity & Solver Optimization Challenge"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic2() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"What-If Suite: Data Table: Data &gt; What-If Analysis &gt; Data Table (Row/Col Input) | Solver: Objective Min/Max, Changing Cells, Constraints"}
+            {"What-If Suite: Data Table: Data > What-If Analysis > Data Table (Row/Col Input) | Solver: Objective Min/Max, Changing Cells, Constraints"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic2() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"What-If & Solver Architecture: Base Financial Model -> Sensitivity Data Table Matrix -> Solver Linear Programming -> Optimal Resource Allocation"}
+              Visual Dataflow: {"What-If & Solver Architecture: Base Financial Model → Sensitivity Data Table Matrix → Solver Linear Programming → Optimal Resource Allocation"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Assessment Pipeline
@@ -286,7 +286,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_What_If_Sensitivit"
+            sheetName="EX3203"
             title={"What-If Sensitivity & Solver Optimization Challenge - Assessment Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic2() {
                 Step 1: Understand Schema &amp; Requirements
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"What-If Suite: Data Table: Data &gt; What-If Analysis &gt; Data Table (Row/Col Input) | Solver: Objective Min/Max, Changing Cells, Constraints"}</code>.
+                Inspect raw data columns, types, and required deliverables: <code className="text-cyan-300 font-mono font-bold">{"What-If Suite: Data Table: Data > What-If Analysis > Data Table (Row/Col Input) | Solver: Objective Min/Max, Changing Cells, Constraints"}</code>.
               </p>
             </div>
 
@@ -486,7 +486,7 @@ export default function Topic2() {
                 <span>⚡</span> {"Two-Variable Data Table"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Instantly generates 2D sensitivity matrix."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data &gt; What-If Analysis > Data Table"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Data > What-If Analysis > Data Table"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

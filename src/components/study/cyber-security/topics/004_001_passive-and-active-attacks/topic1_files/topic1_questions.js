@@ -140,10 +140,10 @@ aircrack-ng -w /usr/share/wordlists/rockyou.txt -b 00:14:22:01:23:45 capture.cap
     hint: "Every user in the coffee shop gets their own private encryption key automatically.",
     level: "moderate",
     codeExample: `// 802.11 OWE Association Flow:
-// Client -> Probe Request (OWE AKM suite)
-// AP     -> Probe Response (OWE supported)
-// Client -> Association Request + Client DH Public Key
-// AP     -> Association Response + AP DH Public Key
+// Client → Probe Request (OWE AKM suite)
+// AP     → Probe Response (OWE supported)
+// Client → Association Request + Client DH Public Key
+// AP     → Association Response + AP DH Public Key
 // Result : Pairwise Master Key (PMK) derived; channel encrypted with AES-CCMP`
   },
   {
@@ -197,7 +197,7 @@ aircrack-ng -w /usr/share/wordlists/rockyou.txt -b 00:14:22:01:23:45 capture.cap
     level: "expert",
     codeExample: `// Acoustic Profiling Parameters:
 // Peak Audio Frequency: 1.2 kHz - 8.5 kHz
-// Mel-Frequency Cepstral Coefficients (MFCC) feature extraction -> 95% classification accuracy`
+// Mel-Frequency Cepstral Coefficients (MFCC) feature extraction → 95% classification accuracy`
   },
   {
     question: "What is an Inline Network Tap's 'Failsafe Bypass' mechanism, and why is it critical for high-availability networks?",
@@ -206,7 +206,7 @@ aircrack-ng -w /usr/share/wordlists/rockyou.txt -b 00:14:22:01:23:45 capture.cap
     hint: "A spring-loaded switch that stays open with power, but snaps shut to keep the pipe open if power fails.",
     level: "moderate",
     codeExample: `// Failsafe Bypass Operation:
-// Normal State (Powered): [Network In] -> Splitter -> [Network Out] + [Monitoring Port]
+// Normal State (Powered): [Network In] → Splitter → [Network Out] + [Monitoring Port]
 // Power Loss State      : [Network In] ------Direct Optical Bypass------> [Network Out]`
   },
   {
@@ -251,8 +251,8 @@ switch(config-if)# ip dhcp snooping trust`
     level: "expert",
     codeExample: `// BGP Interception Flow:
 // 1. Attacker AS announces 203.0.113.0/24 (Target Kolkata Bank)
-// 2. Global BGP tables update -> Traffic routes through Attacker AS
-// 3. Attacker clones stream to disk -> Forwards to real Bank AS`
+// 2. Global BGP tables update → Traffic routes through Attacker AS
+// 3. Attacker clones stream to disk → Forwards to real Bank AS`
   },
   {
     question: "How does Resource Public Key Infrastructure (RPKI) and Route Origin Authorization (ROA) prevent BGP-level passive wiretapping?",
@@ -289,7 +289,7 @@ Accept: application/dns-message
     level: "moderate",
     codeExample: `// Optical Link Budget Formula:
 // Received Power (dBm) = Transmit Power (dBm) - (Cable Loss + Splice Loss + Connector Loss + Tap Loss)
-// If P_rx is 0.8 dB lower than theoretical baseline -> Investigate for physical tap!`
+// If P_rx is 0.8 dB lower than theoretical baseline → Investigate for physical tap!`
   },
   {
     question: "How does the 'Forward Secrecy' property in modern cryptography neutralize archived wiretap recordings?",

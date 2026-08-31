@@ -61,9 +61,9 @@ const questions = [
   },
   {
     question: "What is the golden rule for ordering columns in a multi-column composite index?",
-    shortAnswer: "**Equality Columns first &rarr; Range Columns second &rarr; Sort / Grouping Columns third &rarr; Covered Projection Columns last**.",
+    shortAnswer: "**Equality Columns first → Range Columns second → Sort / Grouping Columns third → Covered Projection Columns last**.",
     explanation: "Maximizes index selectivity before range evaluation and sorting.",
-    hint: "Equality -> Range -> Sort -> Covered Projection.",
+    hint: "Equality → Range → Sort → Covered Projection.",
     level: "expert"
   },
   {

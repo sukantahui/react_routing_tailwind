@@ -29,8 +29,8 @@ Starting Bid: ₹4,50,000 in Monero (XMR)." `
     level: "moderate",
     codeExample: `// Double Extortion Workflow:
 Stage 1: Exfiltrate 400 GB Customer Financial Database to Mega.nz / Tor Onion Server
-Stage 2: Deploy LockBit Ransomware -> Encrypt local virtual machines
-Stage 3: Extortion Notice -> "Pay ₹10 Crores for decryptor + deletion of exfiltrated data"`
+Stage 2: Deploy LockBit Ransomware → Encrypt local virtual machines
+Stage 3: Extortion Notice → "Pay ₹10 Crores for decryptor + deletion of exfiltrated data"`
   },
   {
     question: "What is an 'Infostealer' malware (e.g., RedLine, Lumma, Vidar), and how does it fuel global credential stuffing attacks?",
@@ -39,8 +39,8 @@ Stage 3: Extortion Notice -> "Pay ₹10 Crores for decryptor + deletion of exfil
     hint: "Think of malware designed specifically to steal all saved passwords and session cookies from your web browser.",
     level: "moderate",
     codeExample: `// Infostealer Target Artifacts:
-1. Google Chrome / Edge: SQLite Database -> "Login Data" (Decrypted with DPAPI)
-2. Session Cookies: "Cookies" SQLite DB -> Bypasses Multi-Factor Authentication
+1. Google Chrome / Edge: SQLite Database → "Login Data" (Decrypted with DPAPI)
+2. Session Cookies: "Cookies" SQLite DB → Bypasses Multi-Factor Authentication
 3. Crypto Extensions: MetaMask, Phantom, Exodus wallet seed phrases`
   },
   {
@@ -58,7 +58,7 @@ def generate_dga_domains(date_str, count=10):
         hash_val = hashlib.md5(seed.encode()).hexdigest()[:12]
         domains.append(f"{hash_val}.biz")
     return domains
-# generate_dga_domains("2026-08-23") -> ['d41d8cd98f00.biz', ...]`
+# generate_dga_domains("2026-08-23") → ['d41d8cd98f00.biz', ...]`
   },
   {
     question: "What was the landmark significance of the 2016 'Mirai Botnet' DDoS attack regarding Internet of Things (IoT) security?",
@@ -70,7 +70,7 @@ def generate_dga_domains(date_str, count=10):
 const char *default_creds[] = {
     "admin:admin", "root:root", "root:123456", "admin:password", "default:default"
 };
-// Scans Telnet port 23 -> brute-forces dictionary -> downloads bot payload`
+// Scans Telnet port 23 → brute-forces dictionary → downloads bot payload`
   },
   {
     question: "How does 'Cryptocurrency Tumbling / Mixing' (e.g., Tornado Cash, ChipMixer) enable Black Hat syndicates to launder ransom payments?",
@@ -83,7 +83,7 @@ Victim Ransom Wallet (₹10 Cr BTC)
        ↓ 
 Cryptocurrency Mixer Pool (Mixed with 5,000 unrelated transactions)
        ↓
-Output to 50 Splinter Wallets -> Converted to Monero (XMR) -> Cashed out via P2P OTC Brokers`
+Output to 50 Splinter Wallets → Converted to Monero (XMR) → Cashed out via P2P OTC Brokers`
   },
   {
     question: "What is 'SIM Swapping', and how do Black Hat actors use it to bypass SMS-based Multi-Factor Authentication (MFA)?",
@@ -93,9 +93,9 @@ Output to 50 Splinter Wallets -> Converted to Monero (XMR) -> Cashed out via P2P
     level: "basic",
     codeExample: `// SIM Swap Attack Workflow:
 1. Attacker obtains victim phone number & Aadhaar/PAN details via dark web breach.
-2. Attacker impersonates victim at mobile carrier store -> Requests "Emergency SIM Replacement".
-3. Carrier switches IMSI -> Victim's phone loses signal ("No Service").
-4. Attacker receives Bank OTPs -> Drains bank account via UPI / NetBanking.`
+2. Attacker impersonates victim at mobile carrier store → Requests "Emergency SIM Replacement".
+3. Carrier switches IMSI → Victim's phone loses signal ("No Service").
+4. Attacker receives Bank OTPs → Drains bank account via UPI / NetBanking.`
   },
   {
     question: "Under the Indian Penal Code and Information Technology Act 2000, what specific sections criminalize Black Hat hacking activities?",

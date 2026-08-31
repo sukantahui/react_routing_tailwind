@@ -29,7 +29,7 @@ const Topic17 = () => {
                             </svg>
                         </div>
                         <div>
-                            <h1 className="text-4xl font-bold bg-gradient-to-r from-teal-400 to-lime-400 bg-clip-text text-transparent">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-lime-400 bg-clip-text text-transparent">
                                 Topic 17: Sorting & Filtering with sort, uniq, wc
                             </h1>
                             <p className="text-gray-400 mt-2">Data Organization, Deduplication, and Counting Essentials</p>

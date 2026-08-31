@@ -225,7 +225,7 @@ const Topic11 = () => {
               <span>•</span>
               <span>Module 004.006 — Capstone Topic 11</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
               Synthesizing Strategic Defensive Takeaways for Modern Enterprises
             </h1>
             <p className="text-gray-300 text-sm sm:text-lg max-w-4xl leading-relaxed">

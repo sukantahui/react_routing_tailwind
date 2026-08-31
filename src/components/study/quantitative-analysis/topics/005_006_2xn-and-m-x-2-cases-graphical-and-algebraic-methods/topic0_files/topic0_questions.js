@@ -80,7 +80,7 @@ const questions = [
     explanation: "Graphical identification followed by 2x2 algebraic solution.",
     hint: "Graphical method identifies active columns; algebraic formulas compute exact numbers.",
     level: "intermediate",
-    codeExample: "Workflow: GraphicalIdentification() -> 2x2ClosedFormSolve();"
+    codeExample: "Workflow: GraphicalIdentification() → 2x2ClosedFormSolve();"
   },
   {
     question: "What currency symbol must ALWAYS be used when stating 2xn game payoffs and game values in West Bengal?",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of 2xn Games?",
     shortAnswer: "'Parameterize Player A's strategy as p1; plot linear expected payoff lines E(p, Bj) between left (a2j) and right (a1j) axes; construct the Lower Envelope; locate the Maximin peak; and report the Game Value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all 2xn game mechanics.",
-    hint: "Parameterize p1 -> Plot lines -> Lower Envelope -> Maximin Peak in ₹.",
+    hint: "Parameterize p1 → Plot lines → Lower Envelope → Maximin Peak in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ParameterizeP1() -> PlotColLines() -> LowerEnvelope() -> MaximinPeak(₹)."
+    codeExample: "GoldenRule: ParameterizeP1() → PlotColLines() → LowerEnvelope() → MaximinPeak(₹)."
   }
 ];
 

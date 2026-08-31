@@ -21,7 +21,7 @@ export default function Topic9() {
             The Golden Rule
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           The Golden Rule: ALWAYS Call <code className="text-emerald-400 font-mono">wait()</code> inside a <code className="text-sky-400 font-mono">while</code> Loop
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

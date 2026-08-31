@@ -9,8 +9,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Map: Key-Value association; unique keys.
    - HashMap Internals: Node<K,V>[] table, 16 initial cap, 0.75 load factor.
    - Bitwise Math: '(h ^ (h >>> 16))' spreading, '(n - 1) & hash' indexing.
-   - Treeification: >= 8 nodes (table >= 64) &rarr; TreeNode<K,V> (O(log n)).
-   - Untreeification: <= 6 nodes &rarr; converts back to Node<K,V> (hysteresis).
+   - Treeification: >= 8 nodes (table >= 64) → TreeNode<K,V> (O(log n)).
+   - Untreeification: <= 6 nodes → converts back to Node<K,V> (hysteresis).
    - Resizing: '(e.hash & oldCap) == 0' split (no re-hashing).
    - Keys: Immutable (String, Integer); mutable keys cause Lost Key memory leaks.
    - LinkedHashMap: accessOrder mode for LRU cache ('removeEldestEntry').

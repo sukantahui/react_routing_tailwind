@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Interpreting the Reduced Game?",
     shortAnswer: "'Translate optimal probabilities into tangible operational shift/resource allocations; defund pruned dead-weight options; interpret v* as the long-run guaranteed financial return; and state all budgets in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all managerial interpretation mechanics.",
-    hint: "Probabilities to resource allocations -> Defund dead-weight -> Guaranteed return in ₹.",
+    hint: "Probabilities to resource allocations → Defund dead-weight → Guaranteed return in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: AllocateResources(p_star) -> DefundDeadweight() -> BudgetGuaranteedReturn(₹)."
+    codeExample: "GoldenRule: AllocateResources(p_star) → DefundDeadweight() → BudgetGuaranteedReturn(₹)."
   }
 ];
 

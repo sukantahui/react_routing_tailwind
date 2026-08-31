@@ -71,7 +71,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Real-world project: Building an automated cloud expense approval and ledger posting pipeline"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic13() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Expense Approval Pipeline: Microsoft Forms (Submit Expense) -> Power Automate -> Office Script (Validate & Post to Ledger Table) -> Approver Email with Action Buttons -> Post to ERP"}
+            {"Expense Approval Pipeline: Microsoft Forms (Submit Expense) → Power Automate → Office Script (Validate & Post to Ledger Table) → Approver Email with Action Buttons → Post to ERP"}
           </div>
 
           <div className="overflow-x-auto">
@@ -286,7 +286,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic13_Real_world_project"
+            sheetName="EX2714"
             title={"Real-world project: Building an automated cloud expense approval and ledger posting pipeline - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic13() {
                 Step 1: Open Monaco Editor in Excel for Web
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Excel in browser, click <strong>Automate &gt; New Script</strong> to launch the Monaco Code Editor.
+                Open Excel in browser, click <strong>Automate > New Script</strong> to launch the Monaco Code Editor.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic13() {
                 Step 2: Author TypeScript Logic with Parameters
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Write strongly-typed logic: <code className="text-cyan-300 font-mono font-bold">{"Expense Approval Pipeline: Microsoft Forms (Submit Expense) -> Power Automate -> Office Script (Validate & Post to Ledger Table) -> Approver Email with Action Buttons -> Post to ERP"}</code>.
+                Write strongly-typed logic: <code className="text-cyan-300 font-mono font-bold">{"Expense Approval Pipeline: Microsoft Forms (Submit Expense) → Power Automate → Office Script (Validate & Post to Ledger Table) → Approver Email with Action Buttons → Post to ERP"}</code>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic13() {
                 Step 3: Connect to Microsoft Power Automate Flow
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Automate, add <strong>Excel Online (Business) &gt; Run script</strong> and pass dynamic flow tokens.
+                In Power Automate, add <strong>Excel Online (Business) > Run script</strong> and pass dynamic flow tokens.
               </p>
             </div>
 

@@ -129,7 +129,7 @@ Certificate Policies:
     codeExample: `// Root Trust Store Hierarchy:
 Client Machine: [ Mozilla NSS / Windows Certificate Store ]
 Contains: ~150 Audited Root CAs (DigiCert, Let's Encrypt ISRG Root X1, India PKI Root CA)
-Verification: Leaf -> Intermediate -> Root (Matches Store Entry == TRUSTED!)`
+Verification: Leaf → Intermediate → Root (Matches Store Entry == TRUSTED!)`
   },
   {
     question: "What is 'Self-Signed Certificate' versus a 'CA-Signed Certificate', and why are self-signed certificates strictly forbidden in public production environments?",
@@ -138,8 +138,8 @@ Verification: Leaf -> Intermediate -> Root (Matches Store Entry == TRUSTED!)`
     hint: "Think of writing your own homemade driver's license with a crayon and trying to board an airplane.",
     level: "basic",
     codeExample: `// Self-Signed vs CA-Signed:
-Self-Signed: Issuer: CN=myapi.com == Subject: CN=myapi.com -> BROWSER BLOCKS ACCESS!
-CA-Signed:   Issuer: CN=Let's Encrypt != Subject: CN=myapi.com -> GREEN PADLOCK!`
+Self-Signed: Issuer: CN=myapi.com == Subject: CN=myapi.com → BROWSER BLOCKS ACCESS!
+CA-Signed:   Issuer: CN=Let's Encrypt != Subject: CN=myapi.com → GREEN PADLOCK!`
   },
   {
     question: "Synthesizing Digital Certificates and Trust Chains: what is the master cryptographic verification formula of an X.509 certificate chain?",

@@ -5,7 +5,7 @@ const topic15_questions = [
     "explanation": "Range scan insertions vs single row updates.",
     "hint": "Non-Repeatable Read = modified existing rows; Phantom Read = newly inserted/deleted rows in range query.",
     "level": "Intermediate",
-    "codeExample": "Phantom Read: 10 rows on 1st query -> 11 rows on 2nd query."
+    "codeExample": "Phantom Read: 10 rows on 1st query → 11 rows on 2nd query."
   },
   {
     "question": "Which standard ANSI SQL isolation level is guaranteed to prevent Phantom Reads?",

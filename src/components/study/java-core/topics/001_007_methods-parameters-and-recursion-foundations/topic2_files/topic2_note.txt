@@ -20,9 +20,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   6. Validations        : validateAge(), checkBalance(), ensureCapacity().
 
 - Anti-Patterns to Avoid:
-  * UpperCamelCase (CalculateFee) -> Looks like a Constructor / Class name!
-  * snake_case (calculate_fee)    -> Belongs to Python/C, not Java!
-  * Generic Names (doStuff, data) -> Obscures business intent.
+  * UpperCamelCase (CalculateFee) → Looks like a Constructor / Class name!
+  * snake_case (calculate_fee)    → Belongs to Python/C, not Java!
+  * Generic Names (doStuff, data) → Obscures business intent.
 
 2. ESSENTIAL CHECKLIST
 --------------------------------------------------------------------------------

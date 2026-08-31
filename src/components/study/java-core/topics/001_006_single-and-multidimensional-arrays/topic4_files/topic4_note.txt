@@ -22,8 +22,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Automatically creates irregular / jagged row arrays effortlessly.
 
 - Syntax Restrictions:
-  * NEVER write size with initializer: new int[3]{1, 2, 3} -> COMPILE ERROR!
-  * Reassignment cannot use naked braces: arr = {1, 2} -> COMPILE ERROR!
+  * NEVER write size with initializer: new int[3]{1, 2, 3} → COMPILE ERROR!
+  * Reassignment cannot use naked braces: arr = {1, 2} → COMPILE ERROR!
     (Must write: arr = new int[]{1, 2};)
 
 2. ESSENTIAL CHECKLIST

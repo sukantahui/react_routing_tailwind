@@ -71,7 +71,7 @@ export default function Topic17() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Assessment: Comprehensive Financial Valuation & Amortization Lab"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic17() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic17_Assessment__Compre"
+            sheetName="EX1218"
             title={"Assessment: Comprehensive Financial Valuation & Amortization Lab - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}

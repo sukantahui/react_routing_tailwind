@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Welcome to the future of Excel automation: Office Scripts! It uses modern TypeScript, runs in the web browser on ANY device (Windows, Mac, iPad), and connects directly to Microsoft Power Automate in the cloud.
 
 COMMON TRAPS TO AVOID:
-- Expecting VBA Methods (e.g. MsgBox, Application.ScreenUpdating): Office Scripts runs in a sandboxed cloud browser environment where desktop VBA UI popups do not exist. -> Fix: Use `console.log()` for debugging and return status values to Power Automate.
-- Missing Microsoft 365 Commercial / Enterprise License: Office Scripts requires Microsoft 365 Business Standard, E3, or E5 license; not available on personal/family accounts. -> Fix: Ensure your corporate M365 account has Office Scripts enabled by IT tenant admin.
-- Attempting File System Access (C:\ Drive): Cloud scripts cannot access local C:\ drives directly. -> Fix: Store files in OneDrive or SharePoint and access via Power Automate.
+- Expecting VBA Methods (e.g. MsgBox, Application.ScreenUpdating): Office Scripts runs in a sandboxed cloud browser environment where desktop VBA UI popups do not exist. → Fix: Use `console.log()` for debugging and return status values to Power Automate.
+- Missing Microsoft 365 Commercial / Enterprise License: Office Scripts requires Microsoft 365 Business Standard, E3, or E5 license; not available on personal/family accounts. → Fix: Ensure your corporate M365 account has Office Scripts enabled by IT tenant admin.
+- Attempting File System Access (C:\ Drive): Cloud scripts cannot access local C:\ drives directly. → Fix: Store files in OneDrive or SharePoint and access via Power Automate.
 ================================================================================

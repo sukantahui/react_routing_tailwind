@@ -11,7 +11,7 @@ const questions = [
   {
     question: "What is the difference between the `->` and `->>` operators in MySQL?",
     shortAnswer: "- `->` (`JSON_EXTRACT`): Extracts the value as a **JSON-typed value** (strings remain wrapped in double quotes: `\"Barrackpore\"`).\n- `->>` (`JSON_UNQUOTE(JSON_EXTRACT)`): Extracts and **unquotes** the value as a **plain SQL string (VARCHAR)**: `Barrackpore`.",
-    explanation: "Core distinction: -> returns JSON with quotes; ->> returns plain unquoted text.",
+    explanation: "Core distinction: → returns JSON with quotes; ->> returns plain unquoted text.",
     hint: "-> returns quoted JSON; ->> returns unquoted plain SQL string.",
     level: "basic",
     codeExample: "SELECT \n  data->'$.city' AS quoted_json,   -- \"Barrackpore\"\n  data->>'$.city' AS unquoted_text -- Barrackpore\nFROM profiles;"
@@ -27,7 +27,7 @@ const questions = [
     question: "How should you rewrite `WHERE profile->'$.city' = 'Kolkata'` to ensure correct matching?",
     shortAnswer: "Use the `->>` (extract and unquote) operator: **`WHERE profile->>'$.city' = 'Kolkata'`**.",
     explanation: "Unquotes the JSON string to a standard SQL VARCHAR for comparison.",
-    hint: "Use ->> instead of -> in the WHERE clause.",
+    hint: "Use ->> instead of → in the WHERE clause.",
     level: "basic",
     codeExample: "SELECT * FROM profiles \nWHERE profile->>'$.city' = 'Kolkata';"
   },

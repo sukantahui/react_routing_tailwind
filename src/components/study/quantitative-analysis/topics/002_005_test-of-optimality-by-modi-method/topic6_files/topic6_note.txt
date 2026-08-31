@@ -59,11 +59,11 @@ Current Allocations:
   (1,1)=60, (1,2)=10, (2,2)=70, (2,3)=20, (3,3)=60.
 
 TRACING THE 4-CORNER LOOP:
-Step 1: Start at Entering Cell (2, 1) --> Mark (+θ).
-Step 2: Move vertically up Column 1 to Basic Cell (1, 1) [alloc=60] --> Mark (-θ).
-Step 3: Move horizontally across Row 1 to Basic Cell (1, 2) [alloc=10] --> Mark (+θ).
-Step 4: Move vertically down Column 2 to Basic Cell (2, 2) [alloc=70] --> Mark (-θ).
-Step 5: Move horizontally across Row 2 back to Entering Cell (2, 1) --> Loop Closed!
+Step 1: Start at Entering Cell (2, 1) → Mark (+θ).
+Step 2: Move vertically up Column 1 to Basic Cell (1, 1) [alloc=60] → Mark (-θ).
+Step 3: Move horizontally across Row 1 to Basic Cell (1, 2) [alloc=10] → Mark (+θ).
+Step 4: Move vertically down Column 2 to Basic Cell (2, 2) [alloc=70] → Mark (-θ).
+Step 5: Move horizontally across Row 2 back to Entering Cell (2, 1) → Loop Closed!
 
 DETERMINING TRANSFER FLOW THETA (θ):
 Minus (-) corners are located at:

@@ -12,8 +12,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Initialize boolean[] isPrime of size N + 1 with true; set 0 and 1 to false.
 
 - The 2 Invariant Optimizations:
-  1. Outer Loop Bound  : Runs only up to sqrt(N) -> 'for (int p = 2; p * p <= limit; p++)'.
-  2. Inner Loop Start  : Starts marking composites at p * p -> 'for (int m = p * p; m <= limit; m += p)'.
+  1. Outer Loop Bound  : Runs only up to sqrt(N) → 'for (int p = 2; p * p <= limit; p++)'.
+  2. Inner Loop Start  : Starts marking composites at p * p → 'for (int m = p * p; m <= limit; m += p)'.
      (Smaller multiples 2p, 3p, ... (p-1)p were already marked by earlier primes!).
 
 - Memory Efficiency:

@@ -10,7 +10,7 @@ Introduction to AI in Excel: Microsoft Copilot, GPT-4, and LLM-assisted spreadsh
 It provides the core protocols required to leverage Microsoft Copilot, construct precision prompt workflows, integrate external LLM APIs, and build custom AI formulas.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: AI in Excel Pipeline: Natural Language Prompt -> LLM Cognitive Parser -> Formula / Table / Chart Generation -> Excel Grid Insertion
+Operational Architecture: AI in Excel Pipeline: Natural Language Prompt → LLM Cognitive Parser → Formula / Table / Chart Generation → Excel Grid Insertion
 
 3. CORE TECHNICAL MECHANICS
 1. The Semantic Grounding Layer:

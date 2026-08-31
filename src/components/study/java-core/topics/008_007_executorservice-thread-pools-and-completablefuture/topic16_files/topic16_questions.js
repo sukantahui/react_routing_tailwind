@@ -5,7 +5,7 @@ const topic16_questions = [
     "explanation": "Multi-stage asynchronous coordination primitives.",
     "hint": "allOf waits for all futures to complete (scatter-gather); anyOf returns the result of the fastest future.",
     "level": "Intermediate",
-    "codeExample": "CompletableFuture.allOf(f1, f2, f3).thenRun(() -> System.out.println(\"All finished!\"));"
+    "codeExample": "CompletableFuture.allOf(f1, f2, f3).thenRun(() → System.out.println(\"All finished!\"));"
   }
 ];
 

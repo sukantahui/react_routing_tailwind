@@ -76,7 +76,7 @@ const Topic1 = () => {
             Module 005_003 · Turtle Patterns & Geometric Mathematics · Topic 1
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-400 via-emerald-300 to-sky-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-400 via-emerald-300 to-sky-400 bg-clip-text text-transparent">
             Polygon Mathematics: The <span className="font-mono">360 / N</span> Exterior Angle Rule
           </h1>
 

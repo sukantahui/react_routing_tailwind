@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. REFACTORING PATTERNS:
-   - 'x -> Objects.nonNull(x)'     &rarr; 'Objects::nonNull'
-   - 's -> s.getName()'            &rarr; 'Student::getName'
-   - 's -> s.toUpperCase()'        &rarr; 'String::toUpperCase'
-   - 'x -> System.out.println(x)'  &rarr; 'System.out::println'
-   - '() -> new ArrayList<>()'     &rarr; 'ArrayList::new'
+   - 'x → Objects.nonNull(x)'     → 'Objects::nonNull'
+   - 's → s.getName()'            → 'Student::getName'
+   - 's → s.toUpperCase()'        → 'String::toUpperCase'
+   - 'x → System.out.println(x)'  → 'System.out::println'
+   - '() → new ArrayList<>()'     → 'ArrayList::new'
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

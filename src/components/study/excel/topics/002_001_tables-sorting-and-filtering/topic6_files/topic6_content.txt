@@ -22,7 +22,7 @@ Result: Instant branch-wise scholarship merit rankings.
 
 [Shyamnagar Regional Wholesale High-Risk Account Extraction]
 Context: Using Advanced Filter to extract accounts with Outstanding Balance > ₹ 10 Lakhs and Overdue Days > 60.
-Applied: Advanced Filter -> Copy to Separate Worksheet
+Applied: Advanced Filter → Copy to Separate Worksheet
 Result: Isolated high-risk debtor list for legal audit.
 
 [Ichapur Plant Machine Throughput Slicer Control]

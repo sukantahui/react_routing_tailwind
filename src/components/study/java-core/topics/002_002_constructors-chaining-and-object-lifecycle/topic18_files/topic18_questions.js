@@ -5,7 +5,7 @@ const topic18_questions = [
     explanation: "It provides clean, flexible instantiation while ensuring mandatory invariants are never omitted.",
     hint: "Overloaded constructors cascading into a single master constructor.",
     level: "Intermediate",
-    codeExample: "User(id, name) -> User(id, name, email) -> Master(id, name, email, role, phone)"
+    codeExample: "User(id, name) → User(id, name, email) → Master(id, name, email, role, phone)"
   },
   {
     question: "When should the Telescoping Constructor Pattern be refactored into the Builder Pattern?",

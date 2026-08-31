@@ -30,9 +30,9 @@ operates. It consists of three optional elements:
 3. THE RUNNING FRAME DEFAULT TRAP
 --------------------------------------------------------------------------------
 - `SUM(fee) OVER (PARTITION BY dept_id)` 
-  -> Computes the STATIC TOTAL fee for the department on every row.
+  → Computes the STATIC TOTAL fee for the department on every row.
 - `SUM(fee) OVER (PARTITION BY dept_id ORDER BY payment_date)` 
-  -> Computes the CUMULATIVE RUNNING TOTAL fee up to the current row!
+  → Computes the CUMULATIVE RUNNING TOTAL fee up to the current row!
 
 4. NAMED WINDOW SPECIFICATIONS (DRY CLEANLINESS)
 --------------------------------------------------------------------------------

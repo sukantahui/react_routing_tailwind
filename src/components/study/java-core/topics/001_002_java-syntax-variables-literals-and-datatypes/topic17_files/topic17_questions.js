@@ -91,7 +91,7 @@ const questions = [
     explanation: "After `nextInt()` executes, the pointer advances to index 2 (pointing directly at `'\\n'`).",
     hint: "Pointer stops right before \\n.",
     level: "advanced",
-    codeExample: "// Buffer: ['4', '2', '\\n'] -> nextInt() consumes '4', '2' -> '\\n' remains at head"
+    codeExample: "// Buffer: ['4', '2', '\\n'] → nextInt() consumes '4', '2' → '\\n' remains at head"
   },
   {
     question: "Why is `Integer.parseInt(scanner.nextLine())` preferred in competitive programming and automated grading systems?",
@@ -177,7 +177,7 @@ const questions = [
     question: "Why does the sequence `nextLine()` followed by `nextInt()` NOT cause a newline bug?",
     shortAnswer: "Because `nextLine()` consumes its own newline, and `nextInt()` automatically skips any whitespace before the next number.",
     explanation: "The issue only occurs in the reverse order: Token Method $\\to$ `nextLine()`.",
-    hint: "Line -> Token order is safe; Token -> Line order causes the bug.",
+    hint: "Line → Token order is safe; Token → Line order causes the bug.",
     level: "basic",
     codeExample: "String name = sc.nextLine(); // Consumes line and newline\nint roll = sc.nextInt();     // Clean and works perfectly!"
   },

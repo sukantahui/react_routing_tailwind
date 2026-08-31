@@ -8,8 +8,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - Short-Circuit Evaluation Mechanics:
-  * && (Conditional AND): If LEFT is FALSE -> RIGHT is NEVER evaluated!
-  * || (Conditional OR) : If LEFT is TRUE  -> RIGHT is NEVER evaluated!
+  * && (Conditional AND): If LEFT is FALSE → RIGHT is NEVER evaluated!
+  * || (Conditional OR) : If LEFT is TRUE  → RIGHT is NEVER evaluated!
 
 - Defensive Guard Patterns:
   * Null Guard       : if (student != null && student.hasPaid()) // 100% Safe

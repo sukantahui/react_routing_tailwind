@@ -59,7 +59,7 @@ const sslSensorStatus = {
     hint: "Plaintext database passwords in config files combined with a flat network and over-privileged database accounts.",
     level: "Moderate",
     codeExample: `// Architectural Over-Privilege:
-// Dispute Web Server (ACIS) -> Holds Root DB Password in plaintext config -> Allowed to query 48 unrelated databases!`
+// Dispute Web Server (ACIS) → Holds Root DB Password in plaintext config → Allowed to query 48 unrelated databases!`
   },
   {
     id: 6,
@@ -104,7 +104,7 @@ const sslSensorStatus = {
     level: "Expert",
     codeExample: `// Tokenization Architecture:
 // Cleartext SSN: 123-45-6789 ---> [Hardware Crypto Vault] ---> Stored DB Token: TOK_a891f9b3
-// Hacker dumps 9,000 SQL tables -> Obtains only meaningless tokens with zero PII value!`
+// Hacker dumps 9,000 SQL tables → Obtains only meaningless tokens with zero PII value!`
   },
   {
     id: 10,

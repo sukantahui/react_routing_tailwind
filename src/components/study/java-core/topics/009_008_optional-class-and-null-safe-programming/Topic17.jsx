@@ -21,7 +21,7 @@ export default function Topic17() {
             Optional & Null-Safety
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Anti-Patterns: <code className="text-emerald-400 font-mono">NEVER Use Optional in Fields, Parameters or Collections</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic17() {
       </section>
 
       <Teacher
-        note="Never use Optional<T> as a class field or a method parameter! Optional does NOT implement Serializable (so your session or JPA entity will crash), and passing Optional as a parameter forces callers to type Optional.of(...) for no reason! Use method overloading instead! — Sukanta Hui"
+        note="Never use Optional&lt;T&gt; as a class field or a method parameter! Optional does NOT implement Serializable (so your session or JPA entity will crash), and passing Optional as a parameter forces callers to type Optional.of(...) for no reason! Use method overloading instead! — Sukanta Hui"
       />
     </div>
   );

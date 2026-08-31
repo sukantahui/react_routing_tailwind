@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Visually mapping and diagnosing complex formula linkages across worksheets using Trace Precedents, Trace Dependents, and navigation shortcut keys
 
 TEACHER'S ADVICE:
-Master Ctrl + [ (jump to precedent) and F5 -> Enter (jump back). You will navigate massive 50-sheet corporate financial models 10x faster than anyone using a mouse.
+Master Ctrl + [ (jump to precedent) and F5 → Enter (jump back). You will navigate massive 50-sheet corporate financial models 10x faster than anyone using a mouse.
 
 COMMON TRAPS TO AVOID:
-- Arrow Clutter on Dense Spreadsheets: Tracing multiple precedents across 50 cells creates an unreadable spiderweb of blue arrows. -> Fix: Clear arrows frequently using Formulas > Remove Arrows (Alt + M + A + A).
-- Hidden Cross-Sheet Reference Navigation: Double-clicking a cross-sheet black arrow without knowing it opens the Go To navigation dialog. -> Fix: Double-click the black dotted arrow line to open the Go To dialog and jump directly to cross-sheet references.
-- Circular Arrow Red Alerts: Tracing precedents on a circular formula displays red arrows indicating an infinite calculation loop. -> Fix: Break the circular link by decoupling formula inputs.
+- Arrow Clutter on Dense Spreadsheets: Tracing multiple precedents across 50 cells creates an unreadable spiderweb of blue arrows. → Fix: Clear arrows frequently using Formulas > Remove Arrows (Alt + M + A + A).
+- Hidden Cross-Sheet Reference Navigation: Double-clicking a cross-sheet black arrow without knowing it opens the Go To navigation dialog. → Fix: Double-click the black dotted arrow line to open the Go To dialog and jump directly to cross-sheet references.
+- Circular Arrow Red Alerts: Tracing precedents on a circular formula displays red arrows indicating an infinite calculation loop. → Fix: Break the circular link by decoupling formula inputs.
 ================================================================================

@@ -9,7 +9,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - 'corePoolSize = n', 'maxPoolSize = n'.
    - 'workQueue': Unbounded 'LinkedBlockingQueue' (Integer.MAX_VALUE).
    - Rejection policy is NEVER triggered because queue never fills up!
-   - Risk: Sudden traffic spike queues millions of tasks &rarr; Heap OOM.
+   - Risk: Sudden traffic spike queues millions of tasks → Heap OOM.
    - Solution: Use 'ArrayBlockingQueue' with explicit bounded capacity.
 
 ================================================================================

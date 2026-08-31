@@ -8,7 +8,7 @@ const questions = [
     "explanation": "Under Formal Definition and Mathematical Criteria for Third Normal Form (3NF), the relation must be refactored so that all constraints and dependencies satisfy the formal normal form definition without data redundancy.",
     "hint": "Think about determinant keys, prime attributes, and functional dependencies.",
     "level": "Beginner",
-    "codeExample": "-- Transitive Dependency Chain:\n-- emp_id -> dept_id\n-- dept_id -> dept_name, dept_location\n-- Transitive: emp_id -> dept_location (Violates 3NF!)"
+    "codeExample": "-- Transitive Dependency Chain:\n-- emp_id → dept_id\n-- dept_id → dept_name, dept_location\n-- Transitive: emp_id → dept_location (Violates 3NF!)"
   },
   {
     "question": "How does decomposing a table under Formal Definition and Mathematical Criteria for Third Normal Form (3NF) resolve data modification anomalies?",

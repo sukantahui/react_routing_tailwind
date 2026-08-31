@@ -10,7 +10,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
      * 'addFirst(E)', 'addLast(E)'
      * 'getFirst()', 'getLast()'
      * 'removeFirst()', 'removeLast()'
-     * 'SequencedCollection<E> reversed()' -> Reverse-ordered view.
+     * 'SequencedCollection<E> reversed()' → Reverse-ordered view.
    - 'SequencedSet<E>': Extends 'Set<E>, SequencedCollection<E>'.
    - 'SequencedMap<K, V>': Extends 'Map<K, V>'.
      * 'firstEntry()', 'lastEntry()', 'pollFirstEntry()', 'pollLastEntry()', 'reversed()'.

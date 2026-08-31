@@ -21,7 +21,7 @@ export default function Topic10() {
             JUnit 5, Mockito &amp; Clean Code
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           TDD Workflow: <code className="text-emerald-400 font-mono">Red -&gt; Green -&gt; Refactor</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -50,7 +50,7 @@ export default function Topic10() {
       <section className="space-y-4">
         <PlainTextPrint
           content={noteText}
-          title="Module 012_006 Topic 10: TDD Workflow (Red -> Green -> Refactor)"
+          title="Module 012_006 Topic 10: TDD Workflow (Red → Green → Refactor)"
           stampEnabled={true}
           showDownload={true}
           downloadButtonText="Download Printable Note"

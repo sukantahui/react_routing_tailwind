@@ -118,7 +118,7 @@ ALTER TABLE customer_orders ENGINE = InnoDB, ALGORITHM = INPLACE, LOCK = NONE;`,
 -- mysqlcheck -u root -p --analyze --all-databases --parallel 4`,
       metricsTable: [
         { feature: "Command Utility", value: "mysqlcheck CLI binary", role: "Automates maintenance across multiple schemas and tables" },
-        { feature: "Parallel Execution", value: "--parallel <N>", role: "Executes maintenance across multiple CPU cores in parallel" },
+        { feature: "Parallel Execution", value: "--parallel &lt;N&gt;", role: "Executes maintenance across multiple CPU cores in parallel" },
         { feature: "Auto-Authentication", value: "~/.my.cnf integration", role: "Ideal for scheduled midnight cron maintenance jobs" },
         { feature: "Summary Logging", value: "Standardized Exit Codes", role: "Integrates with enterprise monitoring systems (Nagios/Zabbix)" }
       ],
@@ -152,7 +152,7 @@ ALTER TABLE customer_orders ENGINE = InnoDB, ALGORITHM = INPLACE, LOCK = NONE;`,
               Table Maintenance
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Table Maintenance Commands: OPTIMIZE TABLE, CHECK TABLE, ANALYZE TABLE, REPAIR TABLE
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

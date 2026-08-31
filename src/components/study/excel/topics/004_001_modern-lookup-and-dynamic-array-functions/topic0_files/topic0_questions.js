@@ -80,7 +80,7 @@ const questions = [
     explanation: "Typing any content into a ghost cell introduces an obstruction in the required spill perimeter. Excel instantly collapses all spilled values and displays `#SPILL!` at the origin cell until the conflicting value is deleted.",
     hint: "The formula will not overwrite your manual entry; it halts until you delete it.",
     level: "basic",
-    codeExample: "// Type '100' in D5 -> Cell D2 changes from array output to #SPILL!"
+    codeExample: "// Type '100' in D5 → Cell D2 changes from array output to #SPILL!"
   },
   {
     question: "How do you create a dynamic Data Validation dropdown list that automatically updates when a spilled array expands?",
@@ -126,7 +126,7 @@ const questions = [
     question: "How do you combine multiple dynamic array functions in a single nested pipeline?",
     shortAnswer: "Nest functions sequentially, such as passing a FILTER output into UNIQUE, and then into SORT.",
     explanation: "Because dynamic array functions accept arrays as inputs and return arrays as outputs, they can be chained cleanly. `=SORT(UNIQUE(FILTER(A2:A100, B2:B100=\"Barrackpore\")))` first filters the records, extracts the distinct entries, and finally sorts them alphabetically in one formula.",
-    hint: "Work from the inside out: Filter -> Unique -> Sort.",
+    hint: "Work from the inside out: Filter → Unique → Sort.",
     level: "moderate",
     codeExample: "=SORT(UNIQUE(FILTER(C2:C50, H2:H50=\"Confirmed\")))"
   },

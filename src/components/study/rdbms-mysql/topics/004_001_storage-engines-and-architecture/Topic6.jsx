@@ -32,9 +32,9 @@ const Topic6 = () => {
 -- 3. DB_ROW_ID (6 bytes): Internal surrogate key if no PK is defined.
 
 -- VERSION CHAIN EVOLUTION:
--- Initial Insert (Trx 100): balance = ₹10,000 -> DB_ROLL_PTR = NULL
--- Update 1 (Trx 200): balance = ₹12,000 -> Clustered Row points to Undo V1 (₹10,000)
--- Update 2 (Trx 300): balance = ₹15,000 -> Clustered Row points to Undo V2 (₹12,000) -> Undo V1 (₹10,000)
+-- Initial Insert (Trx 100): balance = ₹10,000 → DB_ROLL_PTR = NULL
+-- Update 1 (Trx 200): balance = ₹12,000 → Clustered Row points to Undo V1 (₹10,000)
+-- Update 2 (Trx 300): balance = ₹15,000 → Clustered Row points to Undo V2 (₹12,000) → Undo V1 (₹10,000)
 
 -- When a query reads from an older snapshot, it follows DB_ROLL_PTR backwards in time!`,
       metricsTable: [
@@ -59,14 +59,14 @@ const Topic6 = () => {
 --   creator_trx_id: 205 (Current transaction ID)
 
 -- VISIBILITY LOGIC:
--- 1. If row TRX_ID < 201 -> VISIBLE (Committed before Read View).
--- 2. If row TRX_ID >= 210 -> INVISIBLE (Started after Read View).
--- 3. If row TRX_ID is in [201, 205] -> INVISIBLE (Was uncommitted when View opened).
--- 4. If row TRX_ID == creator_trx_id -> VISIBLE (Own modification!).
+-- 1. If row TRX_ID < 201 → VISIBLE (Committed before Read View).
+-- 2. If row TRX_ID >= 210 → INVISIBLE (Started after Read View).
+-- 3. If row TRX_ID is in [201, 205] → INVISIBLE (Was uncommitted when View opened).
+-- 4. If row TRX_ID == creator_trx_id → VISIBLE (Own modification!).
 
 -- ISOLATION DIFFERENCE:
--- READ COMMITTED  -> Creates a NEW Read View on EVERY SELECT!
--- REPEATABLE READ -> Reuses the FIRST Read View for entire transaction!`,
+-- READ COMMITTED  → Creates a NEW Read View on EVERY SELECT!
+-- REPEATABLE READ → Reuses the FIRST Read View for entire transaction!`,
       metricsTable: [
         { metric: "m_ids List", value: "Active Uncommitted IDs", role: "Determines which transactions were in-flight" },
         { metric: "min_trx_id", value: "Lowest active ID", role: "All transactions < min_trx_id are visible" },
@@ -162,7 +162,7 @@ KILL 142; -- Frees the Read View and allows Purge Threads to sweep!`,
               MVCC &amp; Undo Logs
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             InnoDB Undo Log and MVCC (Multi-Version Concurrency Control) for Non-Blocking Reads
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -277,7 +277,7 @@ KILL 142; -- Frees the Read View and allows Purge Threads to sweep!`,
                 <text x="45" y="172" fill="#bae6fd" fontSize="10" fontWeight="bold">DB_TRX_ID = 300 (Active Update)</text>
 
                 <rect x="35" y="195" width="250" height="35" rx="4" fill="#1e293b" stroke="#d97706" />
-                <text x="45" y="217" fill="#fde68a" fontSize="10" fontWeight="bold">DB_ROLL_PTR &rarr; Undo V2</text>
+                <text x="45" y="217" fill="#fde68a" fontSize="10" fontWeight="bold">DB_ROLL_PTR → Undo V2</text>
 
                 <rect x="35" y="240" width="250" height="55" rx="4" fill="#1e293b" stroke="#334155" />
                 <text x="45" y="260" fill="#94a3b8" fontSize="9">Latest version seen by new transactions</text>
@@ -297,7 +297,7 @@ KILL 142; -- Frees the Read View and allows Purge Threads to sweep!`,
                 <text x="365" y="172" fill="#bae6fd" fontSize="10" fontWeight="bold">DB_TRX_ID = 200</text>
 
                 <rect x="355" y="195" width="240" height="35" rx="4" fill="#1e293b" stroke="#d97706" />
-                <text x="365" y="217" fill="#fde68a" fontSize="10" fontWeight="bold">DB_ROLL_PTR &rarr; Undo V1</text>
+                <text x="365" y="217" fill="#fde68a" fontSize="10" fontWeight="bold">DB_ROLL_PTR → Undo V1</text>
 
                 {/* Undo Version 1 */}
                 <rect x="650" y="40" width="280" height="280" rx="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.5" />

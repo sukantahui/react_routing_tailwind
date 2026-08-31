@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Expected Payoff in Game Theory?",
     shortAnswer: "'Expected Payoff E(p, q) = p^T A q calculates the long-run average return under mixed strategies; at equilibrium, it equalizes expected payoffs across all opponent moves to secure the Value of the Game in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all expected payoff mechanics.",
-    hint: "E(p, q) = p^T A q -> Equalizes payoffs at equilibrium -> Secures v* in ₹.",
+    hint: "E(p, q) = p^T A q → Equalizes payoffs at equilibrium → Secures v* in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: E(p, q) = p^T * A * q -> EqualizeAtEquilibrium() -> SecureValue(₹)."
+    codeExample: "GoldenRule: E(p, q) = p^T * A * q → EqualizeAtEquilibrium() → SecureValue(₹)."
   }
 ];
 

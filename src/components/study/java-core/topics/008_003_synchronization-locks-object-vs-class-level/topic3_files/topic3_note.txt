@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. INTRINSIC MONITOR LOCKS:
    - Attached to EVERY Java object in heap memory.
    - Encoded in the Object Header's 8-byte Mark Word.
-   - Lock inflation: Biased &rarr; Lightweight (CAS) &rarr; Heavyweight (OS Mutex).
+   - Lock inflation: Biased → Lightweight (CAS) → Heavyweight (OS Mutex).
    - Bytecode instructions: 'monitorenter' and 'monitorexit'.
    - Exception safety guaranteed by JVM exception tables.
 

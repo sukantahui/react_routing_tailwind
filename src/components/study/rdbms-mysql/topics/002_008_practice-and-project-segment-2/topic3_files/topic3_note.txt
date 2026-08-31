@@ -40,9 +40,9 @@ Rules of 2NF:
   on only part of the composite primary key).
 
 Identified Partial Dependencies:
-- `Student_ID -> Student_Name, Branch_City, Branch_Pincode` (Depends on part of PK!)
-- `Course_Code -> Course_Name, Instructor_ID, Instructor_Name, Room_No` (Depends on part of PK!)
-- `Receipt_No -> Payment_Date, Amount_Paid_INR` (Depends on part of PK!)
+- `Student_ID → Student_Name, Branch_City, Branch_Pincode` (Depends on part of PK!)
+- `Course_Code → Course_Name, Instructor_ID, Instructor_Name, Room_No` (Depends on part of PK!)
+- `Receipt_No → Payment_Date, Amount_Paid_INR` (Depends on part of PK!)
 
 Decomposition into 4 Tables:
 1. `students` (`student_id PK`, `student_name`, `branch_city`, `branch_pincode`)
@@ -58,8 +58,8 @@ Rules of 3NF:
   non-key attribute: $X \to Y \to Z$).
 
 Identified Transitive Dependencies:
-- In `students`: `student_id -> branch_city -> branch_pincode` (Transitive!)
-- In `courses`: `course_code -> instructor_id -> instructor_name, instructor_phone` (Transitive!)
+- In `students`: `student_id → branch_city → branch_pincode` (Transitive!)
+- In `courses`: `course_code → instructor_id → instructor_name, instructor_phone` (Transitive!)
 
 Decomposition into 6 Clean 3NF Tables:
 1. `branches` (`branch_id PK`, `branch_city`, `branch_pincode`)

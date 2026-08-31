@@ -147,11 +147,11 @@ const manualRecoveryProtocol = {
     level: "Expert",
     codeExample: `// Industroyer Modular Architecture:
 const industroyerModules = [
-  "104.dll -> Protocol payload for IEC 60870-5-104",
-  "61850.dll -> Protocol payload for IEC 61850 (Substation Automation)",
-  "opc.dll -> Protocol payload for OPC Data Access (DA)",
-  "101.dll -> Protocol payload for IEC 60870-5-101 (Serial links)",
-  "wiper.exe -> Destructive disk wiper for anti-forensics"
+  "104.dll → Protocol payload for IEC 60870-5-104",
+  "61850.dll → Protocol payload for IEC 61850 (Substation Automation)",
+  "opc.dll → Protocol payload for OPC Data Access (DA)",
+  "101.dll → Protocol payload for IEC 60870-5-101 (Serial links)",
+  "wiper.exe → Destructive disk wiper for anti-forensics"
 ];`
   },
   {
@@ -207,7 +207,7 @@ const blackEnergyPlugins = [
     hint: "Baseline monitoring alerting on sudden, abnormal bursts of breaker disconnection commands.",
     level: "Expert",
     codeExample: `// Snort / Suricata Rule for Rapid IEC 104 Breaker Disconnect:
-alert tcp any any -> any 2404 (
+alert tcp any any → any 2404 (
   msg:"SCADA-CRITICAL: Rapid IEC 60870-5-104 Breaker Open Command Detected";
   content:"|68|"; offset:0; depth:1;
   content:"|2D|"; offset:6; depth:1; // TypeID 45 (Single Command)
@@ -301,7 +301,7 @@ const ceaPowerCompliance = {
     level: "Moderate",
     codeExample: `// Legitimate SCADA Interface Abuse:
 // Operator workstation had pre-installed VNC / RDP daemon
-// Attacker authenticated via RDP session -> Opened "Substation_Grid_Map.exe" -> Clicked "DISCONNECT_ALL"`
+// Attacker authenticated via RDP session → Opened "Substation_Grid_Map.exe" → Clicked "DISCONNECT_ALL"`
   },
   {
     id: 23,
@@ -329,8 +329,8 @@ Action:
     hint: "Disconnecting auxiliary substation power feeds to prevent backup generators from starting.",
     level: "Expert",
     codeExample: `// Auxiliary Power Disconnect Sequence:
-// Breaker 41 (Main Feed) -> OPENED
-// Breaker 42 (Station Auxiliary Backup / Battery Charger) -> OPENED
+// Breaker 41 (Main Feed) → OPENED
+// Breaker 42 (Station Auxiliary Backup / Battery Charger) → OPENED
 // Result: Automated Transfer Switch (ATS) dead; diesel generator failed to crank`
   },
   {

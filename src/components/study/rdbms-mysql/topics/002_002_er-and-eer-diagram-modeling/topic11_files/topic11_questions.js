@@ -140,7 +140,7 @@ const questions = [
     question: "How do you query all vehicles owned by Companies in Kolkata using SQL?",
     shortAnswer: "`SELECT v.vehicle_reg_no, c.company_name FROM vehicles v JOIN vehicle_owners o ON v.owner_id = o.owner_id JOIN companies c ON o.owner_id = c.owner_id WHERE c.city = 'Kolkata';`.",
     explanation: "Multi-table join filtering by company superclass.",
-    hint: "JOIN vehicles -> vehicle_owners -> companies.",
+    hint: "JOIN vehicles → vehicle_owners → companies.",
     level: "basic"
   },
   {

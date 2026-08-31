@@ -13,7 +13,7 @@ function runSafeModule() {
     // Attempt to assign to undeclared identifier without let/const/var:
     unintentionalGlobal = "This will fail immediately in strict mode!";
   } catch (err) {
-    console.log(`🛡️ Caught Expected Error: [${err.name}] -> ${err.message}`);
+    console.log(`🛡️ Caught Expected Error: [${err.name}] → ${err.message}`);
     console.log("✅ Verified: Global scope remained completely clean and unpolluted.");
   }
 }

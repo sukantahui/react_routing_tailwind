@@ -35,9 +35,9 @@ If a dominated case label appears after a dominating label, the compiler rejects
 Prior to Java 21, `switch` on a null reference threw `NullPointerException` unconditionally.
 In Java 21:
   switch (obj) {
-      case null -> "Handled null";
-      case String s -> "String: " + s;
-      default -> "Other";
+      case null → "Handled null";
+      case String s → "String: " + s;
+      default → "Other";
   }
 If `obj` is null, control jumps directly to `case null`, executing without exception. If no `case null` label is present, traditional NPE behavior is preserved for backward compatibility.
 

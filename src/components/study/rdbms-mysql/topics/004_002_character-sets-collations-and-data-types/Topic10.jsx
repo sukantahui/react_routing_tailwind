@@ -177,7 +177,7 @@ CREATE TABLE bank_customers (
               Generated Columns
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Generated Columns: Virtual Columns vs Stored Columns on JSON Fields
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -330,8 +330,8 @@ CREATE TABLE bank_customers (
 
                 <rect x="655" y="105" width="260" height="70" rx="4" fill="#1e293b" stroke="#d97706" />
                 <text x="665" y="127" fill="#fde68a" fontSize="10" fontWeight="bold">INDEX idx_city (city):</text>
-                <text x="665" y="145" fill="#34d399" fontSize="10">['Barrackpore'] &rarr; PK: 101</text>
-                <text x="665" y="160" fill="#bae6fd" fontSize="9">['Kolkata'] &rarr; PK: 102</text>
+                <text x="665" y="145" fill="#34d399" fontSize="10">['Barrackpore'] → PK: 101</text>
+                <text x="665" y="160" fill="#bae6fd" fontSize="9">['Kolkata'] → PK: 102</text>
 
                 <rect x="655" y="185" width="260" height="65" rx="4" fill="#1e293b" stroke="#10b981" />
                 <text x="665" y="205" fill="#34d399" fontSize="10" fontWeight="bold">Query Execution:</text>

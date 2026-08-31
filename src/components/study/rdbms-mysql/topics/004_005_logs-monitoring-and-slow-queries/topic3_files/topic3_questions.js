@@ -106,7 +106,7 @@ UPDATE kolkata_retail.discounts SET promo_code = UUID() LIMIT 5;`
   {
     question: "What parameter controls the maximum file size of individual binary log files before automatic rotation occurs?",
     shortAnswer: "`max_binlog_size` (default: 1GB / `1073741824` bytes).",
-    explanation: "When the active binary log reaches this size, MySQL closes it, increments the sequence counter (e.g. `binlog.000045` -> `binlog.000046`), and opens a new file.",
+    explanation: "When the active binary log reaches this size, MySQL closes it, increments the sequence counter (e.g. `binlog.000045` → `binlog.000046`), and opens a new file.",
     hint: "Use max_binlog_size (default 1GB).",
     level: "intermediate",
     codeExample: `SET PERSIST max_binlog_size = 1073741824; -- 1GB`

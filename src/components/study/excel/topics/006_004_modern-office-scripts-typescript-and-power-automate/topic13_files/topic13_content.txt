@@ -10,7 +10,7 @@ Real-world project: Building an automated cloud expense approval and ledger post
 It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Expense Approval Pipeline: Microsoft Forms (Submit Expense) -> Power Automate -> Office Script (Validate & Post to Ledger Table) -> Approver Email with Action Buttons -> Post to ERP
+Operational Architecture: Expense Approval Pipeline: Microsoft Forms (Submit Expense) → Power Automate → Office Script (Validate & Post to Ledger Table) → Approver Email with Action Buttons → Post to ERP
 
 3. CORE TECHNICAL MECHANICS
 1. End-to-End Cloud System Integration:

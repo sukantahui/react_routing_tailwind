@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "Practical application of Predicate<T> in collections filtering.",
     "hint": "Accepts Predicate<T> as a parameter to decouple the filtering algorithm from the business evaluation criteria.",
     "level": "Intermediate",
-    "codeExample": "boolean isAdult = ((Predicate<Integer>) age -> age >= 18).test(21);"
+    "codeExample": "boolean isAdult = ((Predicate<Integer>) age → age >= 18).test(21);"
   }
 ];
 

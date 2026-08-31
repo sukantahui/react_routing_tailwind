@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never write an 8-level nested IF for sales tiers or tax brackets! Build a 2-column configuration table and use =XLOOKUP(score, MinTable, TierTable, , -1). It is clean, flexible, and professional.
 
 COMMON TRAPS TO AVOID:
-- Unsorted Thresholds in MATCH Type 1: Legacy MATCH(val, range, 1) requires threshold arrays to be sorted in strict ascending order; unsorted tables return garbage results. -> Fix: Sort lookup threshold arrays in ascending order (0, 1000, 5000, 10000).
-- Values Below Minimum Threshold (#N/A): If the input value is smaller than the lowest threshold in the table, approximate lookup returns #N/A. -> Fix: Always start threshold tables at 0 (or negative infinity).
-- Hardcoded Tier Thresholds Inside Formulas: Hardcoding numbers like 50000 and 100000 inside formulas forces costly manual updates when company policy changes. -> Fix: Store thresholds in a dedicated named Excel Table.
+- Unsorted Thresholds in MATCH Type 1: Legacy MATCH(val, range, 1) requires threshold arrays to be sorted in strict ascending order; unsorted tables return garbage results. → Fix: Sort lookup threshold arrays in ascending order (0, 1000, 5000, 10000).
+- Values Below Minimum Threshold (#N/A): If the input value is smaller than the lowest threshold in the table, approximate lookup returns #N/A. → Fix: Always start threshold tables at 0 (or negative infinity).
+- Hardcoded Tier Thresholds Inside Formulas: Hardcoding numbers like 50000 and 100000 inside formulas forces costly manual updates when company policy changes. → Fix: Store thresholds in a dedicated named Excel Table.
 ================================================================================

@@ -77,7 +77,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Understanding Excel's Modern Calculation Engine & Dynamic Array Spill (#SPILL!) Behavior
           </h1>
 
@@ -323,7 +323,7 @@ export default function Topic0() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic0_Spill_Engine"
+              sheetName="EX1601"
               title="Master Dynamic Array & Spill Evaluation Grid"
               rowsPerPage={12}
               showSheetSelector={true}

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on completing Advanced VBA and System Integration! You have built a complete, commercial-grade enterprise software application right inside Microsoft Excel. You possess elite-level automation capabilities.
 
 COMMON TRAPS TO AVOID:
-- Allowing Invoicing of Out-of-Stock Items (Negative Inventory): UserForm accepting orders exceeding warehouse stock. -> Fix: Add stock validation check: `If reqQty > stockQty Then MsgBox "Insufficient Stock!", vbCritical: Exit Sub`.
-- Single-Point Transaction Failure Corrupting Balance: Writing the invoice but crashing before decrementing warehouse stock. -> Fix: Wrap transactions in structured rollback error handling.
-- Unsanitized User Inputs Causing SQL / Array Errors: Failing to validate special characters or apostrophes in client names. -> Fix: Sanitize all input strings using `Replace(str, "'", "''")`.
+- Allowing Invoicing of Out-of-Stock Items (Negative Inventory): UserForm accepting orders exceeding warehouse stock. → Fix: Add stock validation check: `If reqQty > stockQty Then MsgBox "Insufficient Stock!", vbCritical: Exit Sub`.
+- Single-Point Transaction Failure Corrupting Balance: Writing the invoice but crashing before decrementing warehouse stock. → Fix: Wrap transactions in structured rollback error handling.
+- Unsanitized User Inputs Causing SQL / Array Errors: Failing to validate special characters or apostrophes in client names. → Fix: Sanitize all input strings using `Replace(str, "'", "''")`.
 ================================================================================

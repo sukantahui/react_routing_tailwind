@@ -19,8 +19,8 @@ The classic beginner error occurs when assigning the result to a `double` variab
 Expression evaluation takes precedence over assignment: `7 / 2` evaluates to integer `3` on the operand stack. The JVM then executes `i2d` (int to double conversion), widening `3` to `3.0`. The fractional `0.5` is lost permanently before assignment.
 
 To preserve decimal precision:
-  double d1 = (double) 7 / 2; // 7.0 / 2 -> 3.5
-  double d2 = 7.0 / 2;        // 7.0 / 2.0 -> 3.5
+  double d1 = (double) 7 / 2; // 7.0 / 2 → 3.5
+  double d2 = 7.0 / 2;        // 7.0 / 2.0 → 3.5
 
 3. TRUNCATION TOWARDS ZERO VS MATHEMATICAL FLOOR DIVISION
 In standard Java integer division, division of negative numbers truncates toward zero:

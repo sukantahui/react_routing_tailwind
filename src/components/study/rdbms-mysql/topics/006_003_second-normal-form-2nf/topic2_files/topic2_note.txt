@@ -1,13 +1,13 @@
 ================================================================================
 RDBMS & MYSQL MASTERCLASS: DATABASE NORMALIZATION
 MODULE: SECOND NORMAL FORM (2NF) – PARTIAL FUNCTIONAL DEPENDENCIES & COMPOSITE KEYS
-TOPIC 2: THE CORE CULPRIT: PARTIAL FUNCTIONAL DEPENDENCY (X -> Y WHERE X IS PROPER SUBSET OF CANDIDATE KEY)
+TOPIC 2: THE CORE CULPRIT: PARTIAL FUNCTIONAL DEPENDENCY (X → Y WHERE X IS PROPER SUBSET OF CANDIDATE KEY)
 ================================================================================
 
 1. EXECUTIVE OVERVIEW & LEARNING OBJECTIVES
 --------------------------------------------------------------------------------
 This topic provides an exhaustive theoretical and practical deep-dive into:
-"The Core Culprit: Partial Functional Dependency (X -> Y where X is Proper Subset of Candidate Key)".
+"The Core Culprit: Partial Functional Dependency (X → Y where X is Proper Subset of Candidate Key)".
 Module: Second Normal Form (2NF) – Partial Functional Dependencies & Composite Keys (006_003_second-normal-form-2nf)
 Level: Intermediate | Estimated Study Time: 4 Hours
 
@@ -15,7 +15,7 @@ Level: Intermediate | Estimated Study Time: 4 Hours
 --------------------------------------------------------------------------------
 - Core Concept: Relational normalization ensures that data dependencies are modeled
   strictly according to business invariants, preventing update, deletion, and insertion anomalies.
-- Formal Rule: 1. Partial Functional Dependency (X -> Y where X ⊂ Candidate Key)
+- Formal Rule: 1. Partial Functional Dependency (X → Y where X ⊂ Candidate Key)
 - Decomposition Strategy: Split into Students (student_id PK), Courses (course_id PK), and Enrollments (student_id, course_id PK).
 
 3. BEFORE-VS-AFTER SCHEMA TRANSFORMATION

@@ -35,31 +35,31 @@ const Topic10 = () => {
       id: 101,
       name: "Mamata Hui",
       city: "Barrackpore",
-      enrolledCourses: [201, 202, 203], // All 3 -> Qualifies!
+      enrolledCourses: [201, 202, 203], // All 3 → Qualifies!
     },
     {
       id: 102,
       name: "Mahima Sharma",
       city: "Kolkata",
-      enrolledCourses: [201, 202], // Missing 203 -> Disqualified
+      enrolledCourses: [201, 202], // Missing 203 → Disqualified
     },
     {
       id: 103,
       name: "Abhronila Das",
       city: "Barrackpore",
-      enrolledCourses: [201, 203], // Missing 202 -> Disqualified
+      enrolledCourses: [201, 203], // Missing 202 → Disqualified
     },
     {
       id: 104,
       name: "Susmita Ghosh",
       city: "Ichapur",
-      enrolledCourses: [201], // Missing 202, 203 -> Disqualified
+      enrolledCourses: [201], // Missing 202, 203 → Disqualified
     },
     {
       id: 105,
       name: "Debangshu Roy",
       city: "Kolkata",
-      enrolledCourses: [201, 202, 203, 301], // Has all 3 core + elective -> Qualifies!
+      enrolledCourses: [201, 202, 203, 301], // Has all 3 core + elective → Qualifies!
     },
   ]);
 
@@ -144,7 +144,7 @@ const Topic10 = () => {
             Module 002_003 · Relational Algebra &amp; Calculus · Topic 10
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Division Operator (÷) for{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               'For All' / Universal Queries

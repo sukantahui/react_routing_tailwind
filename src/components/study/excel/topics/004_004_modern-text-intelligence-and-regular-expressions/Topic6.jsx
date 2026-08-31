@@ -76,7 +76,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Splitting Complex Strings by Multiple Delimiters with TEXTSPLIT
           </h1>
 
@@ -272,9 +272,9 @@ export default function Topic6() {
               <text x="205" y="150" fill="#F5D0FE" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="monospace">=TEXTSPLIT(A2, "=", ";")</text>
 
               <g transform="translate(45, 170)" fontSize="9" fontFamily="sans-serif" fill="#E2E8F0">
-                <text x="0" y="15">col_delimiter = "=" &rarr; Splits Key & Value</text>
-                <text x="0" y="35">row_delimiter = ";" &rarr; Splits Records by Row</text>
-                <text x="0" y="55" fill="#34D399">ignore_empty = TRUE &rarr; Clean array bounds</text>
+                <text x="0" y="15">col_delimiter = "=" → Splits Key & Value</text>
+                <text x="0" y="35">row_delimiter = ";" → Splits Records by Row</text>
+                <text x="0" y="55" fill="#34D399">ignore_empty = TRUE → Clean array bounds</text>
               </g>
 
               {/* Arrow */}
@@ -349,7 +349,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_TEXTSPLIT"
+            sheetName="EX1907"
             title="Multi-Delimiter & 2D Matrix Splitting Dataset (Record ID, Raw Composite String, Split Goal, Col 1, Col 2, Col 3)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -445,7 +445,7 @@ export default function Topic6() {
                 spilling individual action items vertically into separate rows for project tracking.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Splits on CHAR(10) &rarr; Spills Vertically Down Rows
+                Splits on CHAR(10) → Spills Vertically Down Rows
               </div>
             </div>
           </div>

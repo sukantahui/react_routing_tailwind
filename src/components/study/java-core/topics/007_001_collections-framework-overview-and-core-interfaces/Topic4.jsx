@@ -21,7 +21,7 @@ export default function Topic4() {
             Core Methods Suite
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Fundamental Collection Methods: <code className="text-emerald-400 font-mono">add()</code>, <code className="text-sky-400 font-mono">removeIf()</code>, <code className="text-amber-400 font-mono">contains()</code> &amp; <code className="text-purple-400 font-mono">toArray()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic4() {
       </section>
 
       <Teacher
-        note="Use 'list.removeIf(x -> condition)' instead of iterating and removing elements manually! It avoids ConcurrentModificationException and executes in a single clean pass! — Sukanta Hui"
+        note="Use 'list.removeIf(x → condition)' instead of iterating and removing elements manually! It avoids ConcurrentModificationException and executes in a single clean pass! — Sukanta Hui"
       />
     </div>
   );

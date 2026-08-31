@@ -30,7 +30,7 @@ high-speed bulk data transfer and universal identity establishment:
 |                    | the exact same key)     | secret Private Key)     |   legal validity (IT Act Sec 5)   |
 +--------------------+-------------------------+-------------------------+-----------------------------------+
 | 6. Quantum Status  | SAFE (Grover's halves   | BROKEN (Shor's solves   | - Symmetric uses AES-256          |
-|                    | keys -> AES-256 safe)   | DLP/Factoring -> Broken)| - Asymmetric migrates to PQC      |
+|                    | keys → AES-256 safe)   | DLP/Factoring → Broken)| - Asymmetric migrates to PQC      |
 +--------------------+-------------------------+-------------------------+-----------------------------------+
 
 --------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ SCENARIO 4 : 1000X THROUGHPUT BENCHMARKING LAB (JADAVPUR UNIVERSITY)
 [ ] Key Scaling: Symmetric requires N(N-1)/2 keys; Asymmetric requires 2N keys in PKI.
 [ ] Asymmetric digital signatures provide legal Non-Repudiation under IT Act 2000 Section 5.
 [ ] Hybrid Cryptosystems combine Asymmetric key agreement (ECDHE) with Symmetric AES-GCM bulk data.
-[ ] 4-Phase Hybrid Lifecycle: Key Agreement -> HKDF Derivation -> AES-GCM Bulk Transfer -> Zeroization.
+[ ] 4-Phase Hybrid Lifecycle: Key Agreement → HKDF Derivation → AES-GCM Bulk Transfer → Zeroization.
 [ ] Quantum impact: AES-256 remains safe against Grover's; RSA/ECC broken by Shor's (Requires PQC).
 [ ] Envelope Encryption wraps local Data Keys (DEKs) using HSM Master Keys (KEKs).
 [ ] DPDP Act 2023 enforces up to ₹250 Crores penalty for unencrypted personal data leaks.

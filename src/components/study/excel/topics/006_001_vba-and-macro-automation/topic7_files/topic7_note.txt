@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Whenever you have more than 3 `ElseIf` branches, stop and switch to `Select Case`! It is 10x cleaner to read, easier to maintain, and runs slightly faster.
 
 COMMON TRAPS TO AVOID:
-- Over-Nesting 10 If Statements Instead of Select Case: Writing spaghetti nested If-Else statements that are unreadable and error-prone. -> Fix: Refactor multi-condition single-variable logic into clean `Select Case` blocks.
-- Reversed Inequality Ordering in Select Case: Placing `Case Is >= 1000` before `Case Is >= 1000000` causes all large numbers to catch in the lower bucket first. -> Fix: Order inequalities strictly from most restrictive (highest) to least restrictive.
-- Missing End If or End Select: Syntax error 'Block If without End If' halting compilation. -> Fix: Ensure every opening `If` block has a matching closing `End If`.
+- Over-Nesting 10 If Statements Instead of Select Case: Writing spaghetti nested If-Else statements that are unreadable and error-prone. → Fix: Refactor multi-condition single-variable logic into clean `Select Case` blocks.
+- Reversed Inequality Ordering in Select Case: Placing `Case Is >= 1000` before `Case Is >= 1000000` causes all large numbers to catch in the lower bucket first. → Fix: Order inequalities strictly from most restrictive (highest) to least restrictive.
+- Missing End If or End Select: Syntax error 'Block If without End If' halting compilation. → Fix: Ensure every opening `If` block has a matching closing `End If`.
 ================================================================================

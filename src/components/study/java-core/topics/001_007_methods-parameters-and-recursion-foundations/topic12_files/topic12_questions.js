@@ -35,7 +35,7 @@ const questions = [
     explanation: "Theoretical foundation of recursion.",
     hint: "Mathematical Induction (Base Case + Inductive Step).",
     level: "intermediate",
-    codeExample: "// Base case corresponds to P(1); recursive step corresponds to P(k) -> P(k+1)"
+    codeExample: "// Base case corresponds to P(1); recursive step corresponds to P(k) → P(k+1)"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was the base case for `calculateFactorial(int n)`?",
@@ -55,7 +55,7 @@ const questions = [
   },
   {
     question: "What is 'Direct Recursion' vs 'Indirect Recursion'?",
-    shortAnswer: "Direct Recursion occurs when Method A explicitly calls Method A (`A -> A`); Indirect (Mutual) Recursion occurs when Method A calls Method B, which in turn calls Method A (`A -> B -> A`).",
+    shortAnswer: "Direct Recursion occurs when Method A explicitly calls Method A (`A → A`); Indirect (Mutual) Recursion occurs when Method A calls Method B, which in turn calls Method A (`A → B → A`).",
     explanation: "Direct vs Indirect recursion classification.",
     hint: "Direct = A calls A; Indirect = A calls B which calls A.",
     level: "intermediate",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Factorial time complexity analysis.",
     hint: "O(N) linear time.",
     level: "basic",
-    codeExample: "// T(N) = T(N - 1) + O(1) -> O(N)"
+    codeExample: "// T(N) = T(N - 1) + O(1) → O(N)"
   },
   {
     question: "What is the Space Complexity of calculating factorial recursively in Java?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "Natural sum recursive calculation.",
     hint: "55.",
     level: "basic",
-    codeExample: "calculateNaturalSum(10) -> 55"
+    codeExample: "calculateNaturalSum(10) → 55"
   },
   {
     question: "Can negative inputs break a naive base case like `if (n == 1) return 1;`?",
@@ -131,7 +131,7 @@ const questions = [
     explanation: "Call stack mechanics in recursion.",
     hint: "LIFO runtime memory storing method stack frames.",
     level: "basic",
-    codeExample: "// Stack pushes frames: main() -> fact(3) -> fact(2) -> fact(1)"
+    codeExample: "// Stack pushes frames: main() → fact(3) → fact(2) → fact(1)"
   },
   {
     question: "What is 'Stack Unwinding' in recursive execution?",
@@ -139,7 +139,7 @@ const questions = [
     explanation: "Stack unwinding phase description.",
     hint: "The return phase where frames calculate results and pop off the stack.",
     level: "intermediate",
-    codeExample: "fact(1)=1 -> fact(2)=2*1=2 -> fact(3)=3*2=6"
+    codeExample: "fact(1)=1 → fact(2)=2*1=2 → fact(3)=3*2=6"
   },
   {
     question: "Why is an iterative loop generally more memory-efficient than a standard recursive method in Java?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Factorial output verification.",
     hint: "1, 2, 6, 24, 120.",
     level: "basic",
-    codeExample: "calculateFactorial(5) -> 120"
+    codeExample: "calculateFactorial(5) → 120"
   },
   {
     question: "Why should `calculateFactorial(n)` use `long` rather than `int` return type in Java?",

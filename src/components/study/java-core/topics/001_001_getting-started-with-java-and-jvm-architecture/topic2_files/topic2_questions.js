@@ -29,7 +29,7 @@ const questions = [
     explanation: "Java catches errors early at compile-time, prevents memory leaks through automatic garbage collection, enforces explicit exception handling, and checks array bounds at runtime.",
     hint: "Think of memory safety and error management mechanisms.",
     level: "basic",
-    codeExample: "int[] arr = new int[3];\n// arr[5] = 10; -> Throws ArrayIndexOutOfBoundsException instead of corrupting memory."
+    codeExample: "int[] arr = new int[3];\n// arr[5] = 10; → Throws ArrayIndexOutOfBoundsException instead of corrupting memory."
   },
   {
     question: "Why did Java creators intentionally omit operator overloading?",
@@ -61,7 +61,7 @@ const questions = [
     explanation: "Unlike languages that rely on external OS threading libraries (like pthreads in C), Java has built-in thread management, memory visibility guarantees (JMM), and thread synchronization primitives directly in the language.",
     hint: "Look at the synchronized keyword and Thread class.",
     level: "intermediate",
-    codeExample: "Thread t = new Thread(() -> System.out.println(\"Concurrent task\"));\nt.start();"
+    codeExample: "Thread t = new Thread(() → System.out.println(\"Concurrent task\"));\nt.start();"
   },
   {
     question: "What makes Java 'Dynamic'?",
@@ -133,7 +133,7 @@ const questions = [
     explanation: "In dynamically typed languages (Python, JS), typos in variable names or wrong argument types are discovered only at runtime in production. In Java, the compiler catches 100% of these errors at build time.",
     hint: "Compile-time error detection vs runtime crashes.",
     level: "intermediate",
-    codeExample: "int sum = 50;\n// sum = \"fifty\"; -> Caught immediately by Java compiler!"
+    codeExample: "int sum = 50;\n// sum = \"fifty\"; → Caught immediately by Java compiler!"
   },
   {
     question: "How does Java handle cross-platform floating-point calculations?",

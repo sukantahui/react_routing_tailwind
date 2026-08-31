@@ -73,7 +73,7 @@ ALTER TABLE ledger_transactions ADD INDEX idx_account_id (account_id);`
     hint: "Under-provisioned replica CPU, RAM (InnoDB buffer pool), or disk IOPS compared to primary.",
     level: "basic",
     codeExample: `-- Primary: 64GB RAM, 20k IOPS
--- Replica: 8GB RAM, 3k IOPS -> Rapid Disk I/O Throttling & Lag!`
+-- Replica: 8GB RAM, 3k IOPS → Rapid Disk I/O Throttling & Lag!`
   },
   {
     question: "Why do long-running `ALTER TABLE` statements cause extreme replication lag on standard MySQL replicas?",

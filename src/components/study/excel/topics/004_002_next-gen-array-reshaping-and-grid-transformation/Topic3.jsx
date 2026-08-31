@@ -76,7 +76,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Extracting Specific Rows from Complex Arrays with CHOOSEROWS
           </h1>
 
@@ -197,7 +197,7 @@ export default function Topic3() {
                 Effective_Index = Total_Rows + Negative_Index + 1
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                For a 35-row table: <code className="text-sky-300 font-mono">-1 &rarr; 35 + (-1) + 1 = Row 35</code> (the last row). This dynamic offset calculation runs in C++ without triggering extra worksheet recalculations.
+                For a 35-row table: <code className="text-sky-300 font-mono">-1 → 35 + (-1) + 1 = Row 35</code> (the last row). This dynamic offset calculation runs in C++ without triggering extra worksheet recalculations.
               </p>
             </div>
 
@@ -210,7 +210,7 @@ export default function Topic3() {
                 you can generate mathematical sampling patterns (every Nth row, even rows, odd rows, or complete vertical matrix inversions).
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                =CHOOSEROWS(Table, SEQUENCE(5, 1, 1, 2)) &rarr; Slices Rows 1, 3, 5, 7, 9
+                =CHOOSEROWS(Table, SEQUENCE(5, 1, 1, 2)) → Slices Rows 1, 3, 5, 7, 9
               </div>
             </div>
           </div>
@@ -374,7 +374,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_CHOOSEROWS"
+            sheetName="EX1704"
             title="Employee Master Register (Barrackpore & Kolkata Campuses)"
             rowsPerPage={15}
             showSheetSelector={true}
@@ -413,7 +413,7 @@ export default function Topic3() {
                 she extracts the earliest employee (<code className="text-sky-300 font-mono">Row 1</code>: Swadeep) and newest recruit (<code className="text-amber-300 font-mono">Row -1</code>: Subham) in a 2-row executive summary table.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =CHOOSEROWS(A2:G16, 1, -1) &rarr; Instant Baseline & Latest Record
+                Formula: =CHOOSEROWS(A2:G16, 1, -1) → Instant Baseline & Latest Record
               </div>
             </div>
 
@@ -431,7 +431,7 @@ export default function Topic3() {
                 Combining CHOOSEROWS with XMATCH: <code className="text-amber-300 font-mono">=CHOOSEROWS(EmpMaster, XMATCH(TargetIDs, EmpMaster[Emp_ID]))</code> pulls all columns without helper formulas.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =CHOOSEROWS(Data, XMATCH(IDs, ID_Col)) &rarr; Multi-Record Spill
+                Formula: =CHOOSEROWS(Data, XMATCH(IDs, ID_Col)) → Multi-Record Spill
               </div>
             </div>
 
@@ -450,7 +450,7 @@ export default function Topic3() {
                 she dynamically samples rows 3, 6, 9, 12, and 15 without manual row picking.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =CHOOSEROWS(Data, SEQUENCE(5, 1, 3, 3)) &rarr; Step-3 Sample
+                Formula: =CHOOSEROWS(Data, SEQUENCE(5, 1, 3, 3)) → Step-3 Sample
               </div>
             </div>
 
@@ -469,7 +469,7 @@ export default function Topic3() {
                 to pull the top 2 highest earners alongside the 2 lowest earners into a single variance comparison card.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Formula: =CHOOSEROWS(SortedData, 1, 2, -2, -1) &rarr; Boundary Comparison
+                Formula: =CHOOSEROWS(SortedData, 1, 2, -2, -1) → Boundary Comparison
               </div>
             </div>
           </div>
@@ -586,7 +586,7 @@ export default function Topic3() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by existing values or merged formatting.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float tag &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float tag → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow unobstructed multi-column spill.</td>
                 </tr>
               </tbody>

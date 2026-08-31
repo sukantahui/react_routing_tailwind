@@ -102,7 +102,7 @@ const Topic12 = () => {
             Module 002_004 · Database Normalization · Topic 12
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Multi-valued Dependencies (MVD) &amp;{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Fourth Normal Form (4NF)

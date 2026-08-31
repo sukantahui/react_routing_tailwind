@@ -30,13 +30,13 @@ FROM student_registry
 WHERE student_id = 45012;
 
 -- Traversal Execution:
--- Hop 1: Root Page (Page #3) -> Inspect boundaries -> Follow Pointer to Branch Page #48.
--- Hop 2: Branch Page (Page #48) -> Binary search -> Follow Pointer to Leaf Page #1209.
--- Hop 3: Leaf Page (Page #1209) -> Binary search within page directory -> Pinpoint row!
+-- Hop 1: Root Page (Page #3) → Inspect boundaries → Follow Pointer to Branch Page #48.
+-- Hop 2: Branch Page (Page #48) → Binary search → Follow Pointer to Leaf Page #1209.
+-- Hop 3: Leaf Page (Page #1209) → Binary search within page directory → Pinpoint row!
 -- Latency: 0.5 ms`,
       resultRows: [
-        { hop: "Hop 1 (Level 2)", page: "Root Page #3", keys: "Keys: 1 - 1,000,000", action: "Binary Search -> Points to Branch Page #48", outcome: "In-Memory RAM" },
-        { hop: "Hop 2 (Level 1)", page: "Branch Page #48", keys: "Keys: 40,000 - 50,000", action: "Binary Search -> Points to Leaf Page #1209", outcome: "Buffer Pool Hit" },
+        { hop: "Hop 1 (Level 2)", page: "Root Page #3", keys: "Keys: 1 - 1,000,000", action: "Binary Search → Points to Branch Page #48", outcome: "In-Memory RAM" },
+        { hop: "Hop 2 (Level 1)", page: "Branch Page #48", keys: "Keys: 40,000 - 50,000", action: "Binary Search → Points to Leaf Page #1209", outcome: "Buffer Pool Hit" },
         { hop: "Hop 3 (Level 0)", page: "Leaf Page #1209", keys: "Keys: 45,000 - 45,100", action: "Pinpoints Student #45012 (Mamata Hui)", outcome: "0.5 ms Point Seek" },
       ],
       explanation:
@@ -54,7 +54,7 @@ ORDER BY tuition_fee_inr ASC;
 
 -- Traversal Execution:
 -- 1. Tree Seek to lower bound (₹20,000) on Leaf Page #201.
--- 2. Traverse horizontally along Leaf Doubly-Linked List (Page #201 -> #202 -> #203).
+-- 2. Traverse horizontally along Leaf Doubly-Linked List (Page #201 → #202 → #203).
 -- 3. Halts automatically when key exceeds upper bound (₹30,000).
 -- Zero Root/Branch re-traversal overhead!`,
       resultRows: [
@@ -71,13 +71,13 @@ ORDER BY tuition_fee_inr ASC;
       badgeColor: "amber",
       sqlQuery: `-- Comparing insertion dynamics:
 -- CASE A: Sequential AUTO_INCREMENT PK (93.75% Fill Factor):
--- -> Appends to the end of rightmost page #500.
--- -> When full, allocates page #501 with 0 page splits and 0 fragmentation.
+-- → Appends to the end of rightmost page #500.
+-- → When full, allocates page #501 with 0 page splits and 0 fragmentation.
 
 -- CASE B: Random UUID Primary Keys (50/50 Page Split):
--- -> Inserts scattered key into full middle page #210.
--- -> Forces InnoDB to split page #210 into two 50% full pages (#210 & #940).
--- -> Wastes 50% disk storage and triggers write amplification!`,
+-- → Inserts scattered key into full middle page #210.
+-- → Forces InnoDB to split page #210 into two 50% full pages (#210 & #940).
+-- → Wastes 50% disk storage and triggers write amplification!`,
       resultRows: [
         { hop: "Sequential AUTO_INCREMENT", page: "93.75% Page Density", keys: "Contiguous Leaf Append", action: "Zero Page Splits", outcome: "✓ Maximum Performance" },
         { hop: "Random UUID / Hash Keys", page: "50.00% Page Density", keys: "Scattered Middle Inserts", action: "Constant 50/50 Page Splits", outcome: "❌ Severe Fragmentation" },
@@ -113,7 +113,7 @@ ORDER BY tuition_fee_inr ASC;
               Physical Storage Mechanics
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             B-Tree Index Physical Structure & Lookup Mechanics
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

@@ -170,7 +170,7 @@ HAVING COUNT(*) >= ${minStudentThreshold};`;
             Module 002_003 · Relational Algebra &amp; Calculus · Topic 12
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Aggregate Functions &amp;{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Grouping Operator (𝒢)
@@ -478,7 +478,7 @@ HAVING COUNT(*) >= ${minStudentThreshold};`;
                 <span className="text-xs text-slate-500 font-mono">Barrackpore Academy</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                Relational Algebra: ${"{}"}_{"\city"} \\mathcal{"G"}_{"\COUNT(*) \\rightarrow \cnt, \SUM(fee) \\rightarrow \total, \AVG(fee) \\rightarrow \avg"}("Students")
+                Relational Algebra: ${"{}"}_{"\city"} \\mathcal{"G"}_{"\COUNT(*) \→ \cnt, \SUM(fee) \→ \total, \AVG(fee) \→ \avg"}("Students")
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT city, COUNT(*) AS total_students, SUM(admission_fee) AS total_revenue, AVG(admission_fee) AS avg_fee
@@ -496,7 +496,7 @@ GROUP BY city;`}
                 <span className="text-xs text-slate-500 font-mono">Kolkata University</span>
               </div>
               <p className="text-xs text-slate-400 mt-1">
-                Relational Algebra: $\\sigma_{"\cnt \\ge 2"}(${"{}"}_{"\course\\_id"} \\mathcal{"G"}_{"\COUNT(*) \\rightarrow \cnt"}("Enrollments"))
+                Relational Algebra: $\\sigma_{"\cnt \\ge 2"}(${"{}"}_{"\course\\_id"} \\mathcal{"G"}_{"\COUNT(*) \→ \cnt"}("Enrollments"))
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`SELECT course_id, COUNT(*) AS enroll_count

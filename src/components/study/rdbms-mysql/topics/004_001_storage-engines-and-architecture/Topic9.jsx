@@ -26,7 +26,7 @@ const Topic9 = () => {
       badge: "High-Water Mark",
       badgeColor: "rose",
       sqlSnippet: `-- ⚠️ WHY DELETE DOES NOT SHRINK .IBD FILES:
--- 1. Insert 10 million rows -> .ibd file expands to 50 GB.
+-- 1. Insert 10 million rows → .ibd file expands to 50 GB.
 -- 2. Execute massive delete:
 DELETE FROM customer_orders WHERE order_date < '2025-01-01';
 
@@ -168,7 +168,7 @@ ALTER TABLE customer_orders IMPORT TABLESPACE;
               Tablespace Defragmentation
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Tablespace Management: File-per-table (innodb_file_per_table), Shrinking and Defragmenting Tablespaces
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

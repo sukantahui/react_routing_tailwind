@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Python Objects are like magical containers. You can hold 500,000 rows in ONE single cell (cell A1). When you want to see the numbers on the sheet, press Ctrl + Alt + Shift + M to spill them as Excel Values.
 
 COMMON TRAPS TO AVOID:
-- Spill Range Collision (#SPILL! Error) in Excel Value Mode: Switching a large DataFrame to Excel Value mode when neighboring cells contain text or formulas blocking the spill area. -> Fix: Ensure empty canvas cells below and to the right of the formula cell.
-- Extracting Complex Objects as Values (Unreadable Output): Setting output mode to Excel Value on a trained ML Model or complex nested dictionary. -> Fix: Keep complex non-tabular objects as Python Objects.
-- Forgetting Keyboard Shortcut to Toggle Modes: Manually right-clicking every cell to change output format. -> Fix: Press `Ctrl + Alt + Shift + M` to toggle instantly.
+- Spill Range Collision (#SPILL! Error) in Excel Value Mode: Switching a large DataFrame to Excel Value mode when neighboring cells contain text or formulas blocking the spill area. → Fix: Ensure empty canvas cells below and to the right of the formula cell.
+- Extracting Complex Objects as Values (Unreadable Output): Setting output mode to Excel Value on a trained ML Model or complex nested dictionary. → Fix: Keep complex non-tabular objects as Python Objects.
+- Forgetting Keyboard Shortcut to Toggle Modes: Manually right-clicking every cell to change output format. → Fix: Press `Ctrl + Alt + Shift + M` to toggle instantly.
 ================================================================================

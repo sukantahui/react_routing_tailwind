@@ -6,9 +6,9 @@ const questions = [
     question: "In Numerical Problem 1 (Standard 4x4 Balanced Minimization), what are the 5 sequential steps executed from initial matrix to final cost?",
     shortAnswer: "1. Balance verification (4x4 square); 2. Row reduction (subtract row minimums); 3. Column reduction (subtract column minimums); 4. König line test (L = 4 = n); 5. Box [0] and cross out (X) to extract independent zeros, then sum original rates in Indian Rupees (₹).",
     explanation: "This standard 5-step pipeline is the blueprint for solving all linear assignment exercises.",
-    hint: "Balance -> Row Reduce -> Col Reduce -> Line Test -> Assign Zeros -> Sum ₹.",
+    hint: "Balance → Row Reduce → Col Reduce → Line Test → Assign Zeros → Sum ₹.",
     level: "moderate",
-    codeExample: "NumericalPipeline: CheckBalance -> RowRed -> ColRed -> LineTest -> AssignZeros -> Z_opt."
+    codeExample: "NumericalPipeline: CheckBalance → RowRed → ColRed → LineTest → AssignZeros → Z_opt."
   },
   {
     question: "In a 3x3 cost matrix C = [[12, 10, 15], [16, 14, 11], [8, 9, 13]], what is the minimum element in Row 1, Row 2, and Row 3?",
@@ -126,9 +126,9 @@ const questions = [
     question: "What is the ultimate golden rule of Numerical Assignment Exercises?",
     shortAnswer: "'Classify problem type (balanced/unbalanced/maximization/restricted); apply required pre-processing (dummies/regret); execute 5-step Hungarian solver; pull original rates in Indian Rupees (₹); verify via Strong Duality!'",
     explanation: "This complete rule captures all exam and numerical problem-solving workflows.",
-    hint: "Classify -> Pre-process -> Solve Hungarian -> Pull original ₹ rates -> Verify Strong Duality.",
+    hint: "Classify → Pre-process → Solve Hungarian → Pull original ₹ rates → Verify Strong Duality.",
     level: "moderate",
-    codeExample: "Golden Rule: Classify -> PreProcess -> SolveHungarian -> PullOrigRates(₹) -> VerifyDuality."
+    codeExample: "Golden Rule: Classify → PreProcess → SolveHungarian → PullOrigRates(₹) → VerifyDuality."
   }
 ];
 

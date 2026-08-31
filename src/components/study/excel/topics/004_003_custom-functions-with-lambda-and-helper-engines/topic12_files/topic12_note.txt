@@ -15,8 +15,8 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 • Enables solving tree traversals, hierarchies, factorials, and tokenizers.
 
 2. CRITICAL ANATOMY:
-• Mandatory Base Case: IF(n <= 1, 1, ...) &rarr; Prevents infinite loops.
-• Recursive Step: ... n * FX_FACT(n - 1) &rarr; Reduces the problem.
+• Mandatory Base Case: IF(n <= 1, 1, ...) → Prevents infinite loops.
+• Recursive Step: ... n * FX_FACT(n - 1) → Reduces the problem.
 • Excel 365 Stack Limit: 1,024 nested calls max. Exceeding triggers #NUM!.
 
 3. ENTERPRISE ARCHITECTURAL PATTERNS:

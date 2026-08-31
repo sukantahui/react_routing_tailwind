@@ -187,7 +187,7 @@ const questions = [
     explanation: "Consecutive register operations in bytecode.",
     hint: "Sequential iinc instructions before the goto jump.",
     level: "advanced",
-    codeExample: "// Bytecode: iinc 1, 1 -> iinc 2, -1 -> goto L_COND"
+    codeExample: "// Bytecode: iinc 1, 1 → iinc 2, -1 → goto L_COND"
   },
   {
     question: "How does the Two-Pointer technique optimize binary search over a sorted array?",

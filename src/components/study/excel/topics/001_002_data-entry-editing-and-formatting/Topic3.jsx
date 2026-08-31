@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Grid Structure Editing: Inserting, Deleting, Hiding, Grouping and Resizing Rows &amp; Columns
           </h1>
 
@@ -168,7 +168,7 @@ export default function Topic3() {
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>Inserting a row shifts all downstream cell coordinates and automatically updates existing formula reference ranges.</p>
-            <p>Outline Grouping (Data &amp;rarr; Group) is vastly superior to simple Row Hiding because it provides intuitive [+] and [-] expand/collapse buttons in the margin for executive review.</p>
+            <p>Outline Grouping (Data → Group) is vastly superior to simple Row Hiding because it provides intuitive [+] and [-] expand/collapse buttons in the margin for executive review.</p>
             <p>The Delete key clears only cell contents (data); it leaves cell backgrounds, borders, and number formatting intact. Use Clear All (Alt+H+E+A) for complete sterilization.</p>
           </div>
 
@@ -314,7 +314,7 @@ export default function Topic3() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Ctrl + Space (Select Col) &amp;rarr; Ctrl + Shift + + (Insert Col)</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Ctrl + Space (Select Col) → Ctrl + Shift + + (Insert Col)</div>
                 <div className="text-emerald-400 font-semibold">Result: New column inserted with zero broken formula references.</div>
                 <div className="text-slate-400 text-[11px]">Excel automatically expands and shifts internal formula pointers when columns are inserted.</div>
               </div>
@@ -360,7 +360,7 @@ export default function Topic3() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Ctrl + A &amp;rarr; Alt + H + O + I</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Ctrl + A → Alt + H + O + I</div>
                 <div className="text-emerald-400 font-semibold">Result: Zero '###' display truncation across the entire worksheet.</div>
                 <div className="text-slate-400 text-[11px]">AutoFit inspects the widest string in each column and sets optimum pixel width.</div>
               </div>
@@ -555,7 +555,7 @@ export default function Topic3() {
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the operational advantage of Data &amp;rarr; Group (Shift+Alt+Right) over hiding columns with Ctrl+0?</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">What is the operational advantage of Data → Group (Shift+Alt+Right) over hiding columns with Ctrl+0?</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-3">
               <span className="text-teal-400 text-base">❓</span>

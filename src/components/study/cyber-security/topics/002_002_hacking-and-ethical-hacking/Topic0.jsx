@@ -77,7 +77,7 @@ app.get('/api/invoice/:invoiceId', async (req, res) => {
   const invoice = await Invoice.findById(req.params.invoiceId);
   return res.json(invoice);
 });`,
-      exploitInput: `GET /api/invoice/100452  -->  Change parameter to:  GET /api/invoice/100453`,
+      exploitInput: `GET /api/invoice/100452  →  Change parameter to:  GET /api/invoice/100453`,
       payloadEffect:
         "Allows unauthorized users to download proprietary invoices, tax records, and personal customer data belonging to any other user across the platform.",
       remediationCode: `// Secure Object Ownership Verification:
@@ -272,7 +272,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_002 • Topic 0 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Introduction to Hacking Concepts &amp; Terminology
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
@@ -480,7 +480,7 @@ if (finalTotal === 0 && subtotal > 0) enforceMinimumSpend(cartItems);`
                   <span className="text-xs text-gray-400">CVSS v3.1 Specification Standard</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className={clsx("text-3xl sm:text-4xl font-black tracking-tight", cvssScore.severityColor)}>
+                  <span className={clsx("text-xl sm:text-2xl md:text-3xl font-bold tracking-tight", cvssScore.severityColor)}>
                     {cvssScore.score}
                   </span>
                   <span className={clsx("text-xs font-extrabold px-2.5 py-1 rounded-full border border-gray-700 uppercase", cvssScore.severityColor)}>

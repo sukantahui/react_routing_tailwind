@@ -21,7 +21,7 @@ export default function Topic6() {
             Constructor References
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Kind 4: Reference to a <code className="text-emerald-400 font-mono">Constructor</code> (<code className="text-sky-400 font-mono">ClassName::new</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic6() {
       </section>
 
       <Teacher
-        note="Constructor references are the ultimate factory shortcuts! Instead of writing '() -> new ArrayList<>()', just write 'ArrayList::new'! Java inspects the constructor arguments and calls the right one automatically! — Sukanta Hui"
+        note="Constructor references are the ultimate factory shortcuts! Instead of writing '() → new ArrayList&lt;&gt;()', just write 'ArrayList::new'! Java inspects the constructor arguments and calls the right one automatically! — Sukanta Hui"
       />
     </div>
   );

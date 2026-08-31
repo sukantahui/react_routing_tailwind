@@ -71,7 +71,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     hint: "Encrypted locally with user device passcodes before cloud upload; cloud providers cannot read the keys.",
     level: "Moderate",
     codeExample: `// E2EE Sync Architecture:
-// Local Passkey + Device Passcode -> Argon2id -> AES-256 Key -> Encrypted Passkey -> Synced to Cloud Blob.`
+// Local Passkey + Device Passcode → Argon2id → AES-256 Key → Encrypted Passkey → Synced to Cloud Blob.`
   },
   {
     id: 8,
@@ -91,7 +91,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     hint: "Passkeys restore automatically across cloud devices, eliminating insecure email/SMS reset links.",
     level: "Moderate",
     codeExample: `// Passkey Recovery:
-// User buys new iPhone -> Signs into Apple ID -> All 50 banking passkeys restored instantly via iCloud E2EE.`
+// User buys new iPhone → Signs into Apple ID → All 50 banking passkeys restored instantly via iCloud E2EE.`
   },
   {
     id: 10,
@@ -101,7 +101,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     hint: "FIDO CXP/CXF standards allow encrypted import/export of passkeys between Apple, Google, and password managers.",
     level: "Moderate",
     codeExample: `// FIDO CXP (Credential Exchange Protocol):
-// Export Passkeys from Apple Keychain -> Encrypted CXF Archive -> Import into Bitwarden.`
+// Export Passkeys from Apple Keychain → Encrypted CXF Archive → Import into Bitwarden.`
   },
   {
     id: 11,
@@ -136,7 +136,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     hint: "Store passkeys in cross-platform encrypted vaults unlocked by a master key or biometric.",
     level: "Moderate",
     codeExample: `// Third-Party Passkey Manager:
-// Browser WebAuthn API -> Redirected to Bitwarden Extension -> Vault Decrypted -> Signs Assertion across any OS.`
+// Browser WebAuthn API → Redirected to Bitwarden Extension → Vault Decrypted → Signs Assertion across any OS.`
   },
   {
     id: 14,
@@ -148,7 +148,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     codeExample: `// caBLE Tunnel Key Derivation:
 // QR Code contains: Client_Ephemeral_Public_Key
 // Phone generates: Phone_Ephemeral_Keypair
-// Shared Key = ECDH(Phone_Private, Client_Public) -> Encrypts WebAuthn payload.`
+// Shared Key = ECDH(Phone_Private, Client_Public) → Encrypts WebAuthn payload.`
   },
   {
     id: 15,
@@ -169,7 +169,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     hint: "Demands a fresh biometric passkey tap to authorize high-value financial disbursements.",
     level: "Basic",
     codeExample: `// Step-Up Transaction Signing:
-// User clicks "Transfer ₹5,00,000" -> Server issues Challenge(Tx_ID: 10482) -> Phone prompts Face ID -> Assertion signed.`
+// User clicks "Transfer ₹5,00,000" → Server issues Challenge(Tx_ID: 10482) → Phone prompts Face ID → Assertion signed.`
   },
   {
     id: 17,
@@ -180,7 +180,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     level: "Basic",
     codeExample: `// Cost Reduction Impact:
 // Legacy: 10,000 users * 3 password resets/year * ₹500/ticket = ₹1,50,00,000 support cost
-// Passkeys: 0 password reset tickets -> 100% cost elimination ✔`
+// Passkeys: 0 password reset tickets → 100% cost elimination ✔`
   },
   {
     id: 18,
@@ -200,7 +200,7 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     hint: "No credentials are typed on the keyboard; authentication occurs via phone biometrics or hardware touch.",
     level: "Basic",
     codeExample: `// Keylogger Capture:
-// User logs in via Passkey QR Code -> Keylogger logs: [EMPTY] -> 0 credentials captured 🛡️`
+// User logs in via Passkey QR Code → Keylogger logs: [EMPTY] → 0 credentials captured 🛡️`
   },
   {
     id: 20,
@@ -241,8 +241,8 @@ const isBackedUp = Boolean(flags & 0x10);       // Bit 4 (BS)`
     hint: "WebAuthn authenticates the login; DPoP binds subsequent API requests to a client private key.",
     level: "Expert",
     codeExample: `// DPoP + Passkey Architecture:
-// 1. Passkey Login -> Server issues DPoP-bound JWT.
-// 2. Client signs each HTTP request with local DPoP private key -> Stolen tokens cannot be replayed.`
+// 1. Passkey Login → Server issues DPoP-bound JWT.
+// 2. Client signs each HTTP request with local DPoP private key → Stolen tokens cannot be replayed.`
   },
   {
     id: 24,

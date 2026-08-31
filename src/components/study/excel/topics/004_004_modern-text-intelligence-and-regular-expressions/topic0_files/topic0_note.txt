@@ -11,9 +11,9 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
 1. WHAT ARE EXCEL'S NATIVE REGEX FUNCTIONS?
 --------------------------------------------------------------------------------
 Excel 365 introduced three revolutionary native functions:
-1. REGEXTEST(text, pattern, [case_sensitivity]) &rarr; Returns TRUE/FALSE
-2. REGEXEXTRACT(text, pattern, [return_mode], [case_sensitivity]) &rarr; Extracts matched tokens
-3. REGEXREPLACE(text, pattern, replacement, [occurrence], [case_sensitivity]) &rarr; Replaces pattern matches
+1. REGEXTEST(text, pattern, [case_sensitivity]) → Returns TRUE/FALSE
+2. REGEXEXTRACT(text, pattern, [return_mode], [case_sensitivity]) → Extracts matched tokens
+3. REGEXREPLACE(text, pattern, replacement, [occurrence], [case_sensitivity]) → Replaces pattern matches
 
 2. WHY REGEX REVOLUTIONIZES SPREADSHEET ETL
 --------------------------------------------------------------------------------

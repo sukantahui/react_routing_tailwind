@@ -29,7 +29,7 @@ Core Mechanics:
 
 3. INTEGRATION PATTERNS:
 --------------------------------------------------------------------------------
-• Conditional Formatting: =NOT(REGEXTEST(cell, pattern)) &rarr; Live Red Alerts.
-• Dynamic Array Filter: =FILTER(Data, REGEXTEST(PAN_Col, pattern)) &rarr; Valid Records.
+• Conditional Formatting: =NOT(REGEXTEST(cell, pattern)) → Live Red Alerts.
+• Dynamic Array Filter: =FILTER(Data, REGEXTEST(PAN_Col, pattern)) → Valid Records.
 • Named Corporate LAMBDA: FX_IS_VALID_PAN = LAMBDA(pan, REGEXTEST(pan, pattern)).
 ================================================================================

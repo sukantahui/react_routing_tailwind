@@ -42,11 +42,11 @@ export default function Topic20() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          Narrowing / Explicit Casting (Larger Type &rarr; Smaller Type)
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
+          Narrowing / Explicit Casting (Larger Type → Smaller Type)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
-          Master explicit type downcasting in Java: the 22 narrowing conversion pathways (JLS §5.1.3), high-order bit discard &amp; sign-flip wrap-arounds (<code className="text-rose-400 font-mono">(byte)130 &rarr; -126</code>), floating-point truncation towards zero (<code className="text-amber-300 font-mono">(int)99.99 &rarr; 99</code>), IEEE 754 special values (NaN &amp; Infinity), and defensive overflow auditing in Indian Rupees (₹).
+          Master explicit type downcasting in Java: the 22 narrowing conversion pathways (JLS §5.1.3), high-order bit discard &amp; sign-flip wrap-arounds (<code className="text-rose-400 font-mono">(byte)130 → -126</code>), floating-point truncation towards zero (<code className="text-amber-300 font-mono">(int)99.99 → 99</code>), IEEE 754 special values (NaN &amp; Infinity), and defensive overflow auditing in Indian Rupees (₹).
         </p>
       </header>
 
@@ -60,14 +60,14 @@ export default function Topic20() {
             <strong>Narrowing / Explicit Casting</strong> is required whenever converting a larger primitive type into a narrower type:
           </p>
           <p className="font-mono text-amber-300 bg-slate-950 p-3 rounded-xl border border-slate-800">
-            double &rarr; float &rarr; long &rarr; int &rarr; short &rarr; byte &nbsp;&nbsp;(and int &rarr; char)
+            double → float → long → int → short → byte &nbsp;&nbsp;(and int → char)
           </p>
           <p>
             Because the target type has smaller capacity, narrowing involves two significant hazards:
             <br />
             <strong>1. High-Order Bit Truncation:</strong> When casting integers (e.g. <code className="text-sky-300 font-mono">int</code> to <code className="text-sky-300 font-mono">byte</code>), the upper 24 bits are permanently discarded, causing values exceeding 127 to wrap around into negative numbers!
             <br />
-            <strong>2. Fractional Truncation:</strong> When casting floating-point numbers to integers, all decimal digits are truncated towards zero (e.g. <code className="text-amber-300 font-mono">(int) 99.99 &rarr; 99</code>).
+            <strong>2. Fractional Truncation:</strong> When casting floating-point numbers to integers, all decimal digits are truncated towards zero (e.g. <code className="text-amber-300 font-mono">(int) 99.99 → 99</code>).
           </p>
           
           <div className="p-4 bg-slate-900/60 rounded-xl border-l-4 border-rose-500 text-slate-300 space-y-2">
@@ -114,9 +114,9 @@ export default function Topic20() {
             <rect x="30" y="40" width="260" height="180" rx="10" fill="url(#gradBitDiscard)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Upper 24 Bits Discarded</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#4c0519" />
-            <text x="55" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">int 130 &rarr; (byte) 130</text>
+            <text x="55" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">int 130 → (byte) 130</text>
             <text x="55" y="122" fill="#fecdd3" fontSize="10">Binary: 10000010</text>
-            <text x="55" y="142" fill="#fecdd3" fontSize="10">&rarr; Evaluates to -126 in 8-bit!</text>
+            <text x="55" y="142" fill="#fecdd3" fontSize="10">→ Evaluates to -126 in 8-bit!</text>
             <text x="160" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               Sign-Flip Wrap-Around
             </text>
@@ -125,7 +125,7 @@ export default function Topic20() {
             <rect x="310" y="40" width="260" height="180" rx="10" fill="url(#gradDecTrunc)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Decimal Truncation</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#451a03" />
-            <text x="335" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">double 99.99 &rarr; (int) 99</text>
+            <text x="335" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">double 99.99 → (int) 99</text>
             <text x="335" y="122" fill="#fef3c7" fontSize="10">Truncates towards zero!</text>
             <text x="335" y="142" fill="#fef3c7" fontSize="10">Use Math.round() for true rounding</text>
             <text x="440" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
@@ -215,7 +215,7 @@ export default function Topic20() {
         </div>
         
         <p className="text-sm text-slate-300 leading-relaxed">
-          The following program illustrates high-order bit discard (<code className="text-rose-400 font-mono">130 &rarr; -126</code>), floating-point decimal truncation, special IEEE 754 value downcasting (NaN and Infinity), and safe boundary validation in Indian Rupees (₹).
+          The following program illustrates high-order bit discard (<code className="text-rose-400 font-mono">130 → -126</code>), floating-point decimal truncation, special IEEE 754 value downcasting (NaN and Infinity), and safe boundary validation in Indian Rupees (₹).
         </p>
 
         <JavaFileLoader

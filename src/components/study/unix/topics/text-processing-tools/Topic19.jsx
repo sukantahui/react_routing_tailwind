@@ -52,7 +52,7 @@ const Topic19 = () => {
                 >
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-3 h-8 bg-blue-500 rounded-full"></div>
-                        <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
                             Topic 19: Data Cleanup and Normalization Using sed
                         </h1>
                     </div>

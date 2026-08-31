@@ -43,8 +43,8 @@ Pillar 3: The Recursive Member & Termination Condition
 
 3. RECURSION ENGINE MECHANICS: THE WORKING TABLE
 --------------------------------------------------------------------------------
-1. Iteration 0: Engine runs Anchor Member -> writes [ 1 ] into Working Table and Final Accumulator.
-2. Iteration 1: Engine runs Recursive Member on Working Table -> writes [ 2 ] into Working Table & Accumulator.
+1. Iteration 0: Engine runs Anchor Member → writes [ 1 ] into Working Table and Final Accumulator.
+2. Iteration 1: Engine runs Recursive Member on Working Table → writes [ 2 ] into Working Table & Accumulator.
 3. Iteration k: Repeats until `n < 10` returns an EMPTY SET.
 4. Final: Engine reads the complete result from the Accumulator table.
 

@@ -48,7 +48,7 @@ const Topic3 = () => {
       detectionMethod: "Cannot be detected at OS level; requires proactive cryptographic prevention (E2EE/AEAD).",
       remedialCode: `// State-Invariant Equation:
 // S_t = (Data, Config, Resources)
-// S_(t+1) == S_t  -> File hashes match, zero database row anomalies exist.`
+// S_(t+1) == S_t  → File hashes match, zero database row anomalies exist.`
     },
     minimal_energy_leakage: {
       key: "minimal_energy_leakage",
@@ -157,7 +157,7 @@ switch(config-if)# switchport port-security violation shutdown`
         return {
           frameStatus: "ACCEPTED BY PROMISCUOUS HARDWARE FILTER",
           kernelState: "Frame passed to libpcap buffer; OS IP stack sees matching IP and replies.",
-          socAlert: "ALERT! Host replied to fake unicast MAC FF:FF:FF:FF:FF:FE -> PROMISCUOUS SNIFFER DETECTED!",
+          socAlert: "ALERT! Host replied to fake unicast MAC FF:FF:FF:FF:FF:FE → PROMISCUOUS SNIFFER DETECTED!",
           badge: "bg-rose-950 text-rose-300 border-rose-800",
           isSniffer: true
         };

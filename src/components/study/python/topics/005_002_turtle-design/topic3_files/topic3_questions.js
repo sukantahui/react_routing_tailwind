@@ -15,7 +15,7 @@ const questions = [
     explanation: "Tkinter only calculates and fills polygon raster data when end_fill() is explicitly invoked.",
     hint: "Will the color appear if the fill is never ended?",
     level: "basic",
-    codeExample: "# Missing end_fill() -> Shape remains hollow"
+    codeExample: "# Missing end_fill() → Shape remains hollow"
   },
   {
     question: "How do you set the fill color independently from the stroke color?",
@@ -55,7 +55,7 @@ const questions = [
     explanation: "Always pair exactly one `begin_fill()` with one `end_fill()` before starting a new shape.",
     hint: "Can fill paths be nested or must they be sequential?",
     level: "moderate",
-    codeExample: "# Always pair begin_fill() -> draw -> end_fill()"
+    codeExample: "# Always pair begin_fill() → draw → end_fill()"
   },
   {
     question: "How do you draw a filled circle in Turtle?",
@@ -87,7 +87,7 @@ const questions = [
     explanation: "Breaking illustrations into modular filled polygons prevents unwanted color bleeding across shapes.",
     hint: "Should an entire town scene use one fill or multiple separate fills?",
     level: "basic",
-    codeExample: "# Part 1: Roof -> end_fill()\n# Part 2: Walls -> end_fill()"
+    codeExample: "# Part 1: Roof → end_fill()\n# Part 2: Walls → end_fill()"
   },
   {
     question: "Why should you avoid drawing complex 1000-line fractals inside a single begin_fill()?",
@@ -159,7 +159,7 @@ const questions = [
     explanation: "Overdrawing with the background color creates the visual illusion of a hollow donut or aperture.",
     hint: "How do you punch a visual hole in a solid 2D shape?",
     level: "advanced",
-    codeExample: "# Outer filled circle in gold -> Inner circle in bgcolor"
+    codeExample: "# Outer filled circle in gold → Inner circle in bgcolor"
   },
   {
     question: "What is the difference between filling convex vs concave polygons?",
@@ -239,7 +239,7 @@ const questions = [
     explanation: "Following this 4-step sequence guarantees perfect, artifact-free vector fills in every Python graphics program.",
     hint: "What 4 steps guarantee reliable filled shapes?",
     level: "basic",
-    codeExample: "# 1. fillcolor() -> 2. begin_fill() -> 3. closed path -> 4. end_fill()"
+    codeExample: "# 1. fillcolor() → 2. begin_fill() → 3. closed path → 4. end_fill()"
   }
 ];
 

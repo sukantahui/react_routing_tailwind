@@ -8,7 +8,7 @@ const questions = [
     explanation: "When Row k is crossed out, every active column j loses the cell entry c_kj. If c_kj was either the minimum or second minimum in column j, the remaining active candidate set shifts, changing c_(1,j) and/or c_(2,j), and resulting in an updated column penalty P_j' for the next iteration.",
     hint: "Think about what happens to a column's ranking when its cheapest factory is eliminated.",
     level: "moderate",
-    codeExample: "Col costs before cross-out: [₹3 (R1), ₹8 (R2), ₹12 (R3)] -> P = ₹5. After R1 cross-out: [₹8, ₹12] -> New P = ₹4."
+    codeExample: "Col costs before cross-out: [₹3 (R1), ₹8 (R2), ₹12 (R3)] → P = ₹5. After R1 cross-out: [₹8, ₹12] → New P = ₹4."
   },
   {
     question: "What happens to the penalty of a line if the crossed-out cell was its absolute LOWEST cost c_(1)?",
@@ -16,7 +16,7 @@ const questions = [
     explanation: "With c_(1) eliminated, the candidate ranking shifts upward: c_(1)' = c_(2) and c_(2)' = c_(3). The new penalty is P' = c_(3) - c_(2).",
     hint: "The second choice is promoted to first choice, exposing the third choice.",
     level: "expert",
-    codeExample: "Before: [₹2, ₹7, ₹10] (P=5). Cross out ₹2 -> Remaining: [₹7, ₹10] -> New P = 10 - 7 = ₹3."
+    codeExample: "Before: [₹2, ₹7, ₹10] (P=5). Cross out ₹2 → Remaining: [₹7, ₹10] → New P = 10 - 7 = ₹3."
   },
   {
     question: "What happens to the penalty of a line if the crossed-out cell was its SECOND-LOWEST cost c_(2)?",
@@ -24,7 +24,7 @@ const questions = [
     explanation: "With the intermediate backup eliminated, the gap jumps: c_(1)' = c_(1) and c_(2)' = c_(3). The new penalty is P' = c_(3) - c_(1), which is larger than the previous penalty.",
     hint: "Removing the intermediate safety net widens the danger gap to the next available route.",
     level: "expert",
-    codeExample: "Before: [₹4, ₹6, ₹25] (P=2). Cross out ₹6 -> Remaining: [₹4, ₹25] -> New P = 25 - 4 = ₹21 (Massive Jump!)."
+    codeExample: "Before: [₹4, ₹6, ₹25] (P=2). Cross out ₹6 → Remaining: [₹4, ₹25] → New P = 25 - 4 = ₹21 (Massive Jump!)."
   },
   {
     question: "What happens to the penalty of a line if the crossed-out cell was HIGHER than its second-lowest cost (e.g. c_(3) or c_(4))?",
@@ -32,7 +32,7 @@ const questions = [
     explanation: "Penalty depends strictly on c_(1) and c_(2). Eliminating an expensive outlier cost (e.g. ₹50 when top costs are ₹4 and ₹7) has zero effect on the immediate penalty difference P = ₹7 - ₹4 = ₹3.",
     hint: "Removing an element outside the top two does not affect their difference.",
     level: "moderate",
-    codeExample: "Before: [₹3, ₹5, ₹40] (P=2). Cross out ₹40 -> Remaining: [₹3, ₹5] -> New P = 5 - 3 = ₹2."
+    codeExample: "Before: [₹3, ₹5, ₹40] (P=2). Cross out ₹40 → Remaining: [₹3, ₹5] → New P = 5 - 3 = ₹2."
   },
   {
     question: "How does Mahima in Barrackpore track multi-pass penalty values on a manual tableau?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "Remaining costs are [₹12, ₹18]. Lowest is ₹12, second-lowest is ₹18. New penalty P' = ₹18 - ₹12 = ₹6.",
     hint: "18 - 12 = 6.",
     level: "moderate",
-    codeExample: "Remaining: [₹12, ₹18] -> P' = 18 - 12 = ₹6"
+    codeExample: "Remaining: [₹12, ₹18] → P' = 18 - 12 = ₹6"
   },
   {
     question: "Can a penalty ever become 'undefined' during later iterations of VAM?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "With only one cell left, there is no alternative route. The remaining units must be assigned to that single cell by default.",
     hint: "No second choice means no difference can be computed.",
     level: "moderate",
-    codeExample: "Single cell remaining: c_13 = ₹8 -> Penalty = '—'."
+    codeExample: "Single cell remaining: c_13 = ₹8 → Penalty = '—'."
   },
   {
     question: "What is the computational effort of updating penalties across all surviving lines in a single iteration?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "Before cross-out, costs were [₹8, ₹8, ₹15] with P = 8 - 8 = ₹0. After eliminating one ₹8, remaining costs are [₹8, ₹15]. New penalty P' = 15 - 8 = ₹7.",
     hint: "Remaining costs are 8 and 15; subtract 8 from 15.",
     level: "moderate",
-    codeExample: "Old: [8, 8, 15] (P=0) -> Cross one 8 -> New: [8, 15] -> P' = 15 - 8 = ₹7."
+    codeExample: "Old: [8, 8, 15] (P=0) → Cross one 8 → New: [8, 15] → P' = 15 - 8 = ₹7."
   },
   {
     question: "How does dynamic penalty updating prevent an early greedy allocation from turning into a disaster later?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Remaining costs are [₹10, ₹22]. Lowest is ₹10, second-lowest is ₹22. New penalty P' = 22 - 10 = ₹12.",
     hint: "22 - 10 = 12.",
     level: "moderate",
-    codeExample: "Remaining: [₹10, ₹22] -> P' = 22 - 10 = ₹12"
+    codeExample: "Remaining: [₹10, ₹22] → P' = 22 - 10 = ₹12"
   },
   {
     question: "How does the penalty jump from ₹4 to ₹12 in the above scenario illustrate 'risk acceleration'?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "Universal zero penalty indicates all lines have identical 1st and 2nd choices; VAM gracefully falls back to Least Cost selection.",
     hint: "When all penalties are 0, pick global minimum in remaining matrix.",
     level: "expert",
-    codeExample: "All P = 0 -> Target = argmin_{active} c_ij."
+    codeExample: "All P = 0 → Target = argmin_{active} c_ij."
   },
   {
     question: "Why is tracking updated penalties in dedicated margin columns better than erasing old values?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "Static algorithms fail because they do not adapt to constraints being eliminated. VAM's dynamic updating is the secret to its superior performance.",
     hint: "Adaptation to changing risk profiles makes VAM near-optimal.",
     level: "expert",
-    codeExample: "Dynamic Adaptation: New Matrix -> New Penalties -> Optimal Step."
+    codeExample: "Dynamic Adaptation: New Matrix → New Penalties → Optimal Step."
   },
   {
     question: "How does mastering penalty updates prepare students for software engineering of optimization solvers?",

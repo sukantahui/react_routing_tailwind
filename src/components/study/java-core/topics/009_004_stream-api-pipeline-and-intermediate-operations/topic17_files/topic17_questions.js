@@ -5,7 +5,7 @@ const topic17_questions = [
     "explanation": "In Java 9+, operations like stream.filter(...).peek(...).count() can optimize away peek calls entirely if the count is known from collection sizing.",
     "hint": "Intended for logging/debugging; optimizers can skip peek in certain pipelines.",
     "level": "Intermediate",
-    "codeExample": "stream.peek(x -> log.debug('Processing: {}', x)).map(Transformer::run)"
+    "codeExample": "stream.peek(x → log.debug('Processing: {}', x)).map(Transformer::run)"
   },
   {
     "question": "What is the difference between peek() and forEach()?",

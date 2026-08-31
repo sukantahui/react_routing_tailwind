@@ -31,7 +31,7 @@ const questions = [
     explanation: "Parameterized functions implement affine transformations directly through Turtle commands.",
     hint: "What mathematical term encompasses translation, rotation, and scaling?",
     level: "moderate",
-    codeExample: "# Translation -> goto | Rotation -> setheading | Scale -> multiplier"
+    codeExample: "# Translation → goto | Rotation → setheading | Scale → multiplier"
   },
   {
     question: "Why should rotation default to 0 in function signatures?",
@@ -203,8 +203,8 @@ const questions = [
   },
   {
     question: "What is the recommended argument order for parameterized graphics functions in Python?",
-    shortAnswer: "1. `t` (turtle) -> 2. `x, y` (position) -> 3. `size/radius` (scale) -> 4. `rotation` -> 5. `colors/styles`.",
-    explanation: "Following standard spatial precedence (Target -> Space -> Scale -> Angle -> Style) provides an intuitive API.",
+    shortAnswer: "1. `t` (turtle) → 2. `x, y` (position) → 3. `size/radius` (scale) → 4. `rotation` → 5. `colors/styles`.",
+    explanation: "Following standard spatial precedence (Target → Space → Scale → Angle → Style) provides an intuitive API.",
     hint: "What is the standard argument order from spatial anchor to style?",
     level: "advanced",
     codeExample: "def draw_icon(t, x, y, size=50, rotation=0, fill='gold', border='white'):"

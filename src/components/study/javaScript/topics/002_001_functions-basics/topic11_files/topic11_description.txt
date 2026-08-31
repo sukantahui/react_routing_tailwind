@@ -19,7 +19,7 @@ Abhronila was cleaning up messy user input names. She wrote: let step1 = raw.tri
 Combining two or more pure functions to produce a new function. Mathematically: (f ∘ g)(x) = f(g(x)).
 
 2. Pipe (Left-to-Right Data Flow):
-- Evaluates functions in natural reading order (Function 1 -> Function 2 -> Function 3).
+- Evaluates functions in natural reading order (Function 1 → Function 2 → Function 3).
 - Formula: const pipe = (...fns) => input => fns.reduce((acc, fn) => fn(acc), input);
 
 3. Compose (Right-to-Left Data Flow):
@@ -43,7 +43,7 @@ const processUserTag = pipe(trimText, toLower, wrapInTags);
 console.log(processUserTag('   SWADEEP HUI   ')); // '<span>swadeep hui</span>'
 
 Teacher's Note on Example 1:
-pipe executes trim -> toLower -> wrapInTags in left-to-right sequence.
+pipe executes trim → toLower → wrapInTags in left-to-right sequence.
 
 5. COMMON TRAPS, ROOKIE MISTAKES & SENIOR PRO BEST PRACTICES
 --------------------------------------------------------------------------------
@@ -53,7 +53,7 @@ pipe executes trim -> toLower -> wrapInTags in left-to-right sequence.
 
 6. KEY TAKEAWAYS & REVISION SUMMARY
 --------------------------------------------------------------------------------
-• Pipe connects functions left-to-right (f -> g -> h).
+• Pipe connects functions left-to-right (f → g → h).
 • Compose connects functions right-to-left (h ∘ g ∘ f).
 • Build complex data pipelines from small, single-purpose pure functions.
 

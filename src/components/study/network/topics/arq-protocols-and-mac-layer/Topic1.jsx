@@ -29,7 +29,7 @@ const GoBackNARQ = () => {
       <div className="max-w-5xl mx-auto px-4 py-8 md:py-12 space-y-10">
         {/* Header */}
         <section className="reveal-section" style={{ animation: "fadeSlideUp 0.6s ease forwards" }}>
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-700 to-purple-600 dark:from-indigo-400 dark:to-purple-300 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-700 to-purple-600 dark:from-indigo-400 dark:to-purple-300 bg-clip-text text-transparent">
             Go-Back-N ARQ
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-3 border-l-4 border-indigo-500 pl-4">

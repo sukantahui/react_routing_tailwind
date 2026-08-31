@@ -71,7 +71,7 @@ export default function Topic7() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Identifying and resolving circular references and calculation bottlenecks"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic7() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Diagnostic Tools: Formulas &gt; Error Checking &gt; Circular References | File &gt; Options &gt; Formulas &gt; Enable Iterative Calculation"}
+            {"Diagnostic Tools: Formulas > Error Checking > Circular References | File > Options > Formulas > Enable Iterative Calculation"}
           </div>
 
           <div className="overflow-x-auto">
@@ -183,7 +183,7 @@ export default function Topic7() {
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Intentional Circularity (Iterative Calculation)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Corporate interest-and-debt fee models with circular loops require enabling 'Iterative Calculation' (File &gt; Options > Formulas > Max Iterations: 100, Max Change: 0.001)."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Corporate interest-and-debt fee models with circular loops require enabling 'Iterative Calculation' (File > Options > Formulas > Max Iterations: 100, Max Change: 0.001)."}</p>
             </div>
             
           </div>
@@ -199,7 +199,7 @@ export default function Topic7() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Circular Calculation Diagnostic Pipeline: Cyclic Feedback Detection -> Break Dependency Loop"}
+              Visual Dataflow: {"Circular Calculation Diagnostic Pipeline: Cyclic Feedback Detection → Break Dependency Loop"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Security Pipeline
@@ -286,7 +286,7 @@ export default function Topic7() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic7_Identifying_and_re"
+            sheetName="EX1308"
             title={"Identifying and resolving circular references and calculation bottlenecks - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic7() {
                 Step 2: Configure Validation Criteria &amp; Formulas
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Diagnostic Tools: Formulas &gt; Error Checking &gt; Circular References | File &gt; Options &gt; Formulas &gt; Enable Iterative Calculation"}</code>.
+                In the Settings tab, select Allow: Custom/List and enter the formula or range reference <code className="text-cyan-300 font-mono font-bold">{"Diagnostic Tools: Formulas > Error Checking > Circular References | File > Options > Formulas > Enable Iterative Calculation"}</code>.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic7() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"If you see 'Circular References' in the bottom left status bar, STOP! Your entire spreadsheet has stopped calculating. Go to Formulas -> Error Checking -> Circular References immediately and break the loop."}
+            note={"If you see 'Circular References' in the bottom left status bar, STOP! Your entire spreadsheet has stopped calculating. Go to Formulas → Error Checking → Circular References immediately and break the loop."}
           />
         </div>
       </div>

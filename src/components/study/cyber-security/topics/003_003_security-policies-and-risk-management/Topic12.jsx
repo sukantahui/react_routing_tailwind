@@ -218,7 +218,7 @@ if (req.session.user.role !== 'SUPER_ADMIN') return res.status(403).json({ error
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Course Module 3: Information Security Management • Module 003_003 • Topic 12 of 14
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Threat Modeling Methodologies (STRIDE, DREAD)
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
@@ -452,7 +452,7 @@ if (req.session.user.role !== 'SUPER_ADMIN') return res.status(403).json({ error
               </h3>
               <div className="bg-gray-900/90 rounded-xl p-4 border border-gray-800 overflow-x-auto flex justify-center">
                 <svg viewBox="0 0 500 320" className="w-full max-w-lg h-auto text-xs" xmlns="http://www.w3.org/2000/svg">
-                  {/* S: Spoofing -> Authenticity */}
+                  {/* S: Spoofing → Authenticity */}
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="25" y="20" width="180" height="35" rx="4" fill="#450a0a" stroke="#ef4444" />
                     <text x="115" y="42" fill="#fee2e2" fontWeight="bold" textAnchor="middle" fontSize="8">SPOOFING (S)</text>
@@ -463,7 +463,7 @@ if (req.session.user.role !== 'SUPER_ADMIN') return res.status(403).json({ error
                     <text x="385" y="42" fill="#d1fae5" fontWeight="bold" textAnchor="middle" fontSize="8">AUTHENTICITY</text>
                   </g>
 
-                  {/* T: Tampering -> Integrity */}
+                  {/* T: Tampering → Integrity */}
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="25" y="65" width="180" height="35" rx="4" fill="#78350f" stroke="#f59e0b" />
                     <text x="115" y="87" fill="#fef3c7" fontWeight="bold" textAnchor="middle" fontSize="8">TAMPERING (T)</text>
@@ -474,7 +474,7 @@ if (req.session.user.role !== 'SUPER_ADMIN') return res.status(403).json({ error
                     <text x="385" y="87" fill="#d1fae5" fontWeight="bold" textAnchor="middle" fontSize="8">INTEGRITY</text>
                   </g>
 
-                  {/* R: Repudiation -> Non-Repudiation */}
+                  {/* R: Repudiation → Non-Repudiation */}
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="25" y="110" width="180" height="35" rx="4" fill="#581c87" stroke="#a855f7" />
                     <text x="115" y="132" fill="#f3e8ff" fontWeight="bold" textAnchor="middle" fontSize="8">REPUDIATION (R)</text>
@@ -485,7 +485,7 @@ if (req.session.user.role !== 'SUPER_ADMIN') return res.status(403).json({ error
                     <text x="385" y="132" fill="#d1fae5" fontWeight="bold" textAnchor="middle" fontSize="8">NON-REPUDIATION</text>
                   </g>
 
-                  {/* I: Info Disclosure -> Confidentiality */}
+                  {/* I: Info Disclosure → Confidentiality */}
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="25" y="155" width="180" height="35" rx="4" fill="#083344" stroke="#06b6d4" />
                     <text x="115" y="177" fill="#cffafe" fontWeight="bold" textAnchor="middle" fontSize="8">INFO DISCLOSURE (I)</text>
@@ -496,7 +496,7 @@ if (req.session.user.role !== 'SUPER_ADMIN') return res.status(403).json({ error
                     <text x="385" y="177" fill="#d1fae5" fontWeight="bold" textAnchor="middle" fontSize="8">CONFIDENTIALITY</text>
                   </g>
 
-                  {/* D: DoS -> Availability */}
+                  {/* D: DoS → Availability */}
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="25" y="200" width="180" height="35" rx="4" fill="#1e1b4b" stroke="#6366f1" />
                     <text x="115" y="222" fill="#c7d2fe" fontWeight="bold" textAnchor="middle" fontSize="8">DENIAL OF SERVICE (D)</text>
@@ -507,7 +507,7 @@ if (req.session.user.role !== 'SUPER_ADMIN') return res.status(403).json({ error
                     <text x="385" y="222" fill="#d1fae5" fontWeight="bold" textAnchor="middle" fontSize="8">AVAILABILITY</text>
                   </g>
 
-                  {/* E: Elevation -> Authorization */}
+                  {/* E: Elevation → Authorization */}
                   <g className="transition-transform duration-300 hover:scale-105 cursor-pointer">
                     <rect x="25" y="245" width="180" height="35" rx="4" fill="#312e81" stroke="#818cf8" />
                     <text x="115" y="267" fill="#e0e7ff" fontWeight="bold" textAnchor="middle" fontSize="8">ELEVATION (E)</text>

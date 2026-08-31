@@ -29,7 +29,7 @@ const questions = [
     hint: "Unwraps circular iris into polar strip and applies 2D Gabor wavelets to extract phase bits.",
     level: "Expert",
     codeExample: `// Daugman IrisCode Pipeline:
-// Eye Image -> Circular Boundary Detection -> Polar Coordinate Unwrapping -> 2D Gabor Filtering -> 2048-bit Binary IrisCode`
+// Eye Image → Circular Boundary Detection → Polar Coordinate Unwrapping → 2D Gabor Filtering → 2048-bit Binary IrisCode`
   },
   {
     id: 4,
@@ -86,7 +86,7 @@ const isMatch = hd <= 0.32; // MATCH VERIFIED ✔`
     hint: "Projects 30,000 IR dots to create a 3D depth mesh that flat photos cannot replicate.",
     level: "Moderate",
     codeExample: `// 3D Depth Verification:
-// Projects 30,000 dots -> Calculates Z-depth coordinate for each point -> Rejects flat Z=0 photos.`
+// Projects 30,000 dots → Calculates Z-depth coordinate for each point → Rejects flat Z=0 photos.`
   },
   {
     id: 9,
@@ -153,7 +153,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "Lifting residual finger oil residues from glass surfaces to fabricate silicon replica molds.",
     level: "Moderate",
     codeExample: `// Latent Print Lift:
-// Touch Screen -> Sebum Oil Residue -> UV Light Dusting -> Silicon Mold Casting -> Fake Finger Spoof`
+// Touch Screen → Sebum Oil Residue → UV Light Dusting → Silicon Mold Casting → Fake Finger Spoof`
   },
   {
     id: 15,
@@ -185,7 +185,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "Synthetic fingerprint template containing common sub-patterns that match partial sensors across many users.",
     level: "Expert",
     codeExample: `// MasterPrint Vulnerability:
-// Partial Sensor (Matches on 6 minutiae) -> MasterPrint matches 20-30% of enrolled user pool!`
+// Partial Sensor (Matches on 6 minutiae) → MasterPrint matches 20-30% of enrolled user pool!`
   },
   {
     id: 18,
@@ -195,7 +195,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "AI generative models synthesizing real-time video to impersonate faces during video KYC.",
     level: "Moderate",
     codeExample: `// Deepfake Attack on e-KYC:
-// Attacker Video Camera -> Real-Time GAN Face Swap (Victim's Face) -> Injected into Browser Webcam Feed`
+// Attacker Video Camera → Real-Time GAN Face Swap (Victim's Face) → Injected into Browser Webcam Feed`
   },
   {
     id: 19,
@@ -217,7 +217,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "Reverse-engineering a synthetic biological image directly from mathematical feature vectors.",
     level: "Expert",
     codeExample: `// Template Inversion:
-// Stored Minutiae List (x, y, theta) -> Reconstruction Algorithm -> Synthetic Fingerprint Image -> Fabricates Physical Fake Finger!`
+// Stored Minutiae List (x, y, theta) → Reconstruction Algorithm → Synthetic Fingerprint Image → Fabricates Physical Fake Finger!`
   },
   {
     id: 21,
@@ -227,7 +227,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "Generative AI can clone vocal timbre and cadence from 3 seconds of reference audio.",
     level: "Moderate",
     codeExample: `// Voice Clone Vector:
-// 5s Voice Sample from YouTube -> AI Voice Cloner -> Synthesizes "My voice is my password" -> Bypasses Phone Banking!`
+// 5s Voice Sample from YouTube → AI Voice Cloner → Synthesizes "My voice is my password" → Bypasses Phone Banking!`
   },
   {
     id: 22,
@@ -247,7 +247,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "Maps internal blood vessel patterns beneath the skin; requires live hemoglobin flow.",
     level: "Expert",
     codeExample: `// Palm Vein Scanning:
-// NIR Light (760nm) -> Absorbed by Hemoglobin in Blood -> Cameras map internal 3D vein branches.`
+// NIR Light (760nm) → Absorbed by Hemoglobin in Blood → Cameras map internal 3D vein branches.`
   },
   {
     id: 24,
@@ -257,7 +257,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "Silicon replicas made from lifted land deed documents used to drain micro-ATM accounts; mitigated by liveness checks.",
     level: "Moderate",
     codeExample: `// AePS Fraud & Mitigation:
-// Attack: Land Registry PDF (Fingerprint Image) -> Silicon Replica -> Micro-ATM Withdrawal ❌
+// Attack: Land Registry PDF (Fingerprint Image) → Silicon Replica → Micro-ATM Withdrawal ❌
 // Defense: UIDAI mandatory 2-Factor AI Fingerprint Liveness Detection deployed nationwide ✔`
   },
   {
@@ -311,7 +311,7 @@ if (similarityScore >= DECISION_THRESHOLD) {
     hint: "Measures invisible skin micro-color changes corresponding to cardiac blood pulse.",
     level: "Expert",
     codeExample: `// rPPG Pulse Detection:
-// Extract skin pixel average in Green Channel -> Fast Fourier Transform (FFT) -> Detects 1.2 Hz peak (72 BPM Heartbeat) ✔`
+// Extract skin pixel average in Green Channel → Fast Fourier Transform (FFT) → Detects 1.2 Hz peak (72 BPM Heartbeat) ✔`
   },
   {
     id: 30,

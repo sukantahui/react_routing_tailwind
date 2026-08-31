@@ -159,7 +159,7 @@ export default function Topic7() {
     "id": 14,
     "title": "14. Finding Last Non-Empty Cell in Column",
     "sampleInput": "Last filled entry in Column A",
-    "formula": "=XMATCH(TRUE, A:A <> \"\", 0, -1)",
+    "formula": "=XMATCH(TRUE, A:A &lt;&gt; \"\", 0, -1)",
     "result": "145",
     "category": "Last Entry",
     "businessUse": "Finds row index of last populated entry in column A."

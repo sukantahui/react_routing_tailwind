@@ -151,7 +151,7 @@ const Topic7 = () => {
                   BCA BCAC703 • Cyber Security
                 </span>
               </div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
+              <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
                 Quantum Computing Threat to Modern Cryptography (Shor's Algorithm)
               </h1>
             </div>
@@ -458,7 +458,7 @@ const Topic7 = () => {
               <span className="font-bold text-emerald-300">Student Checklist:</span>
               <ul className="space-y-1.5 list-disc list-inside text-slate-400">
                 <li>Shor's Algorithm breaks RSA, DH, and ECC in polynomial time $O((\log N)^3)$.</li>
-                <li>Grover's Algorithm halves symmetric key bit security (AES-128 $\rightarrow$ 64 bits).</li>
+                <li>Grover's Algorithm halves symmetric key bit security (AES-128 → 64 bits).</li>
                 <li>AES-256 retains 128-bit quantum security and is permanently safe.</li>
                 <li>Mosca's Theorem: If $X + Y &gt; Z$, systems are already exposed to HNDL.</li>
                 <li>Hybrid TLS 1.3 combines classical and post-quantum keys for safe transit.</li>

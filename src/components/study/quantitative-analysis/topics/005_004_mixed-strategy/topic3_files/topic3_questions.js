@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Mixed Strategy Solution for 2x2 Games?",
     shortAnswer: "'Compute Delta = (a11 + a22) - (a12 + a21); determine p1* = (a22 - a21)/Delta, q1* = (a22 - a12)/Delta, and v* = (a11 a22 - a12 a21)/Delta in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all 2x2 closed-form solution mechanics.",
-    hint: "Delta = Diag - OffDiag -> p* = Diff/Delta, q* = Diff/Delta, v* = Det/Delta in ₹.",
+    hint: "Delta = Diag - OffDiag → p* = Diff/Delta, q* = Diff/Delta, v* = Det/Delta in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ComputeDelta() -> CalcProbabilities() -> CalcGameValue(₹)."
+    codeExample: "GoldenRule: ComputeDelta() → CalcProbabilities() → CalcGameValue(₹)."
   }
 ];
 

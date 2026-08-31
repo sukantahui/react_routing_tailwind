@@ -8,7 +8,7 @@ export default function AsyncPracticePage() {
     <div className="min-h-screen bg-slate-950 text-slate-100 p-6">
       <div className="max-w-5xl mx-auto space-y-10">
         <header className="text-center space-y-3">
-          <h1 className="text-3xl font-bold text-sky-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400">
             {asyncData.title}
           </h1>
           <p className="text-slate-400 text-sm">{asyncData.author}</p>

@@ -150,7 +150,7 @@ const questions = [
     question: "What is the standard order of operations when initializing a Turtle program?",
     shortAnswer: "1. Create and configure the Screen (`setup`, `title`, `bgcolor`), 2. Set colormode if using RGB, 3. Create Turtle pen instances and configure their shapes/speeds, 4. Execute drawing logic, and 5. Enter event loop with `done()` or `exitonclick()`.",
     explanation: "Standard architectural pipeline for Turtle graphics scripts.",
-    hint: "Screen config -> colormode -> Turtle instances -> Drawing -> Event loop.",
+    hint: "Screen config → colormode → Turtle instances → Drawing → Event loop.",
     level: "basic",
     codeExample: "# Standard Turtle Initialization Pipeline"
   },

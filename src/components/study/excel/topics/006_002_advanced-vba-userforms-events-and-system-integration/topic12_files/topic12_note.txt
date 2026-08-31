@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The ultimate way to distribute your macros: Save your workbook as an Excel Add-In (`.xlam`). Now your custom formulas and macros appear in EVERY workbook on your computer automatically!
 
 COMMON TRAPS TO AVOID:
-- Leaving Worksheet Tabs Visible in .xlam Master: Worksheets left unhidden in `.xlam` can cause confusing blank windows on Excel startup. -> Fix: Set `ThisWorkbook.IsAddin = True` in the Properties window before saving.
-- Modifying Code in .xlam Without Re-Saving Add-in: Editing code inside an installed add-in without saving loses edits when Excel closes. -> Fix: Explicitly click Save in the VBE window (`Ctrl + S`) while add-in project is selected.
-- Hardcoding File Paths in Add-In Macros: Add-in macros attempting to write to `ThisWorkbook.Path` write to the hidden Microsoft AddIns roaming folder. -> Fix: Prompt user for target save paths or use `ActiveWorkbook.Path`.
+- Leaving Worksheet Tabs Visible in .xlam Master: Worksheets left unhidden in `.xlam` can cause confusing blank windows on Excel startup. → Fix: Set `ThisWorkbook.IsAddin = True` in the Properties window before saving.
+- Modifying Code in .xlam Without Re-Saving Add-in: Editing code inside an installed add-in without saving loses edits when Excel closes. → Fix: Explicitly click Save in the VBE window (`Ctrl + S`) while add-in project is selected.
+- Hardcoding File Paths in Add-In Macros: Add-in macros attempting to write to `ThisWorkbook.Path` write to the hidden Microsoft AddIns roaming folder. → Fix: Prompt user for target save paths or use `ActiveWorkbook.Path`.
 ================================================================================

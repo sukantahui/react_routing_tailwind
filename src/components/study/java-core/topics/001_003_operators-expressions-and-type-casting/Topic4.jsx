@@ -42,7 +42,7 @@ export default function Topic4() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           String Concatenation Operator (<code className="text-purple-400">+</code>) &amp; Operator Overloading Mechanics
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -108,8 +108,8 @@ export default function Topic4() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Numbers First</text>
             <rect x="45" y="80" width="230" height="75" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">10 + 20 + &quot; B&quot;</text>
-            <text x="55" y="122" fill="#e0f2fe" fontSize="10">&rarr; (10 + 20) = 30 (Numeric)</text>
-            <text x="55" y="142" fill="#e0f2fe" fontSize="10">&rarr; 30 + &quot; B&quot; = &quot;30 B&quot;</text>
+            <text x="55" y="122" fill="#e0f2fe" fontSize="10">→ (10 + 20) = 30 (Numeric)</text>
+            <text x="55" y="142" fill="#e0f2fe" fontSize="10">→ 30 + &quot; B&quot; = &quot;30 B&quot;</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✓ Numeric Sum First
             </text>
@@ -119,8 +119,8 @@ export default function Topic4() {
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. String First (TRAP!)</text>
             <rect x="325" y="80" width="230" height="75" rx="6" fill="#4c0519" />
             <text x="335" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">&quot;B &quot; + 10 + 20</text>
-            <text x="335" y="122" fill="#fecdd3" fontSize="10">&rarr; (&quot;B &quot; + 10) = &quot;B 10&quot;</text>
-            <text x="335" y="142" fill="#fecdd3" fontSize="10">&rarr; &quot;B 10&quot; + 20 = &quot;B 1020&quot;</text>
+            <text x="335" y="122" fill="#fecdd3" fontSize="10">→ (&quot;B &quot; + 10) = &quot;B 10&quot;</text>
+            <text x="335" y="142" fill="#fecdd3" fontSize="10">→ &quot;B 10&quot; + 20 = &quot;B 1020&quot;</text>
             <text x="440" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✗ Numbers NOT Added!
             </text>
@@ -130,8 +130,8 @@ export default function Topic4() {
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. With Parentheses</text>
             <rect x="605" y="80" width="230" height="75" rx="6" fill="#022c22" />
             <text x="615" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">&quot;B &quot; + (10 + 20)</text>
-            <text x="615" y="122" fill="#d1fae5" fontSize="10">&rarr; (10 + 20) = 30 (Parentheses)</text>
-            <text x="615" y="142" fill="#d1fae5" fontSize="10">&rarr; &quot;B &quot; + 30 = &quot;B 30&quot;</text>
+            <text x="615" y="122" fill="#d1fae5" fontSize="10">→ (10 + 20) = 30 (Parentheses)</text>
+            <text x="615" y="142" fill="#d1fae5" fontSize="10">→ &quot;B &quot; + 30 = &quot;B 30&quot;</text>
             <text x="720" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✓ Clean &amp; Intentional
             </text>

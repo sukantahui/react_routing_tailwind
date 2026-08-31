@@ -527,7 +527,7 @@ export default function Topic13() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 space-y-12">
         {/* HEADER */}
         <header className="animate-fadeUp">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
             Step‑by‑Step Examples
           </h1>
           <p className="mt-2 text-lg text-gray-600 dark:text-gray-400">
@@ -963,7 +963,7 @@ export default function Topic13() {
         </section>
 
         {/* ================================ Special EXAMPLES ================================ */}
-        <h1 className="text-3xl font-bold mt-12">Special Examples Where Beginners Make Mistakes</h1>
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mt-12">Special Examples Where Beginners Make Mistakes</h1>
 
         {/* EXAMPLE 1: A + B * C - D */}
         <section className="animate-fadeUp delay-200">

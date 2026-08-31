@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Congratulations on reaching the pinnacle of Executive Dashboard Design! You now possess the power to build world-class, interactive, boardroom-ready dashboards that inform multi-million dollar corporate decisions.
 
 COMMON TRAPS TO AVOID:
-- Information Overload (Dashboard Bloat): Crowding 25 disparate charts onto a single screen with no clear visual hierarchy. -> Fix: Follow the rule of 5: 1 primary trend, 1 composition chart, 1 detailed table, and 4 top KPI cards.
-- Broken Cross-Sheet Formula Linkages: Hardcoding numbers when transferring data from calculation sheets to the dashboard canvas. -> Fix: Maintain strict dynamic formula links (`=Calcs!C10`) across all dashboard card elements.
-- Neglecting Mobile / Laptop Screen Aspect Ratios: Designing only for massive 32-inch desktop monitors causes dashboard to clip on executive 14-inch laptops. -> Fix: Design within standard 1366x768 / 1920x1080 responsive grid boundaries.
+- Information Overload (Dashboard Bloat): Crowding 25 disparate charts onto a single screen with no clear visual hierarchy. → Fix: Follow the rule of 5: 1 primary trend, 1 composition chart, 1 detailed table, and 4 top KPI cards.
+- Broken Cross-Sheet Formula Linkages: Hardcoding numbers when transferring data from calculation sheets to the dashboard canvas. → Fix: Maintain strict dynamic formula links (`=Calcs!C10`) across all dashboard card elements.
+- Neglecting Mobile / Laptop Screen Aspect Ratios: Designing only for massive 32-inch desktop monitors causes dashboard to clip on executive 14-inch laptops. → Fix: Design within standard 1366x768 / 1920x1080 responsive grid boundaries.
 ================================================================================

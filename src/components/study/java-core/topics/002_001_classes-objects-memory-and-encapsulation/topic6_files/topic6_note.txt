@@ -17,7 +17,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    TRIGGER 2: Accessing or modifying fields of null reference (`nullRef.field`).
    TRIGGER 3: Reading length of null array (`nullArray.length`).
    TRIGGER 4: Indexing into a null array (`nullArray[0]`).
-   TRIGGER 5: Auto-unboxing null wrapper (`int x = (Integer) null;` -> `.intValue()`).
+   TRIGGER 5: Auto-unboxing null wrapper (`int x = (Integer) null;` → `.intValue()`).
    TRIGGER 6: Iterating null collection in for-each (`for(var x : nullList)`).
    TRIGGER 7: Synchronizing on null monitor (`synchronized(nullLock)`).
    TRIGGER 8: Throwing null exception (`throw null;`).

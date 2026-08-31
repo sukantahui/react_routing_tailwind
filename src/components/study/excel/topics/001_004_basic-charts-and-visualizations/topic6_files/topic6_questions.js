@@ -13,7 +13,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Edward Tufte's Data-to-Ink ratio and clutter elimination is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Edward Tufte's Data-to-Ink ratio and clutter elimination enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "basic",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Perceptual distortion in 3D pie and 3D column charts (Question 3)?",
@@ -37,7 +37,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Clustered Column vs Sorted Horizontal Bar for ranking is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Clustered Column vs Sorted Horizontal Bar for ranking enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "basic",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Stacked Column vs 100% Stacked Column for proportion mix (Question 6)?",
@@ -61,7 +61,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Line charts for continuous time-series vs categorical bars is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Line charts for continuous time-series vs categorical bars enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "basic",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Permissible Y-axis truncation in continuous line charts (Question 9)?",
@@ -85,7 +85,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Stacked Area charts for cumulative volume accumulation is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Stacked Area charts for cumulative volume accumulation enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "moderate",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Grey-plus-accent coloring to solve multi-line spaghetti charts (Question 12)?",
@@ -109,7 +109,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Doughnut chart hole size (65%-75%) and center KPI callout is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Doughnut chart hole size (65%-75%) and center KPI callout enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "moderate",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Rotating first slice angle to position largest slice at 12 o'clock (Question 15)?",
@@ -133,7 +133,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Dynamic formula-linked chart titles (=A1) in formula bar is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Dynamic formula-linked chart titles (=A1) in formula bar enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "moderate",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Dual-Axis Combo charts (Primary Y-Axis + Secondary Y-Axis) (Question 18)?",
@@ -157,7 +157,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Error bars and statistical confidence interval display is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Error bars and statistical confidence interval display enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "moderate",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Executive 3-tier dashboard layout (KPIs + Charts + Detail Grid) (Question 21)?",
@@ -181,7 +181,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Intentional semantic color usage (Green=Surplus, Red=Deficit) is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Intentional semantic color usage (Green=Surplus, Red=Deficit) enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "advanced",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Snapping chart boundaries to grid with Alt + Drag (Question 24)?",
@@ -192,10 +192,10 @@ const questions = [
     "codeExample": "Alt + F1 (Instant Column Chart)"
   },
   {
-    "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Hiding worksheet gridlines (View &rarr; Gridlines) for app canvas (Question 25)?",
-    "shortAnswer": "Hiding worksheet gridlines (View &rarr; Gridlines) for app canvas is configured in Excel's charting subsystem to maximize cognitive clarity, visual impact, and executive communication.",
-    "explanation": "In Microsoft Excel, Hiding worksheet gridlines (View &rarr; Gridlines) for app canvas is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
-    "hint": "Consider how Hiding worksheet gridlines (View &rarr; Gridlines) for app canvas enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
+    "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Hiding worksheet gridlines (View → Gridlines) for app canvas (Question 25)?",
+    "shortAnswer": "Hiding worksheet gridlines (View → Gridlines) for app canvas is configured in Excel's charting subsystem to maximize cognitive clarity, visual impact, and executive communication.",
+    "explanation": "In Microsoft Excel, Hiding worksheet gridlines (View → Gridlines) for app canvas is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
+    "hint": "Consider how Hiding worksheet gridlines (View → Gridlines) for app canvas enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "advanced",
     "codeExample": "=\"FY26 Revenue: ₹ \" & TEXT(SUM(B2:B50), \"#,##,##0\")"
   },
@@ -205,7 +205,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Saving customized chart styling as .crtx chart templates is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Saving customized chart styling as .crtx chart templates enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "advanced",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Aligning and distributing multiple chart widgets symmetrically (Question 27)?",
@@ -229,7 +229,7 @@ const questions = [
     "explanation": "In Microsoft Excel, Full-screen dedicated Chart Sheet creation with F11 is a vital element of data storytelling. The visualization engine renders data points into calibrated graphical marks, ensuring that stakeholders absorb key business takeaways in seconds without cognitive fatigue.",
     "hint": "Consider how Full-screen dedicated Chart Sheet creation with F11 enhances visual truth, eliminates chart clutter, and adheres to professional corporate dashboard standards.",
     "level": "advanced",
-    "codeExample": "Format Data Series &rarr; Gap Width: 75%"
+    "codeExample": "Format Data Series → Gap Width: 75%"
   },
   {
     "question": "In the context of Comprehensive Laboratory Practice Session: Chart Creation, Customization and Executive Dashboard Construction, how does Excel implement and optimize Single-screen viewport design without vertical scrolling (Question 30)?",

@@ -336,7 +336,7 @@ Check: Budget = 26+24=50 (binding), Max Centers = 12 (binding)`,
                         Practice Problems
                     </span>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white tracking-tight">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">
                     Practice Problems
                 </h1>
                 <p className="mt-3 text-lg text-gray-600 dark:text-gray-300 max-w-2xl">

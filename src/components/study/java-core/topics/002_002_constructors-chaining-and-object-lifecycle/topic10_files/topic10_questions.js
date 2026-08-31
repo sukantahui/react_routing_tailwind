@@ -11,9 +11,9 @@ const topic10_questions = [
     question: "When does an Instance Initialization Block execute relative to the Constructor?",
     shortAnswer: "An IIB executes on every object instantiation immediately after the superclass constructor ('super()') returns and immediately before the constructor body executes.",
     explanation: "The compiler copies all IIB code directly into the beginning of every constructor, right after the call to 'super()'.",
-    hint: "super() -> IIB -> Constructor body.",
+    hint: "super() → IIB → Constructor body.",
     level: "Beginner",
-    codeExample: "// Order: super() -> IIB -> Constructor Body"
+    codeExample: "// Order: super() → IIB → Constructor Body"
   },
   {
     question: "How does the Java compiler handle multiple IIBs in the same class?",
@@ -85,7 +85,7 @@ const topic10_questions = [
     explanation: "Because IIBs are inlined after 'super()', chaining via 'this()' does not duplicate IIB execution.",
     hint: "IIBs execute only once per object creation.",
     level: "Advanced",
-    codeExample: "// Chain: C1 -> this() -> C2 -> super() -> IIB -> C2 body -> C1 body"
+    codeExample: "// Chain: C1 → this() → C2 → super() → IIB → C2 body → C1 body"
   },
   {
     question: "Can an IIB be declared 'static'?",

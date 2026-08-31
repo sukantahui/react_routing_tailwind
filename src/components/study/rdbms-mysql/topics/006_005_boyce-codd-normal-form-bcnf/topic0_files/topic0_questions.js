@@ -4,11 +4,11 @@
 const questions = [
   {
     "question": "In the context of Motivation for BCNF: Identifying Residual Anomalies in 3NF Tables with Multiple Candidate Keys, what is the primary structural condition required to satisfy compliance?",
-    "shortAnswer": "Candidate keys are {student, subject} and {student, advisor}. FD advisor -> subject satisfies 3NF because subject is prime, yet redundancy remains!",
+    "shortAnswer": "Candidate keys are {student, subject} and {student, advisor}. FD advisor → subject satisfies 3NF because subject is prime, yet redundancy remains!",
     "explanation": "Under Motivation for BCNF: Identifying Residual Anomalies in 3NF Tables with Multiple Candidate Keys, the relation must be refactored so that all constraints and dependencies satisfy the formal normal form definition without data redundancy.",
     "hint": "Think about determinant keys, prime attributes, and functional dependencies.",
     "level": "Beginner",
-    "codeExample": "-- 3NF vs BCNF Dilemma:\n-- Relation: Student_Advisor_Subject(student, subject, advisor)\n-- FD1: {student, subject} -> advisor\n-- FD2: advisor -> subject\n-- In FD2, advisor is NOT superkey, but 'subject' is prime. Passes 3NF, Fails BCNF!"
+    "codeExample": "-- 3NF vs BCNF Dilemma:\n-- Relation: Student_Advisor_Subject(student, subject, advisor)\n-- FD1: {student, subject} → advisor\n-- FD2: advisor → subject\n-- In FD2, advisor is NOT superkey, but 'subject' is prime. Passes 3NF, Fails BCNF!"
   },
   {
     "question": "How does decomposing a table under Motivation for BCNF: Identifying Residual Anomalies in 3NF Tables with Multiple Candidate Keys resolve data modification anomalies?",

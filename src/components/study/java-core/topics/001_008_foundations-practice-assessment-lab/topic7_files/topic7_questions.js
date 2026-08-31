@@ -51,7 +51,7 @@ const questions = [
     explanation: "Roll ID 130 search verification.",
     hint: "Index 5.",
     level: "basic",
-    codeExample: "binarySearchRecursive(sortedRolls, 0, 9, 130) -> 5"
+    codeExample: "binarySearchRecursive(sortedRolls, 0, 9, 130) → 5"
   },
   {
     question: "In the Coder & AccoTax Barrackpore lab, what was returned when searching for target `199`?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Element not found return value.",
     hint: "-1.",
     level: "basic",
-    codeExample: "binarySearchRecursive(sortedRolls, 0, 9, 199) -> -1"
+    codeExample: "binarySearchRecursive(sortedRolls, 0, 9, 199) → -1"
   },
   {
     question: "What is the Base Case that signals target is NOT present in Recursive Binary Search?",
@@ -91,7 +91,7 @@ const questions = [
     explanation: "First occurrence test verification.",
     hint: "Index 2.",
     level: "basic",
-    codeExample: "findFirstOccurrence(scoresWithDuplicates, 0, 6, 70) -> 2"
+    codeExample: "findFirstOccurrence(scoresWithDuplicates, 0, 6, 70) → 2"
   },
   {
     question: "How do you find the LAST OCCURRENCE of a target in a sorted array containing duplicates?",
@@ -137,7 +137,7 @@ const questions = [
     question: "What is the recurrence relation for Recursive Binary Search?",
     shortAnswer: "$T(N) = T(N/2) + O(1)$, which solves to $T(N) = O(\\log N)$ by Master Theorem Case 2.",
     explanation: "Master Theorem recurrence derivation.",
-    hint: "T(N) = T(N/2) + O(1) -> O(log N).",
+    hint: "T(N) = T(N/2) + O(1) → O(log N).",
     level: "intermediate",
     codeExample: "// T(N) = T(N/2) + O(1)"
   },
@@ -163,7 +163,7 @@ const questions = [
     explanation: "First midpoint computation step.",
     hint: "mid = 4 (arr[4] = 125), then recursed left.",
     level: "basic",
-    codeExample: "low = 0, high = 9 -> mid = 4"
+    codeExample: "low = 0, high = 9 → mid = 4"
   },
   {
     question: "What is 'Exponential Search' and when is it used?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Boundary element lookup verification.",
     hint: "Index 9.",
     level: "basic",
-    codeExample: "binarySearchRecursive(sortedRolls, 0, 9, 180) -> 9"
+    codeExample: "binarySearchRecursive(sortedRolls, 0, 9, 180) → 9"
   },
   {
     question: "What is the difference between Lower Bound and Upper Bound in C++ / Java Binary Search?",

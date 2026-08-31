@@ -16,9 +16,9 @@ STAGE 1: CONSTRUCT AN INITIAL BASIC FEASIBLE SOLUTION (IBFS)
   constraints (Sum_j x_ij = S_i) and destination demand constraints (Sum_i x_ij = D_j)
   without violating non-negativity (x_ij >= 0).
 - Standard Methods:
-    1. North-West Corner Rule (NWCR) -> Fast, simple, but completely cost-blind.
-    2. Matrix Minima (Least Cost Method) -> Greedy, captures cheap local cells.
-    3. Vogel's Approximation Method (VAM) -> Penalty-driven, near-optimal.
+    1. North-West Corner Rule (NWCR) → Fast, simple, but completely cost-blind.
+    2. Matrix Minima (Least Cost Method) → Greedy, captures cheap local cells.
+    3. Vogel's Approximation Method (VAM) → Penalty-driven, near-optimal.
 - CRITICAL LIMITATION: Stage 1 methods are HEURISTICS. They guarantee feasibility
   and non-degeneracy (m + n - 1 basic cells), but they CANNOT mathematically
   certify that the total cost Z = Sum (c_ij * x_ij) is the absolute global minimum!

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 The mark of a seasoned financial modeler is perfect column alignment. Using _) and * creates boardroom-grade balance sheets that impress executive stakeholders.
 
 COMMON TRAPS TO AVOID:
-- Misaligned Positive/Negative Rows: Negative numbers with parentheses stick out further right than positive numbers without padding. -> Fix: Add _) to positive and zero formats to reserve space equal to a closing parenthesis.
-- Missing Currency Symbol Gap: Not using the * character causes currency symbols to hug numbers rather than left-align. -> Fix: Include $* in the format to push the currency symbol to the far left of the cell.
-- Ragged Right Margins: Failing to add _) to text entries causes text to cling to the right border. -> Fix: Append _) to the 4th text section for uniform margin alignment.
+- Misaligned Positive/Negative Rows: Negative numbers with parentheses stick out further right than positive numbers without padding. → Fix: Add _) to positive and zero formats to reserve space equal to a closing parenthesis.
+- Missing Currency Symbol Gap: Not using the * character causes currency symbols to hug numbers rather than left-align. → Fix: Include $* in the format to push the currency symbol to the far left of the cell.
+- Ragged Right Margins: Failing to add _) to text entries causes text to cling to the right border. → Fix: Append _) to the 4th text section for uniform margin alignment.
 ================================================================================

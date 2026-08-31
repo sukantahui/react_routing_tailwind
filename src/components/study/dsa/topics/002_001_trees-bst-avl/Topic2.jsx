@@ -771,7 +771,7 @@ export default function Topic2() {
           setCurrentStepIdx((prev) => prev + 1);
         }, animationSpeed);
       } else {
-        // Finished last step -> update base tree
+        // Finished last step → update base tree
         const lastStep = animSteps[animSteps.length - 1];
         if (lastStep && lastStep.tree) {
           setTreeRoot(lastStep.tree);
@@ -980,7 +980,7 @@ export default function Topic2() {
             <span>DSA Segment 2 · Topic 2</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-300 tracking-tight leading-tight">
             Binary Search Tree (BST) Architecture &amp; Complete 3-Case Deletion Mechanics
           </h1>
 
@@ -1674,7 +1674,7 @@ export default function Topic2() {
                       <pre className="text-[11px] text-slate-300">
 {`    50                50
    /  \\   Delete 30  /  \\
- (30)  70  --------> 25  70
+ (30)  70  ------──→ 25  70
   /
  25`}
                       </pre>
@@ -1701,7 +1701,7 @@ export default function Topic2() {
                       <pre className="text-[11px] text-slate-300">
 {`    50                50
    /  \\   Delete 70  /  \\
-  30  (70) --------> 30  85
+  30  (70) ------──→ 30  85
         \\
          85`}
                       </pre>
@@ -1767,7 +1767,7 @@ export default function Topic2() {
                       <pre className="text-slate-300 leading-tight">
 {`       (50) [Target]                     (60) [Replaced]
       /    \\                            /    \\
-    30      70          ------>       30      70
+    30      70          ----──→       30      70
    /  \\    /  \\                      /  \\       \\
   20  40 (60)  80                   20  40       80
         [Succ]`}
@@ -1804,7 +1804,7 @@ export default function Topic2() {
                       <pre className="text-slate-300 leading-tight">
 {`       (50) [Target]                     (40) [Replaced]
       /    \\                            /    \\
-    30      70          ------>       30      70
+    30      70          ----──→       30      70
    /  \\    /  \\                      /       /  \\
   20  (40) 60  80                   20      60  80
      [Pred]`}

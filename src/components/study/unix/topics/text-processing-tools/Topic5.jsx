@@ -122,7 +122,7 @@ class Topic5 extends React.Component {
                     staggerDelay(0)
                 )}>
                     <div className="mb-10 transform transition-all duration-500 hover:scale-[1.02]">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-blue-600 dark:from-indigo-400 dark:to-blue-400">
                             Topic 5: Using sed for Find & Replace and Inline Editing
                         </h1>
                         <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">

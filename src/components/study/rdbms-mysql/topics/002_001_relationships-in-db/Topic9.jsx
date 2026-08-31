@@ -132,7 +132,7 @@ const Topic9 = () => {
             Module 002_001 · Relationships in DB · Topic 9
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Visualizing Relationships in{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               MySQL Workbench EER Modeler
@@ -442,7 +442,7 @@ const Topic9 = () => {
                 Pressing <code>Ctrl + R</code> in MySQL Workbench instantly reverse-engineers all tables, foreign keys, and indexes into a diagram.
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
-{`-- Step 1: Menu -> Database -> Reverse Engineer (Ctrl+R)
+{`-- Step 1: Menu → Database → Reverse Engineer (Ctrl+R)
 -- Step 2: Select 'college_db' schema
 -- Step 3: Workbench generates visual EER model showing departments (1) ──< (n) students`}
               </pre>
@@ -460,7 +460,7 @@ const Topic9 = () => {
                 Visual EER diagrams exported directly into <code>schema_production.sql</code> for deployment pipelines.
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
-{`-- Menu -> Database -> Forward Engineer... (Ctrl+G)
+{`-- Menu → Database → Forward Engineer... (Ctrl+G)
 -- Generates clean, standardized CREATE TABLE scripts with FOREIGN KEY constraints`}
               </pre>
             </div>

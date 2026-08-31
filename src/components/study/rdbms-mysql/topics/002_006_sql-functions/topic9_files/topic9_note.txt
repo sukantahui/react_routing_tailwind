@@ -7,7 +7,7 @@ Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore, West Bengal)
 1. INTRODUCTION TO SQL AGGREGATE FUNCTIONS
 --------------------------------------------------------------------------------
 Aggregate functions perform a calculation on a set of values across multiple rows
-and return a single scalar summary value (N -> 1 compression).
+and return a single scalar summary value (N → 1 compression).
 
 Unlike scalar functions (which operate on one row at a time), aggregate functions
 summarize entire tables or subsets of rows grouped by a `GROUP BY` clause.
@@ -60,11 +60,11 @@ Rule:
 --------------------------------------------------------------------------------
 - MIN() and MAX() work seamlessly on:
   - String/Text columns (lexicographical dictionary ordering):
-    `MIN(student_name)` -> 'Abhronila Saha'
-    `MAX(student_name)` -> 'Susmita Sen'
+    `MIN(student_name)` → 'Abhronila Saha'
+    `MAX(student_name)` → 'Susmita Sen'
   - Date & Timestamp columns (chronological ordering):
-    `MIN(admission_date)` -> Earliest admission date
-    `MAX(admission_date)` -> Latest admission date
+    `MIN(admission_date)` → Earliest admission date
+    `MAX(admission_date)` → Latest admission date
 
 5. PRODUCTION EXAMPLES (ACADEMY & E-COMMERCE)
 --------------------------------------------------------------------------------

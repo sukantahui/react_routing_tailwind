@@ -12,7 +12,7 @@ following invariant holding true for EVERY node N:
   • All nodes in the Left Subtree of N have keys STRICTLY LESS THAN N.key
   • All nodes in the Right Subtree of N have keys STRICTLY GREATER THAN N.key
   • Both left and right subtrees must also recursively be Binary Search Trees.
-  • Inorder Traversal (Left -> Root -> Right) of a BST ALWAYS yields keys in
+  • Inorder Traversal (Left → Root → Right) of a BST ALWAYS yields keys in
     strictly ascending (sorted) order.
 
 2. ASYMPTOTIC COMPLEXITY ANALYSIS

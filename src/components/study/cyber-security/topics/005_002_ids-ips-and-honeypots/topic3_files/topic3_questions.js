@@ -7,8 +7,8 @@ const questions = [
     hint: "Signature looks for known bad patterns; Anomaly looks for anything unusual compared to normal.",
     level: "Basic",
     codeExample: `// Detection Philosophies:
-// Signature : IF Payload CONTAINS "union select" -> ALERT (Known Threat)
-// Anomaly   : IF Outbound_Data_Volume > (Baseline_Mean + 3 * StdDev) -> ALERT (Unusual Behavior)`
+// Signature : IF Payload CONTAINS "union select" → ALERT (Known Threat)
+// Anomaly   : IF Outbound_Data_Volume > (Baseline_Mean + 3 * StdDev) → ALERT (Unusual Behavior)`
   },
   {
     id: 2,
@@ -48,8 +48,8 @@ const questions = [
     hint: "A smart algorithm that checks all 30,000 virus signatures in a single pass without slowing down.",
     level: "Expert",
     codeExample: `// Aho-Corasick Complexity:
-// Sequential Regex Search: O(M * K)  [M = packet length, K = 30,000 signatures] -> Too Slow!
-// Aho-Corasick DFA       : O(M)      [Single pass regardless of signature count] -> Line Rate 10 Gbps!`
+// Sequential Regex Search: O(M * K)  [M = packet length, K = 30,000 signatures] → Too Slow!
+// Aho-Corasick DFA       : O(M)      [Single pass regardless of signature count] → Line Rate 10 Gbps!`
   },
   {
     id: 6,
@@ -72,7 +72,7 @@ const questions = [
     level: "Moderate",
     codeExample: `// Shannon Entropy Formula:
 // H(X) = - SUM [ P(x_i) * log2( P(x_i) ) ]
-// Plaintext: "user=admin&pass=123" -> H = 3.4 | Encrypted: "7f8a9b2c3d4e..." -> H = 7.8`
+// Plaintext: "user=admin&pass=123" → H = 3.4 | Encrypted: "7f8a9b2c3d4e..." → H = 7.8`
   },
   {
     id: 8,
@@ -192,7 +192,7 @@ const questions = [
     hint: "Learning the normal work habits of each specific employee and alerting when their account behaves weirdly.",
     level: "Moderate",
     codeExample: `// UEBA Anomaly Alert:
-// User "Debangshu" logged in from new IP (Geo-Velocity Anomaly: Kolkata -> Moscow in 30 minutes) + Accessed 500 HR records.`
+// User "Debangshu" logged in from new IP (Geo-Velocity Anomaly: Kolkata → Moscow in 30 minutes) + Accessed 500 HR records.`
   },
   {
     id: 19,
@@ -202,7 +202,7 @@ const questions = [
     hint: "Analyzing small groups of consecutive letters or bytes to spot machine code hidden inside text.",
     level: "Expert",
     codeExample: `// 3-Gram Extraction:
-// "SELECT" -> ["SEL", "ELE", "LEC", "ECT"] (Matches normal SQL language profile)`
+// "SELECT" → ["SEL", "ELE", "LEC", "ECT"] (Matches normal SQL language profile)`
   },
   {
     id: 20,
@@ -222,7 +222,7 @@ const questions = [
     hint: "Hacking very slowly or poisoning the baseline over months so the anomaly detector thinks the attack is normal.",
     level: "Expert",
     codeExample: `// Slow-and-Low Scanning:
-// nmap -T0 (Paranoid mode: 1 probe every 5 minutes -> Stays far below statistical rate thresholds)`
+// nmap -T0 (Paranoid mode: 1 probe every 5 minutes → Stays far below statistical rate thresholds)`
   },
   {
     id: 22,
@@ -238,12 +238,12 @@ const questions = [
   {
     id: 23,
     question: "What is 'Signature Authoring (Snort Rule Grammar)' and what are the essential header/option keywords?",
-    shortAnswer: "Defining rule action (`alert`), protocol (`tcp`), source/dest 5-tuple (`$EXTERNAL_NET any -> $HTTP_SERVERS 80`), and options: `msg`, `content` (byte string), `nocase`, `sid`, and `rev`.",
+    shortAnswer: "Defining rule action (`alert`), protocol (`tcp`), source/dest 5-tuple (`$EXTERNAL_NET any → $HTTP_SERVERS 80`), and options: `msg`, `content` (byte string), `nocase`, `sid`, and `rev`.",
     explanation: "Snort rules are human-readable signatures. The header defines where to inspect; the options define what payload strings to match, whether to ignore case, and unique rule identification numbers (`sid`).",
     hint: "Writing Snort rules using action, protocol, IP/ports, and payload content keywords.",
     level: "Moderate",
     codeExample: `// Snort Rule Example:
-// alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80 (msg:"EXPLOIT Apache Struts RCE"; content:"cmd.exe"; nocase; sid:1000542; rev:1;)`
+// alert tcp $EXTERNAL_NET any → $HTTP_SERVERS 80 (msg:"EXPLOIT Apache Struts RCE"; content:"cmd.exe"; nocase; sid:1000542; rev:1;)`
   },
   {
     id: 24,
@@ -282,7 +282,7 @@ const certInDetectionLog = {
     hint: "A badly written regex that causes the security scanner's CPU to freeze when evaluating evil input.",
     level: "Expert",
     codeExample: `// ReDoS Vulnerable Regex Pattern:
-// pcre:"/^(a+)+b/" -> Catastrophic backtracking on input "aaaaaaaaaaaaaaaaaaaaaaac"`
+// pcre:"/^(a+)+b/" → Catastrophic backtracking on input "aaaaaaaaaaaaaaaaaaaaaaac"`
   },
   {
     id: 27,
@@ -302,17 +302,17 @@ const certInDetectionLog = {
     hint: "Using software to write new virus rules automatically from honeypot data during an outbreak.",
     level: "Expert",
     codeExample: `// Automated Snort Signature Synthesis:
-// Honeycomb Engine -> Extracts LCS ("Longest Common Substring") -> Outputs Snort Rule within 5 seconds!`
+// Honeycomb Engine → Extracts LCS ("Longest Common Substring") → Outputs Snort Rule within 5 seconds!`
   },
   {
     id: 29,
     question: "How does 'Payload Normalization' prevent signature evasion before Aho-Corasick matching runs?",
-    shortAnswer: "By unescaping hexadecimal characters (`%20` -> ` `), standardizing directory traversal (`/a/../b` -> `/b`), and stripping null bytes, ensuring signatures match canonical text.",
+    shortAnswer: "By unescaping hexadecimal characters (`%20` → ` `), standardizing directory traversal (`/a/../b` → `/b`), and stripping null bytes, ensuring signatures match canonical text.",
     explanation: "If a signature searches for `SELECT`, an attacker sends `S%45LECT`. Normalization decodes the hex string before the signature engine evaluates it, defeating evasion attempts.",
     hint: "Decoding escaped characters and cleaning up URLs before scanning for virus signatures.",
     level: "Basic",
     codeExample: `// URL Normalization:
-// Raw: "GET /api?q=S%45L%45CT HTTP/1.1" -> Normalized: "GET /api?q=SELECT HTTP/1.1" ➔ SIGNATURE MATCHED!`
+// Raw: "GET /api?q=S%45L%45CT HTTP/1.1" → Normalized: "GET /api?q=SELECT HTTP/1.1" ➔ SIGNATURE MATCHED!`
   },
   {
     id: 30,

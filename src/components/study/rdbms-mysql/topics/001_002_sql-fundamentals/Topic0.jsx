@@ -88,7 +88,7 @@ const Topic0 = () => {
             Module 001_002 · SQL Fundamentals · Topic 0
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Understanding MySQL{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Data Types

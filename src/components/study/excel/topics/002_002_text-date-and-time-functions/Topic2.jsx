@@ -71,7 +71,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the & operator"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Concatenation_stra"
+            sheetName="EX703"
             title={"Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the & operator - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -345,7 +345,7 @@ export default function Topic2() {
                 <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Debangshu Roy: Driver Route Itinerary Builder"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Constructs waypoint route sequences (e.g. 'Barrackpore -> Shyamnagar -> Naihati') via =TEXTJOIN(\" -> \", TRUE, C2:G2)."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Constructs waypoint route sequences (e.g. 'Barrackpore → Shyamnagar → Naihati') via =TEXTJOIN(\" → \", TRUE, C2:G2)."}</p>
             </div>
             
           </div>
@@ -442,7 +442,7 @@ export default function Topic2() {
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Missing Line Break Wrap Text"}</td>
                   <td className="py-3 px-4">{"Using CHAR(10) to create multi-line text displays as square boxes or spaces unless Wrap Text is enabled."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enable Home &gt; Wrap Text (Alt + H + W) on formatted cells."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Enable Home > Wrap Text (Alt + H + W) on formatted cells."}</td>
                 </tr>
                 
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">

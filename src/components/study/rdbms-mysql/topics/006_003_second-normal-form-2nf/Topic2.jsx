@@ -7,7 +7,7 @@ import questions from "./topic2_files/topic2_questions";
 import noteText from "./topic2_files/topic2_note.txt?raw";
 
 /**
- * Topic2 – The Core Culprit: Partial Functional Dependency (X -> Y where X is Proper Subset of Candidate Key)
+ * Topic2 – The Core Culprit: Partial Functional Dependency (X → Y where X is Proper Subset of Candidate Key)
  * Module: 006_003_second-normal-form-2nf
  *
  * @component
@@ -70,7 +70,7 @@ const Topic2 = () => {
             <span>📐</span>
             <span>Relational Normalization Masterclass · Topic 2</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             The Core Culprit: Partial Functional Dependency (X {"->"} Y where X is Proper Subset of Candidate Key)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -339,7 +339,7 @@ const Topic2 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="The Core Culprit: Partial Functional Dependency (X -> Y where X is Proper Subset of Candidate Key)"
+            title="The Core Culprit: Partial Functional Dependency (X → Y where X is Proper Subset of Candidate Key)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
@@ -361,7 +361,7 @@ const Topic2 = () => {
         {/* ─── FAQ & Practice Questions ───────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="The Core Culprit: Partial Functional Dependency (X -> Y where X is Proper Subset of Candidate Key) – Practice Questions"
+            title="The Core Culprit: Partial Functional Dependency (X → Y where X is Proper Subset of Candidate Key) – Practice Questions"
             questions={questions}
             subtitle="Test your comprehension with 30 deep-dive questions"
             showPrint

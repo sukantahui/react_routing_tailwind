@@ -48,7 +48,7 @@ const questions = [
     explanation: "Crossing out Row 1 removes all elements c_1j from the active set. For any column j where c_1j was either the minimum or second minimum, the remaining candidate pool shifts, creating a new c_(1,j) and/or c_(2,j), thereby altering P_j. Columns where Row 1 was higher than the 2nd lowest maintain unchanged penalties.",
     hint: "Check whether Row 1 contributed to the top-two cheapest slots in each column.",
     level: "expert",
-    codeExample: "If c_1j was min1, then old min2 becomes new min1, and old min3 becomes new min2 -> P_j' = c_3j - c_2j."
+    codeExample: "If c_1j was min1, then old min2 becomes new min1, and old min3 becomes new min2 → P_j' = c_3j - c_2j."
   },
   {
     question: "Can a row penalty change if an allocation is made in that row but the row is NOT yet crossed out?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "When a dummy column with [₹0, ₹0, ..., ₹0]^T is added, every row i now contains ₹0 as its smallest element. Thus, the row penalty becomes P_i = (old smallest cost) - ₹0 = old smallest cost. The dummy column itself has all entries ₹0, so P_dummy = ₹0 - ₹0 = ₹0.",
     hint: "In row i, ₹0 is now c_(1), so the old c_(1) becomes the new c_(2).",
     level: "expert",
-    codeExample: "Row costs: [₹8, ₹15, ₹12] + Dummy [₹0] -> P_i = ₹8 - ₹0 = ₹8 (which equals old min cost!)."
+    codeExample: "Row costs: [₹8, ₹15, ₹12] + Dummy [₹0] → P_i = ₹8 - ₹0 = ₹8 (which equals old min cost!)."
   },
   {
     question: "If Susmita evaluates a 2 x 3 matrix, how many row penalties and column penalties are calculated?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Consider row costs [₹3, ₹5, ₹20]. Initial penalty is ₹5 - ₹3 = ₹2. If the column containing ₹5 is crossed out by another row's allocation, the remaining costs in this row become [₹3, ₹20]. The updated penalty jumps dramatically to ₹20 - ₹3 = ₹17.",
     hint: "Removing the intermediate buffer route widens the gap to the next fallback option.",
     level: "expert",
-    codeExample: "Before: [3, 5, 20] -> P=2. Col with 5 crossed out -> [3, 20] -> New P = 20 - 3 = 17."
+    codeExample: "Before: [3, 5, 20] → P=2. Col with 5 crossed out → [3, 20] → New P = 20 - 3 = 17."
   },
   {
     question: "Can a column penalty decrease in a subsequent iteration? Explain how.",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Consider column costs [₹4, ₹15, ₹18]. Initial penalty is ₹15 - ₹4 = ₹11. If the row containing ₹4 is crossed out, the remaining costs are [₹15, ₹18], making the new penalty ₹18 - ₹15 = ₹3, which is significantly smaller.",
     hint: "Eliminating the outlier cheapest cell leaves two closer-priced alternatives.",
     level: "expert",
-    codeExample: "Before: [4, 15, 18] -> P=11. Eliminate 4 -> [15, 18] -> New P = 3."
+    codeExample: "Before: [4, 15, 18] → P=11. Eliminate 4 → [15, 18] → New P = 3."
   },
   {
     question: "How does Mahima verify that all row and column penalties in Tableau 1 have been computed correctly?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "If a row has costs [₹5, M], the penalty is M - ₹5 ≈ ∞. This gigantic penalty guarantees that this row is selected first, allocating all available capacity to the ₹5 cell before the blocked M route could ever be considered.",
     hint: "Infinity minus a constant is still approximately infinity.",
     level: "expert",
-    codeExample: "Costs: [₹5, M] -> Penalty = M - 5. Max penalty across table -> Allocates to ₹5 route immediately."
+    codeExample: "Costs: [₹5, M] → Penalty = M - 5. Max penalty across table → Allocates to ₹5 route immediately."
   },
   {
     question: "Why do row penalties reflect 'supplier regret' while column penalties reflect 'buyer regret'?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "For P to equal 0 everywhere, each row i must have c_(i,1) = c_(i,2) and each column j must have c_(1,j) = c_(2,j). This happens when freight rates are uniformly tiered (e.g. flat city-wide rates). In such cases, VAM gracefully reduces to Least Cost tie-breaking.",
     hint: "Zero penalty across all lines means no cost jump between 1st and 2nd choices anywhere.",
     level: "expert",
-    codeExample: "Flat tariff matrix: All P_i = 0, all P_j = 0 -> Any cheapest cell can be selected."
+    codeExample: "Flat tariff matrix: All P_i = 0, all P_j = 0 → Any cheapest cell can be selected."
   },
   {
     question: "Why is it mathematically impossible for a penalty in a standard transportation problem to be strictly less than zero?",

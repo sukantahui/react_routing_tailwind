@@ -9,7 +9,7 @@ export default class Topic0 extends Component {
                         <rect x="3" y="3" width="18" height="18" rx="4" />
                         <path d="M7 8h10M7 12h10M7 16h6" />
                     </svg>
-                    <h1 className="text-3xl font-bold text-sky-400">Chapter 1.8 – Accounting Transactions (2016–17)</h1>
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400">Chapter 1.8 – Accounting Transactions (2016–17)</h1>
                 </div>
 
                 <section className="space-y-2">

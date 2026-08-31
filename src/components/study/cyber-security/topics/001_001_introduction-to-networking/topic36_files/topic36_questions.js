@@ -24,7 +24,7 @@ const questions = [
     explanation: "If a public web server in the DMZ is compromised, the internal firewall blocks the attacker from pivoting directly into the trusted Intranet.",
     hint: "Semi-trusted buffer zone hosting public servers to prevent hackers from reaching the private Intranet.",
     level: "moderate",
-    codeExample: "Perimeter: [Internet (Untrusted)] -> [External Firewall] -> [DMZ (Semi-Trusted)] -> [Internal Firewall] -> [Intranet (Trusted)]"
+    codeExample: "Perimeter: [Internet (Untrusted)] → [External Firewall] → [DMZ (Semi-Trusted)] → [Internal Firewall] → [Intranet (Trusted)]"
   },
   {
     question: "What is Split-Horizon DNS and how does it protect internal Intranet resources?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "This conserves public IPv4 address space and conceals internal Intranet host addresses from external Internet scanners.",
     hint: "Translates internal private IPs into a public IP using unique source port numbers.",
     level: "basic",
-    codeExample: "PAT: Internal 10.0.1.50:49201 -> Firewall NAT -> External Public 103.25.10.4:52001"
+    codeExample: "PAT: Internal 10.0.1.50:49201 → Firewall NAT → External Public 103.25.10.4:52001"
   },
   {
     question: "What is an Air-Gapped Intranet and how can it be breached?",
@@ -72,7 +72,7 @@ const questions = [
     explanation: "Without microsegmentation, compromising an HR laptop in Ichapur gives the attacker direct SMB/RDP access to accounting and server databases.",
     hint: "Spreading across internal computers; stopped by isolating internal departments with microsegmentation.",
     level: "expert",
-    codeExample: "Firewall_EastWest: Deny Workstation_VLAN -> Database_VLAN except on Port 1433 with MFA;"
+    codeExample: "Firewall_EastWest: Deny Workstation_VLAN → Database_VLAN except on Port 1433 with MFA;"
   },
   {
     question: "What is Zero Trust Network Access (ZTNA) and why is it replacing traditional Intranet VPNs?",
@@ -80,7 +80,7 @@ const questions = [
     explanation: "ZTNA assumes every device (even inside the office) is potentially compromised, verifying identity on every single transaction.",
     hint: "Grants access to specific apps only, rather than giving full access to the entire Intranet network.",
     level: "expert",
-    codeExample: "ZTNA_Policy: Allow User Mamata -> App 'Payroll' ONLY IF DeviceCompliance == 'Passed' && MFA == 'Verified';"
+    codeExample: "ZTNA_Policy: Allow User Mamata → App 'Payroll' ONLY IF DeviceCompliance == 'Passed' && MFA == 'Verified';"
   },
   {
     question: "What is an Insider Threat in Intranet security?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Modern cyber security replaces castle-and-moat with Zero Trust Architecture ('never trust, always verify').",
     hint: "Old model that trusts everything inside; fails once an attacker breaches the perimeter.",
     level: "moderate",
-    codeExample: "CastleAndMoat_Flaw: PerimeterBreach == true -> AttackerGetsUnrestrictedInternalAccess = true;"
+    codeExample: "CastleAndMoat_Flaw: PerimeterBreach == true → AttackerGetsUnrestrictedInternalAccess = true;"
   },
   {
     question: "What is a Bastion Host / Jump Server in DMZ architecture?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Administrators in Jadavpur must log into the Bastion Host first; direct SSH access from the Internet into internal Intranet servers is strictly blocked.",
     hint: "Hardened jump server in the DMZ used by admins to securely reach internal Intranet servers.",
     level: "moderate",
-    codeExample: "Admin -> (SSH + MFA) -> Bastion_Host_DMZ -> (SSH Internal) -> Core_Intranet_Server"
+    codeExample: "Admin → (SSH + MFA) → Bastion_Host_DMZ → (SSH Internal) → Core_Intranet_Server"
   },
   {
     question: "What is Data Loss Prevention (DLP) on an Intranet egress gateway?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Egress filtering stops ransomware on Intranet PCs from connecting out to dark web decryption key servers.",
     hint: "Limits which outbound ports internal computers can use to connect to the Internet.",
     level: "expert",
-    codeExample: "firewall.egress: Deny Workstation_VLAN -> Any Internet on Port != 443 via Proxy;"
+    codeExample: "firewall.egress: Deny Workstation_VLAN → Any Internet on Port != 443 via Proxy;"
   },
   {
     question: "How does Active Directory / LDAP provide centralized identity management for Intranets?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "When Debangshu logs in once in Barrackpore, Kerberos tickets grant single sign-on (SSO) access to file shares, printers, and internal web portals.",
     hint: "Central directory service authenticating users and enforcing security policies across the Intranet.",
     level: "basic",
-    codeExample: "KerberosAuth: User -> KDC (Ticket Granting Service) -> Service Ticket -> Intranet File Server"
+    codeExample: "KerberosAuth: User → KDC (Ticket Granting Service) → Service Ticket → Intranet File Server"
   },
   {
     question: "What is a 'Dual-Homed Server' in DMZ network engineering?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures architectural boundaries, private addressing, zero trust security, DNS isolation, outbound control, and financial procurement.",
     hint: "3-tier DMZ + RFC 1918 NAT + Microsegmentation ZTNA + Split-horizon DNS + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: EnforceDMZIsolation() -> ApplyRFC1918NAT() -> DeployMicrosegmentationZTNA() -> ConfigureSplitDNS() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: EnforceDMZIsolation() → ApplyRFC1918NAT() → DeployMicrosegmentationZTNA() → ConfigureSplitDNS() → BudgetInRupees(₹);"
   }
 ];
 

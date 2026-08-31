@@ -76,7 +76,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Creating Local Scoped Variables with LET to Maximize Performance
           </h1>
 
@@ -194,7 +194,7 @@ export default function Topic5() {
                 Excel retrieves the cached value from RAM in zero nanoseconds!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                1 Heavy Calculation &rarr; Infinite Instant Memory Reads
+                1 Heavy Calculation → Infinite Instant Memory Reads
               </div>
             </div>
 
@@ -205,7 +205,7 @@ export default function Topic5() {
               <p className="leading-relaxed">
                 LET evaluates variable assignments sequentially from left to right. 
                 Later variables can freely reference earlier variables: <br />
-                <code className="text-emerald-300 font-mono">P = 500k &rarr; r = 8.5%/12 &rarr; emi = f(P, r) &rarr; total = emi*n</code>. 
+                <code className="text-emerald-300 font-mono">P = 500k → r = 8.5%/12 → emi = f(P, r) → total = emi*n</code>. 
                 All variables are automatically discarded when calculation completes, preventing memory bloat.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
@@ -270,7 +270,7 @@ export default function Topic5() {
 
                 <rect y="102" width="210" height="36" rx="4" fill="#3B0764" stroke="#A855F7" />
                 <text x="15" y="120" fill="#F5D0FE" fontSize="9" fontWeight="bold" fontFamily="monospace">4. emi = P*r*(1+r)^n/...</text>
-                <text x="15" y="132" fill="#F5D0FE" fontSize="8.5" fontFamily="monospace">&rarr; Computed ONCE: ₹15,781</text>
+                <text x="15" y="132" fill="#F5D0FE" fontSize="8.5" fontFamily="monospace">→ Computed ONCE: ₹15,781</text>
               </g>
 
               <rect x="40" y="225" width="210" height="50" rx="6" fill="#065F46" fillOpacity="0.2" stroke="#10B981" />
@@ -359,7 +359,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_LET_Variables"
+            sheetName="EX1806"
             title="Loan Portfolio Schedule (Principal, Annual Rate %, Tenure Months)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -398,7 +398,7 @@ export default function Topic5() {
                 This calculates Monthly EMI, Total Repayment, and Total Interest in 1 cell, spilling across 3 columns.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =LET(...) &rarr; Spills [₹15,781, ₹568,116, ₹68,116]
+                Formula: =LET(...) → Spills [₹15,781, ₹568,116, ₹68,116]
               </div>
             </div>
 
@@ -417,7 +417,7 @@ export default function Topic5() {
                 Instead of executing 4 separate disk lookups, LET performs 1 lookup in memory and returns all 4 fields.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                1 In-Memory Lookup &rarr; 400% Faster Workbook Calculation
+                1 In-Memory Lookup → 400% Faster Workbook Calculation
               </div>
             </div>
 
@@ -436,7 +436,7 @@ export default function Topic5() {
                 Clear financial variable names eliminate formula errors.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Altman Z-Score Model &rarr; Crystal-Clear Financial Readability
+                Altman Z-Score Model → Crystal-Clear Financial Readability
               </div>
             </div>
 
@@ -451,7 +451,7 @@ export default function Topic5() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Tax Auditor <strong>Susmita Roy</strong> consolidates 3 branches: 
-                <code className="text-amber-300 font-mono">=LET(b1, Barrackpore!A2:D20, b2, Shyamnagar!A2:D20, b3, Naihati!A2:D20, raw, VSTACK(b1, b2, b3), FILTER(raw, CHOOSECOLS(raw, 4)&gt;50000))</code>. 
+                <code className="text-amber-300 font-mono">=LET(b1, Barrackpore!A2:D20, b2, Shyamnagar!A2:D20, b3, Naihati!A2:D20, raw, VSTACK(b1, b2, b3), FILTER(raw, CHOOSECOLS(raw, 4)>50000))</code>. 
                 Zero helper sheets required.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">

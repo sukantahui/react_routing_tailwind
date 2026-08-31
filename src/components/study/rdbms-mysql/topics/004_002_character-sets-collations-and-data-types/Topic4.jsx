@@ -33,7 +33,7 @@ const Topic4 = () => {
 
 -- 2. VARCHAR(10) utf8mb4 storing 'Kolkata':
 --    - Stores 7 characters ('Kolkata' = 7 bytes).
---    - Adds 2-byte length prefix (since 10 * 4 = 40 max bytes <= 255 -> 1-byte prefix!).
+--    - Adds 2-byte length prefix (since 10 * 4 = 40 max bytes <= 255 → 1-byte prefix!).
 --    - Total on-disk = 1 byte prefix + 7 bytes = 8 Bytes!
 --    - Trailing spaces are preserved!
 
@@ -165,7 +165,7 @@ CREATE TABLE blog_posts (
               String Data Types
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             String Data Types Deep Dive: CHAR vs VARCHAR vs TEXT vs BLOB (Storage, Truncation, Limits)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

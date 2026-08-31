@@ -76,7 +76,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Fuzzy Matching: Merging Datasets with Typos &amp; Approximate Spellings
           </h1>
 
@@ -96,7 +96,7 @@ export default function Topic12() {
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
-              <span><strong>Transformation Tables:</strong> Map domain acronyms (e.g. BKP &rarr; Barrackpore)</span>
+              <span><strong>Transformation Tables:</strong> Map domain acronyms (e.g. BKP → Barrackpore)</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-sky-400 text-base">✓</span>
@@ -149,7 +149,7 @@ export default function Topic12() {
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">Ignore Spaces</td>
                   <td className="py-3 px-4 text-emerald-300">true</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">true</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Matches token spacing differences (e.g. 'Micro Soft' &rarr; 'Microsoft').</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Matches token spacing differences (e.g. 'Micro Soft' → 'Microsoft').</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-sky-400 font-sans">NumberOfMatches</td>
@@ -195,7 +195,7 @@ export default function Topic12() {
                 Power Query your domain dictionary!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-teal-300">
-                From: "BKP" &rarr; To: "Barrackpore"
+                From: "BKP" → To: "Barrackpore"
               </div>
             </div>
 
@@ -206,10 +206,10 @@ export default function Topic12() {
               <p className="leading-relaxed">
                 Fuzzy matching across 500,000 raw transaction rows consumes extreme CPU time. 
                 Instead: 
-                <strong>1. Extract Distinct Raw Names &rarr; 2. Fuzzy Match the small distinct list &rarr; 3. Exact-merge clean names back to the transaction fact table!</strong>
+                <strong>1. Extract Distinct Raw Names → 2. Fuzzy Match the small distinct list → 3. Exact-merge clean names back to the transaction fact table!</strong>
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                Distinct Key Match &rarr; 95% CPU Reduction
+                Distinct Key Match → 95% CPU Reduction
               </div>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Topic12() {
                 <text x="10" y="58" fill="#BAE6FD" fontWeight="bold">2. IgnoreSpaces &amp; IgnoreCase</text>
 
                 <rect y="76" width="220" height="32" rx="4" fill="#065F46" fillOpacity="0.3" stroke="#10B981" />
-                <text x="10" y="96" fill="#A7F3D0" fontWeight="bold">3. TransformationTable (BKP &rarr; ...)</text>
+                <text x="10" y="96" fill="#A7F3D0" fontWeight="bold">3. TransformationTable (BKP → ...)</text>
 
                 <rect y="114" width="220" height="32" rx="4" fill="#854D0E" fillOpacity="0.3" stroke="#EAB308" />
                 <text x="10" y="134" fill="#FEF08A" fontWeight="bold">4. NumberOfMatches = 1</text>
@@ -365,7 +365,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Fuzzy_Matching"
+            sheetName="EX2013"
             title="Fuzzy Matching Reconciliation Pipeline (Raw Client Name, Matched Master Name, Match Similarity Score, Standardized Branch, Invoice Amount INR)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -402,7 +402,7 @@ export default function Topic12() {
                 Financial Analyst <strong>Swadeep Banerjee</strong> reconciles 15,000 legacy handwritten receipts containing spelling slips using <code className="text-teal-300 font-mono">Table.FuzzyNestedJoin</code> at threshold 0.82, matching 99.4% of records automatically!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Threshold = 0.82 &rarr; 99.4% Automated Match Rate
+                Threshold = 0.82 → 99.4% Automated Match Rate
               </div>
             </div>
 
@@ -419,7 +419,7 @@ export default function Topic12() {
                 Senior Accountant <strong>Tuhina Mukherjee</strong> connects a 2-column <code className="text-emerald-300 font-mono">[From, To]</code> Transformation Table mapping regional abbreviations, eliminating manual dictionary replacement steps entirely.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                TransformationTable &rarr; Auto-Standardizes Corporate Acronyms
+                TransformationTable → Auto-Standardizes Corporate Acronyms
               </div>
             </div>
 
@@ -436,7 +436,7 @@ export default function Topic12() {
                 ERP Lead <strong>Abhronila Sengupta</strong> cleans vendor files where strings lack spaces (<code className="text-indigo-300 font-mono">"TataSteelLtd"</code> vs <code className="text-indigo-300 font-mono">"Tata Steel Ltd"</code>) using <code className="text-indigo-300 font-mono">[IgnoreSpaces = true]</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                [IgnoreSpaces=true] &rarr; Resolves Concatenated Vendor Strings
+                [IgnoreSpaces=true] → Resolves Concatenated Vendor Strings
               </div>
             </div>
 
@@ -453,7 +453,7 @@ export default function Topic12() {
                 Operations Lead <strong>Debangshu Ghosh</strong> deduplicates 300,000 POS transactions to 2,000 distinct customer names before fuzzy matching, reducing refresh duration from 12 minutes to 3.5 seconds!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Distinct Key Match &rarr; 3.5s Refresh vs 12 Minutes
+                Distinct Key Match → 3.5s Refresh vs 12 Minutes
               </div>
             </div>
           </div>
@@ -495,7 +495,7 @@ export default function Topic12() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Create [From, To] Transformation Table</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Go to <strong>Home &rarr; Enter Data</strong> &rarr; Create columns <code className="text-indigo-300 font-mono">From</code> and <code className="text-indigo-300 font-mono">To</code> with corporate acronym mappings.
+                  Go to <strong>Home → Enter Data</strong> → Create columns <code className="text-indigo-300 font-mono">From</code> and <code className="text-indigo-300 font-mono">To</code> with corporate acronym mappings.
                 </p>
               </div>
             </div>
@@ -507,7 +507,7 @@ export default function Topic12() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Enable Fuzzy Matching &amp; Set Threshold (0.82)</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  In the Merge dialog, check <strong>Use fuzzy matching to perform the merge</strong> &rarr; Set Threshold to <strong>0.82</strong> &rarr; Set <strong>Maximum number of matches = 1</strong>.
+                  In the Merge dialog, check <strong>Use fuzzy matching to perform the merge</strong> → Set Threshold to <strong>0.82</strong> → Set <strong>Maximum number of matches = 1</strong>.
                 </p>
               </div>
             </div>
@@ -519,7 +519,7 @@ export default function Topic12() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 4: Audit Matched Master Names Side-by-Side</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Expand Master Name &rarr; Add conditional column <code className="text-emerald-400 font-mono">[Raw_Name] &lt;&gt; [Master_Name]</code> to review and approve all corrected typo instances!
+                  Expand Master Name → Add conditional column <code className="text-emerald-400 font-mono">[Raw_Name] &lt;&gt; [Master_Name]</code> to review and approve all corrected typo instances!
                 </p>
               </div>
             </div>
@@ -555,7 +555,7 @@ export default function Topic12() {
               <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">False Positive Matches</td>
-                  <td className="py-3 px-4 text-slate-300">Threshold set too low (&lt; 0.70), matching unrelated accounts.</td>
+                  <td className="py-3 px-4 text-slate-300">Threshold set too low (< 0.70), matching unrelated accounts.</td>
                   <td className="py-3 px-4 text-slate-400">'Tata Motors' matches 'Tata Steel'.</td>
                   <td className="py-3 px-4 text-emerald-400">Raise Similarity Threshold to 0.82–0.88.</td>
                 </tr>

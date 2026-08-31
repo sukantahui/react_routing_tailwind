@@ -52,7 +52,7 @@ const Topic0 = () => {
       name: "Phase 2: Logical Design (Relational Schema & 3NF)",
       focus: "HOW conceptual entities map into mathematical relational tables and foreign keys.",
       audience: "Data Modelers, Software Engineers, Database Architects",
-      artifacts: "Relational Schema Model, Normalized Tables (1NF -> BCNF)",
+      artifacts: "Relational Schema Model, Normalized Tables (1NF → BCNF)",
       independence: "DBMS-Independent (works on MySQL, PostgreSQL, Oracle)",
       badgeColor: "text-cyan-400 border-cyan-500/40 bg-cyan-500/10",
       content: (
@@ -173,7 +173,7 @@ CREATE TABLE student_courses (
             Module 002_002 · ER & EER Modeling · Topic 0
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Conceptual vs Logical vs Physical{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Database Design Lifecycles
@@ -292,7 +292,7 @@ CREATE TABLE student_courses (
                 </text>
                 <line x1="10" y1="36" x2="210" y2="36" stroke="#334155" />
                 <text x="110" y="56" fill="#cbd5e1" textAnchor="middle" fontSize="9">Relational Schema Mapping</text>
-                <text x="110" y="72" fill="#cbd5e1" textAnchor="middle" fontSize="9">1NF &rarr; 2NF &rarr; 3NF / BCNF</text>
+                <text x="110" y="72" fill="#cbd5e1" textAnchor="middle" fontSize="9">1NF → 2NF → 3NF / BCNF</text>
                 <text x="110" y="88" fill="#38bdf8" textAnchor="middle" fontSize="9">Relational Math Driven</text>
               </g>
 

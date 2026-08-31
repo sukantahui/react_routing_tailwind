@@ -29,9 +29,9 @@ Mallory can now decrypt 100% of all future symmetric ciphertexts!`
     level: "moderate",
     codeExample: `// Symmetric Key Growth Formula:
 Total Keys = [ N * (N - 1) ] / 2
-N = 10 Users   -> 45 Keys
-N = 100 Users  -> 4,950 Keys
-N = 1,000 Users -> 499,500 Keys (Symmetric Key Scaling Nightmare!)`
+N = 10 Users   → 45 Keys
+N = 100 Users  → 4,950 Keys
+N = 1,000 Users → 499,500 Keys (Symmetric Key Scaling Nightmare!)`
   },
   {
     question: "What is a 'Key Distribution Center' (KDC), and how does the 'Kerberos' protocol authenticate users and distribute symmetric session keys using Tickets?",
@@ -108,7 +108,7 @@ Output: 15 Round SubKeys (15 * 16 bytes = 240 bytes of expanded key schedule)`
     codeExample: `// Hybrid Cryptosystem (Envelope Encryption):
 1. Bulk Payload (10 GB): Ciphertext = AES_256_GCM( Big_File, K_session )
 2. Key Envelope (32 Bytes): Encrypted_Key = RSA_Encrypt( K_session, Bob_PublicKey )
-Transmission: [ Encrypted_Key ] + [ Ciphertext ] -> Bob decrypts Key with Private Key, then decrypts File!`
+Transmission: [ Encrypted_Key ] + [ Ciphertext ] → Bob decrypts Key with Private Key, then decrypts File!`
   },
   {
     question: "What is a 'Hardware Security Module' (HSM), and why do the RBI Master Directions mandate HSMs for managing symmetric master keys in banking switches?",
@@ -129,7 +129,7 @@ HSM ──[ Ciphertext Output ]──> Application Server`
     level: "moderate",
     codeExample: `// Crypto-Shredding in Cloud KMS:
 User Mamata requests Account Deletion under DPDP Act 2023.
-Action: KMS.DeleteKey( Mamata_DEK_ID ) -> Key permanently destroyed!
+Action: KMS.DeleteKey( Mamata_DEK_ID ) → Key permanently destroyed!
 Result: All 500 GB of historical database backups become unrecoverable white noise!`
   },
   {
@@ -167,7 +167,7 @@ block = _mm_aesenc_si128(block, key); // Constant-time hardware round execution!
     codeExample: `// Bit-Flipping Attack on Stream Cipher:
 Ciphertext[5] ^= ( '0' ^ '9' ); // Flips digit '0' to '9'
 Decrypted Plaintext: "PAY ₹90,000" (Attacker altered amount without knowing the key!)
-Defense: AES-GCM Tag Mismatch -> Throws AuthenticationError & Aborts!`
+Defense: AES-GCM Tag Mismatch → Throws AuthenticationError & Aborts!`
   },
   {
     question: "Under the Indian Information Technology Act 2000 Section 69, what are the statutory obligations of symmetric key custodians when served with a lawful decryption order?",
@@ -178,7 +178,7 @@ Defense: AES-GCM Tag Mismatch -> Throws AuthenticationError & Aborts!`
     codeExample: `// Statutory Compliance under IT Act Section 69:
 Lawful Decryption Order Issued by Authorized Agency.
 Key Custodian Action: Must assist with technical decryption facilities.
-Penalty for Refusal: IT Act Section 69(4) -> Up to 7 Years Imprisonment.`
+Penalty for Refusal: IT Act Section 69(4) → Up to 7 Years Imprisonment.`
   },
   {
     question: "What is 'Linear Cryptanalysis' (introduced by Mitsuru Matsui in 1993), and how does it exploit high-probability linear approximations in symmetric S-Boxes?",

@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "Always use getColumnLabel() when printing dynamic tables or exporting CSVs.",
     "hint": "getColumnLabel() returns the SQL alias (AS alias); getColumnName() returns the table column name.",
     "level": "Intermediate",
-    "codeExample": "SELECT s_name AS student_name -> getColumnLabel returns 'student_name'."
+    "codeExample": "SELECT s_name AS student_name → getColumnLabel returns 'student_name'."
   },
   {
     "question": "How do you obtain the total number of columns in a dynamic query result?",

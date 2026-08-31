@@ -185,7 +185,7 @@ const questions = [
   },
   {
     question: "What is the logical order of `ORDER BY` relative to `WHERE` and `HAVING`?",
-    shortAnswer: "`WHERE` -> `GROUP BY` -> `HAVING` -> `SELECT` -> `ORDER BY` -> `LIMIT`.",
+    shortAnswer: "`WHERE` → `GROUP BY` → `HAVING` → `SELECT` → `ORDER BY` → `LIMIT`.",
     explanation: "`ORDER BY` sorts the final projected result set immediately before row limits are applied.",
     hint: "Logical execution lifecycle position.",
     level: "basic"

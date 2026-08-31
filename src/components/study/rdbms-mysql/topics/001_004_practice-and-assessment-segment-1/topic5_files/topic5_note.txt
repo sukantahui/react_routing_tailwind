@@ -19,7 +19,7 @@ in West Bengal (Barrackpore, Kolkata, and Ichapur campuses).
 
 2. `courses`:
    - course_id INT AUTO_INCREMENT PRIMARY KEY
-   - dept_id INT NOT NULL (FK -> departments.dept_id)
+   - dept_id INT NOT NULL (FK → departments.dept_id)
    - course_code VARCHAR(15) NOT NULL UNIQUE
    - title VARCHAR(100) NOT NULL
    - credits INT CHECK (credits BETWEEN 1 AND 6)
@@ -33,14 +33,14 @@ in West Bengal (Barrackpore, Kolkata, and Ichapur campuses).
 
 4. `course_enrollments`:
    - enrollment_id INT AUTO_INCREMENT PRIMARY KEY
-   - student_id INT NOT NULL (FK -> students.student_id ON DELETE CASCADE)
-   - course_id INT NOT NULL (FK -> courses.course_id ON DELETE RESTRICT)
+   - student_id INT NOT NULL (FK → students.student_id ON DELETE CASCADE)
+   - course_id INT NOT NULL (FK → courses.course_id ON DELETE RESTRICT)
    - semester_term VARCHAR(20) NOT NULL
    - UNIQUE (student_id, course_id, semester_term) -- Composite Unique!
 
 5. `grade_ledgers`:
    - grade_id INT AUTO_INCREMENT PRIMARY KEY
-   - enrollment_id INT NOT NULL (FK -> course_enrollments.enrollment_id ON DELETE CASCADE)
+   - enrollment_id INT NOT NULL (FK → course_enrollments.enrollment_id ON DELETE CASCADE)
    - exam_type ENUM('Mid-Term', 'Final-Term', 'Lab-Practical') NOT NULL
    - marks_obtained DECIMAL(5,2) CHECK (marks_obtained BETWEEN 0 AND 100)
    - grade_letter VARCHAR(2) DEFAULT 'F'

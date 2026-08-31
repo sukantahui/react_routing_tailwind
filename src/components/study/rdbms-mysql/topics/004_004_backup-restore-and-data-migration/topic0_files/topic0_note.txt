@@ -38,10 +38,10 @@ B. Recovery Time Objective (RTO):
 
 4. BACKUP TIERS & RETENTION ARCHITECTURE
 --------------------------------------------------------------------------------
-- Tier 1 (Continuous): Binary Logs streamed in real-time -> RPO < 1 second.
-- Tier 2 (Daily): Incremental physical or logical backups -> RTO < 30 minutes.
-- Tier 3 (Weekly): Full base backup snapshots -> Retained for 30 days.
-- Tier 4 (Monthly / Annual): Archived compliance snapshots -> Retained for 7 years (Glacier/Coldline).
+- Tier 1 (Continuous): Binary Logs streamed in real-time → RPO < 1 second.
+- Tier 2 (Daily): Incremental physical or logical backups → RTO < 30 minutes.
+- Tier 3 (Weekly): Full base backup snapshots → Retained for 30 days.
+- Tier 4 (Monthly / Annual): Archived compliance snapshots → Retained for 7 years (Glacier/Coldline).
 
 5. TESTING BACKUP RESTORABILITY (THE GOLDEN RULE)
 --------------------------------------------------------------------------------

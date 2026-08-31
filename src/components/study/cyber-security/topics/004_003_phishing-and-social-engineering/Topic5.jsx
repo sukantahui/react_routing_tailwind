@@ -178,7 +178,7 @@ Get-InboxRule -Mailbox "cfo@kolkata-fintech.in" | Where-Object {
       ? (rawFraudProb * 0.015).toFixed(2) // Out-of-Band Dual-Auth + FIDO2 blocks 98.5% of fraud
       : dualAuthStrength >= 50
       ? (rawFraudProb * 0.35).toFixed(2)  // Email Confirmation blocks 65% of fraud
-      : rawFraudProb.toFixed(2);           // No dual-auth -> 100% fraud success rate
+      : rawFraudProb.toFixed(2);           // No dual-auth → 100% fraud success rate
 
     return {
       rawFraudProb: rawFraudProb.toFixed(2),

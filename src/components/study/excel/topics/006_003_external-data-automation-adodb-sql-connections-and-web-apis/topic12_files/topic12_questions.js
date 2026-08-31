@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering ADODB Architecture & Relational Drivers is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how OLE DB vs ODBC, connection strings, and connection pooling functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage SQL Query Execution & High-Speed Extraction regarding CRUD operations, CopyFromRecordset, and dynamic column headers (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering SQL Query Execution & High-Speed Extraction is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how CRUD operations, CopyFromRecordset, and dynamic column headers functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Database Security & Parameterized Commands regarding SQL injection prevention, ADODB.Command, and type-safe parameters (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Database Security & Parameterized Commands is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how SQL injection prevention, ADODB.Command, and type-safe parameters functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Closed Workbook Querying via SQL regarding ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Closed Workbook Querying via SQL is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Cloud REST APIs & JSON Parsing regarding MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Cloud REST APIs & JSON Parsing is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Enterprise ETL & ACID Transactions regarding multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Enterprise ETL & ACID Transactions is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage ADODB Architecture & Relational Drivers regarding OLE DB vs ODBC, connection strings, and connection pooling (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering ADODB Architecture & Relational Drivers is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how OLE DB vs ODBC, connection strings, and connection pooling functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage SQL Query Execution & High-Speed Extraction regarding CRUD operations, CopyFromRecordset, and dynamic column headers (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering SQL Query Execution & High-Speed Extraction is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how CRUD operations, CopyFromRecordset, and dynamic column headers functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Database Security & Parameterized Commands regarding SQL injection prevention, ADODB.Command, and type-safe parameters (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Database Security & Parameterized Commands is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how SQL injection prevention, ADODB.Command, and type-safe parameters functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Closed Workbook Querying via SQL regarding ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Closed Workbook Querying via SQL is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules functions within Excel's database and API integration architecture.",
     "level": "basic",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Cloud REST APIs & JSON Parsing regarding MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Cloud REST APIs & JSON Parsing is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Enterprise ETL & ACID Transactions regarding multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Enterprise ETL & ACID Transactions is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage ADODB Architecture & Relational Drivers regarding OLE DB vs ODBC, connection strings, and connection pooling (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering ADODB Architecture & Relational Drivers is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how OLE DB vs ODBC, connection strings, and connection pooling functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage SQL Query Execution & High-Speed Extraction regarding CRUD operations, CopyFromRecordset, and dynamic column headers (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering SQL Query Execution & High-Speed Extraction is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how CRUD operations, CopyFromRecordset, and dynamic column headers functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Database Security & Parameterized Commands regarding SQL injection prevention, ADODB.Command, and type-safe parameters (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Database Security & Parameterized Commands is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how SQL injection prevention, ADODB.Command, and type-safe parameters functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Closed Workbook Querying via SQL regarding ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Closed Workbook Querying via SQL is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Cloud REST APIs & JSON Parsing regarding MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Cloud REST APIs & JSON Parsing is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Enterprise ETL & ACID Transactions regarding multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Enterprise ETL & ACID Transactions is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage ADODB Architecture & Relational Drivers regarding OLE DB vs ODBC, connection strings, and connection pooling (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering ADODB Architecture & Relational Drivers is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how OLE DB vs ODBC, connection strings, and connection pooling functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage SQL Query Execution & High-Speed Extraction regarding CRUD operations, CopyFromRecordset, and dynamic column headers (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering SQL Query Execution & High-Speed Extraction is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how CRUD operations, CopyFromRecordset, and dynamic column headers functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Database Security & Parameterized Commands regarding SQL injection prevention, ADODB.Command, and type-safe parameters (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Database Security & Parameterized Commands is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how SQL injection prevention, ADODB.Command, and type-safe parameters functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Closed Workbook Querying via SQL regarding ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Closed Workbook Querying via SQL is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules functions within Excel's database and API integration architecture.",
     "level": "moderate",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Cloud REST APIs & JSON Parsing regarding MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Cloud REST APIs & JSON Parsing is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Enterprise ETL & ACID Transactions regarding multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Enterprise ETL & ACID Transactions is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage ADODB Architecture & Relational Drivers regarding OLE DB vs ODBC, connection strings, and connection pooling (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering ADODB Architecture & Relational Drivers is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how OLE DB vs ODBC, connection strings, and connection pooling functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage SQL Query Execution & High-Speed Extraction regarding CRUD operations, CopyFromRecordset, and dynamic column headers (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering SQL Query Execution & High-Speed Extraction is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how CRUD operations, CopyFromRecordset, and dynamic column headers functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Database Security & Parameterized Commands regarding SQL injection prevention, ADODB.Command, and type-safe parameters (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Database Security & Parameterized Commands is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how SQL injection prevention, ADODB.Command, and type-safe parameters functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Closed Workbook Querying via SQL regarding ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Closed Workbook Querying via SQL is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how ACE.OLEDB.12.0 driver, [Sheet$] syntax, and IMEX=1 mixed data rules functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Cloud REST APIs & JSON Parsing regarding MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Cloud REST APIs & JSON Parsing is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how MSXML2.ServerXMLHTTP, HTTP request headers, and Dictionary/Collection trees functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   },
   {
     "question": "In the context of Real-world project: Automated daily exchange rate and stock price fetcher via web API, how does Excel manage Enterprise ETL & ACID Transactions regarding multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Automated daily exchange rate and stock price fetcher via web API, mastering Enterprise ETL & ACID Transactions is vital for modern data architecture. Excel combines low-level OLE DB/ODBC database drivers with HTTP network stream processors, ensuring that corporate data extractions, cloud REST API integrations, and multi-table database transactions execute with certified cryptographic security and sub-second performance.",
     "hint": "Think about how multi-source pipelines, BeginTrans, RollbackTrans, and credential vaulting functions within Excel's database and API integration architecture.",
     "level": "advanced",
-    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP -> Parse JSON -> Extract Rates/Stock Prices -> Populate Dashboard -> Schedule Auto-Refresh"
+    "codeExample": "Automated Web API Fetcher: MSXML2.ServerXMLHTTP → Parse JSON → Extract Rates/Stock Prices → Populate Dashboard → Schedule Auto-Refresh"
   }
 ];
 

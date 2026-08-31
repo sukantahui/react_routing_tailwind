@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. MATCHER ITERATION:
-   - 'Pattern.compile(regex)'     &rarr; Pre-compiles pattern.
-   - 'pattern.matcher(text)'      &rarr; Returns stateful Matcher.
-   - 'matcher.find()'             &rarr; Finds next matching occurrence.
-   - 'matcher.group()'            &rarr; Returns matched string.
-   - 'matcher.start()' / 'end()'  &rarr; Index boundaries.
+   - 'Pattern.compile(regex)'     → Pre-compiles pattern.
+   - 'pattern.matcher(text)'      → Returns stateful Matcher.
+   - 'matcher.find()'             → Finds next matching occurrence.
+   - 'matcher.group()'            → Returns matched string.
+   - 'matcher.start()' / 'end()'  → Index boundaries.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

@@ -19,7 +19,7 @@ const questions = [
     explanation: "The Tablespace Key (DEK) encrypts the actual 16KB data pages on disk. The Master Key (MEK) encrypts only the DEK. This separation allows instant Master Key rotation without touching data pages.",
     hint: "Master Key encrypts Tablespace Keys; Tablespace Keys encrypt data pages.",
     level: "intermediate",
-    codeExample: `-- Master Key (Keyring) -> Encrypts Tablespace Key (Header) -> Encrypts 16KB Data Pages (Disk)`
+    codeExample: `-- Master Key (Keyring) → Encrypts Tablespace Key (Header) → Encrypts 16KB Data Pages (Disk)`
   },
   {
     question: "Why does rotating the InnoDB Master Key (`ALTER INSTANCE ROTATE INNODB MASTER KEY`) take only milliseconds even on a 10-terabyte database?",

@@ -21,8 +21,8 @@ In security-sensitive software, missing `break` statements in legacy switch cons
           grantRootShell(); // CRITICAL SECURITY BUG (CWE-484)!
   }
 By enforcing strict rule boundaries in arrow switch:
-  case ROLE_GUEST -> logGuest();
-  case ROLE_ADMIN -> grantRootShell();
+  case ROLE_GUEST → logGuest();
+  case ROLE_ADMIN → grantRootShell();
 it is mathematically and syntactically impossible for a `GUEST` to execute `ADMIN` instructions.
 
 3. COMMA-SEPARATED MULTI-LABEL GRAMMAR

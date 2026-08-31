@@ -12,12 +12,12 @@ Return Type: Visual Layout &amp; Structural Alignment
 Real-World Business Scenarios:
 [Kolkata Corporate Financial Balance Sheet Title Centering]
 Context: Centering 'CODER & ACCOTAX ANNUAL BALANCE SHEET' across columns A to G without breaking column sorting.
-Applied: Format Cells (Ctrl+1) &rarr; Alignment &rarr; Horizontal: Center Across Selection
+Applied: Format Cells (Ctrl+1) → Alignment → Horizontal: Center Across Selection
 Result: Executive centered banner with zero structural grid damage.
 
 [Barrackpore Student Ledger Hierarchical Indentation]
 Context: Structuring chart of accounts with Parent Accounts and indented Sub-Ledgers.
-Applied: Home Tab &rarr; Increase Indent (Alt + H + 6)
+Applied: Home Tab → Increase Indent (Alt + H + 6)
 Result: Clean audited financial statement hierarchy without messy leading spaces.
 
 [Shyamnagar Multi-Column Header Text Wrapping]
@@ -27,5 +27,5 @@ Result: Compact, print-friendly multi-line column header layout.
 
 [Ichapur Engineering Quality Inspection Rotated Headers]
 Context: Angling test parameter column headers by 45 degrees to save horizontal printable width.
-Applied: Format Cells &rarr; Alignment &rarr; Orientation: 45 Degrees
+Applied: Format Cells → Alignment → Orientation: 45 Degrees
 Result: Compact engineering quality matrix fitting perfectly on A4 printable width.

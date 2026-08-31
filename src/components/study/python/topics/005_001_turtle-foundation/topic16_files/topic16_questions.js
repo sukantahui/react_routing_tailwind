@@ -101,9 +101,9 @@ const questions = [
     question: "What are the 4 main stages of a structured Turtle application lifecycle?",
     shortAnswer: "1. Initialization, 2. Entity Creation, 3. Drawing/Interaction, 4. Event Loop Completion.",
     explanation: "Structuring code into these four discrete phases ensures modular, reusable, and bug-free graphics programs.",
-    hint: "Think about Setup -> Creation -> Drawing -> Completion.",
+    hint: "Think about Setup → Creation → Drawing → Completion.",
     level: "moderate",
-    codeExample: "# 1. Screen -> 2. Turtle -> 3. Logic -> 4. turtle.done()"
+    codeExample: "# 1. Screen → 2. Turtle → 3. Logic → 4. turtle.done()"
   },
   {
     question: "What does screen.setup(width, height) configure during initialization?",

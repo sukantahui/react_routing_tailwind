@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 FileSystemObject (FSO) is the best way to handle files and folders in Windows. Use `fso.FileExists(path)` to verify files before opening, and `fso.CreateFolder` to build folder structures automatically.
 
 COMMON TRAPS TO AVOID:
-- Failing to Check if Directory Exists Before Creating: Calling `fso.CreateFolder("C:\A\B\C")` when parent folder `C:\A\B` does not exist throws runtime error. -> Fix: Create nested parent folders iteratively or verify with `If Not fso.FolderExists(path) Then`.
-- Leaving OpenTextFile Streams Unclosed in RAM: Forgetting `ts.Close` locks the external file on disk, preventing other applications from accessing it. -> Fix: Always include `ts.Close: Set ts = Nothing` in clean-up blocks.
-- Overwriting Existing Files Without Overwrite Parameter: Calling `fso.CopyFile` over an existing file without setting `Overwrite:=True` throws 'File already exists'. -> Fix: Explicitly pass `fso.CopyFile src, dest, True`.
+- Failing to Check if Directory Exists Before Creating: Calling `fso.CreateFolder("C:\A\B\C")` when parent folder `C:\A\B` does not exist throws runtime error. → Fix: Create nested parent folders iteratively or verify with `If Not fso.FolderExists(path) Then`.
+- Leaving OpenTextFile Streams Unclosed in RAM: Forgetting `ts.Close` locks the external file on disk, preventing other applications from accessing it. → Fix: Always include `ts.Close: Set ts = Nothing` in clean-up blocks.
+- Overwriting Existing Files Without Overwrite Parameter: Calling `fso.CopyFile` over an existing file without setting `Overwrite:=True` throws 'File already exists'. → Fix: Explicitly pass `fso.CopyFile src, dest, True`.
 ================================================================================

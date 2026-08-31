@@ -4,7 +4,7 @@ COURSE MODULE: 005_006 - EMERGING TECHNOLOGIES IN CYBER SECURITY (TOPIC 0)
 INSTITUTION: CODER & ACCOTAX | INSTRUCTOR: SUKANTA HUI | LOCATION: BARRACKPORE, WEST BENGAL
 ====================================================================================================
 
-1. THE EXPANDING CYBER ATTACK SURFACE (2010 -> 2026+)
+1. THE EXPANDING CYBER ATTACK SURFACE (2010 → 2026+)
 ----------------------------------------------------------------------------------------------------
 The enterprise perimeter has dissolved through the convergence of multi-cloud architectures, edge IoT, 
 Operational Technology (OT/SCADA), remote workforce devices, and autonomous AI agents:

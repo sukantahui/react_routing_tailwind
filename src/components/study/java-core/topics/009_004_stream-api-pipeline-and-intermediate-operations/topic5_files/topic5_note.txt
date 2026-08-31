@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. ARRAYS.STREAM() METHODS:
-   - 'Arrays.stream(T[] array)' -> Stream<T> (Generic Object Stream).
-   - 'Arrays.stream(T[] array, int startInclusive, int endExclusive)' -> Sub-array Stream<T>.
-   - 'Arrays.stream(int[] array)' -> IntStream (Primitive unboxed).
-   - 'Arrays.stream(long[] array)' -> LongStream.
-   - 'Arrays.stream(double[] array)' -> DoubleStream.
+   - 'Arrays.stream(T[] array)' → Stream<T> (Generic Object Stream).
+   - 'Arrays.stream(T[] array, int startInclusive, int endExclusive)' → Sub-array Stream<T>.
+   - 'Arrays.stream(int[] array)' → IntStream (Primitive unboxed).
+   - 'Arrays.stream(long[] array)' → LongStream.
+   - 'Arrays.stream(double[] array)' → DoubleStream.
 
 2. SUB-ARRAY SLICING BENEFITS:
    - Slicing via 'Arrays.stream(arr, from, to)' operates with zero memory allocation.

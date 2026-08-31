@@ -8,8 +8,8 @@ const questions = [
     codeExample: `// The Human Vulnerability vs Technical Tooling:
 Multi-Crore Security Stack: ₹1 Crore Next-Gen Firewall + EDR + SIEM
 Attack Vector:               Attacker sends spoofed email: "Urgent: CEO requests vendor payment"
-Outcome without Training:    Clerk transfers ₹50 Lakhs -> Technical stack never alerted!
-Outcome with Human Firewall: Trained clerk clicks "Report Phishing" in 30 seconds -> Attack Neutralized!`
+Outcome without Training:    Clerk transfers ₹50 Lakhs → Technical stack never alerted!
+Outcome with Human Firewall: Trained clerk clicks "Report Phishing" in 30 seconds → Attack Neutralized!`
   },
   {
     question: "What is the 'SETA' framework in enterprise security management, and what are its three distinct pillars?",
@@ -29,9 +29,9 @@ Outcome with Human Firewall: Trained clerk clicks "Report Phishing" in 30 second
     hint: "Think of authority, hurry, fear, and curiosity.",
     level: "moderate",
     codeExample: `// Psychological Triggers in Phishing Payloads:
-Authority + Urgency: "From: CEO (Mobile) -> I'm in a board meeting, transfer ₹10L to this vendor in 10 mins!"
-Fear + Authority:     "From: Income Tax Dept -> Unpaid penalty warrant issued; click link to resolve immediately!"
-Curiosity + Greed:    "From: HR Department -> Q4 Bonus & Salary Hike Distribution Table attached!"`
+Authority + Urgency: "From: CEO (Mobile) → I'm in a board meeting, transfer ₹10L to this vendor in 10 mins!"
+Fear + Authority:     "From: Income Tax Dept → Unpaid penalty warrant issued; click link to resolve immediately!"
+Curiosity + Greed:    "From: HR Department → Q4 Bonus & Salary Hike Distribution Table attached!"`
   },
   {
     question: "What is 'Business Email Compromise' (BEC / CEO Fraud), and what operational process control stops it?",
@@ -41,8 +41,8 @@ Curiosity + Greed:    "From: HR Department -> Q4 Bonus & Salary Hike Distributio
     level: "moderate",
     codeExample: `// Business Email Compromise (BEC) Defense:
 Attack:   Spoofed email from CEO asking Finance Manager to wire ₹25,00,000 to new vendor.
-Defective Response: Finance Manager wires funds based on email alone -> ₹25 Lakhs Stolen!
-Process Defense:    Policy mandates Out-of-Band Call + Maker-Checker approval -> Fraud BLOCKED!`
+Defective Response: Finance Manager wires funds based on email alone → ₹25 Lakhs Stolen!
+Process Defense:    Policy mandates Out-of-Band Call + Maker-Checker approval → Fraud BLOCKED!`
   },
   {
     question: "What is 'Phish-Prone Percentage' (PPP), and how is it used to quantitatively track security awareness maturity?",
@@ -51,8 +51,8 @@ Process Defense:    Policy mandates Out-of-Band Call + Maker-Checker approval ->
     hint: "Divide the number of clicked links by the total number of simulated phishing emails sent.",
     level: "basic",
     codeExample: `// Quantitative Phish-Prone Percentage (PPP) Calculation:
-Initial Baseline: 500 Employees sent simulated phishing -> 170 clicked link (PPP = 34.0%)
-After 12 Months:  500 Employees sent advanced spear-phishing -> 8 clicked link (PPP = 1.6% - WORLD CLASS!)`
+Initial Baseline: 500 Employees sent simulated phishing → 170 clicked link (PPP = 34.0%)
+After 12 Months:  500 Employees sent advanced spear-phishing → 8 clicked link (PPP = 1.6% - WORLD CLASS!)`
   },
   {
     question: "What is 'Just-in-Time' (JIT) Micro-Training in automated phishing simulation programs?",
@@ -75,8 +75,8 @@ Next time, click the 'Report Phishing' button in Outlook!"`
     hint: "Contrast employees covering up a fire out of fear versus pulling the fire alarm immediately.",
     level: "basic",
     codeExample: `// Punitive vs Psychological Safety Culture:
-Punitive Culture:   Employee clicks real phishing link -> Panics & hides mistake -> Ransomware destroys company!
-No-Blame Culture:   Employee clicks link -> Immediately calls SOC -> SOC resets token in 2 mins -> Zero damage!`
+Punitive Culture:   Employee clicks real phishing link → Panics & hides mistake → Ransomware destroys company!
+No-Blame Culture:   Employee clicks link → Immediately calls SOC → SOC resets token in 2 mins → Zero damage!`
   },
   {
     question: "What is a 'Security Champions Network', and how does it scale security culture across large software development organizations?",
@@ -126,7 +126,7 @@ Penalty Defense:  Demonstrates statutory due diligence in preventing personal da
 Scenario: Finance clerk receives phone call with CEO's voice demanding urgent ₹10L wire transfer.
 Action 1: Clerk recognizes psychological pressure and urgency.
 Action 2: Clerk hangs up immediately.
-Action 3: Clerk calls CEO back via official company Teams/Slack channel -> Confirms fraud attempt!`
+Action 3: Clerk calls CEO back via official company Teams/Slack channel → Confirms fraud attempt!`
   },
   {
     question: "What is 'Clean Desk and Clean Screen Policy' (ISO 27001 Annex A.7.7), and why is it essential for physical and visual security?",

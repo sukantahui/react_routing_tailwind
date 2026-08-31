@@ -8,7 +8,7 @@ LOCATION: Barrackpore, West Bengal, India
 
 1. WHAT IS A FULL FUNCTIONAL DEPENDENCY (FFD)?
 --------------------------------------------------------------------------------
-In a relational schema R, a functional dependency $X \rightarrow Y$ is a 
+In a relational schema R, a functional dependency $X → Y$ is a 
 Full Functional Dependency (FFD) if removal of any attribute A from determinant X 
 causes the dependency to no longer hold:
 
@@ -29,7 +29,7 @@ Composite Primary Key: `(student_id, course_id)`
 
 2. WHAT IS A PARTIAL DEPENDENCY?
 --------------------------------------------------------------------------------
-A functional dependency $X \rightarrow Y$ is a Partial Dependency if Y is dependent 
+A functional dependency $X → Y$ is a Partial Dependency if Y is dependent 
 on a PROPER SUBSET of composite determinant X:
 
       There exists some attribute A ∈ X such that (X - {A}) → Y holds.

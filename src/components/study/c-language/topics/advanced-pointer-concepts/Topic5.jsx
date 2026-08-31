@@ -108,7 +108,7 @@ const Topic5 = () => {
           className="space-y-4 animate-[fadeSlideUp_0.6s_ease-out]"
           style={{ animationFillMode: "both" }}
         >
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             Topic 5: Real-world Use Cases of Double Pointers
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">

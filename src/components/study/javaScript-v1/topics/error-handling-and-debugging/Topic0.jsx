@@ -8,7 +8,7 @@ export default class Topic0 extends Component {
         <div className="max-w-4xl mx-auto space-y-6">
 
           {/* TITLE */}
-          <h1 className="text-2xl md:text-3xl font-bold text-sky-300">
+          <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-sky-300">
             Introduction to Error Handling, Debugging & Code Quality
           </h1>
 

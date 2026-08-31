@@ -5,7 +5,7 @@ const topic2_questions = [
     "explanation": "Fundamental deadlock definition in operating systems and JVM concurrency.",
     "hint": "Permanent freeze where Thread A holds Lock 1 waiting for Lock 2, while Thread B holds Lock 2 waiting for Lock 1.",
     "level": "Beginner",
-    "codeExample": "// Thread 1: Lock A -> Lock B | Thread 2: Lock B -> Lock A => Deadlock!"
+    "codeExample": "// Thread 1: Lock A → Lock B | Thread 2: Lock B → Lock A => Deadlock!"
   }
 ];
 

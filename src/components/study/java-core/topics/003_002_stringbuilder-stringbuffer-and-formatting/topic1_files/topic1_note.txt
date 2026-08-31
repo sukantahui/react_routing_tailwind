@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. STRINGBUILDER KEY FACTS:
    - Introduced in Java 5.
    - Mutable, growable character buffer.
-   - NOT synchronized &rarr; Zero locking overhead (Maximum speed).
+   - NOT synchronized → Zero locking overhead (Maximum speed).
    - Default initial capacity = 16 characters.
 
 ================================================================================

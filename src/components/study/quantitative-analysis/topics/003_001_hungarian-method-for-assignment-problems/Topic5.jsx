@@ -14,7 +14,7 @@ import noteText from './topic5_files/topic5_note.txt?raw';
 const Topic5 = () => {
   const [activeSection, setActiveSection] = useState(0);
   const [selectedExample, setSelectedExample] = useState(0);
-  const [scenario, setScenario] = useState('rows'); // 'rows' (3x4 -> add dummy row), 'cols' (4x3 -> add dummy col)
+  const [scenario, setScenario] = useState('rows'); // 'rows' (3x4 → add dummy row), 'cols' (4x3 → add dummy col)
   const [showBalanced, setShowBalanced] = useState(false);
 
   const sectionRefs = useRef([]);
@@ -49,7 +49,7 @@ const Topic5 = () => {
   }, []);
 
   // Scenario Data
-  // Scenario A: 3 Vans vs 4 Clinics (3x4) -> Add Dummy Row
+  // Scenario A: 3 Vans vs 4 Clinics (3x4) → Add Dummy Row
   const raw3x4 = [
     [12, 10, 15, 22],
     [14, 20, 18, 12],
@@ -62,7 +62,7 @@ const Topic5 = () => {
     [0, 0, 0, 0], // Dummy Row
   ];
 
-  // Scenario B: 4 Supervisors vs 3 Furnaces (4x3) -> Add Dummy Col
+  // Scenario B: 4 Supervisors vs 3 Furnaces (4x3) → Add Dummy Col
   const raw4x3 = [
     [25, 40, 35],
     [30, 20, 25],
@@ -134,7 +134,7 @@ const Topic5 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Unbalanced Assignment Problems
           </h1>
 

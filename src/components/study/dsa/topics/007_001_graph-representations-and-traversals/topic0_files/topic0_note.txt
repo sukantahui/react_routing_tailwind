@@ -30,7 +30,7 @@ Best Use Case            Dense graphs (E ~ V^2)        Sparse graphs (E << V^2)
 3. KAHN'S ALGORITHM FOR TOPOLOGICAL SORT (DAG)
 --------------------------------------------------------------------------------
 Linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every 
-directed edge u -> v, vertex u comes before v.
+directed edge u → v, vertex u comes before v.
 
 Algorithm:
   1. Calculate in-degree of all V vertices.

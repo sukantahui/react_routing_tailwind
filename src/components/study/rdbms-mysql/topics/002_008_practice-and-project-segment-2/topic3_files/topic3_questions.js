@@ -54,7 +54,7 @@ const questions = [
     question: "What is a 'Transitive Dependency' in database normalization?",
     shortAnswer: "A functional dependency where a non-prime attribute depends on another non-prime attribute ($X \\to Y$ and $Y \\to Z$, where $X$ is the primary key and $Y, Z$ are non-key columns).",
     explanation: "Transitive dependencies violate Third Normal Form (3NF).",
-    hint: "Non-key column depends on another non-key column (X -> Y -> Z).",
+    hint: "Non-key column depends on another non-key column (X → Y → Z).",
     level: "basic"
   },
   {
@@ -65,21 +65,21 @@ const questions = [
     level: "basic"
   },
   {
-    question: "In the raw student sheet, why does `Student_ID -> Branch_City -> Branch_Pincode` violate 3NF?",
+    question: "In the raw student sheet, why does `Student_ID → Branch_City → Branch_Pincode` violate 3NF?",
     shortAnswer: "Because `Branch_Pincode` depends transitively on `Branch_City` (a non-key attribute) rather than directly on `Student_ID`.",
     explanation: "Must be decomposed into a separate `branches` lookup table.",
     hint: "Transitive dependency: Branch_Pincode depends on Branch_City.",
     level: "moderate"
   },
   {
-    question: "In the raw course sheet, why does `Course_Code -> Instructor_ID -> Instructor_Phone` violate 3NF?",
+    question: "In the raw course sheet, why does `Course_Code → Instructor_ID → Instructor_Phone` violate 3NF?",
     shortAnswer: "Because `Instructor_Phone` depends on `Instructor_ID` (non-key), not on `Course_Code` directly.",
     explanation: "Must be decomposed into a separate `instructors` table.",
     hint: "Transitive dependency: Instructor_Phone depends on Instructor_ID.",
     level: "moderate"
   },
   {
-    question: "How do you decompose a partial dependency `(StudentID, CourseCode) -> StudentName` during 2NF normalization?",
+    question: "How do you decompose a partial dependency `(StudentID, CourseCode) → StudentName` during 2NF normalization?",
     shortAnswer: "Extract `(StudentID, StudentName)` into a dedicated `students` table, leaving `StudentID` as a foreign key in `enrollments`.",
     explanation: "Separates student entity attributes from enrollment intersection data.",
     hint: "Extract StudentID and StudentName into a dedicated students table.",
@@ -110,7 +110,7 @@ const questions = [
     question: "What is Boyce-Codd Normal Form (BCNF)?",
     shortAnswer: "A stricter version of 3NF where for EVERY functional dependency $X \\to Y$, the determinant $X$ MUST be a Superkey (Candidate Key).",
     explanation: "Addresses rare anomalies where a candidate key is composite and determinants overlap.",
-    hint: "For every functional dependency X -> Y, X must be a superkey.",
+    hint: "For every functional dependency X → Y, X must be a superkey.",
     level: "expert"
   },
   {
@@ -208,7 +208,7 @@ const questions = [
     question: "What is the senior architect's summary rule for end-to-end normalization?",
     shortAnswer: "Audit raw spreadsheets for anomalies, flatten multi-values to achieve 1NF, split composite key dependencies to reach 2NF, eliminate non-key transitivity to achieve 3NF, and write idempotent ETL migration scripts.",
     explanation: "Transforms unstructured spreadsheet chaos into enterprise-grade relational schemas.",
-    hint: "UNF -> 1NF (Atomic) -> 2NF (Full Key) -> 3NF (Direct Key) + ETL Migration.",
+    hint: "UNF → 1NF (Atomic) → 2NF (Full Key) → 3NF (Direct Key) + ETL Migration.",
     level: "expert"
   }
 ];

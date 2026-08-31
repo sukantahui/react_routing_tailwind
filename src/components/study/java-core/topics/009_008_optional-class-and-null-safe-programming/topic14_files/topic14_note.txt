@@ -11,7 +11,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - If empty, returns an EMPTY Stream of size 0.
 
 2. THE CANONICAL STREAM-OPTIONAL IDIOM:
-   - 'Stream<Optional<T>>' &rarr; 'Stream<T>':
+   - 'Stream<Optional<T>>' → 'Stream<T>':
      'stream.flatMap(Optional::stream)'
    - Replaces clunky Java 8 pattern:
      'stream.filter(Optional::isPresent).map(Optional::get)'

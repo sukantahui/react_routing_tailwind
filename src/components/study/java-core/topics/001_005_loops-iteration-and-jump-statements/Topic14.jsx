@@ -42,7 +42,7 @@ export default function Topic14() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Labeled <code className="text-purple-400 font-mono">&apos;break&apos;</code> &amp; <code className="text-emerald-400 font-mono">&apos;continue&apos;</code>: Multi-Tier Nested Loop Control
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -137,7 +137,7 @@ export default function Topic14() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#4c0519" />
             <text x="335" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">if (found) break OUTER;</text>
             <text x="335" y="122" fill="#fecdd3" fontSize="10">Escapes ALL nested tiers!</text>
-            <text x="335" y="142" fill="#fecdd3" fontSize="10">Transfers past OUTER loop &rarr;</text>
+            <text x="335" y="142" fill="#fecdd3" fontSize="10">Transfers past OUTER loop →</text>
             <text x="440" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               Instant Matrix Breakout
             </text>
@@ -148,7 +148,7 @@ export default function Topic14() {
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="615" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">if (skip) continue OUTER;</text>
             <text x="615" y="122" fill="#d1fae5" fontSize="10">Skips remaining inner cols</text>
-            <text x="615" y="142" fill="#d1fae5" fontSize="10">Jumps to &apos;r++&apos; of OUTER &rarr;</text>
+            <text x="615" y="142" fill="#d1fae5" fontSize="10">Jumps to &apos;r++&apos; of OUTER →</text>
             <text x="720" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Entire Row Skipping
             </text>

@@ -88,7 +88,7 @@ const questions = [
     explanation: "Terminating the 3-way TCP and TLS 1.3 handshake locally in Kolkata avoids multiple round trips across international subsea fiber cables.",
     hint: "Serves files from local Kolkata edge servers instead of distant overseas origins.",
     level: "moderate",
-    codeExample: "UserInKolkata -> EdgePoP_Kolkata (4ms RTT) -> Instant cached response;"
+    codeExample: "UserInKolkata → EdgePoP_Kolkata (4ms RTT) → Instant cached response;"
   },
   {
     question: "What is the typical fiber optic RTT latency between Kolkata and major global data hubs?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures the physics of network propagation, modern transport protocol engineering, queuing management, and financial budgeting.",
     hint: "4-Component delay + Edge CDNs + FQ-CoDel AQM + HTTP/3 0-RTT + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DecomposeDelayComponents() -> DeployEdgeCDN() -> EnableCoDelAQM() -> UpgradeHTTP3() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DecomposeDelayComponents() → DeployEdgeCDN() → EnableCoDelAQM() → UpgradeHTTP3() → BudgetInRupees(₹);"
   }
 ];
 

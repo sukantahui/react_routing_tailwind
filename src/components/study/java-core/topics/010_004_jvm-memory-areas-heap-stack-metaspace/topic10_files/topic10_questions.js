@@ -5,7 +5,7 @@ const topic10_questions = [
     "explanation": "Fundamental binary constraint of the 64-bit Mark Word format.",
     "hint": "The object age is stored in a 4-bit field in the Mark Word header.",
     "level": "Advanced",
-    "codeExample": "4 bits -> 0000 (0) to 1111 (15)"
+    "codeExample": "4 bits → 0000 (0) to 1111 (15)"
   },
   {
     "question": "What is Premature Promotion in the JVM Heap?",
@@ -13,7 +13,7 @@ const topic10_questions = [
     "explanation": "Tuned by increasing Young Gen / Survivor space sizes.",
     "hint": "Short-lived objects promoted to Old Gen due to undersized Survivor spaces.",
     "level": "Intermediate",
-    "codeExample": "Premature Promotion -> Excessive Full GC pauses"
+    "codeExample": "Premature Promotion → Excessive Full GC pauses"
   }
 ];
 

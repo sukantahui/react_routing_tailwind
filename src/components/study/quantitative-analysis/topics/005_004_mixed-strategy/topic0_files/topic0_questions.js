@@ -94,7 +94,7 @@ const questions = [
     question: "What is the ultimate golden rule of the Need for Mixed Strategies in Game Theory?",
     shortAnswer: "'When Maximin < Minimax, pure strategies are vulnerable to prediction; randomize play over the probability simplex to achieve informational immunity and guarantee the Expected Value of the Game in Indian Rupees (₹)!'",
     explanation: "This complete rule captures the essence of mixed strategy motivation.",
-    hint: "Maximin < Minimax -> Randomize over simplex -> Gain immunity and secure v* in ₹.",
+    hint: "Maximin < Minimax → Randomize over simplex → Gain immunity and secure v* in ₹.",
     level: "moderate",
     codeExample: "GoldenRule: When(Maximin < Minimax) => RandomizeSimplex() => ImmuneToPrediction(₹)."
   }

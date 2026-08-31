@@ -6,8 +6,8 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. CREATION METHOD 3 (Runnable Lambdas):
-   - '@FunctionalInterface Runnable' &rarr; '() -> { ... }'.
-   - 'new Thread(() -> doWork(), "ThreadName").start()'.
+   - '@FunctionalInterface Runnable' → '() → { ... }'.
+   - 'new Thread(() → doWork(), "ThreadName").start()'.
    - Zero boilerplate code.
    - Clean, readable, and perfectly suited for micro-tasks.
 

@@ -29,7 +29,7 @@ const Topic3 = () => {
 
 -- 1. Client connects with username + scramble token
 -- 2. Server checks in-memory RAM cache:
---    Digest for 'mamata_app'@'10.0.%.%' -> FOUND IN MEMORY!
+--    Digest for 'mamata_app'@'10.0.%.%' → FOUND IN MEMORY!
 -- 3. Server computes SHA-256 token validation directly in RAM
 -- 4. Connection accepted in < 0.3 milliseconds without RSA/TLS overhead!
 
@@ -108,7 +108,7 @@ FLUSH PRIVILEGES;`,
             Topic 3 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Authentication Plugins: <span className="text-emerald-400">caching_sha2_password</span> vs <span className="text-amber-400">mysql_native_password</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

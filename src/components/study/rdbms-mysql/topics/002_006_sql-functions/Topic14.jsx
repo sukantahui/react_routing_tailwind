@@ -125,7 +125,7 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
               Super-Aggregate Hierarchies
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Hierarchical Summaries & Subtotals with WITH ROLLUP
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -283,7 +283,7 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
                     <text x="615" y="152" fill="#c7d2fe" fontSize="10" textAnchor="middle">GROUPING: (City=0, Stream=1) | 72 Students | ₹18,00,000</text>
                   </g>
 
-                  {/* Connecting Lines Grand Total -> Subtotals */}
+                  {/* Connecting Lines Grand Total → Subtotals */}
                   <path d="M 370 75 L 235 115" stroke="#34d399" strokeWidth="1.5" strokeDasharray="3 2" />
                   <path d="M 480 75 L 615 115" stroke="#34d399" strokeWidth="1.5" strokeDasharray="3 2" />
 
@@ -308,7 +308,7 @@ GROUP BY department_name, job_role WITH ROLLUP;`,
                     <text x="730" y="247" fill="#94a3b8" fontSize="9" textAnchor="middle">30 Students | ₹7.5L</text>
                   </g>
 
-                  {/* Connecting Lines Subtotals -> Leaves */}
+                  {/* Connecting Lines Subtotals → Leaves */}
                   <path d="M 170 165 L 120 210" stroke="#818cf8" strokeWidth="1.5" />
                   <path d="M 300 165 L 320 210" stroke="#818cf8" strokeWidth="1.5" />
                   <path d="M 550 165 L 530 210" stroke="#818cf8" strokeWidth="1.5" />

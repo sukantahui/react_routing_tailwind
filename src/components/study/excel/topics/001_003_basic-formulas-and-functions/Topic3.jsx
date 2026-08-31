@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_003_basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -71,7 +70,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Extreme Value and Positional Ranking Functions: MIN, MAX, LARGE and SMALL Analysis
           </h1>
 
@@ -203,7 +202,7 @@ export default function Topic3() {
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
             <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-            Visual Calculation Flow: Positional Ranking Hierarchy: MAX &amp;rarr; LARGE(k) &amp;rarr; SMALL(k) &amp;rarr; MIN
+            Visual Calculation Flow: Positional Ranking Hierarchy: MAX → LARGE(k) → SMALL(k) → MIN
           </h2>
 
           <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-center overflow-x-auto">
@@ -281,7 +280,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Basic_functions__S"
+            sheetName="Topic3"
             title="Module 1.3 - Extreme Value and Positional Ranking Functions: MIN, MAX, LARGE and SMALL Analysis"
             rowsPerPage={25}
             showSheetSelector={true}

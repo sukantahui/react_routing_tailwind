@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. HARDWARE CAS (COMPARE-AND-SWAP):
    - 3 operands: Memory location (V), Expected value (A), New value (B).
-   - Atomically updates V &rarr; B if and only if V == A.
+   - Atomically updates V → B if and only if V == A.
    - Hardware level: 'LOCK CMPXCHG' assembly instruction.
    - Lock-Free: 0 OS context switching overhead.
    - Forms the foundation of all 'java.util.concurrent.atomic' classes.

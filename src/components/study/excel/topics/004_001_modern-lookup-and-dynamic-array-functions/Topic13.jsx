@@ -77,7 +77,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white leading-snug">
             Practice Lab: Multi-Criteria Customer Segmentation Engine with Dynamic Array Spilling
           </h1>
 
@@ -344,7 +344,7 @@ export default function Topic13() {
           <div className="rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
             <ExcelFileLoader
               fileModule={sampleWorkbookUrl}
-              sheetName="Topic4_Sort_Dynamics"
+              sheetName="EX1614"
               title="Master Performance & Account Segmentation Register"
               rowsPerPage={10}
               showSheetSelector={true}
@@ -377,7 +377,7 @@ export default function Topic13() {
                 =SORT(FILTER(HSTACK(A2:F11, Tiers), Tiers="Platinum VIP"), 4, -1)
               </div>
               <p className="text-xs text-slate-400">
-                <strong>Outcome:</strong> Spills top accounts (Swadeep Roy & Abhronila Das) with revenue &gt; ₹13.5L and rating &gt; 4.9.
+                <strong>Outcome:</strong> Spills top accounts (Swadeep Roy & Abhronila Das) with revenue > ₹13.5L and rating > 4.9.
               </p>
             </div>
 
@@ -425,7 +425,7 @@ export default function Topic13() {
                 <strong>Abhronila Das</strong> filters for high-spend clients whose rating has dropped below 4.6:
               </p>
               <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-emerald-400 border border-slate-800">
-                =FILTER(A2:F11, (D2:D11 &gt;= 900000) * (E2:E11 &lt; 4.6), "No Accounts at Risk")
+                =FILTER(A2:F11, (D2:D11 >= 900000) * (E2:E11 < 4.6), "No Accounts at Risk")
               </div>
               <p className="text-xs text-slate-400">
                 <strong>Outcome:</strong> Identifies Aniket Pal & Rahul Sen for immediate customer success intervention!
@@ -461,7 +461,7 @@ export default function Topic13() {
               <div>
                 <h3 className="font-bold text-white text-sm sm:text-base">Evaluate Tier Thresholds with Vectorized IFS</h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
-                  Apply boolean multiplication: <code className="text-emerald-400 font-mono">(spend &gt;= 1200000) * (rating &gt;= 4.8)</code> for Platinum, down to <code className="text-amber-300 font-mono">TRUE, "Bronze Tier"</code>.
+                  Apply boolean multiplication: <code className="text-emerald-400 font-mono">(spend >= 1200000) * (rating >= 4.8)</code> for Platinum, down to <code className="text-amber-300 font-mono">TRUE, "Bronze Tier"</code>.
                 </p>
               </div>
             </div>

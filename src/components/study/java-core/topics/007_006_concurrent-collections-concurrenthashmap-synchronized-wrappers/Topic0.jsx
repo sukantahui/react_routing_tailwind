@@ -21,7 +21,7 @@ export default function Topic0() {
             Thread Safety Hazards
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Why Standard Collections Are <code className="text-rose-400 font-mono">NOT</code> Thread-Safe: Race Conditions &amp; Corruption
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

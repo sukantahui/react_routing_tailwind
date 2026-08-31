@@ -283,7 +283,7 @@ const Topic59 = () => {
                     <div className="inline-block px-4 py-1 mb-4 text-xs font-semibold tracking-widest uppercase rounded-full bg-gray-100 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
                         Topic 59 — Redundant Constraints
                     </div>
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
                         <span className="bg-gradient-to-r from-gray-700 to-slate-600 dark:from-gray-300 dark:to-slate-400 bg-clip-text text-transparent">
                             Redundant Constraints
                         </span>

@@ -76,7 +76,7 @@ CREATE TABLE order_items (
   CONSTRAINT fk_prod FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE RESTRICT
 );`,
       explanation: "Choosing between CASCADE, RESTRICT, and SET NULL ensures parent deletions do not corrupt dependent business records.",
-      keyTakeaways: ["Use ON DELETE CASCADE for tightly-bound child records (e.g., Order &rarr; Order_Items).","Use ON DELETE RESTRICT for master data (e.g., Products, Users, Doctors).","Use ON DELETE SET NULL for optional associations (e.g., assigned coupon code)."]
+      keyTakeaways: ["Use ON DELETE CASCADE for tightly-bound child records (e.g., Order → Order_Items).","Use ON DELETE RESTRICT for master data (e.g., Products, Users, Doctors).","Use ON DELETE SET NULL for optional associations (e.g., assigned coupon code)."]
     },
     concept4: {
       conceptName: "4. Migration Sequencing",
@@ -84,12 +84,12 @@ CREATE TABLE order_items (
       badge: "Migration Order",
       badgeColor: "rose",
       sqlSnippet: `-- 📂 SCRIPT SEQUENCING (FLYWAY / LIQUIBASE PATTERN):
--- 01_cleanup.sql         &rarr; DROP TABLE IF EXISTS in reverse dependency order
--- 02_schema_master.sql   &rarr; Parent tables (users, roles, categories, branches)
--- 03_schema_child.sql    &rarr; Child tables (orders, accounts, appointments)
--- 04_schema_junction.sql &rarr; M:N junction tables (user_roles, doctor_specialties)
--- 05_indexes.sql         &rarr; Secondary & composite indexes
--- 06_views.sql           &rarr; Security & reporting views`,
+-- 01_cleanup.sql         → DROP TABLE IF EXISTS in reverse dependency order
+-- 02_schema_master.sql   → Parent tables (users, roles, categories, branches)
+-- 03_schema_child.sql    → Child tables (orders, accounts, appointments)
+-- 04_schema_junction.sql → M:N junction tables (user_roles, doctor_specialties)
+-- 05_indexes.sql         → Secondary & composite indexes
+-- 06_views.sql           → Security & reporting views`,
       explanation: "Sequencing DDL scripts prevents foreign key dependency errors during automated deployments and CI/CD pipelines.",
       keyTakeaways: ["Create independent master tables first before referencing child tables.","Drop tables in reverse dependency order during schema resets.","Separate DDL structure, index creation, and view definitions into distinct files."]
     }
@@ -109,7 +109,7 @@ CREATE TABLE order_items (
             Topic 4 of 11
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Phase 3: Production DDL Implementation with Constraints, Foreign Keys, and Cascading Actions
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

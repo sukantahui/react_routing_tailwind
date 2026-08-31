@@ -756,7 +756,7 @@
     "code": "class A { void m1() { System.out.print(\"A\"); m2(); } void m2() { System.out.print(\"A2\"); } }\nclass B extends A { void m2() { System.out.print(\"B2\"); } }\nclass Test{\n    public static void main(String args[]){\n        A a = new B();\n        a.m1();\n    }\n}",
     "options": ["AB2", "AA2", "AB", "Compilation Error"],
     "answerIndex": 0,
-    "explanation": "m1() prints A, then calls m2() which is overridden in B -> prints B2."
+    "explanation": "m1() prints A, then calls m2() which is overridden in B → prints B2."
   },
   {
     "id": 70,
@@ -899,7 +899,7 @@
     "code": "class A { void m1() { System.out.print(\"A\"); m2(); } void m2() { System.out.print(\"A2\"); } }\nclass B extends A { void m2() { System.out.print(\"B2\"); } }\nclass C extends B { void m1() { System.out.print(\"C\"); super.m1(); } }\nclass Test{\n    public static void main(String args[]){\n        A a = new C();\n        a.m1();\n    }\n}",
     "options": ["CAB2", "CA2B2", "CAB", "Compilation Error"],
     "answerIndex": 0,
-    "explanation": "C.m1() prints C, calls super.m1() (A's m1) prints A, calls m2() -> B2."
+    "explanation": "C.m1() prints C, calls super.m1() (A's m1) prints A, calls m2() → B2."
   },
   {
     "id": 83,
@@ -932,7 +932,7 @@
     "code": "interface I { void m(); }\nclass A implements I { public void m() { System.out.print(\"A\"); } }\nclass B extends A { public void m() { System.out.print(\"B\"); } }\nclass Test{\n    public static void main(String args[]){\n        I i = new B();\n        i.m();\n    }\n}",
     "options": ["B", "A", "Compilation Error", "Runtime Error"],
     "answerIndex": 0,
-    "explanation": "Interface reference, object B -> B's method runs."
+    "explanation": "Interface reference, object B → B's method runs."
   },
   {
     "id": 86,
@@ -2712,7 +2712,7 @@
     "type": "concept",
     "question": "What is multilevel inheritance?",
     "code": "",
-    "options": ["A -> B -> C", "A -> B, A -> C", "A -> B, B -> C", "Multiple parents"],
+    "options": ["A → B → C", "A → B, A → C", "A → B, B → C", "Multiple parents"],
     "answerIndex": 0,
     "explanation": "Multilevel inheritance involves a chain of inheritance (Grandparent → Parent → Child)."
   },

@@ -152,7 +152,7 @@ SHOW GLOBAL STATUS LIKE 'Innodb_os_log_%';`,
               In-Memory Components
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             InnoDB In-Memory Components: Buffer Pool, Change Buffer, Adaptive Hash Index, Log Buffer
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -271,7 +271,7 @@ SHOW GLOBAL STATUS LIKE 'Innodb_os_log_%';`,
                 <text x="65" y="202" fill="#94a3b8" fontSize="9">Pages accessed repeatedly stay in Young sublist indefinitely</text>
 
                 <rect x="50" y="230" width="420" height="40" rx="4" fill="#1e293b" stroke="#334155" />
-                <text x="65" y="252" fill="#94a3b8" fontSize="10">Tail of Young Sublist &rarr; Transitions to Midpoint</text>
+                <text x="65" y="252" fill="#94a3b8" fontSize="10">Tail of Young Sublist → Transitions to Midpoint</text>
 
                 {/* Midpoint Boundary Marker */}
                 <line x1="510" y1="40" x2="510" y2="320" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 4" />

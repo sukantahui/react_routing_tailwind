@@ -24,7 +24,7 @@ const Topic_HDLC = () => {
 
           {/* Header Section */}
           <section className="text-center space-y-4 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_forwards]">
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-purple-400">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent dark:from-indigo-400 dark:to-purple-400">
               High‑Level Data Link Control (HDLC)
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">

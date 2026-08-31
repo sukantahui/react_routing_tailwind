@@ -74,7 +74,7 @@ const questions = [
     explanation: "Removes all characters outside the standard 7-bit ASCII range (0-127), deleting emojis and exotic symbols.",
     hint: "[^\\x00-\\x7F] replaced with \"\".",
     level: "moderate",
-    codeExample: "=REGEXREPLACE(\"Great service! 😊👍\", \"[^\\x00-\\x7F]\", \"\") &rarr; \"Great service! \""
+    codeExample: "=REGEXREPLACE(\"Great service! 😊👍\", \"[^\\x00-\\x7F]\", \"\") → \"Great service! \""
   },
   {
     question: "How do you create a named LAMBDA `FX_SANITIZE_TEXT` in Name Manager for company-wide deployment?",
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Replaces any group of non-alphanumerics with a hyphen and converts all letters to uppercase.",
     hint: "UPPER(REGEXREPLACE(A2, \"[^a-zA-Z0-9]+\", \"-\")).",
     level: "moderate",
-    codeExample: "=UPPER(REGEXREPLACE(\"elec / dell _ 88421\", \"[^a-zA-Z0-9]+\", \"-\")) &rarr; \"ELEC-DELL-88421\""
+    codeExample: "=UPPER(REGEXREPLACE(\"elec / dell _ 88421\", \"[^a-zA-Z0-9]+\", \"-\")) → \"ELEC-DELL-88421\""
   },
   {
     question: "How do you sanitize financial notes by removing currency prefixes like `Rs. `, `INR `, `₹ ` to leave pure numeric amounts?",
@@ -205,7 +205,7 @@ const questions = [
     codeExample: "=REGEXREPLACE(\"Visit [Coder & AccoTax](https://codernaccotax.co.in)\", \"\\[([^\\]]+)\\]\\([^)]+\\)\", \"$1\")"
   },
   {
-    question: "How do you sanitize postal addresses to ensure standard abbreviations (e.g. `Rd` &rarr; `Road`, `St` &rarr; `Street`)?",
+    question: "How do you sanitize postal addresses to ensure standard abbreviations (e.g. `Rd` → `Road`, `St` → `Street`)?",
     shortAnswer: "=REDUCE(A2, {\"\\bRd\\b\", \"\\bSt\\b\", \"\\bAve\\b\"}, LAMBDA(acc, pat, REGEXREPLACE(acc, pat, SWITCH(pat, \"\\bRd\\b\", \"Road\", \"\\bSt\\b\", \"Street\", \"Avenue\"), 0, 1)))",
     explanation: "Sequential regex word replacement across address components.",
     hint: "REDUCE with word boundaries and SWITCH replacements.",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Pristine data ingestion guarantees that downstream financial calculations, reconciliations, and tax audits run without error!",
     hint: "Multi-Stage Regex Pipeline + Named LAMBDA + Zero Macros = 100% Pristine Data Hygiene!",
     level: "expert",
-    codeExample: "Rule: Automated Data Sanitization &rarr; Deploy Multi-Stage Regex Pipelines!"
+    codeExample: "Rule: Automated Data Sanitization → Deploy Multi-Stage Regex Pipelines!"
   }
 ];
 

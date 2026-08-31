@@ -26,12 +26,12 @@ const Topic15 = () => {
       badgeColor: "rose",
       sqlQuery: `-- Calculating mean score across 4 candidates (Mamata: 100%, Susmita: 80%, Abhronila: 60%, Debangshu: NULL [Absent])
 
--- Query A: Standard AVG() -> Ignores Debangshu (Divisor = 3)
+-- Query A: Standard AVG() → Ignores Debangshu (Divisor = 3)
 SELECT 
     ROUND(AVG(marks_pct), 2) AS attendee_mean_score
 FROM exam_submissions; -- Result: (100+80+60)/3 = 80.00%
 
--- Query B: COALESCE(marks, 0) -> Penalizes absence as 0 (Divisor = 4)
+-- Query B: COALESCE(marks, 0) → Penalizes absence as 0 (Divisor = 4)
 SELECT 
     ROUND(AVG(COALESCE(marks_pct, 0.0)), 2) AS cohort_mean_score
 FROM exam_submissions; -- Result: (100+80+60+0)/4 = 60.00%`,
@@ -141,7 +141,7 @@ GROUP BY centre_city;`,
               Robust Data Quality & NULL Semantics
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Handling NULLs in Aggregations & GROUP BY
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

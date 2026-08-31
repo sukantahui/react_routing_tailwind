@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "basic",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "moderate",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python in Excel Architecture & Cloud Runtime regarding Azure container sandboxing, Anaconda stack, and zero local setup (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python in Excel Architecture & Cloud Runtime is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how Azure container sandboxing, Anaconda stack, and zero local setup operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage =PY() Formula & xl() Reference Function regarding top-to-bottom calculation order, headers=True, and structured table ranges (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering =PY() Formula & xl() Reference Function is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how top-to-bottom calculation order, headers=True, and structured table ranges operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Python Objects vs Spilled Excel Values regarding DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Python Objects vs Spilled Excel Values is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how DataFrame card previews, Ctrl+Alt+Shift+M toggles, and memory encapsulation operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage pandas Data Wrangling & Statistical Profiling regarding filtering, GroupBy aggregations, relational merges, and describe() matrices (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering pandas Data Wrangling & Statistical Profiling is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how filtering, GroupBy aggregations, relational merges, and describe() matrices operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Visualizations & Time-Series Decomposition regarding matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Visualizations & Time-Series Decomposition is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how matplotlib/seaborn figures in cells, rolling statistics, and seasonal trends operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   },
   {
     "question": "In the context of Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, how does Python in Excel manage Statistical Inference, Regressions & Machine Learning regarding scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When deploying Real-world project: Building an automated Customer Churn Prediction and Cohort Analysis model in Excel, mastering Statistical Inference, Regressions & Machine Learning is essential for next-generation data science. Python in Excel combines the familiar Excel grid with the full computational power of pandas, scipy, statsmodels, and scikit-learn, ensuring that enterprise data models, econometric regressions, and machine learning pipelines execute seamlessly with cloud-native security and statistical rigor.",
     "hint": "Think about how scipy hypothesis tests, statsmodels OLS regressions, and scikit-learn models operates within Python in Excel's cloud container architecture.",
     "level": "advanced",
-    "codeExample": "Churn Prediction Engine: Ingest CRM Table -> pandas Feature Engineering -> statsmodels Logistic / scikit-learn Random Forest -> Score Risk -> Seaborn Cohort Heatmap"
+    "codeExample": "Churn Prediction Engine: Ingest CRM Table → pandas Feature Engineering → statsmodels Logistic / scikit-learn Random Forest → Score Risk → Seaborn Cohort Heatmap"
   }
 ];
 

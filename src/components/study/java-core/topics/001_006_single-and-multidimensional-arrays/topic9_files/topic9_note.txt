@@ -16,8 +16,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Modifying 's' has ZERO effect on the underlying array in Heap memory.
 
 - Object Arrays Distinction:
-  * Method mutation: for (Student s : list) s.setFee(1000); -> MUTATES Heap Object!
-  * Reassignment   : for (Student s : list) s = new Student(); -> Modifies local variable only!
+  * Method mutation: for (Student s : list) s.setFee(1000); → MUTATES Heap Object!
+  * Reassignment   : for (Student s : list) s = new Student(); → Modifies local variable only!
 
 - When to Use Standard vs For-Each:
   * For-Each : Read-only iteration, summing, filtering, printing, max/min finding.

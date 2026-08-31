@@ -30,7 +30,7 @@ A binary decomposition of relation schema $R$ into $R_1$ and $R_2$ is LOSSLESS w
 to a set of functional dependencies F if and only if the common attribute set $(R_1 \cap R_2)$ 
 is a SUPER KEY of at least ONE of the decomposed relations:
 
-      $(R_1 \cap R_2) \rightarrow R_1 \in F^+$   OR   $(R_1 \cap R_2) \rightarrow R_2 \in F^+$
+      $(R_1 \cap R_2) → R_1 \in F^+$   OR   $(R_1 \cap R_2) → R_2 \in F^+$
 
 Step-by-Step Test Procedure:
 1. Find the intersection attributes: $C = R_1 \cap R_2$.
@@ -46,8 +46,8 @@ Step-by-Step Test Procedure:
 Step-by-Step Verification Procedure:
 1. For each decomposed relation $R_i$, compute the projected functional dependencies $F_i = \pi_{R_i}(F)$.
 2. Form the combined dependency set $F' = F_1 \cup F_2 \cup \dots \cup F_k$.
-3. For every original functional dependency $X \rightarrow Y \in F$:
-   - Check if $X \rightarrow Y$ can be derived from $F'$ (i.e. is $Y \subseteq X_{F'}^+$?).
+3. For every original functional dependency $X → Y \in F$:
+   - Check if $X → Y$ can be derived from $F'$ (i.e. is $Y \subseteq X_{F'}^+$?).
 4. If every original FD is preserved in $F'$, the decomposition is DEPENDENCY PRESERVING.
 5. If any FD cannot be enforced within an individual table, it is LOST across the join boundary.
 
@@ -68,7 +68,7 @@ Step-by-Step Verification Procedure:
 1. Confusing Lossless with "No data loss on delete":
    "Lossless" refers strictly to lossless JOIN reconstruction, NOT data deletion.
 2. Decomposing tables on non-key overlapping columns:
-   Splitting $R(A, B, C)$ with $A \rightarrow B$ into $R_1(A, B)$ and $R_2(B, C)$ is LOSSY 
+   Splitting $R(A, B, C)$ with $A → B$ into $R_1(A, B)$ and $R_2(B, C)$ is LOSSY 
    because common column B is not a super key of either table!
 
 

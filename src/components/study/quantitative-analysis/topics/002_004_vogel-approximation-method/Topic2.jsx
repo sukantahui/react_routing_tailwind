@@ -219,7 +219,7 @@ const Topic2 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Selecting the Highest Penalty
           </h1>
 
@@ -578,7 +578,7 @@ const Topic2 = () => {
                 <text x="120" y="80" fill="#60a5fa" fontSize="12" fontWeight="bold" textAnchor="middle">1. Scan All Penalties</text>
                 <text x="120" y="100" fill="#94a3b8" fontSize="10" textAnchor="middle">Compare all Pᵢ and Pⱼ</text>
 
-                {/* Arrow 1 -> 2 */}
+                {/* Arrow 1 → 2 */}
                 <line x1="210" y1="85" x2="270" y2="85" stroke="#60a5fa" strokeWidth="2" strokeDasharray="4 4" />
                 <polygon points="270,85 262,80 262,90" fill="#60a5fa" />
 
@@ -587,7 +587,7 @@ const Topic2 = () => {
                 <text x="375" y="80" fill="#f59e0b" fontSize="12" fontWeight="bold" textAnchor="middle">2. Find Max Penalty</text>
                 <text x="375" y="100" fill="#cbd5e1" fontSize="10" fontFamily="monospace" textAnchor="middle">Max_P = max(P_all)</text>
 
-                {/* Arrow 2 -> 3 */}
+                {/* Arrow 2 → 3 */}
                 <line x1="470" y1="85" x2="530" y2="85" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 4" />
                 <polygon points="530,85 522,80 522,90" fill="#f59e0b" />
 

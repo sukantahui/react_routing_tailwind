@@ -77,7 +77,7 @@ const Topic7 = () => {
     sqli_rule: {
       id: "sqli_rule",
       title: "SQL Injection Detection Rule (SID: 1000001)",
-      ruleHeader: "alert tcp $EXTERNAL_NET any -> $HTTP_SERVERS 80",
+      ruleHeader: "alert tcp $EXTERNAL_NET any → $HTTP_SERVERS 80",
       ruleOptions: `(msg:"EXPLOIT SQL Injection UNION SELECT"; flow:to_server,established; content:"UNION SELECT"; nocase; http_uri; fast_pattern; classtype:web-application-attack; sid:1000001; rev:1;)`,
       testedPattern: "UNION SELECT",
       isHttpUri: true
@@ -85,7 +85,7 @@ const Topic7 = () => {
     log4shell_rule: {
       id: "log4shell_rule",
       title: "Log4Shell JNDI Exploit Drop Rule (SID: 1000002)",
-      ruleHeader: "drop tcp $EXTERNAL_NET any -> $HTTP_SERVERS 443",
+      ruleHeader: "drop tcp $EXTERNAL_NET any → $HTTP_SERVERS 443",
       ruleOptions: `(msg:"EXPLOIT Log4Shell JNDI Lookup"; flow:to_server,established; content:"\${diagnostic_jndi:"; nocase; fast_pattern; classtype:attempted-admin; sid:1000002; rev:2;)`,
       testedPattern: "${diagnostic_jndi:",
       isHttpUri: false
@@ -93,7 +93,7 @@ const Topic7 = () => {
     xmas_scan_rule: {
       id: "xmas_scan_rule",
       title: "XMAS Port Scan Detection Rule (SID: 1000003)",
-      ruleHeader: "alert tcp any any -> $HOME_NET any",
+      ruleHeader: "alert tcp any any → $HOME_NET any",
       ruleOptions: `(msg:"SCAN XMAS Scan Attempt"; flags:FPU; classtype:attempted-recon; sid:1000003; rev:1;)`,
       testedPattern: "FLAGS_FPU",
       isHttpUri: false
@@ -212,7 +212,7 @@ const Topic7 = () => {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-800/80 text-sky-300 text-xs font-semibold uppercase tracking-wider">
             <span>🛡️ Module 005_002 • Topic 7</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Popular IDS/IPS Tools: Snort Rule Syntax &amp; Suricata Overview
           </h1>
           <p className="max-w-3xl mx-auto text-base sm:text-lg text-slate-300 leading-relaxed font-sans">

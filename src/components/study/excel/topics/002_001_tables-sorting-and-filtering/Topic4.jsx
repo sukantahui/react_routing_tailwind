@@ -68,7 +68,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Advanced Filter Rules: Dynamic Criteria & Top/Bottom N Percentiles
           </h1>
 
@@ -103,7 +103,7 @@ export default function Topic4() {
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            Advanced Filter Criteria: (Region = 'Kolkata') AND (Amount &gt;= 50000)  |  Array: =FILTER(tbl, (tbl[Col1]=V1)*(tbl[Col2]&gt;=V2))
+            Advanced Filter Criteria: (Region = 'Kolkata') AND (Amount >= 50000)  |  Array: =FILTER(tbl, (tbl[Col1]=V1)*(tbl[Col2]>=V2))
           </div>
 
           <div className="overflow-x-auto">
@@ -294,13 +294,13 @@ export default function Topic4() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Deal_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Filter_Applied</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Outcome</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">DEAL-804</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filter -&gt; Top 10 Percent</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">15 High-Value Enterprise Deals</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">DEAL-804</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Number Filter → Top 10 Percent</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">15 High-Value Enterprise Deals</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters -&gt; Top 10 Percent</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters → Top 10 Percent</div>
                 <div className="text-emerald-400 font-semibold">Result: Isolated top tier accounts.</div>
                 <div className="text-slate-400 text-[11px]">Top 10 Percent filters dynamically calculate threshold based on total volume.</div>
               </div>
@@ -322,7 +322,7 @@ export default function Topic4() {
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters -&gt; Between</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Number Filters → Between</div>
                 <div className="text-emerald-400 font-semibold">Result: Targeted payment reminder list.</div>
                 <div className="text-slate-400 text-[11px]">Between filter includes minimum and maximum boundary values.</div>
               </div>
@@ -338,13 +338,13 @@ export default function Topic4() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Item_Code</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date_Criteria</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Alert_Status</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-305</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date Filters -&gt; Next Quarter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Expiring Soon</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">SKU-305</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Date Filters → Next Quarter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Expiring Soon</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Date Filters -&gt; Relative Range</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Date Filters → Relative Range</div>
                 <div className="text-emerald-400 font-semibold">Result: Clear visibility into expiring inventory.</div>
                 <div className="text-slate-400 text-[11px]">Relative date filters adapt as calendar date advances.</div>
               </div>
@@ -360,13 +360,13 @@ export default function Topic4() {
                 <table className="w-full text-left text-xs text-slate-300 border border-slate-800">
                   <tbody className="divide-y divide-slate-800">
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Batch_ID</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Text_Filter</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Action</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">BATCH-90</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Custom Filter -&gt; Contains 'Critical' OR 'High'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Flagged for Inspection</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">BATCH-90</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Custom Filter → Contains 'Critical' OR 'High'</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Flagged for Inspection</td></tr>
                   </tbody>
                 </table>
               </div>
 
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: Text Filters -&gt; Contains OR Logic</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: Text Filters → Contains OR Logic</div>
                 <div className="text-emerald-400 font-semibold">Result: Problem batches isolated in 2 clicks.</div>
                 <div className="text-slate-400 text-[11px]">Custom text filters allow OR logic across multiple keywords.</div>
               </div>
@@ -409,7 +409,7 @@ export default function Topic4() {
               <div>
                 <h3 className="text-sm font-bold text-white">Select Advanced Filter Sub-Menu</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Navigate to Number Filters -&gt; Top 10... or Date Filters -&gt; Next Quarter.
+                  Navigate to Number Filters → Top 10... or Date Filters → Next Quarter.
                 </p>
               </div>
             </div>

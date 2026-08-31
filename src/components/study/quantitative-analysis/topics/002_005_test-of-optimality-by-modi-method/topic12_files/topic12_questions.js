@@ -238,9 +238,9 @@ const questions = [
     question: "What is the ultimate golden rule of the MODI method?",
     shortAnswer: "'Set u_1=0; solve u_i+v_j=c_ij on basic cells; compute d_ij=c_ij-(u_i+v_j) on empty cells; if all d>=0 STOP (Optimal!); if any d<0, pivot closed loop with θ=min(x_minus); repeat until optimal!'",
     explanation: "This single golden rule encapsulates the entire 5-step MODI optimization engine.",
-    hint: "u_1=0 -> u+v=c -> d=c-(u+v) -> check d>=0 -> pivot loop -> repeat.",
+    hint: "u_1=0 → u+v=c → d=c-(u+v) → check d>=0 → pivot loop → repeat.",
     level: "moderate",
-    codeExample: "Golden Rule: (1) u_1=0 -> (2) u+v=c -> (3) d=c-(u+v) -> (4) all d>=0? -> (5) Loop Pivot."
+    codeExample: "Golden Rule: (1) u_1=0 → (2) u+v=c → (3) d=c-(u+v) → (4) all d>=0? → (5) Loop Pivot."
   }
 ];
 

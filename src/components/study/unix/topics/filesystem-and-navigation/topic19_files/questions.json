@@ -345,7 +345,7 @@
       "difficulty": "Beginner",
       "question": "How to identify a symbolic link using `ls -l`?",
       "answer": "The first character is `l` and the output shows `->` pointing to the target.",
-      "explanation": "Example: `lrwxrwxrwx 1 user group 4 May 13 10:00 link -> target`."
+      "explanation": "Example: `lrwxrwxrwx 1 user group 4 May 13 10:00 link → target`."
     },
     {
       "id": 43,

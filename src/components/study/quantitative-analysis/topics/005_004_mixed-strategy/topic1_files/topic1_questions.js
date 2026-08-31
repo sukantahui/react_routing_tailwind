@@ -94,7 +94,7 @@ const questions = [
     question: "What is the ultimate golden rule of Probability Distributions Over Strategies in Game Theory?",
     shortAnswer: "'Mixed strategies map choices onto the standard probability simplex: all probabilities must be non-negative and sum exactly to 1.0, transforming deterministic play into continuous expected payoffs in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all simplex and distribution axioms.",
-    hint: "Non-negative entries -> Sum to 1.0 -> Continuous expected payoffs in ₹.",
+    hint: "Non-negative entries → Sum to 1.0 → Continuous expected payoffs in ₹.",
     level: "moderate",
     codeExample: "GoldenRule: NonNegative() && SumToOne() => YieldsExpectedPayoff(₹)."
   }

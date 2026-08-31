@@ -168,7 +168,7 @@ CREATE TABLE invoices (
             Module 002_004 · Database Normalization · Topic 15 (Module Capstone)
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Denormalization:{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               High-Throughput Read Strategies

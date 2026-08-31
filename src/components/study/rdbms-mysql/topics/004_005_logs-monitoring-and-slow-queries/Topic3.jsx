@@ -27,7 +27,7 @@ const Topic3 = () => {
       badgeColor: "emerald",
       sqlSnippet: `-- ⚡ 1. THE DANGER OF STATEMENT LOGGING (NON-DETERMINISTIC DRIFT):
 -- Master executes: UPDATE orders SET code = UUID(), discount = RAND() LIMIT 10;
--- Replica executes raw SQL text -> Modifies DIFFERENT rows with DIFFERENT values! ❌
+-- Replica executes raw SQL text → Modifies DIFFERENT rows with DIFFERENT values! ❌
 
 -- 🛡️ 2. ROW-BASED LOGGING (100% DETERMINISTIC DELTAS - MYSQL 8.0 DEFAULT):
 -- Master transmits exact before/after physical row bytes:
@@ -129,7 +129,7 @@ PURGE BINARY LOGS TO 'binlog.000085';
             Topic 3 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           The Binary Log (binlog): <span className="text-emerald-400">Formats</span> &amp; <span className="text-cyan-400">Purging</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -308,7 +308,7 @@ PURGE BINARY LOGS TO 'binlog.000085';
                   Case 2: Abhronila &amp; Debangshu – Saving 55% Storage with MINIMAL Images in Kolkata
                 </h3>
                 <span className="text-xs font-mono text-cyan-400 bg-cyan-950/80 px-2.5 py-1 rounded-full border border-cyan-800">
-                  500GB &rarr; 225GB/day
+                  500GB → 225GB/day
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

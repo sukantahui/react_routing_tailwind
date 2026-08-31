@@ -19,7 +19,7 @@ const questions = [
     question: "What are the 5 hierarchical tiers of privileges in MySQL?",
     shortAnswer: "1) **Global Scope** (`*.*`)\n2) **Database Scope** (`database_name.*`)\n3) **Table Scope** (`database_name.table_name`)\n4) **Column Scope** (`database_name.table_name(column_name)`)\n5) **Routine Scope** (`PROCEDURE` / `FUNCTION`)",
     explanation: "Hierarchical ACL structure from server-wide to individual field level.",
-    hint: "Global -> Database -> Table -> Column -> Routine.",
+    hint: "Global → Database → Table → Column → Routine.",
     level: "basic"
   },
   {

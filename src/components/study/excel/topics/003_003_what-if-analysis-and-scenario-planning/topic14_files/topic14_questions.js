@@ -101,7 +101,7 @@ const questions = [
   {
     "question": "What shortcut recalculates Excel Data Tables without recalculating the entire heavy workbook?",
     "options": [
-      "File -> Options -> Formulas -> Calculation options: 'Automatic except for data tables' (Press F9 to update)",
+      "File → Options → Formulas → Calculation options: 'Automatic except for data tables' (Press F9 to update)",
       "Alt+F4",
       "Ctrl+Z",
       "Shift+Delete"

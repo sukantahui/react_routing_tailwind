@@ -76,7 +76,7 @@ export default function Topic12() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Real-World Project: Building an Automated Enterprise Customer Master Data Validator & Parser
           </h1>
 
@@ -91,7 +91,7 @@ export default function Topic12() {
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-purple-400 text-base">✓</span>
-              <span><strong>End-to-End Governance:</strong> Ingest &rarr; Clean &rarr; Validate &rarr; Segregate</span>
+              <span><strong>End-to-End Governance:</strong> Ingest → Clean → Validate → Segregate</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -158,7 +158,7 @@ export default function Topic12() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-400 font-sans">1. Name Sanitization</td>
                   <td className="py-3 px-4 text-purple-300">PROPER(TRIM(REGEXREPLACE(...)))</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Strip &lt;tags&gt; &amp; collapse spaces</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Strip <tags> &amp; collapse spaces</td>
                   <td className="py-3 px-4 text-emerald-400 font-bold">Standard Proper Case Name</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -205,7 +205,7 @@ export default function Topic12() {
                 preserving an immutable raw audit trail for forensic compliance!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                Raw Ingestion Layer &rarr; Cleaned Transformation Layer &rarr; Spilled Master Views
+                Raw Ingestion Layer → Cleaned Transformation Layer → Spilled Master Views
               </div>
             </div>
 
@@ -230,7 +230,7 @@ export default function Topic12() {
               Verify whether the customer's standalone PAN matches the entity PAN embedded inside their GSTIN:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                =EXACT(PAN_Cell, REGEXEXTRACT(GSTIN_Cell, "[A-Z]{"{5}"}\d{"{4}"}[A-Z]")) &rarr; Returns TRUE / FALSE
+                =EXACT(PAN_Cell, REGEXEXTRACT(GSTIN_Cell, "[A-Z]{"{5}"}\d{"{4}"}[A-Z]")) → Returns TRUE / FALSE
               </code>
             </p>
           </div>
@@ -270,7 +270,7 @@ export default function Topic12() {
 
               <g transform="translate(35, 75)" fontSize="8.5" fontFamily="monospace">
                 <rect width="200" height="32" rx="4" fill="#1E293B" stroke="#334155" />
-                <text x="8" y="20" fill="#E2E8F0">&lt;b&gt;swadeep&lt;/b&gt; | ABCDE1234F</text>
+                <text x="8" y="20" fill="#E2E8F0"><b>swadeep</b> | ABCDE1234F</text>
 
                 <rect y="38" width="200" height="32" rx="4" fill="#1E293B" stroke="#334155" />
                 <text x="8" y="58" fill="#E2E8F0">tuhina.m | 19BCDEF5678G1Z2</text>
@@ -299,13 +299,13 @@ export default function Topic12() {
 
               <g transform="translate(340, 75)" fontSize="8.5" fontFamily="sans-serif">
                 <rect width="220" height="28" rx="4" fill="#3B0764" stroke="#A855F7" />
-                <text x="10" y="18" fill="#F5D0FE" fontWeight="bold">PROPER(TRIM(Name)) &rarr; Clean</text>
+                <text x="10" y="18" fill="#F5D0FE" fontWeight="bold">PROPER(TRIM(Name)) → Clean</text>
 
                 <rect y="32" width="220" height="28" rx="4" fill="#0369A1" fillOpacity="0.3" stroke="#38BDF8" />
-                <text x="10" y="50" fill="#BAE6FD" fontWeight="bold">REGEXTEST(PAN) &rarr; ^[A-Z]{"{5}"}\d{"{4}"}[A-Z]$</text>
+                <text x="10" y="50" fill="#BAE6FD" fontWeight="bold">REGEXTEST(PAN) → ^[A-Z]{"{5}"}\d{"{4}"}[A-Z]$</text>
 
                 <rect y="64" width="220" height="28" rx="4" fill="#065F46" fillOpacity="0.3" stroke="#10B981" />
-                <text x="10" y="82" fill="#A7F3D0" fontWeight="bold">REGEXTEST(GST) &rarr; State &amp; Entity Valid</text>
+                <text x="10" y="82" fill="#A7F3D0" fontWeight="bold">REGEXTEST(GST) → State &amp; Entity Valid</text>
 
                 <rect y="96" width="220" height="28" rx="4" fill="#854D0E" fillOpacity="0.3" stroke="#EAB308" />
                 <text x="10" y="114" fill="#FEF08A" fontWeight="bold">Score: (PAN + GST + Email) / 3</text>
@@ -374,7 +374,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic12_Customer_Master"
+            sheetName="EX1913"
             title="Enterprise Customer Master Governance Dataset (Customer ID, Name, PAN, GSTIN, Email, Phone, Quality Score, Status)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -450,7 +450,7 @@ export default function Topic12() {
                 ensuring only 100% compliant accounts enter the automated billing engine.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                FILTER(Table, Score=1) &rarr; Zero Risk of Invoicing Errors
+                FILTER(Table, Score=1) → Zero Risk of Invoicing Errors
               </div>
             </div>
 
@@ -511,7 +511,7 @@ export default function Topic12() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Construct Transformation & Sanitization Layer</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Apply <code className="text-emerald-300 font-mono">PROPER(TRIM(REGEXREPLACE(Name, "&lt;[^&gt;]+&gt;", "")))</code> and phone digit sanitization.
+                  Apply <code className="text-emerald-300 font-mono">PROPER(TRIM(REGEXREPLACE(Name, "<[^>]+>", "")))</code> and phone digit sanitization.
                 </p>
               </div>
             </div>

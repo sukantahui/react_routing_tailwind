@@ -29,7 +29,7 @@ ATOMS (Basic Building Blocks):
 3. Attribute Comparison between Tuples: $t.A \ \theta \ u.B$ (e.g. $t.\text{student\_id} = u.\text{student\_id}$).
 
 CONNECTIVES & QUANTIFIERS:
-• Boolean Connectives: $\land$ (AND), $\lor$ (OR), $\neg$ (NOT), $\rightarrow$ (Implication).
+• Boolean Connectives: $\land$ (AND), $\lor$ (OR), $\neg$ (NOT), → (Implication).
 • Existential Quantifier ($\exists$):
   $$\exists u \in S \ (P(u)) \quad \text{("There exists at least one tuple } u \text{ in } S \text{ such that } P(u) \text{ is true")}$$
 • Universal Quantifier ($\forall$):

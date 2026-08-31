@@ -25,8 +25,8 @@ Abhronila was checking if a student was eligible for a scholarship: let hasGoodM
 
 3. Logical NOT (!):
 - Inverts the truthiness of a value.
-- !true -> false
-- !false -> true
+- !true → false
+- !false → true
 - Double NOT (!!): Converts any value to its pure boolean equivalent.
 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)

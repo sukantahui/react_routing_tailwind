@@ -18,7 +18,7 @@ const questions = [
     explanation: "Standard Excel tools like PivotTables cannot process unshaped vertical streams without first reshaping them into 2D relational tables.",
     hint: "Multi-line repeating records mixed with metadata banners.",
     level: "basic",
-    codeExample: "Unstructured 1D Log Dump &rarr; Clean Relational Table"
+    codeExample: "Unstructured 1D Log Dump → Clean Relational Table"
   },
   {
     question: "Which function is used first in the pipeline to strip introductory bank account metadata headers?",

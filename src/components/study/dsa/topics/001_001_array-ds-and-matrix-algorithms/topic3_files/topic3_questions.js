@@ -165,7 +165,7 @@ const questions = [
       "A matrix with word tokens"
     ],
     "answer": "A hash table mapping `(row, col)` pair keys to non-zero values in average O(1) lookup time",
-    "explanation": "DOK uses hash maps for fast random reads and writes `(i, j) -> value`, often used during matrix construction before converting to CSR."
+    "explanation": "DOK uses hash maps for fast random reads and writes `(i, j) → value`, often used during matrix construction before converting to CSR."
   },
   {
     "id": 15,

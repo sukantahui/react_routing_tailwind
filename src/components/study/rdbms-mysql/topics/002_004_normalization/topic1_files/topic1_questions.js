@@ -59,7 +59,7 @@ const questions = [
   },
   {
     question: "How does 3NF (Third Normal Form) eliminate transitive update anomalies?",
-    shortAnswer: "By removing transitive dependencies ($X \\rightarrow Y \\rightarrow Z$), ensuring non-key attributes (like `instructor_room`) are stored in their own entity table (`Instructors`).",
+    shortAnswer: "By removing transitive dependencies ($X \→ Y \→ Z$), ensuring non-key attributes (like `instructor_room`) are stored in their own entity table (`Instructors`).",
     explanation: "3NF transitive dependency removal mechanism.",
     hint: "Moves transitively dependent attributes into dedicated entity tables.",
     level: "moderate"
@@ -122,7 +122,7 @@ const questions = [
   },
   {
     question: "What is the relationship between Functional Dependencies and Update Anomalies?",
-    shortAnswer: "An update anomaly occurs whenever a functional dependency $X \\rightarrow Y$ holds in relation $R$, but $X$ is not a candidate key of $R$, resulting in redundant $Y$ values for every repeated $X$.",
+    shortAnswer: "An update anomaly occurs whenever a functional dependency $X \→ Y$ holds in relation $R$, but $X$ is not a candidate key of $R$, resulting in redundant $Y$ values for every repeated $X$.",
     explanation: "Mathematical relationship between FDs and update anomalies.",
     hint: "Occurs when X → Y holds but X is not a candidate key, causing repeated Y values.",
     level: "moderate"
@@ -164,7 +164,7 @@ const questions = [
   },
   {
     question: "What is the mathematical definition of a normalized relation regarding anomalies?",
-    shortAnswer: "A relation is normalized if every functional dependency $X \\rightarrow Y$ is a consequence of the candidate keys of the relation, leaving zero non-key redundancies.",
+    shortAnswer: "A relation is normalized if every functional dependency $X \→ Y$ is a consequence of the candidate keys of the relation, leaving zero non-key redundancies.",
     explanation: "Theoretical definition of anomaly-free relations.",
     hint: "Every determinant is a candidate key, eliminating all non-key redundancies.",
     level: "expert"
@@ -199,7 +199,7 @@ const questions = [
   },
   {
     question: "What is the first step in diagnosing anomalies in an existing legacy database table?",
-    shortAnswer: "List all attributes, identify all functional dependencies ($X \\rightarrow Y$), find all candidate keys, and check for partial or transitive dependencies.",
+    shortAnswer: "List all attributes, identify all functional dependencies ($X \→ Y$), find all candidate keys, and check for partial or transitive dependencies.",
     explanation: "Diagnostic workflow for legacy database auditing.",
     hint: "Identify all functional dependencies and candidate keys.",
     level: "basic"

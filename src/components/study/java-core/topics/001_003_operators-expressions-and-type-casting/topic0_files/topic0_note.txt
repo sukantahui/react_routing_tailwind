@@ -13,14 +13,14 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   * Ternary (3 operands): ? : (Condition ? ExprIfTrue : ExprIfFalse)
 
 - Expression vs Statement vs Block:
-  * Expression : Evaluates to a single concrete value (e.g. 5 * 10 -> 50).
+  * Expression : Evaluates to a single concrete value (e.g. 5 * 10 → 50).
   * Statement  : Complete unit of execution ending in ';' (e.g. int x = 50;).
   * Block      : Group of statements enclosed in curly braces { ... }.
 
 - Strict Left-to-Right Operand Evaluation Rule (JLS §15.7):
   * Unlike C/C++ (where operand evaluation order is undefined), Java GUARANTEES
     that the left operand is fully evaluated before the right operand is touched!
-  * Example: (x = 10) + (x * 2) -> (x = 10) executes first -> 10 + 20 = 30.
+  * Example: (x = 10) + (x * 2) → (x = 10) executes first → 10 + 20 = 30.
 
 - Evaluation Mechanics:
   * Precedence    : Controls which operators group first (* before +).

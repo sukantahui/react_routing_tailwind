@@ -7,9 +7,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. LIFO STACK PATTERN:
    - Declare: 'Deque<T> stack = new ArrayDeque<>();'.
-   - 'push(e)' &rarr; addFirst(e).
-   - 'pop()' &rarr; removeFirst().
-   - 'peek()' &rarr; peekFirst().
+   - 'push(e)' → addFirst(e).
+   - 'pop()' → removeFirst().
+   - 'peek()' → peekFirst().
    - Ideal for expression parsing, depth-first search (DFS), and undo-redo stacks.
 
 ================================================================================

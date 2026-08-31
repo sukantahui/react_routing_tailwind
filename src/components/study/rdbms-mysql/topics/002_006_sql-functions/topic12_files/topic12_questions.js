@@ -24,7 +24,7 @@ const questions = [
   },
   {
     question: "In the SQL logical execution pipeline, when does `HAVING` execute relative to `WHERE`, `GROUP BY`, and `SELECT`?",
-    shortAnswer: "Order: `FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY -> LIMIT`.",
+    shortAnswer: "Order: `FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT`.",
     explanation: "SQL execution lifecycle order.",
     hint: "WHERE runs 2nd, GROUP BY runs 3rd, HAVING runs 4th, SELECT runs 5th.",
     level: "basic"

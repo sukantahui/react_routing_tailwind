@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Mastering 0, #, and ? transforms messy grids into publication-grade financial statements. Never align decimals with manual spacebars!
 
 COMMON TRAPS TO AVOID:
-- Lost Leading Zeros in CSV: Using 00000 formatting visually shows leading zeros, but CSV export may drop them. -> Fix: Be aware of export formats; for CSV data transfer, prepend text codes or export as text.
-- Misaligned Decimal Columns: Mixing # and 0 tokens causes jagged column decimal points when values have varying lengths. -> Fix: Use ? placeholders to reserve invisible spaces for missing digits.
-- Unintended Trailing Zeros: Using 0.00 on whole numbers forces '15.00' when '15' is desired. -> Fix: Use 0.## when trailing zeros are optional.
+- Lost Leading Zeros in CSV: Using 00000 formatting visually shows leading zeros, but CSV export may drop them. → Fix: Be aware of export formats; for CSV data transfer, prepend text codes or export as text.
+- Misaligned Decimal Columns: Mixing # and 0 tokens causes jagged column decimal points when values have varying lengths. → Fix: Use ? placeholders to reserve invisible spaces for missing digits.
+- Unintended Trailing Zeros: Using 0.00 on whole numbers forces '15.00' when '15' is desired. → Fix: Use 0.## when trailing zeros are optional.
 ================================================================================

@@ -21,7 +21,7 @@ export default function Topic18() {
             JVM Profiling & OOM
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Shortest Path to GC Roots: <code className="text-emerald-400 font-mono">Finding the Offending Pointer</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic18() {
       </section>
 
       <Teacher
-        note="Right-click any leaked object in MAT and select 'Path to GC Roots -> Exclude all phantom/weak/soft references'! MAT will show you the exact chain of strong pointers from the GC Root down to the leaked object! — Sukanta Hui"
+        note="Right-click any leaked object in MAT and select 'Path to GC Roots → Exclude all phantom/weak/soft references'! MAT will show you the exact chain of strong pointers from the GC Root down to the leaked object! — Sukanta Hui"
       />
     </div>
   );

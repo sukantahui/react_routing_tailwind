@@ -116,7 +116,7 @@ const Topic10 = () => {
       timestamp: "2026-08-23 02:14:11.892 UTC",
       source: "Windows Event ID 4688",
       type: "Execution",
-      description: "tomcat.exe spawned cmd.exe -> /c whoami (uid=1001 tomcat)",
+      description: "tomcat.exe spawned cmd.exe → /c whoami (uid=1001 tomcat)",
       macb: "....",
       isSuspicious: true
     },
@@ -144,7 +144,7 @@ const Topic10 = () => {
       timestamp: "2026-08-23 02:26:44.900 UTC",
       source: "DNS Resolver Telemetry",
       type: "C2 Beacon",
-      description: "Query: 04a29fb4890c12.appsync-api.eu-west-1.avsvmcloud.com -> CNAME returned",
+      description: "Query: 04a29fb4890c12.appsync-api.eu-west-1.avsvmcloud.com → CNAME returned",
       macb: "....",
       isSuspicious: true
     },
@@ -165,22 +165,22 @@ const Topic10 = () => {
       title: "Equifax 2017 Apache Struts Breach",
       rootCause: "Lack of executive DevSecOps governance, automated SBOM visibility, and certificate management.",
       whys: [
-        "1. Why was consumer PII stolen? -> The online dispute web portal was compromised via RCE.",
-        "2. Why was the server vulnerable? -> Apache Struts CVE-2017-5638 was unpatched for 76 days.",
-        "3. Why was the patch not applied? -> The dispute application team was never notified of the vulnerability.",
-        "4. Why was notice not received? -> Equifax lacked a centralized Software Bill of Materials (SBOM) tracking nested libraries.",
-        "5. Why was there no SBOM inventory? -> ROOT CAUSE: Lack of executive DevSecOps governance, automated CI/CD dependency scanning, and certificate lifecycle tracking!"
+        "1. Why was consumer PII stolen? → The online dispute web portal was compromised via RCE.",
+        "2. Why was the server vulnerable? → Apache Struts CVE-2017-5638 was unpatched for 76 days.",
+        "3. Why was the patch not applied? → The dispute application team was never notified of the vulnerability.",
+        "4. Why was notice not received? → Equifax lacked a centralized Software Bill of Materials (SBOM) tracking nested libraries.",
+        "5. Why was there no SBOM inventory? → ROOT CAUSE: Lack of executive DevSecOps governance, automated CI/CD dependency scanning, and certificate lifecycle tracking!"
       ]
     },
     colonial_pipeline: {
       title: "Colonial Pipeline 2021 Ransomware Crisis",
       rootCause: "Failure of identity lifecycle governance (orphaned VPN) and lack of operational IT/OT decoupling.",
       whys: [
-        "1. Why was the physical pipeline halted? -> Management could not operate without the corporate billing software.",
-        "2. Why was billing software offline? -> DarkSide ransomware encrypted the corporate IT network.",
-        "3. How did DarkSide enter the network? -> Single-factor authentication was breached on a legacy VPN gateway.",
-        "4. Why was single-factor permitted? -> The VPN profile belonged to a dormant account created without mandatory MFA.",
-        "5. Why was the dormant account active? -> ROOT CAUSE: Failure of identity lifecycle governance (no automated 30-day purge) and lack of autonomous SCADA islanding buffering!"
+        "1. Why was the physical pipeline halted? → Management could not operate without the corporate billing software.",
+        "2. Why was billing software offline? → DarkSide ransomware encrypted the corporate IT network.",
+        "3. How did DarkSide enter the network? → Single-factor authentication was breached on a legacy VPN gateway.",
+        "4. Why was single-factor permitted? → The VPN profile belonged to a dormant account created without mandatory MFA.",
+        "5. Why was the dormant account active? → ROOT CAUSE: Failure of identity lifecycle governance (no automated 30-day purge) and lack of autonomous SCADA islanding buffering!"
       ]
     }
   };
@@ -198,7 +198,7 @@ const Topic10 = () => {
               <span>•</span>
               <span>Module 004.006 — Topic 10</span>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
               Incident Response Timeline & Post-Mortem Analysis
             </h1>
             <p className="text-gray-300 text-sm sm:text-lg max-w-4xl leading-relaxed">

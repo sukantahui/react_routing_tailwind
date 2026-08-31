@@ -275,8 +275,8 @@
             "Order Status Reports: Sales Order Outstanding, Purchase Order Outstanding & Pending Delivery Notes"
           ],
           "learningOutcomes": [
-            "Execute the end-to-end commercial Purchase Order cycle (PO -> Receipt Note -> Rejection Out -> Bill)",
-            "Execute the end-to-end commercial Sales Order cycle (SO -> Delivery Challan -> Rejection In -> Invoice)",
+            "Execute the end-to-end commercial Purchase Order cycle (PO → Receipt Note → Rejection Out → Bill)",
+            "Execute the end-to-end commercial Sales Order cycle (SO → Delivery Challan → Rejection In → Invoice)",
             "Use tracking numbers to link inventory vouchers with accounting vouchers seamlessly",
             "Process debit and credit notes with original invoice cross-referencing"
           ],

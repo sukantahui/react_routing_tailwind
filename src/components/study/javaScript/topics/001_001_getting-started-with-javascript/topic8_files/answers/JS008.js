@@ -16,12 +16,12 @@ function recordTimelineEvent(phase, description) {
 
 // Model the browser parsing and execution pipeline
 recordTimelineEvent("HTML Parsing", "Browser HTML Tokenizer begins parsing document from top to bottom.");
-recordTimelineEvent("Async Download", "<script async src='analytics.js'> encountered -> Downloads in parallel in background.");
-recordTimelineEvent("Defer Download", "<script defer src='app.js'> encountered -> Downloads in parallel in background.");
-recordTimelineEvent("Async Execution", "analytics.js finishes downloading -> Parser pauses, analytics.js executes immediately!");
-recordTimelineEvent("HTML Complete", "HTML Tokenizer reaches </html> -> DOM Tree construction finished.");
+recordTimelineEvent("Async Download", "<script async src='analytics.js'> encountered → Downloads in parallel in background.");
+recordTimelineEvent("Defer Download", "<script defer src='app.js'> encountered → Downloads in parallel in background.");
+recordTimelineEvent("Async Execution", "analytics.js finishes downloading → Parser pauses, analytics.js executes immediately!");
+recordTimelineEvent("HTML Complete", "HTML Tokenizer reaches </html> → DOM Tree construction finished.");
 recordTimelineEvent("Defer Execution", "app.js executes with guaranteed access to the fully constructed DOM Tree in FIFO order.");
-recordTimelineEvent("DOMContentLoaded", "Browser fires 'DOMContentLoaded' event -> UI is interactive.");
+recordTimelineEvent("DOMContentLoaded", "Browser fires 'DOMContentLoaded' event → UI is interactive.");
 
 console.log("🌐 Browser Script Execution Lifecycle:");
 console.table(timeline);

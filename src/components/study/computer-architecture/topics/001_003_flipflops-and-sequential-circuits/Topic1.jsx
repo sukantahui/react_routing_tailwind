@@ -55,7 +55,7 @@ const Topic1 = () => {
         setQState(false);
         setQBarState(true);
       } else {
-        // S̄=1, R̄=1 -> Memory Hold
+        // S̄=1, R̄=1 → Memory Hold
         setIsInvalid(false);
       }
     }
@@ -78,7 +78,7 @@ const Topic1 = () => {
         setQState(false);
         setQBarState(true);
       } else {
-        // S=0, R=0 -> Hold
+        // S=0, R=0 → Hold
         setIsInvalid(false);
       }
       setClkPulse(false);
@@ -130,7 +130,7 @@ const Topic1 = () => {
             <span>⚡</span>
             <span>Computer Architecture Masterclass · Module 001_003 · Topic 1</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
             SR Latch to Clocked SR Flip-Flop (NAND-Based Evolution)
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">

@@ -32,7 +32,7 @@ const questions = [
     explanation: "Reporting within the 'Golden Hour' (first 1 to 2 hours) yields over 80% fund recovery success rates in West Bengal.",
     hint: "Dial 1930 immediately to freeze stolen money in cyber fraud cases within the golden hour.",
     level: "basic",
-    codeExample: "FinancialFraudResponse: Dial_1930() -> CFCFRMS_Alert -> FreezeMuleAccountsInUnder120Seconds();"
+    codeExample: "FinancialFraudResponse: Dial_1930() → CFCFRMS_Alert → FreezeMuleAccountsInUnder120Seconds();"
   },
   {
     question: "What is SIM Swapping Fraud and how do cyber criminals execute it?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "Renders standard SMS-based two-factor banking authentication completely compromised in Ichapur.",
     hint: "Tricking a telecom store into transferring your phone number to a criminal's SIM card to steal OTPs.",
     level: "moderate",
-    codeExample: "SIM_Swap_Attack: Fake_KYC_At_Store -> Number_Ported_To_Attacker_SIM -> SMS_OTP_Intercepted -> Bank_Drained"
+    codeExample: "SIM_Swap_Attack: Fake_KYC_At_Store → Number_Ported_To_Attacker_SIM → SMS_OTP_Intercepted → Bank_Drained"
   },
   {
     question: "What is the cost in Indian Rupees (₹) for an Enterprise Digital Forensics & Incident Response (DFIR) Retainer?",
@@ -64,7 +64,7 @@ const questions = [
     explanation: "If the cryptographic hash of a seized hard drive in Jadavpur changes during analysis, the entire evidence is rendered inadmissible in court.",
     hint: "Documenting every person who touched digital evidence and using hashes to prove it was never modified.",
     level: "expert",
-    codeExample: "ChainOfCustody: ForensicImage(HDD) -> SHA256_Hash('8F3A...11') -> LoggedInEvidenceLocker -> VerifiedInCourt"
+    codeExample: "ChainOfCustody: ForensicImage(HDD) → SHA256_Hash('8F3A...11') → LoggedInEvidenceLocker → VerifiedInCourt"
   },
   {
     question: "What is UPI QR Code Swapping / Reverse QR Code Fraud?",
@@ -88,7 +88,7 @@ const questions = [
     explanation: "Enforced by Google Play bans and police cyber cells blocking unauthorized lending APKs in Kolkata.",
     hint: "Fake loan apps that steal your contact list and photos to blackmail you with morphed pictures.",
     level: "basic",
-    codeExample: "PredatoryAppRisk: App requests 'READ_CONTACTS' & 'READ_MEDIA' -> Used for Blackmail Extortion"
+    codeExample: "PredatoryAppRisk: App requests 'READ_CONTACTS' & 'READ_MEDIA' → Used for Blackmail Extortion"
   },
   {
     question: "What is Ransomware Double Extortion vs Triple Extortion in corporate cybercrime?",
@@ -96,7 +96,7 @@ const questions = [
     explanation: "Forces corporate victims in Barrackpore to pay even if they possess clean offline backups.",
     hint: "Double extortion threatens to leak stolen data; Triple extortion adds DDoS attacks and customer harassment.",
     level: "moderate",
-    codeExample: "ExtortionModel: EncryptLocalDisks() -> ExfiltrateData() -> ThreatenLeakSite() -> LaunchDDoS()"
+    codeExample: "ExtortionModel: EncryptLocalDisks() → ExfiltrateData() → ThreatenLeakSite() → LaunchDDoS()"
   },
   {
     question: "What is Cyberstalking and Online Harassment under Indian Law?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Using tools like Volatility and LiME in Jadavpur to extract in-memory Cobalt Strike beacons.",
     hint: "Copying live computer RAM before shutting down to find running malware and hidden passwords.",
     level: "expert",
-    codeExample: "RAM_Forensics: DumpRAM(LiveHost) -> Volatility.analyze('windows.pslist', 'windows.malfind') -> ExtractsPayload"
+    codeExample: "RAM_Forensics: DumpRAM(LiveHost) → Volatility.analyze('windows.pslist', 'windows.malfind') → ExtractsPayload"
   },
   {
     question: "What is Money Muling and Mule Account Networks in cyber financial fraud?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Police cyber crime units in Kolkata track and freeze entire multi-hop mule account chains using CFCFRMS.",
     hint: "Using innocent or paid people's bank accounts to pass and hide stolen money through multiple banks.",
     level: "moderate",
-    codeExample: "MuleNetwork: VictimAccount -> MuleBank_1 (Kolkata) -> MuleBank_2 (Mumbai) -> ATM_CashOut"
+    codeExample: "MuleNetwork: VictimAccount → MuleBank_1 (Kolkata) → MuleBank_2 (Mumbai) → ATM_CashOut"
   },
   {
     question: "What is Romance Scamming / Matrimonial Cyber Fraud?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "Targets emotional vulnerability; accounts for tens of crores in fraudulent losses annually across India.",
     hint: "Fake romantic profiles on matrimonial apps creating emergencies to trick victims into wiring money.",
     level: "basic",
-    codeExample: "RomanceScam: FakeProfile -> BuildsRomanticTrust -> 'Customs parcel stuck at airport' -> Demands ₹2,50,000"
+    codeExample: "RomanceScam: FakeProfile → BuildsRomanticTrust → 'Customs parcel stuck at airport' → Demands ₹2,50,000"
   },
   {
     question: "What is Crypto-Jacking (Malicious Cryptocurrency Mining)?",
@@ -136,7 +136,7 @@ const questions = [
     explanation: "Detected by security monitoring platforms in Barrackpore flagging sustained 100% CPU spikes.",
     hint: "Hackers secretly using your computer or cloud server's CPU power to mine cryptocurrency for free.",
     level: "basic",
-    codeExample: "CryptoJacking: WebScript invokes WebAssembly Monero Miner -> CPU usage spikes to 100% -> Device overheats"
+    codeExample: "CryptoJacking: WebScript invokes WebAssembly Monero Miner → CPU usage spikes to 100% → Device overheats"
   },
   {
     question: "What is Card Skimming (Physical POS Skimming vs Web Magecart)?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Police cyber cells advise victims never to pay extortion money, block numbers, and report immediately on cybercrime.gov.in.",
     hint: "Recording compromising video calls and threatening to send them to family unless money is paid.",
     level: "basic",
-    codeExample: "Sextortion_Protocol: Never pay ransom -> Block blackmailer -> Save screenshots -> Report on cybercrime.gov.in"
+    codeExample: "Sextortion_Protocol: Never pay ransom → Block blackmailer → Save screenshots → Report on cybercrime.gov.in"
   },
   {
     question: "What is Live Forensic Triage vs Dead Box Forensic Acquisition?",
@@ -160,7 +160,7 @@ const questions = [
     explanation: "Ensures evidence preservation without modifying timestamps on suspect systems in Jadavpur.",
     hint: "Live triage captures RAM while running; Dead box clones the hard drive with write blockers when turned off.",
     level: "expert",
-    codeExample: "DeadBoxForensics: ConnectHardDriveViaHardwareWriteBlocker() -> dd if=/dev/sdb of=suspect_disk.raw"
+    codeExample: "DeadBoxForensics: ConnectHardDriveViaHardwareWriteBlocker() → dd if=/dev/sdb of=suspect_disk.raw"
   },
   {
     question: "What is Section 67 and Section 67A of the IT Act 2000 regarding Obscene and Explicit Content?",
@@ -192,7 +192,7 @@ const questions = [
     explanation: "Accounts for hundreds of crores in financial losses among students and job seekers across West Bengal.",
     hint: "Scams offering easy money for liking videos, which turn into fake investment schemes stealing lakhs.",
     level: "basic",
-    codeExample: "TaskScamFlow: Like 3 Videos -> Earn ₹150 -> 'Upgrade to VIP Task' -> Invest ₹50,000 -> Funds Stolen"
+    codeExample: "TaskScamFlow: Like 3 Videos → Earn ₹150 → 'Upgrade to VIP Task' → Invest ₹50,000 → Funds Stolen"
   },
   {
     question: "What is Automated Anti-Phishing Domain Takedown Service?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Difficult to detect because traditional fraud filters see valid Aadhaar numbers paired with clean credit histories.",
     hint: "Combining real Aadhaar numbers with fake names to create hybrid fake people for bank loan fraud.",
     level: "expert",
-    codeExample: "SyntheticIdentity = Real_Aadhaar_ID + Fake_Name + Fabricated_Address -> Creates_Fraudulent_Bank_Account"
+    codeExample: "SyntheticIdentity = Real_Aadhaar_ID + Fake_Name + Fabricated_Address → Creates_Fraudulent_Bank_Account"
   },
   {
     question: "What is Deepfake Video Call Fraud in executive cybercrime?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "Defended by establishing out-of-band verification challenge phrases and multi-person authorization in Kolkata.",
     hint: "Using AI to change your face and voice live on a video call to impersonate a company CEO.",
     level: "expert",
-    codeExample: "DeepfakeDefense: OutOfBandCall() + SharedSecretChallengePhrase() -> Prevents_AI_Impersonation_Fraud"
+    codeExample: "DeepfakeDefense: OutOfBandCall() + SharedSecretChallengePhrase() → Prevents_AI_Impersonation_Fraud"
   },
   {
     question: "How do Police Cyber Cells track stolen financial fraud funds across multiple bank layers?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "Helps recover stolen funds for victims in Barrackpore before criminals can withdraw cash at ATMs.",
     hint: "Police software tracking stolen money across multiple bank hops to freeze all accounts within minutes.",
     level: "moderate",
-    codeExample: "I4C_Tracking: Trace_TXN(Ref_ID) -> MapHops(Bank_A -> Bank_B -> Bank_C) -> IssueAPI_DebitFreeze();"
+    codeExample: "I4C_Tracking: Trace_TXN(Ref_ID) → MapHops(Bank_A → Bank_B → Bank_C) → IssueAPI_DebitFreeze();"
   },
   {
     question: "What is the ultimate golden rule for combating, investigating, and reporting Cyber Crime?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures emergency victim response, rigorous forensic evidence preservation, statutory legal prosecution, and financial budgeting.",
     hint: "Dial 1930 in Golden Hour + Preserve hash chain of custody + Prosecute under IT Act + Budget in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: Report1930GoldenHour() -> PreserveHashChainOfCustody() -> ProsecuteUnderITAct() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: Report1930GoldenHour() → PreserveHashChainOfCustody() → ProsecuteUnderITAct() → BudgetInRupees(₹);"
   }
 ];
 

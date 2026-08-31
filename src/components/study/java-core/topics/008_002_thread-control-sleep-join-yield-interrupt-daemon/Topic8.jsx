@@ -21,7 +21,7 @@ export default function Topic8() {
             User vs Daemon
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">User Threads</code> vs <code className="text-purple-400 font-mono">Daemon Threads</code>: Foreground vs Background Roles
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

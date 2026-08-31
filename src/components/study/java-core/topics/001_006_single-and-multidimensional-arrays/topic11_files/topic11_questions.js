@@ -139,7 +139,7 @@ const questions = [
     explanation: "Comparator-based binary search.",
     hint: "Yes, using overloaded Arrays.binarySearch(arr, key, comparator).",
     level: "intermediate",
-    codeExample: "Arrays.binarySearch(students, target, (a,b) -> a.name.compareTo(b.name));"
+    codeExample: "Arrays.binarySearch(students, target, (a,b) → a.name.compareTo(b.name));"
   },
   {
     question: "What is 'Ternary Search' in array algorithms?",

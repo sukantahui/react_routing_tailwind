@@ -124,7 +124,7 @@ const Topic8 = () => {
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4">
             Linear Search in Unsorted Arrays
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -523,7 +523,7 @@ const qaData = [
   },
   {
     question: "How does linear search work with generics?",
-    answer: "Define method with <T> type parameter. Use equals() for comparison since T extends Object. Works with any reference type."
+    answer: "Define method with &lt;T&gt; type parameter. Use equals() for comparison since T extends Object. Works with any reference type."
   },
   {
     question: "Why is linear search called 'sequential search'?",

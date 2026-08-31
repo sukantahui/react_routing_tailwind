@@ -128,7 +128,7 @@ const Topic9 = () => {
       title: '3. Supermarket FMCG Tie-Breaker Presentation (Susmita)',
       lead: 'Susmita (Regional Distribution Coordinator)',
       desc: 'Summarized the 3-tier tie-breaking protocol under corporate executive review, showing how Tier 1 and Tier 2 protect company budgets.',
-      vivaTip: 'Memorize the 3 tiers: Tier 1 (min unit cost) -> Tier 2 (max allocation volume) -> Tier 3 (arbitrary).',
+      vivaTip: 'Memorize the 3 tiers: Tier 1 (min unit cost) → Tier 2 (max allocation volume) → Tier 3 (arbitrary).',
     },
     {
       title: '4. Educational Press Optimality Verification (Abhronila)',
@@ -168,7 +168,7 @@ const Topic9 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Short Questions & Rapid Revision
           </h1>
 

@@ -12,10 +12,10 @@ PRIMARY CONCEPT:
 Securing financial models from accidental tampering: unlocking user input cells, locking calculation formulas, cloaking proprietary formula code, and setting password protection
 
 TEACHER'S ADVICE:
-The Golden 2-Step for model protection: 1. Press F5 -> Special -> Formulas -> Ctrl+1 -> check 'Locked' and 'Hidden'. 2. Review -> Protect Sheet. Now your formulas are tamper-proof and invisible in the formula bar!
+The Golden 2-Step for model protection: 1. Press F5 → Special → Formulas → Ctrl+1 → check 'Locked' and 'Hidden'. 2. Review → Protect Sheet. Now your formulas are tamper-proof and invisible in the formula bar!
 
 COMMON TRAPS TO AVOID:
-- Protecting Sheet Without Unlocking Input Cells First: Clicking 'Protect Sheet' immediately locks the ENTIRE sheet, preventing users from typing anywhere. -> Fix: Always unlock input cells FIRST (Ctrl + 1 > Protection > uncheck Locked) before protecting sheet.
-- Protect Sheet Does Not Secure Against Malicious Hackers: Standard Excel worksheet passwords can be bypassed using simple VBA scripts or ZIP file XML editing. -> Fix: Use worksheet protection for accidental error prevention; use File > Protect Workbook > Encrypt with Password for true cryptographic security.
-- Disabling AutoFilter & Sort During Protection: Users complain they cannot sort tables or use filter dropdowns on protected sheets. -> Fix: In the Protect Sheet dialog, explicitly CHECK the boxes: 'Sort', 'Use AutoFilter', and 'Format cells'.
+- Protecting Sheet Without Unlocking Input Cells First: Clicking 'Protect Sheet' immediately locks the ENTIRE sheet, preventing users from typing anywhere. → Fix: Always unlock input cells FIRST (Ctrl + 1 > Protection > uncheck Locked) before protecting sheet.
+- Protect Sheet Does Not Secure Against Malicious Hackers: Standard Excel worksheet passwords can be bypassed using simple VBA scripts or ZIP file XML editing. → Fix: Use worksheet protection for accidental error prevention; use File > Protect Workbook > Encrypt with Password for true cryptographic security.
+- Disabling AutoFilter & Sort During Protection: Users complain they cannot sort tables or use filter dropdowns on protected sheets. → Fix: In the Protect Sheet dialog, explicitly CHECK the boxes: 'Sort', 'Use AutoFilter', and 'Format cells'.
 ================================================================================

@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Python is now a native formula inside Excel! Just type `=PY` and press Tab. You can write real Python code, use pandas DataFrames, and run machine learning without installing Python on your computer.
 
 COMMON TRAPS TO AVOID:
-- Attempting to Connect to Internet / External APIs (Security Sandbox): Calling `requests.get()` or socket connections inside Python in Excel fails because Azure containers have zero outbound internet access. -> Fix: Ingest external web data via Power Query first, then pass the table into Python via `xl()`.
-- Attempting to Install Custom Pip Packages: Running `!pip install my_package` is not supported in the locked Anaconda sandbox. -> Fix: Use the extensive built-in Anaconda data science library suite.
-- Saving Files to Local Disk from Python: Calling `df.to_csv("C:\data.csv")` fails in cloud containers. -> Fix: Output results directly to worksheet cells as Excel Values.
+- Attempting to Connect to Internet / External APIs (Security Sandbox): Calling `requests.get()` or socket connections inside Python in Excel fails because Azure containers have zero outbound internet access. → Fix: Ingest external web data via Power Query first, then pass the table into Python via `xl()`.
+- Attempting to Install Custom Pip Packages: Running `!pip install my_package` is not supported in the locked Anaconda sandbox. → Fix: Use the extensive built-in Anaconda data science library suite.
+- Saving Files to Local Disk from Python: Calling `df.to_csv("C:\data.csv")` fails in cloud containers. → Fix: Output results directly to worksheet cells as Excel Values.
 ================================================================================

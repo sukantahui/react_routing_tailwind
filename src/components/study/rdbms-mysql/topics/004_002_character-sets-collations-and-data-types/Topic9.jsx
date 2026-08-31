@@ -181,7 +181,7 @@ SELECT JSON_MERGE_PRESERVE(
               JSON Function Suite
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             JSON Functions: JSON_EXTRACT, JSON_ARRAY, JSON_OBJECT, JSON_SET, JSON_INSERT, JSON_REPLACE, JSON_REMOVE, JSON_CONTAINS
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

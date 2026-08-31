@@ -5,7 +5,7 @@ const questions = [
     question: "What is the complete 4-level physical storage hierarchy in InnoDB?",
     shortAnswer: "1) **Tablespace** (`.ibd`), 2) **Segments** (Leaf/Data and Non-Leaf/Index), 3) **Extents** (64 contiguous pages = 1 MB), and 4) **Pages** (16 KB atomic blocks).",
     explanation: "This structured hierarchy organizes B+ trees on physical disk media.",
-    hint: "Tablespace &rarr; Segment &rarr; Extent &rarr; Page &rarr; Row.",
+    hint: "Tablespace → Segment → Extent → Page → Row.",
     level: "basic"
   },
   {
@@ -206,7 +206,7 @@ const questions = [
   },
   {
     question: "What is the primary architectural takeaway of Topic 8 in Module 004_001?",
-    shortAnswer: "InnoDB's physical storage layout (Tablespace &rarr; Segment &rarr; Extent &rarr; Page) combined with the 7-part anatomy of a 16KB Page (File Header, Page Header, Records, Page Directory, Trailer) enables ultra-fast $O(\\log N)$ B+ tree traversal, in-page binary search, and high-density sequential I/O allocation.",
+    shortAnswer: "InnoDB's physical storage layout (Tablespace → Segment → Extent → Page) combined with the 7-part anatomy of a 16KB Page (File Header, Page Header, Records, Page Directory, Trailer) enables ultra-fast $O(\\log N)$ B+ tree traversal, in-page binary search, and high-density sequential I/O allocation.",
     explanation: "Understanding physical page anatomy is the key to designing optimal primary keys and index strategies.",
     hint: "Mastering the physical 16KB page layout and B+ tree storage hierarchy.",
     level: "basic"

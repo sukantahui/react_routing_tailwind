@@ -23,7 +23,7 @@ The industry-standard code editor. Essential extensions for JavaScript beginners
 
 2. Chrome DevTools Console:
 Your immediate testing ground inside the browser:
-- Press F12 (or Right-Click -> Inspect -> Click 'Console').
+- Press F12 (or Right-Click → Inspect → Click 'Console').
 - You can type single lines of JavaScript and press Enter to see instant results.
 - Errors appear in red with exact line numbers pointing to the problem.
 

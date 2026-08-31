@@ -5,7 +5,7 @@ const topic13_questions = [
     explanation: "Always use static type compare methods for Comparator lambdas.",
     hint: "Prevents catastrophic integer overflow/underflow bugs caused by subtraction.",
     level: "Advanced",
-    codeExample: "(a, b) -> Integer.compare(a, b); // Overflow-safe sorting comparator"
+    codeExample: "(a, b) → Integer.compare(a, b); // Overflow-safe sorting comparator"
   }
 ];
 

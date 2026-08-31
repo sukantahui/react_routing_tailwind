@@ -110,9 +110,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Payoff Concept in Game Theory?",
     shortAnswer: "'Payoffs quantify the net reward of joint strategic choices in Indian Rupees (₹); zero-sum games conserve total wealth (u_A + u_B = 0); expected payoffs for mixed strategies equal p^T A q; always evaluate outcomes from the perspectives of both players!'",
     explanation: "This complete rule captures all core payoff principles.",
-    hint: "Payoffs quantify joint choices -> Zero-sum u_A + u_B = 0 -> Expected payoff p^T A q in ₹.",
+    hint: "Payoffs quantify joint choices → Zero-sum u_A + u_B = 0 → Expected payoff p^T A q in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: QuantifyPayoffs(₹) -> EnforceZeroSum() -> ComputeExpectedValue(p^T * A * q)."
+    codeExample: "GoldenRule: QuantifyPayoffs(₹) → EnforceZeroSum() → ComputeExpectedValue(p^T * A * q)."
   }
 ];
 

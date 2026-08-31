@@ -156,7 +156,7 @@ export default function ExcelProjectAnswerTemplateEnhanced({ data }) {
   const [onlyCompleted, setOnlyCompleted] = useState(false);
   const [showFunctionsModal, setShowFunctionsModal] = useState(false);
 
-  // Expanded answers state: map of projectId -> boolean
+  // Expanded answers state: map of projectId → boolean
   const [visibleAnswers, setVisibleAnswers] = useState({});
 
   // LocalStorage state for progress
@@ -345,7 +345,7 @@ export default function ExcelProjectAnswerTemplateEnhanced({ data }) {
 
           {/* Main Title & Description */}
           <div>
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-teal-200 tracking-tight">
+            <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-100 to-teal-200 tracking-tight">
               {projectCategory}
             </h1>
             <p className="mt-2 text-sm sm:text-base text-slate-300 max-w-4xl leading-relaxed">

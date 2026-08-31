@@ -21,7 +21,7 @@ export default function Topic11() {
             Operators
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Specialized Operators: <code className="text-emerald-400 font-mono">UnaryOperator&lt;T&gt;</code> &amp; <code className="text-sky-400 font-mono">BinaryOperator&lt;T&gt;</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic11() {
       </section>
 
       <Teacher
-        note="Whenever your input type and output type are identical (e.g. String -> String or (int, int) -> int), don't write verbose 'Function<String, String>' or 'BiFunction<Integer, Integer, Integer>'! Use 'UnaryOperator<String>' or 'BinaryOperator<Integer>' for cleaner, professional code! — Sukanta Hui"
+        note="Whenever your input type and output type are identical (e.g. String → String or (int, int) → int), don't write verbose 'Function<String, String>' or 'BiFunction<Integer, Integer, Integer>'! Use 'UnaryOperator<String>' or 'BinaryOperator<Integer>' for cleaner, professional code! — Sukanta Hui"
       />
     </div>
   );

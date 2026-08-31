@@ -27,7 +27,7 @@ PARTITION BY RANGE (YEAR(order_date)) (
     explanation: "Partitioning divides massive multi-gigabyte tables into manageable smaller chunks that fit inside memory buffers.",
     hint: "Massive tables (>10GB/50M+ rows) where index lookups and deletions exhaust memory and disk I/O.",
     level: "basic",
-    codeExample: `-- Monolithic 500M-row table -> Index lookups cause buffer pool thrashing & random I/O.`
+    codeExample: `-- Monolithic 500M-row table → Index lookups cause buffer pool thrashing & random I/O.`
   },
   {
     question: "What is 'Partition Pruning' and why is it the primary performance advantage of table partitioning?",

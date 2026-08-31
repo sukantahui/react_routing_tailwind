@@ -129,7 +129,7 @@ const Topic29 = () => {
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Introduction to the useEffect Hook
           </h1>
           
@@ -379,7 +379,7 @@ useEffect(() => {
                 
                 <div className="flex items-center space-x-6">
                   <div className="text-center">
-                    <div className="text-5xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                    <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                       {counter}
                     </div>
                     <button
@@ -429,7 +429,7 @@ useEffect(() => {
                 </p>
                 
                 <div className="text-center p-6 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl">
-                  <div className="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
                     {windowWidth}px
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">

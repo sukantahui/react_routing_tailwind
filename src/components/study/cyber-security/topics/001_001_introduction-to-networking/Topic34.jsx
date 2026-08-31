@@ -30,7 +30,7 @@ const Topic34 = () => {
       payloadSize: '1500 Bytes (20B IP + 20B TCP + 1460B Data)',
       fcsCrc: '0x7F8E12A4 (32-Bit CRC Checksum Valid)',
       desc: 'Standard Ethernet frame transmitted across office access switches in Barrackpore.',
-      switchAction: 'Switch reads Dest MAC 00:1A:2B:3C:4D:5E -> Looks up CAM Table -> Forwards out GigabitEthernet0/1.',
+      switchAction: 'Switch reads Dest MAC 00:1A:2B:3C:4D:5E → Looks up CAM Table → Forwards out GigabitEthernet0/1.',
     },
     {
       id: 'vlan-tagged',
@@ -44,7 +44,7 @@ const Topic34 = () => {
       payloadSize: '1500 Bytes (Protected Patient Record)',
       fcsCrc: '0x3D9B55C2 (CRC Validated across Tagged Frame)',
       desc: 'Multiplexed trunk frame carrying isolated hospital VLAN 20 traffic across Kolkata fiber backbone.',
-      switchAction: 'Trunk port ingests frame -> Preserves VLAN 20 tag -> Forwards across inter-building optical fiber trunk.',
+      switchAction: 'Trunk port ingests frame → Preserves VLAN 20 tag → Forwards across inter-building optical fiber trunk.',
     },
     {
       id: 'arp-broadcast',
@@ -58,7 +58,7 @@ const Topic34 = () => {
       payloadSize: '28 Bytes ARP Payload + 18 Bytes Padding = 46B Payload',
       fcsCrc: '0x12FA90B1 (CRC Validated)',
       desc: 'Broadcast request asking for the MAC address of 192.168.1.1, padded to reach the 64-byte minimum size.',
-      switchAction: 'Switch receives broadcast on Port 4 -> Copies and floods frame to Ports 1, 2, 3, 5, 6 on VLAN 10.',
+      switchAction: 'Switch receives broadcast on Port 4 → Copies and floods frame to Ports 1, 2, 3, 5, 6 on VLAN 10.',
     },
     {
       id: 'malformed-runt',
@@ -72,7 +72,7 @@ const Topic34 = () => {
       payloadSize: '16 Bytes (Fragmented during transmission)',
       fcsCrc: '0xBAD00000 (CRC-32 Checksum Failed)',
       desc: 'Corrupted fragment produced by a half-duplex cable collision or damaged RJ-45 connector.',
-      switchAction: 'Switch ASIC detects frame size under 64 bytes and invalid FCS -> Drops frame silently; increments Runt counter.',
+      switchAction: 'Switch ASIC detects frame size under 64 bytes and invalid FCS → Drops frame silently; increments Runt counter.',
     },
   ];
 
@@ -167,7 +167,7 @@ const Topic34 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Frame
           </h1>
 

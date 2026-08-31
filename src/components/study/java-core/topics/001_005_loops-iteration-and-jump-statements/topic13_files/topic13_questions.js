@@ -142,12 +142,12 @@ const questions = [
     codeExample: "for (int i=1; i<=4; i++) { if (i==2 || i==3) continue; print(i); }"
   },
   {
-    question: "Can `continue` be used in a lambda expression inside a loop (`list.forEach(x -> { continue; });`)?",
+    question: "Can `continue` be used in a lambda expression inside a loop (`list.forEach(x → { continue; });`)?",
     shortAnswer: "No! Using `continue` inside a lambda causes a compile-time error (`continue outside of loop`). To skip an element in a lambda, use `return;` instead.",
     explanation: "Lambda bodies are distinct method invocations.",
     hint: "Compile error in lambdas; use return; in lambdas to skip items.",
     level: "intermediate",
-    codeExample: "// list.forEach(x -> { if (x < 0) return; /* 'return' acts like continue in lambdas */ });"
+    codeExample: "// list.forEach(x → { if (x < 0) return; /* 'return' acts like continue in lambdas */ });"
   },
   {
     question: "Why is `continue` often preferred over deep `if (!condition) { ... }` blocks?",
@@ -171,7 +171,7 @@ const questions = [
     explanation: "Declarative functional equivalent.",
     hint: "Equivalent to Stream .filter(predicate).",
     level: "intermediate",
-    codeExample: "list.stream().filter(s -> !s.isExempt()).forEach(this::process);"
+    codeExample: "list.stream().filter(s → !s.isExempt()).forEach(this::process);"
   },
   {
     question: "What happens if `continue` is used in a `do-while` loop?",

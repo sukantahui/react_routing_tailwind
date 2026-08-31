@@ -63,7 +63,7 @@ const Topic1 = () => {
               Java Generics Series • Topic 2
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight">
               Why Java Needed Generics
             </h1>
             
@@ -679,7 +679,7 @@ public class StudentManagerWithGenerics {
     
     public static void main(String[] args) {
         // Type-safe list - compiler enforces String only
-        List<String> studentNames = new ArrayList<>();
+        List<String> studentNames = new ArrayList&lt;&gt;();
         
         // Adding student names
         studentNames.add("Swadeep");
@@ -696,7 +696,7 @@ public class StudentManagerWithGenerics {
         }
         
         // Example with custom types
-        List<Student> ichapurStudents = new ArrayList<>();
+        List<Student> ichapurStudents = new ArrayList&lt;&gt;();
         ichapurStudents.add(new Student("Raj", 22));
         ichapurStudents.add(new Student("Mita", 21));
         
@@ -772,7 +772,7 @@ public class StudentManagerWithGenerics {
                     <div className="flex justify-between items-center p-2 bg-red-50 dark:bg-red-900/30 rounded">
                       <span className="text-red-700 dark:text-red-300">Before: Object[] items</span>
                       <span className="text-red-500">→</span>
-                      <span className="text-green-700 dark:text-green-300">{`After: List<T>`}</span>
+                      <span className="text-green-700 dark:text-green-300">{`After: List&lt;T&gt;`}</span>
                     </div>
                     <div className="flex justify-between items-center p-2 bg-red-50 dark:bg-red-900/30 rounded">
                       <span className="text-red-700 dark:text-red-300">Before: (String) items.get(i)</span>
@@ -878,8 +878,8 @@ public class ModernStudentSystem {
     }
     
     // Additional benefit: Generic methods
-    public <T> List<T> filterStudents(List<T> students, Filter<T> filter) {
-        List<T> result = new ArrayList<>();
+    public &lt;T&gt; List&lt;T&gt; filterStudents(List&lt;T&gt; students, Filter&lt;T&gt; filter) {
+        List&lt;T&gt; result = new ArrayList&lt;&gt;();
         for (T student : students) {
             if (filter.accept(student)) {
                 result.add(student);

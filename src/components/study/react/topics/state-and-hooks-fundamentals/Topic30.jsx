@@ -195,7 +195,7 @@ const Topic30 = () => {
         <header className="mb-8 md:mb-12 text-center animate-[fadeIn_0.8s_ease-out]">
           <div className="inline-flex items-center gap-3 mb-4 px-4 py-2 bg-gradient-to-r from-red-500 to-orange-600 rounded-full text-white">
             <span className="text-xl">⚡</span>
-            <h1 className="text-2xl md:text-4xl font-bold">
+            <h1 className="text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold">
               Understanding Side Effects in React
             </h1>
           </div>
@@ -332,7 +332,7 @@ const Topic30 = () => {
                           <div className="inline-block relative">
                             <div className="w-48 h-48 rounded-full border-8 border-blue-200 dark:border-blue-800 flex items-center justify-center">
                               <div className="text-center">
-                                <span className="text-5xl font-bold text-blue-600 dark:text-blue-400">{timerCount}</span>
+                                <span className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400">{timerCount}</span>
                                 <p className="text-blue-500 dark:text-blue-400 mt-2">seconds</p>
                               </div>
                             </div>

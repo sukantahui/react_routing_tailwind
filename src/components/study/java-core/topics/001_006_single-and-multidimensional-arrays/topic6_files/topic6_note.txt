@@ -8,9 +8,9 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. CORE CONCEPTS & RULES
 --------------------------------------------------------------------------------
 - The Three Length / Size Conventions in Java:
-  1. Arrays       : public final int length  -> arr.length      (FIELD property!)
-  2. String       : public int length()      -> str.length()    (METHOD call!)
-  3. Collections  : public int size()        -> list.size()     (METHOD call!)
+  1. Arrays       : public final int length  → arr.length      (FIELD property!)
+  2. String       : public int length()      → str.length()    (METHOD call!)
+  3. Collections  : public int size()        → list.size()     (METHOD call!)
 
 - JVM Internal Storage:
   * 'length' is physically stored as a 4-byte integer in the 16-byte object header.

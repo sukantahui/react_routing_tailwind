@@ -30,7 +30,7 @@ Formula Code: =TEXTJOIN(delimiter, ignore_empty, text1, [text2], ...) | =CONCAT(
 • Abhronila Das (Quality Assessor, Ichapur Works):
   Defect Code String Aggregation - Merges active fault codes from inspection checklists into comma-separated batch tags.
 • Debangshu Roy (Fleet Controller, Naihati Logistics):
-  Driver Route Itinerary Builder - Constructs waypoint route sequences (e.g. 'Barrackpore -> Shyamnagar -> Naihati') via =TEXTJOIN(" -> ", TRUE, C2:G2).
+  Driver Route Itinerary Builder - Constructs waypoint route sequences (e.g. 'Barrackpore → Shyamnagar → Naihati') via =TEXTJOIN(" → ", TRUE, C2:G2).
 
 5. TROUBLESHOOTING & COMMON ERRORS
 • Missing Line Break Wrap Text:

@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Creating, Saving, AutoRecover, and File Formats: .xlsx, .xlsm, .xlsb, and .csv Architecture
           </h1>
 
@@ -169,7 +169,7 @@ export default function Topic4() {
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>The default .xlsx format is an ISO/IEC 29500 OpenXML ZIP archive containing separate XML files for workbook structure, sheets, shared strings, and formatting styles.</p>
             <p>The .xlsb (Binary) format stores cell records in direct binary tokens rather than human-readable XML. This drastically reduces parsing overhead, making it ideal for 50MB+ financial workbooks.</p>
-            <p>AutoRecover saves shadow backup files every 10 minutes (configurable in Options &amp;rarr; Save). AutoSave enables real-time sub-second cloud synchronization when saving to OneDrive/SharePoint.</p>
+            <p>AutoRecover saves shadow backup files every 10 minutes (configurable in Options → Save). AutoSave enables real-time sub-second cloud synchronization when saving to OneDrive/SharePoint.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -414,7 +414,7 @@ export default function Topic4() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">KS-112</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Siliguri Tea Paste Special Values</td>
                   <td className="py-2.5 px-3 text-sky-300">Paste Values Dialog</td>
-                  <td className="py-2.5 px-3 text-amber-300">Ctrl + Alt + V $\rightarrow$ V</td>
+                  <td className="py-2.5 px-3 text-amber-300">Ctrl + Alt + V → V</td>
                   <td className="py-2.5 px-3 text-emerald-400">Values Only Pasted</td>
                   <td className="py-2.5 px-3 text-slate-300">Freezes live formulas into hardcoded numerical constants.</td>
                 </tr>
@@ -674,7 +674,7 @@ export default function Topic4() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note="Never save VBA workbooks as .xlsx! Always use .xlsm for macros and .xlsb for heavy 100,000+ row data models. Configure your Excel AutoRecover interval to 3 minutes in Options &rarr; Save for complete peace of mind."
+            note="Never save VBA workbooks as .xlsx! Always use .xlsm for macros and .xlsb for heavy 100,000+ row data models. Configure your Excel AutoRecover interval to 3 minutes in Options → Save for complete peace of mind."
           />
         </div>
       </div>

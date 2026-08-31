@@ -173,7 +173,7 @@ VALUES ('Mamata Banerjee', 12500.00);
               Temporal Data Types
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Temporal Types Deep Dive: DATE, TIME, DATETIME vs TIMESTAMP (Timezone Conversions &amp; Limits)
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -302,7 +302,7 @@ VALUES ('Mamata Banerjee', 12500.00);
                 <text x="520" y="140" fill="#94a3b8" fontSize="8">Application local time</text>
 
                 <rect x="510" y="160" width="400" height="45" rx="4" fill="#1e293b" stroke="#d97706" />
-                <text x="520" y="180" fill="#fde68a" fontSize="10" fontWeight="bold">Storage: Converts to UTC &rarr; '2026-08-25 04:30:00'</text>
+                <text x="520" y="180" fill="#fde68a" fontSize="10" fontWeight="bold">Storage: Converts to UTC → '2026-08-25 04:30:00'</text>
                 <text x="520" y="195" fill="#94a3b8" fontSize="8">Stores 32-bit seconds since 1970 Unix Epoch</text>
 
                 <rect x="510" y="215" width="400" height="65" rx="4" fill="#1e293b" stroke="#be123c" />

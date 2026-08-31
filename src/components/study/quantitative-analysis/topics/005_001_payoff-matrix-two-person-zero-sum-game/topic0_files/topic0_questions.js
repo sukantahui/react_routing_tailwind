@@ -118,9 +118,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Introduction to Game Theory?",
     shortAnswer: "'Game Theory models interdependent strategic decisions between rational players; zero-sum games enforce Gain + Loss = 0; games are represented in Normal Form matrices with payoffs in Indian Rupees (₹); always anticipate the opponent's rational counter-strategy!'",
     explanation: "This complete rule captures all foundational principles of Game Theory.",
-    hint: "Interdependent strategy -> Zero-sum conservation -> Normal form matrix in ₹ -> Anticipate rational opponents.",
+    hint: "Interdependent strategy → Zero-sum conservation → Normal form matrix in ₹ → Anticipate rational opponents.",
     level: "moderate",
-    codeExample: "GoldenRule: RationalPlayers() -> InterdependentPayoffs(₹) -> NormalForm() -> MinimaxOptimization()."
+    codeExample: "GoldenRule: RationalPlayers() → InterdependentPayoffs(₹) → NormalForm() → MinimaxOptimization()."
   }
 ];
 

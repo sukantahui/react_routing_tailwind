@@ -53,13 +53,13 @@ CASE 2: ALTERNATIVE (MULTIPLE) OPTIMAL SOLUTIONS
 --------------------------------------------------------------------------------
 At the conclusion of Step 4 in every MODI iteration:
 • IF all d_ij >= 0:
-    --> STOP ALGORITHM IMMEDIATELY!
-    --> Certify the solution as Globally Optimal.
-    --> Report final minimum cost: Z = Sum (c_ij * x_ij) in Indian Rupees (₹).
+    → STOP ALGORITHM IMMEDIATELY!
+    → Certify the solution as Globally Optimal.
+    → Report final minimum cost: Z = Sum (c_ij * x_ij) in Indian Rupees (₹).
 • IF at least one d_ij < 0:
-    --> The solution is SUB-OPTIMAL.
-    --> Select the entering variable: Entering Cell = argmin { d_ij | d_ij < 0 }.
-    --> Proceed to Step 5 (Stepping-Stone Closed Loop Flow Pivot).
+    → The solution is SUB-OPTIMAL.
+    → Select the entering variable: Entering Cell = argmin { d_ij | d_ij < 0 }.
+    → Proceed to Step 5 (Stepping-Stone Closed Loop Flow Pivot).
 
 --------------------------------------------------------------------------------
 4. FOUR REAL-WORLD BENGAL CASE STUDIES

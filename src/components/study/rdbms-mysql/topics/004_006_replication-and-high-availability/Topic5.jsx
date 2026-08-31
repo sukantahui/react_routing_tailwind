@@ -50,7 +50,7 @@ replicate_wild_do_table = 'sales.%'
       sqlSnippet: `-- 💥 STATEMENT FORMAT BUG (binlog_do_db = sales):
 USE inventory;  -- Currently active database is 'inventory'
 UPDATE sales.orders SET status = 'Shipped' WHERE id = 101;
--- -> In STATEMENT mode, this is DROPPED because active DB is inventory!
+-- → In STATEMENT mode, this is DROPPED because active DB is inventory!
 
 -- 🛡️ ROW FORMAT FIX (binlog_format = ROW):
 -- Every row event records the exact schema ('sales') and table ('orders').
@@ -130,7 +130,7 @@ SHOW REPLICA STATUS\\G`,
             Topic 5 of 14
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Configuring <span className="text-emerald-400">Replication Filters</span>: Rules &amp; <span className="text-cyan-400">Wildcards</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

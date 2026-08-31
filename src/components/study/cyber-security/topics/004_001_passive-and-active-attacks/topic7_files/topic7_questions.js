@@ -128,8 +128,8 @@ curl -H "accept: application/dns-json" "https://cloudflare-dns.com/dns-query?nam
     hint: "Changing global highway signs so all traffic from Kolkata to Delhi takes a detour through a checkpoint in another city.",
     level: "expert",
     codeExample: `// BGP MitM Traffic Detour:
-// Legitimate Route : Client -> ISP -> Kolkata Bank (Latency = 12ms)
-// BGP Hijacked Route: Client -> Rogue AS -> MitM Proxy -> Kolkata Bank (Latency = 180ms)`
+// Legitimate Route : Client → ISP → Kolkata Bank (Latency = 12ms)
+// BGP Hijacked Route: Client → Rogue AS → MitM Proxy → Kolkata Bank (Latency = 180ms)`
   },
   {
     question: "How does DHCP Snooping prevent Rogue DHCP Server MitM attacks on local area networks?",
@@ -209,7 +209,7 @@ interface TenGigabitEthernet1/0/1
     level: "expert",
     codeExample: `// TLS 1.3 Anti-Downgrade Finished Message:
 // Finished = HMAC( Handshake_Secret, Transcript-Hash( ClientHello ... ServerHello ) )
-// If MitM altered ClientHello ciphers, Transcript-Hash mismatches -> Connection ABORTS!`
+// If MitM altered ClientHello ciphers, Transcript-Hash mismatches → Connection ABORTS!`
   },
   {
     question: "Synthesize an enterprise-wide Zero Trust Anti-MitM Defense Architecture.",
@@ -321,8 +321,8 @@ mitmproxy --mode transparent --showhost --set block_global=false
     hint: "Passing someone else's security badge to a second door; SMB signing ensures every single word requires the original badge.",
     level: "expert",
     codeExample: `// Group Policy SMB Signing Enforcement:
-// Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> Security Options
-// Policy: "Microsoft network server: Digitally sign communications (always)" -> ENABLED`
+// Computer Configuration → Windows Settings → Security Settings → Local Policies → Security Options
+// Policy: "Microsoft network server: Digitally sign communications (always)" → ENABLED`
   },
   {
     question: "Synthesize the mathematical relationship between Ephemeral ECDH (X25519), Ed25519 Signatures, and Authenticated Key Exchange (SIGMA protocol) in defeating MitM.",
@@ -331,9 +331,9 @@ mitmproxy --mode transparent --showhost --set block_global=false
     hint: "Signing the temporary secret key with your official notary seal proves the secret key really came from you.",
     level: "expert",
     codeExample: `// SIGMA Protocol Authenticated Key Exchange:
-// 1. Alice -> Bob: Ephemeral Public Key g^a
-// 2. Bob -> Alice: Ephemeral Public Key g^b + Ed25519_Sign( g^a || g^b ) + X.509 Certificate
-// 3. Alice verifies signature using trusted CA chain -> Computes shared key g^(ab) with 100% MitM immunity!`
+// 1. Alice → Bob: Ephemeral Public Key g^a
+// 2. Bob → Alice: Ephemeral Public Key g^b + Ed25519_Sign( g^a || g^b ) + X.509 Certificate
+// 3. Alice verifies signature using trusted CA chain → Computes shared key g^(ab) with 100% MitM immunity!`
   }
 ];
 

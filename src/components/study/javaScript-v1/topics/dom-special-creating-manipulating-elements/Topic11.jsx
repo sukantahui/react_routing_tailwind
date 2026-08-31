@@ -13,7 +13,7 @@ export default class Topic11 extends Component {
                     HEADER
                 ============================================================ */}
                 <header className="space-y-3">
-                    <h1 className="text-3xl font-bold text-sky-400">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400">
                         Mini Project — Dynamic List Manager (Add / Edit / Remove Items)
                     </h1>
 
@@ -111,7 +111,7 @@ export default class Topic11 extends Component {
 
                     <EditableCodeBlock
                         language="html"
-                        initialCode={`<!-- HTML -->
+                        initialCode={`<!-- HTML ──→
 <div class="manager">
     <input id="itemInput" placeholder="Enter item..." />
     <button id="addBtn">Add</button>

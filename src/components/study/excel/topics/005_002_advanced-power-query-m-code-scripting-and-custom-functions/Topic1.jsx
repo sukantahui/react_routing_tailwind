@@ -76,7 +76,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Understanding M Data Types: Primitive Types, Lists, Records &amp; In-Memory Tables
           </h1>
 
@@ -150,19 +150,19 @@ export default function Topic1() {
                   <td className="py-3 px-4 font-bold text-teal-400 font-sans">List {'{...}'}</td>
                   <td className="py-3 px-4 text-teal-300">{'{1, 2, 3, "BKP"}'}</td>
                   <td className="py-3 px-4 text-slate-300">MyList{'{0}'} (Zero-based index)</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">{'{1, 2} & {3, 4}'} &rarr; Concatenates lists.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">{'{1, 2} & {3, 4}'} → Concatenates lists.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">Record {'[...]'}</td>
                   <td className="py-3 px-4 text-emerald-300">{'[ID = 101, City = "BKP"]'}</td>
                   <td className="py-3 px-4 text-slate-300">MyRecord[City] (Field lookup)</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">{'[A=1] & [B=2]'} &rarr; Merges fields (Right overrides Left).</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">{'[A=1] & [B=2]'} → Merges fields (Right overrides Left).</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-sky-400 font-sans">Table #table</td>
                   <td className="py-3 px-4 text-sky-300">{'#table({"A", "B"}, {{1, 2}})'}</td>
                   <td className="py-3 px-4 text-slate-300">MyTable{'{0}'}[B] (Cell coordinate)</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Table1 &amp; Table2 &rarr; Table.Combine vertical union.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Table1 &amp; Table2 → Table.Combine vertical union.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-amber-400 font-sans">Function</td>
@@ -386,7 +386,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_M_Data_Types"
+            sheetName="EX2102"
             title="M Data Types & Container Catalog (Data Structure, M Type Category, Literal Syntax Example, Zero-Based Accessor, Enterprise Use Case)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -423,7 +423,7 @@ export default function Topic1() {
                 Financial Analyst <strong>Swadeep Banerjee</strong> prototypes an ERP tax reconciliation module using <code className="text-teal-300 font-mono">#table(type table [ID=Int64.Type, Tax=number], ...)</code> directly in M, testing edge cases without requiring mock Excel files.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                #table Literal &rarr; 100% In-Memory Test Prototyping
+                #table Literal → 100% In-Memory Test Prototyping
               </div>
             </div>
 
@@ -440,7 +440,7 @@ export default function Topic1() {
                 Senior Accountant <strong>Tuhina Mukherjee</strong> bundles corporate tax rates in an M record <code className="text-emerald-300 font-mono">[GST=0.18, TDS=0.02, Cess=0.01]</code>, accessing specific rates via <code className="text-emerald-300 font-mono">Config[GST]</code> dynamically across queries.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Record[Key] &rarr; Clean Global Config Management
+                Record[Key] → Clean Global Config Management
               </div>
             </div>
 
@@ -457,7 +457,7 @@ export default function Topic1() {
                 ERP Lead <strong>Abhronila Sengupta</strong> projects the Vendor ID column as a list <code className="text-indigo-300 font-mono">ApprovedVendors[ID]</code>, using <code className="text-indigo-300 font-mono">List.Contains</code> to filter 250,000 invoices in under 0.8 seconds!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                List.Contains(Table[Col], Val) &rarr; Sub-Second Membership Audit
+                List.Contains(Table[Col], Val) → Sub-Second Membership Audit
               </div>
             </div>
 
@@ -474,7 +474,7 @@ export default function Topic1() {
                 Operations Lead <strong>Debangshu Ghosh</strong> extracts the invoice generation date stored in cell B2 of a messy receipt using <code className="text-fuchsia-300 font-mono">RawSource{'{1}'}[Column2]</code>, storing it as a scalar variable for all child rows.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Table{'{1}'}[Col2] &rarr; Exact Coordinate Value Extraction
+                Table{'{1}'}[Col2] → Exact Coordinate Value Extraction
               </div>
             </div>
           </div>

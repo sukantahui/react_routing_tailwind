@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Column and Bar Charts: Comparing Discrete Categories, Ranking and Variance Analysis
           </h1>
 
@@ -222,7 +222,7 @@ export default function Topic1() {
                   Discrete Categories
                 </span>
               </div>
-              <p className="text-xs text-slate-400">Best when category count is small (&lt;7) and time/categories run left-to-right.</p>
+              <p className="text-xs text-slate-400">Best when category count is small (<7) and time/categories run left-to-right.</p>
               
               {/* SVG VISUAL COLUMN CHART */}
               <div className="p-2 bg-slate-900/90 rounded-lg border border-slate-800/80 flex items-center justify-center">
@@ -391,7 +391,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic1"
+            sheetName="Topic1"
             title="Module 1.4 - Column and Bar Charts: Comparing Discrete Categories, Ranking and Variance Analysis"
             rowsPerPage={25}
             showSheetSelector={true}
@@ -495,7 +495,7 @@ export default function Topic1() {
                   <td className="py-2.5 px-3 text-sky-300">Horizontal Bar</td>
                   <td className="py-2.5 px-3 text-emerald-400">15 Vehicle IDs</td>
                   <td className="py-2.5 px-3 text-purple-300">45% Gap Width</td>
-                  <td className="py-2.5 px-3 text-slate-300">Green fill for &gt;12 km/L; Red for underperforming trucks.</td>
+                  <td className="py-2.5 px-3 text-slate-300">Green fill for >12 km/L; Red for underperforming trucks.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 text-amber-400 font-bold">CB-109</td>
@@ -626,7 +626,7 @@ export default function Topic1() {
               <div>
                 <h3 className="text-sm font-bold text-white">Optimize Gap Width & Remove Clutter</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Right-click columns &rarr; Format Data Series &rarr; Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
+                  Right-click columns → Format Data Series → Set <strong>Gap Width to 75%</strong>. Select horizontal gridlines and press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Delete</kbd>.
                 </p>
               </div>
             </div>
@@ -646,7 +646,7 @@ export default function Topic1() {
               <div>
                 <h3 className="text-sm font-bold text-white">Snap to Grid & Hide Sheet Gridlines</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View &rarr; uncheck Gridlines.
+                  Hold <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-xs">Alt</kbd> while dragging chart corners to snap cleanly to cell borders. Go to View → uncheck Gridlines.
                 </p>
               </div>
             </div>
@@ -681,7 +681,7 @@ export default function Topic1() {
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Bars Overly Thin with Massive Gaps</td>
                   <td className="py-3 px-4 text-slate-300">Default Excel Gap Width is 219%, creating spindly needle-thin bars.</td>
                   <td className="py-3 px-4 text-amber-300">Chart looks empty and fragmented.</td>
-                  <td className="py-3 px-4 text-emerald-400 font-medium">Right-click series &amp;rarr; Format Data Series &amp;rarr; Set Gap Width to 75%.</td>
+                  <td className="py-3 px-4 text-emerald-400 font-medium">Right-click series → Format Data Series → Set Gap Width to 75%.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 text-rose-300 font-mono font-bold">Too Many Clustered Series</td>

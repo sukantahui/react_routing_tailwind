@@ -37,7 +37,7 @@ const Topic0 = () => {
     const nextState = cycle[trafficState];
     setTrafficState(nextState);
     setEventLogs((prev) => [
-      { id: Date.now(), type: "KEYPRESS ('space')", msg: `State Transition: ${trafficState.toUpperCase()} -> ${nextState.toUpperCase()}` },
+      { id: Date.now(), type: "KEYPRESS ('space')", msg: `State Transition: ${trafficState.toUpperCase()} → ${nextState.toUpperCase()}` },
       ...prev.slice(0, 4)
     ]);
   };
@@ -51,7 +51,7 @@ const Topic0 = () => {
 
     setStamps((prev) => [...prev.slice(-6), { x: clickX, y: clickY, color: randomColor, shape: "circle" }]);
     setEventLogs((prev) => [
-      { id: Date.now(), type: "ONCLICK", msg: `Dispatched on_click(${clickX.toFixed(0)}, ${clickY.toFixed(0)}) -> Stamp Created` },
+      { id: Date.now(), type: "ONCLICK", msg: `Dispatched on_click(${clickX.toFixed(0)}, ${clickY.toFixed(0)}) → Stamp Created` },
       ...prev.slice(0, 4)
     ]);
   };
@@ -96,7 +96,7 @@ const Topic0 = () => {
             Module 005_006 · Event Handling & Interaction · Topic 0
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent">
             Event-Driven Programming Model Concepts
           </h1>
 

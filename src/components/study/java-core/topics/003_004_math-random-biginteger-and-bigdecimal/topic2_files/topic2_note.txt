@@ -6,9 +6,9 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. EXACT ARITHMETIC RULES:
-   - 'Math.addExact(x, y)'       &rarr; Throws ArithmeticException on overflow.
-   - 'Math.multiplyExact(x, y)'  &rarr; Throws ArithmeticException on overflow.
-   - 'Math.toIntExact(longVal)'  &rarr; Safe downcast from long to int.
+   - 'Math.addExact(x, y)'       → Throws ArithmeticException on overflow.
+   - 'Math.multiplyExact(x, y)'  → Throws ArithmeticException on overflow.
+   - 'Math.toIntExact(longVal)'  → Safe downcast from long to int.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

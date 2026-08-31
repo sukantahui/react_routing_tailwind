@@ -159,7 +159,7 @@ const Topic0 = () => {
       ? (humanErrorProb * 0.005).toFixed(2) // FIDO2 Passkeys block 99.5% of credential submissions
       : technicalFriction >= 50
       ? (humanErrorProb * 0.25).toFixed(2)  // MFA Push blocks 75% of basic phishing
-      : humanErrorProb.toFixed(2);           // No friction -> 100% compromise on click
+      : humanErrorProb.toFixed(2);           // No friction → 100% compromise on click
 
     return {
       humanErrorProb: humanErrorProb.toFixed(2),

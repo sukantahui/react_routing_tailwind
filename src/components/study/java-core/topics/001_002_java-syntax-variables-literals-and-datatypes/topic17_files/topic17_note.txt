@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 1. THE ROOT CAUSE OF THE BUG
 --------------------------------------------------------------------------------
 - What Happens in Memory:
-  * User inputs: "101" + [Enter key] -> Stream Buffer receives ['1', '0', '1', '\n']
+  * User inputs: "101" + [Enter key] → Stream Buffer receives ['1', '0', '1', '\n']
   * scanner.nextInt() executes:
     - Consumes '101'
     - Leaves '\n' UNCONSUMED at the head of the buffer.

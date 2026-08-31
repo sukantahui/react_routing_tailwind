@@ -42,7 +42,7 @@ export default function Topic1() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Arithmetic Operators: <code className="text-emerald-400">+</code>, <code className="text-emerald-400">-</code>, <code className="text-emerald-400">*</code>, <code className="text-emerald-400">/</code>, <code className="text-emerald-400">%</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -106,10 +106,10 @@ export default function Topic1() {
             </text>
             <rect x="50" y="80" width="355" height="90" rx="6" fill="#1e1b4b" />
             <text x="60" y="105" fill="#c7d2fe" fontSize="12" fontFamily="monospace">
-              +10 %  3  =  +1  (Dividend +10 &rarr; Positive)
+              +10 %  3  =  +1  (Dividend +10 → Positive)
             </text>
             <text x="60" y="125" fill="#fca5a5" fontSize="12" fontFamily="monospace">
-              -10 %  3  =  -1  (Dividend -10 &rarr; Negative)
+              -10 %  3  =  -1  (Dividend -10 → Negative)
             </text>
             <text x="60" y="145" fill="#c7d2fe" fontSize="12" fontFamily="monospace">
               +10 % -3  =  +1  (Divisor sign ignored!)
@@ -125,13 +125,13 @@ export default function Topic1() {
             </text>
             <rect x="475" y="80" width="355" height="90" rx="6" fill="#451a03" />
             <text x="485" y="105" fill="#fca5a5" fontSize="11" fontFamily="monospace">
-              10 / 0    &rarr; ArithmeticException: / by zero
+              10 / 0    → ArithmeticException: / by zero
             </text>
             <text x="485" y="125" fill="#a7f3d0" fontSize="11" fontFamily="monospace">
-              10.0 / 0.0 &rarr; Double.POSITIVE_INFINITY
+              10.0 / 0.0 → Double.POSITIVE_INFINITY
             </text>
             <text x="485" y="145" fill="#fde68a" fontSize="11" fontFamily="monospace">
-              0.0 / 0.0  &rarr; Double.NaN (Not-a-Number)
+              0.0 / 0.0  → Double.NaN (Not-a-Number)
             </text>
             <text x="652" y="195" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               Integer = Exception | Floating = IEEE 754 Infinity/NaN
@@ -166,36 +166,36 @@ export default function Topic1() {
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">+</td>
                 <td className="p-3">Addition</td>
-                <td className="p-3 font-mono text-emerald-400">10 + 5 &rarr; 15</td>
-                <td className="p-3 font-mono text-purple-300">10.5 + 2.5 &rarr; 13.0</td>
+                <td className="p-3 font-mono text-emerald-400">10 + 5 → 15</td>
+                <td className="p-3 font-mono text-purple-300">10.5 + 2.5 → 13.0</td>
                 <td className="p-3 text-xs">Overloaded for String concatenation when either operand is String</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">-</td>
                 <td className="p-3">Subtraction</td>
-                <td className="p-3 font-mono text-emerald-400">20 - 7 &rarr; 13</td>
-                <td className="p-3 font-mono text-purple-300">15.0 - 4.5 &rarr; 10.5</td>
+                <td className="p-3 font-mono text-emerald-400">20 - 7 → 13</td>
+                <td className="p-3 font-mono text-purple-300">15.0 - 4.5 → 10.5</td>
                 <td className="p-3 text-xs">Also serves as unary negation operator <code className="text-amber-300">-x</code></td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">*</td>
                 <td className="p-3">Multiplication</td>
-                <td className="p-3 font-mono text-emerald-400">6 * 7 &rarr; 42</td>
-                <td className="p-3 font-mono text-purple-300">2.5 * 4.0 &rarr; 10.0</td>
+                <td className="p-3 font-mono text-emerald-400">6 * 7 → 42</td>
+                <td className="p-3 font-mono text-purple-300">2.5 * 4.0 → 10.0</td>
                 <td className="p-3 text-xs">Check overflow using <code className="text-emerald-400">Math.multiplyExact()</code></td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">/</td>
                 <td className="p-3">Division</td>
-                <td className="p-3 font-mono text-emerald-400">7 / 2 &rarr; 3</td>
-                <td className="p-3 font-mono text-purple-300">7.0 / 2.0 &rarr; 3.5</td>
+                <td className="p-3 font-mono text-emerald-400">7 / 2 → 3</td>
+                <td className="p-3 font-mono text-purple-300">7.0 / 2.0 → 3.5</td>
                 <td className="p-3 text-xs">Integer division truncates decimals; floating division yields exact fraction</td>
               </tr>
               <tr className="hover:bg-slate-800/30 transition-colors">
                 <td className="p-3 font-mono font-bold text-sky-300">%</td>
                 <td className="p-3">Modulus</td>
-                <td className="p-3 font-mono text-emerald-400">14 % 4 &rarr; 2</td>
-                <td className="p-3 font-mono text-purple-300">7.5 % 2.0 &rarr; 1.5</td>
+                <td className="p-3 font-mono text-emerald-400">14 % 4 → 2</td>
+                <td className="p-3 font-mono text-purple-300">7.5 % 2.0 → 1.5</td>
                 <td className="p-3 text-xs">Sign follows dividend; native floating-point support</td>
               </tr>
             </tbody>

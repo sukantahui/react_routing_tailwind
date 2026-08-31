@@ -11,23 +11,23 @@ const questions = [
     explanation: "Introduced in Java 13 and standardized in Java 14 (JEP 361).",
     hint: "Yields a value from a switch block to the switch expression.",
     level: "basic",
-    codeExample: "case 1 -> { int x = compute(); yield x; }"
+    codeExample: "case 1 → { int x = compute(); yield x; }"
   },
   {
     question: "When is the `yield` keyword MANDATORY in modern switch expressions?",
-    shortAnswer: "1. Inside multi-statement block bodies with curly braces (`case X -> { ... yield val; }`); 2. Inside colon-syntax switch expressions (`case X: ... yield val;`).",
+    shortAnswer: "1. Inside multi-statement block bodies with curly braces (`case X → { ... yield val; }`); 2. Inside colon-syntax switch expressions (`case X: ... yield val;`).",
     explanation: "Required whenever a branch body contains multiple statements.",
     hint: "Required in multi-statement block bodies and colon-style switch expressions.",
     level: "basic",
-    codeExample: "case \"PRO\" -> {\n    log();\n    yield 18000;\n}"
+    codeExample: "case \"PRO\" → {\n    log();\n    yield 18000;\n}"
   },
   {
     question: "When is the `yield` keyword NOT needed in switch expressions?",
-    shortAnswer: "In single-line arrow expressions (`case X -> expression;`).",
+    shortAnswer: "In single-line arrow expressions (`case X → expression;`).",
     explanation: "The single expression to the right of `->` is yielded automatically.",
     hint: "Not needed for single-line arrow expressions.",
     level: "basic",
-    codeExample: "case 1 -> 100; // No 'yield' required"
+    codeExample: "case 1 → 100; // No 'yield' required"
   },
   {
     question: "What is the difference between `yield` and `return`?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Demonstrates practical multi-statement business computation.",
     hint: "Yields net tuition after multi-step discount calculation in ₹.",
     level: "basic",
-    codeExample: "case PRO -> { int base = 18000; int disc = 3000; yield base - disc; }"
+    codeExample: "case PRO → { int base = 18000; int disc = 3000; yield base - disc; }"
   },
   {
     question: "What happens if a multi-statement block body `{ ... }` in a switch expression fails to execute a `yield` statement?",
@@ -67,7 +67,7 @@ const questions = [
     explanation: "All branches in a switch expression must yield a value or throw an exception.",
     hint: "Compile error if a block fails to yield a value.",
     level: "basic",
-    codeExample: "// case 1 -> { int x = 10; } // COMPILER ERROR: missing yield!"
+    codeExample: "// case 1 → { int x = 10; } // COMPILER ERROR: missing yield!"
   },
   {
     question: "Can you use `yield` in a switch STATEMENT (that does not return a value)?",
@@ -75,7 +75,7 @@ const questions = [
     explanation: "`yield` is only valid inside switch expressions.",
     hint: "yield is illegal in switch statements.",
     level: "basic",
-    codeExample: "// switch (x) { case 1 -> { yield 10; } } // COMPILER ERROR if not assigned!"
+    codeExample: "// switch (x) { case 1 → { yield 10; } } // COMPILER ERROR if not assigned!"
   },
   {
     question: "Can a `yield` statement yield the result of another method call (`yield calculateTotal();`)?",
@@ -83,7 +83,7 @@ const questions = [
     explanation: "Full support for method invocation results.",
     hint: "Can yield method invocation results.",
     level: "basic",
-    codeExample: "case VIP -> { log(); yield calculateTotal(); }"
+    codeExample: "case VIP → { log(); yield calculateTotal(); }"
   },
   {
     question: "What happens if an `if-else` branch inside a switch block yields on one path but not the other?",
@@ -91,7 +91,7 @@ const questions = [
     explanation: "Exhaustive path verification inside block bodies.",
     hint: "All paths through inner if-else must yield a value.",
     level: "intermediate",
-    codeExample: "case 1 -> {\n    if (c) yield 10;\n    // Missing else with yield -> COMPILER ERROR!\n}"
+    codeExample: "case 1 → {\n    if (c) yield 10;\n    // Missing else with yield → COMPILER ERROR!\n}"
   },
   {
     question: "Can a `throw` statement be used instead of `yield` inside a multi-statement block body?",
@@ -99,7 +99,7 @@ const questions = [
     explanation: "Exceptions satisfy value yield requirements.",
     hint: "Throwing an exception satisfies the branch requirement.",
     level: "basic",
-    codeExample: "default -> {\n    logError();\n    throw new IllegalArgumentException(\"Invalid\");\n}"
+    codeExample: "default → {\n    logError();\n    throw new IllegalArgumentException(\"Invalid\");\n}"
   },
   {
     question: "Can you write `yield (x + y);` with parentheses around the yielded expression?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "Leaves the computed value on top of the stack.",
     hint: "Leaves value on operand stack and jumps to exit label.",
     level: "advanced",
-    codeExample: "// Bytecode: iload_1 -> goto L_EXIT"
+    codeExample: "// Bytecode: iload_1 → goto L_EXIT"
   },
   {
     question: "Can `yield` return `null` for a reference type?",
@@ -123,15 +123,15 @@ const questions = [
     explanation: "Null literal is valid for reference types.",
     hint: "yield null; is valid for object types.",
     level: "basic",
-    codeExample: "case UNKNOWN -> { log(); yield null; }"
+    codeExample: "case UNKNOWN → { log(); yield null; }"
   },
   {
-    question: "What is the result of `int res = switch (1) { case 1 -> { int a = 5; int b = 10; yield a + b; } default -> 0; };`?",
+    question: "What is the result of `int res = switch (1) { case 1 → { int a = 5; int b = 10; yield a + b; } default → 0; };`?",
     shortAnswer: "`res = 15`.",
     explanation: "`5 + 10 = 15` is yielded and assigned to `res`.",
     hint: "Evaluates to 15.",
     level: "basic",
-    codeExample: "switch (1) { case 1 -> { yield 5 + 10; } default -> 0; }"
+    codeExample: "switch (1) { case 1 → { yield 5 + 10; } default → 0; }"
   },
   {
     question: "Can a colon-syntax switch expression contain multiple statements ending in `yield` (`case 1: log(); yield 10;`) without braces?",
@@ -151,11 +151,11 @@ const questions = [
   },
   {
     question: "Can a switch block contain both single-line arrow expressions and multi-statement blocks with `yield`?",
-    shortAnswer: "Yes! E.g. `case A -> 10; case B -> { int x = calc(); yield x; }` is completely legal.",
+    shortAnswer: "Yes! E.g. `case A → 10; case B → { int x = calc(); yield x; }` is completely legal.",
     explanation: "Arrows can point to either single expressions or block bodies.",
     hint: "Can mix single-line arrow expressions and block bodies with yield.",
     level: "basic",
-    codeExample: "case A -> 10;\ncase B -> { log(); yield 20; }"
+    codeExample: "case A → 10;\ncase B → { log(); yield 20; }"
   },
   {
     question: "What happens if a developer writes `yield;` without an expression?",
@@ -179,7 +179,7 @@ const questions = [
     explanation: "Enables multi-statement debugging and telemetry.",
     hint: "Allows logging before yielding the computed result.",
     level: "basic",
-    codeExample: "case 1 -> {\n    logger.info(\"Selected 1\");\n    yield 100;\n}"
+    codeExample: "case 1 → {\n    logger.info(\"Selected 1\");\n    yield 100;\n}"
   },
   {
     question: "In the Coder & AccoTax Barrackpore portal, why is `yield` used in course plan selection?",
@@ -187,7 +187,7 @@ const questions = [
     explanation: "Demonstrates practical telemetry and fee calculation.",
     hint: "Logs track metadata before yielding course fee in ₹.",
     level: "basic",
-    codeExample: "case PRO -> { logTrack(); yield 18000; }"
+    codeExample: "case PRO → { logTrack(); yield 18000; }"
   },
   {
     question: "Can a `yield` statement be executed inside a loop that is inside a switch block?",
@@ -195,7 +195,7 @@ const questions = [
     explanation: "Transfers control directly to the switch exit.",
     hint: "Yields value from switch, breaking out of inner loop.",
     level: "intermediate",
-    codeExample: "case 1 -> {\n    for (int i : list) {\n        if (i > 10) yield i;\n    }\n    yield 0;\n}"
+    codeExample: "case 1 → {\n    for (int i : list) {\n        if (i > 10) yield i;\n    }\n    yield 0;\n}"
   },
   {
     question: "What happens if you declare a variable named `yield` inside a switch block (`int yield = 10;`)?",
@@ -211,7 +211,7 @@ const questions = [
     explanation: "Infers common supertype `double`.",
     hint: "Inferred as double.",
     level: "basic",
-    codeExample: "double d = switch (x) { case 1 -> { yield 10; } default -> 20.5; };"
+    codeExample: "double d = switch (x) { case 1 → { yield 10; } default → 20.5; };"
   },
   {
     question: "Can you use `yield` with an object instantiated via `new` (`yield new Student(\"Swadeep\");`)?",
@@ -223,7 +223,7 @@ const questions = [
   },
   {
     question: "What is the best practice regarding the length of block bodies with `yield`?",
-    shortAnswer: "Keep block bodies short (3-5 lines). If a branch requires 10+ lines of complex logic, extract it into a dedicated private helper method and call it via a single-line arrow (`case X -> calculateComplex(x);`).",
+    shortAnswer: "Keep block bodies short (3-5 lines). If a branch requires 10+ lines of complex logic, extract it into a dedicated private helper method and call it via a single-line arrow (`case X → calculateComplex(x);`).",
     explanation: "Preserves the clean, tabular readability of switch expressions.",
     hint: "Keep yield blocks concise; extract large logic into helper methods.",
     level: "basic",
@@ -235,7 +235,7 @@ const questions = [
     explanation: "Essential tool for complex multi-line switch expression branches.",
     hint: "yield produces values from multi-statement switch blocks.",
     level: "basic",
-    codeExample: "// Summary: case X -> { log(); yield result; }"
+    codeExample: "// Summary: case X → { log(); yield result; }"
   },
   {
     question: "What is the next topic (Topic 16) in Module 001_004?",

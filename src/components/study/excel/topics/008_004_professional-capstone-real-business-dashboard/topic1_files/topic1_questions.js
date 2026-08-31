@@ -9,7 +9,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Core Mathematical Execution & Precision is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how formula syntax, evaluation sequence, and edge-case handling operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Spreadsheet Architecture & Data Modeling regarding table structure, reference locking ($), and relational schemas (Question 2)?",
@@ -17,7 +17,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Spreadsheet Architecture & Data Modeling is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how table structure, reference locking ($), and relational schemas operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Business Context & Financial Decision Making regarding scenario analysis, KPI tracking, and commercial implications (Question 3)?",
@@ -25,7 +25,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Business Context & Financial Decision Making is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how scenario analysis, KPI tracking, and commercial implications operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Performance Optimization & Spilling Dynamics regarding vectorized arrays, memory efficiency, and calculation speed (Question 4)?",
@@ -33,7 +33,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Performance Optimization & Spilling Dynamics is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how vectorized arrays, memory efficiency, and calculation speed operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Error Diagnostics & Defensive Safeguards regarding troubleshooting matrix, boundary testing, and validation rules (Question 5)?",
@@ -41,7 +41,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Error Diagnostics & Defensive Safeguards is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how troubleshooting matrix, boundary testing, and validation rules operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Executive Reporting & Visual Communication regarding dashboard aesthetics, chart selection, and presentation rigor (Question 6)?",
@@ -49,7 +49,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Executive Reporting & Visual Communication is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how dashboard aesthetics, chart selection, and presentation rigor operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Core Mathematical Execution & Precision regarding formula syntax, evaluation sequence, and edge-case handling (Question 7)?",
@@ -57,7 +57,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Core Mathematical Execution & Precision is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how formula syntax, evaluation sequence, and edge-case handling operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Spreadsheet Architecture & Data Modeling regarding table structure, reference locking ($), and relational schemas (Question 8)?",
@@ -65,7 +65,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Spreadsheet Architecture & Data Modeling is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how table structure, reference locking ($), and relational schemas operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Business Context & Financial Decision Making regarding scenario analysis, KPI tracking, and commercial implications (Question 9)?",
@@ -73,7 +73,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Business Context & Financial Decision Making is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how scenario analysis, KPI tracking, and commercial implications operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Performance Optimization & Spilling Dynamics regarding vectorized arrays, memory efficiency, and calculation speed (Question 10)?",
@@ -81,7 +81,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Performance Optimization & Spilling Dynamics is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how vectorized arrays, memory efficiency, and calculation speed operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "basic",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Error Diagnostics & Defensive Safeguards regarding troubleshooting matrix, boundary testing, and validation rules (Question 11)?",
@@ -89,7 +89,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Error Diagnostics & Defensive Safeguards is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how troubleshooting matrix, boundary testing, and validation rules operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Executive Reporting & Visual Communication regarding dashboard aesthetics, chart selection, and presentation rigor (Question 12)?",
@@ -97,7 +97,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Executive Reporting & Visual Communication is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how dashboard aesthetics, chart selection, and presentation rigor operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Core Mathematical Execution & Precision regarding formula syntax, evaluation sequence, and edge-case handling (Question 13)?",
@@ -105,7 +105,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Core Mathematical Execution & Precision is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how formula syntax, evaluation sequence, and edge-case handling operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Spreadsheet Architecture & Data Modeling regarding table structure, reference locking ($), and relational schemas (Question 14)?",
@@ -113,7 +113,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Spreadsheet Architecture & Data Modeling is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how table structure, reference locking ($), and relational schemas operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Business Context & Financial Decision Making regarding scenario analysis, KPI tracking, and commercial implications (Question 15)?",
@@ -121,7 +121,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Business Context & Financial Decision Making is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how scenario analysis, KPI tracking, and commercial implications operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Performance Optimization & Spilling Dynamics regarding vectorized arrays, memory efficiency, and calculation speed (Question 16)?",
@@ -129,7 +129,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Performance Optimization & Spilling Dynamics is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how vectorized arrays, memory efficiency, and calculation speed operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Error Diagnostics & Defensive Safeguards regarding troubleshooting matrix, boundary testing, and validation rules (Question 17)?",
@@ -137,7 +137,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Error Diagnostics & Defensive Safeguards is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how troubleshooting matrix, boundary testing, and validation rules operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Executive Reporting & Visual Communication regarding dashboard aesthetics, chart selection, and presentation rigor (Question 18)?",
@@ -145,7 +145,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Executive Reporting & Visual Communication is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how dashboard aesthetics, chart selection, and presentation rigor operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Core Mathematical Execution & Precision regarding formula syntax, evaluation sequence, and edge-case handling (Question 19)?",
@@ -153,7 +153,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Core Mathematical Execution & Precision is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how formula syntax, evaluation sequence, and edge-case handling operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Spreadsheet Architecture & Data Modeling regarding table structure, reference locking ($), and relational schemas (Question 20)?",
@@ -161,7 +161,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Spreadsheet Architecture & Data Modeling is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how table structure, reference locking ($), and relational schemas operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Business Context & Financial Decision Making regarding scenario analysis, KPI tracking, and commercial implications (Question 21)?",
@@ -169,7 +169,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Business Context & Financial Decision Making is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how scenario analysis, KPI tracking, and commercial implications operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Performance Optimization & Spilling Dynamics regarding vectorized arrays, memory efficiency, and calculation speed (Question 22)?",
@@ -177,7 +177,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Performance Optimization & Spilling Dynamics is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how vectorized arrays, memory efficiency, and calculation speed operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "moderate",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Error Diagnostics & Defensive Safeguards regarding troubleshooting matrix, boundary testing, and validation rules (Question 23)?",
@@ -185,7 +185,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Error Diagnostics & Defensive Safeguards is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how troubleshooting matrix, boundary testing, and validation rules operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Executive Reporting & Visual Communication regarding dashboard aesthetics, chart selection, and presentation rigor (Question 24)?",
@@ -193,7 +193,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Executive Reporting & Visual Communication is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how dashboard aesthetics, chart selection, and presentation rigor operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Core Mathematical Execution & Precision regarding formula syntax, evaluation sequence, and edge-case handling (Question 25)?",
@@ -201,7 +201,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Core Mathematical Execution & Precision is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how formula syntax, evaluation sequence, and edge-case handling operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Spreadsheet Architecture & Data Modeling regarding table structure, reference locking ($), and relational schemas (Question 26)?",
@@ -209,7 +209,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Spreadsheet Architecture & Data Modeling is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how table structure, reference locking ($), and relational schemas operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Business Context & Financial Decision Making regarding scenario analysis, KPI tracking, and commercial implications (Question 27)?",
@@ -217,7 +217,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Business Context & Financial Decision Making is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how scenario analysis, KPI tracking, and commercial implications operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Performance Optimization & Spilling Dynamics regarding vectorized arrays, memory efficiency, and calculation speed (Question 28)?",
@@ -225,7 +225,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Performance Optimization & Spilling Dynamics is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how vectorized arrays, memory efficiency, and calculation speed operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Error Diagnostics & Defensive Safeguards regarding troubleshooting matrix, boundary testing, and validation rules (Question 29)?",
@@ -233,7 +233,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Error Diagnostics & Defensive Safeguards is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how troubleshooting matrix, boundary testing, and validation rules operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   },
   {
     "question": "In the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, how does Excel evaluate and execute Executive Reporting & Visual Communication regarding dashboard aesthetics, chart selection, and presentation rigor (Question 30)?",
@@ -241,7 +241,7 @@ const questions = [
     "explanation": "When demonstrating mastery in Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline, understanding Executive Reporting & Visual Communication is vital for professional competency. Excel enforces strict mathematical order of operations, boundary validation, and structured referencing, ensuring that corporate financial models, operational dashboards, and analytical pipelines deliver verifiable, audit-proof business intelligence.",
     "hint": "Think about how dashboard aesthetics, chart selection, and presentation rigor operates within the context of Phase 1: Automated Multi-Source Ingestion & Power Query ETL Transformation Pipeline.",
     "level": "advanced",
-    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) -> Power Query M-Code Normalization -> Data Model Load"
+    "codeExample": "Phase 1 Pipeline: Source 1 (ERP SQL) + Source 2 (POS CSV) + Source 3 (Forex API) → Power Query M-Code Normalization → Data Model Load"
   }
 ];
 

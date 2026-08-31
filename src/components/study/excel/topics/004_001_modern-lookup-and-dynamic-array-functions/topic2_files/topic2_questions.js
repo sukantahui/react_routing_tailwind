@@ -32,7 +32,7 @@ const questions = [
     explanation: "Excel's calculation engine performs case-insensitive comparisons for text in `UNIQUE`. It returns the text with the casing of the very first instance encountered in the source range.",
     hint: "Upper, lower, and proper case versions are considered duplicates.",
     level: "moderate",
-    codeExample: "// ['Kolkata', 'kolkata'] -> returns 'Kolkata'"
+    codeExample: "// ['Kolkata', 'kolkata'] → returns 'Kolkata'"
   },
   {
     question: "How does UNIQUE operate on a multi-column range like `=UNIQUE(B2:D20)`?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "By dynamically deriving master lookup dimensions directly from raw transaction logs, `UNIQUE` allows dashboards to scale automatically as business operations grow across branches, ensuring 100% data integrity with zero maintenance.",
     hint: "UNIQUE eliminates manual range maintenance across all reporting layers.",
     level: "expert",
-    codeExample: "// Architecture: Raw Log -> UNIQUE(Branches#) -> Interactive Dropdown -> Filtered Dashboard"
+    codeExample: "// Architecture: Raw Log → UNIQUE(Branches#) → Interactive Dropdown → Filtered Dashboard"
   }
 ];
 

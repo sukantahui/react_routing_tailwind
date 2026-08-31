@@ -12,7 +12,7 @@ INSTRUCTOR: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
   * If the Clock pulse width (t_pulse) is wider than t_pd (t_pulse > t_pd),
     the new inverted output immediately feeds back to the input gates while
     the clock is still HIGH.
-  * Result: The output toggles repeatedly (0 -> 1 -> 0 -> 1...) causing high-frequency
+  * Result: The output toggles repeatedly (0 → 1 → 0 → 1...) causing high-frequency
     oscillation and ringing. The state of Q when the clock falls is completely random!
 
 2. THE 8-NAND GATE MASTER-SLAVE SOLUTION
@@ -41,18 +41,18 @@ C. Key Theorem:
 --------------------------------------------------------------------------------
 - Characteristic Equation: Q(t+1) = J · Q_bar + K_bar · Q
 - Excitation Table:
-  Q(t) -> Q(t+1) |  J   K  | Action
+  Q(t) → Q(t+1) |  J   K  | Action
   ---------------+---------+---------------------------
-    0  ->   0    |  0   X  | No change / Reset
-    0  ->   1    |  1   X  | Set / Toggle
-    1  ->   0    |  X   1  | Reset / Toggle
-    1  ->   1    |  X   0  | No change / Set
+    0  →   0    |  0   X  | No change / Reset
+    0  →   1    |  1   X  | Set / Toggle
+    1  →   0    |  X   1  | Reset / Toggle
+    1  →   1    |  X   0  | No change / Set
 
 - Operating Modes:
-  J=0, K=0 -> No Change (Hold)
-  J=0, K=1 -> Synchronous Reset (Q=0)
-  J=1, K=0 -> Synchronous Set (Q=1)
-  J=1, K=1 -> Clean Toggle (f_out = f_clk / 2)
+  J=0, K=0 → No Change (Hold)
+  J=0, K=1 → Synchronous Reset (Q=0)
+  J=1, K=0 → Synchronous Set (Q=1)
+  J=1, K=1 → Clean Toggle (f_out = f_clk / 2)
 
 ================================================================================
 END OF STUDY NOTE - TOPIC 10

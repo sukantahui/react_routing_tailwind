@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_003_basic_formulas_and_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -171,7 +171,7 @@ export default function Topic9() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-950/80 border border-sky-800 text-sky-300 text-xs font-semibold uppercase tracking-wider mb-4">
             <span>⚙️</span> Excel Engineering Masterclass · Topic 9
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent tracking-tight">
             Engineering Conversions &amp; Bitwise Operations
           </h1>
           <p className="text-slate-300 mt-4 text-base sm:text-lg leading-relaxed max-w-4xl">
@@ -307,7 +307,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="Topic9"
+            sheetName="Topic9"
           />
         </section>
 

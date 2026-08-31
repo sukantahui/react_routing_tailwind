@@ -3,7 +3,7 @@
 import React from "react";
 import ExcelProjectAnswerTemplateEnhanced from "../../../ExcelProjectAnswerTemplateEnhanced";
 import { excelModuleProjectsData } from "./topic7_files/excel_module_projects";
-import sampleWorkbookUrl from "./excel_files/001_004_basic_charts_and_visualizations_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/001_004_projects_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import questions from "./topic7_files/topic7_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";

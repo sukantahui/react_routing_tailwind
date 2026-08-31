@@ -76,7 +76,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-fuchsia-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Introduction to LAMBDA: Native Custom Functions Without VBA
           </h1>
 
@@ -130,7 +130,7 @@ export default function Topic0() {
               <span className="text-slate-500">// In-Cell Immediate Execution Syntax (Testing in a worksheet cell):</span>{" "}
               <br />
               <span className="text-emerald-400 font-bold">=(LAMBDA(price, qty, price * qty * 1.18))(1500, 4)</span>{" "}
-              <span className="text-slate-500">&rarr; Returns 7080</span>
+              <span className="text-slate-500">→ Returns 7080</span>
             </div>
           </div>
 
@@ -359,7 +359,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_Overview"
+            sheetName="EX1801"
             title="Module 004_003 Master Architecture (LAMBDA & Functional Engine Overview)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -398,7 +398,7 @@ export default function Topic0() {
                 Accountants across the campus simply write <code className="text-purple-300 font-mono">=CALC_GST(A2, 0.18)</code>, ensuring uniform tax compliance.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =CALC_GST(A2, 0.18) &rarr; Standard 3-Column Spilled Tax Block
+                Formula: =CALC_GST(A2, 0.18) → Standard 3-Column Spilled Tax Block
               </div>
             </div>
 
@@ -417,7 +417,7 @@ export default function Topic0() {
                 she builds a self-updating running ledger that automatically resizes when new entries are added.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =SCAN(0, D2:D50, LAMBDA(a, v, a + v)) &rarr; Real-Time Balance Vector
+                Formula: =SCAN(0, D2:D50, LAMBDA(a, v, a + v)) → Real-Time Balance Vector
               </div>
             </div>
 
@@ -435,7 +435,7 @@ export default function Topic0() {
                 Junior analysts evaluate customer mortgage quotes instantly with <code className="text-indigo-300 font-mono">=LOAN_EMI(500000, 0.085, 36)</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =LOAN_EMI(P, r, n) &rarr; Zero Formula Errors
+                Formula: =LOAN_EMI(P, r, n) → Zero Formula Errors
               </div>
             </div>
 
@@ -453,7 +453,7 @@ export default function Topic0() {
                 He creates a recursive LAMBDA <code className="text-amber-300 font-mono">CLEAN_STR = LAMBDA(txt, bad, IF(bad="", txt, CLEAN_STR(SUBSTITUTE(txt, LEFT(bad,1), ""), MID(bad,2,LEN(bad)))))</code>.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Formula: =CLEAN_STR(PhoneCell, "()- .") &rarr; Pure 10-Digit Clean String
+                Formula: =CLEAN_STR(PhoneCell, "()- .") → Pure 10-Digit Clean String
               </div>
             </div>
           </div>
@@ -508,7 +508,7 @@ export default function Topic0() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 3: Register in Name Manager (Ctrl+F3)</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Open Name Manager (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 text-xs font-mono">Ctrl+F3</kbd>) &rarr; Click 'New'. 
+                  Open Name Manager (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-amber-300 text-xs font-mono">Ctrl+F3</kbd>) → Click 'New'. 
                   Set Name = <code className="text-emerald-300 font-mono">GROSS_INVOICE</code>, Refers To = <code className="text-emerald-300 font-mono">=LAMBDA(price, qty, price * qty * 1.18)</code>, and add Comment documentation.
                 </p>
               </div>
@@ -572,7 +572,7 @@ export default function Topic0() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#NUM! (Infinite Recursion)</td>
                   <td className="py-3 px-4 text-slate-300">Recursive LAMBDA missing a base termination condition or exceeding 1,024 calls.</td>
                   <td className="py-3 px-4 text-slate-400">Formula halts and returns #NUM!.</td>
-                  <td className="py-3 px-4 text-emerald-400">Add an explicit base-case check (e.g. <code className="text-emerald-400 font-mono">IF(n&lt;=1, 1, ...)</code>).</td>
+                  <td className="py-3 px-4 text-emerald-400">Add an explicit base-case check (e.g. <code className="text-emerald-400 font-mono">IF(n<=1, 1, ...)</code>).</td>
                 </tr>
               </tbody>
             </table>

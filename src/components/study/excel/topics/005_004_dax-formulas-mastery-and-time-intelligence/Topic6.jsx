@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Dynamic condition filtering with the FILTER function"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic6() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"FILTER(Table, LogicalCondition) | CALCULATE([TotalSales], FILTER(Dim_Product, [GrossMargin%] &gt; 0.35))"}
+            {"FILTER(Table, LogicalCondition) | CALCULATE([TotalSales], FILTER(Dim_Product, [GrossMargin%] > 0.35))"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic6() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"FILTER Table Engine: Master Source Table -> Row Context Logical Evaluator -> Filtered Virtual Table"}
+              Visual Dataflow: {"FILTER Table Engine: Master Source Table → Row Context Logical Evaluator → Filtered Virtual Table"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               DAX Context Pipeline
@@ -286,7 +286,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Dynamic_condition_"
+            sheetName="EX2307"
             title={"Dynamic condition filtering with the FILTER function - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic6() {
                 Step 2: Author Explicit DAX Formula Expression
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the formula bar, type your measure name and formula: <code className="text-cyan-300 font-mono font-bold">{"FILTER(Table, LogicalCondition) | CALCULATE([TotalSales], FILTER(Dim_Product, [GrossMargin%] &gt; 0.35))"}</code>.
+                In the formula bar, type your measure name and formula: <code className="text-cyan-300 font-mono font-bold">{"FILTER(Table, LogicalCondition) | CALCULATE([TotalSales], FILTER(Dim_Product, [GrossMargin%] > 0.35))"}</code>.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic6() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Remember: Simple filters don't need the FILTER function (just write `Product[Category] = \"Valves\"`). Use the FILTER function ONLY when you need to filter by a Measure (like `[TotalSales] &gt; 100000`) or compare two columns."}
+            note={"Remember: Simple filters don't need the FILTER function (just write `Product[Category] = \"Valves\"`). Use the FILTER function ONLY when you need to filter by a Measure (like `[TotalSales] > 100000`) or compare two columns."}
           />
         </div>
       </div>

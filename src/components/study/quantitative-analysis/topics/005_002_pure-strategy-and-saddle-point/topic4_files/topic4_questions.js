@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of the Value of the Game in Game Theory?",
     shortAnswer: "'The Value of the Game v* is the expected monetary return under optimal play in Indian Rupees (₹); it is bounded by v_lower <= v* <= v_upper; strictly determined games have v* = a_i*j*; a game is fair if and only if v* = ₹0!'",
     explanation: "This complete rule captures all game valuation principles.",
-    hint: "Expected return under optimal play -> v_lower <= v* <= v_upper -> Fair if v* = 0 in ₹.",
+    hint: "Expected return under optimal play → v_lower <= v* <= v_upper → Fair if v* = 0 in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ComputeBounds(v_lower, v_upper) -> DetermineVStar(₹) -> EvaluateFairness()."
+    codeExample: "GoldenRule: ComputeBounds(v_lower, v_upper) → DetermineVStar(₹) → EvaluateFairness()."
   }
 ];
 

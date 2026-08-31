@@ -27,7 +27,7 @@ const Topic2 = () => {
       lossPrevented: 'Preserved ₹1.8 Crore in prevented card fraud • Guaranteed Economic Velocity',
       estInvestment: '₹6,50,000 (AI Real-Time Fraud Scoring & Payment HSM Cluster)',
       desc: 'Illustrates how cybersecurity serves as the essential bedrock enabling modern cashless economic growth.',
-      simResult: 'Fraud detection engine analyzes transaction velocity -> Flags suspicious ₹1,50,000 overseas card swipe -> Blocks fraud in 35ms -> Funds protected.',
+      simResult: 'Fraud detection engine analyzes transaction velocity → Flags suspicious ₹1,50,000 overseas card swipe → Blocks fraud in 35ms → Funds protected.',
     },
     {
       id: 'sovereign-defense',
@@ -38,7 +38,7 @@ const Topic2 = () => {
       lossPrevented: 'Protects Territorial Integrity • Zero Foreign Cyber Espionage Incursions',
       estInvestment: '₹18,50,000 (Sovereign Hardware Cryptographic Vault & Air-Gapped Network)',
       desc: 'Demonstrates why cybersecurity is a core pillar of national military strength and geopolitical autonomy.',
-      simResult: 'Foreign APT attempts port scan on defense satellite uplink -> Hardware encryption rejects unauthenticated signal -> Defense radar stays 100% online.',
+      simResult: 'Foreign APT attempts port scan on defense satellite uplink → Hardware encryption rejects unauthenticated signal → Defense radar stays 100% online.',
     },
     {
       id: 'privacy-shield',
@@ -49,7 +49,7 @@ const Topic2 = () => {
       lossPrevented: 'Zero Identity Thefts • 100% Compliance with DPDPA 2023 & Article 21',
       estInvestment: '₹3,20,000 (Database Column Encryption & Privacy Access Governance)',
       desc: 'Proves how cybersecurity defends personal human dignity, individual freedom, and citizen privacy in a digital world.',
-      simResult: 'Unauthorized query for patient HIV/cardiology diagnosis submitted -> Column-level AES-256 blocks cleartext view -> Logs audit alert.',
+      simResult: 'Unauthorized query for patient HIV/cardiology diagnosis submitted → Column-level AES-256 blocks cleartext view → Logs audit alert.',
     },
     {
       id: 'r-and-d-vault',
@@ -60,7 +60,7 @@ const Topic2 = () => {
       lossPrevented: 'Protected ₹25 Crore in R&D Patents • Secured Market Leadership',
       estInvestment: '₹4,80,000 (Privileged Access Management - PAM & Code Watermarking Vault)',
       desc: 'Shows how cybersecurity gives corporations and research scientists the confidence to innovate and create new technologies.',
-      simResult: 'Compromised insider tries to copy proprietary blueprint to USB -> DLP blocks USB transfer & PAM revokes session in 1.8 seconds.',
+      simResult: 'Compromised insider tries to copy proprietary blueprint to USB → DLP blocks USB transfer & PAM revokes session in 1.8 seconds.',
     },
   ];
 
@@ -155,7 +155,7 @@ const Topic2 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Importance of Cyber Security
           </h1>
 

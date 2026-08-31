@@ -160,7 +160,7 @@ const Topic1 = () => {
           <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide bg-blue-500/10 text-blue-400 border border-blue-500/30 mb-4 shadow-sm">
             Quantitative Analysis • Transportation Models • Topic 1
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
             The Matrix Minima Method
           </h1>
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl leading-relaxed">
@@ -465,7 +465,7 @@ const Topic1 = () => {
                   S_k = S_k - x_kl &nbsp;|&nbsp; D_l = D_l - x_kl
                 </text>
 
-                {/* Line 3 -> Branch Decision */}
+                {/* Line 3 → Branch Decision */}
                 <line x1="370" y1="230" x2="370" y2="260" stroke="#38bdf8" strokeWidth="2" />
                 <polygon points="370,265 365,255 375,255" fill="#38bdf8" />
 

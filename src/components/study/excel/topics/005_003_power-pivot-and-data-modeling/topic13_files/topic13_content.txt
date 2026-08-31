@@ -45,6 +45,6 @@ Operational Architecture: Enterprise Retail Data Model: Fact_Sales + Fact_Invent
 
 6. PRO TIPS & SHORTCUTS
 • Conformed Dimensions (Share Dim tables across multiple Fact tables): Enables cross-process business intelligence in a single model.
-• Clean 3-Tier Layering (Dimensions Top -> Facts Bottom): Standard visual layout in Power Pivot Diagram View.
+• Clean 3-Tier Layering (Dimensions Top → Facts Bottom): Standard visual layout in Power Pivot Diagram View.
 • Full DAX Measure Suite (Organize measures into Display Folders): Delivers an institutional, production-grade business model.
 ================================================================================

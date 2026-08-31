@@ -6,8 +6,8 @@ const questions = [
     hint: "Think of an encrypted envelope that is discarded after opening versus a permanent watermark pressed into the paper fibers.",
     level: "basic",
     codeExample: `// Encryption vs Digital Watermarking:
-Encryption:   Ciphertext = Encrypt( Image ) -> Decrypted Image has ZERO remaining protection!
-Watermarking: WatermarkedImage = Embed( Image, Watermark_ID ) -> Protection is PERMANENT across copies!`
+Encryption:   Ciphertext = Encrypt( Image ) → Decrypted Image has ZERO remaining protection!
+Watermarking: WatermarkedImage = Embed( Image, Watermark_ID ) → Protection is PERMANENT across copies!`
   },
   {
     question: "What are the three fundamental classifications of digital watermarks based on their 'Robustness' (Robust, Fragile, Semi-Fragile)?",
@@ -16,8 +16,8 @@ Watermarking: WatermarkedImage = Embed( Image, Watermark_ID ) -> Protection is P
     hint: "Contrast an indestructible steel brand on livestock (Robust) with a delicate paper security seal on a pill bottle (Fragile).",
     level: "moderate",
     codeExample: `// Watermark Robustness Archetypes:
-Robust Watermark:       Survives 50% JPEG Compression & Scaling -> Proves Copyright in Court!
-Fragile Watermark:      Flipping 1 pixel destroys signature -> Proves Medical X-Ray Tampering!
+Robust Watermark:       Survives 50% JPEG Compression & Scaling → Proves Copyright in Court!
+Fragile Watermark:      Flipping 1 pixel destroys signature → Proves Medical X-Ray Tampering!
 Semi-Fragile Watermark: Ignores JPEG 80% compression, but alerts if a doctor's signature is erased!`
   },
   {
@@ -29,8 +29,8 @@ Semi-Fragile Watermark: Ignores JPEG 80% compression, but alerts if a doctor's s
     codeExample: `// Spatial LSB Embedding:
 Pixel_Byte:   11010110 (214 in decimal)
 Watermark Bit: 1
-Modified Byte: 11010111 (215 in decimal -> Imperceptible 1-unit change!)
-// Problem: JPEG Lossy Quantization rounds 215 -> 210, ERASING THE WATERMARK!`
+Modified Byte: 11010111 (215 in decimal → Imperceptible 1-unit change!)
+// Problem: JPEG Lossy Quantization rounds 215 → 210, ERASING THE WATERMARK!`
   },
   {
     question: "What is 'Frequency Domain' (Transform Domain) watermarking, and why are 'Middle-Frequency' coefficients in the Discrete Cosine Transform (DCT) chosen for embedding?",
@@ -98,8 +98,8 @@ Blind:     Extracted_W = Decoder_Function( Received_Image, Secret_Key ) // No or
     hint: "Remember the Indian copyright laws that make stripping digital watermarks a punishable criminal offense.",
     level: "basic",
     codeExample: `// Indian Copyright Act 1957 Statutory Provisions:
-Section 65A: Protection of Technological Protection Measures (TPM / DRM) -> Up to 2 Years Jail.
-Section 65B: Protection of Rights Management Information (Digital Watermarks / RMI) -> Up to 2 Years Jail.`
+Section 65A: Protection of Technological Protection Measures (TPM / DRM) → Up to 2 Years Jail.
+Section 65B: Protection of Rights Management Information (Digital Watermarks / RMI) → Up to 2 Years Jail.`
   },
   {
     question: "What is a 'Geometric Attack' (RST: Rotation, Scaling, Translation) on watermarked images, and how does the Fourier-Mellin Transform achieve RST invariance?",
@@ -108,9 +108,9 @@ Section 65B: Protection of Rights Management Information (Digital Watermarks / R
     hint: "Think of converting a circular spinning wheel into a flat ruler where spinning just shifts lines along the ruler.",
     level: "expert",
     codeExample: `// Fourier-Mellin RST Invariance Pipeline:
-1. Compute 2D-DFT: F(u, v) = DFT2( Image ) -> Magnitude |F(u, v)| is Translation Invariant
-2. Map to Log-Polar: (u, v) -> ( log(r), theta ) -> Converts Rotation & Scaling into Linear Shifts
-3. Second DFT -> Yields RST-Invariant Transform Coefficients for Watermark Embedding!`
+1. Compute 2D-DFT: F(u, v) = DFT2( Image ) → Magnitude |F(u, v)| is Translation Invariant
+2. Map to Log-Polar: (u, v) → ( log(r), theta ) → Converts Rotation & Scaling into Linear Shifts
+3. Second DFT → Yields RST-Invariant Transform Coefficients for Watermark Embedding!`
   },
   {
     question: "What is 'Collusion Attack' in digital fingerprinting (watermarking), and how do 'Tardos Fingerprinting Codes' defeat multi-user collusion?",
@@ -121,7 +121,7 @@ Section 65B: Protection of Rights Management Information (Digital Watermarks / R
     codeExample: `// Tardos Collusion Resistance Theorem:
 Colluders: c adversaries combine c watermarked copies.
 Tardos Code Length: m = 100 * c^2 * ln( 1 / epsilon )
-Result: Accusation Score( Traitor_i ) > Threshold Z -> Traitor Identity PROVEN in Court!`
+Result: Accusation Score( Traitor_i ) > Threshold Z → Traitor Identity PROVEN in Court!`
   },
   {
     question: "What is 'Reversible Watermarking' (Lossless Watermarking), and why is it mandatory in Medical Informatics (DICOM) and Military Satellite Imagery?",
@@ -145,7 +145,7 @@ Watermarked Pixels: x' = a - floor(d'/2) = 102-4 = 98, y' = a + ceil(d'/2) = 102
     codeExample: `// Audio Psychoacoustic Masking:
 Audio Spectrum: Dominant Peak at 1,000 Hz @ 85 dB
 Masking Threshold: All sounds below 55 dB at 1,000±100 Hz are 100% INAUDIBLE!
-Watermark Signal: Injected at 40 dB in the 1,050 Hz band -> Completely Imperceptible!`
+Watermark Signal: Injected at 40 dB in the 1,050 Hz band → Completely Imperceptible!`
   },
   {
     question: "What is 'Dual Watermarking' (Combining Robust and Fragile Watermarks in a Single Image), and how does it provide both Copyright Ownership and Tamper Localization?",
@@ -166,8 +166,8 @@ Detector:
     hint: "Remember how dynamic personalized watermarking tracks the exact source of an insider data leak.",
     level: "moderate",
     codeExample: `// Forensic Traitor Tracing Pipeline:
-Employee Mamata views Patient X-Ray -> Viewer injects: Watermark("EMP-9021-MAMATA-2026-08-23")
-Leaked Image Found on Dark Web -> Extraction: "EMP-9021-MAMATA" -> Leaker Identified & Fined!`
+Employee Mamata views Patient X-Ray → Viewer injects: Watermark("EMP-9021-MAMATA-2026-08-23")
+Leaked Image Found on Dark Web → Extraction: "EMP-9021-MAMATA" → Leaker Identified & Fined!`
   },
   {
     question: "What is 'Spread Spectrum Watermarking' (Direct Sequence Spread Spectrum - DSSS), and how does spreading a narrow-band watermark across wide frequency bands achieve extreme resilience against jamming?",
@@ -179,7 +179,7 @@ Leaked Image Found on Dark Web -> Extraction: "EMP-9021-MAMATA" -> Leaker Identi
 Watermark Bit: b = +1
 PN Sequence:   P = [+1, -1, +1, +1, -1, ...] (Length L = 1024)
 Embedded Wave: I'_k = I_k + alpha * b * P_k
-Detector:      Correlation = Sum( I'_k * P_k ) = b * alpha * L + Noise -> If Corr > 0 => Bit = 1!`
+Detector:      Correlation = Sum( I'_k * P_k ) = b * alpha * L + Noise → If Corr > 0 => Bit = 1!`
   },
   {
     question: "Synthesizing Digital Watermarking: what is the master engineering guideline for designing enterprise multimedia protection architectures?",

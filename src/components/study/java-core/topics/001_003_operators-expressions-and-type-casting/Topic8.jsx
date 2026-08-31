@@ -42,7 +42,7 @@ export default function Topic8() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Equality Check: Primitive <code className="text-sky-400">==</code> vs. Object Reference Comparison &amp; <code className="text-emerald-400">.equals()</code>
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -113,7 +113,7 @@ export default function Topic8() {
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="55" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">int a = 15000;</text>
             <text x="55" y="122" fill="#a7f3d0" fontSize="11" fontFamily="monospace">int b = 15000;</text>
-            <text x="55" y="142" fill="#d1fae5" fontSize="10">a == b &rarr; true (Compares stack bits)</text>
+            <text x="55" y="142" fill="#d1fae5" fontSize="10">a == b → true (Compares stack bits)</text>
             <text x="160" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               ✓ Direct Bit Value Match
             </text>
@@ -124,7 +124,7 @@ export default function Topic8() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#4c0519" />
             <text x="335" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">s1 = new String(&quot;B&quot;);</text>
             <text x="335" y="122" fill="#fca5a5" fontSize="11" fontFamily="monospace">s2 = new String(&quot;B&quot;);</text>
-            <text x="335" y="142" fill="#fecdd3" fontSize="10">s1 == s2 &rarr; FALSE! (Diff addresses)</text>
+            <text x="335" y="142" fill="#fecdd3" fontSize="10">s1 == s2 → FALSE! (Diff addresses)</text>
             <text x="440" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               Use s1.equals(s2) for Content
             </text>
@@ -133,8 +133,8 @@ export default function Topic8() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradCacheTrap)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Integer Cache Trap</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#451a03" />
-            <text x="615" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Integer 100 == 100 &rarr; true</text>
-            <text x="615" y="122" fill="#fca5a5" fontSize="11" fontFamily="monospace">Integer 200 == 200 &rarr; FALSE!</text>
+            <text x="615" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Integer 100 == 100 → true</text>
+            <text x="615" y="122" fill="#fca5a5" fontSize="11" fontFamily="monospace">Integer 200 == 200 → FALSE!</text>
             <text x="615" y="142" fill="#fef3c7" fontSize="10">Cached only in [-128..127]!</text>
             <text x="720" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               Always Use Objects.equals()

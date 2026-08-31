@@ -21,19 +21,19 @@ const ngfwPillars = {
     hint: "App-ID looks at the actual application data rather than trusting the port number on the packet envelope.",
     level: "Basic",
     codeExample: `// Legacy Port Rule vs NGFW App-ID Policy:
-// Legacy Rule : ALLOW 10.10.1.0/24 -> ANY:443 (Allows SSH tunnel / BitTorrent on 443!)
-// NGFW Policy : ALLOW 'Finance-Team' -> APP 'salesforce' ONLY on Service-Default`
+// Legacy Rule : ALLOW 10.10.1.0/24 → ANY:443 (Allows SSH tunnel / BitTorrent on 443!)
+// NGFW Policy : ALLOW 'Finance-Team' → APP 'salesforce' ONLY on Service-Default`
   },
   {
     id: 3,
     question: "What is 'Single-Pass Parallel Processing' (SP3) architecture and how does it prevent the performance bottlenecks of legacy UTM multi-pass engines?",
     shortAnswer: "SP3 parses the packet payload once in hardware memory and evaluates App-ID, User-ID, Content-ID (AV, IPS, DLP), and policy rules simultaneously in parallel using dedicated ASICs, achieving line-rate throughput without multiple buffering stages.",
-    explanation: "Legacy Unified Threat Management (UTM) firewalls daisy-chain independent software engines: unpacking, scanning, and repacking the packet 4–5 times (Firewall -> IPS -> AV -> URL Filter). SP3 eliminates redundant processing by performing a single classification and a single hardware signature scan.",
+    explanation: "Legacy Unified Threat Management (UTM) firewalls daisy-chain independent software engines: unpacking, scanning, and repacking the packet 4–5 times (Firewall → IPS → AV → URL Filter). SP3 eliminates redundant processing by performing a single classification and a single hardware signature scan.",
     hint: "Unpacks and inspects the payload once for all threat signatures simultaneously.",
     level: "Moderate",
     codeExample: `// Multi-Pass (UTM) vs Single-Pass (NGFW):
-// Multi-Pass : Ingress -> [FW Scan] -> [IPS Scan] -> [AV Scan] -> [URL Scan] -> Egress (5x Latency!)
-// Single-Pass: Ingress -> [Unified Hardware ASIC: App-ID + IPS + AV + Policy] -> Egress (1x Latency)`
+// Multi-Pass : Ingress → [FW Scan] → [IPS Scan] → [AV Scan] → [URL Scan] → Egress (5x Latency!)
+// Single-Pass: Ingress → [Unified Hardware ASIC: App-ID + IPS + AV + Policy] → Egress (1x Latency)`
   },
   {
     id: 4,
@@ -43,8 +43,8 @@ const ngfwPillars = {
     hint: "Dynamically maps IP addresses to Active Directory usernames and groups.",
     level: "Basic",
     codeExample: `// User-ID Mapping Table:
-// IP 10.10.1.50 -> User: "mamata.b@bank.gov.in" -> Group: "Finance-Managers"
-// Policy: "Finance-Managers" -> Allowed App: "SAP-HANA"`
+// IP 10.10.1.50 → User: "mamata.b@bank.gov.in" → Group: "Finance-Managers"
+// Policy: "Finance-Managers" → Allowed App: "SAP-HANA"`
   },
   {
     id: 5,
@@ -74,7 +74,7 @@ const ngfwPillars = {
     hint: "Combines IPS, Antivirus, and Anti-Spyware into a single unified pattern-matching engine.",
     level: "Expert",
     codeExample: `// Unified Content-ID Inspection:
-// Single Byte Sweep -> [Matches CVE-2021-44228 Log4Shell + EICAR Malware Hash + CobaltStrike C2 Profile simultaneously]`
+// Single Byte Sweep → [Matches CVE-2021-44228 Log4Shell + EICAR Malware Hash + CobaltStrike C2 Profile simultaneously]`
   },
   {
     id: 8,
@@ -84,7 +84,7 @@ const ngfwPillars = {
     hint: "Detonating unknown files in a secure cloud virtual machine to detect brand new zero-day attacks.",
     level: "Moderate",
     codeExample: `// WildFire Cloud Sandbox Pipeline:
-// 1. Unknown File (.exe/.docx) arrives at NGFW -> 2. Uploaded to Cloud Sandbox -> 3. Detonated in VM -> 4. Signature pushed in < 5 seconds!`
+// 1. Unknown File (.exe/.docx) arrives at NGFW → 2. Uploaded to Cloud Sandbox → 3. Detonated in VM → 4. Signature pushed in < 5 seconds!`
   },
   {
     id: 9,
@@ -94,7 +94,7 @@ const ngfwPillars = {
     hint: "Attackers disguise malicious traffic over common open ports like 80, 443, and 53.",
     level: "Basic",
     codeExample: `// The Death of Trusted Ports:
-// Port 443 Traffic -> NGFW App-ID: Detected as "cobalt-strike-beacon" (NOT SSL!) -> Action: RESET-DROP!`
+// Port 443 Traffic → NGFW App-ID: Detected as "cobalt-strike-beacon" (NOT SSL!) → Action: RESET-DROP!`
   },
   {
     id: 10,
@@ -104,8 +104,8 @@ const ngfwPillars = {
     hint: "Permitting the general website while blocking specific sub-features like chat or file sharing.",
     level: "Moderate",
     codeExample: `// Micro-App Policy Granularity:
-// ALLOW: Marketing-Team -> App: "linkedin-base", "linkedin-posting"
-// DROP : Marketing-Team -> App: "linkedin-mail", "linkedin-job-search"`
+// ALLOW: Marketing-Team → App: "linkedin-base", "linkedin-posting"
+// DROP : Marketing-Team → App: "linkedin-mail", "linkedin-job-search"`
   },
   {
     id: 11,
@@ -125,8 +125,8 @@ const ngfwPillars = {
     hint: "Classifying smart devices and medical equipment to restrict them to authorized communications.",
     level: "Expert",
     codeExample: `// Device-ID Policy:
-// ALLOW: Device-Type "Medical-Ultrasound" -> Destination: "PACS-Server" Proto: DICOM (Port 104)
-// DROP : Device-Type "Medical-Ultrasound" -> Destination: ANY (Blocks Internet scanning!)`
+// ALLOW: Device-Type "Medical-Ultrasound" → Destination: "PACS-Server" Proto: DICOM (Port 104)
+// DROP : Device-Type "Medical-Ultrasound" → Destination: ANY (Blocks Internet scanning!)`
   },
   {
     id: 13,
@@ -136,7 +136,7 @@ const ngfwPillars = {
     hint: "Traffic that cannot be identified is flagged as unknown and blocked by default-deny policies.",
     level: "Basic",
     codeExample: `// Unknown Traffic Hardening Rule:
-// Rule: DROP Source: Internal_LAN -> Destination: ANY -> App: "unknown-tcp", "unknown-udp"`
+// Rule: DROP Source: Internal_LAN → Destination: ANY → App: "unknown-tcp", "unknown-udp"`
   },
   {
     id: 14,
@@ -146,7 +146,7 @@ const ngfwPillars = {
     hint: "Decrypting traffic once and sharing the plaintext stream with multiple security tools.",
     level: "Expert",
     codeExample: `// Decryption Broker Architecture:
-// Ingress (Encrypted) -> [NGFW Decryption ASIC] ---> [Plaintext DLP] ---> [Plaintext IDS] -> [NGFW Re-encrypt] -> Egress`
+// Ingress (Encrypted) → [NGFW Decryption ASIC] ---> [Plaintext DLP] ---> [Plaintext IDS] → [NGFW Re-encrypt] → Egress`
   },
   {
     id: 15,
@@ -156,7 +156,7 @@ const ngfwPillars = {
     hint: "Exempting banking and healthcare websites from decryption to protect employee privacy.",
     level: "Moderate",
     codeExample: `// Decryption Exclusion Policy:
-// IF URL.Category IN ['Financial-Services', 'Health-and-Medicine'] -> Action: NO-DECRYPT (Pass encrypted)`
+// IF URL.Category IN ['Financial-Services', 'Health-and-Medicine'] → Action: NO-DECRYPT (Pass encrypted)`
   },
   {
     id: 16,
@@ -176,7 +176,7 @@ const ngfwPillars = {
     hint: "Identifying and blocking encrypted DNS protocols so all lookups go through company DNS servers.",
     level: "Expert",
     codeExample: `// Block DoH Evasion:
-// Rule: DROP Source: Internal_LAN -> Destination: ANY -> App: "dns-over-https", "dns-over-tls"`
+// Rule: DROP Source: Internal_LAN → Destination: ANY → App: "dns-over-https", "dns-over-tls"`
   },
   {
     id: 18,
@@ -207,7 +207,7 @@ const ngfwPillars = {
     hint: "Blocking web servers from making unauthorized requests to cloud metadata or internal databases.",
     level: "Expert",
     codeExample: `// Cloud Metadata SSRF Protection:
-// DROP Source: Web_Server_Tier -> Destination: 169.254.169.254 App: ANY`
+// DROP Source: Web_Server_Tier → Destination: 169.254.169.254 App: ANY`
   },
   {
     id: 21,
@@ -227,8 +227,8 @@ const ngfwPillars = {
     hint: "Detecting when an allowed web connection shifts into a disguised unauthorized protocol mid-stream.",
     level: "Expert",
     codeExample: `// Application Shift Event:
-// Packet 1-3: Handshake matched "web-browsing" -> Permitted
-// Packet 4  : Payload shifted to "ssh-tunnel" -> Policy Re-evaluated -> Action: RESET-BOTH!`
+// Packet 1-3: Handshake matched "web-browsing" → Permitted
+// Packet 4  : Payload shifted to "ssh-tunnel" → Policy Re-evaluated → Action: RESET-BOTH!`
   },
   {
     id: 23,
@@ -249,7 +249,7 @@ const ngfwPillars = {
     hint: "Discovering and controlling unauthorized cloud services used by employees.",
     level: "Basic",
     codeExample: `// Shadow IT Analytics:
-// Discovered Apps: WeTransfer (Risk: High, Data Exfiltrated: 14.5 GB, Users: 12) -> Action: BLOCK`
+// Discovered Apps: WeTransfer (Risk: High, Data Exfiltrated: 14.5 GB, Users: 12) → Action: BLOCK`
   },
   {
     id: 25,
@@ -277,7 +277,7 @@ const ngfwThreatLog = {
     hint: "Blocking users from submitting their company passwords onto unauthorized external websites.",
     level: "Expert",
     codeExample: `// Credential Phishing Protection:
-// Outbound POST to "fake-bank-login.com" -> Detected corporate password hash -> Action: BLOCK & ALERT SOC!`
+// Outbound POST to "fake-bank-login.com" → Detected corporate password hash → Action: BLOCK & ALERT SOC!`
   },
   {
     id: 27,
@@ -287,7 +287,7 @@ const ngfwThreatLog = {
     hint: "Automated threat intelligence feeds that update firewall blocklists in real-time.",
     level: "Moderate",
     codeExample: `// External Dynamic List (EDL) Configuration:
-// Object: EDL_Malware_C2 -> Source: "https://threatintel.cert-in.org.in/active_c2.txt" (Refreshes every 5 mins)`
+// Object: EDL_Malware_C2 → Source: "https://threatintel.cert-in.org.in/active_c2.txt" (Refreshes every 5 mins)`
   },
   {
     id: 28,
@@ -297,7 +297,7 @@ const ngfwThreatLog = {
     hint: "Interface-level volumetric flood and malformed packet defense before deep processing.",
     level: "Moderate",
     codeExample: `// Zone Protection Thresholds:
-// SYN Flood: Alarm at 10,000 CPS -> Activate SYN Cookies at 25,000 CPS -> Drop at 50,000 CPS`
+// SYN Flood: Alarm at 10,000 CPS → Activate SYN Cookies at 25,000 CPS → Drop at 50,000 CPS`
   },
   {
     id: 29,

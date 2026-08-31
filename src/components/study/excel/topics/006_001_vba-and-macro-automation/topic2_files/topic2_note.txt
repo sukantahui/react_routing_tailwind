@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Use the Macro Recorder like a dictionary! If you forget the VBA syntax for autofilter or pivot tables, turn on the recorder, do the action, copy the generated code, and delete the `.Select` statements.
 
 COMMON TRAPS TO AVOID:
-- Using Absolute Mode When Relative Mode is Needed: Recording a row formatting macro in Absolute mode causes it to repeatedly overwrite row 2 instead of moving down the table. -> Fix: Click 'Use Relative References' on Developer tab before recording row-by-row actions.
-- Recording Unnecessary Mouse Clicks & Scrolling: Every mouse scroll and accidental cell click gets recorded as a slow `.Select` line in VBA. -> Fix: Plan keystrokes carefully before recording, and delete extraneous lines in the editor.
-- Naming Macro with Illegal Characters or Spaces: Naming a macro `Monthly Sales Format` throws 'Invalid procedure name'. -> Fix: Use camelCase or underscores: `Monthly_Sales_Format` (no spaces allowed).
+- Using Absolute Mode When Relative Mode is Needed: Recording a row formatting macro in Absolute mode causes it to repeatedly overwrite row 2 instead of moving down the table. → Fix: Click 'Use Relative References' on Developer tab before recording row-by-row actions.
+- Recording Unnecessary Mouse Clicks & Scrolling: Every mouse scroll and accidental cell click gets recorded as a slow `.Select` line in VBA. → Fix: Plan keystrokes carefully before recording, and delete extraneous lines in the editor.
+- Naming Macro with Illegal Characters or Spaces: Naming a macro `Monthly Sales Format` throws 'Invalid procedure name'. → Fix: Use camelCase or underscores: `Monthly_Sales_Format` (no spaces allowed).
 ================================================================================

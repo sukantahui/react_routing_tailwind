@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of mx2 Games?",
     shortAnswer: "'Parameterize Player B's strategy as q1; plot linear expected payout lines E(Ai, q) between left (ai2) and right (ai1) axes; construct the Upper Envelope; locate the Minimax trough; and report the Game Value in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all mx2 game mechanics.",
-    hint: "Parameterize q1 -> Plot row lines -> Upper Envelope -> Minimax Trough in ₹.",
+    hint: "Parameterize q1 → Plot row lines → Upper Envelope → Minimax Trough in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: ParameterizeQ1() -> PlotRowLines() -> UpperEnvelope() -> MinimaxTrough(₹)."
+    codeExample: "GoldenRule: ParameterizeQ1() → PlotRowLines() → UpperEnvelope() → MinimaxTrough(₹)."
   }
 ];
 

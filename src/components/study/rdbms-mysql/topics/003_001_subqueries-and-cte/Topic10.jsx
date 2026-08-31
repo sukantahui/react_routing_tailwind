@@ -43,7 +43,7 @@ FROM NumberSeries;`,
         { iteration: "Iter #0 (Anchor)", value: "1", mathOp: "Seed Base Case", condition: "1 < 10 (True)", outputVal: "1 (Scaled: 100)", status: "Base Step" },
         { iteration: "Iter #1", value: "2", mathOp: "1 + 1", condition: "2 < 10 (True)", outputVal: "2 (Scaled: 200)", status: "Iterating" },
         { iteration: "Iter #2", value: "3", mathOp: "2 + 1", condition: "3 < 10 (True)", outputVal: "3 (Scaled: 300)", status: "Iterating" },
-        { iteration: "Iter #9", value: "10", mathOp: "9 + 1", condition: "10 < 10 (False -> HALT)", outputVal: "10 (Scaled: 1000)", status: "Terminated" },
+        { iteration: "Iter #9", value: "10", mathOp: "9 + 1", condition: "10 < 10 (False → HALT)", outputVal: "10 (Scaled: 1000)", status: "Terminated" },
       ],
       explanation:
         "The Anchor Member seeds `num = 1`. Each recursive iteration evaluates `num + 1` until `num < 10` becomes false, producing an empty set and halting recursion.",
@@ -162,7 +162,7 @@ FROM AlphabetSeries;`,
               Iterative SQL Architecture
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Recursive CTEs: Anchor, Recursive & Termination
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

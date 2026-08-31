@@ -70,7 +70,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Currency and International Formats: $, ₹, €, £, and Indian Numbering (##,##,##0)
           </h1>
 
@@ -543,7 +543,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Currency_International"
+            sheetName="Topic3"
             title="Custom Number Formatting & Presentation Suite"
             rowsPerPage={12}
             showSheetSelector={true}

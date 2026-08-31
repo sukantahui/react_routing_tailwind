@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 In corporate finance, NEVER use standard NPV or IRR—always use XNPV and XIRR! They use exact dates so your calculations are 100% accurate. And remember: your initial investment MUST be a negative number!
 
 COMMON TRAPS TO AVOID:
-- Using Standard NPV with Irregular Dates: Standard `=NPV()` assumes all cash flows occur at strictly equal 1-year intervals, producing invalid valuations. -> Fix: Always use `=XNPV(rate, cash_flows, dates)` for real-world projects.
-- Omitting Negative Sign on Initial Investment Outflow: Passing positive number for Year 0 investment in XIRR causes `#NUM!` error. -> Fix: Initial capital outflow MUST be negative: `-50000000`.
-- Annual vs Monthly Interest Rate Mismatch in PMT: Passing 12% annual rate into monthly loan formula without dividing by 12. -> Fix: Divide annual rate by 12 and multiply years by 12: `=PMT(Rate/12, Years*12, -LoanAmount)`.
+- Using Standard NPV with Irregular Dates: Standard `=NPV()` assumes all cash flows occur at strictly equal 1-year intervals, producing invalid valuations. → Fix: Always use `=XNPV(rate, cash_flows, dates)` for real-world projects.
+- Omitting Negative Sign on Initial Investment Outflow: Passing positive number for Year 0 investment in XIRR causes `#NUM!` error. → Fix: Initial capital outflow MUST be negative: `-50000000`.
+- Annual vs Monthly Interest Rate Mismatch in PMT: Passing 12% annual rate into monthly loan formula without dividing by 12. → Fix: Divide annual rate by 12 and multiply years by 12: `=PMT(Rate/12, Years*12, -LoanAmount)`.
 ================================================================================

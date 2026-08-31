@@ -80,7 +80,7 @@ const questions = [
   },
   {
     question: "How do faculty and course hierarchies for Mamata, Susmita, Abhronila, and Debangshu illustrate recursive trees?",
-    shortAnswer: "By modeling an academy faculty management chart (Director Sukanta Hui -> Senior Instructors -> Teaching Assistants) and resolving multi-tier course prerequisite chains.",
+    shortAnswer: "By modeling an academy faculty management chart (Director Sukanta Hui → Senior Instructors → Teaching Assistants) and resolving multi-tier course prerequisite chains.",
     explanation: "Demonstrates organizational and academic prerequisite dependency resolution.",
     hint: "Faculty org charts and course prerequisite dependency chains.",
     level: "basic"

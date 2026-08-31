@@ -9,7 +9,7 @@ import questions from "./topic10_files/topic10_questions";
 import noteText from "./topic10_files/topic10_note.txt?raw";
 
 /**
- * Topic10 – Comparison Operators (=, !=, <>, <, >, <=, >=)
+ * Topic10 – Comparison Operators (=, !=, &lt;&gt;, <, >, <=, >=)
  * Module: 001_002_sql-fundamentals
  *
  * @component
@@ -70,7 +70,7 @@ const Topic10 = () => {
       case "=":
         return fee === targetFee;
       case "!=":
-      case "<>":
+      case "&lt;&gt;":
         return fee !== targetFee;
       case "<":
         return fee < targetFee;
@@ -121,7 +121,7 @@ const Topic10 = () => {
             Module 001_002 · SQL Fundamentals · Topic 10
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Comparison Operators{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               (=, !=, &lt;&gt;, &lt;, &gt;, &lt;=, &gt;=, &lt;=&gt;)
@@ -290,7 +290,7 @@ const Topic10 = () => {
                   Select Comparison Operator:
                 </label>
                 <div className="grid grid-cols-4 gap-1.5">
-                  {["=", "<>", ">", ">=", "<", "<="].map((op) => (
+                  {["=", "&lt;&gt;", ">", ">=", "<", "<="].map((op) => (
                     <button
                       key={op}
                       onClick={() => setOperator(op)}
@@ -421,7 +421,7 @@ const Topic10 = () => {
     CONCAT(first_name, ' ', last_name) AS student_name,
     admission_fee AS "Tuition (₹)"
 FROM students
-WHERE admission_fee <> 15000.00;`}
+WHERE admission_fee &lt;&gt; 15000.00;`}
               </pre>
             </div>
 
@@ -524,7 +524,7 @@ WHERE stock_quantity <= 20;`}
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm text-slate-300">
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span><code>=</code> evaluates equality; <code>&lt;&gt;</code> or <code>!=</code> evaluates inequality</span>
+              <span><code>=</code> evaluates equality; <code><></code> or <code>!=</code> evaluates inequality</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
@@ -532,7 +532,7 @@ WHERE stock_quantity <= 20;`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span>Inequality operators (<code>&lt;&gt;</code>) automatically exclude NULL records</span>
+              <span>Inequality operators (<code><></code>) automatically exclude NULL records</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
@@ -566,7 +566,7 @@ WHERE stock_quantity <= 20;`}
         <section ref={addRef} className="reveal-section mb-12">
           <PlainTextPrint
             content={noteText}
-            title="Comparison Operators (=, !=, <>, <, >, <=, >=)"
+            title="Comparison Operators (=, !=, &lt;&gt;, <, >, <=, >=)"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Plain Text Note"
@@ -579,7 +579,7 @@ WHERE stock_quantity <= 20;`}
           <Teacher
             note={
               "Comparison operators form the logical bedrock of every decision your database makes. In my classes in Barrackpore, " +
-              "the number one mistake students make is writing `WHERE city <> 'Kolkata'` and expecting it to include students with " +
+              "the number one mistake students make is writing `WHERE city &lt;&gt; 'Kolkata'` and expecting it to include students with " +
               "unassigned (NULL) cities. In relational Three-Valued Logic, comparing any value to NULL yields UNKNOWN, silently dropping " +
               "those rows from the result. Always be mindful of NULL handling and leverage MySQL's NULL-safe `<=>` operator when appropriate."
             }

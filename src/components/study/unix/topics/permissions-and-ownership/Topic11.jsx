@@ -268,7 +268,7 @@ export default class Topic11 extends React.Component {
         <div className="container mx-auto px-4 py-12 max-w-6xl">
           {/* Header Section */}
           <header className={clsx(sectionAnimation, "mb-12 text-center")}>
-            <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               Topic 2: Files vs Directories Permission Logic
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">

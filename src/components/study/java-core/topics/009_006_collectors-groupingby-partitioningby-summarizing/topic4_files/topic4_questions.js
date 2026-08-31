@@ -13,7 +13,7 @@ const topic4_questions = [
     "explanation": "This avoids generating NaN or throwing arithmetic exceptions.",
     "hint": "Returns 0.0 on empty streams.",
     "level": "Beginner",
-    "codeExample": "Double avg = Stream.<Integer>empty().collect(Collectors.averagingDouble(x -> x)); // 0.0"
+    "codeExample": "Double avg = Stream.<Integer>empty().collect(Collectors.averagingDouble(x → x)); // 0.0"
   }
 ];
 

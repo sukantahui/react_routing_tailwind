@@ -70,7 +70,7 @@ export default function Topic23() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Practice Session: Building a Multi-Criteria Dynamic Lookup Hub
           </h1>
 
@@ -248,13 +248,13 @@ export default function Topic23() {
                 {/* Top Column Header Selector (MATCH Col) */}
                 <rect x="220" y="20" width="560" height="40" rx="8" fill="#0284c7" fillOpacity="0.2" stroke="#0284c7" strokeWidth="1.5" />
                 <text x="500" y="45" textAnchor="middle" fill="#38bdf8" fontWeight="bold" fontSize="12">
-                  MATCH(ColKey, [Bronze, Silver, Gold, Platinum], 0) &rarr; Col Coordinate 4
+                  MATCH(ColKey, [Bronze, Silver, Gold, Platinum], 0) → Col Coordinate 4
                 </text>
 
                 {/* Left Row Header Selector (MATCH Row) */}
                 <rect x="20" y="80" width="180" height="180" rx="8" fill="#059669" fillOpacity="0.2" stroke="#059669" strokeWidth="1.5" />
                 <text x="110" y="150" textAnchor="middle" fill="#34d399" fontWeight="bold" fontSize="12">
-                  MATCH(RowKey) &rarr;
+                  MATCH(RowKey) →
                 </text>
                 <text x="110" y="170" textAnchor="middle" fill="#34d399" fontWeight="bold" fontSize="12">
                   Row Coordinate 3
@@ -278,7 +278,7 @@ export default function Topic23() {
                   • Row Key: Product Segment = "Enterprise Cloud" (Row 3)
                 </text>
                 <text x="240" y="260" fill="#94a3b8" fontSize="11">
-                  • Column Key: Service Level = "Platinum" (Column 4) &rarr; INDEX(Matrix, 3, 4)
+                  • Column Key: Service Level = "Platinum" (Column 4) → INDEX(Matrix, 3, 4)
                 </text>
               </g>
             </svg>
@@ -318,7 +318,7 @@ export default function Topic23() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic19_Practice_These_Top"
+            sheetName="EX1024"
             title="Commercial Pricing Lookup Hub (Pricing Ref, Product Family, Service Tier, Region, Base Tariff, Surge Multiplier, Effective Price)"
             rowsPerPage={10}
             showSheetSelector={true}

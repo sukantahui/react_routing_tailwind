@@ -13,7 +13,7 @@ const topic9_questions = [
     "explanation": "Terminal operations act as the ignition key that starts the data processing engine.",
     "hint": "Without a terminal operation, the pipeline is inert and never runs.",
     "level": "Beginner",
-    "codeExample": "Stream<String> s = list.stream().filter(x -> { System.out.println(x); return true; }); // Nothing printed!"
+    "codeExample": "Stream<String> s = list.stream().filter(x → { System.out.println(x); return true; }); // Nothing printed!"
   }
 ];
 

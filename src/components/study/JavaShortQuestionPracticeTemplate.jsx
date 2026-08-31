@@ -177,12 +177,12 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
         </style>
       </head>
       <body>
-        <!-- Fixed header with organization details -->
+        <!-- Fixed header with organization details ──→
         <div class="print-header">
           📘 ${org.name} &nbsp;|&nbsp; 📞 ${org.phone} &nbsp;|&nbsp; 🌐 ${org.website}
         </div>
 
-        <!-- Stamp image on every page -->
+        <!-- Stamp image on every page ──→
         <img src="${stampUrl}" class="stamp" alt="CNAT Stamp" />
 
         <div class="spacer"></div>
@@ -228,7 +228,7 @@ export default function JavaShortQuestionPracticeTemplate({ data }) {
                         />
                     </div>
                     <div>
-                        <h1 className="text-3xl font-bold text-sky-400 tracking-wide">{data.topic}</h1>
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-sky-400 tracking-wide">{data.topic}</h1>
                         <p className="text-sm text-zinc-400">{data.subject} • Class {data.class} • {data.board}</p>
                     </div>
                 </div>

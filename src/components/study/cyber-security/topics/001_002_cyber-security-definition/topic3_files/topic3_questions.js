@@ -32,7 +32,7 @@ const questions = [
     explanation: "Helps organizations recognize physical theft or media loss as a distinct security breach even if cryptographic confidentiality holds.",
     hint: "Having physical or logical ownership of data media, even if the data inside is encrypted.",
     level: "moderate",
-    codeExample: "PossessionBreach: EncryptedDriveStolenFromDataCenter -> Confidentiality(Safe) but Possession(Compromised)"
+    codeExample: "PossessionBreach: EncryptedDriveStolenFromDataCenter → Confidentiality(Safe) but Possession(Compromised)"
   },
   {
     question: "What is the security goal of 'Utility' in the Parkerian Hexad?",
@@ -40,7 +40,7 @@ const questions = [
     explanation: "Ransomware destroys data utility without necessarily breaching confidentiality (since the attacker cannot read the files either).",
     hint: "Ensuring data is in a usable and readable format, not corrupted or locked with lost keys.",
     level: "moderate",
-    codeExample: "UtilityLoss: FileEncryptedWithLostKey -> Confidentiality(100%), Integrity(Intact), Utility(0 - Useless)"
+    codeExample: "UtilityLoss: FileEncryptedWithLostKey → Confidentiality(100%), Integrity(Intact), Utility(0 - Useless)"
   },
   {
     question: "What is the cost in Indian Rupees (₹) for an Enterprise Hardware Security Module (HSM) for Master Key Governance?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Fault-tolerant systems utilize lockstep mirrored CPUs and RAID-10 storage to sustain hardware crashes with zero downtime in Jadavpur.",
     hint: "HA fails over in a few seconds; Fault tolerance keeps running without even a millisecond of interruption.",
     level: "expert",
-    codeExample: "FaultTolerance: DualCPUsRunInLockstep() -> CPU_1_Explodes -> CPU_2_ContinuesWithoutPacketDrop();"
+    codeExample: "FaultTolerance: DualCPUsRunInLockstep() → CPU_1_Explodes → CPU_2_ContinuesWithoutPacketDrop();"
   },
   {
     question: "What is Privacy-by-Design and Privacy-by-Default in cyber security goals?",
@@ -144,7 +144,7 @@ const questions = [
     explanation: "If a receptionist's PC in Ichapur is infected with ransomware, microsegmentation prevents the virus from reaching the database server.",
     hint: "Limiting damage so a virus on one computer cannot spread to the rest of the company network.",
     level: "moderate",
-    codeExample: "BlastRadiusContainment: isolateCompromisedVLAN() -> blockLateralSMB() -> coreDatabaseProtected();"
+    codeExample: "BlastRadiusContainment: isolateCompromisedVLAN() → blockLateralSMB() → coreDatabaseProtected();"
   },
   {
     question: "What is Threat Deterrence and Threat Prevention in defensive cyber strategy?",
@@ -184,7 +184,7 @@ const questions = [
     explanation: "Protects educational video lectures and proprietary courseware produced in Barrackpore from piracy.",
     hint: "Encrypts digital video and course materials so only paying students can view them.",
     level: "basic",
-    codeExample: "DRM_Protection: VideoStream.encrypt(CENC_AES_CTR) -> DecryptedOnlyInsideSecureHardwareEnclave();"
+    codeExample: "DRM_Protection: VideoStream.encrypt(CENC_AES_CTR) → DecryptedOnlyInsideSecureHardwareEnclave();"
   },
   {
     question: "What is Vulnerability Remediation and Patch Management Lifecycle?",
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Transforms 500 enterprise employees in Kolkata into an active human sensor network that spots phishing attacks.",
     hint: "Training employees continuously so they spot and report phishing emails without fear.",
     level: "basic",
-    codeExample: "SecurityCulture: RunSimulatedPhishing() -> RewardReporter() -> ContinuousHygieneWorkshops();"
+    codeExample: "SecurityCulture: RunSimulatedPhishing() → RewardReporter() → ContinuousHygieneWorkshops();"
   },
   {
     question: "Why is Supply Chain Integrity a mandatory goal for modern software development?",
@@ -224,7 +224,7 @@ const questions = [
     explanation: "Ensures software built in Jadavpur is safe from upstream package tampering (e.g. npm typosquatting).",
     hint: "Checking that all software libraries used in your apps are clean and free of hidden malware.",
     level: "moderate",
-    codeExample: "SBOM_Validation: generateCycloneDX_SBOM() -> scanVulnerabilities() -> verifyPackageSignatures();"
+    codeExample: "SBOM_Validation: generateCycloneDX_SBOM() → scanVulnerabilities() → verifyPackageSignatures();"
   },
   {
     question: "What is Business Alignment in cybersecurity goals?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule synthesizes foundational models, comprehensive hexad goals, operational telemetry, rapid containment, and financial procurement budgeting.",
     hint: "Parkerian Hexad + Non-repudiation + Automated SOAR + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: MasterParkerianHexad() -> EnforceNonRepudiation() -> MinimizeMTTR_WithSOAR() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: MasterParkerianHexad() → EnforceNonRepudiation() → MinimizeMTTR_WithSOAR() → BudgetInRupees(₹);"
   }
 ];
 

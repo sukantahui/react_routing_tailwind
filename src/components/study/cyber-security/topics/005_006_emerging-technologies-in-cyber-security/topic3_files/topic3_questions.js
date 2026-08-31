@@ -40,7 +40,7 @@ const questions = [
     hint: "Real-time AI voice and video cloning used to impersonate executives on calls to authorize wire transfers.",
     level: "Basic",
     codeExample: `// Deepfake BEC Attack:
-// Attacker Video -> Real-Time GAN Face Swap (CEO) -> Zoom Call with Clerk -> Orders ₹45,00,000 transfer!`
+// Attacker Video → Real-Time GAN Face Swap (CEO) → Zoom Call with Clerk → Orders ₹45,00,000 transfer!`
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const questions = [
     hint: "Measures invisible skin micro-color changes corresponding to cardiac blood pulsation.",
     level: "Expert",
     codeExample: `// rPPG Pulse Detection:
-// Extract Green-channel pixel average -> FFT -> Detects 1.2 Hz peak (72 BPM Heartbeat) ✔`
+// Extract Green-channel pixel average → FFT → Detects 1.2 Hz peak (72 BPM Heartbeat) ✔`
   },
   {
     id: 7,
@@ -72,7 +72,7 @@ const questions = [
     hint: "Generates flawless, personalized emails using victim OSINT to bypass static email filters.",
     level: "Basic",
     codeExample: `// AI Phishing Generator:
-// Input: [Victim Bio + Recent Project] -> LLM outputs: "Urgent review required for Barrackpore Project X milestone..."`
+// Input: [Victim Bio + Recent Project] → LLM outputs: "Urgent review required for Barrackpore Project X milestone..."`
   },
   {
     id: 8,
@@ -164,7 +164,7 @@ const questions = [
     hint: "Encodes 3s audio into acoustic tokens capturing vocal timbre and synthesizes speech.",
     level: "Moderate",
     codeExample: `// Voice Cloning Pipeline:
-// 3s Audio Sample -> Neural Audio Codec -> Extracts Speaker Embedding -> Synthesizes "Wire ₹10,00,000 immediately"`
+// 3s Audio Sample → Neural Audio Codec → Extracts Speaker Embedding → Synthesizes "Wire ₹10,00,000 immediately"`
   },
   {
     id: 17,
@@ -195,7 +195,7 @@ const questions = [
     hint: "Determines if a specific person's record was part of a model's private training dataset.",
     level: "Moderate",
     codeExample: `// Membership Inference:
-// Query: Record X -> Model Loss = 0.00001 (Overfitted memorization) -> "Record X was in Training Set!"`
+// Query: Record X → Model Loss = 0.00001 (Overfitted memorization) → "Record X was in Training Set!"`
   },
   {
     id: 20,
@@ -205,7 +205,7 @@ const questions = [
     hint: "Printed colorful stickers that fool computer vision models into not seeing a person or object.",
     level: "Basic",
     codeExample: `// Physical Patch Attack:
-// Intruder wears 10cm printed patch on chest -> Security Camera YOLO model: "0 Humans Detected" (Invisible!) 🚨`
+// Intruder wears 10cm printed patch on chest → Security Camera YOLO model: "0 Humans Detected" (Invisible!) 🚨`
   },
   {
     id: 21,
@@ -226,7 +226,7 @@ const questions = [
     hint: "Uses SVD to find and remove poisoned samples clustering along top singular vectors.",
     level: "Expert",
     codeExample: `// Spectral Defense:
-// Compute SVD(Representations) -> Calculate outlier score -> Prune top 2% outliers (Removes poisoned data ✔)`
+// Compute SVD(Representations) → Calculate outlier score → Prune top 2% outliers (Removes poisoned data ✔)`
   },
   {
     id: 23,
@@ -266,7 +266,7 @@ const questions = [
     hint: "Requires secondary cryptographic hardware key approval for fund transfers, ignoring video/voice requests.",
     level: "Basic",
     codeExample: `// Out-of-Band Policy:
-// CEO on Video: "Wire ₹25,00,000 right now!" -> Clerk: "Policy mandates Treasury Director FIDO2 Key Tap on Portal."`
+// CEO on Video: "Wire ₹25,00,000 right now!" → Clerk: "Policy mandates Treasury Director FIDO2 Key Tap on Portal."`
   },
   {
     id: 27,

@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Determining Optimal Probabilities in Game Theory?",
     shortAnswer: "'Use the Oddments Method or Indifference Equations to compute p* and q*: take cross-row and cross-column absolute differences, normalize to sum to 1.0, and verify that expected returns are equalized in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all optimal probability determination mechanics.",
-    hint: "Cross-differences -> Normalize to 1.0 -> Verify equalized returns in ₹.",
+    hint: "Cross-differences → Normalize to 1.0 → Verify equalized returns in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: CrossDifferences() -> NormalizeSimplex() -> VerifyEqualizedPayoffs(₹)."
+    codeExample: "GoldenRule: CrossDifferences() → NormalizeSimplex() → VerifyEqualizedPayoffs(₹)."
   }
 ];
 

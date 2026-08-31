@@ -46,7 +46,7 @@ MySQL evaluates privileges in a top-down cascading sequence:
   2. Checks `mysql.db` (Database Level): If the user has `SELECT ON hr_db.*`, access is granted.
   3. Checks `mysql.tables_priv` (Table Level): If user has `SELECT ON hr_db.employees`, access is granted.
   4. Checks `mysql.columns_priv` (Column Level): Checks if `salary` is in the user's permitted column list.
-  5. If none match -> Access Denied (ERROR 1142 / ERROR 1044).
+  5. If none match → Access Denied (ERROR 1142 / ERROR 1044).
 
 3. STATIC VS DYNAMIC PRIVILEGES IN MYSQL 8.0
 --------------------------------------------------------------------------------

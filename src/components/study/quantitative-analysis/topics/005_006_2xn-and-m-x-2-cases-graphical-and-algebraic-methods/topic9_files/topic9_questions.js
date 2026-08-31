@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Module 005_006 and Segment 5 Game Theory?",
     shortAnswer: "'Plot 1D probability lines; trace the Lower Envelope (Maximin) or Upper Envelope (Minimax); extract the active 2x2 submatrix; solve exact indifference equations; reconstruct full probability vectors; verify global optimality; and report all corporate budgets in Indian Rupees (₹)!'",
     explanation: "This master synthesis captures all 2xn and mx2 graphical and algebraic mechanics.",
-    hint: "Plot lines -> Trace envelope -> Extract 2x2 -> Solve equations -> Reconstruct vectors in ₹.",
+    hint: "Plot lines → Trace envelope → Extract 2x2 → Solve equations → Reconstruct vectors in ₹.",
     level: "moderate",
-    codeExample: "MasterGoldenRule: Plot1D() -> TraceEnvelope() -> Extract2x2() -> SolveEquations() -> AuditInRupees(₹)."
+    codeExample: "MasterGoldenRule: Plot1D() → TraceEnvelope() → Extract2x2() → SolveEquations() → AuditInRupees(₹)."
   }
 ];
 

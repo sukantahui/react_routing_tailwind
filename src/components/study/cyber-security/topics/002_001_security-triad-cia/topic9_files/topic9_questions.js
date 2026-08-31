@@ -35,7 +35,7 @@ void Process_PLC_Cycle() {
 char *generate_random_subdomain() {
     char sub[16];
     generate_random_string(sub, 12);
-    // e.g., "x8f2k9a1q4z7.targetdomain.com" -> forces recursive resolver to query auth server
+    // e.g., "x8f2k9a1q4z7.targetdomain.com" → forces recursive resolver to query auth server
     return format_dns_query(sub, "targetdomain.com");
 }`
   },
@@ -47,10 +47,10 @@ char *generate_random_subdomain() {
     level: "moderate",
     codeExample: `// Conceptual Lateral Movement Path:
 Vendor Phishing (HVAC) 
-  --> Target Billing Web Portal (Shared Corporate LAN) 
-    --> No Firewalled Segment Separation 
-      --> POS Terminal Network (CDE) 
-        --> Kaptoxa Memory-Scraper Injected`
+  → Target Billing Web Portal (Shared Corporate LAN) 
+    → No Firewalled Segment Separation 
+      → POS Terminal Network (CDE) 
+        → Kaptoxa Memory-Scraper Injected`
   },
   {
     question: "Why was the 2021 Colonial Pipeline ransomware incident fundamentally categorized as an Availability disruption caused by proactive business caution rather than direct OT compromise?",
@@ -60,9 +60,9 @@ Vendor Phishing (HVAC)
     level: "expert",
     codeExample: `// Risk Dependency Chain:
 [ Compromised VPN (No MFA) ] 
-  --> [ IT Billing Database Encrypted by DarkSide ] 
-    --> [ Loss of Accounting & Metering Capability ] 
-      --> [ Proactive Decision to Sever OT Pipeline Valves ]`
+  → [ IT Billing Database Encrypted by DarkSide ] 
+    → [ Loss of Accounting & Metering Capability ] 
+      → [ Proactive Decision to Sever OT Pipeline Valves ]`
   },
   {
     question: "In financial UPI processing architectures in India (e.g., Kolkata FinTech hub), how do engineers balance Confidentiality and Availability during peak festival traffic surges?",
@@ -160,9 +160,9 @@ bool Verify_Firmware_Integrity(byte[] fw_image, byte[] signature, PublicKey vend
     hint: "Recall how routing traffic to the nearest geographic edge absorbs DDoS volume before reaching core servers.",
     level: "moderate",
     codeExample: `// BGP Anycast Routing Principle:
-Client (Kolkata)    --> Hits Edge PoP (Kolkata Data Center)
+Client (Kolkata)    → Hits Edge PoP (Kolkata Data Center)
 Bot (Eastern Europe)--> Hits Edge PoP (Frankfurt Data Center)
-Bot (North America) --> Hits Edge PoP (Ashburn Data Center)
+Bot (North America) → Hits Edge PoP (Ashburn Data Center)
 // Origin Server receives only cleaned, reverse-proxied traffic`
   },
   {
@@ -185,8 +185,8 @@ Layer 5: Egress Gateway (Blocks outbound traffic to unknown IPs)`
     hint: "Recognize how massive data theft is often followed by wiper malware to compound operational devastation.",
     level: "expert",
     codeExample: `// Dual-Pronged Attack Vector:
-Phase 1: Lateral Reconnaissance -> Stole 100 TB of unencrypted data (Confidentiality)
-Phase 2: Destover Wiper deployed via Active Directory GPO -> Bricked 70% of PCs (Availability)`
+Phase 1: Lateral Reconnaissance → Stole 100 TB of unencrypted data (Confidentiality)
+Phase 2: Destover Wiper deployed via Active Directory GPO → Bricked 70% of PCs (Availability)`
   },
   {
     question: "What is an Air Gap network, and why was it insufficient to protect the Natanz nuclear facility from Stuxnet?",
@@ -239,10 +239,10 @@ iptables -A OUTPUT -s 10.0.5.0/24 -j DROP                   # Block all public o
     level: "expert",
     codeExample: `// Cascade Dependency Anti-Pattern:
 [ Capacity Change in Kinesis ] 
-  --> [ Front-End OS Thread Exhaustion ] 
-    --> [ CloudWatch Telemetry Fails ] 
-      --> [ Autoscaling & Cognito Fail ] 
-        --> [ Third-Party Websites Across North America Go Down ]`
+  → [ Front-End OS Thread Exhaustion ] 
+    → [ CloudWatch Telemetry Fails ] 
+      → [ Autoscaling & Cognito Fail ] 
+        → [ Third-Party Websites Across North America Go Down ]`
   },
   {
     question: "How did the 2013 Yahoo data breaches (compromising 3 billion accounts) demonstrate the catastrophic risk of outdated cryptographic hashing algorithms?",
@@ -266,7 +266,7 @@ String secureHash = Argon2id.hash("studentPassword123", salt, timeCost=3, memory
     codeExample: `// Quorum Consensus Formula (Prevents Split-Brain):
 Quorum = floor(Total_Nodes / 2) + 1
 // In a 3-node cluster, a partitioned node with only 1 vote cannot write:
-// 1 < 2 -> Must step down to Read-Only mode to preserve Integrity.`
+// 1 < 2 → Must step down to Read-Only mode to preserve Integrity.`
   },
   {
     question: "How did the Capital One cloud data breach (2019) exploit a Server-Side Request Forgery (SSRF) flaw to violate Confidentiality?",

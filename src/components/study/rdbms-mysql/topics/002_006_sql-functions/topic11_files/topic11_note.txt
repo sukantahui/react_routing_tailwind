@@ -18,14 +18,14 @@ Core Concept:
 2. THE SQL EXECUTION LIFECYCLE & CLAUSE ORDER
 --------------------------------------------------------------------------------
 Understanding the logical execution order is vital for mastering GROUP BY:
-  1. FROM & JOIN     -> Locate source tables and join datasets
-  2. WHERE           -> Filter individual rows BEFORE grouping
-  3. GROUP BY        -> Partition rows into distinct buckets
-  4. HAVING          -> Filter aggregated groups AFTER grouping
-  5. SELECT          -> Compute aggregate calculations & project columns
-  6. DISTINCT        -> Eliminate duplicate output rows
-  7. ORDER BY        -> Sort final aggregated result set
-  8. LIMIT / OFFSET  -> Restrict number of output rows
+  1. FROM & JOIN     → Locate source tables and join datasets
+  2. WHERE           → Filter individual rows BEFORE grouping
+  3. GROUP BY        → Partition rows into distinct buckets
+  4. HAVING          → Filter aggregated groups AFTER grouping
+  5. SELECT          → Compute aggregate calculations & project columns
+  6. DISTINCT        → Eliminate duplicate output rows
+  7. ORDER BY        → Sort final aggregated result set
+  8. LIMIT / OFFSET  → Restrict number of output rows
 
 Key Takeaway:
 - The WHERE clause filters rows *before* GROUP BY creates buckets.
@@ -52,7 +52,7 @@ Why this rule exists:
 Functional Dependency Exception:
 - If you group by the table's PRIMARY KEY (e.g. `GROUP BY student_id`), MySQL allows
   selecting other columns from that table (`student_name`, `email`) without aggregate
-  functions, because `student_id -> student_name` is a strict 1:1 functional dependency.
+  functions, because `student_id → student_name` is a strict 1:1 functional dependency.
 
 4. GROUPING BY EXPRESSIONS & DERIVED COLUMNS
 --------------------------------------------------------------------------------

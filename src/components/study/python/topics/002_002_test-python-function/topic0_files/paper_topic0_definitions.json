@@ -54,7 +54,7 @@
         {
           "q": "Explain the Python Call Stack and execution frame lifecycle with an example involving nested function calls.",
           "marks": 5,
-          "answer": "When a function is called, Python pushes a new stack frame onto the Call Stack containing local variables and bytecode instruction pointers. When the function returns, its frame is popped.\n\n```python\ndef first():\n    print('First start')\n    second()\n    print('First end')\n\ndef second():\n    print('Inside second')\n\nfirst()\n# Call Stack Order: main -> first() -> second() -> pop second() -> pop first()\n```"
+          "answer": "When a function is called, Python pushes a new stack frame onto the Call Stack containing local variables and bytecode instruction pointers. When the function returns, its frame is popped.\n\n```python\ndef first():\n    print('First start')\n    second()\n    print('First end')\n\ndef second():\n    print('Inside second')\n\nfirst()\n# Call Stack Order: main → first() → second() → pop second() → pop first()\n```"
         },
         {
           "q": "Explain Docstrings in Python functions. How are they accessed at runtime and in automated documentation tools?",

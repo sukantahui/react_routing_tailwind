@@ -58,7 +58,7 @@ const questions = [
     explanation: "Maintains column alignment across records with optional components.",
     hint: "Spills empty string \"\" for unmatched optional group.",
     level: "moderate",
-    codeExample: "Optional Unmatched Group &rarr; Spills \"\""
+    codeExample: "Optional Unmatched Group → Spills \"\""
   },
   {
     question: "How do you transpose horizontally spilled global matches (`return_mode = 1`) into a vertical column?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "return_mode = 2 requires at least one parenthetical capturing group in the pattern.",
     hint: "Pattern must contain capturing groups (...).",
     level: "moderate",
-    codeExample: "Missing Parentheses in Mode 2 &rarr; #VALUE!"
+    codeExample: "Missing Parentheses in Mode 2 → #VALUE!"
   },
   {
     question: "How do you extract all 4-digit years mentioned in a text block as a unique, sorted list in 1 formula?",
@@ -122,7 +122,7 @@ const questions = [
     explanation: "Because return_mode = 1 returns a horizontal array of matches, COLUMNS counts the total occurrences.",
     hint: "COLUMNS(REGEXEXTRACT(..., 1)).",
     level: "moderate",
-    codeExample: "=COLUMNS(REGEXEXTRACT(\"INV-1, INV-2, INV-3\", \"INV-\\d+\", 1)) &rarr; 3"
+    codeExample: "=COLUMNS(REGEXEXTRACT(\"INV-1, INV-2, INV-3\", \"INV-\\d+\", 1)) → 3"
   },
   {
     question: "What happens if you use `return_mode = 1` and no match is found in the text?",
@@ -240,9 +240,9 @@ const questions = [
     question: "What is Instructor Sukanta Hui's golden rule for Capturing Groups and Return Modes?",
     shortAnswer: "Whenever you need to decompose multi-part strings (like emails, phone numbers, dates, or banking logs) into separate database columns, always define parenthetical capturing groups (...) and set return_mode = 2! It delivers pristine multi-column structural decomposition in a single formula with zero helper columns!",
     explanation: "Capturing groups elevate spreadsheet data engineering into high-speed relational ETL pipelines!",
-    hint: "Parentheses (...) + return_mode = 2 &rarr; Single-Formula Multi-Column Decomposition!",
+    hint: "Parentheses (...) + return_mode = 2 → Single-Formula Multi-Column Decomposition!",
     level: "expert",
-    codeExample: "Rule: Multi-Part String Decomposition &rarr; Use Capturing Groups + Mode 2!"
+    codeExample: "Rule: Multi-Part String Decomposition → Use Capturing Groups + Mode 2!"
   }
 ];
 

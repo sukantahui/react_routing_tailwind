@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-Data > What-If Analysis > Scenario Manager: Add Scenario -> Changing Cells: Assumptions -> Scenario Values
+Data > What-If Analysis > Scenario Manager: Add Scenario → Changing Cells: Assumptions → Scenario Values
 
 PRIMARY CONCEPT:
 Creating, managing, and switching between comprehensive multi-variable business cases: Best Case (Bull), Base Case, and Worst Case (Bear) using Scenario Manager
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Always name your cells before using Scenario Manager! If you name cell B4 as 'SalesPrice', Scenario Manager will ask you for 'SalesPrice' instead of '$B$4'. It makes scenario creation 10x cleaner.
 
 COMMON TRAPS TO AVOID:
-- Unlabeled Changing Cell Addresses in Dialog: Changing cells appear as cryptic `$B$4, $B$5, $B$6` in Scenario Manager if cells are not named. -> Fix: Define descriptive Named Ranges (e.g. `SellingPrice`, `SalesVolume`) BEFORE creating scenarios.
-- Overwriting Base Case Without Saving First: Switching to a scenario without saving original base numbers overwrites your starting assumptions permanently. -> Fix: Always create and save 'Base Case' as Scenario #1 before adding Bull/Bear cases.
-- 32 Changing Cell Upper Limit: Scenario Manager restricts each scenario to a maximum of 32 changing cells. -> Fix: For massive models with 100+ changing cells, use dynamic XLOOKUP scenario tables with a master Case Switch cell.
+- Unlabeled Changing Cell Addresses in Dialog: Changing cells appear as cryptic `$B$4, $B$5, $B$6` in Scenario Manager if cells are not named. → Fix: Define descriptive Named Ranges (e.g. `SellingPrice`, `SalesVolume`) BEFORE creating scenarios.
+- Overwriting Base Case Without Saving First: Switching to a scenario without saving original base numbers overwrites your starting assumptions permanently. → Fix: Always create and save 'Base Case' as Scenario #1 before adding Bull/Bear cases.
+- 32 Changing Cell Upper Limit: Scenario Manager restricts each scenario to a maximum of 32 changing cells. → Fix: For massive models with 100+ changing cells, use dynamic XLOOKUP scenario tables with a master Case Switch cell.
 ================================================================================

@@ -5,7 +5,7 @@ const topic15_questions = [
     "explanation": "Design decision guide for concurrent task modeling.",
     "hint": "Choose Callable when returning a result or handling checked exceptions; use Runnable for fire-and-forget.",
     "level": "Intermediate",
-    "codeExample": "Callable<Report> task = () -> generatePdfReport(); // Returns Report and throws Exception"
+    "codeExample": "Callable<Report> task = () → generatePdfReport(); // Returns Report and throws Exception"
   }
 ];
 

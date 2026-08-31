@@ -19,7 +19,7 @@ const Topic5 = () => {
                             </svg>
                         </div>
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 dark:from-yellow-400 dark:to-orange-400 bg-clip-text text-transparent">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 dark:from-yellow-400 dark:to-orange-400 bg-clip-text text-transparent">
                                 Topic 5: Arithmetic Operations
                             </h1>
                             <p className="text-gray-600 dark:text-gray-400 mt-1">Mastering (( )), let, expr, and $(( )) for shell math calculations</p>

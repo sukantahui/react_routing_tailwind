@@ -47,7 +47,7 @@ const Topic0 = () => {
         
         {/* Header */}
         <section className="space-y-4 text-center animate-[fadeSlideUp_0.6s_ease-out] motion-safe:animate-[fadeSlideUp_0.6s_ease-out]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
             Cloud Networking Basics
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">

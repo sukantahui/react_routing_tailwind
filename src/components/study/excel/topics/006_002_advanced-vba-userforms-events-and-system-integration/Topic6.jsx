@@ -71,7 +71,7 @@ export default function Topic6() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Batch processing all workbooks inside a directory automatically"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic6() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Batch Processor: strFile = Dir(folderPath & \"*.xlsx\") | Do While strFile <> \"\" ... Workbooks.Open ... Process ... Close ... strFile = Dir() ... Loop"}
+            {"Batch Processor: strFile = Dir(folderPath & \"*.xlsx\") | Do While strFile &lt;&gt; \"\" ... Workbooks.Open ... Process ... Close ... strFile = Dir() ... Loop"}
           </div>
 
           <div className="overflow-x-auto">
@@ -173,7 +173,7 @@ export default function Topic6() {
             
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. The Classic `Dir()` Loop Pattern"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"1. `strFile = Dir(folderPath & \"*.xlsx\")`; 2. `Do While strFile <> \"\"`; 3. `Workbooks.Open(folderPath & strFile)`; 4. Extract data; 5. `wb.Close SaveChanges:=False`; 6. `strFile = Dir()`; 7. `Loop`."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"1. `strFile = Dir(folderPath & \"*.xlsx\")`; 2. `Do While strFile &lt;&gt; \"\"`; 3. `Workbooks.Open(folderPath & strFile)`; 4. Extract data; 5. `wb.Close SaveChanges:=False`; 6. `strFile = Dir()`; 7. `Loop`."}</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
@@ -199,7 +199,7 @@ export default function Topic6() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Batch Workbook Processing Engine: Directory Loop -> Workbook Ingestion -> ETL Data Extract -> Master Consolidation"}
+              Visual Dataflow: {"Batch Workbook Processing Engine: Directory Loop → Workbook Ingestion → ETL Data Extract → Master Consolidation"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               System Pipeline
@@ -286,7 +286,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic6_Batch_processing_a"
+            sheetName="EX2507"
             title={"Batch processing all workbooks inside a directory automatically - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic6() {
                 Step 2: Author Event Listener or GUI Controls
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Implement the event procedure <code className="text-cyan-300 font-mono font-bold">{"Batch Processor: strFile = Dir(folderPath & \"*.xlsx\") | Do While strFile <> \"\" ... Workbooks.Open ... Process ... Close ... strFile = Dir() ... Loop"}</code> with appropriate guard rails.
+                Implement the event procedure <code className="text-cyan-300 font-mono font-bold">{"Batch Processor: strFile = Dir(folderPath & \"*.xlsx\") | Do While strFile &lt;&gt; \"\" ... Workbooks.Open ... Process ... Close ... strFile = Dir() ... Loop"}</code> with appropriate guard rails.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic6() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Opening Temporary Lock Files (~$filename.xlsx)"}</td>
                   <td className="py-3 px-4">{"`Dir(\"*.xlsx\")` picking up hidden Excel lock files (~$) created when a file is open."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Filter out temporary files: `If Left(strFile, 2) <> \"~$\" Then ...`."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Filter out temporary files: `If Left(strFile, 2) &lt;&gt; \"~$\" Then ...`."}</td>
                 </tr>
                 
               </tbody>
@@ -486,7 +486,7 @@ export default function Topic6() {
                 <span>⚡</span> {"The Dir() Pattern"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Universal directory looping engine in VBA."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"strFile = Dir(path) ... Do While strFile <> \"\" ... strFile = Dir() ... Loop"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"strFile = Dir(path) ... Do While strFile &lt;&gt; \"\" ... strFile = Dir() ... Loop"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -494,7 +494,7 @@ export default function Topic6() {
                 <span>⚡</span> {"Skip Lock Files"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Prevents crashes on open temporary files."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"If Left(strFile, 2) <> \"~$\" Then"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"If Left(strFile, 2) &lt;&gt; \"~$\" Then"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

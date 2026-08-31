@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never write a script without `try...catch`! If something goes wrong, log it with `console.log()` and return `{ success: false, error: e.message }`. Power Automate will receive the error message and send you a notification so you can fix it immediately.
 
 COMMON TRAPS TO AVOID:
-- Silent Error Swallowing in Empty Catch Blocks: Writing `catch (e) {}` with no logging leaves developers completely blind to silent data failures. -> Fix: Always log errors: `console.log(error);` and return a failure object.
-- Failing to Check Object Existence Before Calling Methods: Calling `ws.getRange("A1")` when `ws` is `undefined` throws unhandled TypeError. -> Fix: Check existence: `if (!ws) throw new Error("Worksheet 'Data' not found");`.
-- Relying on UI Debuggers in Headless Cloud Runs: Expecting visual breakpoints in Power Automate cloud executions. -> Fix: Rely on comprehensive `console.log()` statements for cloud run history analysis.
+- Silent Error Swallowing in Empty Catch Blocks: Writing `catch (e) {}` with no logging leaves developers completely blind to silent data failures. → Fix: Always log errors: `console.log(error);` and return a failure object.
+- Failing to Check Object Existence Before Calling Methods: Calling `ws.getRange("A1")` when `ws` is `undefined` throws unhandled TypeError. → Fix: Check existence: `if (!ws) throw new Error("Worksheet 'Data' not found");`.
+- Relying on UI Debuggers in Headless Cloud Runs: Expecting visual breakpoints in Power Automate cloud executions. → Fix: Rely on comprehensive `console.log()` statements for cloud run history analysis.
 ================================================================================

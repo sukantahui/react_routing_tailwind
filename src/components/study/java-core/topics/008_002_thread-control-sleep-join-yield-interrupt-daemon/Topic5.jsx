@@ -21,7 +21,7 @@ export default function Topic5() {
             Cooperative Cancellation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Cooperative Cancellation: Why <code className="text-rose-400 font-mono">stop()</code>, <code className="text-amber-400 font-mono">suspend()</code> &amp; <code className="text-purple-400 font-mono">resume()</code> are Deprecated
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

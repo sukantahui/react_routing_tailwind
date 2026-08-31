@@ -153,7 +153,7 @@ _25._tcp.mail.kolkata-fintech.in. IN TLSA 3 1 1 5f8a9e7d4c2b1a0f8e7d6c5b4a3f2e1d
         "Lack of visibility into malicious senders, legitimate shadow IT email senders, and active phishing outbreaks.",
       telemetryIndicator: "Sudden spike in rejected message volume originating from unauthorized geographical IP blocks in daily XML reports",
       resilientDefense: "Automated ingestion and parsing of daily DMARC aggregate XML reports via SIEM pipelines.",
-      codeSnippet: `<!-- Sample DMARC Aggregate XML Record -->
+      codeSnippet: `<!-- Sample DMARC Aggregate XML Record ──→
 <record>
   <row>
     <source_ip>185.220.101.5</source_ip>
@@ -180,7 +180,7 @@ _25._tcp.mail.kolkata-fintech.in. IN TLSA 3 1 1 5f8a9e7d4c2b1a0f8e7d6c5b4a3f2e1d
       ? (rawSpoofProb * 0.015).toFixed(2) // DMARC p=reject blocks 98.5% of spoofing
       : dmarcPolicyStrength >= 50
       ? (rawSpoofProb * 0.35).toFixed(2)  // DMARC p=quarantine blocks 65% of spoofing
-      : rawSpoofProb.toFixed(2);           // DMARC p=none -> 100% vulnerable to exact-domain spoofing
+      : rawSpoofProb.toFixed(2);           // DMARC p=none → 100% vulnerable to exact-domain spoofing
 
     return {
       rawSpoofProb: rawSpoofProb.toFixed(2),

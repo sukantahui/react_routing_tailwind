@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Use Data Bars with 'Show Bar Only' next to your percentage column. It gives you a gorgeous in-cell progress bar that updates dynamically as numbers change.
 
 COMMON TRAPS TO AVOID:
-- Excessive Rainbow Heatmap Colors: Using default saturated neon red-yellow-green palettes across 1,000 cells creates an unreadable visual headache. -> Fix: Customize Color Scale to use subtle, muted pastel tones or single-hue gradients (e.g. White to Deep Emerald).
-- Data Bar Automatic Scaling Distortion: Allowing Data Bars to scale automatically means a maximum value of 10% fills the entire cell width, misleading viewers. -> Fix: Edit Rule > Minimum: Number 0, Maximum: Number 1 (or 100%).
-- Icon Sets Cluttering Numbers: Placing traffic lights alongside numbers in narrow columns causes text truncation. -> Fix: Widen columns or check 'Show Icon Only' in the Conditional Formatting Rule dialog.
+- Excessive Rainbow Heatmap Colors: Using default saturated neon red-yellow-green palettes across 1,000 cells creates an unreadable visual headache. → Fix: Customize Color Scale to use subtle, muted pastel tones or single-hue gradients (e.g. White to Deep Emerald).
+- Data Bar Automatic Scaling Distortion: Allowing Data Bars to scale automatically means a maximum value of 10% fills the entire cell width, misleading viewers. → Fix: Edit Rule > Minimum: Number 0, Maximum: Number 1 (or 100%).
+- Icon Sets Cluttering Numbers: Placing traffic lights alongside numbers in narrow columns causes text truncation. → Fix: Widen columns or check 'Show Icon Only' in the Conditional Formatting Rule dialog.
 ================================================================================

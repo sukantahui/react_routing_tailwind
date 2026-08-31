@@ -242,7 +242,7 @@ export default function Topic11() {
           <div className="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-1">
             Cyber Security Module 003_004 • Topic 11 of 12 (Capstone Module)
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Information Security Audit Case Study in Banking and FinTech
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed mt-1">

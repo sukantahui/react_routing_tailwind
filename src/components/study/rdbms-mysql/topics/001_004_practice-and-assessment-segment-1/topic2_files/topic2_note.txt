@@ -26,8 +26,8 @@ merchants in West Bengal (Barrackpore, Kolkata, and Ichapur warehouses).
 
 3. `products` table:
    - product_id INT AUTO_INCREMENT PRIMARY KEY
-   - category_id INT NOT NULL (FK -> categories.category_id)
-   - supplier_id INT NOT NULL (FK -> suppliers.supplier_id)
+   - category_id INT NOT NULL (FK → categories.category_id)
+   - supplier_id INT NOT NULL (FK → suppliers.supplier_id)
    - sku_code VARCHAR(30) NOT NULL UNIQUE
    - product_name VARCHAR(120) NOT NULL
    - unit_price_inr DECIMAL(10,2) CHECK (unit_price_inr > 0)
@@ -35,7 +35,7 @@ merchants in West Bengal (Barrackpore, Kolkata, and Ichapur warehouses).
 
 4. `inventory_stock` table:
    - stock_id INT AUTO_INCREMENT PRIMARY KEY
-   - product_id INT NOT NULL UNIQUE (FK -> products.product_id)
+   - product_id INT NOT NULL UNIQUE (FK → products.product_id)
    - warehouse_city VARCHAR(50) DEFAULT 'Barrackpore'
    - stock_quantity INT CHECK (stock_quantity >= 0) DEFAULT 0
    - reorder_level INT DEFAULT 10

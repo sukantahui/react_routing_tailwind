@@ -10,7 +10,7 @@ Introduction to Visual Basic for Applications (VBA) and Excel Automation is an e
 It provides the core protocols required to eliminate manual repetitive tasks, manipulate Excel objects programmatically, and build enterprise-grade automation tools.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: VBA Execution Pipeline: User Trigger (Button/Key) -> VBA Interpreter Engine -> COM Automation Layer -> Excel Objects
+Operational Architecture: VBA Execution Pipeline: User Trigger (Button/Key) → VBA Interpreter Engine → COM Automation Layer → Excel Objects
 
 3. CORE TECHNICAL MECHANICS
 1. Procedural Automation Engine:

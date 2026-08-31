@@ -71,7 +71,7 @@ const questions = [
     codeExample: `// NSEC Record Example:
 // Zone contains: 'alpha.barrackpore.gov.in' and 'delta.barrackpore.gov.in'
 // Query for 'beta.barrackpore.gov.in' returns:
-// NSEC: 'alpha.barrackpore.gov.in -> delta.barrackpore.gov.in (No records in between!)' + Signed RRSIG`
+// NSEC: 'alpha.barrackpore.gov.in → delta.barrackpore.gov.in (No records in between!)' + Signed RRSIG`
   },
   {
     id: 7,

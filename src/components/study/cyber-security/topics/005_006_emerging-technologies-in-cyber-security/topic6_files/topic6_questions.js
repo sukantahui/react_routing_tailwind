@@ -150,7 +150,7 @@ const questions = [
     hint: "Calling a second function that shares state variables before the first function completes its state updates.",
     level: "Expert",
     codeExample: `// Cross-Function Reentrancy:
-// withdraw() starts -> Calls Attacker Fallback -> Fallback calls transfer(attacker_2, balance) -> Balance moved twice!`
+// withdraw() starts → Calls Attacker Fallback → Fallback calls transfer(attacker_2, balance) → Balance moved twice!`
   },
   {
     id: 15,
@@ -160,7 +160,7 @@ const questions = [
     hint: "View functions returning incorrect intermediate values during a reentrancy execution loop.",
     level: "Expert",
     codeExample: `// Read-Only Reentrancy:
-// Pool.remove_liquidity() -> Calls fallback -> Fallback borrows from Lending Protocol (which reads un-updated price) 🚨`
+// Pool.remove_liquidity() → Calls fallback → Fallback borrows from Lending Protocol (which reads un-updated price) 🚨`
   },
   {
     id: 16,
@@ -231,7 +231,7 @@ const questions = [
     hint: "Passing truncated addresses causes EVM zero-padding to multiply transaction transfer amounts by 256.",
     level: "Expert",
     codeExample: `// Short Address Shift:
-// Send 19-byte address -> Calldata padded with zeros -> Amount: 1.0 ETH shifted becomes 256.0 ETH! 🚨`
+// Send 19-byte address → Calldata padded with zeros → Amount: 1.0 ETH shifted becomes 256.0 ETH! 🚨`
   },
   {
     id: 23,
@@ -261,7 +261,7 @@ const questions = [
     hint: "Requires M-of-N signatures (e.g., 3 of 5) to execute transactions or upgrades.",
     level: "Basic",
     codeExample: `// Multi-Sig Requirement:
-// Propose Transfer ₹50,00,000 -> Signed by Susmita (1/3) -> Signed by Debangshu (2/3) -> Signed by Mamata (3/3) ➔ EXECUTED ✔`
+// Propose Transfer ₹50,00,000 → Signed by Susmita (1/3) → Signed by Debangshu (2/3) → Signed by Mamata (3/3) ➔ EXECUTED ✔`
   },
   {
     id: 26,
@@ -281,7 +281,7 @@ const questions = [
     hint: "Temporary storage opcodes (TSTORE/TLOAD) that discard data after the transaction, reducing reentrancy gas costs by 95%.",
     level: "Expert",
     codeExample: `// Transient Storage Mutex:
-// assembly { tstore(MUTEX_SLOT, 1) } -> execute() -> assembly { tstore(MUTEX_SLOT, 0) } (Only 100 gas!)`
+// assembly { tstore(MUTEX_SLOT, 1) } → execute() → assembly { tstore(MUTEX_SLOT, 0) } (Only 100 gas!)`
   },
   {
     id: 28,

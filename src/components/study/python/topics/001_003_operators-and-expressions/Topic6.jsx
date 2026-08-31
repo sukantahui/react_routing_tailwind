@@ -48,7 +48,7 @@ export default function Topic6() {
             Module 001_003 · Operators & Expressions · Topic 6
           </div>
 
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Evaluating Expressions: <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400">Step-by-Step Execution Rules</span>
           </h1>
 
@@ -247,7 +247,7 @@ export default function Topic6() {
 # Expression 1: Mixed Arithmetic & Exponentiation
 res1 = 100 - 4 * 3 ** 2 + 15 // 4
 print("100 - 4 * 3 ** 2 + 15 // 4 =", res1)
-# Trace: 3**2=9 -> 4*9=36 -> 15//4=3 -> 100-36=64 -> 64+3=67
+# Trace: 3**2=9 → 4*9=36 → 15//4=3 → 100-36=64 → 64+3=67
 
 # Expression 2: Logical Short-Circuiting with Comparisons
 age = 20

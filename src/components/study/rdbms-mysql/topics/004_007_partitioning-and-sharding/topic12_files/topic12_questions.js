@@ -87,9 +87,9 @@ PARTITION BY RANGE COLUMNS (txn_date) (
     question: "How should an enterprise migrate a monolithic 5TB unpartitioned MySQL table into a Hybrid Sharded cluster with zero downtime?",
     shortAnswer: "1. Provision the 16-node sharded cluster; 2. Bulk copy historical data using `mysqldump` / XtraBackup; 3. Enable real-time CDC binlog replication (Debezium / Vitess vreplication) to catch up delta changes; 4. Validate data parity via `pt-table-checksum`; 5. Switch application router pointers to the sharded cluster; 6. Decommission the monolith.",
     explanation: "The standard enterprise cutover migration playbook.",
-    hint: "Bulk copy -> Stream binlogs via CDC -> Checksum verification -> Atomic traffic cutover.",
+    hint: "Bulk copy → Stream binlogs via CDC → Checksum verification → Atomic traffic cutover.",
     level: "expert",
-    codeExample: `// Monolith (5TB) -> Debezium CDC Streaming -> 16 Shard Cluster -> Cutover`
+    codeExample: `// Monolith (5TB) → Debezium CDC Streaming → 16 Shard Cluster → Cutover`
   },
   {
     question: "What is the recommended High Availability configuration for EACH individual shard in a production cluster?",
@@ -126,7 +126,7 @@ Shard 1: [Primary 1A, Replica 1B, Replica 1C]`
   },
   {
     question: "What happens when a tenant upgrades from Standard Tier to Enterprise VIP Tier in a SaaS sharded system?",
-    shortAnswer: "The system triggers an automated **Tenant Migration Workflow**: 1. Copies the tenant's data from the shared multi-tenant shard to the dedicated VIP cluster; 2. Tails the source shard binlog to sync delta changes; 3. Updates the Redis Directory Shard Pointer (`tenant_uuid -> dedicated_vip_cluster`) in under 1ms.",
+    shortAnswer: "The system triggers an automated **Tenant Migration Workflow**: 1. Copies the tenant's data from the shared multi-tenant shard to the dedicated VIP cluster; 2. Tails the source shard binlog to sync delta changes; 3. Updates the Redis Directory Shard Pointer (`tenant_uuid → dedicated_vip_cluster`) in under 1ms.",
     explanation: "Provides seamless live upgrades for high-growth enterprise customers.",
     hint: "Copies data to dedicated cluster, catches up delta changes via binlog, updates Redis directory pointer.",
     level: "expert",
@@ -212,7 +212,7 @@ SELECT * FROM orders WHERE tenant_id = 101 AND order_id > 18446744073709551000 L
     explanation: "Guarantees backward and forward compatibility across code deployments.",
     hint: "Expand-and-contract pattern: add nullable column, double-write, backfill, drop old column.",
     level: "intermediate",
-    codeExample: `// Phase 1: ADD COLUMN new_col (Nullable) -> Phase 2: Deploy App -> Phase 3: DROP COLUMN old_col`
+    codeExample: `// Phase 1: ADD COLUMN new_col (Nullable) → Phase 2: Deploy App → Phase 3: DROP COLUMN old_col`
   },
   {
     question: "What is the primary benefit of deploying ProxySQL in front of a sharded MySQL fleet?",
@@ -220,7 +220,7 @@ SELECT * FROM orders WHERE tenant_id = 101 AND order_id > 18446744073709551000 L
     explanation: "Essential middleware component for managing large connection fleets in production.",
     hint: "Provides connection pooling, read/write splitting, and hostgroup routing to protect shard nodes.",
     level: "basic",
-    codeExample: `// 1,000 App Threads -> ProxySQL (50 Pooled Connections) -> MySQL Shard Instance`
+    codeExample: `// 1,000 App Threads → ProxySQL (50 Pooled Connections) → MySQL Shard Instance`
   },
   {
     question: "How does a SaaS application implement Shard-Aware Connection Pooling?",
@@ -247,7 +247,7 @@ WHERE TABLE_NAME = 'financial_ledger';`
     explanation: "Shared-nothing sharding dramatically isolates failure blast radiuses.",
     hint: "Failure on Shard 3 impacts only 6.25% of users; all other 15 shards operate with zero downtime.",
     level: "basic",
-    codeExample: `-- Shard 3 offline -> Only 6.25% of customer base affected; 93.75% unaffected.`
+    codeExample: `-- Shard 3 offline → Only 6.25% of customer base affected; 93.75% unaffected.`
   },
   {
     question: "Why should Change Data Capture (CDC) pipelines stream shard binlogs to a Columnar Data Warehouse (ClickHouse / Snowflake)?",
@@ -255,7 +255,7 @@ WHERE TABLE_NAME = 'financial_ledger';`
     explanation: "The ultimate architecture for separating transactional workloads from analytical reporting.",
     hint: "Columnar OLAP engines execute cross-shard aggregations in milliseconds without impacting OLTP.",
     level: "basic",
-    codeExample: `// Shard Binlogs -> Kafka -> ClickHouse Columnar Engine (Global Analytics in 30ms)`
+    codeExample: `// Shard Binlogs → Kafka → ClickHouse Columnar Engine (Global Analytics in 30ms)`
   },
   {
     question: "What is the primary operational takeaway of Topic 12 and the entire Module 004_007?",

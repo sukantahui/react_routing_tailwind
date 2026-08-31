@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 1. REAL-WORLD DOMAIN MODELING CONCEPTS
 --------------------------------------------------------------------------------
-- Real-World Entity -> Software Class Blueprint:
+- Real-World Entity → Software Class Blueprint:
   * STATE (Attributes / Fields)   : What the entity holds (e.g. roll, name, gpa, balance).
   * BEHAVIOR (Operations / Methods): What the entity does / computes (e.g. enroll(), withdraw()).
 

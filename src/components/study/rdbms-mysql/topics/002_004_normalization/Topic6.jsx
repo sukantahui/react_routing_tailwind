@@ -177,7 +177,7 @@ const Topic6 = () => {
             Module 002_004 · Database Normalization · Topic 6
           </div>
 
-          <h1 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-white">
+          <h1 className="mt-4 text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Armstrong's Axioms:{" "}
             <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
               Inference Rules &amp; Mathematical Proofs
@@ -422,8 +422,8 @@ const Topic6 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Given FD Set F:
--- 1. student_id -> { student_name, dept_id }
--- 2. dept_id -> { dept_name, building }
+-- 1. student_id → { student_name, dept_id }
+-- 2. dept_id → { dept_name, building }
 
 -- Step 1 (Reflexivity): student_id+ = { student_id }
 -- Step 2 (Apply FD 1): student_id+ = { student_id, student_name, dept_id }
@@ -445,10 +445,10 @@ const Topic6 = () => {
               </p>
               <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-3 font-mono text-xs text-slate-300 leading-relaxed border border-slate-800">
 {`-- Given:
--- 1. student_id -> roll_no
--- 2. (roll_no, exam_id) -> marks_obtained
+-- 1. student_id → roll_no
+-- 2. (roll_no, exam_id) → marks_obtained
 
--- By Pseudotransitivity: (student_id, exam_id) -> marks_obtained
+-- By Pseudotransitivity: (student_id, exam_id) → marks_obtained
 -- Proves that student_id can be directly used with exam_id to query marks!`}
               </pre>
             </div>

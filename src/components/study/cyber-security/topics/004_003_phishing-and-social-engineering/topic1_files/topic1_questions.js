@@ -60,7 +60,7 @@ const questions = [
     level: "moderate",
     codeExample: `// Reciprocity Exploit Sequence:
 // Action 1: Attacker provides helpful troubleshooting advice on a public IT forum.
-// Action 2: "Hey, since I helped you, could you quickly review this internal document link for me?" -> User complies!`
+// Action 2: "Hey, since I helped you, could you quickly review this internal document link for me?" → User complies!`
   },
   {
     question: "Under the Indian Information Technology Act 2000 Section 66D, what constitutes the statutory penalty for Cheating by Personation via Social Engineering?",
@@ -122,8 +122,8 @@ const questions = [
     hint: "Agreeing to take a small step onto thin ice, making it harder to say no when asked to take three more steps.",
     level: "expert",
     codeExample: `// Escalation of Commitment Flow:
-// Step 1: "Hi Mamata, is the Salt Lake office open today?" -> (User: Yes)
-// Step 2: "Great! Could you verify this vendor invoice link for our audit?" -> (User Complies!)`
+// Step 1: "Hi Mamata, is the Salt Lake office open today?" → (User: Yes)
+// Step 2: "Great! Could you verify this vendor invoice link for our audit?" → (User Complies!)`
   },
   {
     question: "Under CERT-In Mandatory Directions 2022, what is the mandatory incident reporting timeline for social engineering breaches causing data leaks?",
@@ -295,7 +295,7 @@ const questions = [
     question: "Synthesize the mathematical relationship between Persuasion Vector Impact (I_persuasion), Psychological Vulnerability Susceptibility (S_psych), Verification Friction (R_verify), and Social Engineering Breach Probability (P_breach).",
     shortAnswer: "Breach probability is modeled as P_breach = 1 - e^(- (I_persuasion * S_psych) / R_verify); increasing verification friction (out-of-band protocols) drives breach probability to zero.",
     explanation: "Let $I_{\\text{persuasion}} = w_{\\text{auth}} A + w_{\\text{urg}} U + w_{\\text{scarc}} S$ represent the combined intensity of Cialdini's influence principles, $S_{\\text{psych}}$ represent the victim's cognitive susceptibility, and $R_{\\text{verify}}$ represent the verification friction (out-of-band voice confirmation, dual-authorization). The breach probability is: $P_{\\text{breach}} = 1 - e^{-\\frac{I_{\\text{persuasion}} \\times S_{\\text{psych}}}{R_{\\text{verify}}}}$. When organizations enforce strict out-of-band verification ($R_{\\text{verify}} \\to \\infty$), breach probability collapses to zero regardless of how persuasive the attacker is.",
-    hint: "Mathematical formula proving that strong out-of-band verification (R_verify -> infinity) reduces breach probability to zero.",
+    hint: "Mathematical formula proving that strong out-of-band verification (R_verify → infinity) reduces breach probability to zero.",
     level: "expert",
     codeExample: `// Persuasion Influence Mathematical Proof:
 // I_persuasion = 4.5 (High Authority + Extreme Urgency) | S_psych = 2.0 (Fatigued User)

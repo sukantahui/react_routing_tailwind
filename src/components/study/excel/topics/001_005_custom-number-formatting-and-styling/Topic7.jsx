@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/001_005_custom_number_formatting_and_styling_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
@@ -273,7 +273,7 @@ export default function Topic7() {
             </span>
           </div>
 
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
+          <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-snug">
             Date &amp; Time Custom Formatting: Dates, Times, Quarters, Weekdays, and Dynamic Period Labels
           </h1>
 
@@ -327,7 +327,7 @@ export default function Topic7() {
 
           <ExcelFileLoader
             fileUrl={sampleWorkbookUrl}
-            defaultSheetName="EX307"
+            sheetName="Topic7"
           />
         </section>
 
@@ -412,7 +412,7 @@ export default function Topic7() {
                 Excel stores all dates as continuous integers counting days elapsed since <strong className="text-white">January 1, 1900</strong> (Serial 1). For example, August 27, 2026 is stored internally as integer <code className="text-amber-300">46261</code>.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-cyan-300 border border-slate-800">
-                1 -&gt; 01-Jan-1900 | 46261 -&gt; 27-Aug-2026
+                1 → 01-Jan-1900 | 46261 → 27-Aug-2026
               </div>
             </div>
 
@@ -424,7 +424,7 @@ export default function Topic7() {
                 Time is stored as decimal fractions of a 24-hour day. <code className="text-amber-300">0.5</code> represents 12:00 PM (noon), <code className="text-amber-300">0.25</code> represents 6:00 AM, and <code className="text-amber-300">0.75</code> represents 6:00 PM.
               </p>
               <div className="p-2.5 rounded bg-slate-900 font-mono text-[11px] text-emerald-300 border border-slate-800">
-                46261.604167 -&gt; 27-Aug-2026 14:30:00 (02:30 PM)
+                46261.604167 → 27-Aug-2026 14:30:00 (02:30 PM)
               </div>
             </div>
           </div>

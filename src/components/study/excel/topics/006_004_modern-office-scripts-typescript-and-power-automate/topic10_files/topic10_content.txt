@@ -10,7 +10,7 @@ Processing incoming CSV attachments from emails and writing records to Excel tab
 It provides the core protocols required to author cross-platform scripts, connect Excel to Microsoft Power Automate, and construct 24/7 autonomous cloud pipelines.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Email Attachment Pipeline: Trigger (When email arrives with attachment) -> For each attachment -> Filter .csv/.xlsx -> Pass content to Office Script -> Ingest Rows to Table
+Operational Architecture: Email Attachment Pipeline: Trigger (When email arrives with attachment) → For each attachment → Filter .csv/.xlsx → Pass content to Office Script → Ingest Rows to Table
 
 3. CORE TECHNICAL MECHANICS
 1. Automated Attachment Interception:

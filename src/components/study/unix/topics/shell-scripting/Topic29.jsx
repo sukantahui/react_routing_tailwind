@@ -55,7 +55,7 @@ const Topic29 = () => {
             "motion-safe:animate-[fadeSlideUp_0.6s_ease-out]"
           )}
         >
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight">
             🧳 Portable Shell Scripting: <span className="text-purple-400">bash</span> vs <span className="text-amber-400">sh</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 light:text-gray-700 max-w-3xl mx-auto leading-relaxed">

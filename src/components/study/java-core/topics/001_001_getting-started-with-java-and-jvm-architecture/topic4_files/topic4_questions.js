@@ -173,7 +173,7 @@ const questions = [
     explanation: "Java EE 5 simplified enterprise development by replacing complex XML deployment descriptors and heavy EJB 2.x interfaces with lightweight POJO annotations.",
     hint: "The 2006 rebranding simplified enterprise Java.",
     level: "basic",
-    codeExample: "// J2EE 1.4 -> Java EE 5 -> Java EE 8 -> Jakarta EE 9/10"
+    codeExample: "// J2EE 1.4 → Java EE 5 → Java EE 8 → Jakarta EE 9/10"
   },
   {
     question: "What is the significance of the `jakarta.*` package namespace migration in Jakarta EE 9?",
@@ -213,7 +213,7 @@ const questions = [
     explanation: "Android implements a subset of Java SE APIs but replaces the standard JVM with ART (Android Runtime) and custom Android UI/Activity libraries.",
     hint: "DEX bytecode and Android Runtime (ART).",
     level: "intermediate",
-    codeExample: "// .java -> .class -> .dex (executed by Android ART)"
+    codeExample: "// .java → .class → .dex (executed by Android ART)"
   },
   {
     question: "What is the role of Jakarta Bean Validation (Hibernate Validator)?",

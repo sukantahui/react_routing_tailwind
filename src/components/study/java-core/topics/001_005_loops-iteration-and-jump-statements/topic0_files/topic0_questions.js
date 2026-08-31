@@ -19,7 +19,7 @@ const questions = [
     explanation: "Proved in 1966, establishing the theoretical basis for all modern structured programming.",
     hint: "Sequence, Selection, and Iteration are sufficient for any algorithm.",
     level: "basic",
-    codeExample: "// 1. Sequence -> 2. Selection (if) -> 3. Iteration (loops)"
+    codeExample: "// 1. Sequence → 2. Selection (if) → 3. Iteration (loops)"
   },
   {
     question: "What are the 4 fundamental phases present in every loop structure?",
@@ -35,7 +35,7 @@ const questions = [
     explanation: "Violates the DRY (Don't Repeat Yourself) principle.",
     hint: "WET increases bugs and cannot scale dynamically.",
     level: "basic",
-    codeExample: "// Bad: print 1000 lines manually -> Good: loop 1000 times"
+    codeExample: "// Bad: print 1000 lines manually → Good: loop 1000 times"
   },
   {
     question: "What is an Infinite Loop?",

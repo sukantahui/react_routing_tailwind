@@ -132,7 +132,7 @@ const questions = [
     explanation: "`Ctrl + Z` undoes the most recent editing, formatting, or structural change in the active workbook session."
   },
   {
-    question: "What happens if you use Paste Special -> Transpose (`Alt + E + S + E`) on a 3-row by 5-column range?",
+    question: "What happens if you use Paste Special → Transpose (`Alt + E + S + E`) on a 3-row by 5-column range?",
     options: [
       "Converts the range into a 5-row by 3-column orientation, rotating rows into columns",
       "Flips the order of rows upside down",
@@ -145,13 +145,13 @@ const questions = [
   {
     question: "What Paste Special Operation allows you to multiply an entire column of numbers by a constant factor (e.g. 1.18 for GST) without writing formulas?",
     options: [
-      "Copy factor -> Select range -> Paste Special -> Multiply (`Alt + E + S + M`)",
-      "Paste Values -> Transpose",
-      "Paste Formats -> Add",
+      "Copy factor → Select range → Paste Special → Multiply (`Alt + E + S + M`)",
+      "Paste Values → Transpose",
+      "Paste Formats → Add",
       "Flash Fill (Ctrl + E)"
     ],
     correctAnswer: 0,
-    explanation: "Copying a constant cell (e.g. `1.18`) and executing Paste Special -> Multiply directly multiplies every value in the target range by `1.18` in-place."
+    explanation: "Copying a constant cell (e.g. `1.18`) and executing Paste Special → Multiply directly multiplies every value in the target range by `1.18` in-place."
   },
   {
     question: "How do you insert a hard line break inside a single cell while editing text in Excel?",
@@ -217,7 +217,7 @@ const questions = [
       "Delete"
     ],
     correctAnswer: 0,
-    explanation: "`Alt + H + E + F` executes Home -> Editing -> Clear -> Clear Formats, stripping colors, borders, and custom masks while keeping raw values."
+    explanation: "`Alt + H + E + F` executes Home → Editing → Clear → Clear Formats, stripping colors, borders, and custom masks while keeping raw values."
   },
   {
     question: "What happens if you perform a Find & Replace with 'Look in: Values' selected instead of 'Look in: Formulas'?",
@@ -277,16 +277,16 @@ const questions = [
   {
     question: "What Paste Special Operation subtracts copied values from target cell values directly on the grid?",
     options: [
-      "Paste Special -> Operation: Subtract (`Alt + E + S + S`)",
-      "Paste Special -> Operation: Add (`Alt + E + S + D`)",
-      "Paste Special -> Operation: Divide (`Alt + E + S + I`)",
+      "Paste Special → Operation: Subtract (`Alt + E + S + S`)",
+      "Paste Special → Operation: Add (`Alt + E + S + D`)",
+      "Paste Special → Operation: Divide (`Alt + E + S + I`)",
       "Clear Contents"
     ],
     correctAnswer: 0,
-    explanation: "Paste Special -> Operation: Subtract (`Alt + E + S + S`) subtracts the source copied values from existing destination cell values in-place."
+    explanation: "Paste Special → Operation: Subtract (`Alt + E + S + S`) subtracts the source copied values from existing destination cell values in-place."
   },
   {
-    question: "What is the result of using Paste Special -> Formulas (`Alt + E + S + F`)?",
+    question: "What is the result of using Paste Special → Formulas (`Alt + E + S + F`)?",
     options: [
       "Pastes formula text and logic without transferring source cell formatting, colors, or borders",
       "Pastes only cell fill colors",

@@ -34,7 +34,7 @@ const Topic8 = () => {
     setIsAnimating(true);
     const timer = setTimeout(() => setIsAnimating(false), 300);
     // Simulate zip compression: ratio depends on level (1-9)
-    const ratio = 1 - (compressionLevel / 25); // level 6 -> 0.76, level 9 -> 0.64
+    const ratio = 1 - (compressionLevel / 25); // level 6 → 0.76, level 9 → 0.64
     const compressed = Math.floor(totalSize * Math.max(0.2, ratio));
     setCompressedSize(compressed.toLocaleString());
   }, [compressionLevel, totalSize]);
@@ -92,7 +92,7 @@ const Topic8 = () => {
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-4 py-12 md:py-16 animate-fade-slide-up">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent mb-4">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-500 bg-clip-text text-transparent mb-4">
             🗃️ The `zip` Command
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">

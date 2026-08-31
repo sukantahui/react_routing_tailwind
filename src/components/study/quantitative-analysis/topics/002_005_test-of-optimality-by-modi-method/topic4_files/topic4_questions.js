@@ -38,7 +38,7 @@ const questions = [
     question: "Suppose Susmita in Ichapur evaluates a 3x3 grocery network and finds d = [+3, 0, +5, +2]. What is the status of her solution?",
     shortAnswer: "The solution is globally optimal, but it is NOT unique; an alternative optimal basic feasible solution exists with the exact same minimal cost Z.",
     explanation: "Since all d_ij >= 0, the plan is optimal. The zero entry allows pivoting flow into that cell without increasing total cost.",
-    hint: "All d_ij >= 0 with one zero -> Alternative optimal solution exists.",
+    hint: "All d_ij >= 0 with one zero → Alternative optimal solution exists.",
     level: "moderate",
     codeExample: "min(d) === 0 && all(d >= 0) => Optimal with Alternative Optima."
   },
@@ -48,7 +48,7 @@ const questions = [
     explanation: "A single negative evaluation violates the optimality condition, requiring a stepping-stone loop pivot.",
     hint: "At least one d_ij < 0 means solution is not optimal.",
     level: "moderate",
-    codeExample: "exists(d < 0) => Sub-Optimal -> Execute Loop Pivot."
+    codeExample: "exists(d < 0) => Sub-Optimal → Execute Loop Pivot."
   },
   {
     question: "Why does the presence of even a single negative evaluation (d_ij < 0) invalidate optimality across the ENTIRE network?",
@@ -56,10 +56,10 @@ const questions = [
     explanation: "Even if 99 out of 100 cells are positive, the single negative route provides an arbitrage loop that lowers the entire objective bill.",
     hint: "A single negative evaluation allows a cost-reducing pivot.",
     level: "expert",
-    codeExample: "Negative gradient d_ij < 0 -> descent direction exists."
+    codeExample: "Negative gradient d_ij < 0 → descent direction exists."
   },
   {
-    question: "Can an optimality test conclude that a transportation problem is 'unbounded' (Z -> -infinity)?",
+    question: "Can an optimality test conclude that a transportation problem is 'unbounded' (Z → -infinity)?",
     shortAnswer: "No, a balanced transportation problem with non-negative costs and bounded capacities always has a finite closed feasible region, guaranteeing a finite minimum.",
     explanation: "Because total supply equals total demand and all capacities are bounded, flow is strictly bounded by 0 <= x_ij <= min(S_i, D_j).",
     hint: "Transportation problems are always bounded.",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "VAM's penalty-driven regret heuristic frequently captures the exact optimal basis directly.",
     hint: "VAM found the optimal basis on step 1.",
     level: "moderate",
-    codeExample: "VAM IBFS -> MODI Step 1 (all d >= 0) -> Optimal with 0 pivots."
+    codeExample: "VAM IBFS → MODI Step 1 (all d >= 0) → Optimal with 0 pivots."
   },
   {
     question: "What happens if a student mistakenly declares a solution optimal when d_21 = -₹0.5?",
@@ -200,7 +200,7 @@ const questions = [
     explanation: "When cost drops enough to overcome the opportunity cost gap, the route becomes lucrative.",
     hint: "Decreasing cost below shadow price triggers a new pivot.",
     level: "expert",
-    codeExample: "c_13 drops -> d_13' < 0 -> Cell (1, 3) enters basis."
+    codeExample: "c_13 drops → d_13' < 0 → Cell (1, 3) enters basis."
   },
   {
     question: "Why is the MODI optimality condition considered one of the most elegant results in mathematical optimization?",

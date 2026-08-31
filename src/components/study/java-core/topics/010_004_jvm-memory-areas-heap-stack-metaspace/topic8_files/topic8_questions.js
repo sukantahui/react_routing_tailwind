@@ -5,7 +5,7 @@ const topic8_questions = [
     "explanation": "Enables fast, efficient Minor GCs on small memory regions.",
     "hint": "Most objects die young shortly after creation.",
     "level": "Beginner",
-    "codeExample": "Minor GC scans only Young Gen -> Fast sub-millisecond pauses."
+    "codeExample": "Minor GC scans only Young Gen → Fast sub-millisecond pauses."
   },
   {
     "question": "What are the two primary divisions of the standard HotSpot JVM Heap?",

@@ -74,7 +74,7 @@ const questions = [
     explanation: "INDEX extracts the element at column position 3 of the spilled array.",
     hint: "INDEX(TEXTSPLIT(A2, \",\"), 3).",
     level: "moderate",
-    codeExample: "=INDEX(TEXTSPLIT(\"Barrackpore,Shyamnagar,Ichapur,Naihati\", \",\"), 3) &rarr; \"Ichapur\""
+    codeExample: "=INDEX(TEXTSPLIT(\"Barrackpore,Shyamnagar,Ichapur,Naihati\", \",\"), 3) → \"Ichapur\""
   },
   {
     question: "How do you count the total number of items in a comma-separated list in 1 formula?",
@@ -82,7 +82,7 @@ const questions = [
     explanation: "COUNTA counts all non-empty spilled array elements.",
     hint: "COUNTA(TEXTSPLIT(A2, \",\")).",
     level: "basic",
-    codeExample: "=COUNTA(TEXTSPLIT(\"A,B,C,D,E\", \",\")) &rarr; 5"
+    codeExample: "=COUNTA(TEXTSPLIT(\"A,B,C,D,E\", \",\")) → 5"
   },
   {
     question: "How do you split text by line breaks (Alt+Enter / newline characters)?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "TEXTSPLIT splits text into numbers, NUMBERVALUE converts to numeric types, and SUM totals them.",
     hint: "SUM(NUMBERVALUE(TEXTSPLIT(A2, \"-\"))).",
     level: "moderate",
-    codeExample: "=SUM(NUMBERVALUE(TEXTSPLIT(\"10-20-30-40\", \"-\"))) &rarr; 100"
+    codeExample: "=SUM(NUMBERVALUE(TEXTSPLIT(\"10-20-30-40\", \"-\"))) → 100"
   },
   {
     question: "How do you split a full name into First Name, Middle Name (if present), and Last Name across columns?",
@@ -154,7 +154,7 @@ const questions = [
     explanation: "TEXTSPLIT parses string, TOCOL creates vertical vector, and TAKE(..., -1) pulls the final element.",
     hint: "TAKE(TOCOL(TEXTSPLIT(A2, \",\")), -1).",
     level: "moderate",
-    codeExample: "=TAKE(TOCOL(TEXTSPLIT(\"One,Two,Three,Four\", \",\")), -1) &rarr; \"Four\""
+    codeExample: "=TAKE(TOCOL(TEXTSPLIT(\"One,Two,Three,Four\", \",\")), -1) → \"Four\""
   },
   {
     question: "How do you parse a JSON-like key-value string `{\"name\":\"Swadeep\",\"branch\":\"Barrackpore\"}` using TEXTSPLIT?",
@@ -210,7 +210,7 @@ const questions = [
     explanation: "INDEX isolates the first element of the space-delimited array.",
     hint: "INDEX(TEXTSPLIT(A2, \" \"), 1).",
     level: "basic",
-    codeExample: "=INDEX(TEXTSPLIT(\"Swadeep Banerjee\", \" \"), 1) &rarr; \"Swadeep\""
+    codeExample: "=INDEX(TEXTSPLIT(\"Swadeep Banerjee\", \" \"), 1) → \"Swadeep\""
   },
   {
     question: "How do you extract the file name from a Windows directory path `C:\\Users\\Admin\\Documents\\Report.xlsx` using TEXTSPLIT?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "TEXTSPLIT gives financial modelers live, formulaic control over complex semi-structured strings in pure memory!",
     hint: "Array Constants ({...}) + 2D Matrix (col/row delimiters) + ignore_empty = TRUE!",
     level: "expert",
-    codeExample: "Rule: Multi-Delimiter Text Splitting &rarr; Deploy TEXTSPLIT!"
+    codeExample: "Rule: Multi-Delimiter Text Splitting → Deploy TEXTSPLIT!"
   }
 ];
 

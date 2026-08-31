@@ -17,8 +17,8 @@ const questions = [
     hint: "James Anderson (1980) and Dorothy Denning (1987).",
     level: "Basic",
     codeExample: `// Historical Timeline:
-// 1980: James Anderson -> Threat monitoring & classification (External vs Internal vs Clandestine)
-// 1987: Dorothy Denning -> Formal state-transition model for statistical anomaly detection`
+// 1980: James Anderson → Threat monitoring & classification (External vs Internal vs Clandestine)
+// 1987: Dorothy Denning → Formal state-transition model for statistical anomaly detection`
   },
   {
     id: 3,
@@ -42,8 +42,8 @@ const idsSubsystems = {
     hint: "Firewall is the locked door; IDS is the burglar alarm and CCTV camera.",
     level: "Basic",
     codeExample: `// Firewall vs IDS:
-// Firewall : [In-Line]     -> Drops unauthorized packets (Zero payload understanding)
-// IDS      : [Out-of-Band] -> Alerts on malicious behavior inside allowed streams (Zero network latency)`
+// Firewall : [In-Line]     → Drops unauthorized packets (Zero payload understanding)
+// IDS      : [Out-of-Band] → Alerts on malicious behavior inside allowed streams (Zero network latency)`
   },
   {
     id: 5,
@@ -108,8 +108,8 @@ const idsSubsystems = {
     hint: "Signature-based (matching known attacks) and Anomaly-based (detecting weird deviations from normal).",
     level: "Basic",
     codeExample: `// Detection Methodologies:
-// Signature-Based: IF payload CONTAINS "\${jndi:ldap:" -> ALERT (Log4Shell)
-// Anomaly-Based  : IF DNS_Query_Volume > (Baseline_Mean + 3 * Standard_Deviation) -> ALERT (DNS Tunneling)`
+// Signature-Based: IF payload CONTAINS "\${jndi:ldap:" → ALERT (Log4Shell)
+// Anomaly-Based  : IF DNS_Query_Volume > (Baseline_Mean + 3 * Standard_Deviation) → ALERT (DNS Tunneling)`
   },
   {
     id: 11,
@@ -119,10 +119,10 @@ const idsSubsystems = {
     hint: "False Positive = False alarm on good traffic; False Negative = Missed real attack.",
     level: "Basic",
     codeExample: `// Classification Confusion Matrix:
-// True Positive  : Real attack -> Alerted (Success)
-// False Positive : Good traffic -> Alerted (Noise / Alert Fatigue)
-// False Negative : Real attack -> NO Alert (Catastrophic Breach!)
-// True Negative  : Good traffic -> NO Alert (Normal Operation)`
+// True Positive  : Real attack → Alerted (Success)
+// False Positive : Good traffic → Alerted (Noise / Alert Fatigue)
+// False Negative : Real attack → NO Alert (Catastrophic Breach!)
+// True Negative  : Good traffic → NO Alert (Normal Operation)`
   },
   {
     id: 12,
@@ -217,7 +217,7 @@ const idsSubsystems = {
     hint: "Encryption turns packet contents into scrambled text that passive sniffers cannot read.",
     level: "Moderate",
     codeExample: `// The TLS Blind Spot:
-// Encrypted TLS Stream ---> [Passive IDS Sensor: Sees Unreadable Ciphertext!] -> Cannot match SQLi/XSS`
+// Encrypted TLS Stream ---> [Passive IDS Sensor: Sees Unreadable Ciphertext!] → Cannot match SQLi/XSS`
   },
   {
     id: 21,
@@ -289,8 +289,8 @@ const certInIdsLog = {
     hint: "Tricking the IDS into reading junk packets that the target computer ignores.",
     level: "Expert",
     codeExample: `// Insertion Attack Mechanics:
-// Packet 1: "MAL" (Bad Checksum -> Dropped by Target OS, Processed by naive IDS)
-// Packet 2: "WARE" (Valid Checksum -> Target executes "WARE", naive IDS reconstructed "MALWARE" differently)`
+// Packet 1: "MAL" (Bad Checksum → Dropped by Target OS, Processed by naive IDS)
+// Packet 2: "WARE" (Valid Checksum → Target executes "WARE", naive IDS reconstructed "MALWARE" differently)`
   },
   {
     id: 27,
@@ -310,7 +310,7 @@ const certInIdsLog = {
     hint: "Recording summary phone-bill-style connection records instead of saving every single byte.",
     level: "Moderate",
     codeExample: `// NetFlow v9 Record Summary:
-// Src: 10.10.1.50 -> Dst: 198.51.100.25 | DstPort: 443 | Packets: 450 | Bytes: 14.2 MB | Duration: 120s`
+// Src: 10.10.1.50 → Dst: 198.51.100.25 | DstPort: 443 | Packets: 450 | Bytes: 14.2 MB | Duration: 120s`
   },
   {
     id: 29,

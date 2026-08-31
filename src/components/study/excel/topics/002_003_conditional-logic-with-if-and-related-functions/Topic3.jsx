@@ -71,7 +71,7 @@ export default function Topic3() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Mastering Nested IF formulas and avoiding deeply nested formula pitfalls"}
           </h1>
 
@@ -286,7 +286,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic3_Mastering_Nested_I"
+            sheetName="EX804"
             title={"Mastering Nested IF formulas and avoiding deeply nested formula pitfalls - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -327,7 +327,7 @@ export default function Topic3() {
                 <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
               </div>
               <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Performance Bonus Tiering"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Calculates annual employee bonus percentages based on performance appraisal rating tiers (5 -> 20%, 4 -> 15%, 3 -> 10%, 2 -> 5%, 1 -> 0%)."}</p>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Calculates annual employee bonus percentages based on performance appraisal rating tiers (5 → 20%, 4 → 15%, 3 → 10%, 2 → 5%, 1 → 0%)."}</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">

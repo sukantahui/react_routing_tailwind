@@ -76,7 +76,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Essential M Standard Library Functions: Table, List, Record &amp; Text Namespaces
           </h1>
 
@@ -129,7 +129,7 @@ export default function Topic2() {
             </div>
             <span className="text-slate-500">// 2. Functional List Transformation &amp; Filtering (List.Transform &amp; List.Select)</span>
             <div className="text-white font-bold text-xs sm:text-sm">
-              {'CleanedList = List.Transform(List.Select(SourceList, each _ <> null), each Text.Trim(Text.Upper(_)))'}
+              {'CleanedList = List.Transform(List.Select(SourceList, each _ &lt;&gt; null), each Text.Trim(Text.Upper(_)))'}
             </div>
             <span className="text-slate-500">// 3. Defensive Record Lookup (Record.FieldOrDefault)</span>
             <div className="text-white font-bold text-xs sm:text-sm">
@@ -216,7 +216,7 @@ export default function Topic2() {
                 Instead, use <code className="text-emerald-300 font-mono">{'Text.Select([Phone], {"0".."9"})'}</code> to strip all non-digit characters in a single high-speed operation!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                {'Text.Select([Str], {"0".."9"})'} &rarr; 100% Digit Whitelisting
+                {'Text.Select([Str], {"0".."9"})'} → 100% Digit Whitelisting
               </div>
             </div>
           </div>
@@ -370,7 +370,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_M_Standard_Library"
+            sheetName="EX2103"
             title="M Standard Library Master Catalog (Library Namespace, M Function Signature, Input Signature, Output Type, Corporate Production Scenario)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -407,7 +407,7 @@ export default function Topic2() {
                 Financial Analyst <strong>Swadeep Banerjee</strong> cleans a dirty customer database containing phone numbers with brackets, spaces, and country codes using <code className="text-teal-300 font-mono">{'Text.Select([Phone], {"0".."9"})'}</code>, standardizing 50k numbers in 0.4 seconds!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Text.Select &rarr; Strips All Non-Digit Characters Instantly
+                Text.Select → Strips All Non-Digit Characters Instantly
               </div>
             </div>
 
@@ -424,7 +424,7 @@ export default function Topic2() {
                 Senior Accountant <strong>Tuhina Mukherjee</strong> authors a stateful <code className="text-emerald-300 font-mono">List.Generate</code> loop to paginate through cloud ERP ledger pages until the next-page cursor returns null, consolidating all fiscal records automatically.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                List.Generate &rarr; Automated Multi-Page Cursor Pagination
+                List.Generate → Automated Multi-Page Cursor Pagination
               </div>
             </div>
 
@@ -441,7 +441,7 @@ export default function Topic2() {
                 ERP Lead <strong>Abhronila Sengupta</strong> applies <code className="text-indigo-300 font-mono">Record.FieldOrDefault(BranchConfig, "SurchargeRate", 0.0)</code> across 12 branch subsidiaries, preventing crashes when regional branches omit surcharge keys.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Record.FieldOrDefault &rarr; Zero Missing-Key Pipeline Halts
+                Record.FieldOrDefault → Zero Missing-Key Pipeline Halts
               </div>
             </div>
 
@@ -458,7 +458,7 @@ export default function Topic2() {
                 Operations Lead <strong>Debangshu Ghosh</strong> extracts SKU product codes from complex delivery filenames (<code className="text-fuchsia-300 font-mono">"Shipment_[SKU-IND-104]_2026.pdf"</code>) using <code className="text-fuchsia-300 font-mono">Text.BetweenDelimiters</code> without fragile character counting.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                Text.BetweenDelimiters &rarr; Exact Boundary Substring Extraction
+                Text.BetweenDelimiters → Exact Boundary Substring Extraction
               </div>
             </div>
           </div>
@@ -574,7 +574,7 @@ export default function Topic2() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">List.Generate Infinite Loop</td>
                   <td className="py-3 px-4 text-slate-300">Continuation condition never evaluates to false (e.g. page cursor never increments).</td>
                   <td className="py-3 px-4 text-slate-400">Power Query memory increases indefinitely and freezes.</td>
-                  <td className="py-3 px-4 text-emerald-400">Include a hard upper bound: <code className="text-emerald-400 font-mono">each [Page] &lt;= 50 and [Cursor] &lt;&gt; null</code>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Include a hard upper bound: <code className="text-emerald-400 font-mono">each [Page] <= 50 and [Cursor] &lt;&gt; null</code>.</td>
                 </tr>
               </tbody>
             </table>

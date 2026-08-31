@@ -89,10 +89,10 @@ CREATE TABLE academy_1nf (
       sqlQuery: `-- 2NF Decomposition:
 -- Eliminate Partial Dependencies where non-key attributes depend on only part of PK!
 
--- Table 1: students (student_id -> student_name, branch_city, branch_pincode)
--- Table 2: courses (course_code -> course_name, instructor_id, instructor_name, instructor_phone)
--- Table 3: enrollments (student_id, course_code -> exam_score_pct)
--- Table 4: fee_payments (receipt_no -> student_id, course_code, payment_date, amount_paid_inr)`,
+-- Table 1: students (student_id → student_name, branch_city, branch_pincode)
+-- Table 2: courses (course_code → course_name, instructor_id, instructor_name, instructor_phone)
+-- Table 3: enrollments (student_id, course_code → exam_score_pct)
+-- Table 4: fee_payments (receipt_no → student_id, course_code, payment_date, amount_paid_inr)`,
       resultRows: [
         { col1: "students", col2: "PK: student_id", col3: "student_name, branch_city, pincode", col4: "Entity Table", col5: "Zero Partial Dep", col6: "2NF Compliant", col7: "✓ Fully Dependent", status: "2NF" },
         { col1: "courses", col2: "PK: course_code", col3: "course_name, instructor_id, phone", col4: "Entity Table", col5: "Zero Partial Dep", col6: "2NF Compliant", col7: "✓ Fully Dependent", status: "2NF" },
@@ -107,8 +107,8 @@ CREATE TABLE academy_1nf (
       badgeColor: "emerald",
       sqlQuery: `-- 3NF Final Decomposition:
 -- Eliminate Transitive Dependencies where non-key attributes depend on other non-key attributes!
--- 1. students: student_id -> branch_city -> branch_pincode => Extract 'branches'
--- 2. courses: course_code -> instructor_id -> instructor_name, phone => Extract 'instructors'
+-- 1. students: student_id → branch_city → branch_pincode => Extract 'branches'
+-- 2. courses: course_code → instructor_id → instructor_name, phone => Extract 'instructors'
 
 -- 6 Clean 3NF Tables:
 -- 1. branches (branch_id PK, branch_city, branch_pincode)
@@ -155,7 +155,7 @@ CREATE TABLE academy_1nf (
               End-to-End Normalization
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             End-to-End Normalization: From Spreadsheet to 3NF
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

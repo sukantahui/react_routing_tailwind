@@ -76,7 +76,7 @@ export default function Topic2() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             The Power Query Editor Interface: Queries Pane, Applied Steps &amp; Formula Bar
           </h1>
 
@@ -128,7 +128,7 @@ export default function Topic2() {
                 Lists all queries, staging tables, and parameters. Create folders and use <strong>Reference</strong> to branch staging tables.
               </p>
               <div className="p-2 bg-slate-900 rounded-lg text-teal-300 text-xs">
-                Right-Click &rarr; New Group / Reference
+                Right-Click → New Group / Reference
               </div>
             </div>
 
@@ -139,7 +139,7 @@ export default function Topic2() {
                 Sequential list of recorded transformation actions. Click any prior step to time-travel the data preview.
               </p>
               <div className="p-2 bg-slate-900 rounded-lg text-sky-300 text-xs">
-                Select Step &rarr; Press F2 to Rename
+                Select Step → Press F2 to Rename
               </div>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function Topic2() {
                   <td className="py-3 px-4 font-bold text-sky-400 font-sans">Formula Bar</td>
                   <td className="py-3 px-4 text-slate-300">Below Ribbon</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Inspects and edits active step M expressions.</td>
-                  <td className="py-3 px-4 text-emerald-400">View Tab &rarr; Check [X] Formula Bar</td>
+                  <td className="py-3 px-4 text-emerald-400">View Tab → Check [X] Formula Bar</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-indigo-400 font-sans">Data Preview Grid</td>
@@ -177,7 +177,7 @@ export default function Topic2() {
                   <td className="py-3 px-4 font-bold text-emerald-400 font-sans">Advanced Editor</td>
                   <td className="py-3 px-4 text-slate-300">Modal Window</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Complete raw M script (<code className="text-emerald-400 font-mono">let ... in ...</code>).</td>
-                  <td className="py-3 px-4 text-emerald-400">Home Tab &rarr; Advanced Editor</td>
+                  <td className="py-3 px-4 text-emerald-400">Home Tab → Advanced Editor</td>
                 </tr>
               </tbody>
             </table>
@@ -211,7 +211,7 @@ export default function Topic2() {
                 without re-doing your work!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-teal-300">
-                Click Step &rarr; Instant Snapshot Inspection
+                Click Step → Instant Snapshot Inspection
               </div>
             </div>
 
@@ -394,7 +394,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic2_Editor_Interface"
+            sheetName="EX2003"
             title="Applied Steps Recipe Matrix (Step Index, Step Name, M Code Expression, Purpose Description, Status)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -432,7 +432,7 @@ export default function Topic2() {
                 (<code className="text-teal-300 font-mono">#&quot;Filter FY26 Compliant Records&quot;</code>), allowing statutory tax auditors to inspect and verify every data cleaning step in seconds.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                F2 Step Renaming &rarr; 100% Tax Audit Transparency
+                F2 Step Renaming → 100% Tax Audit Transparency
               </div>
             </div>
 
@@ -450,7 +450,7 @@ export default function Topic2() {
                 then creates two lightweight <strong>Reference</strong> queries (<code className="text-amber-300 font-mono">Fact_Sales_Domestic</code> and <code className="text-amber-300 font-mono">Fact_Sales_Export</code>) without re-querying SQL servers.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Reference Queries &rarr; Zero Duplicate SQL Server Hits
+                Reference Queries → Zero Duplicate SQL Server Hits
               </div>
             </div>
 

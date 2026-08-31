@@ -56,7 +56,7 @@ Origins: S1 (Barrackpore, 50 tons), S2 (Ichapur, 70 tons), S3 (Kolkata, 80 tons)
 Total Supply = 200 tons.
 Destinations: D1 (Jadavpur, 60 tons), D2 (Salt Lake, 50 tons), D3 (Howrah, 60 tons).
 Total Demand = 170 tons.
-Difference = 200 - 170 = 30 tons Excess Supply -> Add Dummy Column D4 (Demand = 30 tons, rate = ₹0).
+Difference = 200 - 170 = 30 tons Excess Supply → Add Dummy Column D4 (Demand = 30 tons, rate = ₹0).
 
 Cost Matrix with Dummy Column (₹/ton):
        D1    D2    D3    D_Dummy  Supply  P_R(1)
@@ -80,7 +80,7 @@ Origins: S1 (Kolkata Central, 60 boxes), S2 (Barrackpore Depot, 40 boxes).
 Total Supply = 100 boxes.
 Destinations: D1 (Howrah, 50 boxes), D2 (Barasat, 40 boxes), D3 (Jadavpur, 30 boxes).
 Total Demand = 120 boxes.
-Difference = 120 - 100 = 20 boxes Shortage -> Add Dummy Row S3 (Supply = 20 boxes, rate = ₹0).
+Difference = 120 - 100 = 20 boxes Shortage → Add Dummy Row S3 (Supply = 20 boxes, rate = ₹0).
 
 Cost Matrix with Dummy Row (₹/box):
        D1    D2    D3   Supply  P_R(1)

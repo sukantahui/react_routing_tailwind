@@ -22,8 +22,8 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
     )
 
 • JSON Deserialization:
-  - Object `{...}` &rarr; M Record `[...]`
-  - Array `[...]` &rarr; M List `{...}`
+  - Object `{...}` → M Record `[...]`
+  - Array `[...]` → M List `{...}`
   - Parse: `Json.Document(BinaryResponse)`
 
 2. BEST PRACTICES & PRODUCTION PATTERNS:

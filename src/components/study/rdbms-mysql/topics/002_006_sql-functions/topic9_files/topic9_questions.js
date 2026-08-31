@@ -3,7 +3,7 @@
 const questions = [
   {
     question: "What is the primary operational difference between scalar functions and aggregate functions in SQL?",
-    shortAnswer: "Scalar functions operate on a single row and return a single value per row (1 &rarr; 1), whereas aggregate functions process multiple rows and compress them into a single summary scalar value (N &rarr; 1).",
+    shortAnswer: "Scalar functions operate on a single row and return a single value per row (1 → 1), whereas aggregate functions process multiple rows and compress them into a single summary scalar value (N → 1).",
     explanation: "Scalar vs aggregate cardinality transformation.",
     hint: "Scalar transforms 1-to-1; aggregate compresses N-to-1.",
     level: "basic"

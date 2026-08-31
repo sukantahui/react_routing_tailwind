@@ -16,7 +16,7 @@ const Topic1 = () => {
         
         {/* Hero Section */}
         <section className="space-y-4 animate-fade-slide-up [animation-delay:0s]">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-teal-600 dark:from-green-400 dark:to-teal-400 bg-clip-text text-transparent">
             Symbolic Constants: #define vs const
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300">

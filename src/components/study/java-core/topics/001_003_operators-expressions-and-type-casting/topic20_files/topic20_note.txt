@@ -16,7 +16,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
   1. High-Order Bit Discard & Sign Flip:
      * (byte) 130  ==> -126 (Upper 24 bits discarded, sign flipped)
      * (byte) 257  ==> 1    (256 discarded, leaves 1)
-     * (byte) 1000 ==> -24  (1000 % 256 = 232 -> 232 - 256 = -24)
+     * (byte) 1000 ==> -24  (1000 % 256 = 232 → 232 - 256 = -24)
 
   2. Floating-Point to Integer Truncation:
      * (int) 99.99  ==> 99  (Truncated towards zero, NOT rounded!)

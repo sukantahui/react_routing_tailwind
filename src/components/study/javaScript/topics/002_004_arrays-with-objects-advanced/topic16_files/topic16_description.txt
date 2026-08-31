@@ -44,7 +44,7 @@ const rawBatch = [
   { id: 4, name: 'Debangshu', course: 'React', marks: 78, paid: false }
 ];
 
-// Enterprise Pipeline: Paid only -> Sorted by marks -> Grouped by Course
+// Enterprise Pipeline: Paid only → Sorted by marks → Grouped by Course
 const qualifiedStudents = rawBatch
   .filter(s => s.paid)
   .toSorted((a, b) => b.marks - a.marks);

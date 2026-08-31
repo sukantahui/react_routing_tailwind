@@ -30,10 +30,10 @@ const Topic2 = () => {
 
   // 4x4 binary assignment grid state
   const [grid, setGrid] = useState([
-    [1, 0, 0, 0], // Debangshu -> M1
-    [0, 1, 0, 0], // Susmita -> M2
-    [0, 0, 1, 0], // Mamata -> M3
-    [0, 0, 0, 1], // Mahima -> M4
+    [1, 0, 0, 0], // Debangshu → M1
+    [0, 1, 0, 0], // Susmita → M2
+    [0, 0, 1, 0], // Mamata → M3
+    [0, 0, 0, 1], // Mahima → M4
   ]);
 
   const sectionRefs = useRef([]);
@@ -122,10 +122,10 @@ const Topic2 = () => {
     {
       name: '3. Optimal Cost Matching (Hungarian Optima)',
       g: [
-        [0, 0, 0, 1], // Debangshu -> M4 (₹20)
-        [0, 1, 0, 0], // Susmita -> M2 (₹20)
-        [0, 0, 1, 0], // Mamata -> M3 (₹20)
-        [1, 0, 0, 0], // Mahima -> M1 (₹15)
+        [0, 0, 0, 1], // Debangshu → M4 (₹20)
+        [0, 1, 0, 0], // Susmita → M2 (₹20)
+        [0, 0, 1, 0], // Mamata → M3 (₹20)
+        [1, 0, 0, 0], // Mahima → M1 (₹15)
       ],
       desc: 'Provably minimal expenditure matching: Z* = ₹75 ⭐!',
     },
@@ -189,7 +189,7 @@ const Topic2 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             One-to-One Allocation
           </h1>
 

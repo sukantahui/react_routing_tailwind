@@ -223,7 +223,7 @@ const questions = [
     explanation: "This 3-step blueprint forms the kinematic engine for top-down flight and combat games.",
     hint: "What 3 steps build arcade vehicle physics in Turtle?",
     level: "basic",
-    codeExample: "# 1. Keys & Heading -> 2. Vector Thrust & Friction -> 3. atan2 Aiming"
+    codeExample: "# 1. Keys & Heading → 2. Vector Thrust & Friction → 3. atan2 Aiming"
   },
   {
     question: "How does vector trigonometry for vehicle steering connect to aerospace and robotics engineering?",

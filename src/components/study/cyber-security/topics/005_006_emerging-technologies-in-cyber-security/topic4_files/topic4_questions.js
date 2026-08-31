@@ -76,7 +76,7 @@ while (!sha256(header + nonce).startsWith("0000")) {
     hint: "Creating fake peer nodes to manipulate the network; prevented by tying consensus to hashrate or staked capital.",
     level: "Moderate",
     codeExample: `// Sybil Defense:
-// Attacker spawns 10,000 fake IP nodes -> Total Staked Capital = 0 ETH -> Consensus Weight = 0% ✔`
+// Attacker spawns 10,000 fake IP nodes → Total Staked Capital = 0 ETH → Consensus Weight = 0% ✔`
   },
   {
     id: 8,
@@ -162,7 +162,7 @@ while (!sha256(header + nonce).startsWith("0000")) {
     level: "Moderate",
     codeExample: `// Supply Chain Verification:
 // Downloaded 'app.exe' ➔ SHA256 = "8f9a2b..."
-// Query Blockchain: "8f9a2b..." verified signed by Vendor_Key at Block #88219 -> EXECUTION PERMITTED ✔`
+// Query Blockchain: "8f9a2b..." verified signed by Vendor_Key at Block #88219 → EXECUTION PERMITTED ✔`
   },
   {
     id: 16,
@@ -172,7 +172,7 @@ while (!sha256(header + nonce).startsWith("0000")) {
     hint: "Recursively calling a withdraw function before the contract can update its internal balance.",
     level: "Expert",
     codeExample: `// Vulnerable Reentrancy:
-// 1. msg.sender.call{value: balance}("") (Transfers ETH -> Calls Attacker Fallback)
+// 1. msg.sender.call{value: balance}("") (Transfers ETH → Calls Attacker Fallback)
 // 2. balances[msg.sender] = 0; (NEVER REACHED! Drained in loop)`
   },
   {
@@ -193,8 +193,8 @@ while (!sha256(header + nonce).startsWith("0000")) {
     hint: "Spending the same digital money twice; solved by consensus ordering and UTXO tracking.",
     level: "Basic",
     codeExample: `// Double-Spend Attempt:
-// Tx1: Spend Coin_A -> Bob (Confirmed in Block #100)
-// Tx2: Spend Coin_A -> Alice (REJECTED by nodes: Coin_A is already spent!) ❌`
+// Tx1: Spend Coin_A → Bob (Confirmed in Block #100)
+// Tx2: Spend Coin_A → Alice (REJECTED by nodes: Coin_A is already spent!) ❌`
   },
   {
     id: 19,
@@ -204,7 +204,7 @@ while (!sha256(header + nonce).startsWith("0000")) {
     hint: "Keeping mined blocks secret to invalidate honest miners' work and increase relative reward share.",
     level: "Expert",
     codeExample: `// Selfish Mining Strategy:
-// Pool mines Block #101 privately -> Mines Block #102 privately -> Honest network mines #101 -> Pool releases [#101, #102] -> Honest #101 orphaned!`
+// Pool mines Block #101 privately → Mines Block #102 privately → Honest network mines #101 → Pool releases [#101, #102] → Honest #101 orphaned!`
   },
   {
     id: 20,
@@ -295,7 +295,7 @@ while (!sha256(header + nonce).startsWith("0000")) {
     hint: "Switching from an old branch to a longer incoming chain, orphaning abandoned blocks.",
     level: "Moderate",
     codeExample: `// Reorg Event:
-// Node was on Block #50 (Branch A) -> Receives Branch B at Block #52 -> Replaces Branch A (2 blocks reorganized)`
+// Node was on Block #50 (Branch A) → Receives Branch B at Block #52 → Replaces Branch A (2 blocks reorganized)`
   },
   {
     id: 29,
@@ -312,7 +312,7 @@ while (!sha256(header + nonce).startsWith("0000")) {
     question: "Write out the comprehensive technical blueprint for integrating a Blockchain Tamper-Proof Audit Logging Architecture in an enterprise SOC.",
     shortAnswer: "1. Log Ingestion: SIEM aggregates Sysmon and NetFlow logs into 1-minute batches. 2. Merkle Root Generation: Python engine computes the SHA-256 binary Merkle Root of the batch. 3. Blockchain Anchoring: Smart contract writes the Merkle Root, timestamp, and SOC signature to an immutable ledger (Hyperledger / Ethereum). 4. Automated Verification: Audit cron job continuously recomputes log hashes against the on-chain roots. 5. Tamper Alarm: Any discrepancy triggers an immediate Level-1 SOC emergency lockdown.",
     explanation: "This architecture guarantees cryptographic non-repudiation and permanent tamper-evidence for all enterprise security logs.",
-    hint: "Batch logs -> Compute Merkle Root -> Anchor on-chain -> Continuous verification cron -> Alert on mismatch.",
+    hint: "Batch logs → Compute Merkle Root → Anchor on-chain → Continuous verification cron → Alert on mismatch.",
     level: "Expert",
     codeExample: `// Tamper-Proof Audit Architecture:
 // [SIEM Logs (1-min batch)] ➔ [Merkle Tree Generator] ➔ Merkle Root H ➔ [Blockchain Anchor Tx] ➔ [Immutable Ledger]`

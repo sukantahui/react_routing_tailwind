@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 DATEDIF is Excel's famous 'secret' undocumented function. Always use it for calculating employee tenures, age compliance, and warranty milestones.
 
 COMMON TRAPS TO AVOID:
-- DATEDIF #NUM! on Inverted Dates: Passing a start_date that is later than end_date triggers a #NUM! error. -> Fix: Ensure start_date <= end_date or wrap in IF(Start > End, DATEDIF(End, Start, ...), ...).
-- The 'MD' Unit Known Bug: The 'MD' unit in DATEDIF can yield negative or inaccurate day counts in certain leap-year month boundaries. -> Fix: Use `=end_date - EDATE(start_date, DATEDIF(start_date, end_date, "M"))` for bulletproof day accuracy.
-- YEARFRAC Day Count Basis Confusion: Using default US 30/360 (basis 0) instead of Actual/Actual (basis 1) causes interest calculation discrepancies in banking audits. -> Fix: Verify the statutory financial contract convention before setting the basis parameter.
+- DATEDIF #NUM! on Inverted Dates: Passing a start_date that is later than end_date triggers a #NUM! error. → Fix: Ensure start_date <= end_date or wrap in IF(Start > End, DATEDIF(End, Start, ...), ...).
+- The 'MD' Unit Known Bug: The 'MD' unit in DATEDIF can yield negative or inaccurate day counts in certain leap-year month boundaries. → Fix: Use `=end_date - EDATE(start_date, DATEDIF(start_date, end_date, "M"))` for bulletproof day accuracy.
+- YEARFRAC Day Count Basis Confusion: Using default US 30/360 (basis 0) instead of Actual/Actual (basis 1) causes interest calculation discrepancies in banking audits. → Fix: Verify the statutory financial contract convention before setting the basis parameter.
 ================================================================================

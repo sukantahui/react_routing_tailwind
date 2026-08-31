@@ -6,17 +6,17 @@ const questions = [
     question: "What is the sequence of steps to find the optimal mixed strategies (p*, q*) in a 2xn game graphically?",
     shortAnswer: "1. Parameterize p1; 2. Plot n linear functions; 3. Trace Lower Envelope; 4. Identify Maximin Peak and the 2 intersecting columns {Bj, Bk}; 5. Solve 2x2 submatrix for p1*, qj*, qk* and v*; 6. Reconstruct full n-dimensional vector q* with 0.0 for inactive columns.",
     explanation: "Complete 6-step graphical solution sequence for 2xn games.",
-    hint: "Plot -> Lower envelope -> Maximin peak -> Extract 2x2 -> Solve (p*, q*, v*).",
+    hint: "Plot → Lower envelope → Maximin peak → Extract 2x2 → Solve (p*, q*, v*).",
     level: "moderate",
-    codeExample: "solve2xn: plotLines() -> findLowerEnvelope() -> extractActiveCols() -> solve2x2() -> reconstructVectors();"
+    codeExample: "solve2xn: plotLines() → findLowerEnvelope() → extractActiveCols() → solve2x2() → reconstructVectors();"
   },
   {
     question: "What is the sequence of steps to find the optimal mixed strategies (p*, q*) in an mx2 game graphically?",
     shortAnswer: "1. Parameterize q1; 2. Plot m linear functions; 3. Trace Upper Envelope; 4. Identify Minimax Trough and the 2 intersecting rows {Ai, Ar}; 5. Solve 2x2 submatrix for q1*, pi*, pr* and v*; 6. Reconstruct full m-dimensional vector p* with 0.0 for inactive rows.",
     explanation: "Complete 6-step graphical solution sequence for mx2 games.",
-    hint: "Plot -> Upper envelope -> Minimax trough -> Extract 2x2 -> Solve (p*, q*, v*).",
+    hint: "Plot → Upper envelope → Minimax trough → Extract 2x2 → Solve (p*, q*, v*).",
     level: "moderate",
-    codeExample: "solve_mx2: plotLines() -> findUpperEnvelope() -> extractActiveRows() -> solve2x2() -> reconstructVectors();"
+    codeExample: "solve_mx2: plotLines() → findUpperEnvelope() → extractActiveRows() → solve2x2() → reconstructVectors();"
   },
   {
     question: "Why must inactive columns in a 2xn game receive probability 0.0 in Player B's optimal strategy vector q*?",
@@ -86,9 +86,9 @@ const questions = [
     question: "What is the ultimate golden rule of Finding the Optimal Mixed Strategy Graphically?",
     shortAnswer: "'Trace the active boundary envelope; pinpoint the optimal apex (Maximin peak or Minimax trough); extract the 2 active lines; solve the 2x2 submatrix for exact probabilities; reconstruct full strategy vectors; and audit all payoffs in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all graphical strategy optimization mechanics.",
-    hint: "Trace envelope -> Apex -> Extract 2x2 -> Solve -> Reconstruct full vectors in ₹.",
+    hint: "Trace envelope → Apex → Extract 2x2 → Solve → Reconstruct full vectors in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: TraceEnvelope() -> FindApex() -> Extract2x2() -> ReconstructFullVectors(₹)."
+    codeExample: "GoldenRule: TraceEnvelope() → FindApex() → Extract2x2() → ReconstructFullVectors(₹)."
   }
 ];
 

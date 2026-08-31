@@ -128,7 +128,7 @@ const questions = [
     explanation: "Epsilon restores the basis count to m + n - 1 without altering capacity balances or total cost Z.",
     hint: "Place a tiny ε in an independent, cheap cell.",
     level: "expert",
-    codeExample: "x_ij = ε (where ε > 0, ε -> 0); Cost impact = 0."
+    codeExample: "x_ij = ε (where ε > 0, ε → 0); Cost impact = 0."
   },
   {
     question: "What is a 'closed loop' and why must an epsilon cell be loop-free?",
@@ -176,7 +176,7 @@ const questions = [
     explanation: "No second choice exists, making penalty calculation impossible and unnecessary.",
     hint: "Single cell = mandatory allocation.",
     level: "moderate",
-    codeExample: "Single cell remaining -> allocate directly; penalty = '—'."
+    codeExample: "Single cell remaining → allocate directly; penalty = '—'."
   },
   {
     question: "How does the MODI method use the VAM initial solution?",
@@ -232,7 +232,7 @@ const questions = [
     explanation: "This principle combines regret defense with immediate cost minimization.",
     hint: "Max penalty for line, min cost for cell.",
     level: "moderate",
-    codeExample: "Max(Penalty) -> Line; Min(Cost) -> Cell."
+    codeExample: "Max(Penalty) → Line; Min(Cost) → Cell."
   },
   {
     question: "Why is mastering VAM essential for career growth in operations research and logistics engineering?",

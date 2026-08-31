@@ -71,7 +71,7 @@ export default function Topic5() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Querying closed Excel workbooks as relational database tables using SQL without opening them"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic5() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Query Closed Excel: Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Data\\Book.xlsx;Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1;\" | SQL: SELECT * FROM [Sheet1$] WHERE Amount &gt; 1000"}
+            {"Query Closed Excel: Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Data\\Book.xlsx;Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1;\" | SQL: SELECT * FROM [Sheet1$] WHERE Amount > 1000"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic5() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Closed Excel Workbook SQL Query Engine: External Closed File.xlsx -> Microsoft.ACE.OLEDB.12.0 -> SQL SELECT Filter -> Direct Extraction"}
+              Visual Dataflow: {"Closed Excel Workbook SQL Query Engine: External Closed File.xlsx → Microsoft.ACE.OLEDB.12.0 → SQL SELECT Filter → Direct Extraction"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Database Pipeline
@@ -286,7 +286,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic5_Querying_closed_Ex"
+            sheetName="EX2606"
             title={"Querying closed Excel workbooks as relational database tables using SQL without opening them - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic5() {
                 Step 2: Open Connection &amp; Execute Query / REST Request
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open database socket or send HTTP request with custom headers: <code className="text-cyan-300 font-mono font-bold">{"Query Closed Excel: Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Data\\Book.xlsx;Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1;\" | SQL: SELECT * FROM [Sheet1$] WHERE Amount &gt; 1000"}</code>.
+                Open database socket or send HTTP request with custom headers: <code className="text-cyan-300 font-mono font-bold">{"Query Closed Excel: Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Data\\Book.xlsx;Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1;\" | SQL: SELECT * FROM [Sheet1$] WHERE Amount > 1000"}</code>.
               </p>
             </div>
 
@@ -572,7 +572,7 @@ export default function Topic5() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"You can query closed Excel files with SQL! Just use the ACE.OLEDB driver and write `SELECT * FROM [Sheet1$] WHERE Amount &gt; 5000`. You can pull data from 500 closed workbooks in 2 seconds without opening any of them."}
+            note={"You can query closed Excel files with SQL! Just use the ACE.OLEDB driver and write `SELECT * FROM [Sheet1$] WHERE Amount > 5000`. You can pull data from 500 closed workbooks in 2 seconds without opening any of them."}
           />
         </div>
       </div>

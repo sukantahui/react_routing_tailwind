@@ -8,7 +8,7 @@ const questions = [
     explanation: "Standard motivation for 2x2 reduction.",
     hint: "Enables instant closed-form 2x2 formulas.",
     level: "moderate",
-    codeExample: "target: reduce(m_x_n) -> solve2x2ClosedForm();"
+    codeExample: "target: reduce(m_x_n) → solve2x2ClosedForm();"
   },
   {
     question: "Once an m x n game is reduced to a 2x2 submatrix A_sub, what is the formula for the Game Value v*?",
@@ -94,9 +94,9 @@ const questions = [
     question: "What is the ultimate golden rule of Reduction to 2x2 Games?",
     shortAnswer: "'Prune the m x n matrix to an active 2x2 submatrix; apply closed-form formulas for Delta, p_sub*, q_sub*, and v*; reconstruct full-dimensional vectors; and verify global optimality across all original rows and columns in Indian Rupees (₹)!'",
     explanation: "This complete rule captures all reduction to 2x2 game mechanics.",
-    hint: "Prune to 2x2 -> Solve closed form -> Reconstruct full vectors -> Verify in ₹.",
+    hint: "Prune to 2x2 → Solve closed form → Reconstruct full vectors → Verify in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: PruneTo2x2() -> SolveSubgame() -> ReconstructFullVectors() -> GlobalVerification(₹)."
+    codeExample: "GoldenRule: PruneTo2x2() → SolveSubgame() → ReconstructFullVectors() → GlobalVerification(₹)."
   }
 ];
 

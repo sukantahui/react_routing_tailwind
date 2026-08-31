@@ -50,9 +50,9 @@ const Topic10 = () => {
       badgeColor: "cyan",
       sqlSnippet: `// 🎯 THE VIRTUAL NODE BALANCING MECHANISM:
 // Physical Server Node A is mapped to 256 virtual ring positions:
-// -> NodeA#v1, NodeA#v2, NodeA#v3, ... NodeA#v256
+// → NodeA#v1, NodeA#v2, NodeA#v3, ... NodeA#v256
 // Physical Server Node B is mapped to 256 virtual ring positions:
-// -> NodeB#v1, NodeB#v2, NodeB#v3, ... NodeB#v256
+// → NodeB#v1, NodeB#v2, NodeB#v3, ... NodeB#v256
 
 // 📊 RESULT:
 // Storage variance across physical nodes drops from >35% down to <2%!
@@ -77,7 +77,7 @@ const Topic10 = () => {
 
 -- 🌐 2. LIST & DIRECTORY SHARDING (Data Residency & VIP Tenants):
 -- List: Bengal on Shard 0, Delhi on Shard 1 (Satisfies RBI / GDPR Residency).
--- Directory (Redis): tenant_reliance -> Shard_03 (Isolates VIP enterprise tenants).`,
+-- Directory (Redis): tenant_reliance → Shard_03 (Isolates VIP enterprise tenants).`,
       explanation:
         "Range-based sharding creates severe write hot spots on append-only primary keys. List and Directory sharding provide explicit routing for data residency compliance and VIP tenant isolation.",
       keyTakeaways: [
@@ -121,7 +121,7 @@ const Topic10 = () => {
             Topic 10 of 12
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           <span className="text-emerald-400">Sharding Algorithms</span>: Hash, Range, List &amp; <span className="text-cyan-400">Consistent Hashing</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">

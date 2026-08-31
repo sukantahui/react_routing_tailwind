@@ -148,7 +148,7 @@ const questions = [
   },
   {
     question: "How do you solve the classic 'Two Sum' problem in O(n) time in Python?",
-    shortAnswer: "Iterate through the list while maintaining a hash map (dictionary) of 'seen_numbers -> index'; for each element, check if 'target - num' exists in the dictionary in O(1) time.",
+    shortAnswer: "Iterate through the list while maintaining a hash map (dictionary) of 'seen_numbers → index'; for each element, check if 'target - num' exists in the dictionary in O(1) time.",
     explanation: "Two-sum hash map lookup algorithm.",
     hint: "Use a dictionary to store seen numbers and check for 'target - num' in O(1) time.",
     level: "basic",

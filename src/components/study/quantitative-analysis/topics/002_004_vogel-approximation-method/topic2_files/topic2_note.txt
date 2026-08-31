@@ -56,7 +56,7 @@ Step 1: Compute all active row penalties P_i = c_(i,2) - c_(i,1).
 Step 2: Compute all active column penalties P_j = c_(2,j) - c_(1,j).
 Step 3: Scan both lists and identify Max_P = max { P_i, P_j }.
 Step 4: Circle the winning value Max_P on your tableau for a clear audit trail.
-Step 5: If a tie occurs, apply Tier 1 (min cost) -> Tier 2 (max volume).
+Step 5: If a tie occurs, apply Tier 1 (min cost) → Tier 2 (max volume).
 Step 6: In the selected winning line, identify the cell with minimum unit cost c_kl.
 Step 7: Allocate x_kl = min(S_k, D_l) to that cell.
 Step 8: Update remaining capacities: S_k = S_k - x_kl, D_l = D_l - x_kl.

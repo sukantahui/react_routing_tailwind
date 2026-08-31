@@ -226,9 +226,9 @@ const questions = [
   },
   {
     question: "What happens if a subclass overrides a method but reduces its visibility?",
-    shortAnswer: "Compilation error. You cannot reduce the visibility of an overridden method (e.g., public -> protected).",
+    shortAnswer: "Compilation error. You cannot reduce the visibility of an overridden method (e.g., public → protected).",
     explanation: "Liskov substitution principle – a subclass must be at least as accessible as the superclass.",
-    hint: "You can increase visibility (protected -> public) but not decrease.",
+    hint: "You can increase visibility (protected → public) but not decrease.",
     level: "advanced",
     codeExample: "class Parent { public void show() {} }\nclass Child extends Parent { protected void show() {} } // ERROR"
   },

@@ -70,7 +70,7 @@ export default function Topic27() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas"}
           </h1>
 
@@ -112,7 +112,7 @@ export default function Topic27() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"}
+            {"Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"}
           </div>
 
           <div className="overflow-x-auto">
@@ -198,7 +198,7 @@ export default function Topic27() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Dynamic Range Modeling Architecture: Anchor -> Coordinate Offset -> Dynamic Slicing -> Output HUD"}
+              Visual Dataflow: {"Dynamic Range Modeling Architecture: Anchor → Coordinate Offset → Dynamic Slicing → Output HUD"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Pipeline Architecture
@@ -285,7 +285,7 @@ export default function Topic27() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic23_Dynamic_Range_Prac"
+            sheetName="EX1028"
             title={"Practice Lab: Advanced Dynamic Range Modeling with OFFSET, INDEX, and Coordinate Formulas - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -374,7 +374,7 @@ export default function Topic27() {
                 Step 1: Identify Reference Anchor &amp; Coordinates
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Determine the starting cell coordinates or structured table source vector: <code className="text-cyan-300 font-mono font-bold">{"Practice Lab: Dynamic Range Modeling -> =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"}</code>.
+                Determine the starting cell coordinates or structured table source vector: <code className="text-cyan-300 font-mono font-bold">{"Practice Lab: Dynamic Range Modeling → =SUM(OFFSET(StartCell, 0, 0, DynamicCount, 1)) | Non-Volatile: =INDEX(C:C, 2):INDEX(C:C, COUNTA(C:C))"}</code>.
               </p>
             </div>
 
@@ -485,7 +485,7 @@ export default function Topic27() {
                 <span>⚡</span> {"Dynamic Named Range"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Builds workbook-level self-expanding ranges."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Formula &gt; Name Manager > New"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Formula > Name Manager > New"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

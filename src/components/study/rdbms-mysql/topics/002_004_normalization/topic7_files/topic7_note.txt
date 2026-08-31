@@ -12,7 +12,7 @@ Given a relation schema R, a set of functional dependencies F, and a subset of
 attributes X ⊆ R, the Attribute Closure of X (denoted as $X^+$ or $X_F^+$) is the 
 complete set of all attributes in R that are functionally determined by X under F:
 
-      $X^+ = \{ A \in R \mid X \rightarrow A \text{ is in } F^+ \}$
+      $X^+ = \{ A \in R \mid X → A \text{ is in } F^+ \}$
 
 In simple terms: $X^+$ represents everything you can determine or "reach" if you 
 are given the values of attribute set X.
@@ -30,7 +30,7 @@ Algorithm:
    Set $X^+ = X$ (By Reflexivity, X determines itself).
 2. Iterative Expansion:
    Repeat the following until $X^+$ stops changing (Fixpoint reached):
-   - For each functional dependency $LHS \rightarrow RHS$ in F:
+   - For each functional dependency $LHS → RHS$ in F:
      * If $LHS \subseteq X^+$ (the left-hand side is completely inside our current closure):
      * Set $X^+ = X^+ \cup RHS$ (Add all RHS attributes to the closure).
 3. Termination:
@@ -73,7 +73,7 @@ Relation R(A, B, C, D, E)
 FDs: { A → B, B → C, C → D, D → E }
 - L = {A}, R = {E}, LR = {B, C, D}, N = ∅
 - Core = {A}
-- $A^+ = \{A\} \rightarrow \{A, B\} \rightarrow \{A, B, C\} \rightarrow \{A, B, C, D\} \rightarrow \{A, B, C, D, E\} = R$
+- $A^+ = \{A\} → \{A, B\} → \{A, B, C\} → \{A, B, C, D\} → \{A, B, C, D, E\} = R$
 - Candidate Key = {A}
 
 EXAMPLE 2: Multiple Overlapping Candidate Keys

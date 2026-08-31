@@ -44,7 +44,7 @@ Operational Architecture: Enterprise Financial & Sales Performance DAX Measure S
   Diagnostic Fix: Every single DAX measure written in Excel Power Pivot ports 100% identically into Microsoft Power BI.
 
 6. PRO TIPS & SHORTCUTS
-• 4-Tier Measure Branching (Base -> Margin -> Time Intelligence -> Ranking): The universal architecture for enterprise DAX suites.
+• 4-Tier Measure Branching (Base → Margin → Time Intelligence → Ranking): The universal architecture for enterprise DAX suites.
 • Direct Power BI Portability (Copy/Paste DAX into Power BI Desktop): 100% code reuse across Excel and Power BI platforms.
 • Audited & Production-Grade (DIVIDE() + Negative Denominator Checks): Guarantees error-free execution across all executive queries.
 ================================================================================

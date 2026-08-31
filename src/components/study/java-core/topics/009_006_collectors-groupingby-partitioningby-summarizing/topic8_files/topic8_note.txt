@@ -11,10 +11,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
    - Default downstream: 'Collectors.toList()'.
 
 2. POPULAR DOWNSTREAM COLLECTORS:
-   - 'counting()': Counts items in each group -> 'Map<K, Long>'.
-   - 'mapping(fn, downstream)': Maps element fields before collecting -> 'Map<K, List<R>>'.
-   - 'summingInt() / averagingDouble()': Calculates metrics per group -> 'Map<K, Double>'.
-   - 'maxBy(comp) / minBy(comp)': Finds extremes per group -> 'Map<K, Optional<T>>'.
+   - 'counting()': Counts items in each group → 'Map<K, Long>'.
+   - 'mapping(fn, downstream)': Maps element fields before collecting → 'Map<K, List<R>>'.
+   - 'summingInt() / averagingDouble()': Calculates metrics per group → 'Map<K, Double>'.
+   - 'maxBy(comp) / minBy(comp)': Finds extremes per group → 'Map<K, Optional<T>>'.
    - 'filtering(pred, downstream)' [Java 9]: Filters within groups.
 
 ================================================================================

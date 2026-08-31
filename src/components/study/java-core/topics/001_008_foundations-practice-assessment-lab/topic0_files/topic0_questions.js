@@ -19,7 +19,7 @@ const questions = [
     explanation: "JVM core responsibility.",
     hint: "Executes bytecode, manages memory, ClassLoading, and JIT compilation.",
     level: "basic",
-    codeExample: "javac App.java -> App.class -> JVM Execution"
+    codeExample: "javac App.java → App.class → JVM Execution"
   },
   {
     question: "What are the 8 Primitive Data Types in Java and their sizes in bits?",
@@ -51,15 +51,15 @@ const questions = [
     explanation: "Swadeep average calculation.",
     hint: "91.25%.",
     level: "basic",
-    codeExample: "computeAverageScore(new int[]{88, 92, 95, 90}) -> 91.25%"
+    codeExample: "computeAverageScore(new int[]{88, 92, 95, 90}) → 91.25%"
   },
   {
     question: "How do modern Switch Expressions (Java 14+) differ from legacy switch statements?",
-    shortAnswer: "They use arrow syntax (`->`), return values directly, eliminate fall-through bugs without requiring `break`, and allow multiple comma-separated case labels (`case 10, 9 -> ...`).",
+    shortAnswer: "They use arrow syntax (`->`), return values directly, eliminate fall-through bugs without requiring `break`, and allow multiple comma-separated case labels (`case 10, 9 → ...`).",
     explanation: "Java 14+ enhanced switch features.",
     hint: "Arrow syntax, value return, no fall-through bugs, comma-separated labels.",
     level: "basic",
-    codeExample: "return switch (band) { case 10, 9 -> \"A+\"; case 8 -> \"A\"; default -> \"B\"; };"
+    codeExample: "return switch (band) { case 10, 9 → \"A+\"; case 8 → \"A\"; default → \"B\"; };"
   },
   {
     question: "What is the difference between `==` and `.equals()` in Java?",
@@ -83,7 +83,7 @@ const questions = [
     explanation: "Tuhina fee calculation.",
     hint: "₹23,600.00.",
     level: "basic",
-    codeExample: "computeFinalPayable(25000.0, 20.0) -> ₹23,600.00"
+    codeExample: "computeFinalPayable(25000.0, 20.0) → ₹23,600.00"
   },
   {
     question: "Why is an Array in Java always treated as an Object?",
@@ -115,7 +115,7 @@ const questions = [
     explanation: "Reward points recursive calculation.",
     hint: "50 * 4 = 200 points.",
     level: "basic",
-    codeExample: "calculateLoyaltyRewardPoints(4) -> 200 pts"
+    codeExample: "calculateLoyaltyRewardPoints(4) → 200 pts"
   },
   {
     question: "What is Method Overloading and what determines a valid overload?",
@@ -203,7 +203,7 @@ const questions = [
     explanation: "Abhronila net fee calculation.",
     hint: "₹19,116.00.",
     level: "basic",
-    codeExample: "computeFinalPayable(18000.0, 10.0) -> ₹19,116.00"
+    codeExample: "computeFinalPayable(18000.0, 10.0) → ₹19,116.00"
   },
   {
     question: "What is the difference between a `while` loop and a `do-while` loop?",

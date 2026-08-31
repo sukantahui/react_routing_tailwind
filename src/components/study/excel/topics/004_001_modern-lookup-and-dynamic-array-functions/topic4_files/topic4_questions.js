@@ -37,7 +37,7 @@ const questions = [
   {
     question: "How does the SORT function handle text, numbers, booleans, and blank cells in ascending order?",
     shortAnswer: "Numbers are sorted first, followed by text (A to Z), booleans (FALSE then TRUE), and blank cells last.",
-    explanation: "Excel follows standard data type precedence: Numbers (smallest to largest) -> Text (A-Z) -> Logical FALSE (0) -> Logical TRUE (1) -> Error values -> Blanks placed at the very end.",
+    explanation: "Excel follows standard data type precedence: Numbers (smallest to largest) → Text (A-Z) → Logical FALSE (0) → Logical TRUE (1) → Error values → Blanks placed at the very end.",
     hint: "Numbers first, text second, booleans third, blanks last.",
     level: "moderate",
     codeExample: "// [-10, 0, 50, 'Apple', 'Zebra', FALSE, TRUE, blank]"
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Because dynamic arrays participate in Excel's live calculation graph, editing a revenue value instantly re-orders the output table without manual sorting.",
     hint: "Recalculation is live, non-destructive, and instantaneous.",
     level: "basic",
-    codeExample: "// Change Swadeep's revenue -> Output table re-orders immediately"
+    codeExample: "// Change Swadeep's revenue → Output table re-orders immediately"
   },
   {
     question: "Can you sort an array by a column that is not part of the returned output table using SORT?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "In fast-paced corporate environments across Barrackpore and Kolkata, `SORT` ensures management dashboards always present ranked, actionable business intelligence without error-prone manual user intervention.",
     hint: "SORT guarantees 100% automated live ranking for executive dashboards.",
     level: "expert",
-    codeExample: "// Executive Pipeline: Raw Data -> FILTER -> SORT -> KPI Summary (Zero Maintenance)"
+    codeExample: "// Executive Pipeline: Raw Data → FILTER → SORT → KPI Summary (Zero Maintenance)"
   }
 ];
 

@@ -21,7 +21,7 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 
 - Arithmetic & Type Promotion:
   * Math on char ('A' + 1) promotes to 'int' (result: 66).
-  * Explicit cast needed: (char)('A' + 1) --> 'B'.
+  * Explicit cast needed: (char)('A' + 1) → 'B'.
   * Increment (c++) performs implicit narrowing cast.
   * Digit to integer conversion: int digit = ch - '0'; ('7' - '0' = 7).
 

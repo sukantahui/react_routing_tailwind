@@ -21,7 +21,7 @@ function enforceImmutableConfig() {
     // In strict mode, the V8 engine immediately raises a TypeError!
     systemConfig.taxRate = 0.25;
   } catch (err) {
-    console.log(`🛡️ Caught Expected Error: [${err.name}] -> ${err.message}`);
+    console.log(`🛡️ Caught Expected Error: [${err.name}] → ${err.message}`);
     console.log("✅ Verified: Frozen property remained strictly 0.18:", systemConfig.taxRate);
   }
 }

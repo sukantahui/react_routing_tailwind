@@ -50,7 +50,7 @@ export default class Topic7 extends Component {
   <button class="key">R</button>
   <button class="key">T</button>
   <button class="key">Y</button>
-  <!-- You will add more keys similarly -->
+  <!-- You will add more keys similarly ──→
 
   <button class="key space">SPACE</button>
   <button class="key backspace">⌫</button>

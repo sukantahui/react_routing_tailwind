@@ -42,7 +42,7 @@ export default function Topic6() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Increment (<code className="text-emerald-400">++</code>) &amp; Decrement (<code className="text-emerald-400">--</code>) Operators: Prefix vs Postfix
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -110,8 +110,8 @@ export default function Topic6() {
             <text x="160" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">1. Prefix (++x)</text>
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
             <text x="55" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">int y = ++x; (x=5)</text>
-            <text x="55" y="122" fill="#e0f2fe" fontSize="10">1. iinc x &rarr; 6 in memory</text>
-            <text x="55" y="142" fill="#e0f2fe" fontSize="10">2. iload 6 &rarr; returns 6 to y</text>
+            <text x="55" y="122" fill="#e0f2fe" fontSize="10">1. iinc x → 6 in memory</text>
+            <text x="55" y="142" fill="#e0f2fe" fontSize="10">2. iload 6 → returns 6 to y</text>
             <text x="160" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               y = 6, x = 6 (Change then Use)
             </text>
@@ -121,8 +121,8 @@ export default function Topic6() {
             <text x="440" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">2. Postfix (x++)</text>
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="335" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">int y = x++; (x=5)</text>
-            <text x="335" y="122" fill="#d1fae5" fontSize="10">1. iload 5 &rarr; returns 5 to y</text>
-            <text x="335" y="142" fill="#d1fae5" fontSize="10">2. iinc x &rarr; 6 in memory</text>
+            <text x="335" y="122" fill="#d1fae5" fontSize="10">1. iload 5 → returns 5 to y</text>
+            <text x="335" y="142" fill="#d1fae5" fontSize="10">2. iinc x → 6 in memory</text>
             <text x="440" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               y = 5, x = 6 (Use then Change)
             </text>

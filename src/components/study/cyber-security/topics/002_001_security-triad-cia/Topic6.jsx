@@ -148,7 +148,7 @@ const Topic6 = () => {
                 Advanced Threat Defense
               </span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
               Threats to Availability & Major Outages
             </h1>
             <p className="text-base sm:text-lg text-slate-300 max-w-4xl leading-relaxed">

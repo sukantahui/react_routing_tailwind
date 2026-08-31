@@ -28,7 +28,7 @@ const Topic43 = () => {
       latencyThroughput: '10 Gbps Wire Speed Virtual NIC (ENA) • &lt; 0.6 ms Inter-Subnet Latency',
       estCloudBudget: '₹38,000 / month (Multi-AZ ALB + Managed NAT Gateway + Flow Logs)',
       desc: 'Production 3-tier VPC architecture keeping mission-critical database clusters completely isolated from direct public Internet ingress.',
-      simResult: 'Client hits ALB (Public Subnet) -> ALB terminates TLS 1.3 -> Forwards to App EC2 (Private Subnet) -> App queries DB (Private Subnet) in 0.4ms.',
+      simResult: 'Client hits ALB (Public Subnet) → ALB terminates TLS 1.3 → Forwards to App EC2 (Private Subnet) → App queries DB (Private Subnet) in 0.4ms.',
     },
     {
       id: 'direct-connect-hybrid',
@@ -40,7 +40,7 @@ const Topic43 = () => {
       latencyThroughput: '3.2 ms RTT Round-Trip Latency • 10 Gbps Dedicated Non-Blocking Bandwidth',
       estCloudBudget: '₹1,85,000 / month (10G Dedicated Direct Connect Port & Data Center Meet-Me-Room Cross-Connect)',
       desc: 'Dedicated private physical fiber link connecting enterprise on-premises data centers to cloud VPCs with sub-4ms latency.',
-      simResult: 'Direct Connect BGP sessions active -> 10G line-rate sync transfers 45GB ERP backup in 38 seconds -> Zero packet loss.',
+      simResult: 'Direct Connect BGP sessions active → 10G line-rate sync transfers 45GB ERP backup in 38 seconds → Zero packet loss.',
     },
     {
       id: 'ebpf-cilium-mesh',
@@ -52,7 +52,7 @@ const Topic43 = () => {
       latencyThroughput: '42% Higher Packet Forwarding Throughput • Sub-Microsecond Kernel Jitter',
       estCloudBudget: '₹65,000 / month (Managed Kubernetes EKS Cluster & Egress Filtering Firewall)',
       desc: 'Advanced container networking running sandboxed bytecode directly inside the Linux kernel for line-rate microservice security.',
-      simResult: 'eBPF hook intercepts pod socket connection -> Applies L7 HTTP path policy -> Encrypts with WireGuard -> Delivers in 12 microseconds.',
+      simResult: 'eBPF hook intercepts pod socket connection → Applies L7 HTTP path policy → Encrypts with WireGuard → Delivers in 12 microseconds.',
     },
     {
       id: 'cspm-sg-audit',
@@ -64,7 +64,7 @@ const Topic43 = () => {
       latencyThroughput: 'Real-Time Policy Compliance Audit • Zero Unauthorized Database Exposure',
       estCloudBudget: '₹45,000 / month (Enterprise Cloud Compliance & Automated Remediation Engine)',
       desc: 'Continuous cloud security monitoring engine automatically detecting and closing over-permissioned security group rules.',
-      simResult: 'CSPM detects unauthorized 0.0.0.0/0 on Port 3306 -> Triggers Lambda -> Replaces with Restricted Subnet CIDR in 2.1s.',
+      simResult: 'CSPM detects unauthorized 0.0.0.0/0 on Port 3306 → Triggers Lambda → Replaces with Restricted Subnet CIDR in 2.1s.',
     },
   ];
 
@@ -159,7 +159,7 @@ const Topic43 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Networking in Cloud Computing
           </h1>
 

@@ -13,7 +13,7 @@ export default function Topic6() {
       eager: true,
     });
 
-    // 2. Build lookup map: filename -> source code string
+    // 2. Build lookup map: filename → source code string
     const fileMap = {};
     Object.keys(modules).forEach((path) => {
       const fileName = path.split("/").pop(); // e.g. "answer1.c"

@@ -95,11 +95,11 @@ JOIN exam_scores e ON s.student_id = e.student_id
 WHERE s.city = 'Barrackpore';
 
 -- 📋 Indented Iterator Output:
--- -> Nested loop inner join  (cost=18.40 rows=24)
---     -> Nested loop inner join  (cost=10.00 rows=12)
---         -> Index lookup on s using idx_city (city='Barrackpore')  (cost=1.20 rows=12)
---         -> Single-row index lookup on d using PRIMARY (department_id=s.department_id)  (cost=0.73 rows=1)
---     -> Index lookup on e using idx_student_id (student_id=s.student_id)  (cost=0.70 rows=2)`,
+-- → Nested loop inner join  (cost=18.40 rows=24)
+--     → Nested loop inner join  (cost=10.00 rows=12)
+--         → Index lookup on s using idx_city (city='Barrackpore')  (cost=1.20 rows=12)
+--         → Single-row index lookup on d using PRIMARY (department_id=s.department_id)  (cost=0.73 rows=1)
+--     → Index lookup on e using idx_student_id (student_id=s.student_id)  (cost=0.70 rows=2)`,
       resultRows: [
         { id: "Node 1 (Root)", selectType: "Nested loop join", table: "Join with exam_scores", accessType: "Loop Iterator", keyUsed: "idx_student_id", rowsExamined: "24 Estimated", filtered: "100%", extraInfo: "Root Iterator (Cost: 18.40)", status: "Root Node 🌳" },
         { id: "Node 2 (Middle)", selectType: "Nested loop join", table: "Join with departments", accessType: "Loop Iterator", keyUsed: "PRIMARY", rowsExamined: "12 Estimated", filtered: "100%", extraInfo: "Child Iterator (Cost: 10.00)", status: "Intermediate Node" },
@@ -156,7 +156,7 @@ SHOW WARNINGS;
               Execution Plans
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Generating Execution Plans: Tabular, JSON &amp; TREE
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -487,7 +487,7 @@ SHOW WARNINGS;
 SET @plan_json = (EXPLAIN FORMAT=JSON SELECT ...);
 -- Parse query_cost using MySQL 8.0 JSON Functions:
 SELECT JSON_EXTRACT(@plan_json, '$.query_block.cost_info.query_cost') INTO @total_cost;
--- If @total_cost > 100.0 -> Fail Pipeline!`}
+-- If @total_cost > 100.0 → Fail Pipeline!`}
               </pre>
             </div>
           </div>

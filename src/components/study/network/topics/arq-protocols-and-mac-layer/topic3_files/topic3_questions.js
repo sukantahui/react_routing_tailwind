@@ -101,7 +101,7 @@ const questions = [
     explanation: "If two frames collide and both retransmit immediately, they will collide again at the same time. This continues forever. Randomness is essential to break the symmetry.",
     hint: "Observe carefully: two people saying 'sorry' at exactly the same time repeatedly – they never get a word in.",
     level: "basic",
-    codeExample: "// wrong: fixed delay -> infinite collisions"
+    codeExample: "// wrong: fixed delay → infinite collisions"
   },
   {
     question: "How would you compute the average number of transmissions per successful frame in Slotted ALOHA with G=1?",

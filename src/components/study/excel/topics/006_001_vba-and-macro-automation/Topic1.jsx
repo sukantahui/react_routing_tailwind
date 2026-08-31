@@ -71,7 +71,7 @@ export default function Topic1() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Enabling the Developer Tab, Macro Security settings, and Trust Center configuration"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic1() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Developer Ribbon: File &gt; Options &gt; Customize Ribbon &gt; Check 'Developer' | Trust Center: File &gt; Options &gt; Trust Center &gt; Macro Settings &gt; Disable with Notification"}
+            {"Developer Ribbon: File > Options > Customize Ribbon > Check 'Developer' | Trust Center: File > Options > Trust Center > Macro Settings > Disable with Notification"}
           </div>
 
           <div className="overflow-x-auto">
@@ -199,7 +199,7 @@ export default function Topic1() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Macro Security & Trust Center Architecture: Security Tier Gatekeeper -> Trusted Locations"}
+              Visual Dataflow: {"Macro Security & Trust Center Architecture: Security Tier Gatekeeper → Trusted Locations"}
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               Automation Pipeline
@@ -286,7 +286,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic1_Enabling_the_Devel"
+            sheetName="EX2402"
             title={"Enabling the Developer Tab, Macro Security settings, and Trust Center configuration - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -375,7 +375,7 @@ export default function Topic1() {
                 Step 1: Open VBE &amp; Insert Standard Module
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert &gt; Module</strong>.
+                Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Alt + F11</kbd> to launch the editor and select <strong>Insert > Module</strong>.
               </p>
             </div>
 
@@ -385,7 +385,7 @@ export default function Topic1() {
                 Step 2: Declare Variables &amp; Option Explicit
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Place <code className="text-cyan-300 font-mono font-bold">Option Explicit</code> at the top and declare variables with explicit types <code className="text-cyan-300 font-mono font-bold">{"Developer Ribbon: File &gt; Options &gt; Customize Ribbon &gt; Check 'Developer' | Trust Center: File &gt; Options &gt; Trust Center &gt; Macro Settings &gt; Disable with Notification"}</code>.
+                Place <code className="text-cyan-300 font-mono font-bold">Option Explicit</code> at the top and declare variables with explicit types <code className="text-cyan-300 font-mono font-bold">{"Developer Ribbon: File > Options > Customize Ribbon > Check 'Developer' | Trust Center: File > Options > Trust Center > Macro Settings > Disable with Notification"}</code>.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic1() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Developer Tab Missing on Fresh Office Install"}</td>
                   <td className="py-3 px-4">{"Microsoft hides the Developer tab by default on all new installations."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"File &gt; Options > Customize Ribbon > Check 'Developer'."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"File > Options > Customize Ribbon > Check 'Developer'."}</td>
                 </tr>
                 
               </tbody>
@@ -572,7 +572,7 @@ export default function Topic1() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            note={"Before you write any code: 1. Turn on the Developer tab (Options -> Customize Ribbon -> check Developer). 2. In Trust Center, make sure your project folder is added as a 'Trusted Location' so your macros run smoothly without warnings."}
+            note={"Before you write any code: 1. Turn on the Developer tab (Options → Customize Ribbon → check Developer). 2. In Trust Center, make sure your project folder is added as a 'Trusted Location' so your macros run smoothly without warnings."}
           />
         </div>
       </div>

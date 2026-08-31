@@ -9,8 +9,8 @@ AUTHOR & MENTOR: SUKANTA HUI
 1. REAL-LIFE NETWORK TOPOLOGIES & OPERATIONAL ARCHITECTURES
 --------------------------------------------------------------------------------
 1. Residential Smart Home & FTTH Broadband:
-   ISP Central Office Optical Line Terminal (OLT) -> Single-Mode Fiber Splitter (1:64) ->
-   Optical Network Unit (ONU/ONT) -> Dual-Band Wi-Fi 6 Router -> Laptops, TVs & Smart IoT.
+   ISP Central Office Optical Line Terminal (OLT) → Single-Mode Fiber Splitter (1:64) ->
+   Optical Network Unit (ONU/ONT) → Dual-Band Wi-Fi 6 Router → Laptops, TVs & Smart IoT.
 
 2. Enterprise Campus 3-Tier Hierarchy:
    • Access Layer: 24/48-port PoE+ switches connecting PCs, Wi-Fi 6 APs, and IP phones.
@@ -18,11 +18,11 @@ AUTHOR & MENTOR: SUKANTA HUI
    • Core Layer: High-speed, non-blocking 40G/100G fiber switches connecting buildings.
 
 3. Cloud E-Commerce & Video Streaming Architecture:
-   BGP Anycast DNS -> CDN Edge Caching (Akamai/Cloudflare) -> Layer 7 Load Balancers
-   (NGINX/HAProxy) -> Kubernetes Pods -> Redis In-Memory Cache -> Sharded Database Clusters.
+   BGP Anycast DNS → CDN Edge Caching (Akamai/Cloudflare) → Layer 7 Load Balancers
+   (NGINX/HAProxy) → Kubernetes Pods → Redis In-Memory Cache → Sharded Database Clusters.
 
 4. Municipal Smart City & CCTV Surveillance Ring:
-   G.8032 ERPS Industrial Outdoor Fiber Ring -> Ruggedized PoE+ Switches -> 4K ANPR Cameras ->
+   G.8032 ERPS Industrial Outdoor Fiber Ring → Ruggedized PoE+ Switches → 4K ANPR Cameras ->
    Central Police Command Control Center NVR Storage Array.
 
 --------------------------------------------------------------------------------

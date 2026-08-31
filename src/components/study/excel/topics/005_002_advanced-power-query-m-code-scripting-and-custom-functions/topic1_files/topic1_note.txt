@@ -14,12 +14,12 @@ Institute: Coder & AccoTax (ISO 9001:2015 Certified Centre of Excellence)
   - Literal: `{1, 2, 3, "Barrackpore", null}`
   - Range Generator: `{1..100}`, `{"a".."z"}`
   - Accessor: `MyList{0}` (First item)
-  - Combination: `{1, 2} & {3, 4}` -> `{1, 2, 3, 4}`
+  - Combination: `{1, 2} & {3, 4}` → `{1, 2, 3, 4}`
 
 • Record [...]: Key-value associative tuple (represents a single row or configuration object).
   - Literal: `[ID = 101, Name = "Swadeep", City = "BKP", Amount = 45000]`
-  - Accessor: `MyRecord[Name]` -> `"Swadeep"`
-  - Combination: `[A = 1] & [B = 2]` -> `[A = 1, B = 2]` (Right side overrides left on collision)
+  - Accessor: `MyRecord[Name]` → `"Swadeep"`
+  - Combination: `[A = 1] & [B = 2]` → `[A = 1, B = 2]` (Right side overrides left on collision)
 
 • Table #table(...): 2D relational grid of rows and columns.
   - Literal: `#table({"ID", "Amt"}, {{1, 500}, {2, 750}})`

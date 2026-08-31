@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Phase 3 is where your project comes to life! Turn off the gridlines, put 4 beautiful KPI cards across the top, add your charts, and connect your Slicers. It looks like a million-dollar enterprise software app.
 
 COMMON TRAPS TO AVOID:
-- Overcrowding Dashboard with 20 Cluttered Visuals: Violating cognitive visual hierarchy, making dashboard unreadable for executives. -> Fix: Adhere to the 'Rule of 5': 4 KPI cards + max 4 clear visual charts.
-- Inconsistent Color Palettes Across Charts: Using 15 different random colors creating visual chaos. -> Fix: Use a curated corporate palette: Navy `#0f172a`, Slate `#334155`, Sky Blue `#0284c7`, Emerald `#059669`.
-- Leaving Gridlines Visible on Dashboard Canvas: Standard spreadsheet gridlines distracting from executive card presentation. -> Fix: Turn OFF gridlines: View > Uncheck 'Gridlines'.
+- Overcrowding Dashboard with 20 Cluttered Visuals: Violating cognitive visual hierarchy, making dashboard unreadable for executives. → Fix: Adhere to the 'Rule of 5': 4 KPI cards + max 4 clear visual charts.
+- Inconsistent Color Palettes Across Charts: Using 15 different random colors creating visual chaos. → Fix: Use a curated corporate palette: Navy `#0f172a`, Slate `#334155`, Sky Blue `#0284c7`, Emerald `#059669`.
+- Leaving Gridlines Visible on Dashboard Canvas: Standard spreadsheet gridlines distracting from executive card presentation. → Fix: Turn OFF gridlines: View > Uncheck 'Gridlines'.
 ================================================================================

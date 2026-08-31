@@ -36,7 +36,7 @@ In 2009, an engineer named Ryan Dahl took Google's V8 engine out of the browser 
 4. GROUNDED PRACTICAL CODE EXAMPLES (PROGRESSIVE LEARNING)
 --------------------------------------------------------------------------------
 --- Example 1: Simple Greeting in the Browser Console ---
-// Open your browser Console (Press F12 -> Console tab)
+// Open your browser Console (Press F12 → Console tab)
 // Type this single line and press Enter:
 console.log("Welcome to Barrackpore Coding Lab!");
 

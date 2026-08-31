@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Garbage in, garbage out! 90% of PivotTable errors are caused by poor source data structure. Always enforce normalized flat tables with zero blank headers and zero merged cells.
 
 COMMON TRAPS TO AVOID:
-- Blank Header Field Error: Creating a PivotTable on a range with an empty column header triggers the fatal 'The PivotTable field name is not valid' error. -> Fix: Ensure every single column in the source table has a clear, unique header name.
-- Merged Cells Ingestion Failure: Merged cells in source data corrupt row-by-row aggregation and cause fields to drop data. -> Fix: Unmerge all cells and fill down header/category labels.
-- Including Total Rows in Source Range: Selecting summary totals (e.g. Grand Total row) in the source range doubles all pivot aggregations. -> Fix: Exclude total and subtotal rows from the PivotTable source data range.
+- Blank Header Field Error: Creating a PivotTable on a range with an empty column header triggers the fatal 'The PivotTable field name is not valid' error. → Fix: Ensure every single column in the source table has a clear, unique header name.
+- Merged Cells Ingestion Failure: Merged cells in source data corrupt row-by-row aggregation and cause fields to drop data. → Fix: Unmerge all cells and fill down header/category labels.
+- Including Total Rows in Source Range: Selecting summary totals (e.g. Grand Total row) in the source range doubles all pivot aggregations. → Fix: Exclude total and subtotal rows from the PivotTable source data range.
 ================================================================================

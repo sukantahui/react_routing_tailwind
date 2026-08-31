@@ -80,7 +80,7 @@ const questions = [
     explanation: "Production enterprise data centers in Kolkata exclusively deploy Type 1 bare-metal hypervisors to eliminate host OS overhead and deliver maximum I/O speed to guest Virtual Machines.",
     hint: "Type 1 runs directly on hardware (ESXi/KVM); Type 2 runs inside Windows/Linux like an app.",
     level: "expert",
-    codeExample: "Type1: [Hardware] -> [Hypervisor ESXi] -> [Guest VMs]; Type2: [Hardware] -> [Host OS] -> [VirtualBox] -> [Guest VM];"
+    codeExample: "Type1: [Hardware] → [Hypervisor ESXi] → [Guest VMs]; Type2: [Hardware] → [Host OS] → [VirtualBox] → [Guest VM];"
   },
   {
     question: "How do Containers (Docker) differ from traditional Virtual Machines (VMs) on a server?",
@@ -128,7 +128,7 @@ const questions = [
     explanation: "In modern 3-tier web architectures, the web server accepts incoming client traffic and proxies complex dynamic requests to backend application servers.",
     hint: "Web server serves static files; Application server executes dynamic business code and algorithms.",
     level: "moderate",
-    codeExample: "WebTier(Nginx) -> AppTier(Node.js/Spring) -> DatabaseTier(PostgreSQL);"
+    codeExample: "WebTier(Nginx) → AppTier(Node.js/Spring) → DatabaseTier(PostgreSQL);"
   },
   {
     question: "What role does ECC (Error-Correcting Code) RAM play in enterprise servers?",
@@ -152,7 +152,7 @@ const questions = [
     explanation: "Forward proxies sit on the client's edge; reverse proxies sit on the server farm's edge.",
     hint: "Forward proxy shields clients going out; Reverse proxy shields servers receiving traffic in.",
     level: "expert",
-    codeExample: "ForwardProxy: [Clients] -> [Proxy] -> [Internet]; ReverseProxy: [Internet] -> [Reverse Proxy] -> [Internal Servers];"
+    codeExample: "ForwardProxy: [Clients] → [Proxy] → [Internet]; ReverseProxy: [Internet] → [Reverse Proxy] → [Internal Servers];"
   },
   {
     question: "What is Load Balancing and which algorithms are used by server load balancers?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures all foundational pillars of server engineering, high availability, cybersecurity hardening, and sound financial budgeting.",
     hint: "Hardware redundancy + Hardened security + Private subnets + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: HardwareRedundancy() -> ServerHardening() -> PrivateVLANs() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: HardwareRedundancy() → ServerHardening() → PrivateVLANs() → BudgetInRupees(₹);"
   }
 ];
 

@@ -13,7 +13,7 @@ const topic2_questions = [
     "explanation": "Without laziness, chaining 4 stream operations would generate 4 intermediate lists in memory.",
     "hint": "Enables loop fusion, short-circuiting, and eliminates temporary buffer allocations.",
     "level": "Intermediate",
-    "codeExample": "Stream.iterate(1, n -> n + 1).filter(n -> n % 2 == 0).limit(3).forEach(System.out::println);"
+    "codeExample": "Stream.iterate(1, n → n + 1).filter(n → n % 2 == 0).limit(3).forEach(System.out::println);"
   }
 ];
 

@@ -10,7 +10,7 @@ Scenario Manager: Creating, editing, and comparing Best Case, Base Case, and Wor
 It provides the core protocols required to stress-test financial projections, solve backwards for target goals, and mathematically optimize resource utilization.
 
 2. SYNTAX & TOKEN STRUCTURE
-Operational Architecture: Data > What-If Analysis > Scenario Manager: Add Scenario -> Changing Cells: Assumptions -> Scenario Values
+Operational Architecture: Data > What-If Analysis > Scenario Manager: Add Scenario → Changing Cells: Assumptions → Scenario Values
 
 3. CORE TECHNICAL MECHANICS
 1. Simultaneous Multi-Variable Switching:

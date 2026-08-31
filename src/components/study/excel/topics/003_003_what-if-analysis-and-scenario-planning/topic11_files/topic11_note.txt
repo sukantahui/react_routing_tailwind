@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Shadow Price is the most valuable output in management science. If your machine is at 100% capacity and has a Shadow Price of ₹500/hr, you can tell your CEO: 'We should pay up to ₹499/hr in overtime, and we will still make a profit!'
 
 COMMON TRAPS TO AVOID:
-- Sensitivity Report Disabled on Integer Models: Simplex LP cannot generate Sensitivity Reports (Shadow Prices) if any variable has an `int` or `bin` constraint. -> Fix: Solve the linear relaxation (remove integer constraints) to inspect shadow prices.
-- Applying Shadow Price Beyond Allowable Increase: Assuming you can buy 10,000 extra machine hours at the same shadow price when Allowable Increase is only 120 hours. -> Fix: Always verify that requested resource expansions fall within the 'Allowable Increase' window.
-- Misinterpreting Reduced Cost: Thinking Reduced Cost is an accounting expense; it actually represents how much the profit coefficient of an unproduced item must improve before it becomes profitable to manufacture. -> Fix: Use Reduced Cost to evaluate product redesign pricing targets.
+- Sensitivity Report Disabled on Integer Models: Simplex LP cannot generate Sensitivity Reports (Shadow Prices) if any variable has an `int` or `bin` constraint. → Fix: Solve the linear relaxation (remove integer constraints) to inspect shadow prices.
+- Applying Shadow Price Beyond Allowable Increase: Assuming you can buy 10,000 extra machine hours at the same shadow price when Allowable Increase is only 120 hours. → Fix: Always verify that requested resource expansions fall within the 'Allowable Increase' window.
+- Misinterpreting Reduced Cost: Thinking Reduced Cost is an accounting expense; it actually represents how much the profit coefficient of an unproduced item must improve before it becomes profitable to manufacture. → Fix: Use Reduced Cost to evaluate product redesign pricing targets.
 ================================================================================

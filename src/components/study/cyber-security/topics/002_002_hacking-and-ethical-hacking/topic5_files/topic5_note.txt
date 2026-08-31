@@ -68,7 +68,7 @@ KEY LEGAL REALITY:
 
 1. Coordinated Vulnerability Disclosure (CVD - Industry Standard):
    - Practiced by Google Project Zero, CERT-In, and ISO/IEC 29147.
-   - Researcher discovers a bug -> Privately informs vendor security team.
+   - Researcher discovers a bug → Privately informs vendor security team.
    - Standard 90-Day Grace Period: Vendor is granted 90 days to develop and release a patch.
    - Day 90: Coordinated joint release of the vulnerability advisory to the public.
 

@@ -26,7 +26,7 @@ Formula Code: =IF(cond1, val1, IF(cond2, val2, IF(cond3, val3, default_val)))
 • Swadeep Banerjee (Wealth Advisory Lead, Barrackpore HQ):
   Client Wealth Tier Classification - Categorizes portfolio accounts: =IF(Balance>=10000000, "Platinum", IF(Balance>=2500000, "Gold", IF(Balance>=500000, "Silver", "Bronze"))).
 • Tuhina Mukherjee (HR Compensation Analyst, Shyamnagar Plant):
-  Performance Bonus Tiering - Calculates annual employee bonus percentages based on performance appraisal rating tiers (5 -> 20%, 4 -> 15%, 3 -> 10%, 2 -> 5%, 1 -> 0%).
+  Performance Bonus Tiering - Calculates annual employee bonus percentages based on performance appraisal rating tiers (5 → 20%, 4 → 15%, 3 → 10%, 2 → 5%, 1 → 0%).
 • Abhronila Das (Quality Control Lead, Ichapur Works):
   Steel Strength Grade Classification - Assigns industrial steel grades (Grade-A, Grade-B, Grade-C, Rejection) based on tensile testing thresholds.
 • Debangshu Roy (Fleet Billing Lead, Naihati Logistics):

@@ -137,7 +137,7 @@ START REPLICA;`
     question: "What are the 4 possible values for `gtid_mode` during an online zero-downtime migration to GTID?",
     shortAnswer: "1. `OFF`, 2. `OFF_PERMISSIVE` (generates anonymous, accepts both), 3. `ON_PERMISSIVE` (generates GTIDs, accepts both), and 4. `ON` (enforces GTIDs strictly).",
     explanation: "Allows transitioning existing legacy replication topologies to GTID mode without taking the database offline.",
-    hint: "OFF -> OFF_PERMISSIVE -> ON_PERMISSIVE -> ON.",
+    hint: "OFF → OFF_PERMISSIVE → ON_PERMISSIVE → ON.",
     level: "expert",
     codeExample: `SET GLOBAL gtid_mode = OFF_PERMISSIVE;
 SET GLOBAL gtid_mode = ON_PERMISSIVE;

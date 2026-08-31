@@ -61,7 +61,7 @@ EPSILON PLACEMENT RULES:
 CASE STUDY 1: Foundry Rim Subset Balance (Debangshu)
 Network: 2 Factories (Barrackpore, 30 tons; Ichapur, 70 tons)
 Destinations: Jadavpur (30 tons), Salt Lake (40 tons), Howrah (30 tons).
-Notice: S1 (30 tons) == D1 (30 tons) -> Subset Rim Condition met!
+Notice: S1 (30 tons) == D1 (30 tons) → Subset Rim Condition met!
 Allocation 1: Allocate x_11 = 30 tons. S1 = 0 and D1 = 0 simultaneously!
 Resolution: Cross out Row 1; leave Column 1 active with D1 = 0.
 Allocation 2: In Pass 2, allocate x_21 = 0 to cell (S2, D1) @ rate c_21.

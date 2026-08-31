@@ -43,7 +43,7 @@ A. SYNTAX:
 
 B. USING SHOW CREATE TABLE FOR SCHEMA MIGRATIONS & REPLICATION:
 • Essential for diagnosing foreign key mismatch errors (Error 1215/1824).
-• Essential for recreating identical table structures across environments (Local -> Staging -> Production).
+• Essential for recreating identical table structures across environments (Local → Staging → Production).
 • Used internally by `mysqldump` to generate backup DDL.
 
 

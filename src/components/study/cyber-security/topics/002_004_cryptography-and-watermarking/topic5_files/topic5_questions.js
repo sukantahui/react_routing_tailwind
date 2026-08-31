@@ -19,9 +19,9 @@ Decryption:      Plaintext  = Decrypt( Ciphertext, Alice_K_priv )`
     hint: "Think of a self-locking padlock: anyone can snap it shut (one-way), but only the person holding the key can open it (trapdoor).",
     level: "moderate",
     codeExample: `// Trapdoor Function Concept:
-Forward (Public): Compute y = f(x) -> Computationally trivial (Microseconds)
-Inverse (Adversary without Trapdoor): Compute x = f^(-1)(y) -> Infeasible (10 Billion Years)
-Inverse (Owner with Secret Trapdoor K_priv): Compute x = g(y, K_priv) -> Microseconds!`
+Forward (Public): Compute y = f(x) → Computationally trivial (Microseconds)
+Inverse (Adversary without Trapdoor): Compute x = f^(-1)(y) → Infeasible (10 Billion Years)
+Inverse (Owner with Secret Trapdoor K_priv): Compute x = g(y, K_priv) → Microseconds!`
   },
   {
     question: "What are the three fundamental hard mathematical problems upon which modern asymmetric cryptography is built?",
@@ -36,7 +36,7 @@ Inverse (Owner with Secret Trapdoor K_priv): Compute x = g(y, K_priv) -> Microse
   },
   {
     question: "What are the two distinct operational modes of asymmetric cryptography: 'Confidentiality Encryption' vs 'Digital Signatures'?",
-    shortAnswer: "Confidentiality: Encrypt with Recipient's Public Key -> Decrypt with Recipient's Private Key; Digital Signature: Sign with Sender's Private Key -> Verify with Sender's Public Key.",
+    shortAnswer: "Confidentiality: Encrypt with Recipient's Public Key → Decrypt with Recipient's Private Key; Digital Signature: Sign with Sender's Private Key → Verify with Sender's Public Key.",
     explanation: "Asymmetric math supports two complementary workflows: 1. Confidentiality (Encryption): Sender Bob encrypts data using Alice's Public Key ($C = E_{Alice\\_Pub}(P)$). Only Alice's Private Key can decrypt it; 2. Authentication & Non-Repudiation (Digital Signatures): Sender Alice creates a signature over a hash using her Private Key ($S = \\text{Sign}_{Alice\\_Priv}(\\text{Hash}(M))$). Anyone in the world can verify $S$ using Alice's Public Key, proving undeniably that Alice authored the message.",
     hint: "Remember: Encrypt with THEIR public key for privacy; sign with YOUR private key for authenticity.",
     level: "basic",
@@ -69,8 +69,8 @@ Security Level | RSA Key Length | ECC Key Length
     hint: "Think of mixing two public paint colors with private secret colors to arrive at the exact same blended color.",
     level: "expert",
     codeExample: `// Diffie-Hellman Mathematical Shared Secret:
-Alice: Picks secret a -> Computes A = g^a mod p -> Sends A to Bob
-Bob:   Picks secret b -> Computes B = g^b mod p -> Sends B to Alice
+Alice: Picks secret a → Computes A = g^a mod p → Sends A to Bob
+Bob:   Picks secret b → Computes B = g^b mod p → Sends B to Alice
 Alice: SharedKey = B^a mod p = (g^b)^a = g^(ab) mod p
 Bob:   SharedKey = A^b mod p = (g^a)^b = g^(ab) mod p (IDENTICAL SHARED SECRET!)`
   },
@@ -82,7 +82,7 @@ Bob:   SharedKey = A^b mod p = (g^a)^b = g^(ab) mod p (IDENTICAL SHARED SECRET!)
     level: "moderate",
     codeExample: `// Man-in-the-Middle Attack vs PKI:
 Without PKI: Alice <──[Key 1]──> Mallory (Attacker) <──[Key 2]──> Bob (Compromised!)
-With PKI:    Alice verifies Bob's Certificate signed by trusted CA -> Mallory's fake certificate is rejected!`
+With PKI:    Alice verifies Bob's Certificate signed by trusted CA → Mallory's fake certificate is rejected!`
   },
   {
     question: "What is 'Forward Secrecy' (Perfect Forward Secrecy - PFS), and why does TLS 1.3 mandate Ephemeral Diffie-Hellman (ECDHE) while banning static RSA key exchange?",
@@ -91,9 +91,9 @@ With PKI:    Alice verifies Bob's Certificate signed by trusted CA -> Mallory's 
     hint: "Think of burning the physical padlock and key after every conversation so past conversations can never be reopened.",
     level: "expert",
     codeExample: `// Perfect Forward Secrecy (ECDHE):
-Session 1: Ephemeral DH KeyPair 1 -> Session Key 1 (Discarded after call)
-Session 2: Ephemeral DH KeyPair 2 -> Session Key 2 (Discarded after call)
-// Attacker steals Server Private Key 2 years later -> CANNOT DECRYPT Session 1 or 2!`
+Session 1: Ephemeral DH KeyPair 1 → Session Key 1 (Discarded after call)
+Session 2: Ephemeral DH KeyPair 2 → Session Key 2 (Discarded after call)
+// Attacker steals Server Private Key 2 years later → CANNOT DECRYPT Session 1 or 2!`
   },
   {
     question: "Under the Indian Information Technology Act 2000, what is a 'Digital Signature Certificate' (DSC), and what is the role of the Controller of Certifying Authorities (CCA)?",
@@ -114,8 +114,8 @@ Supervisory Body: Controller of Certifying Authorities (CCA), Ministry of Electr
     level: "expert",
     codeExample: `// Quantum Computational Complexity Impact:
 Problem: Integer Factorization & Discrete Logarithms
-Classical Best Algorithm (GNFS): Sub-Exponential Time -> O( exp( (c log N)^(1/3) (log log N)^(2/3) ) )
-Quantum Shor's Algorithm:        Polynomial Time     -> O( (log N)^3 ) [100% BROKEN IN MINUTES!]`
+Classical Best Algorithm (GNFS): Sub-Exponential Time → O( exp( (c log N)^(1/3) (log log N)^(2/3) ) )
+Quantum Shor's Algorithm:        Polynomial Time     → O( (log N)^3 ) [100% BROKEN IN MINUTES!]`
   },
   {
     question: "What are the new NIST Post-Quantum Cryptography (PQC) standards standardized in 2024 to replace RSA and ECC?",
@@ -124,9 +124,9 @@ Quantum Shor's Algorithm:        Polynomial Time     -> O( (log N)^3 ) [100% BRO
     hint: "Remember the modern lattice-based standards ML-KEM and ML-DSA designed to withstand quantum attacks.",
     level: "expert",
     codeExample: `// Post-Quantum Standards Hierarchy (NIST 2024):
-Key Exchange / KEM:  FIPS 203 (ML-KEM / Kyber-768) -> Replaces RSA-2048 & ECDH
-Digital Signatures:  FIPS 204 (ML-DSA / Dilithium)   -> Replaces RSA-PSS & ECDSA
-Hash-Based Backup:   FIPS 205 (SLH-DSA / SPHINCS+)  -> Stateless Hash Signatures`
+Key Exchange / KEM:  FIPS 203 (ML-KEM / Kyber-768) → Replaces RSA-2048 & ECDH
+Digital Signatures:  FIPS 204 (ML-DSA / Dilithium)   → Replaces RSA-PSS & ECDSA
+Hash-Based Backup:   FIPS 205 (SLH-DSA / SPHINCS+)  → Stateless Hash Signatures`
   },
   {
     question: "What is 'Non-Repudiation', and why can asymmetric digital signatures prove non-repudiation while symmetric HMACs cannot?",
@@ -135,8 +135,8 @@ Hash-Based Backup:   FIPS 205 (SLH-DSA / SPHINCS+)  -> Stateless Hash Signatures
     hint: "Think about why a unique personal wax seal stamp only held by you proves you signed the document.",
     level: "moderate",
     codeExample: `// Non-Repudiation Proof:
-HMAC (Symmetric):   Alice & Bob both hold Key K -> Bob could have forged the tag -> NO Non-Repudiation!
-Digital Signature: ONLY Alice holds Private Key -> Mathematical proof Alice authored message -> TRUE Non-Repudiation!`
+HMAC (Symmetric):   Alice & Bob both hold Key K → Bob could have forged the tag → NO Non-Repudiation!
+Digital Signature: ONLY Alice holds Private Key → Mathematical proof Alice authored message → TRUE Non-Repudiation!`
   },
   {
     question: "What is 'Ed25519' (Edwards-curve Digital Signature Algorithm), and why is it preferred over classical ECDSA in modern protocols like SSH and Signal?",
@@ -145,8 +145,8 @@ Digital Signature: ONLY Alice holds Private Key -> Mathematical proof Alice auth
     hint: "Think of an engine designed to work flawlessly even if the fuel quality fluctuates.",
     level: "expert",
     codeExample: `// ECDSA Flaw vs Ed25519 Deterministic Nonce:
-ECDSA Flaw: Bad Random Nonce k -> Private Key d = (s * k - Hash(m)) / r mod n -> KEY COMPROMISED!
-Ed25519:    Nonce is Deterministic: r = SHA-512( PrivateKey || Message ) -> 100% IMMUNE TO RNG BIAS!`
+ECDSA Flaw: Bad Random Nonce k → Private Key d = (s * k - Hash(m)) / r mod n → KEY COMPROMISED!
+Ed25519:    Nonce is Deterministic: r = SHA-512( PrivateKey || Message ) → 100% IMMUNE TO RNG BIAS!`
   },
   {
     question: "What is the 'RSA-OAEP' (Optimal Asymmetric Encryption Padding) standard, and why is unpadded 'Textbook RSA' vulnerable to malleability and mathematical attacks?",
@@ -168,7 +168,7 @@ RSA-OAEP:     M_padded = OAEP_Encode( M, Hash_SHA256, Random_Seed )
     codeExample: `// DPDP Act 2023 Digital Consent Architecture:
 Consent Artifact: { User: "Mahima", Purpose: "EHR Processing", Expiry: "2027-01-01" }
 Signature:        Sign( Hash(Consent_Artifact), Mahima_PrivateKey )
-Verification:     Verify( Consent_Artifact, Signature, Mahima_PublicKey ) -> 100% Legal Compliance!`
+Verification:     Verify( Consent_Artifact, Signature, Mahima_PublicKey ) → 100% Legal Compliance!`
   },
   {
     question: "What is 'Key Encapsulation Mechanism' (KEM), and how does it differ from traditional public-key encryption in modern hybrid protocols?",

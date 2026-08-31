@@ -56,7 +56,7 @@ const questions = [
     explanation: "The entering route transitions from zero allocation to carrying θ units of physical volume.",
     hint: "An unused lane is opened to receive freight flow.",
     level: "intermediate",
-    codeExample: "x_enter: 0 -> theta (becomes basic)."
+    codeExample: "x_enter: 0 → theta (becomes basic)."
   },
   {
     question: "If all opportunity costs are positive except for cell (3, 3) where d_33 = -₹1, is cell (3, 3) automatically the entering variable?",
@@ -224,15 +224,15 @@ const questions = [
     explanation: "The entering cell is the root vertex from which the entire cycle is constructed.",
     hint: "Determines the geometry of the entire stepping-stone loop.",
     level: "intermediate",
-    codeExample: "Entering Cell -> Root of the Fundamental Cycle."
+    codeExample: "Entering Cell → Root of the Fundamental Cycle."
   },
   {
     question: "What is the ultimate golden rule for identifying entering cells in the MODI method?",
     shortAnswer: "'Scan all empty cells; select the MOST NEGATIVE opportunity cost d_ij = min(d < 0); if tied, pick the largest transfer θ; if all d ≥ 0, declare victory!'",
     explanation: "This complete rule guarantees flawless entering cell selection in every scenario.",
-    hint: "Most negative d -> largest θ if tied -> victory if all d >= 0.",
+    hint: "Most negative d → largest θ if tied → victory if all d >= 0.",
     level: "moderate",
-    codeExample: "Golden Rule: min(d_ij < 0) -> Entering Cell."
+    codeExample: "Golden Rule: min(d_ij < 0) → Entering Cell."
   }
 ];
 

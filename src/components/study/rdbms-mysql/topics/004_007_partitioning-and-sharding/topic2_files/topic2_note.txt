@@ -50,7 +50,7 @@ Supported Functions for RANGE / LIST Pruning:
 ```sql
 -- 1. Standard EXPLAIN:
 EXPLAIN SELECT * FROM orders WHERE order_date = '2025-06-15';
--- Check 'partitions' column -> Should show ONLY 'p2025'.
+-- Check 'partitions' column → Should show ONLY 'p2025'.
 
 -- 2. JSON Format EXPLAIN:
 EXPLAIN FORMAT=JSON SELECT * FROM orders WHERE order_date = '2025-06-15';

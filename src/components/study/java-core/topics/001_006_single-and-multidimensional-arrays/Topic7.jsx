@@ -42,7 +42,7 @@ export default function Topic7() {
             Defensive Debugging
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-rose-400 font-mono">ArrayIndexOutOfBoundsException</code>: Root Causes &amp; Defensive Prevention
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -119,7 +119,7 @@ export default function Topic7() {
             <rect x="45" y="80" width="230" height="80" rx="6" fill="#4c0519" />
             <text x="55" y="102" fill="#fca5a5" fontSize="11" fontFamily="monospace">i &lt;= arr.length // BUG!</text>
             <text x="55" y="122" fill="#fecdd3" fontSize="10">When i = 4 (length = 4)</text>
-            <text x="55" y="142" fill="#fecdd3" fontSize="10">&rarr; Index 4 out of bounds!</text>
+            <text x="55" y="142" fill="#fecdd3" fontSize="10">→ Index 4 out of bounds!</text>
             <text x="160" y="190" fill="#ffe4e6" fontSize="11" textAnchor="middle" fontWeight="bold">
               ❌ Fatal Runtime Exception
             </text>
@@ -130,7 +130,7 @@ export default function Topic7() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#451a03" />
             <text x="335" y="102" fill="#fde68a" fontSize="11" fontFamily="monospace">arr[-1] // No Python index!</text>
             <text x="335" y="122" fill="#fef3c7" fontSize="10">Java requires 0 &lt;= index</text>
-            <text x="335" y="142" fill="#fef3c7" fontSize="10">&rarr; Index -1 out of bounds!</text>
+            <text x="335" y="142" fill="#fef3c7" fontSize="10">→ Index -1 out of bounds!</text>
             <text x="440" y="190" fill="#fef3c7" fontSize="11" textAnchor="middle" fontWeight="bold">
               ❌ Unsupported in Java
             </text>

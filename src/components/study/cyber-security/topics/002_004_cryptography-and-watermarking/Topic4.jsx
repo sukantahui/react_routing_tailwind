@@ -81,7 +81,7 @@ const Topic4 = () => {
       name: "Data Encryption Standard (DES)",
       standard: "FIPS 46-3 (Standardized in 1977 by IBM & NIST)",
       blockSize: "64 bits (8 bytes)",
-      keyLength: "56 bits effective (8 parity bits discarded -> 2^56 keys)",
+      keyLength: "56 bits effective (8 parity bits discarded → 2^56 keys)",
       structure: "16-Round Feistel Network with uninvertible round function F",
       roundCount: "16 Rounds",
       knownAttacks: "Exhaustive Key Search: Broken in 22 hours by EFF Deep Crack (1999); broken in <1 hour on modern GPUs.",
@@ -105,7 +105,7 @@ const Topic4 = () => {
       name: "Advanced Encryption Standard (AES-256)",
       standard: "FIPS 197 (Standardized in 2001 by Rijmen & Daemen)",
       blockSize: "128 bits (16 bytes arranged in a 4x4 State matrix)",
-      keyLength: "256 bits (32 bytes -> 2^256 keys = 1.15 x 10^77 search space)",
+      keyLength: "256 bits (32 bytes → 2^256 keys = 1.15 x 10^77 search space)",
       structure: "14-Round Substitution-Permutation Network (SPN)",
       roundCount: "14 Rounds (10 for 128-bit, 12 for 192-bit, 14 for 256-bit)",
       knownAttacks: "Biclique Cryptanalysis: Minor theoretical speedup (2^126.1); 100% computationally secure.",
@@ -132,7 +132,7 @@ const Topic4 = () => {
         "Mamata led the fleet-wide firmware upgrade to AES-256-GCM with hardware HSM PIN blocks, eliminating Sweet32 collision risks and achieving 100% RBI compliance.",
       metrics: {
         atmsUpgraded: "1,200 Payment Terminals",
-        cipherMigrated: "3DES Deprecated -> AES-256-GCM",
+        cipherMigrated: "3DES Deprecated → AES-256-GCM",
         sweet32Vulnerability: "0% Collision Surface",
         compliance: "RBI Master Direction on Cyber Security"
       }
@@ -207,7 +207,7 @@ const Topic4 = () => {
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Cyber Security Module 002_004 • Topic 4 of 12
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-white">
             Popular Symmetric Ciphers: DES, 3DES, and AES
           </h1>
           <p className="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">

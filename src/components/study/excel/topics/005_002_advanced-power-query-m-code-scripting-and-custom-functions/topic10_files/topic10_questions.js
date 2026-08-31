@@ -18,7 +18,7 @@ const questions = [
     explanation: "Lazy streaming evaluates expressions on-demand for every consumer.",
     hint: "Lazy evaluation causes every downstream step to re-request source data.",
     level: "moderate",
-    codeExample: "Table.AddColumn(Fact, \"Category\", each Table.SelectRows(Dim, ...)) &rarr; O(N*M) re-evaluations!"
+    codeExample: "Table.AddColumn(Fact, \"Category\", each Table.SelectRows(Dim, ...)) → O(N*M) re-evaluations!"
   },
   {
     question: "When is buffering a Dimension table before a Merge/Join most beneficial?",
@@ -98,7 +98,7 @@ const questions = [
     explanation: "Provides granular telemetry on step-by-step memory and CPU metrics.",
     hint: "Query Diagnostics tool records Memory (KB) and Exclusive Duration.",
     level: "expert",
-    codeExample: "Tools &rarr; Start Diagnostics &rarr; View 'Detailed Diagnostics' output table."
+    codeExample: "Tools → Start Diagnostics → View 'Detailed Diagnostics' output table."
   },
   {
     question: "Why does merging queries on high-cardinality text columns consume more memory than integer keys?",
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Eliminates duplicate storage of staging data in the VertiPaq engine.",
     hint: "Uncheck 'Enable Load' so staging tables don't consume data model storage.",
     level: "basic",
-    codeExample: "Staging_Query &rarr; Uncheck 'Enable Load' &rarr; Final_Fact &rarr; Enable Load"
+    codeExample: "Staging_Query → Uncheck 'Enable Load' → Final_Fact → Enable Load"
   },
   {
     question: "What happens if `Table.Buffer` is used inside a custom function invoked across 100,000 rows?",
@@ -210,7 +210,7 @@ const questions = [
     explanation: "Zero-memory streaming pipeline architecture.",
     hint: "Streams matching rows immediately without caching the full dataset.",
     level: "moderate",
-    codeExample: "Streaming: Row 1 &rarr; Filter &rarr; Downstream Step &rarr; Row 2 &rarr; Filter..."
+    codeExample: "Streaming: Row 1 → Filter → Downstream Step → Row 2 → Filter..."
   },
   {
     question: "When should you remove duplicate records in the ETL sequence for optimal performance?",
@@ -218,7 +218,7 @@ const questions = [
     explanation: "Minimizes row count for downstream computational steps.",
     hint: "Deduplicate early to reduce workload for all subsequent transformations.",
     level: "basic",
-    codeExample: "Source &rarr; Select Columns &rarr; Table.Distinct &rarr; Heavy Transformations"
+    codeExample: "Source → Select Columns → Table.Distinct → Heavy Transformations"
   },
   {
     question: "How does `Record.Field` performance compare inside a custom function with and without a buffered record?",

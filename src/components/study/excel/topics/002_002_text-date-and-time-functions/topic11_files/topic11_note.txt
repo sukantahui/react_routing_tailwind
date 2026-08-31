@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 In real-world data engineering, raw data is never clean. The mark of a true master is building robust, error-tolerant formulas that gracefully handle unexpected edge cases.
 
 COMMON TRAPS TO AVOID:
-- Pipeline Formula Bottleneck: Chaining 10 complex text formulas across 500,000 rows causes workbook freezing. -> Fix: Use Power Query ETL for large datasets, or convert intermediate cleaned columns to static values.
-- Uncaptured Edge-Case Formats: Assuming all names follow 'First Last' fails for single names or four-part compound names. -> Fix: Implement exception validation columns using IFERROR() to highlight unparsed rows.
-- Overwriting Raw Source Data: Modifying original import sheets directly eliminates the audit trail. -> Fix: Always keep Raw_Import sheets immutable and build transformations on Cleaned_Data sheets.
+- Pipeline Formula Bottleneck: Chaining 10 complex text formulas across 500,000 rows causes workbook freezing. → Fix: Use Power Query ETL for large datasets, or convert intermediate cleaned columns to static values.
+- Uncaptured Edge-Case Formats: Assuming all names follow 'First Last' fails for single names or four-part compound names. → Fix: Implement exception validation columns using IFERROR() to highlight unparsed rows.
+- Overwriting Raw Source Data: Modifying original import sheets directly eliminates the audit trail. → Fix: Always keep Raw_Import sheets immutable and build transformations on Cleaned_Data sheets.
 ================================================================================

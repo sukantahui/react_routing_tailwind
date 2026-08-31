@@ -30,7 +30,7 @@ Disaster Recovery (DR)             ➔ Technical: Servers, SAN Storage, Database
 MTD (Maximum Tolerable Downtime) = 4 Hours (Enterprise collapses if down longer)
 RTO (Technical Server Recovery)  = 2 Hours (Servers online)
 WRT (Data Verification & Catchup)= 1.5 Hours (Integrity checks complete)
-Total Recovery Time = RTO + WRT = 3.5 Hours (<= 4 Hours MTD -> BUSINESS SURVIVES!)`
+Total Recovery Time = RTO + WRT = 3.5 Hours (<= 4 Hours MTD → BUSINESS SURVIVES!)`
   },
   {
     question: "What is a Business Impact Analysis (BIA - ISO 22301 Clause 8.2.2), and what are its mandatory deliverables?",
@@ -120,8 +120,8 @@ Validation:     Automated Chaos Engineering (Chaos Mesh) simulating node failure
     codeExample: `// Quorum Consensus Preventing Split-Brain:
 Total Cluster Nodes: 3 (Node 1: Kolkata, Node 2: Mumbai, Node 3: Hyderabad Witness)
 Network Partition:   Kolkata isolated from Mumbai and Hyderabad
-Quorum Check:        Mumbai + Hyderabad = 2/3 Nodes (Majority Quorum Achieved -> Accepts Writes!)
-Kolkata Isolation:   Kolkata = 1/3 Nodes (No Quorum -> Automatically switches to READ-ONLY fencing!)`
+Quorum Check:        Mumbai + Hyderabad = 2/3 Nodes (Majority Quorum Achieved → Accepts Writes!)
+Kolkata Isolation:   Kolkata = 1/3 Nodes (No Quorum → Automatically switches to READ-ONLY fencing!)`
   },
   {
     question: "What role does Crisis Public Relations and Stakeholder Communications play during a BCP execution?",
@@ -143,7 +143,7 @@ Kolkata Isolation:   Kolkata = 1/3 Nodes (No Quorum -> Automatically switches to
     codeExample: `// DPDP Statutory Continuity Defense:
 Requirement:   Section 8(5) Mandatory Reasonable Organizational & Technical Safeguards
 Implementation:Control A.5.30 (ICT Readiness) + Control A.8.13 (Immutable Backups)
-Defense Value: Proves zero permanent data loss occurred during power outage -> Immunized from ₹250 Cr fines!`
+Defense Value: Proves zero permanent data loss occurred during power outage → Immunized from ₹250 Cr fines!`
   },
   {
     question: "Synthesizing Business Continuity Planning (BCP) and Disaster Recovery (DR): what is the master equation of Business Resilience?",

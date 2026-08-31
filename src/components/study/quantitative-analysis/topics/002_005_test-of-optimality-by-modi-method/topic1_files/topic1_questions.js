@@ -8,7 +8,7 @@ const questions = [
     explanation: "MODI adapts the simplex method for bipartite transportation networks by computing row potentials (u_i) and column potentials (v_j), evaluating all unused shipping routes simultaneously without drawing separate loops for every empty cell.",
     hint: "Think u-v dual multiplier method for certifying and improving transportation solutions.",
     level: "moderate",
-    codeExample: "MODI Pipeline: Basis Check -> Compute (u_i, v_j) -> Evaluate d_ij -> Check Optimality -> Loop Pivot."
+    codeExample: "MODI Pipeline: Basis Check → Compute (u_i, v_j) → Evaluate d_ij → Check Optimality → Loop Pivot."
   },
   {
     question: "Why is the MODI method also frequently called the 'u-v Method' or the 'Transportation Simplex'?",
@@ -22,7 +22,7 @@ const questions = [
     question: "What are the 5 standard sequential steps of the complete MODI algorithm?",
     shortAnswer: "Step 1: Check Non-Degeneracy (m + n - 1 basic cells); Step 2: Compute Dual Potentials (u_i, v_j); Step 3: Calculate Opportunity Costs (d_ij = c_ij - u_i - v_j); Step 4: Verify Optimality (all d_ij >= 0); Step 5: Pivot Flow around Closed Loop (if any d_ij < 0).",
     explanation: "These 5 steps repeat iteratively until every non-basic cell evaluation index d_ij is non-negative.",
-    hint: "Non-degeneracy -> u-v potentials -> d_ij evaluation -> optimality check -> closed loop pivot.",
+    hint: "Non-degeneracy → u-v potentials → d_ij evaluation → optimality check → closed loop pivot.",
     level: "moderate",
     codeExample: "Algorithm: while (exists d_ij < 0) { find_uv(); calc_d(); loop_pivot(); }"
   },
@@ -96,7 +96,7 @@ const questions = [
     explanation: "The loop allows mass balance conservation: adding theta (θ) to the entering cell requires subtracting θ from row/column partners in an alternating (+, -, +, -) pattern.",
     hint: "A closed polygon turning at 90-degree angles on basic cells.",
     level: "expert",
-    codeExample: "Loop: (Enter, +θ) -> (Basic_1, -θ) -> (Basic_2, +θ) -> (Basic_3, -θ) -> (Enter)."
+    codeExample: "Loop: (Enter, +θ) → (Basic_1, -θ) → (Basic_2, +θ) → (Basic_3, -θ) → (Enter)."
   },
   {
     question: "How is the maximum allowable transfer quantity theta (θ) determined in the closed loop?",
@@ -208,7 +208,7 @@ const questions = [
     explanation: "Both plans cost the exact same rupees, but one may utilize a smoother highway (e.g. Kalyani Expressway vs BT Road).",
     hint: "Enables choosing routes based on road conditions, safety, or weather at identical cost.",
     level: "intermediate",
-    codeExample: "Managerial Flexibility: Equal cost Z -> select route with better road safety."
+    codeExample: "Managerial Flexibility: Equal cost Z → select route with better road safety."
   },
   {
     question: "Why should an operations researcher never skip Step 1 (Non-Degeneracy check) before applying MODI?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This three-part principle summarizes the entire mathematical logic of the transportation simplex method.",
     hint: "Basic cells set u-v; u-v evaluates empty cells; d_ij >= 0 proves optimality.",
     level: "moderate",
-    codeExample: "Golden Rule: (1) Basic: u+v = c -> (2) Non-basic: d = c - (u+v) -> (3) All d >= 0 = Optimal!"
+    codeExample: "Golden Rule: (1) Basic: u+v = c → (2) Non-basic: d = c - (u+v) → (3) All d >= 0 = Optimal!"
   }
 ];
 

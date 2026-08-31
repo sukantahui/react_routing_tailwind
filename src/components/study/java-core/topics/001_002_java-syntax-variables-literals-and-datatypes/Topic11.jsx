@@ -42,7 +42,7 @@ export default function Topic11() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Character Representation: <code className="text-purple-400">char</code> Data Type, ASCII &amp; Unicode (<code className="text-emerald-400">\uXXXX</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

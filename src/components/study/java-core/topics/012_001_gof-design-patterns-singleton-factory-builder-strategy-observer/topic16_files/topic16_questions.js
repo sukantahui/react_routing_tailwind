@@ -13,7 +13,7 @@ const topic16_questions = [
     "explanation": "Classic examples of the Command pattern in concurrency.",
     "hint": "Runnable and Callable interfaces.",
     "level": "Beginner",
-    "codeExample": "Runnable command = () -> process(); executor.submit(command);"
+    "codeExample": "Runnable command = () → process(); executor.submit(command);"
   }
 ];
 

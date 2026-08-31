@@ -6,11 +6,11 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. MODULE DIRECTIVES CHEATSHEET:
-   - 'requires M;'        &rarr; Module depends on M.
-   - 'requires transitive M;' &rarr; Anyone requiring this module also gets M.
-   - 'exports P;'         &rarr; Package P public types accessible to callers.
-   - 'exports P to M1, M2;' &rarr; Qualified export to specific modules only.
-   - 'opens P;'           &rarr; Opens package P for runtime reflection.
+   - 'requires M;'        → Module depends on M.
+   - 'requires transitive M;' → Anyone requiring this module also gets M.
+   - 'exports P;'         → Package P public types accessible to callers.
+   - 'exports P to M1, M2;' → Qualified export to specific modules only.
+   - 'opens P;'           → Opens package P for runtime reflection.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

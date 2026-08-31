@@ -67,7 +67,7 @@ WHERE c.VARIABLE_NAME = 'Threads_connected';
 -- 🎯 Alert Thresholds:
 -- < 80% : Normal Operating Headroom
 -- >= 80% : Warning Alert (Scale Pool!)
--- >= 90% : Critical Alert (Outage Imminent -> Error 1040!)`,
+-- >= 90% : Critical Alert (Outage Imminent → Error 1040!)`,
       explanation:
         "Connection Pool Saturation tracks how close the database is to exhausting its connection limit. Crossing 80% triggers automated alerts to prevent Error 1040 (Too many connections).",
       keyTakeaways: [
@@ -145,7 +145,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
             Topic 11 of 13
           </span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
           Calculating <span className="text-emerald-400">Health Indicators</span>: Ratios &amp; <span className="text-cyan-400">QPS / TPS</span>
         </h1>
         <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-4xl leading-relaxed">
@@ -308,7 +308,7 @@ WHERE d.VARIABLE_NAME = 'Created_tmp_disk_tables';`,
                   Case 1: Mamata &amp; Susmita – Fixing 88.4% Hit Ratio in Barrackpore Retail
                 </h3>
                 <span className="text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded-full border border-emerald-800">
-                  88.4% &rarr; 99.9%
+                  88.4% → 99.9%
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

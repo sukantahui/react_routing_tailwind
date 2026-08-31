@@ -17,7 +17,7 @@ const questions = [
   },
   {
     question: "What keyboard shortcut triggers Reverse Engineering in MySQL Workbench?",
-    shortAnswer: "`Ctrl + R` (or Top Menu: `Database` -> `Reverse Engineer...`).",
+    shortAnswer: "`Ctrl + R` (or Top Menu: `Database` → `Reverse Engineer...`).",
     explanation: "Standard shortcut for opening the Reverse Engineer wizard.",
     hint: "Ctrl + R.",
     level: "basic"
@@ -59,7 +59,7 @@ const questions = [
   },
   {
     question: "How do you configure referential actions (`CASCADE`, `RESTRICT`, `SET NULL`) inside MySQL Workbench EER Modeler?",
-    shortAnswer: "Double-click the relationship connector line (or double-click the child table -> `Foreign Keys` tab), and select the desired `On Update` and `On Delete` actions from the dropdown menus.",
+    shortAnswer: "Double-click the relationship connector line (or double-click the child table → `Foreign Keys` tab), and select the desired `On Update` and `On Delete` actions from the dropdown menus.",
     explanation: "Configurable directly inside the Foreign Key property inspector.",
     hint: "Foreign Keys tab in Table Inspector or relationship line properties.",
     level: "basic"
@@ -94,15 +94,15 @@ const questions = [
   },
   {
     question: "How do you export an EER Diagram from MySQL Workbench as an image or document for technical documentation?",
-    shortAnswer: "Top Menu: `File` -> `Export` -> `Export as PNG...`, `Export as SVG...`, or `Export as PDF...`.",
+    shortAnswer: "Top Menu: `File` → `Export` → `Export as PNG...`, `Export as SVG...`, or `Export as PDF...`.",
     explanation: "Generates high-resolution diagrams for client presentations and architecture docs.",
-    hint: "File -> Export as PNG/SVG/PDF.",
+    hint: "File → Export as PNG/SVG/PDF.",
     level: "basic"
   },
   {
     question: "What notation styles does MySQL Workbench support for EER Diagrams?",
     shortAnswer: "Crow's Foot (Default), UML, IDEF1X, Classic ER, and Barker notation.",
-    explanation: "Configurable via `Model` -> `Relationship Notation`.",
+    explanation: "Configurable via `Model` → `Relationship Notation`.",
     hint: "Crow's Foot, UML, IDEF1X, Classic ER, Barker.",
     level: "moderate"
   },
@@ -130,7 +130,7 @@ const questions = [
   {
     question: "How does MySQL Workbench visually represent a Self-Referencing table?",
     shortAnswer: "As a relationship line that loops out from the table and connects back into the same table.",
-    explanation: "Visual representation of recursive hierarchies (e.g. `manager_id -> emp_id`).",
+    explanation: "Visual representation of recursive hierarchies (e.g. `manager_id → emp_id`).",
     hint: "Looping line connecting back to same table.",
     level: "basic"
   },
@@ -164,9 +164,9 @@ const questions = [
   },
   {
     question: "How do you rearrange overlapping relationship lines in MySQL Workbench canvas?",
-    shortAnswer: "Use Top Menu: `Arrange` -> `Autolayout` or manually click and drag table boxes and line inflection anchor points.",
+    shortAnswer: "Use Top Menu: `Arrange` → `Autolayout` or manually click and drag table boxes and line inflection anchor points.",
     explanation: "Improves visual clarity of complex entity relationships.",
-    hint: "Arrange -> Autolayout or manual dragging.",
+    hint: "Arrange → Autolayout or manual dragging.",
     level: "basic"
   },
   {
@@ -199,7 +199,7 @@ const questions = [
   },
   {
     question: "How do you forward-engineer a visual model to generate ONLY the SQL script without executing it against a live database?",
-    shortAnswer: "Navigate to `Database` -> `Forward Engineer...` and choose 'Save to SQL Script File' or copy the generated script on the Review step.",
+    shortAnswer: "Navigate to `Database` → `Forward Engineer...` and choose 'Save to SQL Script File' or copy the generated script on the Review step.",
     explanation: "Generates `.sql` migration files for deployment pipelines.",
     hint: "Save to SQL Script File in Forward Engineer wizard.",
     level: "basic"

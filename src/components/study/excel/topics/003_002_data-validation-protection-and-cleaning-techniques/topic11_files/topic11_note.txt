@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Building a tamper-proof budget template is the true test of an enterprise Excel architect. When you hand your model to 50 users and nobody can break it, you have achieved mastery.
 
 COMMON TRAPS TO AVOID:
-- Unprotected Source Lookup Lists: Leaving master category tables on an unprotected sheet allows users to modify approved cost center codes. -> Fix: Move lookup tables to a dedicated 'Admin_Lists' sheet, set to Very Hidden or protected with a password.
-- Overly Restrictive Validation Blocking Legitimate Exceptions: Setting hard Stop Alerts on items that occasionally require CFO variance approval. -> Fix: Use Warning Alerts for boundary thresholds where executive override is permitted.
-- Allowing Copy-Paste from External Sheets: External copy-pasting strips cell validation and alters locked statuses. -> Fix: Lock sheet permissions and provide clear user training on 'Paste Special Values'.
+- Unprotected Source Lookup Lists: Leaving master category tables on an unprotected sheet allows users to modify approved cost center codes. → Fix: Move lookup tables to a dedicated 'Admin_Lists' sheet, set to Very Hidden or protected with a password.
+- Overly Restrictive Validation Blocking Legitimate Exceptions: Setting hard Stop Alerts on items that occasionally require CFO variance approval. → Fix: Use Warning Alerts for boundary thresholds where executive override is permitted.
+- Allowing Copy-Paste from External Sheets: External copy-pasting strips cell validation and alters locked statuses. → Fix: Lock sheet permissions and provide clear user training on 'Paste Special Values'.
 ================================================================================

@@ -127,7 +127,7 @@ const questions = [
     explanation: "This classic Double-Buffering loop pattern produces smooth 60 FPS games without screen tearing.",
     hint: "What pattern creates smooth, flicker-free game animations?",
     level: "expert",
-    codeExample: "# Game loop pattern: tracer(0) -> update() -> ontimer(loop, 16)"
+    codeExample: "# Game loop pattern: tracer(0) → update() → ontimer(loop, 16)"
   },
   {
     question: "Does `t.speed(0)` speed up computation time (like math calculations) or only canvas rendering?",

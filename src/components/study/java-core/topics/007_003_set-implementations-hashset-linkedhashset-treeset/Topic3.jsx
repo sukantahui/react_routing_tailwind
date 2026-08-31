@@ -21,7 +21,7 @@ export default function Topic3() {
             Uniqueness Verification
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           How HashSet Determines Uniqueness: <code className="text-emerald-400 font-mono">hashCode()</code> &amp; <code className="text-sky-400 font-mono">equals()</code> Verification
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

@@ -22,7 +22,7 @@ const Topic11 = () => {
   const mviPhases = {
     phase1_array_breakdown: {
       phaseNumber: "Phase 1: Array Indexing",
-      title: "1. The Multi-Valued Index Architecture: 1 Row &rarr; N Index Keys",
+      title: "1. The Multi-Valued Index Architecture: 1 Row → N Index Keys",
       badge: "B+ Tree 1:N Mapping",
       badgeColor: "emerald",
       sqlSnippet: `-- ⚡ CREATING A MULTI-VALUED INDEX ON A JSON ARRAY:
@@ -41,12 +41,12 @@ INSERT INTO job_candidates (candidate_name, profile) VALUES
 
 -- HOW INNODB INDEXES THIS:
 -- Creates 3 SEPARATE B+ Tree index entries for Candidate ID 1:
--- ['MySQL']   -> PK 1
--- ['React']   -> PK 1
--- ['Node.js'] -> PK 1! 🚀`,
+-- ['MySQL']   → PK 1
+-- ['React']   → PK 1
+-- ['Node.js'] → PK 1! 🚀`,
       metricsTable: [
-        { concept: "Traditional B+ Tree", mapping: "1 Table Row &rarr; 1 Index Entry", role: "Scalar columns only" },
-        { concept: "Multi-Valued Index", mapping: "1 Table Row &rarr; N Index Entries ⚡", role: "JSON array elements" },
+        { concept: "Traditional B+ Tree", mapping: "1 Table Row → 1 Index Entry", role: "Scalar columns only" },
+        { concept: "Multi-Valued Index", mapping: "1 Table Row → N Index Entries ⚡", role: "JSON array elements" },
         { concept: "Storage Engine", mapping: "InnoDB Secondary B+ Tree", role: "Materializes array items as separate keys" },
         { concept: "Deduplication", mapping: "Automatic per row", role: "Duplicate items in array indexed only once" }
       ],
@@ -173,7 +173,7 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
               Multi-Valued Indexes
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Indexing JSON Data using Generated Columns and Multi-Valued Indexes in MySQL 8.0+
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -304,15 +304,15 @@ WHERE 'React' MEMBER OF (profile->'$.skills');
 
                 <rect x="460" y="105" width="450" height="55" rx="4" fill="#1e293b" stroke="#d97706" />
                 <text x="475" y="127" fill="#fde68a" fontSize="11" fontWeight="bold">Index Key: ['MySQL']</text>
-                <text x="475" y="147" fill="#34d399" fontSize="10">Points to &rarr; Primary Key: 1 ✅</text>
+                <text x="475" y="147" fill="#34d399" fontSize="10">Points to → Primary Key: 1 ✅</text>
 
                 <rect x="460" y="170" width="450" height="55" rx="4" fill="#1e293b" stroke="#0284c7" />
                 <text x="475" y="192" fill="#38bdf8" fontSize="11" fontWeight="bold">Index Key: ['React']</text>
-                <text x="475" y="212" fill="#34d399" fontSize="10">Points to &rarr; Primary Key: 1 ✅</text>
+                <text x="475" y="212" fill="#34d399" fontSize="10">Points to → Primary Key: 1 ✅</text>
 
                 <rect x="460" y="235" width="450" height="55" rx="4" fill="#1e293b" stroke="#be123c" />
                 <text x="475" y="257" fill="#fb7185" fontSize="11" fontWeight="bold">Index Key: ['Node.js']</text>
-                <text x="475" y="277" fill="#34d399" fontSize="10">Points to &rarr; Primary Key: 1 ✅</text>
+                <text x="475" y="277" fill="#34d399" fontSize="10">Points to → Primary Key: 1 ✅</text>
 
                 {/* Arrows connecting single row to 3 index keys */}
                 <path d="M 340 225 L 460 135" fill="none" stroke="#fde68a" strokeWidth="2" markerEnd="url(#arrMviCyan)" />

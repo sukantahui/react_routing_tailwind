@@ -64,7 +64,7 @@ export default function Topic0() {
               Topic 0: Shell Scripting Foundation
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
             Shell Script Anatomy: Shebang, Execution & Lifecycle
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-4xl">

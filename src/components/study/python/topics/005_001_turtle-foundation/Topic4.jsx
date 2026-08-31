@@ -146,7 +146,7 @@ export default function Topic4() {
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Turtle Cursor (Pen) Behavior: <span className="text-teal-400">Position, Heading &amp; Visibility</span>
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">

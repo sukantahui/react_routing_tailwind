@@ -70,7 +70,7 @@ export default function Topic13() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Combining INDEX and MATCH: Two-Way Dynamic Lookup Architecture
           </h1>
 
@@ -274,7 +274,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic9_Combining_INDEX_an"
+            sheetName="EX1014"
             title="Module 2.5 - Combining INDEX and MATCH: Two-Way Dynamic Lookup Architecture"
             rowsPerPage={25}
             showSheetSelector={true}

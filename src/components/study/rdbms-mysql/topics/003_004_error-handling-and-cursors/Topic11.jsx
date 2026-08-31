@@ -24,10 +24,10 @@ const Topic11 = () => {
       title: "1. 370x Speedup: Refactoring Cursor Updates to UPDATE ... JOIN",
       badge: "UPDATE JOIN Refactoring",
       badgeColor: "emerald",
-      sqlQuery: `-- ❌ SLOW PROCEDURAL CURSOR (10,000 Iterations -> 9.20s):
+      sqlQuery: `-- ❌ SLOW PROCEDURAL CURSOR (10,000 Iterations → 9.20s):
 -- OPEN cur; LOOP FETCH INTO v_id, v_gpa; UPDATE student_gpa SET gpa = v_gpa WHERE id = v_id; END LOOP;
 
--- ✅ FAST SET-BASED ALTERNATIVE (Direct Engine Execution -> 0.02s):
+-- ✅ FAST SET-BASED ALTERNATIVE (Direct Engine Execution → 0.02s):
 UPDATE student_gpa g
 JOIN (
     SELECT student_id, AVG(grade_point) AS calc_gpa 
@@ -72,7 +72,7 @@ FROM student_ledgers;`,
       title: "3. Hierarchical Trees: JSON_OBJECT & JSON_ARRAYAGG vs Nested Cursors",
       badge: "JSON Aggregation",
       badgeColor: "amber",
-      sqlQuery: `-- ❌ SLOW NESTED CURSORS (Outer Dept Loop -> Inner Student Loop):
+      sqlQuery: `-- ❌ SLOW NESTED CURSORS (Outer Dept Loop → Inner Student Loop):
 -- 50 Departments * 500 Students = 25,000 inner query open/close cycles! (16.4s)
 
 -- ✅ FAST MYSQL 8.0 JSON AGGREGATION (Single Grouped Query):
@@ -101,11 +101,11 @@ GROUP BY d.department_id, d.department_name;`,
       badge: "Decision Matrix",
       badgeColor: "rose",
       sqlQuery: `-- 📋 ARCHITECTURAL DECISION MATRIX:
--- 1. Mass Data Updates / Arithmetic -> USE Set-Based (UPDATE / CASE)
--- 2. Running Totals / Moving Averages -> USE Window Functions (SUM() OVER)
--- 3. Parent-Child Hierarchies -> USE Set-Based (JOIN / JSON_ARRAYAGG)
--- 4. Dynamic DDL Maintenance across Tables -> USE Cursors (Prepared Stmts)
--- 5. Chunked Batch Commits (500,000+ rows) -> USE Cursors (Periodic Commits)`,
+-- 1. Mass Data Updates / Arithmetic → USE Set-Based (UPDATE / CASE)
+-- 2. Running Totals / Moving Averages → USE Window Functions (SUM() OVER)
+-- 3. Parent-Child Hierarchies → USE Set-Based (JOIN / JSON_ARRAYAGG)
+-- 4. Dynamic DDL Maintenance across Tables → USE Cursors (Prepared Stmts)
+-- 5. Chunked Batch Commits (500,000+ rows) → USE Cursors (Periodic Commits)`,
       resultRows: [
         { implementation: "Dynamic DDL (DROP / OPTIMIZE)", datasetSize: "50 Tables", executionTime: "0.320s", cpuUtilization: "4% CPU", ioBufferUsage: "Metadata Only", lockDuration: "Table-level DDL", speedupFactor: "✅ Legitimate Use Case" },
         { implementation: "Chunked Batch Commit (500/tx)", datasetSize: "500,000 Rows", executionTime: "4.200s", cpuUtilization: "25% CPU", ioBufferUsage: "Small Undo Logs", lockDuration: "Short Increments", speedupFactor: "✅ Legitimate Use Case" },
@@ -142,7 +142,7 @@ GROUP BY d.department_id, d.department_name;`,
               Performance Tuning
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Cursor Performance vs Set-Based SQL Alternatives
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">

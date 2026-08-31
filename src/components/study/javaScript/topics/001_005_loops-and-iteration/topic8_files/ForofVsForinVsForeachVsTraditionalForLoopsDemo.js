@@ -73,7 +73,7 @@ const courseProfile = {
 
 for (const prop in courseProfile) {
   if (Object.hasOwn(courseProfile, prop)) {
-    console.log(`Property "${prop}" -> ${courseProfile[prop]}`);
+    console.log(`Property "${prop}" → ${courseProfile[prop]}`);
   }
 }
 

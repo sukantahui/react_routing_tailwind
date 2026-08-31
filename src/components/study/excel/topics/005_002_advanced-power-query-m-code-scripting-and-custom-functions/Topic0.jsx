@@ -76,7 +76,7 @@ export default function Topic0() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Introduction to the Power Query M Formula Language: Syntax, Case Sensitivity &amp; Let...In Blocks
           </h1>
 
@@ -166,7 +166,7 @@ in
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-amber-400 font-sans">each Keyword</td>
                   <td className="py-3 px-4 text-amber-300">each [Amount] * 1.18</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Syntactic sugar for single-argument lambda: <code className="text-amber-300">(_) =&gt; _[Amount] * 1.18</code>.</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Syntactic sugar for single-argument lambda: <code className="text-amber-300">(_) => _[Amount] * 1.18</code>.</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Represents row context in column generation and filtering.</td>
                 </tr>
               </tbody>
@@ -290,7 +290,7 @@ in
                 <text x="12" y="153" fill="#A7F3D0" fontWeight="bold">#{'"Filtered High Value"'}</text>
                 <text x="175" y="153" fill="#CCFBF1">= Table.SelectRows(</text>
                 <text x="305" y="153" fill="#818CF8" fontWeight="bold">#{'"Changed Type"'}</text>
-                <text x="415" y="153" fill="#CCFBF1">, each [Amt] &gt;= 25000)</text>
+                <text x="415" y="153" fill="#CCFBF1">, each [Amt] >= 25000)</text>
               </g>
 
               {/* Arrow from let to in */}
@@ -348,7 +348,7 @@ in
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic0_M_Syntax_Overview"
+            sheetName="EX2101"
             title="M Code Step Execution Catalog (Step Number, Step Identifier, M Expression Formula, Evaluated Type, Return Value, Evaluation Model)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ in
                 Financial Analyst <strong>Swadeep Banerjee</strong> opens the Advanced Editor to insert a custom step <code className="text-teal-300 font-mono">Table.TransformColumns</code> that strips currency symbols, bypassing 5 cumbersome UI button clicks.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-teal-300">
-                Advanced Editor Injection &rarr; 80% Reduction in Query Steps
+                Advanced Editor Injection → 80% Reduction in Query Steps
               </div>
             </div>
 
@@ -402,7 +402,7 @@ in
                 Senior Accountant <strong>Tuhina Mukherjee</strong> changes the final return in M from a table to <code className="text-emerald-300 font-mono">List.Sum(Filtered[Tax])</code>, creating a dynamic scalar KPI metric that feeds directly into a financial card.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                'in List.Sum(...)' &rarr; Returns Single Scalar KPI Value
+                'in List.Sum(...)' → Returns Single Scalar KPI Value
               </div>
             </div>
 
@@ -419,7 +419,7 @@ in
                 ERP Lead <strong>Abhronila Sengupta</strong> tests lazy evaluation by creating an unused test web scrape step in the <code className="text-indigo-300 font-mono">let</code> block; because it is omitted from <code className="text-indigo-300 font-mono">in</code>, the engine executes in 0.2 seconds with zero network lag!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Lazy Evaluation &rarr; Zero CPU Overhead for Unused Steps
+                Lazy Evaluation → Zero CPU Overhead for Unused Steps
               </div>
             </div>
 
@@ -436,7 +436,7 @@ in
                 Operations Lead <strong>Debangshu Ghosh</strong> resolves a broken script by wrapping a custom step containing spaces in <code className="text-fuchsia-300 font-mono">#{'"Cleaned Monthly Invoices"'}</code>, restoring pipeline execution immediately.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
-                #{'"Step Name"'} &rarr; Eliminates Identifier Token Syntax Errors
+                #{'"Step Name"'} → Eliminates Identifier Token Syntax Errors
               </div>
             </div>
           </div>
@@ -466,7 +466,7 @@ in
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Open the Advanced Editor Window</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  In Power Query Editor, navigate to <strong>Home &rarr; Advanced Editor</strong> (or <strong>View &rarr; Advanced Editor</strong>).
+                  In Power Query Editor, navigate to <strong>Home → Advanced Editor</strong> (or <strong>View → Advanced Editor</strong>).
                 </p>
               </div>
             </div>
@@ -652,7 +652,7 @@ in
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Consider syntactic sugar:</strong> How does understanding that <code className="text-emerald-400 font-mono">each [Amt] * 1.18</code> is literally <code className="text-sky-300 font-mono">(_) =&gt; _[Amt] * 1.18</code> clarify multi-parameter function writing in M?
+                <strong>Consider syntactic sugar:</strong> How does understanding that <code className="text-emerald-400 font-mono">each [Amt] * 1.18</code> is literally <code className="text-sky-300 font-mono">(_) => _[Amt] * 1.18</code> clarify multi-parameter function writing in M?
               </p>
             </div>
           </div>

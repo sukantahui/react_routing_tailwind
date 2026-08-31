@@ -42,7 +42,7 @@ export default function Topic3() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Modulus Operator (<code className="text-indigo-400">%</code>): Positive, Negative &amp; Floating-Point Numbers
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -107,16 +107,16 @@ export default function Topic3() {
             
             <rect x="50" y="80" width="370" height="100" rx="6" fill="#1e1b4b" />
             <text x="60" y="105" fill="#c7d2fe" fontSize="12" fontFamily="monospace">
-              (+15) % (+4) = +3  &rarr; Dividend (+15) &rarr; Positive
+              (+15) % (+4) = +3  → Dividend (+15) → Positive
             </text>
             <text x="60" y="125" fill="#fca5a5" fontSize="12" fontFamily="monospace">
-              (-15) % (+4) = -3  &rarr; Dividend (-15) &rarr; Negative
+              (-15) % (+4) = -3  → Dividend (-15) → Negative
             </text>
             <text x="60" y="145" fill="#c7d2fe" fontSize="12" fontFamily="monospace">
-              (+15) % (-4) = +3  &rarr; Divisor sign is IGNORED!
+              (+15) % (-4) = +3  → Divisor sign is IGNORED!
             </text>
             <text x="60" y="165" fill="#fca5a5" fontSize="12" fontFamily="monospace">
-              (-15) % (-4) = -3  &rarr; Dividend (-15) &rarr; Negative
+              (-15) % (-4) = -3  → Dividend (-15) → Negative
             </text>
             <text x="235" y="210" fill="#e0e7ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Golden Rule: Sign ALWAYS matches left operand &apos;a&apos;!
@@ -142,10 +142,10 @@ export default function Topic3() {
             <text x="795" y="110" fill="#a7f3d0" fontSize="12" fontWeight="bold" textAnchor="middle">Slot 3</text>
 
             <text x="655" y="155" fill="#ecfdf5" fontSize="12" textAnchor="middle" fontFamily="monospace">
-              Item 0 &rarr; Slot 0 | Item 3 &rarr; Slot 3
+              Item 0 → Slot 0 | Item 3 → Slot 3
             </text>
             <text x="655" y="175" fill="#fef08a" fontSize="12" textAnchor="middle" fontFamily="monospace" fontWeight="bold">
-              Item 4 % 4 &rarr; Wraps to Slot 0!
+              Item 4 % 4 → Wraps to Slot 0!
             </text>
             <text x="655" y="210" fill="#d1fae5" fontSize="11" textAnchor="middle">
               Enables round-robin schedulers, carousel UIs &amp; ring queues

@@ -12,7 +12,7 @@ Return Type: Filtered View Subset / Dynamic Filter Array
 Real-World Business Scenarios:
 [Kolkata Wholesale Top 10% Revenue Customer Isolation]
 Context: Filtering the top 10% highest-spending corporate clients from a 1,000-customer database.
-Applied: Number Filters -> Top 10 Percent
+Applied: Number Filters → Top 10 Percent
 Result: High-value accounts isolated in 2 clicks for VIP marketing.
 
 [Barrackpore Student Wildcard Roll Number Search]
@@ -22,10 +22,10 @@ Result: Target cohort isolated instantly without writing complex string formulas
 
 [Shyamnagar Regional Retail Overdue Invoice Aging Filter]
 Context: Filtering all invoices with due dates in 'Last Month' and 'This Month'.
-Applied: Date Filters -> Relative Period (Last Month)
+Applied: Date Filters → Relative Period (Last Month)
 Result: Accounts payable audit completed in seconds.
 
 [Ichapur Plant Defect Outlier Isolation (Above Average)]
 Context: Filtering production batches where defect count exceeds the factory average.
-Applied: Number Filters -> Above Average
+Applied: Number Filters → Above Average
 Result: Sub-par batches flagged without manual average calculation.

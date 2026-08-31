@@ -42,7 +42,7 @@ export default function Topic0() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Concept of Iteration &amp; Why Loops are Fundamental to Programming
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -123,7 +123,7 @@ export default function Topic0() {
               Starting State
             </text>
 
-            {/* Arrow 1 -> 2 */}
+            {/* Arrow 1 → 2 */}
             <path d="M 205 130 L 235 130" stroke="#38bdf8" strokeWidth="3" markerEnd="url(#arrow)" />
 
             {/* Box 2: 2. Condition */}
@@ -132,12 +132,12 @@ export default function Topic0() {
             <rect x="255" y="80" width="160" height="80" rx="6" fill="#451a03" />
             <text x="265" y="105" fill="#fde68a" fontSize="10" fontFamily="monospace">i &lt;= 5</text>
             <text x="265" y="125" fill="#fef3c7" fontSize="9">Evaluates boolean</text>
-            <text x="265" y="145" fill="#fef3c7" fontSize="9">True &rarr; Body | False &rarr; Exit</text>
+            <text x="265" y="145" fill="#fef3c7" fontSize="9">True → Body | False → Exit</text>
             <text x="335" y="190" fill="#fef3c7" fontSize="10" textAnchor="middle" fontWeight="bold">
               Gatekeeper
             </text>
 
-            {/* Arrow 2 -> 3 */}
+            {/* Arrow 2 → 3 */}
             <path d="M 425 130 L 455 130" stroke="#f59e0b" strokeWidth="3" />
 
             {/* Box 3: 3. Body */}
@@ -151,7 +151,7 @@ export default function Topic0() {
               Payload Work
             </text>
 
-            {/* Arrow 3 -> 4 */}
+            {/* Arrow 3 → 4 */}
             <path d="M 645 130 L 675 130" stroke="#10b981" strokeWidth="3" />
 
             {/* Box 4: 4. Update */}

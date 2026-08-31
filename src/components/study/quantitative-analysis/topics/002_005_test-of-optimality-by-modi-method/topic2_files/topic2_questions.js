@@ -32,7 +32,7 @@ const questions = [
     explanation: "Just as electrical potential requires a chosen 'ground' reference (0V), the dual potentials require a reference datum to determine unique relative values.",
     hint: "One degree of freedom requires an arbitrary anchor reference.",
     level: "expert",
-    codeExample: "Datum Assignment: Set u_1 = 0 -> System rank restored -> Solve remaining m+n-1 variables."
+    codeExample: "Datum Assignment: Set u_1 = 0 → System rank restored → Solve remaining m+n-1 variables."
   },
   {
     question: "What is the recommended operational heuristic for choosing WHICH potential to set to zero?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "With fewer than m + n - 1 edges, the bipartite graph is disconnected. The propagation chain halts before reaching all nodes.",
     hint: "A disconnected graph halts the propagation of potentials.",
     level: "expert",
-    codeExample: "Degenerate Basis: Graph has >= 2 disjoint components -> unsolvable potentials."
+    codeExample: "Degenerate Basis: Graph has >= 2 disjoint components → unsolvable potentials."
   },
   {
     question: "How does placing epsilon (ε) in an independent cell resolve the stalled u-v propagation in a degenerate matrix?",
@@ -238,9 +238,9 @@ const questions = [
     question: "What is the golden rule for computing u-v variables?",
     shortAnswer: "'Anchor one variable to 0; trace basic cells using u_i + v_j = c_ij; audit all basic sums before evaluating empty cells!'",
     explanation: "Following this rule guarantees 100% arithmetic accuracy in every MODI iteration.",
-    hint: "Anchor -> Trace basic cells -> Audit sums -> Proceed to empty cells.",
+    hint: "Anchor → Trace basic cells → Audit sums → Proceed to empty cells.",
     level: "moderate",
-    codeExample: "Golden Rule: (1) Set u_1 = 0 -> (2) u_i + v_j = c_ij on Basic -> (3) Verify!"
+    codeExample: "Golden Rule: (1) Set u_1 = 0 → (2) u_i + v_j = c_ij on Basic → (3) Verify!"
   }
 ];
 

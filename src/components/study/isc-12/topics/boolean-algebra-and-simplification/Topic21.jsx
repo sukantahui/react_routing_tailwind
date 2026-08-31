@@ -139,13 +139,13 @@ const Topic21 = () => {
 
         // Check columns (B,C groups) - needs pattern recognition
         // Check for 2x2 squares
-        // Quad (m0,m1,m4,m5) -> B'
+        // Quad (m0,m1,m4,m5) → B'
         if (values.m0 && values.m1 && values.m4 && values.m5) groups.push("B'");
-        // Quad (m2,m3,m6,m7) -> B
+        // Quad (m2,m3,m6,m7) → B
         if (values.m2 && values.m3 && values.m6 && values.m7) groups.push("B");
-        // Quad (m0,m2,m4,m6) -> C'
+        // Quad (m0,m2,m4,m6) → C'
         if (values.m0 && values.m2 && values.m4 && values.m6) groups.push("C'");
-        // Quad (m1,m3,m5,m7) -> C
+        // Quad (m1,m3,m5,m7) → C
         if (values.m1 && values.m3 && values.m5 && values.m7) groups.push("C");
 
         // Check for pairs and singles (simplified - actual algorithm would be more complex)
@@ -256,7 +256,7 @@ const Topic21 = () => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                     </svg>
                 </div>
-                <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl">
                     <span className="block">Karnaugh Maps (K-Map):</span>
                     <span className="block text-indigo-600 dark:text-indigo-400">3-Variable K-Map</span>
                 </h1>

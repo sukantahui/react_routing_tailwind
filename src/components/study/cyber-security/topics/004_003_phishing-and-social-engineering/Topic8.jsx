@@ -181,7 +181,7 @@ aws s3api put-public-access-block \
       ? (rawBreachProb * 0.016).toFixed(2) // UEBA + JIT PAM + Two-Person Rule blocks 98.4% of insider risk
       : controlStrength >= 50
       ? (rawBreachProb * 0.35).toFixed(2)  // Basic Logging blocks 65% of insider risk
-      : rawBreachProb.toFixed(2);           // Unhardened -> 100% insider vulnerability
+      : rawBreachProb.toFixed(2);           // Unhardened → 100% insider vulnerability
 
     return {
       rawBreachProb: rawBreachProb.toFixed(2),

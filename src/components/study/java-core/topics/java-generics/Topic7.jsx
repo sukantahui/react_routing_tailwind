@@ -272,7 +272,7 @@ const Topic7 = () => {
     {
       letter: "T",
       title: "Type",
-      example: "Box<T>, List<T>",
+      example: "Box&lt;T&gt;, List&lt;T&gt;",
       color: "blue",
       description: "Most commonly used for general types",
       useCase: "When creating generic classes or methods"
@@ -280,7 +280,7 @@ const Topic7 = () => {
     {
       letter: "E",
       title: "Element",
-      example: "List<E>, Set<E>",
+      example: "List&lt;E&gt;, Set&lt;E&gt;",
       color: "green",
       description: "Used for elements in collections",
       useCase: "Collection interfaces and implementations"
@@ -304,7 +304,7 @@ const Topic7 = () => {
     {
       letter: "N",
       title: "Number",
-      example: "Calculator<N>",
+      example: "Calculator&lt;N&gt;",
       color: "red",
       description: "Used for numeric types",
       useCase: "Mathematical operations, bounded types"
@@ -323,7 +323,7 @@ const Topic7 = () => {
     {
       title: "Using Non-Standard Names",
       description: "Using A, B, X instead of T, E, K, V breaks conventions",
-      example: "❌ Container<Item>  ✅ Container<T>",
+      example: "❌ Container&lt;Item&gt;  ✅ Container&lt;T&gt;",
       impact: "Reduces code readability and maintainability"
     },
     {
@@ -335,13 +335,13 @@ const Topic7 = () => {
     {
       title: "Overly Descriptive Names",
       description: "Using long names defeats the purpose of conventions",
-      example: "❌ Container<ElementType>  ✅ Container<E>",
+      example: "❌ Container<ElementType>  ✅ Container&lt;E&gt;",
       impact: "Makes generic declarations verbose"
     },
     {
       title: "Ignoring Context",
       description: "Not using appropriate parameter for the context",
-      example: "❌ List<K> for student list  ✅ List<E> or List<T>",
+      example: "❌ List&lt;K&gt; for student list  ✅ List&lt;E&gt; or List&lt;T&gt;",
       impact: "Loss of semantic meaning"
     }
   ];
@@ -395,7 +395,7 @@ public class ClassroomManager {
     private Set<String> uniqueSubjects = new HashSet<>();      // E = String
     
     // Generic method with T parameter
-    public <T> void printAll(List<T> items) {
+    public &lt;T&gt; void printAll(List&lt;T&gt; items) {
         for (T item : items) {
             System.out.println(item);
         }
@@ -427,13 +427,13 @@ public class ClassroomManager {
 public class GenericExamples {
     
     // Method with T parameter
-    public <T> void display(T element) {
+    public &lt;T&gt; void display(T element) {
         System.out.println("Element: " + element);
         System.out.println("Type: " + element.getClass().getName());
     }
     
     // Method with E parameter (for collections)
-    public <E> void addToCollection(List<E> collection, E element) {
+    public &lt;E&gt; void addToCollection(List&lt;E&gt; collection, E element) {
         collection.add(element);
         System.out.println("Added " + element + " to collection");
     }
@@ -445,7 +445,7 @@ public class GenericExamples {
     }
     
     // Method with N parameter (for numbers)
-    public <N extends Number> double calculateAverage(List<N> numbers) {
+    public <N extends Number> double calculateAverage(List&lt;N&gt; numbers) {
         double sum = 0.0;
         for (N num : numbers) {
             sum += num.doubleValue();
@@ -503,7 +503,7 @@ public class GenericExamples {
               </svg>
             </div>
             <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Type Parameters in Java Generics
               </h1>
               <p className="mt-3 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
@@ -546,7 +546,7 @@ public class GenericExamples {
           </h2>
           <div className="space-y-4">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              Type parameters are <strong className="text-blue-600 dark:text-blue-400">placeholders</strong> for actual types that you specify when using generic classes, interfaces, or methods. They are defined within angle brackets <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded font-mono">&lt;&gt;</code> and follow specific naming conventions that make code more readable and maintainable.
+              Type parameters are <strong className="text-blue-600 dark:text-blue-400">placeholders</strong> for actual types that you specify when using generic classes, interfaces, or methods. They are defined within angle brackets <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded font-mono"><></code> and follow specific naming conventions that make code more readable and maintainable.
             </p>
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 p-4 rounded-lg border-l-4 border-blue-500">
               <p className="italic text-gray-600 dark:text-gray-300">
@@ -780,7 +780,7 @@ public class GenericExamples {
                 fontSize="18"
                 className="dark:fill-yellow-300"
               >
-                Container&lt;String&gt; container = new Container&lt;&gt;();
+                Container&lt;String&gt; container = new Container<>();
               </text>
               
               {/* Type Parameter Flow */}

@@ -42,7 +42,7 @@ export default function Topic13() {
             Beginner Foundation
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Jump Statements: The <code className="text-emerald-400 font-mono">&apos;continue&apos;</code> Statement for Skipping Iterations &amp; Guard Clauses
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -131,7 +131,7 @@ export default function Topic13() {
             <rect x="325" y="80" width="230" height="80" rx="6" fill="#022c22" />
             <text x="335" y="102" fill="#a7f3d0" fontSize="11" fontFamily="monospace">Skips rest of body</text>
             <text x="335" y="122" fill="#d1fae5" fontSize="10">Never reaches invoice printer</text>
-            <text x="335" y="142" fill="#d1fae5" fontSize="10">Jumps to update clause &rarr;</text>
+            <text x="335" y="142" fill="#d1fae5" fontSize="10">Jumps to update clause →</text>
             <text x="440" y="190" fill="#ecfdf5" fontSize="11" textAnchor="middle" fontWeight="bold">
               Immediate Skip Action
             </text>
@@ -140,8 +140,8 @@ export default function Topic13() {
             <rect x="590" y="40" width="260" height="180" rx="10" fill="url(#gradTargetUpdate)" opacity="0.9" className="hover:opacity-100 transition-opacity" />
             <text x="720" y="65" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">3. Update Destination</text>
             <rect x="605" y="80" width="230" height="80" rx="6" fill="#0c4a6e" />
-            <text x="615" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">for (..) &rarr; executes &apos;i++&apos;</text>
-            <text x="615" y="122" fill="#bae6fd" fontSize="10">while (..) &rarr; tests condition</text>
+            <text x="615" y="102" fill="#bae6fd" fontSize="11" fontFamily="monospace">for (..) → executes &apos;i++&apos;</text>
+            <text x="615" y="122" fill="#bae6fd" fontSize="10">while (..) → tests condition</text>
             <text x="615" y="142" fill="#a7f3d0" fontSize="10">Advances to next iteration!</text>
             <text x="720" y="190" fill="#f0f9ff" fontSize="11" textAnchor="middle" fontWeight="bold">
               Loop Lifecycle Advances

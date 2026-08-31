@@ -61,7 +61,7 @@ gcc -fstack-protector-all -Wl,-z,relro,-z,now -D_FORTIFY_SOURCE=2 -pie -fPIE vul
     level: "basic",
     codeExample: `// Immutable Centralized Logging Pipeline:
 Endpoint (Sysmon / Auditd) ──[ Encrypted TLS Stream ]──> Central Splunk WORM Cluster (Write-Once Read-Many)
-// Local 'wevtutil cl Security' -> Triggers Instant Event ID 1102 Critical SOC Alert!`
+// Local 'wevtutil cl Security' → Triggers Instant Event ID 1102 Critical SOC Alert!`
   },
   {
     question: "What are the three core principles of the NIST SP 800-207 'Zero Trust Architecture' (ZTA)?",
@@ -71,7 +71,7 @@ Endpoint (Sysmon / Auditd) ──[ Encrypted TLS Stream ]──> Central Splunk 
     level: "basic",
     codeExample: `// Zero Trust Architecture Evaluation:
 Request: User Mamata accesses Core Payment Switch from Laptop
-Evaluation: Valid FIDO2 Key? YES + Healthy Device Posture? YES + Approved Location? YES + Work Hours? YES -> Access Granted for 1 Session!`
+Evaluation: Valid FIDO2 Key? YES + Healthy Device Posture? YES + Approved Location? YES + Work Hours? YES → Access Granted for 1 Session!`
   },
   {
     question: "Under the Indian CERT-In Directions 2022, what is the mandatory reporting timeframe for significant cybersecurity incidents under Section 70B of the IT Act 2000?",
@@ -120,8 +120,8 @@ WAF (Layer 7):  Inspects HTTP body, blocking "UNION SELECT" SQLi and "\${jndi:ld
     hint: "Think of a physical cryptographic key that only unlocks the door if the building's physical address matches the address carved into the key.",
     level: "expert",
     codeExample: `// FIDO2 WebAuthn Origin Binding:
-Legitimate Site: https://kolkata-fintech.co.in -> Hardware signs challenge -> Authentication SUCCESS!
-Phishing Proxy:  https://kolkata-fintech.net    -> Origin Mismatch -> Cryptographic Sign FAILS automatically!`
+Legitimate Site: https://kolkata-fintech.co.in → Hardware signs challenge → Authentication SUCCESS!
+Phishing Proxy:  https://kolkata-fintech.net    → Origin Mismatch → Cryptographic Sign FAILS automatically!`
   },
   {
     question: "What is 'Hardware Unidirectional Optical Data Diode', and why is it the gold standard for protecting SCADA / Industrial Control Systems?",
@@ -143,7 +143,7 @@ SCADA Grid (Protected) ──[ LED Transmitter ]──( Light Fiber )──> [ P
 Function Return: RET instruction executed
 CPU Check:       [ Normal Stack Return Addr ] == [ Hardware Shadow Stack Addr ]
 Match:           EXECUTE NORMAL FLOW
-Mismatch (ROP):  HARDWARE SECURITY FAULT -> Instant Process Termination!`
+Mismatch (ROP):  HARDWARE SECURITY FAULT → Instant Process Termination!`
   },
   {
     question: "What are 'Canarytokens' and 'Honeytokens', and how do they turn adversary reconnaissance and enumeration into instant detection alerts?",
@@ -153,7 +153,7 @@ Mismatch (ROP):  HARDWARE SECURITY FAULT -> Instant Process Termination!`
     level: "basic",
     codeExample: `// Canarytoken Deployment:
 Decoy File: C:\\Users\\Public\\Executive_Salaries_2026.docx
-Attacker Opens File -> Word automatically queries Canarytoken Webhook URL
+Attacker Opens File → Word automatically queries Canarytoken Webhook URL
 SOC Alert: [HIGH SEVERITY] Canarytoken Triggered from IP 192.168.1.50 by User: Debangshu!`
   },
   {
@@ -163,8 +163,8 @@ SOC Alert: [HIGH SEVERITY] Canarytoken Triggered from IP 192.168.1.50 by User: D
     hint: "Think about fixing the broken window on the ground floor facing the street before repainting the roof attic.",
     level: "moderate",
     codeExample: `// Modern Vulnerability Prioritization:
-Vulnerability A: CVSS 9.8 | EPSS 0.02% (Theoretical lab flaw, zero public exploits) -> Normal SLA
-Vulnerability B: CVSS 7.5 | EPSS 94.8% (Actively exploited by ransomware groups)   -> IMMEDIATE 24-HOUR EMERGENCY PATCH!`
+Vulnerability A: CVSS 9.8 | EPSS 0.02% (Theoretical lab flaw, zero public exploits) → Normal SLA
+Vulnerability B: CVSS 7.5 | EPSS 94.8% (Actively exploited by ransomware groups)   → IMMEDIATE 24-HOUR EMERGENCY PATCH!`
   },
   {
     question: "How does the 'RBI Master Direction on Cyber Security' mandate multi-layered defensive controls for Indian Scheduled Commercial Banks?",
@@ -184,9 +184,9 @@ Layer 3: Air-gapped isolation of core banking settlement mainframes.`
     hint: "Think of running automated daily smoke and fire alarm tests rather than inspecting the building once a year.",
     level: "expert",
     codeExample: `// Breach & Attack Simulation (BAS) Daily Execution:
-02:00 AM: Simulate Phishing Attachment (T1566) -> Result: Email Sandboxed (PASS)
-02:15 AM: Simulate LSASS Memory Read (T1003)    -> Result: EDR Blocked (PASS)
-02:30 AM: Simulate Lateral SMB Pivot (T1021)    -> Result: FAILED! Firewall Rule Drift Detected -> Alert Dispatched!`
+02:00 AM: Simulate Phishing Attachment (T1566) → Result: Email Sandboxed (PASS)
+02:15 AM: Simulate LSASS Memory Read (T1003)    → Result: EDR Blocked (PASS)
+02:30 AM: Simulate Lateral SMB Pivot (T1021)    → Result: FAILED! Firewall Rule Drift Detected → Alert Dispatched!`
   },
   {
     question: "Synthesizing Defensive Countermeasures across the 5 Hacking Phases: what is the ultimate guiding principle for building resilient enterprise security architectures?",

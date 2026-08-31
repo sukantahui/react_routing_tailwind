@@ -71,7 +71,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             {"Optimizing performance: Setting calculation mode to automatic except for data tables"}
           </h1>
 
@@ -113,7 +113,7 @@ export default function Topic4() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"File &gt; Options &gt; Formulas &gt; Calculation Options: Automatic except for data tables (Alt + M + X + E)"}
+            {"File > Options > Formulas > Calculation Options: Automatic except for data tables (Alt + M + X + E)"}
           </div>
 
           <div className="overflow-x-auto">
@@ -286,7 +286,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Optimizing_perform"
+            sheetName="EX1405"
             title={"Optimizing performance: Setting calculation mode to automatic except for data tables - Interactive Practice Grid"}
             rowsPerPage={10}
             showSheetSelector={true}
@@ -385,7 +385,7 @@ export default function Topic4() {
                 Step 2: Configure What-If Tool / Solver Parameters
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Launch Data Table (Alt + A + W + T), Scenario Manager (Alt + A + W + S), or Solver (Alt + A + Y + 2) and map input ranges <code className="text-cyan-300 font-mono font-bold">{"File &gt; Options &gt; Formulas &gt; Calculation Options: Automatic except for data tables (Alt + M + X + E)"}</code>.
+                Launch Data Table (Alt + A + W + T), Scenario Manager (Alt + A + W + S), or Solver (Alt + A + Y + 2) and map input ranges <code className="text-cyan-300 font-mono font-bold">{"File > Options > Formulas > Calculation Options: Automatic except for data tables (Alt + M + X + E)"}</code>.
               </p>
             </div>
 

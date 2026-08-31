@@ -182,7 +182,7 @@ const questions = [
     explanation: "new Interface() { @Override public void method() { ... } }",
     hint: "Lambda only works for functional interfaces.",
     level: "intermediate",
-    codeExample: "Runnable r = () -> System.out.println(\"run\");"
+    codeExample: "Runnable r = () → System.out.println(\"run\");"
   },
   {
     question: "Can an interface be instantiated using 'new'?",

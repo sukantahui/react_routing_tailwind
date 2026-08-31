@@ -9,8 +9,8 @@ Educator: Sukanta Hui | Barrackpore, West Bengal
 --------------------------------------------------------------------------------
 - Recursive Execution Trees:
   * Tree graph where each node is a method call and branches are child calls.
-  * Linear Recursion : 1 call per frame (e.g. Factorial -> Single straight chain).
-  * Tree Recursion   : 2+ calls per frame (e.g. Fibonacci -> Binary branching tree).
+  * Linear Recursion : 1 call per frame (e.g. Factorial → Single straight chain).
+  * Tree Recursion   : 2+ calls per frame (e.g. Fibonacci → Binary branching tree).
 
 - JVM Traversal Order:
   * Depth-First Search (DFS) order: Dives completely down the LEFT subtree first.

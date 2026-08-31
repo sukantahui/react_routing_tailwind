@@ -69,8 +69,8 @@ AUTHOR & MENTOR: SUKANTA HUI
 5. FINAL EXAM REVISION CHECKLIST
 --------------------------------------------------------------------------------
 [ ] Mastered penalty subtraction: P = 2nd min - 1st min.
-[ ] Memorized tie-breaking hierarchy: Tier 1 (min cost) -> Tier 2 (max volume).
-[ ] Understood dummy line rules: excess supply -> col, excess demand -> row.
+[ ] Memorized tie-breaking hierarchy: Tier 1 (min cost) → Tier 2 (max volume).
+[ ] Understood dummy line rules: excess supply → col, excess demand → row.
 [ ] Applied single-line cross-out to prevent degeneracy.
 [ ] Placed epsilon (ε) in cheapest loop-free cell when needed.
 [ ] Verified basis count m + n - 1 before concluding.

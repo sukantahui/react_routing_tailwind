@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never print or export to PDF without checking Page Break Preview (Alt + W + I) first! Drag the blue lines so your dashboard fits on exactly ONE landscape page. Professional presentation is everything.
 
 COMMON TRAPS TO AVOID:
-- The 'Orphan Column' Print Split (Fatal Presentation Error): Allowing a 5-column dashboard to split column 5 onto a second useless page. -> Fix: Page Layout > Width: 1 page, Height: 1 page (or Fit to 1 page wide).
-- Tiny Unreadable Shrinkage on Massive Sheets: Forcing a 100-row table onto 1 page tall shrinks text to 4pt microscopic unreadable font. -> Fix: Set Width to 1 page, but leave Height as 'Automatic' for multi-page tables.
-- Printing Unwanted Scratch Notes & Calc Columns: Leaving background calculation scratchpad areas unhidden in printouts. -> Fix: Explicitly set the Print Area: Select dashboard > Page Layout > Print Area > Set Print Area.
+- The 'Orphan Column' Print Split (Fatal Presentation Error): Allowing a 5-column dashboard to split column 5 onto a second useless page. → Fix: Page Layout > Width: 1 page, Height: 1 page (or Fit to 1 page wide).
+- Tiny Unreadable Shrinkage on Massive Sheets: Forcing a 100-row table onto 1 page tall shrinks text to 4pt microscopic unreadable font. → Fix: Set Width to 1 page, but leave Height as 'Automatic' for multi-page tables.
+- Printing Unwanted Scratch Notes & Calc Columns: Leaving background calculation scratchpad areas unhidden in printouts. → Fix: Explicitly set the Print Area: Select dashboard > Page Layout > Print Area > Set Print Area.
 ================================================================================

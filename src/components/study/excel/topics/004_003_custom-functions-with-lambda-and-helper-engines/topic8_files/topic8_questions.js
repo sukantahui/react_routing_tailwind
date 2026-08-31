@@ -26,7 +26,7 @@ const questions = [
     explanation: "BYCOL reduces an N-column matrix into N aggregated scalar values across a single horizontal row.",
     hint: "Returns a 1 x N horizontal row vector.",
     level: "basic",
-    codeExample: "(M x N) Matrix &rarr; (1 x N) Row Vector"
+    codeExample: "(M x N) Matrix → (1 x N) Row Vector"
   },
   {
     question: "How do you calculate monthly sales averages across 4 branch locations using BYCOL?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "BYCOL completes the dual-axis matrix aggregation toolkit alongside BYROW, allowing analysts to build complete financial reporting grids in pure memory with zero formula dragging!",
     hint: "Use BYCOL for vertical column summaries and attach with VSTACK.",
     level: "expert",
-    codeExample: "Rule: Matrix Column Summaries &rarr; Use BYCOL + VSTACK!"
+    codeExample: "Rule: Matrix Column Summaries → Use BYCOL + VSTACK!"
   }
 ];
 

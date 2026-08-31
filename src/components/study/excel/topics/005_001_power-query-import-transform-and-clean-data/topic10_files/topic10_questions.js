@@ -34,7 +34,7 @@ const questions = [
     explanation: "'Append as New' is safer for query auditing and modular architecture.",
     hint: "Append mutates current query; Append as New creates a separate query.",
     level: "basic",
-    codeExample: "Home &rarr; Append Queries vs Append Queries as New"
+    codeExample: "Home → Append Queries vs Append Queries as New"
   },
   {
     question: "What M function is generated when appending queries?",
@@ -64,9 +64,9 @@ const questions = [
     question: "Why should you disable 'Enable Load' on individual monthly staging queries after appending them into a Master table?",
     shortAnswer: "To prevent Power BI/Excel from loading redundant duplicate data into memory, saving 50% RAM and reducing workbook file size.",
     explanation: "Only the final consolidated master query needs to load into the Data Model.",
-    hint: "Right-click staging query &rarr; Uncheck 'Enable Load' to save RAM.",
+    hint: "Right-click staging query → Uncheck 'Enable Load' to save RAM.",
     level: "expert",
-    codeExample: "Disable 'Enable Load' on Staging &rarr; Loads only Consolidated Master"
+    codeExample: "Disable 'Enable Load' on Staging → Loads only Consolidated Master"
   },
   {
     question: "What happens if one appended table has a column formatted as 'Text' and the other as 'Whole Number'?",
@@ -88,9 +88,9 @@ const questions = [
     question: "How does 'From Folder' connector automate the appending of 50 monthly CSV files?",
     shortAnswer: "It reads the entire folder directory, applies a sample transform function to each file, and automatically calls `Table.Combine` on the transformed binary streams!",
     explanation: "Automatic parameterized ETL folder ingestion.",
-    hint: "From Folder &rarr; Combine Files auto-generates Table.Combine.",
+    hint: "From Folder → Combine Files auto-generates Table.Combine.",
     level: "expert",
-    codeExample: "Folder Connector &rarr; Transform Sample &rarr; Table.Combine"
+    codeExample: "Folder Connector → Transform Sample → Table.Combine"
   },
   {
     question: "What happens if a column exists in Table 1 but is completely absent in Table 2 when appended?",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "Guarantees seamless vertical column alignment.",
     hint: "Rename headers to identical casing and spelling before appending.",
     level: "moderate",
-    codeExample: "Rename 'CustID' &rarr; 'Customer_ID' across all staging tables"
+    codeExample: "Rename 'CustID' → 'Customer_ID' across all staging tables"
   },
   {
     question: "What is the impact of appending queries on Query Folding when sources are in the SAME SQL database?",
@@ -114,7 +114,7 @@ const questions = [
     explanation: "Native server-side UNION execution.",
     hint: "Folds into SQL UNION ALL if both tables share the same SQL server.",
     level: "expert",
-    codeExample: "M Table.Combine &rarr; SQL: SELECT * FROM T1 UNION ALL SELECT * FROM T2"
+    codeExample: "M Table.Combine → SQL: SELECT * FROM T1 UNION ALL SELECT * FROM T2"
   },
   {
     question: "What happens to Query Folding if you append a SQL database table with a local Excel spreadsheet?",
@@ -138,7 +138,7 @@ const questions = [
     explanation: "Centralizes type coercion at the end of the pipeline.",
     hint: "Perform final Changed Type once on the consolidated table.",
     level: "advanced",
-    codeExample: "Append Tables &rarr; 1 Single 'Changed Type' Step"
+    codeExample: "Append Tables → 1 Single 'Changed Type' Step"
   },
   {
     question: "What is the row count of the appended table if Table 1 has 5,000 rows and Table 2 has 8,000 rows?",
@@ -158,11 +158,11 @@ const questions = [
   },
   {
     question: "How do you remove completely empty rows that might have been introduced during an append operation?",
-    shortAnswer: "Home Tab &rarr; Remove Rows &rarr; Remove Blank Rows (`Table.SelectRows(tbl, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null})))`).",
+    shortAnswer: "Home Tab → Remove Rows → Remove Blank Rows (`Table.SelectRows(tbl, each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {\"\", null})))`).",
     explanation: "Purges blank rows from dirty monthly exports.",
-    hint: "Remove Rows &rarr; Remove Blank Rows.",
+    hint: "Remove Rows → Remove Blank Rows.",
     level: "basic",
-    codeExample: "Remove Rows &rarr; Remove Blank Rows"
+    codeExample: "Remove Rows → Remove Blank Rows"
   },
   {
     question: "What is the difference between 'Appending' and 'Merging' queries in Power Query?",
@@ -202,15 +202,15 @@ const questions = [
     explanation: "Preserves sequential chronological order of passed tables.",
     hint: "Streams rows in the exact sequence of the passed table list.",
     level: "moderate",
-    codeExample: "Row Order: Table 1 Rows &rarr; Table 2 Rows &rarr; Table 3 Rows"
+    codeExample: "Row Order: Table 1 Rows → Table 2 Rows → Table 3 Rows"
   },
   {
     question: "How do you append tables containing binary files stored in an Azure Blob or SharePoint folder?",
-    shortAnswer: "Connect via SharePoint/Azure connector &rarr; Filter binary extensions &rarr; Click 'Combine Files' content button.",
+    shortAnswer: "Connect via SharePoint/Azure connector → Filter binary extensions → Click 'Combine Files' content button.",
     explanation: "Cloud folder ingestion pattern.",
-    hint: "SharePoint Connector &rarr; Combine Files button.",
+    hint: "SharePoint Connector → Combine Files button.",
     level: "advanced",
-    codeExample: "SharePoint.Files &rarr; Filter Path &rarr; Combine Files"
+    codeExample: "SharePoint.Files → Filter Path → Combine Files"
   },
   {
     question: "How do you handle missing columns in legacy year files (e.g. 2024 has 10 columns, but 2026 has 12 columns)?",
@@ -218,7 +218,7 @@ const questions = [
     explanation: "Graceful evolution of enterprise schema structures.",
     hint: "Power Query populates null for the 2 new columns in 2024 rows.",
     level: "moderate",
-    codeExample: "2024 Rows + 2026 Rows &rarr; 12 Columns Total"
+    codeExample: "2024 Rows + 2026 Rows → 12 Columns Total"
   },
   {
     question: "What is the best way to name staging queries that feed an appended Master query?",
@@ -226,7 +226,7 @@ const questions = [
     explanation: "Maintains professional query navigator hygiene.",
     hint: "Use 'stg_' prefix and organize in a 'Staging' query group folder.",
     level: "basic",
-    codeExample: "Folder: 'Staging' &rarr; stg_Jan, stg_Feb &rarr; Master: fct_Sales"
+    codeExample: "Folder: 'Staging' → stg_Jan, stg_Feb → Master: fct_Sales"
   },
   {
     question: "How do you optimize memory consumption when appending 100 historical daily CSV files?",
@@ -234,7 +234,7 @@ const questions = [
     explanation: "Eliminating unused columns in the sample query reduces memory by 80%.",
     hint: "Remove unused columns in the 'Transform Sample File' query.",
     level: "expert",
-    codeExample: "Transform Sample File &rarr; Remove Unused Columns &rarr; High-Speed Combine"
+    codeExample: "Transform Sample File → Remove Unused Columns → High-Speed Combine"
   },
   {
     question: "What is Instructor Sukanta Hui's golden rule for Appending Queries?",
@@ -242,7 +242,7 @@ const questions = [
     explanation: "Clean appending is the foundation of automated multi-period corporate consolidation!",
     hint: "Exact Header Matching + Case-Sensitivity + Append as New + Disable Staging Load = Pristine Master Table!",
     level: "expert",
-    codeExample: "Rule: Harmonize Headers &rarr; Table.Combine &rarr; Disable Staging Load &rarr; Single Final Type Coerce!"
+    codeExample: "Rule: Harmonize Headers → Table.Combine → Disable Staging Load → Single Final Type Coerce!"
   }
 ];
 

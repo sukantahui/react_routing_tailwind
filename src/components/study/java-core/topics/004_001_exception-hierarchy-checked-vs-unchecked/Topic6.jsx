@@ -21,7 +21,7 @@ export default function Topic6() {
             Runtime Defects
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Unchecked Exceptions: Subclasses of <code className="text-rose-400 font-mono">RuntimeException</code> (<code className="text-rose-300 font-mono">NullPointerException</code>, <code className="text-amber-400 font-mono">ArithmeticException</code>)
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">

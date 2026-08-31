@@ -76,7 +76,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-purple-400 via-sky-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Global vs. First-Match Extractions & Capturing Groups in REGEXEXTRACT
           </h1>
 
@@ -133,7 +133,7 @@ export default function Topic4() {
                 Returns only the first matching substring as a single scalar text cell.
               </p>
               <div className="p-2 bg-slate-900 rounded-lg text-amber-300 text-xs">
-                "INV-101, INV-202" &rarr; "INV-101"
+                "INV-101, INV-202" → "INV-101"
               </div>
             </div>
 
@@ -147,7 +147,7 @@ export default function Topic4() {
                 Extracts all occurrences across the string as a spilled horizontal vector.
               </p>
               <div className="p-2 bg-slate-900 rounded-lg text-sky-300 text-xs">
-                "INV-101, INV-202" &rarr; 101 | 202
+                "INV-101, INV-202" → 101 | 202
               </div>
             </div>
 
@@ -161,7 +161,7 @@ export default function Topic4() {
                 Spills each parenthetical capturing group <code className="text-emerald-300 font-mono">(...)</code> into adjacent columns.
               </p>
               <div className="p-2 bg-slate-900 rounded-lg text-emerald-300 text-xs">
-                "swadeep@corp.in" &rarr; swadeep | corp.in
+                "swadeep@corp.in" → swadeep | corp.in
               </div>
             </div>
           </div>
@@ -338,7 +338,7 @@ export default function Topic4() {
               {/* Bottom Result */}
               <rect x="25" y="275" width="800" height="40" rx="8" fill="#1E293B" stroke="#334155" />
               <text x="425" y="299" fill="#38BDF8" fontSize="10.5" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
-                Formula: =REGEXEXTRACT(A2, pattern, 2) &rarr; Spills 4 Relational Columns Instantly
+                Formula: =REGEXEXTRACT(A2, pattern, 2) → Spills 4 Relational Columns Instantly
               </text>
             </svg>
           </div>
@@ -374,7 +374,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_Groups_Global"
+            sheetName="EX1905"
             title="Capturing Groups & Global Extraction Dataset (Record ID, Raw Contact String, Country, Area, Extension)"
             rowsPerPage={10}
             showSheetSelector={true}

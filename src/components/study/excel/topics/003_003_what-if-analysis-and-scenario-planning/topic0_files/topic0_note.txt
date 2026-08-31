@@ -6,7 +6,7 @@ Course: EXCEL-PRO-901: Microsoft Excel From Zero to Ultra Expert
 Instructor: Sukanta Hui (Coder & AccoTax)
 
 KEY FORMULA / SYNTAX:
-What-If Decision Framework: Assumptions (Variables) -> Financial Logic Engine -> Sensitivity Outputs (KPIs)
+What-If Decision Framework: Assumptions (Variables) → Financial Logic Engine → Sensitivity Outputs (KPIs)
 
 PRIMARY CONCEPT:
 Understanding the What-If Analysis decision science framework: separating deterministic base cases from uncertainty distributions, stress testing, and scenario planning
@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 What-If Analysis is what separates junior spreadsheet typists from strategic C-suite advisors. You are not just presenting numbers; you are quantifying risk and optimizing decisions.
 
 COMMON TRAPS TO AVOID:
-- Single-Point Estimate Bias: Presenting a single 'expected' revenue figure to executive leadership without modeling downside risk boundaries. -> Fix: Always present 3-scenario bounds (Best, Base, Worst) and 2D sensitivity matrices.
-- Unlinked Assumption Cells: Typing hardcoded numbers into formulas prevents What-If tools from recalculating model outputs dynamically. -> Fix: Enforce strict dynamic cell links to central Assumption Blocks.
-- Ignoring Multi-Variable Correlations: Assuming price can increase by 50% without any reduction in customer sales volume. -> Fix: Incorporate realistic price elasticity demand curves in sensitivity assumptions.
+- Single-Point Estimate Bias: Presenting a single 'expected' revenue figure to executive leadership without modeling downside risk boundaries. → Fix: Always present 3-scenario bounds (Best, Base, Worst) and 2D sensitivity matrices.
+- Unlinked Assumption Cells: Typing hardcoded numbers into formulas prevents What-If tools from recalculating model outputs dynamically. → Fix: Enforce strict dynamic cell links to central Assumption Blocks.
+- Ignoring Multi-Variable Correlations: Assuming price can increase by 50% without any reduction in customer sales volume. → Fix: Incorporate realistic price elasticity demand curves in sensitivity assumptions.
 ================================================================================

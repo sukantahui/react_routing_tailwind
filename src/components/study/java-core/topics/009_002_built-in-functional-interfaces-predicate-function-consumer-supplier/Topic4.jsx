@@ -21,7 +21,7 @@ export default function Topic4() {
             Consumer&lt;T&gt;
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">Consumer&lt;T&gt;</code>: Executing Side-Effects &amp; Pipeline Iteration
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -42,7 +42,7 @@ export default function Topic4() {
 
       <section className="space-y-4">
         <FAQTemplate
-          title="Consumer<T> FAQs"
+          title="Consumer&lt;T&gt; FAQs"
           questions={questions}
         />
       </section>
@@ -50,7 +50,7 @@ export default function Topic4() {
       <section className="space-y-4">
         <PlainTextPrint
           content={noteText}
-          title="Module 009_002 Topic 4: Consumer<T> Deep Dive"
+          title="Module 009_002 Topic 4: Consumer&lt;T&gt; Deep Dive"
           stampEnabled={true}
           showDownload={true}
           downloadButtonText="Download Printable Note"
@@ -59,7 +59,7 @@ export default function Topic4() {
       </section>
 
       <Teacher
-        note="Whenever you call 'list.forEach(item -> ...)', you are passing a Consumer! A Consumer is a hungry black hole: you give it data, it performs an action (prints, saves, emails), and returns nothing back! — Sukanta Hui"
+        note="Whenever you call 'list.forEach(item → ...)', you are passing a Consumer! A Consumer is a hungry black hole: you give it data, it performs an action (prints, saves, emails), and returns nothing back! — Sukanta Hui"
       />
     </div>
   );

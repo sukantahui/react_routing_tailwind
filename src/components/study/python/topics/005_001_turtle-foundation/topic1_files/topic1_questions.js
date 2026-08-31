@@ -112,7 +112,7 @@ const questions = [
     explanation: "Quadrant identification for negative coordinates.",
     hint: "Both negative: Quadrant III (Bottom-Left).",
     level: "basic",
-    codeExample: "# (-180, -220) -> Quadrant III"
+    codeExample: "# (-180, -220) → Quadrant III"
   },
   {
     question: "In which quadrant would the point (120, -95) lie?",
@@ -120,7 +120,7 @@ const questions = [
     explanation: "Quadrant identification for (+X, -Y).",
     hint: "Positive X, negative Y: Quadrant IV (Bottom-Right).",
     level: "basic",
-    codeExample: "# (120, -95) -> Quadrant IV"
+    codeExample: "# (120, -95) → Quadrant IV"
   },
   {
     question: "How do you change the coordinate world space using 'screen.setworldcoordinates()'?",

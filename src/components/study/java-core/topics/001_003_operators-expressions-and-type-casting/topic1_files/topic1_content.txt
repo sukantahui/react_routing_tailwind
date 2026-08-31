@@ -20,10 +20,10 @@ In the Java Language Specification (JLS §15.17.3), the remainder operator is de
 Consequences of this definition:
 A. Sign Rule:
    The sign of the result is identical to the sign of the dividend `a`:
-   - `10 % 3`   -> `10 - (3 * 3)` = `+1`
-   - `-10 % 3`  -> `-10 - (-3 * 3)` = `-1`
-   - `10 % -3`  -> `10 - (-3 * -3)` = `+1`
-   - `-10 % -3` -> `-10 - (3 * -3)` = `-1`
+   - `10 % 3`   → `10 - (3 * 3)` = `+1`
+   - `-10 % 3`  → `-10 - (-3 * 3)` = `-1`
+   - `10 % -3`  → `10 - (-3 * -3)` = `+1`
+   - `-10 % -3` → `-10 - (3 * -3)` = `-1`
 
 B. Floating-Point Modulus:
    Unlike ANSI C and C++ (where `%` is restricted to integers), Java supports floating-point modulus directly:
@@ -35,9 +35,9 @@ Java enforces two distinct behaviors for division by zero based on operand type:
   `int n = 10 / 0;` triggers an immediate CPU hardware trap, caught by the JVM as `java.lang.ArithmeticException: / by zero`.
 - IEEE 754 Floating-Point Arithmetic:
   Floating-point operations NEVER throw `ArithmeticException`. Instead:
-  * `10.0 / 0.0` -> `Double.POSITIVE_INFINITY`
-  * `-10.0 / 0.0` -> `Double.NEGATIVE_INFINITY`
-  * `0.0 / 0.0` -> `Double.NaN` (Not-a-Number)
+  * `10.0 / 0.0` → `Double.POSITIVE_INFINITY`
+  * `-10.0 / 0.0` → `Double.NEGATIVE_INFINITY`
+  * `0.0 / 0.0` → `Double.NaN` (Not-a-Number)
 
 4. ARITHMETIC OVERFLOW & SAFETY IN JAVA
 Because Java uses fixed-width two's complement binary integers, exceeding `Integer.MAX_VALUE` (`2,147,483,647`) silently wraps around into negative integers (`-2,147,483,648`).

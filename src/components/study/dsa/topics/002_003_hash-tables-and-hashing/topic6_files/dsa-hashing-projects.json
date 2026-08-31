@@ -29,7 +29,7 @@
       "description": "When keys exceed array bounds, a Hash Function `h(k) = k % M` maps arbitrary integer keys to index positions `[0..M-1]`. Picking a prime number for table size M distributes keys uniformly and minimizes collisions. In this project, you will construct a Division Method Hash Calculator in C using a prime table size `M = 11`.",
       "learningOutcome": "Division Hash Function, Modulo Arithmetic & Prime Table Size Selection",
       "exampleText": "Hash keys 25, 42, 99, 104 with M=11",
-      "exampleOutput": "--- Division Method Hash Function ---\nKey  25 -> Hash Index = 3\nKey  42 -> Hash Index = 9\nKey  99 -> Hash Index = 0\nKey 104 -> Hash Index = 5",
+      "exampleOutput": "--- Division Method Hash Function ---\nKey  25 → Hash Index = 3\nKey  42 → Hash Index = 9\nKey  99 → Hash Index = 0\nKey 104 → Hash Index = 5",
       "logicExplanation": "1. **Modulo Math**: `index = key % M`.\n2. **Prime Modulo**: Prevents common factor clustering.",
       "answerFile": "./answers/answer2.c",
       "codeExplanation": "1. `hash_division()`: Maps key to index using division method."
@@ -41,7 +41,7 @@
       "description": "Knuth's Multiplication Method maps key `k` using formula `h(k) = floor(M * (k * A mod 1))` where constant `A ≈ (sqrt(5) - 1) / 2 = 0.618033` (the Golden Ratio). This method works well for any table size M! In this project, you will build a Multiplicative Hash Function in C.",
       "learningOutcome": "Multiplication Hashing, Knuth Golden Ratio Constant & Floating Point Hash Math",
       "exampleText": "Hash keys 123, 456, 789 with M=100",
-      "exampleOutput": "--- Multiplication Method Hash Function ---\nKey 123 -> Hash Index = 18\nKey 456 -> Hash Index = 82\nKey 789 -> Hash Index = 62",
+      "exampleOutput": "--- Multiplication Method Hash Function ---\nKey 123 → Hash Index = 18\nKey 456 → Hash Index = 82\nKey 789 → Hash Index = 62",
       "logicExplanation": "1. **Fractional Part**: `frac = k * A - floor(k * A)`.\n2. **Scale**: Multiply `frac` by `M` and drop decimals.",
       "answerFile": "./answers/answer3.c",
       "codeExplanation": "1. `hash_multiplication()`: Computes Knuth multiplicative hash index."
@@ -53,7 +53,7 @@
       "description": "When two distinct keys produce the same hash index (`h(k1) == h(k2)`), a Collision occurs. Separate Chaining resolves collisions by turning each hash table bucket into a Singly Linked List of colliding keys. In this project, you will build a Separate Chaining Hash Table in C.",
       "learningOutcome": "Collision Resolution, Separate Chaining Linked Lists & Bucket Overflow Handling",
       "exampleText": "Insert colliding keys 15, 22, 29, 36 (M=7)",
-      "exampleOutput": "--- Separate Chaining Hash Table ---\nBucket 0: NULL\nBucket 1: 36 -> 29 -> 22 -> 15 -> NULL",
+      "exampleOutput": "--- Separate Chaining Hash Table ---\nBucket 0: NULL\nBucket 1: 36 → 29 → 22 → 15 → NULL",
       "logicExplanation": "1. **Bucket Array**: `Node *table[M]` initialized to NULL.\n2. **Chain Head Insert**: Prepend colliding node to `table[index]`.",
       "answerFile": "./answers/answer4.c",
       "codeExplanation": "1. `insert_chain()`: Inserts key into separate chaining linked list bucket."
@@ -170,7 +170,7 @@
       "projectId": "HASH_014",
       "title": "Group Anagrams using String Sorting & Hash Map",
       "difficulty": "Intermediate",
-      "description": "Given an array of strings, group anagrams together (words containing identical letters in different orders). Sorting each string alphabetically yields a canonical key (e.g., `'eat'` -> `'aet'`). Map canonical keys to lists of anagrams in a Hash Map. In this project, you will build an Anagram Grouping Engine in C.",
+      "description": "Given an array of strings, group anagrams together (words containing identical letters in different orders). Sorting each string alphabetically yields a canonical key (e.g., `'eat'` → `'aet'`). Map canonical keys to lists of anagrams in a Hash Map. In this project, you will build an Anagram Grouping Engine in C.",
       "learningOutcome": "Canonical Key Generation, String Sorting Keys & Anagram Hash Table Bucketing",
       "exampleText": "Input: ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']",
       "exampleOutput": "--- Group Anagrams Hashing Engine ---\nGroup 1: [ eat, tea, ate ]\nGroup 2: [ tan, nat ]\nGroup 3: [ bat ]",
@@ -209,7 +209,7 @@
       "description": "Two strings S and T are Isomorphic if characters in S can be replaced to get T while preserving character order and 1-to-1 character mappings. In this project, you will build an Isomorphic Strings Validator in C using dual character mapping arrays.",
       "learningOutcome": "Bi-Directional Character Mapping, Bijection Verification & Isomorphic String Checks",
       "exampleText": "S = 'egg', T = 'add'",
-      "exampleOutput": "--- Isomorphic Strings Validator ---\n'egg' and 'add' -> Isomorphic",
+      "exampleOutput": "--- Isomorphic Strings Validator ---\n'egg' and 'add' → Isomorphic",
       "logicExplanation": "1. **Dual Mapping**: `map1[s[i]] = t[i]` and `map2[t[i]] = s[i]`.\n2. **Bi-Directional Invariant**: Ensure no character maps to multiple distinct characters.",
       "answerFile": "./answers/answer17.c",
       "codeExplanation": "1. `is_isomorphic()`: Validates isomorphic string mappings."

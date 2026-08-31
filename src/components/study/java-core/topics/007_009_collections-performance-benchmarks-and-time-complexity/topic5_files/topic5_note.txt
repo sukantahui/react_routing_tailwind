@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. GARBAGE COLLECTION PRESSURE:
    - ArrayList: 1 backing array object (low GC pressure).
    - LinkedList: 1 million elements = 1 million Node objects!
-   - High Eden space allocation storm &rarr; frequent Minor GCs.
+   - High Eden space allocation storm → frequent Minor GCs.
    - Long GC tracing and compaction pauses (Stop-The-World).
    - Production Rule: Use array-backed structures (ArrayList, ArrayDeque).
 

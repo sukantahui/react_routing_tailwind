@@ -8,7 +8,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 1. THREAD-PER-REQUEST BOTTLENECK:
    - Tomcat allocates ~200 OS worker threads.
    - Each thread blocks while waiting for DB / HTTP I/O (sleeping).
-   - All 200 threads exhausted &rarr; Server rejects incoming requests (503).
+   - All 200 threads exhausted → Server rejects incoming requests (503).
    - Server crashes despite having 95% CPU capacity unused!
    - Solved by Virtual Threads which unmount during I/O blocking.
 

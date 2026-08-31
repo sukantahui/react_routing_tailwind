@@ -11,7 +11,7 @@ A Digital Signature is a mathematical mechanism that binds an author's cryptogra
 identity to a specific digital document by signing the document's cryptographic hash 
 with the author's secret Private Key:
 
-         S = Sign_{K_priv}( Hash( M ) )    |    Verify_{K_pub}( Hash( M ), S ) -> { True, False }
+         S = Sign_{K_priv}( Hash( M ) )    |    Verify_{K_pub}( Hash( M ), S ) → { True, False }
 
 * THE 3 PILLARS OF MESSAGE AUTHENTICITY:
   1. MESSAGE INTEGRITY   : Recipient verifies that not a single bit was modified in transit.
@@ -51,7 +51,7 @@ with the author's secret Private Key:
     - Sony's engineers hardcoded a static constant for the random nonce k in ECDSA signing.
     - Signing two games with the same k allowed hackers to deduce Sony's root private key d:
            k = (z1 - z2) / (s1 - s2) mod n  ==>  d = (s1 * k - z1) / r mod n
-    - Root private key extracted in milliseconds -> Console hypervisor permanently cracked!
+    - Root private key extracted in milliseconds → Console hypervisor permanently cracked!
 
   * Ed25519 (RFC 8032 - DETERMINISTIC EDWARDS CURVE SIGNATURES):
     - Derives nonce deterministically from hash of private key and message: r = SHA-512( K_priv || M ).
@@ -62,7 +62,7 @@ with the author's secret Private Key:
 --------------------------------------------------------------------------------
 
 * X.509 CERTIFICATE HIERARCHY:
-  - Root CA (Self-signed master) -> Intermediate CAs -> End-Entity Certificates.
+  - Root CA (Self-signed master) → Intermediate CAs → End-Entity Certificates.
 
 * REVOCATION MECHANISMS:
   1. CRL (Certificate Revocation List) : Bulky, high-latency lists of revoked serial numbers.

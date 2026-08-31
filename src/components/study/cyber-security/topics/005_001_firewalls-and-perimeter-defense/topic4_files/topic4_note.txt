@@ -20,10 +20,10 @@ actively established session initiated by an authorized internal host or a legit
 ----------------------------------------------------------------------------------------------------
 Each entry in the kernel connection tracking table consists of two directional 5-tuple structures:
 
-  [ORIGINAL DIRECTION (Client -> Server)]
-    - Source IP, Source Port, Destination IP, Destination Port, Protocol (e.g., 10.10.1.50:51200 -> 203.0.113.88:443 [TCP])
-  [REPLY DIRECTION (Server -> Client)]
-    - Expected Source IP, Expected Source Port, Expected Dest IP, Expected Dest Port (203.0.113.88:443 -> 10.10.1.50:51200 [TCP])
+  [ORIGINAL DIRECTION (Client → Server)]
+    - Source IP, Source Port, Destination IP, Destination Port, Protocol (e.g., 10.10.1.50:51200 → 203.0.113.88:443 [TCP])
+  [REPLY DIRECTION (Server → Client)]
+    - Expected Source IP, Expected Source Port, Expected Dest IP, Expected Dest Port (203.0.113.88:443 → 10.10.1.50:51200 [TCP])
 
 Connection States in Netfilter / iptables:
   1. `NEW`         : The initial packet of a connection (e.g. TCP SYN without ACK) attempting to initiate a session.
@@ -56,7 +56,7 @@ Window Validation:
 ----------------------------------------------------------------------------------------------------
 Dynamic protocols negotiate secondary ephemeral data ports inside control payloads:
 
-  - Active FTP (Port 21 Control -> Ephemeral Data Port):
+  - Active FTP (Port 21 Control → Ephemeral Data Port):
     Client sends `PORT 10,10,1,50,200,10` (Port 51210).
     The kernel FTP ALG helper (`nf_conntrack_ftp`) inspects payload, parses the negotiated port, and 
     dynamically inserts a temporary, time-limited `RELATED` pinhole allowing the FTP server to connect 

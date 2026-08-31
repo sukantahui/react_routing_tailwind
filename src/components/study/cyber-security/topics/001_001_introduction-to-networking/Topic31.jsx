@@ -29,7 +29,7 @@ const Topic31 = () => {
       totalOneWay: '0.027 ms (~27 microseconds)',
       rtt: 'under 0.1 ms (Real-time LAN speed)',
       uxRating: 'Instantaneous (Ideal for Industrial Robotics & SAN Storage)',
-      simulation: 'Packet enters switch ASIC -> 5μs hardware lookup -> Instant wire delivery with zero queuing.',
+      simulation: 'Packet enters switch ASIC → 5μs hardware lookup → Instant wire delivery with zero queuing.',
     },
     {
       id: 'kolkata-metro',
@@ -42,7 +42,7 @@ const Topic31 = () => {
       totalOneWay: '0.296 ms (~0.3 ms)',
       rtt: '2.5 – 4.0 ms (Metro Internet Exchange)',
       uxRating: 'Blazing Fast (Zero-lag Cloud gaming & 4K video conferencing)',
-      simulation: 'Client query -> Edge CDN terminates TLS locally in Kolkata -> Cached response in 3.2ms RTT.',
+      simulation: 'Client query → Edge CDN terminates TLS locally in Kolkata → Cached response in 3.2ms RTT.',
     },
     {
       id: 'mumbai-cloud',
@@ -55,7 +55,7 @@ const Topic31 = () => {
       totalOneWay: '11.56 ms',
       rtt: '28.0 – 35.0 ms (Pan-India RTT)',
       uxRating: 'Smooth (Seamless for Banking ERP & Database Queries)',
-      simulation: 'Packet traverses 8 router hops across central India fiber backbones -> Returns in 31ms RTT.',
+      simulation: 'Packet traverses 8 router hops across central India fiber backbones → Returns in 31ms RTT.',
     },
     {
       id: 'us-east',
@@ -68,7 +68,7 @@ const Topic31 = () => {
       totalOneWay: '76.01 ms',
       rtt: '185.0 – 210.0 ms',
       uxRating: 'Noticeable Delay (TCP 3-way handshake takes ~300ms without CDN)',
-      simulation: 'Transatlantic subsea fiber transit -> Multi-second page load if TLS terminates at US origin.',
+      simulation: 'Transatlantic subsea fiber transit → Multi-second page load if TLS terminates at US origin.',
     },
     {
       id: 'geo-satellite',
@@ -81,7 +81,7 @@ const Topic31 = () => {
       totalOneWay: '268.97 ms',
       rtt: '560.0 – 650.0 ms',
       uxRating: 'High Latency (Unusable for gaming or interactive SSH terminals)',
-      simulation: 'Signal travels 71,500 km up and down to space orbit -> 600ms RTT delay is physically unavoidable.',
+      simulation: 'Signal travels 71,500 km up and down to space orbit → 600ms RTT delay is physically unavoidable.',
     },
   ];
 
@@ -176,7 +176,7 @@ const Topic31 = () => {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight">
             Latency
           </h1>
 

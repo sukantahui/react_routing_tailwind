@@ -7,7 +7,7 @@ const questions = [
     hint: "W3C WebAuthn (browser API) + FIDO CTAP2 (hardware communication protocol).",
     level: "Basic",
     codeExample: `// FIDO2 Architecture:
-// Web Application -> W3C WebAuthn API -> Browser -> CTAP2 Protocol -> Hardware YubiKey`
+// Web Application → W3C WebAuthn API → Browser → CTAP2 Protocol → Hardware YubiKey`
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const questions = [
     codeExample: `// Origin Binding Verification:
 // Browser computes: clientDataHash = SHA256({ "origin": "https://fake-bank.net", ... })
 // Hardware signs: Signature = Sign(authenticatorData || clientDataHash)
-// Real bank server checks against 'https://realbank.com' -> MISMATCH! Assertion Rejected ❌`
+// Real bank server checks against 'https://realbank.com' → MISMATCH! Assertion Rejected ❌`
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const questions = [
     hint: "U2F requires a password first; FIDO2 supports standalone passwordless authentication.",
     level: "Basic",
     codeExample: `// Evolution:
-// U2F   : Step 1 = Password -> Step 2 = USB Key Tap
+// U2F   : Step 1 = Password → Step 2 = USB Key Tap
 // FIDO2 : Single Step = USB Key Tap + Hardware PIN/Biometric (Passwordless ✔)`
   },
   {
@@ -53,8 +53,8 @@ const questions = [
     hint: "UP = Physical touch (presence); UV = Local PIN or biometric verification.",
     level: "Moderate",
     codeExample: `// CTAP2 Flag Byte:
-// Bit 0 (0x01) -> User Presence (UP) = 1 (Key was physically touched)
-// Bit 2 (0x04) -> User Verification (UV) = 1 (PIN/Biometric verified on key)`
+// Bit 0 (0x01) → User Presence (UP) = 1 (Key was physically touched)
+// Bit 2 (0x04) → User Verification (UV) = 1 (PIN/Biometric verified on key)`
   },
   {
     id: 6,
@@ -64,7 +64,7 @@ const questions = [
     hint: "Private key and user metadata stored directly in hardware memory for username-less login.",
     level: "Moderate",
     codeExample: `// Discoverable Credential Workflow:
-// User visits bank.com -> Touches YubiKey -> Key transmits [User: susmita@bank.in] + Assertion Signature -> Instant Login!`
+// User visits bank.com → Touches YubiKey → Key transmits [User: susmita@bank.in] + Assertion Signature → Instant Login!`
   },
   {
     id: 7,
@@ -85,7 +85,7 @@ const questions = [
     hint: "Cryptographic statement from the manufacturer certifying the authenticator is genuine hardware.",
     level: "Expert",
     codeExample: `// Attestation Statement Verification:
-// Server verifies X.509 certificate chain up to Yubico Root CA -> Validates physical model: 'YubiKey 5 NFC FIPS'`
+// Server verifies X.509 certificate chain up to Yubico Root CA → Validates physical model: 'YubiKey 5 NFC FIPS'`
   },
   {
     id: 9,
@@ -128,7 +128,7 @@ const questions = [
     hint: "Local hardware unlock code verified on the key; locks permanently after 8 failed attempts.",
     level: "Basic",
     codeExample: `// PIN Protection:
-// Failed Attempts: 1/8 -> 2/8 -> ... -> 8/8 ➔ Key hardware locks and zeroizes credentials!`
+// Failed Attempts: 1/8 → 2/8 → ... → 8/8 ➔ Key hardware locks and zeroizes credentials!`
   },
   {
     id: 13,
@@ -138,7 +138,7 @@ const questions = [
     hint: "Uses ECDH key exchange to encrypt the PIN across the USB bus before transmission.",
     level: "Expert",
     codeExample: `// ClientPIN Encryption:
-// Browser & YubiKey -> ECDH P-256 Key Agreement -> AES-256-CBC Encrypted PIN Token -> Secure USB Transport ✔`
+// Browser & YubiKey → ECDH P-256 Key Agreement → AES-256-CBC Encrypted PIN Token → Secure USB Transport ✔`
   },
   {
     id: 14,
@@ -161,7 +161,7 @@ const questions = [
     codeExample: `// Recovery Strategy:
 // User Profile:
 // Keys Registered: [ "YubiKey_Primary (Active)", "YubiKey_Backup_Home (Active)" ]
-// If Primary lost -> Revoke Primary key ID on server, authenticate with Backup key.`
+// If Primary lost → Revoke Primary key ID on server, authenticate with Backup key.`
   },
   {
     id: 16,
@@ -206,7 +206,7 @@ const questions = [
     hint: "Requires physical touch on the metal contact; background malware cannot touch the key.",
     level: "Basic",
     codeExample: `// Physical Touch Barrier:
-// Malware triggers API -> YubiKey LED blinks -> Waits for human finger -> Timeout after 15s -> Assertion Fails! 🛡️`
+// Malware triggers API → YubiKey LED blinks → Waits for human finger → Timeout after 15s → Assertion Fails! 🛡️`
   },
   {
     id: 20,
@@ -226,7 +226,7 @@ const questions = [
     hint: "Allows storing encrypted files (like SSH keys) directly in the hardware key's memory.",
     level: "Expert",
     codeExample: `// Large Blob Usage:
-// Encrypts SSH Private Key -> Writes to YubiKey flash memory -> Decrypted only upon physical key touch.`
+// Encrypts SSH Private Key → Writes to YubiKey flash memory → Decrypted only upon physical key touch.`
   },
   {
     id: 22,
@@ -257,7 +257,7 @@ const questions = [
     hint: "Runs independent applets on a single secure chip supporting FIDO2, PIV Smartcard, and OpenPGP.",
     level: "Moderate",
     codeExample: `// YubiKey Multi-Protocol Architecture:
-// USB Interface -> [Secure Enclave Controller] -> { FIDO2, PIV SmartCard, OpenPGP, Yubico OTP }`
+// USB Interface → [Secure Enclave Controller] → { FIDO2, PIV SmartCard, OpenPGP, Yubico OTP }`
   },
   {
     id: 25,
@@ -267,7 +267,7 @@ const questions = [
     hint: "Zero-touch automated onboarding protocol for headless IoT devices using silicon keys.",
     level: "Expert",
     codeExample: `// FDO Workflow:
-// Unbox IoT Sensor -> Connect Power -> Sensor authenticates to cloud using factory silicon key -> Automatically provisions.`
+// Unbox IoT Sensor → Connect Power → Sensor authenticates to cloud using factory silicon key → Automatically provisions.`
   },
   {
     id: 26,
@@ -287,7 +287,7 @@ const questions = [
     hint: "No shared secrets or passwords exist to be sprayed or stuffed by automated botnets.",
     level: "Basic",
     codeExample: `// Defense Outcome:
-// Credential Stuffing Botnet tests 10,000,000 passwords -> FIDO2 endpoint requires cryptographic signature -> 0% attack success ✔`
+// Credential Stuffing Botnet tests 10,000,000 passwords → FIDO2 endpoint requires cryptographic signature → 0% attack success ✔`
   },
   {
     id: 28,
@@ -297,7 +297,7 @@ const questions = [
     hint: "Falls back to local hardware PIN evaluated on the key chip itself.",
     level: "Basic",
     codeExample: `// Biometric Failure Fallback:
-// Fingerprint scan failed -> Prompt: "Enter 6-digit FIDO PIN on your security key" -> PIN verified on chip.`
+// Fingerprint scan failed → Prompt: "Enter 6-digit FIDO PIN on your security key" → PIN verified on chip.`
   },
   {
     id: 29,
@@ -309,7 +309,7 @@ const questions = [
     codeExample: `// Phishing Neutralization:
 // 1. Evilginx proxies traffic on fake domain.
 // 2. YubiKey signs hash of fake domain origin.
-// 3. Real server verifies: Expecting 'bank.barrackpore.gov.in', Got 'bank.barrackpore-fake.in' -> SIGNATURE REJECTED 🚨`
+// 3. Real server verifies: Expecting 'bank.barrackpore.gov.in', Got 'bank.barrackpore-fake.in' → SIGNATURE REJECTED 🚨`
   },
   {
     id: 30,

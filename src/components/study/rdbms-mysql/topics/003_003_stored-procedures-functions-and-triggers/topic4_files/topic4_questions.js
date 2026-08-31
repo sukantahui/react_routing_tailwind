@@ -24,7 +24,7 @@ const questions = [
   },
   {
     question: "How do student scores for Mamata, Susmita, Abhronila, and Debangshu illustrate `IF ... ELSEIF` grading?",
-    shortAnswer: "Abhronila (96.2%) and Mamata (94.5%) match `v_score >= 90` -> `'Distinction 🥇'`; Susmita (88.0%) matches `v_score >= 75` -> `'First Class 🥈'`; Debangshu (82.4%) matches `v_score >= 75` -> `'First Class 🥈'`.",
+    shortAnswer: "Abhronila (96.2%) and Mamata (94.5%) match `v_score >= 90` → `'Distinction 🥇'`; Susmita (88.0%) matches `v_score >= 75` → `'First Class 🥈'`; Debangshu (82.4%) matches `v_score >= 75` → `'First Class 🥈'`.",
     explanation: "Multi-branch grading logic execution.",
     hint: "Matches top-to-bottom conditions based on student exam scores.",
     level: "basic"

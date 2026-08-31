@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 A robust grading engine must test both aggregate performance and individual subject minimums. Master multi-criteria hierarchical checks to eliminate academic audit errors.
 
 COMMON TRAPS TO AVOID:
-- Overlooking Mandatory Minimum Subject Pass Rules: Calculating only overall average allows a student with 90 in one subject and 10 in another to pass. -> Fix: Include =MIN(SubjectScores) >= 40 in pass criteria.
-- Failing Attendance Prerequisite Check: Grading students who failed minimum statutory attendance requirements. -> Fix: Evaluate attendance first: `=IF(Attendance < 0.75, "FAILED - LOW ATTENDANCE", ...)`.
-- Hardcoded Grading Thresholds: Hardcoding 90, 80, 70 in formulas prevents grading curve adjustments. -> Fix: Store grade boundaries in a dedicated Grade_Bands configuration table.
+- Overlooking Mandatory Minimum Subject Pass Rules: Calculating only overall average allows a student with 90 in one subject and 10 in another to pass. → Fix: Include =MIN(SubjectScores) >= 40 in pass criteria.
+- Failing Attendance Prerequisite Check: Grading students who failed minimum statutory attendance requirements. → Fix: Evaluate attendance first: `=IF(Attendance < 0.75, "FAILED - LOW ATTENDANCE", ...)`.
+- Hardcoded Grading Thresholds: Hardcoding 90, 80, 70 in formulas prevents grading curve adjustments. → Fix: Store grade boundaries in a dedicated Grade_Bands configuration table.
 ================================================================================

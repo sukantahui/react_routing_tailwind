@@ -98,7 +98,7 @@ const questions = [
     explanation: "Calling a named LAMBDA like =FX_TAX_BREAKDOWN(150000) spills taxable, CGST, SGST, and gross total across 4 columns.",
     hint: "Supports dynamic spilled array outputs.",
     level: "basic",
-    codeExample: "=FX_TAX_BREAKDOWN(50000) &rarr; Spills 4 columns"
+    codeExample: "=FX_TAX_BREAKDOWN(50000) → Spills 4 columns"
   },
   {
     question: "How do you delete or rename a custom LAMBDA function in Excel?",
@@ -106,7 +106,7 @@ const questions = [
     explanation: "Name Manager provides full CRUD (Create, Read, Update, Delete) management for workbook defined names.",
     hint: "Manage via the Name Manager dialog (Ctrl+F3).",
     level: "basic",
-    codeExample: "Ctrl+F3 &rarr; Select Name &rarr; Edit/Delete"
+    codeExample: "Ctrl+F3 → Select Name → Edit/Delete"
   },
   {
     question: "What happens to worksheet cells calling a named LAMBDA if that name is deleted from Name Manager?",
@@ -146,7 +146,7 @@ const questions = [
     explanation: "Moving or copying a sheet moves associated defined names into the destination file.",
     hint: "Copy a sheet to transfer defined names automatically.",
     level: "advanced",
-    codeExample: "Right-click sheet &rarr; Move or Copy &rarr; Target Workbook"
+    codeExample: "Right-click sheet → Move or Copy → Target Workbook"
   },
   {
     question: "How does Excel's Advanced Formula Environment (AFE) add-in enhance LAMBDA management?",
@@ -170,7 +170,7 @@ const questions = [
     explanation: "Evaluates standard CAGR formula: (Ending / Beginning)^(1/n) - 1.",
     hint: "Standard CAGR formula wrapped in LAMBDA.",
     level: "moderate",
-    codeExample: "=FX_CAGR(100000, 250000, 5) &rarr; 20.11%"
+    codeExample: "=FX_CAGR(100000, 250000, 5) → 20.11%"
   },
   {
     question: "What happens if a parameter in a LAMBDA matches an existing defined name in Name Manager?",
@@ -186,7 +186,7 @@ const questions = [
     explanation: "The 'Refers to' box displays the complete underlying LAMBDA formula.",
     hint: "Inspect the 'Refers to' box in Name Manager.",
     level: "basic",
-    codeExample: "Ctrl+F3 &rarr; Select function &rarr; View 'Refers to'"
+    codeExample: "Ctrl+F3 → Select function → View 'Refers to'"
   },
   {
     question: "Can a named LAMBDA be used inside Conditional Formatting rules?",

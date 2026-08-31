@@ -76,7 +76,7 @@ export default function Topic4() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-300 to-sky-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-indigo-400 via-purple-300 to-sky-300 bg-clip-text text-transparent leading-tight">
             Extracting Specific Columns & Reordering Layouts with CHOOSECOLS
           </h1>
 
@@ -194,7 +194,7 @@ export default function Topic4() {
                 CHOOSECOLS acts as an architectural projection layer: you query the master dataset and project only the columns your report requires in the exact layout needed.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Raw Storage: [ID, FName, LName, Dept, Basic, HRA, PF, Net] &rarr; Report: [ID, Full_Name, Net]
+                Raw Storage: [ID, FName, LName, Dept, Basic, HRA, PF, Net] → Report: [ID, Full_Name, Net]
               </div>
             </div>
 
@@ -207,7 +207,7 @@ export default function Topic4() {
                 Using <code className="text-amber-300 font-mono">-1</code> guarantees that you always capture the final summary column (e.g. Net Payable) regardless of how many columns are added in between.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                =CHOOSECOLS(MasterPayroll, 1, 2, -1) &rarr; Always Captures [ID, Name, NetPayable]
+                =CHOOSECOLS(MasterPayroll, 1, 2, -1) → Always Captures [ID, Name, NetPayable]
               </div>
             </div>
           </div>
@@ -314,10 +314,10 @@ export default function Topic4() {
               </g>
 
               <text x="490" y="165" fill="#38BDF8" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">Reordered Projection:</text>
-              <text x="490" y="185" fill="#C7D2FE" fontSize="10" textAnchor="middle" fontFamily="monospace">1 &rarr; Col 1 (Emp_ID)</text>
-              <text x="490" y="203" fill="#C7D2FE" fontSize="10" textAnchor="middle" fontFamily="monospace">2 &rarr; Col 5 (Branch)</text>
-              <text x="490" y="221" fill="#C7D2FE" fontSize="10" textAnchor="middle" fontFamily="monospace">3 &rarr; Col 2 (FName)</text>
-              <text x="490" y="239" fill="#A7F3D0" fontSize="10" textAnchor="middle" fontFamily="monospace">4 &rarr; Col 10 (Net Payable)</text>
+              <text x="490" y="185" fill="#C7D2FE" fontSize="10" textAnchor="middle" fontFamily="monospace">1 → Col 1 (Emp_ID)</text>
+              <text x="490" y="203" fill="#C7D2FE" fontSize="10" textAnchor="middle" fontFamily="monospace">2 → Col 5 (Branch)</text>
+              <text x="490" y="221" fill="#C7D2FE" fontSize="10" textAnchor="middle" fontFamily="monospace">3 → Col 2 (FName)</text>
+              <text x="490" y="239" fill="#A7F3D0" fontSize="10" textAnchor="middle" fontFamily="monospace">4 → Col 10 (Net Payable)</text>
 
               {/* Arrow */}
               <path d="M 605 170 L 665 170" stroke="#10B981" strokeWidth="2" strokeDasharray="4 4">
@@ -374,7 +374,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic4_CHOOSECOLS"
+            sheetName="EX1705"
             title="Corporate Payroll Ledger (10 Fields to Project & Mask)"
             rowsPerPage={10}
             showSheetSelector={true}
@@ -413,7 +413,7 @@ export default function Topic4() {
                 extracting only [Emp_ID, First_Name, Branch_City, Net_Payable] without exposing sensitive deduction data.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                Formula: =CHOOSECOLS(A2:J11, 1, 2, 5, 10) &rarr; Zero Exposure of Allowances
+                Formula: =CHOOSECOLS(A2:J11, 1, 2, 5, 10) → Zero Exposure of Allowances
               </div>
             </div>
 
@@ -432,7 +432,7 @@ export default function Topic4() {
                 She applies <code className="text-amber-300 font-mono">=CHOOSECOLS(RawSAP, 3, 2, 1, 4)</code> to swap columns instantly in memory.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =CHOOSECOLS(RawSAP, 3, 2, 1, 4) &rarr; Aligned GST Template
+                Formula: =CHOOSECOLS(RawSAP, 3, 2, 1, 4) → Aligned GST Template
               </div>
             </div>
 
@@ -451,7 +451,7 @@ export default function Topic4() {
                 The entire multi-column query executes in a single cell.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =CHOOSECOLS(FILTER(T, City="BK"), 2, 10) &rarr; Pure 2D Query
+                Formula: =CHOOSECOLS(FILTER(T, City="BK"), 2, 10) → Pure 2D Query
               </div>
             </div>
 
@@ -470,7 +470,7 @@ export default function Topic4() {
                 her formula never breaks when accounting staff insert new allowance columns between columns 2 and 9.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-sky-300">
-                Formula: =CHOOSECOLS(A2:J50, 1, -1) &rarr; Dynamic First & Last Column
+                Formula: =CHOOSECOLS(A2:J50, 1, -1) → Dynamic First & Last Column
               </div>
             </div>
           </div>
@@ -588,7 +588,7 @@ export default function Topic4() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#SPILL!</td>
                   <td className="py-3 px-4 text-slate-300">Destination cells occupied by text or merged formatting.</td>
-                  <td className="py-3 px-4 text-slate-400">Click error float &rarr; 'Select Obstructing Cells'.</td>
+                  <td className="py-3 px-4 text-slate-400">Click error float → 'Select Obstructing Cells'.</td>
                   <td className="py-3 px-4 text-emerald-400">Clear obstructing cells to allow multi-column spill.</td>
                 </tr>
               </tbody>

@@ -124,7 +124,7 @@ const questions = [
   },
   {
     question: "What is the output of swapping parentheses in `A+(B*C)`?",
-    shortAnswer: "`A+(B*C)` (no change, because the parentheses are already correctly oriented? Actually, after reversal, it becomes `C*B(+A`? Let's check: `A+(B*C)` reversed is `C*B(+A`? Wait, careful: original `A+(B*C)` reversed is `C*B(+A`? Actually reverse: `A+(B*C)` -> `)C*B(+A`? No. Better to illustrate with an example. The swap step is applied after reversal. So it's not directly swapping the original parentheses.",
+    shortAnswer: "`A+(B*C)` (no change, because the parentheses are already correctly oriented? Actually, after reversal, it becomes `C*B(+A`? Let's check: `A+(B*C)` reversed is `C*B(+A`? Wait, careful: original `A+(B*C)` reversed is `C*B(+A`? Actually reverse: `A+(B*C)` → `)C*B(+A`? No. Better to illustrate with an example. The swap step is applied after reversal. So it's not directly swapping the original parentheses.",
     explanation: "The swap is performed on the reversed string.",
     hint: "After reversal.",
     level: "intermediate",

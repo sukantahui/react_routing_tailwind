@@ -12,7 +12,7 @@ const questions = [
   {
     question: "What is the 'Prevention Paradox' associated with Passive Cyber Attacks?",
     shortAnswer: "Because passive attacks cannot be reliably detected in real time on standard networks, defensive security must focus 100% on proactive prevention (end-to-end encryption and traffic padding).",
-    explanation: "In traditional incident response, teams rely on 'Detect -> Contain -> Remediate'. With passive attacks, detection fails because the attacker leaves no forensic evidence. Security architects must therefore assume that every wire and radio frequency is hostile and continuously monitored, enforcing robust cryptography (AES-256-GCM, TLS 1.3, MACsec) so intercepted ciphertext is mathematically worthless.",
+    explanation: "In traditional incident response, teams rely on 'Detect → Contain → Remediate'. With passive attacks, detection fails because the attacker leaves no forensic evidence. Security architects must therefore assume that every wire and radio frequency is hostile and continuously monitored, enforcing robust cryptography (AES-256-GCM, TLS 1.3, MACsec) so intercepted ciphertext is mathematically worthless.",
     hint: "Assume the tap is already on the wire: make the data completely unreadable before sending it.",
     level: "moderate",
     codeExample: `// The Defense Philosophy:
@@ -63,7 +63,7 @@ const questions = [
 // Cable Attenuation : -3.5 dB (15 km @ 0.22 dB/km)
 // Connector Loss    : -0.8 dB (4 patch panels)
 // Macrobend Tap Loss: -0.22 dB
-// Received Power    : -4.52 dBm (Receiver threshold is -18.0 dBm -> Link stays 100% UP!)`
+// Received Power    : -4.52 dBm (Receiver threshold is -18.0 dBm → Link stays 100% UP!)`
   },
   {
     question: "How does Continuous High-Resolution Optical Time-Domain Reflectometry (C-OTDR) overcome standard OPM limitations?",
@@ -74,7 +74,7 @@ const questions = [
     codeExample: `// C-OTDR Continuous Monitoring Pipeline:
 // Data Channels : 1310 nm & 1550 nm (Live 100 Gbps Traffic)
 // OTDR Wavelength: 1625 nm (Supervisory Test Pulse)
-// Telemetry Event: Localized Drop of -0.08 dB detected at Marker 14,208 meters -> Alert Dispatched!`
+// Telemetry Event: Localized Drop of -0.08 dB detected at Marker 14,208 meters → Alert Dispatched!`
   },
   {
     question: "What is Time-Domain Reflectometry (TDR), and how is it used to detect physical copper cable taps?",
@@ -84,7 +84,7 @@ const questions = [
     level: "expert",
     codeExample: `// TDR Reflection Coefficient Formula:
 // Gamma = (Z_Load - Z_0) / (Z_Load + Z_0)
-// If Z_Load drops to 85 Ohms due to tap capacitance -> Gamma = -0.081 (Negative Reflection Peak)`
+// If Z_Load drops to 85 Ohms due to tap capacitance → Gamma = -0.081 (Negative Reflection Peak)`
   },
   {
     question: "How does the 'Harvest Now, Decrypt Later' (HNDL) quantum threat exploit the invisibility of passive eavesdropping?",
@@ -94,7 +94,7 @@ const questions = [
     level: "expert",
     codeExample: `// Harvest Now, Decrypt Later Attack Timeline:
 // 2026: Passively record 10 Petabytes of RSA-2048 / ECDHE traffic (Undetected)
-// 2035: Quantum Computer runs Shor's Algorithm: Factorizes N = p * q in minutes -> Decrypts 2026 archives!`
+// 2035: Quantum Computer runs Shor's Algorithm: Factorizes N = p * q in minutes → Decrypts 2026 archives!`
   },
   {
     question: "How does Post-Quantum Cryptography (PQC) and Ephemeral Diffie-Hellman mitigate 'Harvest Now, Decrypt Later' attacks?",
@@ -114,7 +114,7 @@ const questions = [
     level: "expert",
     codeExample: `// Acoustic Air-Gap Exfiltration (Fansmitter):
 // CPU Fan speed modulated: 1,000 RPM (Bit '0') vs 1,600 RPM (Bit '1')
-// External smartphone microphone records acoustic frequency -> 15 bits/minute exfiltrated`
+// External smartphone microphone records acoustic frequency → 15 bits/minute exfiltrated`
   },
   {
     question: "Under the Digital Personal Data Protection (DPDP) Act 2023, what liability arises if an organization fails to implement safeguards against passive eavesdropping?",
@@ -135,7 +135,7 @@ const questions = [
     level: "moderate",
     codeExample: `// RF Field Probe Frequency Sweep:
 // Baseline Conduit Reading: < -90 dBm RF Leakage
-// Reading at Tapped Junction: -48 dBm Spike at 125 MHz (1000BASE-T Clock Frequency) -> Tap Located!`
+// Reading at Tapped Junction: -48 dBm Spike at 125 MHz (1000BASE-T Clock Frequency) → Tap Located!`
   },
   {
     question: "How does IEEE 802.1X Port-Based Network Access Control (PNAC) prevent unauthorized passive sniffing devices from connecting to a switch?",
@@ -285,8 +285,8 @@ C_Sign(hSession, dataToSign, dataLen, signature, &sigLen);`
     hint: "Locking both the phonebook query and the address on the envelope so the mail carrier learns nothing.",
     level: "expert",
     codeExample: `// Complete Anti-ISP Surveillance Pipeline:
-// 1. Lookup Domain : DoH over TLS 1.3 (Port 443) -> Fetches ECH public key
-// 2. Connect to Site: TLS 1.3 + ECH -> Hostname "portal.kolkata.in" is 100% encrypted inside ClientHello`
+// 1. Lookup Domain : DoH over TLS 1.3 (Port 443) → Fetches ECH public key
+// 2. Connect to Site: TLS 1.3 + ECH → Hostname "portal.kolkata.in" is 100% encrypted inside ClientHello`
   },
   {
     question: "What is BPF Kernel JIT (Just-In-Time) Hardening in Linux, and how does it prevent kernel memory exploitation during sniffing?",

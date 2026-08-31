@@ -227,7 +227,7 @@ const questions = [
     explanation: "Compiles to standard conditional jump bytecode.",
     hint: "ifeq/ifne branch instructions.",
     level: "expert",
-    codeExample: "// Bytecode: ifeq Label_False -> load trueExpr -> goto End"
+    codeExample: "// Bytecode: ifeq Label_False → load trueExpr → goto End"
   },
   {
     question: "What is the ultimate takeaway of Topic 15 for Java developers?",

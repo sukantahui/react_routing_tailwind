@@ -5,7 +5,7 @@ const topic6_questions = [
     "explanation": "collect() performs mutable reduction, whereas reduce() performs immutable value reduction.",
     "hint": "reduce() copies on each step; collect() uses mutable accumulation.",
     "level": "Advanced",
-    "codeExample": "// BAD: O(N^2) allocation overhead!\\nlist.stream().reduce(new ArrayList<>(), (acc, x) -> { acc.add(x); return acc; });"
+    "codeExample": "// BAD: O(N^2) allocation overhead!\\nlist.stream().reduce(new ArrayList<>(), (acc, x) → { acc.add(x); return acc; });"
   },
   {
     "question": "How can you find the object with the maximum value using reduce and a Comparator?",

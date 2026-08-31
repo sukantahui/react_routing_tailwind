@@ -137,7 +137,7 @@ def test_student_grade_tiers(score, expected_grade):
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Parametrized Tests: <span className="text-teal-400">@pytest.mark.parametrize</span>
         </h1>
         <p className="text-lg sm:text-xl text-slate-300 mt-3 max-w-3xl font-normal leading-relaxed">
@@ -717,7 +717,7 @@ def test_student_grade_tiers(score, expected_grade):
                 Mismatches between the comma-separated string (e.g. <code className="text-rose-400 font-mono">"a, b"</code>) and function parameters (<code className="text-rose-400 font-mono">def test(a, c)</code>) raise PyTest fixture lookup errors.
               </p>
               <pre className="text-[11px] font-mono bg-slate-950/80 p-2 rounded text-rose-300">
-                # BUG: @pytest.mark.parametrize("score, grade") &rarr; def test(score, expected){'\n'}
+                # BUG: @pytest.mark.parametrize("score, grade") → def test(score, expected){'\n'}
                 # FIX: Keep argument names perfectly identical
               </pre>
             </div>

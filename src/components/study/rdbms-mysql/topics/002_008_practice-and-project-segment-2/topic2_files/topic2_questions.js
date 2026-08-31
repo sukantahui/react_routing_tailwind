@@ -72,8 +72,8 @@ const questions = [
     level: "moderate"
   },
   {
-    question: "How do you handle hierarchical product categories (e.g. Electronics -> Laptops -> Gaming Laptops)?",
-    shortAnswer: "Using a Self-Referencing Foreign Key: `categories (category_id PK, category_name, parent_category_id FK -> categories.category_id)`.",
+    question: "How do you handle hierarchical product categories (e.g. Electronics → Laptops → Gaming Laptops)?",
+    shortAnswer: "Using a Self-Referencing Foreign Key: `categories (category_id PK, category_name, parent_category_id FK → categories.category_id)`.",
     explanation: "Enables arbitrary tree depth for category taxonomies.",
     hint: "Self-referencing foreign key on parent_category_id.",
     level: "moderate"

@@ -6,10 +6,10 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 ================================================================================
 
 1. HEAP SIFTING OPERATIONS:
-   - 'peek()' &rarr; O(1) instant root lookup ('queue[0]').
-   - 'offer()' &rarr; O(log n) sift-up from tail.
-   - 'poll()' &rarr; O(log n) sift-down from root.
-   - 'remove(o)' &rarr; O(n) linear search + O(log n) sift.
+   - 'peek()' → O(1) instant root lookup ('queue[0]').
+   - 'offer()' → O(log n) sift-up from tail.
+   - 'poll()' → O(log n) sift-down from root.
+   - 'remove(o)' → O(n) linear search + O(log n) sift.
 
 ================================================================================
 Classroom Practice: Barrackpore Academy | Mentor: Sukanta Hui

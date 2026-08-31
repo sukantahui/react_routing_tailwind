@@ -219,7 +219,7 @@ const questions = [
     explanation: "Because `char` is an integral type (0 to 65535), switch statements evaluate character cases by comparing their numeric integral values efficiently via jump tables (`tableswitch` / `lookupswitch`).",
     hint: "Char is an integral type, perfectly supported in switch.",
     level: "basic",
-    codeExample: "char grade = 'A';\nswitch(grade) {\n  case 'A' -> System.out.println(\"Excellent\");\n  case 'B' -> System.out.println(\"Good\");\n}"
+    codeExample: "char grade = 'A';\nswitch(grade) {\n  case 'A' → System.out.println(\"Excellent\");\n  case 'B' → System.out.println(\"Good\");\n}"
   },
   {
     question: "What is `Character.isWhitespace(char ch)` and which characters does it recognize?",

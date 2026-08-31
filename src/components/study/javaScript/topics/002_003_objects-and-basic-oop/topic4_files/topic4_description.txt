@@ -7,7 +7,7 @@ Senior Educator: Sukanta Hui | Barrackpore, West Bengal, India
 
 1. THE REAL-WORLD HOOK & INTUITIVE ANALOGY
 --------------------------------------------------------------------------------
-Imagine navigating through a giant corporate building looking for a specific manager's telephone number: Building -> 4th Floor -> Finance Department -> Desk 12 -> Telephone. If the 4th floor is locked or doesn't exist, attempting to open Desk 12 will cause you to crash into a wall (TypeError: Cannot read properties of undefined). Optional Chaining (`?.`) is a master key that gracefully checks if each door is open before stepping through!
+Imagine navigating through a giant corporate building looking for a specific manager's telephone number: Building → 4th Floor → Finance Department → Desk 12 → Telephone. If the 4th floor is locked or doesn't exist, attempting to open Desk 12 will cause you to crash into a wall (TypeError: Cannot read properties of undefined). Optional Chaining (`?.`) is a master key that gracefully checks if each door is open before stepping through!
 
 2. BARRACKPORE LAB CLASSROOM SCENARIO & PERSONAL IMPROVISATION
 --------------------------------------------------------------------------------

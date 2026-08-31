@@ -21,7 +21,7 @@ export default function Topic14() {
             Stream API Pipelines
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           <code className="text-emerald-400 font-mono">flatMap(Function)</code>: 1-to-Many Flattening & Nested Collections
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -59,7 +59,7 @@ export default function Topic14() {
       </section>
 
       <Teacher
-        note="Whenever you find yourself writing map(x -> x.getListOfThings().stream()), STOP! If you leave it as map, you will end up with Stream<Stream<String>> (a stream of streams). Use flatMap to flatten all inner streams into a single unified Stream<String>! — Sukanta Hui"
+        note="Whenever you find yourself writing map(x → x.getListOfThings().stream()), STOP! If you leave it as map, you will end up with Stream<Stream<String>> (a stream of streams). Use flatMap to flatten all inner streams into a single unified Stream<String>! — Sukanta Hui"
       />
     </div>
   );

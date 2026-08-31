@@ -77,8 +77,8 @@ Example 1: Direct Clustered Index Point Lookup (1 Hop)
 
 Example 2: Secondary Index Double Lookup
     SELECT student_name, fee_amount_inr FROM students WHERE phone_number = '9830098214';
-    -- Step 1: idx_phone -> finds student_id 101
-    -- Step 2: PRIMARY B-Tree -> fetches name and fee.
+    -- Step 1: idx_phone → finds student_id 101
+    -- Step 2: PRIMARY B-Tree → fetches name and fee.
 
 8. SUMMARY OF BEST PRACTICES
 --------------------------------------------------------------------------------

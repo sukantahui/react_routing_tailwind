@@ -7,7 +7,7 @@ Topic 7: Row-by-row matrix processing with BYROW (e.g., calculating weighted ave
 
 1. BYROW MATHEMATICAL MODEL:
 - Input: 2D Matrix (M rows x N cols)
-- Operation: Slices along Axis 0 &rarr; passes 1D vector (1 x N) to LAMBDA
+- Operation: Slices along Axis 0 → passes 1D vector (1 x N) to LAMBDA
 - Output: 1D Column Vector (M rows x 1 col)
 
 2. CORE FORMULA PATTERNS:

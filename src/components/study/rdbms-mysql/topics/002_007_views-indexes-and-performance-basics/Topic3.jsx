@@ -153,7 +153,7 @@ VALUES ('STU-999', 'Rohan Das', 'Barrackpore', 0);
               View DML Integrity
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
             Updatable Views & WITH CHECK OPTION Clause
           </h1>
           <p className="mt-3 text-lg sm:text-xl text-slate-300 max-w-3xl leading-relaxed">
@@ -317,7 +317,7 @@ VALUES ('STU-999', 'Rohan Das', 'Barrackpore', 0);
                   <text x="715" y="90" fill="#6ee7b7" fontSize="9" textAnchor="middle font-bold">(Untouched & Protected)</text>
                 </g>
 
-                {/* Flow Arrow Left -> Middle */}
+                {/* Flow Arrow Left → Middle */}
                 <path d="M 250 70 L 320 70" stroke="#38bdf8" strokeWidth="2" />
               </svg>
             </div>

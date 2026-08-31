@@ -434,7 +434,7 @@ const Topic2 = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-400 to-orange-300 bg-clip-text text-transparent animate-[pulse_3s_ease-in-out_infinite]">
                 Life Before Hooks: The Dark Ages ⏳
               </h1>
               <p className={clsx(
@@ -468,7 +468,7 @@ const Topic2 = () => {
               ? "bg-gradient-to-r from-gray-800 to-gray-700 shadow-2xl" 
               : "bg-gradient-to-r from-white to-amber-50 shadow-xl"
           )}>
-            <h2 className="text-4xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 animate-[slideUp_1s_ease-out]">
               Why Did React Need Hooks? 🤔
             </h2>
             <p className={clsx(

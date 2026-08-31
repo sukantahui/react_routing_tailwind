@@ -71,7 +71,7 @@ function safeRunner(action, fallbackValue) {
 
 const safeOutcome = safeRunner(() => {
   const data = JSON.parse('{"status": "success", "metric": 99.9}');
-  return data.status + " -> Metric: " + data.metric;
+  return data.status + " → Metric: " + data.metric;
 }, "default_fallback");
 
 console.log("Safe Execution Output:", safeOutcome);

@@ -407,7 +407,7 @@
     "question": "What syntax is used to pass a keyword argument?",
     "options": [
       "key = value",
-      "key -> value",
+      "key → value",
       "key: value",
       "key value"
     ],

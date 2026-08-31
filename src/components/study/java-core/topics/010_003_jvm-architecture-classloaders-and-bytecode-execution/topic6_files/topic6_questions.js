@@ -5,7 +5,7 @@ const topic6_questions = [
     "explanation": "Resolution converts the former into the latter.",
     "hint": "Symbolic is text/descriptor in constant pool; direct is an actual memory pointer.",
     "level": "Intermediate",
-    "codeExample": "Symbolic: #4 Methodref -> Direct: Pointer to method table offset 0x7FFF"
+    "codeExample": "Symbolic: #4 Methodref → Direct: Pointer to method table offset 0x7FFF"
   },
   {
     "question": "What exception occurs during Resolution if a method referenced in bytecode does not exist in the target class?",

@@ -7,7 +7,7 @@ Educator: Sukanta Hui | Academic Hub: Barrackpore, West Bengal
 
 1. LOG ANALYZER ARCHITECTURE:
    - 'Files.lines(logPath)' lazy streaming.
-   - Stream pipeline: filter comments &rarr; split tokens &rarr; collect groupings.
+   - Stream pipeline: filter comments → split tokens → collect groupings.
    - Computes status code distribution and IP hits in a single pass.
    - Constant low memory footprint for gigabyte log files.
 

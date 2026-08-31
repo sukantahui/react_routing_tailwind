@@ -54,7 +54,7 @@ const Topic12 = () => {
       <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
         {/* Title Section */}
         <div className="animate-[slideUp_0.5s_ease-out]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
             Laws of Propositional Logic (Basic Identities)
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">

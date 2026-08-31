@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 To make a chart that expands automatically every month: Define a Named Range with OFFSET or INDEX, then in the Chart Series edit box, type `=Sheet1!YourNamedRange`. It updates forever without touching it.
 
 COMMON TRAPS TO AVOID:
-- Missing Workbook Name Prefix in Chart Series (Syntax Error): Typing `=Chart_Revenue` into the chart series formula box causes Excel to reject the entry. -> Fix: Always include the workbook name or sheet name prefix: `=Sheet1!Chart_Revenue` or `='Model.xlsx'!Chart_Revenue`.
-- Blank Cells Corrupting COUNTA in OFFSET: Blank cells in the middle of a column cause `COUNTA()` to underestimate the total row count, truncating the chart series. -> Fix: Ensure source columns contain contiguous data, or use `MATCH(9.99E+307, Col)` to find the true last row.
-- OFFSET Function Recalculation Lag: OFFSET is volatile and can slow down massive workbooks containing hundreds of dynamic ranges. -> Fix: Use non-volatile INDEX dynamic ranges: `=$B$2:INDEX($B:$B, COUNTA($B:$B))`.
+- Missing Workbook Name Prefix in Chart Series (Syntax Error): Typing `=Chart_Revenue` into the chart series formula box causes Excel to reject the entry. → Fix: Always include the workbook name or sheet name prefix: `=Sheet1!Chart_Revenue` or `='Model.xlsx'!Chart_Revenue`.
+- Blank Cells Corrupting COUNTA in OFFSET: Blank cells in the middle of a column cause `COUNTA()` to underestimate the total row count, truncating the chart series. → Fix: Ensure source columns contain contiguous data, or use `MATCH(9.99E+307, Col)` to find the true last row.
+- OFFSET Function Recalculation Lag: OFFSET is volatile and can slow down massive workbooks containing hundreds of dynamic ranges. → Fix: Use non-volatile INDEX dynamic ranges: `=$B$2:INDEX($B:$B, COUNTA($B:$B))`.
 ================================================================================

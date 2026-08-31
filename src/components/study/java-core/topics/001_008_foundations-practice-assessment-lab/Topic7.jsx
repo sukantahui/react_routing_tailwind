@@ -42,7 +42,7 @@ export default function Topic7() {
             Algorithmic Lab 7 · Divide &amp; Conquer
           </span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight">
           Implementing Recursive Binary Search in Java
         </h1>
         <p className="text-base md:text-lg text-slate-400 leading-relaxed max-w-4xl">
@@ -142,7 +142,7 @@ export default function Topic7() {
 
             <rect x="465" y="70" width="370" height="45" rx="6" fill="#450a0a" />
             <text x="475" y="90" fill="#fca5a5" fontSize="10" fontWeight="bold">❌ BUG: (low + high) / 2</text>
-            <text x="475" y="105" fill="#fecaca" fontSize="9" fontFamily="monospace">If low+high &gt; 2,147,483,647 &rarr; Neg Index Crash!</text>
+            <text x="475" y="105" fill="#fecaca" fontSize="9" fontFamily="monospace">If low+high &gt; 2,147,483,647 → Neg Index Crash!</text>
 
             <rect x="465" y="125" width="370" height="45" rx="6" fill="#022c22" />
             <text x="475" y="145" fill="#a7f3d0" fontSize="10" fontWeight="bold">✓ SAFE: low + (high - low) / 2</text>

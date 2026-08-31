@@ -71,7 +71,7 @@ export default function Topic35() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             Combining Statistical Functions with IF Logic
           </h1>
 
@@ -108,7 +108,7 @@ export default function Topic35() {
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            =IF(AVERAGEIFS(Sales, Region, "Kolkata")&gt;50000, "Target Met", "Deficit")
+            =IF(AVERAGEIFS(Sales, Region, "Kolkata")>50000, "Target Met", "Deficit")
           </div>
 
           <div className="overflow-x-auto">
@@ -300,7 +300,7 @@ export default function Topic35() {
                 Evaluating regional branch sales metrics meeting strict quarterly target thresholds.
               </p>
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")&gt;50000, "Target Met", "Deficit")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")>50000, "Target Met", "Deficit")</div>
                 <div className="text-emerald-400 font-semibold">Result: 100% Audited Calculation Verified</div>
               </div>
             </div>
@@ -314,7 +314,7 @@ export default function Topic35() {
                 Computing subject variance and standard deviation across diploma candidates.
               </p>
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")&gt;50000, "Target Met", "Deficit")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")>50000, "Target Met", "Deficit")</div>
                 <div className="text-emerald-400 font-semibold">Result: Statistical Distribution Modeled</div>
               </div>
             </div>
@@ -328,7 +328,7 @@ export default function Topic35() {
                 Isolating abnormal high-cost inventory purchase vouchers using Z-score statistics.
               </p>
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")&gt;50000, "Target Met", "Deficit")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")>50000, "Target Met", "Deficit")</div>
                 <div className="text-emerald-400 font-semibold">Result: Outliers Flagged for Management</div>
               </div>
             </div>
@@ -342,7 +342,7 @@ export default function Topic35() {
                 Validating machinery precision tolerances for ISO 9001 certification.
               </p>
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
-                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")&gt;50000, "Target Met", "Deficit")</div>
+                <div className="text-sky-300 font-mono font-semibold">Applied: =IF(AVERAGEIFS(Sales, Region, "Kolkata")>50000, "Target Met", "Deficit")</div>
                 <div className="text-emerald-400 font-semibold">Result: Quality Compliance Certified</div>
               </div>
             </div>
@@ -367,7 +367,7 @@ export default function Topic35() {
               <div>
                 <h3 className="text-sm font-bold text-white">Select Destination Cell & Trigger Function</h3>
                 <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                  Click destination cell and input formula syntax: <code className="text-sky-300 font-mono">=IF(AVERAGEIFS(Sales, Region, "Kolkata")&gt;50000, "Target Met", "Deficit")</code>.
+                  Click destination cell and input formula syntax: <code className="text-sky-300 font-mono">=IF(AVERAGEIFS(Sales, Region, "Kolkata")>50000, "Target Met", "Deficit")</code>.
                 </p>
               </div>
             </div>

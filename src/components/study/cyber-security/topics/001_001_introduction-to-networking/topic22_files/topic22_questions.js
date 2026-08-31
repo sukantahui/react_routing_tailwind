@@ -120,7 +120,7 @@ const questions = [
     explanation: "Patch panels prevent wear and tear on primary switch ports by providing a structured termination point where short, flexible patch cords can easily be rearranged.",
     hint: "Rack-mounted panel where all building cables terminate neatly.",
     level: "moderate",
-    codeExample: "WallJack -> PermanentSolidCoreCable -> PatchPanel -> FlexiblePatchCord -> SwitchPort;"
+    codeExample: "WallJack → PermanentSolidCoreCable → PatchPanel → FlexiblePatchCord → SwitchPort;"
   },
   {
     question: "Suppose Debangshu in Barrackpore is budgeting for an office network of 48 workstations. What is the estimated hardware cost in Indian Rupees (₹)?",
@@ -240,7 +240,7 @@ const questions = [
     explanation: "This complete rule captures all foundational principles of network hardware engineering, security boundary defense, and structured enterprise budgeting.",
     hint: "Managed switches + Perimeter routers + Certified cabling + Budgets in ₹.",
     level: "moderate",
-    codeExample: "GoldenRule: DeployManagedSwitches() -> SecurePerimeter() -> StructuredCabling() -> BudgetInRupees(₹);"
+    codeExample: "GoldenRule: DeployManagedSwitches() → SecurePerimeter() → StructuredCabling() → BudgetInRupees(₹);"
   }
 ];
 

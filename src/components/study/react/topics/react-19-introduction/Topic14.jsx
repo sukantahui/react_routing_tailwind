@@ -23,7 +23,7 @@ const Topic14 = () => {
       {/* Header Section */}
       <header className="max-w-6xl mx-auto mb-12">
         <div className={`${animationClass} opacity-0`}>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400">
             Why Class Components Are Legacy
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">

@@ -51,7 +51,7 @@ const questions = [
     explanation: "Because `&&` has higher precedence than `||`, `false && false` evaluates to `false` first, and `true || false` evaluates to `true`.",
     hint: "&& is evaluated before ||.",
     level: "basic",
-    codeExample: "boolean b = true || false && false; // true || (false && false) -> true"
+    codeExample: "boolean b = true || false && false; // true || (false && false) → true"
   },
   {
     question: "What is the evaluated result of `(true || false) && false` in Java?",
@@ -59,7 +59,7 @@ const questions = [
     explanation: "Parentheses override precedence: `(true || false)` is `true`, and `true && false` is `false`.",
     hint: "Parentheses force || to evaluate first.",
     level: "basic",
-    codeExample: "boolean b = (true || false) && false; // true && false -> false"
+    codeExample: "boolean b = (true || false) && false; // true && false → false"
   },
   {
     question: "What is De Morgan's First Law of boolean logic?",

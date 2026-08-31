@@ -25,7 +25,7 @@ const Topic1 = () => {
         
         {/* Header */}
         <div className="space-y-4 animate-[fadeSlideUp_0.5s_ease-out_forwards]">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-teal-600 dark:from-indigo-400 dark:to-teal-400 bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-indigo-600 to-teal-600 dark:from-indigo-400 dark:to-teal-400 bg-clip-text text-transparent">
             Multiplexing: FDM, TDM, WDM
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">

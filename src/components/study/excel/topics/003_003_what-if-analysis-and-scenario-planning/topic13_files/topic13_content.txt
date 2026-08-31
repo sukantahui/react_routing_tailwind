@@ -46,5 +46,5 @@ Operational Architecture: Markowitz Mean-Variance Portfolio Optimization: Minimi
 6. PRO TIPS & SHORTCUTS
 • Matrix Multiplication Variance (=MMULT(TRANSPOSE(Weights), MMULT(CovMatrix, Weights))): The standard matrix formula for portfolio variance in Excel.
 • Engine: GRG Nonlinear (Select GRG Nonlinear): Mandatory solver engine for quadratic portfolio variance.
-• Max Sharpe Ratio Goal (Set Objective: Sharpe Ratio -> Max): Directly solves for the optimal tangency portfolio.
+• Max Sharpe Ratio Goal (Set Objective: Sharpe Ratio → Max): Directly solves for the optimal tangency portfolio.
 ================================================================================

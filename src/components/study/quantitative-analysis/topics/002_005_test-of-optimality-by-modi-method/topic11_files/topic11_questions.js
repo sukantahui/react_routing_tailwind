@@ -96,7 +96,7 @@ const questions = [
     explanation: "Adding ε restores the basic cell count to m + n - 1 = 5, enabling spanning tree propagation.",
     hint: "Place epsilon ε in an independent loop-free empty cell.",
     level: "expert",
-    codeExample: "Place epsilon at cell (1, 3) -> Count = 5 -> Solve u, v."
+    codeExample: "Place epsilon at cell (1, 3) → Count = 5 → Solve u, v."
   },
   {
     question: "In Exercise 4, what is the numerical contribution of epsilon (ε) when computing total transportation cost Z?",
@@ -104,7 +104,7 @@ const questions = [
     explanation: "Epsilon provides structural connectivity without adding monetary cost.",
     hint: "Cost contribution is zero (c * ε = 0).",
     level: "expert",
-    codeExample: "Cost contribution: limit_{epsilon -> 0} (c * epsilon) = 0."
+    codeExample: "Cost contribution: limit_{epsilon → 0} (c * epsilon) = 0."
   },
   {
     question: "Suppose Mamata in Kolkata solves a 3x3 matrix and finds all d_ij >= 0 on Iteration 1. What does this indicate?",
@@ -112,7 +112,7 @@ const questions = [
     explanation: "Only one improvement pass was needed.",
     hint: "Only 1 iteration needed to reach optimal.",
     level: "moderate",
-    codeExample: "Passes = 1 -> Globally Optimal."
+    codeExample: "Passes = 1 → Globally Optimal."
   },
   {
     question: "How can a student check if an independent cell was chosen correctly for epsilon (ε)?",
@@ -206,7 +206,7 @@ const questions = [
     question: "In Exercise 4, if epsilon (ε) has a minus sign (-θ) during a pivot and θ = ε, what happens to the epsilon cell?",
     shortAnswer: "The allocation becomes ε - ε = 0, and the epsilon cell cleanly leaves the basis, leaving a fully non-degenerate basis with positive numbers!",
     explanation: "A pivot on ε transitions the basis away from degeneracy.",
-    hint: "ε - ε = 0 -> leaves basis cleanly.",
+    hint: "ε - ε = 0 → leaves basis cleanly.",
     level: "expert",
     codeExample: "x_eps_new = eps - eps = 0 (Exits Basis)."
   },
@@ -216,7 +216,7 @@ const questions = [
     explanation: "Streamlined layout prevents wasting precious exam time.",
     hint: "Clean margins, mental addition, neat loop lines.",
     level: "intermediate",
-    codeExample: "Exam Strategy: Fast u-v -> Mental d_ij -> Clean 4-corner loop."
+    codeExample: "Exam Strategy: Fast u-v → Mental d_ij → Clean 4-corner loop."
   },
   {
     question: "Suppose Debangshu verifies all 4 exercises using computer software. What library in Python can solve these transportation problems directly?",
@@ -230,9 +230,9 @@ const questions = [
     question: "What is the golden rule for mastering numerical exercises in the MODI method?",
     shortAnswer: "'Anchor u_1=0; audit basic equations; pick min(d < 0); pivot θ cleanly; re-audit sums; repeat until all d >= 0; state minimum cost Z* in ₹!'",
     explanation: "Following this universal routine guarantees full marks on any transportation examination.",
-    hint: "Anchor -> Audit -> Pivot -> Re-audit -> Repeat -> State Z* in ₹.",
+    hint: "Anchor → Audit → Pivot → Re-audit → Repeat → State Z* in ₹.",
     level: "moderate",
-    codeExample: "Golden Routine: Anchor -> Solve u-v -> d_ij -> Loop -> Update -> Verify."
+    codeExample: "Golden Routine: Anchor → Solve u-v → d_ij → Loop → Update → Verify."
   }
 ];
 

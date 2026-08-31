@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Never compare loan interest rates by their headline numbers! A 10% rate compounded monthly costs 10.47% per year. Always use =EFFECT(rate, 12) to uncover the true cost of debt.
 
 COMMON TRAPS TO AVOID:
-- Confusing npery with Total Loan Years: Entering total years (e.g. 5) instead of compounding periods per year (12) produces distorted rate conversions. -> Fix: Remember: npery is periods PER YEAR (e.g. 12 for monthly, 4 for quarterly, 365 for daily).
-- Passing Percentages as Whole Numbers: Entering 8 instead of 8% (or 0.08) causes Excel to treat the rate as 800% interest. -> Fix: Always enter interest rates with % sign (`8.5%`) or decimal fraction (`0.085`).
-- Ignoring Compounding in Loan Comparisons: Choosing a loan with 9.8% monthly compounding over 10.0% annual compounding without realizing the 9.8% loan actually costs 10.25% APY. -> Fix: Always convert all competing debt offers to EFFECT() before comparing.
+- Confusing npery with Total Loan Years: Entering total years (e.g. 5) instead of compounding periods per year (12) produces distorted rate conversions. → Fix: Remember: npery is periods PER YEAR (e.g. 12 for monthly, 4 for quarterly, 365 for daily).
+- Passing Percentages as Whole Numbers: Entering 8 instead of 8% (or 0.08) causes Excel to treat the rate as 800% interest. → Fix: Always enter interest rates with % sign (`8.5%`) or decimal fraction (`0.085`).
+- Ignoring Compounding in Loan Comparisons: Choosing a loan with 9.8% monthly compounding over 10.0% annual compounding without realizing the 9.8% loan actually costs 10.25% APY. → Fix: Always convert all competing debt offers to EFFECT() before comparing.
 ================================================================================

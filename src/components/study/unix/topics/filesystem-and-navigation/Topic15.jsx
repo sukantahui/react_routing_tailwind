@@ -109,7 +109,7 @@ export default class Topic15 extends React.Component {
               </svg>
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100">
                 Topic 16: File System Mounting Concepts
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 mt-2">

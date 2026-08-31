@@ -30,7 +30,7 @@ Operational Architecture: Hierarchical Charts: Insert > Hierarchy Chart > Treema
 • Abhronila Das (Plant Quality Lead, Ichapur Works):
   Manufacturing Defect Taxonomy Sunburst - Illustrates component defect hierarchies (Mechanical > Machining > Tool Wear) across 3 production shifts.
 • Debangshu Roy (Logistics Network Director, Naihati Logistics):
-  Regional Freight Volume Distribution Sunburst - Visualizes shipping tonnage distribution from State -> City -> Depot using multi-ring Sunburst concentric charts.
+  Regional Freight Volume Distribution Sunburst - Visualizes shipping tonnage distribution from State → City → Depot using multi-ring Sunburst concentric charts.
 
 5. TROUBLESHOOTING & COMMON ERRORS
 • Unsorted / Interspersed Category Rows:

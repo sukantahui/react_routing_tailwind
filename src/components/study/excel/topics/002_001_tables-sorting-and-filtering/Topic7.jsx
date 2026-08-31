@@ -68,7 +68,7 @@ export default function Topic7() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
             SUBTOTAL Function Mechanics & Hidden Row Calculations
           </h1>
 
@@ -169,7 +169,7 @@ export default function Topic7() {
             <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
               <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">Function Codes 1–11 vs 101–111</h3>
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-                Codes 1–11 include manually hidden rows (Right Click -&gt; Hide). Codes 101–111 exclude all hidden rows regardless of how they were hidden.
+                Codes 1–11 include manually hidden rows (Right Click → Hide). Codes 101–111 exclude all hidden rows regardless of how they were hidden.
               </p>
             </div>
             <div className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
@@ -302,7 +302,7 @@ export default function Topic7() {
               <div className="pt-2 border-t border-slate-800/80 text-xs space-y-1">
                 <div className="text-sky-300 font-mono font-semibold">Applied: SUBTOTAL Code 9</div>
                 <div className="text-emerald-400 font-semibold">Result: Includes manually hidden rows.</div>
-                <div className="text-slate-400 text-[11px]">Code 9 includes rows hidden via Right Click -&gt; Hide.</div>
+                <div className="text-slate-400 text-[11px]">Code 9 includes rows hidden via Right Click → Hide.</div>
               </div>
             </div>
             <div className="rounded-xl p-5 bg-slate-950/80 border border-slate-800 hover:border-sky-500/40 transition-all duration-300 space-y-3">

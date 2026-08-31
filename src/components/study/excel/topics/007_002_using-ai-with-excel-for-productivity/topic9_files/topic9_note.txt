@@ -15,7 +15,7 @@ TEACHER'S ADVICE:
 Golden Rule of AI in Corporate Finance: NEVER blindly trust a number produced by AI! Always check the formula, verify the math, and ensure your company's confidential data is protected under enterprise privacy agreements.
 
 COMMON TRAPS TO AVOID:
-- Pasting Confidential Financial Data into Consumer Web Chatbots (Data Leak): Employees copying unreleased quarterly earnings into free consumer ChatGPT/Claude web interfaces (where data is used for model training). -> Fix: Enforce strict use of Microsoft 365 Copilot Commercial Data Protection or Enterprise API endpoints.
-- Blind Acceptance of AI Hallucinated Numbers: Submitting financial reports with AI-generated numbers without checking mathematical accuracy. -> Fix: Cross-foot and verify all calculations against source accounting ledgers.
-- Unsanitized PII Transmission: Sending personal medical records or bank account numbers to external API endpoints. -> Fix: Deploy data masking functions before transmitting payloads.
+- Pasting Confidential Financial Data into Consumer Web Chatbots (Data Leak): Employees copying unreleased quarterly earnings into free consumer ChatGPT/Claude web interfaces (where data is used for model training). → Fix: Enforce strict use of Microsoft 365 Copilot Commercial Data Protection or Enterprise API endpoints.
+- Blind Acceptance of AI Hallucinated Numbers: Submitting financial reports with AI-generated numbers without checking mathematical accuracy. → Fix: Cross-foot and verify all calculations against source accounting ledgers.
+- Unsanitized PII Transmission: Sending personal medical records or bank account numbers to external API endpoints. → Fix: Deploy data masking functions before transmitting payloads.
 ================================================================================
