@@ -1,0 +1,47 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1: Accounting Fundamentals & Account Classification
+Educator: Mr. CNAT | Center: Barrackpore, West Bengal
+================================================================================
+
+1. THE CORE ACCOUNTING EQUATION
+   Assets = Capital + Liabilities
+   - Assets: Properties & claims owned (Cash, Bank, Debtors, Stock, Machinery)
+   - Capital: Owner's equity invested into business
+   - Liabilities: External amounts owed (Creditors, Bank Loans, Overdraft)
+
+2. TRADITIONAL CLASSIFICATION OF ACCOUNTS & GOLDEN RULES
+   +--------------------+--------------------------------+--------------------------------+
+   | Account Category   | Golden Rule - DEBIT            | Golden Rule - CREDIT           |
+   +--------------------+--------------------------------+--------------------------------+
+   | REAL ACCOUNTS      | Debit what COMES IN            | Credit what GOES OUT           |
+   | (Assets & Property)| (e.g. Cash recd, Fixed Asset)  | (e.g. Cash paid, Asset sold)   |
+   +--------------------+--------------------------------+--------------------------------+
+   | PERSONAL ACCOUNTS  | Debit the RECEIVER             | Credit the GIVER               |
+   | (Individuals/Firms)| (e.g. Goods sold to customer)  | (e.g. Cash paid by supplier)   |
+   +--------------------+--------------------------------+--------------------------------+
+   | NOMINAL ACCOUNTS   | Debit all EXPENSES & LOSSES    | Credit all INCOMES & GAINS     |
+   | (Incomes/Expenses) | (e.g. Rent, Salary, Freight)   | (e.g. Sales, Interest received)|
+   +--------------------+--------------------------------+--------------------------------+
+
+3. MODERN CLASSIFICATION & DEBIT-CREDIT POLARITY MATRIX
+   +--------------------+------------------+------------------+------------------+
+   | Account Category   | Normal Balance   | Debit Effect     | Credit Effect    |
+   +--------------------+------------------+------------------+------------------+
+   | ASSETS             | Debit (Dr)       | INCREASES (+)    | DECREASES (-)    |
+   | EXPENSES & LOSSES  | Debit (Dr)       | INCREASES (+)    | DECREASES (-)    |
+   | CAPITAL / EQUITY   | Credit (Cr)      | DECREASES (-)    | INCREASES (+)    |
+   | LIABILITIES        | Credit (Cr)      | DECREASES (-)    | INCREASES (+)    |
+   | INCOMES & GAINS    | Credit (Cr)      | DECREASES (-)    | INCREASES (+)    |
+   +--------------------+------------------+------------------+------------------+
+
+4. SOURCE DOCUMENTS TO FINANCIAL STATEMENTS PIPELINE
+   [Source Invoice/Receipt] -> [Journal Book Entry] -> [Ledger Account Posting]
+   -> [Trial Balance Agreement] -> [Trading & P&L Account] -> [Balance Sheet]
+
+5. TALLYPRIME MAPPING GUIDE
+   - Real Assets          -> Fixed Assets / Current Assets / Cash-in-hand / Bank
+   - Personal Parties     -> Sundry Debtors (Customers) / Sundry Creditors (Suppliers)
+   - Nominal Expenses     -> Direct Expenses (Trading) / Indirect Expenses (P&L)
+   - Nominal Incomes      -> Sales Accounts / Direct Incomes / Indirect Incomes
+================================================================================

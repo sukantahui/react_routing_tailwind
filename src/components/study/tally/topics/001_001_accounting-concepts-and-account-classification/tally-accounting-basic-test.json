@@ -1,0 +1,720 @@
+[
+  {
+    "id": 1,
+    "topic": "accounting_basics",
+    "question": "Accounting is mainly concerned with:",
+    "options": ["Recording financial transactions", "Programming computers", "Scientific calculations", "Legal documentation"],
+    "answerIndex": 0
+  },
+  {
+    "id": 2,
+    "topic": "accounting_basics",
+    "question": "Which of the following is NOT a function of accounting?",
+    "options": ["Recording", "Classifying", "Interpreting", "Manufacturing goods"],
+    "answerIndex": 3
+  },
+  {
+    "id": 3,
+    "topic": "accounting_basics",
+    "question": "The main objective of accounting is to:",
+    "options": ["Provide information to users", "Prepare medicines", "Calculate scientific values", "Write legal acts"],
+    "answerIndex": 0
+  },
+  {
+    "id": 4,
+    "topic": "accounting_basics",
+    "question": "Who is an internal user of accounting information?",
+    "options": ["Owner", "Bank", "Government", "Customer"],
+    "answerIndex": 0
+  },
+  {
+    "id": 5,
+    "topic": "accounting_basics",
+    "question": "Which is an example of an external user?",
+    "options": ["Manager", "Employee", "Investor", "Storekeeper"],
+    "answerIndex": 2
+  },
+  {
+    "id": 6,
+    "topic": "accounting_basics",
+    "question": "Which type of account records assets?",
+    "options": ["Real Account", "Personal Account", "Nominal Account", "Contra Account"],
+    "answerIndex": 0
+  },
+  {
+    "id": 7,
+    "topic": "accounting_basics",
+    "question": "Which account relates to persons or organizations?",
+    "options": ["Real Account", "Personal Account", "Nominal Account", "Imaginary Account"],
+    "answerIndex": 1
+  },
+  {
+    "id": 8,
+    "topic": "accounting_basics",
+    "question": "Which of the following is a Nominal Account?",
+    "options": ["Cash", "Furniture", "Salary", "Debtor"],
+    "answerIndex": 2
+  },
+  {
+    "id": 9,
+    "topic": "accounting_basics",
+    "question": "Which is a Real Account?",
+    "options": ["Capital", "Wages", "Machinery", "Creditor"],
+    "answerIndex": 2
+  },
+  {
+    "id": 10,
+    "topic": "accounting_basics",
+    "question": "Which is a Personal Account?",
+    "options": ["Bank A/C", "Rent A/C", "Cash A/C", "Sales A/C"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 11,
+    "topic": "accounting_basics",
+    "question": "Golden Rule of Real Account is:",
+    "options": ["Debit what comes in, credit what goes out", "Debit the receiver, credit the giver", "Debit all expenses, credit all incomes", "Debit assets, credit liabilities"],
+    "answerIndex": 0
+  },
+  {
+    "id": 12,
+    "topic": "accounting_basics",
+    "question": "Golden Rule of Personal Account:",
+    "options": ["Debit expenses, credit incomes", "Debit what comes in", "Debit the receiver, credit the giver", "Credit all assets"],
+    "answerIndex": 2
+  },
+  {
+    "id": 13,
+    "topic": "accounting_basics",
+    "question": "Golden Rule of Nominal Account:",
+    "options": ["Debit the receiver", "Debit all expenses, credit all incomes", "Debit what comes in", "Credit the giver"],
+    "answerIndex": 1
+  },
+  {
+    "id": 14,
+    "topic": "accounting_basics",
+    "question": "Which account will you debit for salary paid?",
+    "options": ["Salary A/C", "Cash A/C", "Capital A/C", "Sales A/C"],
+    "answerIndex": 0
+  },
+  {
+    "id": 15,
+    "topic": "accounting_basics",
+    "question": "Which account will be credited for cash received?",
+    "options": ["Cash A/C", "Debtor A/C", "Sales A/C", "Capital A/C"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 16,
+    "topic": "accounting_basics",
+    "question": "Debit indicates:",
+    "options": ["Increase in assets", "Decrease in assets", "Increase in liability", "Decrease in expenses"],
+    "answerIndex": 0
+  },
+  {
+    "id": 17,
+    "topic": "accounting_basics",
+    "question": "Credit generally indicates:",
+    "options": ["Increase in asset", "Increase in liability or income", "Decrease in capital", "Increase in expenses"],
+    "answerIndex": 1
+  },
+  {
+    "id": 18,
+    "topic": "accounting_basics",
+    "question": "Capital account normally has a:",
+    "options": ["Debit balance", "Credit balance", "Zero balance", "Negative balance"],
+    "answerIndex": 1
+  },
+  {
+    "id": 19,
+    "topic": "accounting_basics",
+    "question": "Which is an example of an expense?",
+    "options": ["Commission Received", "Sales", "Rent Paid", "Capital"],
+    "answerIndex": 2
+  },
+  {
+    "id": 20,
+    "topic": "accounting_basics",
+    "question": "Which is classified as income?",
+    "options": ["Salary", "Commission Received", "Purchases", "Drawings"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 21,
+    "topic": "accounting_basics",
+    "question": "Which is a source document?",
+    "options": ["Cash Memo", "Ledger", "Trial Balance", "Final Accounts"],
+    "answerIndex": 0
+  },
+  {
+    "id": 22,
+    "topic": "accounting_basics",
+    "question": "Which document is used for credit sales?",
+    "options": ["Invoice", "Cash Memo", "Receipt", "Cheque Counterfoil"],
+    "answerIndex": 0
+  },
+  {
+    "id": 23,
+    "topic": "accounting_basics",
+    "question": "A receipt is issued when:",
+    "options": ["Money is paid", "Money is received", "Goods are purchased", "Goods are returned"],
+    "answerIndex": 1
+  },
+  {
+    "id": 24,
+    "topic": "accounting_basics",
+    "question": "Credit note is issued when:",
+    "options": ["Customer returns goods", "Supplier sends invoice", "Cash is received", "Purchase is made"],
+    "answerIndex": 0
+  },
+  {
+    "id": 25,
+    "topic": "accounting_basics",
+    "question": "Which document proves that goods were sold?",
+    "options": ["Ledger", "Invoice", "Journal", "Balance Sheet"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 26,
+    "topic": "accounting_basics",
+    "question": "Which voucher is used for cash payments?",
+    "options": ["Payment Voucher", "Receipt Voucher", "Sales Voucher", "Journal Voucher"],
+    "answerIndex": 0
+  },
+  {
+    "id": 27,
+    "topic": "accounting_basics",
+    "question": "Receipt Voucher is used when:",
+    "options": ["Money goes out", "Money comes in", "Goods are sold", "Goods are purchased"],
+    "answerIndex": 1
+  },
+  {
+    "id": 28,
+    "topic": "accounting_basics",
+    "question": "Contra Voucher is used for:",
+    "options": ["Cash & Bank transactions", "Purchase", "Sales", "Expenses"],
+    "answerIndex": 0
+  },
+  {
+    "id": 29,
+    "topic": "accounting_basics",
+    "question": "Which voucher is used for adjusting entries?",
+    "options": ["Journal Voucher", "Sales Voucher", "Purchase Voucher", "Contra Voucher"],
+    "answerIndex": 0
+  },
+  {
+    "id": 30,
+    "topic": "accounting_basics",
+    "question": "Sales Voucher records:",
+    "options": ["Assets purchased", "Goods sold", "Cash withdrawn", "Salaries paid"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 31,
+    "topic": "accounting_basics",
+    "question": "A Ledger is known as:",
+    "options": ["Book of original entry", "Book of final entry", "Source document", "Adjustment book"],
+    "answerIndex": 1
+  },
+  {
+    "id": 32,
+    "topic": "accounting_basics",
+    "question": "Which statement is true?",
+    "options": ["Journal is account-wise", "Ledger is date-wise", "Journal is date-wise, ledger is account-wise", "Both are same"],
+    "answerIndex": 2
+  },
+  {
+    "id": 33,
+    "topic": "accounting_basics",
+    "question": "Which ledger records expenses?",
+    "options": ["Nominal Ledger", "Purchases Ledger", "Sales Ledger", "Personal Ledger"],
+    "answerIndex": 0
+  },
+  {
+    "id": 34,
+    "topic": "accounting_basics",
+    "question": "Posting means:",
+    "options": ["Recording in Journal", "Recording in Trial Balance", "Transferring entries to ledger", "Preparing final accounts"],
+    "answerIndex": 2
+  },
+  {
+    "id": 35,
+    "topic": "accounting_basics",
+    "question": "Ledger balance refers to:",
+    "options": ["Total assets", "Difference of debit and credit of an account", "Profit", "Loss"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 36,
+    "topic": "accounting_basics",
+    "question": "Trial Balance checks:",
+    "options": ["Debit = Credit", "Profit = Loss", "Assets = Liabilities", "Cash = Bank"],
+    "answerIndex": 0
+  },
+  {
+    "id": 37,
+    "topic": "accounting_basics",
+    "question": "Trial Balance is prepared:",
+    "options": ["Daily", "Monthly", "Periodically", "After every voucher"],
+    "answerIndex": 2
+  },
+  {
+    "id": 38,
+    "topic": "accounting_basics",
+    "question": "Which statement is TRUE?",
+    "options": ["Trial Balance proves no errors exist", "Trial Balance guarantees accuracy", "Trial Balance may not detect all errors", "Trial Balance shows profit"],
+    "answerIndex": 2
+  },
+  {
+    "id": 39,
+    "topic": "accounting_basics",
+    "question": "Which error is NOT revealed by Trial Balance?",
+    "options": ["Omission of entry", "Posting on wrong side", "Wrong totaling of ledger", "Compensating errors"],
+    "answerIndex": 0
+  },
+  {
+    "id": 40,
+    "topic": "accounting_basics",
+    "question": "A difference in Trial Balance indicates:",
+    "options": ["Mistake exists", "Ledger is correct", "Profit is high", "Final accounts are ready"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 41,
+    "topic": "accounting_basics",
+    "question": "Which account increases with debit?",
+    "options": ["Assets", "Liability", "Capital", "Income"],
+    "answerIndex": 0
+  },
+  {
+    "id": 42,
+    "topic": "accounting_basics",
+    "question": "Which increases with credit?",
+    "options": ["Assets", "Expenses", "Income", "Drawings"],
+    "answerIndex": 2
+  },
+  {
+    "id": 43,
+    "topic": "accounting_basics",
+    "question": "Drawings account has which balance?",
+    "options": ["Debit", "Credit", "Zero", "Alternate"],
+    "answerIndex": 0
+  },
+  {
+    "id": 44,
+    "topic": "accounting_basics",
+    "question": "Which is NOT an asset?",
+    "options": ["Cash", "Stock", "Machinery", "Rent Paid"],
+    "answerIndex": 3
+  },
+  {
+    "id": 45,
+    "topic": "accounting_basics",
+    "question": "Which is liability?",
+    "options": ["Debtor", "Creditor", "Furniture", "Cash"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 46,
+    "topic": "accounting_basics",
+    "question": "Goods returned by customer is recorded in:",
+    "options": ["Sales Return", "Purchase Return", "Sales", "Contra"],
+    "answerIndex": 0
+  },
+  {
+    "id": 47,
+    "topic": "accounting_basics",
+    "question": "Goods returned to supplier is:",
+    "options": ["Sales Return", "Purchase Return", "Sales", "Expense"],
+    "answerIndex": 1
+  },
+  {
+    "id": 48,
+    "topic": "accounting_basics",
+    "question": "Bank charges are:",
+    "options": ["Income", "Expense", "Asset", "Liability"],
+    "answerIndex": 1
+  },
+  {
+    "id": 49,
+    "topic": "accounting_basics",
+    "question": "Commission received is:",
+    "options": ["Expense", "Income", "Asset", "Liability"],
+    "answerIndex": 1
+  },
+  {
+    "id": 50,
+    "topic": "accounting_basics",
+    "question": "Carriage inward is:",
+    "options": ["Direct expense", "Indirect expense", "Income", "Asset"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 51,
+    "topic": "accounting_basics",
+    "question": "Which book is the first point of recording?",
+    "options": ["Journal", "Ledger", "Trial Balance", "Balance Sheet"],
+    "answerIndex": 0
+  },
+  {
+    "id": 52,
+    "topic": "accounting_basics",
+    "question": "Narration is written in:",
+    "options": ["Ledger", "Trial Balance", "Journal", "Final Accounts"],
+    "answerIndex": 2
+  },
+  {
+    "id": 53,
+    "topic": "accounting_basics",
+    "question": "Which is prepared after ledger?",
+    "options": ["Journal", "Trial Balance", "Source documents", "Voucher"],
+    "answerIndex": 1
+  },
+  {
+    "id": 54,
+    "topic": "accounting_basics",
+    "question": "Purchase of machinery is:",
+    "options": ["Capital expenditure", "Revenue expenditure", "Income", "Liability"],
+    "answerIndex": 0
+  },
+  {
+    "id": 55,
+    "topic": "accounting_basics",
+    "question": "Credit purchase is recorded through:",
+    "options": ["Purchase Voucher", "Sales Voucher", "Contra Voucher", "Receipt Voucher"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 56,
+    "topic": "accounting_basics",
+    "question": "Discount received is:",
+    "options": ["Expense", "Income", "Asset", "Liability"],
+    "answerIndex": 1
+  },
+  {
+    "id": 57,
+    "topic": "accounting_basics",
+    "question": "Bad debts is treated as:",
+    "options": ["Income", "Liability", "Expense", "Asset"],
+    "answerIndex": 2
+  },
+  {
+    "id": 58,
+    "topic": "accounting_basics",
+    "question": "Which is not recorded in books?",
+    "options": ["Sale of goods", "Manager’s decision", "Purchase of assets", "Payment of expenses"],
+    "answerIndex": 1
+  },
+  {
+    "id": 59,
+    "topic": "accounting_basics",
+    "question": "Ledger folio number is written in:",
+    "options": ["Journal", "Source Document", "Trial Balance", "Invoice"],
+    "answerIndex": 0
+  },
+  {
+    "id": 60,
+    "topic": "accounting_basics",
+    "question": "Which is NOT Nominal?",
+    "options": ["Rent Paid", "Salary", "Purchases", "Commission Received"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 61,
+    "topic": "accounting_basics",
+    "question": "Trade discount is:",
+    "options": ["Recorded in books", "Not recorded in books", "Added to invoice", "Cash received"],
+    "answerIndex": 1
+  },
+  {
+    "id": 62,
+    "topic": "accounting_basics",
+    "question": "Cash discount is:",
+    "options": ["For early payment", "For buying bulk", "Not recorded", "Added to purchase"],
+    "answerIndex": 0
+  },
+  {
+    "id": 63,
+    "topic": "accounting_basics",
+    "question": "Depreciation is:",
+    "options": ["Decrease in value of fixed asset", "Increase in value", "Income", "Liability"],
+    "answerIndex": 0
+  },
+  {
+    "id": 64,
+    "topic": "accounting_basics",
+    "question": "Which account is debited for depreciation?",
+    "options": ["Asset", "Depreciation Expense", "Income", "Creditor"],
+    "answerIndex": 1
+  },
+  {
+    "id": 65,
+    "topic": "accounting_basics",
+    "question": "Capital introduced has which effect?",
+    "options": ["Debit Capital A/C", "Credit Capital A/C", "Credit Drawings A/C", "Debit Sales A/C"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 66,
+    "topic": "accounting_basics",
+    "question": "Which is NOT a source document?",
+    "options": ["Cash Memo", "Invoice", "Ledger", "Debit Note"],
+    "answerIndex": 2
+  },
+  {
+    "id": 67,
+    "topic": "accounting_basics",
+    "question": "Pay-in-slip is used for:",
+    "options": ["Cash withdrawal", "Cash deposit", "Credit purchase", "Sales"],
+    "answerIndex": 1
+  },
+  {
+    "id": 68,
+    "topic": "accounting_basics",
+    "question": "Cheque counterfoil is related to:",
+    "options": ["Goods return", "Cheque issued", "Sales invoice", "Bank statement"],
+    "answerIndex": 1
+  },
+  {
+    "id": 69,
+    "topic": "accounting_basics",
+    "question": "A Payment Voucher will be passed when:",
+    "options": ["Cash received", "Cash paid", "Goods sold", "Goods purchased"],
+    "answerIndex": 1
+  },
+  {
+    "id": 70,
+    "topic": "accounting_basics",
+    "question": "Correction of mistakes is done using:",
+    "options": ["Contra voucher", "Journal voucher", "Receipt voucher", "Purchase voucher"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 71,
+    "topic": "accounting_basics",
+    "question": "Ledger posting means:",
+    "options": ["Recording in journal", "Transferring to ledger", "Preparing cash book", "Preparing invoice"],
+    "answerIndex": 1
+  },
+  {
+    "id": 72,
+    "topic": "accounting_basics",
+    "question": "Ledger contains:",
+    "options": ["Accounts only", "Calendar", "Bills", "Trial balance"],
+    "answerIndex": 0
+  },
+  {
+    "id": 73,
+    "topic": "accounting_basics",
+    "question": "Trial balance is a list of:",
+    "options": ["Journal entries", "Ledger balances", "Invoices", "Source documents"],
+    "answerIndex": 1
+  },
+  {
+    "id": 74,
+    "topic": "accounting_basics",
+    "question": "Which error is detected by Trial Balance?",
+    "options": ["Casting error", "Omission", "Wrong account entry", "Compensating error"],
+    "answerIndex": 0
+  },
+  {
+    "id": 75,
+    "topic": "accounting_basics",
+    "question": "Trial Balance ensures:",
+    "options": ["Debits = Credits", "Profit = Loss", "Stock value", "Capital balance"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 76,
+    "topic": "accounting_basics",
+    "question": "Rent received is:",
+    "options": ["Income", "Expense", "Asset", "Liability"],
+    "answerIndex": 0
+  },
+  {
+    "id": 77,
+    "topic": "accounting_basics",
+    "question": "Outstanding salary is:",
+    "options": ["Asset", "Liability", "Income", "Expense"],
+    "answerIndex": 1
+  },
+  {
+    "id": 78,
+    "topic": "accounting_basics",
+    "question": "Prepaid insurance is:",
+    "options": ["Asset", "Liability", "Income", "Expense"],
+    "answerIndex": 0
+  },
+  {
+    "id": 79,
+    "topic": "accounting_basics",
+    "question": "Goods purchased for cash is:",
+    "options": ["Capital expenditure", "Revenue expenditure", "Income", "Liability"],
+    "answerIndex": 1
+  },
+  {
+    "id": 80,
+    "topic": "accounting_basics",
+    "question": "Which is a direct expense?",
+    "options": ["Carriage inward", "Office rent", "Electricity bill", "Commission paid"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 81,
+    "topic": "accounting_basics",
+    "question": "Return Outward means:",
+    "options": ["Sales return", "Purchase return", "Damaged goods", "Cash return"],
+    "answerIndex": 1
+  },
+  {
+    "id": 82,
+    "topic": "accounting_basics",
+    "question": "Return Inward relates to:",
+    "options": ["Supplier", "Customer", "Employee", "Bank"],
+    "answerIndex": 1
+  },
+  {
+    "id": 83,
+    "topic": "accounting_basics",
+    "question": "Income increases on which side?",
+    "options": ["Debit", "Credit", "Both", "None"],
+    "answerIndex": 1
+  },
+  {
+    "id": 84,
+    "topic": "accounting_basics",
+    "question": "Expenses increase on:",
+    "options": ["Debit side", "Credit side", "Both", "None"],
+    "answerIndex": 0
+  },
+  {
+    "id": 85,
+    "topic": "accounting_basics",
+    "question": "Which describes a Journal?",
+    "options": ["Book of assets", "Book of liabilities", "Book of original entry", "Book of final entry"],
+    "answerIndex": 2
+  },
+
+  {
+    "id": 86,
+    "topic": "accounting_basics",
+    "question": "Ledger is called:",
+    "options": ["Principal book", "Subsidiary book", "Temporary book", "Legal book"],
+    "answerIndex": 0
+  },
+  {
+    "id": 87,
+    "topic": "accounting_basics",
+    "question": "Which book contains all accounts?",
+    "options": ["Journal", "Ledger", "Trial Balance", "Balance Sheet"],
+    "answerIndex": 1
+  },
+  {
+    "id": 88,
+    "topic": "accounting_basics",
+    "question": "Trial Balance is prepared for:",
+    "options": ["Checking balancing", "Finding profit", "Finding stock", "Creating invoices"],
+    "answerIndex": 0
+  },
+  {
+    "id": 89,
+    "topic": "accounting_basics",
+    "question": "Which statement is correct?",
+    "options": ["Journal → Ledger → Trial Balance", "Ledger → Journal → Trial Balance", "Trial Balance → Ledger → Journal", "Journal → Trial Balance → Ledger"],
+    "answerIndex": 0
+  },
+  {
+    "id": 90,
+    "topic": "accounting_basics",
+    "question": "Who prepares Trial Balance?",
+    "options": ["Customer", "Accountant", "Supplier", "Bank"],
+    "answerIndex": 1
+  },
+
+  {
+    "id": 91,
+    "topic": "accounting_basics",
+    "question": "Sales is classified as:",
+    "options": ["Asset", "Expense", "Income", "Liability"],
+    "answerIndex": 2
+  },
+  {
+    "id": 92,
+    "topic": "accounting_basics",
+    "question": "Wages paid is:",
+    "options": ["Income", "Liability", "Expense", "Asset"],
+    "answerIndex": 2
+  },
+  {
+    "id": 93,
+    "topic": "accounting_basics",
+    "question": "Journal entry always contains:",
+    "options": ["One debit and one credit", "Only debit", "Only credit", "Multiple invoices"],
+    "answerIndex": 0
+  },
+  {
+    "id": 94,
+    "topic": "accounting_basics",
+    "question": "Debit Note is issued when:",
+    "options": ["We return goods", "Customer returns goods", "Cash received", "Goods purchased"],
+    "answerIndex": 0
+  },
+  {
+    "id": 95,
+    "topic": "accounting_basics",
+    "question": "Credit Note is issued when:",
+    "options": ["Customer returns goods", "We buy goods", "Cash paid", "Asset purchased"],
+    "answerIndex": 0
+  },
+
+  {
+    "id": 96,
+    "topic": "accounting_basics",
+    "question": "Purchase of stationery is:",
+    "options": ["Asset", "Expense", "Income", "Liability"],
+    "answerIndex": 1
+  },
+  {
+    "id": 97,
+    "topic": "accounting_basics",
+    "question": "Which account will you debit for goods purchased?",
+    "options": ["Sales", "Purchases", "Cash", "Capital"],
+    "answerIndex": 1
+  },
+  {
+    "id": 98,
+    "topic": "accounting_basics",
+    "question": "Cash received from debtor affects:",
+    "options": ["Increase in debtor", "Decrease in debtor", "Increase in expense", "Increase in liability"],
+    "answerIndex": 1
+  },
+  {
+    "id": 99,
+    "topic": "accounting_basics",
+    "question": "Ledger posting of debit entry goes to:",
+    "options": ["Debit side", "Credit side", "Both sides", "None"],
+    "answerIndex": 0
+  },
+  {
+    "id": 100,
+    "topic": "accounting_basics",
+    "question": "Ledger posting of credit entry goes to:",
+    "options": ["Debit side", "Credit side", "Both sides", "None"],
+    "answerIndex": 1
+  }
+]

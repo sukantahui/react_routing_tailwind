@@ -24,9 +24,9 @@ export const formatTeacherBio = (bio) => {
 
 // Default instructor data fallback if not provided via props
 export const defaultTeacher = {
-  name: "Sukanta Hui",
+  name: "Mr. CNAT",
   designation: "Senior Technology Educator & Corporate Financial Modeling Trainer",
-  organization: "Founder, Coder & AccoTax",
+  organization: "Lead Educator, CNAT Academy",
   location: "Barrackpore, West Bengal, India",
   photo: "/teachers/sukantahui.jpg",
   bio: `Over ${getTeachingExpYears()}+ years of practical training expertise in Enterprise Software Development, Financial Accounting, Advanced Excel Analytics, Database Systems, and Automated Business Systems.`,
