@@ -304,7 +304,7 @@ export default function Topic4() {
               <rect x="325" y="115" width="495" height="85" rx="10" fill="#0F172A" stroke="#1E293B" strokeWidth="2" />
               <text x="340" y="137" fill="#38BDF8" fontSize="10" fontWeight="bold" fontFamily="sans-serif">QUERY 2: Enterprise SQL Server Ledger Extract</text>
               <text x="340" y="158" fill="#94A3B8" fontSize="8.5" fontFamily="monospace">
-                = Table.SelectRows(Source, each [Date] >= <tspan fill="#38BDF8" fontWeight="bold">p_StartDate</tspan> and [Branch] = <tspan fill="#38BDF8" fontWeight="bold">p_TargetBranch</tspan>)
+                = Table.SelectRows(Source, each [Date] &gt;= <tspan fill="#38BDF8" fontWeight="bold">p_StartDate</tspan> and [Branch] = <tspan fill="#38BDF8" fontWeight="bold">p_TargetBranch</tspan>)
               </text>
               <text x="340" y="180" fill="#38BDF8" fontSize="8" fontFamily="sans-serif">✓ 100% Query Folding preserved in remote SQL WHERE clause</text>
 
@@ -312,7 +312,7 @@ export default function Topic4() {
               <rect x="325" y="210" width="495" height="85" rx="10" fill="#0F172A" stroke="#1E293B" strokeWidth="2" />
               <text x="340" y="232" fill="#FBBF24" fontSize="10" fontWeight="bold" fontFamily="sans-serif">QUERY 3: High-Value Financial Audit Report</text>
               <text x="340" y="253" fill="#94A3B8" fontSize="8.5" fontFamily="monospace">
-                = Table.SelectRows(FactTable, each [Amount] >= <tspan fill="#FBBF24" fontWeight="bold">p_MinCutoffINR</tspan>)
+                = Table.SelectRows(FactTable, each [Amount] &gt;= <tspan fill="#FBBF24" fontWeight="bold">p_MinCutoffINR</tspan>)
               </text>
               <text x="340" y="275" fill="#FBBF24" fontSize="8" fontFamily="sans-serif">✓ Non-technical managers adjust cutoff thresholds in 1 click</text>
             </svg>

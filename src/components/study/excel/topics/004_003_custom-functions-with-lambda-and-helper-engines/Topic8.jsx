@@ -469,7 +469,7 @@ export default function Topic8() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Internal Auditor <strong>Debangshu Ghosh</strong> verifies departmental expense caps: 
-                <code className="text-amber-300 font-mono">=BYCOL(ExpenseGrid, LAMBDA(c, IF(SUM(c)>500000, "OVER BUDGET", "APPROVED")))</code>, 
+                <code className="text-amber-300 font-mono">=BYCOL(ExpenseGrid, LAMBDA(c, IF(SUM(c)&gt;500000, "OVER BUDGET", "APPROVED")))</code>, 
                 flagging budget overruns per column instantly.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">
@@ -639,7 +639,7 @@ export default function Topic8() {
                 <span>AND Checks</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Test 100% compliance: <code className="text-purple-300 font-mono">=BYCOL(Tolerances, LAMBDA(c, AND(c>=95)))</code>.
+                Test 100% compliance: <code className="text-purple-300 font-mono">=BYCOL(Tolerances, LAMBDA(c, AND(c&gt;=95)))</code>.
               </p>
             </div>
 

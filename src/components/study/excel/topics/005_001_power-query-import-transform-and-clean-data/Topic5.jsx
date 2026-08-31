@@ -151,7 +151,7 @@ export default function Topic5() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-teal-400 font-sans">Filter Rows</td>
                   <td className="py-3 px-4 text-teal-300">Table.SelectRows</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">each [Col] > 10000</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">each [Col] &gt; 10000</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Purges non-compliant rows in memory; folds to SQL WHERE.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -204,7 +204,7 @@ export default function Topic5() {
                 The server filters 10 million rows down to 5,000 before sending a single byte across the network!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-teal-300">
-                M Filter → Server SQL: WHERE [Date] >= '2026-01-01'
+                M Filter → Server SQL: WHERE [Date] &gt;= '2026-01-01'
               </div>
             </div>
 
@@ -297,7 +297,7 @@ export default function Topic5() {
 
               <g transform="translate(340, 70)" fontSize="8.5" fontFamily="sans-serif">
                 <rect width="220" height="32" rx="4" fill="#134E4A" stroke="#14B8A6" />
-                <text x="10" y="20" fill="#5EEAD4" fontWeight="bold">1. Table.SelectRows ([Amount] > 10000)</text>
+                <text x="10" y="20" fill="#5EEAD4" fontWeight="bold">1. Table.SelectRows ([Amount] &gt; 10000)</text>
 
                 <rect y="38" width="220" height="32" rx="4" fill="#0369A1" fillOpacity="0.3" stroke="#38BDF8" />
                 <text x="10" y="58" fill="#BAE6FD" fontWeight="bold">2. Table.Sort (Date Descending)</text>

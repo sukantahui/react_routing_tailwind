@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "topic": "accounting_basics",
+    "question": "What is the primary objective of commercial accounting in a business entity?",
+    "options": [
+      "To calculate government taxes only",
+      "To systematically record, classify, summarize, and report financial performance and position",
+      "To print bills for retail customers",
+      "To track daily employee attendance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Accounting systematically records transactions in journals, posts to ledgers, and prepares financial reports (P&L and Balance Sheet) to evaluate profitability and financial health."
+  },
+  {
+    "id": 2,
+    "topic": "accounting_basics",
+    "question": "According to the Business Entity Concept, how is the owner's capital treated in accounting?",
+    "options": [
+      "As a personal expense of the owner",
+      "As a liability of the business towards the proprietor",
+      "As an operating asset of the firm",
+      "As a bank revenue gain"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Business Entity Concept treats the business as separate from its owner. Capital introduced by the owner is an internal liability owed by the business back to the owner."
+  },
+  {
+    "id": 3,
+    "topic": "accounting_basics",
+    "question": "If a business has Total Assets of ₹15,00,000 and External Liabilities of ₹6,00,000, what is the Owner's Capital?",
+    "options": [
+      "₹21,00,000",
+      "₹9,00,000",
+      "₹6,00,000",
+      "₹15,00,000"
+    ],
+    "answerIndex": 1,
+    "explanation": "According to the Accounting Equation: Capital = Total Assets (₹15,00,000) - External Liabilities (₹6,00,000) = ₹9,00,000."
+  },
+  {
+    "id": 4,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification of accounts, under which category does 'Cash in Hand' belong?",
+    "options": [
+      "Personal Account",
+      "Nominal Account",
+      "Real Account",
+      "Representative Personal Account"
+    ],
+    "answerIndex": 2,
+    "explanation": "Real Accounts represent tangible or intangible properties and assets owned by the business entity, such as Cash, Building, Machinery, and Stock."
+  },
+  {
+    "id": 5,
+    "topic": "accounting_basics",
+    "question": "What is the Golden Rule of Accounting for Nominal Accounts?",
+    "options": [
+      "Debit what comes in, Credit what goes out",
+      "Debit the receiver, Credit the giver",
+      "Debit all expenses & losses, Credit all incomes & gains",
+      "Debit all assets, Credit all liabilities"
+    ],
+    "answerIndex": 2,
+    "explanation": "Nominal Accounts (expenses, losses, revenues, gains) follow the rule: Debit all expenses & losses, Credit all incomes & gains."
+  },
+  {
+    "id": 6,
+    "topic": "accounting_basics",
+    "question": "Under modern debit-credit rules, what happens when an Asset Account increases?",
+    "options": [
+      "It is Credited (+)",
+      "It is Debited (+)",
+      "It remains unchanged",
+      "It is converted into a liability"
+    ],
+    "answerIndex": 1,
+    "explanation": "Under modern classification, Asset and Expense accounts carry normal debit balances. An increase in an asset is DEBITED and a decrease is CREDITED."
+  },
+  {
+    "id": 7,
+    "topic": "accounting_basics",
+    "question": "How is a routine repair expense of ₹5,000 to maintain office machinery classified?",
+    "options": [
+      "Capital Expenditure (added to Machinery Asset)",
+      "Revenue Expenditure (debited to Repair & Maintenance Expense)",
+      "Deferred Revenue Expenditure",
+      "Personal drawings of the proprietor"
+    ],
+    "answerIndex": 1,
+    "explanation": "Routine maintenance costs preserve existing operational efficiency without increasing long-term capacity; thus it is a Revenue Expenditure debited to P&L."
+  },
+  {
+    "id": 8,
+    "topic": "accounting_basics",
+    "question": "When a firm pays ₹25,000 cash for shop rent, what accounts are debited and credited?",
+    "options": [
+      "Debit Cash A/c, Credit Rent A/c",
+      "Debit Rent A/c (Nominal Expense), Credit Cash A/c (Real Asset -)",
+      "Debit Rent A/c, Credit Landlord Personal A/c",
+      "Debit Capital A/c, Credit Cash A/c"
+    ],
+    "answerIndex": 1,
+    "explanation": "Rent is a nominal operating expense (Debit all expenses); Cash is a real asset leaving the firm (Credit what goes out)."
+  },
+  {
+    "id": 9,
+    "topic": "accounting_basics",
+    "question": "When goods costing ₹50,000 are purchased on credit from vendor 'Bengal Electricals', what is the entry in TallyPrime F9 Purchase Voucher?",
+    "options": [
+      "Debit Purchase A/c ₹50,000; Credit Bengal Electricals (Sundry Creditor) A/c ₹50,000",
+      "Debit Cash A/c ₹50,000; Credit Purchase A/c ₹50,000",
+      "Debit Bengal Electricals A/c ₹50,000; Credit Sales A/c ₹50,000",
+      "Debit Capital A/c ₹50,000; Credit Bank A/c ₹50,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Purchasing inventory on credit increases Purchase expense (Debit Purchase) and creates a vendor trade liability (Credit Sundry Creditor Bengal Electricals)."
+  },
+  {
+    "id": 10,
+    "topic": "accounting_basics",
+    "question": "Which TallyPrime voucher type is used to record non-cash adjusting entries, depreciation, and bad debt write-offs?",
+    "options": [
+      "F4 Contra Voucher",
+      "F5 Payment Voucher",
+      "F6 Receipt Voucher",
+      "F7 Journal Voucher"
+    ],
+    "answerIndex": 3,
+    "explanation": "F7 Journal Voucher in TallyPrime is dedicated to non-cash book adjustments, depreciation, bad debt write-offs, and period closing entries."
+  }
+]

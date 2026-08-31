@@ -91,7 +91,7 @@ export default function Topic3() {
           <div className="mt-8 pt-8 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-teal-400 text-base">✓</span>
-              <span><strong>Lambda Function Syntax:</strong> <code className="text-teal-300">(param as type) as returnType => let...in</code></span>
+              <span><strong>Lambda Function Syntax:</strong> <code className="text-teal-300">(param as type) as returnType =&gt; let...in</code></span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -234,7 +234,7 @@ in
             <p className="text-sm text-slate-300 leading-relaxed">
               To write recursive functions (e.g. hierarchical bill-of-materials traversal or factorial math), 
               M uses the scoping prefix <code className="text-teal-300 font-mono">@</code> to allow a function to invoke itself inside its own body: 
-              <code className="text-teal-300 font-mono">fx_BOM = (parentID) => ... @fx_BOM(childID)</code>.
+              <code className="text-teal-300 font-mono">fx_BOM = (parentID) =&gt; ... @fx_BOM(childID)</code>.
             </p>
           </div>
         </section>
@@ -449,7 +449,7 @@ in
                 ERP Lead <strong>Abhronila Sengupta</strong> authors a custom function that accepts an Excel file binary and returns a clean normalized table, transforming multi-workbook ingestion into a single <code className="text-indigo-300 font-mono">Table.AddColumn</code> step!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
-                (binary) as table => → 1-Line Multi-Workbook Ingestion
+                (binary) as table =&gt; → 1-Line Multi-Workbook Ingestion
               </div>
             </div>
 
@@ -496,7 +496,7 @@ in
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Declare Parameters with Nullable Types</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Start with typed parameters: <code className="text-teal-300 font-mono">(input as nullable text, optional rate as nullable number) as nullable number =></code>.
+                  Start with typed parameters: <code className="text-teal-300 font-mono">(input as nullable text, optional rate as nullable number) as nullable number =&gt;</code>.
                 </p>
               </div>
             </div>
