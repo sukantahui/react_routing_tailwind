@@ -1,0 +1,976 @@
+{
+  "company": {
+    "name": "M/s Apex Global Traders",
+    "period": "April 2026",
+    "proprietor": "Mr. Apex Roy",
+    "location": "Barrackpore Commercial Hub, Kolkata",
+    "totalTransactions": 30
+  },
+  "transactions": [
+    {
+      "id": 1,
+      "date": "2026-04-01",
+      "descEn": "Proprietor introduced Cash ₹3,00,000 & SBI Bank Balance ₹2,00,000 as initial Capital.",
+      "descBn": "মালিক কর্তৃক নগদ ৩,০০,০০০ টাকা ও এসবিআই ব্যাংক জমা ২,০০,০০০ টাকা প্রারম্ভিক মূলধন হিসেবে আনয়ন।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹3,00,000 | SBI Bank A/c Dr ₹2,00,000",
+      "crLine": "To Capital A/c ₹5,00,000"
+    },
+    {
+      "id": 2,
+      "date": "2026-04-02",
+      "descEn": "Purchased Office Furniture for Cash ₹45,000.",
+      "descBn": "নগদে ৪৫,০০০ টাকার অফিসের জন্য আসবাবপত্র ক্রয়।",
+      "voucher": "F5 Payment",
+      "drLine": "Furniture Asset A/c Dr ₹45,000",
+      "crLine": "To Cash A/c ₹45,000"
+    },
+    {
+      "id": 3,
+      "date": "2026-04-03",
+      "descEn": "Purchased Trading Goods on Credit from Bengal Suppliers for ₹1,20,000 (Inv #BS-101).",
+      "descBn": "বেঙ্গল সাপ্লাইয়ার্স থেকে বাকিতে ১,২০,০০০ টাকার ট্রেডিং পণ্য ক্রয়।",
+      "voucher": "F9 Purchase",
+      "drLine": "Purchases A/c Dr ₹1,20,000",
+      "crLine": "To Bengal Suppliers Creditor ₹1,20,000"
+    },
+    {
+      "id": 4,
+      "date": "2026-04-04",
+      "descEn": "Paid Shop Rent ₹20,000 by SBI Bank Cheque (#401201).",
+      "descBn": "এসবিআই ব্যাংক চেকের মাধ্যমে দোকানের ভাড়া প্রদান ২০,০০০ টাকা।",
+      "voucher": "F5 Payment",
+      "drLine": "Shop Rent Expense A/c Dr ₹20,000",
+      "crLine": "To SBI Bank A/c ₹20,000"
+    },
+    {
+      "id": 5,
+      "date": "2026-04-05",
+      "descEn": "Sold Trading Goods on Credit to Sen & Co. for ₹90,000 (Inv #AG-001).",
+      "descBn": "সেন অ্যান্ড কোং-এর কাছে বাকিতে ৯০,০০০ টাকার পণ্য বিক্রি।",
+      "voucher": "F8 Sales",
+      "drLine": "Sen & Co. Debtor A/c Dr ₹90,000",
+      "crLine": "To Sales A/c ₹90,000"
+    },
+    {
+      "id": 6,
+      "date": "2026-04-06",
+      "descEn": "Returned Defective Goods ₹15,000 to Bengal Suppliers under Debit Note #DN-01.",
+      "descBn": "বেঙ্গল সাপ্লাইয়ার্সকে ১৫,০০০ টাকার ক্ষতিগ্রস্ত পণ্য ফেরত (Debit Note)।",
+      "voucher": "Alt+F5 Debit Note",
+      "drLine": "Bengal Suppliers Creditor A/c Dr ₹15,000",
+      "crLine": "To Return Outward A/c ₹15,00,000"
+    },
+    {
+      "id": 7,
+      "date": "2026-04-07",
+      "descEn": "Customer Sen & Co. returned Damaged Goods ₹10,000 under Credit Note #CN-01.",
+      "descBn": "গ্রাহক সেন অ্যান্ড কোং ১০,০০০ টাকার ক্ষতিগ্রস্ত পণ্য ফেরত দিল (Credit Note)।",
+      "voucher": "Alt+F6 Credit Note",
+      "drLine": "Return Inward A/c Dr ₹10,000",
+      "crLine": "To Sen & Co. Debtor ₹10,000"
+    },
+    {
+      "id": 8,
+      "date": "2026-04-08",
+      "descEn": "Cash Sales at Counter ₹35,000 deposited into Cash Vault.",
+      "descBn": "কাউন্টারে নগদে ৩৫,০০০ টাকার পণ্য বিক্রি।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹35,000",
+      "crLine": "To Sales A/c ₹35,000"
+    },
+    {
+      "id": 9,
+      "date": "2026-04-09",
+      "descEn": "Deposited Cash ₹50,000 into SBI Bank Account (Contra Entry).",
+      "descBn": "ব্যাংকে ৫০,০০০ টাকা নগদ জমা দেওয়া হলো (Contra Entry)।",
+      "voucher": "F4 Contra",
+      "drLine": "SBI Bank A/c Dr ₹50,000 (Bank Column)",
+      "crLine": "To Cash A/c ₹50,000 (Cash Column)"
+    },
+    {
+      "id": 10,
+      "date": "2026-04-10",
+      "descEn": "Purchased Office Computer & Printer for ₹55,000 by Bank Cheque.",
+      "descBn": "চেকের মাধ্যমে ৫৫,০০০ টাকার কম্পিউটার ও প্রিন্টার ক্রয়।",
+      "voucher": "F5 Payment",
+      "drLine": "Computer Asset A/c Dr ₹55,000",
+      "crLine": "To SBI Bank A/c ₹55,000"
+    },
+    {
+      "id": 11,
+      "date": "2026-04-11",
+      "descEn": "Paid Machine Installation Wages ₹5,000 in Cash (Capitalized to Asset).",
+      "descBn": "নগদে ৫,০০০ টাকা যন্ত্রপাতি বসানোর মজুরি প্রদান (সম্পত্তিতে মূলধনীকরণ)।",
+      "voucher": "F5 Payment",
+      "drLine": "Machinery Asset A/c Dr ₹5,000",
+      "crLine": "To Cash A/c ₹5,000"
+    },
+    {
+      "id": 12,
+      "date": "2026-04-12",
+      "descEn": "Received Cheque ₹75,000 from Customer Sen & Co. in partial settlement.",
+      "descBn": "গ্রাহক সেন অ্যান্ড কোং-এর থেকে ৭৫,০০০ টাকার চেক প্রাপ্তি।",
+      "voucher": "F6 Receipt",
+      "drLine": "SBI Bank A/c Dr ₹75,000",
+      "crLine": "To Sen & Co. Debtor ₹75,000"
+    },
+    {
+      "id": 13,
+      "date": "2026-04-13",
+      "descEn": "Paid Cash ₹80,000 to Supplier Bengal Suppliers on Account.",
+      "descBn": "পাওনাদার বেঙ্গল সাপ্লাইয়ার্সকে ৮০,০০০ টাকা নগদ প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Bengal Suppliers Creditor A/c Dr ₹80,000",
+      "crLine": "To Cash A/c ₹80,000"
+    },
+    {
+      "id": 14,
+      "date": "2026-04-14",
+      "descEn": "Withdrew Cash ₹25,000 from SBI Bank for Office Vault (Contra Entry).",
+      "descBn": "অফিসের ভল্টের জন্য ব্যাংক থেকে ২৫,০০০ টাকা নগদ উত্তোলন (Contra Entry)।",
+      "voucher": "F4 Contra",
+      "drLine": "Cash A/c Dr ₹25,000 (Cash Column)",
+      "crLine": "To SBI Bank A/c ₹25,000 (Bank Column)"
+    },
+    {
+      "id": 15,
+      "date": "2026-04-15",
+      "descEn": "Proprietor withdrew Cash ₹15,000 for personal household use (Drawings).",
+      "descBn": "মালিক ব্যক্তিগত প্রয়োজনে ১৫,০০০ টাকা নগদ উত্তোলন করলেন।",
+      "voucher": "F5 Payment",
+      "drLine": "Drawings A/c Dr ₹15,000",
+      "crLine": "To Cash A/c ₹15,000"
+    },
+    {
+      "id": 16,
+      "date": "2026-04-16",
+      "descEn": "Proprietor withdrew Goods costing ₹8,000 for personal use (Drawings at Cost).",
+      "descBn": "মালিক ব্যক্তিগত ব্যবহারের জন্য ৮,০০০ টাকা ক্রয়মূল্যের পণ্য উত্তোলন করলেন।",
+      "voucher": "F7 Journal",
+      "drLine": "Drawings A/c Dr ₹8,000",
+      "crLine": "To Purchases A/c ₹8,000 (at cost)"
+    },
+    {
+      "id": 17,
+      "date": "2026-04-17",
+      "descEn": "Purchased Stationery & Paper from Local Vendor for Cash ₹3,500.",
+      "descBn": "নগদে ৩,৫০০ টাকার স্টেশনারি ও কাগজ ক্রয়।",
+      "voucher": "F5 Payment",
+      "drLine": "Stationery Expense A/c Dr ₹3,500",
+      "crLine": "To Cash A/c ₹3,500"
+    },
+    {
+      "id": 18,
+      "date": "2026-04-18",
+      "descEn": "Sold Goods for Cash ₹60,000 and deposited money directly into SBI Bank.",
+      "descBn": "নগদে ৬০,০০০ টাকার পণ্য বিক্রি এবং সরাসরি ব্যাংকে জমা।",
+      "voucher": "F6 Receipt",
+      "drLine": "SBI Bank A/c Dr ₹60,000",
+      "crLine": "To Sales A/c ₹60,000"
+    },
+    {
+      "id": 19,
+      "date": "2026-04-19",
+      "descEn": "Paid Printing & Advertising Expense ₹12,000 in Cash.",
+      "descBn": "নগদে ১২,০০০ টাকা প্রিন্টিং ও বিজ্ঞাপন খরচ প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Advertising Expense A/c Dr ₹12,000",
+      "crLine": "To Cash A/c ₹12,000"
+    },
+    {
+      "id": 20,
+      "date": "2026-04-20",
+      "descEn": "Drawn 2-Month Bill of Exchange ₹40,000 on Sen & Co. accepted by customer.",
+      "descBn": "সেন অ্যান্ড কোং-এর ওপর ৪০,০০০ টাকার ২ মাসের বাণিজ্য বিল টানা ও গৃহীত।",
+      "voucher": "F7 Journal",
+      "drLine": "Bills Receivable Asset A/c Dr ₹40,000",
+      "crLine": "To Sen & Co. Debtor ₹40,000"
+    },
+    {
+      "id": 21,
+      "date": "2026-04-21",
+      "descEn": "Accepted 3-Month Bill of Exchange ₹25,000 in favor of Bengal Suppliers.",
+      "descBn": "বেঙ্গল সাপ্লাইয়ার্স-এর অনুকূলে ২৫,০০০ টাকার ৩ মাসের প্রদেয় বিল স্বীকৃত।",
+      "voucher": "F7 Journal",
+      "drLine": "Bengal Suppliers Creditor A/c Dr ₹25,000",
+      "crLine": "To Bills Payable Liability ₹25,000"
+    },
+    {
+      "id": 22,
+      "date": "2026-04-22",
+      "descEn": "Received Fixed Deposit Interest ₹6,000 directly credited in SBI Bank.",
+      "descBn": "ব্যাংক ফিক্সড ডিপোজিট সুদ ৬,০০০ টাকা সরাসরি ব্যাংক খাতায় জমা।",
+      "voucher": "F6 Receipt",
+      "drLine": "SBI Bank A/c Dr ₹6,000",
+      "crLine": "To Interest Income A/c ₹6,000"
+    },
+    {
+      "id": 23,
+      "date": "2026-04-23",
+      "descEn": "Received Consultancy Commission in Cash ₹14,000.",
+      "descBn": "নগদে ১৪,০০০ টাকা কনসালটেন্সি কমিশন প্রাপ্তি।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹14,000",
+      "crLine": "To Commission Income A/c ₹14,000"
+    },
+    {
+      "id": 24,
+      "date": "2026-04-24",
+      "descEn": "Paid Electricity & Water Charges ₹8,200 by Bank Transfer.",
+      "descBn": "ব্যাংক ট্রান্সফারের মাধ্যমে ৮,২০০ টাকা বিদ্যুৎ ও পানির বিল প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Electricity Expense A/c Dr ₹8,200",
+      "crLine": "To SBI Bank A/c ₹8,200"
+    },
+    {
+      "id": 25,
+      "date": "2026-04-25",
+      "descEn": "Advanced Petty Cash Float ₹5,000 to Petty Cashier from Main Cash.",
+      "descBn": "প্রধান ক্যাশ থেকে পেটি ক্যাশিয়ারকে ৫,০০০ টাকা অগ্রিম ফ্লোট দেওয়া হলো।",
+      "voucher": "F4 Contra",
+      "drLine": "Petty Cash A/c Dr ₹5,000",
+      "crLine": "To Main Cash A/c ₹5,000"
+    },
+    {
+      "id": 26,
+      "date": "2026-04-26",
+      "descEn": "Petty Cashier spent Conveyance ₹1,200 + Tea ₹600 + Postage ₹400 (Total ₹2,200).",
+      "descBn": "পেটি ক্যাশিয়ার যাতায়াত ১,২০০ + নাস্তা ৬০০ + ডাক ৪০০ মোট ২,২০০ টাকা খরচ করলেন।",
+      "voucher": "F5 Payment",
+      "drLine": "Sundry Petty Expenses A/c Dr ₹2,200",
+      "crLine": "To Petty Cash A/c ₹2,200"
+    },
+    {
+      "id": 27,
+      "date": "2026-04-27",
+      "descEn": "Paid Staff Salaries for April ₹45,000 by Bank Cheque.",
+      "descBn": "চেকের মাধ্যমে এপ্রিল মাসের স্টাফদের বেতন ৪৫,০০০ টাকা প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Salaries Expense A/c Dr ₹45,000",
+      "crLine": "To SBI Bank A/c ₹45,000"
+    },
+    {
+      "id": 28,
+      "date": "2026-04-28",
+      "descEn": "Recovered Cash ₹8,000 from Bad Debt previously written off.",
+      "descBn": "পূর্বে অপলিখিত ৮,০০০ টাকা কুঋণ নগদে পুনরুদ্ধার হলো।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹8,000",
+      "crLine": "To Bad Debts Recovered Income ₹8,000"
+    },
+    {
+      "id": 29,
+      "date": "2026-04-29",
+      "descEn": "Accrued Interest on Fixed Deposit ₹4,500 earned but not yet received.",
+      "descBn": "ফিক্সড ডিপোজিটের অর্জিত কিন্তু অপ্রাপ্ত সুদ ৪,৫০০ টাকা হিসাবভুক্ত।",
+      "voucher": "F7 Journal",
+      "drLine": "Accrued Interest Asset A/c Dr ₹4,500",
+      "crLine": "To Interest Income A/c ₹4,500"
+    },
+    {
+      "id": 30,
+      "date": "2026-04-30",
+      "descEn": "Provided Depreciation on Computer Asset @ 10% p.a. (F7 Journal).",
+      "descBn": "কম্পিউটার সম্পত্তিতে ১০% হারে অবচয় ধার্য করা হলো।",
+      "voucher": "F7 Journal",
+      "drLine": "Depreciation Expense A/c Dr ₹5,500",
+      "crLine": "To Computer Asset A/c ₹5,500"
+    }
+  ],
+  "journalEntries": [
+    {
+      "date": "2026-04-01",
+      "drAccount": "Cash Account",
+      "crAccount": "Capital Account",
+      "drAmount": 300000,
+      "crAmount": 300000,
+      "narration": "Being cash introduced by proprietor as initial capital",
+      "jf": "01"
+    },
+    {
+      "date": "2026-04-01",
+      "drAccount": "SBI Bank Account",
+      "crAccount": "Capital Account",
+      "drAmount": 200000,
+      "crAmount": 200000,
+      "narration": "Being bank balance introduced by proprietor as initial capital",
+      "jf": "01"
+    },
+    {
+      "date": "2026-04-02",
+      "drAccount": "Furniture Account",
+      "crAccount": "Cash Account",
+      "drAmount": 45000,
+      "crAmount": 45000,
+      "narration": "Being office furniture purchased for cash",
+      "jf": "02"
+    },
+    {
+      "date": "2026-04-03",
+      "drAccount": "Purchases Account",
+      "crAccount": "Bengal Suppliers A/c",
+      "drAmount": 120000,
+      "crAmount": 120000,
+      "narration": "Being goods purchased on credit under Inv #BS-101",
+      "jf": "03"
+    },
+    {
+      "date": "2026-04-04",
+      "drAccount": "Shop Rent Expense A/c",
+      "crAccount": "SBI Bank Account",
+      "drAmount": 20000,
+      "crAmount": 20000,
+      "narration": "Being shop rent paid by bank cheque #401201",
+      "jf": "04"
+    },
+    {
+      "date": "2026-04-05",
+      "drAccount": "Sen & Co. (Debtor A/c)",
+      "crAccount": "Sales Account",
+      "drAmount": 90000,
+      "crAmount": 90000,
+      "narration": "Being trading goods sold on credit under Inv #AG-001",
+      "jf": "05"
+    },
+    {
+      "date": "2026-04-06",
+      "drAccount": "Bengal Suppliers A/c",
+      "crAccount": "Return Outward A/c",
+      "drAmount": 15000,
+      "crAmount": 15000,
+      "narration": "Being defective goods returned to vendor under Debit Note #DN-01",
+      "jf": "06"
+    },
+    {
+      "date": "2026-04-07",
+      "drAccount": "Return Inward A/c",
+      "crAccount": "Sen & Co. (Debtor A/c)",
+      "drAmount": 10000,
+      "crAmount": 10000,
+      "narration": "Being damaged goods returned by customer under Credit Note #CN-01",
+      "jf": "07"
+    },
+    {
+      "date": "2026-04-08",
+      "drAccount": "Cash Account",
+      "crAccount": "Sales Account",
+      "drAmount": 35000,
+      "crAmount": 35000,
+      "narration": "Being cash sales at counter",
+      "jf": "08"
+    },
+    {
+      "date": "2026-04-09",
+      "drAccount": "SBI Bank Account",
+      "crAccount": "Cash Account",
+      "drAmount": 50000,
+      "crAmount": 50000,
+      "narration": "Being cash deposited into SBI Bank (Contra C)",
+      "jf": "09"
+    },
+    {
+      "date": "2026-04-10",
+      "drAccount": "Computer Asset A/c",
+      "crAccount": "SBI Bank Account",
+      "drAmount": 55000,
+      "crAmount": 55000,
+      "narration": "Being computer & printer purchased by bank cheque",
+      "jf": "10"
+    },
+    {
+      "date": "2026-04-11",
+      "drAccount": "Machinery Asset A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 5000,
+      "crAmount": 5000,
+      "narration": "Being machine installation wages paid in cash and capitalized",
+      "jf": "11"
+    },
+    {
+      "date": "2026-04-12",
+      "drAccount": "SBI Bank Account",
+      "crAccount": "Sen & Co. (Debtor A/c)",
+      "drAmount": 75000,
+      "crAmount": 75000,
+      "narration": "Being cheque received from Sen & Co.",
+      "jf": "12"
+    },
+    {
+      "date": "2026-04-13",
+      "drAccount": "Bengal Suppliers A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 80000,
+      "crAmount": 80000,
+      "narration": "Being cash paid to Bengal Suppliers on account",
+      "jf": "13"
+    },
+    {
+      "date": "2026-04-14",
+      "drAccount": "Cash Account",
+      "crAccount": "SBI Bank Account",
+      "drAmount": 25000,
+      "crAmount": 25000,
+      "narration": "Being cash withdrawn from bank for office vault (Contra C)",
+      "jf": "14"
+    },
+    {
+      "date": "2026-04-15",
+      "drAccount": "Drawings Account",
+      "crAccount": "Cash Account",
+      "drAmount": 15000,
+      "crAmount": 15000,
+      "narration": "Being cash withdrawn by proprietor for personal use",
+      "jf": "15"
+    },
+    {
+      "date": "2026-04-16",
+      "drAccount": "Drawings Account",
+      "crAccount": "Purchases Account",
+      "drAmount": 8000,
+      "crAmount": 8000,
+      "narration": "Being goods withdrawn by proprietor for personal use at cost",
+      "jf": "16"
+    },
+    {
+      "date": "2026-04-17",
+      "drAccount": "Stationery Expense A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 3500,
+      "crAmount": 3500,
+      "narration": "Being stationery purchased for cash",
+      "jf": "17"
+    },
+    {
+      "date": "2026-04-18",
+      "drAccount": "SBI Bank Account",
+      "crAccount": "Sales Account",
+      "drAmount": 60000,
+      "crAmount": 60000,
+      "narration": "Being cash sales deposited directly into bank",
+      "jf": "18"
+    },
+    {
+      "date": "2026-04-19",
+      "drAccount": "Advertising Expense A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 12000,
+      "crAmount": 12000,
+      "narration": "Being advertising charges paid in cash",
+      "jf": "19"
+    },
+    {
+      "date": "2026-04-20",
+      "drAccount": "Bills Receivable A/c",
+      "crAccount": "Sen & Co. (Debtor A/c)",
+      "drAmount": 40000,
+      "crAmount": 40000,
+      "narration": "Being 2-month bill accepted by Sen & Co.",
+      "jf": "20"
+    },
+    {
+      "date": "2026-04-21",
+      "drAccount": "Bengal Suppliers A/c",
+      "crAccount": "Bills Payable A/c",
+      "drAmount": 25000,
+      "crAmount": 25000,
+      "narration": "Being 3-month bill accepted in favor of Bengal Suppliers",
+      "jf": "21"
+    },
+    {
+      "date": "2026-04-22",
+      "drAccount": "SBI Bank Account",
+      "crAccount": "Interest Income A/c",
+      "drAmount": 6000,
+      "crAmount": 6000,
+      "narration": "Being interest credited by bank on FD",
+      "jf": "22"
+    },
+    {
+      "date": "2026-04-23",
+      "drAccount": "Cash Account",
+      "crAccount": "Commission Income A/c",
+      "drAmount": 14000,
+      "crAmount": 14000,
+      "narration": "Being consultancy commission received in cash",
+      "jf": "23"
+    },
+    {
+      "date": "2026-04-24",
+      "drAccount": "Electricity Expense A/c",
+      "crAccount": "SBI Bank Account",
+      "drAmount": 8200,
+      "crAmount": 8200,
+      "narration": "Being electricity charges paid by bank transfer",
+      "jf": "24"
+    },
+    {
+      "date": "2026-04-25",
+      "drAccount": "Petty Cash Account",
+      "crAccount": "Cash Account",
+      "drAmount": 5000,
+      "crAmount": 5000,
+      "narration": "Being imprest petty cash float advanced to petty cashier",
+      "jf": "25"
+    },
+    {
+      "date": "2026-04-26",
+      "drAccount": "Petty Expenses A/c",
+      "crAccount": "Petty Cash Account",
+      "drAmount": 2200,
+      "crAmount": 2200,
+      "narration": "Being routine micro-expenses paid by petty cashier",
+      "jf": "26"
+    },
+    {
+      "date": "2026-04-27",
+      "drAccount": "Salaries Expense A/c",
+      "crAccount": "SBI Bank Account",
+      "drAmount": 45000,
+      "crAmount": 45000,
+      "narration": "Being staff salaries paid by bank cheque",
+      "jf": "27"
+    },
+    {
+      "date": "2026-04-28",
+      "drAccount": "Cash Account",
+      "crAccount": "Bad Debts Recovered A/c",
+      "drAmount": 8000,
+      "crAmount": 8000,
+      "narration": "Being written-off debt recovered in cash",
+      "jf": "28"
+    },
+    {
+      "date": "2026-04-29",
+      "drAccount": "Accrued Interest A/c",
+      "crAccount": "Interest Income A/c",
+      "drAmount": 4500,
+      "crAmount": 4500,
+      "narration": "Being accrued interest earned on FD recorded",
+      "jf": "29"
+    },
+    {
+      "date": "2026-04-30",
+      "drAccount": "Depreciation Expense A/c",
+      "crAccount": "Computer Asset A/c",
+      "drAmount": 5500,
+      "crAmount": 5500,
+      "narration": "Being 10% depreciation provided on computer asset",
+      "jf": "30"
+    }
+  ],
+  "ledgers": {
+    "Cash Account": {
+      "debitEntries": [
+        {
+          "date": "2026-04-01",
+          "particular": "To Capital A/c",
+          "jf": "01",
+          "amount": 300000
+        },
+        {
+          "date": "2026-04-08",
+          "particular": "To Sales A/c",
+          "jf": "08",
+          "amount": 35000
+        },
+        {
+          "date": "2026-04-14",
+          "particular": "To SBI Bank A/c (Contra)",
+          "jf": "14",
+          "amount": 25000
+        },
+        {
+          "date": "2026-04-23",
+          "particular": "To Commission Income A/c",
+          "jf": "23",
+          "amount": 14000
+        },
+        {
+          "date": "2026-04-28",
+          "particular": "To Bad Debts Recovered A/c",
+          "jf": "28",
+          "amount": 8000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-04-02",
+          "particular": "By Furniture A/c",
+          "jf": "02",
+          "amount": 45000
+        },
+        {
+          "date": "2026-04-09",
+          "particular": "By SBI Bank A/c (Contra)",
+          "jf": "09",
+          "amount": 50000
+        },
+        {
+          "date": "2026-04-11",
+          "particular": "By Machinery Asset A/c",
+          "jf": "11",
+          "amount": 5000
+        },
+        {
+          "date": "2026-04-13",
+          "particular": "By Bengal Suppliers A/c",
+          "jf": "13",
+          "amount": 80000
+        },
+        {
+          "date": "2026-04-15",
+          "particular": "By Drawings A/c",
+          "jf": "15",
+          "amount": 15000
+        },
+        {
+          "date": "2026-04-17",
+          "particular": "By Stationery Expense A/c",
+          "jf": "17",
+          "amount": 3500
+        },
+        {
+          "date": "2026-04-19",
+          "particular": "By Advertising Expense A/c",
+          "jf": "19",
+          "amount": 12000
+        },
+        {
+          "date": "2026-04-25",
+          "particular": "By Petty Cash A/c",
+          "jf": "25",
+          "amount": 5000
+        },
+        {
+          "date": "2026-04-30",
+          "particular": "By Balance c/d (Closing)",
+          "jf": "—",
+          "amount": 166500
+        }
+      ],
+      "debitTotal": 382000,
+      "creditTotal": 382000,
+      "closingBalance": 166500,
+      "balanceType": "Debit Balance"
+    },
+    "SBI Bank Account": {
+      "debitEntries": [
+        {
+          "date": "2026-04-01",
+          "particular": "To Capital A/c",
+          "jf": "01",
+          "amount": 200000
+        },
+        {
+          "date": "2026-04-09",
+          "particular": "To Cash A/c (Contra)",
+          "jf": "09",
+          "amount": 50000
+        },
+        {
+          "date": "2026-04-12",
+          "particular": "To Sen & Co. (Debtor)",
+          "jf": "12",
+          "amount": 75000
+        },
+        {
+          "date": "2026-04-18",
+          "particular": "To Sales A/c",
+          "jf": "18",
+          "amount": 60000
+        },
+        {
+          "date": "2026-04-22",
+          "particular": "To Interest Income A/c",
+          "jf": "22",
+          "amount": 6000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-04-04",
+          "particular": "By Shop Rent Expense A/c",
+          "jf": "04",
+          "amount": 20000
+        },
+        {
+          "date": "2026-04-10",
+          "particular": "By Computer Asset A/c",
+          "jf": "10",
+          "amount": 55000
+        },
+        {
+          "date": "2026-04-14",
+          "particular": "By Cash A/c (Contra)",
+          "jf": "14",
+          "amount": 25000
+        },
+        {
+          "date": "2026-04-24",
+          "particular": "By Electricity Expense A/c",
+          "jf": "24",
+          "amount": 8200
+        },
+        {
+          "date": "2026-04-27",
+          "particular": "By Salaries Expense A/c",
+          "jf": "27",
+          "amount": 45000
+        },
+        {
+          "date": "2026-04-30",
+          "particular": "By Balance c/d (Closing)",
+          "jf": "—",
+          "amount": 237800
+        }
+      ],
+      "debitTotal": 391000,
+      "creditTotal": 391000,
+      "closingBalance": 237800,
+      "balanceType": "Debit Balance"
+    },
+    "Capital Account": {
+      "debitEntries": [
+        {
+          "date": "2026-04-30",
+          "particular": "To Balance c/d (Closing)",
+          "jf": "—",
+          "amount": 500000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-04-01",
+          "particular": "By Cash A/c",
+          "jf": "01",
+          "amount": 300000
+        },
+        {
+          "date": "2026-04-01",
+          "particular": "By SBI Bank A/c",
+          "jf": "01",
+          "amount": 200000
+        }
+      ],
+      "debitTotal": 500000,
+      "creditTotal": 500000,
+      "closingBalance": 500000,
+      "balanceType": "Credit Balance"
+    },
+    "Purchases Account": {
+      "debitEntries": [
+        {
+          "date": "2026-04-03",
+          "particular": "To Bengal Suppliers A/c",
+          "jf": "03",
+          "amount": 120000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-04-16",
+          "particular": "By Drawings A/c (at cost)",
+          "jf": "16",
+          "amount": 8000
+        },
+        {
+          "date": "2026-04-30",
+          "particular": "By Balance c/d (Trading A/c)",
+          "jf": "—",
+          "amount": 112000
+        }
+      ],
+      "debitTotal": 120000,
+      "creditTotal": 120000,
+      "closingBalance": 112000,
+      "balanceType": "Debit Balance"
+    },
+    "Sales Account": {
+      "debitEntries": [
+        {
+          "date": "2026-04-30",
+          "particular": "To Balance c/d (Trading A/c)",
+          "jf": "—",
+          "amount": 185000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-04-05",
+          "particular": "By Sen & Co. (Debtor)",
+          "jf": "05",
+          "amount": 90000
+        },
+        {
+          "date": "2026-04-08",
+          "particular": "By Cash A/c",
+          "jf": "08",
+          "amount": 35000
+        },
+        {
+          "date": "2026-04-18",
+          "particular": "By SBI Bank A/c",
+          "jf": "18",
+          "amount": 60000
+        }
+      ],
+      "debitTotal": 185000,
+      "creditTotal": 185000,
+      "closingBalance": 185000,
+      "balanceType": "Credit Balance"
+    }
+  },
+  "trialBalance": [
+    {
+      "accountName": "Cash Account",
+      "group": "Cash-in-Hand",
+      "drAmount": 166500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "SBI Bank Account",
+      "group": "Bank Accounts",
+      "drAmount": 237800,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Capital Account",
+      "group": "Capital Account",
+      "drAmount": 0,
+      "crAmount": 500000
+    },
+    {
+      "accountName": "Furniture Account",
+      "group": "Fixed Assets",
+      "drAmount": 45000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Machinery Asset A/c",
+      "group": "Fixed Assets",
+      "drAmount": 5000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Computer Asset A/c",
+      "group": "Fixed Assets",
+      "drAmount": 49500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Purchases Account",
+      "group": "Purchase Accounts",
+      "drAmount": 112000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Sales Account",
+      "group": "Sales Accounts",
+      "drAmount": 0,
+      "crAmount": 185000
+    },
+    {
+      "accountName": "Return Outward A/c",
+      "group": "Purchase Accounts",
+      "drAmount": 0,
+      "crAmount": 15000
+    },
+    {
+      "accountName": "Return Inward A/c",
+      "group": "Sales Accounts",
+      "drAmount": 10000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Shop Rent Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 20000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Stationery Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 3500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Advertising Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 12000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Electricity Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 8200,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Salaries Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 45000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Petty Expenses A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 2200,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Depreciation Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 5500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Petty Cash Account",
+      "group": "Cash-in-Hand",
+      "drAmount": 2800,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Bills Receivable A/c",
+      "group": "Current Assets",
+      "drAmount": 40000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Bills Payable A/c",
+      "group": "Current Liabilities",
+      "drAmount": 0,
+      "crAmount": 25000
+    },
+    {
+      "accountName": "Accrued Interest A/c",
+      "group": "Current Assets",
+      "drAmount": 4500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Drawings Account",
+      "group": "Capital Account",
+      "drAmount": 23000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Commission Income A/c",
+      "group": "Indirect Incomes",
+      "drAmount": 0,
+      "crAmount": 14000
+    },
+    {
+      "accountName": "Interest Income A/c",
+      "group": "Indirect Incomes",
+      "drAmount": 0,
+      "crAmount": 10500
+    },
+    {
+      "accountName": "Bad Debts Recovered A/c",
+      "group": "Indirect Incomes",
+      "drAmount": 0,
+      "crAmount": 8000
+    }
+  ]
+}

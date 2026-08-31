@@ -1,0 +1,86 @@
+================================================================================
+                    CNAT ACADEMY — BARRACKPORE ACCOUNTING LAB
+         COURSE: TALLYPRIME MASTER SERIES (MODULE 1.3: LEDGER POSTING)
+                    PRACTICAL ASSIGNMENT QUESTION PAPER
+================================================================================
+ORGANIZATION: M/S METRO ELECTRONICS & APPLIANCES (PROPRIETORSHIP)
+PERIOD: MAY 2026                         MAX MARKS: 30
+TIME ALLOWED: 2 HOURS                    SCOPE: 30 BUSINESS TRANSACTIONS
+
+STUDENT NAME: ____________________________  ROLL NO: _______________
+CENTER: _________________________________  DATE: __________________
+================================================================================
+
+INSTRUCTIONS FOR STUDENTS:
+1. Pass 5-column Journal Entries (Date, Particulars, J.F., Debit, Credit).
+2. Post all entries to 8-column T-Account General Ledgers.
+3. Calculate Balance c/d at month-end and carry forward Balance b/d on 1st June 2026.
+4. Prepare reconciled Trial Balance as on 31st May 2026.
+
+--------------------------------------------------------------------------------
+                         BUSINESS TRANSACTIONS TO SOLVE
+--------------------------------------------------------------------------------
+
+Q1. (2026-05-01): Started business introducing Cash ₹4,00,000 & HDFC Bank Balance ₹3,50,000 as Capital.
+
+Q2. (2026-05-02): Paid Office Premises Security Deposit ₹60,000 by HDFC Bank Cheque.
+
+Q3. (2026-05-03): Purchased Commercial Showroom Racks & Furniture for Cash ₹50,000.
+
+Q4. (2026-05-04): Purchased Electronic Goods on Credit from LG Electronics India for ₹2,50,000 (Inv #LG-501).
+
+Q5. (2026-05-05): Paid Freight & Transport Charges on Purchases ₹8,000 in Cash.
+
+Q6. (2026-05-06): Sold Smart TVs on Credit to Roy Digital Hub for ₹1,80,000 (Inv #ME-001).
+
+Q7. (2026-05-07): Returned Damaged Refrigerators ₹20,000 to LG Electronics India (Debit Note #DN-02).
+
+Q8. (2026-05-08): Customer Roy Digital Hub returned Faulty Smart TV ₹15,000 (Credit Note #CN-02).
+
+Q9. (2026-05-09): Cash Counter Sales of Home Appliances ₹45,000 deposited into Cash Vault.
+
+Q10. (2026-05-10): Deposited Cash ₹40,000 into HDFC Bank Account (Contra Entry).
+
+Q11. (2026-05-11): Purchased Billing POS Machine & Computer for ₹40,000 by HDFC Bank Cheque.
+
+Q12. (2026-05-12): Paid Electrical Wiring & Installation Charges ₹6,000 in Cash (Capitalized to Asset).
+
+Q13. (2026-05-13): Received Cheque ₹1,20,000 from Roy Digital Hub in partial settlement.
+
+Q14. (2026-05-14): Paid Cash ₹1,50,000 to LG Electronics India on Account.
+
+Q15. (2026-05-15): Withdrew Cash ₹30,000 from HDFC Bank for Office Vault (Contra Entry).
+
+Q16. (2026-05-16): Proprietor withdrew Cash ₹20,000 for personal family vacation (Drawings).
+
+Q17. (2026-05-17): Proprietor took 1 AC unit costing ₹25,000 for personal home use (Drawings at Cost).
+
+Q18. (2026-05-18): Paid Showroom Electricity & Utility Bill ₹11,500 by HDFC Bank Transfer.
+
+Q19. (2026-05-19): Sold Goods for Cash ₹85,000 and deposited funds directly into HDFC Bank.
+
+Q20. (2026-05-20): Paid Local Newspaper & Digital Marketing Charges ₹14,000 in Cash.
+
+Q21. (2026-05-21): Drawn 3-Month Bill of Exchange ₹45,000 on Roy Digital Hub accepted by customer.
+
+Q22. (2026-05-22): Accepted 2-Month Bill of Exchange ₹80,000 in favor of LG Electronics India.
+
+Q23. (2026-05-23): Received Showroom Sub-lease Rent Income ₹18,000 directly credited in Bank.
+
+Q24. (2026-05-24): Received Sales Referral Commission in Cash ₹9,500.
+
+Q25. (2026-05-25): Advanced Imprest Petty Cash Float ₹8,000 to Petty Cashier from Main Cash.
+
+Q26. (2026-05-26): Petty Cashier spent Refreshments ₹2,500 + Courier ₹1,100 + Office Soap ₹400 (Total ₹4,000).
+
+Q27. (2026-05-27): Paid Staff Salaries for May ₹65,000 by Bank Cheque.
+
+Q28. (2026-05-28): Recovered Cash ₹12,000 from Old Written-Off Debtor.
+
+Q29. (2026-05-29): Accrued Showroom Sub-lease Rent ₹6,000 earned but not yet received.
+
+Q30. (2026-05-30): Provided Depreciation on Showroom Racks & POS Machine @ 10% p.a. (F7 Journal).
+
+================================================================================
+                END OF QUESTION PAPER — ALL THE BEST!
+================================================================================

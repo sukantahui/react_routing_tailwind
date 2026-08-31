@@ -1,0 +1,5 @@
+BALANCE C/D AND B/D MECHANICS MASTER NOTE:
+
+1. Balance c/d (Carried Down) is written at the month-end on the smaller side to balance total amounts.
+2. Balance b/d (Brought Down) is written on the first day of the next month on the actual nature side (Dr or Cr).
+3. If Balance c/d is on Cr side, the opening Balance b/d will be on the Dr side (indicating a Debit Balance).

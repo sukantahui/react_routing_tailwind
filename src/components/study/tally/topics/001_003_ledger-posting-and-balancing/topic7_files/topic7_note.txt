@@ -1,0 +1,5 @@
+PETTY CASH BOOK MASTER NOTE:
+
+1. Petty Cash Book is maintained to record micro day-to-day office expenses (tea, conveyance, postage).
+2. Imprest System advances a fixed float (e.g. 5,000). At month end, Chief Cashier reimburses exact spent amount to restore initial float balance.
+3. Analytical format categorizes expenses into specific analytical columns.

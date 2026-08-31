@@ -1,0 +1,5 @@
+RULES OF LEDGER POSTING MASTER NOTE:
+
+1. Posting is the process of transferring entries from Journal to Ledger accounts.
+2. If a ledger is debited in Journal, post on the Debit side with prefix To referencing the credit account.
+3. If a ledger is credited in Journal, post on the Credit side with prefix By referencing the debit account.

@@ -5,8 +5,11 @@ import { Printer, Copy, Check, Download, Eye, EyeOff } from "lucide-react";
 export default function PlainTextPrint({
   content = "",
   filename = "study_note.txt",
+  title = "Printable Plain-Text Study Note",
   hidePreview: initialHidePreview = true,
-  showDownload = true
+  showDownload = true,
+  customPrintLabel = null,
+  onCustomPrint = null
 }) {
   const [copied, setCopied] = useState(false);
   const [showPreview, setShowPreview] = useState(!initialHidePreview);
@@ -17,7 +20,7 @@ export default function PlainTextPrint({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handlePrint = () => {
+  const handleDefaultPrint = () => {
     const printWindow = window.open("", "_blank");
     if (printWindow) {
       printWindow.document.write(
@@ -33,6 +36,14 @@ export default function PlainTextPrint({
     }
   };
 
+  const handlePrint = () => {
+    if (onCustomPrint) {
+      onCustomPrint();
+    } else {
+      handleDefaultPrint();
+    }
+  };
+
   const handleDownload = () => {
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
@@ -45,12 +56,14 @@ export default function PlainTextPrint({
     URL.revokeObjectURL(url);
   };
 
+  const printBtnText = customPrintLabel || (onCustomPrint ? "Print Question Paper" : "Print Note");
+
   return (
     <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 space-y-4 shadow-xl">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <span>🖨️</span> Printable Plain-Text Study Note
+            <span>🖨️</span> {title}
           </h3>
           <p className="text-xs text-slate-400 font-mono mt-0.5">{filename}</p>
         </div>
@@ -88,7 +101,7 @@ export default function PlainTextPrint({
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition-colors shadow-lg"
           >
             <Printer size={14} />
-            <span>Print Note</span>
+            <span>{printBtnText}</span>
           </button>
         </div>
       </div>

@@ -1,0 +1,6 @@
+CONTRA ENTRIES MASTER NOTE:
+
+1. Contra Entry (symbol C) occurs when a transaction affects both Cash and Bank accounts simultaneously.
+2. Cash deposited into Bank: Debit Bank Column, Credit Cash Column.
+3. Cash withdrawn from Bank for office use: Debit Cash Column, Credit Bank Column.
+4. Contra entries require no posting to general ledger since both sides are in the Cash Book.

@@ -1,0 +1,976 @@
+{
+  "company": {
+    "name": "M/s Metro Electronics & Appliances",
+    "period": "May 2026",
+    "proprietor": "Mr. Vikram Sen",
+    "location": "Barrackpore Electronics Hub, Kolkata",
+    "totalTransactions": 30
+  },
+  "transactions": [
+    {
+      "id": 1,
+      "date": "2026-05-01",
+      "descEn": "Started business introducing Cash ₹4,00,000 & HDFC Bank Balance ₹3,50,000 as Capital.",
+      "descBn": "নগদ ৪,০০,০০০ টাকা ও এইচডিএফসি ব্যাংক জমা ৩,৫০,০০০ টাকা প্রারম্ভিক মূলধন দিয়ে ব্যবসা শুরু।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹4,00,000 | HDFC Bank A/c Dr ₹3,50,000",
+      "crLine": "To Capital A/c ₹7,50,000"
+    },
+    {
+      "id": 2,
+      "date": "2026-05-02",
+      "descEn": "Paid Office Premises Security Deposit ₹60,000 by HDFC Bank Cheque.",
+      "descBn": "এইচডিএফসি ব্যাংক চেকের মাধ্যমে অফিসের সিকিউরিটি ডিপোজিট ৬০,০০০ টাকা প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Security Deposit Asset A/c Dr ₹60,000",
+      "crLine": "To HDFC Bank A/c ₹60,000"
+    },
+    {
+      "id": 3,
+      "date": "2026-05-03",
+      "descEn": "Purchased Commercial Showroom Racks & Furniture for Cash ₹50,000.",
+      "descBn": "শো-রুমের র্যাক ও আসবাবপত্র নগদে ৫০,০০০ টাকায় ক্রয়।",
+      "voucher": "F5 Payment",
+      "drLine": "Furniture & Fixtures A/c Dr ₹50,000",
+      "crLine": "To Cash A/c ₹50,000"
+    },
+    {
+      "id": 4,
+      "date": "2026-05-04",
+      "descEn": "Purchased Electronic Goods on Credit from LG Electronics India for ₹2,50,000 (Inv #LG-501).",
+      "descBn": "এলজি ইলেকট্রনিক্স থেকে বাকিতে ২,৫০,০০০ টাকার ইলেকট্রনিক্স পণ্য ক্রয়।",
+      "voucher": "F9 Purchase",
+      "drLine": "Purchases A/c Dr ₹2,50,000",
+      "crLine": "To LG Electronics India Creditor ₹2,50,000"
+    },
+    {
+      "id": 5,
+      "date": "2026-05-05",
+      "descEn": "Paid Freight & Transport Charges on Purchases ₹8,000 in Cash.",
+      "descBn": "ক্রয়কৃত পণ্যের পরিবহন খরচ নগদে ৮,০০০ টাকা প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Freight Inward Expense A/c Dr ₹8,000",
+      "crLine": "To Cash A/c ₹8,000"
+    },
+    {
+      "id": 6,
+      "date": "2026-05-06",
+      "descEn": "Sold Smart TVs on Credit to Roy Digital Hub for ₹1,80,000 (Inv #ME-001).",
+      "descBn": "রায় ডিজিটাল হাবের কাছে বাকিতে ১,৮০,০০০ টাকার স্মার্ট টিভি বিক্রি।",
+      "voucher": "F8 Sales",
+      "drLine": "Roy Digital Hub Debtor A/c Dr ₹1,80,000",
+      "crLine": "To Sales A/c ₹1,80,000"
+    },
+    {
+      "id": 7,
+      "date": "2026-05-07",
+      "descEn": "Returned Damaged Refrigerators ₹20,000 to LG Electronics India (Debit Note #DN-02).",
+      "descBn": "এলজি ইলেকট্রনিক্সকে ২০,০০০ টাকার ক্ষতিগ্রস্ত ফ্রিজ ফেরত (Debit Note)।",
+      "voucher": "Alt+F5 Debit Note",
+      "drLine": "LG Electronics India Creditor A/c Dr ₹20,000",
+      "crLine": "To Return Outward A/c ₹20,000"
+    },
+    {
+      "id": 8,
+      "date": "2026-05-08",
+      "descEn": "Customer Roy Digital Hub returned Faulty Smart TV ₹15,000 (Credit Note #CN-02).",
+      "descBn": "গ্রাহক রায় ডিজিটাল হাব ১৫,০০০ টাকার ত্রুটিপূর্ণ টিভি ফেরত দিল (Credit Note)।",
+      "voucher": "Alt+F6 Credit Note",
+      "drLine": "Return Inward A/c Dr ₹15,000",
+      "crLine": "To Roy Digital Hub Debtor ₹15,000"
+    },
+    {
+      "id": 9,
+      "date": "2026-05-09",
+      "descEn": "Cash Counter Sales of Home Appliances ₹45,000 deposited into Cash Vault.",
+      "descBn": "কাউন্টারে নগদে ৪৫,০০০ টাকার হোম অ্যাপ্লায়েন্স বিক্রি।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹45,000",
+      "crLine": "To Sales A/c ₹45,000"
+    },
+    {
+      "id": 10,
+      "date": "2026-05-10",
+      "descEn": "Deposited Cash ₹40,000 into HDFC Bank Account (Contra Entry).",
+      "descBn": "ব্যাংকে ৪০,০০০ টাকা নগদ জমা দেওয়া হলো (Contra Entry)।",
+      "voucher": "F4 Contra",
+      "drLine": "HDFC Bank A/c Dr ₹40,000 (Bank Column)",
+      "crLine": "To Cash A/c ₹40,000 (Cash Column)"
+    },
+    {
+      "id": 11,
+      "date": "2026-05-11",
+      "descEn": "Purchased Billing POS Machine & Computer for ₹40,000 by HDFC Bank Cheque.",
+      "descBn": "চেকের মাধ্যমে ৪০,০০০ টাকার পস বিলিং মেশিন ও কম্পিউটার ক্রয়।",
+      "voucher": "F5 Payment",
+      "drLine": "POS Computer Asset A/c Dr ₹40,000",
+      "crLine": "To HDFC Bank A/c ₹40,000"
+    },
+    {
+      "id": 12,
+      "date": "2026-05-12",
+      "descEn": "Paid Electrical Wiring & Installation Charges ₹6,000 in Cash (Capitalized to Asset).",
+      "descBn": "নগদে ৬,০০০ টাকা ক্যাবল ওয়্যারিং ও ইনস্টলেশন খরচ (সম্পত্তিতে মূলধনীকরণ)।",
+      "voucher": "F5 Payment",
+      "drLine": "Electrical Installation Asset A/c Dr ₹6,000",
+      "crLine": "To Cash A/c ₹6,000"
+    },
+    {
+      "id": 13,
+      "date": "2026-05-13",
+      "descEn": "Received Cheque ₹1,20,000 from Roy Digital Hub in partial settlement.",
+      "descBn": "গ্রাহক রায় ডিজিটাল হাবের কাছ থেকে ১,২০,০০০ টাকার চেক প্রাপ্তি।",
+      "voucher": "F6 Receipt",
+      "drLine": "HDFC Bank A/c Dr ₹1,20,000",
+      "crLine": "To Roy Digital Hub Debtor ₹1,20,000"
+    },
+    {
+      "id": 14,
+      "date": "2026-05-14",
+      "descEn": "Paid Cash ₹1,50,000 to LG Electronics India on Account.",
+      "descBn": "পাওনাদার এলজি ইলেকট্রনিক্সকে ১,৫০,০০০ টাকা নগদ প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "LG Electronics India Creditor A/c Dr ₹1,50,000",
+      "crLine": "To Cash A/c ₹1,50,000"
+    },
+    {
+      "id": 15,
+      "date": "2026-05-15",
+      "descEn": "Withdrew Cash ₹30,000 from HDFC Bank for Office Vault (Contra Entry).",
+      "descBn": "অফিস ভল্টের জন্য ব্যাংক থেকে ৩০,০০০ টাকা নগদ উত্তোলন (Contra Entry)।",
+      "voucher": "F4 Contra",
+      "drLine": "Cash A/c Dr ₹30,000 (Cash Column)",
+      "crLine": "To HDFC Bank A/c ₹30,000 (Bank Column)"
+    },
+    {
+      "id": 16,
+      "date": "2026-05-16",
+      "descEn": "Proprietor withdrew Cash ₹20,000 for personal family vacation (Drawings).",
+      "descBn": "মালিক ব্যক্তিগত পারিবারিক খরচে ২০,০০০ টাকা নগদ উত্তোলন করলেন।",
+      "voucher": "F5 Payment",
+      "drLine": "Drawings A/c Dr ₹20,000",
+      "crLine": "To Cash A/c ₹20,000"
+    },
+    {
+      "id": 17,
+      "date": "2026-05-17",
+      "descEn": "Proprietor took 1 AC unit costing ₹25,000 for personal home use (Drawings at Cost).",
+      "descBn": "মালিক নিজ বাড়ির জন্য ২৫,০০০ টাকা ক্রয়মূল্যের ১টি এসি উত্তোলন করলেন।",
+      "voucher": "F7 Journal",
+      "drLine": "Drawings A/c Dr ₹25,000",
+      "crLine": "To Purchases A/c ₹25,000 (at cost)"
+    },
+    {
+      "id": 18,
+      "date": "2026-05-18",
+      "descEn": "Paid Showroom Electricity & Utility Bill ₹11,500 by HDFC Bank Transfer.",
+      "descBn": "ব্যাংক ট্রান্সফারে ১১,৫০০ টাকা শো-রুমের বিদ্যুৎ ও পানি বিল প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Electricity Expense A/c Dr ₹11,500",
+      "crLine": "To HDFC Bank A/c ₹11,500"
+    },
+    {
+      "id": 19,
+      "date": "2026-05-19",
+      "descEn": "Sold Goods for Cash ₹85,000 and deposited funds directly into HDFC Bank.",
+      "descBn": "নগদে ৮৫,০০০ টাকার পণ্য বিক্রি এবং সরাসরি ব্যাংকে জমা।",
+      "voucher": "F6 Receipt",
+      "drLine": "HDFC Bank A/c Dr ₹85,000",
+      "crLine": "To Sales A/c ₹85,000"
+    },
+    {
+      "id": 20,
+      "date": "2026-05-20",
+      "descEn": "Paid Local Newspaper & Digital Marketing Charges ₹14,000 in Cash.",
+      "descBn": "নগদে ১৪,০০০ টাকা পত্রিকা ও ডিজিটাল মার্কেটিং খরচ প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Marketing Expense A/c Dr ₹14,000",
+      "crLine": "To Cash A/c ₹14,000"
+    },
+    {
+      "id": 21,
+      "date": "2026-05-21",
+      "descEn": "Drawn 3-Month Bill of Exchange ₹45,000 on Roy Digital Hub accepted by customer.",
+      "descBn": "রায় ডিজিটাল হাবের ওপর ৪৫,০০০ টাকার ৩ মাসের বাণিজ্য বিল টানা ও গৃহীত।",
+      "voucher": "F7 Journal",
+      "drLine": "Bills Receivable Asset A/c Dr ₹45,000",
+      "crLine": "To Roy Digital Hub Debtor ₹45,000"
+    },
+    {
+      "id": 22,
+      "date": "2026-05-22",
+      "descEn": "Accepted 2-Month Bill of Exchange ₹80,000 in favor of LG Electronics India.",
+      "descBn": "এলজি ইলেকট্রনিক্স-এর অনুকূলে ৮০,০০০ টাকার ২ মাসের প্রদেয় বিল স্বীকৃত।",
+      "voucher": "F7 Journal",
+      "drLine": "LG Electronics India Creditor A/c Dr ₹80,000",
+      "crLine": "To Bills Payable Liability ₹80,000"
+    },
+    {
+      "id": 23,
+      "date": "2026-05-23",
+      "descEn": "Received Showroom Sub-lease Rent Income ₹18,000 directly credited in Bank.",
+      "descBn": "শো-রুমের সাব-লিজ ভাড়া ১৮,০০০ টাকা সরাসরি ব্যাংক খাতায় জমা।",
+      "voucher": "F6 Receipt",
+      "drLine": "HDFC Bank A/c Dr ₹18,000",
+      "crLine": "To Rent Income A/c ₹18,000"
+    },
+    {
+      "id": 24,
+      "date": "2026-05-24",
+      "descEn": "Received Sales Referral Commission in Cash ₹9,500.",
+      "descBn": "নগদে ৯,৫০০ টাকা সেলস রেফারেল কমিশন প্রাপ্তি।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹9,500",
+      "crLine": "To Commission Income A/c ₹9,500"
+    },
+    {
+      "id": 25,
+      "date": "2026-05-25",
+      "descEn": "Advanced Imprest Petty Cash Float ₹8,000 to Petty Cashier from Main Cash.",
+      "descBn": "প্রধান ক্যাশ থেকে পেটি ক্যাশিয়ারকে ৮,০০০ টাকা অগ্রিম ফ্লোট দেওয়া হলো।",
+      "voucher": "F4 Contra",
+      "drLine": "Petty Cash A/c Dr ₹8,000",
+      "crLine": "To Main Cash A/c ₹8,000"
+    },
+    {
+      "id": 26,
+      "date": "2026-05-26",
+      "descEn": "Petty Cashier spent Refreshments ₹2,500 + Courier ₹1,100 + Office Soap ₹400 (Total ₹4,000).",
+      "descBn": "পেটি ক্যাশিয়ার আপ্যায়ন ২,৫০০ + কুরিয়ার ১,১০০ + পরিষ্কার খরচ ৪০০ মোট ৪,০০০ টাকা খরচ করলেন।",
+      "voucher": "F5 Payment",
+      "drLine": "Petty Expenses A/c Dr ₹4,000",
+      "crLine": "To Petty Cash A/c ₹4,000"
+    },
+    {
+      "id": 27,
+      "date": "2026-05-27",
+      "descEn": "Paid Staff Salaries for May ₹65,000 by Bank Cheque.",
+      "descBn": "চেকের মাধ্যমে মে মাসের স্টাফদের বেতন ৬৫,০০০ টাকা প্রদান।",
+      "voucher": "F5 Payment",
+      "drLine": "Salaries Expense A/c Dr ₹65,000",
+      "crLine": "To HDFC Bank A/c ₹65,000"
+    },
+    {
+      "id": 28,
+      "date": "2026-05-28",
+      "descEn": "Recovered Cash ₹12,000 from Old Written-Off Debtor.",
+      "descBn": "পূর্বে অপলিখিত ১২,০০০ টাকা কুঋণ নগদে পুনরুদ্ধার হলো।",
+      "voucher": "F6 Receipt",
+      "drLine": "Cash A/c Dr ₹12,000",
+      "crLine": "To Bad Debts Recovered Income ₹12,000"
+    },
+    {
+      "id": 29,
+      "date": "2026-05-29",
+      "descEn": "Accrued Showroom Sub-lease Rent ₹6,000 earned but not yet received.",
+      "descBn": "শো-রুমের অর্জিত কিন্তু অপ্রাপ্ত সাব-লিজ ভাড়া ৬,০০০ টাকা হিসাবভুক্ত।",
+      "voucher": "F7 Journal",
+      "drLine": "Accrued Rent Asset A/c Dr ₹6,000",
+      "crLine": "To Rent Income A/c ₹6,000"
+    },
+    {
+      "id": 30,
+      "date": "2026-05-30",
+      "descEn": "Provided Depreciation on Showroom Racks & POS Machine @ 10% p.a. (F7 Journal).",
+      "descBn": "শো-রুমের র্যাক ও কম্পিউটারে ১০% হারে অবচয় ধার্য করা হলো।",
+      "voucher": "F7 Journal",
+      "drLine": "Depreciation Expense A/c Dr ₹9,000",
+      "crLine": "To POS Computer Asset A/c ₹9,000"
+    }
+  ],
+  "journalEntries": [
+    {
+      "date": "2026-05-01",
+      "drAccount": "Cash Account",
+      "crAccount": "Capital Account",
+      "drAmount": 400000,
+      "crAmount": 400000,
+      "narration": "Being initial cash introduced by proprietor",
+      "jf": "01"
+    },
+    {
+      "date": "2026-05-01",
+      "drAccount": "HDFC Bank Account",
+      "crAccount": "Capital Account",
+      "drAmount": 350000,
+      "crAmount": 350000,
+      "narration": "Being bank balance introduced by proprietor",
+      "jf": "01"
+    },
+    {
+      "date": "2026-05-02",
+      "drAccount": "Security Deposit Asset A/c",
+      "crAccount": "HDFC Bank Account",
+      "drAmount": 60000,
+      "crAmount": 60000,
+      "narration": "Being office premises security deposit paid by bank cheque",
+      "jf": "02"
+    },
+    {
+      "date": "2026-05-03",
+      "drAccount": "Furniture & Fixtures A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 50000,
+      "crAmount": 50000,
+      "narration": "Being showroom racks & furniture purchased for cash",
+      "jf": "03"
+    },
+    {
+      "date": "2026-05-04",
+      "drAccount": "Purchases Account",
+      "crAccount": "LG Electronics India Creditor",
+      "drAmount": 250000,
+      "crAmount": 250000,
+      "narration": "Being electronic goods purchased on credit under Inv #LG-501",
+      "jf": "04"
+    },
+    {
+      "date": "2026-05-05",
+      "drAccount": "Freight Inward Expense A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 8000,
+      "crAmount": 8000,
+      "narration": "Being freight charges paid in cash",
+      "jf": "05"
+    },
+    {
+      "date": "2026-05-06",
+      "drAccount": "Roy Digital Hub Debtor",
+      "crAccount": "Sales Account",
+      "drAmount": 180000,
+      "crAmount": 180000,
+      "narration": "Being goods sold on credit under Inv #ME-001",
+      "jf": "06"
+    },
+    {
+      "date": "2026-05-07",
+      "drAccount": "LG Electronics India Creditor",
+      "crAccount": "Return Outward A/c",
+      "drAmount": 20000,
+      "crAmount": 20000,
+      "narration": "Being damaged refrigerators returned under Debit Note #DN-02",
+      "jf": "07"
+    },
+    {
+      "date": "2026-05-08",
+      "drAccount": "Return Inward A/c",
+      "crAccount": "Roy Digital Hub Debtor",
+      "drAmount": 15000,
+      "crAmount": 15000,
+      "narration": "Being faulty smart TV returned by customer under Credit Note #CN-02",
+      "jf": "08"
+    },
+    {
+      "date": "2026-05-09",
+      "drAccount": "Cash Account",
+      "crAccount": "Sales Account",
+      "drAmount": 45000,
+      "crAmount": 45000,
+      "narration": "Being counter cash sales of home appliances",
+      "jf": "09"
+    },
+    {
+      "date": "2026-05-10",
+      "drAccount": "HDFC Bank Account",
+      "crAccount": "Cash Account",
+      "drAmount": 40000,
+      "crAmount": 40000,
+      "narration": "Being cash deposited into HDFC Bank (Contra C)",
+      "jf": "10"
+    },
+    {
+      "date": "2026-05-11",
+      "drAccount": "POS Computer Asset A/c",
+      "crAccount": "HDFC Bank Account",
+      "drAmount": 40000,
+      "crAmount": 40000,
+      "narration": "Being billing POS computer purchased by cheque",
+      "jf": "11"
+    },
+    {
+      "date": "2026-05-12",
+      "drAccount": "Electrical Installation Asset A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 6000,
+      "crAmount": 6000,
+      "narration": "Being electrical wiring charges paid in cash & capitalized",
+      "jf": "12"
+    },
+    {
+      "date": "2026-05-13",
+      "drAccount": "HDFC Bank Account",
+      "crAccount": "Roy Digital Hub Debtor",
+      "drAmount": 120000,
+      "crAmount": 120000,
+      "narration": "Being cheque received from Roy Digital Hub",
+      "jf": "13"
+    },
+    {
+      "date": "2026-05-14",
+      "drAccount": "LG Electronics India Creditor",
+      "crAccount": "Cash Account",
+      "drAmount": 150000,
+      "crAmount": 150000,
+      "narration": "Being cash paid to LG Electronics on account",
+      "jf": "14"
+    },
+    {
+      "date": "2026-05-15",
+      "drAccount": "Cash Account",
+      "crAccount": "HDFC Bank Account",
+      "drAmount": 30000,
+      "crAmount": 30000,
+      "narration": "Being cash withdrawn from bank for vault (Contra C)",
+      "jf": "15"
+    },
+    {
+      "date": "2026-05-16",
+      "drAccount": "Drawings Account",
+      "crAccount": "Cash Account",
+      "drAmount": 20000,
+      "crAmount": 20000,
+      "narration": "Being cash withdrawn by proprietor for personal use",
+      "jf": "16"
+    },
+    {
+      "date": "2026-05-17",
+      "drAccount": "Drawings Account",
+      "crAccount": "Purchases Account",
+      "drAmount": 25000,
+      "crAmount": 25000,
+      "narration": "Being AC unit withdrawn for personal home use at cost",
+      "jf": "17"
+    },
+    {
+      "date": "2026-05-18",
+      "drAccount": "Electricity Expense A/c",
+      "crAccount": "HDFC Bank Account",
+      "drAmount": 11500,
+      "crAmount": 11500,
+      "narration": "Being utility charges paid by bank transfer",
+      "jf": "18"
+    },
+    {
+      "date": "2026-05-19",
+      "drAccount": "HDFC Bank Account",
+      "crAccount": "Sales Account",
+      "drAmount": 85000,
+      "crAmount": 85000,
+      "narration": "Being cash sales deposited directly into bank",
+      "jf": "19"
+    },
+    {
+      "date": "2026-05-20",
+      "drAccount": "Marketing Expense A/c",
+      "crAccount": "Cash Account",
+      "drAmount": 14000,
+      "crAmount": 14000,
+      "narration": "Being marketing expenses paid in cash",
+      "jf": "20"
+    },
+    {
+      "date": "2026-05-21",
+      "drAccount": "Bills Receivable Asset A/c",
+      "crAccount": "Roy Digital Hub Debtor",
+      "drAmount": 45000,
+      "crAmount": 45000,
+      "narration": "Being 3-month bill accepted by Roy Digital Hub",
+      "jf": "21"
+    },
+    {
+      "date": "2026-05-22",
+      "drAccount": "LG Electronics India Creditor",
+      "crAccount": "Bills Payable Liability",
+      "drAmount": 80000,
+      "crAmount": 80000,
+      "narration": "Being 2-month bill accepted in favor of LG Electronics",
+      "jf": "22"
+    },
+    {
+      "date": "2026-05-23",
+      "drAccount": "HDFC Bank Account",
+      "crAccount": "Rent Income A/c",
+      "drAmount": 18000,
+      "crAmount": 18000,
+      "narration": "Being showroom sub-lease rent credited in bank",
+      "jf": "23"
+    },
+    {
+      "date": "2026-05-24",
+      "drAccount": "Cash Account",
+      "crAccount": "Commission Income A/c",
+      "drAmount": 9500,
+      "crAmount": 9500,
+      "narration": "Being referral commission received in cash",
+      "jf": "24"
+    },
+    {
+      "date": "2026-05-25",
+      "drAccount": "Petty Cash Account",
+      "crAccount": "Cash Account",
+      "drAmount": 8000,
+      "crAmount": 8000,
+      "narration": "Being petty cash float advanced to cashier",
+      "jf": "25"
+    },
+    {
+      "date": "2026-05-26",
+      "drAccount": "Petty Expenses A/c",
+      "crAccount": "Petty Cash Account",
+      "drAmount": 4000,
+      "crAmount": 4000,
+      "narration": "Being petty office expenses paid by cashier",
+      "jf": "26"
+    },
+    {
+      "date": "2026-05-27",
+      "drAccount": "Salaries Expense A/c",
+      "crAccount": "HDFC Bank Account",
+      "drAmount": 65000,
+      "crAmount": 65000,
+      "narration": "Being staff salaries paid by bank cheque",
+      "jf": "27"
+    },
+    {
+      "date": "2026-05-28",
+      "drAccount": "Cash Account",
+      "crAccount": "Bad Debts Recovered Income",
+      "drAmount": 12000,
+      "crAmount": 12000,
+      "narration": "Being old written-off bad debt recovered in cash",
+      "jf": "28"
+    },
+    {
+      "date": "2026-05-29",
+      "drAccount": "Accrued Rent Asset A/c",
+      "crAccount": "Rent Income A/c",
+      "drAmount": 6000,
+      "crAmount": 6000,
+      "narration": "Being accrued rent earned recorded",
+      "jf": "29"
+    },
+    {
+      "date": "2026-05-30",
+      "drAccount": "Depreciation Expense A/c",
+      "crAccount": "POS Computer Asset A/c",
+      "drAmount": 9000,
+      "crAmount": 9000,
+      "narration": "Being 10% depreciation provided on POS asset",
+      "jf": "30"
+    }
+  ],
+  "ledgers": {
+    "Cash Account": {
+      "debitEntries": [
+        {
+          "date": "2026-05-01",
+          "particular": "To Capital A/c",
+          "jf": "01",
+          "amount": 400000
+        },
+        {
+          "date": "2026-05-09",
+          "particular": "To Sales A/c",
+          "jf": "09",
+          "amount": 45000
+        },
+        {
+          "date": "2026-05-15",
+          "particular": "To HDFC Bank A/c (Contra)",
+          "jf": "15",
+          "amount": 30000
+        },
+        {
+          "date": "2026-05-24",
+          "particular": "To Commission Income A/c",
+          "jf": "24",
+          "amount": 9500
+        },
+        {
+          "date": "2026-05-28",
+          "particular": "To Bad Debts Recovered A/c",
+          "jf": "28",
+          "amount": 12000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-05-03",
+          "particular": "By Furniture & Fixtures A/c",
+          "jf": "03",
+          "amount": 50000
+        },
+        {
+          "date": "2026-05-05",
+          "particular": "By Freight Inward A/c",
+          "jf": "05",
+          "amount": 8000
+        },
+        {
+          "date": "2026-05-10",
+          "particular": "By HDFC Bank A/c (Contra)",
+          "jf": "10",
+          "amount": 40000
+        },
+        {
+          "date": "2026-05-12",
+          "particular": "By Electrical Installation A/c",
+          "jf": "12",
+          "amount": 6000
+        },
+        {
+          "date": "2026-05-14",
+          "particular": "By LG Electronics India Creditor",
+          "jf": "14",
+          "amount": 150000
+        },
+        {
+          "date": "2026-05-16",
+          "particular": "By Drawings A/c",
+          "jf": "16",
+          "amount": 20000
+        },
+        {
+          "date": "2026-05-20",
+          "particular": "By Marketing Expense A/c",
+          "jf": "20",
+          "amount": 14000
+        },
+        {
+          "date": "2026-05-25",
+          "particular": "By Petty Cash A/c",
+          "jf": "25",
+          "amount": 8000
+        },
+        {
+          "date": "2026-05-31",
+          "particular": "By Balance c/d (Closing)",
+          "jf": "—",
+          "amount": 200500
+        }
+      ],
+      "debitTotal": 496500,
+      "creditTotal": 496500,
+      "closingBalance": 200500,
+      "balanceType": "Debit Balance"
+    },
+    "HDFC Bank Account": {
+      "debitEntries": [
+        {
+          "date": "2026-05-01",
+          "particular": "To Capital A/c",
+          "jf": "01",
+          "amount": 350000
+        },
+        {
+          "date": "2026-05-10",
+          "particular": "To Cash A/c (Contra)",
+          "jf": "10",
+          "amount": 40000
+        },
+        {
+          "date": "2026-05-13",
+          "particular": "To Roy Digital Hub Debtor",
+          "jf": "13",
+          "amount": 120000
+        },
+        {
+          "date": "2026-05-19",
+          "particular": "To Sales A/c",
+          "jf": "19",
+          "amount": 85000
+        },
+        {
+          "date": "2026-05-23",
+          "particular": "To Rent Income A/c",
+          "jf": "23",
+          "amount": 18000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-05-02",
+          "particular": "By Security Deposit Asset A/c",
+          "jf": "02",
+          "amount": 60000
+        },
+        {
+          "date": "2026-05-11",
+          "particular": "By POS Computer Asset A/c",
+          "jf": "11",
+          "amount": 40000
+        },
+        {
+          "date": "2026-05-15",
+          "particular": "By Cash A/c (Contra)",
+          "jf": "15",
+          "amount": 30000
+        },
+        {
+          "date": "2026-05-18",
+          "particular": "By Electricity Expense A/c",
+          "jf": "18",
+          "amount": 11500
+        },
+        {
+          "date": "2026-05-27",
+          "particular": "By Salaries Expense A/c",
+          "jf": "27",
+          "amount": 65000
+        },
+        {
+          "date": "2026-05-31",
+          "particular": "By Balance c/d (Closing)",
+          "jf": "—",
+          "amount": 406500
+        }
+      ],
+      "debitTotal": 613000,
+      "creditTotal": 613000,
+      "closingBalance": 406500,
+      "balanceType": "Debit Balance"
+    },
+    "Capital Account": {
+      "debitEntries": [
+        {
+          "date": "2026-05-31",
+          "particular": "To Balance c/d (Closing)",
+          "jf": "—",
+          "amount": 750000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-05-01",
+          "particular": "By Cash A/c",
+          "jf": "01",
+          "amount": 400000
+        },
+        {
+          "date": "2026-05-01",
+          "particular": "By HDFC Bank A/c",
+          "jf": "01",
+          "amount": 350000
+        }
+      ],
+      "debitTotal": 750000,
+      "creditTotal": 750000,
+      "closingBalance": 750000,
+      "balanceType": "Credit Balance"
+    },
+    "Purchases Account": {
+      "debitEntries": [
+        {
+          "date": "2026-05-04",
+          "particular": "To LG Electronics India Creditor",
+          "jf": "04",
+          "amount": 250000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-05-17",
+          "particular": "By Drawings A/c (at cost)",
+          "jf": "17",
+          "amount": 25000
+        },
+        {
+          "date": "2026-05-31",
+          "particular": "By Balance c/d (Trading A/c)",
+          "jf": "—",
+          "amount": 225000
+        }
+      ],
+      "debitTotal": 250000,
+      "creditTotal": 250000,
+      "closingBalance": 225000,
+      "balanceType": "Debit Balance"
+    },
+    "Sales Account": {
+      "debitEntries": [
+        {
+          "date": "2026-05-31",
+          "particular": "To Balance c/d (Trading A/c)",
+          "jf": "—",
+          "amount": 310000
+        }
+      ],
+      "creditEntries": [
+        {
+          "date": "2026-05-06",
+          "particular": "By Roy Digital Hub Debtor",
+          "jf": "06",
+          "amount": 180000
+        },
+        {
+          "date": "2026-05-09",
+          "particular": "By Cash A/c",
+          "jf": "09",
+          "amount": 45000
+        },
+        {
+          "date": "2026-05-19",
+          "particular": "By HDFC Bank A/c",
+          "jf": "19",
+          "amount": 85000
+        }
+      ],
+      "debitTotal": 310000,
+      "creditTotal": 310000,
+      "closingBalance": 310000,
+      "balanceType": "Credit Balance"
+    }
+  },
+  "trialBalance": [
+    {
+      "accountName": "Cash Account",
+      "group": "Cash-in-Hand",
+      "drAmount": 200500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "HDFC Bank Account",
+      "group": "Bank Accounts",
+      "drAmount": 406500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Capital Account",
+      "group": "Capital Account",
+      "drAmount": 0,
+      "crAmount": 750000
+    },
+    {
+      "accountName": "Security Deposit Asset A/c",
+      "group": "Fixed Assets",
+      "drAmount": 60000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Furniture & Fixtures A/c",
+      "group": "Fixed Assets",
+      "drAmount": 50000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "POS Computer Asset A/c",
+      "group": "Fixed Assets",
+      "drAmount": 31000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Electrical Installation A/c",
+      "group": "Fixed Assets",
+      "drAmount": 6000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Purchases Account",
+      "group": "Purchase Accounts",
+      "drAmount": 225000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Freight Inward Expense A/c",
+      "group": "Direct Expenses",
+      "drAmount": 8000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Sales Account",
+      "group": "Sales Accounts",
+      "drAmount": 0,
+      "crAmount": 310000
+    },
+    {
+      "accountName": "Return Outward A/c",
+      "group": "Purchase Accounts",
+      "drAmount": 0,
+      "crAmount": 20000
+    },
+    {
+      "accountName": "Return Inward A/c",
+      "group": "Sales Accounts",
+      "drAmount": 15000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Electricity Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 11500,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Marketing Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 14000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Salaries Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 65000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Petty Expenses A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 4000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Depreciation Expense A/c",
+      "group": "Indirect Expenses",
+      "drAmount": 9000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Petty Cash Account",
+      "group": "Cash-in-Hand",
+      "drAmount": 4000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Bills Receivable Asset A/c",
+      "group": "Current Assets",
+      "drAmount": 45000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Bills Payable Liability",
+      "group": "Current Liabilities",
+      "drAmount": 0,
+      "crAmount": 80000
+    },
+    {
+      "accountName": "Accrued Rent Asset A/c",
+      "group": "Current Assets",
+      "drAmount": 6000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Drawings Account",
+      "group": "Capital Account",
+      "drAmount": 45000,
+      "crAmount": 0
+    },
+    {
+      "accountName": "Rent Income A/c",
+      "group": "Indirect Incomes",
+      "drAmount": 0,
+      "crAmount": 24000
+    },
+    {
+      "accountName": "Commission Income A/c",
+      "group": "Indirect Incomes",
+      "drAmount": 0,
+      "crAmount": 9500
+    },
+    {
+      "accountName": "Bad Debts Recovered Income",
+      "group": "Indirect Incomes",
+      "drAmount": 0,
+      "crAmount": 12000
+    }
+  ]
+}

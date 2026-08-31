@@ -1,0 +1,5 @@
+INTERPRETING LEDGER BALANCES MASTER NOTE:
+
+1. Real Accounts (Assets): Always show Debit balances or Nil balance.
+2. Personal Accounts: Debit balance = Sundry Debtor (Customer owes us); Credit balance = Sundry Creditor (We owe vendor).
+3. Nominal Accounts (Income & Expenses): Closed at year-end by transferring to Trading & Profit and Loss Account.

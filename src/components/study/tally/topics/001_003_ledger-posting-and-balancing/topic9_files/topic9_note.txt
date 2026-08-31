@@ -1,0 +1,5 @@
+BILLS RECEIVABLE & PAYABLE BOOKS MASTER NOTE:
+
+1. Bills Receivable Book records details of Bills of Exchange drawn on debtors (Drawee, Term, Maturity date, Amount).
+2. Bills Payable Book records formal undertakings accepted in favor of creditors.
+3. Enables systematic tracking of bill maturities and dishonor adjustments.

@@ -1,0 +1,11 @@
+PROJECT 1 MASTER CAPSTONE NOTE:
+
+Organization: M/s Apex Global Traders
+Period: April 2026 (30 Business Transactions)
+
+Key Accounting Objectives:
+1. Journalizing 30 diverse commercial transactions covering Capital, Purchases, Sales, Returns, Expenses, Assets, Bills, Accruals, and Depreciation.
+2. Posting entries to individual General Ledgers & Cash Book.
+3. Calculating month-end Balance c/d and carrying forward to Balance b/d on 1st May 2026.
+4. Extracting final Trial Balance to ensure total Debits equal total Credits.
+5. Submission to Mr. CNAT for live evaluation certificate.

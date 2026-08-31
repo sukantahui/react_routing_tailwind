@@ -1,0 +1,5 @@
+SINGLE & TWO-COLUMN CASH BOOK MASTER NOTE:
+
+1. Single Column Cash Book records cash receipts (Dr) and cash payments (Cr).
+2. Two-Column Cash Book features dual Amount columns: Cash column and Bank column.
+3. Cash Book operates as a Journal (book of prime entry) and Ledger simultaneously.

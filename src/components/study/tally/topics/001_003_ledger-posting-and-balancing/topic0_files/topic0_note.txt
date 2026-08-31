@@ -1,0 +1,5 @@
+LEDGER FORMAT MASTER NOTE:
+
+1. Ledger is the Principal Book of Accounts where all transactions are classified into individual accounts.
+2. Standard T-Format consists of 8 columns: 4 on Debit side (Date, Particulars, J.F., Amount) and 4 on Credit side (Date, Particulars, J.F., Amount).
+3. Debit side records incoming values or expenses; Credit side records outgoing values or incomes.

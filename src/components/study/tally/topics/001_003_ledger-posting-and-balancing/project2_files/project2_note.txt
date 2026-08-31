@@ -1,0 +1,11 @@
+PROJECT 2 MASTER CAPSTONE NOTE:
+
+Organization: M/s Metro Electronics & Appliances
+Period: May 2026 (30 Business Transactions)
+
+Key Accounting Objectives:
+1. Journalizing 30 diverse commercial transactions covering Capital, Security Deposit, Purchases, Freight Inward, Sales, Returns, Expenses, POS Assets, Bills, Accrued Rent, Petty Cash, and Depreciation.
+2. Posting entries to General Ledgers & Cash Book.
+3. Calculating Balance c/d and carrying forward Balance b/d on 1st June 2026.
+4. Extracting final Trial Balance ensuring total Debits equal total Credits.
+5. Submission to Mr. CNAT for evaluation certificate.

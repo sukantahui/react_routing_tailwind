@@ -1,0 +1,6 @@
+LEDGER BALANCING MASTER NOTE:
+
+1. Balancing means calculating the net difference between Total Debits and Total Credits.
+2. Debit Balance = Total Dr > Total Cr.
+3. Credit Balance = Total Cr > Total Dr.
+4. Equal totals mean the account is balanced with Nil balance.

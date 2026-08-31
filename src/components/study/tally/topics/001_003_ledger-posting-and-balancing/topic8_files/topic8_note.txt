@@ -1,0 +1,7 @@
+SUBSIDIARY BOOKS MASTER NOTE:
+
+1. Purchase Book: Credit purchases of trading merchandise.
+2. Sales Book: Credit sales of trading merchandise.
+3. Return Outward Book: Defective goods returned to vendors (Debit Note).
+4. Return Inward Book: Damaged goods returned by customers (Credit Note).
+5. Cash purchases/sales are recorded in Cash Book, NOT in subsidiary books.

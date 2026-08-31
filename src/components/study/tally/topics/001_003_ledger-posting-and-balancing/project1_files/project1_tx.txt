@@ -1,0 +1,129 @@
+================================================================================
+M/S APEX GLOBAL TRADERS - COMMERCIAL ACCOUNTING CAPSTONE PROJECT 1
+PERIOD: APRIL 2026 (30 BUSINESS TRANSACTIONS PROBLEM SET)
+ORGANIZATION: M/S APEX GLOBAL TRADERS (PROPRIETORSHIP)
+================================================================================
+
+Tx #1 (2026-04-01): Proprietor introduced Cash ₹3,00,000 & SBI Bank Balance ₹2,00,000 as initial Capital.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹3,00,000 | SBI Bank A/c Dr ₹2,00,000  |  [Cr] To Capital A/c ₹5,00,000
+
+Tx #2 (2026-04-02): Purchased Office Furniture for Cash ₹45,000.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Furniture Asset A/c Dr ₹45,000  |  [Cr] To Cash A/c ₹45,000
+
+Tx #3 (2026-04-03): Purchased Trading Goods on Credit from Bengal Suppliers for ₹1,20,000 (Inv #BS-101).
+   Voucher Type: F9 Purchase
+   Posting Hint: [Dr] Purchases A/c Dr ₹1,20,000  |  [Cr] To Bengal Suppliers Creditor ₹1,20,000
+
+Tx #4 (2026-04-04): Paid Shop Rent ₹20,000 by SBI Bank Cheque (#401201).
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Shop Rent Expense A/c Dr ₹20,000  |  [Cr] To SBI Bank A/c ₹20,000
+
+Tx #5 (2026-04-05): Sold Trading Goods on Credit to Sen & Co. for ₹90,000 (Inv #AG-001).
+   Voucher Type: F8 Sales
+   Posting Hint: [Dr] Sen & Co. Debtor A/c Dr ₹90,000  |  [Cr] To Sales A/c ₹90,000
+
+Tx #6 (2026-04-06): Returned Defective Goods ₹15,000 to Bengal Suppliers under Debit Note #DN-01.
+   Voucher Type: Alt+F5 Debit Note
+   Posting Hint: [Dr] Bengal Suppliers Creditor A/c Dr ₹15,000  |  [Cr] To Return Outward A/c ₹15,00,000
+
+Tx #7 (2026-04-07): Customer Sen & Co. returned Damaged Goods ₹10,000 under Credit Note #CN-01.
+   Voucher Type: Alt+F6 Credit Note
+   Posting Hint: [Dr] Return Inward A/c Dr ₹10,000  |  [Cr] To Sen & Co. Debtor ₹10,000
+
+Tx #8 (2026-04-08): Cash Sales at Counter ₹35,000 deposited into Cash Vault.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹35,000  |  [Cr] To Sales A/c ₹35,000
+
+Tx #9 (2026-04-09): Deposited Cash ₹50,000 into SBI Bank Account (Contra Entry).
+   Voucher Type: F4 Contra
+   Posting Hint: [Dr] SBI Bank A/c Dr ₹50,000 (Bank Column)  |  [Cr] To Cash A/c ₹50,000 (Cash Column)
+
+Tx #10 (2026-04-10): Purchased Office Computer & Printer for ₹55,000 by Bank Cheque.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Computer Asset A/c Dr ₹55,000  |  [Cr] To SBI Bank A/c ₹55,000
+
+Tx #11 (2026-04-11): Paid Machine Installation Wages ₹5,000 in Cash (Capitalized to Asset).
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Machinery Asset A/c Dr ₹5,000  |  [Cr] To Cash A/c ₹5,000
+
+Tx #12 (2026-04-12): Received Cheque ₹75,000 from Customer Sen & Co. in partial settlement.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] SBI Bank A/c Dr ₹75,000  |  [Cr] To Sen & Co. Debtor ₹75,000
+
+Tx #13 (2026-04-13): Paid Cash ₹80,000 to Supplier Bengal Suppliers on Account.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Bengal Suppliers Creditor A/c Dr ₹80,000  |  [Cr] To Cash A/c ₹80,000
+
+Tx #14 (2026-04-14): Withdrew Cash ₹25,000 from SBI Bank for Office Vault (Contra Entry).
+   Voucher Type: F4 Contra
+   Posting Hint: [Dr] Cash A/c Dr ₹25,000 (Cash Column)  |  [Cr] To SBI Bank A/c ₹25,000 (Bank Column)
+
+Tx #15 (2026-04-15): Proprietor withdrew Cash ₹15,000 for personal household use (Drawings).
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Drawings A/c Dr ₹15,000  |  [Cr] To Cash A/c ₹15,000
+
+Tx #16 (2026-04-16): Proprietor withdrew Goods costing ₹8,000 for personal use (Drawings at Cost).
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Drawings A/c Dr ₹8,000  |  [Cr] To Purchases A/c ₹8,000 (at cost)
+
+Tx #17 (2026-04-17): Purchased Stationery & Paper from Local Vendor for Cash ₹3,500.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Stationery Expense A/c Dr ₹3,500  |  [Cr] To Cash A/c ₹3,500
+
+Tx #18 (2026-04-18): Sold Goods for Cash ₹60,000 and deposited money directly into SBI Bank.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] SBI Bank A/c Dr ₹60,000  |  [Cr] To Sales A/c ₹60,000
+
+Tx #19 (2026-04-19): Paid Printing & Advertising Expense ₹12,000 in Cash.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Advertising Expense A/c Dr ₹12,000  |  [Cr] To Cash A/c ₹12,000
+
+Tx #20 (2026-04-20): Drawn 2-Month Bill of Exchange ₹40,000 on Sen & Co. accepted by customer.
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Bills Receivable Asset A/c Dr ₹40,000  |  [Cr] To Sen & Co. Debtor ₹40,000
+
+Tx #21 (2026-04-21): Accepted 3-Month Bill of Exchange ₹25,000 in favor of Bengal Suppliers.
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Bengal Suppliers Creditor A/c Dr ₹25,000  |  [Cr] To Bills Payable Liability ₹25,000
+
+Tx #22 (2026-04-22): Received Fixed Deposit Interest ₹6,000 directly credited in SBI Bank.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] SBI Bank A/c Dr ₹6,000  |  [Cr] To Interest Income A/c ₹6,000
+
+Tx #23 (2026-04-23): Received Consultancy Commission in Cash ₹14,000.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹14,000  |  [Cr] To Commission Income A/c ₹14,000
+
+Tx #24 (2026-04-24): Paid Electricity & Water Charges ₹8,200 by Bank Transfer.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Electricity Expense A/c Dr ₹8,200  |  [Cr] To SBI Bank A/c ₹8,200
+
+Tx #25 (2026-04-25): Advanced Petty Cash Float ₹5,000 to Petty Cashier from Main Cash.
+   Voucher Type: F4 Contra
+   Posting Hint: [Dr] Petty Cash A/c Dr ₹5,000  |  [Cr] To Main Cash A/c ₹5,000
+
+Tx #26 (2026-04-26): Petty Cashier spent Conveyance ₹1,200 + Tea ₹600 + Postage ₹400 (Total ₹2,200).
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Sundry Petty Expenses A/c Dr ₹2,200  |  [Cr] To Petty Cash A/c ₹2,200
+
+Tx #27 (2026-04-27): Paid Staff Salaries for April ₹45,000 by Bank Cheque.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Salaries Expense A/c Dr ₹45,000  |  [Cr] To SBI Bank A/c ₹45,000
+
+Tx #28 (2026-04-28): Recovered Cash ₹8,000 from Bad Debt previously written off.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹8,000  |  [Cr] To Bad Debts Recovered Income ₹8,000
+
+Tx #29 (2026-04-29): Accrued Interest on Fixed Deposit ₹4,500 earned but not yet received.
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Accrued Interest Asset A/c Dr ₹4,500  |  [Cr] To Interest Income A/c ₹4,500
+
+Tx #30 (2026-04-30): Provided Depreciation on Computer Asset @ 10% p.a. (F7 Journal).
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Depreciation Expense A/c Dr ₹5,500  |  [Cr] To Computer Asset A/c ₹5,500
+
+================================================================================
+END OF PROJECT 1 TRANSACTIONS LIST
+================================================================================

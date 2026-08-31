@@ -1,3 +1,5 @@
+/* eslint-disable react-refresh/only-export-components */
+"use client";
 import React from "react";
 import {
   ShieldCheck,

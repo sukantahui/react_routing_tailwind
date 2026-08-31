@@ -1,0 +1,129 @@
+================================================================================
+M/S METRO ELECTRONICS & APPLIANCES - COMMERCIAL ACCOUNTING CAPSTONE PROJECT 2
+PERIOD: MAY 2026 (30 BUSINESS TRANSACTIONS PROBLEM SET)
+ORGANIZATION: M/S METRO ELECTRONICS & APPLIANCES (PROPRIETORSHIP)
+================================================================================
+
+Tx #1 (2026-05-01): Started business introducing Cash ₹4,00,000 & HDFC Bank Balance ₹3,50,000 as Capital.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹4,00,000 | HDFC Bank A/c Dr ₹3,50,000  |  [Cr] To Capital A/c ₹7,50,000
+
+Tx #2 (2026-05-02): Paid Office Premises Security Deposit ₹60,000 by HDFC Bank Cheque.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Security Deposit Asset A/c Dr ₹60,000  |  [Cr] To HDFC Bank A/c ₹60,000
+
+Tx #3 (2026-05-03): Purchased Commercial Showroom Racks & Furniture for Cash ₹50,000.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Furniture & Fixtures A/c Dr ₹50,000  |  [Cr] To Cash A/c ₹50,000
+
+Tx #4 (2026-05-04): Purchased Electronic Goods on Credit from LG Electronics India for ₹2,50,000 (Inv #LG-501).
+   Voucher Type: F9 Purchase
+   Posting Hint: [Dr] Purchases A/c Dr ₹2,50,000  |  [Cr] To LG Electronics India Creditor ₹2,50,000
+
+Tx #5 (2026-05-05): Paid Freight & Transport Charges on Purchases ₹8,000 in Cash.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Freight Inward Expense A/c Dr ₹8,000  |  [Cr] To Cash A/c ₹8,000
+
+Tx #6 (2026-05-06): Sold Smart TVs on Credit to Roy Digital Hub for ₹1,80,000 (Inv #ME-001).
+   Voucher Type: F8 Sales
+   Posting Hint: [Dr] Roy Digital Hub Debtor A/c Dr ₹1,80,000  |  [Cr] To Sales A/c ₹1,80,000
+
+Tx #7 (2026-05-07): Returned Damaged Refrigerators ₹20,000 to LG Electronics India (Debit Note #DN-02).
+   Voucher Type: Alt+F5 Debit Note
+   Posting Hint: [Dr] LG Electronics India Creditor A/c Dr ₹20,000  |  [Cr] To Return Outward A/c ₹20,000
+
+Tx #8 (2026-05-08): Customer Roy Digital Hub returned Faulty Smart TV ₹15,000 (Credit Note #CN-02).
+   Voucher Type: Alt+F6 Credit Note
+   Posting Hint: [Dr] Return Inward A/c Dr ₹15,000  |  [Cr] To Roy Digital Hub Debtor ₹15,000
+
+Tx #9 (2026-05-09): Cash Counter Sales of Home Appliances ₹45,000 deposited into Cash Vault.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹45,000  |  [Cr] To Sales A/c ₹45,000
+
+Tx #10 (2026-05-10): Deposited Cash ₹40,000 into HDFC Bank Account (Contra Entry).
+   Voucher Type: F4 Contra
+   Posting Hint: [Dr] HDFC Bank A/c Dr ₹40,000 (Bank Column)  |  [Cr] To Cash A/c ₹40,000 (Cash Column)
+
+Tx #11 (2026-05-11): Purchased Billing POS Machine & Computer for ₹40,000 by HDFC Bank Cheque.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] POS Computer Asset A/c Dr ₹40,000  |  [Cr] To HDFC Bank A/c ₹40,000
+
+Tx #12 (2026-05-12): Paid Electrical Wiring & Installation Charges ₹6,000 in Cash (Capitalized to Asset).
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Electrical Installation Asset A/c Dr ₹6,000  |  [Cr] To Cash A/c ₹6,000
+
+Tx #13 (2026-05-13): Received Cheque ₹1,20,000 from Roy Digital Hub in partial settlement.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] HDFC Bank A/c Dr ₹1,20,000  |  [Cr] To Roy Digital Hub Debtor ₹1,20,000
+
+Tx #14 (2026-05-14): Paid Cash ₹1,50,000 to LG Electronics India on Account.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] LG Electronics India Creditor A/c Dr ₹1,50,000  |  [Cr] To Cash A/c ₹1,50,000
+
+Tx #15 (2026-05-15): Withdrew Cash ₹30,000 from HDFC Bank for Office Vault (Contra Entry).
+   Voucher Type: F4 Contra
+   Posting Hint: [Dr] Cash A/c Dr ₹30,000 (Cash Column)  |  [Cr] To HDFC Bank A/c ₹30,000 (Bank Column)
+
+Tx #16 (2026-05-16): Proprietor withdrew Cash ₹20,000 for personal family vacation (Drawings).
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Drawings A/c Dr ₹20,000  |  [Cr] To Cash A/c ₹20,000
+
+Tx #17 (2026-05-17): Proprietor took 1 AC unit costing ₹25,000 for personal home use (Drawings at Cost).
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Drawings A/c Dr ₹25,000  |  [Cr] To Purchases A/c ₹25,000 (at cost)
+
+Tx #18 (2026-05-18): Paid Showroom Electricity & Utility Bill ₹11,500 by HDFC Bank Transfer.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Electricity Expense A/c Dr ₹11,500  |  [Cr] To HDFC Bank A/c ₹11,500
+
+Tx #19 (2026-05-19): Sold Goods for Cash ₹85,000 and deposited funds directly into HDFC Bank.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] HDFC Bank A/c Dr ₹85,000  |  [Cr] To Sales A/c ₹85,000
+
+Tx #20 (2026-05-20): Paid Local Newspaper & Digital Marketing Charges ₹14,000 in Cash.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Marketing Expense A/c Dr ₹14,000  |  [Cr] To Cash A/c ₹14,000
+
+Tx #21 (2026-05-21): Drawn 3-Month Bill of Exchange ₹45,000 on Roy Digital Hub accepted by customer.
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Bills Receivable Asset A/c Dr ₹45,000  |  [Cr] To Roy Digital Hub Debtor ₹45,000
+
+Tx #22 (2026-05-22): Accepted 2-Month Bill of Exchange ₹80,000 in favor of LG Electronics India.
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] LG Electronics India Creditor A/c Dr ₹80,000  |  [Cr] To Bills Payable Liability ₹80,000
+
+Tx #23 (2026-05-23): Received Showroom Sub-lease Rent Income ₹18,000 directly credited in Bank.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] HDFC Bank A/c Dr ₹18,000  |  [Cr] To Rent Income A/c ₹18,000
+
+Tx #24 (2026-05-24): Received Sales Referral Commission in Cash ₹9,500.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹9,500  |  [Cr] To Commission Income A/c ₹9,500
+
+Tx #25 (2026-05-25): Advanced Imprest Petty Cash Float ₹8,000 to Petty Cashier from Main Cash.
+   Voucher Type: F4 Contra
+   Posting Hint: [Dr] Petty Cash A/c Dr ₹8,000  |  [Cr] To Main Cash A/c ₹8,000
+
+Tx #26 (2026-05-26): Petty Cashier spent Refreshments ₹2,500 + Courier ₹1,100 + Office Soap ₹400 (Total ₹4,000).
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Petty Expenses A/c Dr ₹4,000  |  [Cr] To Petty Cash A/c ₹4,000
+
+Tx #27 (2026-05-27): Paid Staff Salaries for May ₹65,000 by Bank Cheque.
+   Voucher Type: F5 Payment
+   Posting Hint: [Dr] Salaries Expense A/c Dr ₹65,000  |  [Cr] To HDFC Bank A/c ₹65,000
+
+Tx #28 (2026-05-28): Recovered Cash ₹12,000 from Old Written-Off Debtor.
+   Voucher Type: F6 Receipt
+   Posting Hint: [Dr] Cash A/c Dr ₹12,000  |  [Cr] To Bad Debts Recovered Income ₹12,000
+
+Tx #29 (2026-05-29): Accrued Showroom Sub-lease Rent ₹6,000 earned but not yet received.
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Accrued Rent Asset A/c Dr ₹6,000  |  [Cr] To Rent Income A/c ₹6,000
+
+Tx #30 (2026-05-30): Provided Depreciation on Showroom Racks & POS Machine @ 10% p.a. (F7 Journal).
+   Voucher Type: F7 Journal
+   Posting Hint: [Dr] Depreciation Expense A/c Dr ₹9,000  |  [Cr] To POS Computer Asset A/c ₹9,000
+
+================================================================================
+END OF PROJECT 2 TRANSACTIONS LIST
+================================================================================

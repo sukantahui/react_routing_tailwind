@@ -1,0 +1,5 @@
+SUBSIDIARY BOOK RECONCILIATION MASTER NOTE:
+
+1. Individual entries in Subsidiary Books are posted daily to Personal Accounts of Debtors/Creditors.
+2. Monthly Totals of Subsidiary Books are posted to General Ledger Control Accounts (Purchases A/c, Sales A/c, Return Outward A/c, Return Inward A/c).
+3. Reconciling ensures arithmetic accuracy before preparing Trial Balance.
