@@ -148,11 +148,8 @@
             "Bad debts written off and Provision for doubtful debts concept",
             "Interest on capital, interest on drawings, commission, and manager commission",
             "Year-end adjustment entries and closing transfer entries to Trading & P&L Accounts",
-            "Journal Entries 1 — Demonstrating Journalization of Transactions Provided in a JSON Transaction Dataset",
-            "Journal Entries 2 — Preparing and Explaining a Complete Set of Journal Entries from JSON-Based Business Transactions",
-            "Journal Entries 3 — Identifying Accounts, Applying Debit/Credit Rules, and Generating Journal Entries from JSON Transactions",
-            "Journal Entries 4 — Handling Compound Transactions and Multiple-Account Journal Entries from JSON Data",
-            "Journal Entries 5 — Advanced Journal Entry Practice: Analyzing a Complete JSON Transaction Set and Preparing the Corresponding Entries"
+            "Module Test: Journal Entries & Adjustments Comprehensive Assessment",
+            "Journal Sample 1"
           ],
           "miniProjects": [
             "Manual Journal Book for a One-Month Trading Firm with 45 Commercial Transactions"
@@ -214,7 +211,7 @@
             "Single Column Cash Book and Two-Column Cash Book (Cash & Bank columns)",
             "Contra entries in Two-Column Cash Book (Cash deposited into bank / withdrawn from bank)",
             "Petty Cash Book and the Imprest System of petty cash management",
-            "Specialized Subsidiary Books: Purchase Book, Sales Book, Purchase Return Book, Sales Return Book",
+            "Specialized Subsidiary Books: Purchase Book, Sales Book, Return Outward Book, Return Inward Book",
             "Bills Receivable Book and Bills Payable Book basics",
             "Reconciling subsidiary book totals with main general ledger accounts"
           ],

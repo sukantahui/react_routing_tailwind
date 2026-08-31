@@ -15,10 +15,322 @@
   {
     "id": 2,
     "topic": "accounting_basics",
+    "question": "Which phase of accounting involves grouping raw transactions into specific ledger accounts?",
+    "options": [
+      "Recording phase",
+      "Summarizing phase",
+      "Classifying phase (Ledger Posting)",
+      "Auditing phase"
+    ],
+    "answerIndex": 2,
+    "explanation": "Classifying involves grouping transactions of a similar nature into their respective ledger accounts."
+  },
+  {
+    "id": 3,
+    "topic": "accounting_basics",
+    "question": "Which of the following is considered an internal user of accounting information?",
+    "options": [
+      "Tax Authorities (GST / Income Tax)",
+      "Board of Directors and Business Managers",
+      "Commercial Bank Lenders",
+      "Trade Suppliers & Creditors"
+    ],
+    "answerIndex": 1,
+    "explanation": "Internal users (Owners, Managers, Board of Directors) use financial reports for operational planning and decision-making."
+  },
+  {
+    "id": 4,
+    "topic": "accounting_basics",
+    "question": "The process of preparing Trial Balance, Profit & Loss Account, and Balance Sheet falls under which accounting function?",
+    "options": [
+      "Identification",
+      "Summarizing phase",
+      "Source documentation",
+      "Inventory physical verification"
+    ],
+    "answerIndex": 1,
+    "explanation": "Summarizing compresses ledger data into statements like Trial Balance, P&L, and Balance Sheet."
+  },
+  {
+    "id": 5,
+    "topic": "accounting_basics",
+    "question": "Which accounting function evaluates ratios, trends, and financial health for future business decisions?",
+    "options": [
+      "Voucher recording",
+      "Analysis and Interpretation",
+      "Bookkeeping entry",
+      "Document filing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Analysis and interpretation involve calculating financial ratios, cash flows, and trends to guide strategic decisions."
+  },
+  {
+    "id": 6,
+    "topic": "accounting_basics",
+    "question": "Which of the following events CANNOT be recorded in financial accounting books?",
+    "options": [
+      "Purchase of raw materials for ₹50,000",
+      "Payment of office rent ₹15,000",
+      "Resignation of a highly skilled General Manager",
+      "Receipt of bank loan ₹5,00,000"
+    ],
+    "answerIndex": 2,
+    "explanation": "Only events measurable in monetary currency (₹ INR) are recorded in financial accounting; employee resignations cannot be quantified in money."
+  },
+  {
+    "id": 7,
+    "topic": "accounting_basics",
+    "question": "Who is widely regarded as the father of double-entry bookkeeping?",
+    "options": [
+      "Adam Smith",
+      "Luca Pacioli",
+      "Alfred Marshall",
+      "John Maynard Keynes"
+    ],
+    "answerIndex": 1,
+    "explanation": "Italian mathematician Franciscan friar Luca Pacioli published the first treatise on double-entry bookkeeping in 1494."
+  },
+  {
+    "id": 8,
+    "topic": "accounting_basics",
+    "question": "What is the end product of the accounting process?",
+    "options": [
+      "Sales invoices and cash memos",
+      "Financial Statements (Profit & Loss Account & Balance Sheet)",
+      "Physical inventory count tags",
+      "Employee salary slips"
+    ],
+    "answerIndex": 1,
+    "explanation": "Financial Statements (P&L Account and Balance Sheet) are the ultimate end products of financial accounting."
+  },
+  {
+    "id": 9,
+    "topic": "accounting_basics",
+    "question": "What is the primary function of Bookkeeping?",
+    "options": [
+      "Interpreting financial statement ratios",
+      "Maintaining permanent, chronological records of daily business transactions",
+      "Determining long-term corporate taxation strategy",
+      "Auditing internal governance protocols"
+    ],
+    "answerIndex": 1,
+    "explanation": "Bookkeeping focuses on the primary recording phase: capturing transactions in vouchers and posting them to ledgers."
+  },
+  {
+    "id": 10,
+    "topic": "accounting_basics",
+    "question": "Which branch of accounting focuses on cost control and product cost determination?",
+    "options": [
+      "Financial Accounting",
+      "Management Accounting",
+      "Cost Accounting",
+      "Tax Accounting"
+    ],
+    "answerIndex": 2,
+    "explanation": "Cost accounting ascertains the cost of producing goods or services to help management control operating expenses."
+  },
+  {
+    "id": 11,
+    "topic": "accounting_basics",
+    "question": "Which branch of accounting provides specialized reporting for internal managerial decision-making?",
+    "options": [
+      "Financial Accounting",
+      "Management Accounting",
+      "Statutory Tax Accounting",
+      "Public Auditing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Management accounting generates internal budgets, forecasts, and variance reports for managers."
+  },
+  {
+    "id": 12,
+    "topic": "accounting_basics",
+    "question": "What does the term 'Financial Position' of a business refer to?",
+    "options": [
+      "Total sales volume achieved in a month",
+      "The balance of Assets, Liabilities, and Owner's Capital on a specific date",
+      "Total number of employees working in the firm",
+      "Monthly cash collected from customers"
+    ],
+    "answerIndex": 1,
+    "explanation": "Financial position reflects the financial solvency of a firm as depicted on its Balance Sheet (Assets vs. Liabilities & Capital)."
+  },
+  {
+    "id": 13,
+    "topic": "accounting_basics",
+    "question": "Which of the following represents an external user of financial statements?",
+    "options": [
+      "Branch Operations Manager",
+      "Prospective Business Investors & Shareholders",
+      "Chief Financial Officer (CFO)",
+      "Production Supervisor"
+    ],
+    "answerIndex": 1,
+    "explanation": "External users include investors, banks, creditors, and government authorities who evaluate company performance externally."
+  },
+  {
+    "id": 14,
+    "topic": "accounting_basics",
+    "question": "What is the main limitation of historical cost financial accounting?",
+    "options": [
+      "It records transactions in double-entry format",
+      "It does not reflect changes in purchasing power due to inflation",
+      "It requires voucher documentation",
+      "It uses monetary units"
+    ],
+    "answerIndex": 1,
+    "explanation": "Historical cost accounting records assets at their original acquisition price and ignores inflationary price index changes."
+  },
+  {
+    "id": 15,
+    "topic": "accounting_basics",
+    "question": "Which accounting document serves as evidence for a financial transaction?",
+    "options": [
+      "Source Document (Voucher / Invoice / Cash Memo)",
+      "Trial Balance report",
+      "Chart of Accounts list",
+      "Audit certificate"
+    ],
+    "answerIndex": 0,
+    "explanation": "Source documents (bills, receipts, invoices) provide authentic legal evidence to support voucher entries."
+  },
+  {
+    "id": 16,
+    "topic": "accounting_basics",
+    "question": "What is the primary difference between Bookkeeping and Accounting?",
+    "options": [
+      "Bookkeeping is analytical, Accounting is clerical",
+      "Bookkeeping is the primary recording work; Accounting involves analysis, reporting, and auditing",
+      "Bookkeeping does not use ledgers, Accounting uses only cash",
+      "There is no difference"
+    ],
+    "answerIndex": 1,
+    "explanation": "Bookkeeping is the recording phase, whereas Accounting encompasses analysis, interpretation, tax compliance, and financial reporting."
+  },
+  {
+    "id": 17,
+    "topic": "accounting_basics",
+    "question": "What is meant by the 'Communicating' function in accounting?",
+    "options": [
+      "Sending emails to suppliers for price quotes",
+      "Presenting audited financial reports to owners, investors, banks, and tax authorities",
+      "Dialing customers for overdue payments",
+      "Publishing marketing advertisements"
+    ],
+    "answerIndex": 1,
+    "explanation": "Communicating involves distributing financial reports to internal and external stakeholders."
+  },
+  {
+    "id": 18,
+    "topic": "accounting_basics",
+    "question": "Which accounting report reveals the net operational outcome (Net Profit or Net Loss) of a financial period?",
+    "options": [
+      "Balance Sheet",
+      "Cash Flow Statement",
+      "Profit & Loss Account (Income Statement)",
+      "Trial Balance"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Profit & Loss Account matches revenues against expenses to calculate Net Profit or Net Loss."
+  },
+  {
+    "id": 19,
+    "topic": "accounting_basics",
+    "question": "Which accounting statement details the cash inflows and cash outflows during an accounting period?",
+    "options": [
+      "Trading Account",
+      "Balance Sheet",
+      "Cash Flow Statement",
+      "Statement of Retained Earnings"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Cash Flow Statement categorizes cash movements into operating, investing, and financing activities."
+  },
+  {
+    "id": 20,
+    "topic": "accounting_basics",
+    "question": "What is the basic assumption regarding the monetary unit in accounting?",
+    "options": [
+      "Money fluctuates in length",
+      "Money provides a common denominator for recording diverse commercial transactions",
+      "Money cannot measure tangible assets",
+      "Money applies only to cash sales"
+    ],
+    "answerIndex": 1,
+    "explanation": "Money serves as the universal unit of measurement to combine diverse assets (land, machinery, stock, cash)."
+  },
+  {
+    "id": 21,
+    "topic": "accounting_basics",
+    "question": "Which of the following is a quantitative financial metric?",
+    "options": [
+      "Product quality rating",
+      "Net Sales Revenue of ₹50,00,000",
+      "Employee job satisfaction score",
+      "Brand goodwill reputation"
+    ],
+    "answerIndex": 1,
+    "explanation": "Monetary figures like Sales Revenue ₹50,00,000 are quantitative metrics recorded in accounting books."
+  },
+  {
+    "id": 22,
+    "topic": "accounting_basics",
+    "question": "What is the primary role of a Voucher in TallyPrime?",
+    "options": [
+      "To print letterheads",
+      "To record a financial transaction into specific ledger accounts",
+      "To create new user passwords",
+      "To design website layouts"
+    ],
+    "answerIndex": 1,
+    "explanation": "A voucher in TallyPrime acts as the electronic input form to record double-entry accounting transactions."
+  },
+  {
+    "id": 23,
+    "topic": "accounting_basics",
+    "question": "Which software menu in TallyPrime allows entry of daily commercial transactions?",
+    "options": [
+      "Gateway of Tally > Create Master",
+      "Gateway of Tally > Vouchers",
+      "Gateway of Tally > Display More Reports",
+      "Alt+F4 Exit"
+    ],
+    "answerIndex": 1,
+    "explanation": "Gateway of Tally > Vouchers is the primary operational portal to enter receipts, payments, sales, purchases, and journal entries."
+  },
+  {
+    "id": 24,
+    "topic": "accounting_basics",
+    "question": "What is the key benefit of double-entry accounting over single-entry systems?",
+    "options": [
+      "It requires less record-keeping effort",
+      "It provides complete mathematical accuracy check via Trial Balance and full financial statements",
+      "It ignores bank accounts",
+      "It is used only by sole proprietors"
+    ],
+    "answerIndex": 1,
+    "explanation": "Double-entry tracks both debit and credit aspects, enabling Trial Balance verification and comprehensive P&L/Balance Sheet generation."
+  },
+  {
+    "id": 25,
+    "topic": "accounting_basics",
+    "question": "Which accounting standard body in India formulates Accounting Standards (AS and Ind AS)?",
+    "options": [
+      "Reserve Bank of India (RBI)",
+      "Institute of Chartered Accountants of India (ICAI)",
+      "Securities and Exchange Board of India (SEBI)",
+      "Ministry of External Affairs"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Accounting Standards Board (ASB) of ICAI formulates Accounting Standards in India."
+  },
+  {
+    "id": 26,
+    "topic": "accounting_basics",
     "question": "According to the Business Entity Concept, how is the owner's capital treated in accounting?",
     "options": [
       "As a personal expense of the owner",
-      "As a liability of the business towards the proprietor",
+      "As an internal liability of the business towards the proprietor",
       "As an operating asset of the firm",
       "As a bank revenue gain"
     ],
@@ -26,7 +338,59 @@
     "explanation": "The Business Entity Concept treats the business as separate from its owner. Capital introduced by the owner is an internal liability owed by the business back to the owner."
   },
   {
-    "id": 3,
+    "id": 27,
+    "topic": "accounting_basics",
+    "question": "Which accounting concept assumes that a business entity will continue its operations for an indefinite period into the future?",
+    "options": [
+      "Money Measurement Concept",
+      "Going Concern Concept",
+      "Accounting Period Concept",
+      "Conservatism Convention"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Going Concern Concept assumes the enterprise has neither the intention nor necessity to liquidate in the foreseeable future."
+  },
+  {
+    "id": 28,
+    "topic": "accounting_basics",
+    "question": "Under the Going Concern Concept, how are Fixed Assets valued on the Balance Sheet?",
+    "options": [
+      "At liquidation market sale value",
+      "At Historical Cost minus Accumulated Depreciation",
+      "At replacement market value",
+      "At zero nominal value"
+    ],
+    "answerIndex": 1,
+    "explanation": "Because the business will continue operating, fixed assets are recorded at cost less depreciation rather than scrap re-sale value."
+  },
+  {
+    "id": 29,
+    "topic": "accounting_basics",
+    "question": "Which concept states that revenues must be recognized when earned and expenses when incurred, regardless of cash receipt or payment?",
+    "options": [
+      "Cash Basis Concept",
+      "Accrual Concept",
+      "Conservatism Concept",
+      "Full Disclosure Concept"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Accrual Concept matches revenue earned with expenses incurred in the period, irrespective of actual cash movement."
+  },
+  {
+    "id": 30,
+    "topic": "accounting_basics",
+    "question": "What is the fundamental Accounting Equation derived from the Dual Aspect Concept?",
+    "options": [
+      "Assets = Liabilities - Capital",
+      "Assets = Liabilities + Capital",
+      "Capital = Liabilities + Assets",
+      "Liabilities = Assets + Capital"
+    ],
+    "answerIndex": 1,
+    "explanation": "Dual Aspect establishes that Total Assets must equal the sum of External Liabilities and Owner's Capital (Assets = Liabilities + Capital)."
+  },
+  {
+    "id": 31,
     "topic": "accounting_basics",
     "question": "If a business has Total Assets of ₹15,00,000 and External Liabilities of ₹6,00,000, what is the Owner's Capital?",
     "options": [
@@ -36,97 +400,2203 @@
       "₹15,00,000"
     ],
     "answerIndex": 1,
-    "explanation": "According to the Accounting Equation: Capital = Total Assets (₹15,00,000) - External Liabilities (₹6,00,000) = ₹9,00,000."
+    "explanation": "Capital = Assets (₹15,00,000) - Liabilities (₹6,00,000) = ₹9,00,000."
   },
   {
-    "id": 4,
+    "id": 32,
     "topic": "accounting_basics",
-    "question": "Under traditional classification of accounts, under which category does 'Cash in Hand' belong?",
+    "question": "Which accounting concept requires life of a business to be divided into specified periodic time intervals (e.g. April to March)?",
     "options": [
-      "Personal Account",
-      "Nominal Account",
-      "Real Account",
-      "Representative Personal Account"
+      "Going Concern Concept",
+      "Accounting Period Concept",
+      "Dual Aspect Concept",
+      "Matching Concept"
     ],
-    "answerIndex": 2,
-    "explanation": "Real Accounts represent tangible or intangible properties and assets owned by the business entity, such as Cash, Building, Machinery, and Stock."
+    "answerIndex": 1,
+    "explanation": "The Accounting Period Concept divides continuous business life into periodic reporting intervals (financial years) to measure interim performance."
   },
   {
-    "id": 5,
+    "id": 33,
+    "topic": "accounting_basics",
+    "question": "Which accounting rule dictates that expenses of a particular period must be matched against revenues earned in the same period?",
+    "options": [
+      "Money Measurement Concept",
+      "Matching Concept",
+      "Realization Concept",
+      "Consistency Convention"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Matching Concept ensures that expenses incurred to earn revenue in a given period are matched against that revenue to calculate accurate Net Profit."
+  },
+  {
+    "id": 34,
+    "topic": "accounting_basics",
+    "question": "Anticipate no profit, but provide for all possible losses' is the core principle of which accounting convention?",
+    "options": [
+      "Convention of Materiality",
+      "Convention of Prudence / Conservatism",
+      "Convention of Consistency",
+      "Convention of Full Disclosure"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Prudence / Conservatism convention ensures that prospective profits are not recognized until realized, but prospective losses are provided for immediately."
+  },
+  {
+    "id": 35,
+    "topic": "accounting_basics",
+    "question": "Creating a Provision for Doubtful Debts against Sundry Debtors is an application of which convention?",
+    "options": [
+      "Consistency",
+      "Prudence (Conservatism)",
+      "Materiality",
+      "Historical Cost"
+    ],
+    "answerIndex": 1,
+    "explanation": "Provision for Bad & Doubtful Debts is created under Conservatism to account for probable credit collection losses."
+  },
+  {
+    "id": 36,
+    "topic": "accounting_basics",
+    "question": "Valuing closing stock at 'Cost Price or Net Realizable Market Value, whichever is lower' follows which accounting convention?",
+    "options": [
+      "Materiality",
+      "Conservatism (Prudence)",
+      "Consistency",
+      "Full Disclosure"
+    ],
+    "answerIndex": 1,
+    "explanation": "Valuing inventory at lower of cost or net realizable value prevents overstating assets and profits under Prudence."
+  },
+  {
+    "id": 37,
+    "topic": "accounting_basics",
+    "question": "Which accounting convention requires that accounting principles and practices should remain unchanged from one year to another?",
+    "options": [
+      "Convention of Consistency",
+      "Convention of Materiality",
+      "Convention of Prudence",
+      "Dual Aspect Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Consistency convention ensures comparability of financial statements across different financial years by following uniform methods (e.g. SLM depreciation)."
+  },
+  {
+    "id": 38,
+    "topic": "accounting_basics",
+    "question": "Which convention dictates that financial statements should disclose all significant information affecting decision-makers, while ignoring insignificant items?",
+    "options": [
+      "Materiality & Full Disclosure Conventions",
+      "Going Concern Concept",
+      "Money Measurement Concept",
+      "Historical Cost Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "Full Disclosure mandates stating all key facts (e.g. contingent liabilities), while Materiality allows omitting trivial items (e.g. rounding off paise)."
+  },
+  {
+    "id": 39,
+    "topic": "accounting_basics",
+    "question": "Recording small office stationery purchases (pens, clips) as an immediate expense rather than an asset is justified by which convention?",
+    "options": [
+      "Convention of Materiality",
+      "Convention of Consistency",
+      "Going Concern Concept",
+      "Business Entity Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Materiality convention allows treating inexpensive long-life items (e.g. staplers) as current expenses rather than depreciable assets due to their minor value."
+  },
+  {
+    "id": 40,
+    "topic": "accounting_basics",
+    "question": "Which concept states that revenue is recognized when goods are delivered or services rendered to the customer, establishing a legal claim?",
+    "options": [
+      "Realization / Revenue Recognition Concept",
+      "Cash Concept",
+      "Entity Concept",
+      "Cost Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Realization Concept states revenue is earned when ownership/risk transfers to customer, creating an enforceable receivable."
+  },
+  {
+    "id": 41,
+    "topic": "accounting_basics",
+    "question": "Why are personal expenses of the proprietor (e.g. house rent) debited to Drawings A/c instead of Shop Rent A/c?",
+    "options": [
+      "Due to the Business Entity Concept",
+      "Due to the Matching Concept",
+      "Due to the Going Concern Concept",
+      "Due to the Cost Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "Under Business Entity, proprietor's personal transactions are separate from business expenses and recorded in Drawings A/c."
+  },
+  {
+    "id": 42,
+    "topic": "accounting_basics",
+    "question": "What is a Contingent Liability and where is it shown?",
+    "options": [
+      "A confirmed debt shown inside Balance Sheet liabilities",
+      "A potential obligation dependent on a future outcome (e.g. pending lawsuit), disclosed as a footnote to the Balance Sheet",
+      "A revenue income",
+      "A fixed asset"
+    ],
+    "answerIndex": 1,
+    "explanation": "Under Full Disclosure, contingent liabilities are disclosed in footnotes to inform users of potential future risks."
+  },
+  {
+    "id": 43,
+    "topic": "accounting_basics",
+    "question": "If a company changes its depreciation method from Straight Line to Reducing Balance, which convention is violated unless justified?",
+    "options": [
+      "Convention of Consistency",
+      "Convention of Prudence",
+      "Business Entity Concept",
+      "Money Measurement Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "Frequent unannounced changes in accounting methods violate the Convention of Consistency."
+  },
+  {
+    "id": 44,
+    "topic": "accounting_basics",
+    "question": "Which concept requires transactions to be recorded at their original acquisition price supported by verifiable invoices?",
+    "options": [
+      "Historical Cost Concept (Verifiable Objective Evidence)",
+      "Realization Concept",
+      "Dual Aspect Concept",
+      "Accrual Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "Historical Cost Concept mandates recording assets at purchase cost backed by source document evidence."
+  },
+  {
+    "id": 45,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, why does entering a ₹1,00,000 Receipt Voucher automatically update both Bank balance and Customer ledger?",
+    "options": [
+      "Because Tally enforces the Dual Aspect Concept automatically",
+      "Because Tally calculates GST",
+      "Because of the Materiality principle",
+      "Because of single-entry mode"
+    ],
+    "answerIndex": 0,
+    "explanation": "Tally handles double-entry automatically: every transaction debits one account and credits another per Dual Aspect."
+  },
+  {
+    "id": 46,
+    "topic": "accounting_basics",
+    "question": "What happens if the Accrual Concept is ignored in financial accounting?",
+    "options": [
+      "Profit & Loss Account will reflect cash flows rather than true operational profit/loss",
+      "Balance Sheet will be 100% accurate",
+      "GST returns will be automated",
+      "Trial Balance will not tally"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ignoring accruals misses outstanding expenses and accrued incomes, leading to distorted profit metrics."
+  },
+  {
+    "id": 47,
+    "topic": "accounting_basics",
+    "question": "Which accounting concept forms the base for calculating Prepaid Expenses and Outstanding Liabilities at year-end?",
+    "options": [
+      "Accrual and Matching Concepts",
+      "Money Measurement Concept",
+      "Business Entity Concept",
+      "Cost Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrual and Matching concepts require adjusting unpaid expenses (Outstanding) and unconsumed payments (Prepaid) at period end."
+  },
+  {
+    "id": 48,
+    "topic": "accounting_basics",
+    "question": "Why is human resource value (skill, experience of workers) excluded from the Balance Sheet?",
+    "options": [
+      "Because of the Money Measurement Concept",
+      "Because of the Going Concern Concept",
+      "Because of the Matching Concept",
+      "Because of the Entity Concept"
+    ],
+    "answerIndex": 0,
+    "explanation": "Human intellect and employee loyalty cannot be reliably measured in monetary terms, so they are excluded under Money Measurement."
+  },
+  {
+    "id": 49,
+    "topic": "accounting_basics",
+    "question": "When goods costing ₹40,000 are sold for ₹55,000 on credit, how does it affect the Accounting Equation?",
+    "options": [
+      "Assets increase by ₹15,00,000",
+      "Debtors (Asset) +₹55,000, Stock (Asset) -₹40,000, Capital (Profit) +₹15,000",
+      "Liabilities increase by ₹15,000",
+      "Capital decreases by ₹55,000"
+    ],
+    "answerIndex": 1,
+    "explanation": "Receivables increase by ₹55,000, Stock decreases by ₹40,000, and net profit of ₹15,000 increases Owner's Capital, maintaining equation balance."
+  },
+  {
+    "id": 50,
+    "topic": "accounting_basics",
+    "question": "What is the primary objective of the Matching Concept?",
+    "options": [
+      "To match total debits with total credits in Trial Balance",
+      "To match revenues earned in a period with expenses incurred to earn that revenue",
+      "To match cash receipts with cash payments",
+      "To match bank statement with passbook"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Matching Concept pairs revenues of a given period with the exact expenses incurred to generate them."
+  },
+  {
+    "id": 51,
+    "topic": "accounting_basics",
+    "question": "How are Assets classified on a commercial Balance Sheet?",
+    "options": [
+      "Current Assets and Non-Current (Fixed) Assets",
+      "Operating and Non-Operating Expenses",
+      "Direct and Indirect Revenues",
+      "Capital and Drawings"
+    ],
+    "answerIndex": 0,
+    "explanation": "Assets are broadly categorized as Current Assets (liquid within 1 year) and Non-Current / Fixed Assets (held long-term)."
+  },
+  {
+    "id": 52,
+    "topic": "accounting_basics",
+    "question": "Which of the following is an example of a Tangible Fixed Asset?",
+    "options": [
+      "Trademark & Patent Rights",
+      "Factory Plant & Machinery",
+      "Software Copyright",
+      "Goodwill reputation"
+    ],
+    "answerIndex": 1,
+    "explanation": "Tangible fixed assets possess physical substance (Machinery, Land, Building, Furniture)."
+  },
+  {
+    "id": 53,
+    "topic": "accounting_basics",
+    "question": "Which of the following represents an Intangible Asset?",
+    "options": [
+      "Cash in Hand",
+      "Commercial Patent & Goodwill",
+      "Delivery Van",
+      "Office Furniture"
+    ],
+    "answerIndex": 1,
+    "explanation": "Intangible assets lack physical substance but represent legal rights or competitive advantages (Patents, Trademarks, Goodwill)."
+  },
+  {
+    "id": 54,
+    "topic": "accounting_basics",
+    "question": "What are Current Assets?",
+    "options": [
+      "Assets intended for long-term production use",
+      "Assets expected to be converted into cash or consumed within 12 months in operating cycle",
+      "Fictitious losses",
+      "Proprietor drawings"
+    ],
+    "answerIndex": 1,
+    "explanation": "Current Assets (Stock, Debtors, Cash, Bank) are liquid or convertible to cash within one financial year."
+  },
+  {
+    "id": 55,
+    "topic": "accounting_basics",
+    "question": "What is the accounting definition of Sundry Debtors (Trade Receivables)?",
+    "options": [
+      "Suppliers to whom business owes money for credit purchases",
+      "Customers or buyers who owe money to the business for goods/services sold on credit",
+      "Bank lenders",
+      "Employees waiting for salary"
+    ],
+    "answerIndex": 1,
+    "explanation": "Sundry Debtors are buyers who purchased goods/services on credit and owe payment to the business."
+  },
+  {
+    "id": 56,
+    "topic": "accounting_basics",
+    "question": "What is the accounting definition of Sundry Creditors (Trade Payables)?",
+    "options": [
+      "Customers who bought goods on credit",
+      "Suppliers or vendors to whom the business owes payment for goods/services purchased on credit",
+      "Shareholders of the firm",
+      "Cash sales buyers"
+    ],
+    "answerIndex": 1,
+    "explanation": "Sundry Creditors are suppliers from whom the business bought inventory/services on credit terms."
+  },
+  {
+    "id": 57,
+    "topic": "accounting_basics",
+    "question": "What is 'Net Worth' or 'Owner's Equity'?",
+    "options": [
+      "Total Assets minus External Liabilities",
+      "Total Sales Revenue",
+      "Gross Profit minus Taxes",
+      "Total Cash in Bank"
+    ],
+    "answerIndex": 0,
+    "explanation": "Net Worth (Owner's Equity) = Total Assets - Total External Liabilities."
+  },
+  {
+    "id": 58,
+    "topic": "accounting_basics",
+    "question": "What does the term 'Drawings' signify in accounting?",
+    "options": [
+      "Architectural design sketches of factory layout",
+      "Cash or stock withdrawn by the owner from business for personal use",
+      "Payments made to trade creditors",
+      "Discount allowed to customers"
+    ],
+    "answerIndex": 1,
+    "explanation": "Drawings represent capital withdrawals by the proprietor for personal/household needs."
+  },
+  {
+    "id": 59,
+    "topic": "accounting_basics",
+    "question": "What is 'Working Capital'?",
+    "options": [
+      "Total Capital invested by owner",
+      "Current Assets minus Current Liabilities",
+      "Fixed Assets minus Long Term Loans",
+      "Net Profit after Tax"
+    ],
+    "answerIndex": 1,
+    "explanation": "Working Capital = Current Assets - Current Liabilities. It measures short-term operational liquidity."
+  },
+  {
+    "id": 60,
+    "topic": "accounting_basics",
+    "question": "Which of the following is categorized under Current Liabilities?",
+    "options": [
+      "10-Year Bank Term Loan",
+      "Sundry Creditors & Outstanding Expenses",
+      "Owner's Equity Capital",
+      "Plant & Machinery"
+    ],
+    "answerIndex": 1,
+    "explanation": "Current Liabilities (Creditors, Short-term Overdraft, Outstanding Expenses) must be settled within 12 months."
+  },
+  {
+    "id": 61,
+    "topic": "accounting_basics",
+    "question": "What is an 'Expense' in accounting?",
+    "options": [
+      "Purchase of land",
+      "Cost incurred in the process of generating business revenue during an accounting period",
+      "Loan repaid to bank",
+      "Capital invested by owner"
+    ],
+    "answerIndex": 1,
+    "explanation": "An expense is an operating cost consumed during the current period to generate revenue."
+  },
+  {
+    "id": 62,
+    "topic": "accounting_basics",
+    "question": "What is the difference between 'Revenue' and 'Income' (Net Profit)?",
+    "options": [
+      "Revenue is gross earnings from sales; Income is Net Profit remaining after deducting expenses from revenue",
+      "Revenue is cash, Income is credit",
+      "They are identical terms",
+      "Revenue is expense, Income is asset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Revenue is total top-line sales turnover, whereas Income (Net Profit) = Revenue - Expenses."
+  },
+  {
+    "id": 63,
+    "topic": "accounting_basics",
+    "question": "What is 'Goodwill' in accounting?",
+    "options": [
+      "Cash donated to charity",
+      "An intangible asset representing the value of business reputation, customer loyalty, and excess earning power",
+      "Discount given to bulk buyers",
+      "Raw material inventory"
+    ],
+    "answerIndex": 1,
+    "explanation": "Goodwill is an intangible asset capturing brand reputation, location advantage, and super-profit potential."
+  },
+  {
+    "id": 64,
+    "topic": "accounting_basics",
+    "question": "What does 'Solvency' mean in business context?",
+    "options": [
+      "Ability of a business to pay its long-term financial debts as they fall due",
+      "Selling goods at zero profit",
+      "Closing company operations permanently",
+      "Paying cash daily"
+    ],
+    "answerIndex": 0,
+    "explanation": "Solvency indicates a business has sufficient total assets to cover all its long-term and short-term liabilities."
+  },
+  {
+    "id": 65,
+    "topic": "accounting_basics",
+    "question": "What is an 'Insolvent' business entity?",
+    "options": [
+      "A firm whose total liabilities exceed total assets, making it unable to pay debts",
+      "A firm earning 50% profit margin",
+      "A firm with zero bank balance",
+      "A newly registered startup"
+    ],
+    "answerIndex": 0,
+    "explanation": "Insolvency occurs when a firm's total liabilities exceed its assets, leaving it unable to fulfill debt obligations."
+  },
+  {
+    "id": 66,
+    "topic": "accounting_basics",
+    "question": "What is 'Stock-in-Hand' or 'Inventory'?",
+    "options": [
+      "Unsold goods, raw materials, work-in-progress, or finished products held by a business",
+      "Shares bought in stock exchange",
+      "Cash deposited in savings account",
+      "Old furniture"
+    ],
+    "answerIndex": 0,
+    "explanation": "Inventory comprises raw materials, WIP, and finished goods held for processing or sale in regular business operations."
+  },
+  {
+    "id": 67,
+    "topic": "accounting_basics",
+    "question": "What is 'Discount Allowed' and how is it classified?",
+    "options": [
+      "Concession granted to debtors for early payment (Nominal Expense)",
+      "Discount received from suppliers (Nominal Income)",
+      "Fixed asset deduction",
+      "Liability increase"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discount Allowed is a financial incentive given to customers for prompt payment, classified as a Nominal Expense."
+  },
+  {
+    "id": 68,
+    "topic": "accounting_basics",
+    "question": "What is 'Discount Received'?",
+    "options": [
+      "Price deduction received from suppliers for early invoice settlement (Nominal Income)",
+      "Expense paid to bank",
+      "Asset reduction",
+      "Personal drawing"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discount Received is a concession earned from trade creditors for timely payment, classified as a Nominal Income."
+  },
+  {
+    "id": 69,
+    "topic": "accounting_basics",
+    "question": "What is a 'Bad Debt'?",
+    "options": [
+      "A credit customer ledger debt that has become irrecoverable and is written off as a loss",
+      "A bank loan repaid early",
+      "A discount given to customers",
+      "An asset purchase"
+    ],
+    "answerIndex": 0,
+    "explanation": "Bad Debt is an uncollectible customer balance written off as a Nominal Loss."
+  },
+  {
+    "id": 70,
+    "topic": "accounting_basics",
+    "question": "What is 'Depreciation'?",
+    "options": [
+      "Increase in market price of real estate",
+      "Systematic reduction in book value of a fixed asset due to wear, tear, passage of time, or obsolescence",
+      "Cash paid for maintenance",
+      "Profit on sale of machinery"
+    ],
+    "answerIndex": 1,
+    "explanation": "Depreciation is the non-cash allocation of fixed asset cost over its useful economic life due to usage and age."
+  },
+  {
+    "id": 71,
+    "topic": "accounting_basics",
+    "question": "What is Capital Expenditure (CapEx)?",
+    "options": [
+      "Expenditure whose benefits are consumed immediately within 1 month",
+      "Expenditure incurred to acquire or improve long-term fixed assets yielding benefits over multiple financial years",
+      "Day-to-day office tea and snack expenses",
+      "Salary paid to shop staff"
+    ],
+    "answerIndex": 1,
+    "explanation": "CapEx is long-term investment in fixed assets (building, machinery, IT infrastructure) capitalized on the Balance Sheet."
+  },
+  {
+    "id": 72,
+    "topic": "accounting_basics",
+    "question": "What is Revenue Expenditure (OpEx)?",
+    "options": [
+      "Purchase of factory land",
+      "Operational expenditure incurred for day-to-day business maintenance fully consumed within current accounting period",
+      "Construction of additional factory floor",
+      "Initial registration cost of company"
+    ],
+    "answerIndex": 1,
+    "explanation": "Revenue Expenditure (OpEx) covers routine running costs (rent, salary, utility bills) debited to P&L."
+  },
+  {
+    "id": 73,
+    "topic": "accounting_basics",
+    "question": "Where is Capital Expenditure shown in financial statements?",
+    "options": [
+      "Debited to Profit & Loss Account",
+      "Capitalized under Fixed Assets on Balance Sheet",
+      "Credited to Trading Account",
+      "Included under Current Liabilities"
+    ],
+    "answerIndex": 1,
+    "explanation": "CapEx items are capitalized as Fixed Assets on the Balance Sheet and depreciated over time."
+  },
+  {
+    "id": 74,
+    "topic": "accounting_basics",
+    "question": "Where is Revenue Expenditure shown in financial statements?",
+    "options": [
+      "As Fixed Assets on Balance Sheet",
+      "Debited to Trading or Profit & Loss Account",
+      "Added to Capital Account",
+      "Disclosed as footnote"
+    ],
+    "answerIndex": 1,
+    "explanation": "OpEx items are debited to Trading Account (direct costs) or Profit & Loss Account (indirect costs)."
+  },
+  {
+    "id": 75,
+    "topic": "accounting_basics",
+    "question": "How is ₹2,50,000 spent on purchasing a delivery van for business classified?",
+    "options": [
+      "Revenue Expenditure",
+      "Capital Expenditure",
+      "Deferred Revenue Expenditure",
+      "Personal Drawing"
+    ],
+    "answerIndex": 1,
+    "explanation": "Purchasing a motor vehicle creates a long-term asset, making it a Capital Expenditure."
+  },
+  {
+    "id": 76,
+    "topic": "accounting_basics",
+    "question": "How is ₹3,000 spent on petrol for the delivery van classified?",
+    "options": [
+      "Capital Expenditure",
+      "Revenue Expenditure",
+      "Deferred Revenue Expenditure",
+      "Fixed Asset"
+    ],
+    "answerIndex": 1,
+    "explanation": "Fuel is a routine operational expense consumed immediately, making it a Revenue Expenditure."
+  },
+  {
+    "id": 77,
+    "topic": "accounting_basics",
+    "question": "Legal expenses paid ₹50,000 to acquire clear property title of factory land is classified as:",
+    "options": [
+      "Revenue Expenditure",
+      "Capital Expenditure",
+      "Deferred Revenue Expense",
+      "Operating Loss"
+    ],
+    "answerIndex": 1,
+    "explanation": "Legal fees incurred to acquire title of a fixed asset are part of acquisition cost and capitalized as CapEx."
+  },
+  {
+    "id": 78,
+    "topic": "accounting_basics",
+    "question": "Freight charges ₹15,000 paid for bringing a newly purchased machine to the factory site are:",
+    "options": [
+      "Debited to Freight Expense A/c (OpEx)",
+      "Debited to Machinery A/c (Capitalized as CapEx)",
+      "Debited to P&L A/c",
+      "Debited to Cash A/c"
+    ],
+    "answerIndex": 1,
+    "explanation": "All expenses incurred up to placing a new asset into working condition (freight, installation, site prep) are capitalized into the Asset A/c."
+  },
+  {
+    "id": 79,
+    "topic": "accounting_basics",
+    "question": "Wages paid ₹10,000 to workers for installing a new heavy machinery unit should be debited to:",
+    "options": [
+      "Wages Expense Account",
+      "Machinery Account",
+      "Factory Expense Account",
+      "Profit & Loss Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Installation wages are directly attributable to bringing the asset into working condition and capitalized to Machinery A/c."
+  },
+  {
+    "id": 80,
+    "topic": "accounting_basics",
+    "question": "Annual maintenance contract (AMC) fees paid ₹20,000 for office computers is:",
+    "options": [
+      "Capital Expenditure",
+      "Revenue Expenditure",
+      "Deferred Capital Cost",
+      "Drawings"
+    ],
+    "answerIndex": 1,
+    "explanation": "Routine AMC services maintain existing equipment performance without enhancing capacity, classifying as OpEx."
+  },
+  {
+    "id": 81,
+    "topic": "accounting_basics",
+    "question": "Heavy advertising expenditure ₹10,00,000 incurred to launch a new product line with benefits expected over 4 years is called:",
+    "options": [
+      "Capital Expenditure",
+      "Deferred Revenue Expenditure",
+      "Normal Revenue Expense",
+      "Capital Loss"
+    ],
+    "answerIndex": 1,
+    "explanation": "Deferred Revenue Expenditure is a heavy revenue cost whose economic benefit extends beyond one year."
+  },
+  {
+    "id": 82,
+    "topic": "accounting_basics",
+    "question": "Where is the unwritten-off portion of Deferred Revenue Expenditure shown in Balance Sheet?",
+    "options": [
+      "Under Current Liabilities",
+      "Under Assets side as Other Non-Current Assets / Miscellaneous Expenditure",
+      "Under Capital Account",
+      "Under Fixed Assets"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unamortized deferred revenue costs are carried forward on the Asset side of the Balance Sheet."
+  },
+  {
+    "id": 83,
+    "topic": "accounting_basics",
+    "question": "What is Capital Receipt?",
+    "options": [
+      "Cash received from daily customer sales",
+      "Non-recurring receipts that create a liability or reduce a fixed asset (e.g. Bank Loan, Owner Capital, Sale of Machine)",
+      "Interest earned on bank savings",
+      "Discount received from supplier"
+    ],
+    "answerIndex": 1,
+    "explanation": "Capital receipts are non-operational funds (capital contribution, bank loans, asset sales) that do not arise from trading revenue."
+  },
+  {
+    "id": 84,
+    "topic": "accounting_basics",
+    "question": "What is Revenue Receipt?",
+    "options": [
+      "Receipts arising from core trading operations (e.g. Sales turnover, Rent received, Commission received)",
+      "Fresh capital injected by owner",
+      "Long term bank loan received",
+      "Insurance claim received for destroyed factory building"
+    ],
+    "answerIndex": 0,
+    "explanation": "Revenue Receipts arise from regular business sales, fees, and operational income credited to P&L."
+  },
+  {
+    "id": 85,
+    "topic": "accounting_basics",
+    "question": "Where are Capital Receipts shown in financial accounting?",
+    "options": [
+      "Credited to Trading Account",
+      "Reflected on Balance Sheet (Liabilities or reduction in Assets)",
+      "Credited to Profit & Loss Account",
+      "Debited to Cash A/c only"
+    ],
+    "answerIndex": 1,
+    "explanation": "Capital Receipts affect Balance Sheet items (increasing Liabilities like loans or Capital, or reducing Fixed Assets)."
+  },
+  {
+    "id": 86,
+    "topic": "accounting_basics",
+    "question": "Where are Revenue Receipts shown?",
+    "options": [
+      "In the Balance Sheet under Fixed Assets",
+      "Credited to Trading Account (Sales) or Profit & Loss Account (Other Incomes)",
+      "Subtracted from Capital",
+      "Disclosed in footnote"
+    ],
+    "answerIndex": 1,
+    "explanation": "Revenue Receipts are credited to Trading A/c (Sales) or P&L A/c (Commission, Interest, Rent received)."
+  },
+  {
+    "id": 87,
+    "topic": "accounting_basics",
+    "question": "Money received ₹5,00,000 from bank as a long-term loan is classified as:",
+    "options": [
+      "Revenue Receipt",
+      "Capital Receipt",
+      "Deferred Income",
+      "Operating Revenue"
+    ],
+    "answerIndex": 1,
+    "explanation": "Bank loan proceeds create a long-term liability, classifying as a Capital Receipt."
+  },
+  {
+    "id": 88,
+    "topic": "accounting_basics",
+    "question": "Money received ₹80,000 from customer for sale of goods is classified as:",
+    "options": [
+      "Capital Receipt",
+      "Revenue Receipt",
+      "Deferred Receipt",
+      "Capital Gain"
+    ],
+    "answerIndex": 1,
+    "explanation": "Customer sales turnover is a routine operational Revenue Receipt."
+  },
+  {
+    "id": 89,
+    "topic": "accounting_basics",
+    "question": "Cash received ₹1,20,000 from selling an old unused company car at book value is a:",
+    "options": [
+      "Revenue Receipt",
+      "Capital Receipt",
+      "Operating Profit",
+      "Deferred Income"
+    ],
+    "answerIndex": 1,
+    "explanation": "Sale of a fixed asset generates a non-recurring Capital Receipt."
+  },
+  {
+    "id": 90,
+    "topic": "accounting_basics",
+    "question": "If an old machine with book value ₹40,000 is sold for ₹50,000, how is the ₹10,000 excess classified?",
+    "options": [
+      "Capital Loss",
+      "Capital Profit / Gain on Sale of Fixed Asset",
+      "Revenue Expenditure",
+      "Deferred Revenue"
+    ],
+    "answerIndex": 1,
+    "explanation": "Profit above book value on fixed asset sale is a Capital Gain credited to P&L."
+  },
+  {
+    "id": 91,
+    "topic": "accounting_basics",
+    "question": "How is overhauling expense of a second-hand engine purchased to make it usable classified?",
+    "options": [
+      "Revenue Expenditure",
+      "Capital Expenditure",
+      "Deferred Revenue",
+      "Operating Expense"
+    ],
+    "answerIndex": 1,
+    "explanation": "Expenses to bring a second-hand asset into usable working condition are capitalized as CapEx."
+  },
+  {
+    "id": 92,
+    "topic": "accounting_basics",
+    "question": "Repainting the existing office building after 5 years of routine wear is:",
+    "options": [
+      "Capital Expenditure",
+      "Revenue Expenditure",
+      "Capital Loss",
+      "Deferred Capital Receipt"
+    ],
+    "answerIndex": 1,
+    "explanation": "Routine maintenance repainting restores existing condition and is classified as OpEx."
+  },
+  {
+    "id": 93,
+    "topic": "accounting_basics",
+    "question": "Replacing old broken wooden windows with modern energy-efficient aluminium frames that increase property market value is:",
+    "options": [
+      "Revenue Expenditure",
+      "Capital Expenditure",
+      "Deferred Revenue",
+      "Operating Cost"
+    ],
+    "answerIndex": 1,
+    "explanation": "Upgrades that enhance asset capacity or extend structural life are Capital Expenditures."
+  },
+  {
+    "id": 94,
+    "topic": "accounting_basics",
+    "question": "Cost of white-washing a new factory building before starting initial operations is:",
+    "options": [
+      "Capital Expenditure",
+      "Revenue Expenditure",
+      "Deferred Income",
+      "Drawings"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pre-operational costs required before starting initial production are capitalized as CapEx."
+  },
+  {
+    "id": 95,
+    "topic": "accounting_basics",
+    "question": "Insurance premium paid ₹12,000 for factory building coverage for 1 year is:",
+    "options": [
+      "Capital Expenditure",
+      "Revenue Expenditure",
+      "Deferred Receipt",
+      "Capitalized Cost"
+    ],
+    "answerIndex": 1,
+    "explanation": "Annual insurance premium is an operating Revenue Expenditure."
+  },
+  {
+    "id": 96,
+    "topic": "accounting_basics",
+    "question": "Compensation received from insurance company for goods destroyed by fire is:",
+    "options": [
+      "Capital Receipt",
+      "Revenue Receipt / Recovery of Loss",
+      "Deferred Liability",
+      "Operating Profit"
+    ],
+    "answerIndex": 1,
+    "explanation": "Insurance claim recovery for inventory offsets trading loss in Trading/P&L."
+  },
+  {
+    "id": 97,
+    "topic": "accounting_basics",
+    "question": "Interest paid ₹18,000 on bank overdraft is classified as:",
+    "options": [
+      "Capital Expenditure",
+      "Revenue Expenditure (Finance Cost)",
+      "Capital Receipt",
+      "Deferred Revenue"
+    ],
+    "answerIndex": 1,
+    "explanation": "Interest cost is an operational finance expense debited to P&L."
+  },
+  {
+    "id": 98,
+    "topic": "accounting_basics",
+    "question": "Which of the following is a Direct Expense in TallyPrime?",
+    "options": [
+      "Office Manager Salary",
+      "Factory Freight & Carriage Inward",
+      "Audit Fees paid to CA",
+      "Advertising expense"
+    ],
+    "answerIndex": 1,
+    "explanation": "Direct expenses (Carriage Inward, Freight, Factory Power) relate directly to manufacturing/purchasing inventory."
+  },
+  {
+    "id": 99,
+    "topic": "accounting_basics",
+    "question": "Which of the following is an Indirect Expense in TallyPrime?",
+    "options": [
+      "Factory Worker Wages",
+      "Office Rent & Electricity",
+      "Custom Duty on Imported Raw Material",
+      "Octroi and Freight Inward"
+    ],
+    "answerIndex": 1,
+    "explanation": "Indirect expenses (Office Rent, Salaries, Printing, Audit fees) relate to general administration and sales."
+  },
+  {
+    "id": 100,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which primary group is 'Carriage Inward' placed?",
+    "options": [
+      "Indirect Expenses",
+      "Direct Expenses",
+      "Purchase Accounts",
+      "Current Liabilities"
+    ],
+    "answerIndex": 1,
+    "explanation": "Carriage Inward is directly linked to raw material procurement and grouped under Direct Expenses."
+  },
+  {
+    "id": 101,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification, accounts are divided into which three primary categories?",
+    "options": [
+      "Assets, Liabilities, Capital",
+      "Personal Accounts, Real Accounts, Nominal Accounts",
+      "Direct, Indirect, Operating",
+      "Fixed, Current, Fictitious"
+    ],
+    "answerIndex": 1,
+    "explanation": "Traditional classification divides accounts into Personal, Real, and Nominal Accounts."
+  },
+  {
+    "id": 102,
+    "topic": "accounting_basics",
+    "question": "What is the Golden Rule of Accounting for Personal Accounts?",
+    "options": [
+      "Debit what comes in, Credit what goes out",
+      "Debit the Receiver, Credit the Giver",
+      "Debit all expenses, Credit all incomes",
+      "Debit assets, Credit liabilities"
+    ],
+    "answerIndex": 1,
+    "explanation": "Personal Accounts follow: Debit the Receiver, Credit the Giver."
+  },
+  {
+    "id": 103,
+    "topic": "accounting_basics",
+    "question": "What is the Golden Rule of Accounting for Real Accounts?",
+    "options": [
+      "Debit the receiver, Credit the giver",
+      "Debit what comes in, Credit what goes out",
+      "Debit expenses & losses, Credit incomes & gains",
+      "Debit capital, Credit drawings"
+    ],
+    "answerIndex": 1,
+    "explanation": "Real Accounts follow: Debit what comes in, Credit what goes out."
+  },
+  {
+    "id": 104,
     "topic": "accounting_basics",
     "question": "What is the Golden Rule of Accounting for Nominal Accounts?",
     "options": [
       "Debit what comes in, Credit what goes out",
       "Debit the receiver, Credit the giver",
-      "Debit all expenses & losses, Credit all incomes & gains",
-      "Debit all assets, Credit all liabilities"
+      "Debit all Expenses & Losses, Credit all Incomes & Gains",
+      "Debit liabilities, Credit assets"
     ],
     "answerIndex": 2,
-    "explanation": "Nominal Accounts (expenses, losses, revenues, gains) follow the rule: Debit all expenses & losses, Credit all incomes & gains."
+    "explanation": "Nominal Accounts follow: Debit all Expenses & Losses, Credit all Incomes & Gains."
   },
   {
-    "id": 6,
+    "id": 105,
     "topic": "accounting_basics",
-    "question": "Under modern debit-credit rules, what happens when an Asset Account increases?",
+    "question": "Under traditional classification, which of the following is a Natural Personal Account?",
     "options": [
-      "It is Credited (+)",
-      "It is Debited (+)",
-      "It remains unchanged",
-      "It is converted into a liability"
+      "State Bank of India A/c",
+      "Ram's Account",
+      "Outstanding Rent A/c",
+      "Cash A/c"
     ],
     "answerIndex": 1,
-    "explanation": "Under modern classification, Asset and Expense accounts carry normal debit balances. An increase in an asset is DEBITED and a decrease is CREDITED."
+    "explanation": "Natural Personal Accounts represent human individuals (e.g. Ram, Priya, Proprietor)."
   },
   {
-    "id": 7,
+    "id": 106,
     "topic": "accounting_basics",
-    "question": "How is a routine repair expense of ₹5,000 to maintain office machinery classified?",
+    "question": "Which of the following is an Artificial / Legal Personal Account?",
     "options": [
-      "Capital Expenditure (added to Machinery Asset)",
-      "Revenue Expenditure (debited to Repair & Maintenance Expense)",
-      "Deferred Revenue Expenditure",
-      "Personal drawings of the proprietor"
+      "Sita's Account",
+      "Tata Motors Limited A/c",
+      "Salary Expense A/c",
+      "Furniture A/c"
     ],
     "answerIndex": 1,
-    "explanation": "Routine maintenance costs preserve existing operational efficiency without increasing long-term capacity; thus it is a Revenue Expenditure debited to P&L."
+    "explanation": "Artificial Personal Accounts represent legal entities such as companies, firms, banks, and institutions."
   },
   {
-    "id": 8,
+    "id": 107,
     "topic": "accounting_basics",
-    "question": "When a firm pays ₹25,000 cash for shop rent, what accounts are debited and credited?",
+    "question": "Which of the following is a Representative Personal Account?",
     "options": [
-      "Debit Cash A/c, Credit Rent A/c",
-      "Debit Rent A/c (Nominal Expense), Credit Cash A/c (Real Asset -)",
-      "Debit Rent A/c, Credit Landlord Personal A/c",
-      "Debit Capital A/c, Credit Cash A/c"
+      "Cash in Hand A/c",
+      "Outstanding Wages A/c",
+      "Building A/c",
+      "Commission Received A/c"
     ],
     "answerIndex": 1,
-    "explanation": "Rent is a nominal operating expense (Debit all expenses); Cash is a real asset leaving the firm (Credit what goes out)."
+    "explanation": "Representative Personal Accounts represent a person/group to whom amounts are due (Outstanding Wages, Prepaid Rent)."
   },
   {
-    "id": 9,
+    "id": 108,
     "topic": "accounting_basics",
-    "question": "When goods costing ₹50,000 are purchased on credit from vendor 'Bengal Electricals', what is the entry in TallyPrime F9 Purchase Voucher?",
+    "question": "Under traditional classification, 'Cash Account' is classified as:",
     "options": [
-      "Debit Purchase A/c ₹50,000; Credit Bengal Electricals (Sundry Creditor) A/c ₹50,000",
-      "Debit Cash A/c ₹50,000; Credit Purchase A/c ₹50,000",
-      "Debit Bengal Electricals A/c ₹50,000; Credit Sales A/c ₹50,000",
-      "Debit Capital A/c ₹50,000; Credit Bank A/c ₹50,000"
+      "Personal Account",
+      "Real Account",
+      "Nominal Account",
+      "Representative Personal Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Cash A/c is a Real Account representing tangible property owned by business."
+  },
+  {
+    "id": 109,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification, 'Machinery Account' is classified as:",
+    "options": [
+      "Real Account",
+      "Nominal Account",
+      "Personal Account",
+      "Fictitious Account"
     ],
     "answerIndex": 0,
-    "explanation": "Purchasing inventory on credit increases Purchase expense (Debit Purchase) and creates a vendor trade liability (Credit Sundry Creditor Bengal Electricals)."
+    "explanation": "Machinery A/c is a Real Account (tangible fixed property)."
   },
   {
-    "id": 10,
+    "id": 110,
     "topic": "accounting_basics",
-    "question": "Which TallyPrime voucher type is used to record non-cash adjusting entries, depreciation, and bad debt write-offs?",
+    "question": "Under traditional classification, 'Rent Expense Account' is a:",
     "options": [
-      "F4 Contra Voucher",
-      "F5 Payment Voucher",
-      "F6 Receipt Voucher",
-      "F7 Journal Voucher"
+      "Real Account",
+      "Nominal Account",
+      "Personal Account",
+      "Capital Account"
     ],
-    "answerIndex": 3,
-    "explanation": "F7 Journal Voucher in TallyPrime is dedicated to non-cash book adjustments, depreciation, bad debt write-offs, and period closing entries."
+    "answerIndex": 1,
+    "explanation": "Rent Expense A/c is a Nominal Account recording operational expense."
+  },
+  {
+    "id": 111,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification, 'Commission Received Account' is a:",
+    "options": [
+      "Real Account",
+      "Nominal Account",
+      "Personal Account",
+      "Asset Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Commission Received A/c is a Nominal Account recording revenue income."
+  },
+  {
+    "id": 112,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification, 'Proprietor's Capital Account' is a:",
+    "options": [
+      "Nominal Account",
+      "Personal Account",
+      "Real Account",
+      "Impersonal Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Capital A/c represents the proprietor (human owner) and is a Personal Account."
+  },
+  {
+    "id": 113,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification, 'Drawings Account' is classified as a:",
+    "options": [
+      "Real Account",
+      "Personal Account",
+      "Nominal Account",
+      "Expense Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Drawings A/c represents the proprietor withdrawing funds and is a Personal Account."
+  },
+  {
+    "id": 114,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification, 'Bank Account' (e.g. SBI) is a:",
+    "options": [
+      "Real Account",
+      "Artificial Personal Account",
+      "Nominal Account",
+      "Expense Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Bank accounts represent banking institutions (legal artificial persons)."
+  },
+  {
+    "id": 115,
+    "topic": "accounting_basics",
+    "question": "Under traditional classification, 'Goodwill Account' is a:",
+    "options": [
+      "Nominal Account",
+      "Intangible Real Account",
+      "Personal Account",
+      "Representative Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Goodwill A/c is an Intangible Real Account representing property rights."
+  },
+  {
+    "id": 116,
+    "topic": "accounting_basics",
+    "question": "When cash ₹15,000 is paid to customer Shyam, which account is debited and why?",
+    "options": [
+      "Shyam A/c is debited because he is the Receiver (Personal A/c)",
+      "Cash A/c is debited because cash comes in",
+      "Shyam A/c is credited because he gives cash",
+      "Rent A/c is debited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Shyam is the receiver of cash (Personal A/c rule: Debit the receiver)."
+  },
+  {
+    "id": 117,
+    "topic": "accounting_basics",
+    "question": "When cash ₹20,000 is received from customer Anil, which account is credited and why?",
+    "options": [
+      "Anil A/c is credited because he is the Giver (Personal A/c)",
+      "Cash A/c is credited",
+      "Sales A/c is credited",
+      "Anil A/c is debited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Anil is the giver of cash (Personal A/c rule: Credit the giver)."
+  },
+  {
+    "id": 118,
+    "topic": "accounting_basics",
+    "question": "When office furniture costing ₹30,000 is bought for cash, why is Furniture A/c debited?",
+    "options": [
+      "Because furniture comes into the business (Real A/c rule: Debit what comes in)",
+      "Because furniture is a nominal expense",
+      "Because furniture is the giver",
+      "Because cash goes out"
+    ],
+    "answerIndex": 0,
+    "explanation": "Furniture is an asset property coming into business (Real A/c rule: Debit what comes in)."
+  },
+  {
+    "id": 119,
+    "topic": "accounting_basics",
+    "question": "When cash ₹5,000 is paid for office stationary expense, why is Stationary A/c debited?",
+    "options": [
+      "Because stationary is a nominal expense (Nominal A/c rule: Debit all expenses)",
+      "Because stationary is a personal account",
+      "Because stationary goes out",
+      "Because stationary is an asset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Stationary is an expense consumed (Nominal A/c rule: Debit all expenses & losses)."
+  },
+  {
+    "id": 120,
+    "topic": "accounting_basics",
+    "question": "Under traditional rules, which accounts are closed at the end of the accounting year by transferring to Trading and P&L?",
+    "options": [
+      "Real Accounts and Personal Accounts",
+      "Nominal Accounts (Expenses & Revenues)",
+      "Personal Accounts only",
+      "Fixed Asset Accounts"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nominal Accounts are temporary accounts closed at year-end into Trading/P&L."
+  },
+  {
+    "id": 121,
+    "topic": "accounting_basics",
+    "question": "Which accounts carry forward their balances to the next financial year on the Balance Sheet?",
+    "options": [
+      "Nominal Accounts",
+      "Real Accounts and Personal Accounts",
+      "Expense Accounts",
+      "Loss Accounts"
+    ],
+    "answerIndex": 1,
+    "explanation": "Personal and Real Accounts represent ongoing assets, liabilities, and capital carried forward on the Balance Sheet."
+  },
+  {
+    "id": 122,
+    "topic": "accounting_basics",
+    "question": "Is 'Prepaid Insurance Account' a Nominal or Personal account under traditional rules?",
+    "options": [
+      "Nominal Account",
+      "Representative Personal Account",
+      "Real Account",
+      "Fictitious Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Prepaid Insurance represents an advance payment made to the insurance firm, classifying as a Representative Personal Account."
+  },
+  {
+    "id": 123,
+    "topic": "accounting_basics",
+    "question": "Is 'Accrued Interest Account' a Representative Personal Account?",
+    "options": [
+      "Yes, it represents income receivable from a third party",
+      "No, it is a Nominal Account",
+      "No, it is a Real Account",
+      "No, it is an expense"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Interest represents interest earned but receivable from bank/borrower, making it a Representative Personal A/c."
+  },
+  {
+    "id": 124,
+    "topic": "accounting_basics",
+    "question": "What is the nature of 'Discount Received Account' under traditional rules?",
+    "options": [
+      "Real Account",
+      "Nominal Account (Gain / Income)",
+      "Personal Account",
+      "Asset Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Discount Received is a Nominal Account representing a financial income gain."
+  },
+  {
+    "id": 125,
+    "topic": "accounting_basics",
+    "question": "What is the nature of 'Loss by Fire Account'?",
+    "options": [
+      "Real Account",
+      "Nominal Account (Loss)",
+      "Personal Account",
+      "Liability Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Loss by Fire is a Nominal Account representing an abnormal operating loss."
+  },
+  {
+    "id": 126,
+    "topic": "accounting_basics",
+    "question": "What is the nature of 'Patent Rights Account'?",
+    "options": [
+      "Nominal Account",
+      "Intangible Real Account",
+      "Personal Account",
+      "Current Liability"
+    ],
+    "answerIndex": 1,
+    "explanation": "Patents are Intangible Real Accounts representing property rights owned by the business."
+  },
+  {
+    "id": 127,
+    "topic": "accounting_basics",
+    "question": "When cash is deposited into State Bank of India, which account is debited under traditional rules?",
+    "options": [
+      "Cash A/c (Real)",
+      "SBI Bank A/c (Personal - Receiver)",
+      "Deposit Expense A/c",
+      "Capital A/c"
+    ],
+    "answerIndex": 1,
+    "explanation": "SBI Bank A/c is debited because the bank (Artificial Person) receives cash."
+  },
+  {
+    "id": 128,
+    "topic": "accounting_basics",
+    "question": "When goods are bought on credit from Supplier M/s Roy & Bros, which account is credited?",
+    "options": [
+      "Purchase A/c",
+      "M/s Roy & Bros A/c (Personal - Giver)",
+      "Cash A/c",
+      "Sales A/c"
+    ],
+    "answerIndex": 1,
+    "explanation": "M/s Roy & Bros A/c is credited as the giver of goods on credit."
+  },
+  {
+    "id": 129,
+    "topic": "accounting_basics",
+    "question": "When goods are sold on credit to Customer M/s Bannerjee & Co, which account is debited?",
+    "options": [
+      "Sales A/c",
+      "M/s Bannerjee & Co A/c (Personal - Receiver)",
+      "Cash A/c",
+      "Purchase A/c"
+    ],
+    "answerIndex": 1,
+    "explanation": "M/s Bannerjee & Co A/c is debited as the receiver of goods."
+  },
+  {
+    "id": 130,
+    "topic": "accounting_basics",
+    "question": "Why is 'Return Inward Account' debited under traditional rules when a customer returns defective goods?",
+    "options": [
+      "Because goods return back into the business (Real A/c: Debit what comes in)",
+      "Because it is a personal giver",
+      "Because cash goes out",
+      "Because sales increase"
+    ],
+    "answerIndex": 0,
+    "explanation": "Return Inward brings inventory back into business (Real A/c: Debit what comes in)."
+  },
+  {
+    "id": 131,
+    "topic": "accounting_basics",
+    "question": "Why is 'Return Outward Account' credited when defective raw materials are sent back to supplier?",
+    "options": [
+      "Because inventory goes out of the business (Real A/c: Credit what goes out)",
+      "Because it is a personal receiver",
+      "Because expenses increase",
+      "Because cash comes in"
+    ],
+    "answerIndex": 0,
+    "explanation": "Return Outward sends inventory out of business (Real A/c: Credit what goes out)."
+  },
+  {
+    "id": 132,
+    "topic": "accounting_basics",
+    "question": "Which of the following is NOT a Nominal Account?",
+    "options": [
+      "Salary Expense A/c",
+      "Interest Income A/c",
+      "Bank Loan A/c",
+      "Audit Fees A/c"
+    ],
+    "answerIndex": 2,
+    "explanation": "Bank Loan A/c is a Personal/Liability Account, not a Nominal Account."
+  },
+  {
+    "id": 133,
+    "topic": "accounting_basics",
+    "question": "Which of the following is NOT a Real Account?",
+    "options": [
+      "Plant & Machinery A/c",
+      "Stock-in-Hand A/c",
+      "Rent Expense A/c",
+      "Cash in Hand A/c"
+    ],
+    "answerIndex": 2,
+    "explanation": "Rent Expense A/c is a Nominal Account."
+  },
+  {
+    "id": 134,
+    "topic": "accounting_basics",
+    "question": "Which of the following is NOT a Personal Account?",
+    "options": [
+      "Sundry Debtors A/c",
+      "Sundry Creditors A/c",
+      "Copyright Asset A/c",
+      "Capital A/c"
+    ],
+    "answerIndex": 2,
+    "explanation": "Copyright Asset A/c is an Intangible Real Account."
+  },
+  {
+    "id": 135,
+    "topic": "accounting_basics",
+    "question": "What is the key limitation of traditional account classification compared to modern computer accounting?",
+    "options": [
+      "It does not separate Assets from Expenses cleanly (both use Debit rules)",
+      "It ignores cash transactions",
+      "It has 10 categories",
+      "It cannot record sales"
+    ],
+    "answerIndex": 0,
+    "explanation": "Traditional rules mix Assets (Real) and Expenses (Nominal) under different names without showing unified normal debit balances."
+  },
+  {
+    "id": 136,
+    "topic": "accounting_basics",
+    "question": "Under traditional rules, what type of account is 'Unearned Commission' (Commission received in advance)?",
+    "options": [
+      "Nominal Account",
+      "Representative Personal Account (Liability)",
+      "Real Account",
+      "Asset Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unearned Commission represents advance cash received from a client for unperformed services, creating a Representative Personal Liability."
+  },
+  {
+    "id": 137,
+    "topic": "accounting_basics",
+    "question": "Under traditional rules, what type of account is 'Bank Interest Income'?",
+    "options": [
+      "Real Account",
+      "Nominal Account (Income)",
+      "Personal Account",
+      "Liability Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Bank Interest Income is a Nominal Account representing financial revenue."
+  },
+  {
+    "id": 138,
+    "topic": "accounting_basics",
+    "question": "Under traditional rules, what type of account is 'Interest Receivable'?",
+    "options": [
+      "Nominal Account",
+      "Representative Personal Account (Asset)",
+      "Real Account",
+      "Capital Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Interest Receivable is a Representative Personal Asset representing money due from bank/borrower."
+  },
+  {
+    "id": 139,
+    "topic": "accounting_basics",
+    "question": "Under traditional rules, what type of account is 'Life Insurance Premium paid for Proprietor'?",
+    "options": [
+      "Business Expense Nominal A/c",
+      "Personal Drawings Account (Personal A/c)",
+      "Real Account",
+      "Liability Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Life Insurance of proprietor is a personal expense, debited to Drawings A/c (Personal A/c)."
+  },
+  {
+    "id": 140,
+    "topic": "accounting_basics",
+    "question": "Under traditional rules, what type of account is 'Income Tax paid for Proprietor'?",
+    "options": [
+      "Tax Expense Nominal A/c",
+      "Personal Drawings Account (Personal A/c)",
+      "Real Account",
+      "Current Asset A/c"
+    ],
+    "answerIndex": 1,
+    "explanation": "Income Tax of sole proprietor is a personal liability, debited to Drawings A/c."
+  },
+  {
+    "id": 141,
+    "topic": "accounting_basics",
+    "question": "What are the 5 modern categories of accounts in computerized accounting systems like TallyPrime?",
+    "options": [
+      "Assets, Liabilities, Capital, Expenses, Revenues (Incomes)",
+      "Personal, Real, Nominal, Direct, Indirect",
+      "Cash, Bank, Ledger, Voucher, Group",
+      "Fixed, Current, Tangible, Intangible, Fictitious"
+    ],
+    "answerIndex": 0,
+    "explanation": "Modern accounting classifies accounts into 5 primary groups: Assets, Liabilities, Capital, Expenses, and Revenues."
+  },
+  {
+    "id": 142,
+    "topic": "accounting_basics",
+    "question": "In the DEAD acronym for modern debit-credit rules, what does D.E.A.D stand for?",
+    "options": [
+      "Debit Expenses, Assets, Drawings",
+      "Direct Expenses & Asset Depreciation",
+      "Discount Expenses And Debts",
+      "Double Entry Accounting Division"
+    ],
+    "answerIndex": 0,
+    "explanation": "D.E.A.D = Debit Expenses, Assets, Drawings. These categories have normal Debit balances (+Debit / -Credit)."
+  },
+  {
+    "id": 143,
+    "topic": "accounting_basics",
+    "question": "In the CLEAR acronym for modern debit-credit rules, what does C.L.E.A.R stand for?",
+    "options": [
+      "Credit Liabilities, Equity, And Revenue",
+      "Capital Liabilities Equity And Revenues",
+      "Cash Ledger Entry Account Record",
+      "Credit Loan Equity Asset Revenue"
+    ],
+    "answerIndex": 1,
+    "explanation": "C.L.E.A.R = Credit Liabilities, Equity (Capital), And Revenues. These categories have normal Credit balances (+Credit / -Debit)."
+  },
+  {
+    "id": 144,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the normal balance of an Asset Account?",
+    "options": [
+      "Credit balance",
+      "Debit balance",
+      "Zero balance",
+      "Fluctuating balance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Asset accounts carry normal Debit balances (+Debit / -Credit)."
+  },
+  {
+    "id": 145,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the normal balance of a Liability Account?",
+    "options": [
+      "Debit balance",
+      "Credit balance",
+      "Zero balance",
+      "Asset balance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Liability accounts carry normal Credit balances (+Credit / -Debit)."
+  },
+  {
+    "id": 146,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the normal balance of Capital (Owner's Equity)?",
+    "options": [
+      "Debit balance",
+      "Credit balance",
+      "Expense balance",
+      "Variable balance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Capital / Equity accounts carry normal Credit balances (+Credit / -Debit)."
+  },
+  {
+    "id": 147,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the normal balance of an Expense Account?",
+    "options": [
+      "Credit balance",
+      "Debit balance",
+      "Liability balance",
+      "Zero balance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Expense accounts carry normal Debit balances (+Debit / -Credit)."
+  },
+  {
+    "id": 148,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the normal balance of a Revenue (Income) Account?",
+    "options": [
+      "Debit balance",
+      "Credit balance",
+      "Asset balance",
+      "Negative balance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Revenue / Income accounts carry normal Credit balances (+Credit / -Debit)."
+  },
+  {
+    "id": 149,
+    "topic": "accounting_basics",
+    "question": "When an Asset account INCREASES, how is it recorded under modern rules?",
+    "options": [
+      "Credited (+)",
+      "Debited (+)",
+      "Subtracted from Capital",
+      "Ignored"
+    ],
+    "answerIndex": 1,
+    "explanation": "Assets increase with a DEBIT."
+  },
+  {
+    "id": 150,
+    "topic": "accounting_basics",
+    "question": "When an Asset account DECREASES, how is it recorded under modern rules?",
+    "options": [
+      "Debited (-)",
+      "Credited (-)",
+      "Added to P&L",
+      "Ignored"
+    ],
+    "answerIndex": 1,
+    "explanation": "Assets decrease with a CREDIT."
+  },
+  {
+    "id": 151,
+    "topic": "accounting_basics",
+    "question": "When a Liability account INCREASES, how is it recorded under modern rules?",
+    "options": [
+      "Debited (+)",
+      "Credited (+)",
+      "Divided by 2",
+      "Subtracted"
+    ],
+    "answerIndex": 1,
+    "explanation": "Liabilities increase with a CREDIT."
+  },
+  {
+    "id": 152,
+    "topic": "accounting_basics",
+    "question": "When a Liability account DECREASES (e.g. paying off a loan), how is it recorded under modern rules?",
+    "options": [
+      "Credited (-)",
+      "Debited (-)",
+      "Added to Sales",
+      "Recorded in Drawings"
+    ],
+    "answerIndex": 1,
+    "explanation": "Liabilities decrease with a DEBIT."
+  },
+  {
+    "id": 153,
+    "topic": "accounting_basics",
+    "question": "When Capital INCREASES (e.g. owner invests fresh money), how is Capital A/c affected?",
+    "options": [
+      "Debited (+)",
+      "Credited (+)",
+      "Unchanged",
+      "Closed"
+    ],
+    "answerIndex": 1,
+    "explanation": "Capital increases with a CREDIT."
+  },
+  {
+    "id": 154,
+    "topic": "accounting_basics",
+    "question": "When Capital DECREASES (e.g. proprietor withdraws cash for drawings), how is Capital/Drawings affected?",
+    "options": [
+      "Drawings A/c is Debited (+)",
+      "Capital A/c is Credited (+)",
+      "Sales A/c is Debited",
+      "Liability increases"
+    ],
+    "answerIndex": 0,
+    "explanation": "Drawings (reduction of capital) is DEBITED under DEAD rules."
+  },
+  {
+    "id": 155,
+    "topic": "accounting_basics",
+    "question": "When an Expense INCREASES (e.g. paying shop electricity bill), how is Expense A/c recorded?",
+    "options": [
+      "Credited (+)",
+      "Debited (+)",
+      "Multiplied",
+      "Zeroed"
+    ],
+    "answerIndex": 1,
+    "explanation": "Expenses increase with a DEBIT."
+  },
+  {
+    "id": 156,
+    "topic": "accounting_basics",
+    "question": "When Revenue INCREASES (e.g. making a cash sale), how is Revenue/Sales A/c recorded?",
+    "options": [
+      "Debited (+)",
+      "Credited (+)",
+      "Subtracted",
+      "Written off"
+    ],
+    "answerIndex": 1,
+    "explanation": "Revenues increase with a CREDIT."
+  },
+  {
+    "id": 157,
+    "topic": "accounting_basics",
+    "question": "If a business purchases machinery for ₹2,00,000 in cash, how are the two asset accounts affected under modern rules?",
+    "options": [
+      "Machinery A/c (Asset +) is Debited; Cash A/c (Asset -) is Credited",
+      "Machinery A/c is Credited; Cash A/c is Debited",
+      "Both accounts are Debited",
+      "Both accounts are Credited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Machinery asset increases (+Dr ₹2,00,000) and Cash asset decreases (-Cr ₹2,00,000)."
+  },
+  {
+    "id": 158,
+    "topic": "accounting_basics",
+    "question": "If a business borrows ₹5,00,000 from Bank of Baroda, how are accounts affected under modern rules?",
+    "options": [
+      "Bank A/c (Asset +) is Debited ₹5,00,000; Bank Loan A/c (Liability +) is Credited ₹5,00,000",
+      "Bank A/c is Credited; Bank Loan A/c is Debited",
+      "Both are Debited",
+      "Capital is Debited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Bank asset increases (+Dr) and Bank Loan liability increases (+Cr)."
+  },
+  {
+    "id": 159,
+    "topic": "accounting_basics",
+    "question": "If a business pays ₹30,00,0 to a creditor (Sundry Creditor) in cash, how are accounts affected?",
+    "options": [
+      "Sundry Creditor A/c (Liability -) is Debited; Cash A/c (Asset -) is Credited",
+      "Sundry Creditor is Credited; Cash is Debited",
+      "Both are Credited",
+      "Sales is Debited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Liability decreases (-Dr) and Cash asset decreases (-Cr)."
+  },
+  {
+    "id": 160,
+    "topic": "accounting_basics",
+    "question": "If a customer (Sundry Debtor) pays ₹40,000 cash due to the business, how are accounts affected?",
+    "options": [
+      "Cash A/c (Asset +) is Debited; Sundry Debtor A/c (Asset -) is Credited",
+      "Cash is Credited; Sundry Debtor is Debited",
+      "Both are Debited",
+      "Sales is Credited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cash asset increases (+Dr ₹40,000) and Customer asset decreases (-Cr ₹40,000)."
+  },
+  {
+    "id": 161,
+    "topic": "accounting_basics",
+    "question": "Which modern accounting categories appear on the Balance Sheet?",
+    "options": [
+      "Assets, Liabilities, and Capital",
+      "Expenses and Revenues",
+      "Direct and Indirect Expenses",
+      "Sales and Purchases"
+    ],
+    "answerIndex": 0,
+    "explanation": "Assets, Liabilities, and Capital represent permanent balance sheet accounts."
+  },
+  {
+    "id": 162,
+    "topic": "accounting_basics",
+    "question": "Which modern accounting categories appear on the Profit & Loss Statement?",
+    "options": [
+      "Assets and Liabilities",
+      "Expenses and Revenues (Incomes)",
+      "Capital and Drawings",
+      "Cash and Bank"
+    ],
+    "answerIndex": 1,
+    "explanation": "Expenses and Revenues determine Net Profit/Loss on the Income Statement."
+  },
+  {
+    "id": 163,
+    "topic": "accounting_basics",
+    "question": "Why is modern classification preferred in computer software like TallyPrime?",
+    "options": [
+      "Because software uses mathematical (+/-) debit-credit balance logic mapped directly to predefined parent groups",
+      "Because traditional rules are illegal",
+      "Because computers don't support ledgers",
+      "Because it ignores bank accounts"
+    ],
+    "answerIndex": 0,
+    "explanation": "Modern classification cleanly aligns with automated database structures (+Dr / +Cr balance properties)."
+  },
+  {
+    "id": 164,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the effect of receiving ₹10,000 interest on bank fixed deposit?",
+    "options": [
+      "Bank A/c (Asset +) is Debited; Interest Income A/c (Revenue +) is Credited",
+      "Bank A/c is Credited; Interest Income is Debited",
+      "Both are Credited",
+      "Capital is Debited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Bank asset increases (+Dr) and Interest Revenue increases (+Cr)."
+  },
+  {
+    "id": 165,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the effect of paying ₹8,000 shop rent in cash?",
+    "options": [
+      "Rent Expense A/c (Expense +) is Debited; Cash A/c (Asset -) is Credited",
+      "Rent Expense is Credited; Cash is Debited",
+      "Both are Debited",
+      "Capital is Credited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rent Expense increases (+Dr) and Cash asset decreases (-Cr)."
+  },
+  {
+    "id": 166,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the effect when proprietor invests ₹3,00,000 cash to start business?",
+    "options": [
+      "Cash A/c (Asset +) is Debited; Capital A/c (Capital +) is Credited",
+      "Cash A/c is Credited; Capital A/c is Debited",
+      "Both are Debited",
+      "Sales is Credited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cash asset increases (+Dr) and Owner's Capital increases (+Cr)."
+  },
+  {
+    "id": 167,
+    "topic": "accounting_basics",
+    "question": "Under modern rules, what is the effect when proprietor withdraws ₹20,000 cash for personal use?",
+    "options": [
+      "Drawings A/c (Drawings +) is Debited; Cash A/c (Asset -) is Credited",
+      "Cash A/c is Debited; Drawings A/c is Credited",
+      "Both are Credited",
+      "Capital is Credited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Drawings increases (+Dr ₹20,000) and Cash asset decreases (-Cr ₹20,000)."
+  },
+  {
+    "id": 168,
+    "topic": "accounting_basics",
+    "question": "What is the normal balance of 'Accumulated Depreciation Account'?",
+    "options": [
+      "Debit balance",
+      "Credit balance (Contra-Asset Account)",
+      "Zero balance",
+      "Expense balance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Accumulated Depreciation is a Contra-Asset account carrying a normal Credit balance to offset asset cost."
+  },
+  {
+    "id": 169,
+    "topic": "accounting_basics",
+    "question": "What is a 'Contra-Asset Account'?",
+    "options": [
+      "An account with a normal credit balance that offsets the balance of a related asset account on Balance Sheet",
+      "A bank account",
+      "A revenue gain",
+      "A fixed liability"
+    ],
+    "answerIndex": 0,
+    "explanation": "Contra-Asset accounts (e.g. Accumulated Depreciation, Provision for Doubtful Debts) carry credit balances to reduce asset book value."
+  },
+  {
+    "id": 170,
+    "topic": "accounting_basics",
+    "question": "What is the normal balance of 'Provision for Doubtful Debts'?",
+    "options": [
+      "Debit balance",
+      "Credit balance (Contra-Asset)",
+      "Operating expense balance",
+      "Capital balance"
+    ],
+    "answerIndex": 1,
+    "explanation": "Provision for Doubtful Debts carries a normal credit balance to reduce Sundry Debtors on the Balance Sheet."
+  },
+  {
+    "id": 171,
+    "topic": "accounting_basics",
+    "question": "Under modern classification, under which main category does 'Prepaid Rent' belong?",
+    "options": [
+      "Expense",
+      "Current Asset",
+      "Liability",
+      "Revenue"
+    ],
+    "answerIndex": 1,
+    "explanation": "Prepaid Rent represents an advance payment for future service, creating a Current Asset."
+  },
+  {
+    "id": 172,
+    "topic": "accounting_basics",
+    "question": "Under modern classification, under which main category does 'Outstanding Salary' belong?",
+    "options": [
+      "Expense",
+      "Current Liability",
+      "Asset",
+      "Capital"
+    ],
+    "answerIndex": 1,
+    "explanation": "Outstanding Salary represents an unpaid obligation for past work, creating a Current Liability."
+  },
+  {
+    "id": 173,
+    "topic": "accounting_basics",
+    "question": "Under modern classification, under which main category does 'Unearned Revenue' (Income Received in Advance) belong?",
+    "options": [
+      "Revenue",
+      "Current Liability",
+      "Asset",
+      "Expense"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unearned Revenue represents money received for unfulfilled services, creating a Current Liability."
+  },
+  {
+    "id": 174,
+    "topic": "accounting_basics",
+    "question": "Under modern classification, under which main category does 'Accrued Interest' (Interest Earned but not received) belong?",
+    "options": [
+      "Revenue",
+      "Current Asset",
+      "Liability",
+      "Drawings"
+    ],
+    "answerIndex": 1,
+    "explanation": "Accrued Interest represents earned income waiting to be collected, creating a Current Asset."
+  },
+  {
+    "id": 175,
+    "topic": "accounting_basics",
+    "question": "Why does Trial Balance tally in double-entry accounting?",
+    "options": [
+      "Because every transaction has equal Debit and Credit entries across modern categories",
+      "Because bank balances match cash",
+      "Because total assets equal net profit",
+      "Because GST rates are fixed"
+    ],
+    "answerIndex": 0,
+    "explanation": "Every entry posts equal Debit and Credit amounts, ensuring Total Debits equal Total Credits in Trial Balance."
+  },
+  {
+    "id": 176,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which primary group should 'State Bank of India Current Account' be created?",
+    "options": [
+      "Cash-in-Hand",
+      "Bank Accounts",
+      "Current Liabilities",
+      "Investments"
+    ],
+    "answerIndex": 1,
+    "explanation": "SBI Current Account is grouped under 'Bank Accounts' (a subgroup of Current Assets)."
+  },
+  {
+    "id": 177,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which primary group should 'Petty Cash Account' be created?",
+    "options": [
+      "Bank Accounts",
+      "Cash-in-Hand",
+      "Indirect Expenses",
+      "Sundry Debtors"
+    ],
+    "answerIndex": 1,
+    "explanation": "Petty Cash is physical currency grouped under 'Cash-in-Hand'."
+  },
+  {
+    "id": 178,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should a credit customer 'M/s Roy Enterprises' be created?",
+    "options": [
+      "Sundry Creditors",
+      "Sundry Debtors",
+      "Sales Accounts",
+      "Current Liabilities"
+    ],
+    "answerIndex": 1,
+    "explanation": "Credit buyers to whom goods are sold on credit are created under 'Sundry Debtors'."
+  },
+  {
+    "id": 179,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should a raw material trade supplier 'M/s Gupta & Sons' be created?",
+    "options": [
+      "Sundry Debtors",
+      "Sundry Creditors",
+      "Purchase Accounts",
+      "Direct Expenses"
+    ],
+    "answerIndex": 1,
+    "explanation": "Trade vendors supplying goods on credit are created under 'Sundry Creditors'."
+  },
+  {
+    "id": 180,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Office Air Conditioner' be created?",
+    "options": [
+      "Current Assets",
+      "Fixed Assets",
+      "Indirect Expenses",
+      "Stock-in-Hand"
+    ],
+    "answerIndex": 1,
+    "explanation": "Office Air Conditioner is a durable physical asset grouped under 'Fixed Assets'."
+  },
+  {
+    "id": 181,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Office Rent Expense' be created?",
+    "options": [
+      "Direct Expenses",
+      "Indirect Expenses",
+      "Current Liabilities",
+      "Purchase Accounts"
+    ],
+    "answerIndex": 1,
+    "explanation": "Office Rent is an administrative cost grouped under 'Indirect Expenses'."
+  },
+  {
+    "id": 182,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Factory Power & Fuel Expense' be created?",
+    "options": [
+      "Indirect Expenses",
+      "Direct Expenses",
+      "Fixed Assets",
+      "Miscellaneous Expenses"
+    ],
+    "answerIndex": 1,
+    "explanation": "Factory Power & Fuel is directly connected to production and grouped under 'Direct Expenses'."
+  },
+  {
+    "id": 183,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Sales Turnover Account' be created?",
+    "options": [
+      "Direct Incomes",
+      "Sales Accounts",
+      "Current Assets",
+      "Indirect Incomes"
+    ],
+    "answerIndex": 1,
+    "explanation": "Main product sales turnover is created under the predefined group 'Sales Accounts'."
+  },
+  {
+    "id": 184,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Goods Purchase Account' be created?",
+    "options": [
+      "Direct Expenses",
+      "Purchase Accounts",
+      "Current Assets",
+      "Stock-in-Hand"
+    ],
+    "answerIndex": 1,
+    "explanation": "Raw material/inventory purchase ledger is created under 'Purchase Accounts'."
+  },
+  {
+    "id": 185,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Discount Received' from suppliers be created?",
+    "options": [
+      "Indirect Expenses",
+      "Indirect Incomes",
+      "Sales Accounts",
+      "Current Liabilities"
+    ],
+    "answerIndex": 1,
+    "explanation": "Discount Received is an operational financial gain created under 'Indirect Incomes'."
+  },
+  {
+    "id": 186,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Discount Allowed' to customers be created?",
+    "options": [
+      "Indirect Incomes",
+      "Indirect Expenses",
+      "Sales Accounts",
+      "Current Assets"
+    ],
+    "answerIndex": 1,
+    "explanation": "Discount Allowed is a financial expense created under 'Indirect Expenses'."
+  },
+  {
+    "id": 187,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Bank Interest Earned' on fixed deposit be created?",
+    "options": [
+      "Direct Incomes",
+      "Indirect Incomes",
+      "Bank Accounts",
+      "Investments"
+    ],
+    "answerIndex": 1,
+    "explanation": "Bank Interest is a secondary non-operating revenue created under 'Indirect Incomes'."
+  },
+  {
+    "id": 188,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Bank Loan 5-Year Term' be created?",
+    "options": [
+      "Current Liabilities",
+      "Loans (Liability) / Secured Loans",
+      "Bank OD A/c",
+      "Capital Account"
+    ],
+    "answerIndex": 1,
+    "explanation": "Long-term bank loans are created under 'Loans (Liability)' or 'Secured Loans'."
+  },
+  {
+    "id": 189,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'GST Payable Account' (CGST/SGST/IGST) be created?",
+    "options": [
+      "Duties & Taxes",
+      "Indirect Expenses",
+      "Current Assets",
+      "Sales Accounts"
+    ],
+    "answerIndex": 0,
+    "explanation": "All statutory tax ledgers (CGST, SGST, IGST, TDS) are created under 'Duties & Taxes'."
+  },
+  {
+    "id": 190,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Proprietor's Capital Account' be created?",
+    "options": [
+      "Current Liabilities",
+      "Capital Account",
+      "Reserves & Surplus",
+      "Loans (Liability)"
+    ],
+    "answerIndex": 1,
+    "explanation": "Proprietor's investment ledger is created under 'Capital Account'."
+  },
+  {
+    "id": 191,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Proprietor's Personal Drawings Account' be created?",
+    "options": [
+      "Indirect Expenses",
+      "Capital Account",
+      "Current Assets",
+      "Bank Accounts"
+    ],
+    "answerIndex": 1,
+    "explanation": "Drawings Account is created under 'Capital Account' (which reduces total capital on Balance Sheet)."
+  },
+  {
+    "id": 192,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Prepaid Office Rent' be created?",
+    "options": [
+      "Indirect Expenses",
+      "Current Assets",
+      "Current Liabilities",
+      "Fixed Assets"
+    ],
+    "answerIndex": 1,
+    "explanation": "Prepaid Rent is an advance asset created under 'Current Assets'."
+  },
+  {
+    "id": 193,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, under which group should 'Outstanding Electricity Bill' be created?",
+    "options": [
+      "Indirect Expenses",
+      "Current Liabilities",
+      "Current Assets",
+      "Provisions"
+    ],
+    "answerIndex": 1,
+    "explanation": "Unpaid expense obligations are created under 'Current Liabilities'."
+  },
+  {
+    "id": 194,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, which function key opens the 'Payment Voucher' for paying shop rent?",
+    "options": [
+      "F4",
+      "F5",
+      "F6",
+      "F8"
+    ],
+    "answerIndex": 1,
+    "explanation": "Function Key F5 opens Payment Voucher in TallyPrime for cash/bank expense payments."
+  },
+  {
+    "id": 195,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, which function key opens the 'Receipt Voucher' when cash is received from a debtor?",
+    "options": [
+      "F5",
+      "F6",
+      "F7",
+      "F9"
+    ],
+    "answerIndex": 1,
+    "explanation": "Function Key F6 opens Receipt Voucher in TallyPrime for cash/bank receipts."
+  },
+  {
+    "id": 196,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, which function key opens the 'Sales Voucher' for billing credit sales?",
+    "options": [
+      "F5",
+      "F6",
+      "F8",
+      "F9"
+    ],
+    "answerIndex": 2,
+    "explanation": "Function Key F8 opens Sales Voucher in TallyPrime."
+  },
+  {
+    "id": 197,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, which function key opens the 'Purchase Voucher' for recording inventory purchases?",
+    "options": [
+      "F6",
+      "F8",
+      "F9",
+      "F4"
+    ],
+    "answerIndex": 2,
+    "explanation": "Function Key F9 opens Purchase Voucher in TallyPrime."
+  },
+  {
+    "id": 198,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, which function key opens the 'Contra Voucher' for transferring funds between Cash and Bank?",
+    "options": [
+      "F4",
+      "F5",
+      "F7",
+      "F8"
+    ],
+    "answerIndex": 0,
+    "explanation": "Function Key F4 opens Contra Voucher for cash-to-bank, bank-to-cash, or bank-to-bank transfers."
+  },
+  {
+    "id": 199,
+    "topic": "accounting_basics",
+    "question": "In TallyPrime, which function key opens the 'Journal Voucher' for non-cash adjustment entries (e.g. Depreciation, Outstanding Rent)?",
+    "options": [
+      "F4",
+      "F5",
+      "F7",
+      "F9"
+    ],
+    "answerIndex": 2,
+    "explanation": "Function Key F7 opens Journal Voucher for non-cash adjustment entries."
+  },
+  {
+    "id": 200,
+    "topic": "accounting_basics",
+    "question": "What is the shortcut key in TallyPrime to accept and save any created Ledger or Voucher instantly?",
+    "options": [
+      "Ctrl + A",
+      "Ctrl + S",
+      "Alt + P",
+      "Esc"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ctrl + A is the universal shortcut key in TallyPrime to save/accept any voucher, master ledger, or screen."
   }
 ]

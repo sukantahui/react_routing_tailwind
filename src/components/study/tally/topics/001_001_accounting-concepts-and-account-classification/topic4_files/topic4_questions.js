@@ -193,19 +193,19 @@ export default [
   },
   {
     id: 17,
-    question: "In TallyPrime, how do Purchase Returns impact the Profit & Loss statement?",
+    question: "In TallyPrime, how do Return Outward impact the Profit & Loss statement?",
     options: [
-      "Purchase Returns reduce total Gross Purchases, thereby reducing Cost of Goods Sold",
-      "Purchase Returns increase Gross Sales",
-      "Purchase Returns increase Indirect Expenses",
-      "Purchase Returns increase Bank Liabilities"
+      "Return Outward reduce total Gross Purchases, thereby reducing Cost of Goods Sold",
+      "Return Outward increase Gross Sales",
+      "Return Outward increase Indirect Expenses",
+      "Return Outward increase Bank Liabilities"
     ],
-    answer: "Purchase Returns reduce total Gross Purchases, thereby reducing Cost of Goods Sold",
-    explanation: "Purchase Returns (Debit Note entries) are deducted from Gross Purchases to yield Net Purchases in the Trading Account."
+    answer: "Return Outward reduce total Gross Purchases, thereby reducing Cost of Goods Sold",
+    explanation: "Return Outward (Debit Note entries) are deducted from Gross Purchases to yield Net Purchases in the Trading Account."
   },
   {
     id: 18,
-    question: "What is Sales Return (Return Inward)?",
+    question: "What is Return Inward (Return Inward)?",
     options: [
       "Goods returned by customers due to defect or wrong specification, deducted from Gross Sales to determine Net Sales",
       "Goods returned to vendors",
@@ -213,7 +213,7 @@ export default [
       "Sales commission paid"
     ],
     answer: "Goods returned by customers due to defect or wrong specification, deducted from Gross Sales to determine Net Sales",
-    explanation: "Sales Return (Return Inward) reduces gross billings to arrive at Net Sales turnover."
+    explanation: "Return Inward (Return Inward) reduces gross billings to arrive at Net Sales turnover."
   },
   {
     id: 19,

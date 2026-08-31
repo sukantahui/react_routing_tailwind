@@ -1,0 +1,57 @@
+================================================================================
+TALLYPRIME MASTER SERIES - MODULE 1.2 - TOPIC 14 STUDY NOTE
+TOPIC: Master Capstone Practice Set: Commercial Journal Entries & Voucher Audit Trail
+CENTER: CNAT ACADEMY (BARRACKPORE ACCOUNTING LAB)
+EDUCATOR: MR. CNAT
+================================================================================
+
+1. EXECUTIVE SUMMARY & OBJECTIVES
+--------------------------------------------------------------------------------
+This topic presents a real-world commercial accounting capstone simulation.
+Students practice analyzing 10+ standard business transactions, framing 
+5-column double-entry journal entries, and mapping them to TallyPrime 
+electronic voucher keys (F4, F5, F6, F7, F8, F9).
+
+2. KEY TRANSACTION WORKFLOW & VOUCHER MAPPINGS
+--------------------------------------------------------------------------------
+A. Capital Contribution (Compound Entry):
+   - Cash A/c Dr ₹6,00,000, Furniture A/c Dr ₹50,000 to Capital A/c ₹6,50,000.
+   - Tally Voucher: Receipt Voucher (F6).
+
+B. Credit Inventory Purchase:
+   - Purchases A/c Dr ₹1,20,000 to Apex Electronics A/c ₹1,20,000.
+   - Tally Voucher: Purchase Voucher (F9).
+
+C. Credit Goods Sales:
+   - Sharma Traders A/c Dr ₹95,000 to Sales Account ₹95,000.
+   - Tally Voucher: Sales Voucher (F8).
+
+D. Return Outward (Debit Note):
+   - Apex Electronics A/c Dr ₹15,000 to Return Outward A/c ₹15,000.
+   - Tally Voucher: Journal Voucher (F7) / Debit Note (Alt+F5).
+
+E. Return Inward (Credit Note):
+   - Return Inward A/c Dr ₹10,000 to Sharma Traders A/c ₹10,000.
+   - Tally Voucher: Journal Voucher (F7) / Credit Note (Alt+F6).
+
+F. Banking Contra Deposit:
+   - Bank Account Dr ₹3,00,000 to Cash Account ₹3,00,000.
+   - Tally Voucher: Contra Voucher (F4).
+
+G. Operating Expense Payment:
+   - Office Rent A/c Dr ₹25,000 to Bank Account ₹25,000.
+   - Tally Voucher: Payment Voucher (F5).
+
+3. TALLYPRIME SHORTCUT KEY SUMMARY
+--------------------------------------------------------------------------------
+- F4: Contra Voucher (Cash <-> Bank transfers)
+- F5: Payment Voucher (Expenses & Creditor payouts)
+- F6: Receipt Voucher (Capital inflows & Debtor collections)
+- F7: Journal Voucher (Non-cash adjustments, Debit/Credit Notes)
+- F8: Sales Voucher (Billing sales turnover)
+- F9: Purchase Voucher (Inventory purchases)
+- Ctrl + A: Save and Accept Voucher instantly
+
+================================================================================
+END OF STUDY NOTE - CNAT ACADEMY BARRACKPORE
+================================================================================

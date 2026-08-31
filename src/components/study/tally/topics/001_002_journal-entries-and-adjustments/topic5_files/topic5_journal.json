@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-02",
+    "description": "Purchased trading merchandise on credit from vendor Bengal Electricals ₹60,000 as per Invoice #BE-701",
+    "voucherType": "F9 Purchase Voucher",
+    "debitAccount": "Purchases Account",
+    "debitAmount": 60000,
+    "creditAccount": "Bengal Electricals (Sundry Creditor)",
+    "creditAmount": 60000,
+    "narration": "Being trading goods purchased on credit as per Invoice #BE-701",
+    "explanation": "Initial credit purchase debiting Purchases Expense A/c ₹60,000 and crediting Creditor Liability ₹60,000."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-05",
+    "description": "Returned defective trading goods worth ₹12,000 to vendor Bengal Electricals and issued Debit Note #DN-101",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Bengal Electricals (Sundry Creditor)",
+    "debitAmount": 12000,
+    "creditAccount": "Return Outward Account",
+    "creditAmount": 12000,
+    "narration": "Being defective goods returned to vendor against Debit Note #DN-101",
+    "explanation": "Return Outward reduces vendor trade liability: Debit Sundry Creditor ₹12,000, Credit Return Outward Account (Return Outward) ₹12,000."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-08",
+    "description": "Returned wrong specification goods purchased for cash ₹4,500 to vendor Apex Supplies and received instant cash refund ₹4,500",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 4500,
+    "creditAccount": "Return Outward Account",
+    "creditAmount": 4500,
+    "narration": "Being instant cash refund received against return of goods purchased for cash",
+    "explanation": "Cash Return Outward: Increases Cash Asset (Debit Cash A/c ₹4,500), Credit Return Outward Account ₹4,500."
+  },
+  {
+    "id": 4,
+    "date": "2026-04-12",
+    "description": "Sold trading merchandise on credit to customer Sharma Traders ₹80,000 as per Sales Bill #SB-302",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Sharma Traders (Sundry Debtor)",
+    "debitAmount": 80000,
+    "creditAccount": "Sales Account",
+    "creditAmount": 80000,
+    "narration": "Being goods sold on credit as per Sales Bill #SB-302",
+    "explanation": "Initial credit sale creating Sundry Debtor Asset (Debit Sharma Traders ₹80,000) and crediting Sales Revenue A/c ₹80,000."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-16",
+    "description": "Received customer Debit Note return for damaged goods worth ₹15,000 from Sharma Traders and issued Credit Note #CN-201",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Return Inward Account",
+    "debitAmount": 15000,
+    "creditAccount": "Sharma Traders (Sundry Debtor)",
+    "creditAmount": 15000,
+    "narration": "Being damaged goods returned by customer against Credit Note #CN-201",
+    "explanation": "Return Inward reduces customer asset: Debit Return Inward Account (Return Inward) ₹15,000, Credit Sundry Debtor ₹15,000."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-20",
+    "description": "Customer returned retail merchandise ₹2,800 purchased for cash due to minor defect, issued instant cash refund ₹2,800",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Return Inward Account",
+    "debitAmount": 2800,
+    "creditAccount": "Cash Account",
+    "creditAmount": 2800,
+    "narration": "Being cash refund paid to retail customer upon return of defective merchandise",
+    "explanation": "Cash Return Inward: Debit Return Inward Account ₹2,800 (reducing net sales), Credit Cash Asset A/c ₹2,800."
+  },
+  {
+    "id": 7,
+    "date": "2026-04-22",
+    "description": "Returned damaged electrical wire supplies worth ₹8,000 to vendor Metro Cables under Debit Note #DN-102",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Metro Cables (Sundry Creditor)",
+    "debitAmount": 8000,
+    "creditAccount": "Return Outward Account",
+    "creditAmount": 8000,
+    "narration": "Being damaged goods returned to vendor under Debit Note #DN-102",
+    "explanation": "Return Outward: Debit Creditor Liability A/c ₹8,000, Credit Return Outward A/c ₹8,000."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-25",
+    "description": "Received customer goods return for wrong item model worth ₹9,500 from Sen Bros and issued Credit Note #CN-202",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Return Inward Account",
+    "debitAmount": 9500,
+    "creditAccount": "Sen Bros (Sundry Debtor)",
+    "creditAmount": 9500,
+    "narration": "Being wrong item returned by customer against Credit Note #CN-202",
+    "explanation": "Return Inward: Debit Return Inward A/c ₹9,500, Credit Sundry Debtor A/c ₹9,500."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-27",
+    "description": "Returned sub-standard raw material stock worth ₹14,000 to vendor Alpha Trading Co under Debit Note #DN-103",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Alpha Trading Co (Sundry Creditor)",
+    "debitAmount": 14000,
+    "creditAccount": "Return Outward Account",
+    "creditAmount": 14000,
+    "narration": "Being raw material returned to vendor under Debit Note #DN-103",
+    "explanation": "Return Outward: Debit Vendor Creditor A/c ₹14,000, Credit Return Outward A/c ₹14,000."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-29",
+    "description": "Received customer rejected goods return worth ₹6,200 from Gupta Traders and issued Credit Note #CN-203",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Return Inward Account",
+    "debitAmount": 6200,
+    "creditAccount": "Gupta Traders (Sundry Debtor)",
+    "creditAmount": 6200,
+    "narration": "Being rejected goods returned by customer against Credit Note #CN-203",
+    "explanation": "Return Inward: Debit Return Inward A/c ₹6,200, Credit Sundry Debtor A/c ₹6,200."
+  }
+]

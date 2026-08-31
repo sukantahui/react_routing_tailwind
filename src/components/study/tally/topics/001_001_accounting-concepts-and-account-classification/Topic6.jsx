@@ -1,39 +1,63 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Teacher from "../../../common/TeacherCNAT";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
-import questions from "./topic0_files/topic0_questions";
-import noteText from "./topic0_files/topic0_note.txt?raw";
+import LanguageToggle, { useTopicLanguage } from "./LanguageToggle";
+import questionsEn from "./topic6_files/topic6_questions";
+import questionsBn from "./topic6_files/topic6_questions_bn";
+import noteTextEn from "./topic6_files/topic6_note.txt?raw";
+import noteTextBn from "./topic6_files/topic6_note_bn.txt?raw";
 
 export default function Topic6() {
+  const { language, setLanguage, isBengali } = useTopicLanguage();
   const sectionRefs = useRef([]);
+  const [selectedSubtype, setSelectedSubtype] = useState("natural");
+
+  const subtypes = {
+    natural: {
+      titleEn: "1. Natural Personal Accounts (স্বাভাবিক ব্যক্তিসত্তা)",
+      descEn: "Accounts representing human beings created by nature.",
+      descBn: "প্রকৃতিসৃষ্ট রক্তমাংসের মানুষের হিসাব। (যেমন: Ram's A/c, Priya's A/c, Capital A/c, Drawings A/c)",
+      examplesEn: "Ram, Rahim, Capital A/c (Proprietor), Drawings A/c",
+      tallyGroupsEn: "Capital Account, Sundry Debtors, Sundry Creditors"
+    },
+    artificial: {
+      titleEn: "2. Artificial / Legal Personal Accounts (কৃত্রিম বা আইনসৃষ্ট ব্যক্তি)",
+      descEn: "Accounts representing artificial entities, registered companies, banks, firms, or institutions recognized as legal persons by law.",
+      descBn: "আইন দ্বারা স্বীকৃত ব্যবসায় প্রতিষ্ঠান, নিবন্ধিত কোম্পানি, ব্যাংক বা শিক্ষা প্রতিষ্ঠান।",
+      examplesEn: "State Bank of India, TCS Ltd, CNAT Academy, Barrackpore Club",
+      tallyGroupsEn: "Bank Accounts, Sundry Debtors, Sundry Creditors"
+    },
+    representative: {
+      titleEn: "3. Representative Personal Accounts (প্রতিনিধিত্বমূলক ব্যক্তিবাচক হিসাব)",
+      descEn: "Accounts representing a group of persons to whom money is payable or receivable (e.g. Outstanding Expenses, Prepaid Expenses).",
+      descBn: "কোনো ব্যক্তি বা ব্যক্তিবর্গের প্রতিনিধি হিসেবে ব্যবহৃত হিসাব (যেমন বকেয়া বেতন, অগ্রিম ভাড়া)।",
+      examplesEn: "Outstanding Salary A/c, Prepaid Rent A/c, Accrued Interest A/c",
+      tallyGroupsEn: "Current Liabilities, Current Assets, Provisions"
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
         });
       },
       { threshold: 0.08 }
     );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
+    sectionRefs.current.forEach((el) => { if (el) observer.observe(el); });
     return () => observer.disconnect();
   }, []);
 
   const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
-    }
+    if (el && !sectionRefs.current.includes(el)) sectionRefs.current.push(el);
   };
+
+  const questions = isBengali && questionsBn ? questionsBn : questionsEn;
+  const noteText = isBengali && noteTextBn ? noteTextBn : noteTextEn;
 
   return (
     <>
@@ -51,6 +75,11 @@ export default function Topic6() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
         
+        {/* BILINGUAL LANGUAGE TOGGLE CONTROL */}
+        <div ref={addRef} className="reveal-section">
+          <LanguageToggle language={language} onLanguageChange={setLanguage} />
+        </div>
+
         {/* HERO HEADER */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
@@ -59,11 +88,15 @@ export default function Topic6() {
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 tracking-tight leading-tight">
-            Traditional Classification of Accounts: Personal Accounts, Real Accounts, and Nominal Accounts
+            {isBengali
+              ? "ব্যক্তিবাচক হিসাবের ৩টি উপশ্রেণী: Natural, Artificial এবং Representative Personal Accounts"
+              : "Personal Accounts Classification: Natural, Artificial & Representative Personal Accounts"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            The 3 classical pillars of double-entry ledger categorization.
+            {isBengali
+              ? "মানুষ, রেজিস্টার্ড কোম্পানি এবং বকেয়া/অগ্রিম প্রতিনিধিমূলক হিসাবের গভীর বিশ্লেষণ।"
+              : "In-depth breakdown of human individuals, registered corporate entities, and representative accrual ledgers."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-slate-400 pt-2">
@@ -73,121 +106,76 @@ export default function Topic6() {
           </div>
         </header>
 
-        {/* TEACHER'S DESK */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-900/90 to-emerald-950/30 border border-emerald-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-2xl">
-                👨‍🏫
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-emerald-300">
-                  Teacher's Desk: Commercial Intuition &amp; Lab Discussion
-                </h2>
-                <p className="text-xs text-slate-400 font-mono">
-                  Mr. CNAT &amp; Barrackpore Accounting Lab Discussion
-                </p>
-              </div>
+        {/* ─── 1. INTERACTIVE PERSONAL SUBTYPES EXPLORER ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                {isBengali ? "Personal Account সাবটাইপ এক্সপ্লোরার" : "Personal Account Subtype Explorer"}
+              </h2>
+              <p className="text-xs text-slate-400">
+                {isBengali ? "টাইপ নির্বাচন করে টিপিক্যাল উদাহরণ ও Tally Groupিং দেখুন" : "Select personal account subtype to inspect real-world examples and parent Tally groups"}
+              </p>
             </div>
 
-            <div className="space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base">
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-emerald-400 font-bold flex items-center gap-2 text-base">
-                  <span>💡</span> Practical Metaphor
-                </h3>
-                <p>Traditional accounting categorizes all ledger accounts into Real Accounts (Properties), Personal Accounts (Entities/Persons), and Nominal Accounts (Incomes/Expenses).</p>
-              </div>
-
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-sky-400 font-bold flex items-center gap-2 text-base">
-                  <span>💬</span> Classroom Dialogue
-                </h3>
-                <div className="space-y-3 text-xs sm:text-sm font-sans border-l-2 border-emerald-500/40 pl-4 py-1">
-                  <div>
-                    <p><strong className="text-emerald-400">Ayan (Lab Student):</strong> <em>"Sir, what is the difference between an Artificial Personal Account and a Representative Personal Account?"</em></p>
-                  </div>
-                  <div>
-                    <p><strong className="text-sky-300">CNAT Sir:</strong> <em>"An Artificial Personal Account is a legal corporate body (e.g. SBI Bank, Tata Motors). A Representative Personal Account represents unpaid/prepaid person groups (e.g. Outstanding Salary, Accrued Rent)!"</em></p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+              {["natural", "artificial", "representative"].map(st => (
+                <button
+                  key={st}
+                  onClick={() => setSelectedSubtype(st)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold capitalize transition ${
+                    selectedSubtype === st ? "bg-emerald-950 text-emerald-300 border border-emerald-500" : "text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  {st}
+                </button>
+              ))}
             </div>
           </div>
-        </section>
 
-        {/* CORE CONCEPTUAL BREAKDOWN TABLE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span>📌</span> The Classical Three-Tier Account Taxonomy
-            </h2>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs sm:text-sm text-left border-collapse border border-slate-800">
-                <thead>
-                  <tr className="bg-slate-800/90 text-slate-200">
-                    <th className="p-3 border border-slate-700">Category / Concept</th>
-                    <th className="p-3 border border-slate-700 text-emerald-400">Technical Breakdown &amp; Description</th>
-                    <th className="p-3 border border-slate-700 text-sky-400">TallyPrime Software Mapping</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-300">
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">1. Real Accounts (Assets)</td>
-                      <td className="p-3 border border-slate-800">Tangible (Cash, Building, Stock) & Intangible (Goodwill, Patents, Trademarks).</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Rule: Debit what comes in &rarr; Credit what goes out</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">2. Personal Accounts (Entities)</td>
-                      <td className="p-3 border border-slate-800">Natural Persons (Rohit), Artificial Persons (ABC Ltd), Representative (Outstanding Salary).</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Rule: Debit the receiver &rarr; Credit the giver</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">3. Nominal Accounts (P&L)</td>
-                      <td className="p-3 border border-slate-800">Expenses (Rent, Wages), Losses (Bad Debts), Incomes (Sales, Interest), Gains (Profit on Sale).</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Rule: Debit expenses & losses &rarr; Credit incomes & gains</td>
-                    </tr>
-                  
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        {/* TALLYPRIME OPERATIONAL EXECUTION GUIDE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-4">
-            <h2 className="text-xl font-bold text-teal-400 flex items-center gap-2">
-              <span>⚙️</span> TallyPrime Software Integration Guide
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              Understanding traditional classification helps you determine the correct voucher type in Tally (Contra for Cash/Bank Real accounts, Payment/Receipt for Personal/Nominal).
+          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+            <h3 className="text-lg font-bold text-emerald-300">
+              {subtypes[selectedSubtype].titleEn}
+            </h3>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              {isBengali ? subtypes[selectedSubtype].descBn : subtypes[selectedSubtype].descEn}
             </p>
-            <ol className="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-300 pt-2">
-              <li>Open <strong>Gateway of Tally</strong> using <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Alt+G</kbd> (Go To) or main dashboard.</li>
-              <li>Select <strong>Masters &gt; Create &gt; Ledger</strong> to set up classified account ledgers under appropriate parent groups.</li>
-              <li>Select <strong>Vouchers</strong> (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F5 Payment</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F6 Receipt</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F7 Journal</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F8 Sales</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F9 Purchase</kbd>).</li>
-              <li>Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Ctrl+A</kbd> to accept and save voucher entry.</li>
-            </ol>
+            <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400">
+              Typical Examples: <span className="text-white font-bold">{subtypes[selectedSubtype].examplesEn}</span>
+            </div>
+            <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono text-sky-400">
+              Tally Primary Groups: <span className="text-white font-bold">{subtypes[selectedSubtype].tallyGroupsEn}</span>
+            </div>
           </div>
         </section>
 
-        {/* PRINTABLE STUDY NOTE */}
+        {/* ─── 2. PRINTABLE STUDY NOTE (DOWNLOAD & PRINT ONLY) ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <PlainTextPrint content={noteText} filename="topic6_study_note.txt" />
+          <PlainTextPrint
+            content={noteText}
+            filename={isBengali ? "topic6_study_note_bn.txt" : "topic6_study_note.txt"}
+            hidePreview={true}
+            showDownload={true}
+          />
         </section>
 
-        {/* DIAGNOSTIC PRACTICE ASSESSMENT */}
+        {/* ─── 3. DIAGNOSTIC PRACTICE ASSESSMENT ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <FAQTemplate title="Topic Assessment & Diagnostic Practice" questions={questions} />
+          <FAQTemplate
+            title={isBengali ? "Topic ৬ মূল্যায়ন ও অনুশীলন প্রশ্নাবলী" : "Topic 6 Assessment & Diagnostic Practice"}
+            questions={questions}
+          />
         </section>
 
-        {/* TEACHER PROFILE CARD */}
+        {/* ─── 4. TEACHER PROFILE CARD ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto">
-          <Teacher note="Mastering double-entry account classification with Mr. CNAT is the secret to error-free bookkeeping in TallyPrime. Every ledger created under the right group ensures flawless Balance Sheet and P&L generation!" />
+          <Teacher
+            note={
+              isBengali
+                ? "Representative Personal Account (যেমন Outstanding Salary) আসলে কর্মচারীদের দলগত দেনাকে নির্দেশ করে। TallyPrime-এ এগুলোকে Current Liabilities গ্রুপের অধীনে রাখা হয়।"
+                : "Representative Personal Accounts (like Outstanding Rent/Salary) represent real people to whom money is owed. In TallyPrime, they are grouped under Current Liabilities!"
+            }
+          />
         </section>
 
       </div>

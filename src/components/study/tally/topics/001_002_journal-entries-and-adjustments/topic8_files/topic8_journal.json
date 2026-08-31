@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-10",
+    "description": "Received commission income ₹12,000 by SBI Bank cheque for agency services rendered",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "SBI Bank Account",
+    "debitAmount": 12000,
+    "creditAccount": "Commission Income Account",
+    "creditAmount": 12000,
+    "narration": "Being commission income received via bank cheque",
+    "explanation": "Standard revenue receipt: Debit SBI Bank Asset A/c Dr ₹12,000, Credit Commission Income A/c Cr ₹12,000."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-30",
+    "description": "Bank Fixed Deposit interest ₹8,500 earned for April 2026 but unreceived/uncredited at month end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Accrued Interest (Current Asset)",
+    "debitAmount": 8500,
+    "creditAccount": "Interest Income Account",
+    "creditAmount": 8500,
+    "narration": "Being accrued interest income earned on bank fixed deposit recorded as current asset",
+    "explanation": "Accrued Revenue: Debit Accrued Interest Asset A/c Dr ₹8,500 (Current Asset), Credit Interest Income A/c Cr ₹8,500 (matching period revenue)."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-30",
+    "description": "Consultancy services worth ₹25,000 completed for client TechCorp in April, but bill unpaid at month end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Accrued Service Fee (Current Asset)",
+    "debitAmount": 25000,
+    "creditAccount": "Consultancy Fee Revenue Account",
+    "creditAmount": 25000,
+    "narration": "Being accrued consultancy service revenue earned recorded as current asset",
+    "explanation": "Accrued Service Income: Debit Accrued Service Fee Asset A/c Dr ₹25,000, Credit Consultancy Fee Revenue A/c Cr ₹25,000."
+  },
+  {
+    "id": 4,
+    "date": "2026-05-10",
+    "description": "Received SBI Bank cheque ₹8,500 from bank against previously accrued fixed deposit interest",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "SBI Bank Account",
+    "debitAmount": 8500,
+    "creditAccount": "Accrued Interest (Current Asset)",
+    "creditAmount": 8500,
+    "narration": "Being payment received against previously accrued bank fixed deposit interest",
+    "explanation": "Realizing Asset Receivable: Debit SBI Bank Asset A/c Dr ₹8,500, Credit Accrued Interest Asset A/c Cr ₹8,500 (clearing asset)."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-28",
+    "description": "Received 6 months advance shop rent ₹36,000 in cash from sub-tenant Mr. Roy for May to October 2026",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 36000,
+    "creditAccount": "Unearned Rent / Rent Received in Advance (Current Liability)",
+    "creditAmount": 36000,
+    "narration": "Being 6 months advance sub-let shop rent received in cash recorded as unearned liability",
+    "explanation": "Unearned Revenue Liability: Debit Cash Asset A/c Dr ₹36,000, Credit Rent Received in Advance Liability A/c Cr ₹36,000."
+  },
+  {
+    "id": 6,
+    "date": "2026-05-31",
+    "description": "Recognized 1 month's earned rent (₹6,000) out of advance rent liability at month end 31-May-2026",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Unearned Rent / Rent Received in Advance (Current Liability)",
+    "debitAmount": 6000,
+    "creditAccount": "Rent Income Account",
+    "creditAmount": 6000,
+    "narration": "Being earned portion of advance rent transferred from liability to Rent Income Account",
+    "explanation": "Adjusting Unearned Revenue: Debit Rent Received in Advance Liability A/c Dr ₹6,000 (reducing liability), Credit Rent Income A/c Cr ₹6,000 (recognizing earned revenue)."
+  },
+  {
+    "id": 7,
+    "date": "2026-04-30",
+    "description": "Dividend income ₹14,000 declared on corporate shares investment earned but unreceived at month end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Accrued Dividend (Current Asset)",
+    "debitAmount": 14000,
+    "creditAccount": "Dividend Income Account",
+    "creditAmount": 14000,
+    "narration": "Being accrued dividend income earned on investment shares recorded",
+    "explanation": "Accrued Income: Debit Accrued Dividend Asset A/c ₹14,000, Credit Dividend Income A/c ₹14,000."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-05",
+    "description": "Received 3 months advance client retainer fee ₹45,000 by SBI Bank cheque for advisory project",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "SBI Bank Account",
+    "debitAmount": 45000,
+    "creditAccount": "Unearned Retainer Fee (Current Liability)",
+    "creditAmount": 45000,
+    "narration": "Being 3 months advance client retainer fee received recorded as liability",
+    "explanation": "Unearned Income: Debit SBI Bank Asset A/c ₹45,000, Credit Unearned Retainer Fee Liability A/c ₹45,000."
+  },
+  {
+    "id": 9,
+    "date": "2026-05-20",
+    "description": "Received cash ₹25,000 from client TechCorp against previously accrued consultancy service bill",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 25000,
+    "creditAccount": "Accrued Service Fee (Current Asset)",
+    "creditAmount": 25000,
+    "narration": "Being cash received against previously accrued consultancy fee receivable",
+    "explanation": "Realizing Asset: Debit Cash Asset A/c ₹25,000, Credit Accrued Service Fee Asset A/c ₹25,000."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-30",
+    "description": "Recognized 1 month's earned retainer fee (₹15,000 out of ₹45,000 advance) at month end 30-Apr-2026",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Unearned Retainer Fee (Current Liability)",
+    "debitAmount": 15000,
+    "creditAccount": "Advisory Fee Revenue Account",
+    "creditAmount": 15000,
+    "narration": "Being earned portion of advance retainer fee transferred to revenue",
+    "explanation": "Adjusting Unearned Revenue: Debit Unearned Retainer Fee Liability A/c ₹15,000, Credit Advisory Fee Revenue A/c ₹15,000."
+  }
+]

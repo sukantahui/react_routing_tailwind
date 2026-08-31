@@ -1936,6 +1936,9 @@
   .min-w-\[750px\] {
     min-width: 750px;
   }
+  .min-w-\[760px\] {
+    min-width: 760px;
+  }
   .min-w-\[800px\] {
     min-width: 800px;
   }
@@ -20227,6 +20230,13 @@
       }
     }
   }
+  .hover\:bg-emerald-400 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-emerald-400);
+      }
+    }
+  }
   .hover\:bg-emerald-500 {
     &:hover {
       @media (hover: hover) {
@@ -26701,6 +26711,11 @@
   .sm\:py-16 {
     @media (width >= 40rem) {
       padding-block: calc(var(--spacing) * 16);
+    }
+  }
+  .sm\:pb-0 {
+    @media (width >= 40rem) {
+      padding-bottom: 0;
     }
   }
   .sm\:pl-7 {

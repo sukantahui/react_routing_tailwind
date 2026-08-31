@@ -1,0 +1,40 @@
+
+================================================================================
+CODER & ACCOTAX - প্রিণ্টযোগ্য স্টাডি নোট: টপিক 7
+বিষয়: TRADE DISCOUNT (NOT RECORDED IN BOOKS) VERSUS CASH DISCOUNT (RECORDED AS DISCOUNT ALLOWED/RECEIVED) (BILINGUAL BENGALI EDITION)
+কোর্স: TALLYPRIME & COMMERCIAL ACCOUNTING (MODULE 1.2)
+ব্যারাকপুর অ্যাকাউন্টিং ল্যাব · শিক্ষক: MR. CNAT
+================================================================================
+
+১. সারসংক্ষেপ ও মৌলিক ACCOUNTING INVARIANTS
+--------------------------------------------------------------------------------
+এই টপিকটি Trade Discount (not recorded in books) versus Cash Discount (recorded as Discount Allowed/Received) নির্দেশ করে।
+বাণিজ্যিক Bookkeeping-এ পাস করা প্রতিটি Journal Entry-কে অবশ্যই Unbreakable
+Double-Entry Invariant মেনে চলতে হবে:
+              TOTAL DEBIT AMOUNT (₹) = TOTAL CREDIT AMOUNT (₹)
+
+২. DOUBLE-ENTRY DEBIT / CREDIT LEDGER FLOW DIAGRAM
+--------------------------------------------------------------------------------
+   [ Source Document ] ----> [ Identify Accounts ] ----> [ Apply Rules ]
+   (Invoice/Receipt)         (Dr A/c & Cr A/c)           (Golden / Modern)
+                                                                 |
+                                                                 v
+   [ Balance Sheet ] <---- [ Trial Balance ] <---- [ Journal Entry ]
+   (P&L & BS Total)        (Total Dr = Cr)         (Particulars & Narration)
+
+৩. ধাপে ধাপে TALLYPRIME SOFTWARE NAVIGATION
+--------------------------------------------------------------------------------
+  * Gateway of Tally -> Vouchers -> Select Voucher Type (F4-F9)
+  * Double Entry Mode (Ctrl+H) -> Enter Dr/Cr Ledgers and Amounts
+  * Narration Field -> Type 'Being...' narration text
+  * Save Entry -> Ctrl+A to accept voucher
+
+৪. অডিট স্ক্রুটিনি ও বাণিজ্যিক ভুল এড়ানোর নির্দেশিকা
+--------------------------------------------------------------------------------
+  [!] সমান Debit এবং Credit ছাড়া কখনই অসম্পূর্ণ এন্ট্রি সেভ করবেন না।
+  [!] Audit Verification-এর সুবিধার্থে সর্বদা 'Being...' দিয়ে স্পষ্ট Narration লিখুন।
+  [!] Chart of Accounts-এ সঠিকভাবে Ledger Parent Group যাচাই করে Voucher Entry দিন।
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX BARRACKPORE
+================================================================================

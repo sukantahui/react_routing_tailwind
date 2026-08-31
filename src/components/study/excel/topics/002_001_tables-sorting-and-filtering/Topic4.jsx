@@ -103,7 +103,7 @@ export default function Topic4() {
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            Advanced Filter Criteria: (Region = 'Kolkata') AND (Amount >= 50000)  |  Array: =FILTER(tbl, (tbl[Col1]=V1)*(tbl[Col2]>=V2))
+            Advanced Filter Criteria: (Region = 'Kolkata') AND (Amount &gt;= 50000)  |  Array: =FILTER(tbl, (tbl[Col1]=V1)*(tbl[Col2]&gt;=V2))
           </div>
 
           <div className="overflow-x-auto">

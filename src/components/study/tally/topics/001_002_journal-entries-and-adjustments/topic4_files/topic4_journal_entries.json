@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-02",
+    "description": "Purchased trading merchandise goods (electronic items) on credit from vendor Bengal Electricals ₹1,20,000",
+    "voucherType": "F9 Purchase Voucher",
+    "debitAccount": "Purchases Account",
+    "debitAmount": 120000,
+    "creditAccount": "Bengal Electricals (Sundry Creditor)",
+    "creditAmount": 120000,
+    "narration": "Being trading goods purchased for resale on credit as per Tax Invoice #BE-801",
+    "explanation": "Goods bought for RESALE are debited to Purchases Account (Nominal Expense A/c Dr ₹1,20,000), not an asset account."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-05",
+    "description": "Purchased office wooden desks, executive chairs, and display racks for shop setup on credit from Godrej Furniture Ltd ₹85,000",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Furniture & Fixtures (Fixed Asset) Account",
+    "debitAmount": 85000,
+    "creditAccount": "Godrej Furniture Ltd (Sundry Creditor)",
+    "creditAmount": 85000,
+    "narration": "Being office furniture purchased for shop setup on credit as per Tax Invoice #GF-104",
+    "explanation": "Capital asset purchased for LONG-TERM USE (not resale) MUST be debited directly to Furniture & Fixtures Asset A/c (NOT Purchases A/c)."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-08",
+    "description": "Purchased HP Desktop Computer & LaserJet printer for billing counter paid by SBI Bank cheque ₹48,000",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Computer Equipment (Fixed Asset) Account",
+    "debitAmount": 48000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 48000,
+    "narration": "Being billing computer and printer purchased for office use via bank cheque",
+    "explanation": "Office equipment acquired for business operations is debited to Computer Equipment Asset A/c ₹48,000, crediting Bank Asset A/c."
+  },
+  {
+    "id": 4,
+    "date": "2026-04-12",
+    "description": "Sold trading merchandise goods for cash to retail customers ₹65,000",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 65000,
+    "creditAccount": "Sales Account",
+    "creditAmount": 65000,
+    "narration": "Being cash sales executed as per Cash Memo #105",
+    "explanation": "Sale of routine trading inventory is credited to Sales Revenue Account (Nominal Revenue A/c Cr ₹65,000)."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-15",
+    "description": "Sold trading merchandise goods on credit to customer Sharma Traders ₹90,000",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Sharma Traders (Sundry Debtor)",
+    "debitAmount": 90000,
+    "creditAccount": "Sales Account",
+    "creditAmount": 90000,
+    "narration": "Being trading goods sold on credit as per Sales Invoice #SI-201",
+    "explanation": "Credit sale of inventory creates Sundry Debtor Asset (Debit Sharma Traders ₹90,000) and increases Sales Revenue (Credit Sales A/c ₹90,000)."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-18",
+    "description": "Sold old surplus office wooden table (book value ₹12,000) for cash ₹12,000",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 12000,
+    "creditAccount": "Furniture & Fixtures (Fixed Asset) Account",
+    "creditAmount": 12000,
+    "narration": "Being old office furniture sold at book value for cash",
+    "explanation": "Sale of a fixed asset is credited directly to the Asset Account (Furniture A/c Cr ₹12,000), NEVER credited to Sales A/c!"
+  },
+  {
+    "id": 7,
+    "date": "2026-04-22",
+    "description": "Sold old motor delivery van (book value ₹1,20,000) for cash ₹1,40,000, making a profit of ₹20,000",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      {
+        "account": "Cash Account",
+        "amount": 140000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Motor Vehicle (Fixed Asset) Account",
+        "amount": 120000
+      },
+      {
+        "account": "Profit on Sale of Fixed Asset Account",
+        "amount": 20000
+      }
+    ],
+    "narration": "Being old delivery van sold for cash at a profit of ₹20,000",
+    "explanation": "Compound Asset Sale: Asset Account is credited with book value (₹1,20,000), cash debited (₹1,40,000), and capital gain credited to Profit on Sale of Asset A/c (₹20,000)."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-26",
+    "description": "Sold damaged office desktop computer (book value ₹25,000) for scrap cash ₹18,000, incurring a loss of ₹7,000",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      {
+        "account": "Cash Account",
+        "amount": 18000
+      },
+      {
+        "account": "Loss on Sale of Fixed Asset Account",
+        "amount": 7000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Computer Equipment (Fixed Asset) Account",
+        "amount": 25000
+      }
+    ],
+    "narration": "Being damaged computer sold for cash at a loss of ₹7,000",
+    "explanation": "Compound Asset Sale at Loss: Asset Account is credited with full book value (₹25,000), Cash debited (₹18,000), and loss debited to Loss on Sale of Asset A/c (₹7,000)."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-28",
+    "description": "Purchased commercial delivery motor van on credit from Auto Motors Ltd ₹3,50,000",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Motor Vehicle (Fixed Asset) Account",
+    "debitAmount": 350000,
+    "creditAccount": "Auto Motors Ltd (Sundry Creditor)",
+    "creditAmount": 350000,
+    "narration": "Being delivery van purchased for business operations on credit",
+    "explanation": "Fixed asset purchase must be debited to Motor Vehicle Asset A/c (NOT Purchases A/c) as it is not intended for resale."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-30",
+    "description": "Sold old surplus lathe machine (book value ₹80,000) for cash ₹80,000 at book value",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 80000,
+    "creditAccount": "Plant & Machinery (Fixed Asset) Account",
+    "creditAmount": 80000,
+    "narration": "Being old machinery sold for cash at book value",
+    "explanation": "Sale of plant machinery credits Plant & Machinery Asset A/c ₹80,000, crediting Cash Asset A/c."
+  }
+]

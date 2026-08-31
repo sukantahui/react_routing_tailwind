@@ -102,7 +102,7 @@
     "voucherType": "Debit Note Voucher",
     "debitAccount": "M/s Kolkata Electricals A/c",
     "debitAmount": 15000,
-    "creditAccount": "Purchase Return A/c",
+    "creditAccount": "Return Outward A/c",
     "creditAmount": 15000,
     "narration": "Being damaged goods returned to supplier Kolkata Electricals vide Debit Note DN-01.",
     "explanation": "Creditor vendor liability decreases (Debit Kolkata Electricals). Purchase return reduces cost (Credit Purchase Return)."
@@ -112,7 +112,7 @@
     "date": "2026-04-20",
     "description": "M/s Suburban Retailers returned goods worth ₹10,000.",
     "voucherType": "Credit Note Voucher",
-    "debitAccount": "Sales Return A/c",
+    "debitAccount": "Return Inward A/c",
     "debitAmount": 10000,
     "creditAccount": "M/s Suburban Retailers A/c",
     "creditAmount": 10000,

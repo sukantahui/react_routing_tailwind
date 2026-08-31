@@ -1,0 +1,40 @@
+
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE: TOPIC 5
+SUBJECT: PURCHASES ACCOUNT VS ASSET PURCHASES, SALES ACCOUNT VS FIXED ASSET SALES
+COURSE: TALLYPRIME & COMMERCIAL ACCOUNTING (MODULE 1.2)
+BARRACKPORE ACCOUNTING LAB · EDUCATOR: MR. CNAT
+================================================================================
+
+1. EXECUTIVE SUMMARY & CORE ACCOUNTING INVARIANTS
+--------------------------------------------------------------------------------
+This topic covers Purchases account vs Asset purchases, Sales account vs Fixed Asset sales.
+Every journal entry passed in commercial bookkeeping must strictly satisfy the
+fundamental double-entry invariant:
+              TOTAL DEBIT AMOUNT (₹) = TOTAL CREDIT AMOUNT (₹)
+
+2. DOUBLE-ENTRY DEBIT / CREDIT LEDGER FLOW DIAGRAM
+--------------------------------------------------------------------------------
+   [ Source Document ] ----> [ Identify Accounts ] ----> [ Apply Rules ]
+   (Invoice/Receipt)         (Dr A/c & Cr A/c)           (Golden / Modern)
+                                                                 |
+                                                                 v
+   [ Balance Sheet ] <---- [ Trial Balance ] <---- [ Journal Entry ]
+   (P&L & BS Total)        (Total Dr = Cr)         (Particulars & Narration)
+
+3. STEP-BY-STEP TALLYPRIME SOFTWARE NAVIGATION
+--------------------------------------------------------------------------------
+  * Gateway of Tally -> Vouchers -> Select Voucher Type (F4-F9)
+  * Double Entry Mode (Ctrl+H) -> Enter Dr/Cr Ledgers and Amounts
+  * Narration Field -> Type 'Being...' narration text
+  * Save Entry -> Ctrl+A to accept voucher
+
+4. AUDIT SCRUTINY & COMMERCIAL PITFALL AVOIDANCE
+--------------------------------------------------------------------------------
+  [!] Never pass unbalanced journal entries without equal debit and credit.
+  [!] Always write detailed narrations starting with 'Being...' for audit verification.
+  [!] Verify ledger parent groups in Chart of Accounts before voucher posting.
+
+================================================================================
+END OF STUDY NOTE · CODER & ACCOTAX BARRACKPORE
+================================================================================

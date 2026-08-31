@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "date": "2027-03-31",
+    "description": "Charged annual 10% Straight-Line Method (SLM) depreciation on shop plant & machinery valued at book cost ₹4,00,000",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 40000,
+    "creditAccount": "Plant & Machinery Asset Account",
+    "creditAmount": 40000,
+    "narration": "Being annual 10% SLM depreciation charged on plant & machinery asset",
+    "explanation": "Non-cash operating expense reducing asset carrying value: Debit Depreciation Expense A/c Dr ₹40,000, Credit Plant & Machinery A/c Cr ₹40,000."
+  },
+  {
+    "id": 2,
+    "date": "2027-03-31",
+    "description": "Charged 10% annual depreciation on office wooden furniture and showroom fixtures valued at ₹90,000 at year end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 9000,
+    "creditAccount": "Furniture & Fixtures Asset Account",
+    "creditAmount": 9000,
+    "narration": "Being 10% annual depreciation charged on office furniture asset",
+    "explanation": "Debit Depreciation Expense A/c Dr ₹9,000 (charging expense to current year), Credit Furniture & Fixtures Asset A/c Cr ₹9,000."
+  },
+  {
+    "id": 3,
+    "date": "2027-03-31",
+    "description": "Charged annual 40% IT Act rate depreciation on billing computers and server equipment (cost ₹1,50,000)",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 60000,
+    "creditAccount": "Computer Equipment Asset Account",
+    "creditAmount": 60000,
+    "narration": "Being 40% annual depreciation charged on office computers & IT equipment",
+    "explanation": "Computers depreciate at higher rate (40%): Debit Depreciation Expense A/c Dr ₹60,000, Credit Computer Equipment A/c Cr ₹60,000."
+  },
+  {
+    "id": 4,
+    "date": "2027-03-31",
+    "description": "Charged 15% annual depreciation on motor delivery van valued at ₹3,20,000 at year end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 48000,
+    "creditAccount": "Motor Vehicle Asset Account",
+    "creditAmount": 48000,
+    "narration": "Being 15% annual depreciation charged on commercial motor delivery van",
+    "explanation": "Vehicle wear and tear: Debit Depreciation Expense A/c Dr ₹48,000, Credit Motor Vehicle Asset A/c Cr ₹48,000."
+  },
+  {
+    "id": 5,
+    "date": "2027-03-31",
+    "description": "Charged 6 months proportionate 10% annual depreciation on new factory equipment ₹2,00,000 purchased on 01-Oct-2026 (6/12 months = ₹10,000)",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 10000,
+    "creditAccount": "Factory Equipment Asset Account",
+    "creditAmount": 10000,
+    "narration": "Being 6 months proportionate 10% annual depreciation charged on equipment acquired mid-year",
+    "explanation": "Pro-rata Rule: Assets purchased mid-year are depreciated only for period used (₹2,00,000 * 10% * 6/12 = ₹10,000)."
+  },
+  {
+    "id": 6,
+    "date": "2027-03-31",
+    "description": "Transferred total year-end depreciation expense (₹40k + ₹9k + ₹60k + ₹48k + ₹10k = ₹1,67,000) to Profit & Loss Account",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Profit & Loss Account",
+    "debitAmount": 167000,
+    "creditAccount": "Depreciation Expense Account",
+    "creditAmount": 167000,
+    "narration": "Being total annual depreciation expense transferred to Profit & Loss Account to close nominal account",
+    "explanation": "Closing Entry: Debit Profit & Loss A/c Dr ₹1,67,000 (reducing net profit), Credit Depreciation Expense A/c Cr ₹1,67,000 (closing expense account)."
+  },
+  {
+    "id": 7,
+    "date": "2027-03-31",
+    "description": "Charged 5% annual depreciation on factory building valued at book cost ₹10,00,000",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 50000,
+    "creditAccount": "Factory Building Asset Account",
+    "creditAmount": 50000,
+    "narration": "Being 5% annual depreciation charged on factory building asset",
+    "explanation": "Building Depreciation: Debit Depreciation Expense A/c ₹50,000, Credit Factory Building Asset A/c ₹50,000."
+  },
+  {
+    "id": 8,
+    "date": "2027-03-31",
+    "description": "Charged 15% annual depreciation on shop display racks and showroom counters cost ₹60,000",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 9000,
+    "creditAccount": "Showroom Fixtures Asset Account",
+    "creditAmount": 9000,
+    "narration": "Being 15% annual depreciation charged on showroom fixtures",
+    "explanation": "Showroom Fixtures Depreciation: Debit Depreciation Expense A/c ₹9,000, Credit Showroom Fixtures A/c ₹9,000."
+  },
+  {
+    "id": 9,
+    "date": "2027-03-31",
+    "description": "Charged 3 months proportionate 15% annual depreciation on office air conditioner ₹40,000 purchased on 01-Jan-2027 (3/12 months = ₹1,500)",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 1500,
+    "creditAccount": "Office AC Asset Account",
+    "creditAmount": 1500,
+    "narration": "Being 3 months proportionate 15% depreciation charged on AC acquired in 4th quarter",
+    "explanation": "Pro-rata 3 Months: Debit Depreciation Expense A/c ₹1,500, Credit Office AC Asset A/c ₹1,500."
+  },
+  {
+    "id": 10,
+    "date": "2027-03-31",
+    "description": "Charged annual amortization of 20% on accounting ERP software license cost ₹50,000",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Amortization Expense Account",
+    "debitAmount": 10000,
+    "creditAccount": "Software License Asset Account",
+    "creditAmount": 10000,
+    "narration": "Being 20% annual amortization charged on software intangible asset",
+    "explanation": "Intangible Amortization: Debit Amortization Expense A/c ₹10,000, Credit Software License Asset A/c ₹10,000."
+  }
+]

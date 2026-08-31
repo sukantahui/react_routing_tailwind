@@ -1,0 +1,3902 @@
+[
+  {
+    "id": 1,
+    "topic": "journal_format",
+    "question": "What is the primary book of original entry in commercial accounting?",
+    "options": [
+      "Journal Book",
+      "Ledger Book",
+      "Trial Balance",
+      "Balance Sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "Journal is the book of prime entry where transactions are first recorded chronologically."
+  },
+  {
+    "id": 2,
+    "topic": "journal_format",
+    "question": "How many standard columns are present in a formal Journal Book?",
+    "options": [
+      "5 columns",
+      "3 columns",
+      "4 columns",
+      "6 columns"
+    ],
+    "answerIndex": 0,
+    "explanation": "A standard Journal Book has 5 columns: Date, Particulars, L.F., Debit Amount (₹), and Credit Amount (₹)."
+  },
+  {
+    "id": 3,
+    "topic": "journal_format",
+    "question": "What does the abbreviation 'L.F.' stand for in a Journal Book?",
+    "options": [
+      "Ledger Folio",
+      "Legal File",
+      "Local Format",
+      "Ledger Financial"
+    ],
+    "answerIndex": 0,
+    "explanation": "L.F. stands for Ledger Folio, which refers to the page number of the Ledger where the entry is posted."
+  },
+  {
+    "id": 4,
+    "topic": "journal_format",
+    "question": "Which word traditionally begins the Narration writing below a journal entry?",
+    "options": [
+      "Being",
+      "For",
+      "To",
+      "As"
+    ],
+    "answerIndex": 0,
+    "explanation": "Narrations legally and traditionally start with the word 'Being' describing the transaction context."
+  },
+  {
+    "id": 5,
+    "topic": "journal_format",
+    "question": "Where is the Narration placed in a standard Journal Entry?",
+    "options": [
+      "In the Particulars column directly below the Credit entry line",
+      "In the L.F. column",
+      "In the Date column",
+      "In a separate notebook"
+    ],
+    "answerIndex": 0,
+    "explanation": "Narration is written within parentheses directly below the Credit account line in the Particulars column."
+  },
+  {
+    "id": 6,
+    "topic": "journal_format",
+    "question": "What is the fundamental Golden Rule for Debit and Credit balances in every Journal Entry?",
+    "options": [
+      "Total Debit must always equal Total Credit",
+      "Debit must exceed Credit",
+      "Credit must exceed Debit",
+      "Debit is optional"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Double-Entry Invariant dictates that total Debit amount must equal total Credit amount for every transaction."
+  },
+  {
+    "id": 7,
+    "topic": "journal_format",
+    "question": "Which account is debited when cash is received from a customer?",
+    "options": [
+      "Cash Account",
+      "Sales Account",
+      "Customer Account",
+      "Capital Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Real Account Rule: Debit what comes in. Cash Account is debited when cash is received."
+  },
+  {
+    "id": 8,
+    "topic": "journal_format",
+    "question": "Which account is credited when cash is paid for office expenses?",
+    "options": [
+      "Cash Account",
+      "Expense Account",
+      "Bank Account",
+      "Capital Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Real Account Rule: Credit what goes out. Cash Account is credited when cash is paid out."
+  },
+  {
+    "id": 9,
+    "topic": "journal_format",
+    "question": "In the Particulars column, how is the Credit line formatted?",
+    "options": [
+      "Indented to the right starting with the word 'To'",
+      "Flush left starting with 'Dr.'",
+      "Written in bold red text",
+      "Written inside brackets"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Credit line is indented to the right and prefixed with the word 'To'."
+  },
+  {
+    "id": 10,
+    "topic": "journal_format",
+    "question": "What does the abbreviation 'Dr.' stand for in accounting?",
+    "options": [
+      "Debit Record / Debtor",
+      "Doctor",
+      "Direct Return",
+      "Daily Receipt"
+    ],
+    "answerIndex": 0,
+    "explanation": "Dr. stands for Debit Record (from Latin 'Debere')."
+  },
+  {
+    "id": 11,
+    "topic": "journal_format",
+    "question": "What does the abbreviation 'Cr.' stand for in accounting?",
+    "options": [
+      "Credit Record / Creditor",
+      "Cash Receipt",
+      "Capital Return",
+      "Current Reserve"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cr. stands for Credit Record (from Latin 'Credere')."
+  },
+  {
+    "id": 12,
+    "topic": "journal_format",
+    "question": "Which source document provides legal proof for a sales journal entry?",
+    "options": [
+      "Sales Invoice / Tax Invoice",
+      "Purchase Order",
+      "Job Application",
+      "Bank Passbook"
+    ],
+    "answerIndex": 0,
+    "explanation": "Sales Tax Invoices provide objective documentary evidence for recording sales entries."
+  },
+  {
+    "id": 13,
+    "topic": "journal_format",
+    "question": "Which source document supports cash payment journal entries?",
+    "options": [
+      "Cash Payment Voucher & Receipt",
+      "Debit Note",
+      "Credit Note",
+      "Goods Received Note"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cash Payment Vouchers signed by payees serve as audit evidence for cash outflow entries."
+  },
+  {
+    "id": 14,
+    "topic": "journal_format",
+    "question": "What is recorded in the Date column of a Journal Book?",
+    "options": [
+      "The exact transaction date (Day, Month, Year)",
+      "The posting date of Trial Balance",
+      "The financial year end date only",
+      "The invoice due date"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Date column records the chronological date when the business transaction occurred."
+  },
+  {
+    "id": 15,
+    "topic": "journal_format",
+    "question": "Why is a detailed Narration necessary for every Journal Entry?",
+    "options": [
+      "It explains the exact business context to auditors and management",
+      "It is required to calculate tax",
+      "It increases total debit",
+      "It replaces ledger posting"
+    ],
+    "answerIndex": 0,
+    "explanation": "Narrations explain the background details of a transaction during tax and statutory audits."
+  },
+  {
+    "id": 16,
+    "topic": "journal_format",
+    "question": "When purchasing goods for cash, which account is debited?",
+    "options": [
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account",
+      "Supplier Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Goods bought for resale are debited to Purchases Account (Nominal Expense)."
+  },
+  {
+    "id": 17,
+    "topic": "journal_format",
+    "question": "When selling goods for cash, which account is credited?",
+    "options": [
+      "Sales Account",
+      "Cash Account",
+      "Purchases Account",
+      "Customer Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Revenue from goods sold is credited to Sales Account (Nominal Revenue)."
+  },
+  {
+    "id": 18,
+    "topic": "journal_format",
+    "question": "Which of the following is NOT a column in a standard Journal Book?",
+    "options": [
+      "Trial Balance Column",
+      "Date Column",
+      "Particulars Column",
+      "Debit Amount Column"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trial Balance is a separate statement, not a column in the 5-column Journal Book."
+  },
+  {
+    "id": 19,
+    "topic": "journal_format",
+    "question": "What happens if a transaction is recorded with unequal Debit and Credit amounts?",
+    "options": [
+      "The Trial Balance will fail to agree (Unbalanced Error)",
+      "The entry is automatically deleted",
+      "Cash increases",
+      "Net profit increases"
+    ],
+    "answerIndex": 0,
+    "explanation": "Unequal debit and credit amounts breach double-entry symmetry causing Trial Balance imbalance."
+  },
+  {
+    "id": 20,
+    "topic": "journal_format",
+    "question": "Which account is debited when opening a new bank account with cash?",
+    "options": [
+      "Bank Account",
+      "Cash Account",
+      "Capital Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Debit what comes in / receiver: Bank Account is debited and Cash Account is credited."
+  },
+  {
+    "id": 21,
+    "topic": "journal_format",
+    "question": "What type of account is Cash Account?",
+    "options": [
+      "Real Account",
+      "Personal Account",
+      "Nominal Account",
+      "Representative Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cash Account represents tangible physical asset property, classified as a Real Account."
+  },
+  {
+    "id": 22,
+    "topic": "journal_format",
+    "question": "What type of account is Rent Expense Account?",
+    "options": [
+      "Nominal Account",
+      "Real Account",
+      "Personal Account",
+      "Valuation Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Expenses, losses, incomes, and gains are classified as Nominal Accounts."
+  },
+  {
+    "id": 23,
+    "topic": "journal_format",
+    "question": "What type of account is SBI Bank Account?",
+    "options": [
+      "Personal Account (Artificial Legal Entity)",
+      "Real Account",
+      "Nominal Account",
+      "Impersonal Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Banking institutions are legal artificial entities classified as Personal Accounts."
+  },
+  {
+    "id": 24,
+    "topic": "journal_format",
+    "question": "What type of account is Customer Sundry Debtor Account?",
+    "options": [
+      "Personal Account",
+      "Real Account",
+      "Nominal Account",
+      "Impersonal Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade debtors represent individual persons or firms, classified as Personal Accounts."
+  },
+  {
+    "id": 25,
+    "topic": "journal_format",
+    "question": "What type of account is Supplier Sundry Creditor Account?",
+    "options": [
+      "Personal Account",
+      "Real Account",
+      "Nominal Account",
+      "Impersonal Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade creditors represent vendors and suppliers, classified as Personal Accounts."
+  },
+  {
+    "id": 26,
+    "topic": "simple_compound",
+    "question": "What is a Simple Journal Entry?",
+    "options": [
+      "An entry containing exactly one Debit account and one Credit account",
+      "An entry with no narration",
+      "An entry passed in cash",
+      "An entry with zero amount"
+    ],
+    "answerIndex": 0,
+    "explanation": "A simple entry affects only two accounts: one debit and one credit."
+  },
+  {
+    "id": 27,
+    "topic": "simple_compound",
+    "question": "What is a Compound Journal Entry?",
+    "options": [
+      "An entry containing multiple debits, multiple credits, or both for a single event",
+      "An entry passed twice",
+      "An entry recorded at year end",
+      "An entry in foreign currency"
+    ],
+    "answerIndex": 0,
+    "explanation": "A compound entry combines two or more simple entries occurring on the same date."
+  },
+  {
+    "id": 28,
+    "topic": "simple_compound",
+    "question": "When paying Rent ₹10,000 and Salary ₹20,000 in cash simultaneously, how many Debit lines are present?",
+    "options": [
+      "2 Debit lines (Rent A/c Dr ₹10k, Salary A/c Dr ₹20k)",
+      "1 Debit line",
+      "3 Debit lines",
+      "0 Debit lines"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rent Expense and Salary Expense are separate nominal accounts debited individually."
+  },
+  {
+    "id": 29,
+    "topic": "simple_compound",
+    "question": "In a compound payment entry for Rent ₹5,000 and Electricity ₹2,000 in cash, what is the total Credit to Cash A/c?",
+    "options": [
+      "₹7,000",
+      "₹5,000",
+      "₹2,000",
+      "₹10,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cash A/c is credited with the total cash outflow: ₹5,000 + ₹2,000 = ₹7,000."
+  },
+  {
+    "id": 30,
+    "topic": "simple_compound",
+    "question": "When receiving ₹48,000 cash from debtor in full settlement of ₹50,000 debt, which accounts are debited?",
+    "options": [
+      "Cash A/c (₹48k) & Discount Allowed A/c (₹2k)",
+      "Cash A/c only",
+      "Debtor A/c only",
+      "Sales A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Compound receipt entry debits Cash A/c ₹48k and Discount Allowed Expense A/c ₹2k."
+  },
+  {
+    "id": 31,
+    "topic": "simple_compound",
+    "question": "Which TallyPrime voucher type is commonly used for passing compound cash payment entries?",
+    "options": [
+      "F5 Payment Voucher",
+      "F4 Contra",
+      "F8 Sales",
+      "F9 Purchase"
+    ],
+    "answerIndex": 0,
+    "explanation": "F5 Payment Voucher is used in TallyPrime for all cash/bank payment entries."
+  },
+  {
+    "id": 32,
+    "topic": "simple_compound",
+    "question": "Which TallyPrime voucher type is used for compound cash receipt entries?",
+    "options": [
+      "F6 Receipt Voucher",
+      "F5 Payment",
+      "F7 Journal",
+      "F4 Contra"
+    ],
+    "answerIndex": 0,
+    "explanation": "F6 Receipt Voucher is used for recording cash and bank receipts in TallyPrime."
+  },
+  {
+    "id": 33,
+    "topic": "simple_compound",
+    "question": "In a compound entry, what must be the sum of all Debit amounts?",
+    "options": [
+      "Equal to the sum of all Credit amounts",
+      "Greater than credit amounts",
+      "Less than credit amounts",
+      "Zero"
+    ],
+    "answerIndex": 0,
+    "explanation": "The fundamental double-entry invariant requires sum of all debits = sum of all credits."
+  },
+  {
+    "id": 34,
+    "topic": "simple_compound",
+    "question": "Paying wages ₹4,000, carriage ₹1,000, and freight ₹2,000 in cash is an example of what entry?",
+    "options": [
+      "Compound Payment Journal Entry",
+      "Simple Entry",
+      "Opening Entry",
+      "Closing Entry"
+    ],
+    "answerIndex": 0,
+    "explanation": "Combining multiple expense payments into a single journal record is a Compound Payment Entry."
+  },
+  {
+    "id": 35,
+    "topic": "simple_compound",
+    "question": "Which of the following is a Simple Journal Entry?",
+    "options": [
+      "Paid Rent ₹5,000 in cash",
+      "Paid Rent ₹5k and Salary ₹10k in cash",
+      "Received cash ₹9k and allowed discount ₹1k",
+      "Started business with cash ₹1L and stock ₹50k"
+    ],
+    "answerIndex": 0,
+    "explanation": "Paid Rent ₹5,000 in cash has exactly 1 debit (Rent) and 1 credit (Cash)."
+  },
+  {
+    "id": 36,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹1000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹1000, Credit Cash A/c ₹1000",
+      "Debit Cash A/c ₹1000, Credit Utility Expense A/c ₹1000",
+      "Debit Bank A/c ₹1000, Credit Cash A/c ₹1000",
+      "Debit Sales A/c ₹1000, Credit Cash A/c ₹1000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹1000), Credit what goes out (Cash A/c Cr ₹1000)."
+  },
+  {
+    "id": 37,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹2000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹2000, Credit Cash A/c ₹2000",
+      "Debit Cash A/c ₹2000, Credit Utility Expense A/c ₹2000",
+      "Debit Bank A/c ₹2000, Credit Cash A/c ₹2000",
+      "Debit Sales A/c ₹2000, Credit Cash A/c ₹2000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹2000), Credit what goes out (Cash A/c Cr ₹2000)."
+  },
+  {
+    "id": 38,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹3000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹3000, Credit Cash A/c ₹3000",
+      "Debit Cash A/c ₹3000, Credit Utility Expense A/c ₹3000",
+      "Debit Bank A/c ₹3000, Credit Cash A/c ₹3000",
+      "Debit Sales A/c ₹3000, Credit Cash A/c ₹3000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹3000), Credit what goes out (Cash A/c Cr ₹3000)."
+  },
+  {
+    "id": 39,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹4000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹4000, Credit Cash A/c ₹4000",
+      "Debit Cash A/c ₹4000, Credit Utility Expense A/c ₹4000",
+      "Debit Bank A/c ₹4000, Credit Cash A/c ₹4000",
+      "Debit Sales A/c ₹4000, Credit Cash A/c ₹4000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹4000), Credit what goes out (Cash A/c Cr ₹4000)."
+  },
+  {
+    "id": 40,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹5000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹5000, Credit Cash A/c ₹5000",
+      "Debit Cash A/c ₹5000, Credit Utility Expense A/c ₹5000",
+      "Debit Bank A/c ₹5000, Credit Cash A/c ₹5000",
+      "Debit Sales A/c ₹5000, Credit Cash A/c ₹5000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹5000), Credit what goes out (Cash A/c Cr ₹5000)."
+  },
+  {
+    "id": 41,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹6000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹6000, Credit Cash A/c ₹6000",
+      "Debit Cash A/c ₹6000, Credit Utility Expense A/c ₹6000",
+      "Debit Bank A/c ₹6000, Credit Cash A/c ₹6000",
+      "Debit Sales A/c ₹6000, Credit Cash A/c ₹6000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹6000), Credit what goes out (Cash A/c Cr ₹6000)."
+  },
+  {
+    "id": 42,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹7000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹7000, Credit Cash A/c ₹7000",
+      "Debit Cash A/c ₹7000, Credit Utility Expense A/c ₹7000",
+      "Debit Bank A/c ₹7000, Credit Cash A/c ₹7000",
+      "Debit Sales A/c ₹7000, Credit Cash A/c ₹7000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹7000), Credit what goes out (Cash A/c Cr ₹7000)."
+  },
+  {
+    "id": 43,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹8000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹8000, Credit Cash A/c ₹8000",
+      "Debit Cash A/c ₹8000, Credit Utility Expense A/c ₹8000",
+      "Debit Bank A/c ₹8000, Credit Cash A/c ₹8000",
+      "Debit Sales A/c ₹8000, Credit Cash A/c ₹8000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹8000), Credit what goes out (Cash A/c Cr ₹8000)."
+  },
+  {
+    "id": 44,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹9000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹9000, Credit Cash A/c ₹9000",
+      "Debit Cash A/c ₹9000, Credit Utility Expense A/c ₹9000",
+      "Debit Bank A/c ₹9000, Credit Cash A/c ₹9000",
+      "Debit Sales A/c ₹9000, Credit Cash A/c ₹9000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹9000), Credit what goes out (Cash A/c Cr ₹9000)."
+  },
+  {
+    "id": 45,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹10000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹10000, Credit Cash A/c ₹10000",
+      "Debit Cash A/c ₹10000, Credit Utility Expense A/c ₹10000",
+      "Debit Bank A/c ₹10000, Credit Cash A/c ₹10000",
+      "Debit Sales A/c ₹10000, Credit Cash A/c ₹10000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹10000), Credit what goes out (Cash A/c Cr ₹10000)."
+  },
+  {
+    "id": 46,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹11000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹11000, Credit Cash A/c ₹11000",
+      "Debit Cash A/c ₹11000, Credit Utility Expense A/c ₹11000",
+      "Debit Bank A/c ₹11000, Credit Cash A/c ₹11000",
+      "Debit Sales A/c ₹11000, Credit Cash A/c ₹11000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹11000), Credit what goes out (Cash A/c Cr ₹11000)."
+  },
+  {
+    "id": 47,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹12000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹12000, Credit Cash A/c ₹12000",
+      "Debit Cash A/c ₹12000, Credit Utility Expense A/c ₹12000",
+      "Debit Bank A/c ₹12000, Credit Cash A/c ₹12000",
+      "Debit Sales A/c ₹12000, Credit Cash A/c ₹12000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹12000), Credit what goes out (Cash A/c Cr ₹12000)."
+  },
+  {
+    "id": 48,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹13000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹13000, Credit Cash A/c ₹13000",
+      "Debit Cash A/c ₹13000, Credit Utility Expense A/c ₹13000",
+      "Debit Bank A/c ₹13000, Credit Cash A/c ₹13000",
+      "Debit Sales A/c ₹13000, Credit Cash A/c ₹13000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹13000), Credit what goes out (Cash A/c Cr ₹13000)."
+  },
+  {
+    "id": 49,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹14000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹14000, Credit Cash A/c ₹14000",
+      "Debit Cash A/c ₹14000, Credit Utility Expense A/c ₹14000",
+      "Debit Bank A/c ₹14000, Credit Cash A/c ₹14000",
+      "Debit Sales A/c ₹14000, Credit Cash A/c ₹14000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹14000), Credit what goes out (Cash A/c Cr ₹14000)."
+  },
+  {
+    "id": 50,
+    "topic": "simple_compound",
+    "question": "Paid utility bill ₹15000 in cash. What is the journal entry?",
+    "options": [
+      "Debit Utility Expense A/c ₹15000, Credit Cash A/c ₹15000",
+      "Debit Cash A/c ₹15000, Credit Utility Expense A/c ₹15000",
+      "Debit Bank A/c ₹15000, Credit Cash A/c ₹15000",
+      "Debit Sales A/c ₹15000, Credit Cash A/c ₹15000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal Rule: Debit expense (Utility Expense A/c Dr ₹15000), Credit what goes out (Cash A/c Cr ₹15000)."
+  },
+  {
+    "id": 51,
+    "topic": "opening_entries",
+    "question": "What is the main objective of an Opening Journal Entry?",
+    "options": [
+      "To bring forward asset, liability, and capital balances from previous financial year into new books",
+      "To calculate net profit",
+      "To close expense accounts",
+      "To pay tax"
+    ],
+    "answerIndex": 0,
+    "explanation": "Opening entries carry forward audited Balance Sheet balances at the start of a new financial year."
+  },
+  {
+    "id": 52,
+    "topic": "opening_entries",
+    "question": "Which TallyPrime voucher type is used to pass Opening Journal Entries?",
+    "options": [
+      "F7 Journal Voucher",
+      "F4 Contra",
+      "F5 Payment",
+      "F6 Receipt"
+    ],
+    "answerIndex": 0,
+    "explanation": "F7 Journal Voucher is the non-cash adjustment voucher used for passing Opening Entries."
+  },
+  {
+    "id": 53,
+    "topic": "opening_entries",
+    "question": "In an Opening Entry, on which side are Asset accounts recorded?",
+    "options": [
+      "Debit side (Debit all assets)",
+      "Credit side",
+      "Particulars only",
+      "Footnote only"
+    ],
+    "answerIndex": 0,
+    "explanation": "All asset accounts brought forward are debited in an Opening Journal Entry."
+  },
+  {
+    "id": 54,
+    "topic": "opening_entries",
+    "question": "In an Opening Entry, on which side are Liability and Capital accounts recorded?",
+    "options": [
+      "Credit side (Credit all liabilities & capital)",
+      "Debit side",
+      "L.F. column",
+      "Narration line"
+    ],
+    "answerIndex": 0,
+    "explanation": "All liability and equity capital balances brought forward are credited in an Opening Entry."
+  },
+  {
+    "id": 55,
+    "topic": "opening_entries",
+    "question": "If Total Assets exceed Total Liabilities + Capital in an opening entry, what is the credit balancing figure?",
+    "options": [
+      "Capital Reserve Account",
+      "Goodwill Account",
+      "Suspense Account",
+      "Bad Debts Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "When net tangible assets acquired exceed purchase consideration/capital, the credit balance is Capital Reserve."
+  },
+  {
+    "id": 56,
+    "topic": "opening_entries",
+    "question": "If Total Liabilities + Capital exceed Total Assets in an opening entry, what is the debit balancing figure?",
+    "options": [
+      "Goodwill Account (Intangible Asset)",
+      "Capital Reserve Account",
+      "Profit & Loss Account",
+      "Cash Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "When total liabilities plus capital exceed tangible assets, the debit balancing figure is Goodwill."
+  },
+  {
+    "id": 57,
+    "topic": "opening_entries",
+    "question": "On which date are Opening Journal Entries dated?",
+    "options": [
+      "01-Apr (First day of the financial year)",
+      "31-Mar (Last day of financial year)",
+      "15-Aug",
+      "31-Dec"
+    ],
+    "answerIndex": 0,
+    "explanation": "Opening entries are posted on 1st April at the commencement of the new accounting period."
+  },
+  {
+    "id": 58,
+    "topic": "opening_entries",
+    "question": "Which financial statement provides the source data for passing Opening Entries?",
+    "options": [
+      "Previous year's audited Balance Sheet",
+      "Trading Account",
+      "Cash Flow Statement",
+      "Bank Statement"
+    ],
+    "answerIndex": 0,
+    "explanation": "The closing Balance Sheet of the preceding financial year provides opening balances for the new year."
+  },
+  {
+    "id": 59,
+    "topic": "opening_entries",
+    "question": "Are nominal expense and income accounts included in an Opening Journal Entry?",
+    "options": [
+      "No, nominal accounts are closed at year-end and NOT carried forward",
+      "Yes, all nominal accounts are carried forward",
+      "Only rent is carried forward",
+      "Only sales are carried forward"
+    ],
+    "answerIndex": 0,
+    "explanation": "Nominal accounts are closed at fiscal year end; only Real (Assets) and Personal (Liabilities/Capital) accounts appear in Opening Entries."
+  },
+  {
+    "id": 60,
+    "topic": "opening_entries",
+    "question": "When bringing forward Provision for Doubtful Debts in an Opening Entry, on which side is it recorded?",
+    "options": [
+      "Credit side (Contra-Asset Reserve)",
+      "Debit side",
+      "Narration line",
+      "It is ignored"
+    ],
+    "answerIndex": 0,
+    "explanation": "Provision for Doubtful Debts is a credit contra-asset reserve carried forward on the credit side."
+  },
+  {
+    "id": 61,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 62,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 63,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 64,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 65,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 66,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 67,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 68,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 69,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 70,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 71,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 72,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 73,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 74,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 75,
+    "topic": "opening_entries",
+    "question": "Opening entry: Cash ₹50,000, Bank ₹1,00,000, Stock ₹1,50,000, Creditors ₹80,000. What is the Capital balance?",
+    "options": [
+      "₹2,20,000",
+      "₹3,00,000",
+      "₹80,000",
+      "₹2,20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accounting Equation: Capital = Assets (₹3,00,000) - Liabilities (₹80,000) = ₹2,20,000."
+  },
+  {
+    "id": 76,
+    "topic": "capital_drawings",
+    "question": "Which account is credited when the proprietor introduces cash capital into the business?",
+    "options": [
+      "Capital Account",
+      "Cash Account",
+      "Sales Account",
+      "Drawings Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal Account Rule: Credit the giver. Capital Account is credited when owner brings capital."
+  },
+  {
+    "id": 77,
+    "topic": "capital_drawings",
+    "question": "Which account is debited when the proprietor withdraws cash from business for personal use?",
+    "options": [
+      "Drawings Account",
+      "Capital Account",
+      "Cash Account",
+      "Rent Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal Account Rule: Debit the receiver. Drawings Account is debited for personal withdrawals."
+  },
+  {
+    "id": 78,
+    "topic": "capital_drawings",
+    "question": "When the proprietor withdraws inventory trading goods for personal family use, which account is credited?",
+    "options": [
+      "Purchases Account (at Cost Price)",
+      "Sales Account",
+      "Cash Account",
+      "Capital Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Goods withdrawn for personal use reduce purchases at cost price (Credit Purchases A/c)."
+  },
+  {
+    "id": 79,
+    "topic": "capital_drawings",
+    "question": "At what valuation are merchandise goods withdrawn by proprietor for personal use recorded?",
+    "options": [
+      "Cost Price",
+      "Retail Sales Price",
+      "Market Price",
+      "Zero Price"
+    ],
+    "answerIndex": 0,
+    "explanation": "Goods taken by owner are ALWAYS valued at Cost Price to reverse original purchase expense."
+  },
+  {
+    "id": 80,
+    "topic": "capital_drawings",
+    "question": "How is personal Income Tax paid for a sole proprietor treated in business accounting?",
+    "options": [
+      "Debited to Drawings Account (Personal Liability)",
+      "Debited to Income Tax Expense A/c",
+      "Credited to Sales A/c",
+      "Ignored"
+    ],
+    "answerIndex": 0,
+    "explanation": "In a sole proprietorship, income tax is the personal liability of the owner, treated as Drawings."
+  },
+  {
+    "id": 81,
+    "topic": "capital_drawings",
+    "question": "How is Life Insurance Premium (LIC) paid for proprietor treated in business books?",
+    "options": [
+      "Debited to Drawings Account",
+      "Debited to Insurance Expense A/c",
+      "Credited to Cash A/c",
+      "Debited to General Expense"
+    ],
+    "answerIndex": 0,
+    "explanation": "Proprietor's life insurance is a personal security expense, debited to Drawings Account."
+  },
+  {
+    "id": 82,
+    "topic": "capital_drawings",
+    "question": "When proprietor brings personal laptop/vehicle into business as additional capital, which account is debited?",
+    "options": [
+      "Respective Fixed Asset Account (Computer/Vehicle A/c)",
+      "Purchases A/c",
+      "Drawings A/c",
+      "Cash A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Incoming personal asset is debited to its asset account and credited to Capital Account."
+  },
+  {
+    "id": 83,
+    "topic": "capital_drawings",
+    "question": "At the financial year end, where is the total Drawings Account balance transferred?",
+    "options": [
+      "Transferred to Capital Account (deducted from Capital)",
+      "Transferred to P&L Account",
+      "Transferred to Cash A/c",
+      "Carried forward as Asset"
+    ],
+    "answerIndex": 0,
+    "explanation": "Drawings reduces proprietor equity; its balance is transferred to debit of Capital Account at year end."
+  },
+  {
+    "id": 84,
+    "topic": "capital_drawings",
+    "question": "Which TallyPrime voucher type is used for cash capital introduced by proprietor?",
+    "options": [
+      "F6 Receipt Voucher",
+      "F5 Payment",
+      "F4 Contra",
+      "F8 Sales"
+    ],
+    "answerIndex": 0,
+    "explanation": "F6 Receipt Voucher records incoming cash/bank capital investments in TallyPrime."
+  },
+  {
+    "id": 85,
+    "topic": "capital_drawings",
+    "question": "Which TallyPrime voucher type is used for cash drawings by proprietor?",
+    "options": [
+      "F5 Payment Voucher",
+      "F6 Receipt",
+      "F8 Sales",
+      "F9 Purchase"
+    ],
+    "answerIndex": 0,
+    "explanation": "F5 Payment Voucher records cash payouts for proprietor personal drawings."
+  },
+  {
+    "id": 86,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹5000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹5000, Credit Bank A/c ₹5000",
+      "Debit Tuition Expense A/c ₹5000, Credit Bank A/c ₹5000",
+      "Debit Bank A/c ₹5000, Credit Drawings A/c ₹5000",
+      "Debit Capital A/c ₹5000, Credit Cash A/c ₹5000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹5000, Credit Bank A/c ₹5000."
+  },
+  {
+    "id": 87,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹10000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹10000, Credit Bank A/c ₹10000",
+      "Debit Tuition Expense A/c ₹10000, Credit Bank A/c ₹10000",
+      "Debit Bank A/c ₹10000, Credit Drawings A/c ₹10000",
+      "Debit Capital A/c ₹10000, Credit Cash A/c ₹10000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹10000, Credit Bank A/c ₹10000."
+  },
+  {
+    "id": 88,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹15000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹15000, Credit Bank A/c ₹15000",
+      "Debit Tuition Expense A/c ₹15000, Credit Bank A/c ₹15000",
+      "Debit Bank A/c ₹15000, Credit Drawings A/c ₹15000",
+      "Debit Capital A/c ₹15000, Credit Cash A/c ₹15000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹15000, Credit Bank A/c ₹15000."
+  },
+  {
+    "id": 89,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹20000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹20000, Credit Bank A/c ₹20000",
+      "Debit Tuition Expense A/c ₹20000, Credit Bank A/c ₹20000",
+      "Debit Bank A/c ₹20000, Credit Drawings A/c ₹20000",
+      "Debit Capital A/c ₹20000, Credit Cash A/c ₹20000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹20000, Credit Bank A/c ₹20000."
+  },
+  {
+    "id": 90,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹25000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹25000, Credit Bank A/c ₹25000",
+      "Debit Tuition Expense A/c ₹25000, Credit Bank A/c ₹25000",
+      "Debit Bank A/c ₹25000, Credit Drawings A/c ₹25000",
+      "Debit Capital A/c ₹25000, Credit Cash A/c ₹25000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹25000, Credit Bank A/c ₹25000."
+  },
+  {
+    "id": 91,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹30000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹30000, Credit Bank A/c ₹30000",
+      "Debit Tuition Expense A/c ₹30000, Credit Bank A/c ₹30000",
+      "Debit Bank A/c ₹30000, Credit Drawings A/c ₹30000",
+      "Debit Capital A/c ₹30000, Credit Cash A/c ₹30000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹30000, Credit Bank A/c ₹30000."
+  },
+  {
+    "id": 92,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹35000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹35000, Credit Bank A/c ₹35000",
+      "Debit Tuition Expense A/c ₹35000, Credit Bank A/c ₹35000",
+      "Debit Bank A/c ₹35000, Credit Drawings A/c ₹35000",
+      "Debit Capital A/c ₹35000, Credit Cash A/c ₹35000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹35000, Credit Bank A/c ₹35000."
+  },
+  {
+    "id": 93,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹40000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹40000, Credit Bank A/c ₹40000",
+      "Debit Tuition Expense A/c ₹40000, Credit Bank A/c ₹40000",
+      "Debit Bank A/c ₹40000, Credit Drawings A/c ₹40000",
+      "Debit Capital A/c ₹40000, Credit Cash A/c ₹40000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹40000, Credit Bank A/c ₹40000."
+  },
+  {
+    "id": 94,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹45000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹45000, Credit Bank A/c ₹45000",
+      "Debit Tuition Expense A/c ₹45000, Credit Bank A/c ₹45000",
+      "Debit Bank A/c ₹45000, Credit Drawings A/c ₹45000",
+      "Debit Capital A/c ₹45000, Credit Cash A/c ₹45000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹45000, Credit Bank A/c ₹45000."
+  },
+  {
+    "id": 95,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹50000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹50000, Credit Bank A/c ₹50000",
+      "Debit Tuition Expense A/c ₹50000, Credit Bank A/c ₹50000",
+      "Debit Bank A/c ₹50000, Credit Drawings A/c ₹50000",
+      "Debit Capital A/c ₹50000, Credit Cash A/c ₹50000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹50000, Credit Bank A/c ₹50000."
+  },
+  {
+    "id": 96,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹55000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹55000, Credit Bank A/c ₹55000",
+      "Debit Tuition Expense A/c ₹55000, Credit Bank A/c ₹55000",
+      "Debit Bank A/c ₹55000, Credit Drawings A/c ₹55000",
+      "Debit Capital A/c ₹55000, Credit Cash A/c ₹55000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹55000, Credit Bank A/c ₹55000."
+  },
+  {
+    "id": 97,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹60000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹60000, Credit Bank A/c ₹60000",
+      "Debit Tuition Expense A/c ₹60000, Credit Bank A/c ₹60000",
+      "Debit Bank A/c ₹60000, Credit Drawings A/c ₹60000",
+      "Debit Capital A/c ₹60000, Credit Cash A/c ₹60000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹60000, Credit Bank A/c ₹60000."
+  },
+  {
+    "id": 98,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹65000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹65000, Credit Bank A/c ₹65000",
+      "Debit Tuition Expense A/c ₹65000, Credit Bank A/c ₹65000",
+      "Debit Bank A/c ₹65000, Credit Drawings A/c ₹65000",
+      "Debit Capital A/c ₹65000, Credit Cash A/c ₹65000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹65000, Credit Bank A/c ₹65000."
+  },
+  {
+    "id": 99,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹70000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹70000, Credit Bank A/c ₹70000",
+      "Debit Tuition Expense A/c ₹70000, Credit Bank A/c ₹70000",
+      "Debit Bank A/c ₹70000, Credit Drawings A/c ₹70000",
+      "Debit Capital A/c ₹70000, Credit Cash A/c ₹70000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹70000, Credit Bank A/c ₹70000."
+  },
+  {
+    "id": 100,
+    "topic": "capital_drawings",
+    "question": "Proprietor withdrew cash ₹75000 from bank for personal child tuition fee. What is the journal entry?",
+    "options": [
+      "Debit Drawings A/c ₹75000, Credit Bank A/c ₹75000",
+      "Debit Tuition Expense A/c ₹75000, Credit Bank A/c ₹75000",
+      "Debit Bank A/c ₹75000, Credit Drawings A/c ₹75000",
+      "Debit Capital A/c ₹75000, Credit Cash A/c ₹75000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Personal expenses paid from bank: Debit Drawings A/c ₹75000, Credit Bank A/c ₹75000."
+  },
+  {
+    "id": 101,
+    "topic": "asset_vs_inventory",
+    "question": "When purchasing inventory trading goods for resale, which account is debited?",
+    "options": [
+      "Purchases Account",
+      "Machinery Account",
+      "Furniture Account",
+      "Asset Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Goods bought specifically for resale are debited to Purchases Account (Nominal Expense)."
+  },
+  {
+    "id": 102,
+    "topic": "asset_vs_inventory",
+    "question": "When purchasing office wooden furniture for long-term shop use, which account is debited?",
+    "options": [
+      "Furniture & Fixtures (Fixed Asset) Account",
+      "Purchases Account",
+      "Office Expense Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital assets acquired for business operations must be debited to Fixed Asset Account."
+  },
+  {
+    "id": 103,
+    "topic": "asset_vs_inventory",
+    "question": "Why is an office computer purchase NOT debited to Purchases Account?",
+    "options": [
+      "Because it is a fixed capital asset for operational use, not intended for resale",
+      "Because it is expensive",
+      "Because it uses electricity",
+      "Because it has a screen"
+    ],
+    "answerIndex": 0,
+    "explanation": "Purchases Account is strictly reserved for merchandise goods bought for resale."
+  },
+  {
+    "id": 104,
+    "topic": "asset_vs_inventory",
+    "question": "When selling routine trading inventory for cash, which account is credited?",
+    "options": [
+      "Sales Account",
+      "Fixed Asset Account",
+      "Capital Account",
+      "Purchases Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Revenue from routine trading goods sold is credited to Sales Account (Nominal Revenue)."
+  },
+  {
+    "id": 105,
+    "topic": "asset_vs_inventory",
+    "question": "When selling an old surplus office delivery van for cash at book value, which account is credited?",
+    "options": [
+      "Motor Vehicle (Fixed Asset) Account",
+      "Sales Account",
+      "Purchases Account",
+      "Capital Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Sale of a fixed asset must be credited directly to the Fixed Asset Account (NOT Sales A/c)."
+  },
+  {
+    "id": 106,
+    "topic": "asset_vs_inventory",
+    "question": "What happens when a fixed asset is sold above its book value?",
+    "options": [
+      "The excess gain is credited to Profit on Sale of Asset Account",
+      "Sales A/c is credited",
+      "Purchases A/c is debited",
+      "Capital A/c is debited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital gain on fixed asset disposal is credited to Profit on Sale of Asset A/c."
+  },
+  {
+    "id": 107,
+    "topic": "asset_vs_inventory",
+    "question": "What happens when a fixed asset is sold below its book value?",
+    "options": [
+      "The loss is debited to Loss on Sale of Fixed Asset Account",
+      "Sales A/c is debited",
+      "Purchases A/c is credited",
+      "Creditors A/c is debited"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital loss on fixed asset disposal is debited to Loss on Sale of Asset A/c."
+  },
+  {
+    "id": 108,
+    "topic": "asset_vs_inventory",
+    "question": "Which TallyPrime voucher type is used for credit purchase of trading goods?",
+    "options": [
+      "F9 Purchase Voucher",
+      "F5 Payment",
+      "F7 Journal",
+      "F8 Sales"
+    ],
+    "answerIndex": 0,
+    "explanation": "F9 Purchase Voucher is used in TallyPrime for inventory purchases on credit."
+  },
+  {
+    "id": 109,
+    "topic": "asset_vs_inventory",
+    "question": "Which TallyPrime voucher type is used for credit sale of trading goods?",
+    "options": [
+      "F8 Sales Voucher",
+      "F6 Receipt",
+      "F7 Journal",
+      "F9 Purchase"
+    ],
+    "answerIndex": 0,
+    "explanation": "F8 Sales Voucher is used in TallyPrime for recording merchandise credit sales."
+  },
+  {
+    "id": 110,
+    "topic": "asset_vs_inventory",
+    "question": "Which TallyPrime voucher type is used for credit purchase of a fixed asset?",
+    "options": [
+      "F7 Journal Voucher",
+      "F9 Purchase Voucher",
+      "F5 Payment Voucher",
+      "F4 Contra"
+    ],
+    "answerIndex": 0,
+    "explanation": "In standard Tally, credit purchase of non-inventory fixed assets is recorded via F7 Journal Voucher."
+  },
+  {
+    "id": 111,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹10000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹10000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 112,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹20000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹20000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 113,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹30000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹30000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 114,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹40000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹40000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 115,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹50000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹50000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 116,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹60000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹60000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 117,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹70000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹70000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 118,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹80000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹80000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 119,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹90000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹90000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 120,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹100000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹100000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 121,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹110000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹110000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 122,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹120000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹120000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 123,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹130000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹130000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 124,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹140000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹140000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 125,
+    "topic": "asset_vs_inventory",
+    "question": "Purchased machinery for cash ₹150000. What is the correct Debit account?",
+    "options": [
+      "Machinery Account",
+      "Purchases Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Capital Asset acquired: Debit Machinery Asset A/c ₹150000 (NOT Purchases A/c)."
+  },
+  {
+    "id": 126,
+    "topic": "returns_accounting",
+    "question": "What is another accounting name for Return Outward Account?",
+    "options": [
+      "Return Outward Account",
+      "Return Inward Account",
+      "Return Inward Account",
+      "Discount Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Return Outward represents goods going out back to vendors, also called Return Outward A/c."
+  },
+  {
+    "id": 127,
+    "topic": "returns_accounting",
+    "question": "What is another accounting name for Return Inward Account?",
+    "options": [
+      "Return Inward Account",
+      "Return Outward Account",
+      "Return Outward Account",
+      "Bad Debts Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Return Inward represents goods coming inward back from customers, also called Return Inward A/c."
+  },
+  {
+    "id": 128,
+    "topic": "returns_accounting",
+    "question": "Which legal document is issued to a vendor when returning defective purchased goods on credit?",
+    "options": [
+      "Debit Note",
+      "Credit Note",
+      "Tax Invoice",
+      "Cheque"
+    ],
+    "answerIndex": 0,
+    "explanation": "A Debit Note is issued to inform the supplier that their credit account has been debited for returned goods."
+  },
+  {
+    "id": 129,
+    "topic": "returns_accounting",
+    "question": "Which legal document is issued to a customer when they return damaged goods sold on credit?",
+    "options": [
+      "Credit Note",
+      "Debit Note",
+      "Cash Memo",
+      "Receipt"
+    ],
+    "answerIndex": 0,
+    "explanation": "A Credit Note is issued to inform the customer that their account has been credited for returned goods."
+  },
+  {
+    "id": 130,
+    "topic": "returns_accounting",
+    "question": "When returning goods to a supplier on credit, which account is debited?",
+    "options": [
+      "Supplier / Sundry Creditor Account",
+      "Return Outward A/c",
+      "Sales A/c",
+      "Cash A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Returning goods reduces vendor liability: Debit Sundry Creditor A/c, Credit Return Outward A/c."
+  },
+  {
+    "id": 131,
+    "topic": "returns_accounting",
+    "question": "When a customer returns goods sold on credit, which account is debited?",
+    "options": [
+      "Return Inward Account",
+      "Customer A/c",
+      "Purchases A/c",
+      "Cash A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Customer return reduces revenue: Debit Return Inward A/c (Return Inward), Credit Sundry Debtor A/c."
+  },
+  {
+    "id": 132,
+    "topic": "returns_accounting",
+    "question": "Where is Return Outward Account shown in the Trading Account?",
+    "options": [
+      "Deducted from Gross Purchases on the debit side",
+      "Added to Sales",
+      "Shown under Assets",
+      "Shown under Liabilities"
+    ],
+    "answerIndex": 0,
+    "explanation": "Return Outward is deducted from Gross Purchases to show Net Purchases in Trading Account."
+  },
+  {
+    "id": 133,
+    "topic": "returns_accounting",
+    "question": "Where is Return Inward Account shown in the Trading Account?",
+    "options": [
+      "Deducted from Gross Sales on the credit side",
+      "Added to Purchases",
+      "Shown under Expenses",
+      "Shown under Liabilities"
+    ],
+    "answerIndex": 0,
+    "explanation": "Return Inward is deducted from Gross Sales to show Net Sales in Trading Account."
+  },
+  {
+    "id": 134,
+    "topic": "returns_accounting",
+    "question": "Which TallyPrime voucher type is used for recording Credit Notes for Return Inward?",
+    "options": [
+      "Credit Note Voucher (Alt+F6 / Ctrl+F8)",
+      "F8 Sales",
+      "F5 Payment",
+      "F4 Contra"
+    ],
+    "answerIndex": 0,
+    "explanation": "Credit Note Voucher class is used in TallyPrime for recording Return Inward."
+  },
+  {
+    "id": 135,
+    "topic": "returns_accounting",
+    "question": "Which TallyPrime voucher type is used for recording Debit Notes for Return Outward?",
+    "options": [
+      "Debit Note Voucher (Alt+F5 / Ctrl+F9)",
+      "F9 Purchase",
+      "F6 Receipt",
+      "F4 Contra"
+    ],
+    "answerIndex": 0,
+    "explanation": "Debit Note Voucher class is used in TallyPrime for recording Return Outward."
+  },
+  {
+    "id": 136,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹2000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹2000, Credit Return Outward A/c ₹2000",
+      "Debit Return Outward A/c ₹2000, Credit Ram & Co ₹2000",
+      "Debit Cash A/c ₹2000, Credit Sales A/c ₹2000",
+      "Debit Return Inward A/c ₹2000, Credit Cash A/c ₹2000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹2000), Credit Return Outward A/c ₹2000."
+  },
+  {
+    "id": 137,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹4000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹4000, Credit Return Outward A/c ₹4000",
+      "Debit Return Outward A/c ₹4000, Credit Ram & Co ₹4000",
+      "Debit Cash A/c ₹4000, Credit Sales A/c ₹4000",
+      "Debit Return Inward A/c ₹4000, Credit Cash A/c ₹4000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹4000), Credit Return Outward A/c ₹4000."
+  },
+  {
+    "id": 138,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹6000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹6000, Credit Return Outward A/c ₹6000",
+      "Debit Return Outward A/c ₹6000, Credit Ram & Co ₹6000",
+      "Debit Cash A/c ₹6000, Credit Sales A/c ₹6000",
+      "Debit Return Inward A/c ₹6000, Credit Cash A/c ₹6000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹6000), Credit Return Outward A/c ₹6000."
+  },
+  {
+    "id": 139,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹8000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹8000, Credit Return Outward A/c ₹8000",
+      "Debit Return Outward A/c ₹8000, Credit Ram & Co ₹8000",
+      "Debit Cash A/c ₹8000, Credit Sales A/c ₹8000",
+      "Debit Return Inward A/c ₹8000, Credit Cash A/c ₹8000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹8000), Credit Return Outward A/c ₹8000."
+  },
+  {
+    "id": 140,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹10000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹10000, Credit Return Outward A/c ₹10000",
+      "Debit Return Outward A/c ₹10000, Credit Ram & Co ₹10000",
+      "Debit Cash A/c ₹10000, Credit Sales A/c ₹10000",
+      "Debit Return Inward A/c ₹10000, Credit Cash A/c ₹10000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹10000), Credit Return Outward A/c ₹10000."
+  },
+  {
+    "id": 141,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹12000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹12000, Credit Return Outward A/c ₹12000",
+      "Debit Return Outward A/c ₹12000, Credit Ram & Co ₹12000",
+      "Debit Cash A/c ₹12000, Credit Sales A/c ₹12000",
+      "Debit Return Inward A/c ₹12000, Credit Cash A/c ₹12000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹12000), Credit Return Outward A/c ₹12000."
+  },
+  {
+    "id": 142,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹14000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹14000, Credit Return Outward A/c ₹14000",
+      "Debit Return Outward A/c ₹14000, Credit Ram & Co ₹14000",
+      "Debit Cash A/c ₹14000, Credit Sales A/c ₹14000",
+      "Debit Return Inward A/c ₹14000, Credit Cash A/c ₹14000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹14000), Credit Return Outward A/c ₹14000."
+  },
+  {
+    "id": 143,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹16000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹16000, Credit Return Outward A/c ₹16000",
+      "Debit Return Outward A/c ₹16000, Credit Ram & Co ₹16000",
+      "Debit Cash A/c ₹16000, Credit Sales A/c ₹16000",
+      "Debit Return Inward A/c ₹16000, Credit Cash A/c ₹16000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹16000), Credit Return Outward A/c ₹16000."
+  },
+  {
+    "id": 144,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹18000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹18000, Credit Return Outward A/c ₹18000",
+      "Debit Return Outward A/c ₹18000, Credit Ram & Co ₹18000",
+      "Debit Cash A/c ₹18000, Credit Sales A/c ₹18000",
+      "Debit Return Inward A/c ₹18000, Credit Cash A/c ₹18000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹18000), Credit Return Outward A/c ₹18000."
+  },
+  {
+    "id": 145,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹20000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹20000, Credit Return Outward A/c ₹20000",
+      "Debit Return Outward A/c ₹20000, Credit Ram & Co ₹20000",
+      "Debit Cash A/c ₹20000, Credit Sales A/c ₹20000",
+      "Debit Return Inward A/c ₹20000, Credit Cash A/c ₹20000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹20000), Credit Return Outward A/c ₹20000."
+  },
+  {
+    "id": 146,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹22000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹22000, Credit Return Outward A/c ₹22000",
+      "Debit Return Outward A/c ₹22000, Credit Ram & Co ₹22000",
+      "Debit Cash A/c ₹22000, Credit Sales A/c ₹22000",
+      "Debit Return Inward A/c ₹22000, Credit Cash A/c ₹22000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹22000), Credit Return Outward A/c ₹22000."
+  },
+  {
+    "id": 147,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹24000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹24000, Credit Return Outward A/c ₹24000",
+      "Debit Return Outward A/c ₹24000, Credit Ram & Co ₹24000",
+      "Debit Cash A/c ₹24000, Credit Sales A/c ₹24000",
+      "Debit Return Inward A/c ₹24000, Credit Cash A/c ₹24000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹24000), Credit Return Outward A/c ₹24000."
+  },
+  {
+    "id": 148,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹26000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹26000, Credit Return Outward A/c ₹26000",
+      "Debit Return Outward A/c ₹26000, Credit Ram & Co ₹26000",
+      "Debit Cash A/c ₹26000, Credit Sales A/c ₹26000",
+      "Debit Return Inward A/c ₹26000, Credit Cash A/c ₹26000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹26000), Credit Return Outward A/c ₹26000."
+  },
+  {
+    "id": 149,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹28000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹28000, Credit Return Outward A/c ₹28000",
+      "Debit Return Outward A/c ₹28000, Credit Ram & Co ₹28000",
+      "Debit Cash A/c ₹28000, Credit Sales A/c ₹28000",
+      "Debit Return Inward A/c ₹28000, Credit Cash A/c ₹28000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹28000), Credit Return Outward A/c ₹28000."
+  },
+  {
+    "id": 150,
+    "topic": "returns_accounting",
+    "question": "Returned defective goods worth ₹30000 to supplier Ram & Co under Debit Note #DN-10. What is the entry?",
+    "options": [
+      "Debit Ram & Co (Creditor) ₹30000, Credit Return Outward A/c ₹30000",
+      "Debit Return Outward A/c ₹30000, Credit Ram & Co ₹30000",
+      "Debit Cash A/c ₹30000, Credit Sales A/c ₹30000",
+      "Debit Return Inward A/c ₹30000, Credit Cash A/c ₹30000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Vendor return: Debit Creditor Liability (Ram & Co ₹30000), Credit Return Outward A/c ₹30000."
+  },
+  {
+    "id": 151,
+    "topic": "discounts",
+    "question": "What is Trade Discount?",
+    "options": [
+      "A price reduction granted by seller at time of sale/bulk order, deducted directly on invoice",
+      "A discount for cash payment",
+      "An interest charge",
+      "A tax rebate"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount is granted on catalog list price for bulk buying and deducted at invoice source."
+  },
+  {
+    "id": 152,
+    "topic": "discounts",
+    "question": "Is Trade Discount recorded separately in ledger accounting books?",
+    "options": [
+      "No, Trade Discount is NEVER recorded in ledger accounts; net price is entered",
+      "Yes, debited to Discount A/c",
+      "Yes, credited to Discount A/c",
+      "Yes, in Cash book"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount is deducted on bill; only net billing amount is entered in accounting ledgers."
+  },
+  {
+    "id": 153,
+    "topic": "discounts",
+    "question": "What is Cash Discount?",
+    "options": [
+      "A financial incentive allowed for prompt cash/bank payment within agreed credit period",
+      "A bulk quantity discount",
+      "A trade margin",
+      "A GST reduction"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cash discount encourages early debt settlement, recorded as financial expense or income."
+  },
+  {
+    "id": 154,
+    "topic": "discounts",
+    "question": "Is Cash Discount recorded in accounting ledger books?",
+    "options": [
+      "Yes, recorded as Discount Allowed (Expense) or Discount Received (Income)",
+      "No, it is ignored",
+      "Only in Trial Balance",
+      "Only in Invoice"
+    ],
+    "answerIndex": 0,
+    "explanation": "Cash discount IS RECORDED in ledger accounts as Discount Allowed (Dr) or Discount Received (Cr)."
+  },
+  {
+    "id": 155,
+    "topic": "discounts",
+    "question": "When cash discount is allowed to a customer for prompt payment, which account is debited?",
+    "options": [
+      "Discount Allowed Account (Nominal Expense)",
+      "Discount Received Account",
+      "Customer Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discount allowed is a financial loss/expense to the seller, debited to Discount Allowed A/c."
+  },
+  {
+    "id": 156,
+    "topic": "discounts",
+    "question": "When cash discount is received from a supplier upon prompt payment, which account is credited?",
+    "options": [
+      "Discount Received Account (Nominal Income)",
+      "Discount Allowed Account",
+      "Supplier Account",
+      "Purchases Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discount received is a financial gain/income to the buyer, credited to Discount Received A/c."
+  },
+  {
+    "id": 157,
+    "topic": "discounts",
+    "question": "If goods list price ₹10,000 are purchased at 10% Trade Discount, what is the Purchases A/c debit amount?",
+    "options": [
+      "₹9,000",
+      "₹10,000",
+      "₹1,000",
+      "₹11,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Net Price = List Price ₹10,000 - 10% Trade Discount (₹1,000) = ₹9,000."
+  },
+  {
+    "id": 158,
+    "topic": "discounts",
+    "question": "Goods list price ₹20,000 sold at 10% Trade Discount and 5% Cash Discount for immediate cash. What is net cash received?",
+    "options": [
+      "₹17,100",
+      "₹18,000",
+      "₹19,000",
+      "₹20,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Net Bill = ₹20,000 - 10% TD (₹2,000) = ₹18,000. Cash Discount 5% on ₹18,000 = ₹900. Cash Received = ₹17,100."
+  },
+  {
+    "id": 159,
+    "topic": "discounts",
+    "question": "Under which major head is Discount Allowed shown in Profit & Loss Account?",
+    "options": [
+      "Indirect Expenses (Debit side)",
+      "Indirect Incomes",
+      "Direct Expenses",
+      "Gross Profit"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discount Allowed is an indirect financial expense shown on the debit side of P&L."
+  },
+  {
+    "id": 160,
+    "topic": "discounts",
+    "question": "Under which major head is Discount Received shown in Profit & Loss Account?",
+    "options": [
+      "Indirect Incomes (Credit side)",
+      "Indirect Expenses",
+      "Direct Incomes",
+      "Current Assets"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discount Received is an indirect financial income shown on the credit side of P&L."
+  },
+  {
+    "id": 161,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹10,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹9,000",
+      "₹10,000",
+      "₹1,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹1,000) is deducted at source. Net Purchases = ₹9,000."
+  },
+  {
+    "id": 162,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹20,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹18,000",
+      "₹20,000",
+      "₹2,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹2,000) is deducted at source. Net Purchases = ₹18,000."
+  },
+  {
+    "id": 163,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹30,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹27,000",
+      "₹30,000",
+      "₹3,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹3,000) is deducted at source. Net Purchases = ₹27,000."
+  },
+  {
+    "id": 164,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹40,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹36,000",
+      "₹40,000",
+      "₹4,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹4,000) is deducted at source. Net Purchases = ₹36,000."
+  },
+  {
+    "id": 165,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹50,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹45,000",
+      "₹50,000",
+      "₹5,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹5,000) is deducted at source. Net Purchases = ₹45,000."
+  },
+  {
+    "id": 166,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹60,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹54,000",
+      "₹60,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹6,000) is deducted at source. Net Purchases = ₹54,000."
+  },
+  {
+    "id": 167,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹70,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹63,000",
+      "₹70,000",
+      "₹7,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹7,000) is deducted at source. Net Purchases = ₹63,000."
+  },
+  {
+    "id": 168,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹80,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹72,000",
+      "₹80,000",
+      "₹8,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹8,000) is deducted at source. Net Purchases = ₹72,000."
+  },
+  {
+    "id": 169,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹90,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹81,000",
+      "₹90,000",
+      "₹9,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹9,000) is deducted at source. Net Purchases = ₹81,000."
+  },
+  {
+    "id": 170,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹1,00,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹90,000",
+      "₹1,00,000",
+      "₹10,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹10,000) is deducted at source. Net Purchases = ₹90,000."
+  },
+  {
+    "id": 171,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹1,10,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹99,000",
+      "₹1,10,000",
+      "₹11,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹11,000) is deducted at source. Net Purchases = ₹99,000."
+  },
+  {
+    "id": 172,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹1,20,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹1,08,000",
+      "₹1,20,000",
+      "₹12,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹12,000) is deducted at source. Net Purchases = ₹1,08,000."
+  },
+  {
+    "id": 173,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹1,30,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹1,17,000",
+      "₹1,30,000",
+      "₹13,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹13,000) is deducted at source. Net Purchases = ₹1,17,000."
+  },
+  {
+    "id": 174,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹1,40,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹1,26,000",
+      "₹1,40,000",
+      "₹14,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹14,000) is deducted at source. Net Purchases = ₹1,26,000."
+  },
+  {
+    "id": 175,
+    "topic": "discounts",
+    "question": "Purchased goods list price ₹1,50,000 less 10% Trade Discount on credit. What is the Purchases A/c debit?",
+    "options": [
+      "₹1,35,000",
+      "₹1,50,000",
+      "₹15,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Trade discount 10% (₹15,000) is deducted at source. Net Purchases = ₹1,35,000."
+  },
+  {
+    "id": 176,
+    "topic": "accrual_expenses",
+    "question": "What is an Outstanding Expense?",
+    "options": [
+      "An expense incurred/benefited during the accounting period but remaining UNPAID at period end",
+      "An expense paid in advance",
+      "An income received",
+      "A bad debt"
+    ],
+    "answerIndex": 0,
+    "explanation": "Outstanding expenses represent accrued operating liabilities for services already enjoyed but unpaid."
+  },
+  {
+    "id": 177,
+    "topic": "accrual_expenses",
+    "question": "Under which major balance sheet head is Outstanding Rent shown?",
+    "options": [
+      "Current Liabilities",
+      "Current Assets",
+      "Fixed Assets",
+      "Capital"
+    ],
+    "answerIndex": 0,
+    "explanation": "Outstanding Expenses represent short-term debt obligations, classified as Current Liabilities."
+  },
+  {
+    "id": 178,
+    "topic": "accrual_expenses",
+    "question": "What is the journal entry to record Outstanding Salaries ₹15,000 at month end?",
+    "options": [
+      "Debit Salary Expense A/c ₹15,000, Credit Outstanding Salaries Liability A/c ₹15,000",
+      "Debit Cash A/c, Credit Salary A/c",
+      "Debit Outstanding Salary A/c, Credit Cash A/c",
+      "Debit P&L A/c, Credit Bank A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrual Principle: Debit Salary Expense A/c (matching period cost), Credit Outstanding Salaries Liability A/c."
+  },
+  {
+    "id": 179,
+    "topic": "accrual_expenses",
+    "question": "What is a Prepaid Expense?",
+    "options": [
+      "An expense paid in advance during the current period whose benefit extends to FUTURE accounting periods",
+      "An unpaid expense",
+      "An income earned",
+      "A capital gain"
+    ],
+    "answerIndex": 0,
+    "explanation": "Prepaid expenses represent unexpired cost payments creating a deferred asset for future periods."
+  },
+  {
+    "id": 180,
+    "topic": "accrual_expenses",
+    "question": "Under which major balance sheet head is Prepaid Insurance shown?",
+    "options": [
+      "Current Assets",
+      "Current Liabilities",
+      "Fixed Assets",
+      "Capital Equity"
+    ],
+    "answerIndex": 0,
+    "explanation": "Prepaid Expenses represent unexpired future economic benefits, classified as Current Assets."
+  },
+  {
+    "id": 181,
+    "topic": "accrual_expenses",
+    "question": "What is the journal entry for paying annual insurance premium ₹24,000 in advance by bank cheque?",
+    "options": [
+      "Debit Prepaid Insurance (Current Asset) A/c ₹24,000, Credit Bank A/c ₹24,000",
+      "Debit Insurance Expense A/c, Credit Cash A/c",
+      "Debit Bank A/c, Credit Insurance A/c",
+      "Debit Capital A/c, Credit Bank A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Deferred Asset Creation: Debit Prepaid Insurance Asset A/c ₹24,000, Credit Bank Asset A/c ₹24,000."
+  },
+  {
+    "id": 182,
+    "topic": "accrual_expenses",
+    "question": "At financial year end, what is the adjusting entry for expired portion of prepaid insurance ₹10,000?",
+    "options": [
+      "Debit Insurance Expense A/c ₹10,000, Credit Prepaid Insurance Asset A/c ₹10,000",
+      "Debit Prepaid Insurance A/c, Credit Cash A/c",
+      "Debit Cash A/c, Credit Insurance A/c",
+      "Debit Capital A/c, Credit P&L A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Year-End Adjustment: Debit Insurance Expense A/c (charging P&L), Credit Prepaid Insurance Asset A/c."
+  },
+  {
+    "id": 183,
+    "topic": "accrual_expenses",
+    "question": "When paying previous month's outstanding rent ₹12,000 in cash, which account is debited?",
+    "options": [
+      "Outstanding Rent Liability Account",
+      "Rent Expense Account",
+      "Cash Account",
+      "P&L Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Discharging Liability: Debit Outstanding Rent Liability A/c ₹12,000 (clearing liability), Credit Cash A/c."
+  },
+  {
+    "id": 184,
+    "topic": "accrual_expenses",
+    "question": "Which accounting matching principle mandates recording Outstanding Expenses?",
+    "options": [
+      "Accrual Matching Principle",
+      "Cash Basis Principle",
+      "Dual Aspect Principle",
+      "Cost Principle"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrual principle requires matching all expenses incurred in the period against period revenues."
+  },
+  {
+    "id": 185,
+    "topic": "accrual_expenses",
+    "question": "Which TallyPrime voucher type is used for year-end Outstanding Expense adjustment entries?",
+    "options": [
+      "F7 Journal Voucher",
+      "F5 Payment Voucher",
+      "F6 Receipt Voucher",
+      "F4 Contra Voucher"
+    ],
+    "answerIndex": 0,
+    "explanation": "F7 Journal Voucher is used in TallyPrime for all non-cash accrual adjustment entries."
+  },
+  {
+    "id": 186,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹3000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹3000, Credit Outstanding Wages Liability A/c ₹3000",
+      "Debit Outstanding Wages A/c ₹3000, Credit Cash A/c ₹3000",
+      "Debit Cash A/c ₹3000, Credit Wages A/c ₹3000",
+      "Debit Capital A/c ₹3000, Credit Wages A/c ₹3000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹3000, Credit Outstanding Wages Liability A/c ₹3000."
+  },
+  {
+    "id": 187,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹6000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹6000, Credit Outstanding Wages Liability A/c ₹6000",
+      "Debit Outstanding Wages A/c ₹6000, Credit Cash A/c ₹6000",
+      "Debit Cash A/c ₹6000, Credit Wages A/c ₹6000",
+      "Debit Capital A/c ₹6000, Credit Wages A/c ₹6000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹6000, Credit Outstanding Wages Liability A/c ₹6000."
+  },
+  {
+    "id": 188,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹9000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹9000, Credit Outstanding Wages Liability A/c ₹9000",
+      "Debit Outstanding Wages A/c ₹9000, Credit Cash A/c ₹9000",
+      "Debit Cash A/c ₹9000, Credit Wages A/c ₹9000",
+      "Debit Capital A/c ₹9000, Credit Wages A/c ₹9000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹9000, Credit Outstanding Wages Liability A/c ₹9000."
+  },
+  {
+    "id": 189,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹12000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹12000, Credit Outstanding Wages Liability A/c ₹12000",
+      "Debit Outstanding Wages A/c ₹12000, Credit Cash A/c ₹12000",
+      "Debit Cash A/c ₹12000, Credit Wages A/c ₹12000",
+      "Debit Capital A/c ₹12000, Credit Wages A/c ₹12000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹12000, Credit Outstanding Wages Liability A/c ₹12000."
+  },
+  {
+    "id": 190,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹15000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹15000, Credit Outstanding Wages Liability A/c ₹15000",
+      "Debit Outstanding Wages A/c ₹15000, Credit Cash A/c ₹15000",
+      "Debit Cash A/c ₹15000, Credit Wages A/c ₹15000",
+      "Debit Capital A/c ₹15000, Credit Wages A/c ₹15000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹15000, Credit Outstanding Wages Liability A/c ₹15000."
+  },
+  {
+    "id": 191,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹18000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹18000, Credit Outstanding Wages Liability A/c ₹18000",
+      "Debit Outstanding Wages A/c ₹18000, Credit Cash A/c ₹18000",
+      "Debit Cash A/c ₹18000, Credit Wages A/c ₹18000",
+      "Debit Capital A/c ₹18000, Credit Wages A/c ₹18000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹18000, Credit Outstanding Wages Liability A/c ₹18000."
+  },
+  {
+    "id": 192,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹21000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹21000, Credit Outstanding Wages Liability A/c ₹21000",
+      "Debit Outstanding Wages A/c ₹21000, Credit Cash A/c ₹21000",
+      "Debit Cash A/c ₹21000, Credit Wages A/c ₹21000",
+      "Debit Capital A/c ₹21000, Credit Wages A/c ₹21000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹21000, Credit Outstanding Wages Liability A/c ₹21000."
+  },
+  {
+    "id": 193,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹24000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹24000, Credit Outstanding Wages Liability A/c ₹24000",
+      "Debit Outstanding Wages A/c ₹24000, Credit Cash A/c ₹24000",
+      "Debit Cash A/c ₹24000, Credit Wages A/c ₹24000",
+      "Debit Capital A/c ₹24000, Credit Wages A/c ₹24000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹24000, Credit Outstanding Wages Liability A/c ₹24000."
+  },
+  {
+    "id": 194,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹27000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹27000, Credit Outstanding Wages Liability A/c ₹27000",
+      "Debit Outstanding Wages A/c ₹27000, Credit Cash A/c ₹27000",
+      "Debit Cash A/c ₹27000, Credit Wages A/c ₹27000",
+      "Debit Capital A/c ₹27000, Credit Wages A/c ₹27000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹27000, Credit Outstanding Wages Liability A/c ₹27000."
+  },
+  {
+    "id": 195,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹30000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹30000, Credit Outstanding Wages Liability A/c ₹30000",
+      "Debit Outstanding Wages A/c ₹30000, Credit Cash A/c ₹30000",
+      "Debit Cash A/c ₹30000, Credit Wages A/c ₹30000",
+      "Debit Capital A/c ₹30000, Credit Wages A/c ₹30000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹30000, Credit Outstanding Wages Liability A/c ₹30000."
+  },
+  {
+    "id": 196,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹33000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹33000, Credit Outstanding Wages Liability A/c ₹33000",
+      "Debit Outstanding Wages A/c ₹33000, Credit Cash A/c ₹33000",
+      "Debit Cash A/c ₹33000, Credit Wages A/c ₹33000",
+      "Debit Capital A/c ₹33000, Credit Wages A/c ₹33000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹33000, Credit Outstanding Wages Liability A/c ₹33000."
+  },
+  {
+    "id": 197,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹36000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹36000, Credit Outstanding Wages Liability A/c ₹36000",
+      "Debit Outstanding Wages A/c ₹36000, Credit Cash A/c ₹36000",
+      "Debit Cash A/c ₹36000, Credit Wages A/c ₹36000",
+      "Debit Capital A/c ₹36000, Credit Wages A/c ₹36000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹36000, Credit Outstanding Wages Liability A/c ₹36000."
+  },
+  {
+    "id": 198,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹39000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹39000, Credit Outstanding Wages Liability A/c ₹39000",
+      "Debit Outstanding Wages A/c ₹39000, Credit Cash A/c ₹39000",
+      "Debit Cash A/c ₹39000, Credit Wages A/c ₹39000",
+      "Debit Capital A/c ₹39000, Credit Wages A/c ₹39000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹39000, Credit Outstanding Wages Liability A/c ₹39000."
+  },
+  {
+    "id": 199,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹42000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹42000, Credit Outstanding Wages Liability A/c ₹42000",
+      "Debit Outstanding Wages A/c ₹42000, Credit Cash A/c ₹42000",
+      "Debit Cash A/c ₹42000, Credit Wages A/c ₹42000",
+      "Debit Capital A/c ₹42000, Credit Wages A/c ₹42000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹42000, Credit Outstanding Wages Liability A/c ₹42000."
+  },
+  {
+    "id": 200,
+    "topic": "accrual_expenses",
+    "question": "Unpaid shop wages at month end amount to ₹45000. What is the adjusting entry?",
+    "options": [
+      "Debit Wages Expense A/c ₹45000, Credit Outstanding Wages Liability A/c ₹45000",
+      "Debit Outstanding Wages A/c ₹45000, Credit Cash A/c ₹45000",
+      "Debit Cash A/c ₹45000, Credit Wages A/c ₹45000",
+      "Debit Capital A/c ₹45000, Credit Wages A/c ₹45000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued liability: Debit Wages Expense A/c ₹45000, Credit Outstanding Wages Liability A/c ₹45000."
+  },
+  {
+    "id": 201,
+    "topic": "accrual_income",
+    "question": "What is Accrued Income?",
+    "options": [
+      "Income EARNED during the accounting period but NOT YET RECEIVED in cash/bank at period end",
+      "Income received in advance",
+      "An expense unpaid",
+      "A capital contribution"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued income represents earned revenue for services already rendered but pending receipt."
+  },
+  {
+    "id": 202,
+    "topic": "accrual_income",
+    "question": "Under which major balance sheet head is Accrued Interest Income shown?",
+    "options": [
+      "Current Assets",
+      "Current Liabilities",
+      "Fixed Assets",
+      "Capital Equity"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Income represents a legally enforceable receivable, classified as a Current Asset."
+  },
+  {
+    "id": 203,
+    "topic": "accrual_income",
+    "question": "What is the journal entry to record Accrued Interest Income ₹5,00,0 earned on bank FD?",
+    "options": [
+      "Debit Accrued Interest (Current Asset) A/c ₹5,000, Credit Interest Income A/c ₹5,000",
+      "Debit Cash A/c, Credit Interest A/c",
+      "Debit Interest Income A/c, Credit Bank A/c",
+      "Debit Capital A/c, Credit Interest A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Interest Asset A/c ₹5,000, Credit Interest Income Revenue A/c ₹5,000."
+  },
+  {
+    "id": 204,
+    "topic": "accrual_income",
+    "question": "What is Unearned Income (Income Received in Advance)?",
+    "options": [
+      "Income RECEIVED in cash during current period for services to be rendered in FUTURE periods",
+      "Income earned but unreceived",
+      "An outstanding expense",
+      "A bad debt"
+    ],
+    "answerIndex": 0,
+    "explanation": "Unearned income represents advance customer payments creating a performance obligation/liability."
+  },
+  {
+    "id": 205,
+    "topic": "accrual_income",
+    "question": "Under which major balance sheet head is Rent Received in Advance shown?",
+    "options": [
+      "Current Liabilities",
+      "Current Assets",
+      "Fixed Assets",
+      "Capital Equity"
+    ],
+    "answerIndex": 0,
+    "explanation": "Income received in advance creates an unearned performance obligation, classified as a Current Liability."
+  },
+  {
+    "id": 206,
+    "topic": "accrual_income",
+    "question": "What is the journal entry when 6 months advance rent ₹30,000 is received in cash from a tenant?",
+    "options": [
+      "Debit Cash A/c ₹30,000, Credit Unearned Rent / Rent Received in Advance Liability A/c ₹30,000",
+      "Debit Rent Income A/c, Credit Cash A/c",
+      "Debit Cash A/c, Credit Rent Income A/c",
+      "Debit Capital A/c, Credit Cash A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Unearned Revenue Creation: Debit Cash Asset A/c ₹30,000, Credit Rent Received in Advance Liability A/c."
+  },
+  {
+    "id": 207,
+    "topic": "accrual_income",
+    "question": "When 1 month's earned rent (₹5,000 out of ₹30,000 advance) is recognized at month end, what is the adjusting entry?",
+    "options": [
+      "Debit Rent Received in Advance Liability A/c ₹5,000, Credit Rent Income A/c ₹5,000",
+      "Debit Rent Income A/c, Credit Cash A/c",
+      "Debit Cash A/c, Credit Rent Income A/c",
+      "Debit Capital A/c, Credit P&L A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Adjusting Unearned Revenue: Debit Rent Received in Advance Liability A/c (reducing liability), Credit Rent Income A/c."
+  },
+  {
+    "id": 208,
+    "topic": "accrual_income",
+    "question": "When cash is subsequently received for previously recorded Accrued Interest ₹5,000, which account is credited?",
+    "options": [
+      "Accrued Interest (Current Asset) Account",
+      "Interest Income Account",
+      "Cash Account",
+      "P&L Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Realizing Receivable Asset: Debit Cash A/c ₹5,000, Credit Accrued Interest Asset A/c ₹5,000 (clearing asset)."
+  },
+  {
+    "id": 209,
+    "topic": "accrual_income",
+    "question": "Which accounting principle mandates recognizing Accrued Income in the period earned?",
+    "options": [
+      "Revenue Realization & Matching Principle",
+      "Cash Basis Principle",
+      "Cost Principle",
+      "Prudence Principle"
+    ],
+    "answerIndex": 0,
+    "explanation": "Revenue Realization Principle dictates recognizing income when earned, regardless of cash receipt date."
+  },
+  {
+    "id": 210,
+    "topic": "accrual_income",
+    "question": "Which TallyPrime voucher type is used for recording Accrued Income adjustment entries?",
+    "options": [
+      "F7 Journal Voucher",
+      "F6 Receipt Voucher",
+      "F5 Payment Voucher",
+      "F4 Contra Voucher"
+    ],
+    "answerIndex": 0,
+    "explanation": "F7 Journal Voucher is used in TallyPrime for non-cash accrued revenue adjustments."
+  },
+  {
+    "id": 211,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹2500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹2500, Credit Commission Income A/c ₹2500",
+      "Debit Cash A/c ₹2500, Credit Commission Income A/c ₹2500",
+      "Debit Commission Income A/c ₹2500, Credit Cash A/c ₹2500",
+      "Debit Capital A/c ₹2500, Credit Commission A/c ₹2500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹2500, Credit Commission Income Revenue A/c ₹2500."
+  },
+  {
+    "id": 212,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹5000. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹5000, Credit Commission Income A/c ₹5000",
+      "Debit Cash A/c ₹5000, Credit Commission Income A/c ₹5000",
+      "Debit Commission Income A/c ₹5000, Credit Cash A/c ₹5000",
+      "Debit Capital A/c ₹5000, Credit Commission A/c ₹5000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹5000, Credit Commission Income Revenue A/c ₹5000."
+  },
+  {
+    "id": 213,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹7500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹7500, Credit Commission Income A/c ₹7500",
+      "Debit Cash A/c ₹7500, Credit Commission Income A/c ₹7500",
+      "Debit Commission Income A/c ₹7500, Credit Cash A/c ₹7500",
+      "Debit Capital A/c ₹7500, Credit Commission A/c ₹7500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹7500, Credit Commission Income Revenue A/c ₹7500."
+  },
+  {
+    "id": 214,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹10000. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹10000, Credit Commission Income A/c ₹10000",
+      "Debit Cash A/c ₹10000, Credit Commission Income A/c ₹10000",
+      "Debit Commission Income A/c ₹10000, Credit Cash A/c ₹10000",
+      "Debit Capital A/c ₹10000, Credit Commission A/c ₹10000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹10000, Credit Commission Income Revenue A/c ₹10000."
+  },
+  {
+    "id": 215,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹12500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹12500, Credit Commission Income A/c ₹12500",
+      "Debit Cash A/c ₹12500, Credit Commission Income A/c ₹12500",
+      "Debit Commission Income A/c ₹12500, Credit Cash A/c ₹12500",
+      "Debit Capital A/c ₹12500, Credit Commission A/c ₹12500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹12500, Credit Commission Income Revenue A/c ₹12500."
+  },
+  {
+    "id": 216,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹15000. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹15000, Credit Commission Income A/c ₹15000",
+      "Debit Cash A/c ₹15000, Credit Commission Income A/c ₹15000",
+      "Debit Commission Income A/c ₹15000, Credit Cash A/c ₹15000",
+      "Debit Capital A/c ₹15000, Credit Commission A/c ₹15000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹15000, Credit Commission Income Revenue A/c ₹15000."
+  },
+  {
+    "id": 217,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹17500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹17500, Credit Commission Income A/c ₹17500",
+      "Debit Cash A/c ₹17500, Credit Commission Income A/c ₹17500",
+      "Debit Commission Income A/c ₹17500, Credit Cash A/c ₹17500",
+      "Debit Capital A/c ₹17500, Credit Commission A/c ₹17500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹17500, Credit Commission Income Revenue A/c ₹17500."
+  },
+  {
+    "id": 218,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹20000. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹20000, Credit Commission Income A/c ₹20000",
+      "Debit Cash A/c ₹20000, Credit Commission Income A/c ₹20000",
+      "Debit Commission Income A/c ₹20000, Credit Cash A/c ₹20000",
+      "Debit Capital A/c ₹20000, Credit Commission A/c ₹20000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹20000, Credit Commission Income Revenue A/c ₹20000."
+  },
+  {
+    "id": 219,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹22500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹22500, Credit Commission Income A/c ₹22500",
+      "Debit Cash A/c ₹22500, Credit Commission Income A/c ₹22500",
+      "Debit Commission Income A/c ₹22500, Credit Cash A/c ₹22500",
+      "Debit Capital A/c ₹22500, Credit Commission A/c ₹22500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹22500, Credit Commission Income Revenue A/c ₹22500."
+  },
+  {
+    "id": 220,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹25000. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹25000, Credit Commission Income A/c ₹25000",
+      "Debit Cash A/c ₹25000, Credit Commission Income A/c ₹25000",
+      "Debit Commission Income A/c ₹25000, Credit Cash A/c ₹25000",
+      "Debit Capital A/c ₹25000, Credit Commission A/c ₹25000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹25000, Credit Commission Income Revenue A/c ₹25000."
+  },
+  {
+    "id": 221,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹27500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹27500, Credit Commission Income A/c ₹27500",
+      "Debit Cash A/c ₹27500, Credit Commission Income A/c ₹27500",
+      "Debit Commission Income A/c ₹27500, Credit Cash A/c ₹27500",
+      "Debit Capital A/c ₹27500, Credit Commission A/c ₹27500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹27500, Credit Commission Income Revenue A/c ₹27500."
+  },
+  {
+    "id": 222,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹30000. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹30000, Credit Commission Income A/c ₹30000",
+      "Debit Cash A/c ₹30000, Credit Commission Income A/c ₹30000",
+      "Debit Commission Income A/c ₹30000, Credit Cash A/c ₹30000",
+      "Debit Capital A/c ₹30000, Credit Commission A/c ₹30000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹30000, Credit Commission Income Revenue A/c ₹30000."
+  },
+  {
+    "id": 223,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹32500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹32500, Credit Commission Income A/c ₹32500",
+      "Debit Cash A/c ₹32500, Credit Commission Income A/c ₹32500",
+      "Debit Commission Income A/c ₹32500, Credit Cash A/c ₹32500",
+      "Debit Capital A/c ₹32500, Credit Commission A/c ₹32500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹32500, Credit Commission Income Revenue A/c ₹32500."
+  },
+  {
+    "id": 224,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹35000. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹35000, Credit Commission Income A/c ₹35000",
+      "Debit Cash A/c ₹35000, Credit Commission Income A/c ₹35000",
+      "Debit Commission Income A/c ₹35000, Credit Cash A/c ₹35000",
+      "Debit Capital A/c ₹35000, Credit Commission A/c ₹35000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹35000, Credit Commission Income Revenue A/c ₹35000."
+  },
+  {
+    "id": 225,
+    "topic": "accrual_income",
+    "question": "Commission income earned but unreceived at month end amounts to ₹37500. What is the journal entry?",
+    "options": [
+      "Debit Accrued Commission (Current Asset) A/c ₹37500, Credit Commission Income A/c ₹37500",
+      "Debit Cash A/c ₹37500, Credit Commission Income A/c ₹37500",
+      "Debit Commission Income A/c ₹37500, Credit Cash A/c ₹37500",
+      "Debit Capital A/c ₹37500, Credit Commission A/c ₹37500"
+    ],
+    "answerIndex": 0,
+    "explanation": "Accrued Revenue: Debit Accrued Commission Asset A/c ₹37500, Credit Commission Income Revenue A/c ₹37500."
+  },
+  {
+    "id": 226,
+    "topic": "depreciation",
+    "question": "What is Depreciation in commercial accounting?",
+    "options": [
+      "The systematic allocation of the cost of a tangible fixed asset over its estimated useful life due to wear and tear",
+      "The increase in market value of land",
+      "The cash paid for asset repairs",
+      "A bank loan charge"
+    ],
+    "answerIndex": 0,
+    "explanation": "Depreciation represents non-cash wear and tear cost allocation of fixed assets over their operational life."
+  },
+  {
+    "id": 227,
+    "topic": "depreciation",
+    "question": "What type of account is Depreciation Expense Account?",
+    "options": [
+      "Nominal Account (Operating Expense)",
+      "Real Account",
+      "Personal Account",
+      "Valuation Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Depreciation is an operating expense, classified as a Nominal Account."
+  },
+  {
+    "id": 228,
+    "topic": "depreciation",
+    "question": "What is the standard adjusting journal entry to charge annual depreciation ₹20,000 on Machinery?",
+    "options": [
+      "Debit Depreciation Expense A/c ₹20,000, Credit Machinery Asset A/c ₹20,000",
+      "Debit Cash A/c, Credit Machinery A/c",
+      "Debit Machinery A/c, Credit Depreciation A/c",
+      "Debit P&L A/c, Credit Cash A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Depreciation Entry: Debit Depreciation Expense A/c ₹20,000, Credit Machinery Asset A/c ₹20,000."
+  },
+  {
+    "id": 229,
+    "topic": "depreciation",
+    "question": "Does charging Depreciation involve any immediate cash outflow?",
+    "options": [
+      "No, Depreciation is a NON-CASH operating expense",
+      "Yes, cash is paid to supplier",
+      "Yes, cash is paid to bank",
+      "Yes, cash is paid to government"
+    ],
+    "answerIndex": 0,
+    "explanation": "Depreciation is a non-cash expense allocation; no cash leaves the business cash box."
+  },
+  {
+    "id": 230,
+    "topic": "depreciation",
+    "question": "Under Straight-Line Method (SLM), how is annual depreciation calculated?",
+    "options": [
+      "(Cost of Asset - Estimated Salvage Value) / Estimated Useful Life in Years",
+      "Book Value * Rate %",
+      "Market Value * Rate %",
+      "Cash Paid * 10%"
+    ],
+    "answerIndex": 0,
+    "explanation": "SLM spreads equal annual depreciation cost over the useful life: (Cost - Scrap Value) / Life."
+  },
+  {
+    "id": 231,
+    "topic": "depreciation",
+    "question": "Under Written-Down Value (WDV) Method, how is annual depreciation calculated?",
+    "options": [
+      "Fixed percentage rate applied on the REDUCED book value carrying amount each year",
+      "Fixed amount every year",
+      "Market value * 50%",
+      "Original cost * 10%"
+    ],
+    "answerIndex": 0,
+    "explanation": "WDV method applies a constant percentage rate on the declining book value balance each year."
+  },
+  {
+    "id": 232,
+    "topic": "depreciation",
+    "question": "If machinery cost ₹1,00,000 is purchased on 01-Oct (used for 6 months) at 10% annual SLM depreciation, what is the depreciation for the first year?",
+    "options": [
+      "₹5,000 (Pro-rata 6/12 months)",
+      "₹10,000",
+      "₹1,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Pro-rata Rule: Depreciation for 6 months = ₹1,00,000 * 10% * 6/12 = ₹5,000."
+  },
+  {
+    "id": 233,
+    "topic": "depreciation",
+    "question": "At financial year end, where is the Depreciation Expense Account balance transferred?",
+    "options": [
+      "Debit side of Profit & Loss Account",
+      "Credit side of Trading Account",
+      "Assets side of Balance Sheet",
+      "Liabilities side of Balance Sheet"
+    ],
+    "answerIndex": 0,
+    "explanation": "Depreciation Expense is an indirect operating expense transferred to debit side of P&L Account."
+  },
+  {
+    "id": 234,
+    "topic": "depreciation",
+    "question": "Which fixed asset is generally NOT subject to annual depreciation?",
+    "options": [
+      "Freehold Land",
+      "Factory Machinery",
+      "Office Furniture",
+      "Delivery Vans"
+    ],
+    "answerIndex": 0,
+    "explanation": "Freehold Land has an indefinite useful life and is generally not subject to depreciation."
+  },
+  {
+    "id": 235,
+    "topic": "depreciation",
+    "question": "Which TallyPrime voucher type is used for recording annual Depreciation entries?",
+    "options": [
+      "F7 Journal Voucher",
+      "F5 Payment Voucher",
+      "F4 Contra Voucher",
+      "F8 Sales Voucher"
+    ],
+    "answerIndex": 0,
+    "explanation": "F7 Journal Voucher is the non-cash adjustment voucher used for recording Depreciation in TallyPrime."
+  },
+  {
+    "id": 236,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹50,000. What is the Depreciation amount?",
+    "options": [
+      "₹5,000",
+      "₹50,000",
+      "₹45,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹50,000 = ₹5,000."
+  },
+  {
+    "id": 237,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹1,00,000. What is the Depreciation amount?",
+    "options": [
+      "₹10,000",
+      "₹1,00,000",
+      "₹90,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹1,00,000 = ₹10,000."
+  },
+  {
+    "id": 238,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹1,50,000. What is the Depreciation amount?",
+    "options": [
+      "₹15,000",
+      "₹1,50,000",
+      "₹1,35,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹1,50,000 = ₹15,000."
+  },
+  {
+    "id": 239,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹2,00,000. What is the Depreciation amount?",
+    "options": [
+      "₹20,000",
+      "₹2,00,000",
+      "₹1,80,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹2,00,000 = ₹20,000."
+  },
+  {
+    "id": 240,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹2,50,000. What is the Depreciation amount?",
+    "options": [
+      "₹25,000",
+      "₹2,50,000",
+      "₹2,25,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹2,50,000 = ₹25,000."
+  },
+  {
+    "id": 241,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹3,00,000. What is the Depreciation amount?",
+    "options": [
+      "₹30,000",
+      "₹3,00,000",
+      "₹2,70,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹3,00,000 = ₹30,000."
+  },
+  {
+    "id": 242,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹3,50,000. What is the Depreciation amount?",
+    "options": [
+      "₹35,000",
+      "₹3,50,000",
+      "₹3,15,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹3,50,000 = ₹35,000."
+  },
+  {
+    "id": 243,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹4,00,000. What is the Depreciation amount?",
+    "options": [
+      "₹40,000",
+      "₹4,00,000",
+      "₹3,60,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹4,00,000 = ₹40,000."
+  },
+  {
+    "id": 244,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹4,50,000. What is the Depreciation amount?",
+    "options": [
+      "₹45,000",
+      "₹4,50,000",
+      "₹4,05,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹4,50,000 = ₹45,000."
+  },
+  {
+    "id": 245,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹5,00,000. What is the Depreciation amount?",
+    "options": [
+      "₹50,000",
+      "₹5,00,000",
+      "₹4,50,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹5,00,000 = ₹50,000."
+  },
+  {
+    "id": 246,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹5,50,000. What is the Depreciation amount?",
+    "options": [
+      "₹55,000",
+      "₹5,50,000",
+      "₹4,95,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹5,50,000 = ₹55,000."
+  },
+  {
+    "id": 247,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹6,00,000. What is the Depreciation amount?",
+    "options": [
+      "₹60,000",
+      "₹6,00,000",
+      "₹5,40,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹6,00,000 = ₹60,000."
+  },
+  {
+    "id": 248,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹6,50,000. What is the Depreciation amount?",
+    "options": [
+      "₹65,000",
+      "₹6,50,000",
+      "₹5,85,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹6,50,000 = ₹65,000."
+  },
+  {
+    "id": 249,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹7,00,000. What is the Depreciation amount?",
+    "options": [
+      "₹70,000",
+      "₹7,00,000",
+      "₹6,30,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹7,00,000 = ₹70,000."
+  },
+  {
+    "id": 250,
+    "topic": "depreciation",
+    "question": "Charged 10% annual depreciation on office furniture cost ₹7,50,000. What is the Depreciation amount?",
+    "options": [
+      "₹75,000",
+      "₹7,50,000",
+      "₹6,75,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "10% Depreciation on ₹7,50,000 = ₹75,000."
+  },
+  {
+    "id": 251,
+    "topic": "bad_debts",
+    "question": "What is a Bad Debt?",
+    "options": [
+      "A customer trade debtor balance that has become completely irrecoverable due to insolvency",
+      "A bank loan",
+      "A discount allowed",
+      "A supplier debt"
+    ],
+    "answerIndex": 0,
+    "explanation": "Bad debts represent irrecoverable customer accounts written off as operating losses."
+  },
+  {
+    "id": 252,
+    "topic": "bad_debts",
+    "question": "When writing off an unrecoverable debtor balance ₹10,000 as Bad Debt, which account is debited?",
+    "options": [
+      "Bad Debts Expense Account (Nominal Loss)",
+      "Customer Account",
+      "Cash Account",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Writing off bad debt: Debit Bad Debts Expense A/c ₹10,000, Credit Customer Debtor Asset A/c."
+  },
+  {
+    "id": 253,
+    "topic": "bad_debts",
+    "question": "What is Bad Debts Recovered Account?",
+    "options": [
+      "A Nominal Income account credited when cash is unexpectedly received from a previously written-off debtor",
+      "An expense account",
+      "A debtor account",
+      "A liability account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Bad Debts Recovered is an indirect gain credited when a written-off debt is subsequently collected."
+  },
+  {
+    "id": 254,
+    "topic": "bad_debts",
+    "question": "When cash ₹5,000 is recovered from a debtor whose debt was written off as bad debt last year, which account is credited?",
+    "options": [
+      "Bad Debts Recovered Account (Income)",
+      "Customer Account",
+      "Bad Debts Expense A/c",
+      "Sales Account"
+    ],
+    "answerIndex": 0,
+    "explanation": "Subsequent recovery is credited to Bad Debts Recovered Income A/c (NEVER credited to customer account)."
+  },
+  {
+    "id": 255,
+    "topic": "bad_debts",
+    "question": "What is the Provision for Doubtful Debts Account?",
+    "options": [
+      "A Contra-Asset Reserve created at year end under prudence to cover estimated future bad debt losses",
+      "A bank account",
+      "A sales account",
+      "A current liability"
+    ],
+    "answerIndex": 0,
+    "explanation": "Provision for Doubtful Debts is a contra-asset reserve deducted from Sundry Debtors in Balance Sheet."
+  },
+  {
+    "id": 256,
+    "topic": "bad_debts",
+    "question": "Under which accounting concept is Provision for Doubtful Debts created at year end?",
+    "options": [
+      "Prudence / Conservatism Principle",
+      "Cost Principle",
+      "Going Concern Principle",
+      "Dual Aspect Principle"
+    ],
+    "answerIndex": 0,
+    "explanation": "Prudence principle dictates anticipating all expected losses by creating provisions for doubtful debts."
+  },
+  {
+    "id": 257,
+    "topic": "bad_debts",
+    "question": "What is the journal entry to create a 5% Provision for Doubtful Debts ₹8,000 at year end?",
+    "options": [
+      "Debit Profit & Loss Account ₹8,000, Credit Provision for Doubtful Debts Account ₹8,000",
+      "Debit Cash A/c, Credit Provision A/c",
+      "Debit Debtors A/c, Credit P&L A/c",
+      "Debit Provision A/c, Credit Cash A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Creating Provision Reserve: Debit Profit & Loss A/c (charging expense), Credit Provision for Doubtful Debts A/c."
+  },
+  {
+    "id": 258,
+    "topic": "bad_debts",
+    "question": "How is Provision for Doubtful Debts presented in the Balance Sheet?",
+    "options": [
+      "Deducted from Sundry Debtors on the Asset side",
+      "Added to Capital",
+      "Shown under Cash",
+      "Shown under Bank Loan"
+    ],
+    "answerIndex": 0,
+    "explanation": "Provision for Doubtful Debts is shown as a contra-asset deduction from Sundry Debtors on the Asset side."
+  },
+  {
+    "id": 259,
+    "topic": "bad_debts",
+    "question": "What happens when required Provision for Doubtful Debts decreases from ₹10,000 to ₹7,000 at next year end?",
+    "options": [
+      "Excess reserve ₹3,000 is debited to Provision A/c and credited to Profit & Loss Account",
+      "Debtors increase by ₹3,000",
+      "Cash decreases by ₹3,000",
+      "Capital decreases by ₹3,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "Releasing excess provision: Debit Provision for Doubtful Debts A/c ₹3,000, Credit Profit & Loss A/c ₹3,000 (Income)."
+  },
+  {
+    "id": 260,
+    "topic": "bad_debts",
+    "question": "Which TallyPrime voucher type is used for Bad Debt Write-off entries?",
+    "options": [
+      "F7 Journal Voucher",
+      "F5 Payment Voucher",
+      "F6 Receipt Voucher",
+      "F8 Sales Voucher"
+    ],
+    "answerIndex": 0,
+    "explanation": "F7 Journal Voucher is used for recording non-cash bad debt write-off adjustments."
+  },
+  {
+    "id": 261,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹20,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹1,000",
+      "₹20,000",
+      "₹19,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹20,000 = ₹1,000."
+  },
+  {
+    "id": 262,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹40,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹2,000",
+      "₹40,000",
+      "₹38,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹40,000 = ₹2,000."
+  },
+  {
+    "id": 263,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹60,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹3,000",
+      "₹60,000",
+      "₹57,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹60,000 = ₹3,000."
+  },
+  {
+    "id": 264,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹80,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹4,000",
+      "₹80,000",
+      "₹76,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹80,000 = ₹4,000."
+  },
+  {
+    "id": 265,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹1,00,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹5,000",
+      "₹1,00,000",
+      "₹95,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹1,00,000 = ₹5,000."
+  },
+  {
+    "id": 266,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹1,20,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹6,000",
+      "₹1,20,000",
+      "₹1,14,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹1,20,000 = ₹6,000."
+  },
+  {
+    "id": 267,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹1,40,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹7,000",
+      "₹1,40,000",
+      "₹1,33,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹1,40,000 = ₹7,000."
+  },
+  {
+    "id": 268,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹1,60,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹8,000",
+      "₹1,60,000",
+      "₹1,52,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹1,60,000 = ₹8,000."
+  },
+  {
+    "id": 269,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹1,80,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹9,000",
+      "₹1,80,000",
+      "₹1,71,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹1,80,000 = ₹9,000."
+  },
+  {
+    "id": 270,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹2,00,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹10,000",
+      "₹2,00,000",
+      "₹1,90,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹2,00,000 = ₹10,000."
+  },
+  {
+    "id": 271,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹2,20,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹11,000",
+      "₹2,20,000",
+      "₹2,09,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹2,20,000 = ₹11,000."
+  },
+  {
+    "id": 272,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹2,40,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹12,000",
+      "₹2,40,000",
+      "₹2,28,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹2,40,000 = ₹12,000."
+  },
+  {
+    "id": 273,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹2,60,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹13,000",
+      "₹2,60,000",
+      "₹2,47,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹2,60,000 = ₹13,000."
+  },
+  {
+    "id": 274,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹2,80,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹14,000",
+      "₹2,80,000",
+      "₹2,66,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹2,80,000 = ₹14,000."
+  },
+  {
+    "id": 275,
+    "topic": "bad_debts",
+    "question": "Total Sundry Debtors = ₹3,00,000. Created 5% Provision for Doubtful Debts. What is the Provision amount?",
+    "options": [
+      "₹15,000",
+      "₹3,00,000",
+      "₹2,85,000",
+      "₹1,000"
+    ],
+    "answerIndex": 0,
+    "explanation": "5% Provision on ₹3,00,000 = ₹15,000."
+  },
+  {
+    "id": 276,
+    "topic": "closing_and_interest",
+    "question": "What is Interest on Capital?",
+    "options": [
+      "An interest allowance granted to proprietor on equity capital invested, treated as expense to firm and income to owner",
+      "Interest paid to bank",
+      "Interest paid to supplier",
+      "Interest on cash"
+    ],
+    "answerIndex": 0,
+    "explanation": "Interest on Capital compensates owner for capital invested, debited to Interest on Capital Expense A/c."
+  },
+  {
+    "id": 277,
+    "topic": "closing_and_interest",
+    "question": "What is the journal entry for allowing 6% Interest on Proprietor Capital ₹10,000?",
+    "options": [
+      "Debit Interest on Capital Expense A/c ₹10,000, Credit Proprietor Capital Account ₹10,000",
+      "Debit Cash A/c, Credit Capital A/c",
+      "Debit Capital A/c, Credit Bank A/c",
+      "Debit P&L A/c, Credit Cash A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Allowing Interest on Capital: Debit Interest on Capital Expense A/c ₹10,000, Credit Capital A/c ₹10,000."
+  },
+  {
+    "id": 278,
+    "topic": "closing_and_interest",
+    "question": "What is Interest on Drawings?",
+    "options": [
+      "An interest charge levied by firm on proprietor's personal cash/goods withdrawals, treated as income to firm",
+      "An expense to firm",
+      "A bank charge",
+      "A tax"
+    ],
+    "answerIndex": 0,
+    "explanation": "Interest on Drawings is a financial income to the business firm charged on owner personal withdrawals."
+  },
+  {
+    "id": 279,
+    "topic": "closing_and_interest",
+    "question": "What is the journal entry for charging Interest on Proprietor Drawings ₹2,000?",
+    "options": [
+      "Debit Drawings Account ₹2,000, Credit Interest on Drawings Income Account ₹2,000",
+      "Debit Cash A/c, Credit Drawings A/c",
+      "Debit Interest on Drawings A/c, Credit Cash A/c",
+      "Debit Capital A/c, Credit Bank A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Charging Interest on Drawings: Debit Drawings A/c ₹2,000 (reducing equity), Credit Interest on Drawings Income A/c."
+  },
+  {
+    "id": 280,
+    "topic": "closing_and_interest",
+    "question": "How is Manager's Commission calculated when payable 'BEFORE charging such commission' on net profit ₹1,00,000 at 10%?",
+    "options": [
+      "₹1,00,000 * 10/100 = ₹10,000",
+      "₹1,00,000 * 10/110 = ₹9,091",
+      "₹1,00,000 * 5/100 = ₹5,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "Before Commission Formula: Commission = Net Profit * Rate / 100 = ₹10,000."
+  },
+  {
+    "id": 281,
+    "topic": "closing_and_interest",
+    "question": "How is Manager's Commission calculated when payable 'AFTER charging such commission' on net profit ₹1,10,000 at 10%?",
+    "options": [
+      "₹1,10,000 * 10/110 = ₹10,000",
+      "₹1,10,000 * 10/100 = ₹11,000",
+      "₹1,10,000 * 5/100 = ₹5,500",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "After Commission Formula: Commission = Net Profit * Rate / (100 + Rate) = ₹1,10,000 * 10/110 = ₹10,000."
+  },
+  {
+    "id": 282,
+    "topic": "closing_and_interest",
+    "question": "What is the journal entry to record Closing Inventory Stock ₹50,000 into Trading Account at year end?",
+    "options": [
+      "Debit Closing Stock / Inventory (Current Asset) A/c ₹50,000, Credit Trading Account ₹50,000",
+      "Debit Trading A/c, Credit Cash A/c",
+      "Debit Sales A/c, Credit Stock A/c",
+      "Debit P&L A/c, Credit Stock A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Closing Stock Entry: Debit Closing Stock Asset A/c ₹50,000, Credit Trading Account ₹50,000."
+  },
+  {
+    "id": 283,
+    "topic": "closing_and_interest",
+    "question": "What is the closing entry to transfer Net Sales Revenue ₹5,00,000 to Trading Account?",
+    "options": [
+      "Debit Sales Account ₹5,00,000, Credit Trading Account ₹5,00,000",
+      "Debit Trading A/c, Credit Sales A/c",
+      "Debit P&L A/c, Credit Sales A/c",
+      "Debit Cash A/c, Credit Sales A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Closing Revenue Entry: Debit Sales Account ₹5,00,000, Credit Trading Account ₹5,00,000."
+  },
+  {
+    "id": 284,
+    "topic": "closing_and_interest",
+    "question": "What is the closing entry to transfer Gross Profit ₹2,00,000 from Trading Account to Profit & Loss Account?",
+    "options": [
+      "Debit Trading Account ₹2,00,000, Credit Profit & Loss Account ₹2,00,000",
+      "Debit P&L A/c, Credit Trading A/c",
+      "Debit Capital A/c, Credit P&L A/c",
+      "Debit Cash A/c, Credit Trading A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Gross Profit Transfer: Debit Trading Account ₹2,00,000, Credit Profit & Loss Account ₹2,00,000."
+  },
+  {
+    "id": 285,
+    "topic": "closing_and_interest",
+    "question": "What is the final closing entry to transfer Net Profit ₹1,20,000 from Profit & Loss Account to Proprietor Equity?",
+    "options": [
+      "Debit Profit & Loss Account ₹1,20,000, Credit Proprietor Capital Account ₹1,20,000",
+      "Debit Capital A/c, Credit P&L A/c",
+      "Debit Cash A/c, Credit Capital A/c",
+      "Debit Trading A/c, Credit Capital A/c"
+    ],
+    "answerIndex": 0,
+    "explanation": "Net Profit Transfer: Debit Profit & Loss Account ₹1,20,000 (closing P&L), Credit Proprietor Capital Account ₹1,20,000 (increasing equity)."
+  },
+  {
+    "id": 286,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹1,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹6,000",
+      "₹1,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹1,00,000 = ₹6,000."
+  },
+  {
+    "id": 287,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹2,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹12,000",
+      "₹2,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹2,00,000 = ₹12,000."
+  },
+  {
+    "id": 288,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹3,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹18,000",
+      "₹3,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹3,00,000 = ₹18,000."
+  },
+  {
+    "id": 289,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹4,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹24,000",
+      "₹4,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹4,00,000 = ₹24,000."
+  },
+  {
+    "id": 290,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹5,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹30,000",
+      "₹5,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹5,00,000 = ₹30,000."
+  },
+  {
+    "id": 291,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹6,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹36,000",
+      "₹6,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹6,00,000 = ₹36,000."
+  },
+  {
+    "id": 292,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹7,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹42,000",
+      "₹7,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹7,00,000 = ₹42,000."
+  },
+  {
+    "id": 293,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹8,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹48,000",
+      "₹8,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹8,00,000 = ₹48,000."
+  },
+  {
+    "id": 294,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹9,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹54,000",
+      "₹9,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹9,00,000 = ₹54,000."
+  },
+  {
+    "id": 295,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹10,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹60,000",
+      "₹10,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹10,00,000 = ₹60,000."
+  },
+  {
+    "id": 296,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹11,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹66,000",
+      "₹11,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹11,00,000 = ₹66,000."
+  },
+  {
+    "id": 297,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹12,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹72,000",
+      "₹12,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹12,00,000 = ₹72,000."
+  },
+  {
+    "id": 298,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹13,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹78,000",
+      "₹13,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹13,00,000 = ₹78,000."
+  },
+  {
+    "id": 299,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹14,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹84,000",
+      "₹14,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹14,00,000 = ₹84,000."
+  },
+  {
+    "id": 300,
+    "topic": "closing_and_interest",
+    "question": "Proprietor Capital = ₹15,00,000. Allowed 6% Interest on Capital. What is the Interest amount?",
+    "options": [
+      "₹90,000",
+      "₹15,00,000",
+      "₹6,000",
+      "₹0"
+    ],
+    "answerIndex": 0,
+    "explanation": "6% Interest on Capital of ₹15,00,000 = ₹90,000."
+  }
+]

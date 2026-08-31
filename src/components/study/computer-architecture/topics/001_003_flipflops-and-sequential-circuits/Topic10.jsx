@@ -150,13 +150,13 @@ const Topic10 = () => {
                   <span>⚠️</span> The Fatal Flaw: Race-Around Condition in Single JK
                 </span>
                 <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In a single level-triggered JK flip-flop, when <code className="text-teal-300 font-mono">J=1</code> and <code className="text-rose-300 font-mono">K=1</code> and Clock is held HIGH ($CLK=1$), the output $Q$ inverts.
+                  In a single level-triggered JK flip-flop, when <code className="text-teal-300 font-mono">J=1</code> and <code className="text-rose-300 font-mono">K=1</code> and Clock is held HIGH (<code className="text-sky-300 font-mono">CLK=1</code>), the output <code className="text-emerald-300 font-mono">Q</code> inverts.
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-rose-950/40 border border-rose-800/60 font-mono text-xs text-rose-200 text-center font-bold">
                   t_pulse &gt; t_propagation → Output Toggles Continuously (Uncontrolled Ringing)
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Because the clock pulse duration ($t_p$) is longer than the gate propagation delay ($t__pd$), the new inverted output feeds right back to the steering inputs, causing $Q$ to toggle 0 → 1 → 0 → 1 repeatedly during a single clock pulse, leaving the final state unpredictable!
+                  Because the clock pulse duration (t_pulse) is longer than the gate propagation delay (t_pd), the new inverted output feeds right back to the steering inputs, causing Q to toggle 0 → 1 → 0 → 1 repeatedly during a single clock pulse, leaving the final state unpredictable!
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-rose-950/30 border border-rose-800/40 text-xs text-rose-200">
@@ -177,12 +177,85 @@ const Topic10 = () => {
                   CLK = 1: Master ENABLED &amp; Slave DISABLED | CLK = 0: Master DISABLED &amp; Slave ENABLED
                 </div>
                 <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-                  <li><strong>Phase 1 ($CLK=1$):</strong> Master latch accepts inputs $J, K$ and stores intermediate state $Y$. The Slave is locked ($CLK̄=0$), isolating the outputs $Q, Q̄$.</li>
-                  <li><strong>Phase 2 ($CLK=0$):</strong> Master is locked, while the Slave enables and copies intermediate state $Y$ to final output $Q$.</li>
+                  <li><strong>Phase 1 (CLK = 1):</strong> Master latch accepts inputs J, K and stores intermediate state Y. The Slave is locked (CLK̄ = 0), isolating the outputs Q, Q̄.</li>
+                  <li><strong>Phase 2 (CLK = 0):</strong> Master is locked, while the Slave enables and copies intermediate state Y to final output Q.</li>
                 </ul>
               </div>
               <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
                 🎯 <strong>Teacher's Law:</strong> <em>"Because Master and Slave are never enabled at the exact same instant, the feedback loop is permanently broken during signal updates. Race-around is impossible!"</em>
+              </div>
+            </div>
+          </div>
+
+          {/* ─── DEDICATED SECTION: Resolving Race-Around using Master-Slave Architecture ─── */}
+          <div className="mt-8 p-6 rounded-xl bg-slate-950 border border-teal-500/50 space-y-6">
+            <div className="flex items-center gap-2 text-teal-300 font-mono font-bold text-sm uppercase tracking-wider">
+              <span>🔒</span> Dedicated Breakdown: How Master-Slave Architecture Resolves the Race-Around Hazard
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              The <strong>Master-Slave JK Flip-Flop</strong> resolves the race-around condition by replacing a single level-sensitive latch with a <strong>two-stage cascaded system (Master + Slave)</strong> controlled by <strong>complementary clock signals</strong> (CLK and CLK̄).
+            </p>
+
+            {/* 3 Step Mechanics Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div className="p-4 rounded-lg bg-slate-900 border border-teal-900/60 space-y-2">
+                <strong className="text-teal-300 font-mono block text-sm">1. Two-Stage Isolation</strong>
+                <p className="text-slate-300 leading-relaxed">
+                  The circuit consists of 8 NAND gates divided into two stages:
+                  <br />
+                  • <strong>Master Stage (NAND 1-4):</strong> Accepts J, K inputs &amp; global feedback.
+                  <br />
+                  • <strong>Slave Stage (NAND 5-8):</strong> Acts as a buffer to drive final outputs Q, Q̄.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-slate-900 border border-cyan-900/60 space-y-2">
+                <strong className="text-cyan-300 font-mono block text-sm">2. Phase-1: Sampling (CLK=1)</strong>
+                <p className="text-slate-300 leading-relaxed">
+                  When CLK = 1:
+                  <br />
+                  • Master is <strong>ENABLED</strong> and captures inputs J, K into intermediate state Y.
+                  <br />
+                  • Slave is <strong>DISABLED</strong> (CLK̄ = 0). Output Q remains locked. Feedback is completely isolated!
+                </p>
+              </div>
+
+              <div className="p-4 rounded-lg bg-slate-900 border border-emerald-900/60 space-y-2">
+                <strong className="text-emerald-300 font-mono block text-sm">3. Phase-2: Transfer (CLK=0)</strong>
+                <p className="text-slate-300 leading-relaxed">
+                  When CLK transitions to 0 (CLK̄ = 1):
+                  <br />
+                  • Master becomes <strong>LOCKED</strong> (CLK = 0), ignoring further input glitches.
+                  <br />
+                  • Slave becomes <strong>ENABLED</strong> (CLK̄ = 1), copying intermediate state Y to final output Q <strong>exactly once</strong>!
+                </p>
+              </div>
+            </div>
+
+            {/* Mathematical Proof of Loop Breaking */}
+            <div className="p-5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3">
+              <span className="text-amber-300 font-mono font-bold text-xs uppercase block">
+                📐 Mathematical &amp; Logical Proof of Race Elimination
+              </span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
+                <div className="p-3 rounded-lg bg-slate-950 border border-rose-900/50 space-y-1">
+                  <strong className="text-rose-400 block">Single Level-Triggered JK (Feedback Loop Closed)</strong>
+                  <p className="text-slate-400 leading-relaxed">
+                    In a single JK flip-flop, inputs and outputs are active simultaneously when CLK=1. Signal path: <code className="text-rose-300">J/K → Gates → Q → Feedback → J/K</code> is <strong>100% CLOSED</strong> during CLK=1, causing endless oscillation (t_pulse &gt; t_pd).
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-lg bg-slate-950 border border-teal-900/50 space-y-1">
+                  <strong className="text-teal-300 block">Master-Slave JK (Feedback Loop Permanently Broken)</strong>
+                  <p className="text-slate-400 leading-relaxed">
+                    • When Master is OPEN (CLK=1), Slave is CLOSED ⇒ Feedback path is broken at Slave.
+                    <br />
+                    • When Slave is OPEN (CLK=0), Master is CLOSED ⇒ Feedback path is broken at Master.
+                    <br />
+                    <strong>Conclusion: The feedback loop is NEVER closed at the same instant! Race-around is impossible.</strong>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -255,7 +328,7 @@ const Topic10 = () => {
                   <span className="text-xs text-slate-400 font-mono">Master (NAND 1-4) + Clock NOT + Slave (NAND 5-8)</span>
                 </div>
                 <p className="text-xs text-slate-300">
-                  The circuit consists of 8 NAND gates: Master stage (NAND 1-4) accepts inputs $J, K$ when $CLK=1$. The Inverter creates $CLK̄$, which enables the Slave stage (NAND 5-8) to update output $Q$ when $CLK=0$:
+                  The circuit consists of 8 NAND gates: Master stage (NAND 1-4) accepts inputs J, K when CLK = 1. The Inverter creates CLK̄, which enables the Slave stage (NAND 5-8) to update output Q when CLK = 0:
                 </p>
 
                 <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
@@ -499,7 +572,7 @@ const Topic10 = () => {
                       <span>❌</span> Single Level-Triggered JK (Oscillation Flaw)
                     </span>
                     <p className="text-xs text-slate-300 leading-relaxed">
-                      When $J=1, K=1$ and Clock is held HIGH ($CLK=1$), the gate delay $t__pd$ is shorter than the clock pulse $t_p$.
+                      When J=1, K=1 and Clock is held HIGH (CLK = 1), the gate delay t_pd is shorter than the clock pulse t_pulse.
                     </p>
                     <div className="rounded-lg bg-slate-900 p-3 border border-slate-800">
                       <svg viewBox="0 0 400 110" className="w-full h-auto text-xs font-mono select-none">
@@ -521,7 +594,7 @@ const Topic10 = () => {
                       <span>✓</span> Master-Slave Architecture (Zero Race)
                     </span>
                     <p className="text-xs text-slate-300 leading-relaxed">
-                      Master samples on $CLK=1$ while Slave holds output steady. When $CLK=0$, Slave updates once.
+                      Master samples on CLK = 1 while Slave holds output steady. When CLK = 0, Slave updates once.
                     </p>
                     <div className="rounded-lg bg-slate-900 p-3 border border-slate-800">
                       <svg viewBox="0 0 400 110" className="w-full h-auto text-xs font-mono select-none">
@@ -533,7 +606,7 @@ const Topic10 = () => {
                       </svg>
                     </div>
                     <p className="text-xs text-emerald-300 font-semibold">
-                      Outcome: Exactly 1 clean toggle per clock pulse ($\Delta Q = 1$). Zero oscillation!
+                      Outcome: Exactly 1 clean toggle per clock pulse. Zero oscillation!
                     </p>
                   </div>
                 </div>
@@ -789,7 +862,7 @@ const Topic10 = () => {
               </h3>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 <strong className="text-rose-200 block mb-1">• The "1s Catching" Hazard:</strong>
-                In standard Master-Slave flip-flops, if a transient noise spike pulls $J=1$ for even 1 nanosecond while $CLK=1$, the master latch catches and latches the 1 permanently for the rest of the cycle.
+                In standard Master-Slave flip-flops, if a transient noise spike pulls J=1 for even 1 nanosecond while CLK=1, the master latch catches and latches the 1 permanently for the rest of the cycle.
               </div>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 <strong className="text-rose-200 block mb-1">• Expecting Immediate Output on Clock Rise:</strong>

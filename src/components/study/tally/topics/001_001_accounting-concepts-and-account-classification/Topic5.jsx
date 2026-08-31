@@ -1,39 +1,144 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Teacher from "../../../common/TeacherCNAT";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
-import questions from "./topic0_files/topic0_questions";
-import noteText from "./topic0_files/topic0_note.txt?raw";
+import LanguageToggle, { useTopicLanguage } from "./LanguageToggle";
+import questionsEn from "./topic5_files/topic5_questions";
+import questionsBn from "./topic5_files/topic5_questions_bn";
+import noteTextEn from "./topic5_files/topic5_note.txt?raw";
+import noteTextBn from "./topic5_files/topic5_note_bn.txt?raw";
 
+/**
+ * Topic 5 – Traditional Approach: The Golden Rules of Accounting (Personal, Real & Nominal)
+ * Module: 001_001_accounting-concepts-and-account-classification
+ * Track: TallyPrime Master Series – CNAT Academy
+ *
+ * @component
+ * @returns {JSX.Element} Comprehensive interactive tutorial featuring side-by-side Golden Rules master matrix,
+ *                        live Golden Rule application lab, bilingual support, diagnostic assessment, and printable study notes.
+ */
 export default function Topic5() {
+  const { language, setLanguage, isBengali } = useTopicLanguage();
   const sectionRefs = useRef([]);
+
+  const [selectedRuleTab, setSelectedRuleTab] = useState("personal");
+  const [selectedScenarioIndex, setSelectedScenarioIndex] = useState(0);
+
+  const rulesData = {
+    personal: {
+      titleEn: "1. Personal Accounts (ব্যক্তিবাচক হিসাব)",
+      ruleEn: "DEBIT THE RECEIVER, CREDIT THE GIVER",
+      ruleBn: "যে সুবিধা গ্রহণ করে সে ডেবিট, যে সুবিধা প্রদান করে সে ক্রেডিট",
+      scopeEn: "Relates to individuals, human proprietors, registered corporate firms, banks, and representative personal ledgers.",
+      scopeBn: "ব্যক্তি, মালিক, প্রতিষ্ঠান, ব্যাংক এবং প্রতিনিধি লেজারের ক্ষেত্রে প্রযোজ্য।",
+      exampleEn: "Paid cash ₹10,000 to Ramesh -> Ramesh (Receiver) Dr, Cash A/c Cr.",
+      exampleBn: "রমেশকে ১০,০০০ টাকা প্রদান -> Ramesh A/c Dr, Cash A/c Cr.",
+      tallyGroupsEn: "Sundry Debtors, Sundry Creditors, Capital Account, Bank Accounts"
+    },
+    real: {
+      titleEn: "2. Real Accounts (সম্পত্তিবাচক হিসাব)",
+      ruleEn: "DEBIT WHAT COMES IN, CREDIT WHAT GOES OUT",
+      ruleBn: "যা ব্যবসায়ে আসে তা ডেবিট, যা ব্যবসা থেকে চলে যায় তা ক্রেডিট",
+      scopeEn: "Relates to tangible properties (Land, Machinery, Cash, Stock) and intangible assets (Goodwill, Patents).",
+      scopeBn: "দৃশ্যমান সম্পদ (নগদ, আসবাবপত্র, জমি) এবং অদৃশ্যমান সম্পদ (সুনাম, প্যাটেন্ট)-এর ক্ষেত্রে প্রযোজ্য।",
+      exampleEn: "Purchased Furniture for Cash ₹25,000 -> Furniture A/c (Comes in) Dr, Cash A/c (Goes out) Cr.",
+      exampleBn: "নগদে আসবাবপত্র ক্রয় ২৫,০০০ টাকা -> Furniture A/c Dr, Cash A/c Cr.",
+      tallyGroupsEn: "Cash-in-Hand, Fixed Assets, Investments, Stock-in-Hand"
+    },
+    nominal: {
+      titleEn: "3. Nominal Accounts (নামমাত্র / আয়-ব্যয় হিসাব)",
+      ruleEn: "DEBIT ALL EXPENSES & LOSSES, CREDIT ALL INCOMES & GAINS",
+      ruleBn: "সকল প্রকার খরচ ও ক্ষতি ডেবিট, সকল প্রকার আয় ও লাভ ক্রেডিট",
+      scopeEn: "Relates to operational expenses, losses, sales turnover, interest received, and financial gains.",
+      scopeBn: "পরিচালন ব্যয়, ক্ষতি, বিক্রয়লব্ধ আয়, প্রাপ্ত কমিশন ও সুদের ক্ষেত্রে প্রযোজ্য।",
+      exampleEn: "Paid Shop Rent ₹15,000 in Cash -> Rent A/c (Expense) Dr, Cash A/c Cr.",
+      exampleBn: "ভাড়া প্রদান ১৫,০০০ টাকা -> Rent A/c Dr, Cash A/c Cr.",
+      tallyGroupsEn: "Direct Expenses, Indirect Expenses, Sales Accounts, Indirect Incomes"
+    }
+  };
+
+  const labScenarios = [
+    {
+      titleEn: "Paid cash ₹12,000 to Supplier Ramesh",
+      titleBn: "পাওনাদার রমেশকে নগদে ১২,০০০ টাকা প্রদান",
+      debitLedgerEn: "Ramesh Account (Personal - Receiver)",
+      debitLedgerBn: "Ramesh Account (ব্যক্তিবাচক - গ্রহীতা)",
+      debitRuleEn: "Debit the Receiver",
+      debitRuleBn: "যে গ্রহণ করে সে ডেবিট",
+      creditLedgerEn: "Cash Account (Real - Goes out)",
+      creditLedgerBn: "Cash Account (সম্পত্তি - চলে যায়)",
+      creditRuleEn: "Credit what goes out",
+      creditRuleBn: "যা চলে যায় তা ক্রেডিট",
+      tallyVoucherEn: "Payment Voucher (F5)",
+      tallyVoucherBn: "Payment Voucher (F5)"
+    },
+    {
+      titleEn: "Purchased Office Computer for Cash ₹35,000",
+      titleBn: "নগদে ৩৫,০০০ টাকার অফিস কম্পিউটার ক্রয়",
+      debitLedgerEn: "Computer Account (Real - Comes in)",
+      debitLedgerBn: "Computer Account (সম্পত্তি - আসে)",
+      debitRuleEn: "Debit what comes in",
+      debitRuleBn: "যা আসে তা ডেবিট",
+      creditLedgerEn: "Cash Account (Real - Goes out)",
+      creditLedgerBn: "Cash Account (সম্পত্তি - চলে যায়)",
+      creditRuleEn: "Credit what goes out",
+      creditRuleBn: "যা চলে যায় তা ক্রেডিট",
+      tallyVoucherEn: "Payment Voucher (F5) / Purchase (F9)",
+      tallyVoucherBn: "Payment Voucher (F5) / Purchase (F9)"
+    },
+    {
+      titleEn: "Paid Staff Salary by Cheque ₹28,000",
+      titleBn: "চেকের মাধ্যমে ২৮,০০০ টাকা কর্মীদের বেতন প্রদান",
+      debitLedgerEn: "Salary Expense Account (Nominal - Expense)",
+      debitLedgerBn: "Salary Expense (নামমাত্র - খরচ)",
+      debitRuleEn: "Debit all expenses & losses",
+      debitRuleBn: "সকল খরচ ও ক্ষতি ডেবিট",
+      creditLedgerEn: "Bank Account (Personal - Giver)",
+      creditLedgerBn: "Bank Account (ব্যক্তিবাচক - দাতা)",
+      creditRuleEn: "Credit the giver (Bank pays)",
+      creditRuleBn: "যে প্রদান করে সে ক্রেডিট",
+      tallyVoucherEn: "Payment Voucher (F5)",
+      tallyVoucherBn: "Payment Voucher (F5)"
+    },
+    {
+      titleEn: "Received Commission Cash ₹8,000",
+      titleBn: "নগদে ৮,০০০ টাকা কমিশন প্রাপ্তি",
+      debitLedgerEn: "Cash Account (Real - Comes in)",
+      debitLedgerBn: "Cash Account (সম্পত্তি - আসে)",
+      debitRuleEn: "Debit what comes in",
+      debitRuleBn: "যা আসে তা ডেবিট",
+      creditLedgerEn: "Commission Income Account (Nominal - Income)",
+      creditLedgerBn: "Commission Income (নামমাত্র - আয়)",
+      creditRuleEn: "Credit all incomes & gains",
+      creditRuleBn: "সকল আয় ও লাভ ক্রেডিট",
+      tallyVoucherEn: "Receipt Voucher (F6)",
+      tallyVoucherBn: "Receipt Voucher (F6)"
+    }
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
         });
       },
       { threshold: 0.08 }
     );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
+    sectionRefs.current.forEach((el) => { if (el) observer.observe(el); });
     return () => observer.disconnect();
   }, []);
 
   const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
-    }
+    if (el && !sectionRefs.current.includes(el)) sectionRefs.current.push(el);
   };
+
+  const questions = isBengali && questionsBn ? questionsBn : questionsEn;
+  const noteText = isBengali && noteTextBn ? noteTextBn : noteTextEn;
+
+  const currentScenario = labScenarios[selectedScenarioIndex];
 
   return (
     <>
@@ -51,19 +156,28 @@ export default function Topic5() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
         
+        {/* BILINGUAL LANGUAGE TOGGLE CONTROL */}
+        <div ref={addRef} className="reveal-section">
+          <LanguageToggle language={language} onLanguageChange={setLanguage} />
+        </div>
+
         {/* HERO HEADER */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
             <span>📊</span>
-            <span>TallyPrime Master Series · Module 1.1 · Topic 6</span>
+            <span>TallyPrime Master Series · Module 1.1 · Topic 5</span>
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 tracking-tight leading-tight">
-            The Accounting Equation: Assets = Capital + Liabilities with Practical Numerical Balances
+            {isBengali
+              ? "অ্যাকাউন্টিং-এর সনাতন বা গোল্ডেন রুলস: Personal, Real এবং Nominal Accounts"
+              : "Traditional Approach: The Golden Rules of Accounting (Personal, Real & Nominal)"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Mathematical proof of double-entry balance across business transactions.
+            {isBengali
+              ? "দ্বৈত সত্তা বুককিপিংয়ের শতবর্ষ প্রাচীন ৩টি গোল্ডেন রুলস এবং TallyPrime ভাউচারে তাদের বাস্তব প্রয়োগ।"
+              : "Mastering the classic 3 Golden Rules governing Debit and Credit assignments for error-free ledger entries."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-slate-400 pt-2">
@@ -73,127 +187,143 @@ export default function Topic5() {
           </div>
         </header>
 
-        {/* TEACHER'S DESK */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-900/90 to-emerald-950/30 border border-emerald-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-2xl">
-                👨‍🏫
+        {/* ─── 1. INTERACTIVE GOLDEN RULES MASTER EXPLORER ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                {isBengali ? "গোল্ডেন রুলস ইন্টারঅ্যাকটিভ মাস্টারক্লাস" : "Golden Rules Interactive Masterclass"}
+              </h2>
+              <p className="text-xs text-slate-400">
+                {isBengali ? "অ্যাকাউন্টের ধরন নির্বাচন করে ডেবিট ও ক্রেডিট সুত্র জানুন" : "Select account type to inspect exact Debit/Credit rules, scope, and parent Tally groups"}
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+              {["personal", "real", "nominal"].map(r => (
+                <button
+                  key={r}
+                  onClick={() => setSelectedRuleTab(r)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold capitalize transition ${
+                    selectedRuleTab === r ? "bg-emerald-950 text-emerald-300 border border-emerald-500" : "text-slate-400 hover:text-slate-200"
+                  }`}
+                >
+                  {r} Account
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="p-6 rounded-xl bg-slate-950 border border-slate-800 space-y-4">
+            <h3 className="text-lg font-bold text-emerald-300">
+              {rulesData[selectedRuleTab].titleEn}
+            </h3>
+
+            <div className="p-4 rounded-xl bg-slate-900 border border-emerald-500/40 font-mono text-sm text-emerald-400 font-bold text-center tracking-wide">
+              {isBengali ? rulesData[selectedRuleTab].ruleBn : rulesData[selectedRuleTab].ruleEn}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+              <div className="p-3.5 rounded-lg bg-slate-900/70 border border-slate-800 space-y-1">
+                <strong className="text-sky-300 block">Scope & Applicability:</strong>
+                <p className="text-slate-300 font-sans">{isBengali ? rulesData[selectedRuleTab].scopeBn : rulesData[selectedRuleTab].scopeEn}</p>
               </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-emerald-300">
-                  Teacher's Desk: Commercial Intuition &amp; Lab Discussion
-                </h2>
-                <p className="text-xs text-slate-400 font-mono">
-                  Mr. CNAT &amp; Barrackpore Accounting Lab Discussion
-                </p>
+
+              <div className="p-3.5 rounded-lg bg-slate-900/70 border border-slate-800 space-y-1">
+                <strong className="text-teal-300 block">Mapped Tally Groups:</strong>
+                <p className="text-slate-200">{rulesData[selectedRuleTab].tallyGroupsEn}</p>
               </div>
             </div>
 
-            <div className="space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base">
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-emerald-400 font-bold flex items-center gap-2 text-base">
-                  <span>💡</span> Practical Metaphor
+            <div className="p-3.5 rounded-lg bg-emerald-950/20 border border-emerald-800/60 text-xs font-mono text-emerald-300">
+              <strong>Practical Formula Example:</strong> {isBengali ? rulesData[selectedRuleTab].exampleBn : rulesData[selectedRuleTab].exampleEn}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 2. LIVE GOLDEN RULE APPLICATION LAB ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16 space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-emerald-400">⚡</span>
+            <span>{isBengali ? "গোল্ডেন রুলস ল্যাব: প্র্যাকটিক্যাল লেনদেন সিমুলেটর" : "Golden Rules Application Lab: Practical Transaction Simulator"}</span>
+          </h2>
+
+          <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
+            {/* Scenario Selector */}
+            <div className="space-y-2">
+              <label className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider block">
+                {isBengali ? "বাণিজ্যিক লেনদেন বেছে নিন:" : "Select Commercial Transaction Scenario:"}
+              </label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {labScenarios.map((sc, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setSelectedScenarioIndex(idx)}
+                    className={`p-3 rounded-xl text-left text-xs font-semibold transition border ${
+                      selectedScenarioIndex === idx
+                        ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md"
+                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                    }`}
+                  >
+                    {isBengali ? sc.titleBn : sc.titleEn}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Selected Scenario Output Card */}
+            <div className="p-6 rounded-xl bg-slate-950 border border-emerald-500/40 space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                <h3 className="text-base font-bold text-emerald-300">
+                  {isBengali ? currentScenario.titleBn : currentScenario.titleEn}
                 </h3>
-                <p>Every financial transaction alters assets, liabilities, or capital in such a manner that the equation Assets = Capital + Liabilities remains perfectly balanced at all times.</p>
+                <span className="px-3 py-1 rounded bg-slate-900 border border-slate-700 text-teal-300 font-mono text-xs font-bold w-fit">
+                  Tally Voucher: {isBengali ? currentScenario.tallyVoucherBn : currentScenario.tallyVoucherEn}
+                </span>
               </div>
 
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-sky-400 font-bold flex items-center gap-2 text-base">
-                  <span>💬</span> Classroom Dialogue
-                </h3>
-                <div className="space-y-3 text-xs sm:text-sm font-sans border-l-2 border-emerald-500/40 pl-4 py-1">
-                  <div>
-                    <p><strong className="text-emerald-400">Sohini (Lab Student):</strong> <em>"Sir, what happens to the Accounting Equation when we buy ₹50,000 goods by paying ₹20,000 cash and ₹30,000 on credit?"</em></p>
-                  </div>
-                  <div>
-                    <p><strong className="text-sky-300">CNAT Sir:</strong> <em>"Stock Asset increases by +₹50,000, Cash Asset decreases by -₹20,000 (Net Asset increase +₹30,000), and Sundry Creditor Liability increases by +₹30,000! Both sides increase by exactly ₹30,000!"</em></p>
-                  </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+                <div className="p-4 rounded-xl bg-emerald-950/20 border border-emerald-800/60 space-y-2">
+                  <span className="text-emerald-400 font-bold block">DEBIT (Dr): {isBengali ? currentScenario.debitLedgerBn : currentScenario.debitLedgerEn}</span>
+                  <span className="text-slate-300 block">Applied Rule: {isBengali ? currentScenario.debitRuleBn : currentScenario.debitRuleEn}</span>
+                </div>
+
+                <div className="p-4 rounded-xl bg-sky-950/20 border border-sky-800/60 space-y-2">
+                  <span className="text-sky-400 font-bold block">CREDIT (Cr): {isBengali ? currentScenario.creditLedgerBn : currentScenario.creditLedgerEn}</span>
+                  <span className="text-slate-300 block">Applied Rule: {isBengali ? currentScenario.creditRuleBn : currentScenario.creditRuleEn}</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CORE CONCEPTUAL BREAKDOWN TABLE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span>📌</span> Universal Financial Balance Mechanics
-            </h2>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs sm:text-sm text-left border-collapse border border-slate-800">
-                <thead>
-                  <tr className="bg-slate-800/90 text-slate-200">
-                    <th className="p-3 border border-slate-700">Category / Concept</th>
-                    <th className="p-3 border border-slate-700 text-emerald-400">Technical Breakdown &amp; Description</th>
-                    <th className="p-3 border border-slate-700 text-sky-400">TallyPrime Software Mapping</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-300">
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Transaction 1: Capital ₹1,00,000 Cash</td>
-                      <td className="p-3 border border-slate-800">Cash (+₹1,00,000) = Capital (+₹1,00,000) + Liabilities (₹0)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Assets: ₹1,00,000 | Equity: ₹1,00,000</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Transaction 2: Bank Loan ₹50,000</td>
-                      <td className="p-3 border border-slate-800">Bank (+₹50,000) = Capital (₹1,00,000) + Loan Liability (+₹50,000)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Assets: ₹1,50,000 | Total Claims: ₹1,50,000</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Transaction 3: Purchased Furniture ₹30,000 Cash</td>
-                      <td className="p-3 border border-slate-800">Furniture (+₹30,000), Cash (-₹30,000) = Capital (₹1,00,000) + Loan (₹50,000)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Assets: ₹1,50,000 | Total Claims: ₹1,50,000</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Transaction 4: Paid Salary ₹10,000 Cash</td>
-                      <td className="p-3 border border-slate-800">Cash (-₹10,000) = Capital (-₹10,000 Expense) + Loan (₹50,000)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Assets: ₹1,40,000 | Total Claims: ₹1,40,000</td>
-                    </tr>
-                  
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        {/* TALLYPRIME OPERATIONAL EXECUTION GUIDE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-4">
-            <h2 className="text-xl font-bold text-teal-400 flex items-center gap-2">
-              <span>⚙️</span> TallyPrime Software Integration Guide
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              TallyPrime's Balance Sheet display uses two columns (Liabilities & Assets) that always sum to identical totals based on this equation.
-            </p>
-            <ol className="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-300 pt-2">
-              <li>Open <strong>Gateway of Tally</strong> using <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Alt+G</kbd> (Go To) or main dashboard.</li>
-              <li>Select <strong>Masters &gt; Create &gt; Ledger</strong> to set up classified account ledgers under appropriate parent groups.</li>
-              <li>Select <strong>Vouchers</strong> (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F5 Payment</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F6 Receipt</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F7 Journal</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F8 Sales</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F9 Purchase</kbd>).</li>
-              <li>Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Ctrl+A</kbd> to accept and save voucher entry.</li>
-            </ol>
-          </div>
-        </section>
-
-        {/* PRINTABLE STUDY NOTE */}
+        {/* ─── 3. PRINTABLE STUDY NOTE (DOWNLOAD & PRINT ONLY) ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <PlainTextPrint content={noteText} filename="topic5_study_note.txt" />
+          <PlainTextPrint
+            content={noteText}
+            filename={isBengali ? "topic5_study_note_bn.txt" : "topic5_study_note.txt"}
+            hidePreview={true}
+            showDownload={true}
+          />
         </section>
 
-        {/* DIAGNOSTIC PRACTICE ASSESSMENT */}
+        {/* ─── 4. DIAGNOSTIC PRACTICE ASSESSMENT ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <FAQTemplate title="Topic Assessment & Diagnostic Practice" questions={questions} />
+          <FAQTemplate
+            title={isBengali ? "Topic ৫ মূল্যায়ন ও অনুশীলন প্রশ্নাবলী" : "Topic 5 Assessment & Diagnostic Practice"}
+            questions={questions}
+          />
         </section>
 
-        {/* TEACHER PROFILE CARD */}
+        {/* ─── 5. TEACHER PROFILE CARD ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto">
-          <Teacher note="Mastering double-entry account classification with Mr. CNAT is the secret to error-free bookkeeping in TallyPrime. Every ledger created under the right group ensures flawless Balance Sheet and P&L generation!" />
+          <Teacher
+            note={
+              isBengali
+                ? "গোল্ডেন রুলস আয়ত্ত করা হলো অ্যাকাউন্ট্যান্টের প্রথম বড় বিজয়! Personal (Receiver/Giver), Real (In/Out), Nominal (Expense/Income) সঠিকভাবে স্মরণে রাখুন।"
+                : "Mastering the Golden Rules is the first major milestone for any commercial accountant! Keep Personal (Receiver/Giver), Real (In/Out), and Nominal (Expense/Income) clear in your mind."
+            }
+          />
         </section>
 
       </div>

@@ -1,0 +1,390 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-01",
+    "description": "Opening journal entry passed on 01-Apr-2026 to bring forward asset, liability, and capital balances from previous financial year's audited Balance Sheet for sole proprietorship retail firm",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Cash in Hand Account",
+        "amount": 45000
+      },
+      {
+        "account": "SBI Current Bank Account",
+        "amount": 180000
+      },
+      {
+        "account": "Stock-in-Trade / Inventory Account",
+        "amount": 250000
+      },
+      {
+        "account": "Sundry Debtors Account",
+        "amount": 125000
+      },
+      {
+        "account": "Furniture & Office Equipment Account",
+        "amount": 90000
+      },
+      {
+        "account": "Plant & Machinery Account",
+        "amount": 310000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Sundry Creditors Account",
+        "amount": 160000
+      },
+      {
+        "account": "HDFC Bank Term Loan Liability Account",
+        "amount": 240000
+      },
+      {
+        "account": "Outstanding Shop Rent & Wages Liability",
+        "amount": 20000
+      },
+      {
+        "account": "Proprietor Capital Account",
+        "amount": 580000
+      }
+    ],
+    "narration": "Being opening balances of assets, liabilities, and proprietor capital brought forward on 01-Apr-2026",
+    "explanation": "Standard Opening Entry: All asset accounts are debited (Total Dr ₹10,00,000) and all liability & equity accounts are credited (Total Cr ₹10,00,000) to open the new financial year books."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-01",
+    "description": "Opening entry passed on taking over an existing running business firm where total liabilities and capital exceed tangible assets, establishing Goodwill as balancing figure",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Stock-in-Trade Account",
+        "amount": 150000
+      },
+      {
+        "account": "Furniture & Fixtures Account",
+        "amount": 60000
+      },
+      {
+        "account": "Sundry Debtors Account",
+        "amount": 90000
+      },
+      {
+        "account": "Goodwill Account (Intangible Asset Balancing Figure)",
+        "amount": 50000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Sundry Creditors Account",
+        "amount": 110000
+      },
+      {
+        "account": "Proprietor Capital / Purchase Consideration Account",
+        "amount": 240000
+      }
+    ],
+    "narration": "Being assets and liabilities taken over with excess consideration credited to Goodwill A/c",
+    "explanation": "Goodwill Opening Entry: When total liabilities plus capital (₹3,50,000) exceed tangible assets (₹3,00,000), the debit balancing figure of ₹50,000 is recognized as Goodwill Asset."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-01",
+    "description": "Opening entry passed on acquiring a running manufacturing unit where net tangible assets acquired exceed purchase consideration, establishing Capital Reserve",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Plant & Machinery Account",
+        "amount": 450000
+      },
+      {
+        "account": "Factory Building Account",
+        "amount": 600000
+      },
+      {
+        "account": "Raw Material Inventory Account",
+        "amount": 120000
+      },
+      {
+        "account": "Bank Balance Account",
+        "amount": 80000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Mortgage Loan Liability Account",
+        "amount": 300000
+      },
+      {
+        "account": "Sundry Trade Creditors Account",
+        "amount": 150000
+      },
+      {
+        "account": "Proprietor Capital Account",
+        "amount": 700000
+      },
+      {
+        "account": "Capital Reserve Account (Capital Gain Balancing Figure)",
+        "amount": 100000
+      }
+    ],
+    "narration": "Being net manufacturing assets acquired with excess net asset value credited to Capital Reserve",
+    "explanation": "Capital Reserve Opening Entry: When tangible assets acquired (₹12,50,000) exceed liabilities plus capital (₹11,50,000), the credit balancing figure of ₹1,00,000 is transferred to Capital Reserve."
+  },
+  {
+    "id": 4,
+    "date": "2026-04-01",
+    "description": "Opening entry passed for continuing partnership firm 'Gupta & Sons' bringing forward assets, trade liabilities, and individual partner capital balances",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Cash & Bank Balances Account",
+        "amount": 220000
+      },
+      {
+        "account": "Commercial Land & Building Account",
+        "amount": 800000
+      },
+      {
+        "account": "Merchandise Inventory Stock Account",
+        "amount": 340000
+      },
+      {
+        "account": "Sundry Trade Debtors Account",
+        "amount": 140000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Trade Payables / Sundry Creditors Account",
+        "amount": 200000
+      },
+      {
+        "account": "Partner Amit Gupta Capital Account (60%)",
+        "amount": 780000
+      },
+      {
+        "account": "Partner Sumit Gupta Capital Account (40%)",
+        "amount": 520000
+      }
+    ],
+    "narration": "Being opening assets and liabilities brought forward into partnership ledger accounts",
+    "explanation": "Partnership Opening Entry: Credits individual capital accounts for Partner Amit Gupta (₹7,80,000) and Partner Sumit Gupta (₹5,20,000) alongside liabilities."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-01",
+    "description": "Opening entry passed for service enterprise CNAT Tech Consultancy bringing forward accrued income receivables and prepaid software license assets",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Cash & HDFC Bank Balance Account",
+        "amount": 110000
+      },
+      {
+        "account": "Accrued Consultancy Fee Receivable Account",
+        "amount": 45000
+      },
+      {
+        "account": "Prepaid Annual Software License & Rent Account",
+        "amount": 35000
+      },
+      {
+        "account": "Office Computers & Servers Account",
+        "amount": 160000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Outstanding Office Staff Salary Liability",
+        "amount": 25000
+      },
+      {
+        "account": "Advance Client Fees Received Liability Account",
+        "amount": 30000
+      },
+      {
+        "account": "Proprietor Capital Account",
+        "amount": 295000
+      }
+    ],
+    "narration": "Being service entity opening assets, prepaid deferred expenses, and liabilities brought forward",
+    "explanation": "Service Entity Opening Entry: Carries forward accrued fee receivables (Asset Dr ₹45k), prepaid software licenses (Asset Dr ₹35k), and advance client retainers (Liability Cr ₹30k)."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-01",
+    "description": "Opening entry passed for trading firm bringing forward provision for doubtful debts reserve alongside trade debtors",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Cash Account",
+        "amount": 30000
+      },
+      {
+        "account": "Bank Account",
+        "amount": 150000
+      },
+      {
+        "account": "Stock Account",
+        "amount": 200000
+      },
+      {
+        "account": "Sundry Debtors Account",
+        "amount": 100000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Provision for Doubtful Debts Account",
+        "amount": 5000
+      },
+      {
+        "account": "Sundry Creditors Account",
+        "amount": 75000
+      },
+      {
+        "account": "Capital Account",
+        "amount": 400000
+      }
+    ],
+    "narration": "Being opening balances including provision for doubtful debts reserve brought forward",
+    "explanation": "Brings forward Provision for Doubtful Debts contra-asset reserve of ₹5,000 on credit side alongside assets and liabilities."
+  },
+  {
+    "id": 7,
+    "date": "2026-04-01",
+    "description": "Opening entry passed for manufacturing plant bringing forward accumulated depreciation reserves",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Plant & Machinery Account (Cost)",
+        "amount": 500000
+      },
+      {
+        "account": "Factory Building Account (Cost)",
+        "amount": 800000
+      },
+      {
+        "account": "Bank Account",
+        "amount": 200000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Accumulated Depreciation on Machinery",
+        "amount": 100000
+      },
+      {
+        "account": "Accumulated Depreciation on Building",
+        "amount": 160000
+      },
+      {
+        "account": "Bank Loan Liability",
+        "amount": 340000
+      },
+      {
+        "account": "Capital Account",
+        "amount": 900000
+      }
+    ],
+    "narration": "Being opening plant assets brought forward at cost with accumulated depreciation reserves",
+    "explanation": "Brings forward gross asset cost on debit side and accumulated depreciation reserve on credit side."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-01",
+    "description": "Opening entry passed for retail shop with bank overdraft liability and cash balance",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Cash in Hand Account",
+        "amount": 25000
+      },
+      {
+        "account": "Stock-in-Trade Account",
+        "amount": 180000
+      },
+      {
+        "account": "Furniture Account",
+        "amount": 45000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "SBI Bank Overdraft Liability Account",
+        "amount": 50000
+      },
+      {
+        "account": "Sundry Creditors Account",
+        "amount": 40000
+      },
+      {
+        "account": "Capital Account",
+        "amount": 160000
+      }
+    ],
+    "narration": "Being opening balances including bank overdraft liability brought forward",
+    "explanation": "Bank Overdraft is credited as current liability (Credit Bank OD A/c ₹50,000) in opening entry."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-01",
+    "description": "Opening entry passed for branch office receiving asset and liability balances from head office",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Branch Inventory Stock Account",
+        "amount": 120000
+      },
+      {
+        "account": "Branch Debtors Account",
+        "amount": 65000
+      },
+      {
+        "account": "Branch Bank Account",
+        "amount": 45000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Head Office Account",
+        "amount": 230000
+      }
+    ],
+    "narration": "Being opening branch net assets credited to Head Office Account",
+    "explanation": "Branch opening entry debits branch assets and credits Head Office Account with net balance ₹2,30,000."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-01",
+    "description": "Opening entry passed for professional practice carrying forward unbilled work-in-progress asset",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Unbilled Work-in-Progress Asset Account",
+        "amount": 55000
+      },
+      {
+        "account": "Bank Balance Account",
+        "amount": 140000
+      },
+      {
+        "account": "Office Library & Books Account",
+        "amount": 35000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Outstanding Office Rent Liability",
+        "amount": 15000
+      },
+      {
+        "account": "Practitioner Capital Account",
+        "amount": 215000
+      }
+    ],
+    "narration": "Being professional practice opening balances including unbilled WIP asset brought forward",
+    "explanation": "Carries forward Unbilled Work-in-Progress as current asset (Debit Unbilled WIP A/c ₹55,000)."
+  }
+]

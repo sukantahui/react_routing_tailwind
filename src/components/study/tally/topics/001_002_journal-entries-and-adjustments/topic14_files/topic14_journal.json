@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-01",
+    "description": "Commenced commercial business operations by introducing cash capital ₹6,00,000 and office furniture ₹50,000",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      { "account": "Cash Account", "amount": 600000 },
+      { "account": "Furniture Account", "amount": 50000 }
+    ],
+    "creditLines": [
+      { "account": "Capital Account", "amount": 650000 }
+    ],
+    "narration": "Being cash and furniture brought in by proprietor as initial business capital",
+    "explanation": "Compound entry debiting Cash Asset ₹6,00,000 and Furniture Asset ₹50,000 while crediting Capital Liability ₹6,50,000."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-03",
+    "description": "Purchased trading inventory goods on credit from vendor Apex Electronics India Ltd ₹1,20,000",
+    "voucherType": "F9 Purchase Voucher",
+    "debitAccount": "Purchases Account",
+    "debitAmount": 120000,
+    "creditAccount": "Apex Electronics (Sundry Creditor)",
+    "creditAmount": 120000,
+    "narration": "Being inventory goods purchased on credit as per Invoice #AE-902",
+    "explanation": "Increases Purchase Expense (Debit Purchases A/c ₹1,20,000) and creates Sundry Creditor Liability (Credit Apex Electronics A/c ₹1,20,000)."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-05",
+    "description": "Sold inventory goods on credit to customer Sharma Traders ₹95,000",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Sharma Traders (Sundry Debtor)",
+    "debitAmount": 95000,
+    "creditAccount": "Sales Account",
+    "creditAmount": 95000,
+    "narration": "Being goods sold on credit as per Sales Bill #SB-001",
+    "explanation": "Creates Sundry Debtor Asset (Debit Sharma Traders A/c ₹95,000) and increases Sales Revenue (Credit Sales A/c ₹95,000)."
+  },
+  {
+    "id": 4,
+    "date": "2026-04-08",
+    "description": "Returned defective inventory goods worth ₹15,000 to Apex Electronics India Ltd under Debit Note #DN-101",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Apex Electronics (Sundry Creditor)",
+    "debitAmount": 15000,
+    "creditAccount": "Return Outward Account",
+    "creditAmount": 15000,
+    "narration": "Being defective goods returned to vendor against Debit Note #DN-101",
+    "explanation": "Reduces vendor trade liability: Debit Sundry Creditor ₹15,000, Credit Return Outward Account ₹15,000."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-10",
+    "description": "Received customer Debit Note return for damaged goods worth ₹10,000 from Sharma Traders and issued Credit Note #CN-201",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Return Inward Account",
+    "debitAmount": 10000,
+    "creditAccount": "Sharma Traders (Sundry Debtor)",
+    "creditAmount": 10000,
+    "narration": "Being damaged goods returned by customer against Credit Note #CN-201",
+    "explanation": "Reduces customer trade asset: Debit Return Inward Account ₹10,000, Credit Sundry Debtor ₹10,000."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-15",
+    "description": "Paid monthly shop rent ₹20,000 and office electricity bill ₹6,000 by SBI Bank cheque #501902",
+    "voucherType": "F5 Payment Voucher",
+    "debitLines": [
+      { "account": "Rent Expense Account", "amount": 20000 },
+      { "account": "Electricity Expense Account", "amount": 6000 }
+    ],
+    "creditLines": [
+      { "account": "SBI Bank Account", "amount": 26000 }
+    ],
+    "narration": "Being shop rent and electricity charges paid via SBI Bank cheque #501902",
+    "explanation": "Compound payment debiting Rent Expense ₹20,000 and Electricity Expense ₹6,000 while crediting SBI Bank Asset ₹26,000."
+  },
+  {
+    "id": 7,
+    "date": "2026-04-20",
+    "description": "Received cheque of ₹80,000 from Sharma Traders and allowed cash discount ₹5,000 in full settlement of ₹85,000 debt",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      { "account": "SBI Bank Account", "amount": 80000 },
+      { "account": "Discount Allowed Account", "amount": 5000 }
+    ],
+    "creditLines": [
+      { "account": "Sharma Traders (Sundry Debtor)", "amount": 85000 }
+    ],
+    "narration": "Being cheque received from debtor and cash discount allowed in full settlement",
+    "explanation": "Compound receipt debiting Bank Asset ₹80,000 and Discount Allowed Expense ₹5,000 while crediting Debtor Asset ₹85,000."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-25",
+    "description": "Proprietor withdrew cash ₹15,000 for daughter's school fee payment",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 15000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 15000,
+    "narration": "Being cash withdrawn by proprietor for personal household educational expenses",
+    "explanation": "Personal withdrawal: Debit Drawings Account ₹15,000 (reducing Owner Capital) and Credit Cash Asset ₹15,000."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-28",
+    "description": "Paid staff salary ₹35,000 in cash for April 2026",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Salary Expense Account",
+    "debitAmount": 35000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 35000,
+    "narration": "Being staff salary for April paid in cash",
+    "explanation": "Routine operating expense: Debit Salary Expense Account ₹35,000, Credit Cash Asset ₹35,000."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-30",
+    "description": "Charged annual 10% depreciation on office furniture worth ₹50,000 at year end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Depreciation Expense Account",
+    "debitAmount": 5000,
+    "creditAccount": "Furniture & Fixtures Account",
+    "creditAmount": 5000,
+    "narration": "Being 10% annual depreciation charged on office furniture asset",
+    "explanation": "Non-cash adjusting entry: Debit Depreciation Expense Account ₹5,000, Credit Furniture Asset ₹5,000."
+  }
+]

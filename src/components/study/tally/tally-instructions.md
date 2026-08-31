@@ -27,6 +27,27 @@ BEFORE walking through the step-by-step TallyPrime software navigation.
 
 
 ================================================================================
+BILINGUAL BENGALI LANGUAGE TOGGLE DIRECTIVE (MANDATORY FOR ALL TOPICS)
+================================================================================
+Every topic component across every module MUST include a Language Toggle button
+(`LanguageToggle.jsx`) at the top of the topic UI that enables students to switch
+between English and Bengali modes (Default: English).
+
+CRITICAL TERMINOLOGY RULE FOR ENGLISH-TO-BENGALI TRANSLATION:
+1. All commercial accounting, double-entry, and TallyPrime software technical terminologies
+   MUST remain strictly in ENGLISH WORDS (written in English script).
+   Examples of terms that MUST NEVER be translated into literal Bengali words:
+   - "Debit", "Credit", "Journal", "Ledger", "Trial Balance", "Profit & Loss",
+     "Balance Sheet", "Assets", "Liabilities", "Capital", "Drawings", "Sundry Debtors",
+     "Sundry Creditors", "Golden Rules", "Accounting Equation", "TallyPrime",
+     "Gateway of Tally", "F4 Contra", "F5 Payment", "F6 Receipt", "F7 Journal",
+     "F8 Sales", "F9 Purchase", "GST", "Input Tax Credit", "TDS", "TCS".
+2. Bengali MUST be used ONLY for conceptual explanations, classroom dialogues,
+   business metaphors, step-by-step navigational guidance, and FAQ explanations.
+
+
+
+================================================================================
 1. DIRECTORY STRUCTURE & FILE NAMING RULES
 ================================================================================
 All topic folders must reside under:

@@ -1,39 +1,135 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Teacher from "../../../common/TeacherCNAT";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
-import questions from "./topic0_files/topic0_questions";
-import noteText from "./topic0_files/topic0_note.txt?raw";
+import LanguageToggle, { useTopicLanguage } from "./LanguageToggle";
+import questionsEn from "./topic8_files/topic8_questions";
+import questionsBn from "./topic8_files/topic8_questions_bn";
+import noteTextEn from "./topic8_files/topic8_note.txt?raw";
+import noteTextBn from "./topic8_files/topic8_note_bn.txt?raw";
 
+/**
+ * Topic 8 – Modern Classification of Accounts: Assets, Liabilities, Capital, Expenses, and Incomes (DEAD & CLEAR)
+ * Module: 001_001_accounting-concepts-and-account-classification
+ * Track: TallyPrime Master Series – CNAT Academy
+ *
+ * @component
+ * @returns {JSX.Element} High-efficiency interactive topic component featuring live ledger classification lookup,
+ *                        DEAD & CLEAR acronym breakdown, Traditional vs. Modern comparison matrix, and Tally group mapping.
+ */
 export default function Topic8() {
+  const { language, setLanguage, isBengali } = useTopicLanguage();
   const sectionRefs = useRef([]);
+
+  const [activeTab, setActiveTab] = useState("dead_clear");
+  const [selectedLedgerIndex, setSelectedLedgerIndex] = useState(0);
+
+  const sampleLedgers = [
+    {
+      nameEn: "Factory Plant & Machinery",
+      nameBn: "কারখানা ও যন্ত্রপাতি",
+      categoryEn: "Asset",
+      categoryBn: "সম্পদ (Asset)",
+      acronym: "DEAD",
+      normalBalance: "Debit",
+      increaseRuleEn: "+ Increase ⇒ DEBIT",
+      increaseRuleBn: "+ বৃদ্ধি পেলে ⇒ ডেবিট",
+      decreaseRuleEn: "- Decrease ⇒ CREDIT",
+      decreaseRuleBn: "- হ্রাস পেলে ⇒ ক্রেডিট",
+      tallyGroupEn: "Fixed Assets",
+      tallyGroupBn: "Fixed Assets (স্থায়ী সম্পদ)",
+      statementEn: "Balance Sheet (Asset Side)",
+      statementBn: "ব্যালেন্স শিট (সম্পদ দিক)"
+    },
+    {
+      nameEn: "Bank Overdraft Facility (HDFC)",
+      nameBn: "এইচডিএফসি ব্যাংক ওভারড্রাফট",
+      categoryEn: "Liability",
+      categoryBn: "দায় (Liability)",
+      acronym: "CLEAR",
+      normalBalance: "Credit",
+      increaseRuleEn: "+ Increase ⇒ CREDIT",
+      increaseRuleBn: "+ বৃদ্ধি পেলে ⇒ ক্রেডিট",
+      decreaseRuleEn: "- Decrease ⇒ DEBIT",
+      decreaseRuleBn: "- হ্রাস পেলে ⇒ ডেবিট",
+      tallyGroupEn: "Bank OD A/c (Current Liabilities)",
+      tallyGroupBn: "Bank OD A/c (চলতি দায়)",
+      statementEn: "Balance Sheet (Liability Side)",
+      statementBn: "ব্যালেন্স শিট (দায় দিক)"
+    },
+    {
+      nameEn: "Proprietor's Capital Investment",
+      nameBn: "মালিকের মূলধন বিনিয়োগ",
+      categoryEn: "Capital / Equity",
+      categoryBn: "মূলধন / ইকুইটি",
+      acronym: "CLEAR",
+      normalBalance: "Credit",
+      increaseRuleEn: "+ Increase ⇒ CREDIT",
+      increaseRuleBn: "+ বৃদ্ধি পেলে ⇒ ক্রেডিট",
+      decreaseRuleEn: "- Decrease ⇒ DEBIT",
+      decreaseRuleBn: "- হ্রাস পেলে ⇒ ডেবিট",
+      tallyGroupEn: "Capital Account",
+      tallyGroupBn: "Capital Account (মূলধন হিসাব)",
+      statementEn: "Balance Sheet (Liability Side)",
+      statementBn: "ব্যালেন্স শিট (দায় দিক)"
+    },
+    {
+      nameEn: "Office Staff Salary Expense",
+      nameBn: "অফিস কর্মীদের বেতন খরচ",
+      categoryEn: "Expense",
+      categoryBn: "ব্যয় (Expense)",
+      acronym: "DEAD",
+      normalBalance: "Debit",
+      increaseRuleEn: "+ Increase ⇒ DEBIT",
+      increaseRuleBn: "+ বৃদ্ধি পেলে ⇒ ডেবিট",
+      decreaseRuleEn: "- Decrease ⇒ CREDIT",
+      decreaseRuleBn: "- হ্রাস পেলে ⇒ ক্রেডিট",
+      tallyGroupEn: "Indirect Expenses",
+      tallyGroupBn: "Indirect Expenses (পরোক্ষ খরচ)",
+      statementEn: "Profit & Loss Account (Debit Side)",
+      statementBn: "লাভ-ক্ষতি হিসাব (ডেবিট দিক)"
+    },
+    {
+      nameEn: "Sales Turnover Revenue",
+      nameBn: "পণ্য বিক্রয়লব্ধ আয়",
+      categoryEn: "Revenue / Income",
+      categoryBn: "আয় (Revenue)",
+      acronym: "CLEAR",
+      normalBalance: "Credit",
+      increaseRuleEn: "+ Increase ⇒ CREDIT",
+      increaseRuleBn: "+ বৃদ্ধি পেলে ⇒ ক্রেডিট",
+      decreaseRuleEn: "- Decrease ⇒ DEBIT",
+      decreaseRuleBn: "- হ্রাস পেলে ⇒ ডেবিট",
+      tallyGroupEn: "Sales Accounts",
+      tallyGroupBn: "Sales Accounts (বিক্রয় হিসাব)",
+      statementEn: "Trading Account (Credit Side)",
+      statementBn: "ট্রেডিং অ্যাকাউন্ট (ক্রেডিট দিক)"
+    }
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
         });
       },
       { threshold: 0.08 }
     );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
+    sectionRefs.current.forEach((el) => { if (el) observer.observe(el); });
     return () => observer.disconnect();
   }, []);
 
   const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
-    }
+    if (el && !sectionRefs.current.includes(el)) sectionRefs.current.push(el);
   };
+
+  const questions = isBengali && questionsBn ? questionsBn : questionsEn;
+  const noteText = isBengali && noteTextBn ? noteTextBn : noteTextEn;
+
+  const currentLedger = sampleLedgers[selectedLedgerIndex];
 
   return (
     <>
@@ -51,19 +147,28 @@ export default function Topic8() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
         
+        {/* BILINGUAL LANGUAGE TOGGLE CONTROL */}
+        <div ref={addRef} className="reveal-section">
+          <LanguageToggle language={language} onLanguageChange={setLanguage} />
+        </div>
+
         {/* HERO HEADER */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
             <span>📊</span>
-            <span>TallyPrime Master Series · Module 1.1 · Topic 9</span>
+            <span>TallyPrime Master Series · Module 1.1 · Topic 8</span>
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 tracking-tight leading-tight">
-            Modern Classification of Accounts: Assets, Liabilities, Capital, Expenses, and Incomes
+            {isBengali
+              ? "অ্যাকাউন্টিং-এর আধুনিক শ্রেণীবিভাগ: DEAD & CLEAR সিস্টেম ও ৫টি ক্যাটাগরি"
+              : "Modern Classification of Accounts: The DEAD & CLEAR Rule System"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            The American/Modern 5-category framework for debit-credit polarity.
+            {isBengali
+              ? "কম্পিউটারাইজড হিসাববিজ্ঞানের (TallyPrime) জন্য ৫টি আধুনিক শ্রেণীবিভাগ (Assets, Liabilities, Capital, Revenue, Expenses) এবং নির্ভুল বৃদ্ধি/হ্রাস নিয়ম।"
+              : "Modern 5-category accounting rules defining increase/decrease debit-credit behavior directly aligned with TallyPrime parent groups."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-slate-400 pt-2">
@@ -73,133 +178,227 @@ export default function Topic8() {
           </div>
         </header>
 
-        {/* TEACHER'S DESK */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-900/90 to-emerald-950/30 border border-emerald-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-2xl">
-                👨‍🏫
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-emerald-300">
-                  Teacher's Desk: Commercial Intuition &amp; Lab Discussion
-                </h2>
-                <p className="text-xs text-slate-400 font-mono">
-                  Mr. CNAT &amp; Barrackpore Accounting Lab Discussion
-                </p>
-              </div>
+        {/* ─── 1. HIGH-EFFICIENCY DEAD & CLEAR CONCEPT & SIMULATOR ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                {isBengali ? "আলোকপাত: DEAD & CLEAR অ্যাক্রোনিম ফ্রেমওয়ার্ক" : "Spotlight: The DEAD & CLEAR Acronym Framework"}
+              </h2>
+              <p className="text-xs text-slate-400">
+                {isBengali ? "আধুনিক ৫টি অ্যাকাউন্টিং ক্যাটাগরির ডেবিট ও ক্রেডিট স্বাভাবিক জের" : "Master normal debit and credit balances for modern computerized accounting software"}
+              </p>
             </div>
 
-            <div className="space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base">
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-emerald-400 font-bold flex items-center gap-2 text-base">
-                  <span>💡</span> Practical Metaphor
-                </h3>
-                <p>Modern accounting divides accounts into Assets, Expenses (Normal Debit Balances) and Capital, Liabilities, Incomes (Normal Credit Balances).</p>
+            <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+              <button
+                onClick={() => setActiveTab("dead_clear")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition ${
+                  activeTab === "dead_clear" ? "bg-emerald-950 text-emerald-300 border border-emerald-500" : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                {isBengali ? "DEAD & CLEAR নিয়ম" : "DEAD & CLEAR System"}
+              </button>
+              <button
+                onClick={() => setActiveTab("simulator")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition ${
+                  activeTab === "simulator" ? "bg-sky-950 text-sky-300 border border-sky-500" : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                {isBengali ? "লেজার ক্লাসিফায়ার" : "Live Ledger Classifier"}
+              </button>
+            </div>
+          </div>
+
+          {activeTab === "dead_clear" ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* DEAD Card */}
+              <div className="p-6 rounded-2xl bg-rose-950/30 border border-rose-500/40 space-y-4">
+                <div className="flex items-center justify-between border-b border-rose-500/30 pb-3">
+                  <h3 className="text-lg font-bold text-rose-300 font-mono">D.E.A.D = DEBIT NORMAL</h3>
+                  <span className="px-2.5 py-1 rounded bg-rose-950 text-rose-300 text-xs font-mono font-bold border border-rose-700">
+                    Normal Balance: DEBIT
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {isBengali
+                    ? "Drawings, Expenses, এবং Assets বৃদ্ধি পেলে সর্বদা DEBIT করা হয়, এবং হ্রাস পেলে CREDIT করা হয়।"
+                    : "Expenses, Assets, and Drawings increase with a DEBIT and decrease with a CREDIT."}
+                </p>
+                <div className="space-y-2 text-xs font-mono text-slate-200">
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 flex justify-between">
+                    <span>Expenses (ব্যয়)</span>
+                    <span className="text-emerald-400 font-bold">+Dr / -Cr</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 flex justify-between">
+                    <span>Assets (সম্পদ)</span>
+                    <span className="text-emerald-400 font-bold">+Dr / -Cr</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 flex justify-between">
+                    <span>Drawings (উত্তোলন)</span>
+                    <span className="text-emerald-400 font-bold">+Dr / -Cr</span>
+                  </div>
+                </div>
               </div>
 
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-sky-400 font-bold flex items-center gap-2 text-base">
-                  <span>💬</span> Classroom Dialogue
-                </h3>
-                <div className="space-y-3 text-xs sm:text-sm font-sans border-l-2 border-emerald-500/40 pl-4 py-1">
-                  <div>
-                    <p><strong className="text-emerald-400">Pritam (Lab Student):</strong> <em>"Sir, why is modern classification easier to remember for computerized accounting?"</em></p>
+              {/* CLEAR Card */}
+              <div className="p-6 rounded-2xl bg-emerald-950/30 border border-emerald-500/40 space-y-4">
+                <div className="flex items-center justify-between border-b border-emerald-500/30 pb-3">
+                  <h3 className="text-lg font-bold text-emerald-300 font-mono">C.L.E.A.R = CREDIT NORMAL</h3>
+                  <span className="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 text-xs font-mono font-bold border border-emerald-700">
+                    Normal Balance: CREDIT
+                  </span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {isBengali
+                    ? "Capital, Liabilities, Equity, এবং Revenue বৃদ্ধি পেলে সর্বদা CREDIT করা হয়, এবং হ্রাস পেলে DEBIT করা হয়।"
+                    : "Capital, Liabilities, Equity, and Revenue increase with a CREDIT and decrease with a DEBIT."}
+                </p>
+                <div className="space-y-2 text-xs font-mono text-slate-200">
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 flex justify-between">
+                    <span>Capital / Equity (মূলধন)</span>
+                    <span className="text-sky-400 font-bold">+Cr / -Dr</span>
                   </div>
-                  <div>
-                    <p><strong className="text-sky-300">CNAT Sir:</strong> <em>"Because in modern accounting: Assets & Expenses increase with DEBIT (+), while Capital, Liabilities & Incomes increase with CREDIT (+)! It aligns perfectly with software databases!"</em></p>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 flex justify-between">
+                    <span>Liabilities (দায়)</span>
+                    <span className="text-sky-400 font-bold">+Cr / -Dr</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 flex justify-between">
+                    <span>Revenue / Income (আয়)</span>
+                    <span className="text-sky-400 font-bold">+Cr / -Dr</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          ) : (
+            <div className="space-y-6">
+              {/* Ledger Selector Buttons */}
+              <div className="space-y-2">
+                <label className="text-xs font-mono text-slate-400 font-bold uppercase tracking-wider block">
+                  {isBengali ? "পরীক্ষার জন্য বাণিজ্যিক লেজার বেছে নিন:" : "Select Commercial Ledger Account to Test:"}
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-2">
+                  {sampleLedgers.map((l, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedLedgerIndex(idx)}
+                      className={`p-2.5 rounded-xl text-left text-xs font-semibold font-mono transition border ${
+                        selectedLedgerIndex === idx
+                          ? "bg-emerald-950 border-emerald-500 text-emerald-300 shadow-md"
+                          : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                      }`}
+                    >
+                      {isBengali ? l.nameBn : l.nameEn}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-        {/* CORE CONCEPTUAL BREAKDOWN TABLE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span>📌</span> Modern 5-Category Account Framework
-            </h2>
+              {/* Output Breakdown Card */}
+              <div className="p-6 rounded-xl bg-slate-950 border border-emerald-500/40 space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                  <h3 className="text-base font-bold text-white">
+                    {isBengali ? currentLedger.nameBn : currentLedger.nameEn}
+                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 text-emerald-400 font-mono text-xs font-bold">
+                      Category: {isBengali ? currentLedger.categoryBn : currentLedger.categoryEn}
+                    </span>
+                    <span className={`px-2.5 py-1 rounded font-mono text-xs font-bold ${
+                      currentLedger.acronym === "DEAD" ? "bg-rose-950 text-rose-300 border border-rose-700" : "bg-emerald-950 text-emerald-300 border border-emerald-700"
+                    }`}>
+                      System: {currentLedger.acronym}
+                    </span>
+                  </div>
+                </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs sm:text-sm text-left border-collapse border border-slate-800">
-                <thead>
-                  <tr className="bg-slate-800/90 text-slate-200">
-                    <th className="p-3 border border-slate-700">Category / Concept</th>
-                    <th className="p-3 border border-slate-700 text-emerald-400">Technical Breakdown &amp; Description</th>
-                    <th className="p-3 border border-slate-700 text-sky-400">TallyPrime Software Mapping</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-300">
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Assets (Debit Normal)</td>
-                      <td className="p-3 border border-slate-800">Debit increases (+), Credit decreases (-)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Cash, Bank, Debtors, Stock, Machinery</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Expenses (Debit Normal)</td>
-                      <td className="p-3 border border-slate-800">Debit increases (+), Credit decreases (-)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Rent, Salary, Freight, Electricity, Interest paid</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Capital (Credit Normal)</td>
-                      <td className="p-3 border border-slate-800">Credit increases (+), Debit decreases (-)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Proprietor Capital, Partner Equity</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Liabilities (Credit Normal)</td>
-                      <td className="p-3 border border-slate-800">Credit increases (+), Debit decreases (-)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Sundry Creditors, Bank Loans, Taxes Payable</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Incomes (Credit Normal)</td>
-                      <td className="p-3 border border-slate-800">Credit increases (+), Debit decreases (-)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Sales Revenue, Interest Received, Commission</td>
-                    </tr>
-                  
-                </tbody>
-              </table>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 font-mono text-xs">
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    <span className="text-slate-400 block text-[11px]">Normal Balance</span>
+                    <strong className="text-white text-sm block">{currentLedger.normalBalance}</strong>
+                  </div>
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    <span className="text-slate-400 block text-[11px]">Increase Rule</span>
+                    <strong className="text-emerald-400 text-sm block">{isBengali ? currentLedger.increaseRuleBn : currentLedger.increaseRuleEn}</strong>
+                  </div>
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    <span className="text-slate-400 block text-[11px]">Tally Primary Group</span>
+                    <strong className="text-sky-300 text-xs block">{isBengali ? currentLedger.tallyGroupBn : currentLedger.tallyGroupEn}</strong>
+                  </div>
+                  <div className="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+                    <span className="text-slate-400 block text-[11px]">Financial Statement</span>
+                    <strong className="text-teal-300 text-xs block">{isBengali ? currentLedger.statementBn : currentLedger.statementEn}</strong>
+                  </div>
+                </div>
+              </div>
             </div>
+          )}
+        </section>
+
+        {/* ─── 2. TRADITIONAL VS MODERN COMPARISON MATRIX ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16 space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <span className="text-emerald-400">⚖️</span>
+            <span>{isBengali ? "সনাতন গোল্ডেন রুলস বনাম আধুনিক ৫-ক্যাটাগরি ব্যবস্থার তুলনা" : "Traditional Approach vs. Modern 5-Category Approach"}</span>
+          </h2>
+
+          <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/90 shadow-xl">
+            <table className="w-full text-left border-collapse font-mono text-xs">
+              <thead>
+                <tr className="bg-slate-950 text-slate-200 border-b border-slate-800">
+                  <th className="p-3.5">Basis / মানদণ্ড</th>
+                  <th className="p-3.5 text-amber-400">Traditional Golden Rules</th>
+                  <th className="p-3.5 text-emerald-400">Modern 5-Category System (DEAD &amp; CLEAR)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                <tr>
+                  <td className="p-3.5 font-bold text-white">Classification Categories</td>
+                  <td className="p-3.5">3 Accounts: Personal, Real, Nominal</td>
+                  <td className="p-3.5 text-emerald-300 font-bold">5 Categories: Assets, Liabilities, Capital, Expenses, Revenues</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-bold text-white">Primary Focus</td>
+                  <td className="p-3.5">Receiver/Giver, In/Out, Expense/Income rules</td>
+                  <td className="p-3.5">Normal Balance &amp; Increase (+)/Decrease (-) equation</td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-bold text-white">TallyPrime Alignment</td>
+                  <td className="p-3.5">Requires manual mental mapping</td>
+                  <td className="p-3.5 text-sky-300 font-bold">Directly maps to Tally's 28 Predefined Groups</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
-        {/* TALLYPRIME OPERATIONAL EXECUTION GUIDE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-4">
-            <h2 className="text-xl font-bold text-teal-400 flex items-center gap-2">
-              <span>⚙️</span> TallyPrime Software Integration Guide
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              TallyPrime uses this exact 5-category modern framework internally to structure the Chart of Accounts into 28 pre-defined groups.
-            </p>
-            <ol className="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-300 pt-2">
-              <li>Open <strong>Gateway of Tally</strong> using <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Alt+G</kbd> (Go To) or main dashboard.</li>
-              <li>Select <strong>Masters &gt; Create &gt; Ledger</strong> to set up classified account ledgers under appropriate parent groups.</li>
-              <li>Select <strong>Vouchers</strong> (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F5 Payment</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F6 Receipt</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F7 Journal</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F8 Sales</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F9 Purchase</kbd>).</li>
-              <li>Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Ctrl+A</kbd> to accept and save voucher entry.</li>
-            </ol>
-          </div>
-        </section>
-
-        {/* PRINTABLE STUDY NOTE */}
+        {/* ─── 3. PRINTABLE STUDY NOTE (DOWNLOAD & PRINT ONLY) ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <PlainTextPrint content={noteText} filename="topic8_study_note.txt" />
+          <PlainTextPrint
+            content={noteText}
+            filename={isBengali ? "topic8_study_note_bn.txt" : "topic8_study_note.txt"}
+            hidePreview={true}
+            showDownload={true}
+          />
         </section>
 
-        {/* DIAGNOSTIC PRACTICE ASSESSMENT */}
+        {/* ─── 4. DIAGNOSTIC PRACTICE ASSESSMENT ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <FAQTemplate title="Topic Assessment & Diagnostic Practice" questions={questions} />
+          <FAQTemplate
+            title={isBengali ? "Topic ৮ মূল্যায়ন ও অনুশীলন প্রশ্নাবলী" : "Topic 8 Assessment & Diagnostic Practice"}
+            questions={questions}
+          />
         </section>
 
-        {/* TEACHER PROFILE CARD */}
+        {/* ─── 5. TEACHER PROFILE CARD ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto">
-          <Teacher note="Mastering double-entry account classification with Mr. CNAT is the secret to error-free bookkeeping in TallyPrime. Every ledger created under the right group ensures flawless Balance Sheet and P&L generation!" />
+          <Teacher
+            note={
+              isBengali
+                ? "আধুনিক নিয়মাবলী (DEAD & CLEAR) জানা থাকলে TallyPrime-এর যেকানো জটিল ভাউচার এন্ট্রি কয়েক সেকেন্ডে ভুলমুক্তভাবে পাস করা যায়!"
+                : "Mastering the DEAD & CLEAR acronym system lets you solve any complex TallyPrime voucher entry flawlessly in seconds!"
+            }
+          />
         </section>
 
       </div>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-10",
+    "description": "Paid monthly office electricity bill ₹7,500 in cash",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Electricity Expense Account",
+    "debitAmount": 7500,
+    "creditAccount": "Cash Account",
+    "creditAmount": 7500,
+    "narration": "Being monthly electricity charges paid in cash",
+    "explanation": "Standard cash operating expense: Debit Electricity Expense A/c Dr ₹7,500, Credit Cash Asset A/c Cr ₹7,500."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-30",
+    "description": "Office shop rent ₹18,000 for April 2026 due to landlord Mr. Das remained unpaid at month end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Rent Expense Account",
+    "debitAmount": 18000,
+    "creditAccount": "Outstanding Rent (Current Liability)",
+    "creditAmount": 18000,
+    "narration": "Being accrued rent expense for April recorded as outstanding liability",
+    "explanation": "Accrual Principle: Debit Rent Expense A/c Dr ₹18,000 (matching period cost), Credit Outstanding Rent Liability A/c Cr ₹18,000."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-30",
+    "description": "Staff salaries for April 2026 amounting to ₹35,000 due to lab assistants remained unpaid at month end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Salary Expense Account",
+    "debitAmount": 35000,
+    "creditAccount": "Outstanding Salaries (Current Liability)",
+    "creditAmount": 35000,
+    "narration": "Being accrued staff salary for April recorded as outstanding liability",
+    "explanation": "Accrual Principle: Debit Salary Expense A/c Dr ₹35,000, Credit Outstanding Salaries Liability A/c Cr ₹35,000."
+  },
+  {
+    "id": 4,
+    "date": "2026-05-05",
+    "description": "Paid previous month's outstanding rent ₹18,000 in cash to landlord Mr. Das",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Outstanding Rent (Current Liability)",
+    "debitAmount": 18000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 18000,
+    "narration": "Being payment of previously accrued outstanding rent liability made in cash",
+    "explanation": "Discharging Liability: Debit Outstanding Rent Liability A/c Dr ₹18,000 (clearing liability), Credit Cash Asset A/c Cr ₹18,000."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-01",
+    "description": "Paid annual shop fire insurance premium ₹24,000 in advance for 12 months (01-Apr-2026 to 31-Mar-2027) by SBI Bank cheque",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Prepaid Insurance (Current Asset)",
+    "debitAmount": 24000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 24000,
+    "narration": "Being annual shop fire insurance premium paid in advance via SBI Bank cheque",
+    "explanation": "Deferred Asset: Debit Prepaid Insurance A/c Dr ₹24,000 (Current Asset), Credit SBI Bank A/c Cr ₹24,000."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-01",
+    "description": "Paid 6 months advance shop godown rent ₹60,000 by SBI Bank cheque",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Prepaid Rent (Current Asset)",
+    "debitAmount": 60000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 60000,
+    "narration": "Being 6 months advance godown rent paid via bank cheque",
+    "explanation": "Prepaid Asset: Debit Prepaid Rent A/c Dr ₹60,000 (Current Asset), Credit SBI Bank A/c Cr ₹60,000."
+  },
+  {
+    "id": 7,
+    "date": "2027-03-31",
+    "description": "Adjusted expired portion of prepaid insurance (₹24,000 for 12 months) at financial year end 31-Mar-2027",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Insurance Expense Account",
+    "debitAmount": 24000,
+    "creditAccount": "Prepaid Insurance (Current Asset)",
+    "creditAmount": 24000,
+    "narration": "Being expired annual insurance premium transferred from Prepaid Insurance to Expense Account",
+    "explanation": "Year-End Adjustment Entry: Debit Insurance Expense A/c Dr ₹24,000 (charging expense to P&L), Credit Prepaid Insurance Asset A/c Cr ₹24,000."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-30",
+    "description": "Audit fees ₹15,000 due to Chartered Accountant for tax audit remained unpaid at month end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Audit Fees Expense Account",
+    "debitAmount": 15000,
+    "creditAccount": "Outstanding Audit Fees (Current Liability)",
+    "creditAmount": 15000,
+    "narration": "Being accrued audit fees recorded as outstanding liability",
+    "explanation": "Accrual Principle: Debit Audit Fees Expense A/c ₹15,000, Credit Outstanding Audit Fees Liability A/c ₹15,000."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-01",
+    "description": "Paid annual accounting software license & cloud hosting subscription ₹18,000 in advance by bank cheque",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Prepaid Software License (Current Asset)",
+    "debitAmount": 18000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 18000,
+    "narration": "Being annual software subscription paid in advance via bank cheque",
+    "explanation": "Deferred Asset: Debit Prepaid Software License A/c ₹18,000, Credit SBI Bank A/c ₹18,000."
+  },
+  {
+    "id": 10,
+    "date": "2027-03-31",
+    "description": "Adjusted expired annual accounting software license subscription ₹18,000 at financial year end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Software Subscription Expense Account",
+    "debitAmount": 18000,
+    "creditAccount": "Prepaid Software License (Current Asset)",
+    "creditAmount": 18000,
+    "narration": "Being expired annual software subscription transferred to expense",
+    "explanation": "Year-End Adjustment: Debit Software Expense A/c ₹18,000, Credit Prepaid Software License Asset A/c ₹18,000."
+  }
+]

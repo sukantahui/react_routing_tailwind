@@ -19,7 +19,18 @@ import noteText from "./topic6_files/topic6_note.txt?raw";
  */
 const Topic6 = () => {
   const [activeDiagramTab, setActiveDiagramTab] = useState("tab1");
-  const [simStep, setSimStep] = useState(1);
+  const [clkState, setClkState] = useState(0); // 0: Low, 1: High, 2: PosEdge, 3: NegEdge
+  const [dInput, setDInput] = useState(0);     // 0 or 1
+  
+  // Simulated device states
+  const [posLatchQ, setPosLatchQ] = useState(0);
+  const [negLatchQ, setNegLatchQ] = useState(0);
+  const [posEdgeFFQ, setPosEdgeFFQ] = useState(0);
+  const [negEdgeFFQ, setNegEdgeFFQ] = useState(0);
+  const [eventLog, setEventLog] = useState([
+    "System Initialized. All registers set to 0."
+  ]);
+
   const sectionRefs = useRef([]);
 
   useEffect(() => {
@@ -47,6 +58,41 @@ const Topic6 = () => {
     }
   };
 
+  // Live simulation update logic
+  const handleSimTrigger = (newClkState, newDInput) => {
+    setClkState(newClkState);
+    setDInput(newDInput);
+
+    let nextPosLatch = posLatchQ;
+    let nextNegLatch = negLatchQ;
+    let nextPosEdgeFF = posEdgeFFQ;
+    let nextNegEdgeFF = negEdgeFFQ;
+    let logMsg = "";
+
+    if (newClkState === 1) { // CLK = HIGH
+      nextPosLatch = newDInput; // Transparent
+      logMsg = `CLK is HIGH level (1). Pos-Level Latch is TRANSPARENT (Q -> ${newDInput}). Edge FF ignored.`;
+    } else if (newClkState === 0) { // CLK = LOW
+      nextNegLatch = newDInput; // Transparent
+      logMsg = `CLK is LOW level (0). Neg-Level Latch is TRANSPARENT (Q -> ${newDInput}). Edge FF ignored.`;
+    } else if (newClkState === 2) { // Rising Edge (0 -> 1)
+      nextPosLatch = newDInput;
+      nextPosEdgeFF = newDInput;
+      logMsg = `⚡ RISING EDGE (0 -> 1) detected! Positive-Edge FF captures D = ${newDInput}. Pos-Latch transparent.`;
+    } else if (newClkState === 3) { // Falling Edge (1 -> 0)
+      nextNegLatch = newDInput;
+      nextNegEdgeFF = newDInput;
+      logMsg = `⚡ FALLING EDGE (1 -> 0) detected! Negative-Edge FF captures D = ${newDInput}. Neg-Latch transparent.`;
+    }
+
+    setPosLatchQ(nextPosLatch);
+    setNegLatchQ(nextNegLatch);
+    setPosEdgeFFQ(nextPosEdgeFF);
+    setNegEdgeFFQ(nextNegEdgeFF);
+
+    setEventLog((prev) => [logMsg, ...prev.slice(0, 7)]);
+  };
+
   return (
     <>
       <style>{`
@@ -68,24 +114,24 @@ const Topic6 = () => {
             <span>Computer Architecture Masterclass · Module 003 · Topic 6</span>
           </div>
           <h1 className="text-2xl sm:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-tight mb-4">
-            Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important
+            Level-Sensitive vs Edge-Triggered Devices: Positive Edge, Negative Edge &amp; Timing Diagrams
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Master the sequential building blocks of digital memory, timing control, and state machine control units.
+            Understand the critical distinction between duration-sensitive latches and transition-sensitive flip-flops. Discover why edge triggering powers modern microprocessors, pipelined CPUs, and high-frequency digital systems.
           </p>
 
           <div className="mt-6 flex flex-wrap justify-center gap-3 text-xs font-medium text-slate-400">
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-teal-300">
-              🔒 Hardware Circuit Schematic
+              🔓 Level-Sensitivity &amp; Transparency
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-cyan-300">
-              ⏱️ Timing &amp; Invariants
+              ⚡ Rising (↑) &amp; Falling (↓) Edge Triggers
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-indigo-300">
-              🔄 State Transitions &amp; Buses
+              ⏱️ Timing Aperture (t_su &amp; t_h)
             </span>
             <span className="rounded-lg bg-slate-900 border border-slate-800 px-3 py-1.5 text-amber-300">
-              💾 Production Silicon Synthesis
+              🚀 Pipeline Lockstep &amp; STA Bounds
             </span>
           </div>
         </header>
@@ -101,10 +147,10 @@ const Topic6 = () => {
             </div>
             <div>
               <h2 className="text-xl md:text-2xl font-bold text-white">
-                Teacher's Concept Breakdown: Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important
+                Teacher's Masterclass: Level-Sensitive Latches vs. Edge-Triggered Flip-Flops
               </h2>
               <p className="text-xs text-slate-400">
-                Understanding computer architecture fundamentals and silicon-level mechanics from first principles
+                Silicon-level mechanics, transparency hazards, and edge synchronization from first principles
               </p>
             </div>
           </div>
@@ -116,39 +162,39 @@ const Topic6 = () => {
                   <span>💡</span> Hardware Implementation Reality
                 </span>
                 <p className="text-sm text-slate-200 leading-relaxed font-medium">
-                  In modern digital computer architectures, <strong className="text-teal-300">Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important</strong> coordinates data flow and signal synchronization across silicon buses and registers with deterministic propagation delays.
+                  In sequential digital design, <strong className="text-teal-300">Level-Sensitive Latches</strong> act like an open door—data flows continuously from input <code className="text-teal-300 font-mono">D</code> to output <code className="text-teal-300 font-mono">Q</code> as long as the enable level is active (transparency phase).
                 </p>
                 <div className="my-2 p-3 rounded-lg bg-teal-950/40 border border-teal-800/60 font-mono text-xs sm:text-sm text-teal-200 text-center font-bold">
-                  Zero Glitch Architecture · Deterministic State Transitions
+                  Latch: Q = D while CLK = 1 &nbsp;|&nbsp; Flip-Flop: Q = D @ CLK Edge Only
                 </div>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  By adhering to strict setup/hold times and bus arbitration protocols, hardware guarantees exact execution semantics across millions of concurrent cycles.
+                  Conversely, <strong className="text-cyan-300">Edge-Triggered Flip-Flops</strong> snapshot the input state exclusively during sub-nanosecond clock transitions (rising edge 0→1 or falling edge 1→0), keeping output Q completely immune to mid-pulse input fluctuations.
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-teal-950/30 border border-teal-800/40 text-xs text-teal-200">
-                🎯 <strong>Teacher's Law:</strong> <em>"Hardware performance is the product of clean datapath layout, minimal critical path delay, and cache locality!"</em>
+                🎯 <strong>Teacher's Rule:</strong> <em>"Use edge-triggered flip-flops whenever feedback exists (Q → ALU → D) or when building synchronous pipelines!"</em>
               </div>
             </div>
 
             <div className="p-5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-3 flex flex-col justify-between">
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 mb-2">
-                  <span>🏫</span> Real-World Engineering Analogy
+                  <span>🏫</span> Real-World Physical Analogy
                 </span>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Imagine an automated railway freight terminal in Barrackpore:
+                  Imagine an automated railway ticketing gate at Barrackpore Station:
                 </p>
                 <ul className="text-xs text-slate-400 mt-2 space-y-2 list-disc list-inside">
                   <li>
-                    <strong className="text-slate-200">Synchronized Routing:</strong> Trains are switched between parallel tracks strictly according to master clock signals.
+                    <strong className="text-slate-200">Level Latch (Open Door):</strong> As long as the gate stays open, multiple passengers walk through uncontrolled, creating overcrowding and counting errors (race condition).
                   </li>
                   <li>
-                    <strong className="text-slate-200">Interlock Protection:</strong> Hardware lockouts prevent concurrent write conflicts and hazardous race conditions.
+                    <strong className="text-slate-200">Edge Flip-Flop (Turnstile Snapshot):</strong> A turnstile clicks once per token presented, allowing exactly one passenger to pass at a precise instant, regardless of how long they linger.
                   </li>
                 </ul>
               </div>
               <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/40 text-xs text-amber-200">
-                ✨ <strong>Silicon Advantage:</strong> High instruction throughput with 100% data integrity!
+                ✨ <strong>Silicon Advantage:</strong> Edge triggering enables deterministic gigahertz CPU clocking!
               </div>
             </div>
           </div>
@@ -161,39 +207,39 @@ const Topic6 = () => {
               <span className="text-cyan-400">📐</span> Hardware Schematics &amp; Timing Diagrams
             </h2>
             {/* Tab Selector */}
-            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl">
+            <div className="flex items-center gap-2 bg-slate-900 border border-slate-800 p-1.5 rounded-xl flex-wrap">
               <button
                 onClick={() => setActiveDiagramTab("tab1")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
+                  "px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition",
                   activeDiagramTab === "tab1"
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
               >
-                1. NAND Gate Flip-Flop Circuit Schematic
+                1. Internal Topology Schematics
               </button>
               <button
                 onClick={() => setActiveDiagramTab("tab2")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
+                  "px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition",
                   activeDiagramTab === "tab2"
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
               >
-                2. Standard IEEE Symbol & Pinout
+                2. IEEE Standard Symbols
               </button>
               <button
                 onClick={() => setActiveDiagramTab("tab3")}
                 className={clsx(
-                  "px-3 py-1 rounded-lg text-xs font-mono font-bold transition",
+                  "px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition",
                   activeDiagramTab === "tab3"
                     ? "bg-teal-900/80 border border-teal-500 text-teal-200"
                     : "text-slate-400 hover:text-slate-200"
                 )}
               >
-                3. Clock Timing & Setup/Hold Waveforms
+                3. Multi-Signal Waveform Comparison
               </button>
             </div>
           </div>
@@ -202,78 +248,84 @@ const Topic6 = () => {
             {activeDiagramTab === "tab1" && (
               <div className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 block">
-                  1. NAND Gate Flip-Flop Circuit Schematic
+                  1. Structural Circuit Schematics: Gated D Latch vs Master-Slave D Flip-Flop
                 </span>
                 <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 340" className="w-full h-auto text-xs font-mono select-none">
-          {/* Inputs */}
-          <text x="25" y="65" fill="#14b8a6" fontWeight="bold" fontSize="14">Input (J / D / S)</text>
-          <circle cx="110" cy="60" r="4" fill="#14b8a6" />
-          <line x1="110" y1="60" x2="280" y2="60" stroke="#14b8a6" strokeWidth="2.5" />
+                  <svg viewBox="0 0 940 320" className="w-full h-auto text-xs font-mono select-none">
+                    {/* Background Panels */}
+                    <rect x="20" y="20" width="430" height="280" rx="10" fill="#0f172a" stroke="#1e293b" strokeWidth="2" />
+                    <text x="235" y="45" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="14">LEVEL-SENSITIVE D LATCH (Transparent when EN=1)</text>
 
-          <text x="20" y="160" fill="#38bdf8" fontWeight="bold" fontSize="14">CLK (Clock)</text>
-          <circle cx="110" cy="155" r="4" fill="#38bdf8" />
-          <line x1="110" y1="155" x2="140" y2="155" stroke="#38bdf8" strokeWidth="2.5" />
-          <circle cx="140" cy="155" r="3.5" fill="#38bdf8" />
-          <line x1="140" y1="155" x2="140" y2="85" stroke="#38bdf8" strokeWidth="2.5" />
-          <line x1="140" y1="85" x2="280" y2="85" stroke="#38bdf8" strokeWidth="2.5" />
-          <line x1="140" y1="155" x2="140" y2="225" stroke="#38bdf8" strokeWidth="2.5" />
-          <line x1="140" y1="225" x2="280" y2="225" stroke="#38bdf8" strokeWidth="2.5" />
+                    <rect x="490" y="20" width="430" height="280" rx="10" fill="#0f172a" stroke="#1e293b" strokeWidth="2" />
+                    <text x="705" y="45" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="14">MASTER-SLAVE EDGE-TRIGGERED D FLIP-FLOP</text>
 
-          <text x="25" y="260" fill="#f43f5e" fontWeight="bold" fontSize="14">Input (K / D̄ / R)</text>
-          <circle cx="110" cy="255" r="4" fill="#f43f5e" />
-          <line x1="110" y1="255" x2="280" y2="255" stroke="#f43f5e" strokeWidth="2.5" />
+                    {/* Left: D Latch */}
+                    <g transform="translate(40, 70)">
+                      <text x="10" y="35" fill="#38bdf8" fontWeight="bold">D</text>
+                      <line x1="25" y1="30" x2="80" y2="30" stroke="#38bdf8" strokeWidth="2" />
+                      <line x1="25" y1="30" x2="25" y2="130" stroke="#38bdf8" strokeWidth="2" />
+                      
+                      {/* Inverter for D */}
+                      <polygon points="25,130 45,120 45,140" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+                      <circle cx="50" cy="130" r="3" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+                      <line x1="53" y1="130" x2="80" y2="130" stroke="#38bdf8" strokeWidth="2" />
 
-          {/* Steering NAND 1 */}
-          <g transform="translate(280, 45)">
-            <path d="M 0,0 L 35,0 A 30,30 0 0,1 35,60 L 0,60 Z" fill="#1e293b" stroke="#14b8a6" strokeWidth="2" />
-            <circle cx="70" cy="30" r="5" fill="#0f172a" stroke="#14b8a6" strokeWidth="2" />
-            <text x="22" y="35" fill="#94a3b8" fontSize="11" textAnchor="middle">NAND 1</text>
-          </g>
+                      <text x="10" y="85" fill="#f59e0b" fontWeight="bold">EN</text>
+                      <line x1="35" y1="80" x2="80" y2="80" stroke="#f59e0b" strokeWidth="2" />
+                      <circle cx="60" cy="80" r="3" fill="#f59e0b" />
+                      <line x1="60" y1="80" x2="60" y2="50" stroke="#f59e0b" strokeWidth="1.5" />
+                      <line x1="60" y1="50" x2="80" y2="50" stroke="#f59e0b" strokeWidth="1.5" />
+                      <line x1="60" y1="80" x2="60" y2="110" stroke="#f59e0b" strokeWidth="1.5" />
+                      <line x1="60" y1="110" x2="80" y2="110" stroke="#f59e0b" strokeWidth="1.5" />
 
-          {/* Steering NAND 2 */}
-          <g transform="translate(280, 215)">
-            <path d="M 0,0 L 35,0 A 30,30 0 0,1 35,60 L 0,60 Z" fill="#1e293b" stroke="#f43f5e" strokeWidth="2" />
-            <circle cx="70" cy="30" r="5" fill="#0f172a" stroke="#f43f5e" strokeWidth="2" />
-            <text x="22" y="35" fill="#94a3b8" fontSize="11" textAnchor="middle">NAND 2</text>
-          </g>
+                      {/* AND Gates */}
+                      <rect x="80" y="25" width="40" height="35" rx="4" fill="#1e293b" stroke="#38bdf8" />
+                      <text x="100" y="46" fill="#cbd5e1" textAnchor="middle" fontSize="10">AND1</text>
+                      <rect x="80" y="105" width="40" height="35" rx="4" fill="#1e293b" stroke="#38bdf8" />
+                      <text x="100" y="126" fill="#cbd5e1" textAnchor="middle" fontSize="10">AND2</text>
 
-          {/* Interconnect Wires */}
-          <line x1="355" y1="75" x2="560" y2="75" stroke="#10b981" strokeWidth="2.5" />
-          <text x="450" y="62" fill="#10b981" fontWeight="bold" textAnchor="middle">S' = ~(Input · CLK)</text>
+                      {/* SR Latch Cross Coupled NOR */}
+                      <rect x="180" y="30" width="60" height="40" rx="4" fill="#1e293b" stroke="#22c55e" />
+                      <text x="210" y="55" fill="#22c55e" textAnchor="middle" fontWeight="bold">NOR 1</text>
+                      <rect x="180" y="100" width="60" height="40" rx="4" fill="#1e293b" stroke="#a855f7" />
+                      <text x="210" y="125" fill="#a855f7" textAnchor="middle" fontWeight="bold">NOR 2</text>
 
-          <line x1="355" y1="245" x2="560" y2="245" stroke="#10b981" strokeWidth="2.5" />
-          <text x="450" y="270" fill="#10b981" fontWeight="bold" textAnchor="middle">R' = ~(Input · CLK)</text>
+                      <line x1="120" y1="42" x2="180" y2="42" stroke="#38bdf8" strokeWidth="2" />
+                      <line x1="120" y1="122" x2="180" y2="122" stroke="#38bdf8" strokeWidth="2" />
 
-          {/* Storage NAND 3 */}
-          <g transform="translate(560, 45)">
-            <path d="M 0,0 L 35,0 A 30,30 0 0,1 35,60 L 0,60 Z" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
-            <circle cx="70" cy="30" r="5" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
-            <text x="22" y="35" fill="#94a3b8" fontSize="11" textAnchor="middle">NAND 3</text>
-          </g>
+                      <line x1="240" y1="50" x2="350" y2="50" stroke="#22c55e" strokeWidth="2.5" />
+                      <text x="365" y="55" fill="#22c55e" fontWeight="bold" fontSize="14">Q</text>
+                      <line x1="240" y1="120" x2="350" y2="120" stroke="#a855f7" strokeWidth="2.5" />
+                      <text x="365" y="125" fill="#a855f7" fontWeight="bold" fontSize="14">Q̄</text>
 
-          {/* Storage NAND 4 */}
-          <g transform="translate(560, 215)">
-            <path d="M 0,0 L 35,0 A 30,30 0 0,1 35,60 L 0,60 Z" fill="#1e293b" stroke="#a855f7" strokeWidth="2" />
-            <circle cx="70" cy="30" r="5" fill="#0f172a" stroke="#a855f7" strokeWidth="2" />
-            <text x="22" y="35" fill="#94a3b8" fontSize="11" textAnchor="middle">NAND 4</text>
-          </g>
+                      <text x="190" y="195" fill="#94a3b8" fontSize="11" textAnchor="middle">
+                        Continuous Feedthrough while EN = 1
+                      </text>
+                    </g>
 
-          {/* Output Q Wire */}
-          <line x1="635" y1="75" x2="840" y2="75" stroke="#22c55e" strokeWidth="3" />
-          <circle cx="720" cy="75" r="4" fill="#22c55e" />
-          <text x="855" y="80" fill="#22c55e" fontSize="17" fontWeight="bold">Q (Output)</text>
+                    {/* Right: Master-Slave D Flip-Flop */}
+                    <g transform="translate(510, 70)">
+                      <rect x="30" y="25" width="130" height="130" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
+                      <text x="95" y="50" fill="#38bdf8" textAnchor="middle" fontWeight="bold">MASTER LATCH</text>
+                      <text x="95" y="70" fill="#cbd5e1" textAnchor="middle" fontSize="10">Active when CLK=0</text>
+                      <text x="95" y="90" fill="#94a3b8" textAnchor="middle" fontSize="10">Tracks D input</text>
 
-          {/* Output Q̄ Wire */}
-          <line x1="635" y1="245" x2="840" y2="245" stroke="#a855f7" strokeWidth="3" />
-          <circle cx="700" cy="245" r="4" fill="#a855f7" />
-          <text x="855" y="250" fill="#a855f7" fontSize="17" fontWeight="bold">Q̄ (Complement)</text>
+                      <line x1="160" y1="90" x2="240" y2="90" stroke="#f59e0b" strokeWidth="2.5" />
+                      <text x="200" y="80" fill="#f59e0b" textAnchor="middle" fontSize="11" fontWeight="bold">Qm</text>
 
-          {/* Cross-Coupled Feedback Loops */}
-          <polyline points="720,75 720,130 490,175 490,225 560,225" fill="none" stroke="#22c55e" strokeWidth="2" strokeDasharray="4 2" />
-          <polyline points="700,245 700,190 510,145 510,95 560,95" fill="none" stroke="#a855f7" strokeWidth="2" strokeDasharray="4 2" />
-        </svg>
+                      <rect x="240" y="25" width="130" height="130" rx="8" fill="#1e293b" stroke="#14b8a6" strokeWidth="2" />
+                      <text x="305" y="50" fill="#14b8a6" textAnchor="middle" fontWeight="bold">SLAVE LATCH</text>
+                      <text x="305" y="70" fill="#cbd5e1" textAnchor="middle" fontSize="10">Active when CLK=1</text>
+                      <text x="305" y="90" fill="#94a3b8" textAnchor="middle" fontSize="10">Latches Qm to Q</text>
+
+                      <line x1="370" y1="90" x2="400" y2="90" stroke="#22c55e" strokeWidth="2.5" />
+                      <text x="410" y="95" fill="#22c55e" fontWeight="bold" fontSize="14">Q</text>
+
+                      <text x="200" y="195" fill="#94a3b8" fontSize="11" textAnchor="middle">
+                        Complementary clocks isolate input from output (No Race-Around)
+                      </text>
+                    </g>
+                  </svg>
                 </div>
               </div>
             )}
@@ -281,30 +333,78 @@ const Topic6 = () => {
             {activeDiagramTab === "tab2" && (
               <div className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 block">
-                  2. Standard IEEE Symbol & Pinout
+                  2. IEEE 60617 Standard Logic Symbols &amp; Pinout Notation
                 </span>
                 <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 240" className="w-full h-auto text-xs font-mono select-none">
-          <rect x="180" y="30" width="580" height="180" rx="12" fill="#0f172a" stroke="#14b8a6" strokeWidth="2.5" />
-          <text x="470" y="60" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="16">SYNCHRONOUS NAND FLIP-FLOP / REGISTER IC</text>
-          
-          <g transform="translate(220, 80)">
-            <rect width="180" height="110" rx="8" fill="#1e293b" stroke="#38bdf8" />
-            <text x="90" y="30" fill="#38bdf8" textAnchor="middle" fontWeight="bold">Data Inputs</text>
-            <text x="90" y="60" fill="#cbd5e1" textAnchor="middle">D / JK / T Pins</text>
-            <text x="90" y="85" fill="#94a3b8" textAnchor="middle" fontSize="10">Active-High Gating</text>
-          </g>
+                  <svg viewBox="0 0 940 260" className="w-full h-auto text-xs font-mono select-none">
+                    {/* Device 1: D Latch */}
+                    <g transform="translate(60, 30)">
+                      <rect width="180" height="180" rx="8" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
+                      <text x="90" y="30" fill="#38bdf8" textAnchor="middle" fontWeight="bold" fontSize="13">D LATCH</text>
+                      <text x="90" y="48" fill="#94a3b8" textAnchor="middle" fontSize="10">(Level-Sensitive)</text>
 
-          <g transform="translate(540, 80)">
-            <rect width="180" height="110" rx="8" fill="#1e293b" stroke="#22c55e" />
-            <text x="90" y="30" fill="#22c55e" textAnchor="middle" fontWeight="bold">Storage Outputs</text>
-            <text x="90" y="60" fill="#86efac" textAnchor="middle">Q &amp; Q̄ (Complement)</text>
-            <text x="90" y="85" fill="#bbf7d0" textAnchor="middle" fontSize="10">Glitch-Free Latching</text>
-          </g>
+                      <text x="25" y="85" fill="#cbd5e1" fontSize="12" fontWeight="bold">D</text>
+                      <line x1="0" y1="80" x2="20" y2="80" stroke="#38bdf8" strokeWidth="2" />
 
-          <text x="470" y="140" fill="#cbd5e1" textAnchor="middle" fontSize="12">&gt;CLK Dynamic Edge Triggering</text>
-        </svg>
+                      <text x="25" y="135" fill="#f59e0b" fontSize="12" fontWeight="bold">EN</text>
+                      <line x1="0" y1="130" x2="20" y2="130" stroke="#f59e0b" strokeWidth="2" />
+
+                      <text x="155" y="85" fill="#22c55e" fontSize="12" fontWeight="bold">Q</text>
+                      <line x1="160" y1="80" x2="180" y2="80" stroke="#22c55e" strokeWidth="2" />
+
+                      <text x="155" y="135" fill="#a855f7" fontSize="12" fontWeight="bold">Q̄</text>
+                      <line x1="160" y1="130" x2="180" y2="130" stroke="#a855f7" strokeWidth="2" />
+
+                      <text x="90" y="165" fill="#94a3b8" textAnchor="middle" fontSize="9">No &apos;&gt;&apos; symbol at EN pin</text>
+                    </g>
+
+                    {/* Device 2: Positive Edge D-FF */}
+                    <g transform="translate(380, 30)">
+                      <rect width="180" height="180" rx="8" fill="#0f172a" stroke="#14b8a6" strokeWidth="2" />
+                      <text x="90" y="30" fill="#14b8a6" textAnchor="middle" fontWeight="bold" fontSize="13">+EDGE D FLIP-FLOP</text>
+                      <text x="90" y="48" fill="#94a3b8" textAnchor="middle" fontSize="10">(Rising Edge ↑)</text>
+
+                      <text x="25" y="85" fill="#cbd5e1" fontSize="12" fontWeight="bold">D</text>
+                      <line x1="0" y1="80" x2="20" y2="80" stroke="#14b8a6" strokeWidth="2" />
+
+                      {/* Dynamic Indicator Triangle > */}
+                      <polygon points="20,120 35,130 20,140" fill="none" stroke="#14b8a6" strokeWidth="2" />
+                      <text x="42" y="134" fill="#14b8a6" fontSize="11" fontWeight="bold">CLK</text>
+                      <line x1="0" y1="130" x2="20" y2="130" stroke="#14b8a6" strokeWidth="2" />
+
+                      <text x="155" y="85" fill="#22c55e" fontSize="12" fontWeight="bold">Q</text>
+                      <line x1="160" y1="80" x2="180" y2="80" stroke="#22c55e" strokeWidth="2" />
+
+                      <text x="155" y="135" fill="#a855f7" fontSize="12" fontWeight="bold">Q̄</text>
+                      <line x1="160" y1="130" x2="180" y2="130" stroke="#a855f7" strokeWidth="2" />
+
+                      <text x="90" y="165" fill="#14b8a6" textAnchor="middle" fontSize="9">Triangle &apos;&gt;&apos; = Edge Trigger</text>
+                    </g>
+
+                    {/* Device 3: Negative Edge D-FF */}
+                    <g transform="translate(700, 30)">
+                      <rect width="180" height="180" rx="8" fill="#0f172a" stroke="#f43f5e" strokeWidth="2" />
+                      <text x="90" y="30" fill="#f43f5e" textAnchor="middle" fontWeight="bold" fontSize="13">-EDGE D FLIP-FLOP</text>
+                      <text x="90" y="48" fill="#94a3b8" textAnchor="middle" fontSize="10">(Falling Edge ↓)</text>
+
+                      <text x="25" y="85" fill="#cbd5e1" fontSize="12" fontWeight="bold">D</text>
+                      <line x1="0" y1="80" x2="20" y2="80" stroke="#f43f5e" strokeWidth="2" />
+
+                      {/* Bubble o + Triangle > */}
+                      <circle cx="12" cy="130" r="5" fill="#0f172a" stroke="#f43f5e" strokeWidth="2" />
+                      <polygon points="20,120 35,130 20,140" fill="none" stroke="#f43f5e" strokeWidth="2" />
+                      <text x="42" y="134" fill="#f43f5e" fontSize="11" fontWeight="bold">CLK</text>
+                      <line x1="0" y1="130" x2="7" y2="130" stroke="#f43f5e" strokeWidth="2" />
+
+                      <text x="155" y="85" fill="#22c55e" fontSize="12" fontWeight="bold">Q</text>
+                      <line x1="160" y1="80" x2="180" y2="80" stroke="#22c55e" strokeWidth="2" />
+
+                      <text x="155" y="135" fill="#a855f7" fontSize="12" fontWeight="bold">Q̄</text>
+                      <line x1="160" y1="130" x2="180" y2="130" stroke="#a855f7" strokeWidth="2" />
+
+                      <text x="90" y="165" fill="#f43f5e" textAnchor="middle" fontSize="9">Bubble &apos;o&apos; + &apos;&gt;&apos; = Neg Edge</text>
+                    </g>
+                  </svg>
                 </div>
               </div>
             )}
@@ -312,25 +412,46 @@ const Topic6 = () => {
             {activeDiagramTab === "tab3" && (
               <div className="space-y-4">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 block">
-                  3. Clock Timing & Setup/Hold Waveforms
+                  3. Multi-Signal Timing Diagram Comparison across Clock Cycles
                 </span>
                 <div className="rounded-xl border border-slate-800 bg-slate-950 p-4 overflow-x-auto">
-                  
-        <svg viewBox="0 0 940 200" className="w-full h-auto text-xs font-mono select-none">
-          <text x="40" y="45" fill="#38bdf8" fontWeight="bold">CLK Signal</text>
-          <polyline points="150,50 250,50 250,20 400,20 400,50 550,50 550,20 700,20 700,50 850,50" fill="none" stroke="#38bdf8" strokeWidth="2.5" />
+                  <svg viewBox="0 0 940 320" className="w-full h-auto text-xs font-mono select-none">
+                    {/* Time Grid Guidelines */}
+                    <line x1="200" y1="20" x2="200" y2="290" stroke="#334155" strokeDasharray="3 3" />
+                    <line x1="360" y1="20" x2="360" y2="290" stroke="#334155" strokeDasharray="3 3" />
+                    <line x1="520" y1="20" x2="520" y2="290" stroke="#334155" strokeDasharray="3 3" />
+                    <line x1="680" y1="20" x2="680" y2="290" stroke="#334155" strokeDasharray="3 3" />
+                    <line x1="840" y1="20" x2="840" y2="290" stroke="#334155" strokeDasharray="3 3" />
 
-          <text x="40" y="105" fill="#14b8a6" fontWeight="bold">Data Input</text>
-          <polyline points="150,110 230,110 230,80 500,80 500,110 850,110" fill="none" stroke="#14b8a6" strokeWidth="2.5" />
+                    <text x="200" y="15" fill="#38bdf8" textAnchor="middle" fontSize="10">↑ Edge 1</text>
+                    <text x="360" y="15" fill="#f43f5e" textAnchor="middle" fontSize="10">↓ Edge 1</text>
+                    <text x="520" y="15" fill="#38bdf8" textAnchor="middle" fontSize="10">↑ Edge 2</text>
+                    <text x="680" y="15" fill="#f43f5e" textAnchor="middle" fontSize="10">↓ Edge 2</text>
+                    <text x="840" y="15" fill="#38bdf8" textAnchor="middle" fontSize="10">↑ Edge 3</text>
 
-          <text x="40" y="165" fill="#22c55e" fontWeight="bold">Output Q</text>
-          <polyline points="150,170 260,170 260,140 560,140 560,170 850,170" fill="none" stroke="#22c55e" strokeWidth="3" />
+                    {/* Trace 1: CLK */}
+                    <text x="20" y="45" fill="#38bdf8" fontWeight="bold">CLK Signal</text>
+                    <polyline points="120,50 200,50 200,25 360,25 360,50 520,50 520,25 680,25 680,50 840,50 840,25 900,25" fill="none" stroke="#38bdf8" strokeWidth="2" />
 
-          {/* Setup / Hold markers */}
-          <line x1="230" y1="15" x2="230" y2="185" stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 3" />
-          <line x1="250" y1="15" x2="250" y2="185" stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 3" />
-          <text x="240" y="12" fill="#f59e0b" textAnchor="middle" fontSize="9">t_su</text>
-        </svg>
+                    {/* Trace 2: Data D Input */}
+                    <text x="20" y="95" fill="#cbd5e1" fontWeight="bold">Data Input D</text>
+                    <polyline points="120,105 260,105 260,75 600,75 600,105 760,105 760,75 900,75" fill="none" stroke="#cbd5e1" strokeWidth="2" />
+
+                    {/* Trace 3: Pos-Level Latch Q (Transparent when CLK=1) */}
+                    <text x="20" y="145" fill="#f59e0b" fontWeight="bold">Q (Pos Latch)</text>
+                    <polyline points="120,155 260,155 260,125 360,125 360,155 520,155 520,125 680,125 680,155 760,155 760,155 840,155 840,125 900,125" fill="none" stroke="#f59e0b" strokeWidth="2.5" />
+                    <text x="910" y="130" fill="#f59e0b" fontSize="9">Transparent while CLK=1</text>
+
+                    {/* Trace 4: Pos-Edge FF Q (Updates ONLY on rising edge ↑) */}
+                    <text x="20" y="195" fill="#14b8a6" fontWeight="bold">Q (+Edge FF)</text>
+                    <polyline points="120,205 520,205 520,175 900,175" fill="none" stroke="#14b8a6" strokeWidth="2.5" />
+                    <text x="910" y="180" fill="#14b8a6" fontSize="9">Updates @ ↑ Edge 2 (D=1)</text>
+
+                    {/* Trace 5: Neg-Edge FF Q (Updates ONLY on falling edge ↓) */}
+                    <text x="20" y="245" fill="#f43f5e" fontWeight="bold">Q (-Edge FF)</text>
+                    <polyline points="120,255 360,255 360,225 680,225 680,255 900,255" fill="none" stroke="#f43f5e" strokeWidth="2.5" />
+                    <text x="910" y="230" fill="#f43f5e" fontSize="9">Updates @ ↓ Edge 1 &amp; 2</text>
+                  </svg>
                 </div>
               </div>
             )}
@@ -340,51 +461,160 @@ const Topic6 = () => {
         {/* ─── 4. Live Interactive Simulator Workbench ─────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <h2 className="text-xl sm:text-2xl font-bold text-white mb-6 flex items-center gap-2">
-            <span className="text-emerald-400">⚡</span> Live Interactive Architecture Simulator: Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important
+            <span className="text-emerald-400">⚡</span> Live Interactive Workbench: Latch vs. Flip-Flop Simulator
           </h2>
           <div className="rounded-2xl bg-slate-900/90 border border-slate-800 p-6 md:p-8 space-y-6 shadow-2xl">
             
-            <div className="flex items-center justify-between flex-wrap gap-4 pb-6 border-b border-slate-800">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                Select Execution Phase / Clock Cycle:
-              </span>
-              <div className="flex gap-2">
-                {[1, 2, 3, 4].map((step) => (
+            {/* Controls */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 rounded-xl bg-slate-950 border border-slate-800">
+              <div>
+                <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block mb-3">
+                  1. Set Input Data D:
+                </label>
+                <div className="flex gap-3">
                   <button
-                    key={step}
-                    onClick={() => setSimStep(step)}
+                    onClick={() => handleSimTrigger(clkState, 0)}
                     className={clsx(
-                      "px-3.5 py-1.5 rounded-xl text-xs font-mono font-bold border transition",
-                      simStep === step
-                        ? "bg-teal-900/80 border-teal-500 text-teal-200 shadow-lg shadow-teal-950/50"
+                      "flex-1 py-2 rounded-xl font-mono text-sm font-bold border transition",
+                      dInput === 0
+                        ? "bg-rose-950 border-rose-600 text-rose-200 shadow-lg"
+                        : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                    )}
+                  >
+                    D = 0 (LOW)
+                  </button>
+                  <button
+                    onClick={() => handleSimTrigger(clkState, 1)}
+                    className={clsx(
+                      "flex-1 py-2 rounded-xl font-mono text-sm font-bold border transition",
+                      dInput === 1
+                        ? "bg-emerald-950 border-emerald-600 text-emerald-200 shadow-lg"
+                        : "bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                    )}
+                  >
+                    D = 1 (HIGH)
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block mb-3">
+                  2. Apply Clock Level / Edge Transition:
+                </label>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    onClick={() => handleSimTrigger(0, dInput)}
+                    className={clsx(
+                      "py-2 px-3 rounded-lg font-mono text-xs font-bold border transition",
+                      clkState === 0
+                        ? "bg-slate-800 border-slate-600 text-slate-200"
                         : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
                     )}
                   >
-                    Phase {step}
+                    CLK = 0 (Steady LOW)
                   </button>
-                ))}
+                  <button
+                    onClick={() => handleSimTrigger(1, dInput)}
+                    className={clsx(
+                      "py-2 px-3 rounded-lg font-mono text-xs font-bold border transition",
+                      clkState === 1
+                        ? "bg-amber-950 border-amber-600 text-amber-200"
+                        : "bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200"
+                    )}
+                  >
+                    CLK = 1 (Steady HIGH)
+                  </button>
+                  <button
+                    onClick={() => handleSimTrigger(2, dInput)}
+                    className="py-2 px-3 rounded-lg font-mono text-xs font-bold bg-teal-950/80 border border-teal-500 text-teal-200 hover:bg-teal-900 transition"
+                  >
+                    ⚡ Pulse Rising Edge ↑
+                  </button>
+                  <button
+                    onClick={() => handleSimTrigger(3, dInput)}
+                    className="py-2 px-3 rounded-lg font-mono text-xs font-bold bg-rose-950/80 border border-rose-500 text-rose-200 hover:bg-rose-900 transition"
+                  >
+                    ⚡ Pulse Falling Edge ↓
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="p-5 rounded-xl bg-slate-950 border border-teal-500/30 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-teal-950 text-teal-300 font-mono text-xs font-bold border border-teal-800">
-                  EXECUTION PHASE {simStep} OF 4
+            {/* Live Outputs Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* Device 1: Pos Level Latch */}
+              <div className="p-4 rounded-xl bg-slate-950 border border-amber-500/40 space-y-2">
+                <span className="text-xs font-mono text-amber-400 font-bold block uppercase">
+                  Positive Level Latch
                 </span>
-                <span className="text-xs text-slate-500 font-mono">Hardware State T+{simStep}</span>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-400">State Q:</span>
+                  <span className={clsx("px-3 py-1 rounded font-mono text-sm font-bold", posLatchQ === 1 ? "bg-emerald-950 text-emerald-300 border border-emerald-700" : "bg-slate-900 text-slate-400 border border-slate-800")}>
+                    Q = {posLatchQ}
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-400 leading-tight">
+                  {clkState === 1 ? "🔓 TRANSPARENT (Following D)" : "🔒 OPAQUE (Holding Q)"}
+                </p>
               </div>
-              <h3 className="text-base font-bold text-white">
-                {simStep === 1 && "Phase 1: Signal Conditioning & Input Ingestion"}
-                {simStep === 2 && "Phase 2: Datapath Decoding & Logic Evaluation"}
-                {simStep === 3 && "Phase 3: State Storage & Memory Interface Strobe"}
-                {simStep === 4 && "Phase 4: Output Stabilization & Verification"}
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                {simStep === 1 && "Signals are ingested from input pins and stabilized against ground bounce and setup timing constraints."}
-                {simStep === 2 && "Combinational logic gates and internal buses evaluate control lines to compute intermediate signals."}
-                {simStep === 3 && "Bistable registers latch stable binary states on the active clock edge."}
-                {simStep === 4 && "Outputs drive downstream data buses and status flags are committed cleanly."}
-              </p>
+
+              {/* Device 2: Neg Level Latch */}
+              <div className="p-4 rounded-xl bg-slate-950 border border-cyan-500/40 space-y-2">
+                <span className="text-xs font-mono text-cyan-400 font-bold block uppercase">
+                  Negative Level Latch
+                </span>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-400">State Q:</span>
+                  <span className={clsx("px-3 py-1 rounded font-mono text-sm font-bold", negLatchQ === 1 ? "bg-emerald-950 text-emerald-300 border border-emerald-700" : "bg-slate-900 text-slate-400 border border-slate-800")}>
+                    Q = {negLatchQ}
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-400 leading-tight">
+                  {clkState === 0 ? "🔓 TRANSPARENT (Following D)" : "🔒 OPAQUE (Holding Q)"}
+                </p>
+              </div>
+
+              {/* Device 3: Pos Edge FF */}
+              <div className="p-4 rounded-xl bg-slate-950 border border-teal-500/40 space-y-2">
+                <span className="text-xs font-mono text-teal-400 font-bold block uppercase">
+                  Positive Edge D-FF
+                </span>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-400">State Q:</span>
+                  <span className={clsx("px-3 py-1 rounded font-mono text-sm font-bold", posEdgeFFQ === 1 ? "bg-emerald-950 text-emerald-300 border border-emerald-700" : "bg-slate-900 text-slate-400 border border-slate-800")}>
+                    Q = {posEdgeFFQ}
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-400 leading-tight">
+                  {clkState === 2 ? "⚡ CAPTURED on Rising Edge" : "🔒 Holding state constant"}
+                </p>
+              </div>
+
+              {/* Device 4: Neg Edge FF */}
+              <div className="p-4 rounded-xl bg-slate-950 border border-rose-500/40 space-y-2">
+                <span className="text-xs font-mono text-rose-400 font-bold block uppercase">
+                  Negative Edge D-FF
+                </span>
+                <div className="flex items-center justify-between">
+                  <span className="text-xs text-slate-400">State Q:</span>
+                  <span className={clsx("px-3 py-1 rounded font-mono text-sm font-bold", negEdgeFFQ === 1 ? "bg-emerald-950 text-emerald-300 border border-emerald-700" : "bg-slate-900 text-slate-400 border border-slate-800")}>
+                    Q = {negEdgeFFQ}
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-400 leading-tight">
+                  {clkState === 3 ? "⚡ CAPTURED on Falling Edge" : "🔒 Holding state constant"}
+                </p>
+              </div>
+            </div>
+
+            {/* Event Log */}
+            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 space-y-1">
+              <span className="text-slate-400 font-bold block uppercase mb-1">Live Execution Trace Log:</span>
+              {eventLog.map((log, idx) => (
+                <div key={idx} className={idx === 0 ? "text-teal-300 font-bold" : "text-slate-400"}>
+                  &gt; {log}
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -399,17 +629,17 @@ const Topic6 = () => {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-amber-950/60 border border-amber-800/60 text-amber-300">
-                    BARRACKPORE AUTOMATION
+                    BARRACKPORE RAILWAY AUTOMATION
                   </span>
                   <span className="text-xs text-slate-400">Barrackpore Hub</span>
                 </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">Industrial Real-Time Process Automation</h3>
+                <h3 className="text-base font-bold text-slate-100 mb-2">Industrial Track Interlocking Relay Synchronization</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Mamata deployed high-reliability industrial controllers in Barrackpore. Implementing hardware synchronization eliminated race conditions across ₹45 Lakh automated assembly lines.
+                  Mamata upgraded railway track controllers at Barrackpore junction. Replacing older level-sensitive transparent latches with positive-edge D flip-flops eliminated false sensor relay trips caused by contact bounce during train track switching.
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-amber-300">
-                100% Deterministic SIL-4 Reliability
+                100% Zero-Glitch Fail-Safe Operation
               </div>
             </div>
 
@@ -417,17 +647,17 @@ const Topic6 = () => {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-mono font-semibold px-2.5 py-1 rounded bg-teal-950/60 border border-teal-800/60 text-teal-300">
-                    JADAVPUR EMBEDDED LAB
+                    JADAVPUR VLSI RESEARCH LAB
                   </span>
                   <span className="text-xs text-slate-400">Jadavpur University</span>
                 </div>
-                <h3 className="text-base font-bold text-slate-100 mb-2">High-Speed Microprocessor Signal Routing</h3>
+                <h3 className="text-base font-bold text-slate-100 mb-2">250 MHz 5-Stage RISC-V Pipeline Registers</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                  Debangshu analyzed clock skew across 32-bit register buses on custom FPGA prototypes, ensuring setup and hold times were met at 200 MHz clock frequencies.
+                  Debangshu synthesized a 32-bit RISC-V processor on a Xilinx Artix-7 FPGA. By enforcing positive-edge D flip-flop pipeline registers, instruction data advances cleanly in lockstep across 5 stages with zero setup/hold violations.
                 </p>
               </div>
               <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 font-mono text-xs text-teal-300">
-                Sub-Nanosecond Clock Skew Precision
+                Determinstic STA Bounds &amp; Zero Race Hazards
               </div>
             </div>
           </div>
@@ -441,15 +671,15 @@ const Topic6 = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-6 rounded-2xl bg-rose-950/20 border border-rose-900/40 space-y-4">
               <h3 className="text-base font-bold text-rose-300 flex items-center gap-2">
-                <span>⚠️</span> Common Beginner Pitfalls
+                <span>⚠️</span> Common Senior Pitfalls
               </h3>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Violating Setup and Hold Time Windows:</strong>
-                Changing data inputs too close to the active clock edge traps the storage element in metastability, resulting in unpredictable output oscillations.
+                <strong className="text-rose-200 block mb-1">• Inadvertent Latch Synthesis in Verilog:</strong>
+                Omitting an <code className="text-rose-300 font-mono">else</code> branch or incomplete <code className="text-rose-300 font-mono">case</code> statement in a combinational block forces synthesis tools to infer unwanted transparent latches.
               </div>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-rose-200 block mb-1">• Uncontrolled Bus Contention:</strong>
-                Enabling multiple tri-state drivers simultaneously causes high short-circuit currents and severe thermal stress on silicon chips.
+                <strong className="text-rose-200 block mb-1">• Violating Setup (t_su) &amp; Hold (t_h) Windows:</strong>
+                Changing data inputs within the forbidden aperture window around the active clock edge traps internal nodes in metastability.
               </div>
             </div>
 
@@ -458,12 +688,12 @@ const Topic6 = () => {
                 <span>✓</span> Production Best Practices
               </h3>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Synchronous Reset Architectures:</strong>
-                Always prefer synchronous reset lines over asynchronous resets to prevent spurious resets triggered by EMI noise spikes.
+                <strong className="text-emerald-200 block mb-1">• 2-Stage D-FF Synchronizer for Asynchronous Signals:</strong>
+                Always pass external inputs (buttons, serial RX) through a 2-stage edge-triggered flip-flop synchronizer chain to resolve metastability before feeding downstream logic.
               </div>
               <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong className="text-emerald-200 block mb-1">• Decoupling Capacitors &amp; Power Planes:</strong>
-                Place 0.1 µF bypass capacitors adjacent to every IC power pin to suppress switching transients during high-frequency clock edges.
+                <strong className="text-emerald-200 block mb-1">• Global Clock Tree Buffering (BUFG):</strong>
+                Route global clock lines through dedicated low-skew clock buffers to keep clock skew <code className="text-emerald-300 font-mono">|t_skew| &lt; 50 ps</code> across large silicon chips.
               </div>
             </div>
           </div>
@@ -472,9 +702,9 @@ const Topic6 = () => {
         {/* ─── 7. FAQ & Practice Questions ────────────────────── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <FAQTemplate
-            title="Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important FAQs"
+            title="Level-Sensitive vs Edge-Triggered Devices FAQs"
             questions={questions}
-            subtitle="Test your comprehension with 30 deep-dive questions"
+            subtitle="Test your comprehension with 30 deep-dive exam questions & detailed explanations"
             showPrint
             showExpandAll
             showSearch
@@ -486,7 +716,7 @@ const Topic6 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <PlainTextPrint
             content={noteText}
-            title="Level-Sensitive vs Edge-Triggered Devices: Positive edge, negative edge, timing diagram comparison, why edge triggering is important"
+            title="Level-Sensitive vs Edge-Triggered Devices Master Class Study Note"
             stampEnabled={true}
             showDownload={true}
             downloadButtonText="Download Note"
@@ -498,8 +728,8 @@ const Topic6 = () => {
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16">
           <Teacher
             note={
-              "In computer architecture and digital systems engineering, hardware diagrams are the blueprints of truth. " +
-              "Always trace signal paths from input pins through combinational logic and registers to output buses. When you can visualize the timing diagram in your mind, digital architecture becomes second nature!"
+              "Remember: A level-sensitive latch is an open door, while an edge-triggered flip-flop is a camera flash! " +
+              "When designing digital systems, CPU datapaths, or state machines, edge triggering gives you precision control and lockstep synchronization. Master the timing diagrams!"
             }
           />
         </section>

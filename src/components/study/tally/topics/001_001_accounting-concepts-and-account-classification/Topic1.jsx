@@ -1,39 +1,39 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Teacher from "../../../common/TeacherCNAT";
 import FAQTemplate from "../../../common/FAQTemplate";
 import PlainTextPrint from "../../../common/PlainTextPrint";
-import questions from "./topic0_files/topic0_questions";
-import noteText from "./topic0_files/topic0_note.txt?raw";
+import LanguageToggle, { useTopicLanguage } from "./LanguageToggle";
+import questionsEn from "./topic1_files/topic1_questions";
+import questionsBn from "./topic1_files/topic1_questions_bn";
+import noteTextEn from "./topic1_files/topic1_note.txt?raw";
+import noteTextBn from "./topic1_files/topic1_note_bn.txt?raw";
 
 export default function Topic1() {
+  const { language, setLanguage, isBengali } = useTopicLanguage();
   const sectionRefs = useRef([]);
+  const [activeTab, setActiveTab] = useState("comparison");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
         });
       },
       { threshold: 0.08 }
     );
-
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
+    sectionRefs.current.forEach((el) => { if (el) observer.observe(el); });
     return () => observer.disconnect();
   }, []);
 
   const addRef = (el) => {
-    if (el && !sectionRefs.current.includes(el)) {
-      sectionRefs.current.push(el);
-    }
+    if (el && !sectionRefs.current.includes(el)) sectionRefs.current.push(el);
   };
+
+  const questions = isBengali && questionsBn ? questionsBn : questionsEn;
+  const noteText = isBengali && noteTextBn ? noteTextBn : noteTextEn;
 
   return (
     <>
@@ -51,6 +51,11 @@ export default function Topic1() {
 
       <div className="min-h-screen bg-slate-950 text-slate-100 p-4 sm:p-8 md:p-12 font-sans selection:bg-emerald-500/30 selection:text-emerald-200">
         
+        {/* BILINGUAL LANGUAGE TOGGLE CONTROL */}
+        <div ref={addRef} className="reveal-section">
+          <LanguageToggle language={language} onLanguageChange={setLanguage} />
+        </div>
+
         {/* HERO HEADER */}
         <header ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 text-xs font-semibold uppercase tracking-wider shadow-lg">
@@ -59,11 +64,15 @@ export default function Topic1() {
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-300 tracking-tight leading-tight">
-            Bookkeeping versus Accounting: The Complete Accounting Lifecycle
+            {isBengali
+              ? "বুককিপিং বনাম অ্যাকাউন্টিং: সম্পূর্ণ অ্যাকাউন্টিং লাইফসাইকেল"
+              : "Bookkeeping versus Accounting: The Complete Accounting Lifecycle"}
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Understanding the distinction between primary entry recording and financial analysis & reporting.
+            {isBengali
+              ? "দৈনন্দিন বুককিপিং ডেটা এন্ট্রি এবং বিশ্লেষণধর্মী অ্যাকাউন্টিং রিপোর্টিংয়ের মধ্যে সূক্ষ্ম প্রযুক্তিগত তফাৎ ও TallyPrime-এ অটোমেশন।"
+              : "Understanding the primary recording phase versus analytical financial reporting across the entire commercial lifecycle."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-mono text-slate-400 pt-2">
@@ -73,127 +82,122 @@ export default function Topic1() {
           </div>
         </header>
 
-        {/* TEACHER'S DESK */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-gradient-to-br from-slate-900 via-slate-900/90 to-emerald-950/30 border border-emerald-500/30 rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-2xl">
-                👨‍🏫
-              </div>
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-emerald-300">
-                  Teacher's Desk: Commercial Intuition &amp; Lab Discussion
-                </h2>
-                <p className="text-xs text-slate-400 font-mono">
-                  Mr. CNAT &amp; Barrackpore Accounting Lab Discussion
-                </p>
-              </div>
+        {/* ─── 1. INTERACTIVE COMPARISON WORKBENCH ─── */}
+        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-16 rounded-2xl border border-emerald-500/30 bg-gradient-to-b from-slate-900/95 to-slate-900/80 p-6 md:p-8 shadow-2xl space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+            <div>
+              <h2 className="text-xl md:text-2xl font-bold text-white">
+                {isBengali ? "বুককিপিং বনাম অ্যাকাউন্টিং তুলনামূলক বিশ্লেষণ" : "Bookkeeping vs. Accounting Comparative Matrix"}
+              </h2>
+              <p className="text-xs text-slate-400">
+                {isBengali ? "পর্যাপ্ততা, দায়িত্ব ও কাজের পরিধি" : "Scope, technical responsibility, and business decision impact"}
+              </p>
             </div>
-
-            <div className="space-y-6 text-slate-300 leading-relaxed text-sm sm:text-base">
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-emerald-400 font-bold flex items-center gap-2 text-base">
-                  <span>💡</span> Practical Metaphor
-                </h3>
-                <p>Bookkeeping is the mechanical recording of transactions in books of original entry. Accounting encompasses bookkeeping plus analytical interpretation, tax compliance, and financial reporting.</p>
-              </div>
-
-              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-5 space-y-3">
-                <h3 className="text-sky-400 font-bold flex items-center gap-2 text-base">
-                  <span>💬</span> Classroom Dialogue
-                </h3>
-                <div className="space-y-3 text-xs sm:text-sm font-sans border-l-2 border-emerald-500/40 pl-4 py-1">
-                  <div>
-                    <p><strong className="text-emerald-400">Ayan (Lab Student):</strong> <em>"Sir, is entering vouchers in TallyPrime considered Bookkeeping or Accounting?"</em></p>
-                  </div>
-                  <div>
-                    <p><strong className="text-sky-300">CNAT Sir:</strong> <em>"Entering daily bills is Bookkeeping! Configuring tax parameters, auditing edit logs, analyzing cash flows, and finalizing tax returns in TallyPrime is Accounting!"</em></p>
-                  </div>
-                </div>
-              </div>
+            <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+              <button
+                onClick={() => setActiveTab("comparison")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition ${
+                  activeTab === "comparison" ? "bg-emerald-950 text-emerald-300 border border-emerald-500" : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                {isBengali ? "তুলনামূলক ছক" : "Comparison Matrix"}
+              </button>
+              <button
+                onClick={() => setActiveTab("lifecycle")}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition ${
+                  activeTab === "lifecycle" ? "bg-sky-950 text-sky-300 border border-sky-500" : "text-slate-400 hover:text-slate-200"
+                }`}
+              >
+                {isBengali ? "লাইফসাইকেল ফ্লো" : "Lifecycle Flow"}
+              </button>
             </div>
           </div>
-        </section>
 
-        {/* CORE CONCEPTUAL BREAKDOWN TABLE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
-              <span>📌</span> Bookkeeping (Primary Recording) vs Accounting (Analytical Reporting)
-            </h2>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-xs sm:text-sm text-left border-collapse border border-slate-800">
+          {activeTab === "comparison" ? (
+            <div className="overflow-x-auto rounded-xl border border-slate-800">
+              <table className="w-full text-left border-collapse font-mono text-xs">
                 <thead>
-                  <tr className="bg-slate-800/90 text-slate-200">
-                    <th className="p-3 border border-slate-700">Category / Concept</th>
-                    <th className="p-3 border border-slate-700 text-emerald-400">Technical Breakdown &amp; Description</th>
-                    <th className="p-3 border border-slate-700 text-sky-400">TallyPrime Software Mapping</th>
+                  <tr className="bg-slate-900 text-slate-200 border-b border-slate-800">
+                    <th className="p-3">Parameter / মানদণ্ড</th>
+                    <th className="p-3 text-emerald-400">Bookkeeping (বুককিপিং)</th>
+                    <th className="p-3 text-sky-400">Accounting (অ্যাকাউন্টিং)</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800 text-slate-300">
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Scope & Stage</td>
-                      <td className="p-3 border border-slate-800">Primary stage: Identifying & recording transactions in Journal</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Secondary stage: Summarizing, auditing, analyzing & reporting</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Level of Expertise</td>
-                      <td className="p-3 border border-slate-800">Routine & mechanical: Performed by Junior Bookkeeper / Billing Operator</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Analytical & strategic: Performed by Professional Senior Accountant / CA</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">Financial Statements</td>
-                      <td className="p-3 border border-slate-800">Does not prepare Trading, P&L, or Balance Sheet directly</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Prepares Final Accounts, Tax Returns (GST, TDS), and Audit reports</td>
-                    </tr>
-                  
-                    <tr className="hover:bg-slate-900/50">
-                      <td className="p-3 border border-slate-800 font-bold text-emerald-300">TallyPrime Workflow</td>
-                      <td className="p-3 border border-slate-800">Voucher entry (Sales, Purchase, Payment, Receipt)</td>
-                      <td className="p-3 border border-slate-800 font-mono text-sky-300">Year-end closing, BRS reconciliation, Audit trail review & MIS analytics</td>
-                    </tr>
-                  
+                <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                  <tr>
+                    <td className="p-3 font-bold text-white">Primary Focus / মূল লক্ষ্য</td>
+                    <td className="p-3">Recording daily transactions in vouchers &amp; ledgers.</td>
+                    <td className="p-3">Summarizing, auditing, &amp; interpreting financial health.</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-white">Stage / ধাপ</td>
+                    <td className="p-3 text-emerald-300 font-semibold">Primary Stage (প্রাথমিক ধাপ)</td>
+                    <td className="p-3 text-sky-300 font-semibold">Secondary / Advanced Stage (দ্বিতীয় ধাপ)</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-white">TallyPrime Role</td>
+                    <td className="p-3">Voucher Entry (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-xs">F5, F6, F8, F9</kbd>)</td>
+                    <td className="p-3">P&amp;L, Balance Sheet, GST Returns &amp; Ratio Analysis</td>
+                  </tr>
+                  <tr>
+                    <td className="p-3 font-bold text-white">Performed By</td>
+                    <td className="p-3">Accounts Clerk / Data Entry Operator</td>
+                    <td className="p-3">Senior Accountant / Financial Controller / CA</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-          </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-emerald-400 font-mono font-bold block">1. RECORDING PHASE (Bookkeeping)</span>
+                <p className="text-slate-300 leading-relaxed">
+                  {isBengali ? "রসিদ ও মেমো থেকে TallyPrime ভাউচারে নিয়মিত এন্ট্রি করা।" : "Regular entry from bills & invoices into TallyPrime vouchers."}
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-sky-400 font-mono font-bold block">2. PROCESSING PHASE (Software Engine)</span>
+                <p className="text-slate-300 leading-relaxed">
+                  {isBengali ? "Tally-র অটোমেটেড লেজার পোস্টিং ও রেওয়ামিল গঠন।" : "Automated ledger posting, balancing, and Trial Balance compilation."}
+                </p>
+              </div>
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <span className="text-purple-400 font-mono font-bold block">3. REPORTING PHASE (Accounting)</span>
+                <p className="text-slate-300 leading-relaxed">
+                  {isBengali ? "লাভ-ক্ষতি ও ব্যালেন্স শিট বিশ্লেষণ করে বাণিজ্যিক সিদ্ধান্ত নেওয়া।" : "Analyzing P&L, Balance Sheet, and GST compliance for business decisions."}
+                </p>
+              </div>
+            </div>
+          )}
         </section>
 
-        {/* TALLYPRIME OPERATIONAL EXECUTION GUIDE */}
-        <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12 space-y-6">
-          <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 space-y-4">
-            <h2 className="text-xl font-bold text-teal-400 flex items-center gap-2">
-              <span>⚙️</span> TallyPrime Software Integration Guide
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              TallyPrime bridges bookkeeping and accounting by automatically converting daily voucher entries into analytical financial reports.
-            </p>
-            <ol className="list-decimal list-inside space-y-2 text-xs sm:text-sm text-slate-300 pt-2">
-              <li>Open <strong>Gateway of Tally</strong> using <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Alt+G</kbd> (Go To) or main dashboard.</li>
-              <li>Select <strong>Masters &gt; Create &gt; Ledger</strong> to set up classified account ledgers under appropriate parent groups.</li>
-              <li>Select <strong>Vouchers</strong> (<kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F5 Payment</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F6 Receipt</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F7 Journal</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F8 Sales</kbd> / <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">F9 Purchase</kbd>).</li>
-              <li>Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-200 text-xs">Ctrl+A</kbd> to accept and save voucher entry.</li>
-            </ol>
-          </div>
-        </section>
-
-        {/* PRINTABLE STUDY NOTE */}
+        {/* ─── 2. PRINTABLE STUDY NOTE (DOWNLOAD & PRINT ONLY) ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <PlainTextPrint content={noteText} filename="topic1_study_note.txt" />
+          <PlainTextPrint
+            content={noteText}
+            filename={isBengali ? "topic1_study_note_bn.txt" : "topic1_study_note.txt"}
+            hidePreview={true}
+            showDownload={true}
+          />
         </section>
 
-        {/* DIAGNOSTIC PRACTICE ASSESSMENT */}
+        {/* ─── 3. DIAGNOSTIC PRACTICE ASSESSMENT ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto mb-12">
-          <FAQTemplate title="Topic Assessment & Diagnostic Practice" questions={questions} />
+          <FAQTemplate
+            title={isBengali ? "Topic ২ মূল্যায়ন ও অনুশীলন প্রশ্নাবলী" : "Topic 2 Assessment & Diagnostic Practice"}
+            questions={questions}
+          />
         </section>
 
-        {/* TEACHER PROFILE CARD */}
+        {/* ─── 4. TEACHER PROFILE CARD ─── */}
         <section ref={addRef} className="reveal-section max-w-5xl mx-auto">
-          <Teacher note="Mastering double-entry account classification with Mr. CNAT is the secret to error-free bookkeeping in TallyPrime. Every ledger created under the right group ensures flawless Balance Sheet and P&L generation!" />
+          <Teacher
+            note={
+              isBengali
+                ? "বুককিপিং হল ভিত্তি আর অ্যাকাউন্টিং হল সিদ্ধান্ত গ্রহণের ক্ষমতা! TallyPrime দুটিকেই একত্রিত করে এক ক্লিকে বুককিপারকে অ্যাকাউন্ট্যান্টে রূপান্তর করে।"
+                : "Bookkeeping builds the foundation while Accounting drives decision-making! TallyPrime bridges both seamlessly by automating reporting from raw vouchers."
+            }
+          />
         </section>
 
       </div>

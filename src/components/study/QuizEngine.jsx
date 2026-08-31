@@ -1,6 +1,6 @@
 // src/components/study/QuizEngine.jsx
 
-import React, { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import CodeBlockGeneral from "../../common/CodeBlockGeneral";
 import {
   RotateCcw,
@@ -139,7 +139,6 @@ export default function QuizEngine({
   const [leaderboard, setLeaderboard] = useState([]);
   const [bestScores, setBestScores] = useState({});
   const [copiedShare, setCopiedShare] = useState(false);
-  const [showMatrixModal, setShowMatrixModal] = useState(false);
 
   const [selectedCount, setSelectedCount] = useState(() =>
     Number.isFinite(questionLimit) && questionLimit > 0 ? questionLimit : 25
@@ -811,7 +810,6 @@ export default function QuizEngine({
   const percentComplete = total ? Math.round((progress / total) * 100) : 0;
   const scorePercent = total ? Math.round((score / total) * 100) : 0;
   const flaggedCount = Object.values(flagged).filter(Boolean).length;
-  const bestForCurrent = bestScores[total] || null;
 
   // Active question in focus mode
   const activeFocusQuestion = visibleQuestions[currentCardIndex] || visibleQuestions[0] || quiz[0];
@@ -827,66 +825,53 @@ export default function QuizEngine({
         <div className="absolute -top-20 -right-10 h-44 w-44 rounded-full bg-sky-500/15 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-20 -left-10 h-44 w-44 rounded-full bg-emerald-500/15 blur-3xl pointer-events-none" />
 
-        {/* Main Bar Top Row */}
-        <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-5 border-b border-slate-800/80 pb-5">
-          <div className="space-y-2.5">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/35 text-xs font-bold uppercase tracking-wider text-sky-300">
-                <BookOpen size={13} className="text-sky-400" />
-                <span>Online Evaluation Test</span>
+        {/* Top Control Bar (Badge on left, Live Stats & Mode Switcher on right) */}
+        <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/35 text-xs font-bold uppercase tracking-wider text-sky-300">
+              <BookOpen size={13} className="text-sky-400" />
+              <span>Online Evaluation Test</span>
+            </span>
+            {reviewMode && (
+              <span className="px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/40 text-xs font-bold text-rose-300 flex items-center gap-1.5">
+                <EyeOff size={13} />
+                Mistakes Review ({wrongQuestions.length})
               </span>
-              {reviewMode && (
-                <span className="px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/40 text-xs font-bold text-rose-300 flex items-center gap-1.5">
-                  <EyeOff size={13} />
-                  Mistakes Review ({wrongQuestions.length})
-                </span>
-              )}
-              {flaggedOnlyMode && (
-                <span className="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-xs font-bold text-amber-300 flex items-center gap-1.5">
-                  <Flag size={13} />
-                  Flagged ({flaggedCount})
-                </span>
-              )}
-            </div>
-
-            <h1 className="text-xl sm:text-2xl md:text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
-              {title}
-            </h1>
-
-            <div className="flex flex-wrap items-center gap-2.5 text-xs text-slate-300 pt-1">
-              <span className="font-semibold text-white flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-                <User size={14} className="text-sky-400" />
-                Candidate: <strong className="text-sky-300 font-bold">{studentName || "Guest"}</strong>
+            )}
+            {flaggedOnlyMode && (
+              <span className="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-xs font-bold text-amber-300 flex items-center gap-1.5">
+                <Flag size={13} />
+                Flagged ({flaggedCount})
               </span>
-              <span className="text-slate-300 flex items-center gap-1.5 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-                <Clock size={14} className="text-amber-400" />
-                Stopwatch: <span className="font-mono font-bold text-white">{formatTimer(secondsElapsed)}</span>
-              </span>
-              <span className="text-slate-300 bg-slate-900/90 px-3 py-1.5 rounded-xl border border-slate-800">
-                Pass Score: <strong className="text-emerald-400 font-bold">{passPercent}%</strong>
-              </span>
-            </div>
+            )}
           </div>
 
-          {/* Quick Metrics & View Mode Toggle */}
-          <div className="relative z-10 flex flex-wrap items-center gap-2.5 shrink-0">
-            <div className="px-3.5 py-2 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 flex items-center gap-2 shadow-inner">
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
+          {/* Live Score Metrics & View Mode Switcher */}
+          <div className="flex flex-wrap items-center gap-2.5">
+            <div className="px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 flex items-center gap-2 shadow-inner">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>
                 Submitted: <strong className="text-white font-bold">{progress}</strong> / {total}
               </span>
             </div>
 
-            <div className="px-3.5 py-2 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 shadow-inner">
+            <div className="px-3 py-1.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 shadow-inner">
               Score: <strong className="text-emerald-400 font-extrabold">{score}</strong> ({scorePercent}%)
             </div>
 
+            {bestScores[total] != null && (
+              <div className="px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-xs text-amber-300 shadow-inner flex items-center gap-1 font-medium">
+                <Trophy size={12} className="text-amber-400" />
+                <span>Best: <strong className="font-bold">{bestScores[total]}%</strong></span>
+              </div>
+            )}
+
             {/* View Mode Toggle: Focus vs List */}
-            <div className="flex rounded-2xl bg-slate-900 border border-slate-800 p-1 shadow-inner">
+            <div className="flex rounded-xl bg-slate-950 border border-slate-800 p-1 shadow-inner">
               <button
                 type="button"
                 onClick={() => setViewMode("focus")}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                className={`px-3 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
                   viewMode === "focus"
                     ? "bg-gradient-to-r from-sky-500 to-emerald-500 text-slate-950 font-extrabold shadow"
                     : "text-slate-400 hover:text-white"
@@ -898,7 +883,7 @@ export default function QuizEngine({
               <button
                 type="button"
                 onClick={() => setViewMode("list")}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition cursor-pointer ${
+                className={`px-3 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
                   viewMode === "list"
                     ? "bg-gradient-to-r from-sky-500 to-emerald-500 text-slate-950 font-extrabold shadow"
                     : "text-slate-400 hover:text-white"
@@ -907,6 +892,37 @@ export default function QuizEngine({
               >
                 List
               </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Title & Candidate Info Section */}
+        <div className="relative z-10 space-y-3">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-sky-200 tracking-tight leading-tight">
+            {title}
+          </h1>
+
+          {/* Candidate Info Grid: Horizontal 3-column badge row */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+            <div className="font-semibold text-white flex items-center justify-between sm:justify-start gap-2 bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-800/90 text-xs">
+              <span className="flex items-center gap-1.5 text-slate-400">
+                <User size={14} className="text-sky-400" />
+                Candidate:
+              </span>
+              <strong className="text-sky-300 font-bold truncate">{studentName || "Guest"}</strong>
+            </div>
+
+            <div className="text-slate-300 flex items-center justify-between sm:justify-start gap-2 bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-800/90 text-xs">
+              <span className="flex items-center gap-1.5 text-slate-400">
+                <Clock size={14} className="text-amber-400" />
+                Stopwatch:
+              </span>
+              <span className="font-mono font-bold text-white">{formatTimer(secondsElapsed)}</span>
+            </div>
+
+            <div className="text-slate-300 flex items-center justify-between sm:justify-start gap-2 bg-slate-900/90 px-3.5 py-2 rounded-xl border border-slate-800/90 text-xs">
+              <span className="text-slate-400">Pass Score:</span>
+              <strong className="text-emerald-400 font-bold">{passPercent}%</strong>
             </div>
           </div>
         </div>

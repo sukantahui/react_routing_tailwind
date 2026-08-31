@@ -1,0 +1,158 @@
+[
+  {
+    "id": 1,
+    "date": "2027-03-31",
+    "description": "Adjusted year-end physical closing inventory stock-in-trade valued at cost ₹2,80,000 into Trading Account",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Closing Stock / Inventory (Current Asset)",
+    "debitAmount": 280000,
+    "creditAccount": "Trading Account",
+    "creditAmount": 280000,
+    "narration": "Being physical closing stock at cost recorded as current asset and credited to Trading Account",
+    "explanation": "Closing Inventory Adjustment: Debit Closing Stock Asset A/c Dr ₹2,80,000, Credit Trading Account Cr ₹2,80,000."
+  },
+  {
+    "id": 2,
+    "date": "2027-03-31",
+    "description": "Transferred opening inventory stock balance ₹2,20,000 to Trading Account at financial year end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Trading Account",
+    "debitAmount": 220000,
+    "creditAccount": "Opening Stock Account",
+    "creditAmount": 220000,
+    "narration": "Being opening stock balance transferred to Trading Account to close account",
+    "explanation": "Transfer Entry: Debit Trading A/c Dr ₹2,20,000, Credit Opening Stock A/c Cr ₹2,20,000."
+  },
+  {
+    "id": 3,
+    "date": "2027-03-31",
+    "description": "Transferred net purchases (₹6,50,000) and direct carriage inward expenses (₹25,000) to Trading Account",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Trading Account",
+    "debitAmount": 675000,
+    "creditLines": [
+      {
+        "account": "Purchases Account",
+        "amount": 650000
+      },
+      {
+        "account": "Carriage Inward Expense Account",
+        "amount": 25000
+      }
+    ],
+    "narration": "Being net purchases and direct carriage expenses transferred to Trading Account",
+    "explanation": "Closing Direct Expenses: Debit Trading A/c Dr ₹6,75,000, Credit Purchases A/c ₹6,50,000, Credit Carriage Inward A/c ₹25,000."
+  },
+  {
+    "id": 4,
+    "date": "2027-03-31",
+    "description": "Transferred net sales revenue (₹9,80,000) to Trading Account at financial year end",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Sales Account",
+    "debitAmount": 980000,
+    "creditAccount": "Trading Account",
+    "creditAmount": 980000,
+    "narration": "Being net sales revenue transferred to Trading Account",
+    "explanation": "Closing Revenue Entry: Debit Sales A/c Dr ₹9,80,000, Credit Trading A/c Cr ₹9,80,000."
+  },
+  {
+    "id": 5,
+    "date": "2027-03-31",
+    "description": "Transferred year-end Gross Profit ₹3,65,000 from Trading Account to Profit & Loss Account",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Trading Account",
+    "debitAmount": 365000,
+    "creditAccount": "Profit & Loss Account",
+    "creditAmount": 365000,
+    "narration": "Being Gross Profit transferred from Trading Account to Profit & Loss Account",
+    "explanation": "Gross Profit Transfer: Debit Trading A/c Dr ₹3,65,000, Credit Profit & Loss A/c Cr ₹3,65,000."
+  },
+  {
+    "id": 6,
+    "date": "2027-03-31",
+    "description": "Transferred total indirect operating expenses (Rent ₹1.8L, Salaries ₹2.1L, Electricity ₹35k, Depreciation ₹1.67L = ₹5,92,000) to Profit & Loss Account",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Profit & Loss Account",
+    "debitAmount": 592000,
+    "creditLines": [
+      {
+        "account": "Rent Expense Account",
+        "amount": 180000
+      },
+      {
+        "account": "Salary Expense Account",
+        "amount": 210000
+      },
+      {
+        "account": "Electricity Expense Account",
+        "amount": 35000
+      },
+      {
+        "account": "Depreciation Expense Account",
+        "amount": 167000
+      }
+    ],
+    "narration": "Being all indirect operating expense nominal accounts closed to Profit & Loss Account",
+    "explanation": "Closing Indirect Expenses: Debit Profit & Loss A/c Dr ₹5,92,000, crediting individual expense nominal accounts."
+  },
+  {
+    "id": 7,
+    "date": "2027-03-31",
+    "description": "Transferred total indirect revenue incomes (Commission ₹24k, Interest ₹18k, Discount Received ₹8k = ₹50,000) to Profit & Loss Account",
+    "voucherType": "F7 Journal Voucher",
+    "debitLines": [
+      {
+        "account": "Commission Income Account",
+        "amount": 24000
+      },
+      {
+        "account": "Interest Income Account",
+        "amount": 18000
+      },
+      {
+        "account": "Discount Received Account",
+        "amount": 8000
+      }
+    ],
+    "creditAccount": "Profit & Loss Account",
+    "creditAmount": 50000,
+    "narration": "Being all indirect revenue income nominal accounts closed to Profit & Loss Account",
+    "explanation": "Closing Indirect Revenue: Debits individual income accounts (Total Dr ₹50,000) and credits Profit & Loss A/c Cr ₹50,000."
+  },
+  {
+    "id": 8,
+    "date": "2027-03-31",
+    "description": "Transferred audited Net Profit ₹1,80,000 from Profit & Loss Account to Proprietor Capital Account",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Profit & Loss Account",
+    "debitAmount": 180000,
+    "creditAccount": "Proprietor Capital Account",
+    "creditAmount": 180000,
+    "narration": "Being audited Net Profit transferred to Proprietor Capital Account to increase equity",
+    "explanation": "Net Profit Transfer: Debit Profit & Loss A/c Dr ₹1,80,000, Credit Proprietor Capital A/c Cr ₹1,80,000."
+  },
+  {
+    "id": 9,
+    "date": "2027-03-31",
+    "description": "Created year-end Provision for Income Tax Liability ₹45,000 on net profit",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Income Tax Provision Expense Account",
+    "debitAmount": 45000,
+    "creditAccount": "Provision for Income Tax (Current Liability)",
+    "creditAmount": 45000,
+    "narration": "Being year-end provision for income tax created on net profit",
+    "explanation": "Income Tax Provision: Debit Income Tax Expense A/c ₹45,000, Credit Provision for Income Tax Liability A/c ₹45,000."
+  },
+  {
+    "id": 10,
+    "date": "2027-03-31",
+    "description": "Transferred total year-end Drawings Account balance ₹55,000 to Proprietor Capital Account to close drawings ledger",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Proprietor Capital Account",
+    "debitAmount": 55000,
+    "creditAccount": "Drawings Account",
+    "creditAmount": 55000,
+    "narration": "Being total Drawings account balance transferred to Capital Account to close ledger",
+    "explanation": "Closing Drawings Ledger: Debit Proprietor Capital A/c Dr ₹55,000 (reducing equity), Credit Drawings A/c Cr ₹55,000."
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-01",
+    "description": "Proprietor started new commercial trading business with cash capital ₹5,00,000",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 500000,
+    "creditAccount": "Capital Account",
+    "creditAmount": 500000,
+    "narration": "Being cash capital introduced by proprietor to commence trading business",
+    "explanation": "Increases Cash Asset (Debit Cash A/c ₹5,00,000) and creates Internal Capital Liability (Credit Capital A/c ₹5,00,000)."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-02",
+    "description": "Opened a new commercial current account with State Bank of India by depositing cash ₹2,00,000",
+    "voucherType": "F4 Contra Voucher",
+    "debitAccount": "SBI Bank Account",
+    "debitAmount": 200000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 200000,
+    "narration": "Being cash deposited into SBI Bank current account",
+    "explanation": "Contra entry: Debit Bank Asset (SBI Bank A/c ₹2,00,000), Credit Cash Asset (Cash A/c ₹2,00,000)."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-03",
+    "description": "Purchased office wooden furniture for shop setup paid by bank cheque ₹45,000",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Furniture & Fixture Account",
+    "debitAmount": 45000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 45000,
+    "narration": "Being office furniture purchased for shop setup via bank cheque",
+    "explanation": "Increases Fixed Asset (Debit Furniture A/c ₹45,000) and decreases Bank Asset (Credit SBI Bank A/c ₹45,000)."
+  },
+  {
+    "id": 4,
+    "date": "2026-04-05",
+    "description": "Purchased inventory trading goods on credit from vendor Bengal Electricals ₹80,000",
+    "voucherType": "F9 Purchase Voucher",
+    "debitAccount": "Purchases Account",
+    "debitAmount": 80000,
+    "creditAccount": "Bengal Electricals (Sundry Creditor)",
+    "creditAmount": 80000,
+    "narration": "Being goods purchased on credit as per Supplier Tax Invoice #BE-402",
+    "explanation": "Increases Purchase Expense (Debit Purchases A/c ₹80,000) and creates Sundry Creditor Liability (Credit Bengal Electricals A/c ₹80,000)."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-08",
+    "description": "Sold trading goods for cash to retail customer ₹35,000",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 35000,
+    "creditAccount": "Sales Account",
+    "creditAmount": 35000,
+    "narration": "Being cash sales executed as per Retail Cash Memo #101",
+    "explanation": "Increases Cash Asset (Debit Cash A/c ₹35,000) and increases Sales Revenue (Credit Sales A/c ₹35,000)."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-12",
+    "description": "Purchased office printing paper, registers, and pens for cash ₹2,800",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Printing & Stationery Expense Account",
+    "debitAmount": 2800,
+    "creditAccount": "Cash Account",
+    "creditAmount": 2800,
+    "narration": "Being office printing and stationery items purchased for cash",
+    "explanation": "Nominal Rule: Debit Printing & Stationery Expense A/c ₹2,800, Credit Cash A/c ₹2,800."
+  },
+  {
+    "id": 7,
+    "date": "2026-04-15",
+    "description": "Paid monthly shop rent ₹12,000 to landlord by SBI Bank cheque",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Rent Expense Account",
+    "debitAmount": 12000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 12000,
+    "narration": "Being monthly shop rent paid via bank cheque",
+    "explanation": "Nominal Rule: Debit Rent Expense A/c ₹12,000, Credit SBI Bank A/c ₹12,000."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-18",
+    "description": "Deposited cash ₹15,000 into SBI Bank current account",
+    "voucherType": "F4 Contra Voucher",
+    "debitAccount": "SBI Bank Account",
+    "debitAmount": 15000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 15000,
+    "narration": "Being cash deposited into bank current account",
+    "explanation": "Contra Entry: Debit SBI Bank A/c ₹15,000, Credit Cash A/c ₹15,000."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-22",
+    "description": "Sold trading merchandise goods for cash ₹28,000 to customer",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 28000,
+    "creditAccount": "Sales Account",
+    "creditAmount": 28000,
+    "narration": "Being cash sales executed as per Cash Memo #108",
+    "explanation": "Increases Cash Asset (Debit Cash A/c ₹28,000) and increases Sales Revenue (Credit Sales A/c ₹28,000)."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-28",
+    "description": "Paid staff salary ₹22,000 in cash for April 2026",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Salary Expense Account",
+    "debitAmount": 22000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 22000,
+    "narration": "Being staff salary for April paid in cash",
+    "explanation": "Nominal Rule: Debit Salary Expense A/c ₹22,000, Credit Cash A/c ₹22,000."
+  }
+]

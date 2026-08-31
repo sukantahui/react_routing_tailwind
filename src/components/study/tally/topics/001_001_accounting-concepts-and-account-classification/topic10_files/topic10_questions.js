@@ -135,25 +135,25 @@ export default [
     id: 12,
     question: "What is the entry for returning damaged goods worth ₹12,000 to vendor 'National Traders'?",
     options: [
-      "Debit Note Voucher; Debit National Traders A/c ₹12,000; Credit Purchase Return A/c ₹12,000",
+      "Debit Note Voucher; Debit National Traders A/c ₹12,000; Credit Return Outward A/c ₹12,000",
       "Credit Note Voucher; Debit Purchase Return; Credit National Traders",
       "Payment Voucher; Debit Cash; Credit Purchase Return",
       "Journal Voucher; Debit Sales Return; Credit Cash"
     ],
-    answer: "Debit Note Voucher; Debit National Traders A/c ₹12,000; Credit Purchase Return A/c ₹12,000",
+    answer: "Debit Note Voucher; Debit National Traders A/c ₹12,000; Credit Return Outward A/c ₹12,000",
     explanation: "Goods returned to vendor are recorded via Debit Note: Debit Creditor (reducing liability), Credit Purchase Return."
   },
   {
     id: 13,
     question: "What is the entry when customer 'Apex Solutions' returns goods worth ₹8,000?",
     options: [
-      "Credit Note Voucher; Debit Sales Return A/c ₹8,000; Credit Apex Solutions A/c ₹8,000",
+      "Credit Note Voucher; Debit Return Inward A/c ₹8,000; Credit Apex Solutions A/c ₹8,000",
       "Debit Note Voucher; Debit Apex Solutions; Credit Sales Return",
       "Receipt Voucher; Debit Cash; Credit Sales Return",
       "Journal Voucher; Debit Purchase Return; Credit Cash"
     ],
-    answer: "Credit Note Voucher; Debit Sales Return A/c ₹8,000; Credit Apex Solutions A/c ₹8,000",
-    explanation: "Goods returned by customer are recorded via Credit Note: Debit Sales Return (reducing revenue), Credit Debtor."
+    answer: "Credit Note Voucher; Debit Return Inward A/c ₹8,000; Credit Apex Solutions A/c ₹8,000",
+    explanation: "Goods returned by customer are recorded via Credit Note: Debit Return Inward (reducing revenue), Credit Debtor."
   },
   {
     id: 14,

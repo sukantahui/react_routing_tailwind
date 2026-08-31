@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-01",
+    "description": "Proprietor commenced new commercial retail trading firm by depositing cash capital ₹5,00,000 into business cash box",
+    "voucherType": "F6 Receipt Voucher",
+    "debitAccount": "Cash Account",
+    "debitAmount": 500000,
+    "creditAccount": "Capital Account",
+    "creditAmount": 500000,
+    "narration": "Being cash capital introduced by proprietor to commence trading business",
+    "explanation": "Increases Cash Asset (Debit Cash A/c ₹5,00,000) and creates Owner Equity/Capital Liability (Credit Capital A/c ₹5,00,000)."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-05",
+    "description": "Proprietor introduced additional capital consisting of cash ₹1,00,000, bank deposit ₹2,50,000, shop furniture ₹40,000, and motor delivery van ₹1,60,000",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      {
+        "account": "Cash Account",
+        "amount": 100000
+      },
+      {
+        "account": "SBI Bank Account",
+        "amount": 250000
+      },
+      {
+        "account": "Furniture & Fixtures Account",
+        "amount": 40000
+      },
+      {
+        "account": "Motor Delivery Van Account",
+        "amount": 160000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Proprietor Capital Account",
+        "amount": 550000
+      }
+    ],
+    "narration": "Being additional capital introduced in cash, bank balance, furniture, and motor vehicle",
+    "explanation": "Compound Capital Entry: Debits all incoming asset accounts (Total Dr ₹5,50,000) and credits Proprietor Capital A/c ₹5,50,000."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-08",
+    "description": "Proprietor brought personal laptop worth ₹65,000 into business office for official accounting use",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Computer Equipment Account",
+    "debitAmount": 65000,
+    "creditAccount": "Proprietor Capital Account",
+    "creditAmount": 65000,
+    "narration": "Being personal laptop asset introduced into business as capital",
+    "explanation": "Personal asset brought into business: Debit Computer Equipment Asset A/c ₹65,000, Credit Capital Equity A/c ₹65,000."
+  },
+  {
+    "id": 4,
+    "date": "2026-04-12",
+    "description": "Proprietor withdrew cash ₹15,000 from business cash box for personal domestic household expenses",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 15000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 15000,
+    "narration": "Being cash withdrawn by proprietor for personal household domestic expenses",
+    "explanation": "Personal cash withdrawal: Debit Drawings A/c ₹15,000 (reducing Owner Capital equity) and Credit Cash Asset A/c ₹15,000."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-15",
+    "description": "Paid proprietor's child school tuition fees ₹22,000 directly from SBI Bank account via online transfer",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 22000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 22000,
+    "narration": "Being proprietor's child school tuition fees paid from business bank account",
+    "explanation": "Personal expense paid from business bank account is treated as Drawings: Debit Drawings A/c ₹22,000, Credit Bank Asset A/c ₹22,000."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-18",
+    "description": "Proprietor took inventory merchandise (cost price ₹10,000, retail sale price ₹14,000) for personal family gift",
+    "voucherType": "F7 Journal Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 10000,
+    "creditAccount": "Purchases Account",
+    "creditAmount": 10000,
+    "narration": "Being inventory goods withdrawn by proprietor at cost price for personal family use",
+    "explanation": "Goods withdrawn by owner are ALWAYS valued at COST PRICE (not sale price) to reduce Purchases: Debit Drawings A/c ₹10,000, Credit Purchases A/c ₹10,000."
+  },
+  {
+    "id": 7,
+    "date": "2026-04-22",
+    "description": "Paid proprietor's personal income tax assessment ₹35,000 by SBI Bank cheque",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 35000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 35000,
+    "narration": "Being proprietor's personal income tax paid from business bank account",
+    "explanation": "In sole proprietorship, Income Tax is the PERSONAL tax liability of the owner (not a business expense): Debit Drawings A/c ₹35,000, Credit Bank A/c ₹35,000."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-25",
+    "description": "Paid proprietor's Life Insurance Policy (LIC) premium ₹18,000 by SBI Bank cheque",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 18000,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 18000,
+    "narration": "Being proprietor's personal life insurance premium paid from bank account",
+    "explanation": "Life insurance of proprietor is a personal security expense: Debit Drawings A/c ₹18,000, Credit Bank Asset A/c ₹18,000."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-27",
+    "description": "Paid proprietor's personal medical clinic treatment bill ₹14,000 from business cash box",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 14000,
+    "creditAccount": "Cash Account",
+    "creditAmount": 14000,
+    "narration": "Being proprietor's personal medical bill paid from cash box",
+    "explanation": "Personal medical expense: Debit Drawings A/c ₹14,000, Credit Cash A/c ₹14,000."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-29",
+    "description": "Paid proprietor's personal residence electricity bill ₹6,200 from business bank account",
+    "voucherType": "F5 Payment Voucher",
+    "debitAccount": "Drawings Account",
+    "debitAmount": 6200,
+    "creditAccount": "SBI Bank Account",
+    "creditAmount": 6200,
+    "narration": "Being personal residence electricity bill paid from business bank account",
+    "explanation": "Personal home electricity bill: Debit Drawings A/c ₹6,200, Credit Bank A/c ₹6,200."
+  }
+]

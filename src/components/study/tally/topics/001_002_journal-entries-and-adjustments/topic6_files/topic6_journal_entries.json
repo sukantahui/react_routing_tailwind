@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "date": "2026-04-03",
+    "description": "Purchased trading goods catalog list price ₹1,00,000 subject to 10% Trade Discount on credit from vendor Metro Supplies",
+    "voucherType": "F9 Purchase Voucher",
+    "debitAccount": "Purchases Account",
+    "debitAmount": 90000,
+    "creditAccount": "Metro Supplies (Sundry Creditor)",
+    "creditAmount": 90000,
+    "narration": "Being goods purchased at list price ₹1,00,000 less 10% Trade Discount (Net ₹90,000)",
+    "explanation": "Trade Discount (₹10,000) is deducted directly on the invoice bill; net price ₹90,000 is recorded in Purchases A/c (Trade discount is NEVER entered in ledger books)."
+  },
+  {
+    "id": 2,
+    "date": "2026-04-07",
+    "description": "Sold trading goods catalog list price ₹80,000 subject to 15% Trade Discount on credit to customer Sharma Traders",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Sharma Traders (Sundry Debtor)",
+    "debitAmount": 68000,
+    "creditAccount": "Sales Account",
+    "creditAmount": 68000,
+    "narration": "Being goods sold at list price ₹80,000 less 15% Trade Discount (Net ₹68,000)",
+    "explanation": "Trade Discount (₹12,000) is deducted at source; Sales A/c and Debtor A/c are debited/credited with net bill amount ₹68,000."
+  },
+  {
+    "id": 3,
+    "date": "2026-04-12",
+    "description": "Paid cash ₹85,000 to vendor Metro Supplies in full settlement of ₹90,000 debt, receiving cash discount ₹5,000",
+    "voucherType": "F5 Payment Voucher",
+    "debitLines": [
+      {
+        "account": "Metro Supplies (Sundry Creditor)",
+        "amount": 90000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Cash Account",
+        "amount": 85000
+      },
+      {
+        "account": "Discount Received Account",
+        "amount": 5000
+      }
+    ],
+    "narration": "Being cash paid to creditor in full settlement after receiving prompt payment cash discount",
+    "explanation": "Cash Discount IS RECORDED in accounting books as financial income: Debit Creditor Liability ₹90,000, Credit Cash Asset ₹85,000, Credit Discount Received A/c ₹5,000."
+  },
+  {
+    "id": 4,
+    "date": "2026-04-16",
+    "description": "Received SBI Bank cheque ₹64,000 from customer Sharma Traders in full settlement of ₹68,000 debt, allowing cash discount ₹4,000",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      {
+        "account": "SBI Bank Account",
+        "amount": 64000
+      },
+      {
+        "account": "Discount Allowed Account",
+        "amount": 4000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Sharma Traders (Sundry Debtor)",
+        "amount": 68000
+      }
+    ],
+    "narration": "Being bank cheque received from debtor and cash discount allowed in full settlement",
+    "explanation": "Cash Discount IS RECORDED as financial expense: Debit Bank Asset ₹64,000, Debit Discount Allowed A/c ₹4,000, Credit Debtor Asset ₹68,000."
+  },
+  {
+    "id": 5,
+    "date": "2026-04-20",
+    "description": "Purchased goods catalog list price ₹50,000 less 10% Trade Discount (Net ₹45,000); paid immediate cash under 5% prompt cash discount (Cash Paid ₹42,750, Discount ₹2,250)",
+    "voucherType": "F5 Payment Voucher",
+    "debitLines": [
+      {
+        "account": "Purchases Account",
+        "amount": 45000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Cash Account",
+        "amount": 42750
+      },
+      {
+        "account": "Discount Received Account",
+        "amount": 2250
+      }
+    ],
+    "narration": "Being goods purchased at list price ₹50,000 less 10% Trade Discount (Net ₹45,000) and paid cash less 5% Cash Discount",
+    "explanation": "Trade discount (₹5,000) reduces Purchases to net ₹45,000. Cash discount (5% = ₹2,250) is credited to Discount Received A/c."
+  },
+  {
+    "id": 6,
+    "date": "2026-04-25",
+    "description": "Sold goods catalog list price ₹60,000 less 10% Trade Discount (Net ₹54,000); received immediate cash under 4% prompt cash discount (Cash Received ₹51,840, Discount ₹2,160)",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      {
+        "account": "Cash Account",
+        "amount": 51840
+      },
+      {
+        "account": "Discount Allowed Account",
+        "amount": 2160
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Sales Account",
+        "amount": 54000
+      }
+    ],
+    "narration": "Being goods sold at list price ₹60,000 less 10% Trade Discount (Net ₹54,000) and cash received less 4% Cash Discount",
+    "explanation": "Trade discount (₹6,000) reduces Sales to net ₹54,000. Cash discount (4% = ₹2,160) is debited to Discount Allowed A/c."
+  },
+  {
+    "id": 7,
+    "date": "2026-04-26",
+    "description": "Purchased goods catalog list price ₹40,000 subject to 5% Trade Discount on credit (Net ₹38,000)",
+    "voucherType": "F9 Purchase Voucher",
+    "debitAccount": "Purchases Account",
+    "debitAmount": 38000,
+    "creditAccount": "Bengal Electricals (Sundry Creditor)",
+    "creditAmount": 38000,
+    "narration": "Being goods purchased at list price ₹40,000 less 5% Trade Discount (Net ₹38,000)",
+    "explanation": "Trade Discount ₹2,000 is deducted at invoice level; Net ₹38,000 is recorded."
+  },
+  {
+    "id": 8,
+    "date": "2026-04-27",
+    "description": "Sold goods catalog list price ₹30,000 subject to 5% Trade Discount on credit (Net ₹28,500)",
+    "voucherType": "F8 Sales Voucher",
+    "debitAccount": "Rahul Traders (Sundry Debtor)",
+    "debitAmount": 28500,
+    "creditAccount": "Sales Account",
+    "creditAmount": 28500,
+    "narration": "Being goods sold at list price ₹30,000 less 5% Trade Discount (Net ₹28,500)",
+    "explanation": "Trade Discount ₹1,500 is deducted at source; Net ₹28,500 is recorded."
+  },
+  {
+    "id": 9,
+    "date": "2026-04-28",
+    "description": "Paid cash ₹19,000 to vendor Bengal Electricals in full settlement of ₹20,000 debt, receiving cash discount ₹1,000",
+    "voucherType": "F5 Payment Voucher",
+    "debitLines": [
+      {
+        "account": "Bengal Electricals (Sundry Creditor)",
+        "amount": 20000
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Cash Account",
+        "amount": 19000
+      },
+      {
+        "account": "Discount Received Account",
+        "amount": 1000
+      }
+    ],
+    "narration": "Being cash paid to creditor in full settlement after cash discount ₹1,000",
+    "explanation": "Cash Discount IS RECORDED as income: Debit Creditor ₹20,000, Credit Cash ₹19,000, Credit Discount Received A/c ₹1,000."
+  },
+  {
+    "id": 10,
+    "date": "2026-04-29",
+    "description": "Received SBI Bank cheque ₹28,500 from customer Rahul Traders in full settlement of ₹30,000 debt, allowing cash discount ₹1,500",
+    "voucherType": "F6 Receipt Voucher",
+    "debitLines": [
+      {
+        "account": "SBI Bank Account",
+        "amount": 28500
+      },
+      {
+        "account": "Discount Allowed Account",
+        "amount": 1500
+      }
+    ],
+    "creditLines": [
+      {
+        "account": "Rahul Traders (Sundry Debtor)",
+        "amount": 30000
+      }
+    ],
+    "narration": "Being bank cheque received from debtor and cash discount allowed ₹1,500",
+    "explanation": "Cash Discount IS RECORDED as expense: Debit Bank ₹28,500, Debit Discount Allowed ₹1,500, Credit Debtor ₹30,000."
+  }
+]
