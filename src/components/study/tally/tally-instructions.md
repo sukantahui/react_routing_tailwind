@@ -93,10 +93,35 @@ Examples:
 
 For standard topic index `N` (0, 1, 2, ...):
 1. Create `Topic[N].jsx` directly inside the module slug folder.
-2. Create a subfolder named `topic[N]_files/` containing:
+2. Create a subfolder named `topic[N]_files/` for all supporting files belonging specifically to that topic.
+3. The `topic[N]_files/` folder MUST use the exact topic index `N` from the topic filename. Do not place supporting files in another topic's folder.
+4. Create the following standard files inside `topic[N]_files/`:
    - `topic[N]_questions.js` (Structured Q&A array with MINIMUM 25 and MAXIMUM 30 technical MCQs & transaction problems)
    - `topic[N]_note.txt` (Comprehensive ASCII printable study note with accounting rules, shortcuts, tax rates & voucher flowcharts)
-   - `topic[N]_journal_entries.json` (JSON dataset of 25-30 transactions for practice, with proper Debit/Credit andNarration), if required
+5. SPECIAL JOURNAL-ENTRY DATASET RULE:
+   - If the topic is related to Journal, Journal Entries, Journalizing Transactions, or practical journal-entry preparation, the agent MUST create:
+     `topic[N]_journal_entries.json`
+   - This file MUST be placed inside the same `topic[N]_files/` folder.
+   - The JSON file MUST contain a set of journal-entry practice transactions specifically related to that topic.
+   - Each transaction MUST include, where applicable:
+     * a unique transaction ID
+     * transaction date or sequence
+     * the transaction description
+     * the correct journal entry
+     * account name(s)
+     * debit amount(s)
+     * credit amount(s)
+     * a clear accounting explanation
+     * a proper narration
+   - The journal entries MUST be derived from the accounting concepts taught in that specific topic and MUST NOT be generic or unrelated examples.
+   - The dataset SHOULD contain approximately 25-30 journal-entry transactions for a complete practice set unless the topic's scope clearly requires fewer.
+   - The answer must be included in the JSON so the application can present the transaction first and reveal/check the correct journal entry afterward.
+   - Compound transactions MUST be included when they are relevant to the topic.
+   - Every journal entry MUST satisfy the fundamental double-entry invariant:
+     Total Debit = Total Credit.
+   - Narrations MUST describe the actual transaction and should follow conventional accounting language beginning with "Being..." where appropriate.
+6. Do NOT create `topic[N]_journal_entries.json` for unrelated topics merely to satisfy a file-count requirement. Create it whenever the topic is genuinely a Journal / Journal Entries topic or when the topic explicitly requires journal-entry practice.
+7. When a topic is a Journal topic, the presence of `topic[N]_journal_entries.json` is MANDATORY, not optional.
 
 
 ================================================================================
