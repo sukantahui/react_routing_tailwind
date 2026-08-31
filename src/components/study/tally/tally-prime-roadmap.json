@@ -146,7 +146,12 @@
             "Depreciation on fixed assets: Purpose, straight-line concept, and journal entry",
             "Bad debts written off and Provision for doubtful debts concept",
             "Interest on capital, interest on drawings, commission, and manager commission",
-            "Year-end adjustment entries and closing transfer entries to Trading & P&L Accounts"
+            "Year-end adjustment entries and closing transfer entries to Trading & P&L Accounts",
+            "Journal Entries 1 — Demonstrating Journalization of Transactions Provided in a JSON Transaction Dataset",
+            "Journal Entries 2 — Preparing and Explaining a Complete Set of Journal Entries from JSON-Based Business Transactions",
+            "Journal Entries 3 — Identifying Accounts, Applying Debit/Credit Rules, and Generating Journal Entries from JSON Transactions",
+            "Journal Entries 4 — Handling Compound Transactions and Multiple-Account Journal Entries from JSON Data",
+            "Journal Entries 5 — Advanced Journal Entry Practice: Analyzing a Complete JSON Transaction Set and Preparing the Corresponding Entries"
           ],
           "miniProjects": [
             "Manual Journal Book for a One-Month Trading Firm with 45 Commercial Transactions"

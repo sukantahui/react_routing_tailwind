@@ -96,6 +96,7 @@ For standard topic index `N` (0, 1, 2, ...):
 2. Create a subfolder named `topic[N]_files/` containing:
    - `topic[N]_questions.js` (Structured Q&A array with MINIMUM 25 and MAXIMUM 30 technical MCQs & transaction problems)
    - `topic[N]_note.txt` (Comprehensive ASCII printable study note with accounting rules, shortcuts, tax rates & voucher flowcharts)
+   - `topic[N]_journal_entries.json` (JSON dataset of 25-30 transactions for practice, with proper Debit/Credit andNarration), if required
 
 
 ================================================================================
@@ -124,10 +125,10 @@ Every topic generated MUST thoroughly satisfy these 4 technical content pillars:
 ┌───────────────────────────────────────────────────────────────────────────────┐
 │ PILLAR 1: FRIENDLY TEACHER'S DESK & CLASSROOM LAB DISCUSSIONS                 │
 ├───────────────────────────────────────────────────────────────────────────────┤
-│ • Educator Sukanta Hui's intuitive commercial analogies and real-world        │
+│ • Educator Mr. CNAT's intuitive commercial analogies and real-world        │
 │   business metaphors (e.g. Barrackpore & Kolkata trading firms).              │
 │ • Classroom lab dialogue featuring Barrackpore lab students (Swadeep, Tuhina, │
-│   Abhronila, Debangshu) asking practical bookkeeping and Tally questions.     │
+│   Abhronila, Debangshu, Sohini, Sneha) asking practical bookkeeping and Tally questions.     │
 │ • Clear mental models explaining the WHY behind double-entry rules before     │
 │   showing software menus.                                                     │
 └───────────────────────────────────────────────────────────────────────────────┘
