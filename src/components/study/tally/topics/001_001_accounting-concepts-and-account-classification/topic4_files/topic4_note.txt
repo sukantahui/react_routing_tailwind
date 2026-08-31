@@ -1,0 +1,32 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 5: Revenue, Expenses, Capital vs Revenue Expenditure & Terms
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. REVENUE VS INCOME
+   - Revenue: Gross inflow of money/receivables resulting from the ordinary operating activities (Gross Sales of Goods, Service Fees).
+   - Net Income / Profit = Total Revenue - Total Operating Expenses.
+
+2. CAPITAL EXPENDITURE VS REVENUE EXPENDITURE
+   +-----------------------+----------------------------------+----------------------------------+
+   | Feature               | Capital Expenditure (CapEx)      | Revenue Expenditure (OpEx)       |
+   +-----------------------+----------------------------------+----------------------------------+
+   | Purpose               | Acquires/improves Fixed Assets   | Maintains routine daily business |
+   | Benefit Period        | Multiple accounting years        | Current accounting year (<12 mos)|
+   | Financial Statement   | Recorded on Balance Sheet (Asset)| Debited to Trading or P&L Account|
+   | Example               | Buying Delivery Van (₹8,00,000)  | Petrol/Diesel for Van (₹5,000)   |
+   +-----------------------+----------------------------------+----------------------------------+
+
+3. PURCHASES VS PURCHASE OF FIXED ASSETS
+   - Purchases: Buying trading merchandise intended exclusively for resale or raw materials for manufacture (Voucher: F9 Purchase).
+   - Fixed Asset Purchase: Buying machinery or furniture for office operational use, NOT for resale (Voucher: F7 Journal or F9 / F5).
+
+4. SALES VS GAINS
+   - Sales: Total revenue from selling trading goods or delivering commercial services (Voucher: F8 Sales).
+   - Gain: Incidental or non-operational monetary profit (e.g. Selling old obsolete machinery above book value).
+
+5. LOSSES VS EXPENSES
+   - Expense: Cost incurred deliberately to generate revenue (e.g. Salaries, Shop Rent, Advertising).
+   - Loss: Reduction in financial value with zero return benefit (e.g. Goods destroyed by fire, Bad Debts, Theft).
+================================================================================

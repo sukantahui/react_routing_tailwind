@@ -182,7 +182,7 @@ export default function Topic12() {
                   <td className="py-3 px-4 font-mono font-bold text-indigo-300">02_Functions</td>
                   <td className="py-3 px-4 font-mono text-cyan-300">fxIngestBranchSheet</td>
                   <td className="py-3 px-4">Opens workbook, standardizes schema with <code className="text-indigo-300">MissingField.UseNull</code></td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">< 150ms per file</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">&lt; 150ms per file</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-300">03_Staging</td>

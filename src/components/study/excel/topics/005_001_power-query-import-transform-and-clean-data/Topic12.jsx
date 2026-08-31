@@ -555,7 +555,7 @@ export default function Topic12() {
               <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">False Positive Matches</td>
-                  <td className="py-3 px-4 text-slate-300">Threshold set too low (< 0.70), matching unrelated accounts.</td>
+                  <td className="py-3 px-4 text-slate-300">Threshold set too low (&lt; 0.70), matching unrelated accounts.</td>
                   <td className="py-3 px-4 text-slate-400">'Tata Motors' matches 'Tata Steel'.</td>
                   <td className="py-3 px-4 text-emerald-400">Raise Similarity Threshold to 0.82–0.88.</td>
                 </tr>

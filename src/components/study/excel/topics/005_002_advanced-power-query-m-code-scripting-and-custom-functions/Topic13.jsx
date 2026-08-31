@@ -131,11 +131,11 @@ export default function Topic13() {
               <br />
               &nbsp;&nbsp;<span className="text-sky-300">BufferedDim</span> = <span className="text-purple-400">Table.Buffer</span>(DimRates),
               <br />
-              &nbsp;&nbsp;<span className="text-sky-300">CleanFact</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Date] >= pStart <span className="text-purple-400">and</span> [Date] <= pEnd),
+              &nbsp;&nbsp;<span className="text-sky-300">CleanFact</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Date] >= pStart <span className="text-purple-400">and</span> [Date] &lt;= pEnd),
               <br />
               &nbsp;&nbsp;<span className="text-sky-300">Enriched</span> = <span className="text-purple-400">Table.AddColumn</span>(CleanFact, <span className="text-emerald-200">"INR"</span>, <span className="text-purple-400">each</span> [Amt] * BufferedDim&#123;[Cur=[Cur]]&#125;[Rate]),
               <br />
-              &nbsp;&nbsp;<span className="text-sky-300">Quarantine</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Amt] <= 0)
+              &nbsp;&nbsp;<span className="text-sky-300">Quarantine</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Amt] &lt;= 0)
               <br />
               <span className="text-purple-400">in</span>
               <br />

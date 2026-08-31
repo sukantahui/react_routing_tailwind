@@ -222,7 +222,7 @@ export default function Topic1() {
                   Discrete Categories
                 </span>
               </div>
-              <p className="text-xs text-slate-400">Best when category count is small (<7) and time/categories run left-to-right.</p>
+              <p className="text-xs text-slate-400">Best when category count is small (&lt;7) and time/categories run left-to-right.</p>
               
               {/* SVG VISUAL COLUMN CHART */}
               <div className="p-2 bg-slate-900/90 rounded-lg border border-slate-800/80 flex items-center justify-center">

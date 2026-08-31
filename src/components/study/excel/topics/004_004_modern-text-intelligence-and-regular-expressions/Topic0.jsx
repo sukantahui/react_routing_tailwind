@@ -160,7 +160,7 @@ export default function Topic0() {
                 Replaces pattern matches with new text or backreferences (<code className="text-emerald-300 font-mono">$1, $2</code>).
               </p>
               <div className="p-2 bg-slate-900 rounded-lg text-amber-300 text-xs">
-                =REGEXREPLACE(A2, "<[^>]+>", "")
+                {"=REGEXREPLACE(A2, \"<[^>]+>\", \"\")"}
               </div>
             </div>
           </div>
@@ -489,7 +489,7 @@ export default function Topic0() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Systems Engineer <strong>Debangshu Ghosh</strong> cleans web portal customer comments: 
-                <code className="text-amber-300 font-mono">=REGEXREPLACE(RawHTML, "<[^>]+>", "")</code>, 
+                <code className="text-amber-300 font-mono">{"=REGEXREPLACE(RawHTML, \"<[^>]+>\", \"\")"}</code>, 
                 converting rich text tags into clean plain text in 1 millisecond.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">

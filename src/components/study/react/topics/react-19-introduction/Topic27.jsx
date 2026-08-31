@@ -936,7 +936,7 @@ return;
                             "text-sm",
                             isDark ? "text-gray-400" : "text-gray-600"
                           )}>
-                            Use &lt;&gt;&lt;&gt;&lt;/&gt;</> or React.Fragment to avoid extra divs
+                            Use &lt;&gt;&lt;&gt;&lt;/&gt;&lt;/&gt; or React.Fragment to avoid extra divs
                           </p>
                           <pre className="text-xs mt-2 p-2 rounded bg-gray-900/50 text-green-300">
 {`return (

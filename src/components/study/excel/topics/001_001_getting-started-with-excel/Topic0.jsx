@@ -470,7 +470,7 @@ export default function Topic0() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">EX-119</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Purulia Solar Pump Eligibility</td>
                   <td className="py-2.5 px-3 text-sky-300">Farmer Income: ₹ 145,000</td>
-                  <td className="py-2.5 px-3 text-amber-300">=IF(B2<200000,"ELIGIBLE","EXCEEDED")</td>
+                  <td className="py-2.5 px-3 text-amber-300">{"=IF(B2<200000,\"ELIGIBLE\",\"EXCEEDED\")"}</td>
                   <td className="py-2.5 px-3 text-emerald-400">ELIGIBLE</td>
                   <td className="py-2.5 px-3 text-slate-300">Rural development aid qualification.</td>
                 </tr>

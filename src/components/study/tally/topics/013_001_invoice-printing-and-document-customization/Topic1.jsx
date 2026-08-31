@@ -11,7 +11,7 @@ export default function Topic1() {
           <span>📘</span> TallyPrime Master Series · Topic 2
         </div>
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
-          Invoice Printing Configuration (Alt+P -> Configuration): Show Company Name, Address, Phone, Email, GSTIN, PAN
+          Invoice Printing Configuration (Alt+P → Configuration): Show Company Name, Address, Phone, Email, GSTIN, PAN
         </h1>
         <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
           Comprehensive practical guide and technical breakdown under Invoice, Voucher & Document Printing Customization.
@@ -24,7 +24,7 @@ export default function Topic1() {
           <span>💡</span> Core Concept & Practical Workflow
         </h2>
         <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-          Understanding <strong>Invoice Printing Configuration (Alt+P -> Configuration): Show Company Name, Address, Phone, Email, GSTIN, PAN</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
+          Understanding <strong>Invoice Printing Configuration (Alt+P → Configuration): Show Company Name, Address, Phone, Email, GSTIN, PAN</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
         </p>
         <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-2">
           <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Key Practical Takeaway</h3>

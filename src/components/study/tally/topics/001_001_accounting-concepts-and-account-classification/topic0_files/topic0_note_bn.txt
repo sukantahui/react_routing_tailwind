@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - প্রিন্টেবল স্টাডি নোট (PRINTABLE STUDY NOTE)
+Module 1.1 - Topic 1: Meaning, Objectives, and Functions of Accounting
+প্রশিক্ষক: Mr. CNAT | ব্যারাকপুর ল্যাব, পশ্চিমবঙ্গ
+================================================================================
+
+১. ACCOUNTING-এর মূল সংজ্ঞা ও ভূমিকা (WHAT IS ACCOUNTING?)
+   - Accounting হল ব্যবসায়ের একটি সার্বজনীন ভাষা (Language of Business)।
+   - এটি আর্থিক লেনদেন (Financial Transactions) গুলিকে ধারাবাহিকভাবে:
+     1. Identify (লেনদেন চিহ্নিতকরণ)
+     2. Record (Journal ভাউচারে লিপিবদ্ধকরণ)
+     3. Classify (Ledger বইতে বিভক্তিকরণ)
+     4. Summarize (Trial Balance ও Final Accounts তৈরি)
+     5. Report (আর্থিক ফলাফল বিশ্লেষণ ও রিপোর্ট প্রকাশ) করে।
+
+২. ব্যবসায়ের ৪টি মৌলিক আর্থিক প্রশ্ন (4 KEY FINANCIAL QUESTIONS)
+   +------------------------------------+-------------------------------------+
+   | আর্থিক প্রশ্ন (Financial Question)  | Accounting রিপোর্ট / স্টেটমেন্ট    |
+   +------------------------------------+-------------------------------------+
+   | ১. আমাদের কত উপার্জন (Revenue)?    | Trading & Profit & Loss A/c (আয়)   |
+   | ২. আমাদের কত ব্যয় (Expenses)?     | Profit & Loss Account (ব্যয়)       |
+   | ৩. আমাদের মোট সম্পত্তি (Assets)?   | Balance Sheet (Assets Side)         |
+   | ৪. আমাদের দেনা বা ঋণ (Liabilities)?| Balance Sheet (Liabilities Side)    |
+   +------------------------------------+-------------------------------------+
+
+৩. ACCOUNTING-এর মূল কার্যাবলী (FUNCTIONS OF ACCOUNTING)
+   - Systematic Record Keeping: প্রতিটি Cash, Bank ও Credit লেনদেন সাথে সাথে নথিবদ্ধ করা।
+   - Legal & Tax Compliance: GST, TDS, Income Tax এবং Company Law মেনে হিসাব রাখা।
+   - Management Decision Making: লাভ-ক্ষতি, ক্যাশ ফ্লো ও বাজেট বিশ্লেষণ করে সঠিক সিদ্ধান্ত নেওয়া।
+   - Protecting Business Assets: ভুলত্রুটি বা জালিয়াতি রোধ করে প্রতিষ্ঠানের সম্পদ রক্ষা করা।
+
+৪. TALLYPRIME সফটওয়্যারের মাধ্যমে বাস্তবায়ন (TALLYPRIME WORKFLOW)
+   - Step 1: Gateway of Tally > Masters > Create > Ledger (সঠিক গ্রুপে লেজার তৈরি)।
+   - Step 2: Gateway of Tally > Vouchers (F5 Payment, F6 Receipt, F8 Sales, F9 Purchase)।
+   - Step 3: Ctrl + A প্রেস করে ভাউচার সেভ করা।
+   - Step 4: Real-time Reports চেক করা: Gateway of Tally > Profit & Loss / Balance Sheet.
+================================================================================

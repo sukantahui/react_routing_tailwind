@@ -82,7 +82,7 @@ export default function Topic10() {
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
             Raw enterprise text ingested from web portals, CRM databases, mobile app forms, and legacy ERP dumps is 
-            invariably polluted with messy HTML markup tags (<code className="text-rose-400 font-mono"><p>, <div>, <b></code>), 
+            invariably polluted with messy HTML markup tags (<code className="text-rose-400 font-mono">{"<p>, <div>, <b>"}</code>), 
             illegal special symbols, invisible control characters, and erratic multi-space gaps. 
             By constructing a <strong>4-Phase Automated Sanitization Pipeline</strong> using 
             <code className="text-purple-300 font-mono font-bold">REGEXREPLACE</code>, <code className="text-sky-300 font-mono font-bold">TRIM</code>, and 
@@ -92,7 +92,7 @@ export default function Topic10() {
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-purple-400 text-base">✓</span>
-              <span><strong>Phase 1:</strong> Stripping HTML tags <[^>]+></span>
+              <span><strong>Phase 1:</strong> {"Stripping HTML tags <[^>]+>"}</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-emerald-400 text-base">✓</span>
@@ -124,10 +124,10 @@ export default function Topic10() {
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-sm sm:text-base text-purple-300 space-y-2">
             <span className="text-slate-500">// Complete 4-Phase In-Memory Sanitization Pipeline</span>
             <div className="mt-1 text-white font-bold text-xs sm:text-sm">
-              =<span className="text-yellow-300">PROPER</span>(<span className="text-sky-300">TRIM</span>(<span className="text-purple-300">REGEXREPLACE</span>(<span className="text-purple-300">REGEXREPLACE</span>(B5, "<span className="text-rose-300"><[^>]+></span>", ""), "<span className="text-amber-300">\s+</span>", " ")))
+              =<span className="text-yellow-300">PROPER</span>(<span className="text-sky-300">TRIM</span>(<span className="text-purple-300">REGEXREPLACE</span>(<span className="text-purple-300">REGEXREPLACE</span>(B5, "<span className="text-rose-300">{"<[^>]+>"}</span>", ""), "<span className="text-amber-300">\s+</span>", " ")))
             </div>
             <div className="mt-2 text-slate-400 text-xs">
-              <span className="text-rose-300"><[^>]+></span>: Deletes HTML Tags | <span className="text-amber-300">\s+</span>: Collapses Spaces | <span className="text-sky-300">TRIM</span>: Boundary Gaps | <span className="text-yellow-300">PROPER</span>: Capitalizes Words
+              <span className="text-rose-300">{"<[^>]+>"}</span>: Deletes HTML Tags | <span className="text-amber-300">\s+</span>: Collapses Spaces | <span className="text-sky-300">TRIM</span>: Boundary Gaps | <span className="text-yellow-300">PROPER</span>: Capitalizes Words
             </div>
           </div>
 
@@ -144,9 +144,9 @@ export default function Topic10() {
               <tbody className="divide-y divide-slate-800/60 font-mono text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-rose-400 font-sans">Phase 1: HTML Stripping</td>
-                  <td className="py-3 px-4 text-rose-300"><[^>]+></td>
+                  <td className="py-3 px-4 text-rose-300">{"<[^>]+>"}</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">Delete Tag string (<code className="text-emerald-400 font-mono">""</code>)</td>
-                  <td className="py-3 px-4 text-emerald-400"><b>Text</b> → Text</td>
+                  <td className="py-3 px-4 text-emerald-400">&lt;b&gt;Text&lt;/b&gt; → Text</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-amber-400 font-sans">Phase 2: Symbol Cleansing</td>
@@ -197,7 +197,7 @@ export default function Topic10() {
                 Text flows through HTML stripping, symbol removal, and space collapsing sequentially in pure formula RAM!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                =REDUCE(RawText, {"{\""}<[^>]+>{"\", \"[^a-zA-Z0-9\\s]\"}"}, LAMBDA(a, p, REGEXREPLACE(a, p, "")))
+                =REDUCE(RawText, {"{\"<[^>]+>\", \"[^a-zA-Z0-9\\s]\"}"}, LAMBDA(a, p, REGEXREPLACE(a, p, "")))
               </div>
             </div>
 
@@ -210,7 +210,7 @@ export default function Topic10() {
                 Business analysts simply write <code className="text-sky-300 font-mono">=FX_SANITIZE_TEXT(A2)</code> to clean any messy record!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                FX_SANITIZE_TEXT = LAMBDA(s, PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(s, "<[^>]+>", ""), "\s+", " "))))
+                {"FX_SANITIZE_TEXT = LAMBDA(s, PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(s, \"<[^>]+>\", \"\"), \"\\s+\", \" \"))))"}
               </div>
             </div>
           </div>
@@ -223,7 +223,7 @@ export default function Topic10() {
               Sanitize 10,000 rows of customer comments across an entire table in a single dynamic array formula:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                =MAP(FeedbackRange, LAMBDA(c, PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(c, "<[^>]+>", ""), "\s+", " ")))))
+                {"=MAP(FeedbackRange, LAMBDA(c, PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(c, \"<[^>]+>\", \"\"), \"\\s+\", \" \")))))"}
               </code>
             </p>
           </div>
@@ -264,7 +264,7 @@ export default function Topic10() {
               <g transform="translate(35, 75)">
                 <rect width="200" height="42" rx="4" fill="#7F1D1D" stroke="#EF4444" />
                 <text x="10" y="16" fill="#FECACA" fontSize="8" fontFamily="sans-serif">HTML & Noise:</text>
-                <text x="10" y="32" fill="#FDE047" fontSize="8.5" fontFamily="monospace">"<p>swadeep &nbsp; banerjee</p>"</text>
+                <text x="10" y="32" fill="#FDE047" fontSize="8.5" fontFamily="monospace">"&lt;p&gt;swadeep &nbsp; banerjee&lt;/p&gt;"</text>
 
                 <rect y="50" width="200" height="42" rx="4" fill="#1E293B" stroke="#334155" />
                 <text x="10" y="66" fill="#94A3B8" fontSize="8" fontFamily="sans-serif">Symbol Clutter:</text>
@@ -292,7 +292,7 @@ export default function Topic10() {
 
               <g transform="translate(340, 75)">
                 <rect width="220" height="32" rx="4" fill="#3B0764" stroke="#A855F7" />
-                <text x="10" y="20" fill="#F5D0FE" fontSize="8.5" fontWeight="bold" fontFamily="sans-serif">1. Strip HTML: <[^>]+> → ""</text>
+                <text x="10" y="20" fill="#F5D0FE" fontSize="8.5" fontWeight="bold" fontFamily="sans-serif">1. Strip HTML: &lt;[^&gt;]+&gt; → ""</text>
 
                 <rect y="36" width="220" height="32" rx="4" fill="#0369A1" fillOpacity="0.3" stroke="#38BDF8" />
                 <text x="10" y="56" fill="#BAE6FD" fontSize="8.5" fontWeight="bold" fontFamily="sans-serif">2. Strip Noise: [^\w\s] → ""</text>
@@ -403,11 +403,11 @@ export default function Topic10() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Systems Engineer <strong>Swadeep Banerjee</strong> sanitizes 20,000 scraped customer reviews: 
-                <code className="text-emerald-300 font-mono">=PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(B5, "<[^>]+>", ""), "\s+", " ")))</code>. 
+                <code className="text-emerald-300 font-mono">{"=PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(B5, \"<[^>]+>\", \"\"), \"\\s+\", \" \")))"}</code>. 
                 Prepares clean plain text for AI sentiment score modeling in 1 step!
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-purple-300">
-                Formula: =PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(..., "<[^>]+>", ""), "\s+", " ")))
+                Formula: {"=PROPER(TRIM(REGEXREPLACE(REGEXREPLACE(..., \"<[^>]+>\", \"\"), \"\\s+\", \" \")))"}
               </div>
             </div>
 
@@ -494,7 +494,7 @@ export default function Topic10() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 1: Identify Noise Profile</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Identify whether text has HTML markup (<code className="text-rose-400 font-mono"><p></code>), illegal symbols, or multi-space gaps.
+                  Identify whether text has HTML markup (<code className="text-rose-400 font-mono">{"<p>"}</code>), illegal symbols, or multi-space gaps.
                 </p>
               </div>
             </div>
@@ -506,7 +506,7 @@ export default function Topic10() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Apply Phase 1 HTML Tag Removal</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Pattern: <code className="text-emerald-400 font-mono">=REGEXREPLACE(B5, "<[^>]+>", "")</code>.
+                  Pattern: <code className="text-emerald-400 font-mono">{"=REGEXREPLACE(B5, \"<[^>]+>\", \"\")"}</code>.
                 </p>
               </div>
             </div>
@@ -566,9 +566,9 @@ export default function Topic10() {
               <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Greedy Tag Over-Deletion</td>
-                  <td className="py-3 px-4 text-slate-300">Wrote <code className="text-rose-300 font-mono"><.*></code> which deleted all content between the first <code className="text-rose-300 font-mono"><</code> and last <code className="text-rose-300 font-mono">></code>.</td>
+                  <td className="py-3 px-4 text-slate-300">Wrote <code className="text-rose-300 font-mono">{"<.*>"}</code> which deleted all content between the first <code className="text-rose-300 font-mono">{"<"}</code> and last <code className="text-rose-300 font-mono">{">"}</code>.</td>
                   <td className="py-3 px-4 text-slate-400">All valid text between tags disappears.</td>
-                  <td className="py-3 px-4 text-emerald-400">Use <code className="text-emerald-400 font-mono"><[^>]+></code> or lazy quantifier <code className="text-emerald-400 font-mono"><.*?></code>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Use <code className="text-emerald-400 font-mono">{"<[^>]+>"}</code> or lazy quantifier <code className="text-emerald-400 font-mono">{"<.*?>"}</code>.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Remaining HTML Entities</td>

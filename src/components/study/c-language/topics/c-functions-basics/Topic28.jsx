@@ -419,7 +419,7 @@ const Topic28 = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400">✅</span> I understand the difference
-                between <code>#include <></code> and <code>#include ""</code>.
+                between <code>#include &lt;&gt;</code> and <code>#include ""</code>.
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400">✅</span> I can avoid common pitfalls

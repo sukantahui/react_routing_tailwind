@@ -375,7 +375,7 @@ export default function Topic12() {
                 Step 1: Open Monaco Editor in Excel for Web
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Excel in browser, click <strong>Automate > New Script</strong> to launch the Monaco Code Editor.
+                Open Excel in browser, click <strong>Automate → New Script</strong> to launch the Monaco Code Editor.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic12() {
                 Step 3: Connect to Microsoft Power Automate Flow
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Automate, add <strong>Excel Online (Business) > Run script</strong> and pass dynamic flow tokens.
+                In Power Automate, add <strong>Excel Online (Business) → Run script</strong> and pass dynamic flow tokens.
               </p>
             </div>
 

@@ -158,7 +158,7 @@ export default function Topic12() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-400 font-sans">1. Name Sanitization</td>
                   <td className="py-3 px-4 text-purple-300">PROPER(TRIM(REGEXREPLACE(...)))</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Strip <tags> &amp; collapse spaces</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Strip &lt;tags&gt; &amp; collapse spaces</td>
                   <td className="py-3 px-4 text-emerald-400 font-bold">Standard Proper Case Name</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -511,7 +511,7 @@ export default function Topic12() {
               <div className="space-y-1">
                 <h3 className="font-bold text-white text-sm sm:text-base">Step 2: Construct Transformation & Sanitization Layer</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Apply <code className="text-emerald-300 font-mono">PROPER(TRIM(REGEXREPLACE(Name, "<[^>]+>", "")))</code> and phone digit sanitization.
+                  Apply <code className="text-emerald-300 font-mono">{"PROPER(TRIM(REGEXREPLACE(Name, \"<[^>]+>\", \"\")))"}</code> and phone digit sanitization.
                 </p>
               </div>
             </div>

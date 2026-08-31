@@ -502,7 +502,7 @@ export default function Topic2() {
                 <span>⚡</span> {"Mark as Date Table"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Enables all DAX Time Intelligence functions."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design > Mark as Date Table"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design → Mark as Date Table"}</kbd>
             </div>
             
           </div>

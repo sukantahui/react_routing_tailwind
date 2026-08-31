@@ -406,7 +406,7 @@ const Topic31 = () => {
             <ul className="grid gap-3 sm:grid-cols-2">
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400">✅</span> I understand the
-                difference between <code>#include <></code> and{" "}
+                difference between <code>#include &lt;&gt;</code> and{" "}
                 <code>#include ""</code>.
               </li>
               <li className="flex items-start gap-2">

@@ -178,7 +178,7 @@ export default function Topic3() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-sky-400 font-sans">Column Distribution</td>
                   <td className="py-3 px-4 text-sky-300">View → Column distribution</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Distinct < Total Rows on Primary Key</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Distinct &lt; Total Rows on Primary Key</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Apply 'Remove Duplicates' on ID field.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -599,7 +599,7 @@ export default function Topic3() {
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">Cartesian Merge Explosion</td>
-                  <td className="py-3 px-4 text-slate-300">Merging on a key where Distinct < Total Rows on the dimension side.</td>
+                  <td className="py-3 px-4 text-slate-300">Merging on a key where Distinct &lt; Total Rows on the dimension side.</td>
                   <td className="py-3 px-4 text-slate-400">Output table row count multiplies uncontrollably after Merge.</td>
                   <td className="py-3 px-4 text-emerald-400">Select key column on dimension query → Apply 'Remove Duplicates'.</td>
                 </tr>

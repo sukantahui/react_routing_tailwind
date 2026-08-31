@@ -11,7 +11,7 @@ export default function Topic10() {
           <span>📘</span> TallyPrime Master Series · Topic 11
         </div>
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
-          Batch Summary Report & Stock Expiry Report (Gateway of Tally -> Display -> Inventory Books -> Batch)
+          Batch Summary Report & Stock Expiry Report (Gateway of Tally → Display → Inventory Books → Batch)
         </h1>
         <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
           Comprehensive practical guide and technical breakdown under Godowns, Multi-Location Storage, Batches, Expiry & Stock Transfers.
@@ -24,7 +24,7 @@ export default function Topic10() {
           <span>💡</span> Core Concept & Practical Workflow
         </h2>
         <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-          Understanding <strong>Batch Summary Report & Stock Expiry Report (Gateway of Tally -> Display -> Inventory Books -> Batch)</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
+          Understanding <strong>Batch Summary Report & Stock Expiry Report (Gateway of Tally → Display → Inventory Books → Batch)</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
         </p>
         <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-2">
           <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Key Practical Takeaway</h3>

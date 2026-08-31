@@ -375,7 +375,7 @@ export default function Topic5() {
                 Step 1: Load Data Tables to Data Model
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> > Check <strong>Add this data to the Data Model</strong>.
+                In Power Query, select <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-xs text-sky-300">Close &amp; Load To...</kbd> → Check <strong>Add this data to the Data Model</strong>.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic5() {
                 Step 3: Define Calendar Dimension &amp; Mark as Date Table
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design > Mark as Date Table</strong>.
+                Generate a dedicated Calendar table, sort MonthName by MonthNumber, and set <strong>Design → Mark as Date Table</strong>.
               </p>
             </div>
 
@@ -454,7 +454,7 @@ export default function Topic5() {
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Forgetting 'Mark as Date Table'"}</td>
                   <td className="py-3 px-4">{"Failing to mark the calendar table prevents DAX from recognizing custom date hierarchies."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Power Pivot > Design > Mark as Date Table > Select Date column."}</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">{"Power Pivot > Design → Mark as Date Table > Select Date column."}</td>
                 </tr>
                 
               </tbody>
@@ -502,7 +502,7 @@ export default function Topic5() {
                 <span>⚡</span> {"Mark as Date Table"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Mandatory step to activate full DAX Time Intelligence capabilities."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design > Mark as Date Table"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design → Mark as Date Table"}</kbd>
             </div>
             
           </div>

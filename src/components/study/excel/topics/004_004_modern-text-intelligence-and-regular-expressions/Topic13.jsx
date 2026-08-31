@@ -179,7 +179,7 @@ export default function Topic13() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-400">Lab 8</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Lookbehind API Status Token Extraction</td>
-                  <td className="py-3 px-4 text-sky-300">REGEXEXTRACT (?<=KEY=)</td>
+                  <td className="py-3 px-4 text-sky-300">{"REGEXEXTRACT (?<=KEY=)"}</td>
                   <td className="py-3 px-4 font-sans text-emerald-400">Extracts value with zero helper columns.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
@@ -241,7 +241,7 @@ export default function Topic13() {
                 <span className="text-amber-400">3.</span> Lookaround & Group Capturing Mastery (20%)
               </h3>
               <p className="leading-relaxed">
-                Candidate deploys capturing groups (Mode 2) and positive lookbehinds <code className="text-purple-300 font-mono">(?<=KEY=)</code> to isolate target tokens 
+                Candidate deploys capturing groups (Mode 2) and positive lookbehinds <code className="text-purple-300 font-mono">{"(?<=KEY=)"}</code> to isolate target tokens 
                 cleanly without redundant string trimming formulas.
               </p>
             </div>

@@ -124,7 +124,7 @@ export default function Topic3() {
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Slice Count (<=5)</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Slice Count (&le;5)</td>
                   <td className="py-3 px-4 text-teal-400">Cognitive Limit</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Mandatory</td>
                   <td className="py-3 px-4 text-slate-300 font-sans">Never exceed 5 slices; group smaller items into an 'Other' slice.</td>

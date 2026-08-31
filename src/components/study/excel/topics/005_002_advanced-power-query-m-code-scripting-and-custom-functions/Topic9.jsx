@@ -223,7 +223,7 @@ export default function Topic9() {
               </h3>
               <p className="leading-relaxed text-xs sm:text-sm text-slate-300">
                 In Power BI Service, Incremental Refresh partitions massive multi-billion-row enterprise tables by date. 
-                It requires the <code className="text-indigo-300 font-mono">RangeStart</code> and <code className="text-indigo-300 font-mono">RangeEnd</code> parameter filters to fold directly into the SQL <code className="text-indigo-300 font-mono">WHERE OrderDate >= @RangeStart AND OrderDate < @RangeEnd</code> clause. 
+                It requires the <code className="text-indigo-300 font-mono">RangeStart</code> and <code className="text-indigo-300 font-mono">RangeEnd</code> parameter filters to fold directly into the SQL <code className="text-indigo-300 font-mono">{"WHERE OrderDate >= @RangeStart AND OrderDate < @RangeEnd"}</code> clause. 
                 If folding breaks before the date filter, Incremental Refresh fails completely.
               </p>
             </div>
@@ -481,7 +481,7 @@ export default function Topic9() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Financial Analyst <strong>Tuhina Mukherjee</strong> configures Incremental Refresh for a 5-year ledger table. 
-                She verifies that <code className="text-cyan-300 font-mono">OrderDate >= RangeStart and OrderDate < RangeEnd</code> folds natively into SQL Server, 
+                She verifies that <code className="text-cyan-300 font-mono">{"OrderDate >= RangeStart and OrderDate < RangeEnd"}</code> folds natively into SQL Server, 
                 enabling automated cloud refresh of only the current month's transactions in under 15 seconds.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-cyan-300">

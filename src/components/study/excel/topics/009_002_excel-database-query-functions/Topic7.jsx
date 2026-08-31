@@ -2,7 +2,7 @@
 import React from "react";
 import ExcelProjectAnswerTemplateEnhanced from "../../../ExcelProjectAnswerTemplateEnhanced";
 import { excelModuleProjectsData } from "./topic7_files/excel_module_projects";
-import sampleWorkbookUrl from "./excel_files/009_002_excel_database_query_functions_master.xlsx?url";
+import sampleWorkbookUrl from "./excel_files/excel_database_query_functions_master.xlsx?url";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
 export default function Topic7() {

@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 9: Modern 5-Category Account Classification & Polarity Matrix
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. THE 5 MODERN ACCOUNT CATEGORIES
+   - Category 1: ASSETS (Cash, Bank, Debtors, Stock, Machinery, Buildings)
+   - Category 2: EXPENSES (Rent, Salaries, Electricity, Freight, Depreciation)
+   - Category 3: CAPITAL / EQUITY (Owner Capital, Partner Funds, Retained Earnings)
+   - Category 4: LIABILITIES (Creditors, Bank Loans, Taxes Payable, Overdraft)
+   - Category 5: INCOMES / REVENUES (Sales, Interest Earned, Discount Received)
+
+2. DEBIT & CREDIT POLARITY MATRIX
+   +--------------------+------------------+------------------+------------------+
+   | Account Category   | Normal Balance   | When INCREASING  | When DECREASING  |
+   +--------------------+------------------+------------------+------------------+
+   | ASSETS             | Debit (Dr)       | DEBIT (+)        | CREDIT (-)       |
+   | EXPENSES & LOSSES  | Debit (Dr)       | DEBIT (+)        | CREDIT (-)       |
+   | CAPITAL / EQUITY   | Credit (Cr)      | CREDIT (+)       | DEBIT (-)        |
+   | LIABILITIES        | Credit (Cr)      | CREDIT (+)       | DEBIT (-)        |
+   | INCOMES & REVENUES | Credit (Cr)      | CREDIT (+)       | DEBIT (-)        |
+   +--------------------+------------------+------------------+------------------+
+
+3. MNEMONIC CODES FOR INSTANT RECALL
+   - DEAL (Debit to Increase): Drawings, Expenses, Assets.
+   - CLEAR (Credit to Increase): Capital, Liabilities, Equity, Incomes, Revenues.
+
+4. WHY MODERN CLASSIFICATION POWERS COMPUTERIZED ERPs
+   In software engines like TallyPrime, database transactions evaluate algebraic signs:
+   Assets & Expenses carry (+) Debit balances.
+   Capital, Liabilities & Revenues carry (+) Credit balances.
+   Debit Total minus Credit Total MUST ALWAYS equal ZERO in every saved voucher.
+================================================================================

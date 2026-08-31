@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 2: Bookkeeping versus Accounting & The Accounting Lifecycle
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. BOOKKEEPING (PRIMARY STAGE)
+   - Scope: Mechanical and routine recording of daily transactions.
+   - Activities: Identifying financial events, preparing source vouchers, journal entry recording.
+   - Performed By: Junior Bookkeeper, Data Entry Operator, Billing Clerk.
+   - Output: Journal Books, Cash Book, Purchase Daybook, Sales Daybook.
+
+2. ACCOUNTING (SECONDARY & ANALYTICAL STAGE)
+   - Scope: Analyzing, summarizing, auditing, tax reporting, and management decision making.
+   - Activities: Ledger posting, Trial Balance, Trading & P&L, Balance Sheet, Ratio analysis.
+   - Performed By: Professional Senior Accountant, Auditor, Chartered Accountant.
+   - Output: Final Accounts, MIS Reports, GST/TDS returns, Cash Flow Statements.
+
+3. THE COMPLETE 6-STEP ACCOUNTING LIFECYCLE
+   Step 1: Financial Transaction occurs & Source Document generated (Invoice, Receipt, Voucher).
+   Step 2: Journalizing the transaction using Double-Entry Rules (Debit = Credit).
+   Step 3: Posting Journal entries into individual Ledger Accounts.
+   Step 4: Preparing the Trial Balance to mathematically verify Debit and Credit equality.
+   Step 5: Year-end Adjustments & Final Accounts (Trading, Profit & Loss, Balance Sheet).
+   Step 6: Closing Entries, Ratio Analysis, Audit trail verification & Tax Filing.
+
+4. TALLYPRIME AUTOMATION PARADIGM
+   - In manual accounting: Every single step (Journal -> Ledger -> Trial Balance -> P&L) requires manual calculation.
+   - In TallyPrime: The operator performs Bookkeeping (Voucher entry in F5/F6/F8/F9), and Tally automatically updates Ledgers, Trial Balance, P&L, and Balance Sheet in real time.
+================================================================================

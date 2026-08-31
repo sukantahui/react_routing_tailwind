@@ -159,19 +159,19 @@ export default function Topic10() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-300">Table.Buffer</td>
                   <td className="py-3 px-4 font-mono text-purple-300">Table (Rows &times; Columns)</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">1,000 to 100,000 rows (<100MB)</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">1,000 to 100,000 rows (&lt;100MB)</td>
                   <td className="py-3 px-4">Accelerates row-by-row lookups, nested merges, and locks sort order before <code className="text-amber-300">Table.Group</code>.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-teal-300">List.Buffer</td>
                   <td className="py-3 px-4 font-mono text-purple-300">List (1D Array)</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">Any size key list (<250MB)</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">Any size key list (&lt;250MB)</td>
                   <td className="py-3 px-4">Instant key membership checks inside <code className="text-teal-300">List.Contains</code> during row filtering.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-indigo-300">Binary.Buffer</td>
                   <td className="py-3 px-4 font-mono text-purple-300">Raw Byte Array</td>
-                  <td className="py-3 px-4 text-emerald-400 font-semibold">Single file streams (<500MB)</td>
+                  <td className="py-3 px-4 text-emerald-400 font-semibold">Single file streams (&lt;500MB)</td>
                   <td className="py-3 px-4">Prevents multiple disk re-reads when extracting multiple worksheets from one Excel file.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">

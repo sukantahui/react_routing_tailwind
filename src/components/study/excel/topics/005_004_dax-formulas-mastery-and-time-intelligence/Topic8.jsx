@@ -494,7 +494,7 @@ export default function Topic8() {
                 <span>⚡</span> {"Mark as Date Table"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Disables hidden auto-date tables and optimizes DAX time engine."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design > Mark as Date Table"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Design → Mark as Date Table"}</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

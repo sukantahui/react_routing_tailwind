@@ -1,0 +1,27 @@
+================================================================================
+CODER & ACCOTAX - প্রিন্টেবল স্টাডি নোট (PRINTABLE STUDY NOTE)
+Module 1.1 - Topic 7: Traditional Classification of Accounts (ঐতিহ্যবাহী তিন শ্রেণীর হিসাব)
+প্রশিক্ষক: Mr. CNAT | ব্যারাকপুর ল্যাব, পশ্চিমবঙ্গ
+================================================================================
+
+১. REAL ACCOUNTS (সম্পত্তি ও বাস্তব পরিসম্পদ সংক্রান্ত হিসাব)
+   - Tangible Real Accounts (দৃশ্যমান সম্পত্তি): যা ধরা ও ছোঁয়া যায়।
+     উদাহরণ: Cash in Hand, Plant & Machinery, Building, Office Furniture, Stock।
+   - Intangible Real Accounts (অদৃশ্যমান সম্পত্তি): যা চোখে দেখা যায় না কিন্তু আর্থিক মূল্য আছে।
+     উদাহরণ: Goodwill (সুনাম), Patents (পেটেন্ট), Trademarks (ট্রেডমার্ক), Copyrights।
+
+২. PERSONAL ACCOUNTS (ব্যক্তি, প্রতিষ্ঠান ও প্রতিনিধি সংক্রান্ত হিসাব)
+   - Natural Persons (প্রাকৃতিক ব্যক্তি): রক্তমাংসের মানুষ (যেমন Rahul Sharma A/c, Priya Roy A/c)।
+   - Artificial Persons (আইনগত কৃত্রিম ব্যক্তি): কোম্পানি, ব্যাঙ্ক, ক্লাব ও প্রতিষ্ঠান (যেমন SBI Bank, Reliance Industries, Barrackpore College)।
+   - Representative Personal Accounts (প্রতিনিধিত্বমূলক ব্যক্তি হিসাব): একদল ব্যক্তির বকেয়া বা অগ্রিম পাওনা-দেনা নির্দেশক লেজার (যেমন Outstanding Salary A/c, Prepaid Insurance A/c, Accrued Rent A/c)।
+
+৩. NOMINAL ACCOUNTS (আয়, ব্যয়, লাভ ও ক্ষতির হিসাব)
+   - Expenses & Losses (ব্যয় ও ক্ষতি): Rent Expense, Staff Salary, Electricity Bill, Bad Debts (কু-ঋণ)।
+   - Incomes & Gains (আয় ও লাভ): Sales, Commission Received, Bank Interest Income, Discount Received।
+   - রূপান্তর নীতি: কোনো Nominal অ্যাকাউন্টের সাথে Outstanding বা Prepaid শব্দ যুক্ত হলে (যেমন Rent থেকে Outstanding Rent) সেটি Representative Personal অ্যাকাউন্টে রূপান্তরিত হয়!
+
+৪. TALLYPRIME সফটওয়্যারে অ্যাকাউন্টের অবস্থান
+   - Real Accounts        -> Balance Sheet (Assets Side)
+   - Personal Accounts    -> Balance Sheet (Capital, Bank Accounts, Sundry Debtors, Sundry Creditors)
+   - Nominal Accounts     -> Trading Account ও Profit & Loss Account
+================================================================================

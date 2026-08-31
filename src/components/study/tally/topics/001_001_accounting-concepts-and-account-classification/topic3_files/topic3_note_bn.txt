@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - প্রিন্টেবল স্টাডি নোট (PRINTABLE STUDY NOTE)
+Module 1.1 - Topic 4: মৌলিক অ্যাকাউন্টিং পরিভাষা: Assets, Liabilities, Capital ও Drawings
+প্রশিক্ষক: Mr. CNAT | ব্যারাকপুর ল্যাব, পশ্চিমবঙ্গ
+================================================================================
+
+১. ASSETS (ব্যবসায়িক সম্পত্তি ও পরিসম্পদ)
+   - Current Assets (চলতি সম্পত্তি): যে সমস্ত সম্পদ ১২ মাসের মধ্যে সহজে নগদে রূপান্তর করা যায়।
+     উদাহরণ: Cash in hand, Bank Balance, Sundry Debtors (পাওনাদার গ্রাহক), Closing Stock (মজুদ পণ্য)।
+   - Fixed Assets (স্থায়ী সম্পত্তি): যেসব দৃশ্যমান বা অদৃশ্যমান সম্পত্তি ব্যবসা পরিচালনার জন্য দীর্ঘমেয়াদে কেনা হয় এবং সহজে বিক্রি করা হয় না।
+     উদাহরণ: Plant & Machinery, Office Furniture, Computer, Building, Goodwill (সুনাম)।
+
+২. LIABILITIES (ব্যবসায়ের দেনা বা বাহ্যিক দায়)
+   - Current Liabilities (চলতি দায়): যেসব ঋণ বা দেনা ১২ মাসের মধ্যে পরিশোধ করতে হয়।
+     উদাহরণ: Sundry Creditors (সরবরাহকারীর পাওনা), Outstanding Expenses (বকেয়া বেতন/ভাড়া), Bank Overdraft।
+   - Non-Current Liabilities (দীর্ঘমেয়াদী দায়): যেসব ঋণ ১ বছরের বেশি সময় ধরে পরিশোধযোগ্য।
+     উদাহরণ: Bank Term Loan, Mortgage Loan।
+
+৩. CAPITAL (মূলধন ও মালিকানাস্বত্ব)
+   - Capital: ব্যবসায়ের সূচনায় বা পরবর্তীতে ব্যবসার উন্নয়নে মালিক কর্তৃক বিনিয়োগকৃত নগদ টাকা বা সম্পদ।
+   - Equity / Net Worth = Total Assets - Total External Liabilities.
+
+৪. DRAWINGS (ব্যক্তিগত উত্তোলন)
+   - Drawings: মালিক যখন নিজের ব্যক্তিগত বা পারিবারিক ব্যবহারের জন্য ব্যবসা থেকে নগদ টাকা বা পণ্যসামগ্রী তোলেন।
+   - প্রভাব: ব্যালেন্স শীটে Liabilities দিকে মালিকের Capital থেকে Drawings সরাসরি বিয়োগ হয়।
+
+৫. TALLYPRIME সফটওয়্যার গ্রুপ ম্যাপিং
+   - ক্যাশ ও ব্যাঙ্ক     -> "Current Assets" (Cash-in-hand / Bank Accounts)
+   - গ্রাহক (Customer)   -> "Sundry Debtors"
+   - সরবরাহকারী (Vendor) -> "Sundry Creditors"
+   - অফিস সরঞ্জাম       -> "Fixed Assets"
+   - মূলধন             -> "Capital Account"
+   - ব্যক্তিগত উত্তোলন   -> "Capital Account" (Drawings লেজার হিসেবে তৈরি)
+================================================================================

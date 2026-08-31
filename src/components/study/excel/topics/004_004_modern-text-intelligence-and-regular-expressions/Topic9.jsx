@@ -486,7 +486,7 @@ export default function Topic9() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Systems Engineer <strong>Debangshu Ghosh</strong> strips HTML tags across a 3-column feedback table: 
-                <code className="text-amber-300 font-mono">=MAP(B5:D20, LAMBDA(c, TRIM(REGEXREPLACE(c, "<[^>]+>", ""))))</code>, 
+                <code className="text-amber-300 font-mono">{"=MAP(B5:D20, LAMBDA(c, TRIM(REGEXREPLACE(c, \"<[^>]+>\", \"\"))))"}</code>, 
                 cleansing entire 2D grids in pure RAM.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">

@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 6: The Accounting Equation: Assets = Capital + Liabilities
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. THE FUNDAMENTAL ACCOUNTING EQUATION
+   - Primary Formula: Assets = Capital + Liabilities
+   - Formula for Capital: Capital = Assets - Liabilities
+   - Formula for Liabilities: Liabilities = Assets - Capital
+
+2. THE EXPANDED ACCOUNTING EQUATION
+   Assets = Capital + (Revenues - Expenses - Drawings) + Liabilities
+
+3. TRANSACTION IMPACT MATRIX
+   +---------------------------------------+---------------------+---------------------+
+   | Business Transaction                  | Assets Effect       | Claims (Cap + Liab) |
+   +---------------------------------------+---------------------+---------------------+
+   | 1. Started business with Cash ₹1,00,000| Cash (+₹1,00,000)   | Capital (+₹1,00,000)|
+   | 2. Borrowed Bank Loan ₹50,000         | Bank (+₹50,000)     | Loan (+₹50,000)     |
+   | 3. Bought Furniture ₹20,000 Cash      | Furn +₹20k, Cash -20k| No change           |
+   | 4. Bought Goods ₹30,000 on Credit     | Stock (+₹30,000)    | Creditors (+₹30,000)|
+   | 5. Sold Goods (Cost ₹10k) for ₹15k Cash| Cash +₹15k, Stk -10k| Capital Profit +₹5k |
+   | 6. Paid Salaries ₹5,000 Cash          | Cash (-₹5,000)      | Capital Exp (-₹5,000)|
+   | 7. Owner withdrew ₹4,000 Cash         | Cash (-₹4,000)      | Capital Draw (-₹4,000)|
+   +---------------------------------------+---------------------+---------------------+
+
+4. MATHEMATICAL INVARIANT
+   Every transaction has a dual aspect (debit and credit).
+   Total Assets must ALWAYS equal Total Liabilities + Capital at any point in time.
+
+5. TALLYPRIME BALANCE SHEET AUDIT
+   Press Alt+G > Balance Sheet (or Gateway of Tally > Balance Sheet) and press Alt+F1 for detailed view.
+   Tally calculates Total Assets and Total Liabilities in real time with 100% precision.
+================================================================================

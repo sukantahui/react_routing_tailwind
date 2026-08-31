@@ -375,7 +375,7 @@ export default function Topic0() {
                 Step 1: Open Monaco Editor in Excel for Web
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Open Excel in browser, click <strong>Automate > New Script</strong> to launch the Monaco Code Editor.
+                Open Excel in browser, click <strong>Automate → New Script</strong> to launch the Monaco Code Editor.
               </p>
             </div>
 
@@ -395,7 +395,7 @@ export default function Topic0() {
                 Step 3: Connect to Microsoft Power Automate Flow
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In Power Automate, add <strong>Excel Online (Business) > Run script</strong> and pass dynamic flow tokens.
+                In Power Automate, add <strong>Excel Online (Business) → Run script</strong> and pass dynamic flow tokens.
               </p>
             </div>
 
@@ -486,7 +486,7 @@ export default function Topic0() {
                 <span>⚡</span> {"Automate Tab"}
               </div>
               <p className="text-slate-300 leading-relaxed">{"Launches the Monaco Code Editor inside Excel."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ribbon > Automate > New Script"}</kbd>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ribbon > Automate → New Script"}</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">

@@ -572,7 +572,7 @@ export default function Topic0() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#NUM! (Infinite Recursion)</td>
                   <td className="py-3 px-4 text-slate-300">Recursive LAMBDA missing a base termination condition or exceeding 1,024 calls.</td>
                   <td className="py-3 px-4 text-slate-400">Formula halts and returns #NUM!.</td>
-                  <td className="py-3 px-4 text-emerald-400">Add an explicit base-case check (e.g. <code className="text-emerald-400 font-mono">IF(n<=1, 1, ...)</code>).</td>
+                  <td className="py-3 px-4 text-emerald-400">Add an explicit base-case check (e.g. <code className="text-emerald-400 font-mono">{"IF(n<=1, 1, ...)"}</code>).</td>
                 </tr>
               </tbody>
             </table>

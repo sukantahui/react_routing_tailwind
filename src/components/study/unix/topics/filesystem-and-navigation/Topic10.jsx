@@ -245,28 +245,28 @@ export default class Topic10 extends Component {
                   <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700 animate-[fadeIn_0.3s_ease-out]">
                     <div className="text-sm text-blue-800 dark:text-blue-200">
                       {highlightField === 'filename' && (
-                        &lt;&gt;Name of the file as stored in the directory</>
+                        <>Name of the file as stored in the directory</>
                       )}
                       {highlightField === 'inode' && (
-                        &lt;&gt;Unique identification number for this file in the filesystem</>
+                        <>Unique identification number for this file in the filesystem</>
                       )}
                       {highlightField === 'permissions' && (
-                        &lt;&gt;File type and access permissions for owner, group, and others</>
+                        <>File type and access permissions for owner, group, and others</>
                       )}
                       {highlightField === 'links' && (
-                        &lt;&gt;Number of hard links pointing to this inode</>
+                        <>Number of hard links pointing to this inode</>
                       )}
                       {highlightField === 'size' && (
-                        &lt;&gt;Actual data size in bytes (human-readable format shown)</>
+                        <>Actual data size in bytes (human-readable format shown)</>
                       )}
                       {highlightField === 'modified' && (
-                        &lt;&gt;When file content was last changed (mtime)</>
+                        <>When file content was last changed (mtime)</>
                       )}
                       {highlightField === 'accessed' && (
-                        &lt;&gt;When file was last read (atime)</>
+                        <>When file was last read (atime)</>
                       )}
                       {highlightField === 'changed' && (
-                        &lt;&gt;When file metadata was last changed (ctime)</>
+                        <>When file metadata was last changed (ctime)</>
                       )}
                     </div>
                   </div>

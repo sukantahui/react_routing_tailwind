@@ -787,7 +787,7 @@ public class CompilationExample {
                     <span className="text-gray-400">IDE - IntelliJ/Eclipse</span>
                   </div>
                   <div className="space-y-1">
-                    <div><span className="text-green-400">Box&lt;String&gt;</span> box = <span className="text-yellow-300">new Box<></span>("Hello");</div>
+                    <div><span className="text-green-400">Box&lt;String&gt;</span> box = <span className="text-yellow-300">new Box&lt;&gt;</span>("Hello");</div>
                     <div className="text-gray-500">// ^ IDE infers Box&lt;String&gt; from "Hello"</div>
                     <div className="mt-2"><span className="text-blue-300">box.setContent</span>(<span className="text-red-400">123</span>);</div>
                     <div className="text-red-400">// ^ IDE shows red underline: "setContent(java.lang.String)"</div>

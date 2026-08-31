@@ -277,7 +277,7 @@ export default function Topic5() {
                 <text x="8" y="82" fill="#FCA5A5">TXN-101 | Swadeep | ₹45,000 (Dup)</text>
 
                 <rect y="96" width="200" height="28" fill="#1E293B" />
-                <text x="8" y="114" fill="#94A3B8">TXN-104 | Susmita | ₹4,500 (<10k)</text>
+                <text x="8" y="114" fill="#94A3B8">TXN-104 | Susmita | ₹4,500 (&lt;10k)</text>
               </g>
 
               <rect x="35" y="225" width="200" height="55" rx="6" fill="#134E4A" stroke="#14B8A6" />

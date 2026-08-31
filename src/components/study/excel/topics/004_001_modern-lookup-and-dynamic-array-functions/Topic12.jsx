@@ -263,7 +263,7 @@ export default function Topic12() {
                 <text x="100" y="162" fill="#ffffff" fontSize="9" fontWeight="bold" textAnchor="middle">Dynamic SORT</text>
                 <text x="100" y="176" fill="#c7d2fe" fontSize="8" textAnchor="middle">Orders by Gross Revenue</text>
 
-                <text x="100" y="215" fill="#a5b4fc" fontSize="9" textAnchor="middle">Calculates in < 15ms</text>
+                <text x="100" y="215" fill="#a5b4fc" fontSize="9" textAnchor="middle">Calculates in &lt; 15ms</text>
               </g>
 
               {/* Arrow */}
@@ -357,7 +357,7 @@ export default function Topic12() {
                 Formula: (J1="") + ISNUMBER(SEARCH(J1, Table1[Course_Program]))
               </div>
               <p className="text-xs text-slate-400">
-                <strong>Outcome:</strong> Filters 6 transactions in < 10ms with zero manual clicking!
+                <strong>Outcome:</strong> Filters 6 transactions in &lt; 10ms with zero manual clicking!
               </p>
             </div>
 

@@ -195,11 +195,11 @@ export default function Topic1() {
               </h3>
               <p className="leading-relaxed">
                 By default, quantifiers (<code className="text-amber-300 font-mono">+</code>, <code className="text-amber-300 font-mono">*</code>) are <strong>greedy</strong>: 
-                given <code className="text-rose-300 font-mono"><b>Text</b></code>, the pattern <code className="text-rose-300 font-mono"><.*></code> matches from the first <code className="text-rose-300 font-mono"><</code> to the final <code className="text-rose-300 font-mono">></code>! 
-                Appending <code className="text-emerald-300 font-mono">?</code> makes it <strong>lazy</strong>: <code className="text-emerald-300 font-mono"><.*?></code> stops at each tag individually.
+                given <code className="text-rose-300 font-mono">{"<b>Text</b>"}</code>, the pattern <code className="text-rose-300 font-mono">{"<.*>"}</code> matches from the first <code className="text-rose-300 font-mono">{"<"}</code> to the final <code className="text-rose-300 font-mono">{">"}</code>! 
+                Appending <code className="text-emerald-300 font-mono">?</code> makes it <strong>lazy</strong>: <code className="text-emerald-300 font-mono">{"<.*?>"}</code> stops at each tag individually.
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-purple-300">
-                <.*?> (Lazy) vs <.*> (Greedy)
+                {"<.*?> (Lazy) vs <.*> (Greedy)"}
               </div>
             </div>
 
@@ -650,7 +650,7 @@ export default function Topic1() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Examine quantifier greediness:</strong> What happens when you use <code className="text-rose-400 font-mono"><.*></code> to extract text from <code className="text-sky-300 font-mono"><b>Hello</b> <i>World</i></code>, and why does <code className="text-emerald-300 font-mono"><.*?></code> fix it?
+                <strong>Examine quantifier greediness:</strong> What happens when you use <code className="text-rose-400 font-mono">{"<.*>"}</code> to extract text from <code className="text-sky-300 font-mono">{"<b>Hello</b> <i>World</i>"}</code>, and why does <code className="text-emerald-300 font-mono">{"<.*?>"}</code> fix it?
               </p>
             </div>
 

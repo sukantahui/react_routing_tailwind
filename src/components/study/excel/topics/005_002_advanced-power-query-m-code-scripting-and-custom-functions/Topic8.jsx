@@ -125,12 +125,12 @@ export default function Topic8() {
             <div>
               <span className="text-slate-500">// Pattern 1: Compact Fallback Evaluation</span>
               <br />
-              <span className="text-purple-400">try</span> <guarded_expression> <span className="text-purple-400">otherwise</span> <default_fallback_value>
+              <span className="text-purple-400">try</span> &lt;guarded_expression&gt; <span className="text-purple-400">otherwise</span> &lt;default_fallback_value&gt;
             </div>
             <div className="pt-2 border-t border-slate-800/60">
               <span className="text-slate-500">// Pattern 2: Deep Diagnostic Inspection Record</span>
               <br />
-              <span className="text-purple-400">try</span> <guarded_expression> →&nbsp;
+              <span className="text-purple-400">try</span> &lt;guarded_expression&gt; →&nbsp;
               <span className="text-amber-300">[ HasError = true/false, Value = any, Error = [ Reason="...", Message="...", Detail="..." ] ]</span>
             </div>
           </div>

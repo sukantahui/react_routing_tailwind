@@ -524,7 +524,7 @@ WHERE stock_quantity <= 20;`}
           <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs md:text-sm text-slate-300">
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span><code>=</code> evaluates equality; <code><></code> or <code>!=</code> evaluates inequality</span>
+              <span><code>=</code> evaluates equality; <code>&lt;&gt;</code> or <code>!=</code> evaluates inequality</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
@@ -532,7 +532,7 @@ WHERE stock_quantity <= 20;`}
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>
-              <span>Inequality operators (<code><></code>) automatically exclude NULL records</span>
+              <span>Inequality operators (<code>&lt;&gt;</code>) automatically exclude NULL records</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-teal-400 font-bold">☑</span>

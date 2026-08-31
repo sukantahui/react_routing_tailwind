@@ -11,7 +11,7 @@ export default function Topic3() {
           <span>📘</span> TallyPrime Master Series · Topic 4
         </div>
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
-          Stock Categories (Create -> Stock Category): Cross-sectional classification (e.g. Brand: Sony, Samsung, HP)
+          Stock Categories (Create → Stock Category): Cross-sectional classification (e.g. Brand: Sony, Samsung, HP)
         </h1>
         <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
           Comprehensive practical guide and technical breakdown under Stock Groups, Categories, Items & Units of Measurement.
@@ -24,7 +24,7 @@ export default function Topic3() {
           <span>💡</span> Core Concept & Practical Workflow
         </h2>
         <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-          Understanding <strong>Stock Categories (Create -> Stock Category): Cross-sectional classification (e.g. Brand: Sony, Samsung, HP)</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
+          Understanding <strong>Stock Categories (Create → Stock Category): Cross-sectional classification (e.g. Brand: Sony, Samsung, HP)</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
         </p>
         <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-2">
           <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Key Practical Takeaway</h3>

@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 10: Step-by-Step Transaction Analysis Algorithm
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. THE 4-STEP TRANSACTION ANALYSIS ALGORITHM
+   Step 1: IDENTIFY THE AFFECTED LEDGERS
+           Examine the source voucher (bill, receipt, cheque, invoice) and identify at least two accounts involved.
+   Step 2: CLASSIFY THE ACCOUNTS
+           Determine each account's nature under Traditional (Personal/Real/Nominal) or Modern (Asset/Expense/Capital/Liability/Income).
+   Step 3: DETERMINE INCREASE / DECREASE & POLARITY
+           Apply the Golden Rules or Modern Polarity (+Dr / +Cr) to decide which ledger is DEBITED and which is CREDITED.
+   Step 4: VERIFY MATHEMATICAL EQUALITY & PASS VOUCHER
+           Confirm Total Debit = Total Credit, add clear narration, and save in TallyPrime with Ctrl+A.
+
+2. WORKED PRACTICAL CASE STUDIES
+   Case 1: "Paid ₹12,000 office electricity bill by HDFC NetBanking"
+           - Accounts: Electricity Expense A/c & HDFC Bank A/c
+           - Nature: Electricity = Nominal (Expense) | Bank = Personal (Giver)
+           - Direction: Expense + (Dr) | Bank Asset - (Cr)
+           - Entry: Dr Electricity Expense ₹12,000 | Cr HDFC Bank ₹12,000
+           - Tally Voucher: F5 Payment
+
+   Case 2: "Received ₹40,000 NEFT from customer Sen Traders against Invoice #102"
+           - Accounts: SBI Bank A/c & Sen Traders A/c (Sundry Debtor)
+           - Nature: SBI Bank = Asset/Real (+) | Sen Traders = Personal (Giver)
+           - Direction: Bank Asset + (Dr) | Debtor Asset - (Cr)
+           - Entry: Dr SBI Bank ₹40,000 | Cr Sen Traders ₹40,000
+           - Tally Voucher: F6 Receipt
+
+3. TALLYPRIME VOUCHER MAPPING RULES
+   - F4 Contra   : Cash deposit to bank / Cash withdrawal from bank / Inter-bank transfer.
+   - F5 Payment  : Any outward payment of money (Cash or Bank).
+   - F6 Receipt  : Any inward receipt of money (Cash or Bank).
+   - F7 Journal  : Non-cash adjustments, credit asset purchase, depreciation, bad debts.
+   - F8 Sales    : Sales of goods/services on cash or credit.
+   - F9 Purchase : Purchase of trading goods on cash or credit.
+================================================================================

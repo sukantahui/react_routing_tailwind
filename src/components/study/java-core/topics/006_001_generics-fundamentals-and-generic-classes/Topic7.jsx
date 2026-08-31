@@ -546,7 +546,7 @@ public class GenericExamples {
           </h2>
           <div className="space-y-4">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              Type parameters are <strong className="text-blue-600 dark:text-blue-400">placeholders</strong> for actual types that you specify when using generic classes, interfaces, or methods. They are defined within angle brackets <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded font-mono"><></code> and follow specific naming conventions that make code more readable and maintainable.
+              Type parameters are <strong className="text-blue-600 dark:text-blue-400">placeholders</strong> for actual types that you specify when using generic classes, interfaces, or methods. They are defined within angle brackets <code className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded font-mono">&lt;&gt;</code> and follow specific naming conventions that make code more readable and maintainable.
             </p>
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 p-4 rounded-lg border-l-4 border-blue-500">
               <p className="italic text-gray-600 dark:text-gray-300">
@@ -780,7 +780,7 @@ public class GenericExamples {
                 fontSize="18"
                 className="dark:fill-yellow-300"
               >
-                Container&lt;String&gt; container = new Container<>();
+                Container&lt;String&gt; container = new Container&lt;&gt;();
               </text>
               
               {/* Type Parameter Flow */}

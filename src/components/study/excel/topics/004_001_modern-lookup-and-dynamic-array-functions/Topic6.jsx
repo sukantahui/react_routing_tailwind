@@ -189,7 +189,7 @@ export default function Topic6() {
               Unlike standard functions that read and process values from cell ranges, <code className="text-teal-300 font-mono">SEQUENCE</code> generates data purely algorithmically in memory.
             </p>
             <p>
-              For each matrix element at row <span className="font-mono text-amber-300">r</span> (0 ≤ r < rows) and column <span className="font-mono text-amber-300">c</span> (0 ≤ c < columns):
+              For each matrix element at row <span className="font-mono text-amber-300">r</span> (0 ≤ r &lt; rows) and column <span className="font-mono text-amber-300">c</span> (0 ≤ c &lt; columns):
             </p>
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs sm:text-sm text-emerald-300">
               Value(r, c) = start + (r × columns + c) × step

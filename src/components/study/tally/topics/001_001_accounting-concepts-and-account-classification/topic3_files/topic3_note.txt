@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 4: Core Terms: Assets, Liabilities, Capital & Drawings
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. ASSETS (ECONOMIC RESOURCES OWNED)
+   - Current Assets: Assets expected to be converted into cash within 12 months.
+     Examples: Cash-in-hand, Bank Balances, Sundry Debtors (Trade Receivables), Closing Stock.
+   - Fixed / Non-Current Assets: Long-term tangible/intangible assets used for business operations.
+     Examples: Plant & Machinery, Buildings, Furniture, Computers, Goodwill, Patents.
+
+2. LIABILITIES (EXTERNAL OBLIGATIONS & CLAIMS)
+   - Current Liabilities: Debts payable within 12 months.
+     Examples: Sundry Creditors (Trade Payables), Outstanding Expenses (Unpaid Salaries/Rent), Bank Overdraft, Short-term Loans.
+   - Non-Current / Long-Term Liabilities: Obligations maturing after 12 months.
+     Examples: Bank Term Loans, Mortgage Loans, Debentures.
+
+3. CAPITAL & OWNER'S EQUITY
+   - Capital: Total value of funds, cash, or assets invested into the business by the proprietor or partners.
+   - Net Worth / Equity = Total Assets - Total External Liabilities.
+
+4. DRAWINGS (PERSONAL WITHDRAWALS)
+   - Drawings: Any cash, bank funds, or trading goods withdrawn by the owner for personal or household use.
+   - Effect: Directly reduces the Owner's Capital on the Liabilities side of the Balance Sheet.
+
+5. TALLYPRIME GROUPING TAXONOMY
+   - Cash / Bank       -> "Current Assets" (Under Cash-in-hand / Bank Accounts)
+   - Customers         -> "Sundry Debtors" (Under Current Assets)
+   - Suppliers         -> "Sundry Creditors" (Under Current Liabilities)
+   - Office Equipment  -> "Fixed Assets"
+   - Proprietor Capital-> "Capital Account"
+   - Proprietor Draw   -> "Capital Account" (Created as Drawings ledger)
+================================================================================

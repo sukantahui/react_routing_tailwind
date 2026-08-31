@@ -574,7 +574,7 @@ export default function Topic2() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">List.Generate Infinite Loop</td>
                   <td className="py-3 px-4 text-slate-300">Continuation condition never evaluates to false (e.g. page cursor never increments).</td>
                   <td className="py-3 px-4 text-slate-400">Power Query memory increases indefinitely and freezes.</td>
-                  <td className="py-3 px-4 text-emerald-400">Include a hard upper bound: <code className="text-emerald-400 font-mono">each [Page] <= 50 and [Cursor] &lt;&gt; null</code>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Include a hard upper bound: <code className="text-emerald-400 font-mono">{"each [Page] <= 50 and [Cursor] <> null"}</code>.</td>
                 </tr>
               </tbody>
             </table>

@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 11: Master Practical Transaction Illustrations & Vouchers
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. CAPITAL & COMMENCEMENT
+   - Txn: Owner introduces ₹5,00,000 cash to start commercial enterprise.
+   - Entry: Dr Cash A/c ₹5,00,000 | Cr Capital A/c ₹5,00,000
+   - Tally Voucher: F6 Receipt (Gateway of Tally > Vouchers > F6)
+
+2. TRADING PURCHASES (CASH & CREDIT)
+   - Txn A (Cash): Bought trading goods for ₹40,000 cash.
+     Entry: Dr Purchase A/c ₹40,000 | Cr Cash A/c ₹40,000 (Voucher: F9 Purchase)
+   - Txn B (Credit): Bought goods from HP Supplies Ltd for ₹80,000 on 30-day credit.
+     Entry: Dr Purchase A/c ₹80,000 | Cr HP Supplies Ltd A/c ₹80,000 (Voucher: F9 Purchase)
+
+3. TRADING SALES (CASH & CREDIT)
+   - Txn A (Cash): Sold goods for ₹30,000 cash over retail counter.
+     Entry: Dr Cash A/c ₹30,000 | Cr Sales A/c ₹30,000 (Voucher: F8 Sales)
+   - Txn B (Credit): Sold goods to Sohini Traders for ₹60,000 on credit.
+     Entry: Dr Sohini Traders A/c ₹60,000 | Cr Sales A/c ₹60,000 (Voucher: F8 Sales)
+
+4. EXPENSES, INCOMES & DRAWINGS
+   - Expense: Paid Staff Salaries ₹25,000 by HDFC Bank Cheque.
+     Entry: Dr Salary Expense A/c ₹25,000 | Cr HDFC Bank A/c ₹25,000 (Voucher: F5 Payment)
+   - Income: Received Bank Interest ₹3,200 credited by SBI.
+     Entry: Dr SBI Bank A/c ₹3,200 | Cr Bank Interest Income A/c ₹3,200 (Voucher: F6 Receipt)
+   - Drawings (Cash): Owner withdrew ₹15,000 cash for personal medical bills.
+     Entry: Dr Drawings A/c ₹15,000 | Cr Cash A/c ₹15,000 (Voucher: F5 Payment)
+   - Drawings (Goods): Owner took ₹5,000 worth trading stock for household use.
+     Entry: Dr Drawings A/c ₹5,000 | Cr Purchase A/c ₹5,000 (Voucher: F7 Journal)
+
+5. TALLYPRIME MASTER VOUCHER SHORTCUT KEYS SUMMARY
+   - F4 Contra   : Cash/Bank Inter-transfers
+   - F5 Payment  : Outward Payments (Cash/Bank)
+   - F6 Receipt  : Inward Receipts (Cash/Bank)
+   - F7 Journal  : Adjustments, Depreciation & Non-Cash Entries
+   - F8 Sales    : Cash & Credit Sales Invoices
+   - F9 Purchase : Cash & Credit Purchase Invoices
+================================================================================

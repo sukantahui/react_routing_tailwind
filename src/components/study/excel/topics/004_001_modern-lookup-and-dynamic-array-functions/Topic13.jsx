@@ -377,7 +377,7 @@ export default function Topic13() {
                 =SORT(FILTER(HSTACK(A2:F11, Tiers), Tiers="Platinum VIP"), 4, -1)
               </div>
               <p className="text-xs text-slate-400">
-                <strong>Outcome:</strong> Spills top accounts (Swadeep Roy & Abhronila Das) with revenue > ₹13.5L and rating > 4.9.
+                <strong>Outcome:</strong> Spills top accounts (Swadeep Roy & Abhronila Das) with revenue &gt; ₹13.5L and rating > 4.9.
               </p>
             </div>
 
@@ -425,7 +425,7 @@ export default function Topic13() {
                 <strong>Abhronila Das</strong> filters for high-spend clients whose rating has dropped below 4.6:
               </p>
               <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-emerald-400 border border-slate-800">
-                =FILTER(A2:F11, (D2:D11 >= 900000) * (E2:E11 < 4.6), "No Accounts at Risk")
+                {"=FILTER(A2:F11, (D2:D11 >= 900000) * (E2:E11 < 4.6), \"No Accounts at Risk\")"}
               </div>
               <p className="text-xs text-slate-400">
                 <strong>Outcome:</strong> Identifies Aniket Pal & Rahul Sen for immediate customer success intervention!

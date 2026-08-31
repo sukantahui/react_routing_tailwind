@@ -11,7 +11,7 @@ export default function Topic5() {
           <span>📘</span> TallyPrime Master Series · Topic 6
         </div>
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight leading-snug">
-          Viewing Chart of Accounts (Gateway of Tally -> Chart of Accounts -> Ledgers/Groups)
+          Viewing Chart of Accounts (Gateway of Tally → Chart of Accounts → Ledgers/Groups)
         </h1>
         <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
           Comprehensive practical guide and technical breakdown under Groups, Primary Groups & Chart of Accounts Architecture.
@@ -24,7 +24,7 @@ export default function Topic5() {
           <span>💡</span> Core Concept & Practical Workflow
         </h2>
         <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-          Understanding <strong>Viewing Chart of Accounts (Gateway of Tally -> Chart of Accounts -> Ledgers/Groups)</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
+          Understanding <strong>Viewing Chart of Accounts (Gateway of Tally → Chart of Accounts → Ledgers/Groups)</strong> is essential for maintaining accurate business books, ensuring statutory tax compliance, and operating TallyPrime efficiently.
         </p>
         <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 space-y-2">
           <h3 className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Key Practical Takeaway</h3>

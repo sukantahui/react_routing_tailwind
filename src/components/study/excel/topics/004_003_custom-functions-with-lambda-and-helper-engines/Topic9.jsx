@@ -148,13 +148,13 @@ export default function Topic9() {
                   <td className="py-3 px-4 font-bold text-amber-300">rows</td>
                   <td className="py-3 px-4 text-slate-300">Total Row Count</td>
                   <td className="py-3 px-4 text-emerald-400">Integer &ge; 1</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Number of rows in the generated matrix. Values < 1 trigger #CALC!.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Number of rows in the generated matrix. Values &lt; 1 trigger #CALC!.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-yellow-300">cols</td>
                   <td className="py-3 px-4 text-slate-300">Total Column Count</td>
                   <td className="py-3 px-4 text-emerald-400">Integer &ge; 1</td>
-                  <td className="py-3 px-4 font-sans text-slate-300">Number of columns in the generated matrix. Values < 1 trigger #CALC!.</td>
+                  <td className="py-3 px-4 font-sans text-slate-300">Number of columns in the generated matrix. Values &lt; 1 trigger #CALC!.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-purple-300">LAMBDA(r, c)</td>
@@ -415,7 +415,7 @@ export default function Topic9() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Shift Coordinator <strong>Tuhina Mukherjee</strong> generates a 5-week x 7-day calendar roster: 
-                <code className="text-amber-300 font-mono">=MAKEARRAY(5, 7, LAMBDA(r, c, LET(d, (r-1)*7 + c, IF(d<=31, d, ""))))</code>. 
+                <code className="text-amber-300 font-mono">{"=MAKEARRAY(5, 7, LAMBDA(r, c, LET(d, (r-1)*7 + c, IF(d<=31, d, \"\"))))"}</code>. 
                 Instantly builds monthly schedule grids without manual date typing.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
@@ -559,7 +559,7 @@ export default function Topic9() {
               <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#CALC! (Invalid Dimensions)</td>
-                  <td className="py-3 px-4 text-slate-300">Passed rows or cols < 1 (e.g. MAKEARRAY(0, 5, ...)).</td>
+                  <td className="py-3 px-4 text-slate-300">Passed rows or cols &lt; 1 (e.g. MAKEARRAY(0, 5, ...)).</td>
                   <td className="py-3 px-4 text-slate-400">Check row/col arguments.</td>
                   <td className="py-3 px-4 text-emerald-400">Ensure both row and column counts are positive integers &ge; 1.</td>
                 </tr>

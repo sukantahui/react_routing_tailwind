@@ -1,0 +1,27 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 7: Traditional Classification of Accounts (3 Pillars)
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. REAL ACCOUNTS (PROPERTIES & ASSETS)
+   - Tangible Real Accounts: Physical assets that can be touched and seen.
+     Examples: Cash, Machinery, Building, Furniture, Land, Stock.
+   - Intangible Real Accounts: Non-physical legal/economic assets with monetary value.
+     Examples: Goodwill, Patents, Trademarks, Copyrights.
+
+2. PERSONAL ACCOUNTS (PERSONS & INSTITUTIONS)
+   - Natural Persons: Human beings (e.g. Rahul Sharma A/c, Priya Sen A/c).
+   - Artificial Legal Persons: Registered corporate bodies, clubs, banks, and institutions (e.g. State Bank of India, TCS Ltd, Barrackpore Municipality).
+   - Representative Personal Accounts: Ledgers representing a specific group of persons whose dues are unpaid or prepaid (e.g. Outstanding Salary A/c, Prepaid Insurance A/c, Accrued Interest A/c).
+
+3. NOMINAL ACCOUNTS (REVENUES & EXPENSES)
+   - Operating Expenses & Losses: Rent, Salaries, Electricity, Printing, Bad Debts, Depreciation.
+   - Operating Revenues & Gains: Sales, Commission Received, Discount Received, Interest Income.
+   - Golden Transformation Rule: If a prefix or suffix is added to a Nominal account (e.g. "Rent" + "Outstanding" = "Outstanding Rent"), it converts into a Representative Personal Account!
+
+4. TALLYPRIME BALANCE SHEET VS P&L MAPPING
+   - Real Accounts        -> Balance Sheet (Assets Side)
+   - Personal Accounts    -> Balance Sheet (Capital, Loans, Sundry Debtors, Sundry Creditors)
+   - Nominal Accounts     -> Profit & Loss Account / Trading Account
+================================================================================

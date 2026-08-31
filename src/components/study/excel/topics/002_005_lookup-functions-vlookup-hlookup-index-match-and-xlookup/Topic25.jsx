@@ -660,7 +660,7 @@ export default function Topic25() {
               <div className="space-y-2">
                 <span className="text-xs font-bold text-sky-300 uppercase tracking-wider">Production Formula &amp; Parameter Breakdown:</span>
                 <div className="p-3.5 rounded-xl bg-slate-900 font-mono text-xs sm:text-sm text-sky-300 border border-slate-800 overflow-x-auto shadow-inner">
-                  =IF(ROW()-ROW($C$2) < 29, "Building Baseline...", AVERAGE(OFFSET(C32, 0, 0, -30, 1)))
+                  {"=IF(ROW()-ROW($C$2) < 29, \"Building Baseline...\", AVERAGE(OFFSET(C32, 0, 0, -30, 1)))"}
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 pt-1 text-xs">
                   <div className="p-2 rounded-lg bg-slate-900/40 border border-slate-800">
@@ -1011,7 +1011,7 @@ export default function Topic25() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">#VALUE! Error</td>
                   <td className="py-3 px-4">Height or width parameter passed as zero (0) or non-numeric text.</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">Ensure height >= 1 (or <= -1) and width >= 1.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Ensure height &gt;= 1 (or &lt;= -1) and width &gt;= 1.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-300">Severe Workbook Lag</td>

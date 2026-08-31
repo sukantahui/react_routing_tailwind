@@ -416,7 +416,7 @@ export default function Topic6() {
                   <td className="py-2.5 px-3 text-sky-300">Slicer-Connected PivotCharts</td>
                   <td className="py-2.5 px-3 text-emerald-400">N/A</td>
                   <td className="py-2.5 px-3 text-purple-300">Slicer aligned to top right</td>
-                  <td className="py-2.5 px-3 text-slate-300">1-Click regional filtering updates 3 charts in <0.1s.</td>
+                  <td className="py-2.5 px-3 text-slate-300">1-Click regional filtering updates 3 charts in &lt;0.1s.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 text-amber-400 font-bold">LAB-104</td>

@@ -569,7 +569,7 @@ export default function Topic6() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#CALC! (Excessive Drop)</td>
                   <td className="py-3 px-4 text-slate-300">Count of dropped rows &ge; total rows in array (empty output).</td>
                   <td className="py-3 px-4 text-slate-400">Check rows argument against <code className="text-amber-300 font-mono">ROWS(array)</code>.</td>
-                  <td className="py-3 px-4 text-emerald-400">Ensure rows dropped is strictly < total array rows.</td>
+                  <td className="py-3 px-4 text-emerald-400">Ensure rows dropped is strictly &lt; total array rows.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Dropped Real Data</td>

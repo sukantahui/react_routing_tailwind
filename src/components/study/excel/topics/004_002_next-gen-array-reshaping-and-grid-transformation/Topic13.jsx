@@ -522,7 +522,7 @@ export default function Topic13() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#CALC!</td>
                   <td className="py-3 px-4 font-mono text-amber-300">DROP, FILTER</td>
                   <td className="py-3 px-4 text-slate-300">Resulting output array is empty (e.g. dropping all rows).</td>
-                  <td className="py-3 px-4 text-emerald-400">Ensure dropped count < total array rows.</td>
+                  <td className="py-3 px-4 text-emerald-400">Ensure dropped count &lt; total array rows.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#VALUE!</td>

@@ -123,7 +123,7 @@ export default function Topic12() {
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-sm sm:text-base text-purple-300 space-y-2">
             <span className="text-slate-500">// Name Manager Registration: FX_FACTORIAL</span>
             <div className="mt-1 text-white font-bold">
-              =<span className="text-purple-300">LAMBDA</span>(<span className="text-amber-300">n</span>, <span className="text-yellow-300">IF</span>(<span className="text-sky-300">n <= 1</span>, <span className="text-emerald-300">1</span>, <span className="text-amber-300">n</span> * <span className="text-pink-300">FX_FACTORIAL</span>(<span className="text-amber-300">n</span> - 1)))
+              =<span className="text-purple-300">LAMBDA</span>(<span className="text-amber-300">n</span>, <span className="text-yellow-300">IF</span>(<span className="text-sky-300">{"n <= 1"}</span>, <span className="text-emerald-300">1</span>, <span className="text-amber-300">n</span> * <span className="text-pink-300">FX_FACTORIAL</span>(<span className="text-amber-300">n</span> - 1)))
             </div>
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
               <span className="text-slate-500">// Hierarchy Rollup (Finding Top Executive / CEO):</span> <br />
@@ -224,7 +224,7 @@ export default function Topic12() {
               always pass an optional <code className="text-purple-300 font-mono">[maxDepth]</code> parameter:
               <br />
               <code className="text-emerald-300 font-mono block mt-2 p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs sm:text-sm">
-                FX_SAFE_CEO = LAMBDA(empID, [maxDepth], LET(depth, IF(ISOMITTED(maxDepth), 20, maxDepth), mgr, XLOOKUP(empID, ID, MgrID), IF(OR(depth<=0, mgr="", mgr=empID), empID, FX_SAFE_CEO(mgr, depth - 1))))
+                {"FX_SAFE_CEO = LAMBDA(empID, [maxDepth], LET(depth, IF(ISOMITTED(maxDepth), 20, maxDepth), mgr, XLOOKUP(empID, ID, MgrID), IF(OR(depth<=0, mgr=\"\", mgr=empID), empID, FX_SAFE_CEO(mgr, depth - 1))))"}
               </code>
             </p>
           </div>
@@ -433,7 +433,7 @@ export default function Topic12() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Risk Analyst <strong>Abhronila Sengupta</strong> registers <code className="text-indigo-300 font-mono">FX_FACT</code> in Name Manager: 
-                <code className="text-indigo-300 font-mono">=LAMBDA(n, IF(n<=1, 1, n * FX_FACT(n-1)))</code>, 
+                <code className="text-indigo-300 font-mono">{"=LAMBDA(n, IF(n<=1, 1, n * FX_FACT(n-1)))"}</code>, 
                 computing portfolio permutation combinations without external add-ins.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-indigo-300">
@@ -561,7 +561,7 @@ export default function Topic12() {
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#NUM! (Stack Overflow)</td>
                   <td className="py-3 px-4 text-slate-300">Recursion exceeded 1,024 frames due to missing/flawed base case or circular data loop.</td>
                   <td className="py-3 px-4 text-slate-400">Check base condition logic and check for circular parent-child IDs.</td>
-                  <td className="py-3 px-4 text-emerald-400">Implement defensive base conditions (e.g. <code className="text-emerald-400 font-mono">depth <= 0</code>) and depth limiters.</td>
+                  <td className="py-3 px-4 text-emerald-400">Implement defensive base conditions (e.g. <code className="text-emerald-400 font-mono">{"depth <= 0"}</code>) and depth limiters.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#NAME?</td>
@@ -571,9 +571,9 @@ export default function Topic12() {
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Base Case Flaw</td>
-                  <td className="py-3 px-4 text-slate-300">Wrote <code className="text-rose-300 font-mono">n = 1</code> instead of <code className="text-emerald-300 font-mono">n <= 1</code>, causing negative inputs to loop indefinitely.</td>
+                  <td className="py-3 px-4 text-slate-300">Wrote <code className="text-rose-300 font-mono">n = 1</code> instead of <code className="text-emerald-300 font-mono">{"n <= 1"}</code>, causing negative inputs to loop indefinitely.</td>
                   <td className="py-3 px-4 text-slate-400">Test function with 0 and negative numbers.</td>
-                  <td className="py-3 px-4 text-emerald-400">Always use inequality operators (<code className="text-emerald-400 font-mono"><=</code>) for base termination.</td>
+                  <td className="py-3 px-4 text-emerald-400">Always use inequality operators (<code className="text-emerald-400 font-mono">{"<="}</code>) for base termination.</td>
                 </tr>
               </tbody>
             </table>

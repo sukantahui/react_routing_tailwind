@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - PRINTABLE STUDY NOTE
+Module 1.1 - Topic 3: Accounting Concepts & Conventions (GAAP & AS)
+Educator: Mr. CNAT | Barrackpore Lab, West Bengal
+================================================================================
+
+1. BUSINESS ENTITY CONCEPT
+   - Principle: The business enterprise is a distinct legal and accounting entity separate from its owner/proprietor.
+   - Consequence: Capital invested by the owner is treated as an internal liability for the business. Personal expenses paid with business funds are recorded as "Drawings", not business expenses.
+
+2. GOING CONCERN CONCEPT
+   - Principle: The enterprise is assumed to continue operating indefinitely into the foreseeable future without any intention or necessity of liquidation.
+   - Consequence: Fixed assets are recorded at Historical Cost minus Depreciation on the Balance Sheet, rather than at current liquidation or forced-sale value.
+
+3. MONEY MEASUREMENT CONCEPT
+   - Principle: Only events, transactions, and claims that can be expressed and quantified in terms of money (currency units) are recorded in the books of accounts.
+   - Consequence: Vital qualitative factors like managerial skill, employee satisfaction, brand reputation, or strikes cannot be recorded in financial statements.
+
+4. ACCOUNTING PERIOD CONCEPT
+   - Principle: The continuous operational lifespan of a business is segmented into discrete, standardized time intervals (usually 12 months) to measure performance and prepare financial statements.
+   - In India: Standard Financial Year runs from 1st April to 31st March.
+
+5. TALLYPRIME CONFIGURATION
+   - Company Creation Screen: Set "Financial Year Beginning From" (01-Apr-202X) and "Books Beginning From".
+   - Separate Ledgers: Owner's investment created under "Capital Account", personal withdrawals created as "Drawings" under "Capital Account".
+================================================================================
