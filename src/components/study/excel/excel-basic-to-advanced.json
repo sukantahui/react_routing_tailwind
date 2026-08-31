@@ -3224,6 +3224,1394 @@
         }
       ],
       "title": "Segment 9 - Excel Function Catalog & Database Method Mastery"
+    },
+    {
+      "segmentId": "function-library",
+      "title": "Segment 9 - Excel Complete Function Library & Advanced Function Engineering (Ultra Expert)",
+      "level": "Ultra Expert",
+      "summary": "Complete the Excel function ecosystem through systematic mastery of advanced mathematical, engineering, statistical, probability, text, date-time, financial, information, database, cube, web, and legacy functions, followed by function-selection architecture and comprehensive function engineering projects.",
+      "modules": [
+        {
+          "moduleId": "excel-advanced-mathematical-functions",
+          "slug": "009_001_advanced-mathematical-arithmetic-and-aggregation-functions",
+          "title": "Advanced Mathematical, Arithmetic & Aggregation Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "sumproduct",
+            "aggregate",
+            "product",
+            "sumsq",
+            "mod",
+            "quotient",
+            "mround",
+            "ceiling-math",
+            "ceiling-precise",
+            "floor-math",
+            "floor-precise",
+            "even",
+            "odd",
+            "sign",
+            "gcd",
+            "lcm",
+            "factorial",
+            "combin",
+            "combina",
+            "permut",
+            "permutationa",
+            "multinomial",
+            "seriessum",
+            "sumx2my2",
+            "sumx2py2",
+            "sumxmy2"
+          ],
+          "topics": [
+            "SUMPRODUCT Function — Multi-Array Mathematical Aggregation",
+            "AGGREGATE Function — Error-Aware Aggregation and Hidden-Row Control",
+            "PRODUCT Function — Multiplication Across Values",
+            "SUMSQ Function — Sum of Squares",
+            "MOD Function — Remainder Calculations",
+            "QUOTIENT Function — Integer Division",
+            "MROUND Function — Multiple-Based Rounding",
+            "CEILING.MATH Function — Mathematical Ceiling",
+            "CEILING.PRECISE Function — Precise Ceiling",
+            "FLOOR.MATH Function — Mathematical Floor",
+            "FLOOR.PRECISE Function — Precise Floor",
+            "EVEN and ODD Functions — Integer Rounding",
+            "SIGN Function — Positive and Negative Direction Detection",
+            "GCD Function — Greatest Common Divisor",
+            "LCM Function — Least Common Multiple",
+            "FACT Function — Factorial Calculations",
+            "FACTDOUBLE Function — Double Factorials",
+            "COMBIN Function — Combinations Without Repetition",
+            "COMBINA Function — Combinations With Repetition",
+            "PERMUT Function — Permutations Without Repetition",
+            "PERMUTATIONA Function — Permutations With Repetition",
+            "MULTINOMIAL Function — Multinomial Calculations",
+            "SERIESSUM Function — Power-Series Evaluation",
+            "SUMX2MY2 Function — Sum of Difference of Squares",
+            "SUMX2PY2 Function — Sum of Sum of Squares",
+            "SUMXMY2 Function — Sum of Squared Differences",
+            "Advanced Aggregation Design",
+            "Mathematical Formula Optimization",
+            "Combining Mathematical Functions with Dynamic Arrays",
+            "Advanced Mathematical Functions Project"
+          ],
+          "learningOutcomes": [
+            "Apply SUMPRODUCT and AGGREGATE to solve complex multi-array and error-aware aggregation problems",
+            "Select appropriate rounding, division, factorization, permutation, and combination functions",
+            "Build mathematical models using advanced Excel arithmetic functions",
+            "Optimize complex mathematical formulas for readability and calculation efficiency"
+          ],
+          "prerequisites": [
+            "excel-basic-formulas",
+            "excel-statistical-functions",
+            "excel-modern-functions"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master specialized mathematical, arithmetic, combinatorial, rounding, aggregation, and series functions that extend Excel beyond everyday business calculations.",
+          "miniProjects": [
+            "Mini Project: Build an Advanced Mathematical Analysis and Multi-Scenario Aggregation Engine"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 20,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Advanced Mathematical Function Engineering Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Engineering calculations and quantitative business models",
+            "Multi-dimensional financial and operational aggregation",
+            "Combinatorial and mathematical analysis"
+          ],
+          "careerSkills": [
+            "Advanced spreadsheet mathematical modeling",
+            "Formula optimization and quantitative analysis"
+          ],
+          "commonMistakes": [
+            "Using nested SUM formulas when SUMPRODUCT provides a cleaner multi-array solution",
+            "Misunderstanding the difference between mathematical rounding and display formatting"
+          ],
+          "references": [
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Excel 365 Bible – Michael Alexander & Dick Kusleika",
+            "Microsoft Learn: Excel Functions Reference"
+          ],
+          "teachingTips": [
+            "Compare SUMPRODUCT with helper-column approaches using identical datasets.",
+            "Demonstrate AGGREGATE with filtered rows and intentionally injected errors."
+          ],
+          "preReading": [
+            "Basic Formulas and Functions module",
+            "Statistical Functions for Data Analysis module"
+          ],
+          "previousModule": "excel-ai-tools",
+          "nextModule": "excel-engineering-bitwise-functions",
+          "badge": "Advanced Mathematical Engineer Badge"
+        },
+        {
+          "moduleId": "excel-engineering-bitwise-functions",
+          "slug": "009_002_engineering-base-conversion-and-bitwise-functions",
+          "title": "Engineering, Base Conversion & Bitwise Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 7,
+          "tags": [
+            "engineering-functions",
+            "convert",
+            "decimal",
+            "base",
+            "roman",
+            "arabic",
+            "bitand",
+            "bitor",
+            "bitxor",
+            "bitlshift",
+            "bitrshift",
+            "binary",
+            "hexadecimal",
+            "number-systems"
+          ],
+          "topics": [
+            "CONVERT Function — Unit Conversion",
+            "DECIMAL Function — Base-to-Decimal Conversion",
+            "BASE Function — Decimal-to-Base Conversion",
+            "ROMAN Function — Arabic-to-Roman Numeral Conversion",
+            "ARABIC Function — Roman-to-Arabic Conversion",
+            "BITAND Function — Bitwise AND",
+            "BITOR Function — Bitwise OR",
+            "BITXOR Function — Bitwise XOR",
+            "BITLSHIFT Function — Bitwise Left Shift",
+            "BITRSHIFT Function — Bitwise Right Shift",
+            "Binary Number Representation",
+            "Decimal, Binary and Hexadecimal Workflows",
+            "Bitwise Logic in Excel",
+            "Engineering Unit Conversion Models",
+            "Combining Base Conversion Functions",
+            "Bitwise Error Handling",
+            "Engineering Function Compatibility",
+            "Engineering and Bitwise Calculation Project"
+          ],
+          "learningOutcomes": [
+            "Convert measurements between supported engineering units using CONVERT",
+            "Transform numbers between decimal and other numerical bases",
+            "Apply bitwise operators to integer representations",
+            "Build engineering and technical calculation models using specialized Excel functions"
+          ],
+          "prerequisites": [
+            "excel-advanced-mathematical-functions"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master Excel's engineering conversion, number-base, numeral-system, and bitwise functions for technical and specialized spreadsheet applications.",
+          "miniProjects": [
+            "Mini Project: Build an Engineering Unit and Number-System Conversion Toolkit"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 18,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Engineering and Bitwise Function Laboratory",
+            "passScore": 80
+          },
+          "useCases": [
+            "Engineering unit conversion",
+            "Technical data processing",
+            "Binary and hexadecimal calculations"
+          ],
+          "careerSkills": [
+            "Technical spreadsheet engineering",
+            "Specialized numerical computation"
+          ],
+          "commonMistakes": [
+            "Using incorrect base arguments in BASE and DECIMAL",
+            "Applying bitwise functions to unsupported or inappropriate values"
+          ],
+          "references": [
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Microsoft Learn: Excel Engineering Functions"
+          ],
+          "teachingTips": [
+            "Start with simple decimal-to-binary examples before introducing bitwise operations.",
+            "Build a visible conversion table so students can verify every intermediate result."
+          ],
+          "preReading": [
+            "Advanced Mathematical, Arithmetic & Aggregation Functions"
+          ],
+          "previousModule": "excel-advanced-mathematical-functions",
+          "nextModule": "excel-statistical-distributions",
+          "badge": "Excel Engineering Functions Badge"
+        },
+        {
+          "moduleId": "excel-statistical-distributions",
+          "slug": "009_003_statistical-distribution-and-probability-functions",
+          "title": "Statistical Distribution & Probability Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 12,
+          "tags": [
+            "probability",
+            "normal-distribution",
+            "lognormal-distribution",
+            "binomial-distribution",
+            "negative-binomial",
+            "poisson-distribution",
+            "hypergeometric",
+            "exponential-distribution",
+            "weibull-distribution",
+            "gamma-distribution",
+            "beta-distribution",
+            "chi-square",
+            "f-distribution",
+            "t-distribution",
+            "statistical-modeling"
+          ],
+          "topics": [
+            "NORM.DIST Function — Normal Distribution",
+            "NORM.S.DIST Function — Standard Normal Distribution",
+            "NORM.INV Function — Normal Inverse",
+            "NORM.S.INV Function — Standard Normal Inverse",
+            "LOGNORM.DIST Function — Lognormal Distribution",
+            "LOGNORM.INV Function — Lognormal Inverse",
+            "BINOM.DIST Function — Binomial Distribution",
+            "BINOM.DIST.RANGE Function — Binomial Range Probability",
+            "BINOM.INV Function — Binomial Inverse",
+            "NEGBINOM.DIST Function — Negative Binomial Distribution",
+            "POISSON.DIST Function — Poisson Distribution",
+            "HYPGEOM.DIST Function — Hypergeometric Distribution",
+            "EXPON.DIST Function — Exponential Distribution",
+            "WEIBULL.DIST Function — Weibull Distribution",
+            "GAMMA.DIST Function — Gamma Distribution",
+            "GAMMA.INV Function — Gamma Inverse",
+            "BETA.DIST Function — Beta Distribution",
+            "BETA.INV Function — Beta Inverse",
+            "CHISQ.DIST Function — Chi-Square Distribution",
+            "CHISQ.DIST.RT Function — Right-Tailed Chi-Square Distribution",
+            "CHISQ.INV Function — Chi-Square Inverse",
+            "CHISQ.INV.RT Function — Right-Tailed Chi-Square Inverse",
+            "F.DIST Function — F Distribution",
+            "F.DIST.RT Function — Right-Tailed F Distribution",
+            "F.INV Function — F Inverse",
+            "F.INV.RT Function — Right-Tailed F Inverse",
+            "T.DIST Function — Student's t Distribution",
+            "T.DIST.2T Function — Two-Tailed t Distribution",
+            "T.DIST.RT Function — Right-Tailed t Distribution",
+            "T.INV Function — t Inverse",
+            "T.INV.2T Function — Two-Tailed t Inverse",
+            "PROB Function — Probability",
+            "Probability Intervals",
+            "Distribution Selection",
+            "Distribution Parameter Interpretation",
+            "Probability Modeling",
+            "Statistical Distribution Project"
+          ],
+          "learningOutcomes": [
+            "Select appropriate probability distributions for real-world analytical problems",
+            "Calculate probabilities, critical values, confidence intervals, and inverse distribution values",
+            "Model normal, binomial, Poisson, exponential, gamma, beta, chi-square, F, and t distributions",
+            "Interpret probability distributions in business, finance, quality control, and research contexts"
+          ],
+          "prerequisites": [
+            "excel-statistical-functions",
+            "excel-advanced-mathematical-functions"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 10,
+          "summary": "Build advanced statistical probability models using Excel's complete distribution-function ecosystem.",
+          "miniProjects": [
+            "Mini Project: Build a Statistical Probability and Risk Distribution Dashboard"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "coding": 30,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Statistical Distribution Modeling Examination",
+            "passScore": 80
+          },
+          "useCases": [
+            "Risk analysis",
+            "Quality control",
+            "Probability modeling",
+            "Research and statistical inference"
+          ],
+          "careerSkills": [
+            "Advanced statistical spreadsheet modeling",
+            "Probability and risk analysis"
+          ],
+          "commonMistakes": [
+            "Confusing cumulative and probability-density arguments",
+            "Using the wrong distribution for the underlying business problem"
+          ],
+          "references": [
+            "Excel Data Analysis For Dummies – Stephen L. Nelson & E. C. Nelson",
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Microsoft Learn: Excel Statistical Functions"
+          ],
+          "teachingTips": [
+            "Plot distribution curves beside calculated probabilities.",
+            "Use the same dataset to demonstrate how choosing a different distribution changes the interpretation."
+          ],
+          "preReading": [
+            "Statistical Functions for Data Analysis module"
+          ],
+          "previousModule": "excel-engineering-bitwise-functions",
+          "nextModule": "excel-advanced-statistics-regression",
+          "badge": "Statistical Distribution Specialist Badge"
+        },
+        {
+          "moduleId": "excel-advanced-statistics-regression",
+          "slug": "009_004_advanced-statistics-regression-and-forecasting-functions",
+          "title": "Advanced Statistics, Regression & Forecasting Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 10,
+          "tags": [
+            "geomean",
+            "harmean",
+            "trimmean",
+            "avedev",
+            "devsq",
+            "skew",
+            "skew-p",
+            "kurt",
+            "standardize",
+            "frequency",
+            "covariance",
+            "slope",
+            "intercept",
+            "rsq",
+            "steyx",
+            "forecast",
+            "forecast-ets",
+            "trend",
+            "regression",
+            "anova"
+          ],
+          "topics": [
+            "GEOMEAN Function — Geometric Mean",
+            "HARMEAN Function — Harmonic Mean",
+            "TRIMMEAN Function — Trimmed Mean",
+            "AVEDEV Function — Average Absolute Deviation",
+            "DEVSQ Function — Sum of Squared Deviations",
+            "SKEW Function — Sample Skewness",
+            "SKEW.P Function — Population Skewness",
+            "KURT Function — Kurtosis",
+            "STANDARDIZE Function — Z-Score Standardization",
+            "FREQUENCY Function — Frequency Distribution",
+            "COVARIANCE.S Function — Sample Covariance",
+            "COVARIANCE.P Function — Population Covariance",
+            "SLOPE Function — Regression Slope",
+            "INTERCEPT Function — Regression Intercept",
+            "RSQ Function — R-Squared",
+            "STEYX Function — Standard Error of Predicted Y",
+            "FORECAST Function — Legacy Forecasting",
+            "FORECAST.LINEAR Function — Linear Forecasting",
+            "FORECAST.ETS Function — Exponential Smoothing Forecasting",
+            "FORECAST.ETS.ADD Function — Additive Forecasting",
+            "FORECAST.ETS.CONFINT Function — Forecast Confidence Interval",
+            "FORECAST.ETS.SEASONALITY Function — Seasonality Detection",
+            "FORECAST.ETS.STAT Function — Forecast Statistics",
+            "TREND Function — Linear Trend Modeling",
+            "Simple Linear Regression",
+            "Multiple Regression Concepts",
+            "Regression Diagnostics",
+            "Residual Analysis",
+            "ANOVA Analysis",
+            "Forecast Accuracy Measurement",
+            "Advanced Statistical Modeling Project"
+          ],
+          "learningOutcomes": [
+            "Apply advanced descriptive statistics and distribution-shape measures",
+            "Build and interpret linear regression and forecasting models",
+            "Measure covariance, regression fit, standard error, trend, and forecast confidence",
+            "Evaluate statistical models using diagnostics and forecast accuracy measures"
+          ],
+          "prerequisites": [
+            "excel-statistical-distributions",
+            "excel-statistical-functions"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 10,
+          "summary": "Extend Excel statistical analysis into advanced descriptive statistics, regression, time-series forecasting, and model diagnostics.",
+          "miniProjects": [
+            "Mini Project: Build a Sales Forecasting, Regression and Statistical Quality Dashboard"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 25,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Advanced Statistical Modeling and Forecasting Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Sales forecasting",
+            "Financial modeling",
+            "Quality control",
+            "Business regression analysis"
+          ],
+          "careerSkills": [
+            "Statistical modeling",
+            "Forecasting and predictive analysis"
+          ],
+          "commonMistakes": [
+            "Interpreting correlation as causation",
+            "Using inappropriate forecast parameters without checking the underlying time series"
+          ],
+          "references": [
+            "Excel Data Analysis For Dummies – Stephen L. Nelson & E. C. Nelson",
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries"
+          ],
+          "teachingTips": [
+            "Show regression calculations alongside a visual scatter plot and trendline.",
+            "Compare FORECAST.LINEAR with FORECAST.ETS using the same business dataset."
+          ],
+          "preReading": [
+            "Statistical Distribution & Probability Functions module"
+          ],
+          "previousModule": "excel-statistical-distributions",
+          "nextModule": "excel-advanced-text-functions",
+          "badge": "Advanced Statistical Analyst Badge"
+        },
+        {
+          "moduleId": "excel-advanced-text-functions",
+          "slug": "009_005_advanced-text-unicode-conversion-and-language-functions",
+          "title": "Advanced Text, Unicode, Conversion & Language Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "advanced-text",
+            "arraytotext",
+            "valuetotext",
+            "translate",
+            "detectlanguage",
+            "t-function",
+            "concatenate",
+            "text",
+            "value",
+            "numbervalue",
+            "dollar",
+            "fixed",
+            "char",
+            "code",
+            "unichar",
+            "unicode",
+            "unicode-processing",
+            "multilingual-excel"
+          ],
+          "topics": [
+            "T Function — Extracting Text Values",
+            "ARRAYTOTEXT Function — Array-to-Text Conversion",
+            "VALUETOTEXT Function — Value-to-Text Conversion",
+            "TRANSLATE Function — Translation Workflows",
+            "DETECTLANGUAGE Function — Language Detection",
+            "CONCATENATE Function — Legacy Text Concatenation",
+            "TEXT Function — Advanced Number Formatting",
+            "VALUE Function — Text-to-Number Conversion",
+            "NUMBERVALUE Function — Locale-Aware Number Conversion",
+            "DOLLAR Function — Currency Text Formatting",
+            "FIXED Function — Fixed Decimal Formatting",
+            "CHAR Function — Character Code Conversion",
+            "CODE Function — Character-to-Code Conversion",
+            "UNICHAR Function — Unicode Character Conversion",
+            "UNICODE Function — Unicode Code Detection",
+            "Text-to-Number Conversion Architecture",
+            "Number-to-Text Conversion Architecture",
+            "Unicode and International Character Handling",
+            "Multilingual Spreadsheet Workflows",
+            "Dynamic Text Representation",
+            "Legacy Text Function Compatibility",
+            "Internationalized Reporting Project"
+          ],
+          "learningOutcomes": [
+            "Convert values, arrays, numbers, and characters between textual representations",
+            "Work with Unicode and multilingual spreadsheet data",
+            "Build locale-aware text and number conversion workflows",
+            "Use modern language-oriented functions in international reporting scenarios"
+          ],
+          "prerequisites": [
+            "excel-text-date-functions",
+            "excel-regex-text"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master specialized text representation, Unicode, language, formatting, and conversion functions beyond the core text-processing toolkit.",
+          "miniProjects": [
+            "Mini Project: Build a Multilingual Customer and Financial Data Normalization Engine"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 20,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Advanced Text and Unicode Engineering Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "International customer databases",
+            "Multilingual reporting",
+            "ERP data normalization",
+            "Text and number conversion"
+          ],
+          "careerSkills": [
+            "Advanced spreadsheet text engineering",
+            "International data normalization"
+          ],
+          "commonMistakes": [
+            "Confusing displayed formatting with actual cell values",
+            "Ignoring locale-specific decimal and thousands separators"
+          ],
+          "references": [
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Microsoft Learn: Excel Text Functions"
+          ],
+          "teachingTips": [
+            "Use multilingual datasets to demonstrate Unicode differences.",
+            "Compare TEXT, VALUE and NUMBERVALUE with different regional number formats."
+          ],
+          "preReading": [
+            "Text, Date and Time Functions module",
+            "Modern Text Intelligence & Regular Expressions module"
+          ],
+          "previousModule": "excel-advanced-statistics-regression",
+          "nextModule": "excel-date-time-calendar-engineering",
+          "badge": "Advanced Text Engineering Badge"
+        },
+        {
+          "moduleId": "excel-date-time-calendar-engineering",
+          "slug": "009_006_complete-date-time-and-calendar-engineering-functions",
+          "title": "Complete Date, Time & Calendar Engineering Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 9,
+          "tags": [
+            "date-functions",
+            "time-functions",
+            "now",
+            "datevalue",
+            "timevalue",
+            "days",
+            "days360",
+            "edate",
+            "eomonth",
+            "weekday",
+            "weeknum",
+            "isoweeknum",
+            "workday-intl",
+            "networkdays-intl",
+            "yearfrac",
+            "datedif",
+            "calendar-engineering",
+            "business-calendar"
+          ],
+          "topics": [
+            "NOW Function — Current Date and Time",
+            "DATE Function — Date Construction",
+            "DATEVALUE Function — Text-to-Date Conversion",
+            "TIME Function — Time Construction",
+            "TIMEVALUE Function — Text-to-Time Conversion",
+            "DAY, MONTH and YEAR Functions — Date Component Extraction",
+            "HOUR, MINUTE and SECOND Functions — Time Component Extraction",
+            "DAYS Function — Date Difference",
+            "DAYS360 Function — 360-Day Calendar Difference",
+            "EDATE Function — Month Offset",
+            "EOMONTH Function — Month-End Calculation",
+            "WEEKDAY Function — Day-of-Week Calculation",
+            "WEEKNUM Function — Week Number Calculation",
+            "ISOWEEKNUM Function — ISO Week Number Calculation",
+            "WORKDAY Function — Business-Day Calculation",
+            "WORKDAY.INTL Function — International Business-Day Calculation",
+            "NETWORKDAYS Function — Working-Day Count",
+            "NETWORKDAYS.INTL Function — International Working-Day Count",
+            "YEARFRAC Function — Fractional Year Calculation",
+            "DATEDIF Function — Date Difference Analysis",
+            "Serial Date Architecture",
+            "1900 vs 1904 Date Systems",
+            "Business Calendar Engineering",
+            "International Weekend Definitions",
+            "Holiday Calendar Architecture",
+            "SLA and Working-Hour Calculations",
+            "Fiscal Calendar Engineering",
+            "Date-Time Automation Project"
+          ],
+          "learningOutcomes": [
+            "Construct and decompose dates and times accurately",
+            "Calculate working days using regional weekend and holiday definitions",
+            "Build fiscal, business, SLA, and operational calendar models",
+            "Handle international date and time conventions safely"
+          ],
+          "prerequisites": [
+            "excel-text-date-functions"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Complete the date and time function ecosystem with advanced business-calendar, international working-day, fiscal-calendar, and date-engineering techniques.",
+          "miniProjects": [
+            "Mini Project: Build an Enterprise Attendance, SLA, Holiday and Fiscal Calendar Engine"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 20,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Date-Time Engineering and Business Calendar Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "HR attendance systems",
+            "Project scheduling",
+            "SLA tracking",
+            "Financial maturity calculations",
+            "Fiscal reporting"
+          ],
+          "careerSkills": [
+            "Business-calendar engineering",
+            "Date and time automation"
+          ],
+          "commonMistakes": [
+            "Ignoring regional weekend definitions",
+            "Treating elapsed time as clock time when durations exceed 24 hours"
+          ],
+          "references": [
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Microsoft Learn: Excel Date and Time Functions"
+          ],
+          "teachingTips": [
+            "Build a reusable holiday calendar before introducing WORKDAY.INTL and NETWORKDAYS.INTL.",
+            "Demonstrate serial-date calculations using visible helper cells."
+          ],
+          "preReading": [
+            "Text, Date and Time Functions module"
+          ],
+          "previousModule": "excel-advanced-text-functions",
+          "nextModule": "excel-advanced-financial-functions",
+          "badge": "Calendar Engineering Specialist Badge"
+        },
+        {
+          "moduleId": "excel-advanced-financial-functions",
+          "slug": "009_007_advanced-financial-bond-and-investment-functions",
+          "title": "Advanced Financial, Bond & Investment Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 12,
+          "tags": [
+            "advanced-financial",
+            "rri",
+            "pduration",
+            "fvschedule",
+            "ispmt",
+            "depreciation",
+            "sln",
+            "syd",
+            "db",
+            "ddb",
+            "vdb",
+            "accrint",
+            "accrintm",
+            "coupon-functions",
+            "bond-functions",
+            "tbill",
+            "odd-coupon",
+            "yield",
+            "fixed-income"
+          ],
+          "topics": [
+            "RRI Function — Equivalent Growth Rate",
+            "PDURATION Function — Periods Required for Growth",
+            "FVSCHEDULE Function — Future Value With Variable Rates",
+            "ISPMT Function — Interest Payment Calculation",
+            "SLN Function — Straight-Line Depreciation",
+            "SYD Function — Sum-of-Years-Digits Depreciation",
+            "DB Function — Fixed-Declining Balance Depreciation",
+            "DDB Function — Double-Declining Balance Depreciation",
+            "VDB Function — Variable Declining Balance Depreciation",
+            "ACCRINT Function — Accrued Periodic Interest",
+            "ACCRINTM Function — Accrued Interest at Maturity",
+            "COUPDAYBS Function — Coupon Days From Beginning",
+            "COUPDAYS Function — Coupon Period Days",
+            "COUPDAYSNC Function — Coupon Days to Next Coupon",
+            "COUPNCD Function — Next Coupon Date",
+            "COUPNUM Function — Number of Coupons",
+            "COUPPCD Function — Previous Coupon Date",
+            "DISC Function — Discount Rate",
+            "INTRATE Function — Interest Rate",
+            "PRICEDISC Function — Discounted Security Price",
+            "YIELDDISC Function — Discounted Security Yield",
+            "RECEIVED Function — Amount Received at Maturity",
+            "TBILLEQ Function — Treasury Bill Equivalent Yield",
+            "TBILLPRICE Function — Treasury Bill Price",
+            "TBILLYIELD Function — Treasury Bill Yield",
+            "ODDFPRICE Function — Odd First Period Bond Price",
+            "ODDFYIELD Function — Odd First Period Bond Yield",
+            "ODDLPRICE Function — Odd Last Period Bond Price",
+            "ODDLYIELD Function — Odd Last Period Bond Yield",
+            "PRICEMAT Function — Maturity Security Price",
+            "YIELDMAT Function — Maturity Security Yield",
+            "Bond Cash-Flow Modeling",
+            "Accrued Interest Modeling",
+            "Yield Curve Modeling",
+            "Duration and Convexity Analysis",
+            "Fixed-Income Portfolio Project"
+          ],
+          "learningOutcomes": [
+            "Apply advanced investment, depreciation, bond, coupon, discount, and yield functions",
+            "Model fixed-income securities and accrued-interest calculations",
+            "Build advanced depreciation schedules",
+            "Construct fixed-income valuation and yield-analysis models"
+          ],
+          "prerequisites": [
+            "excel-financial-functions",
+            "excel-date-time-calendar-engineering"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 10,
+          "summary": "Complete the specialist financial-function ecosystem with advanced depreciation, fixed-income, bond pricing, coupon, yield, and treasury-bill calculations.",
+          "miniProjects": [
+            "Mini Project: Build a Fixed-Income Portfolio Valuation and Yield Analysis Model"
+          ],
+          "exercises": {
+            "mcq": 35,
+            "coding": 30,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Advanced Financial Function Engineering and Bond Modeling Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Fixed-income analysis",
+            "Corporate finance",
+            "Asset valuation",
+            "Depreciation modeling",
+            "Investment analysis"
+          ],
+          "careerSkills": [
+            "Advanced financial modeling",
+            "Fixed-income valuation",
+            "Investment spreadsheet engineering"
+          ],
+          "commonMistakes": [
+            "Using inconsistent day-count conventions",
+            "Mixing coupon dates and settlement dates incorrectly"
+          ],
+          "references": [
+            "Financial Analysis and Modeling Using Excel and VBA – Chandan Sengupta",
+            "Excel 365 Bible – Michael Alexander & Dick Kusleika",
+            "Microsoft Learn: Excel Financial Functions"
+          ],
+          "teachingTips": [
+            "Draw bond cash flows before writing the formula.",
+            "Validate Excel bond results against manually calculated coupon and maturity cash flows."
+          ],
+          "preReading": [
+            "Financial Functions in Excel (Basic to Professional) module"
+          ],
+          "previousModule": "excel-date-time-calendar-engineering",
+          "nextModule": "excel-information-introspection-functions",
+          "badge": "Fixed-Income Modeling Specialist Badge"
+        },
+        {
+          "moduleId": "excel-information-introspection-functions",
+          "slug": "009_008_information-cell-workbook-and-formula-introspection",
+          "title": "Information, Cell, Workbook & Formula Introspection Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 7,
+          "tags": [
+            "information-functions",
+            "isblank",
+            "isnumber",
+            "istext",
+            "isnontext",
+            "islogical",
+            "isref",
+            "isformula",
+            "iserr",
+            "iserror",
+            "isna",
+            "iseven",
+            "isodd",
+            "n",
+            "na",
+            "type",
+            "cell",
+            "info",
+            "formulatext",
+            "sheet",
+            "sheets",
+            "formula-auditing"
+          ],
+          "topics": [
+            "ISBLANK Function — Blank Detection",
+            "ISNUMBER Function — Number Detection",
+            "ISTEXT Function — Text Detection",
+            "ISNONTEXT Function — Non-Text Detection",
+            "ISLOGICAL Function — Logical Value Detection",
+            "ISREF Function — Reference Detection",
+            "ISFORMULA Function — Formula Detection",
+            "ISERR Function — Error Detection Except #N/A",
+            "ISERROR Function — General Error Detection",
+            "ISNA Function — #N/A Detection",
+            "ISEVEN Function — Even Number Detection",
+            "ISODD Function — Odd Number Detection",
+            "N Function — Value Conversion",
+            "NA Function — #N/A Error Generation",
+            "TYPE Function — Value Type Detection",
+            "CELL Function — Cell Information",
+            "INFO Function — Environment Information",
+            "FORMULATEXT Function — Formula Extraction",
+            "SHEET Function — Sheet Number",
+            "SHEETS Function — Sheet Count",
+            "Formula Introspection",
+            "Workbook Metadata Inspection",
+            "Dynamic Workbook Architecture",
+            "Formula Auditing With Information Functions",
+            "Diagnostic Formula Library Project"
+          ],
+          "learningOutcomes": [
+            "Detect cell content, data types, references, formulas, and error states programmatically",
+            "Inspect workbook and worksheet information using specialized information functions",
+            "Build diagnostic formulas for auditing and troubleshooting",
+            "Create formula-introspection tools for complex workbooks"
+          ],
+          "prerequisites": [
+            "excel-conditional-logic",
+            "excel-formula-auditing"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master Excel's information and introspection functions for formula auditing, workbook diagnostics, metadata inspection, and advanced spreadsheet engineering.",
+          "miniProjects": [
+            "Mini Project: Build an Automated Workbook Formula Audit and Diagnostic Toolkit"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 20,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Formula Introspection and Workbook Diagnostics Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Workbook auditing",
+            "Formula troubleshooting",
+            "Data validation",
+            "Enterprise spreadsheet diagnostics"
+          ],
+          "careerSkills": [
+            "Spreadsheet auditing",
+            "Formula diagnostics",
+            "Enterprise workbook maintenance"
+          ],
+          "commonMistakes": [
+            "Confusing ISERROR with ISERR and ISNA",
+            "Using CELL and INFO without accounting for environment-specific results"
+          ],
+          "references": [
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Microsoft Learn: Excel Information Functions"
+          ],
+          "teachingTips": [
+            "Create deliberately broken workbooks and use information functions to diagnose them.",
+            "Build a formula-audit report that identifies cells containing formulas, errors, and hard-coded values."
+          ],
+          "preReading": [
+            "Conditional Logic with IF and Related Functions module"
+          ],
+          "previousModule": "excel-advanced-financial-functions",
+          "nextModule": "excel-database-functions",
+          "badge": "Formula Diagnostics Architect Badge"
+        },
+        {
+          "moduleId": "excel-database-functions",
+          "slug": "009_009_database-and-criteria-based-functions",
+          "title": "Database & Criteria-Based Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "database-functions",
+            "dproduct",
+            "dstdev",
+            "dstdevp",
+            "dvar",
+            "dvarp",
+            "criteria-ranges",
+            "database-analysis",
+            "legacy-database-functions"
+          ],
+          "topics": [
+            "DPRODUCT Function — Database Product",
+            "DSTDEV Function — Sample Standard Deviation",
+            "DSTDEVP Function — Population Standard Deviation",
+            "DVAR Function — Sample Variance",
+            "DVARP Function — Population Variance",
+            "Database Function Architecture",
+            "Criteria Range Design",
+            "Multi-Criteria Database Calculations",
+            "Database Functions vs SUMIFS and COUNTIFS",
+            "Database Functions vs Pivot Tables",
+            "Legacy Database Models",
+            "Dynamic Criteria Construction",
+            "Database Function Error Handling",
+            "Database Analysis Project"
+          ],
+          "learningOutcomes": [
+            "Apply the complete database-function family to structured datasets",
+            "Design criteria ranges for multi-condition database calculations",
+            "Compare database functions with modern conditional aggregation methods",
+            "Maintain and modernize legacy database-function workbooks"
+          ],
+          "prerequisites": [
+            "excel-tables-filters",
+            "excel-statistical-functions"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Master Excel's database-function family and criteria-range architecture while understanding its relationship to modern conditional aggregation and Pivot Tables.",
+          "miniProjects": [
+            "Mini Project: Build a Criteria-Driven Legacy Database Reporting System"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Database Function and Criteria Modeling Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Legacy corporate workbooks",
+            "Criteria-based reporting",
+            "Database-style spreadsheet analysis"
+          ],
+          "careerSkills": [
+            "Legacy workbook support",
+            "Criteria-driven spreadsheet analysis"
+          ],
+          "commonMistakes": [
+            "Incorrectly constructing criteria ranges",
+            "Using database functions when a simpler modern aggregation formula is more maintainable"
+          ],
+          "references": [
+            "Excel 365 Bible – Michael Alexander & Dick Kusleika",
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries"
+          ],
+          "teachingTips": [
+            "Use the same dataset to solve a problem with D-functions, SUMIFS, and Pivot Tables.",
+            "Show how criteria ranges behave differently from ordinary formula criteria."
+          ],
+          "preReading": [
+            "Tables, Sorting and Filtering module",
+            "Statistical Functions for Data Analysis module"
+          ],
+          "previousModule": "excel-information-introspection-functions",
+          "nextModule": "excel-cube-olap-functions",
+          "badge": "Database Functions Specialist Badge"
+        },
+        {
+          "moduleId": "excel-cube-olap-functions",
+          "slug": "009_010_cube-olap-and-multidimensional-analysis-functions",
+          "title": "Cube, OLAP & Multidimensional Analysis Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 8,
+          "tags": [
+            "cube-functions",
+            "olap",
+            "cubemember",
+            "cubememberproperty",
+            "cuberankedmember",
+            "cubeset",
+            "cubesetcount",
+            "cubevalue",
+            "cubekpimember",
+            "power-pivot",
+            "analysis-services",
+            "mdx"
+          ],
+          "topics": [
+            "Introduction to Excel Cube Functions",
+            "CUBEMEMBER Function — Cube Member Retrieval",
+            "CUBEMEMBERPROPERTY Function — Cube Member Properties",
+            "CUBERANKEDMEMBER Function — Ranked Cube Member Retrieval",
+            "CUBESET Function — Dynamic Cube Sets",
+            "CUBESETCOUNT Function — Cube Set Counting",
+            "CUBEVALUE Function — Cube Value Retrieval",
+            "CUBEKPIMEMBER Function — Cube KPI Retrieval",
+            "Cube Connection Architecture",
+            "MDX Concepts for Excel Users",
+            "Cube Sets and Members",
+            "Dynamic Cube-Based Reports",
+            "KPI Retrieval from OLAP Models",
+            "Cube Functions vs Pivot Tables",
+            "Cube Functions vs DAX",
+            "Power Pivot and Analysis Services Integration",
+            "Multidimensional Executive Dashboard Project"
+          ],
+          "learningOutcomes": [
+            "Retrieve members, values, sets, rankings, and KPIs from OLAP models",
+            "Construct dynamic cube-based analytical reports",
+            "Understand the relationship between Cube functions, Pivot Tables, Power Pivot, and DAX",
+            "Build executive reporting solutions connected to multidimensional data models"
+          ],
+          "prerequisites": [
+            "excel-dax-mastery",
+            "excel-pivot-intro"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 10,
+          "summary": "Master Excel Cube functions and multidimensional analysis for enterprise OLAP, Power Pivot, Analysis Services, and executive reporting environments.",
+          "miniProjects": [
+            "Mini Project: Build an Interactive OLAP Executive Dashboard Using Cube Functions"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 20,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Cube Function and OLAP Reporting Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "Enterprise BI reporting",
+            "OLAP analysis",
+            "Power Pivot reporting",
+            "Executive dashboards"
+          ],
+          "careerSkills": [
+            "Multidimensional Excel analytics",
+            "Enterprise BI reporting"
+          ],
+          "commonMistakes": [
+            "Confusing cube members with cube values",
+            "Building cube formulas without understanding the underlying data model"
+          ],
+          "references": [
+            "The Definitive Guide to DAX – Marco Russo & Alberto Ferrari",
+            "Microsoft Learn: Excel Cube Functions"
+          ],
+          "teachingTips": [
+            "Explain the data model before introducing Cube formulas.",
+            "Compare the same KPI built using a Pivot Table, Cube formula, and DAX measure."
+          ],
+          "preReading": [
+            "Power Pivot & DAX Data Modeling module"
+          ],
+          "previousModule": "excel-database-functions",
+          "nextModule": "excel-web-external-functions",
+          "badge": "OLAP Excel Architect Badge"
+        },
+        {
+          "moduleId": "excel-web-external-functions",
+          "slug": "009_011_web-external-data-and-media-functions",
+          "title": "Web, External Data & Modern Media Functions",
+          "level": "Ultra Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "web-functions",
+            "webservice",
+            "filterxml",
+            "encodeurl",
+            "image-function",
+            "external-data",
+            "xml",
+            "url",
+            "api-oriented-excel"
+          ],
+          "topics": [
+            "WEBSERVICE Function — Web-Service Response Retrieval",
+            "FILTERXML Function — XML Data Extraction",
+            "ENCODEURL Function — URL Encoding",
+            "IMAGE Function — Dynamic Image Retrieval",
+            "External Data Retrieval Architecture",
+            "URL Encoding and Parameter Construction",
+            "XML Data Extraction Workflows",
+            "Web-Service Response Handling",
+            "Dynamic Image Catalogs",
+            "External Data Error Handling",
+            "Web Function Compatibility and Limitations",
+            "API-Oriented Spreadsheet Design",
+            "Web-Connected Excel Project"
+          ],
+          "learningOutcomes": [
+            "Use Excel web-oriented functions for specialized external-data workflows",
+            "Construct encoded URLs and process XML responses",
+            "Build dynamic image-driven spreadsheet catalogs",
+            "Design robust error-handling strategies for external data formulas"
+          ],
+          "prerequisites": [
+            "excel-modern-functions",
+            "excel-power-query"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 9,
+          "summary": "Master specialized web, XML, URL, and image functions for external-data and modern spreadsheet presentation workflows.",
+          "miniProjects": [
+            "Mini Project: Build a Web-Connected Product Catalog and External Data Dashboard"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 18,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "External Data and Web Function Engineering Lab",
+            "passScore": 80
+          },
+          "useCases": [
+            "External data retrieval",
+            "XML processing",
+            "Dynamic product catalogs",
+            "Web-connected reporting"
+          ],
+          "careerSkills": [
+            "External-data spreadsheet engineering",
+            "Modern Excel integration"
+          ],
+          "commonMistakes": [
+            "Assuming every web endpoint can be accessed directly from worksheet functions",
+            "Failing to handle unavailable or malformed external responses"
+          ],
+          "references": [
+            "Microsoft Learn: Excel Web Functions",
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries"
+          ],
+          "teachingTips": [
+            "Clearly distinguish worksheet web functions from Power Query API ingestion.",
+            "Demonstrate both successful and failed external responses."
+          ],
+          "preReading": [
+            "Power Query – Import, Transform & Clean Data module"
+          ],
+          "previousModule": "excel-cube-olap-functions",
+          "nextModule": "excel-legacy-compatibility-functions",
+          "badge": "Excel External Data Specialist Badge"
+        },
+        {
+          "moduleId": "excel-legacy-compatibility-functions",
+          "slug": "009_012_legacy-and-compatibility-function-mastery",
+          "title": "Legacy, Compatibility & Historical Function Mastery",
+          "level": "Ultra Expert",
+          "estimatedHours": 6,
+          "tags": [
+            "legacy-functions",
+            "compatibility",
+            "legacy-workbooks",
+            "formula-migration",
+            "forecast",
+            "stdev",
+            "stdevp",
+            "var",
+            "varp",
+            "rank",
+            "percentile",
+            "percentrank",
+            "quartile",
+            "mode",
+            "covar",
+            "concatenate"
+          ],
+          "topics": [
+            "Why Legacy Excel Functions Still Matter",
+            "CONCATENATE Function — Legacy Text Concatenation",
+            "FORECAST Function — Legacy Forecasting",
+            "STDEV Function — Legacy Sample Standard Deviation",
+            "STDEVP Function — Legacy Population Standard Deviation",
+            "VAR Function — Legacy Sample Variance",
+            "VARP Function — Legacy Population Variance",
+            "RANK Function — Legacy Ranking",
+            "PERCENTILE Function — Legacy Percentile",
+            "PERCENTRANK Function — Legacy Percent Ranking",
+            "QUARTILE Function — Legacy Quartile",
+            "MODE Function — Legacy Mode",
+            "COVAR Function — Legacy Covariance",
+            "Legacy Function Equivalents",
+            "Converting Legacy Formulas to Modern Functions",
+            "Maintaining Old Corporate Workbooks",
+            "Excel Version Compatibility Matrix",
+            "Formula Migration Strategies",
+            "Compatibility Testing",
+            "Legacy Workbook Modernization Project"
+          ],
+          "learningOutcomes": [
+            "Identify legacy Excel functions in inherited workbooks",
+            "Map historical functions to their modern equivalents",
+            "Modernize formulas without changing business logic",
+            "Maintain compatibility when working across different Excel versions"
+          ],
+          "prerequisites": [
+            "excel-advanced-statistics-regression",
+            "excel-advanced-text-functions"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 8,
+          "summary": "Understand, maintain, audit, and modernize legacy Excel formulas encountered in long-lived corporate and historical workbooks.",
+          "miniProjects": [
+            "Mini Project: Modernize a Legacy Corporate Workbook Without Changing Its Business Logic"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 15,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Legacy Workbook Modernization and Compatibility Assessment",
+            "passScore": 80
+          },
+          "useCases": [
+            "Corporate workbook maintenance",
+            "Legacy system migration",
+            "Excel version compatibility",
+            "Formula modernization"
+          ],
+          "careerSkills": [
+            "Legacy workbook modernization",
+            "Excel compatibility engineering"
+          ],
+          "commonMistakes": [
+            "Replacing legacy formulas without validating equivalent behavior",
+            "Assuming every modern function exists in every historical Excel version"
+          ],
+          "references": [
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Microsoft Learn: Excel Compatibility and Function Reference"
+          ],
+          "teachingTips": [
+            "Give students old workbook formulas and ask them to identify modern replacements.",
+            "Require before-and-after validation using identical test datasets."
+          ],
+          "preReading": [
+            "Advanced Statistics, Regression & Forecasting module",
+            "Advanced Text, Unicode, Conversion & Language Functions module"
+          ],
+          "previousModule": "excel-web-external-functions",
+          "nextModule": "excel-function-architecture-master-challenge",
+          "badge": "Excel Compatibility Engineer Badge"
+        },
+        {
+          "moduleId": "excel-function-architecture-master-challenge",
+          "slug": "009_013_excel-function-architecture-selection-and-master-challenge",
+          "title": "Excel Function Architecture, Selection & Master Challenge",
+          "level": "Ultra Expert",
+          "estimatedHours": 10,
+          "tags": [
+            "function-architecture",
+            "function-selection",
+            "formula-engineering",
+            "formula-optimization",
+            "formula-auditing",
+            "dynamic-arrays",
+            "lambda",
+            "performance",
+            "maintainability",
+            "legacy-migration",
+            "master-challenge"
+          ],
+          "topics": [
+            "Complete Excel Function Taxonomy",
+            "Mathematical vs Statistical Function Selection",
+            "Lookup vs Reference Function Selection",
+            "Aggregation vs Conditional Aggregation",
+            "Traditional Functions vs Dynamic Arrays",
+            "Formula vs Pivot Table Decision Framework",
+            "Formula vs Power Query Decision Framework",
+            "Formula vs DAX Decision Framework",
+            "Formula vs VBA Decision Framework",
+            "Formula vs Office Scripts Decision Framework",
+            "Formula vs Python Decision Framework",
+            "Volatile vs Non-Volatile Functions",
+            "Calculation Performance and Function Cost",
+            "Array Calculation Architecture",
+            "Error Propagation and Error Containment",
+            "Function Nesting Strategy",
+            "Formula Readability and Maintainability",
+            "Formula Auditing and Dependency Analysis",
+            "Legacy-to-Modern Formula Migration",
+            "Function Selection Decision Tree",
+            "Building a Corporate Excel Function Reference Library",
+            "Advanced Formula Refactoring",
+            "Enterprise Formula Performance Optimization",
+            "Excel Function Master Challenge",
+            "Final Function Engineering Capstone"
+          ],
+          "learningOutcomes": [
+            "Select the most appropriate Excel function or technology for a given business problem",
+            "Refactor complex formulas for performance, readability, and maintainability",
+            "Evaluate when formulas should be replaced by Pivot Tables, Power Query, DAX, VBA, Office Scripts, or Python",
+            "Demonstrate complete mastery of the Excel function ecosystem through an integrated capstone"
+          ],
+          "prerequisites": [
+            "excel-legacy-compatibility-functions",
+            "excel-lambda-functions",
+            "excel-array-manipulation",
+            "excel-dax-mastery",
+            "excel-power-query",
+            "excel-vba-sql-integration",
+            "excel-office-scripts",
+            "excel-python-analytics"
+          ],
+          "difficulty": "Ultra Hard",
+          "difficultyIndex": 10,
+          "summary": "Integrate the complete Excel function ecosystem into a unified function-selection, formula-engineering, optimization, auditing, and modernization framework.",
+          "miniProjects": [
+            "Mini Project: Build a Corporate Excel Function Reference and Formula Optimization Library",
+            "Capstone: Solve a Multi-Domain Enterprise Workbook Using the Optimal Excel Function Architecture"
+          ],
+          "exercises": {
+            "mcq": 40,
+            "coding": 35,
+            "projects": 3
+          },
+          "assessment": {
+            "type": "Ultra Expert Excel Function Engineering Master Examination and Capstone",
+            "passScore": 85
+          },
+          "useCases": [
+            "Enterprise formula architecture",
+            "Corporate workbook modernization",
+            "Performance optimization",
+            "Advanced financial and analytical modeling",
+            "Spreadsheet engineering standards"
+          ],
+          "careerSkills": [
+            "Excel solution architecture",
+            "Advanced formula engineering",
+            "Spreadsheet performance optimization",
+            "Enterprise workbook governance"
+          ],
+          "commonMistakes": [
+            "Choosing a complex formula when a simpler Excel feature is more maintainable",
+            "Optimizing formula syntax without measuring actual calculation performance",
+            "Replacing formulas with newer functions without checking compatibility requirements"
+          ],
+          "references": [
+            "Excel 365 Bible – Michael Alexander & Dick Kusleika",
+            "Microsoft Excel 365 Formulas and Functions – Paul McFedries",
+            "Microsoft Learn: Official Excel Functions Reference",
+            "Spreadsheet Modeling & Decision Analysis – Cliff Ragsdale"
+          ],
+          "teachingTips": [
+            "Give students multiple valid solutions and require them to justify the best architecture.",
+            "Grade capstone solutions on correctness, performance, readability, maintainability, compatibility, and documentation."
+          ],
+          "preReading": [
+            "All Segment 9 modules",
+            "Custom Functions with LAMBDA & Helper Engines module",
+            "Dynamic Array & Array Manipulation module",
+            "Power Query and DAX modules"
+          ],
+          "previousModule": "excel-legacy-compatibility-functions",
+          "nextModule": "excel-test-advanced",
+          "badge": "Excel Function Architecture Master Badge"
+        }
+      ]
     }
   ]
 }
