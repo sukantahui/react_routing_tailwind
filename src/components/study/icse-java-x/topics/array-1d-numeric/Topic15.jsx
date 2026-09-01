@@ -195,20 +195,20 @@ const Topic15 = () => {
   const [activeSection, setActiveSection] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-slate-900">
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent mb-4">
             Finding the Smallest Element in an Array
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg text-slate-400 dark:text-gray-300 leading-relaxed">
             Linear scan to find minimum value - the mirror image of finding maximum
           </p>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-slate-800">
           {['theory', 'visual', 'code', 'practice'].map((tab) => (
             <button
               key={tab}
@@ -217,7 +217,7 @@ const Topic15 = () => {
                 "px-4 py-2 text-sm font-medium rounded-t-lg transition-all duration-300",
                 activeSection === tab
                   ? "bg-emerald-50 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-600"
-                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "text-slate-400 hover:text-slate-300 dark:hover:text-gray-300 hover:bg-slate-950 border border-slate-800 text-amber-300 dark:hover:bg-gray-800"
               )}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -230,13 +230,13 @@ const Topic15 = () => {
           {activeSection === 'theory' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Concept Card */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
                   <span className="bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">1</span>
                   Finding Minimum Element
                 </h2>
                 <div className="prose dark:prose-invert max-w-none">
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  <p className="text-slate-400 dark:text-gray-300 leading-relaxed mb-4">
                     Finding the smallest element is <strong className="text-emerald-600 dark:text-emerald-400">identical to finding the largest</strong> except we use the <strong className="text-emerald-600 dark:text-emerald-400">less than (&lt;) operator</strong> instead of greater than (&gt;). It's a fundamental linear scan algorithm that tracks the current minimum.
                   </p>
                   <div className="bg-emerald-50 dark:bg-emerald-900/30 p-4 rounded-lg mb-4">
@@ -251,8 +251,8 @@ const Topic15 = () => {
               </div>
 
               {/* Max vs Min Comparison */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🔄 Finding Max vs Finding Min</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🔄 Finding Max vs Finding Min</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
                     <h3 className="font-semibold text-orange-800 dark:text-orange-300 mb-2">Finding Maximum</h3>
@@ -279,16 +279,16 @@ for (int i = 1; i < arr.length; i++) {
                     <p className="text-sm text-emerald-700 dark:text-emerald-300 mt-2">Smallest value emerges</p>
                   </div>
                 </div>
-                <p className="text-center text-gray-600 dark:text-gray-300 mt-4 text-sm">
+                <p className="text-center text-slate-400 dark:text-gray-300 mt-4 text-sm">
                   💡 Only ONE character changes: <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">&gt;</code> becomes <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">&lt;</code>
                 </p>
               </div>
 
               {/* How It Works */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚙️ How It Works</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚙️ How It Works</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3 text-gray-600 dark:text-gray-300">
+                  <div className="space-y-3 text-slate-400 dark:text-gray-300">
                     <p>1️⃣ <strong>Initialize</strong> min = arr[0] (assume first element is smallest)</p>
                     <p>2️⃣ <strong>Traverse</strong> array from index 1 to n-1</p>
                     <p>3️⃣ <strong>Compare</strong> each element with current min</p>
@@ -297,9 +297,9 @@ for (int i = 1; i < arr.length; i++) {
                     <p>6️⃣ <strong>Optional</strong> - Track index of min element</p>
                   </div>
                   <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Analogy</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding lightest backpack:</p>
-                    <ul className="text-sm text-gray-600 dark:text-gray-300 mt-2 list-disc list-inside">
+                    <h3 className="font-semibold text-slate-200 mb-2">Analogy</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding lightest backpack:</p>
+                    <ul className="text-sm text-slate-400 dark:text-gray-300 mt-2 list-disc list-inside">
                       <li>Start with first backpack's weight as lightest</li>
                       <li>Check each backpack one by one</li>
                       <li>If lighter found, update lightest</li>
@@ -310,49 +310,49 @@ for (int i = 1; i < arr.length; i++) {
               </div>
 
               {/* Real World Examples */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🌍 Real-World Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🌍 Real-World Examples</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">💰 Lowest Price</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Shopping app finding cheapest product in Barrackpore market - comparing prices to find minimum!</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">💰 Lowest Price</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Shopping app finding cheapest product in Barrackpore market - comparing prices to find minimum!</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🏃 Fastest Race Time</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Sports meet finding winner - smallest time wins!</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🏃 Fastest Race Time</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Sports meet finding winner - smallest time wins!</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🌡️ Lowest Temperature</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Weather app finding coldest day in Shyamnagar this week.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🌡️ Lowest Temperature</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Weather app finding coldest day in Shyamnagar this week.</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">📊 Lowest Score</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Teacher finding lowest test score to identify students needing extra help.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">📊 Lowest Score</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Teacher finding lowest test score to identify students needing extra help.</p>
                   </div>
                 </div>
               </div>
 
               {/* Complexity Analysis */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📊 Complexity Analysis</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📊 Complexity Analysis</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Best Case</p>
+                    <p className="text-xs text-slate-400">Best Case</p>
                     <p className="text-xl font-bold text-green-600">O(n)</p>
                     <p className="text-xs">Still check all elements</p>
                   </div>
                   <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Average Case</p>
+                    <p className="text-xs text-slate-400">Average Case</p>
                     <p className="text-xl font-bold text-yellow-600">O(n)</p>
                     <p className="text-xs">n comparisons</p>
                   </div>
                   <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Worst Case</p>
+                    <p className="text-xs text-slate-400">Worst Case</p>
                     <p className="text-xl font-bold text-red-600">O(n)</p>
                     <p className="text-xs">n comparisons</p>
                   </div>
                   <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Space</p>
+                    <p className="text-xs text-slate-400">Space</p>
                     <p className="text-xl font-bold text-blue-600">O(1)</p>
                     <p className="text-xs">Only 1 variable</p>
                   </div>
@@ -360,32 +360,32 @@ for (int i = 1; i < arr.length; i++) {
               </div>
 
               {/* Edge Cases */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚠️ Edge Cases to Consider</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚠️ Edge Cases to Consider</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Single element array</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Returns that element directly</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Returns that element directly</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">All elements equal</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Returns the value (any works)</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Returns the value (any works)</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Negative numbers</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Works fine - most negative is minimum</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Works fine - most negative is minimum</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Empty array</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Should throw exception or return special value</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Should throw exception or return special value</p>
                   </div>
                 </div>
               </div>
 
               {/* Tips & Tricks */}
               <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💡 Tips & Tricks</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💡 Tips & Tricks</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>• <strong>One character difference:</strong> Finding min uses <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">&lt;</code> instead of <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">&gt;</code></li>
                   <li>• <strong>Track index too:</strong> Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">minIndex</code> if position matters</li>
                   <li>• <strong>Handle empty array:</strong> Always check <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">if (arr == null || arr.length == 0)</code></li>
@@ -400,25 +400,25 @@ for (int i = 1; i < arr.length; i++) {
 
           {activeSection === 'visual' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">👁️ Visual Walkthrough</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">👁️ Visual Walkthrough</h2>
                 <FindSmallestVisualSVG />
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                <p className="text-center text-sm text-slate-400 mt-4">
                   Watch how the minimum value updates as we scan through the array
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📐 Algorithm Flowchart</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📐 Algorithm Flowchart</h2>
                 <FindMinAlgorithmFlowchartSVG />
               </div>
 
               {/* Dry Run Table */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📝 Dry Run Example</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📝 Dry Run Example</h2>
                 <div className="overflow-x-auto">
                   <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-700/50">
+                    <thead className="bg-slate-950/60 dark:bg-gray-700/50">
                       <tr>
                         <th className="px-3 py-2 text-left text-sm font-semibold">Step</th>
                         <th className="px-3 py-2 text-left text-sm font-semibold">i</th>
@@ -458,8 +458,8 @@ for (int i = 1; i < arr.length; i++) {
 
           {activeSection === 'code' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">💻 Code Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">💻 Code Examples</h2>
                 <div className="space-y-6">
                   <JavaFileLoader 
                     fileModule={findSmallestBasic}
@@ -494,8 +494,8 @@ for (int i = 1; i < arr.length; i++) {
           {activeSection === 'practice' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Common Pitfalls */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚠️ Common Pitfalls</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚠️ Common Pitfalls</h2>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
                     <span className="text-red-600 text-xl">❌</span>
@@ -522,9 +522,9 @@ for (int i = 1; i < arr.length; i++) {
               </div>
 
               {/* Best Practices */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">✅ Best Practices</h2>
-                <ul className="space-y-2 text-gray-600 dark:text-gray-300 list-disc list-inside">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">✅ Best Practices</h2>
+                <ul className="space-y-2 text-slate-400 dark:text-gray-300 list-disc list-inside">
                   <li>Always check for null and empty array before processing</li>
                   <li>Use <code className="bg-gray-200 px-1 rounded">Integer.MAX_VALUE</code> for generic initialization</li>
                   <li>Consider returning index instead of value when position matters</li>
@@ -535,8 +535,8 @@ for (int i = 1; i < arr.length; i++) {
 
               {/* Hint Section */}
               <div className="bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💭 Think About...</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💭 Think About...</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>🤔 How would you find the second smallest element?</li>
                   <li>🤔 Can we find both min and max in fewer than 2n comparisons?</li>
                   <li>🤔 How would you find the minimum absolute value?</li>
@@ -545,15 +545,15 @@ for (int i = 1; i < arr.length; i++) {
               </div>
 
               {/* Q&A Section */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🎯 Questions & Answers</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🎯 Questions & Answers</h2>
                 <div className="space-y-4">
                   {qaData.map((qa, idx) => (
-                    <details key={idx} className="group border border-gray-200 dark:border-gray-700 rounded-lg">
-                      <summary className="cursor-pointer p-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300">
+                    <details key={idx} className="group border border-slate-800 rounded-lg">
+                      <summary className="cursor-pointer p-4 font-medium text-slate-200 hover:bg-slate-950/60 dark:hover:bg-gray-700/50 transition-all duration-300">
                         {qa.question}
                       </summary>
-                      <div className="p-4 pt-0 text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700">
+                      <div className="p-4 pt-0 text-slate-400 dark:text-gray-300 border-t border-slate-800">
                         {qa.answer}
                       </div>
                     </details>

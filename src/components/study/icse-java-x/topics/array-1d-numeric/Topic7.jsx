@@ -39,8 +39,8 @@ const Topic7 = () => {
         <div
           className={clsx(
             "max-w-5xl mx-auto px-4 py-8 md:px-6 lg:px-8",
-            "bg-gray-50 dark:bg-gray-900",
-            "text-gray-800 dark:text-gray-200",
+            "bg-slate-900",
+            "text-slate-200",
             "leading-relaxed"
           )}
         >
@@ -49,10 +49,10 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-8"
             style={{ animationFillMode: "both" }}
           >
-            <h1 className="text-3xl md:text-4xl font-light tracking-tight mb-2 text-gray-900 dark:text-white">
+            <h1 className="text-3xl md:text-4xl font-light tracking-tight mb-2 text-white">
               🖥️ Displaying Array Elements
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
+            <p className="text-lg text-slate-400">
               Showing the contents of an array – from simple loops to elegant utilities.
             </p>
           </div>
@@ -62,10 +62,10 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
             style={{ animationDelay: "0.1s", animationFillMode: "both" }}
           >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
+            <h2 className="text-2xl font-medium mb-4 text-white">
               Why Display Arrays?
             </h2>
-            <div className="space-y-3 text-gray-700 dark:text-gray-300">
+            <div className="space-y-3 text-slate-300">
               <p>
                 Displaying array elements is essential for debugging, verifying input, and presenting results. 
                 Whether you're showing marks of students in Barrackpore (Swadeep, Tuhina, Abhronila, Debangshu) 
@@ -88,10 +88,10 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
             style={{ animationDelay: "0.2s", animationFillMode: "both" }}
           >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
+            <h2 className="text-2xl font-medium mb-4 text-white">
               🧩 Display Methods at a Glance
             </h2>
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md">
+            <div className="bg-slate-800/40 border border-slate-800 rounded-xl p-6 shadow-sm transition-all duration-300 hover:shadow-md">
               <svg
                 width="100%"
                 height="200"
@@ -165,7 +165,7 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
             style={{ animationDelay: "0.3s", animationFillMode: "both" }}
           >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
+            <h2 className="text-2xl font-medium mb-4 text-white">
               💻 Java Code: Displaying Arrays
             </h2>
             <div className="transition-all duration-300 hover:scale-[1.01]">
@@ -175,7 +175,7 @@ const Topic7 = () => {
                 highlightLines={[]}
               />
             </div>
-            <p className="mt-3 text-gray-600 dark:text-gray-400 text-sm">
+            <p className="mt-3 text-slate-400 text-sm">
               The program demonstrates multiple ways to display array contents.
             </p>
           </section>
@@ -185,17 +185,17 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
             style={{ animationDelay: "0.4s", animationFillMode: "both" }}
           >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
+            <h2 className="text-2xl font-medium mb-4 text-white">
               📐 Common Display Patterns
             </h2>
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-5 border-l-4 border-indigo-500 shadow-sm">
+            <div className="bg-slate-800/40 border border-slate-800 rounded-lg p-5 border-l-4 border-indigo-500 shadow-sm">
               <dl className="space-y-3">
                 <div>
                   <dt className="font-semibold text-indigo-600 dark:text-indigo-400">
                     Basic for loop
                   </dt>
                   <dd>
-                    <code className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                    <code className="text-sm bg-slate-950 border border-slate-800 text-amber-300 px-2 py-1 rounded">
                       {`for (int i = 0; i < arr.length; i++) {
     System.out.print(arr[i] + " ");
 }`}
@@ -207,7 +207,7 @@ const Topic7 = () => {
                     Enhanced for loop
                   </dt>
                   <dd>
-                    <code className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                    <code className="text-sm bg-slate-950 border border-slate-800 text-amber-300 px-2 py-1 rounded">
                       {`for (int value : arr) {
     System.out.print(value + " ");
 }`}
@@ -219,7 +219,7 @@ const Topic7 = () => {
                     Arrays.toString()
                   </dt>
                   <dd>
-                    <code className="text-sm bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
+                    <code className="text-sm bg-slate-950 border border-slate-800 text-amber-300 px-2 py-1 rounded">
                       System.out.println(Arrays.toString(arr));
                     </code>
                   </dd>
@@ -241,39 +241,39 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
             style={{ animationDelay: "0.5s", animationFillMode: "both" }}
           >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
+            <h2 className="text-2xl font-medium mb-4 text-white">
               ⚠️ Common Pitfalls (Beginners)
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <h3 className="font-semibold text-red-600 dark:text-red-400">
                   Printing array reference
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-slate-400 dark:text-gray-300">
                   <code className="text-xs">System.out.println(arr);</code> prints something like <code className="text-xs">[I@15db9742</code> (type + hashcode), not the elements.
                 </p>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <h3 className="font-semibold text-red-600 dark:text-red-400">
                   Forgetting import for Arrays
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-slate-400 dark:text-gray-300">
                   Using <code className="text-xs">Arrays.toString()</code> requires <code className="text-xs">import java.util.Arrays;</code>.
                 </p>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <h3 className="font-semibold text-red-600 dark:text-red-400">
                   No spaces or separators
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-slate-400 dark:text-gray-300">
                   Printing without separators (e.g., <code className="text-xs">System.out.print(arr[i])</code>) concatenates digits, making output unreadable.
                 </p>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <div className="bg-slate-800/40 border border-slate-800 p-4 rounded-lg shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <h3 className="font-semibold text-red-600 dark:text-red-400">
                   Using <code className="text-xs">Arrays.toString()</code> on multi‑dimensional arrays
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-slate-400 dark:text-gray-300">
                   For 2D arrays, use <code className="text-xs">Arrays.deepToString()</code> to see nested contents.
                 </p>
               </div>
@@ -285,11 +285,11 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-10"
             style={{ animationDelay: "0.6s", animationFillMode: "both" }}
           >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
+            <h2 className="text-2xl font-medium mb-4 text-white">
               ✅ Best Practices & Pro Tips
             </h2>
-            <div className="bg-white dark:bg-gray-800 p-5 rounded-lg space-y-3 shadow-sm transition-all duration-300 hover:shadow-md">
-              <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <div className="bg-slate-800/40 border border-slate-800 p-5 rounded-lg space-y-3 shadow-sm transition-all duration-300 hover:shadow-md">
+              <ul className="list-disc pl-5 space-y-2 text-slate-300">
                 <li>
                   <strong>Use <code className="text-xs">Arrays.toString()</code> for quick debugging</strong> – it’s concise and readable.
                 </li>
@@ -362,11 +362,11 @@ const Topic7 = () => {
             className="animate-[fadeInSlideUp_0.6s_ease-out] mb-6"
             style={{ animationDelay: "0.9s", animationFillMode: "both" }}
           >
-            <h2 className="text-2xl font-medium mb-4 text-gray-800 dark:text-gray-100">
+            <h2 className="text-2xl font-medium mb-4 text-white">
               ✅ Checklist – What to Remember
             </h2>
-            <div className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm">
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700 dark:text-gray-300">
+            <div className="bg-slate-800/40 border border-slate-800 p-5 rounded-lg shadow-sm">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-300">
                 <li className="flex items-start gap-2">
                   <span className="text-green-600 dark:text-green-400">✔</span> Don’t print array variable directly (use loop or <code className="text-xs">Arrays.toString()</code>)
                 </li>
@@ -390,7 +390,7 @@ const Topic7 = () => {
           </section>
 
           {/* FOOTER */}
-          <footer className="text-xs text-center text-gray-500 dark:text-gray-500 mt-12 pt-4 border-t border-gray-200 dark:border-gray-700">
+          <footer className="text-xs text-center text-slate-400 dark:text-slate-400 mt-12 pt-4 border-t border-slate-800">
             Topic 7 – Displaying array elements | Next: Linear Search
           </footer>
         </div>

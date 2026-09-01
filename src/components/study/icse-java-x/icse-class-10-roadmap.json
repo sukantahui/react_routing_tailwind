@@ -1,7 +1,7 @@
 {
   "trackId": "icse-class-10-java-bluej",
   "trackTitle": "ICSE Class X Computer Applications - Java with BlueJ",
-  "description": "Strictly as per ICSE Class X Computer Applications syllabus using Java and BlueJ. Structured roadmap aligned with ICSE board scope.",
+  "description": "Strictly as per ICSE Class X Computer Applications syllabus using Java and BlueJ. Structured roadmap aligned with CISCE board scope.",
   "institute": {
     "name": "Coder & AccoTax",
     "website": "https://www.codernaccotax.co.in",
@@ -9,7 +9,7 @@
     "location": "Barrackpore, West Bengal, India",
     "trackType": "ICSE Class X Java Roadmap",
     "version": "1.0.0",
-    "lastUpdated": "2026-03-01"
+    "lastUpdated": "2026-09-01"
   },
   "folder": "icse-java-x",
   "subject": "Computer Applications (ICSE Class X)",
@@ -20,55 +20,146 @@
     "path": "/assets/logos/java-logo.svg",
     "alt": "Java Programming Logo"
   },
+  "teacher": {
+    "name": "Sukanta Hui",
+    "designation": "Educator · Software Trainer · Mentor",
+    "organization": "Founder, Coder & AccoTax",
+    "location": "Barrackpore, West Bengal",
+    "photo": "/teachers/sukantahui.jpg",
+    "bio": "Comprehensive ICSE Class X Computer Applications roadmap covering Java fundamentals, BlueJ environment, Arrays, Strings, Library classes, Constructors, Methods, Encapsulation, and ICSE Board Examination preparation.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sukantahui/",
+      "twitter": "https://twitter.com/sukantahui",
+      "website": "https://www.codernaccotax.co.in",
+      "github": "https://github.com/sukantahui",
+      "email": "contact@codernaccotax.co.in",
+      "phone": "+917003756860",
+      "whatsapp": "+917003756860"
+    }
+  },
+  "prerequisites": [
+    "Basic understanding of Class IX Java & BlueJ concepts",
+    "Logical reasoning and basic mathematical skills"
+  ],
   "segments": [
     {
       "segmentId": "revision-class-9",
-      "title": "Revision of Class IX Concepts",
+      "title": "Segment 1 – Revision of Class IX Concepts",
       "level": "Beginner",
+      "summary": "Review core Class IX fundamentals including data types, variables, conditional statements, loop constructs, class structure, and introductory user defined methods.",
+      "allocatedHours": 10,
       "modules": [
         {
           "moduleId": "class-9-revision",
-          "slug": "class-9-revision",
+          "slug": "001_001_class-9-revision",
           "title": "Revision of Class IX Java Fundamentals",
+          "level": "Beginner",
+          "difficulty": "Easy",
+          "difficultyIndex": 1,
+          "estimatedHours": 10,
+          "summary": "Comprehensive revision of Class IX ICSE Java topics including primitives, operators, conditional branching, nested loops, and basic class design.",
+          "tags": [
+            "class-9-revision",
+            "primitives",
+            "operators",
+            "if-else",
+            "loops",
+            "scanner"
+          ],
           "topics": [
-            "Data types and variables",
-            "Conditional statements",
-            "Loop constructs",
-            "Basic class structure",
-            "User defined methods (intro)"
-          ]
+            "Data types and variables in Java",
+            "Conditional statements (if, if-else, switch-case)",
+            "Loop constructs (for, while, do-while)",
+            "Basic class structure and main method in BlueJ",
+            "User defined methods (introduction)"
+          ],
+          "learningOutcomes": [
+            "Recall and apply core Class IX Java syntax and BlueJ workflow",
+            "Construct conditional and iterative logic for basic arithmetic problems",
+            "Write well-structured Java programs using Scanner for input"
+          ],
+          "prerequisites": [],
+          "miniProjects": [
+            "Class IX Fundamental Logic & Math Quiz Utility"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Class IX Revision Diagnostic Test",
+            "passScore": 75
+          },
+          "useCases": [
+            "Building foundation logic for Class X ICSE Computer Applications"
+          ],
+          "careerSkills": [
+            "Basic Java programming",
+            "BlueJ environment usage"
+          ],
+          "commonMistakes": [
+            "Confusing equality check (==) with assignment operator (=)",
+            "Forgetting break statements in switch-case blocks"
+          ],
+          "references": [
+            "ICSE Class IX Computer Applications Syllabus",
+            "Understanding ICSE Computer Applications Class IX by APC Books"
+          ],
+          "teachingTips": [
+            "Review Scanner input buffering and variable scopes with interactive terminal examples."
+          ],
+          "preReading": [
+            "Class IX Computer Applications Notes"
+          ],
+          "badge": "Java Revision Star",
+          "previousModule": null,
+          "nextModule": "002_001_array-1d-numeric"
         }
       ]
     },
     {
       "segmentId": "array-1d",
-      "title": "Array 1D",
-      "level": "Advanced",
+      "title": "Segment 2 – 1D Arrays (Numeric & String)",
+      "level": "Intermediate",
+      "summary": "Master single dimensional arrays in Java: memory layout, linear search, binary search, bubble sort, selection sort, string arrays, and ICSE board numerical problems (using pure manual loops without java.util.Arrays).",
+      "allocatedHours": 25,
       "modules": [
         {
           "moduleId": "array-1d-numeric",
-          "slug": "array-1d-numeric",
+          "slug": "002_001_array-1d-numeric",
           "title": "1D Array (Numeric Values)",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "estimatedHours": 15,
+          "summary": "Detailed exploration of 1D numerical arrays using pure ICSE Class 10 manual algorithms (for loops, manual swapping, manual display loops without java.util.Arrays). Covers Linear Search, Binary Search, Bubble Sort, Selection Sort, frequency counting, and ICSE board programs.",
+          "tags": [
+            "array-1d",
+            "numeric-array",
+            "linear-search",
+            "binary-search",
+            "bubble-sort",
+            "selection-sort",
+            "manual-algorithms"
+          ],
           "topics": [
             "Concept of array and memory representation",
-            "Declaration and initialization",
+            "Declaration and initialization of 1D arrays",
             "Array creation using new keyword",
             "Default values of numeric arrays",
             "Input using Scanner",
-            "Traversing an array using for loop",
+            "Traversing and displaying an array using manual for loops",
             "Traversing using length property",
-            "Displaying array elements",
             "Linear Search (unsorted array)",
             "Binary Search (sorted array)",
             "Bubble Sort (ascending order)",
             "Bubble Sort (descending order)",
             "Selection Sort (ascending order)",
             "Selection Sort (descending order)",
-            "Finding largest element",
-            "Finding smallest element",
+            "Finding largest and smallest elements",
             "Finding second largest element",
-            "Sum of array elements",
-            "Average of array elements",
+            "Sum and Average of array elements",
             "Counting even and odd numbers",
             "Counting positive and negative numbers",
             "Counting frequency of an element",
@@ -79,155 +170,435 @@
             "Board type logical programs",
             "Common errors in array programs",
             "Dry run and trace table practice"
-          ]
+          ],
+          "learningOutcomes": [
+            "Declare, instantiate, and traverse 1D numeric arrays using manual loops",
+            "Implement Linear Search and Binary Search algorithms from scratch",
+            "Implement Bubble Sort and Selection Sort using manual variable swaps",
+            "Trace array algorithms using step-by-step trace tables as required in ICSE board exams"
+          ],
+          "prerequisites": [
+            "001_001_class-9-revision"
+          ],
+          "miniProjects": [
+            "Student Marks Analyzer & Rank Allocator System"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 15,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "1D Array Algorithms & Sorting Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Managing lists of numerical records in ICSE board programming"
+          ],
+          "careerSkills": [
+            "Pure algorithmic thinking",
+            "Manual searching & sorting logic",
+            "Trace table construction"
+          ],
+          "commonMistakes": [
+            "Using out-of-syllabus java.util.Arrays utility class",
+            "ArrayIndexOutOfBoundsException when iterating up to length instead of length - 1",
+            "Forgetting to sort array before running Binary Search"
+          ],
+          "references": [
+            "ICSE Computer Applications Class X Syllabus (CISCE)",
+            "Understanding ICSE Computer Applications Class X by APC Books"
+          ],
+          "teachingTips": [
+            "Strictly enforce manual loops for printing and sorting arrays; emphasize that java.util.Arrays is prohibited in ICSE Board exams."
+          ],
+          "preReading": [
+            "Loop constructs and array memory basics"
+          ],
+          "badge": "1D Array Master",
+          "previousModule": "001_001_class-9-revision",
+          "nextModule": "002_002_array-1d-string"
         },
         {
           "moduleId": "array-1d-string",
-          "slug": "array-1d-string",
+          "slug": "002_002_array-1d-string",
           "title": "1D Array (String Values)",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 3,
+          "estimatedHours": 10,
+          "summary": "Work with single dimensional String arrays using manual loops: searching names/words, alphabetical Bubble/Selection sort using compareTo(), case-insensitive comparison, and ICSE board string array questions.",
+          "tags": [
+            "array-1d-string",
+            "string-array",
+            "alphabetical-sort",
+            "string-search",
+            "icse-board"
+          ],
           "topics": [
-            "String array declaration",
-            "Searching in string array",
-            "Sorting string array",
-            "Case insensitive comparison",
-            "Board type programs"
-          ]
+            "String array declaration and initialization",
+            "Searching in string array (Linear Search with compareTo/equalsIgnoreCase)",
+            "Sorting string array (Bubble / Selection Sort alphabetically using compareTo)",
+            "Case insensitive comparison in string array",
+            "Board type string array programs"
+          ],
+          "learningOutcomes": [
+            "Store and process arrays of String references",
+            "Perform linear search on String arrays using equals() and compareTo()",
+            "Sort String arrays in alphabetical order using compareTo()"
+          ],
+          "prerequisites": [
+            "002_001_array-1d-numeric"
+          ],
+          "miniProjects": [
+            "City Telephone Directory & Name Search System"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "String Array Search & Sort Lab Test",
+            "passScore": 75
+          },
+          "useCases": [
+            "Sorting and indexing lists of names or textual data"
+          ],
+          "careerSkills": [
+            "String array manipulation",
+            "Lexicographical comparison"
+          ],
+          "commonMistakes": [
+            "Using == instead of equals() or compareTo() for String comparison in arrays",
+            "NullPointerException when array elements are uninitialized"
+          ],
+          "references": [
+            "Java Class String compareTo() Specification"
+          ],
+          "teachingTips": [
+            "Highlight how compareTo() returns negative, zero, or positive integer for alphabetical ordering."
+          ],
+          "preReading": [
+            "002_001_array-1d-numeric"
+          ],
+          "badge": "String Array Specialist",
+          "previousModule": "002_001_array-1d-numeric",
+          "nextModule": "003_001_array-2d-concepts"
         }
       ]
     },
     {
       "segmentId": "array-2d",
-      "title": "Array 2D",
+      "title": "Segment 3 – 2D Arrays (Matrices)",
       "level": "Advanced",
+      "summary": "Learn two-dimensional matrix data structures, row-wise/column-wise traversal, diagonal operations, matrix addition, and ICSE board pattern problems.",
+      "allocatedHours": 15,
       "modules": [
         {
           "moduleId": "array-2d-concepts",
-          "slug": "array-2d",
-          "title": "Two Dimensional Array",
-          "topics": [
-            "Declaration and memory representation",
-            "Matrix input and output",
-            "Row sum and column sum",
-            "Diagonal elements",
-            "Matrix addition",
-            "Board pattern programs"
-          ]
-        },
-        {
-          "moduleId": "test-array",
-          "slug": "test-array",
-          "title": "Test Array",
-          "level": "Intermediate",
-          "estimatedHours": 6,
-          "visibility": "loggedIn",
+          "slug": "003_001_array-2d-concepts",
+          "title": "Two Dimensional Array Concepts",
+          "level": "Advanced",
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 4,
+          "estimatedHours": 10,
+          "summary": "Explore 2D array matrix representation, row/column traversal, diagonal sum calculation, matrix addition, and ICSE pattern programs.",
           "tags": [
-            "test",
-            "memory",
-            "address"
+            "array-2d",
+            "matrix",
+            "rows-columns",
+            "diagonals",
+            "matrix-addition"
           ],
           "topics": [
-            "Test 1",
-            "Test 2 Moderate",
-            "Test3 Expert",
-            "Test 4 SOP to Canonical SOP",
-            "Test 5 Complement",
-            "Test 6 K-map",
-            "Test 7 Mixed",
-            "Test 8 Mixed"
+            "Declaration and memory representation of 2D arrays",
+            "Matrix input and output using nested loops",
+            "Row sum and column sum calculation",
+            "Primary and secondary diagonal elements",
+            "Matrix addition and subtraction",
+            "Board pattern programs on matrices"
           ],
           "learningOutcomes": [
-            "Use pointers to work with memory addresses",
-            "Apply pointer arithmetic to traverse arrays",
-            "Understand the connection between arrays and pointers in C"
+            "Declare and initialize 2D matrices in Java",
+            "Traverse 2D arrays row-wise and column-wise using nested loops",
+            "Calculate primary/secondary diagonal sums and row/column totals"
           ],
           "prerequisites": [
-            "strings-core"
+            "002_002_array-1d-string"
           ],
-          "difficulty": "Medium-Advanced",
-          "difficultyIndex": 7,
-          "summary": "Master the basics of pointers, the core feature that makes C powerful and close to hardware.",
           "miniProjects": [
-            "Practice: Pointers and Memory Addressing - Mini Project 1"
+            "Matrix Calculator & Board Pattern Generator"
           ],
           "exercises": {
             "mcq": 20,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "2D Matrix Programming Test",
+            "passScore": 75
+          },
+          "useCases": [
+            "2D grid graphics, game boards, and tabular matrices"
+          ],
+          "careerSkills": [
+            "2D matrix algorithms",
+            "Nested loop index control"
+          ],
+          "commonMistakes": [
+            "Confusing row index [i] and column index [j] during traversal",
+            "IndexOutOfBoundsException when checking diagonal elements"
+          ],
+          "references": [
+            "ICSE Class X Computer Applications Matrix Syllabus"
+          ],
+          "teachingTips": [
+            "Draw a grid table with row index i (0 to R-1) and column index j (0 to C-1) to visualize diagonals (i == j and i + j == N - 1)."
+          ],
+          "preReading": [
+            "Nested loops and 1D Arrays"
+          ],
+          "badge": "2D Matrix Architect",
+          "previousModule": "002_002_array-1d-string",
+          "nextModule": "003_002_test-array"
+        },
+        {
+          "moduleId": "test-array",
+          "slug": "003_002_test-array",
+          "title": "Array Mastery Test & Board Practice",
+          "level": "Intermediate",
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 5,
+          "estimatedHours": 5,
+          "summary": "Comprehensive assessment of 1D and 2D Array concepts, searching, sorting, and matrix operations as per ICSE Class X examination standards.",
+          "tags": [
+            "test",
+            "array-assessment",
+            "icse-board-practice",
+            "matrix-test"
+          ],
+          "topics": [
+            "1D Array Linear & Binary Search Test",
+            "1D Array Bubble & Selection Sort Test",
+            "Matrix Traversal & Diagonal Sums Test",
+            "String Array Manipulation Test",
+            "ICSE Board Pattern Array Question Practice",
+            "Full Array Section Practice Paper"
+          ],
+          "learningOutcomes": [
+            "Demonstrate proficiency in ICSE Class 10 1D & 2D array search and sort algorithms",
+            "Dry run matrix traversal and index manipulation logic accurately",
+            "Solve ICSE Board style array output and programming questions"
+          ],
+          "prerequisites": [
+            "003_001_array-2d-concepts"
+          ],
+          "miniProjects": [
+            "ICSE Array Practical Board Lab Assessment"
+          ],
+          "exercises": {
+            "mcq": 25,
             "coding": 12,
             "projects": 1
           },
           "assessment": {
-            "type": "Quiz + Mini Project",
+            "type": "Timed Board-Pattern Array Test",
             "passScore": 75
           },
           "useCases": [
-            "Passing large arrays efficiently to functions",
-            "Working with low level memory operations"
+            "Preparing for ICSE Computer Applications Section B programming questions"
           ],
           "careerSkills": [
-            "Thinking in terms of addresses and references",
-            "Understanding how higher level languages implement references"
+            "Exam-oriented algorithmic problem solving",
+            "Code optimization under time limits"
           ],
           "commonMistakes": [
-            "Dereferencing NULL or uninitialized pointers",
-            "Incorrect pointer arithmetic that steps outside valid memory"
+            "Failing to handle edge cases like element not found in Binary Search",
+            "Off-by-one boundary errors in matrix loops"
           ],
           "references": [
-            "Pointers in C tutorials and articles",
-            "The C Programming Language - pointers chapter"
+            "ICSE Class X Computer Applications Previous Years' Question Papers"
           ],
           "teachingTips": [
-            "Use step by step diagrams showing addresses and contents.",
-            "Give small pointer puzzles to build intuition."
+            "Provide time-bound array programming tests with dry-run trace table questions."
           ],
           "preReading": [
-            "Strings and Character Arrays module"
+            "1D and 2D Array modules"
           ],
-          "previousModule": "strings-core",
-          "nextModule": "memory-dynamic",
-          "badge": "Pointer Pro Badge"
+          "badge": "Array Pro Badge",
+          "previousModule": "003_001_array-2d-concepts",
+          "nextModule": "004_001_constructors-in-java"
         }
       ]
     },
     {
       "segmentId": "constructors-and-methods",
-      "title": "Constructors and User Defined Methods",
+      "title": "Segment 4 – Constructors & User Defined Methods",
       "level": "Intermediate",
+      "summary": "Master object initialization with default & parameterized constructors, constructor overloading, method signatures, parameter passing, return types, and variable scope.",
+      "allocatedHours": 20,
       "modules": [
         {
           "moduleId": "constructors",
-          "slug": "constructors-in-java",
+          "slug": "004_001_constructors-in-java",
           "title": "Constructors in Java",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "estimatedHours": 10,
+          "summary": "Deep dive into constructors: default vs parameterized constructors, constructor overloading, object initialization lifecycle, and differences from methods.",
+          "tags": [
+            "constructors",
+            "default-constructor",
+            "parameterized-constructor",
+            "overloading",
+            "oop"
+          ],
           "topics": [
-            "Need of constructor",
+            "Need and purpose of constructors",
             "Default constructor",
             "Parameterized constructor",
             "Constructor overloading",
             "Difference between constructor and method"
-          ]
+          ],
+          "learningOutcomes": [
+            "Define default and parameterized constructors in Java classes",
+            "Overload constructors to allow multiple initialization modes",
+            "Differentiate between constructors and standard member methods"
+          ],
+          "prerequisites": [
+            "003_002_test-array"
+          ],
+          "miniProjects": [
+            "Bank Account & Student Profile Class Initializer"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Constructor Design Quiz & Coding Test",
+            "passScore": 75
+          },
+          "useCases": [
+            "Initializing object state safely during instantiation"
+          ],
+          "careerSkills": [
+            "Object-oriented class design",
+            "Resource initialization"
+          ],
+          "commonMistakes": [
+            "Writing a return type for a constructor (turning it into a regular method)",
+            "Expecting default constructor to exist after adding a parameterized constructor"
+          ],
+          "references": [
+            "Java Language Specification - Constructors"
+          ],
+          "teachingTips": [
+            "Show how Java automatically inserts a default constructor if none is declared, but removes it once a parameterized constructor is defined."
+          ],
+          "preReading": [
+            "Classes and Objects basics"
+          ],
+          "badge": "Constructor Specialist",
+          "previousModule": "003_002_test-array",
+          "nextModule": "004_002_user-defined-methods"
         },
         {
           "moduleId": "user-defined-methods",
-          "slug": "user-defined-methods",
+          "slug": "004_002_user-defined-methods",
           "title": "User Defined Methods",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 7,
+          "estimatedHours": 10,
+          "summary": "Learn modular programming with user-defined methods: method signatures, parameter passing (pass-by-value), return types, method overloading, and variable scope.",
+          "tags": [
+            "methods",
+            "parameters",
+            "return-type",
+            "pass-by-value",
+            "scope"
+          ],
           "topics": [
-            "Method declaration",
-            "Method definition",
-            "Method calling",
-            "Parameter passing",
-            "Return type",
-            "Scope of variables"
-          ]
+            "Method declaration and signature",
+            "Method definition and body",
+            "Method calling and execution flow",
+            "Parameter passing mechanisms (Pass by Value)",
+            "Return type and void return",
+            "Scope of variables (Local vs Instance variables)"
+          ],
+          "learningOutcomes": [
+            "Design modular methods with descriptive names and single responsibilities",
+            "Understand pass-by-value mechanics for primitives and object references",
+            "Distinguish between local method variables and instance fields"
+          ],
+          "prerequisites": [
+            "004_001_constructors-in-java"
+          ],
+          "miniProjects": [
+            "Modular Geometry & Financial Helper Library"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "User Defined Methods Design Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Decomposing large programs into manageable, reusable functions"
+          ],
+          "careerSkills": [
+            "Modular programming",
+            "Function abstraction"
+          ],
+          "commonMistakes": [
+            "Attempting to access local variables outside their enclosing method",
+            "Mismatched argument types when invoking overloaded methods"
+          ],
+          "references": [
+            "Oracle Java Tutorials - Defining Methods"
+          ],
+          "teachingTips": [
+            "Draw stack frame diagrams for method invocations showing parameter passing."
+          ],
+          "preReading": [
+            "004_001_constructors-in-java"
+          ],
+          "badge": "Method Master",
+          "previousModule": "004_001_constructors-in-java",
+          "nextModule": "005_001_wrapper-class-methods"
         }
       ]
     },
     {
       "segmentId": "library-classes",
-      "title": "Java Library Classes",
+      "title": "Segment 5 – Java Library Classes & Wrapper Classes",
       "level": "Intermediate",
+      "summary": "Explore Java wrapper classes (Integer, Double, Character, etc.), autoboxing/unboxing, string conversion methods, and character utility methods.",
+      "allocatedHours": 15,
       "modules": [
         {
           "moduleId": "wrapper-class-methods",
-          "slug": "wrapper-class-methods",
+          "slug": "005_001_wrapper-class-methods",
           "title": "Wrapper Class Methods",
+          "level": "Intermediate",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 8,
+          "estimatedHours": 8,
+          "summary": "Master Java wrapper classes (java.lang.Integer, Long, Float, Double): parsing methods, valueOf(), toString(), and autoboxing/unboxing mechanics.",
+          "tags": [
+            "wrapper-classes",
+            "parseint",
+            "valueof",
+            "tostring",
+            "autoboxing"
+          ],
           "topics": [
             "parseInt(String s)",
             "parseLong(String s)",
@@ -235,33 +606,143 @@
             "parseDouble(String s)",
             "valueOf()",
             "toString()"
-          ]
+          ],
+          "learningOutcomes": [
+            "Convert String representations of numbers into primitive numeric types",
+            "Understand wrapper class objects and autoboxing/unboxing in Java",
+            "Utilize valueOf() and toString() for clean type conversion"
+          ],
+          "prerequisites": [
+            "004_002_user-defined-methods"
+          ],
+          "miniProjects": [
+            "String-to-Number Data Parser & Form Validator"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Wrapper Class Utility Quiz",
+            "passScore": 75
+          },
+          "useCases": [
+            "Parsing text inputs from UI forms into numbers for calculations"
+          ],
+          "careerSkills": [
+            "Data parsing",
+            "Type conversion handling"
+          ],
+          "commonMistakes": [
+            "NumberFormatException when parsing non-numeric strings with parseInt()"
+          ],
+          "references": [
+            "Java API Documentation - java.lang.Integer & Double"
+          ],
+          "teachingTips": [
+            "Demonstrate how NumberFormatException occurs and how to avoid it."
+          ],
+          "preReading": [
+            "004_002_user-defined-methods"
+          ],
+          "badge": "Wrapper Class Wizard",
+          "previousModule": "004_002_user-defined-methods",
+          "nextModule": "005_002_character-class-methods"
         },
         {
           "moduleId": "character-class-methods",
-          "slug": "character-class-methods",
+          "slug": "005_002_character-class-methods",
           "title": "Character Class Methods",
+          "level": "Intermediate",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 9,
+          "estimatedHours": 7,
+          "summary": "Learn character validation and transformation using java.lang.Character: isDigit, isLetter, isLetterOrDigit, isLowerCase, isUpperCase, toLowerCase, toUpperCase.",
+          "tags": [
+            "character-class",
+            "isdigit",
+            "isletter",
+            "isuppercase",
+            "tolowercase"
+          ],
           "topics": [
             "isDigit(char ch)",
             "isLetter(char ch)",
             "isLetterOrDigit(char ch)",
             "isLowerCase(char ch)",
             "isUpperCase(char ch)",
-            "toLowerCase()",
-            "toUpperCase()"
-          ]
+            "toLowerCase(char ch)",
+            "toUpperCase(char ch)"
+          ],
+          "learningOutcomes": [
+            "Validate individual character types (digit, letter, letter or digit)",
+            "Check and modify character casing using java.lang.Character static methods",
+            "Apply character testing in string analysis and text filtering algorithms"
+          ],
+          "prerequisites": [
+            "005_001_wrapper-class-methods"
+          ],
+          "miniProjects": [
+            "Text Password Strength Checker & Character Analyzer"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Character Class Methods Lab Assessment",
+            "passScore": 75
+          },
+          "useCases": [
+            "Password validation, text parsing, and character counting"
+          ],
+          "careerSkills": [
+            "Character manipulation",
+            "Input validation algorithms"
+          ],
+          "commonMistakes": [
+            "Forgetting that Character class methods are static (e.g. calling Character.isDigit(ch) vs ch.isDigit())"
+          ],
+          "references": [
+            "Java API Documentation - java.lang.Character"
+          ],
+          "teachingTips": [
+            "Practice writing loop utilities that count uppercase, lowercase, digits, and special characters in a sentence."
+          ],
+          "preReading": [
+            "005_001_wrapper-class-methods"
+          ],
+          "badge": "Character Master",
+          "previousModule": "005_001_wrapper-class-methods",
+          "nextModule": "006_001_strings-basic"
         }
       ]
     },
     {
       "segmentId": "string-handling",
-      "title": "String Handling",
+      "title": "Segment 6 – String Handling in Java",
       "level": "Intermediate",
+      "summary": "In-depth study of String class immutability, String Constant Pool, basic & advanced String methods, character manipulation, word-based programs, and StringBuffer.",
+      "allocatedHours": 25,
       "modules": [
         {
           "moduleId": "strings",
-          "slug": "strings-basic",
-          "title": "Strings Basic",
+          "slug": "006_001_strings-basic",
+          "title": "Strings Basic & Core Concepts",
+          "level": "Intermediate",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 10,
+          "estimatedHours": 10,
+          "summary": "Introduction to String class in Java, String Constant Pool memory layout, immutability, basic slicing, reversal, palindromes, and word counting.",
+          "tags": [
+            "strings",
+            "string-pool",
+            "immutability",
+            "palindrome",
+            "word-count"
+          ],
           "topics": [
             "Introduction to Strings in Java and real-life applications",
             "String creation using literals and new keyword",
@@ -291,94 +772,469 @@
             "Interview questions and output-based problems",
             "Practice problems (MCQ and coding)"
           ],
-          "difficulty": "Easy-Medium"
+          "learningOutcomes": [
+            "Explain String Constant Pool vs Heap memory allocation for Strings",
+            "Implement classic string programs (reverse, palindrome, word count, anagrams)",
+            "Choose between String, StringBuffer, and StringBuilder appropriately"
+          ],
+          "prerequisites": [
+            "005_002_character-class-methods"
+          ],
+          "miniProjects": [
+            "Sentence Analysis Utility & Palindrome Checker"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 12,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "String Fundamentals Coding Assessment",
+            "passScore": 75
+          },
+          "useCases": [
+            "Text processing, NLP basics, and user input formatting"
+          ],
+          "careerSkills": [
+            "String manipulation algorithms",
+            "Memory optimization awareness"
+          ],
+          "commonMistakes": [
+            "Assuming string modification methods mutate the original String object",
+            "Using == to check equality of two String objects"
+          ],
+          "references": [
+            "Oracle Java Tutorials - String Objects"
+          ],
+          "teachingTips": [
+            "Illustrate String immutability with Heap and String Constant Pool diagrams."
+          ],
+          "preReading": [
+            "005_002_character-class-methods"
+          ],
+          "badge": "String Novice Badge",
+          "previousModule": "005_002_character-class-methods",
+          "nextModule": "006_002_basic-string-methods"
         },
         {
           "moduleId": "basic-string-methods",
-          "slug": "basic-string-methods",
+          "slug": "006_002_basic-string-methods",
           "title": "Basic String Methods",
+          "level": "Intermediate",
+          "difficulty": "Easy-Medium",
+          "difficultyIndex": 11,
+          "estimatedHours": 7,
+          "summary": "Detailed exploration of fundamental String class methods: length(), charAt(), indexOf(), lastIndexOf(), trim(), toLowerCase(), toUpperCase().",
+          "tags": [
+            "basic-string-methods",
+            "length",
+            "charat",
+            "indexof",
+            "lastindexof",
+            "trim"
+          ],
           "topics": [
             "length()",
-            "charAt()",
-            "indexOf()",
-            "lastIndexOf()",
+            "charAt(int index)",
+            "indexOf(int ch / String str)",
+            "lastIndexOf(int ch / String str)",
             "trim()",
             "toLowerCase()",
             "toUpperCase()"
-          ]
+          ],
+          "learningOutcomes": [
+            "Extract individual characters and find character indices in Strings",
+            "Trim leading/trailing whitespace and normalize case",
+            "Solve ICSE board output-based questions involving basic String methods"
+          ],
+          "prerequisites": [
+            "006_001_strings-basic"
+          ],
+          "miniProjects": [
+            "User Credential Formatter & Initial Extractor"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Basic String Methods Quiz & Output Practice",
+            "passScore": 75
+          },
+          "useCases": [
+            "Formatting user input names and extracting email domain details"
+          ],
+          "careerSkills": [
+            "String parsing",
+            "Output prediction"
+          ],
+          "commonMistakes": [
+            "StringIndexOutOfBoundsException when charAt() index equals length()",
+            "Expecting indexOf() to return 0 when substring is not found (it returns -1)"
+          ],
+          "references": [
+            "Java API Documentation - String Methods"
+          ],
+          "teachingTips": [
+            "Practice tracing step-by-step output of indexOf() and charAt() snippets."
+          ],
+          "preReading": [
+            "006_001_strings-basic"
+          ],
+          "badge": "String Operator",
+          "previousModule": "006_001_strings-basic",
+          "nextModule": "006_003_advanced-string-methods"
         },
         {
           "moduleId": "advanced-string-methods",
-          "slug": "advanced-string-methods",
+          "slug": "006_003_advanced-string-methods",
           "title": "Advanced String Methods",
+          "level": "Intermediate",
+          "difficulty": "Medium",
+          "difficultyIndex": 12,
+          "estimatedHours": 8,
+          "summary": "Master advanced String manipulation methods: concat(), equals(), equalsIgnoreCase(), compareTo(), compareToIgnoreCase(), replace(), substring(), startsWith(), endsWith().",
+          "tags": [
+            "advanced-string-methods",
+            "compareto",
+            "substring",
+            "replace",
+            "equalsignorecase"
+          ],
           "topics": [
-            "concat()",
-            "equals()",
-            "equalsIgnoreCase()",
-            "compareTo()",
-            "compareToIgnoreCase()",
-            "replace()",
-            "substring()",
-            "startsWith()",
-            "endsWith()"
-          ]
+            "concat(String str)",
+            "equals(Object obj) vs equalsIgnoreCase(String str)",
+            "compareTo(String str) vs compareToIgnoreCase(String str)",
+            "replace(char oldChar, char newChar)",
+            "substring(int beginIndex, int endIndex)",
+            "startsWith(String prefix) and endsWith(String suffix)"
+          ],
+          "learningOutcomes": [
+            "Extract sub-sequences using single and dual argument substring()",
+            "Perform lexicographical comparisons using compareTo()",
+            "Replace characters and validate prefixes/suffixes in text processing"
+          ],
+          "prerequisites": [
+            "006_002_basic-string-methods"
+          ],
+          "miniProjects": [
+            "Pig Latin Converter & Word Encrypter System"
+          ],
+          "exercises": {
+            "mcq": 25,
+            "coding": 10,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Advanced String Algorithms & ICSE Board Output Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Text search, encryption, and word-by-word board program solutions"
+          ],
+          "careerSkills": [
+            "Advanced string manipulation",
+            "Lexicographical logic"
+          ],
+          "commonMistakes": [
+            "Forgetting that substring(beginIndex, endIndex) excludes the character at endIndex",
+            "Misinterpreting the integer result of compareTo()"
+          ],
+          "references": [
+            "Java API Documentation - String substring & compareTo"
+          ],
+          "teachingTips": [
+            "Demonstrate Pig Latin and Word Reversal programs step-by-step on the board."
+          ],
+          "preReading": [
+            "006_002_basic-string-methods"
+          ],
+          "badge": "String Master Badge",
+          "previousModule": "006_002_basic-string-methods",
+          "nextModule": "007_001_encapsulation"
         }
       ]
     },
     {
       "segmentId": "oop-concepts",
-      "title": "Encapsulation and Inheritance",
+      "title": "Segment 7 – Encapsulation & Inheritance",
       "level": "Advanced",
+      "summary": "Understand object-oriented principles in ICSE Class 10 scope: data encapsulation, access modifiers, getter/setter methods, single inheritance, and super keyword.",
+      "allocatedHours": 15,
       "modules": [
         {
           "moduleId": "encapsulation",
-          "slug": "encapsulation",
+          "slug": "007_001_encapsulation",
           "title": "Encapsulation",
+          "level": "Advanced",
+          "difficulty": "Medium",
+          "difficultyIndex": 13,
+          "estimatedHours": 7,
+          "summary": "Learn encapsulation in Java: data hiding via private members, getter and setter methods, data validation, and real-world domain modeling.",
+          "tags": [
+            "encapsulation",
+            "data-hiding",
+            "getters-setters",
+            "private",
+            "oop"
+          ],
           "topics": [
             "Private data members",
             "Getter and setter methods",
-            "Data hiding",
-            "Real life examples"
-          ]
+            "Data hiding and security",
+            "Real life class examples"
+          ],
+          "learningOutcomes": [
+            "Implement encapsulation by declaring private fields and public accessors/mutators",
+            "Protect internal object state with getter and setter validation logic",
+            "Explain the benefits of data hiding in software design"
+          ],
+          "prerequisites": [
+            "006_003_advanced-string-methods"
+          ],
+          "miniProjects": [
+            "Encapsulated Employee Payroll & Data Integrity Engine"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Encapsulation & Data Hiding Test",
+            "passScore": 75
+          },
+          "useCases": [
+            "Securing internal object state against unauthorized external modification"
+          ],
+          "careerSkills": [
+            "Encapsulation architecture",
+            "Domain modeling"
+          ],
+          "commonMistakes": [
+            "Leaving data fields public instead of private",
+            "Bypassing setters and directly accessing variables"
+          ],
+          "references": [
+            "Oracle Java Documentation - Controlling Access to Members"
+          ],
+          "teachingTips": [
+            "Show how validation inside a setAge(int age) method prevents invalid negative values."
+          ],
+          "preReading": [
+            "006_003_advanced-string-methods"
+          ],
+          "badge": "Encapsulation Expert",
+          "previousModule": "006_003_advanced-string-methods",
+          "nextModule": "007_002_inheritance"
         },
         {
           "moduleId": "inheritance",
-          "slug": "inheritance",
+          "slug": "007_002_inheritance",
           "title": "Inheritance",
+          "level": "Advanced",
+          "difficulty": "Medium-Advanced",
+          "difficultyIndex": 14,
+          "estimatedHours": 8,
+          "summary": "Introduction to single inheritance in Java: superclass and subclass, extends keyword, method overriding overview, and super keyword.",
+          "tags": [
+            "inheritance",
+            "extends",
+            "superclass",
+            "subclass",
+            "super-keyword"
+          ],
           "topics": [
-            "Base class and derived class",
-            "Extends keyword",
-            "Method overriding (intro)",
-            "Use of super keyword"
-          ]
+            "Base class (Superclass) and derived class (Subclass)",
+            "Extends keyword syntax and rules",
+            "Method overriding (introduction)",
+            "Use of super keyword to invoke parent constructor and methods"
+          ],
+          "learningOutcomes": [
+            "Create derived subclasses using the extends keyword",
+            "Re-use parent class state and behavior while adding specialized methods",
+            "Use the super keyword to call parent constructors and overridden methods"
+          ],
+          "prerequisites": [
+            "007_001_encapsulation"
+          ],
+          "miniProjects": [
+            "Vehicle & Car Inheritance Class Hierarchy"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "coding": 8,
+            "projects": 1
+          },
+          "assessment": {
+            "type": "Inheritance Concepts & BlueJ Lab Exam",
+            "passScore": 75
+          },
+          "useCases": [
+            "Reusing common state and behavior across related software entities"
+          ],
+          "careerSkills": [
+            "Inheritance modeling",
+            "Code reusability"
+          ],
+          "commonMistakes": [
+            "Trying to inherit multiple classes in Java (multiple inheritance of classes is prohibited)",
+            "Forgetting super() call as the first statement in subclass constructor"
+          ],
+          "references": [
+            "Oracle Java Tutorials - Inheritance"
+          ],
+          "teachingTips": [
+            "Use clear class hierarchy diagrams (e.g. Person -> Student) to demonstrate code reuse."
+          ],
+          "preReading": [
+            "007_001_encapsulation"
+          ],
+          "badge": "Inheritance Pioneer",
+          "previousModule": "007_001_encapsulation",
+          "nextModule": "008_001_pre-selection-exam"
         }
       ]
     },
     {
       "segmentId": "exam-preparation",
-      "title": "Examination Preparation",
-      "level": "Theory & Practical",
+      "title": "Segment 8 – Examination Preparation",
+      "level": "Board Exam Scope",
+      "summary": "Comprehensive preparation for ICSE Class X Computer Applications Theory & Practical papers: pre-selection, selection, output predicting, and previous years' board question papers.",
+      "allocatedHours": 20,
       "modules": [
         {
           "moduleId": "pre-selection-exam",
-          "slug": "pre-selection-exam",
-          "title": "Pre Selection Examination",
+          "slug": "008_001_pre-selection-exam",
+          "title": "Pre Selection Examination Preparation",
+          "level": "Board Exam Scope",
+          "difficulty": "Advanced",
+          "difficultyIndex": 15,
+          "estimatedHours": 10,
+          "summary": "Preparation and practice for ICSE Pre-Selection Exams: covering March to August syllabus, output prediction, dry runs, and essential board questions.",
+          "tags": [
+            "pre-selection",
+            "icse-mock-test",
+            "output-prediction",
+            "board-questions"
+          ],
           "topics": [
-            "Chapters from March to August",
-            "Full syllabus mock test",
-            "Output practice",
-            "Important board questions"
-          ]
+            "Chapters from March to August syllabus review",
+            "Full syllabus mock test (Section A & Section B)",
+            "Output prediction & snippet analysis practice",
+            "Important ICSE board questions walkthrough"
+          ],
+          "learningOutcomes": [
+            "Solve ICSE Section A (40 marks) objective and short questions accurately",
+            "Write bug-free programs for ICSE Section B (60 marks) programming section",
+            "Master output prediction and trace-table paper solving under timed conditions"
+          ],
+          "prerequisites": [
+            "007_002_inheritance"
+          ],
+          "miniProjects": [
+            "ICSE Pre-Selection Mock Paper 1 & 2"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "coding": 15,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "ICSE Pre-Selection Mock Board Exam",
+            "passScore": 80
+          },
+          "useCases": [
+            "Acing ICSE Class X Pre-Selection Computer Applications Examination"
+          ],
+          "careerSkills": [
+            "Board exam strategy",
+            "Time management",
+            "Predictive trace table analysis"
+          ],
+          "commonMistakes": [
+            "Spending too much time on Section A theory and running out of time for Section B programs",
+            "Forgetting variable description table in Section B board programs"
+          ],
+          "references": [
+            "ICSE Class X Specimen Question Papers (CISCE)"
+          ],
+          "teachingTips": [
+            "Conduct timed mock exams and train students on writing Variable Description Tables."
+          ],
+          "preReading": [
+            "All previous Class X modules"
+          ],
+          "badge": "Pre-Selection Champion",
+          "previousModule": "007_002_inheritance",
+          "nextModule": "008_002_selection-exam"
         },
         {
           "moduleId": "selection-exam",
-          "slug": "selection-exam",
-          "title": "Selection Examination",
+          "slug": "008_002_selection-exam",
+          "title": "Selection Examination & Final ICSE Board Prep",
+          "level": "Board Exam Scope",
+          "difficulty": "Advanced",
+          "difficultyIndex": 16,
+          "estimatedHours": 10,
+          "summary": "Final ICSE Board Examination preparation: full syllabus revision, 10-year CISCE solved question papers, time-bound programming, and variable description table perfection.",
+          "tags": [
+            "selection-exam",
+            "icse-board-prep",
+            "cisce-specimen",
+            "10-year-papers"
+          ],
           "topics": [
-            "Full ICSE syllabus",
-            "Previous year questions",
-            "Time bound programming practice"
-          ]
+            "Full ICSE Class X syllabus comprehensive review",
+            "Previous 10-year CISCE board question paper solutions",
+            "Time-bound programming and variable description table practice",
+            "Final Board Exam tips, presentation rules, and error prevention"
+          ],
+          "learningOutcomes": [
+            "Achieve top scores (95%+) in ICSE Class X Computer Applications Board Exam",
+            "Write perfect variable description tables and clean BlueJ class definitions",
+            "Solve Section A and Section B papers within 2 hours with full confidence"
+          ],
+          "prerequisites": [
+            "008_001_pre-selection-exam"
+          ],
+          "miniProjects": [
+            "Final ICSE Computer Applications 100-Mark Board Specimen Exam"
+          ],
+          "exercises": {
+            "mcq": 40,
+            "coding": 20,
+            "projects": 2
+          },
+          "assessment": {
+            "type": "Final ICSE Board Mock Certification Exam",
+            "passScore": 85
+          },
+          "useCases": [
+            "Securing 100/100 in ICSE Class X Computer Applications Board Examination"
+          ],
+          "careerSkills": [
+            "Comprehensive board examination mastery",
+            "Rigorous code documentation"
+          ],
+          "commonMistakes": [
+            "Not writing comments or variable description tables",
+            "Syntax errors in Scanner initialization or class header under exam pressure"
+          ],
+          "references": [
+            "CISCE Official ICSE Class X Syllabus & Regulations",
+            "10 Years Solved Papers ICSE Class 10 Computer Applications"
+          ],
+          "teachingTips": [
+            "Perform final revision drills on output prediction, array search/sort, string logic, and class design."
+          ],
+          "preReading": [
+            "Complete ICSE Class X Coursework"
+          ],
+          "badge": "ICSE Java Board Master",
+          "previousModule": "008_001_pre-selection-exam",
+          "nextModule": null
         }
       ]
     }

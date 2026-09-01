@@ -6,6 +6,8 @@
 //         Networks, Security, Quantitative Analysis, and Admissions.
 // ============================================================================
 
+import { findMatchingFAQResponse } from "./generalFAQKnowledge";
+
 export const CNAT_MAM_PROFILE = {
   name: "CNAT Mam",
   title: "Senior AI Academic Mentor & Student Counselor",
@@ -870,6 +872,17 @@ async function fetchStudentData(studentId) {
    - **Integrity:** Ensuring data is untampered via cryptographic hashing (**SHA-256**, digital signatures).
    - **Availability:** Ensuring continuous service uptime (mitigating DDoS with firewalls & redundancy).`
   }
+=======
+export const QUICK_PROMPT_CHIPS = [
+  { label: "💡 Explain Current Topic", query: "Can you explain the main concepts of this topic in simple terms?" },
+  { label: "📝 Lab Assignments", query: "How do I submit practical lab assignments and homework?" },
+  { label: "🎯 Viva & Exam Tips", query: "What are the key tips for practical exams and viva tests?" },
+  { label: "🛠️ Clear Doubts", query: "How do I clear my doubts during lab hours?" },
+  { label: "📞 Teacher Contact", query: "Can you provide teacher contact number and communication details?" },
+  { label: "🏢 Organisation Details", query: "Tell me about Coder & AccoTax institute, campus location and accreditation." },
+  { label: "🎓 Courses Offered", query: "What courses and modules are taught at Coder & AccoTax?" },
+  { label: "📊 Online Marksheets", query: "Where can I take online mock tests and view my performance marksheets?" },
+>>>>>>> 84aa6c160f520e904c4e827af36e7e6027b7c550
 ];
 
 // ============================================================================
@@ -1058,7 +1071,15 @@ When appearing for academic examinations, lab vivas, or technical interviews, ke
   }
 
   // --------------------------------------------------------------------------
-  // 4. INTELLIGENT DYNAMIC TOPIC-GROUNDED FALLBACK
+  // 4. GENERAL FAQ DATABASE LOOKUP
+  // --------------------------------------------------------------------------
+  const faqMatch = findMatchingFAQResponse(userQuery, context);
+  if (faqMatch) {
+    return faqMatch;
+  }
+
+  // --------------------------------------------------------------------------
+  // 5. INTELLIGENT DYNAMIC TOPIC-GROUNDED FALLBACK
   // --------------------------------------------------------------------------
   return `### 🎓 CNAT Mam Academic Assistance
 

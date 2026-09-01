@@ -82,44 +82,38 @@ const PrintButton = ({ targetId, title, organizationDetails = {} }) => {
                 color: #000000 !important;
               }
               
-              /* Organization Header - Compact */
+              /* Organization Header - Sleek & Compact */
               .org-header {
                 text-align: center;
-                margin-bottom: 15px;
-                padding-bottom: 8px;
+                margin-bottom: 10px;
+                padding-bottom: 6px;
                 border-bottom: 2px solid #000000;
               }
               
               .org-name {
-                font-size: 20px;
+                font-size: 18px;
                 font-weight: bold;
                 color: #000000 !important;
-                margin-bottom: 4px;
+                margin-bottom: 2px;
                 letter-spacing: 0.5px;
+                text-transform: uppercase;
               }
               
               .org-details {
                 font-size: 10px;
                 color: #000000 !important;
-                line-height: 1.3;
+                line-height: 1.35;
               }
               
-              .org-details-row {
-                display: flex;
-                justify-content: center;
-                gap: 15px;
-                flex-wrap: wrap;
-                margin-top: 3px;
+              .org-info-line {
+                margin-top: 1px;
               }
-              
-              .print-date {
-                text-align: right;
-                font-size: 10px;
-                color: #000000 !important;
-                margin-bottom: 10px;
-                border-bottom: 1px solid #000000;
-                padding-bottom: 5px;
-                font-weight: 500;
+
+              .org-issue-date {
+                font-size: 9px;
+                color: #444444 !important;
+                margin-top: 2px;
+                font-style: italic;
               }
               
               /* Question paper content */
@@ -387,17 +381,13 @@ const PrintButton = ({ targetId, title, organizationDetails = {} }) => {
                 <div class="org-name">${org.name}</div>
                 <div class="org-details">
                   <div>${org.address}</div>
-                  <div class="org-details-row">
-                    <span>📞 ${org.phone}</span>
-                    <span>✉️ ${org.email}</span>
-                    <span>🌐 ${org.website}</span>
+                  <div class="org-info-line">
+                    <span>Ph: ${org.phone}</span> &bull; 
+                    <span>Email: ${org.email}</span>
+                    ${org.website ? ` &bull; <span>Web: ${org.website}</span>` : ''}
                   </div>
+                  <div class="org-issue-date">Date of Issue: ${currentDate}</div>
                 </div>
-              </div>
-              
-              <!-- Print Date -->
-              <div class="print-date">
-                Date of Issue: ${currentDate}
               </div>
               
               <!-- Main Content -->

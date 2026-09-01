@@ -1,0 +1,20 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X JAVA TUTORIAL
+MODULE 002_001: 1D Array (Numeric Values)
+TOPIC 23: Board Type Logical Programs
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- Strictly follow ICSE Board syllabus guidelines.
+- Always use manual for-loops for array traversal.
+- Do NOT use out-of-syllabus java.util.Arrays utility class.
+- Pay attention to array boundaries (0 to length - 1).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Manual loop traversal
+[✓] Correct index range validation
+[✓] Variable description table documentation for Section B
+================================================================================
