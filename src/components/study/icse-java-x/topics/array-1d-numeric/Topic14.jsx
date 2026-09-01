@@ -198,20 +198,20 @@ const Topic14 = () => {
   const [activeSection, setActiveSection] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-slate-900">
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 dark:from-orange-400 dark:to-red-400 bg-clip-text text-transparent mb-4">
             Finding the Largest Element in an Array
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg text-slate-400 dark:text-gray-300 leading-relaxed">
             Simple linear scan to find maximum value - the foundation of many algorithms
           </p>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-slate-800">
           {['theory', 'visual', 'code', 'practice'].map((tab) => (
             <button
               key={tab}
@@ -220,7 +220,7 @@ const Topic14 = () => {
                 "px-4 py-2 text-sm font-medium rounded-t-lg transition-all duration-300",
                 activeSection === tab
                   ? "bg-orange-50 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 border-b-2 border-orange-600"
-                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "text-slate-400 hover:text-slate-300 dark:hover:text-gray-300 hover:bg-slate-950 border border-slate-800 text-amber-300 dark:hover:bg-gray-800"
               )}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -233,13 +233,13 @@ const Topic14 = () => {
           {activeSection === 'theory' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Concept Card */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
                   <span className="bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">1</span>
                   Finding Maximum Element
                 </h2>
                 <div className="prose dark:prose-invert max-w-none">
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  <p className="text-slate-400 dark:text-gray-300 leading-relaxed mb-4">
                     Finding the largest element in an array is a <strong className="text-orange-600 dark:text-orange-400">fundamental linear search operation</strong> that scans through all elements while keeping track of the current maximum. It's a <strong className="text-orange-600 dark:text-orange-400">single-pass algorithm</strong> with O(n) time complexity.
                   </p>
                   <div className="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-lg mb-4">
@@ -254,10 +254,10 @@ const Topic14 = () => {
               </div>
 
               {/* How It Works */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚙️ How It Works</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚙️ How It Works</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3 text-gray-600 dark:text-gray-300">
+                  <div className="space-y-3 text-slate-400 dark:text-gray-300">
                     <p>1️⃣ <strong>Initialize</strong> max = arr[0] (assume first element is largest)</p>
                     <p>2️⃣ <strong>Traverse</strong> array from index 1 to n-1</p>
                     <p>3️⃣ <strong>Compare</strong> each element with current max</p>
@@ -266,9 +266,9 @@ const Topic14 = () => {
                     <p>6️⃣ <strong>Optional</strong> - Track index of max element</p>
                   </div>
                   <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Analogy</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding tallest student:</p>
-                    <ul className="text-sm text-gray-600 dark:text-gray-300 mt-2 list-disc list-inside">
+                    <h3 className="font-semibold text-slate-200 mb-2">Analogy</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding tallest student:</p>
+                    <ul className="text-sm text-slate-400 dark:text-gray-300 mt-2 list-disc list-inside">
                       <li>Start with first student's height as tallest</li>
                       <li>Check each student one by one</li>
                       <li>If taller found, update tallest</li>
@@ -279,49 +279,49 @@ const Topic14 = () => {
               </div>
 
               {/* Real World Examples */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🌍 Real-World Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🌍 Real-World Examples</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">📊 Highest Exam Score</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Teacher Sukanta Hui scanning class scores to find topper - Nandini scored 98%!</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">📊 Highest Exam Score</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Teacher Sukanta Hui scanning class scores to find topper - Nandini scored 98%!</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🌡️ Maximum Temperature</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Weather app scanning week's temperatures to find hottest day in Barrackpore.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🌡️ Maximum Temperature</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Weather app scanning week's temperatures to find hottest day in Barrackpore.</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">💰 Highest Transaction</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Bank scanning monthly transactions to find largest purchase amount.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">💰 Highest Transaction</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Bank scanning monthly transactions to find largest purchase amount.</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🏃 Fastest Race Time</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Sports meet scanning runner times to find winner (smallest time).</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🏃 Fastest Race Time</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Sports meet scanning runner times to find winner (smallest time).</p>
                   </div>
                 </div>
               </div>
 
               {/* Complexity Analysis */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📊 Complexity Analysis</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📊 Complexity Analysis</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Best Case</p>
+                    <p className="text-xs text-slate-400">Best Case</p>
                     <p className="text-xl font-bold text-green-600">O(n)</p>
                     <p className="text-xs">Still check all elements</p>
                   </div>
                   <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Average Case</p>
+                    <p className="text-xs text-slate-400">Average Case</p>
                     <p className="text-xl font-bold text-yellow-600">O(n)</p>
                     <p className="text-xs">n comparisons</p>
                   </div>
                   <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Worst Case</p>
+                    <p className="text-xs text-slate-400">Worst Case</p>
                     <p className="text-xl font-bold text-red-600">O(n)</p>
                     <p className="text-xs">n comparisons</p>
                   </div>
                   <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Space</p>
+                    <p className="text-xs text-slate-400">Space</p>
                     <p className="text-xl font-bold text-blue-600">O(1)</p>
                     <p className="text-xs">Only 1 variable</p>
                   </div>
@@ -329,32 +329,32 @@ const Topic14 = () => {
               </div>
 
               {/* Edge Cases */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚠️ Edge Cases to Consider</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚠️ Edge Cases to Consider</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Single element array</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Returns that element directly</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Returns that element directly</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">All elements equal</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Returns the value (any works)</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Returns the value (any works)</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Negative numbers</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Works fine - compares correctly</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Works fine - compares correctly</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Empty array</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Should throw exception or return special value</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Should throw exception or return special value</p>
                   </div>
                 </div>
               </div>
 
               {/* Tips & Tricks */}
               <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💡 Tips & Tricks</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💡 Tips & Tricks</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>• <strong>Start from index 1:</strong> No need to compare first element with itself</li>
                   <li>• <strong>Track index too:</strong> Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">maxIndex</code> if position matters</li>
                   <li>• <strong>Handle empty array:</strong> Always check <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">if (arr == null || arr.length == 0)</code></li>
@@ -369,25 +369,25 @@ const Topic14 = () => {
 
           {activeSection === 'visual' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">👁️ Visual Walkthrough</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">👁️ Visual Walkthrough</h2>
                 <FindLargestVisualSVG />
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                <p className="text-center text-sm text-slate-400 mt-4">
                   Watch how the maximum value updates as we scan through the array
                 </p>
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📐 Algorithm Flowchart</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📐 Algorithm Flowchart</h2>
                 <AlgorithmFlowchartSVG />
               </div>
 
               {/* Comparison Table */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📊 Finding Max vs Other Operations</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📊 Finding Max vs Other Operations</h2>
                 <div className="overflow-x-auto">
                   <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-700/50">
+                    <thead className="bg-slate-950/60 dark:bg-gray-700/50">
                       <tr>
                         <th className="px-4 py-2 text-left text-sm font-semibold">Operation</th>
                         <th className="px-4 py-2 text-left text-sm font-semibold">Time Complexity</th>
@@ -431,8 +431,8 @@ const Topic14 = () => {
 
           {activeSection === 'code' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">💻 Code Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">💻 Code Examples</h2>
                 <div className="space-y-6">
                   <JavaFileLoader 
                     fileModule={findLargestBasic}
@@ -467,8 +467,8 @@ const Topic14 = () => {
           {activeSection === 'practice' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Common Pitfalls */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚠️ Common Pitfalls</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚠️ Common Pitfalls</h2>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
                     <span className="text-red-600 text-xl">❌</span>
@@ -495,9 +495,9 @@ const Topic14 = () => {
               </div>
 
               {/* Best Practices */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">✅ Best Practices</h2>
-                <ul className="space-y-2 text-gray-600 dark:text-gray-300 list-disc list-inside">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">✅ Best Practices</h2>
+                <ul className="space-y-2 text-slate-400 dark:text-gray-300 list-disc list-inside">
                   <li>Always check for null and empty array before processing</li>
                   <li>Use <code className="bg-gray-200 px-1 rounded">Integer.MIN_VALUE</code> for generic initialization</li>
                   <li>Consider returning index instead of value when position matters</li>
@@ -508,8 +508,8 @@ const Topic14 = () => {
 
               {/* Hint Section */}
               <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💭 Think About...</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💭 Think About...</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>🤔 How would you find the second largest element?</li>
                   <li>🤔 Can we find max with fewer than n comparisons?</li>
                   <li>🤔 How would you find the maximum absolute value?</li>
@@ -518,15 +518,15 @@ const Topic14 = () => {
               </div>
 
               {/* Q&A Section */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🎯 Questions & Answers</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🎯 Questions & Answers</h2>
                 <div className="space-y-4">
                   {qaData.map((qa, idx) => (
-                    <details key={idx} className="group border border-gray-200 dark:border-gray-700 rounded-lg">
-                      <summary className="cursor-pointer p-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300">
+                    <details key={idx} className="group border border-slate-800 rounded-lg">
+                      <summary className="cursor-pointer p-4 font-medium text-slate-200 hover:bg-slate-950/60 dark:hover:bg-gray-700/50 transition-all duration-300">
                         {qa.question}
                       </summary>
-                      <div className="p-4 pt-0 text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700">
+                      <div className="p-4 pt-0 text-slate-400 dark:text-gray-300 border-t border-slate-800">
                         {qa.answer}
                       </div>
                     </details>

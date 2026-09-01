@@ -153,20 +153,20 @@ const Topic16 = () => {
   const [activeSection, setActiveSection] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-slate-900">
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 dark:from-orange-400 dark:to-red-400 bg-clip-text text-transparent mb-4">
             Finding the Second Largest Element
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg text-slate-400 dark:text-gray-300 leading-relaxed">
             Tracking the top two values in a single pass - the runner-up problem
           </p>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-slate-800">
           {['theory', 'visual', 'code', 'practice'].map((tab) => (
             <button
               key={tab}
@@ -175,7 +175,7 @@ const Topic16 = () => {
                 "px-4 py-2 text-sm font-medium rounded-t-lg transition-all duration-300",
                 activeSection === tab
                   ? "bg-orange-50 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 border-b-2 border-orange-600"
-                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "text-slate-400 hover:text-slate-300 dark:hover:text-gray-300 hover:bg-slate-950 border border-slate-800 text-amber-300 dark:hover:bg-gray-800"
               )}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -188,13 +188,13 @@ const Topic16 = () => {
           {activeSection === 'theory' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Concept Card */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
                   <span className="bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">1</span>
                   What is the Second Largest?
                 </h2>
                 <div className="prose dark:prose-invert max-w-none">
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  <p className="text-slate-400 dark:text-gray-300 leading-relaxed mb-4">
                     The <strong className="text-orange-600 dark:text-orange-400">second largest element</strong> is the maximum value that is <strong className="text-orange-600 dark:text-orange-400">less than the largest element</strong>. Finding it efficiently requires tracking both the largest and second largest in a single pass, or using other approaches like sorting or two passes.
                   </p>
                   <div className="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-lg mb-4">
@@ -209,16 +209,16 @@ const Topic16 = () => {
               </div>
 
               {/* Three Approaches Comparison */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🔄 Three Approaches Compared</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🔄 Three Approaches Compared</h2>
                 <AlgorithmComparisonSVG />
               </div>
 
               {/* How It Works - Single Pass */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚙️ Single Pass Algorithm (Best Approach)</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚙️ Single Pass Algorithm (Best Approach)</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3 text-gray-600 dark:text-gray-300">
+                  <div className="space-y-3 text-slate-400 dark:text-gray-300">
                     <p>1️⃣ <strong>Initialize</strong> first = Integer.MIN_VALUE, second = Integer.MIN_VALUE</p>
                     <p>2️⃣ <strong>Traverse</strong> each element in array</p>
                     <p>3️⃣ <strong>If current &gt; first</strong> → second = first, first = current</p>
@@ -227,9 +227,9 @@ const Topic16 = () => {
                     <p>6️⃣ <strong>Edge case</strong> - If second still MIN_VALUE, no second largest exists</p>
                   </div>
                   <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Analogy</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Race competition:</p>
-                    <ul className="text-sm text-gray-600 dark:text-gray-300 mt-2 list-disc list-inside">
+                    <h3 className="font-semibold text-slate-200 mb-2">Analogy</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Race competition:</p>
+                    <ul className="text-sm text-slate-400 dark:text-gray-300 mt-2 list-disc list-inside">
                       <li>Track 1st place (gold medalist)</li>
                       <li>Track 2nd place (silver medalist)</li>
                       <li>When new 1st place found, old 1st becomes 2nd</li>
@@ -240,44 +240,44 @@ const Topic16 = () => {
               </div>
 
               {/* Real World Examples */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🌍 Real-World Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🌍 Real-World Examples</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🏅 Olympic Medal Tracking</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding silver medalist (second highest score) after gold medalist.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🏅 Olympic Medal Tracking</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding silver medalist (second highest score) after gold medalist.</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">📊 Class Rank</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Teacher Sukanta Hui finding second topper after Nandini scored highest.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">📊 Class Rank</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Teacher Sukanta Hui finding second topper after Nandini scored highest.</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">💰 Stock Market</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding second highest stock price of the day.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">💰 Stock Market</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding second highest stock price of the day.</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🎮 Game High Scores</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Displaying second highest score on leaderboard.</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🎮 Game High Scores</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Displaying second highest score on leaderboard.</p>
                   </div>
                 </div>
               </div>
 
               {/* Complexity Analysis */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📊 Complexity Analysis</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📊 Complexity Analysis</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Sort Method</p>
+                    <p className="text-xs text-slate-400">Sort Method</p>
                     <p className="text-lg font-bold text-green-600">O(n log n)</p>
                     <p className="text-xs">Simplest code</p>
                   </div>
                   <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Two Pass Method</p>
+                    <p className="text-xs text-slate-400">Two Pass Method</p>
                     <p className="text-lg font-bold text-yellow-600">O(2n) = O(n)</p>
                     <p className="text-xs">2 traversals</p>
                   </div>
                   <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Single Pass (Best)</p>
+                    <p className="text-xs text-slate-400">Single Pass (Best)</p>
                     <p className="text-lg font-bold text-blue-600">O(n)</p>
                     <p className="text-xs">1 traversal, O(1) space</p>
                   </div>
@@ -285,32 +285,32 @@ const Topic16 = () => {
               </div>
 
               {/* Edge Cases */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚠️ Edge Cases to Consider</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚠️ Edge Cases to Consider</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Duplicate largest values</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">If all largest values are same, second largest is next distinct value</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">If all largest values are same, second largest is next distinct value</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Array with 1 element</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">No second largest exists</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">No second largest exists</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">All elements equal</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">No second largest (all values same)</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">No second largest (all values same)</p>
                   </div>
                   <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
                     <span className="font-semibold text-yellow-800">Negative numbers</span>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">Works fine with proper initialization</p>
+                    <p className="text-sm text-slate-400 dark:text-gray-300 mt-1">Works fine with proper initialization</p>
                   </div>
                 </div>
               </div>
 
               {/* Tips & Tricks */}
               <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💡 Tips & Tricks</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💡 Tips & Tricks</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>• <strong>Initialize with MIN_VALUE:</strong> Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">Integer.MIN_VALUE</code> for proper negative handling</li>
                   <li>• <strong>Handle duplicates carefully:</strong> Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">current != first</code> check</li>
                   <li>• <strong>Return sentinel:</strong> If no second largest exists, return <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">Integer.MIN_VALUE</code> or throw exception</li>
@@ -325,20 +325,20 @@ const Topic16 = () => {
 
           {activeSection === 'visual' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">👁️ Visual Walkthrough</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">👁️ Visual Walkthrough</h2>
                 <SecondLargestVisualSVG />
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                <p className="text-center text-sm text-slate-400 mt-4">
                   Watch how first and second place change as we find larger values
                 </p>
               </div>
 
               {/* Dry Run Table */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📝 Dry Run Example</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📝 Dry Run Example</h2>
                 <div className="overflow-x-auto">
                   <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-700/50">
+                    <thead className="bg-slate-950/60 dark:bg-gray-700/50">
                       <tr>
                         <th className="px-3 py-2 text-left text-sm font-semibold">Step</th>
                         <th className="px-3 py-2 text-left text-sm font-semibold">i</th>
@@ -380,8 +380,8 @@ const Topic16 = () => {
 
           {activeSection === 'code' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">💻 Code Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">💻 Code Examples</h2>
                 <div className="space-y-6">
                   <JavaFileLoader 
                     fileModule={secondLargestBasic}
@@ -416,8 +416,8 @@ const Topic16 = () => {
           {activeSection === 'practice' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Common Pitfalls */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚠️ Common Pitfalls</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚠️ Common Pitfalls</h2>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
                     <span className="text-red-600 text-xl">❌</span>
@@ -444,9 +444,9 @@ const Topic16 = () => {
               </div>
 
               {/* Best Practices */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">✅ Best Practices</h2>
-                <ul className="space-y-2 text-gray-600 dark:text-gray-300 list-disc list-inside">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">✅ Best Practices</h2>
+                <ul className="space-y-2 text-slate-400 dark:text-gray-300 list-disc list-inside">
                   <li>Use <code className="bg-gray-200 px-1 rounded">Integer.MIN_VALUE</code> for initialization</li>
                   <li>Add duplicate check: <code className="bg-gray-200 px-1 rounded">current != first</code></li>
                   <li>Return sentinel or throw exception if second largest doesn't exist</li>
@@ -457,8 +457,8 @@ const Topic16 = () => {
 
               {/* Hint Section */}
               <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💭 Think About...</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💭 Think About...</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>🤔 How would you find the third largest element?</li>
                   <li>🤔 Can you find second largest without using MIN_VALUE initialization?</li>
                   <li>🤔 How would you handle an array with all identical values?</li>
@@ -467,15 +467,15 @@ const Topic16 = () => {
               </div>
 
               {/* Q&A Section */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🎯 Questions & Answers</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🎯 Questions & Answers</h2>
                 <div className="space-y-4">
                   {qaData.map((qa, idx) => (
-                    <details key={idx} className="group border border-gray-200 dark:border-gray-700 rounded-lg">
-                      <summary className="cursor-pointer p-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300">
+                    <details key={idx} className="group border border-slate-800 rounded-lg">
+                      <summary className="cursor-pointer p-4 font-medium text-slate-200 hover:bg-slate-950/60 dark:hover:bg-gray-700/50 transition-all duration-300">
                         {qa.question}
                       </summary>
-                      <div className="p-4 pt-0 text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700">
+                      <div className="p-4 pt-0 text-slate-400 dark:text-gray-300 border-t border-slate-800">
                         {qa.answer}
                       </div>
                     </details>

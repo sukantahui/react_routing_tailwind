@@ -1,0 +1,21 @@
+================================================================================
+CODER & ACCOTAX - ICSE CLASS X JAVA TUTORIAL
+MODULE 003_001: Two Dimensional Array Concepts
+TOPIC 3: Primary and Secondary Diagonal Elements
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- 2D arrays are declared as type[][] arrayName = new type[rows][cols];
+- Outer loop (i) iterates over rows: 0 to rows - 1.
+- Inner loop (j) iterates over columns: 0 to cols - 1.
+- Primary Diagonal: i == j (for square matrix).
+- Secondary Diagonal: i + j == N - 1 (for square matrix).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Outer loop for rows, inner loop for columns
+[✓] Correct 2D index bounds [i][j]
+[✓] Variable description table documentation for Section B
+================================================================================

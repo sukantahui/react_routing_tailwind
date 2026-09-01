@@ -152,20 +152,20 @@ const Topic9 = () => {
   const [activeSection, setActiveSection] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-slate-900">
       <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8 text-center animate-[fadeInUp_0.6s_ease-out]">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent mb-4">
             Binary Search in Sorted Arrays
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg text-slate-400 dark:text-gray-300 leading-relaxed">
             Divide and conquer search algorithm - O(log n) time complexity
           </p>
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex flex-wrap gap-2 mb-8 border-b border-slate-800">
           {['theory', 'visual', 'code', 'practice'].map((tab) => (
             <button
               key={tab}
@@ -174,7 +174,7 @@ const Topic9 = () => {
                 "px-4 py-2 text-sm font-medium rounded-t-lg transition-all duration-300",
                 activeSection === tab
                   ? "bg-purple-50 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 border-b-2 border-purple-600"
-                  : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                  : "text-slate-400 hover:text-slate-300 dark:hover:text-gray-300 hover:bg-slate-950 border border-slate-800 text-amber-300 dark:hover:bg-gray-800"
               )}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -187,13 +187,13 @@ const Topic9 = () => {
           {activeSection === 'theory' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Concept Card */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 flex items-center">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4 flex items-center">
                   <span className="bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm font-bold">1</span>
                   What is Binary Search?
                 </h2>
                 <div className="prose dark:prose-invert max-w-none">
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                  <p className="text-slate-400 dark:text-gray-300 leading-relaxed mb-4">
                     Binary search is an <strong className="text-purple-600 dark:text-purple-400">efficient searching algorithm</strong> that works on <strong className="text-purple-600 dark:text-purple-400">sorted arrays</strong> by repeatedly dividing the search interval in half. It compares the target value with the middle element and eliminates half of the remaining elements in each step.
                   </p>
                   <div className="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-lg mb-4">
@@ -208,10 +208,10 @@ const Topic9 = () => {
               </div>
 
               {/* How It Works */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚙️ How Binary Search Works</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚙️ How Binary Search Works</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3 text-gray-600 dark:text-gray-300">
+                  <div className="space-y-3 text-slate-400 dark:text-gray-300">
                     <p>1️⃣ <strong>Initialize</strong> low = 0, high = arr.length - 1</p>
                     <p>2️⃣ <strong>Calculate mid</strong> = (low + high) / 2</p>
                     <p>3️⃣ <strong>Compare</strong> arr[mid] with target</p>
@@ -222,9 +222,9 @@ const Topic9 = () => {
                     <p>8️⃣ <strong>Return -1</strong> if not found</p>
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">Analogy</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding a page in a book:</p>
-                    <ul className="text-sm text-gray-600 dark:text-gray-300 mt-2 list-disc list-inside">
+                    <h3 className="font-semibold text-slate-200 mb-2">Analogy</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding a page in a book:</p>
+                    <ul className="text-sm text-slate-400 dark:text-gray-300 mt-2 list-disc list-inside">
                       <li>Open to middle page</li>
                       <li>If target page is earlier → go left half</li>
                       <li>If later → go right half</li>
@@ -235,50 +235,50 @@ const Topic9 = () => {
               </div>
 
               {/* Real World Examples */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🌍 Real-World Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🌍 Real-World Examples</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">📞 Phone Directory</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding "Sukanta Hui" in alphabetical directory - open middle, compare, eliminate half!</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">📞 Phone Directory</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding "Sukanta Hui" in alphabetical directory - open middle, compare, eliminate half!</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🎮 Number Guessing Game</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Guess number between 1-100 - each guess cuts possibilities in half!</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🎮 Number Guessing Game</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Guess number between 1-100 - each guess cuts possibilities in half!</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">📚 Dictionary Lookup</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding "Binary Search" in dictionary - alphabetical order enables binary search!</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">📚 Dictionary Lookup</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding "Binary Search" in dictionary - alphabetical order enables binary search!</p>
                   </div>
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
-                    <h3 className="font-semibold text-gray-800 dark:text-gray-200 mb-2">🗺️ Map Navigation</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Finding Barrackpore on sorted list of West Bengal cities!</p>
+                  <div className="bg-slate-950/60 dark:bg-gray-700/50 p-4 rounded-lg group hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all duration-300">
+                    <h3 className="font-semibold text-slate-200 mb-2">🗺️ Map Navigation</h3>
+                    <p className="text-sm text-slate-400 dark:text-gray-300">Finding Barrackpore on sorted list of West Bengal cities!</p>
                   </div>
                 </div>
               </div>
 
               {/* Complexity Analysis */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📊 Complexity Analysis</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📊 Complexity Analysis</h2>
                 <ComplexityComparisonSVG />
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
                   <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Best Case</p>
+                    <p className="text-xs text-slate-400">Best Case</p>
                     <p className="text-xl font-bold text-green-600">O(1)</p>
                     <p className="text-xs">Middle element</p>
                   </div>
                   <div className="text-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Average Case</p>
+                    <p className="text-xs text-slate-400">Average Case</p>
                     <p className="text-xl font-bold text-yellow-600">O(log n)</p>
                     <p className="text-xs">Logarithmic</p>
                   </div>
                   <div className="text-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Worst Case</p>
+                    <p className="text-xs text-slate-400">Worst Case</p>
                     <p className="text-xl font-bold text-red-600">O(log n)</p>
                     <p className="text-xs">Not found</p>
                   </div>
                   <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                    <p className="text-xs text-gray-500">Space (Iterative)</p>
+                    <p className="text-xs text-slate-400">Space (Iterative)</p>
                     <p className="text-xl font-bold text-blue-600">O(1)</p>
                     <p className="text-xs">Constant</p>
                   </div>
@@ -287,8 +287,8 @@ const Topic9 = () => {
 
               {/* Tips & Tricks */}
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💡 Tips & Tricks</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💡 Tips & Tricks</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>• <strong>Avoid overflow:</strong> Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">mid = low + (high - low) / 2</code> instead of <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">(low + high)/2</code></li>
                   <li>• <strong>Sorted requirement:</strong> Always verify array is sorted before binary search</li>
                   <li>• <strong>Built-in method:</strong> Java provides <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">Arrays.binarySearch()</code></li>
@@ -302,25 +302,25 @@ const Topic9 = () => {
 
           {activeSection === 'visual' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">👁️ Visual Walkthrough</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">👁️ Visual Walkthrough</h2>
                 <BinarySearchVisualSVG />
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🌲 Decision Tree Representation</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🌲 Decision Tree Representation</h2>
                 <BinarySearchTreeSVG />
-                <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                <p className="text-center text-sm text-slate-400 mt-4">
                   Each node represents a comparison, reducing search space by half
                 </p>
               </div>
 
               {/* Step-by-step trace */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">📝 Dry Run Example</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">📝 Dry Run Example</h2>
                 <div className="overflow-x-auto">
                   <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                    <thead className="bg-gray-50 dark:bg-gray-700/50">
+                    <thead className="bg-slate-950/60 dark:bg-gray-700/50">
                       <tr>
                         <th className="px-3 py-2 text-left text-sm font-semibold">Step</th>
                         <th className="px-3 py-2 text-left text-sm font-semibold">low</th>
@@ -359,8 +359,8 @@ const Topic9 = () => {
 
           {activeSection === 'code' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">💻 Code Examples</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">💻 Code Examples</h2>
                 <div className="space-y-6">
                   <JavaFileLoader 
                     fileModule={binarySearchBasic}
@@ -395,8 +395,8 @@ const Topic9 = () => {
           {activeSection === 'practice' && (
             <div className="space-y-6 animate-[fadeInUp_0.4s_ease-out]">
               {/* Common Pitfalls */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">⚠️ Common Pitfalls</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">⚠️ Common Pitfalls</h2>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
                     <span className="text-red-600 text-xl">❌</span>
@@ -423,9 +423,9 @@ const Topic9 = () => {
               </div>
 
               {/* Best Practices */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">✅ Best Practices</h2>
-                <ul className="space-y-2 text-gray-600 dark:text-gray-300 list-disc list-inside">
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">✅ Best Practices</h2>
+                <ul className="space-y-2 text-slate-400 dark:text-gray-300 list-disc list-inside">
                   <li>Always verify array is sorted before binary search</li>
                   <li>Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">low + (high - low) / 2</code> for mid calculation</li>
                   <li>Use <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">while (low &lt;= high)</code> for proper bounds</li>
@@ -436,8 +436,8 @@ const Topic9 = () => {
 
               {/* Hint Section */}
               <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-3">💭 Think About...</h3>
-                <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <h3 className="text-xl font-semibold text-white mb-3">💭 Think About...</h3>
+                <ul className="space-y-2 text-slate-300">
                   <li>🤔 What happens if array has duplicate elements? Which index is returned?</li>
                   <li>🤔 How would you find the FIRST occurrence of target with duplicates?</li>
                   <li>🤔 Why is binary search not efficient for linked lists?</li>
@@ -446,15 +446,15 @@ const Topic9 = () => {
               </div>
 
               {/* Q&A Section */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">🎯 Questions & Answers</h2>
+              <div className="bg-slate-800/40 border border-slate-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">🎯 Questions & Answers</h2>
                 <div className="space-y-4">
                   {qaData.map((qa, idx) => (
-                    <details key={idx} className="group border border-gray-200 dark:border-gray-700 rounded-lg">
-                      <summary className="cursor-pointer p-4 font-medium text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-300">
+                    <details key={idx} className="group border border-slate-800 rounded-lg">
+                      <summary className="cursor-pointer p-4 font-medium text-slate-200 hover:bg-slate-950/60 dark:hover:bg-gray-700/50 transition-all duration-300">
                         {qa.question}
                       </summary>
-                      <div className="p-4 pt-0 text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700">
+                      <div className="p-4 pt-0 text-slate-400 dark:text-gray-300 border-t border-slate-800">
                         {qa.answer}
                       </div>
                     </details>

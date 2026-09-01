@@ -1,0 +1,93 @@
+{
+  "paperId": "JAVA-1DARRAY-STRING-01",
+  "title": "Java Practice Paper: 1D Arrays & String Handling",
+  "duration": "1.5 Hours",
+  "totalMarks": 35,
+  "prerequisites": "Knowledge of basic Java syntax, loops (for, while), conditionals (if-else, switch), and the main() method.",
+  "instructions": [
+    "All questions are compulsory.",
+    "Write Java code where asked. Assume proper class and main method unless specified otherwise.",
+    "Use meaningful variable names and proper code indentation.",
+    "Marks are indicated against each question."
+  ],
+  "sections": [
+    {
+      "section": "A",
+      "type": "Theory & Short Answer",
+      "marksPerQuestion": 2,
+      "totalQuestions": 5,
+      "description": "Answer concisely (2–3 lines).",
+      "questions": [
+        {
+          "q": "What is the difference between the `length` variable of an array and the `length()` method of a String?",
+          "marks": 2,
+          "answer": "`length` is a final variable applicable to arrays that gives the total number of elements in the array. `length()` is a method applicable to String objects that returns the number of characters in the string. For example: `int size = arr.length;` vs `int len = str.length();`.",
+          "hint": "Remember: arrays have a property, Strings have a method."
+        },
+        {
+          "q": "State the output of the following code snippet:\n```java\nString s1 = \"ICSE\";\nString s2 = \"icse\";\nSystem.out.println(s1.equals(s2));\nSystem.out.println(s1.equalsIgnoreCase(s2));\n```",
+          "marks": 2,
+          "answer": "Output:\n`false`\n`true`\nReason: `equals()` method is case-sensitive, so 'ICSE' and 'icse' are not equal. `equalsIgnoreCase()` ignores case differences, so they are considered equal.",
+          "hint": "Check the case-sensitivity of each method."
+        },
+        {
+          "q": "Consider a 1D array `int[] x = {15, 10, 5, 25, 20};`. After one complete pass of the **Bubble Sort** algorithm (sorting in ascending order), what will be the state of the array? Show your steps.",
+          "marks": 2,
+          "answer": "After one pass of Bubble Sort, the largest element (25) 'bubbles up' to the last position. The array becomes:\n`{10, 5, 15, 20, 25}`.\n\nSteps:\nCompare 15 & 10 → swap → {10, 15, 5, 25, 20}\nCompare 15 & 5 → swap → {10, 5, 15, 25, 20}\nCompare 15 & 25 → no swap\nCompare 25 & 20 → swap → {10, 5, 15, 20, 25}",
+          "hint": "Perform adjacent comparisons and swaps."
+        },
+        {
+          "q": "Why are String objects considered immutable in Java? Explain with a small code example.",
+          "marks": 2,
+          "answer": "String objects are immutable, meaning their values cannot be changed after they are created. Any operation that appears to modify a String, like concatenation, actually creates a new String object.\n```java\nString name = \"Ram\";\nname.concat(\" Kumar\"); // returns a new String but 'name' still refers to \"Ram\"\n```",
+          "hint": "Think about what happens when you try to change a String."
+        },
+        {
+          "q": "You are writing a search function and know your data is sorted. Why would you choose Binary Search over Linear Search? (Explain in terms of steps and efficiency.)",
+          "marks": 2,
+          "answer": "Binary Search is far more efficient for large, sorted datasets. For an array of size n, Binary Search has a time complexity of O(log₂n), while Linear Search has O(n). For example, in an array of 1,000 elements, Binary Search takes at most 10 comparisons, whereas Linear Search might take up to 1,000.",
+          "hint": "Compare how quickly each algorithm narrows down the search."
+        }
+      ]
+    },
+    {
+      "section": "B",
+      "type": "Programming Problems",
+      "marksPerQuestion": 5,
+      "totalQuestions": 5,
+      "description": "Write complete Java programs. Include necessary imports and class definition.",
+      "questions": [
+        {
+          "q": "Write a Java program that takes a 1D integer array as input from the user, calculates, and displays the sum of all elements at **odd indices** of the array (e.g., indices 1, 3, 5...).",
+          "marks": 5,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class SumOddIndices {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter the size of the array: \");\n        int n = sc.nextInt();\n        int[] arr = new int[n];\n        int sum = 0;\n        \n        System.out.println(\"Enter \" + n + \" integers:\");\n        for (int i = 0; i < n; i++) {\n            arr[i] = sc.nextInt();\n            if (i % 2 != 0) {  // Check for odd index\n                sum += arr[i];\n            }\n        }\n        \n        System.out.println(\"Sum of elements at odd indices: \" + sum);\n        sc.close();\n    }\n}\n```",
+          "hint": "Loop through the array and use a conditional to check for odd indices (i % 2 != 0)."
+        },
+        {
+          "q": "Write a program to input a string from the user and print the **new string** after removing all the vowels from it. Example: Input: `\"PROGRAMMING\"` → Output: `\"PRGRMMNG\"`.",
+          "marks": 5,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class RemoveVowels {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a string: \");\n        String str = sc.nextLine();\n        String result = \"\";\n        \n        for (int i = 0; i < str.length(); i++) {\n            char ch = str.charAt(i);\n            // Check if the character is a vowel (both cases)\n            if (ch != 'A' && ch != 'E' && ch != 'I' && ch != 'O' && ch != 'U' &&\n                ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u') {\n                result += ch;\n            }\n        }\n        \n        System.out.println(\"String after removing vowels: \" + result);\n        sc.close();\n    }\n}\n```",
+          "hint": "Loop through each character, check if it's a vowel, and concatenate non-vowels to a new String."
+        },
+        {
+          "q": "Write a Java program to perform **Binary Search** on a sorted integer array. Your program should prompt the user for the target value and display its position (index + 1) if found, otherwise display a \"not found\" message.",
+          "marks": 5,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class BinarySearchDemo {\n    public static void main(String[] args) {\n        // Consider the array is already sorted\n        int[] arr = {11, 25, 32, 47, 54, 68, 79, 85, 93};\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter the element to search: \");\n        int key = sc.nextInt();\n        \n        int left = 0, right = arr.length - 1;\n        int position = -1;\n        \n        while (left <= right) {\n            int mid = left + (right - left) / 2; // avoid overflow\n            if (arr[mid] == key) {\n                position = mid + 1; // +1 for human-readable position\n                break;\n            } else if (arr[mid] < key) {\n                left = mid + 1;\n            } else {\n                right = mid - 1;\n            }\n        }\n        \n        if (position != -1)\n            System.out.println(\"Element found at position: \" + position);\n        else\n            System.out.println(\"Element not found.\");\n        \n        sc.close();\n    }\n}\n```",
+          "hint": "The array must be sorted. Maintain `left` and `right` pointers, calculate `mid`, and adjust your search range accordingly."
+        },
+        {
+          "q": "Write a program that accepts a sentence (a `String`) from the user and prints a new string where the first character of every word is in uppercase and the rest are in lowercase. Example: Input: `\"tHe sKY iS bLUe\"` → Output: `\"The Sky Is Blue\"`.",
+          "marks": 5,
+          "answer": "```java\nimport java.util.Scanner;\n\npublic class CapitalizeWords {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        System.out.print(\"Enter a sentence: \");\n        String sentence = sc.nextLine();\n        String result = \"\";\n        \n        // Split the sentence into words based on spaces\n        String[] words = sentence.split(\" \");\n        \n        for (String word : words) {\n            if (word.length() > 0) {\n                String firstLetter = word.substring(0, 1).toUpperCase();\n                String restLetters = word.substring(1).toLowerCase();\n                result += firstLetter + restLetters + \" \";\n            }\n        }\n        \n        // Remove the trailing space\n        result = result.trim();\n        System.out.println(\"Formatted sentence: \" + result);\n        sc.close();\n    }\n}\n```",
+          "hint": "Use `split(\" \")` to break the sentence into words. Manipulate each word using `toUpperCase()` and `toLowerCase()`, then reassemble."
+        },
+        {
+          "q": "**Witty Question:** Consider the following code that is intended to find the largest element in an array but has a subtle error. Find the error, explain why it occurs, and provide the corrected code.\n```java\nint[] nums = {10, 42, 18, 75, 33};\nint max = 0;\nfor (int i = 1; i <= nums.length; i++) {\n    if (nums[i] > max) {\n        max = nums[i];\n    }\n}\nSystem.out.println(\"Largest number is \" + max);\n```",
+          "marks": 5,
+          "answer": "**Error 1: Off-by-one in loop condition.** `i <= nums.length` will cause an `ArrayIndexOutOfBoundsException` because the last valid index is `nums.length - 1`. **Error 2: Incorrect initial value for max.** Setting `max` to 0 will fail if all array elements are negative, as 0 would be incorrectly reported as the largest.\n\n**Corrected Code:**\n```java\nint[] nums = {10, 42, 18, 75, 33};\nint max = nums[0]; // Assume first element is the largest initially\nfor (int i = 1; i < nums.length; i++) { // Use '<' to stay within bounds\n    if (nums[i] > max) {\n        max = nums[i];\n    }\n}\nSystem.out.println(\"Largest number is \" + max);\n```",
+          "hint": "Check your loop's boundary condition and think about what value you should initialize the maximum variable with."
+        }
+      ]
+    }
+  ]
+}
