@@ -197,6 +197,39 @@
           "preReading": ["Function call concepts"],
           "badge": "Modular C Engineer Badge",
           "previousModule": "001_003_control-flow-branching-and-loops",
+          "nextModule": "001_005_c-pattern-output-practice-lab"
+        },
+        {
+          "moduleId": "c-pattern-output-practice-lab",
+          "slug": "001_005_c-pattern-output-practice-lab",
+          "title": "C Pattern & Output Practice Lab",
+          "level": "Beginner",
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "estimatedHours": 6,
+          "summary": "Master nested loops, coordinate geometry, C tokens, data types, operator precedence, bitwise logic, and evaluation rules with 60 hands-on C output practice questions.",
+          "tags": ["patterns", "output-practice", "nested-loops", "operators", "bitwise", "tokens", "precedence"],
+          "topics": [
+            "C Pattern Output Practice Lab: 20 Symmetrical, Pyramid, Number & Character Patterns",
+            "C Tokens, Data Types & Operators Output Practice Lab: 40 Tricky Questions & Explanations"
+          ],
+          "learningOutcomes": [
+            "Trace nested loop execution for 2D spatial coordinate mapping",
+            "Calculate leading spaces, odd star series, and boundary constraints",
+            "Predict and verify complex terminal ASCII pattern outputs"
+          ],
+          "prerequisites": ["001_003_control-flow-branching-and-loops"],
+          "miniProjects": ["20 Interactive C Pattern Output Practice Lab Questions"],
+          "exercises": { "mcq": 20, "coding": 20, "projects": 1 },
+          "assessment": { "type": "Pattern Logic & Output Verification", "passScore": 80 },
+          "useCases": ["Competitive programming", "Technical interview pattern questions"],
+          "careerSkills": ["Loop tracing", "Spatial algorithmic mapping"],
+          "commonMistakes": ["Off-by-one errors in leading space loops", "Missing newline printf(\\n) after inner loop"],
+          "references": ["C Programming: A Modern Approach by K. N. King"],
+          "teachingTips": ["Show row (i) vs column (j) coordinate tables on whiteboard."],
+          "preReading": ["Nested loops in C"],
+          "badge": "Pattern Master Badge",
+          "previousModule": "001_004_functions-and-modular-programming",
           "nextModule": "002_005_arrays-and-matrix-manipulation"
         }
       ]
@@ -214,7 +247,7 @@
           "title": "Arrays, Matrix Operations & Searching/Sorting",
           "level": "Intermediate",
           "difficulty": "Medium",
-          "difficultyIndex": 5,
+          "difficultyIndex": 6,
           "estimatedHours": 8,
           "summary": "Deep dive into 1D, 2D (matrix), and multi-dimensional arrays in contiguous memory, array indexing, Linear Search, Binary Search, Bubble Sort, Selection Sort, Insertion Sort, and matrix algebra.",
           "tags": ["arrays", "matrix", "searching", "sorting", "bubble-sort", "binary-search", "2d-arrays"],
@@ -231,7 +264,7 @@
             "Implement fundamental search and sort algorithms from scratch",
             "Perform complex multi-dimensional matrix operations"
           ],
-          "prerequisites": ["001_004_functions-and-modular-programming"],
+          "prerequisites": ["001_005_c-pattern-output-practice-lab"],
           "miniProjects": ["Matrix Transpose & Multiplication Suite", "Class Marksheet & Statistical Ranker"],
           "exercises": { "mcq": 25, "coding": 10, "projects": 1 },
           "assessment": { "type": "Array & Sorting Practical Exam", "passScore": 80 },

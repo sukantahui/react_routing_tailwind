@@ -1,0 +1,340 @@
+{
+  "topic": "C Tokens, Data Types & Operators Output Practice Lab",
+  "subject": "C Programming Language",
+  "class": "All Levels (BCA / B.Tech / ICSE / WBCHSE / Diploma)",
+  "board": "University, GATE & Technical Interview Standard",
+  "subjectLogo": {
+    "name": "C",
+    "icon": "c",
+    "type": "svg",
+    "path": "/logos/c.svg",
+    "alt": "C Language Logo"
+  },
+  "institute": {
+    "author": "Sukanta Hui",
+    "name": "Coder & AccoTax",
+    "location": "Barrackpore & Shyamnagar"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the console output of this prefix vs postfix increment sequence?",
+      "difficulty": "Beginner",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 5;\n    int b = a++;\n    int c = ++a;\n    printf(\"a = %d, b = %d, c = %d\\n\", a, b, c);\n    return 0;\n}",
+      "output": "a = 7, b = 5, c = 7",
+      "explanation": "1. `b = a++` assigns the current value of a (5) to b, then increments a to 6.\n2. `c = ++a` increments a first (from 6 to 7), then assigns 7 to c.\n3. Final values: a = 7, b = 5, c = 7."
+    },
+    {
+      "id": 2,
+      "question": "Predict the output of integer division versus floating-point division below:",
+      "difficulty": "Beginner",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 7 / 2;\n    double y = 7 / 2;\n    double z = 7.0 / 2;\n    printf(\"x = %d, y = %.1f, z = %.1f\\n\", x, y, z);\n    return 0;\n}",
+      "output": "x = 3, y = 3.0, z = 3.5",
+      "explanation": "1. `7 / 2` performs integer division resulting in integer 3.\n2. In `double y = 7 / 2`, the integer 3 is converted to double 3.0.\n3. In `7.0 / 2`, floating-point division occurs, producing 3.5."
+    },
+    {
+      "id": 3,
+      "question": "Determine the output of the modulo operator (%) with negative operands in C99:",
+      "difficulty": "Beginner",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = -13 % 5;\n    int b = 13 % -5;\n    int c = -13 % -5;\n    printf(\"%d %d %d\\n\", a, b, c);\n    return 0;\n}",
+      "output": "-3 3 -3",
+      "explanation": "In ANSI C / C99, the sign of the remainder in `a % b` always matches the sign of the numerator (dividend `a`), regardless of the sign of `b`."
+    },
+    {
+      "id": 4,
+      "question": "What will be printed when performing arithmetic on character variables?",
+      "difficulty": "Beginner",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    char ch = 'A' + 3;\n    int diff = 'f' - 'a';\n    printf(\"ch = %c, diff = %d\\n\", ch, diff);\n    return 0;\n}",
+      "output": "ch = D, diff = 5",
+      "explanation": "1. ASCII of 'A' is 65; 65 + 3 = 68, which is the ASCII code for 'D'.\n2. 'f' (102) - 'a' (97) = 5."
+    },
+    {
+      "id": 5,
+      "question": "Predict the result of implicit type promotion during arithmetic evaluation:",
+      "difficulty": "Beginner",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int i = 5;\n    float f = 2.5f;\n    double res = i * f + 1.5;\n    printf(\"res = %.2f\\n\", res);\n    return 0;\n}",
+      "output": "res = 14.00",
+      "explanation": "`i * f` promotes `i` to float (5.0 * 2.5 = 12.5), then `+ 1.5` promotes float to double (12.5 + 1.5 = 14.00)."
+    },
+    {
+      "id": 6,
+      "question": "Trace the short-circuit evaluation behavior of logical AND (&&):",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 0, b = 5;\n    if (a && ++b) {\n        printf(\"Branch TRUE\\n\");\n    }\n    printf(\"a = %d, b = %d\\n\", a, b);\n    return 0;\n}",
+      "output": "a = 0, b = 5",
+      "explanation": "Because `a` is 0 (false), logical AND short-circuits immediately. The right-hand expression `++b` is NEVER evaluated, leaving `b = 5`."
+    },
+    {
+      "id": 7,
+      "question": "Trace the short-circuit evaluation behavior of logical OR (||):",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 1, b = 5;\n    if (a || ++b) {\n        printf(\"Branch TRUE | \");\n    }\n    printf(\"a = %d, b = %d\\n\", a, b);\n    return 0;\n}",
+      "output": "Branch TRUE | a = 1, b = 5",
+      "explanation": "Because `a` is 1 (true), logical OR short-circuits immediately. The right-hand expression `++b` is skipped, so `b` remains 5."
+    },
+    {
+      "id": 8,
+      "question": "What is the output of bitwise AND (&), OR (|), and XOR (^) on 6 and 3?",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 6; /* Binary: 110 */\n    int y = 3; /* Binary: 011 */\n    printf(\"AND = %d, OR = %d, XOR = %d\\n\", x & y, x | y, x ^ y);\n    return 0;\n}",
+      "output": "AND = 2, OR = 7, XOR = 5",
+      "explanation": "1. 110 & 011 = 010 (2)\n2. 110 | 011 = 111 (7)\n3. 110 ^ 011 = 101 (5)"
+    },
+    {
+      "id": 9,
+      "question": "Predict the output of bitwise left shift (<<) and right shift (>>):",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 5;  /* 5 * 2^2 */\n    int b = 40; /* 40 / 2^3 */\n    printf(\"a << 2 = %d, b >> 3 = %d\\n\", a << 2, b >> 3);\n    return 0;\n}",
+      "output": "a << 2 = 20, b >> 3 = 5",
+      "explanation": "1. `a << 2` shifts bits left by 2 positions: 5 * 4 = 20.\n2. `b >> 3` shifts bits right by 3 positions: 40 / 8 = 5."
+    },
+    {
+      "id": 10,
+      "question": "What is the console output of the bitwise NOT (~) operator on 10?",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 10;\n    printf(\"~x = %d\\n\", ~x);\n    return 0;\n}",
+      "output": "~x = -11",
+      "explanation": "In Two's Complement representation, `~x = -(x + 1)`. Therefore `~10 = -(10 + 1) = -11`."
+    },
+    {
+      "id": 11,
+      "question": "Determine the output of this ternary conditional operator (? :) expression:",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 15, b = 25;\n    int res = (a > b) ? (a - b) : (b - a);\n    printf(\"Absolute Difference = %d\\n\", res);\n    return 0;\n}",
+      "output": "Absolute Difference = 10",
+      "explanation": "Condition `15 > 25` is false, so it evaluates the false branch `b - a` (25 - 15 = 10)."
+    },
+    {
+      "id": 12,
+      "question": "Trace the nested ternary conditional ladder below:",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int score = 82;\n    char grade = (score >= 90) ? 'A' : (score >= 80) ? 'B' : (score >= 70) ? 'C' : 'F';\n    printf(\"Grade = %c\\n\", grade);\n    return 0;\n}",
+      "output": "Grade = B",
+      "explanation": "Score is not >= 90, but is >= 80, so it evaluates to 'B' and halts further checks."
+    },
+    {
+      "id": 13,
+      "question": "What happens to the side-effect `++x` inside the `sizeof` operator?",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 10;\n    int s = sizeof(++x);\n    printf(\"s = %d, x = %d\\n\", s, x);\n    return 0;\n}",
+      "output": "s = 4, x = 10",
+      "explanation": "`sizeof` is a compile-time operator. Its operand is not evaluated at runtime, so `++x` never executes, leaving `x = 10`."
+    },
+    {
+      "id": 14,
+      "question": "Why is `sizeof('A')` in standard C equal to 4 rather than 1?",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    char ch = 'A';\n    printf(\"sizeof(ch) = %zu, sizeof('A') = %zu\\n\", sizeof(ch), sizeof('A'));\n    return 0;\n}",
+      "output": "sizeof(ch) = 1, sizeof('A') = 4",
+      "explanation": "In C, a character variable `char` has size 1, but a character literal `'A'` has type `int` (integer character constant), which is 4 bytes on 32/64-bit systems."
+    },
+    {
+      "id": 15,
+      "question": "What is the value of x when using the comma operator inside parentheses?",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = (10, 20, 30);\n    printf(\"x = %d\\n\", x);\n    return 0;\n}",
+      "output": "x = 30",
+      "explanation": "The comma operator evaluates expressions from left to right and yields the value of the rightmost operand (30)."
+    },
+    {
+      "id": 16,
+      "question": "Predict the sequence of outputs from this comma-separated print expression:",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = (printf(\"Coder \"), printf(\"AccoTax \"), 42);\n    printf(\"| Value = %d\\n\", a);\n    return 0;\n}",
+      "output": "Coder AccoTax | Value = 42",
+      "explanation": "The comma operator executes `printf(\"Coder \")`, then `printf(\"AccoTax \")`, and returns the final value 42 to `a`."
+    },
+    {
+      "id": 17,
+      "question": "What output is produced by the assignment expressions inside this if-else chain?",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 0;\n    if (x = 0) {\n        printf(\"Branch A\\n\");\n    } else if (x = 5) {\n        printf(\"Branch B: x = %d\\n\", x);\n    } else {\n        printf(\"Branch C\\n\");\n    }\n    return 0;\n}",
+      "output": "Branch B: x = 5",
+      "explanation": "1. `x = 0` assigns 0 and evaluates to 0 (false).\n2. `x = 5` assigns 5 and evaluates to 5 (true), triggering Branch B."
+    },
+    {
+      "id": 18,
+      "question": "Trace the right-to-left associativity of compound assignment operators below:",
+      "difficulty": "Moderate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 10, b = 4, c = 2;\n    a += b *= c += 3;\n    printf(\"a = %d, b = %d, c = %d\\n\", a, b, c);\n    return 0;\n}",
+      "output": "a = 30, b = 20, c = 5",
+      "explanation": "Evaluates right-to-left: 1. `c += 3` -> c = 5; 2. `b *= 5` -> b = 20; 3. `a += 20` -> a = 30."
+    },
+    {
+      "id": 19,
+      "question": "What happens when an unsigned integer underflows below zero?",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    unsigned int u = 0;\n    u--;\n    printf(\"u = %u\\n\", u);\n    return 0;\n}",
+      "output": "u = 4294967295",
+      "explanation": "Unsigned integers wrap around to their maximum value (`UINT_MAX = 2^32 - 1 = 4294967295` on 32/64-bit systems) upon underflow."
+    },
+    {
+      "id": 20,
+      "question": "Explain the unexpected output when comparing signed -1 with unsigned 1:",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = -1;\n    unsigned int b = 1;\n    if (a < b) {\n        printf(\"a is smaller\\n\");\n    } else {\n        printf(\"a is GREATER (Promotion Trap)\\n\");\n    }\n    return 0;\n}",
+      "output": "a is GREATER (Promotion Trap)",
+      "explanation": "In standard C Usual Arithmetic Conversions, `int a` (-1) is implicitly converted to `unsigned int`, becoming `4294967295`, which is greater than 1!"
+    },
+    {
+      "id": 21,
+      "question": "What is the decimal sum of octal numbers 012 and 025 in C?",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int oct1 = 012; /* Octal 12 */\n    int oct2 = 025; /* Octal 25 */\n    printf(\"Sum = %d\\n\", oct1 + oct2);\n    return 0;\n}",
+      "output": "Sum = 31",
+      "explanation": "Numbers starting with `0` are octal: `012` = 1*8 + 2 = 10; `025` = 2*8 + 5 = 21; 10 + 21 = 31 in decimal."
+    },
+    {
+      "id": 22,
+      "question": "Determine the output of hexadecimal constant formatting below:",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int hex = 0x2A;\n    printf(\"Decimal: %d | Hex: 0x%X\\n\", hex, hex);\n    return 0;\n}",
+      "output": "Decimal: 42 | Hex: 0x2A",
+      "explanation": "`0x2A` in decimal is 2*16 + 10 = 42. `%X` formats the number back in uppercase hexadecimal."
+    },
+    {
+      "id": 23,
+      "question": "Predict the output of the post-increment dereference operator `*p++`:",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {100, 200, 300};\n    int *p = arr;\n    int val = *p++;\n    printf(\"val = %d, *p = %d\\n\", val, *p);\n    return 0;\n}",
+      "output": "val = 100, *p = 200",
+      "explanation": "`*p++` returns the value at the current pointer (*p = 100) and then increments the pointer address to point to the next element (200)."
+    },
+    {
+      "id": 24,
+      "question": "What is the difference between `++*p` and `*++p` in the code below?",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {10, 20};\n    int *p = arr;\n    int val1 = ++*p; /* Increments value at p */\n    printf(\"val1 = %d, arr[0] = %d\\n\", val1, arr[0]);\n    return 0;\n}",
+      "output": "val1 = 11, arr[0] = 11",
+      "explanation": "`++*p` dereferences `p` and increments the value stored in memory from 10 to 11."
+    },
+    {
+      "id": 25,
+      "question": "Why does comparing a float `0.1f` with double literal `0.1` evaluate to false?",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    float f = 0.1f;\n    if (f == 0.1) {\n        printf(\"EQUAL\\n\");\n    } else {\n        printf(\"NOT EQUAL (Precision Difference)\\n\");\n    }\n    return 0;\n}",
+      "output": "NOT EQUAL (Precision Difference)",
+      "explanation": "0.1 cannot be represented exactly in binary floating-point. The 32-bit float and 64-bit double have different rounding approximations, so `(double)0.1f != 0.1`."
+    },
+    {
+      "id": 26,
+      "question": "Trace the carriage return `\\r` escape sequence behavior in console output:",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hello World\\rBye\\n\");\n    return 0;\n}",
+      "output": "Byelo World",
+      "explanation": "`\\r` (Carriage Return) moves the cursor to the beginning of the current line. 'Bye' overwrites the first 3 characters 'Hel', resulting in 'Byelo World'."
+    },
+    {
+      "id": 27,
+      "question": "How does bitwise AND with 1 (`n & 1`) detect odd and even numbers?",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int n1 = 28, n2 = 35;\n    printf(\"n1 is %s | n2 is %s\\n\", (n1 & 1) ? \"ODD\" : \"EVEN\", (n2 & 1) ? \"ODD\" : \"EVEN\");\n    return 0;\n}",
+      "output": "n1 is EVEN | n2 is ODD",
+      "explanation": "The least significant bit (LSB) of any odd binary number is 1 (`35 & 1 = 1`), and for even numbers is 0 (`28 & 1 = 0`)."
+    },
+    {
+      "id": 28,
+      "question": "Predict the output of the Brian Kernighan bitwise power of 2 test `(n & (n - 1))`:",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 16, b = 18;\n    printf(\"16 is power of 2: %s\\n\", (a && !(a & (a - 1))) ? \"YES\" : \"NO\");\n    printf(\"18 is power of 2: %s\\n\", (b && !(b & (b - 1))) ? \"YES\" : \"NO\");\n    return 0;\n}",
+      "output": "16 is power of 2: YES\n18 is power of 2: NO",
+      "explanation": "Powers of 2 have exactly one bit set (16 = 10000). `16 & 15` = `10000 & 01111 = 00000` (0)."
+    },
+    {
+      "id": 29,
+      "question": "What is the calculated value of `(x << 3) - x` for x = 7?",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 7;\n    int res = (x << 3) - x; /* x * 8 - x = x * 7 */\n    printf(\"res = %d\\n\", res);\n    return 0;\n}",
+      "output": "res = 49",
+      "explanation": "`x << 3` multiplies x by 8 (56). 56 - 7 = 49 (equivalent to 7 * 7)."
+    },
+    {
+      "id": 30,
+      "question": "Trace the three-step XOR in-place variable swap without temporary storage:",
+      "difficulty": "Intermediate",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 15, b = 27;\n    a ^= b;\n    b ^= a;\n    a ^= b;\n    printf(\"a = %d, b = %d\\n\", a, b);\n    return 0;\n}",
+      "output": "a = 27, b = 15",
+      "explanation": "Using properties of XOR (`x ^ x = 0` and `x ^ 0 = x`), the values of a and b are swapped in-place without any auxiliary memory."
+    },
+    {
+      "id": 31,
+      "question": "Predict the output of single NOT `!` vs double NOT `!!` on non-zero integers:",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 50;\n    printf(\"!x = %d, !!x = %d\\n\", !x, !!x);\n    return 0;\n}",
+      "output": "!x = 0, !!x = 1",
+      "explanation": "`!50` turns non-zero into 0. `!0` turns 0 into canonical boolean 1 (`!!x` normalizes any non-zero to 1)."
+    },
+    {
+      "id": 32,
+      "question": "What is the difference between bitwise NOT `~0` and logical NOT `!0`?",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    printf(\"~0 = %d, !0 = %d\\n\", ~0, !0);\n    return 0;\n}",
+      "output": "~0 = -1, !0 = 1",
+      "explanation": "1. `~0` inverts all 32 zero bits to 1s, which is Two's Complement -1.\n2. `!0` is logical negation, producing boolean 1."
+    },
+    {
+      "id": 33,
+      "question": "Explain why the relational expression `5 > 3 > 1` evaluates to 0 in C:",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int res = (5 > 3 > 1);\n    printf(\"Result = %d\\n\", res);\n    return 0;\n}",
+      "output": "Result = 0",
+      "explanation": "Relational operators associate left-to-right: `(5 > 3)` evaluates to 1 (true). Then `(1 > 1)` evaluates to 0 (false)!"
+    },
+    {
+      "id": 34,
+      "question": "What is the value of `x *= 2 + 3` when x is initially 5?",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 5;\n    x *= 2 + 3;\n    printf(\"x = %d\\n\", x);\n    return 0;\n}",
+      "output": "x = 25",
+      "explanation": "Compound assignment `x *= expr` is equivalent to `x = x * (expr)`. The addition `2 + 3` evaluates first to 5, so `x = 5 * 5 = 25`."
+    },
+    {
+      "id": 35,
+      "question": "Predict the output of pointer arithmetic with const data qualification:",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int vals[] = {10, 20, 30};\n    const int *ptr = vals;\n    ptr += 2;\n    printf(\"Value at ptr = %d\\n\", *ptr);\n    return 0;\n}",
+      "output": "Value at ptr = 30",
+      "explanation": "`const int *ptr` means the pointed data cannot be mutated through ptr, but the pointer variable itself can be moved (`ptr += 2` points to 30)."
+    },
+    {
+      "id": 36,
+      "question": "Explain the precedence trap between bitwise shift (<<) and addition (+):",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int x = 1 << 2 + 3;\n    printf(\"x = %d\\n\", x);\n    return 0;\n}",
+      "output": "x = 32",
+      "explanation": "In C operator precedence, arithmetic addition (`+`) has higher precedence than bitwise shift (`<<`). Therefore `2 + 3 = 5` evaluates first, resulting in `1 << 5 = 32`."
+    },
+    {
+      "id": 37,
+      "question": "How does XOR self-cancellation find the unique single number in an array?",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int arr[] = {4, 1, 2, 1, 2};\n    int n = sizeof(arr) / sizeof(arr[0]);\n    int unique = 0;\n    for (int i = 0; i < n; i++) {\n        unique ^= arr[i];\n    }\n    printf(\"Unique Number = %d\\n\", unique);\n    return 0;\n}",
+      "output": "Unique Number = 4",
+      "explanation": "Because `x ^ x = 0`, all duplicate pairs cancel each other out (1^1=0, 2^2=0), leaving only the unique element 4 (`0 ^ 4 = 4`)."
+    },
+    {
+      "id": 38,
+      "question": "What is the difference between `sizeof(\"A\")` and `sizeof('A')` in C?",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    printf(\"String literal size: %zu | Char literal size: %zu\\n\", sizeof(\"A\"), sizeof('A'));\n    return 0;\n}",
+      "output": "String literal size: 2 | Char literal size: 4",
+      "explanation": "1. `\"A\"` is a string array `{'A', '\\0'}` occupying 2 bytes.\n2. `'A'` is an integer character constant occupying `sizeof(int) = 4` bytes."
+    },
+    {
+      "id": 39,
+      "question": "What occurs when a signed 8-bit char exceeds 127 upon incrementing?",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    char c = 127;\n    c++;\n    printf(\"c = %d\\n\", c);\n    return 0;\n}",
+      "output": "c = -128",
+      "explanation": "Signed 8-bit `char` ranges from -128 to +127. Incrementing 127 overflows Two's Complement bits (01111111 + 1 = 10000000), wrapping around to -128."
+    },
+    {
+      "id": 40,
+      "question": "Trace the execution of multiple comma expressions in this loop header:",
+      "difficulty": "Advanced",
+      "code": "#include <stdio.h>\n\nint main(void) {\n    int sum = 0;\n    for (int i = 0, j = 5; i < j; i++, j--) {\n        sum += (i * j);\n    }\n    printf(\"Total Sum = %d\\n\", sum);\n    return 0;\n}",
+      "output": "Total Sum = 10",
+      "explanation": "1. Iteration 1: i=0, j=5 -> sum += 0*5 = 0; then i=1, j=4.\n2. Iteration 2: i=1, j=4 -> sum += 1*4 = 4; then i=2, j=3.\n3. Iteration 3: i=2, j=3 -> sum += 2*3 = 6 (sum becomes 10); then i=3, j=2.\n4. Loop terminates (3 < 2 is false). Final sum = 10."
+    }
+  ]
+}

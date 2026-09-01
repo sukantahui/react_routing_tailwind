@@ -1,0 +1,40 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_004: Functions & Modular Programming
+Topic 2: Variable Scope & Lifetime: Local/Block Scope vs Global/File Scope
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: What is the difference between Scope and Lifetime?
+A: - Scope    = "WHERE can you see and call the variable?" (Spatial region in code)
+   - Lifetime = "WHEN does the variable exist in physical RAM?" (Time duration)
+
+THE BEDROOM VS PUBLIC PARK ANALOGY:
+  - Local Scope  : Your personal private bedroom. Only you can enter; when you leave,
+                   it gets cleaned up automatically.
+  - Global Scope : A public city park in Barrackpore. Anyone from anywhere can enter,
+                   move the benches, or leave trash, affecting the whole town!
+
+2. SCOPE COMPARISON MATRIX:
+--------------------------------------------------------------------------------
+Scope Type        | Declared Where?            | Visibility / Accessibility
+------------------+----------------------------+--------------------------------
+Block / Local     | Inside { } braces          | Only inside declaring block
+Function          | Function parameter list    | Throughout that function body
+File / Global     | Outside all functions      | Across all functions in file
+Loop-Header (C99) | Inside for(int i=0; ...)   | Strictly inside that loop body
+
+3. VARIABLE SHADOWING (NAME MASKING):
+--------------------------------------------------------------------------------
+When an inner block declares a variable with the SAME name as an outer variable,
+the inner declaration temporarily "masks" or "shadows" the outer variable until
+the inner block terminates!
+
+4. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. Keep the scope of variables as NARROW and LOCAL as possible!
+2. Avoid mutable global variables; if you need a global constant, mark it 'const'!
+3. Always initialize local variables before reading; locals contain garbage!
+================================================================================

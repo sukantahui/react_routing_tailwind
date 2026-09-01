@@ -1,12 +1,38 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 001_004: Functions, Scope & Storage Classes
-TOPIC 1: Module 001_004 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_004: Functions & Modular Programming
+Topic 1: Parameter Passing: Call by Value vs Passing Pointers (Call by Reference)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. MODULE PROJECTS SUMMARY
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
 --------------------------------------------------------------------------------
-- Project 1: Mathematical Recursion Toolkit (Fibonacci, GCD, Tower of Hanoi)
-- Project 2: Modular Scientific Calculator Engine
+Q: Why doesn't swap(a, b) swap my variables in C?
+A: In C, standard parameters are passed BY VALUE.
+   - The function receives a separate duplicate copy on its own stack frame.
+   - Modifying the copy changes NOTHING in the caller's stack frame!
+
+THE PHOTOCOPY ANALOGY:
+  - Call by Value   : Giving a classmate a PHOTOCOPY of your notes. If they scribble
+                      on it, your original document remains pristine!
+  - Passing Pointers: Giving them the exact GPS COORDINATES to your house. Any changes
+                      made there alter the original physical location!
+
+2. COMPARISON: CALL BY VALUE VS PASSING POINTERS:
+--------------------------------------------------------------------------------
+Feature           | Call by Value            | Passing Pointers (Reference)
+------------------+--------------------------+----------------------------------
+Argument Passed   | Exact copy of data value | Memory address of variable (&var)
+Parameter Type    | Primitive type (int x)   | Pointer type (int *ptr)
+Caller Mutation?  | NO (Caller is isolated)  | YES (Can modify via *ptr)
+Memory Overhead   | Copies data bytes        | Only 8 bytes of address
+Multiple Outputs? | NO (Single return only)  | YES (Multiple out-parameters)
+
+3. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. To modify caller variables, ALWAYS pass the address using '&' at call site
+   and dereference using '*' inside the function!
+2. When passing large structures for read-only inspection, use 'const Struct *'
+   to avoid copying overhead while preventing accidental modifications!
+3. NEVER return the address of a local automatic stack variable!
 ================================================================================

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CProjectAnswerTemplateEnhanced from "../../../CProjectAnswerTemplateEnhanced";
-import projectsData from "./topic5_files/c-intro-compiler-projects.json";
+import projectsData from "./topic5_files/c-functions-modular-projects.json";
 
 export default function Topic5() {
   const [enhancedData, setEnhancedData] = useState(null);
 
   useEffect(() => {
-    // 1. Import all 10 .c answer files dynamically from topic5_files/answers/ as raw text
+    // 1. Import all 15 .c answer files dynamically from topic5_files/answers/ as raw text
     const modules = import.meta.glob("./topic5_files/answers/*.c", {
       query: "?raw",
       import: "default",
@@ -47,7 +47,7 @@ export default function Topic5() {
       <div className="p-8 text-slate-400 flex items-center justify-center min-h-[350px]">
         <div className="flex items-center gap-3">
           <div className="w-6 h-6 border-2 border-sky-400 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-sm font-semibold">Loading 10 C Getting Started &amp; Compiler Architecture Projects...</span>
+          <span className="text-sm font-semibold">Loading 15 Functions, Scope &amp; Recursion Capstone Projects...</span>
         </div>
       </div>
     );

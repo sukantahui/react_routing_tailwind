@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_004: Functions & Modular Programming
+Topic 4: Recursion: Base Condition, Call Stack Frames & Tail Calls
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: What is Recursion?
+A: A function that solves a big problem by calling itself to solve a smaller
+   subproblem, until reaching a trivial halting condition (The Base Case!).
+
+THE RUSSIAN MATRYOSHKA NESTING DOLL METAPHOR:
+  - You open a big doll -> find a smaller doll inside (Recursive call)
+  - You open that smaller doll -> find an even smaller doll inside...
+  - Finally, you hit the TINIEST SOLID DOLL -> The Base Case!
+  - Then you close each doll back up in reverse order -> The Unwinding Phase!
+
+2. THE 2 PHASES OF RECURSIVE EXECUTION:
+--------------------------------------------------------------------------------
+Phase 1: Winding (Call Stack Expansion)
+         - Each call pushes a new Stack Frame onto the CPU Call Stack.
+         - Calculations are postponed until the Base Case is reached.
+
+Phase 2: Unwinding (Call Stack Resolution)
+         - The base case returns a concrete value.
+         - Stack frames pop off one-by-one, computing deferred operations.
+
+3. TAIL RECURSION VS NON-TAIL RECURSION:
+--------------------------------------------------------------------------------
+- Non-Tail : return n * fact(n - 1);  // Pending multiplication after return!
+- Tail     : return factTail(n-1, n * acc); // Recursive call is absolute LAST step!
+             Compilers optimize tail calls into simple jump loops (O(1) stack space).
+
+4. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. ALWAYS write the Base Condition first! (No base case = Stack Overflow crash!)
+2. Ensure the recursive step strictly moves CLOSER to the base condition (e.g. n - 1)!
+3. Use recursion for Trees, Graphs, Sorting (Merge/Quick), and Backtracking!
+================================================================================

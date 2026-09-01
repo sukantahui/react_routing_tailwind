@@ -1,12 +1,10 @@
 import React from "react";
 import CFileLoader from "../../../../../common/CFileLoader";
-import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 import CProjectAnswerTemplate from "../../../CProjectAnswerTemplate";
 
 import cCode from "./topic6_files/Module2ProjectsDemo.c?raw";
-import questions from "./topic6_files/topic6_questions";
 import noteText from "./topic6_files/topic6_note.txt?raw";
 
 const projectData = {
@@ -145,7 +143,7 @@ int main(void) {
 
 export default function Topic6() {
   return (
-    <div className="space-y-12 bg-slate-900 text-slate-200 p-4 md:p-8 rounded-2xl border border-slate-800">
+    <div className="mt-4 pt-2 md:pt-4 space-y-12 bg-slate-900 text-slate-200 p-4 md:p-8 rounded-2xl border border-slate-800 shadow-xl">
       {/* 1. Header Section */}
       <header className="space-y-3 border-b border-slate-800 pb-6">
         <div className="flex flex-wrap items-center gap-2">
@@ -180,12 +178,7 @@ export default function Topic6() {
         <CProjectAnswerTemplate data={projectData} />
       </section>
 
-      {/* 4. Comprehensive FAQ Section */}
-      <section>
-        <FAQTemplate title="Module 001_002 Topic 6 FAQs: Projects & Lab Practice" questions={questions} />
-      </section>
-
-      {/* 5. Plain Text Printable Note Section */}
+      {/* 4. Plain Text Printable Note Section */}
       <section>
         <PlainTextPrint
           content={noteText}

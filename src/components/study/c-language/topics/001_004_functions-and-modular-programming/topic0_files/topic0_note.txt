@@ -1,13 +1,39 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 001_004: Functions, Scope & Storage Classes
-TOPIC 0: Modular Function Architecture & Storage Classes
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_004: Functions & Modular Programming
+Topic 0: Modular Design: Function Declarations (Prototypes), Definitions & Invocation
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. CORE CONCEPTS
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
 --------------------------------------------------------------------------------
-- Function Prototypes: Declarations placed before main().
-- Parameter Passing: Call by Value vs Passing Pointers (&var).
-- Storage Classes: auto (default local), register (CPU register request), static (persistent state), extern (global linkage across files).
+Q: Why do we need functions and prototypes in C?
+A: Imagine writing a 5,000-line book with NO chapters, NO headings, and everything
+   jammed onto one giant continuous page. It would be impossible to read or edit!
+   Functions are the "Chapters" of your software.
+
+THE 3-STEP FUNCTION LIFECYCLE:
+  1. Declaration (Prototype) : The Recipe Card (Tells compiler name, inputs, output)
+  2. Definition (Body)       : The Kitchen Cooking (The actual executable instructions)
+  3. Invocation (Call)       : Serving the Dish (Executing the subroutine when needed)
+
+2. SYNTAX ANATOMY OF A C FUNCTION:
+--------------------------------------------------------------------------------
+// 1. Prototype (Above main, ends with a semicolon):
+double calculateTax(double grossSalary, double taxRate);
+
+// 2. Invocation (Inside main):
+double finalTax = calculateTax(65000.0, 0.18);
+
+// 3. Definition (Below main):
+double calculateTax(double grossSalary, double taxRate) {
+    return grossSalary * taxRate;
+}
+
+3. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. Always write prototypes before main() to prevent implicit declaration bugs!
+2. Follow Single Responsibility Principle (SRP): 1 function = 1 specific job!
+3. If a function accepts no arguments, write (void) explicitly, not ()!
+4. Any code written after return in the same block is UNREACHABLE dead code!
 ================================================================================

@@ -1,0 +1,134 @@
+{
+  "projectCategory": "C Module 1.1: Getting Started with C & Compiler Architecture",
+  "subject": "C Programming Language (ANSI C / C99)",
+  "board": "University & Industrial Standards",
+  "class": "Computer Science Core / BCA / B.Tech / ICSE / Diploma",
+  "tools": ["GCC Compiler", "VS Code", "GDB Debugger", "Clang-Tidy"],
+  "institute": {
+    "author": "Sukanta Hui",
+    "name": "Coder & AccoTax",
+    "location": "Barrackpore & Shyamnagar"
+  },
+  "projects": [
+    {
+      "projectId": "INTRO_001",
+      "title": "Interactive CLI Student Academic Report Card & Merit Analyzer",
+      "difficulty": "Beginner",
+      "description": "Academic management software requires structured output generation, percentage evaluation, and merit badge classification. In this project, you will build an interactive Student Academic Report Card program in C. The application declares variables for student identification and multiple subject marks (Physics, Chemistry, Mathematics, Computer Science). It aggregates total marks scored, calculates overall percentage, and uses ternary operators to determine passing status and honors standing (Distinction vs Standard Merit).",
+      "learningOutcome": "Formatted Console I/O, Arithmetic Aggregation, Percentage Calculations & Ternary Invariant Status Badges",
+      "exampleText": "Student: Swadeep Sharma | Physics: 88.5, Chemistry: 92.0, Math: 95.5, CS: 98.0",
+      "exampleOutput": "===================================================================\n     BARRACKPORE ACADEMIC PERFORMANCE PORTAL - CODER & ACCOTAX\n===================================================================\n\nSTUDENT PROFILE:\n  • Student Name   : Swadeep Sharma\n  • Roll Number    : 1042\n-------------------------------------------------------------------\nSUBJECT SCORE SHEET:\n  Physics              :  88.50 / 100.00\n  Chemistry            :  92.00 / 100.00\n  Mathematics          :  95.50 / 100.00\n  Computer Science     :  98.00 / 100.00\n-------------------------------------------------------------------\nFINAL EVALUATION:\n  • Aggregate Score: 374.00 / 400.00\n  • Percentage     :  93.50 %\n  • Result Status  : PASSED (PROMOTED)\n  • Honors Standing: FIRST CLASS WITH DISTINCTION (HONORS)",
+      "logicExplanation": "1. **Aggregation**: `total = physics + chemistry + math + cs`.\n2. **Percentage**: `(total / 400.0f) * 100.0f` using floating-point literals.\n3. **Ternary Badge**: `(percentage >= 90.0f) ? 'DISTINCTION' : 'MERIT'`.",
+      "answerFile": "./answers/answer1.c",
+      "codeExplanation": "1. `printf` column alignments format subject marks.\n2. `%.2f` specifier rounds marks to two decimal places."
+    },
+    {
+      "projectId": "INTRO_002",
+      "title": "Multi-Unit Temperature Converter (Celsius, Fahrenheit, Kelvin, Rankine)",
+      "difficulty": "Beginner",
+      "description": "Scientific engineering software often processes thermodynamic sensor telemetry across international measurement units. In this project, you will construct a Multi-Unit Temperature Converter in C. Given a base temperature in Celsius, the engine calculates equivalent values in Fahrenheit (F = C * 9/5 + 32), Kelvin (K = C + 273.15), and Rankine (R = (C + 273.15) * 9/5). You will ensure all conversion constants use floating-point literals (9.0f / 5.0f) to prevent integer truncation bugs.",
+      "learningOutcome": "Scientific Mathematical Formulas, Floating-Point Precision & Constant Promotion",
+      "exampleText": "Base Celsius: 0.0 °C (Freezing), 37.0 °C (Body), 100.0 °C (Boiling)",
+      "exampleOutput": "Input Base:  37.00 °C\n  • Fahrenheit :    98.60 °F  [Formula: (C * 9/5) + 32]\n  • Kelvin     :   310.15 K   [Formula: C + 273.15]\n  • Rankine    :   558.27 °R  [Formula: (C + 273.15) * 9/5]",
+      "logicExplanation": "1. **Fahrenheit**: `(celsius * 9.0f / 5.0f) + 32.0f`.\n2. **Kelvin**: `celsius + 273.15f`.\n3. **Rankine**: `kelvin * 9.0f / 5.0f`.\n4. **Float Truncation Prevention**: Using `9.0f / 5.0f` avoids `9 / 5 = 1` integer division truncation.",
+      "answerFile": "./answers/answer2.c",
+      "codeExplanation": "1. `convertTemperature()`: Encapsulates thermodynamic conversion formulas.\n2. `%8.2f`: Aligns calculated outputs in clean columns."
+    },
+    {
+      "projectId": "INTRO_003",
+      "title": "Commercial Grocery Invoice & GST Billing Engine",
+      "difficulty": "Beginner",
+      "description": "Retail Point-of-Sale (POS) applications require precise monetary calculations, itemized line totals, and government goods and services tax (GST) breakdowns. In this project, you will develop a Commercial Grocery Invoice Generator in C. The application manages an array of grocery items, quantities, and unit rates. It computes subtotal amounts, applies 9% Central GST (CGST) and 9% State GST (SGST), and renders a professional receipt formatted with exact column alignments.",
+      "learningOutcome": "Commercial Invoice Generation, Financial Floating-Point Arithmetic & Column Alignment (%-15s %5d %12.2f)",
+      "exampleText": "Items: Basmati Rice, Refined Oil, Dairy Milk, Wheat Flour, Almonds",
+      "exampleOutput": "=======================================================================\n     CODER & ACCOTAX SUPERMART - BARRACKPORE INVOICE\n     GSTIN: 19ABCDE1234F1Z5 | Date: 02/09/2026\n=======================================================================\nSL   ITEM DESCRIPTION            QTY   RATE (INR) AMOUNT (INR)\n-----------------------------------------------------------------------\n1    Basmati Rice (5kg)            2       450.00       900.00\n2    Refined Oil (1L)              3       165.50       496.50\n3    Dairy Milk (500ml)            4        32.00       128.00\n4    Whole Wheat Flour             1       380.00       380.00\n5    Almonds (250g)                2       240.00       480.00\n-----------------------------------------------------------------------\nSUBTOTAL (Taxable Amount):                              2384.50\nCGST @ 9.00%:                                            214.61\nSGST @ 9.00%:                                            214.61\n=======================================================================\nFINAL INVOICE GRAND TOTAL (INR):                        2813.71\n=======================================================================",
+      "logicExplanation": "1. **Line Total**: `qty * rate`.\n2. **Subtotal**: Running sum of line totals.\n3. **Taxes**: `cgst = subtotal * 0.09`, `sgst = subtotal * 0.09`.\n4. **Grand Total**: `subtotal + cgst + sgst`.",
+      "answerFile": "./answers/answer3.c",
+      "codeExplanation": "1. `%-25s`: Left-aligns item descriptions.\n2. `%12.2f`: Right-aligns currency figures to two decimal places."
+    },
+    {
+      "projectId": "INTRO_004",
+      "title": "Circle, Cylinder & Sphere Geometric Measurements Calculator",
+      "difficulty": "Beginner",
+      "description": "CAD software and physics simulation engines calculate area, volume, and boundary parameters of geometric shapes. In this project, you will build a Geometric Mensuration Calculator in C. Using preprocessor macro definitions (#define PI 3.141592653589793), the program takes radius and height dimensions to compute the circumference and area of a 2D circle, surface area and volume of a 3D cylinder, and surface area and volume of a 3D sphere.",
+      "learningOutcome": "Preprocessor Macro Constants (#define), 2D/3D Mensuration Mathematics & High-Precision Output",
+      "exampleText": "Radius: 7.0 units, Height: 15.0 units",
+      "exampleOutput": "INPUT PARAMETERS:\n  • Primary Radius (r) :     7.00 units\n  • Height (h)         :    15.00 units\n  • Constant PI        :  3.141592653589793\n\n--- [1] 2D CIRCLE ---\n  • Circumference (2*pi*r)     :    43.9823 units\n  • Surface Area (pi*r^2)      :   153.9380 sq units\n\n--- [2] 3D CYLINDER ---\n  • Total Surface Area         :   967.6105 sq units\n  • Internal Volume (pi*r^2*h) :   2309.0706 cubic units\n\n--- [3] 3D SPHERE ---\n  • Total Surface Area         :   615.7522 sq units\n  • Internal Volume (4/3*pi*r3):   1436.7550 cubic units",
+      "logicExplanation": "1. **Circle**: Circumference = `2 * PI * r`, Area = `PI * r * r`.\n2. **Cylinder**: Surface = `2 * PI * r * (r + h)`, Volume = `PI * r * r * h`.\n3. **Sphere**: Surface = `4 * PI * r * r`, Volume = `(4.0 / 3.0) * PI * r * r * r`.",
+      "answerFile": "./answers/answer4.c",
+      "codeExplanation": "1. `#define PI`: Preprocessor macro constant substituted before compilation.\n2. `(4.0 / 3.0)`: Floating-point division prevents integer zero truncation."
+    },
+    {
+      "projectId": "INTRO_005",
+      "title": "Time Duration Converter & Seconds Breakdown Engine",
+      "difficulty": "Beginner",
+      "description": "Operating system process schedulers and digital stopwatch clocks record time in raw elapsed seconds (such as UNIX timestamps). In this project, you will develop a Time Duration Breakdown Engine in C. Given an arbitrary large count of seconds, the program decomposes it into Days (86400s), Hours (3600s), Minutes (60s), and Remaining Seconds using division and modulo operators, formatting the output into a digital clock display [D:d | HH:MM:SS].",
+      "learningOutcome": "Integer Division (/) and Modulo (%), Digital Clock Formatting (%02lld) & 64-Bit Integers",
+      "exampleText": "Inputs: 3665 seconds, 86400 seconds, 31557600 seconds",
+      "exampleOutput": "Input:       3665 Raw Seconds\n>> Decomposed Time: 0 Days, 01 Hours, 01 Minutes, 05 Seconds\n>> Digital Clock Display: [D:0 | 01:01:05]\n\nInput:   31557600 Raw Seconds\n>> Decomposed Time: 365 Days, 06 Hours, 00 Minutes, 00 Seconds\n>> Digital Clock Display: [D:365 | 06:00:00]",
+      "logicExplanation": "1. **Days**: `totalSeconds / 86400LL`.\n2. **Hours**: `(totalSeconds % 86400LL) / 3600LL`.\n3. **Minutes**: `(totalSeconds % 3600LL) / 60LL`.\n4. **Seconds**: `totalSeconds % 60LL`.",
+      "answerFile": "./answers/answer5.c",
+      "codeExplanation": "1. `long long`: Accommodates multi-century timestamp durations.\n2. `%02lld`: Pads leading zeros for standard 2-digit clock minutes and seconds."
+    },
+    {
+      "projectId": "INTRO_006",
+      "title": "ASCII Character Inspector & Multi-Base Memory Visualizer",
+      "difficulty": "Beginner",
+      "description": "Understanding how characters map to numerical byte representations is fundamental to systems programming. In this project, you will build an ASCII Character & Base Visualizer in C. For any given character, the engine displays its ASCII decimal code (%d), hexadecimal representation (%#04X), octal code (%#04o), 8-bit binary bitstring, and performs character case shifting (+/- 32 offset arithmetic).",
+      "learningOutcome": "ASCII Encoding Tables, Multi-Base Specifiers (%d, %#X, %#o) & Bit Shifting Loops",
+      "exampleText": "Characters: 'A', 'z', '9', '#'",
+      "exampleOutput": "Character: 'A'\n  • ASCII Decimal (%d   ) : 65\n  • Hexadecimal   (%#X  ) : 0X41\n  • Octal Base-8  (%#o  ) : 0101\n  • Binary Equivalent    : 0100 0001\n  • Case Shift Mapping   : Upper -> 'A', Lower -> 'a'\n\nCharacter: 'z'\n  • ASCII Decimal (%d   ) : 122\n  • Hexadecimal   (%#X  ) : 0X7A\n  • Octal Base-8  (%#o  ) : 0172\n  • Binary Equivalent    : 0111 1010\n  • Case Shift Mapping   : Upper -> 'Z', Lower -> 'z'",
+      "logicExplanation": "1. **ASCII Cast**: Character bytes directly hold integer ASCII codes.\n2. **Binary Extraction**: `(ascii >> b) & 1` extracts individual bits from 7 down to 0.\n3. **Case Offset**: `'a' - 'A' = 32`, subtracting 32 converts lower to uppercase.",
+      "answerFile": "./answers/answer6.c",
+      "codeExplanation": "1. `inspectChar()`: Formats multi-base representations of characters.\n2. `%#04X`: Prints uppercase hexadecimal with '0X' prefix and 4-character width."
+    },
+    {
+      "projectId": "INTRO_007",
+      "title": "Simple Interest & Compound Loan EMI Estimator",
+      "difficulty": "Beginner",
+      "description": "Banking financial software relies on interest equations to forecast loan growth and investment returns. In this project, you will build a Financial Interest Estimator in C. Given principal amount, annual interest rate, and tenure duration, the program computes both Simple Interest (SI = P*R*T/100) and Annually Compounded Maturity (A = P * (1 + R/100)^T), highlighting the compounding bonus delta.",
+      "learningOutcome": "Financial Mathematical Equations, Power Calculation Loops & Monetary Formatting",
+      "exampleText": "Principal: INR 5,00,000, Rate: 8.5%, Tenure: 5 Years",
+      "exampleOutput": "LOAN PARAMETERS:\n  • Principal Amount (P)   : INR    500000.00\n  • Annual Interest Rate   :         8.50 %\n  • Tenure Duration (t)    :            5 Years\n\n--- [1] SIMPLE INTEREST MATURITY ---\n  • Total Interest Accrued : INR    212500.00\n  • Final Maturity Payout  : INR    712500.00\n\n--- [2] COMPOUND INTEREST MATURITY (Annual) ---\n  • Total Interest Accrued : INR    251842.11\n  • Final Maturity Payout  : INR    751842.11\n  • Compound Interest Bonus: INR     39342.11",
+      "logicExplanation": "1. **Simple Interest**: `(P * R * T) / 100.0`.\n2. **Compound Factor**: `(1.0 + R/100.0)^T` computed iteratively.\n3. **Compound Bonus**: Difference between compound interest and simple interest.",
+      "answerFile": "./answers/answer7.c",
+      "codeExplanation": "1. `customPow()`: Helper function to compute powers iteratively.\n2. `%12.2f`: Formats rupee amounts with decimal alignment."
+    },
+    {
+      "projectId": "INTRO_008",
+      "title": "Multi-Variable Value Swapping Engine (3 Distinct Variations)",
+      "difficulty": "Beginner",
+      "description": "Swapping two variables is an essential building block of sorting algorithms and memory manipulation. In this project, you will construct a Variable Swapping Lab in C. The application demonstrates and benchmarks 3 distinct swapping strategies: 1. Classic 3-step swap using a temporary variable; 2. Arithmetic addition and subtraction (+ and -) without temporary storage; 3. Bitwise XOR (^) swap without temporary storage or integer overflow risk.",
+      "learningOutcome": "Memory Manipulation, Arithmetic Swapping Invariants & Bitwise XOR Swapping Mechanics",
+      "exampleText": "Method 1 (Temp): A=10, B=20 | Method 2 (Arithmetic): X=45, Y=90 | Method 3 (XOR): P=0xAA, Q=0x55",
+      "exampleOutput": "--- [Method 1: Using Temporary Variable] ---\nInitial : A = 10, B = 20\nSwapped : A = 20, B = 10\n\n--- [Method 2: Arithmetic (+ and -) Without Temp] ---\nInitial : X = 45, Y = 90\nSwapped : X = 90, Y = 45\n\n--- [Method 3: Bitwise XOR (^) Without Temp] ---\nInitial : P = 0XAA (170), Q = 0X55 (85)\nSwapped : P = 0X55 (85), Q = 0XAA (170)",
+      "logicExplanation": "1. **Temp Variable**: `temp = a; a = b; b = temp;`.\n2. **Arithmetic**: `x = x + y; y = x - y; x = x - y;` (caution: overflow risk for large numbers).\n3. **Bitwise XOR**: `p = p ^ q; q = p ^ q; p = p ^ q;` (safe, elegant bit inversion).",
+      "answerFile": "./answers/answer8.c",
+      "codeExplanation": "1. Demonstrates the 3 classical C swapping techniques.\n2. Compares memory usage and safety trade-offs."
+    },
+    {
+      "projectId": "INTRO_009",
+      "title": "Full Sentence Input Reader & Whitespace Scanset Parser",
+      "difficulty": "Beginner",
+      "description": "Standard scanf with %s stops reading at the first space, making it impossible to input full names, addresses, or sentences. In this project, you will build a Safe String Scanset Input Parser in C. Using bounded scanset specifiers (%79[^\\n], %119[^\\n]), your program reads multi-word strings with spaces while strictly bounding buffer lengths to eliminate buffer overflow risks.",
+      "learningOutcome": "Scanf Scansets (%[^\\n]), Bounded Buffer Safety & String Null Terminator Handling",
+      "exampleText": "Full Name: 'Tuhina Mukherjee' | Address: 'Riverside Road, Barrackpore, Kolkata 700120'",
+      "exampleOutput": "--- [1] Student Identity Dossier (Parsed via Scansets) ---\nFull Name    (%79[^\\n])  : Tuhina Mukherjee\nAddress Line (%119[^\\n]) : Riverside Road, Barrackpore, Kolkata 700120\nCareer Goal  (%149[^\\n]) : Systems Software Architect & Kernel Engineer\n\n--- [2] Buffer Safety Diagnostics ---\n  • Full Name Byte Count    : 17 / 80 bytes (Safe from overflow)\n  • Address Line Byte Count : 45 / 120 bytes (Safe from overflow)",
+      "logicExplanation": "1. **Scanset Syntax**: `%[^\\n]` reads all characters until newline.\n2. **Width Boundary**: `%79[^\\n]` limits read to at most 79 chars (+1 for null terminator '\\0').\n3. **Safety**: Prevents buffer overrun attacks.",
+      "answerFile": "./answers/answer9.c",
+      "codeExplanation": "1. Demonstrates secure scanset parsing for multi-word input.\n2. Measures and verifies string buffer lengths."
+    },
+    {
+      "projectId": "INTRO_010",
+      "title": "Multi-Stage Compilation Simulation & Build Pipeline Metadata Inspector",
+      "difficulty": "Beginner",
+      "description": "Understanding how the C compiler pipeline works (Preprocessor -> Compiler -> Assembler -> Linker) and inspecting build-time metadata is crucial for professional developers. In this project, you will build a Compilation Pipeline & Architecture Metadata Inspector in C. The program prints predefined preprocessor macros (__FILE__, __DATE__, __TIME__, __LINE__, __STDC_VERSION__) and computes the word size of fundamental data types and pointer addresses on the host system architecture.",
+      "learningOutcome": "Preprocessor Built-in Macros (__DATE__, __TIME__, __FILE__), Data Model Word Sizes & Architecture Bit Widths",
+      "exampleText": "Host GCC Compiler Environment",
+      "exampleOutput": "--- [1] Predefined Preprocessor Macros ---\n  • Source File Name (__FILE__)    : answer10.c\n  • Compilation Date (__DATE__)    : Sep  2 2026\n  • Compilation Time (__TIME__)    : 03:13:16\n  • Active Code Line (__LINE__)    : 18\n  • ANSI C Conformance (__STDC__)  : YES (Standard Conforming C)\n\n--- [2] Build Environment Config ---\n  • Lab Software Release Version   : 2.4.0-PROD\n  • GCC Toolchain Pipeline Stages  : Preprocessing -> Compilation -> Assembly -> Linking\n\n--- [3] Hardware Data Model Word Size ---\n  • Size of char                   : 1 Byte(s)\n  • Size of short int              : 2 Byte(s)\n  • Size of standard int           : 4 Byte(s)\n  • Size of long long int          : 8 Byte(s)\n  • Size of pointer address (void*): 8 Byte(s) (64-bit Architecture)",
+      "logicExplanation": "1. **Built-in Macros**: Substituted directly by the C preprocessor.\n2. **sizeof Operator**: Evaluated at compile-time to return byte sizes (`size_t`).\n3. **Pointer Width**: `sizeof(void*) * 8` yields the system memory architecture bitness (32-bit vs 64-bit).",
+      "answerFile": "./answers/answer10.c",
+      "codeExplanation": "1. Demonstrates standard preprocessor environment macros.\n2. Reports host CPU data model byte sizes."
+    }
+  ]
+}

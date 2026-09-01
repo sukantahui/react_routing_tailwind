@@ -1,15 +1,58 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 001_001: Getting Started with C & Compiler Pipeline
-TOPIC 4: Formatted Console I/O: printf(), scanf() & Format Specifiers
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_001: Getting Started with C & Compiler Architecture
+Topic 4: Formatted Console I/O: printf(), scanf() & Format Specifiers
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. FORMAT SPECIFIERS
+1. MASTER FORMAT SPECIFIER CHEAT SHEET:
 --------------------------------------------------------------------------------
-- %d : Signed decimal integer
-- %f : Floating-point number (%.2f for 2 decimal places)
-- %c : Character (%c with leading space skips whitespace)
-- %s : String (character array pointer)
-- %p : Hexadecimal pointer RAM address
+Specifier | Data Type / Meaning                  | Example Usage
+----------+--------------------------------------+------------------------------
+%d / %i   | Signed 32-bit decimal integer        | printf("%d", 42) -> 42
+%u        | Unsigned 32-bit decimal integer      | printf("%u", 3000000000U)
+%f        | Floating-point decimal (float)       | printf("%.2f", 3.14159) -> 3.14
+%lf       | Double-precision float (MANDATORY in | scanf("%lf", &dblVal)
+          | scanf; optional in printf)           |
+%c        | Single character (ASCII)             | printf("%c", 'A') -> A
+%s        | Null-terminated character string     | printf("%s", "Hello") -> Hello
+%x / %X   | Hexadecimal (lowercase / uppercase)  | printf("%#X", 255) -> 0XFF
+%o        | Octal integer base-8                 | printf("%o", 8) -> 10
+%p        | Pointer memory address in hex        | printf("%p", (void*)&x)
+%e / %E   | Scientific exponential notation      | printf("%e", 1234.5) -> 1.234500e+02
+%g / %G   | Smart shortest decimal representation| printf("%g", 1200.0) -> 1200
+%lld /%llu| 64-bit Signed / Unsigned long long   | printf("%lld", 9000000000000LL)
+%zu       | Size type (sizeof operator return)   | printf("%zu", sizeof(int))
+%%        | Prints literal '%' sign              | printf("100%%") -> 100%
+
+2. ANATOMY OF A FORMAT SPECIFIER:
+--------------------------------------------------------------------------------
+Syntax: %[flags][width][.precision][length]specifier
+
+Flags:
+  -   : Left-align within the field (e.g. %-10d)
+  +   : Always show positive sign '+' (e.g. %+d)
+  0   : Pad leading zeros instead of spaces (e.g. %05d -> 00042)
+  #   : Include base prefix (0x for hex, 0 for octal)
+Space : Print leading space for positive numbers to align with negative numbers
+
+Width & Precision:
+  %8d    : Right-aligned in minimum 8 character spaces.
+  %.2f   : Exactly 2 decimal digits after the dot.
+  %*.*f  : Dynamically pass width and precision as integer arguments!
+
+3. CRITICAL SCANF TRAPS & TEACHER'S GOLDEN RULES:
+--------------------------------------------------------------------------------
+1. THE LEADING SPACE TRICK FOR CHARACTERS:
+   scanf(" %c", &grade);  // Leading space skips leftover '\n' in stdin buffer!
+
+2. ALWAYS PASS ADDRESSES TO SCANF:
+   scanf("%d", &age);     // '&' is mandatory for primitive variables!
+
+3. USE FIELD WIDTH LIMITS ON STRINGS TO PREVENT BUFFER OVERFLOW:
+   char name[50];
+   scanf("%49s", name);   // Max 49 chars + '\0' prevents stack smashing!
+
+4. READING FULL LINES WITH SPACES (SCANSETS):
+   scanf(" %99[^\n]", line); // Reads up to newline delimiter safely!
 ================================================================================

@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_004: Functions & Modular Programming
+Topic 3: Storage Classes in C: auto, register, static, and extern
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: What is a Storage Class?
+A: A Storage Class tells the C compiler 4 critical properties of a variable:
+   1. Storage Location : RAM Stack, RAM Data Segment, or CPU Register?
+   2. Lifetime         : Temporary (block exit) or Permanent (program run)?
+   3. Scope            : Local block or Global file?
+   4. Initial Value    : Zero (static/extern) or Garbage (auto/register)?
+
+SUKANTA HUI'S 4-CHARACTER METAPHOR:
+  - auto     : The Temporary Stack Worker (comes, does work, leaves)
+  - register : The High-Speed CPU Sprinter (lives inside CPU core, no RAM address)
+  - static   : The Faithful Diary (stays locked in room, remembers everything!)
+  - extern   : The Global Passport (declared in one file, usable across the project!)
+
+2. MASTER STORAGE CLASS COMPARISON TABLE:
+--------------------------------------------------------------------------------
+Storage Class | Location     | Scope        | Lifetime  | Default Value
+--------------+--------------+--------------+-----------+-----------------------
+auto          | Stack        | Local Block  | Block     | Garbage
+register      | CPU Register | Local Block  | Block     | Garbage (No &address!)
+static (local)| Data Segment | Local Block  | Program   | Zero (0, 0.0, NULL)
+static (file) | Data Segment | File Private | Program   | Zero (Internal Link)
+extern        | Data Segment | Project-wide | Program   | Zero (External Link)
+
+3. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. Use 'static' local variables for unique ID counters and state machines!
+2. Use 'static' on global functions you want to keep private to a file!
+3. Never use '&' on a 'register' variable; it has no RAM address!
+4. In header files, use 'extern' for variables to avoid duplicate symbol errors!
+================================================================================
