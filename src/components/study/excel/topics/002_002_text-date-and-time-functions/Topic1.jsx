@@ -320,7 +320,7 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX702"
+            sheetName="Substring Extraction"
             title="Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

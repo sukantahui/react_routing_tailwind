@@ -389,7 +389,7 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX701"
+            sheetName="Text Manipulation Essentials"
             title="Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

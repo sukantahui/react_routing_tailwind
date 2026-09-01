@@ -280,7 +280,7 @@ export default function Topic6() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX707"
+            sheetName="Date Differences & Tenures"
             title="Date differences and milestone calculations: DATEDIF and YEARFRAC - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

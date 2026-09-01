@@ -267,7 +267,7 @@ export default function Topic10() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX710"
+            sheetName="Converting Text Strings"
             title="Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

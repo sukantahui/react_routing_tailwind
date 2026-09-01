@@ -267,7 +267,7 @@ export default function Topic5() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX706"
+            sheetName="Working Day Calculations"
             title="Working day calculations: WORKDAY, WORKDAY.INTL, NETWORKDAYS, and NETWORKDAYS.INTL - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

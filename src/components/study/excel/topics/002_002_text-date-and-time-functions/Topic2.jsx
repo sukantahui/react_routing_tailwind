@@ -268,7 +268,7 @@ export default function Topic2() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX703"
+            sheetName="Concatenation Strategies"
             title="Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the &amp; operator - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

@@ -255,7 +255,7 @@ export default function Topic9() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX709"
+            sheetName="Replacing & Substituting"
             title="Replacing and substituting strings: REPLACE and SUBSTITUTE - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

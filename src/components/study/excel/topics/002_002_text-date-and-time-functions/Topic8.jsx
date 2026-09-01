@@ -268,7 +268,7 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX708"
+            sheetName="Modern Text Manipulation"
             title="Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

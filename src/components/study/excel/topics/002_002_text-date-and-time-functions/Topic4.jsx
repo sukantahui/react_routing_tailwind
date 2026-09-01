@@ -280,7 +280,7 @@ export default function Topic4() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX705"
+            sheetName="Date Serial Numbering"
             title="Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

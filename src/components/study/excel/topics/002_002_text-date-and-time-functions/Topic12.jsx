@@ -261,7 +261,7 @@ export default function Topic12() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX712"
+            sheetName="Shift Duration & Overtime"
             title="Practice: Employee shift duration and overtime calculator - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

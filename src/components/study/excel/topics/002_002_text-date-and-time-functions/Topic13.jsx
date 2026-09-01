@@ -247,7 +247,7 @@ export default function Topic13() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX713"
+            sheetName="Advanced Text & Date Challenge"
             title="Assessment: Advanced Text and Date Functions Challenge - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

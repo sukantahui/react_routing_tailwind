@@ -254,7 +254,7 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX711"
+            sheetName="Real-World ETL Case Study"
             title="Real-world case study: Parsing messy customer names, addresses, and timestamps - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}

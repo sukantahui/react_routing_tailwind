@@ -262,7 +262,7 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX704"
+            sheetName="Number to Text Formatting"
             title="Number-to-text formatting with the TEXT function - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}
