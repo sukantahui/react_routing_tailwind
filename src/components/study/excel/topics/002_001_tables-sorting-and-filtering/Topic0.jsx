@@ -181,6 +181,183 @@ export default function Topic0() {
           </div>
         </section>
 
+        {/* SECTION 3.5: DEEP DIVE — CONVERTING DATA RANGES INTO EXCEL TABLES */}
+        <section
+          ref={(el) => (sectionsRef.current[sectionsRef.current.length] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/80 border border-sky-900/40 space-y-6 shadow-2xl"
+        >
+          <div className="flex items-center justify-between flex-wrap gap-2 pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🔄</span>
+              Deep Dive: Converting Data Ranges into Excel Tables (Ctrl + T)
+            </h2>
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/80 px-3 py-1 rounded-lg border border-sky-800/60">
+              Conversion Masterclass
+            </span>
+          </div>
+
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Converting a standard cell grid (e.g. <code className="text-sky-300 font-mono">A1:F50</code>) into an official Excel Table (<code className="text-emerald-300 font-mono">ListObject</code>) is one of the most impactful transformations in financial and data modeling. It shifts Excel from processing raw, disconnected cells to managing a structured database table with automatic memory boundaries.
+          </p>
+
+          {/* Subsection 1: Methods & Shortcuts */}
+          <div className="space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span className="text-sky-400">⌨️</span> 1. Conversion Methods &amp; Shortcuts
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-sky-300">Method A: Shortcut</span>
+                  <kbd className="px-2 py-0.5 rounded bg-sky-950 border border-sky-800 font-mono text-sky-300 text-xs">Ctrl + T</kbd>
+                </div>
+                <p className="text-slate-400 leading-relaxed text-xs">
+                  Click any cell inside the contiguous data range and press <kbd className="px-1 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-[10px]">Ctrl + T</kbd> (or <kbd className="px-1 py-0.5 rounded bg-slate-800 text-slate-200 font-mono text-[10px]">Ctrl + L</kbd>). This is the fastest, standard shortcut in desktop Excel.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-teal-300">Method B: Insert Ribbon</span>
+                  <span className="px-2 py-0.5 rounded bg-teal-950 border border-teal-800 font-sans text-teal-300 text-xs">Ribbon UI</span>
+                </div>
+                <p className="text-slate-400 leading-relaxed text-xs">
+                  Navigate to <strong className="text-slate-200">Insert → Table</strong> in the Excel Ribbon. Excel automatically detects the active contiguous dataset boundaries.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-indigo-300">Method C: Home Styles</span>
+                  <span className="px-2 py-0.5 rounded bg-indigo-950 border border-indigo-800 font-sans text-indigo-300 text-xs">Formatted Conversion</span>
+                </div>
+                <p className="text-slate-400 leading-relaxed text-xs">
+                  Go to <strong className="text-slate-200">Home → Format as Table</strong> and select a pre-designed color theme (Light, Medium, or Dark). Converts range and applies theme in 1 click.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 2: The "Create Table" Dialog & Headers */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <span className="text-amber-400">⚙️</span> 2. The "Create Table" Dialog Box &amp; Header Logic
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              When triggering conversion, Excel displays the <em>Create Table</em> dialog box with two key parameters:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans pt-1">
+              <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+                <span className="text-sky-300 font-bold">A. "Where is the data for your table?"</span>
+                <p className="text-slate-400 text-xs leading-relaxed">
+                  Excel uses internal contiguous range scanning to auto-detect data boundaries (e.g. <code className="text-sky-300 font-mono">=$A$1:$F$50</code>). If your dataset contains blank rows or blank columns, Excel's auto-detection will stop prematurely at the gap.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+                <span className="text-emerald-300 font-bold">B. "My table has headers" Checkbox</span>
+                <ul className="text-slate-400 text-xs space-y-1 list-disc list-inside">
+                  <li><strong className="text-emerald-400">Checked (Default):</strong> Promotes Row 1 cells into official ListObjects Column Headers.</li>
+                  <li><strong className="text-rose-400">Unchecked:</strong> Excel inserts a new top row automatically with generic names: <code className="text-slate-300 font-mono">Column1</code>, <code className="text-slate-300 font-mono">Column2</code>, etc.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 3: Pre-Conversion Checklist */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <span className="text-emerald-400">📋</span> 3. Pre-Conversion Data Cleansing Checklist
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300">
+              Before pressing <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 font-mono text-xs">Ctrl + T</kbd>, verify your data matches these 4 golden requirements:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800/80 flex items-start gap-2.5">
+                <span className="text-emerald-400 text-base">✓</span>
+                <div>
+                  <strong className="text-white">Unique Text Headers:</strong> Every column must have a non-blank, distinct header name in Row 1.
+                </div>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800/80 flex items-start gap-2.5">
+                <span className="text-emerald-400 text-base">✓</span>
+                <div>
+                  <strong className="text-white">No Empty Rows or Columns:</strong> Remove entire blank rows or columns inside the dataset body.
+                </div>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800/80 flex items-start gap-2.5">
+                <span className="text-emerald-400 text-base">✓</span>
+                <div>
+                  <strong className="text-white">No Merged Cells:</strong> Unmerge any cells across rows or columns. Merged cells break ListObjects indexing.
+                </div>
+              </div>
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800/80 flex items-start gap-2.5">
+                <span className="text-emerald-400 text-base">✓</span>
+                <div>
+                  <strong className="text-white">Consistent Column Data Types:</strong> Keep numbers, dates, and text in separate dedicated columns.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 4: 5 Major Benefits Post-Conversion */}
+          <div className="space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span className="text-purple-400">🌟</span> 4. Five Major Technical Benefits Gained Post-Conversion
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                <span className="text-sky-300 font-bold">1. Auto-Expanding Dynamic Scope</span>
+                <p className="text-slate-300 text-xs leading-relaxed">
+                  Typing new records directly in the row below or column to the right automatically expands the table boundaries. All linked Pivot Tables, charts, and formulas dynamically include new rows on refresh!
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                <span className="text-emerald-300 font-bold">2. Calculated Columns &amp; Instant Auto-Fill</span>
+                <p className="text-slate-300 text-xs leading-relaxed">
+                  Entering a formula in cell <code className="text-emerald-300 font-mono">F2</code> automatically propagates down all 500 rows instantly without double-clicking or dragging the fill handle.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                <span className="text-indigo-300 font-bold">3. Self-Documenting Structured References</span>
+                <p className="text-slate-300 text-xs leading-relaxed">
+                  Opaque cell coordinates like <code className="text-rose-300 font-mono font-bold">D2*E2</code> are replaced by human-readable syntax: <code className="text-sky-300 font-mono font-bold">[@UnitPrice] * [@Quantity]</code>.
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                <span className="text-amber-300 font-bold">4. Dynamic Total Row (Ctrl + Shift + T)</span>
+                <p className="text-slate-300 text-xs leading-relaxed">
+                  Toggle an aggregate summary row at the bottom with dropdown menus to calculate <code className="text-amber-300 font-mono">SUM</code>, <code className="text-amber-300 font-mono">AVERAGE</code>, or <code className="text-amber-300 font-mono">COUNT</code> on visible rows.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 5: Reverting Back to Normal Range */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <span className="text-rose-400">🔄</span> 5. How to Convert an Excel Table Back to a Normal Range
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              If you ever need to remove the table container while keeping all data, formatting, and values intact:
+            </p>
+            <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-sky-300 space-y-2">
+              <div>Step 1: Click any cell inside the Excel Table.</div>
+              <div>Step 2: Go to Ribbon → <strong className="text-white">Table Design</strong> tab → <strong className="text-white">Tools</strong> group.</div>
+              <div>Step 3: Click <strong className="text-emerald-400 font-bold">Convert to Range</strong> (or press Alt + J + T + V).</div>
+              <div>Step 4: Click <strong className="text-white font-bold">Yes</strong> in the confirmation dialog prompt.</div>
+              <div className="text-slate-400 text-[11px] font-sans pt-1">
+                * Note: Converting back to a normal range preserves formatting and values, but disables structured syntax auto-expansion and table properties.
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}

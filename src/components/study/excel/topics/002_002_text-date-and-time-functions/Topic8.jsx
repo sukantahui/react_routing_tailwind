@@ -61,22 +61,22 @@ export default function Topic8() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"⚡ Modern Text Extraction (Excel 365)"} · Topic 8
+              ⚡ Modern Text Extraction (Excel 365) · Topic 8
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Next-Gen Dynamic Array Text"}
+              Next-Gen Dynamic Array Text
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Advanced · Bloom Level 4: Analyze"}
+              Advanced · Bloom Level 4: Analyze
             </span>
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT"}
+            Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Next-gen text manipulation eliminating complex LEFT/MID/FIND formulas using modern dynamic array functions (TEXTBEFORE, TEXTAFTER, TEXTSPLIT)"}. Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
+            Next-gen text manipulation eliminating complex LEFT/MID/FIND formulas using modern dynamic array functions (TEXTBEFORE, TEXTAFTER, TEXTSPLIT). Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,47 +113,45 @@ export default function Topic8() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"=TEXTBEFORE(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found]) | =TEXTAFTER(text, delimiter, ...) | =TEXTSPLIT(text, col_delimiter, [row_delimiter], ...)"}
+            =TEXTBEFORE(text, delimiter, [instance_num]) | =TEXTAFTER(text, delimiter, [instance_num]) | =TEXTSPLIT(text, col_delimiter, [row_delimiter])
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Parameter / Token</th>
-                  <th className="py-3 px-4">Type</th>
-                  <th className="py-3 px-4">Requirement</th>
-                  <th className="py-3 px-4">Operational Description</th>
+                  <th className="py-3 px-4">Function</th>
+                  <th className="py-3 px-4">Syntax</th>
+                  <th className="py-3 px-4">Spill Capability</th>
+                  <th className="py-3 px-4">Operational Purpose</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Target Argument / Input</td>
-                  <td className="py-3 px-4 text-teal-400">String / Serial Date / Number</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Specifies the target cell, literal value, or range to evaluate.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">TEXTBEFORE</td>
+                  <td className="py-3 px-4 text-cyan-400">=TEXTBEFORE(text, delim, [inst])</td>
+                  <td className="py-3 px-4 text-teal-400 font-sans">Single / Array</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts substring occurring prior to specified delimiter (replaces LEFT + FIND).</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Delimiter / Length / Options</td>
-                  <td className="py-3 px-4 text-teal-400">Integer / String / Array</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Defines character counts, delimiter masks, or extraction start positions.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">TEXTAFTER</td>
+                  <td className="py-3 px-4 text-cyan-400">=TEXTAFTER(text, delim, [inst])</td>
+                  <td className="py-3 px-4 text-teal-400 font-sans">Single / Array</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts substring occurring after specified delimiter (replaces MID + FIND).</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">TEXTSPLIT</td>
+                  <td className="py-3 px-4 text-cyan-400">=TEXTSPLIT(text, col_delim, [row_delim])</td>
+                  <td className="py-3 px-4 text-emerald-400 font-sans">Dynamic Dynamic Spill</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Splits text into array across columns or rows using column/row delimiters (replaces Text-to-Columns).</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
-            <span className="text-sky-400 text-lg">💡</span>
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Core Principle: </strong>
-              Text functions transform character sequences and case formatting, while date/time functions operate on integer and fractional serial numbers under the hood.
-            </div>
-          </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+            SECTION 3: PRACTICAL FORMULA EXAMPLES MATRIX
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
@@ -161,105 +159,89 @@ export default function Topic8() {
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
-              Engine Mechanics &amp; Evaluation Pipeline
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">📊</span>
+              Practical Formula Showcase &amp; Real-World Examples
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Under-The-Hood Architecture
+            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
+              Modern Extraction Matrix
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Directional Slicing (TEXTBEFORE / TEXTAFTER)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Extracts all text preceding or following any target delimiter string without calculating string lengths or character indexes."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Instance Indexing & Negative Offsets"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Accepts instance_num parameter (e.g. -1 targets the last occurrence from right to left, solving file extension and path parsing)."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. 2D Dynamic Grid Splitting (TEXTSPLIT)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Spills delimited strings across columns and rows simultaneously, replacing legacy Text-to-Columns wizardry."}</p>
-            </div>
-            
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Review detailed, concrete input-to-output formula evaluations using modern Excel 365 text parsing functions.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
+                  <th className="py-3 px-4">Pattern / Goal</th>
+                  <th className="py-3 px-4">Raw Input String (A2)</th>
+                  <th className="py-3 px-4">Excel Formula</th>
+                  <th className="py-3 px-4">Evaluated Output</th>
+                  <th className="py-3 px-4">Operational Mechanics</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Extract Username</td>
+                  <td className="py-3 px-4 text-amber-300">"John.Doe@accotax.in"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTBEFORE(A2, "@")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"John.Doe"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts all text occurring before the `@` symbol.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Extract Domain</td>
+                  <td className="py-3 px-4 text-amber-300">"John.Doe@accotax.in"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTAFTER(A2, "@")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"accotax.in"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts all text occurring after the `@` symbol.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">2nd Instance Match</td>
+                  <td className="py-3 px-4 text-amber-300">"INV-2024-9842-FINAL"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTBEFORE(A2, "-", 2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"INV-2024"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts substring prior to 2nd hyphen occurrence.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Reverse Last Match</td>
+                  <td className="py-3 px-4 text-amber-300">"C:/Docs/Reports/Q4.pdf"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTAFTER(A2, "/", -1)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Q4.pdf"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Negative index -1 searches backwards to find last forward slash.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Split to Columns</td>
+                  <td className="py-3 px-4 text-amber-300">"Red,Green,Blue"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTSPLIT(A2, ",")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">["Red", "Green", "Blue"]</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Splits comma-separated string horizontally into 3 adjacent column cells.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Split to Rows</td>
+                  <td className="py-3 px-4 text-amber-300">"Red;Green;Blue"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTSPLIT(A2, , ";")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">["Red"; "Green"; "Blue"]</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Omits column delimiter and uses row delimiter to spill text vertically.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Multi-Delimiter Array</td>
+                  <td className="py-3 px-4 text-amber-300">"Apple;Banana|Cherry"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTSPLIT(A2, {";","|"})</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">["Apple", "Banana", "Cherry"]</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Passes array constant of delimiters to parse complex mixed-delimiter strings.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 4: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Modern Text Intelligence Pipeline: Delimiter Slicing & Dynamic Grid Spilling"}
-            </h2>
-            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
-              SVG Pipeline
-            </span>
-          </div>
-
-          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
-              <defs>
-                <linearGradient id="gradFlowMod2_8" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
-                </linearGradient>
-                <marker id="arrowMod2_8" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
-                </marker>
-              </defs>
-
-              {/* Node 1: Raw Input Data */}
-              <g transform="translate(30, 45)">
-                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
-                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Raw Input Data / Serial</text>
-                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">Unstructured Source</text>
-                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">CSV, ERP &amp; Sensor Strings</text>
-                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Raw Data State</text>
-              </g>
-
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_8)" fill="none" />
-
-              {/* Node 2: Transformation Engine */}
-              <g transform="translate(315, 30)">
-                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
-                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
-                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Formula Transformation Engine</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Next-Gen Dynamic Array Text"}</text>
-                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Delimiter Parsing &amp; String Slicing</text>
-                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Temporal Serial Calculations</text>
-                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native C++ Excel Engine</text>
-              </g>
-
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_8)" fill="none" />
-
-              {/* Node 3: Structured Result */}
-              <g transform="translate(640, 45)">
-                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
-                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
-                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Clean Normalized Data</text>
-                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Ready for Math</text>
-                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Analytics Ready</text>
-              </g>
-            </svg>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
@@ -286,293 +268,29 @@ export default function Topic8() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX709"
-            title={"Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT - Interactive Practice Grid"}
+            sheetName="EX708"
+            title="Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 5: FREQUENTLY ASKED QUESTIONS
         ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-              Real-World Corporate Implementation Scenarios
-            </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Case Studies
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Data Architect"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Full Name & Suffix Decomposition"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Decomposes 'Dr. Swadeep Banerjee, Ph.D.' into First Name (=TEXTBEFORE(TEXTAFTER(A2, \" \"), \",\")) and Credentials with zero nested FINDs."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Tax Consultant"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: GSTIN State & PAN Code Extraction"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Extracts 10-digit PAN from 15-digit GSTIN codes via =TEXTBEFORE(TEXTAFTER(A2, 2), 1) in a single dynamic formula."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · ERP Administrator"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Multi-Item PO Delimited Parsing"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Splits comma-separated item codes across rows dynamically using =TEXTSPLIT(A2, , \",\")."}</p>
-            </div>
-            
-            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Lead"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics Hub"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: File Path & Extension Extraction"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Retrieves file extension from full UNC network path using =TEXTAFTER(A2, \".\", -1)."}</p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
-              Step-by-Step Implementation &amp; Execution Guide
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Execution Protocol
-            </span>
-          </div>
-
-          <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Identify Input Data Types &amp; Delimiters
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Inspect raw source columns to confirm whether inputs are text strings, numbers stored as text, or serial dates.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Construct the Core Formula Expression
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                In the adjacent calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=TEXTBEFORE(text, delimiter, [instance_num], [match_mode], [match_end], [if_not_found]) | =TEXTAFTER(text, delimiter, ...) | =TEXTSPLIT(text, col_delimiter, [row_delimiter], ...)"}</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-teal-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Test Boundary Conditions &amp; Error Trapping
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Evaluate formula behavior with missing values, blank cells, non-breaking spaces, or overnight timestamp crossovers.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-indigo-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
-                Step 4: Propagate Across Dataset &amp; Audit Downstream Logic
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Double-click fill handle to propagate formulas down the column and verify that summary lookups and PivotTables calculate without #VALUE! errors.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-              Common Pitfalls &amp; Troubleshooting Matrix
-            </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Diagnostic Fixes
-            </span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error Signature</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
-                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Delimiter Not Found (#N/A)"}</td>
-                  <td className="py-3 px-4">{"If the target delimiter does not exist in the source string, TEXTBEFORE/TEXTAFTER returns #N/A."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Provide the optional `if_not_found` argument: =TEXTBEFORE(A2, \"-\", , , , A2)."}</td>
-                </tr>
-                
-                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"#SPILL! Blocked Output in TEXTSPLIT"}</td>
-                  <td className="py-3 px-4">{"If cells to the right or below TEXTSPLIT output are occupied, Excel returns #SPILL!."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Clear all obstructing cells in the spill range."}</td>
-                </tr>
-                
-                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Version Incompatibility (Excel 2019/2021)"}</td>
-                  <td className="py-3 px-4">{"TEXTBEFORE, TEXTAFTER, and TEXTSPLIT are only available in Excel 365 and Excel 2024."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use classic LEFT/MID/FIND fallback formulas for legacy client workbooks."}</td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-              Pro Tips &amp; High-Speed Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Productivity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Last Element Slicer"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Instantly extracts last name or final token using negative instance offset."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=TEXTAFTER(A2, \" \", -1)"}</kbd>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Split by Multiple Delimiters"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Handles mixed delimiter strings in a single function call."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=TEXTSPLIT(A2, {\",\", \";\", \"|\"})"}</kbd>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Safe Missing Delimiter Fallback"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Returns original string if delimiter is absent instead of #N/A."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=TEXTBEFORE(A2, \"-\", , , , A2)"}</kbd>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-              Socratic Analytical Hints ("Think About...")
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Critical Thinking
-            </span>
-          </div>
-
-          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"How does setting instance_num = -1 in TEXTAFTER extract file extensions like '.xlsx'?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"Why does TEXTSPLIT replace the manual Data > Text to Columns wizard for automated pipelines?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"What parameter in TEXTBEFORE prevents returning #N/A when no delimiter exists?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT - Frequently Asked Questions"}
+            title="Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT - Frequently Asked Questions"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
+            SECTION 6: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section">
           <Teacher
-            note={"TEXTBEFORE, TEXTAFTER, and TEXTSPLIT have retired 30 years of complex nested LEFT/MID/FIND formulas. They are the new industry standard for text parsing."}
+            note="TEXTBEFORE, TEXTAFTER, and TEXTSPLIT completely eliminate complex nested LEFT/MID/FIND formulas in modern Excel 365. Use instance_num = -1 to extract file names from full URL paths instantly!"
           />
         </div>
       </div>

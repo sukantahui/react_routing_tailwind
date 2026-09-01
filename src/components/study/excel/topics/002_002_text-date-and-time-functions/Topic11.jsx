@@ -61,22 +61,22 @@ export default function Topic11() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"🏭 Real-World ETL Case Study"} · Topic 11
+              🏭 Real-World ETL Case Study · Topic 11
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Industrial ETL Case Study"}
+              Industrial ETL Case Study
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Advanced · Bloom Level 5: Synthesize"}
+              Advanced · Bloom Level 5: Synthesize
             </span>
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Real-world case study: Parsing messy customer names, addresses, and timestamps"}
+            Real-world case study: Parsing messy customer names, addresses, and timestamps
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Comprehensive end-to-end data cleaning case study: parsing messy customer records, addresses, phone numbers, and corrupted timestamps"}. Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
+            Comprehensive end-to-end data cleaning case study: parsing messy customer records, addresses, phone numbers, and corrupted timestamps. Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -105,55 +105,53 @@ export default function Topic11() {
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">⚡</span>
-              Formula Syntax &amp; Argument Breakdown
+              Multi-Step Pipeline Architecture
             </h2>
             <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Function Anatomy
+              ETL Architecture
             </span>
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"Composite Real-World Data Cleaning Pipeline: TRIM + CLEAN + TEXTSPLIT + NUMBERVALUE + DATE"}
+            =TRIM(CLEAN(PROPER(SUBSTITUTE(A2, CHAR(160), " ")))) | =TEXTBEFORE(TEXTAFTER(A2, "("), ")")
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Parameter / Token</th>
-                  <th className="py-3 px-4">Type</th>
-                  <th className="py-3 px-4">Requirement</th>
-                  <th className="py-3 px-4">Operational Description</th>
+                  <th className="py-3 px-4">Pipeline Phase</th>
+                  <th className="py-3 px-4">Formula Stack</th>
+                  <th className="py-3 px-4">Target Defect</th>
+                  <th className="py-3 px-4">Operational Transformation</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Target Argument / Input</td>
-                  <td className="py-3 px-4 text-teal-400">String / Serial Date / Number</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Specifies the target cell, literal value, or range to evaluate.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Phase 1: Ingestion &amp; Sanitization</td>
+                  <td className="py-3 px-4 text-cyan-400">CLEAN + SUBSTITUTE</td>
+                  <td className="py-3 px-4 text-rose-400 font-sans">Control Chars &amp; Web Spaces</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Strips non-printable ASCII 0-31 characters and converts ASCII 160 web non-breaking spaces.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Delimiter / Length / Options</td>
-                  <td className="py-3 px-4 text-teal-400">Integer / String / Array</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Defines character counts, delimiter masks, or extraction start positions.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Phase 2: Whitespace &amp; Case</td>
+                  <td className="py-3 px-4 text-cyan-400">TRIM + PROPER / UPPER</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Irregular Spacing &amp; Mixed Case</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Condenses inner multi-space gaps and standardizes title case or uppercase tax IDs.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Phase 3: Token Parsing</td>
+                  <td className="py-3 px-4 text-cyan-400">TEXTBEFORE / TEXTAFTER</td>
+                  <td className="py-3 px-4 text-teal-400 font-sans">Embedded Metadata Tokens</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts phone numbers, PIN codes, or country codes enclosed inside brackets or delimiters.</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
-            <span className="text-sky-400 text-lg">💡</span>
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Core Principle: </strong>
-              Text functions transform character sequences and case formatting, while date/time functions operate on integer and fractional serial numbers under the hood.
-            </div>
-          </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+            SECTION 3: PRACTICAL FORMULA EXAMPLES MATRIX
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
@@ -161,105 +159,75 @@ export default function Topic11() {
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
-              Engine Mechanics &amp; Evaluation Pipeline
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">📊</span>
+              Practical Formula Showcase &amp; Real-World Examples
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Under-The-Hood Architecture
+            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
+              Case Study Matrix
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Multi-Tier Ingestion Sanitization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Cleanses raw imported CSV text dumps containing mixed delimiters, non-breaking spaces, and leading zeroes."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Relational Entity Extraction"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Deconstructs unstructured single-line client records into First Name, Last Name, Branch Code, Clean PAN, and Validated Phone."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Audit Trail & Verification Flags"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Implements formula-based audit flags (=IF(ISNUMBER(...), 'VALID', 'CORRUPT')) to isolate defective records."}</p>
-            </div>
-            
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Review detailed, concrete input-to-output formula evaluations across real corporate ETL data parsing scenarios.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
+                  <th className="py-3 px-4">ETL Scenario</th>
+                  <th className="py-3 px-4">Raw Input String (A2)</th>
+                  <th className="py-3 px-4">Excel Formula</th>
+                  <th className="py-3 px-4">Evaluated Output</th>
+                  <th className="py-3 px-4">Operational Mechanics</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Name Sanitization</td>
+                  <td className="py-3 px-4 text-amber-300">"  swadeep BANERJEE " &amp; CHAR(13)</td>
+                  <td className="py-3 px-4 text-cyan-300">=TRIM(CLEAN(PROPER(A2)))</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Swadeep Banerjee"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Full triad cleaning non-printable control chars, excess spaces &amp; title capitalization.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Parenthetical Phone Extract</td>
+                  <td className="py-3 px-4 text-amber-300">"Swadeep (+91 9830012345)"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXTBEFORE(TEXTAFTER(A2, "("), ")")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"+91 9830012345"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts country code &amp; phone number enclosed inside parentheses.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Reconstruct Dot Date</td>
+                  <td className="py-3 px-4 text-amber-300">"15.05.2024"</td>
+                  <td className="py-3 px-4 text-cyan-300">=DATEVALUE(SUBSTITUTE(A2, ".", "-"))</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">45427 (15/05/2024)</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Replaces dot delimiters with hyphens and coerces string to serial date number.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Standardize Tax Code</td>
+                  <td className="py-3 px-4 text-amber-300">" gstin19abcde "</td>
+                  <td className="py-3 px-4 text-cyan-300">=UPPER(TRIM(A2))</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"GSTIN19ABCDE"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Strips spaces and capitalizes tax registration code for exact database lookup joins.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Hybrid Date Parser</td>
+                  <td className="py-3 px-4 text-amber-300">"2024-05-15"</td>
+                  <td className="py-3 px-4 text-cyan-300">=IF(ISNUMBER(A2), A2, DATEVALUE(A2))</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">45427</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Universal hybrid date parser handling cells whether already numeric serials or text strings.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 4: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Enterprise ETL Pipeline: Raw Unstructured Dump to Master Relational Database"}
-            </h2>
-            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
-              SVG Pipeline
-            </span>
-          </div>
-
-          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
-              <defs>
-                <linearGradient id="gradFlowMod2_11" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
-                </linearGradient>
-                <marker id="arrowMod2_11" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
-                </marker>
-              </defs>
-
-              {/* Node 1: Raw Input Data */}
-              <g transform="translate(30, 45)">
-                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
-                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Raw Input Data / Serial</text>
-                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">Unstructured Source</text>
-                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">CSV, ERP &amp; Sensor Strings</text>
-                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Raw Data State</text>
-              </g>
-
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_11)" fill="none" />
-
-              {/* Node 2: Transformation Engine */}
-              <g transform="translate(315, 30)">
-                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
-                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
-                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Formula Transformation Engine</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Industrial ETL Case Study"}</text>
-                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Delimiter Parsing &amp; String Slicing</text>
-                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Temporal Serial Calculations</text>
-                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native C++ Excel Engine</text>
-              </g>
-
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_11)" fill="none" />
-
-              {/* Node 3: Structured Result */}
-              <g transform="translate(640, 45)">
-                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
-                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
-                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Clean Normalized Data</text>
-                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Ready for Math</text>
-                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Analytics Ready</text>
-              </g>
-            </svg>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
@@ -286,293 +254,29 @@ export default function Topic11() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX712"
-            title={"Real-world case study: Parsing messy customer names, addresses, and timestamps - Interactive Practice Grid"}
+            sheetName="EX711"
+            title="Real-world case study: Parsing messy customer names, addresses, and timestamps - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 5: FREQUENTLY ASKED QUESTIONS
         ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-              Real-World Corporate Implementation Scenarios
-            </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Case Studies
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Lead Solutions Architect"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Enterprise Master Customer Migration"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Transforms 250,000 legacy client records into clean CRM schema tables with automated name and address parsing."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Senior Tax Auditor"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Vendor Compliance Database Scrub"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Audits and sanitizes 10,000 vendor records, extracting valid 15-digit GSTINs and state jurisdiction codes."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Quality Assurance Lead"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Factory IoT Sensor Data Normalization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Parses high-frequency machine telemetry strings into structured time series tables for predictive maintenance."}</p>
-            </div>
-            
-            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Operations Director"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Freight Waybill Address Standardizer"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Standardizes raw handwritten-entry dispatch strings into verified PIN-code delivery routes."}</p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
-              Step-by-Step Implementation &amp; Execution Guide
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Execution Protocol
-            </span>
-          </div>
-
-          <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Identify Input Data Types &amp; Delimiters
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Inspect raw source columns to confirm whether inputs are text strings, numbers stored as text, or serial dates.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Construct the Core Formula Expression
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                In the adjacent calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"Composite Real-World Data Cleaning Pipeline: TRIM + CLEAN + TEXTSPLIT + NUMBERVALUE + DATE"}</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-teal-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Test Boundary Conditions &amp; Error Trapping
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Evaluate formula behavior with missing values, blank cells, non-breaking spaces, or overnight timestamp crossovers.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-indigo-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
-                Step 4: Propagate Across Dataset &amp; Audit Downstream Logic
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Double-click fill handle to propagate formulas down the column and verify that summary lookups and PivotTables calculate without #VALUE! errors.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-              Common Pitfalls &amp; Troubleshooting Matrix
-            </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Diagnostic Fixes
-            </span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error Signature</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
-                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Pipeline Formula Bottleneck"}</td>
-                  <td className="py-3 px-4">{"Chaining 10 complex text formulas across 500,000 rows causes workbook freezing."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use Power Query ETL for large datasets, or convert intermediate cleaned columns to static values."}</td>
-                </tr>
-                
-                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Uncaptured Edge-Case Formats"}</td>
-                  <td className="py-3 px-4">{"Assuming all names follow 'First Last' fails for single names or four-part compound names."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Implement exception validation columns using IFERROR() to highlight unparsed rows."}</td>
-                </tr>
-                
-                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Overwriting Raw Source Data"}</td>
-                  <td className="py-3 px-4">{"Modifying original import sheets directly eliminates the audit trail."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always keep Raw_Import sheets immutable and build transformations on Cleaned_Data sheets."}</td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-              Pro Tips &amp; High-Speed Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Productivity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Modular Helper Columns"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Build modular helper columns for intermediate parsing before combining formulas."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Break formulas into steps"}</kbd>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Validation Status Column"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Adds an instant visual audit flag for quality assurance."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=IF(ISNUMBER(B2), \"OK\", \"CHECK\")"}</kbd>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Save Template Structure"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Preserve clean ETL structures for recurring monthly data imports."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Save as .xltx"}</kbd>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-              Socratic Analytical Hints ("Think About...")
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Critical Thinking
-            </span>
-          </div>
-
-          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why is maintaining an immutable raw data sheet essential in corporate compliance audits?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"How do you construct an automated formula flag that highlights malformed email addresses?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"When should you transition a text-cleaning pipeline from Excel formulas to Power Query?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Real-world case study: Parsing messy customer names, addresses, and timestamps - Frequently Asked Questions"}
+            title="Real-world case study: Parsing messy customer names, addresses, and timestamps - Frequently Asked Questions"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
+            SECTION 6: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section">
           <Teacher
-            note={"In real-world data engineering, raw data is never clean. The mark of a true master is building robust, error-tolerant formulas that gracefully handle unexpected edge cases."}
+            note="Data cleaning isn't a single formula—it's a systematic assembly line. Build modular formulas step by step across temporary columns before consolidating them into production models!"
           />
         </div>
       </div>
