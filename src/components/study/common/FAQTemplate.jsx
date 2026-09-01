@@ -2,6 +2,21 @@
 import React, { useState } from "react";
 import { HelpCircle, ChevronDown, ChevronUp, CheckCircle2 } from "lucide-react";
 
+function renderFormattedText(text) {
+  if (!text) return null;
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <strong key={i} className="font-bold text-white">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 export default function FAQTemplate({ title = "Frequently Asked Questions & Assessment", questions = [] }) {
   const [openId, setOpenId] = useState(null);
 
@@ -10,7 +25,7 @@ export default function FAQTemplate({ title = "Frequently Asked Questions & Asse
   };
 
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 space-y-6">
+    <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 md:p-8 space-y-6 font-sans">
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
           <HelpCircle size={22} />
@@ -35,7 +50,7 @@ export default function FAQTemplate({ title = "Frequently Asked Questions & Asse
               >
                 <span className="text-sm font-semibold leading-relaxed flex items-start gap-2">
                   <span className="text-emerald-400 font-mono">Q{idx + 1}.</span>
-                  <span>{q.question}</span>
+                  <span>{renderFormattedText(q.question)}</span>
                 </span>
                 <span className="shrink-0 text-slate-400 mt-0.5">
                   {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -57,7 +72,7 @@ export default function FAQTemplate({ title = "Frequently Asked Questions & Asse
                                 : "p-2.5 rounded-lg border text-xs flex items-center justify-between bg-slate-950 border-slate-800/80 text-slate-400"
                             }
                           >
-                            <span>{opt}</span>
+                            <span>{renderFormattedText(opt)}</span>
                             {isAnswer && <CheckCircle2 size={14} className="text-emerald-400 shrink-0 ml-2" />}
                           </div>
                         );
@@ -68,7 +83,7 @@ export default function FAQTemplate({ title = "Frequently Asked Questions & Asse
                   {q.explanation && (
                     <div className="p-3 rounded-lg bg-slate-950 border border-slate-800/80 text-slate-300 text-xs leading-relaxed space-y-1">
                       <div className="font-bold text-sky-400 text-[11px] uppercase tracking-wider">Detailed Technical Explanation:</div>
-                      <p>{q.explanation}</p>
+                      <p>{renderFormattedText(q.explanation)}</p>
                     </div>
                   )}
                 </div>
