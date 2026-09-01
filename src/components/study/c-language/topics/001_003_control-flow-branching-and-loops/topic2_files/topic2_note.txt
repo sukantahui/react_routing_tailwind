@@ -1,0 +1,46 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_003: Control Flow: Branching, Decision Making & Loops
+Topic 2: Iterative Loop Constructs: while, do-while (post-test), for (pre-test)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: What are the 3 Loop Types? (The 3 Runners on a Track)
+A:
+1. 'for' Loop (The Lap Counter):
+   You already know you must run EXACTLY 10 laps around the park!
+   for (int lap = 1; lap <= 10; lap++)
+
+2. 'while' Loop (The Daylight Runner):
+   You run as long as the sun is shining. You check the sky BEFORE entering
+   the track (Pre-test). If it's already dark, you run 0 laps!
+   while (isSunShining) { runLap(); }
+
+3. 'do-while' Loop (The Amusement Park Rollercoaster):
+   You enter the ride and enjoy it at least ONCE. Only at the exit gate does
+   the guard check if you have a ticket for a second round (Post-test)!
+   do { enjoyRide(); } while (hasTicket);
+
+2. NUMBER DIGIT PEELING PATTERN (THE SWISS ARMY KNIFE OF C):
+--------------------------------------------------------------------------------
+Extract digits from right to left using % 10 and / 10:
+int num = 1234, reversed = 0;
+while (num > 0) {
+    int digit = num % 10;              // 4 -> 3 -> 2 -> 1
+    reversed = (reversed * 10) + digit;// Builds 4321
+    num /= 10;                         // 123 -> 12 -> 1 -> 0
+}
+
+3. THE SEMICOLON FREEZE BUG:
+--------------------------------------------------------------------------------
+while (i < 10);  <-- BUG! Semicolon creates an empty infinite loop!
+The CPU gets trapped spinning forever because 'i' never increments!
+
+4. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. Know iteration count beforehand? -> Use 'for'.
+2. Iterating based on condition/event? -> Use 'while'.
+3. Need at least 1 menu prompt or input check? -> Use 'do-while'.
+================================================================================

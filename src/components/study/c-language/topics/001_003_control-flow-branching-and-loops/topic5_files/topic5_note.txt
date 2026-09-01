@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_003: Control Flow: Branching, Decision Making & Loops
+Topic 5: Hands-on C Projects & Solutions for Module 001_003
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: How do we combine control flow and loops for real software?
+A: Real-world programs are built by combining 3 architectural pillars:
+   1. State Machine / Menu Navigation -> do-while loop + switch-case
+   2. Data Verification & Security Guards -> if-else + boundary checks
+   3. Repetitive Mathematical & Pattern Processing -> for and while loops
+
+2. CAPSTONE PROJECTS IN THIS MODULE:
+--------------------------------------------------------------------------------
+Project 1: Interactive ATM Banking PIN & Transaction Simulator
+           - Handles authentication, deposits, withdrawals with 100-rupee checks
+           - Prevents overdrafts and maintains running ledger balance.
+
+Project 2: Prime & Armstrong Number Multi-Analysis Engine
+           - Optimized sqrt(N) prime test
+           - Dynamic digit counting and power summation for any number length.
+
+Project 3: Symmetrical Diamond & Pattern Generator Engine
+           - Dual pyramid loops with leading space alignment and odd star counts.
+
+3. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. Structure complex projects into clean helper functions!
+2. Always sanitize user input in scanf to prevent infinite spin bugs!
+3. Thoroughly test edge cases: 0, negative values, and maximum boundary limits!
+================================================================================

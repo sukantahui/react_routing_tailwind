@@ -1,0 +1,53 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_003: Control Flow: Branching, Decision Making & Loops
+Topic 3: Loop Control Mechanics: break, continue & Appropriate use of goto
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: What is the difference between break, continue, and goto?
+A:
+1. 'break' (The Emergency Handbrake in a Train):
+   Pulls the red brake cord! The loop STOPS immediately and you jump out of
+   the train completely!
+
+2. 'continue' (Skipping a Bad Song on Spotify):
+   You don't throw your phone away (don't exit the playlist)! You just skip
+   the remainder of the current song and immediately jump to song #2!
+
+3. 'goto' (The Teleportation Portal):
+   Instantly teleports the CPU instruction pointer to a named label.
+   *Warning*: Like playing with fire! Uncontrolled jumps create "Spaghetti Code".
+
+2. WHEN IS 'goto' ACTUALLY GOOD IN PROFESSIONAL C?
+--------------------------------------------------------------------------------
+In the Linux Kernel and device drivers, 'goto' is standard for clean, unified
+error handling and freeing allocated memory without repeating code:
+
+int loadDriver(void) {
+    if (!allocateBufferA()) goto err_a;
+    if (!allocateBufferB()) goto err_b;
+    return 0; // Success
+
+err_b:
+    freeBufferA();
+err_a:
+    return -1;
+}
+
+3. THE 'CONTINUE IN WHILE LOOP' TRAP:
+--------------------------------------------------------------------------------
+while (i < 10) {
+    if (i == 5) continue; // BUG: Skips i++ below -> Infinite loop!
+    i++;
+}
+*Fix*: Increment 'i' before continuing, or use a 'for' loop!
+
+4. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. Use 'break' for early exit in searches as soon as the target is found!
+2. Use 'continue' to skip invalid inputs and odd/even filtering!
+3. Never use 'goto' to jump backwards; only use it for forward error cleanups!
+================================================================================

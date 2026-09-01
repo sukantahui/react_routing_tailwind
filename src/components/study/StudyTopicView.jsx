@@ -112,20 +112,40 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
   // ----------------------------------------------------------------
   // 1. MODULE & SEGMENT LOOKUP
   // ----------------------------------------------------------------
-  const { moduleData, segmentData } = useMemo(() => {
+  const { moduleData, segmentData, nextModuleOfSameSegment, prevModuleOfSameSegment } = useMemo(() => {
     let foundModule = null;
     let foundSegment = null;
 
-    for (const segment of roadmapData.segments) {
-      const found = segment.modules.find((m) => m.slug === moduleSlug);
+    for (const segment of roadmapData.segments || []) {
+      const found = segment.modules?.find((m) => m.slug === moduleSlug || m.moduleId === moduleSlug);
       if (found) {
         foundModule = found;
         foundSegment = segment;
         break;
       }
     }
-    return { moduleData: foundModule, segmentData: foundSegment };
-  }, [moduleSlug]);
+
+    let nextModule = null;
+    let prevModule = null;
+    if (foundSegment?.modules && foundModule) {
+      const currentIdx = foundSegment.modules.findIndex(
+        (m) => m.slug === foundModule.slug || m.moduleId === foundModule.moduleId
+      );
+      if (currentIdx > 0) {
+        prevModule = foundSegment.modules[currentIdx - 1];
+      }
+      if (currentIdx !== -1 && currentIdx < foundSegment.modules.length - 1) {
+        nextModule = foundSegment.modules[currentIdx + 1];
+      }
+    }
+
+    return {
+      moduleData: foundModule,
+      segmentData: foundSegment,
+      nextModuleOfSameSegment: nextModule,
+      prevModuleOfSameSegment: prevModule
+    };
+  }, [moduleSlug, roadmapData]);
 
   const topics = useMemo(() => {
     return Array.isArray(moduleData?.topics) ? moduleData.topics : [];
@@ -518,6 +538,17 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                   {moduleData.title}
                 </span>
               </div>
+
+              {nextModuleOfSameSegment && (
+                <Link
+                  to={`/${roadmapData.folder}/topic/${nextModuleOfSameSegment.slug}/0`}
+                  className="hidden md:inline-flex items-center gap-1 rounded-lg border border-indigo-500/30 bg-indigo-950/40 hover:bg-indigo-900/60 px-2 py-1 text-[11px] font-semibold text-indigo-300 hover:text-white transition shadow-sm shrink-0"
+                  title={`Next Module in ${segmentData?.title || 'Segment'}: ${nextModuleOfSameSegment.title}`}
+                >
+                  <span>Next Module</span>
+                  <ArrowRight size={11} />
+                </Link>
+              )}
             </div>
 
             {/* Right: Controls, Tools & Prev/Next */}
@@ -777,6 +808,19 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
               {/* Bottom Quick Links */}
               <div className="mt-2.5 pt-2 border-t border-slate-800/80 space-y-1 text-xs">
+                {nextModuleOfSameSegment && (
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${nextModuleOfSameSegment.slug}/0`}
+                    className="block px-2.5 py-1.5 rounded-lg bg-indigo-950/60 border border-indigo-500/30 hover:border-indigo-400 text-indigo-200 hover:text-white font-semibold transition text-[11px] shadow-sm"
+                    title={`Next module in ${segmentData?.title || 'Segment'}: ${nextModuleOfSameSegment.title}`}
+                  >
+                    <div className="flex items-center justify-between text-[10px] text-indigo-400 font-bold uppercase tracking-wider">
+                      <span>Next Module</span>
+                      <ArrowRight size={11} />
+                    </div>
+                    <div className="truncate text-slate-200 font-medium mt-0.5">{nextModuleOfSameSegment.title}</div>
+                  </Link>
+                )}
                 <Link
                   to={`/${roadmapData.folder}/module/${moduleSlug}`}
                   className="block px-2.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white font-medium transition text-[11px]"
@@ -911,6 +955,32 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                 </button>
               </section>
 
+              {/* Next Module of Same Segment Banner */}
+              {nextModuleOfSameSegment && (
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950/40 to-slate-900 border border-indigo-500/20 shadow-md">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-300 shrink-0">
+                      <Layers size={18} />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] text-indigo-400 uppercase font-bold tracking-wider">
+                        {segmentData?.title ? `Same Segment: ${segmentData.title}` : "Next Module in Same Segment"}
+                      </div>
+                      <div className="text-sm font-bold text-slate-100 truncate">
+                        {nextModuleOfSameSegment.title}
+                      </div>
+                    </div>
+                  </div>
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${nextModuleOfSameSegment.slug}/0`}
+                    className="w-full sm:w-auto px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition flex items-center justify-center gap-1.5 shadow-sm shrink-0"
+                  >
+                    <span>Go to Next Module</span>
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+              )}
+
               {/* Bottom Topic Navigation */}
               <nav className="flex items-center justify-between gap-4 pt-2 pb-10">
                 {hasPrev ? (
@@ -936,6 +1006,20 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
                       <div className="truncate text-white font-bold">{topics[index + 1]}</div>
                     </div>
                     <ArrowRight size={16} className="text-slate-400 shrink-0" />
+                  </Link>
+                ) : nextModuleOfSameSegment ? (
+                  <Link
+                    to={`/${roadmapData.folder}/topic/${nextModuleOfSameSegment.slug}/0`}
+                    className="flex-1 p-3 sm:p-4 rounded-xl bg-gradient-to-r from-indigo-950/80 via-indigo-900/40 to-slate-900 border border-indigo-500/40 hover:border-indigo-400 text-xs sm:text-sm font-semibold text-white transition flex items-center justify-between text-right gap-3 shadow-lg group"
+                  >
+                    <div className="truncate flex-1">
+                      <div className="text-[10px] text-indigo-300 uppercase font-bold flex items-center justify-end gap-1">
+                        <span>Next Module in Segment</span>
+                        <Sparkles size={11} className="text-amber-400" />
+                      </div>
+                      <div className="truncate text-white font-bold">{nextModuleOfSameSegment.title}</div>
+                    </div>
+                    <ArrowRight size={16} className="text-sky-300 group-hover:translate-x-1 transition-transform shrink-0" />
                   </Link>
                 ) : <div className="flex-1" />}
               </nav>

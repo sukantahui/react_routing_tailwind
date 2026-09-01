@@ -1,0 +1,60 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_002: C Tokens, Data Types & Operator Mechanics
+Topic 3: Constants in C: #define Preprocessor Macros vs const Keyword
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: Why do we use Constants?
+A: To avoid "Magic Numbers"! If a GST rate is 18%, we give it a name
+   (e.g., GST_RATE). If the rate changes next year, we only edit 1 line of code
+   instead of searching and fixing 50 different places!
+
+Q: What is #define? (Analogy: The Find & Replace Robot)
+A: #define MAX 100
+   Before the compiler runs, the preprocessor blindly swaps the word "MAX" with
+   the number "100". It uses 0 bytes of RAM, but has NO type checking!
+   *Warning*: Never put a semicolon (;) at the end of #define!
+
+Q: What is const? (Analogy: The Locked Glass Showcase in RAM)
+A: const int maxSeats = 100;
+   Creates a real variable in RAM with a data type (int), but locks it with a
+   padlock. If anyone tries to modify it (maxSeats = 120;), the compiler
+   immediately throws an error!
+
+2. THE FAMOUS "2 + 3 = 11" MACRO TRAP EXPLAINED:
+--------------------------------------------------------------------------------
+Buggy Macro : #define SQUARE(x) x * x
+When called : SQUARE(2 + 3)
+Pastes text : 2 + 3 * 2 + 3
+Math rule   : 3 * 2 = 6 evaluated first!
+Result      : 2 + 6 + 3 = 11  (WRONG!)
+
+Fixed Macro : #define SQUARE(x) ((x) * (x))
+When called : SQUARE(2 + 3)
+Pastes text : ((2 + 3) * (2 + 3)) -> (5 * 5) = 25  (CORRECT!)
+
+3. SUKANTA HUI'S "RIGHT-TO-LEFT" POINTER TRICK:
+--------------------------------------------------------------------------------
+Read pointer declarations backwards (from Right to Left):
+
+1. const int *ptr;
+   Read: ptr is a * (pointer) to int that is const.
+   Meaning: The data value is locked (read-only), but pointer can point elsewhere!
+
+2. int * const ptr = &x;
+   Read: ptr is a const * (pointer) to an int.
+   Meaning: The pointer address is locked to &x, but you can modify the data value!
+
+3. const int * const ptr = &x;
+   Meaning: Both data value and pointer address are locked!
+
+4. BEGINNER DECISION CHECKLIST:
+--------------------------------------------------------------------------------
+- Need a numeric/math constant (PI, Max Length, Price)? -> Use 'const float PI = 3.14f;'
+- Need a compile-time configuration flag? -> Use '#define DEBUG_MODE 1'
+- Need a list of status states (IDLE, RUNNING, STOPPED)? -> Use 'enum'
+
+================================================================================

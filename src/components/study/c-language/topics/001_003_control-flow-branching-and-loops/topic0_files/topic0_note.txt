@@ -1,13 +1,45 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 001_003: Control Flow: Branching & Loops
-TOPIC 0: Decision Making & Iterative Control Flow
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_003: Control Flow: Branching, Decision Making & Loops
+Topic 0: Conditional Branching (if, if-else, else-if ladder, nested if)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. CORE CONCEPTS
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
 --------------------------------------------------------------------------------
-- Branching: if, else-if ladder, nested if, switch-case
-- Loops: while (pre-test), do-while (post-test), for (counted loop)
-- Jump Statements: break, continue, goto
+Q: What is Conditional Branching? (The Railway Track Switcher Analogy)
+A: Normal code runs like a train on a single straight track from top to bottom.
+   An 'if' statement is a track switch! If the signal is GREEN (true / non-zero),
+   the train takes Track A. If RED (false / 0), it takes Track B (else).
+
+Q: The #1 Bug in C Beginner History (Single = vs Double ==):
+A: if (role = 1)   <-- BUG! Sets role to 1, tests '1' (TRUE), runs EVERY TIME!
+   if (role == 1)  <-- CORRECT! Compares role with 1.
+   *Teacher's Trick (Yoda Condition)*: Write 'if (1 == role)'. If you type
+   'if (1 = role)', the compiler immediately catches the error!
+
+Q: What is the else-if Ladder? (The Grade / Discount Priority Queue)
+A: Tests conditions sequentially from top to bottom. As soon as ONE condition
+   evaluates to TRUE, its body runs, and ALL REMAINING else-if branches are skipped!
+
+2. LEAP YEAR DETECTION FORMULA:
+--------------------------------------------------------------------------------
+A year is a Leap Year if:
+((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+- 2024 : Divisible by 4, not 100 -> Leap Year!
+- 1900 : Divisible by 100, not 400 -> NOT a Leap Year!
+- 2000 : Divisible by 400 -> Leap Year!
+
+3. GUARD CLAUSES (FLATTENING NESTED CODE):
+--------------------------------------------------------------------------------
+Instead of nesting 5 levels of if-else (Arrow Code), exit early:
+if (amount <= 0) return ERROR_INVALID_AMOUNT;
+if (balance < amount) return ERROR_INSUFFICIENT_FUNDS;
+// Safe to execute withdrawal!
+
+4. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. ALWAYS use curly braces { } around if and else bodies, even for single lines!
+2. NEVER place a semicolon right after 'if (condition);' -- it kills the condition!
+3. For odd number detection, prefer (x & 1) over (x % 2 == 1).
 ================================================================================

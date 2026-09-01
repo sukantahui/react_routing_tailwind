@@ -1,28 +1,57 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 001_002: C Tokens, Variables, Data Types & Operators
-TOPIC 0: Primitive Types, Sizeof Operator & Bitwise Mechanics
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_002: C Tokens, Data Types & Operator Mechanics
+Topic 0: C Tokens Breakdown (Keywords, Identifiers, Constants, Strings, Symbols)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. CORE CONCEPTS & RULES
+1. WHAT IS A C TOKEN?
 --------------------------------------------------------------------------------
-- C Data Types:
-  * char: 1 byte (-128 to 127 or 0 to 255)
-  * int: usually 4 bytes (-2,147,483,648 to 2,147,483,647)
-  * float: 4 bytes (IEEE 754 single precision)
-  * double: 8 bytes (IEEE 754 double precision)
+A token is the smallest meaningful syntactic element recognized by the compiler
+during lexical analysis. Every C program is composed solely of tokens.
 
-- Bitwise Operators:
-  &  (Bitwise AND)
-  |  (Bitwise OR)
-  ^  (Bitwise XOR)
-  ~  (Bitwise NOT / One's Complement)
-  << (Shift Left - Multiply by 2^N)
-  >> (Shift Right - Divide by 2^N)
-
-2. ESSENTIAL CHECKLIST
+2. SIX CATEGORIES OF C TOKENS:
 --------------------------------------------------------------------------------
-[✓] Use (float) casting before dividing integer expressions to prevent truncated integer division.
-[✓] Use sizeof operator instead of hardcoding byte sizes.
++-------------------+---------------------------------------------------------+
+| Token Category    | Definition & Examples                                   |
++-------------------+---------------------------------------------------------+
+| 1. Keywords       | Reserved words with predefined meanings (32 in C89).    |
+|                   | Examples: auto, break, case, char, const, int, void.    |
++-------------------+---------------------------------------------------------+
+| 2. Identifiers    | User-defined names for variables, functions, structs.   |
+|                   | Must start with [a-zA-Z_], followed by [a-zA-Z0-9_].    |
++-------------------+---------------------------------------------------------+
+| 3. Constants      | Fixed immutable literal values.                         |
+|                   | Integer: 42, 052 (octal), 0x2A (hex)                    |
+|                   | Float: 3.14f, 2.5e-3 | Char: 'A', '\n'                  |
++-------------------+---------------------------------------------------------+
+| 4. String Literals| Characters enclosed in double quotes terminated by '\0'.|
+|                   | Stored in read-only .rodata: "Coder & AccoTax"          |
++-------------------+---------------------------------------------------------+
+| 5. Special Symbols| Structural syntax marks: ; , { } ( ) [ ] # *            |
++-------------------+---------------------------------------------------------+
+| 6. Operators      | Computational symbols: + - * / % == && || & | ^ ~ << >> |
++-------------------+---------------------------------------------------------+
+
+3. IDENTIFIER NAMING RULES:
+--------------------------------------------------------------------------------
+1. First character MUST be an alphabetic letter (a-z, A-Z) or underscore (_).
+2. Subsequent characters can be letters, digits (0-9), or underscores.
+3. No special characters allowed (@, $, #, -, %, etc.).
+4. Cannot use C reserved keywords (e.g., int, return, for).
+5. Case-sensitive: 'Count', 'count', and 'COUNT' are 3 distinct variables.
+
+4. CONSTANT PREFIXES & SUFFIXES:
+--------------------------------------------------------------------------------
+- Octal prefix: 0 (e.g., 077 = 63 decimal)
+- Hexadecimal prefix: 0x or 0X (e.g., 0xFF = 255 decimal)
+- Float suffix: f or F (e.g., 12.5f -> 4-byte float)
+- Long suffix: l or L (e.g., 500000L -> long integer)
+- Unsigned suffix: u or U (e.g., 255U -> unsigned integer)
+
+5. CLASSROOM TIP FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+"Never pad decimal numbers with leading zeros (e.g., int pincode = 070001;).
+The leading 0 tells the GCC compiler to interpret the number as Base-8 (Octal),
+which will trigger severe compilation errors or silent calculation bugs!"
 ================================================================================

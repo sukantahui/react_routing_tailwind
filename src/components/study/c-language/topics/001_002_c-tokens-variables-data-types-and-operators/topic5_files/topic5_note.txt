@@ -1,0 +1,51 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_002: C Tokens, Data Types & Operator Mechanics
+Topic 5: Implicit Type Promotion vs Explicit Type Casting
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: Why do types convert in C? (The Water Bucket Analogy)
+A: Think of data types as water containers:
+   - char   : 1-Liter Cup
+   - int    : 4-Liter Jug
+   - double : 8-Liter Tank
+   * Widening (Small cup into Big tank): Fits easily without losing a drop!
+     The compiler does this automatically (Implicit Promotion).
+   * Narrowing (Big tank into Small cup): Water spills everywhere! Converting
+     float 3.99 into int permanently loses the .99!
+
+Q: Why does 15 / 4 give 3 in C? (The Pizza Sharing Mystery)
+A: Because 15 and 4 are integers! C performs whole-number division and
+   chops off the .75 BEFORE saving.
+   * Fix: float share = (float)15 / 4;  // Result: 3.75!
+   Always cast at least one operand when calculating averages or percentages!
+
+Q: Why does (-1 < 1U) evaluate to FALSE? (The Scooter Odometer Analogy)
+A: An unsigned odometer only counts positive numbers (0000 to 9999).
+   If you roll it backwards past 0, it wraps around to 9999!
+   In 32-bit binary, -1 is 32 ones (0xFFFFFFFF). When compared to an unsigned
+   number, C reads it as 4,294,967,295! Since 4.29 Billion < 1 is FALSE,
+   the condition fails!
+
+2. USUAL ARITHMETIC CONVERSIONS HIERARCHY:
+--------------------------------------------------------------------------------
+char / short  ==>  int  ==>  unsigned int  ==>  long long  ==>  float / double
+(Narrower types are automatically upgraded to match wider operands)
+
+3. EXPLICIT TYPE CASTING:
+--------------------------------------------------------------------------------
+Syntax: (target_type) expression
+Examples:
+1. Division Precision : (float)totalMarks / count
+2. Memory Endianness  : (uint8_t *)&my32BitWord
+3. Integer Truncation : (int)3.99f  // Evaluates to 3
+
+4. THE TEACHER'S 3 GOLDEN RULES:
+--------------------------------------------------------------------------------
+1. Always cast in division formulas: float avg = (float)sum / n;
+2. Never compare signed integers with unsigned integers or sizeof() directly!
+3. Remember that (int)4.99 truncates to 4 (it does NOT round automatically).
+================================================================================

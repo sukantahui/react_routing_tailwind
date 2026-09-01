@@ -1,0 +1,50 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_002: C Tokens, Data Types & Operator Mechanics
+Topic 4: Operator Precedence, Associativity & Bitwise Mechanics
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. COMPLETE OPERATOR PRECEDENCE & ASSOCIATIVITY TABLE:
+--------------------------------------------------------------------------------
+Level | Category          | Operators                       | Associativity
+------+-------------------+---------------------------------+---------------
+1     | Postfix / Member  | () [] -> . ++ -- (postfix)      | Left to Right
+2     | Unary Prefix      | ++ -- + - ! ~ * & (cast) sizeof | Right to Left
+3     | Multiplicative    | * / %                           | Left to Right
+4     | Additive          | + -                             | Left to Right
+5     | Bitwise Shifts    | << >>                           | Left to Right
+6     | Relational        | < <= > >=                       | Left to Right
+7     | Equality          | == !=                           | Left to Right
+8     | Bitwise AND       | &                               | Left to Right
+9     | Bitwise XOR       | ^                               | Left to Right
+10    | Bitwise OR        | |                               | Left to Right
+11    | Logical AND       | &&                              | Left to Right
+12    | Logical OR        | ||                              | Left to Right
+13    | Ternary           | ? :                             | Right to Left
+14    | Assignment        | = += -= *= /= %= &= ^= |= <<= >>= Right to Left
+15    | Comma             | ,                               | Left to Right
+--------------------------------------------------------------------------------
+
+2. BITWISE OPERATOR IDIOMS:
+--------------------------------------------------------------------------------
+- Set Bit n    : val |= (1 << n);
+- Clear Bit n  : val &= ~(1 << n);
+- Toggle Bit n : val ^= (1 << n);
+- Test Bit n   : if ((val >> n) & 1) ...
+- Clear LSB 1  : val = val & (val - 1);  (Brian Kernighan's trick)
+- Power of 2 ? : (val > 0) && ((val & (val - 1)) == 0)
+
+3. SHORT-CIRCUIT EVALUATION:
+--------------------------------------------------------------------------------
+- expr1 && expr2 : If expr1 is 0 (false), expr2 is NEVER evaluated.
+- expr1 || expr2 : If expr1 is 1 (true), expr2 is NEVER evaluated.
+Example: if (ptr != NULL && *ptr > 0) -> 100% safe against NULL crashes!
+
+4. CLASSROOM TRAP FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+"The #1 bitwise bug in C: Equality (==) has higher precedence than Bitwise AND (&)!
+Writing `if (flags & 1 == 0)` parses as `if (flags & (1 == 0))` which checks
+`flags & 0 = 0` (always false!). Always use explicit parentheses:
+`if ((flags & 1) == 0)`!"
+================================================================================

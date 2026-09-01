@@ -1,12 +1,55 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 001_003: Control Flow: Branching & Loops
-TOPIC 1: Module 001_003 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_003: Control Flow: Branching, Decision Making & Loops
+Topic 1: The switch-case statement: jump table optimization & fall-through
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. MODULE PROJECTS SUMMARY
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
 --------------------------------------------------------------------------------
-- Project 1: Prime & Armstrong Number Verifier
-- Project 2: Interactive ATM Banking PIN & Menu Simulator
+Q: What is a switch-case statement? (The Restaurant Vending Machine Analogy)
+A: In an else-if ladder, the waiter asks you: "Do you want Chai? No? Coffee? No?
+   Juice? No? Water? Yes!" (Checking 1 by 1 linearly).
+   In a switch-case, you press button #3 on a vending machine, and Juice is
+   instantly dispensed in 1 shot! The CPU uses a "Jump Table" to jump directly
+   to the target case in O(1) constant time!
+
+Q: What happens if you forget 'break;'? (The Dangerous Fall-Through)
+A: If you don't put a 'break;', execution does NOT stop! It spills downward
+   into all lower cases and executes their code too until a break or closing
+   brace is hit!
+
+Q: Why are floats & strings illegal in switch?
+A: Switch requires discrete integer / character constants so the compiler can
+   compute exact memory jump offsets. Floats have decimal rounding imprecisions.
+
+2. INTENTIONAL FALL-THROUGH:
+--------------------------------------------------------------------------------
+Stacking cases together to share logic:
+switch (month) {
+    case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+        days = 31;
+        break;
+    case 4: case 6: case 9: case 11:
+        days = 30;
+        break;
+    case 2:
+        days = 28; // or 29 in leap year
+        break;
+}
+
+3. SCOPE DECLARATION TRICK INSIDE A CASE:
+--------------------------------------------------------------------------------
+If you declare variables inside a case, enclose in curly braces:
+case 1: {
+    int localScore = 100;
+    printf("Score: %d\n", localScore);
+    break;
+}
+
+4. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. ALWAYS write a 'default:' branch as the fallback safety net!
+2. ALWAYS verify that every case has a 'break;' unless intentional fallthrough.
+3. Group identical character cases (e.g. 'y' and 'Y') together for clean code.
 ================================================================================

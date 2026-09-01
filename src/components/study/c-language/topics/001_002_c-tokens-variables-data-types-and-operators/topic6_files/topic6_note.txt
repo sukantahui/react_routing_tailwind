@@ -1,0 +1,44 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_002: C Tokens, Data Types & Operator Mechanics
+Topic 6: Hands-on Projects & Lab Solutions
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. SUMMARY OF MODULE 001_002 PROJECTS:
+--------------------------------------------------------------------------------
+PROJECT 1: Bitwise Hardware Status Register & Flags Inspector
+- Domain: Embedded Systems / IoT Sensor Device Drivers
+- Core Tools: uint8_t, bitwise masks (1 << n), & (check), | (set), ~ (clear), ^ (toggle).
+- Key Insight: Up to 8 discrete boolean sensor flags packed into a single 1-byte register.
+
+PROJECT 2: Payroll Tax, Allowance & Net Salary Calculator
+- Domain: Enterprise Financial / Accounting Engines
+- Core Tools: double precision types, percentage formulas, format specifiers (%10.2f).
+- Key Insight: Eliminates integer division truncation through explicit floating literals.
+
+PROJECT 3: Exact-Width Sensor Telemetry Packer & Unpacker
+- Domain: Network Protocol Packet Serialization
+- Core Tools: <stdint.h>, bit shifts (<< 16, >> 16), 0xFFFF masking.
+
+2. BITWISE MANIPULATION CHEAT SHEET:
+--------------------------------------------------------------------------------
+- Set Flag       : status |= FLAG_MASK;
+- Clear Flag     : status &= ~FLAG_MASK;
+- Toggle Flag    : status ^= FLAG_MASK;
+- Check Flag     : if ((status & FLAG_MASK) != 0) { /* Active */ }
+- Multi-Flag Set : status |= (FLAG_A | FLAG_B);
+- Multi-Flag Clr : status &= ~(FLAG_A | FLAG_B);
+
+3. FINANCIAL ACCURACY RULES:
+--------------------------------------------------------------------------------
+- Always write percentage divisors as 100.0 or 100.0f.
+- Use 'double' for intermediate accumulation to prevent rounding drift.
+- Format console tables using width and precision: %-20s %12.2f
+
+4. TEACHER'S LAB SIGN-OFF FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+"Congratulations on mastering C Tokens, Data Types, and Operators!
+You are now fully equipped with hardware-level bit manipulation skills and precision
+data modeling required for advanced control flow and systems engineering."
+================================================================================

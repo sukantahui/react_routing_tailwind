@@ -102,7 +102,7 @@ const Topic1 = () => {
             <ul className="list-disc pl-5 space-y-1.5 text-xs text-slate-400">
               <li>Inserted <strong className="text-slate-200">automatically</strong> by Java compiler if NO constructors exist.</li>
               <li>Body contains no custom logic; only calls <code className="text-sky-300">super()</code>.</li>
-              <li>Fills fields with standard zero/null values (e.g. <code className="text-amber-300">int -> 0</code>, <code className="text-amber-300">String -> null</code>).</li>
+              <li>Fills fields with standard zero/null values (e.g. <code className="text-amber-300">int &rarr; 0</code>, <code className="text-amber-300">String &rarr; null</code>).</li>
             </ul>
           </div>
 

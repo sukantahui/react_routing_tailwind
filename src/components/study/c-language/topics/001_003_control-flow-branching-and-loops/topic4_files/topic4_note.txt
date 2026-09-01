@@ -1,0 +1,42 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_003: Control Flow: Branching, Decision Making & Loops
+Topic 4: Building Nested Loop Algorithms: Matrix Grids, Primes & Patterns
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. TEACHER'S INTUITIVE BREAKDOWN FOR BEGINNERS:
+--------------------------------------------------------------------------------
+Q: How does a Nested Loop work? (The Clock Hands Analogy)
+A: Think of an analog clock:
+   - Outer loop (i) = Hour hand (slow).
+   - Inner loop (j) = Minute hand (fast).
+   For EVERY single hour tick (i = 1), the minute hand MUST complete all 60
+   minutes (j = 1 to 60) before the hour hand can move to 2!
+
+2. PATTERN PRINTING 3-STEP MASTER BLUEPRINT:
+--------------------------------------------------------------------------------
+Every pattern in C is solved with these 3 questions:
+1. "How many total lines/rows?" -> Outer loop (for i = 1 to N)
+2. "For each row, what prints across columns?" -> Inner loop(s)
+   - Symmetrical spaces? -> for space = 1 to (N - i)
+   - Stars or numbers?   -> for star = 1 to (2*i - 1)
+3. "Did I remember the newline?" -> printf("\n") after the inner loop!
+
+3. OPTIMIZED PRIME NUMBER CHECK UP TO sqrt(N):
+--------------------------------------------------------------------------------
+Testing all numbers up to N takes O(N) time.
+Testing up to d * d <= N takes O(sqrt(N)) time!
+For N = 1,000,000, sqrt(N) is only 1,000 checks (1000x faster)!
+
+bool isPrime = (num >= 2);
+for (int d = 2; d * d <= num; d++) {
+    if (num % d == 0) { isPrime = false; break; }
+}
+
+4. TEACHER'S GOLDEN RULES FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+1. NEVER use the same variable 'i' for both outer and inner loops!
+2. Always iterate 2D arrays row-by-row (row-major) for maximum CPU cache speed!
+3. Trace your row-column (i, j) coordinate grid on paper before writing code!
+================================================================================

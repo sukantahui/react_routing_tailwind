@@ -1,12 +1,50 @@
 ================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 001_002: C Tokens, Data Types & Operators
-TOPIC 1: Module 001_002 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
+CODER & ACCOTAX - C LANGUAGE STUDY NOTE
+Module 001_002: C Tokens, Data Types & Operator Mechanics
+Topic 1: Fundamental Data Types & Memory Footprints (32-bit vs 64-bit)
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. MODULE PROJECTS SUMMARY
+1. PRIMITIVE DATA TYPES IN C:
 --------------------------------------------------------------------------------
-- Project 1: Bill Splitter & Tax Calculator
-- Project 2: Bitwise Status Register Inspector & Masking Utility
++-------------+-----------+---------------------+-------------------------------+
+| Type        | Standard  | Format Specifier    | Typical Range Limits          |
++-------------+-----------+---------------------+-------------------------------+
+| char        | 1 Byte    | %c / %d             | -128 to 127 (or 0 to 255)     |
+| short       | 2 Bytes   | %hd                 | -32,768 to 32,767             |
+| int         | 4 Bytes   | %d / %i             | -2,147,483,648 to 2,147,483,647|
+| long        | 4 or 8 B  | %ld                 | 32-bit: 2.14B | 64-bit: 9.22E18|
+| long long   | 8 Bytes   | %lld                | -9,223,372,036,854,775,808... |
+| float       | 4 Bytes   | %f / %e             | ~7 decimal digits precision   |
+| double      | 8 Bytes   | %lf / %f            | ~15 decimal digits precision  |
+| long double | 12/16 B   | %Lf                 | ~19 decimal digits precision  |
+| void        | 0 Bytes   | N/A                 | Generic type / no return value|
++-------------+-----------+---------------------+-------------------------------+
+
+2. ARCHITECTURAL DATA MODELS (32-BIT VS 64-BIT):
+--------------------------------------------------------------------------------
+- ILP32 (Standard 32-bit):
+  int = 32 bits (4B), long = 32 bits (4B), Pointer = 32 bits (4B).
+- LP64 (64-bit Linux / macOS GCC):
+  int = 32 bits (4B), long = 64 bits (8B), Pointer = 64 bits (8B).
+- LLP64 (64-bit Windows MSVC / MinGW):
+  int = 32 bits (4B), long = 32 bits (4B), long long = 64 bits (8B), Pointer = 64 bits (8B).
+
+3. THE sizeof OPERATOR:
+--------------------------------------------------------------------------------
+- Evaluated at compile-time by GCC.
+- Returns type 'size_t' (unsigned integral value).
+- Standard printf format specifier: %zu
+- Example: printf("Size: %zu bytes\n", sizeof(int));
+
+4. LIMIT HEADERS:
+--------------------------------------------------------------------------------
+- <limits.h>: Contains CHAR_BIT, SCHAR_MIN, SCHAR_MAX, INT_MIN, INT_MAX, LLONG_MAX.
+- <float.h> : Contains FLT_MIN, FLT_MAX, FLT_DIG, DBL_MIN, DBL_MAX, DBL_DIG.
+
+5. TEACHING INSIGHT FROM SUKANTA HUI:
+--------------------------------------------------------------------------------
+"Never assume sizeof(long) is always 8 bytes! On 64-bit Windows it is 4 bytes,
+while on 64-bit Linux it is 8 bytes. For rock-solid cross-platform code, always
+use exact-width types from <stdint.h> like int32_t or int64_t!"
 ================================================================================
