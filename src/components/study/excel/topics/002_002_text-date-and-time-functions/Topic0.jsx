@@ -61,22 +61,22 @@ export default function Topic0() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"🧹 Text Cleansing Core"} · Topic 0
+              🧹 Text Cleansing Core · Topic 0
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Text Cleaning & Case Normalization"}
+              Text Cleaning &amp; Case Normalization
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Intermediate · Bloom Level 3: Apply"}
+              Intermediate · Bloom Level 3: Apply
             </span>
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN"}
+            Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Standardizing messy corporate text data with case conversion (UPPER, LOWER, PROPER) and whitespace/character hygiene (TRIM, CLEAN)"}. Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
+            Standardizing messy corporate text data with case conversion (UPPER, LOWER, PROPER) and whitespace/character hygiene (TRIM, CLEAN). Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,31 +113,49 @@ export default function Topic0() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"=TRIM(CLEAN(PROPER(text))) | =UPPER(text) | =LOWER(text)"}
+            =TRIM(CLEAN(PROPER(text))) | =UPPER(text) | =LOWER(text)
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Parameter / Token</th>
-                  <th className="py-3 px-4">Type</th>
-                  <th className="py-3 px-4">Requirement</th>
-                  <th className="py-3 px-4">Operational Description</th>
+                  <th className="py-3 px-4">Function</th>
+                  <th className="py-3 px-4">Syntax</th>
+                  <th className="py-3 px-4">Input Type</th>
+                  <th className="py-3 px-4">Operational Purpose</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Target Argument / Input</td>
-                  <td className="py-3 px-4 text-teal-400">String / Serial Date / Number</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Specifies the target cell, literal value, or range to evaluate.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">TRIM</td>
+                  <td className="py-3 px-4 text-cyan-400">=TRIM(text)</td>
+                  <td className="py-3 px-4 text-teal-400">String / Cell</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Removes all leading/trailing spaces and condenses multiple internal spaces to a single space.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Delimiter / Length / Options</td>
-                  <td className="py-3 px-4 text-teal-400">Integer / String / Array</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Defines character counts, delimiter masks, or extraction start positions.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">CLEAN</td>
+                  <td className="py-3 px-4 text-cyan-400">=CLEAN(text)</td>
+                  <td className="py-3 px-4 text-teal-400">String / Cell</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Strips non-printable ASCII characters 0–31 (e.g. carriage returns, line feeds from SQL/web exports).</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">PROPER</td>
+                  <td className="py-3 px-4 text-cyan-400">=PROPER(text)</td>
+                  <td className="py-3 px-4 text-teal-400">String / Cell</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Capitalizes the first letter of each word and converts all other letters to lowercase.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">UPPER</td>
+                  <td className="py-3 px-4 text-cyan-400">=UPPER(text)</td>
+                  <td className="py-3 px-4 text-teal-400">String / Cell</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Converts all characters in the text string to uppercase for standardized database matching.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">LOWER</td>
+                  <td className="py-3 px-4 text-cyan-400">=LOWER(text)</td>
+                  <td className="py-3 px-4 text-teal-400">String / Cell</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Converts all letters in the text string to lowercase (ideal for email address formatting).</td>
                 </tr>
               </tbody>
             </table>
@@ -147,16 +165,103 @@ export default function Topic0() {
             <span className="text-sky-400 text-lg">💡</span>
             <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               <strong className="text-white">Core Principle: </strong>
-              Text functions transform character sequences and case formatting, while date/time functions operate on integer and fractional serial numbers under the hood.
+              Text functions transform character sequences and case formatting. Combining TRIM, CLEAN, and PROPER forms the ultimate data hygiene triad for cleaning raw imports.
             </div>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+            SECTION 3: PRACTICAL FORMULA EXAMPLES MATRIX
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">📊</span>
+              Practical Formula Showcase &amp; Real-World Examples
+            </h2>
+            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
+              Comprehensive Matrix
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Review detailed, concrete input-to-output formula evaluations across real corporate data scenarios.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
+                  <th className="py-3 px-4">Pattern / Function</th>
+                  <th className="py-3 px-4">Raw Input Data (A2)</th>
+                  <th className="py-3 px-4">Excel Formula</th>
+                  <th className="py-3 px-4">Evaluated Output</th>
+                  <th className="py-3 px-4">Operational Mechanics</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Whitespace Cleanup</td>
+                  <td className="py-3 px-4 text-amber-300">"  Kolkata   Plant  "</td>
+                  <td className="py-3 px-4 text-cyan-300">=TRIM(A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Kolkata Plant"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Removes 2 leading, 2 trailing spaces &amp; condenses inner 3 spaces into 1 space.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Line Break Stripping</td>
+                  <td className="py-3 px-4 text-amber-300">"Vendor" &amp; CHAR(10) &amp; "Master"</td>
+                  <td className="py-3 px-4 text-cyan-300">=CLEAN(A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"VendorMaster"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Strips non-printable line feed (ASCII 10) inherited from mainframe database export.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Proper Case Title</td>
+                  <td className="py-3 px-4 text-amber-300">"ACCOTAX SERVICES PVT LTD"</td>
+                  <td className="py-3 px-4 text-cyan-300">=PROPER(A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Accotax Services Pvt Ltd"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Capitalizes the first character of each word; forces all remaining letters to lowercase.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Uppercase Standard</td>
+                  <td className="py-3 px-4 text-amber-300">"gstin19abcde1234f1z5"</td>
+                  <td className="py-3 px-4 text-cyan-300">=UPPER(A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"GSTIN19ABCDE1234F1Z5"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Normalizes lowercase GST / Tax registration codes to uppercase for exact VLOOKUP matching.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Lowercase Email</td>
+                  <td className="py-3 px-4 text-amber-300">"Swadeep.Hui@ACCOTAX.COM"</td>
+                  <td className="py-3 px-4 text-cyan-300">=LOWER(A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"swadeep.hui@accotax.com"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Ensures user emails are standardized to lowercase for authentication systems.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Industrial Triad</td>
+                  <td className="py-3 px-4 text-amber-300">"  tuhina   das  " &amp; CHAR(13)</td>
+                  <td className="py-3 px-4 text-cyan-300">=TRIM(CLEAN(PROPER(A2)))</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Tuhina Das"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Strips carriage return (CHAR 13), trims outer/inner spaces, and capitalizes names in one formula.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Web Non-Break Space</td>
+                  <td className="py-3 px-4 text-amber-300">"Raw" &amp; CHAR(160) &amp; "Data"</td>
+                  <td className="py-3 px-4 text-cyan-300">=TRIM(SUBSTITUTE(A2, CHAR(160), " "))</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Raw Data"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Replaces web non-breaking space (ASCII 160) with standard space (ASCII 32) before trimming.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* =========================================================================
+            SECTION 4: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -170,36 +275,34 @@ export default function Topic0() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Non-Printable Character Stripping (CLEAN)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"CLEAN() removes ASCII 0-31 control characters and line breaks often inherited from legacy mainframe or SQL exports."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Non-Printable Character Stripping (CLEAN)</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">CLEAN() removes ASCII 0-31 control characters and line breaks often inherited from legacy mainframe or SQL exports.</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Whitespace Normalization (TRIM)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"TRIM() eliminates leading/trailing spaces and condenses multi-space gaps down to single spaces. (Note: does not remove ASCII 160 non-breaking spaces)."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Whitespace Normalization (TRIM)</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">TRIM() eliminates leading/trailing spaces and condenses multi-space gaps down to single spaces. (Note: does not remove ASCII 160 non-breaking spaces).</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Case Transformation Engine"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"PROPER() capitalizes the first letter of each word; UPPER() converts all letters to uppercase; LOWER() converts to lowercase for clean database joins."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Case Transformation Engine</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">PROPER() capitalizes the first letter of each word; UPPER() converts all letters to uppercase; LOWER() converts to lowercase for clean database joins.</p>
             </div>
-            
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 5: INTERACTIVE SEMANTIC SVG DIAGRAM
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[3] = el)}
+          ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
               <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Text Hygiene Pipeline: Non-Printable Strip → Whitespace Normalization → Case Standardization"}
+              Visual Dataflow: Text Hygiene Pipeline: Non-Printable Strip → Whitespace Normalization → Case Standardization
             </h2>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
               SVG Pipeline
@@ -235,7 +338,7 @@ export default function Topic0() {
                 <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
                 <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
                 <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Formula Transformation Engine</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Text Cleaning & Case Normalization"}</text>
+                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">Text Cleaning &amp; Case Normalization</text>
                 <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Delimiter Parsing &amp; String Slicing</text>
                 <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Temporal Serial Calculations</text>
                 <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native C++ Excel Engine</text>
@@ -256,10 +359,10 @@ export default function Topic0() {
         </section>
 
         {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
+            SECTION 6: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[4] = el)}
+          ref={(el) => (sectionsRef.current[5] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
@@ -286,18 +389,18 @@ export default function Topic0() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX701"
-            title={"Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN - Interactive Practice Grid"}
+            sheetName="Text Manipulation Essentials"
+            title="Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 7: REAL-WORLD BUSINESS SCENARIOS
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[5] = el)}
+          ref={(el) => (sectionsRef.current[6] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -311,51 +414,49 @@ export default function Topic0() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · KYC Compliance Lead"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 1 · KYC Compliance Lead</span>
+                <span className="text-xs font-mono text-slate-400">Barrackpore HQ</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Customer Name Normalization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Transforms erratic customer names ('  swadeep   banerjee ') into standardized 'Swadeep Banerjee' across 50,000 banking records."}</p>
+              <h3 className="font-bold text-white text-base">Swadeep Banerjee: Customer Name Normalization</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Transforms erratic customer names ('  swadeep   banerjee ') into standardized 'Swadeep Banerjee' across 50,000 banking records.</p>
             </div>
             
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Tax Auditor"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 2 · Tax Auditor</span>
+                <span className="text-xs font-mono text-slate-400">Shyamnagar Plant</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Vendor Master Code Standardization"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Applies =UPPER(TRIM(A2)) on vendor tax IDs to guarantee exact case-insensitive matches during VLOOKUP tax audits."}</p>
+              <h3 className="font-bold text-white text-base">Tuhina Mukherjee: Vendor Master Code Standardization</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Applies =UPPER(TRIM(A2)) on vendor tax IDs to guarantee exact case-insensitive matches during VLOOKUP tax audits.</p>
             </div>
             
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Inventory Supervisor"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Ichapur Heavy Works"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 3 · Inventory Supervisor</span>
+                <span className="text-xs font-mono text-slate-400">Ichapur Heavy Works</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Scrap Batch Code Cleaning"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Uses =CLEAN(TRIM(B2)) to strip hidden carriage returns imported from factory barcode scanners."}</p>
+              <h3 className="font-bold text-white text-base">Abhronila Das: Scrap Batch Code Cleaning</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Uses =CLEAN(TRIM(B2)) to strip hidden carriage returns imported from factory barcode scanners.</p>
             </div>
             
             <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Coordinator"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics Hub"}</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Case 4 · Logistics Coordinator</span>
+                <span className="text-xs font-mono text-slate-400">Naihati Logistics Hub</span>
               </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Dispatch City Name Hygiene"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Standardizes mixed-case dispatch notes ('KOLKATA', 'kolkata', 'Kolkata ') into uniform proper-case city labels."}</p>
+              <h3 className="font-bold text-white text-base">Debangshu Roy: Dispatch City Name Hygiene</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Standardizes mixed-case dispatch notes ('KOLKATA', 'kolkata', 'Kolkata ') into uniform proper-case city labels.</p>
             </div>
-            
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
+            SECTION 8: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[6] = el)}
+          ref={(el) => (sectionsRef.current[7] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -385,7 +486,7 @@ export default function Topic0() {
                 Step 2: Construct the Core Formula Expression
               </div>
               <p className="text-slate-300 leading-relaxed">
-                In the adjacent calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=TRIM(CLEAN(PROPER(text))) | =UPPER(text) | =LOWER(text)"}</code>.
+                In the adjacent calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">=TRIM(CLEAN(PROPER(text))) | =UPPER(text) | =LOWER(text)</code>.
               </p>
             </div>
 
@@ -412,10 +513,10 @@ export default function Topic0() {
         </section>
 
         {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
+            SECTION 9: COMMON PITFALLS & TROUBLESHOOTING MATRIX
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[7] = el)}
+          ref={(el) => (sectionsRef.current[8] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -438,35 +539,31 @@ export default function Topic0() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
                 <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Non-Breaking Space (ASCII 160) Trap"}</td>
-                  <td className="py-3 px-4">{"TRIM() only removes ASCII 32 regular spaces; web-scraped ASCII 160 spaces remain untouched."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use =TRIM(CLEAN(SUBSTITUTE(A2, CHAR(160), \" \"))) to sanitize web text."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Non-Breaking Space (ASCII 160) Trap</td>
+                  <td className="py-3 px-4">TRIM() only removes ASCII 32 regular spaces; web-scraped ASCII 160 spaces remain untouched.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">=TRIM(CLEAN(SUBSTITUTE(A2, CHAR(160), " ")))</td>
                 </tr>
-                
                 <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"PROPER() Hyphen / Apostrophe Anomaly"}</td>
-                  <td className="py-3 px-4">{"PROPER(\"o'connor\") capitalizes after apostrophes resulting in \"O'Connor\" but \"abc-corp\" becomes \"Abc-Corp\"."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Inspect names with special prefixes (e.g. McDonald) for post-processing adjustments."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">PROPER() Hyphen / Apostrophe Anomaly</td>
+                  <td className="py-3 px-4">PROPER("o'connor") capitalizes after apostrophes resulting in "O'Connor" but "abc-corp" becomes "Abc-Corp".</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Inspect names with special prefixes (e.g. McDonald) for post-processing adjustments.</td>
                 </tr>
-                
                 <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Formula Reference Replacement"}</td>
-                  <td className="py-3 px-4">{"Overwriting source columns directly without Copy > Paste as Values deletes dynamic formula logic."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always copy cleaned output and Paste Special > Values (Alt + E + S + V)."}</td>
+                  <td className="py-3 px-4 font-mono font-bold text-rose-300">Formula Reference Replacement</td>
+                  <td className="py-3 px-4">Overwriting source columns directly without Copy &gt; Paste as Values deletes dynamic formula logic.</td>
+                  <td className="py-3 px-4 font-mono text-cyan-300">Always copy cleaned output and Paste Special &gt; Values (Alt + E + S + V).</td>
                 </tr>
-                
               </tbody>
             </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
+            SECTION 10: PRO TIPS & PRODUCTIVITY SHORTCUTS
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[8] = el)}
+          ref={(el) => (sectionsRef.current[9] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -480,39 +577,37 @@ export default function Topic0() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Triple Clean Combo"}
+                <span>⚡</span> Triple Clean Combo
               </div>
-              <p className="text-slate-300 leading-relaxed">{"The industrial gold standard for one-shot data cleansing."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=TRIM(CLEAN(PROPER(A2)))"}</kbd>
+              <p className="text-slate-300 leading-relaxed">The industrial gold standard for one-shot data cleansing.</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">=TRIM(CLEAN(PROPER(A2)))</kbd>
             </div>
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Strip Web Spaces"}
+                <span>⚡</span> Strip Web Spaces
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Replaces stubborn non-breaking web spaces with normal spaces."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"SUBSTITUTE(A2, CHAR(160), \" \")"}</kbd>
+              <p className="text-slate-300 leading-relaxed">Replaces stubborn non-breaking web spaces with normal spaces.</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">SUBSTITUTE(A2, CHAR(160), " ")</kbd>
             </div>
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
               <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Paste Values Shortcut"}
+                <span>⚡</span> Paste Values Shortcut
               </div>
-              <p className="text-slate-300 leading-relaxed">{"Instantly convert formula transformations into static text."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"Ctrl + Alt + V → V"}</kbd>
+              <p className="text-slate-300 leading-relaxed">Instantly convert formula transformations into static text.</p>
+              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">Ctrl + Alt + V → V</kbd>
             </div>
-            
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
+            SECTION 11: SOCRATIC HINTS ("THINK ABOUT...")
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[9] = el)}
+          ref={(el) => (sectionsRef.current[10] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -526,10 +621,9 @@ export default function Topic0() {
           </div>
 
           <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            
             <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why does TRIM() sometimes fail to remove trailing spaces from web-copied tables?"}
+                <span className="text-teal-400">💭</span> Question 1: Why does TRIM() sometimes fail to remove trailing spaces from web-copied tables?
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the computational and data engineering implications in large-scale enterprise models.
@@ -538,7 +632,7 @@ export default function Topic0() {
             
             <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"How do non-printable ASCII characters affect VLOOKUP or XLOOKUP matching?"}
+                <span className="text-teal-400">💭</span> Question 2: How do non-printable ASCII characters affect VLOOKUP or XLOOKUP matching?
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the computational and data engineering implications in large-scale enterprise models.
@@ -547,32 +641,31 @@ export default function Topic0() {
             
             <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
               <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"What is the mathematical difference between ASCII character 32 and ASCII character 160?"}
+                <span className="text-teal-400">💭</span> Question 3: What is the mathematical difference between ASCII character 32 and ASCII character 160?
               </h3>
               <p className="text-slate-400 leading-relaxed">
                 Reflect on the computational and data engineering implications in large-scale enterprise models.
               </p>
             </div>
-            
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
+            SECTION 12: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN - Frequently Asked Questions"}
+            title="Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN - Frequently Asked Questions"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
+            SECTION 13: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[12] = el)} className="reveal-section">
           <Teacher
-            note={"Data cleaning represents 80% of real-world analytics work. Master the TRIM + CLEAN + SUBSTITUTE(CHAR(160)) triad to solve data import glitches effortlessly."}
+            note="Data cleaning represents 80% of real-world analytics work. Master the TRIM + CLEAN + SUBSTITUTE(CHAR(160)) triad to solve data import glitches effortlessly."
           />
         </div>
       </div>

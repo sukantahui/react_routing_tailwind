@@ -71,13 +71,13 @@ The Excel study module structure:
 
 • TOPIC SHEET NAMING & DIRECTORY SEQUENCE RULE:
     - Sheet 1 (Index 0) of every master workbook is ALWAYS the executive `Overview` landing sheet.
-    - The subsequent worksheet tabs in the master `.xlsx` workbook MUST be named sequentially after the topic names (e.g. `Topic0`, `Topic1`, `Topic2`, ..., `TopicN`).
-    - This guarantees a 1-to-1 deterministic mapping between the web application topic component (`Topic0.jsx`, `Topic1.jsx`, ..., `TopicN.jsx`) and the Excel workbook sheet tabs.
+    - The subsequent worksheet tabs in the master `.xlsx` workbook MUST be named after the human-readable title of the topic (trimmed to <= 31 characters without invalid characters `\ / ? * : [ ]` to comply with Microsoft Excel sheet naming limits).
+    - This guarantees a 1-to-1 deterministic mapping between the web application topic component (`Topic0.jsx`, `Topic1.jsx`, ..., `TopicN.jsx`), the `sheetName` prop passed to `<ExcelFileLoader>`, and the Excel workbook sheet tabs.
     - Sequence Mapping:
         • Sheet 1 (Index 0): `Overview` (Executive Landing Sheet)
-        • Sheet 2 (Index 1): `Topic0` (Topic 0 Worksheet)
-        • Sheet 3 (Index 2): `Topic1` (Topic 1 Worksheet)
-        • Sheet N + 2 (Index N + 1): `Topic[N]` (Topic N Worksheet)
+        • Sheet 2 (Index 1): `Text Manipulation Essentials` (Topic 0 Worksheet)
+        • Sheet 3 (Index 2): `Substring Extraction` (Topic 1 Worksheet)
+        • Sheet N + 2 (Index N + 1): `Topic Name` (Topic N Worksheet)
 
 • MANDATORY COLUMN EXPANSION & ZERO-TRUNCATION RULE:
     - Every worksheet in the master `.xlsx` workbook MUST have all column widths properly expanded.

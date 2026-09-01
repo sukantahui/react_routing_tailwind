@@ -49,6 +49,7 @@ import {
 const MathSymbolDictionary = React.lazy(() => import("../../common/MathSymbolDictionary"));
 const ScreenAnnotator = React.lazy(() => import("../../common/ScreenAnnotator"));
 const StudyWhiteboard = React.lazy(() => import("../../common/StudyWhiteboard"));
+const CNATMamChatbot = React.lazy(() => import("./common/CNATMamChatbot"));
 
 // Cache for dynamically loaded topic components to prevent recreation on re-render
 const topicComponentCache = new Map();
@@ -1232,6 +1233,17 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
           </div>
         </div>
       )}
+
+      {/* ========================================================================= */}
+      {/* CNAT MAM AI CHATBOT STUDENT ASSISTANT */}
+      {/* ========================================================================= */}
+      <Suspense fallback={null}>
+        <CNATMamChatbot
+          topicTitle={topicTitle || "Study Topic"}
+          moduleSlug={moduleSlug}
+          subjectKey={subjectKey}
+        />
+      </Suspense>
 
     </div>
   );

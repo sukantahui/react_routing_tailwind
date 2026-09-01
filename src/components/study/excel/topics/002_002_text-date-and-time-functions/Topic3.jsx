@@ -61,22 +61,22 @@ export default function Topic3() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"🎭 The TEXT Function"} · Topic 3
+              🎭 The TEXT Function · Topic 3
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Number-to-String Formatting"}
+              Number-to-String Formatting
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Intermediate · Bloom Level 4: Analyze"}
+              Intermediate · Bloom Level 4: Analyze
             </span>
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Number-to-text formatting with the TEXT function (custom number formats, currency, dates)"}
+            Number-to-text formatting with the TEXT function (custom number formats, currency, dates)
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Converting raw numbers, financial metrics, and serial dates into formatted string literals for dynamic reporting sentences"}. Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
+            Converting raw numbers, financial metrics, and serial dates into formatted string literals for dynamic reporting sentences. Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,14 +113,14 @@ export default function Topic3() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"=TEXT(value, format_text)"}
+            =TEXT(value, format_text)
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Parameter / Token</th>
+                  <th className="py-3 px-4">Argument</th>
                   <th className="py-3 px-4">Type</th>
                   <th className="py-3 px-4">Requirement</th>
                   <th className="py-3 px-4">Operational Description</th>
@@ -128,32 +128,24 @@ export default function Topic3() {
               </thead>
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Target Argument / Input</td>
-                  <td className="py-3 px-4 text-teal-400">String / Serial Date / Number</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">value</td>
+                  <td className="py-3 px-4 text-teal-400">Number / Date Serial</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Specifies the target cell, literal value, or range to evaluate.</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">A numeric value, formula evaluation, or serial date to format.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Delimiter / Length / Options</td>
-                  <td className="py-3 px-4 text-teal-400">Integer / String / Array</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Defines character counts, delimiter masks, or extraction start positions.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">format_text</td>
+                  <td className="py-3 px-4 text-teal-400">String Code</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Custom Excel formatting mask code enclosed in quotes (e.g. "$#,##0.00", "dd-mmm-yyyy").</td>
                 </tr>
               </tbody>
             </table>
           </div>
-
-          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
-            <span className="text-sky-400 text-lg">💡</span>
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Core Principle: </strong>
-              Text functions transform character sequences and case formatting, while date/time functions operate on integer and fractional serial numbers under the hood.
-            </div>
-          </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+            SECTION 3: PRACTICAL FORMULA EXAMPLES MATRIX
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[2] = el)}
@@ -161,105 +153,89 @@ export default function Topic3() {
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 text-base font-mono">🔬</span>
-              Engine Mechanics &amp; Evaluation Pipeline
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">📊</span>
+              Practical Formula Showcase &amp; Real-World Examples
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-800">
-              Under-The-Hood Architecture
+            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
+              Formatting Matrix
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Visual Format Mask Encoding"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"TEXT() accepts any valid custom number format mask (e.g. `\"₹#,##0.00\"`, `\"dddd, mmmm dd, yyyy\"`, `\"0.0%\"`) as its second argument."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. String Literal Output Coercion"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"The return value of TEXT() is strictly a text string, locking in visual presentation even when merged into sentence strings."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. Dynamic Boardroom Narration"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Enables creating narrative reporting formulas like `=\"Total Revenue reached \" & TEXT(B2, \"₹#,##,##0.00\") & \" on \" & TEXT(C2, \"dd-mmm-yyyy\")`."}</p>
-            </div>
-            
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Review detailed, concrete input-to-output formula evaluations across real corporate number and date formatting scenarios.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
+                  <th className="py-3 px-4">Formatting Goal</th>
+                  <th className="py-3 px-4">Raw Input (A2)</th>
+                  <th className="py-3 px-4">Excel Formula</th>
+                  <th className="py-3 px-4">Evaluated Output</th>
+                  <th className="py-3 px-4">Operational Mechanics</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Currency Formatting</td>
+                  <td className="py-3 px-4 text-amber-300">1250.5</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXT(A2, "$#,##0.00")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"$1,250.50"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Formats raw float value with currency symbol, thousands comma, and 2 decimals.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Percentage Formatting</td>
+                  <td className="py-3 px-4 text-amber-300">0.185</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXT(A2, "0.0%")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"18.5%"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Multiplies float by 100 and appends percentage sign with 1 decimal.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Custom Date Format</td>
+                  <td className="py-3 px-4 text-amber-300">45427 (15/05/2024)</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXT(A2, "dd-mmm-yyyy (ddd)")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"15-May-2024 (Wed)"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Formats date serial into day, abbreviated month, year, and short weekday name.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Full Month &amp; Year</td>
+                  <td className="py-3 px-4 text-amber-300">45427 (15/05/2024)</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXT(A2, "mmmm yyyy")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"May 2024"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Formats date serial into full month name and 4-digit year string.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">12-Hour Time Format</td>
+                  <td className="py-3 px-4 text-amber-300">0.625 (15:00)</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXT(A2, "hh:mm AM/PM")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"03:00 PM"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Converts fractional day float (0.625) into standard 12-hour AM/PM time string.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Sentence Embedding</td>
+                  <td className="py-3 px-4 text-amber-300">450000</td>
+                  <td className="py-3 px-4 text-cyan-300">="Total: " &amp; TEXT(A2, "₹#,##0")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Total: ₹450,000"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Embeds formatted number directly inside dynamic report text without losing formatting.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Leading Zero Padding</td>
+                  <td className="py-3 px-4 text-amber-300">1234</td>
+                  <td className="py-3 px-4 text-cyan-300">=TEXT(A2, "000000")</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"001234"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Pads numeric ID with leading zeros to guarantee a fixed 6-character string length.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
+            SECTION 4: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"TEXT() Mask Injection: Numerical Float to Formatted String Literal"}
-            </h2>
-            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
-              SVG Pipeline
-            </span>
-          </div>
-
-          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
-              <defs>
-                <linearGradient id="gradFlowMod2_3" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
-                </linearGradient>
-                <marker id="arrowMod2_3" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
-                </marker>
-              </defs>
-
-              {/* Node 1: Raw Input Data */}
-              <g transform="translate(30, 45)">
-                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
-                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Raw Input Data / Serial</text>
-                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">Unstructured Source</text>
-                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">CSV, ERP &amp; Sensor Strings</text>
-                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Raw Data State</text>
-              </g>
-
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_3)" fill="none" />
-
-              {/* Node 2: Transformation Engine */}
-              <g transform="translate(315, 30)">
-                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
-                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
-                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Formula Transformation Engine</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Number-to-String Formatting"}</text>
-                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Delimiter Parsing &amp; String Slicing</text>
-                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Temporal Serial Calculations</text>
-                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native C++ Excel Engine</text>
-              </g>
-
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_3)" fill="none" />
-
-              {/* Node 3: Structured Result */}
-              <g transform="translate(640, 45)">
-                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
-                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
-                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Clean Normalized Data</text>
-                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Ready for Math</text>
-                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Analytics Ready</text>
-              </g>
-            </svg>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 5: INTERACTIVE SPREADSHEET & DIRECT DOWNLOAD PORTAL
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[4] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
@@ -286,293 +262,29 @@ export default function Topic3() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX704"
-            title={"Number-to-text formatting with the TEXT function (custom number formats, currency, dates) - Interactive Practice Grid"}
+            sheetName="Number to Text Formatting"
+            title="Number-to-text formatting with the TEXT function - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 5: FREQUENTLY ASKED QUESTIONS
         ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-              Real-World Corporate Implementation Scenarios
-            </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Case Studies
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Executive Assistant"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Automated Board Memo Narration"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Generates dynamic board summaries: 'Q3 EBITDA closed at ' & TEXT(E5, '₹#,##0.00 Lakhs') & ' (' & TEXT(F5, '+0.0%;-0.0%') & ').'"}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Tax Compliance Lead"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Tax Invoice Serial Label Generation"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Formats invoice serial codes as 'INV-2026-' & TEXT(ROW()-1, '00000') for statutory numbering."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Production Engineer"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Ichapur Works"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: Batch Weight Summary Certificates"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Converts gross weights into formatted text notes ('Net Weight: ' & TEXT(D2, '0.00') & ' Metric Tons')."}</p>
-            </div>
-            
-            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Dispatcher"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Driver Manifest Timestamp Stamps"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Generates standardized dispatch strings: 'Dispatched on ' & TEXT(TODAY(), 'dddd, dd-mmm-yyyy') & ' at ' & TEXT(NOW(), 'hh:mm AM/PM')."}</p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
-              Step-by-Step Implementation &amp; Execution Guide
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Execution Protocol
-            </span>
-          </div>
-
-          <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Identify Input Data Types &amp; Delimiters
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Inspect raw source columns to confirm whether inputs are text strings, numbers stored as text, or serial dates.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Construct the Core Formula Expression
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                In the adjacent calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=TEXT(value, format_text)"}</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-teal-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Test Boundary Conditions &amp; Error Trapping
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Evaluate formula behavior with missing values, blank cells, non-breaking spaces, or overnight timestamp crossovers.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-indigo-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
-                Step 4: Propagate Across Dataset &amp; Audit Downstream Logic
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Double-click fill handle to propagate formulas down the column and verify that summary lookups and PivotTables calculate without #VALUE! errors.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-              Common Pitfalls &amp; Troubleshooting Matrix
-            </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Diagnostic Fixes
-            </span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error Signature</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
-                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Lost Numerical Calculation Capability"}</td>
-                  <td className="py-3 px-4">{"Applying TEXT() turns numbers into text strings; subsequent =SUM() on that column returns 0."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use Custom Number Formatting (Ctrl+1) for grid cells; reserve TEXT() only for text concatenation."}</td>
-                </tr>
-                
-                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Unquoted Format Mask Syntax Error"}</td>
-                  <td className="py-3 px-4">{"Omitting double quotes around the format string (e.g. =TEXT(A2, 0.00)) returns #NAME? or syntax error."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Always wrap format masks in double quotes: =TEXT(A2, \"0.00\")."}</td>
-                </tr>
-                
-                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Language/Locale Mask Incompatibility"}</td>
-                  <td className="py-3 px-4">{"Using localized tokens (e.g. 'jjjj' in German) fails in English Excel installations."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Use universal English tokens (yyyy, mm, dd) in standardized corporate templates."}</td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-              Pro Tips &amp; High-Speed Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Productivity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Narrative KPI String"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Seamlessly embed formatted currency inside executive commentary."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=\"Profit: \" & TEXT(A2, \"$#,##0.00\")"}</kbd>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Formatted Percentage"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Preserves clean percentage presentation when concatenated with text."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"TEXT(A2, \"0.0%\")"}</kbd>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Day of Week String"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Instantly extracts full weekday name ('Monday') as text."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"TEXT(A2, \"dddd\")"}</kbd>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-              Socratic Analytical Hints ("Think About...")
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Critical Thinking
-            </span>
-          </div>
-
-          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why does =\"Revenue: \" & A1 display raw unformatted decimals unless wrapped in TEXT()?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"What happens if you try to calculate =SUM() on a range generated by TEXT() formulas?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"How do you format both positive, negative, and zero conditions inside the TEXT() function?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[4] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Number-to-text formatting with the TEXT function (custom number formats, currency, dates) - Frequently Asked Questions"}
+            title="Number-to-text formatting with the TEXT function - Frequently Asked Questions"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
+            SECTION 6: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section">
           <Teacher
-            note={"Whenever you concatenate a number or date with text using &, Excel strips all cell formatting and exposes raw floats. Always wrap your numbers in TEXT() to keep them beautiful."}
+            note="When concatenating numbers or dates into reporting sentences, raw Excel numbers will lose their format. Always wrap them in TEXT() with explicit format masks!"
           />
         </div>
       </div>

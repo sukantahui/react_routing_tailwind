@@ -789,20 +789,20 @@
             "rept"
           ],
           "topics": [
-            "{\"Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN\"}",
-            "{\"Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH\"}",
-            "{\"Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the & operator\"}",
-            "{\"Number-to-text formatting with the TEXT function (custom number formats, currency, dates)\"}",
-            "{\"Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY\"}",
-            "{\"Working day calculations: WORKDAY, WORKDAY.INTL, NETWORKDAYS, and NETWORKDAYS.INTL\"}",
-            "{\"Date differences and milestone calculations: DATEDIF and YEARFRAC\"}",
+            "Text manipulation essentials: UPPER, LOWER, PROPER, TRIM, and CLEAN",
+            "Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH",
+            "Concatenation strategies: CONCAT, TEXTJOIN with custom delimiters, and the & operator",
+            "Number-to-text formatting with the TEXT function (custom number formats, currency, dates)",
+            "Date serial numbering in Excel: DATE, DAY, MONTH, YEAR, and TODAY",
+            "Working day calculations: WORKDAY, WORKDAY.INTL, NETWORKDAYS, and NETWORKDAYS.INTL",
+            "Date differences and milestone calculations: DATEDIF and YEARFRAC",
             "Practical Laboratory Exercises: Text, Date and Time Functions Master Class",
-            "{\"Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT\"}",
-            "{\"Replacing and substituting strings: REPLACE and SUBSTITUTE\"}",
-            "{\"Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE\"}",
-            "{\"Real-world case study: Parsing messy customer names, addresses, and timestamps\"}",
-            "{\"Practice: Employee shift duration and overtime calculator\"}",
-            "{\"Assessment: Advanced Text and Date Functions Challenge\"}"
+            "Modern text manipulation: TEXTBEFORE, TEXTAFTER, and TEXTSPLIT",
+            "Replacing and substituting strings: REPLACE and SUBSTITUTE",
+            "Converting text strings to numeric values: VALUE, NUMBERVALUE, and DATEVALUE",
+            "Real-world case study: Parsing messy customer names, addresses, and timestamps",
+            "Practice: Employee shift duration and overtime calculator",
+            "Assessment: Advanced Text and Date Functions Challenge"
           ],
           "learningOutcomes": [
             "Sanitize messy text data by stripping whitespace, unprintable characters, and standardizing casing",

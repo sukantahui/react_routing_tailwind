@@ -181,6 +181,163 @@ export default function Topic2() {
           </div>
         </section>
 
+        {/* SECTION 3.5: DEEP DIVE — SINGLE-COLUMN, MULTI-LEVEL HIERARCHY & CUSTOM LIST SORTING */}
+        <section
+          ref={(el) => (sectionsRef.current[sectionsRef.current.length] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/80 border border-sky-900/40 space-y-6 shadow-2xl"
+        >
+          <div className="flex items-center justify-between flex-wrap gap-2 pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🔀</span>
+              Deep Dive: Single-Column, Multi-Level Hierarchy &amp; Custom List Sorting
+            </h2>
+            <span className="text-xs font-mono text-sky-300 bg-sky-950/80 px-3 py-1 rounded-lg border border-sky-800/60">
+              Sorting Masterclass
+            </span>
+          </div>
+
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Sorting is the foundation of data organization in Excel. Whether arranging sales ledgers alphabetically, prioritizing high-risk audit tickets, or structuring multi-department financial reports, understanding Excel's sorting mechanics guarantees data integrity and executive clarity.
+          </p>
+
+          {/* Subsection 1: Single-Column vs Multi-Level Hierarchy */}
+          <div className="space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span className="text-sky-400">📊</span> 1. Single-Column vs. Multi-Level Hierarchy Sorting
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-sky-300">Single-Column Sorting</span>
+                  <kbd className="px-2 py-0.5 rounded bg-sky-950 border border-sky-800 font-mono text-sky-300 text-xs">Alt + A + S + A</kbd>
+                </div>
+                <p className="text-slate-400 leading-relaxed text-xs">
+                  Reorders dataset rows based on a single field (e.g. Sales A to Z or Date Newest to Oldest). Accessible via the AutoFilter header dropdown or Ribbon Data tab.
+                </p>
+                <div className="p-2.5 rounded bg-slate-900 border border-slate-800 font-mono text-[11px] text-slate-300">
+                  Shortcut A → Z: Alt + A + S + A  |  Z → A: Alt + A + S + D
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold text-emerald-300">Multi-Level Hierarchy Sorting</span>
+                  <kbd className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-800 font-mono text-emerald-300 text-xs">Alt + A + S + S</kbd>
+                </div>
+                <p className="text-slate-400 leading-relaxed text-xs">
+                  Establishes nested sorting rules across multiple columns simultaneously. Excel sorts by Level 1 first, then breaks ties using Level 2, Level 3, etc.
+                </p>
+                <div className="p-2.5 rounded bg-slate-900 border border-slate-800 font-mono text-[11px] text-emerald-300">
+                  Example: Level 1 (Region A-Z) → Level 2 (Revenue High-Low)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 2: Custom List Sorting */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <span className="text-amber-400">🏷️</span> 2. Custom List Sorting (Overriding Alphabetical Order)
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Standard alphabetical sorting fails for business priority fields. For example, sorting Priority alphabetically produces <code className="text-rose-300 font-mono">Critical → High → Low → Medium</code>, which violates operational urgency!
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans pt-1">
+              <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+                <span className="text-rose-400 font-bold">❌ Default Alphabetical Sort (ASCII Order):</span>
+                <div className="font-mono text-xs text-rose-300 p-2 rounded bg-rose-950/30 border border-rose-900/50">
+                  Critical → High → Low → Medium
+                </div>
+                <p className="text-slate-400 text-xs">Incorrect business logic: Low is placed before Medium.</p>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 space-y-1.5">
+                <span className="text-emerald-400 font-bold">✅ Custom List Order (Business Priority):</span>
+                <div className="font-mono text-xs text-emerald-300 p-2 rounded bg-emerald-950/30 border border-emerald-900/50">
+                  Critical → High → Medium → Low
+                </div>
+                <p className="text-slate-400 text-xs">Enforces true operational urgency hierarchy.</p>
+              </div>
+            </div>
+
+            <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800 font-mono text-xs text-sky-300 space-y-1">
+              <span className="text-white font-sans font-bold">How to Create Custom Lists in Excel:</span>
+              <div>File → Options → Advanced → General → Click <strong className="text-emerald-400">Edit Custom Lists...</strong></div>
+              <div className="text-slate-400 text-[11px] font-sans">Type list entries separated by commas or import directly from selected worksheet cells.</div>
+            </div>
+          </div>
+
+          {/* Subsection 3: Case-Sensitive & Horizontal Sorting */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <span className="text-purple-400">⚙️</span> 3. Advanced Options: Case-Sensitive &amp; Horizontal (Left-to-Right) Sorting
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Clicking the <strong className="text-white">Options...</strong> button inside the Custom Sort dialog box unlocks specialized sorting orientation modes:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800/80 space-y-1">
+                <span className="text-purple-300 font-bold">Case-Sensitive Sort</span>
+                <p className="text-slate-400 text-xs">
+                  Differentiates uppercase and lowercase text. Uppercase letters sort before lowercase equivalents (e.g. <code className="text-purple-300 font-mono">ALPHA</code> before <code className="text-purple-300 font-mono">alpha</code>).
+                </p>
+              </div>
+
+              <div className="p-3 rounded-lg bg-slate-900 border border-slate-800/80 space-y-1">
+                <span className="text-indigo-300 font-bold">Sort Left to Right (Horizontal Sort)</span>
+                <p className="text-slate-400 text-xs">
+                  Rotates sort orientation to reorder columns horizontally instead of rows vertically. Crucial for arranging monthly budget columns (<code className="text-indigo-300 font-mono">Jan, Feb, Mar...</code>).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 4: Data Integrity Hazards & Excel Table Guarantee */}
+          <div className="space-y-4">
+            <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
+              <span className="text-rose-400">⚠️</span> 4. Data Integrity Hazards &amp; Excel Table Protection
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                <span className="text-rose-400 font-bold">The Partial Range Danger in Raw Grids</span>
+                <p className="text-slate-300 text-xs leading-relaxed">
+                  If a user highlights a single column inside a raw unstructured range and clicks Sort without selecting "Expand Selection", Excel sorts ONLY that column while leaving adjacent columns untouched—permanently corrupting record relationships!
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+                <span className="text-emerald-300 font-bold">The Excel Table (ListObject) Safety Net</span>
+                <p className="text-slate-300 text-xs leading-relaxed">
+                  Sorting inside an official Excel Table (<code className="text-emerald-300 font-mono">Ctrl + T</code>) automatically binds all row fields together. It is impossible to accidentally sort a single column in an Excel Table, guaranteeing 100% data integrity.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Subsection 5: Formulaic Sorting with SORT and SORTBY */}
+          <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
+            <h3 className="text-base font-bold text-white flex items-center gap-2">
+              <span className="text-sky-400">⚡</span> 5. Dynamic Array Sorting with SORT &amp; SORTBY Functions
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              In modern Excel, you can generate sorted dynamic array outputs without altering source data order:
+            </p>
+            <div className="space-y-2 font-mono text-xs">
+              <div className="p-3 rounded bg-slate-900 border border-slate-800 text-sky-300">
+                <div className="text-[10px] text-slate-400 font-sans font-semibold mb-1">Single-Column Formulaic Sort:</div>
+                =SORT(tblSales, 3, -1)  <span className="text-slate-400 font-sans">// Sorts tblSales by Column 3 Descending (-1)</span>
+              </div>
+              <div className="p-3 rounded bg-slate-900 border border-slate-800 text-emerald-300">
+                <div className="text-[10px] text-slate-400 font-sans font-semibold mb-1">Multi-Level Formulaic Hierarchy Sort:</div>
+                =SORTBY(tblSales, tblSales[Region], 1, tblSales[Revenue], -1)  <span className="text-slate-400 font-sans">// Region Ascending (1), Revenue Descending (-1)</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM */}
         <section
           ref={(el) => (sectionsRef.current[3] = el)}

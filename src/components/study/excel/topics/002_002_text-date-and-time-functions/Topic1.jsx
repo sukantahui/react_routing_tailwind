@@ -61,22 +61,22 @@ export default function Topic1() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              {"✂️ Substring Extraction"} · Topic 1
+              ✂️ Substring Extraction · Topic 1
             </span>
             <span className="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-700/60 text-emerald-300 text-xs font-semibold">
-              {"Substring Extraction & Search"}
+              Substring Extraction &amp; Search
             </span>
             <span className="px-3 py-1 rounded-full bg-indigo-950/80 border border-indigo-700/60 text-indigo-300 text-xs font-semibold">
-              {"Intermediate · Bloom Level 3: Apply"}
+              Intermediate · Bloom Level 3: Apply
             </span>
           </div>
 
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300 bg-clip-text text-transparent leading-tight">
-            {"Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH"}
+            Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            {"Parsing structured codes and extracting tokens with positional functions (LEFT, RIGHT, MID, LEN) and delimiter locators (FIND vs SEARCH)"}. Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
+            Parsing structured codes and extracting tokens with positional functions (LEFT, RIGHT, MID, LEN) and delimiter locators (FIND vs SEARCH). Master the complete syntax, formulas, operational mechanics, and enterprise data hygiene protocols.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
@@ -113,50 +113,154 @@ export default function Topic1() {
           </div>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            {"=LEFT(text, num_chars) | =RIGHT(text, num_chars) | =MID(text, start_num, num_chars) | =FIND(find_text, within_text) | =SEARCH(find_text, within_text)"}
+            =LEFT(text, [num_chars]) | =RIGHT(text, [num_chars]) | =MID(text, start_num, num_chars) | =LEN(text) | =FIND(find_text, within_text) | =SEARCH(find_text, within_text)
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs sm:text-sm text-slate-300 border-collapse">
               <thead>
                 <tr className="border-b border-slate-800 text-slate-400 font-semibold uppercase tracking-wider">
-                  <th className="py-3 px-4">Parameter / Token</th>
-                  <th className="py-3 px-4">Type</th>
-                  <th className="py-3 px-4">Requirement</th>
+                  <th className="py-3 px-4">Function</th>
+                  <th className="py-3 px-4">Syntax</th>
+                  <th className="py-3 px-4">Key Characteristic</th>
                   <th className="py-3 px-4">Operational Description</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/50 font-mono">
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Target Argument / Input</td>
-                  <td className="py-3 px-4 text-teal-400">String / Serial Date / Number</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Required</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Specifies the target cell, literal value, or range to evaluate.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">LEFT</td>
+                  <td className="py-3 px-4 text-cyan-400">=LEFT(text, [num_chars])</td>
+                  <td className="py-3 px-4 text-teal-400">Prefix Slicing</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts N characters starting from the far left of the text string.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Delimiter / Length / Options</td>
-                  <td className="py-3 px-4 text-teal-400">Integer / String / Array</td>
-                  <td className="py-3 px-4 text-amber-400 font-sans">Contextual</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Defines character counts, delimiter masks, or extraction start positions.</td>
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">RIGHT</td>
+                  <td className="py-3 px-4 text-cyan-400">=RIGHT(text, [num_chars])</td>
+                  <td className="py-3 px-4 text-teal-400">Suffix Slicing</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts N characters starting from the far right of the text string.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">MID</td>
+                  <td className="py-3 px-4 text-cyan-400">=MID(text, start, len)</td>
+                  <td className="py-3 px-4 text-teal-400">Middle Extraction</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts length count characters beginning at specific 1-based start index.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">LEN</td>
+                  <td className="py-3 px-4 text-cyan-400">=LEN(text)</td>
+                  <td className="py-3 px-4 text-teal-400">String Counter</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Returns total integer character count of text including spaces and symbols.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-sky-300 font-semibold font-sans">FIND vs SEARCH</td>
+                  <td className="py-3 px-4 text-cyan-400">=FIND() / =SEARCH()</td>
+                  <td className="py-3 px-4 text-amber-400 font-sans">Case Sensitivity</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">FIND is case-sensitive (no wildcards); SEARCH is case-insensitive (supports wildcards * and ?).</td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </section>
 
-          <div className="p-4 rounded-xl bg-sky-950/40 border border-sky-800/60 flex items-start gap-3">
-            <span className="text-sky-400 text-lg">💡</span>
-            <div className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">Core Principle: </strong>
-              Text functions transform character sequences and case formatting, while date/time functions operate on integer and fractional serial numbers under the hood.
-            </div>
+        {/* =========================================================================
+            SECTION 3: PRACTICAL FORMULA EXAMPLES MATRIX
+        ========================================================================= */}
+        <section
+          ref={(el) => (sectionsRef.current[2] = el)}
+          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
+        >
+          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
+            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
+              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">📊</span>
+              Practical Formula Showcase &amp; Real-World Examples
+            </h2>
+            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
+              Extraction Matrix
+            </span>
+          </div>
+
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Master positional and dynamic substring extraction with exact formula evaluations and real corporate code samples.
+          </p>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
+                  <th className="py-3 px-4">Extraction Pattern</th>
+                  <th className="py-3 px-4">Input Data (A2)</th>
+                  <th className="py-3 px-4">Excel Formula</th>
+                  <th className="py-3 px-4">Evaluated Output</th>
+                  <th className="py-3 px-4">Operational Mechanics</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/60 text-slate-300 font-mono">
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Prefix Code Slicing</td>
+                  <td className="py-3 px-4 text-amber-300">"EMP-2024-9842"</td>
+                  <td className="py-3 px-4 text-cyan-300">=LEFT(A2, 3)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"EMP"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts first 3 characters representing department code.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Suffix ID Extraction</td>
+                  <td className="py-3 px-4 text-amber-300">"EMP-2024-9842"</td>
+                  <td className="py-3 px-4 text-cyan-300">=RIGHT(A2, 4)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"9842"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Extracts 4 trailing numeric serial digits from right end.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Middle Token Extraction</td>
+                  <td className="py-3 px-4 text-amber-300">"EMP-2024-9842"</td>
+                  <td className="py-3 px-4 text-cyan-300">=MID(A2, 5, 4)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"2024"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Starts at position 5 and extracts 4 characters (joining year).</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Character Length Audit</td>
+                  <td className="py-3 px-4 text-amber-300">"Barrackpore"</td>
+                  <td className="py-3 px-4 text-cyan-300">=LEN(A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">11</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Returns total character count used for dynamic length parsing.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Case-Sensitive Locator</td>
+                  <td className="py-3 px-4 text-amber-300">"ACCOTAX Services"</td>
+                  <td className="py-3 px-4 text-cyan-300">=FIND("TAX", A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">5</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">FIND is case-sensitive: finds exact uppercase 'TAX' starting at position 5.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Case-Insensitive Search</td>
+                  <td className="py-3 px-4 text-amber-300">"ACCOTAX Services"</td>
+                  <td className="py-3 px-4 text-cyan-300">=SEARCH("tax", A2)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">5</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">SEARCH ignores case matching "tax" to "TAX" successfully.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Dynamic First Name</td>
+                  <td className="py-3 px-4 text-amber-300">"Swadeep Banerjee"</td>
+                  <td className="py-3 px-4 text-cyan-300">=LEFT(A2, FIND(" ", A2) - 1)</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"Swadeep"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Locates space position (8) and extracts 7 characters before space.</td>
+                </tr>
+                <tr className="hover:bg-slate-800/30 transition-colors">
+                  <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Dynamic Email Domain</td>
+                  <td className="py-3 px-4 text-amber-300">"tuhina.das@accotax.in"</td>
+                  <td className="py-3 px-4 text-cyan-300">=MID(A2, FIND("@", A2) + 1, LEN(A2))</td>
+                  <td className="py-3 px-4 text-sky-300 font-bold">"accotax.in"</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">Finds '@' location (11) and extracts all subsequent domain characters.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3: DEEP CONCEPTUAL & THEORETICAL MECHANICS
+            SECTION 4: DEEP CONCEPTUAL & THEORETICAL MECHANICS
         ========================================================================= */}
         <section
-          ref={(el) => (sectionsRef.current[2] = el)}
+          ref={(el) => (sectionsRef.current[3] = el)}
           className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
         >
           <div className="flex items-center justify-between pb-4 border-b border-slate-800">
@@ -170,88 +274,18 @@ export default function Topic1() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            
             <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"1. Directional Slicers (LEFT, RIGHT)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"LEFT() extracts characters from the start; RIGHT() extracts from the end based on exact character counts."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">1. Positional Index Mechanics</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">Excel string indexing is 1-based. MID(text, start_num, num_chars) evaluates character offsets starting at 1.</p>
             </div>
-            
             <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"2. Arbitrary Window Parsing (MID & LEN)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"MID() extracts a specified substring window starting at any 1-indexed character position; LEN() calculates total character length."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">2. Delimiter Position Resolution</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">FIND and SEARCH return integer character offsets of target delimiters. Subtracting 1 yields preceding substring length.</p>
             </div>
-            
             <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 space-y-2">
-              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">{"3. FIND (Case-Sensitive) vs SEARCH (Case-Insensitive)"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"FIND() performs exact case-sensitive byte search; SEARCH() ignores case and supports wildcards (? and *)."}</p>
+              <h3 className="text-sm font-bold text-emerald-300 uppercase tracking-wider">3. Case Sensitivity &amp; Wildcards</h3>
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">FIND requires exact case matches without wildcards; SEARCH ignores case and allows wildcard operators (? for single char, * for multi-char).</p>
             </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 4: INTERACTIVE SEMANTIC SVG DIAGRAM
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[3] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 text-base font-mono">📐</span>
-              Visual Dataflow: {"Positional Token Parsing: MID + FIND/SEARCH Coordinate Extraction"}
-            </h2>
-            <span className="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-800">
-              SVG Pipeline
-            </span>
-          </div>
-
-          <div className="p-4 rounded-xl bg-slate-950/90 border border-slate-800/80 flex flex-col items-center justify-center overflow-x-auto shadow-inner">
-            <svg viewBox="0 0 820 220" className="w-full max-w-4xl h-auto text-slate-200 select-none font-sans">
-              <defs>
-                <linearGradient id="gradFlowMod2_1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0284c7" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#0369a1" stopOpacity="0.8" />
-                </linearGradient>
-                <marker id="arrowMod2_1" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                  <path d="M 0 1 L 8 5 L 0 9 z" fill="#38bdf8" />
-                </marker>
-              </defs>
-
-              {/* Node 1: Raw Input Data */}
-              <g transform="translate(30, 45)">
-                <rect width="210" height="130" rx="12" fill="#0f172a" stroke="#334155" strokeWidth="2" />
-                <rect x="12" y="12" width="186" height="26" rx="6" fill="#1e293b" />
-                <text x="105" y="30" textAnchor="middle" fill="#94a3b8" fontSize="11" fontWeight="bold">Raw Input Data / Serial</text>
-                <text x="105" y="75" textAnchor="middle" fill="#38bdf8" fontSize="14" fontFamily="monospace" fontWeight="bold">Unstructured Source</text>
-                <text x="105" y="100" textAnchor="middle" fill="#64748b" fontSize="10">CSV, ERP &amp; Sensor Strings</text>
-                <text x="105" y="118" textAnchor="middle" fill="#64748b" fontSize="10">Raw Data State</text>
-              </g>
-
-              <path d="M 245 110 L 305 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_1)" fill="none" />
-
-              {/* Node 2: Transformation Engine */}
-              <g transform="translate(315, 30)">
-                <rect width="250" height="160" rx="14" fill="#0c4a6e" stroke="#0284c7" strokeWidth="2" />
-                <rect x="14" y="14" width="222" height="28" rx="6" fill="#0369a1" />
-                <text x="125" y="33" textAnchor="middle" fill="#ffffff" fontSize="12" fontWeight="bold">Formula Transformation Engine</text>
-                <text x="125" y="75" textAnchor="middle" fill="#7dd3fc" fontSize="13" fontFamily="monospace" fontWeight="bold">{"Substring Extraction & Search"}</text>
-                <text x="125" y="100" textAnchor="middle" fill="#bae6fd" fontSize="10">Delimiter Parsing &amp; String Slicing</text>
-                <text x="125" y="120" textAnchor="middle" fill="#bae6fd" fontSize="10">Temporal Serial Calculations</text>
-                <text x="125" y="140" textAnchor="middle" fill="#38bdf8" fontSize="9" fontStyle="italic">Native C++ Excel Engine</text>
-              </g>
-
-              <path d="M 570 110 L 630 110" stroke="#38bdf8" strokeWidth="2.5" markerEnd="url(#arrowMod2_1)" fill="none" />
-
-              {/* Node 3: Structured Result */}
-              <g transform="translate(640, 45)">
-                <rect width="150" height="130" rx="12" fill="#064e3b" stroke="#059669" strokeWidth="2" />
-                <rect x="10" y="12" width="130" height="26" rx="6" fill="#047857" />
-                <text x="75" y="30" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="bold">Clean Normalized Data</text>
-                <text x="75" y="75" textAnchor="middle" fill="#6ee7b7" fontSize="14" fontFamily="monospace" fontWeight="bold">Ready for Math</text>
-                <text x="75" y="105" textAnchor="middle" fill="#a7f3d0" fontSize="10">Analytics Ready</text>
-              </g>
-            </svg>
           </div>
         </section>
 
@@ -286,293 +320,29 @@ export default function Topic1() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="EX702"
-            title={"Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH - Interactive Practice Grid"}
+            sheetName="Substring Extraction"
+            title="Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH - Interactive Practice Grid"
             rowsPerPage={10}
             showSheetSelector={true}
           />
         </section>
 
         {/* =========================================================================
-            SECTION 6: REAL-WORLD BUSINESS SCENARIOS
+            SECTION 6: FREQUENTLY ASKED QUESTIONS
         ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[5] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 text-base font-mono">🏢</span>
-              Real-World Corporate Implementation Scenarios
-            </h2>
-            <span className="text-xs font-mono text-amber-300 bg-amber-950/60 px-3 py-1 rounded-lg border border-amber-800">
-              Case Studies
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div key="0" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 1 · Senior Auditor"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Barrackpore HQ"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Swadeep Banerjee: Branch Code & Account Slicing"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Extracts 4-digit branch codes from structured account numbers (e.g. 'BKP-98214-WB' → =LEFT(A2, 3)) for divisional reporting."}</p>
-            </div>
-            
-            <div key="1" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 2 · Payroll Specialist"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Shyamnagar Plant"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Tuhina Mukherjee: Domain Extraction from Corporate Emails"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Extracts employee domains using =MID(A2, FIND(\"@\", A2)+1, LEN(A2)) to verify contractor vs full-time staff status."}</p>
-            </div>
-            
-            <div key="2" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 3 · Materials Controller"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Ichapur Heavy Works"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Abhronila Das: SKU Part-Number Decomposition"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Parses middle thickness specifications from engineering codes ('STEEL-25MM-GRADEA' → =MID(A2, 7, 4))."}</p>
-            </div>
-            
-            <div key="3" className="p-5 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">{"Case 4 · Logistics Manager"}</span>
-                <span className="text-xs font-mono text-slate-400">{"Naihati Logistics Hub"}</span>
-              </div>
-              <h3 className="font-bold text-white text-base">{"Debangshu Roy: Waybill Serial Token Extraction"}</h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{"Retrieves the rightmost 6-digit invoice sequence from tracking barcodes (=RIGHT(A2, 6))."}</p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 7: STEP-BY-STEP PRACTICAL CALCULATION WALKTHROUGH
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[6] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 text-base font-mono">🛠️</span>
-              Step-by-Step Implementation &amp; Execution Guide
-            </h2>
-            <span className="text-xs font-mono text-sky-300 bg-sky-950/60 px-3 py-1 rounded-lg border border-sky-800">
-              Execution Protocol
-            </span>
-          </div>
-
-          <div className="space-y-4 text-xs sm:text-sm">
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-emerald-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs">1</span>
-                Step 1: Identify Input Data Types &amp; Delimiters
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Inspect raw source columns to confirm whether inputs are text strings, numbers stored as text, or serial dates.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-sky-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-sky-950 border border-sky-700 text-sky-300 flex items-center justify-center text-xs">2</span>
-                Step 2: Construct the Core Formula Expression
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                In the adjacent calculation column, enter the formula <code className="text-cyan-300 font-mono font-bold">{"=LEFT(text, num_chars) | =RIGHT(text, num_chars) | =MID(text, start_num, num_chars) | =FIND(find_text, within_text) | =SEARCH(find_text, within_text)"}</code>.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-teal-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-teal-950 border border-teal-700 text-teal-300 flex items-center justify-center text-xs">3</span>
-                Step 3: Test Boundary Conditions &amp; Error Trapping
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Evaluate formula behavior with missing values, blank cells, non-breaking spaces, or overnight timestamp crossovers.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
-              <div className="font-bold text-indigo-300 flex items-center gap-2">
-                <span className="w-5 h-5 rounded-full bg-indigo-950 border border-indigo-700 text-indigo-300 flex items-center justify-center text-xs">4</span>
-                Step 4: Propagate Across Dataset &amp; Audit Downstream Logic
-              </div>
-              <p className="text-slate-300 leading-relaxed">
-                Double-click fill handle to propagate formulas down the column and verify that summary lookups and PivotTables calculate without #VALUE! errors.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 8: COMMON PITFALLS & TROUBLESHOOTING MATRIX
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[7] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 text-base font-mono">⚠️</span>
-              Common Pitfalls &amp; Troubleshooting Matrix
-            </h2>
-            <span className="text-xs font-mono text-rose-300 bg-rose-950/60 px-3 py-1 rounded-lg border border-rose-800">
-              Diagnostic Fixes
-            </span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-slate-800 text-slate-400 font-semibold bg-slate-950/50">
-                  <th className="py-3 px-4">Problem / Error Signature</th>
-                  <th className="py-3 px-4">Root Cause</th>
-                  <th className="py-3 px-4">Diagnostic Fix &amp; Prevention</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800/60 text-slate-300">
-                
-                <tr key="0" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Hardcoded Number of Characters"}</td>
-                  <td className="py-3 px-4">{"Assuming all first names or tokens have the same length causes truncation (e.g. LEFT(A2, 5) truncates 'Abhronila')."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Dynamically calculate length using =LEFT(A2, FIND(\" \", A2)-1)."}</td>
-                </tr>
-                
-                <tr key="1" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"FIND() #VALUE! Failure on Missing Delimiter"}</td>
-                  <td className="py-3 px-4">{"If the searched character does not exist in the string, FIND() returns a fatal #VALUE! error."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Wrap with IFERROR() or use SEARCH() with error trapping."}</td>
-                </tr>
-                
-                <tr key="2" className="hover:bg-slate-800/30 transition-colors">
-                  <td className="py-3 px-4 font-mono font-bold text-rose-300">{"Extracted Digits Stored as Text"}</td>
-                  <td className="py-3 px-4">{"LEFT/RIGHT/MID always return text strings, causing SUM() on extracted numbers to return 0."}</td>
-                  <td className="py-3 px-4 font-mono text-cyan-300">{"Coerce extracted numeric strings to true numbers using double unary: =--RIGHT(A2, 4) or VALUE()."}</td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 9: PRO TIPS & PRODUCTIVITY SHORTCUTS
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[8] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 text-base font-mono">💡</span>
-              Pro Tips &amp; High-Speed Accelerators
-            </h2>
-            <span className="text-xs font-mono text-purple-300 bg-purple-950/60 px-3 py-1 rounded-lg border border-purple-800">
-              Productivity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs sm:text-sm">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Dynamic First Word"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Guarantees safe first-name extraction even if no space exists."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=LEFT(A2, FIND(\" \", A2 & \" \") - 1)"}</kbd>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Coerce Text to Number"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Double unary (--) instantly converts text output into calculable numbers."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=--MID(A2, 5, 4)"}</kbd>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
-              <div className="font-bold text-purple-300 flex items-center gap-2">
-                <span>⚡</span> {"Case-Insensitive Search"}
-              </div>
-              <p className="text-slate-300 leading-relaxed">{"Finds 'WB', 'wb', or 'Wb' without case mismatch errors."}</p>
-              <kbd className="inline-block px-2 py-0.5 rounded bg-slate-800 border border-slate-700 font-mono text-xs text-cyan-300 mt-1">{"=SEARCH(\"wb\", A2)"}</kbd>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 10: SOCRATIC HINTS ("THINK ABOUT...")
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[9] = el)}
-          className="reveal-section rounded-2xl p-6 sm:p-8 bg-slate-900/60 border border-slate-800 space-y-6"
-        >
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-3">
-              <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 text-base font-mono">🤔</span>
-              Socratic Analytical Hints ("Think About...")
-            </h2>
-            <span className="text-xs font-mono text-teal-300 bg-teal-950/60 px-3 py-1 rounded-lg border border-teal-800">
-              Critical Thinking
-            </span>
-          </div>
-
-          <div className="space-y-3 text-xs sm:text-sm text-slate-300">
-            
-            <div key="0" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 1: {"Why does appending a space (A2 & \" \") prevent FIND(\" \", A2) from returning #VALUE!?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="1" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 2: {"How does double unary (--) turn text strings into true mathematical numbers?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-            <div key="2" className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1">
-              <h3 className="font-bold text-white flex items-center gap-2">
-                <span className="text-teal-400">💭</span> Question 3: {"When should you choose FIND over SEARCH in corporate audit models?"}
-              </h3>
-              <p className="text-slate-400 leading-relaxed">
-                Reflect on the computational and data engineering implications in large-scale enterprise models.
-              </p>
-            </div>
-            
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 11: FREQUENTLY ASKED QUESTIONS (30 QUESTIONS)
-        ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[5] = el)} className="reveal-section">
           <FAQTemplate
-            title={"Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH - Frequently Asked Questions"}
+            title="Substring extraction: LEFT, RIGHT, MID, LEN, and FIND vs SEARCH - Frequently Asked Questions"
             questions={questions}
           />
         </div>
 
         {/* =========================================================================
-            SECTION 12: TEACHER'S NOTE & WISDOM
+            SECTION 7: TEACHER'S NOTE & WISDOM
         ========================================================================= */}
-        <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
+        <div ref={(el) => (sectionsRef.current[6] = el)} className="reveal-section">
           <Teacher
-            note={"Positional substring extraction is the bedrock of legacy Excel ETL. Always use dynamic delimiter math (FIND/SEARCH) rather than hardcoded character lengths."}
+            note="Dynamic string slicing with LEFT + FIND or MID + SEARCH is the foundational pillar of data cleaning. Master delimiter offsets to extract structured tokens effortlessly!"
           />
         </div>
       </div>
