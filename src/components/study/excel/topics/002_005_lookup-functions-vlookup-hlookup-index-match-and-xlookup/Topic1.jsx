@@ -138,7 +138,7 @@ export default function Topic1() {
                   <td className="py-3 px-4 text-sky-300 font-semibold font-sans">Duplicate Detection</td>
                   <td className="py-3 px-4 text-teal-400">Audit Formula</td>
                   <td className="py-3 px-4 text-amber-400 font-sans">Validation</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">=IF(COUNTIF(A:A, A2)>1, "DUPLICATE ERROR", "OK")</td>
+                  <td className="py-3 px-4 text-slate-300 font-sans">=IF(COUNTIF(A:A, A2)&gt;1, "DUPLICATE ERROR", "OK")</td>
                 </tr>
               </tbody>
             </table>
@@ -355,7 +355,7 @@ export default function Topic1() {
                   <tbody className="divide-y divide-slate-800">
                     
                     <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Audit_Formula</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Condition</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Action</td></tr>
-                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=COUNTIF($A$2:$A$500, A2) > 1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Returns TRUE on duplicates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Highlights cell in Red with popup alert</td></tr>
+                    <tr><td className="p-2 border-r border-slate-800 font-mono text-[11px]">=COUNTIF($A$2:$A$500, A2) &gt; 1</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Returns TRUE on duplicates</td><td className="p-2 border-r border-slate-800 font-mono text-[11px]">Highlights cell in Red with popup alert</td></tr>
                   </tbody>
                 </table>
               </div>

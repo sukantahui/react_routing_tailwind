@@ -126,7 +126,7 @@ export default function Topic11() {
               <br />
               <span className="text-purple-400">Value.ReplaceType</span>(
               <br />
-              &nbsp;&nbsp;<span className="text-sky-300">(amt as number, taxRate as number) => amt * (1 + taxRate)</span>,
+              &nbsp;&nbsp;<span className="text-sky-300">(amt as number, taxRate as number) =&gt; amt * (1 + taxRate)</span>,
               <br />
               &nbsp;&nbsp;<span className="text-purple-400">type function</span> (
               <br />

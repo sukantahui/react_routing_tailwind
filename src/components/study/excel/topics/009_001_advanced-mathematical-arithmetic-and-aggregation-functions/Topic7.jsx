@@ -302,8 +302,8 @@ export default function Topic7() {
               <tbody className="divide-y divide-slate-800/60 font-mono text-xs sm:text-sm">
                 <tr>
                   <td className="py-3 pr-4 text-rose-400 font-bold">Negative Mode Direction</td>
-                  <td className="py-3 px-4 font-sans">Default mode=0 rounds negative numbers UP toward zero (-4.2 -> -4).</td>
-                  <td className="py-3 pl-4 font-sans text-slate-300">Set mode=1 to round negative numbers AWAY from zero (-4.2 -> -5).</td>
+                  <td className="py-3 px-4 font-sans">Default mode=0 rounds negative numbers UP toward zero (-4.2 -&gt; -4).</td>
+                  <td className="py-3 pl-4 font-sans text-slate-300">Set mode=1 to round negative numbers AWAY from zero (-4.2 -&gt; -5).</td>
                 </tr>
               </tbody>
             </table>

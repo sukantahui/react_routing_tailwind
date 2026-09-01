@@ -129,7 +129,7 @@ export default function Topic12() {
               &nbsp;&nbsp;<span className="text-sky-300">fxIngestBranchSheet</span> = (
               <span className="text-amber-300">fileBinary</span> <span className="text-purple-400">as</span> binary, 
               <span className="text-amber-300">fileName</span> <span className="text-purple-400">as</span> text
-              ) <span className="text-purple-400">as</span> table =>
+              ) <span className="text-purple-400">as</span> table =&gt;
               <br />
               &nbsp;&nbsp;<span className="text-purple-400">let</span>
               <br />

@@ -360,7 +360,7 @@ export default function Topic5() {
                 <span className="text-xs px-2.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Shyamnagar Annual Review</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                <strong>Tuhina Mukherjee</strong> sorts staff by performance grade where <code className="text-amber-300">"A+" > "A" > "B+" > "B"</code>:
+                <strong>Tuhina Mukherjee</strong> sorts staff by performance grade where <code className="text-amber-300">"A+" &gt; "A" &gt; "B+" &gt; "B"</code>:
               </p>
               <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-emerald-400 border border-slate-800">
                 =SORTBY(A2:G11, MATCH(G2:G11, {"A+","A","B+","B"}, 0), 1)

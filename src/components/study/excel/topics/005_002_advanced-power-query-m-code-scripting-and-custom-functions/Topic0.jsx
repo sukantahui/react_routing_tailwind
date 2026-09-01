@@ -166,7 +166,7 @@ in
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-amber-400 font-sans">each Keyword</td>
                   <td className="py-3 px-4 text-amber-300">each [Amount] * 1.18</td>
-                  <td className="py-3 px-4 text-slate-300 font-sans">Syntactic sugar for single-argument lambda: <code className="text-amber-300">(_) => _[Amount] * 1.18</code>.</td>
+                  <td className="py-3 px-4 text-xs font-sans">Single-argument lambda: <code className="text-amber-300">(_) =&gt; _[Amount] * 1.18</code>.</td>
                   <td className="py-3 px-4 font-sans text-slate-300">Represents row context in column generation and filtering.</td>
                 </tr>
               </tbody>
@@ -290,7 +290,7 @@ in
                 <text x="12" y="153" fill="#A7F3D0" fontWeight="bold">#{'"Filtered High Value"'}</text>
                 <text x="175" y="153" fill="#CCFBF1">= Table.SelectRows(</text>
                 <text x="305" y="153" fill="#818CF8" fontWeight="bold">#{'"Changed Type"'}</text>
-                <text x="415" y="153" fill="#CCFBF1">, each [Amt] >= 25000)</text>
+                <text x="415" y="153" fill="#CCFBF1">, each [Amt] &gt;= 25000)</text>
               </g>
 
               {/* Arrow from let to in */}
@@ -652,7 +652,7 @@ in
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Consider syntactic sugar:</strong> How does understanding that <code className="text-emerald-400 font-mono">each [Amt] * 1.18</code> is literally <code className="text-sky-300 font-mono">(_) => _[Amt] * 1.18</code> clarify multi-parameter function writing in M?
+                <strong>Consider syntactic sugar:</strong> How does understanding that <code className="text-emerald-400 font-mono">each [Amt] * 1.18</code> is literally <code className="text-sky-300 font-mono">(_) =&gt; _[Amt] * 1.18</code> clarify multi-parameter function writing in M?
               </p>
             </div>
           </div>

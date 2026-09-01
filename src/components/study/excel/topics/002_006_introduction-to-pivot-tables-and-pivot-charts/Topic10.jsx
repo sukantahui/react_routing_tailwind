@@ -395,7 +395,7 @@ export default function Topic10() {
                 Step 3: Set Value Field Settings &amp; Number Formatting
               </div>
               <p className="text-slate-300 leading-relaxed">
-                Right-click any value cell > Value Field Settings > Number Format, and apply standard currency/accounting masks.
+                Right-click any value cell &gt; Value Field Settings &gt; Number Format, and apply standard currency/accounting masks.
               </p>
             </div>
 

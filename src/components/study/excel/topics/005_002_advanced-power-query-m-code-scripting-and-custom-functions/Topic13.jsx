@@ -131,7 +131,7 @@ export default function Topic13() {
               <br />
               &nbsp;&nbsp;<span className="text-sky-300">BufferedDim</span> = <span className="text-purple-400">Table.Buffer</span>(DimRates),
               <br />
-              &nbsp;&nbsp;<span className="text-sky-300">CleanFact</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Date] >= pStart <span className="text-purple-400">and</span> [Date] &lt;= pEnd),
+              &nbsp;&nbsp;<span className="text-sky-300">CleanFact</span> = <span className="text-purple-400">Table.SelectRows</span>(ParamSource, <span className="text-purple-400">each</span> [Date] &gt;= pStart <span className="text-purple-400">and</span> [Date] &lt;= pEnd),
               <br />
               &nbsp;&nbsp;<span className="text-sky-300">Enriched</span> = <span className="text-purple-400">Table.AddColumn</span>(CleanFact, <span className="text-emerald-200">"INR"</span>, <span className="text-purple-400">each</span> [Amt] * BufferedDim&#123;[Cur=[Cur]]&#125;[Rate]),
               <br />
@@ -156,7 +156,7 @@ export default function Topic13() {
               <tbody className="divide-y divide-slate-800/60 text-slate-300">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-amber-300">1. M Engine &amp; AST</td>
-                  <td className="py-3 px-4 font-mono text-purple-300">let...in, each (_) => _, #shared</td>
+                  <td className="py-3 px-4 font-mono text-purple-300">let...in, each (_) =&gt; _, #shared</td>
                   <td className="py-3 px-4 text-emerald-400 font-semibold">15 Points</td>
                   <td className="py-3 px-4">Understanding call-by-need lazy evaluation and lexical scoping.</td>
                 </tr>

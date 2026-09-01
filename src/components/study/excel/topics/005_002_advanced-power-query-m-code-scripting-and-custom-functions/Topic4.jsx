@@ -216,7 +216,7 @@ export default function Topic4() {
                 executing lightning-fast server-side filtering!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-emerald-300">
-                SQL Server Executes: WHERE [Amount] >= @p_Threshold
+                SQL Server Executes: WHERE [Amount] &gt;= @p_Threshold
               </div>
             </div>
           </div>

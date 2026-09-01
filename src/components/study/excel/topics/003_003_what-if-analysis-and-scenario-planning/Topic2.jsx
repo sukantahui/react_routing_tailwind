@@ -574,7 +574,7 @@ export default function Topic2() {
                 1. Select the entire rectangular block: <code className="text-amber-300 font-mono font-bold">E5:H16</code>.
               </p>
               <p className="text-slate-300 leading-relaxed text-xs">
-                2. On the Ribbon, click <strong>Data Tab > Forecast Group > What-If Analysis > Data Table...</strong> (or press shortcut <kbd className="px-1.5 py-0.5 bg-slate-800 rounded text-cyan-300 font-mono text-[10px]">Alt + A + W + T</kbd>).
+                2. On the Ribbon, click <strong>Data Tab &gt; Forecast Group &gt; What-If Analysis &gt; Data Table...</strong> (or press shortcut <kbd className="px-1.5 py-0.5 bg-slate-800 rounded text-cyan-300 font-mono text-[10px]">Alt + A + W + T</kbd>).
               </p>
               <p className="text-slate-300 leading-relaxed text-xs">
                 3. In the popup dialog:
@@ -602,7 +602,7 @@ export default function Topic2() {
                 Currently, cell F5 shows the number ₹43,391.13 in your header. To make your table look clean and executive without breaking the formula:
               </p>
               <ul className="text-xs text-slate-300 space-y-1 list-disc pl-4">
-                <li>Select cell <strong>F5</strong> > Press <kbd className="px-1 py-0.5 bg-slate-800 rounded text-cyan-300 font-mono text-[10px]">Ctrl + 1</kbd> → Click <strong>Custom</strong>.</li>
+                <li>Select cell <strong>F5</strong> &gt; Press <kbd className="px-1 py-0.5 bg-slate-800 rounded text-cyan-300 font-mono text-[10px]">Ctrl + 1</kbd> → Click <strong>Custom</strong>.</li>
                 <li>In the <strong>Type</strong> box, enter: <code className="text-purple-300 font-mono font-bold">;;;&quot;Monthly EMI&quot;</code>.</li>
                 <li>Format cell <strong>G5</strong> as: <code className="text-purple-300 font-mono font-bold">;;;&quot;Total Outflow&quot;</code>.</li>
                 <li>Format cell <strong>H5</strong> as: <code className="text-purple-300 font-mono font-bold">;;;&quot;Lifetime Interest&quot;</code>.</li>

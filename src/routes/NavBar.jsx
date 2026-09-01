@@ -417,9 +417,6 @@ const NavBar = () => {
         ref={navContainerRef}
         className="w-full bg-slate-950/90 backdrop-blur-2xl border-b border-slate-800/80 shadow-2xl shadow-black/50 transition-all duration-300 relative select-none"
       >
-        {/* Top glowing ambient accent line */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-sky-500 via-indigo-500 to-fuchsia-500 opacity-90" />
-
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
           <div className="w-full flex items-center justify-between h-14">
             
@@ -659,7 +656,7 @@ const NavBar = () => {
                   aria-expanded={activeDropdown === "tutorials"}
                 >
                   <i className="bi bi-journal-bookmark-fill text-purple-400 text-sm"></i>
-                  <span>Tutorials & Roadmaps</span>
+                  <span>Tutorials</span>
                   <i
                     className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
                       activeDropdown === "tutorials" ? "rotate-180 text-purple-400" : ""
@@ -1328,7 +1325,7 @@ const NavBar = () => {
                           <span className="w-6 h-6 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 flex items-center justify-center">
                             <i className="bi bi-journal-bookmark-fill text-xs"></i>
                           </span>
-                          <span>Tutorials & Roadmaps</span>
+                          <span>Tutorials</span>
                         </span>
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-semibold text-purple-400 bg-purple-500/15 px-2 py-0.5 rounded-full border border-purple-500/20">

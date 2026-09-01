@@ -808,7 +808,7 @@ export default function Topic25() {
               <div className="space-y-2">
                 <span className="text-xs font-bold text-sky-300 uppercase tracking-wider">Production Formula &amp; Parameter Breakdown:</span>
                 <div className="p-3.5 rounded-xl bg-slate-900 font-mono text-xs sm:text-sm text-sky-300 border border-slate-800 overflow-x-auto shadow-inner">
-                  =IF(B50 > (AVERAGE(OFFSET(B50, 0, 0, -5, 1)) + 2 * STDEV.S(OFFSET(B50, 0, 0, -5, 1))), "⚠️ THERMAL ANOMALY", "NORMAL")
+                  =IF(B50 &gt; (AVERAGE(OFFSET(B50, 0, 0, -5, 1)) + 2 * STDEV.S(OFFSET(B50, 0, 0, -5, 1))), "⚠️ THERMAL ANOMALY", "NORMAL")
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 pt-1 text-xs">
                   <div className="p-2 rounded-lg bg-slate-900/40 border border-slate-800">
@@ -970,7 +970,7 @@ export default function Topic25() {
                 Step 4: Audit Volatility &amp; Performance
               </div>
               <p className="text-slate-300 leading-relaxed">
-                For massive models with >50,000 rows, consider switching to non-volatile <code className="text-cyan-300 font-mono font-bold">INDEX:INDEX</code> syntax.
+                For massive models with &gt;50,000 rows, consider switching to non-volatile <code className="text-cyan-300 font-mono font-bold">INDEX:INDEX</code> syntax.
               </p>
             </div>
           </div>
