@@ -5,10 +5,10 @@ import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/009_001_advanced_mathematical_arithmetic_and_aggregation_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
-import questions from "./topic26_files/topic26_questions";
+import questions from "./topic27_files/topic27_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-export default function Topic26() {
+export default function Topic27() {
   const sectionsRef = useRef([]);
 
   useEffect(() => {
@@ -61,36 +61,36 @@ export default function Topic26() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-purple-950/80 border border-purple-700/60 text-purple-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🏗️ Model Architecture · Topic 26
+              ⚡ High Performance Modeling · Topic 27
             </span>
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-semibold">
-              Fault-Tolerant Enterprise Calculation Design
+              Calculation Speed & Memory Optimization
             </span>
             <span className="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold">
-              Bloom's Level 5: Synthesize
+              Bloom's Level 5: Evaluate
             </span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent leading-snug">
-            Advanced Aggregation Design — Enterprise Formulas & Error-Immune Frameworks
+            Mathematical Formula Optimization — Sub-Second Calculation & Volatility Control
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Advanced Aggregation Design combines <code className="text-purple-300 font-mono">AGGREGATE</code>, <code className="text-sky-300 font-mono">SUMPRODUCT</code>, dynamic boolean masking, and error-immune option codes to build fault-tolerant enterprise calculation engines capable of ignoring hidden rows, missing data, and calculation errors.
+            Mathematical Formula Optimization eliminates calculation latency, reduces RAM footprint, and prevents volatile recalculation bottlenecks in enterprise financial models. By replacing volatile functions (<code className="text-rose-400 font-mono">OFFSET</code>, <code className="text-rose-400 font-mono">INDIRECT</code>) with <code className="text-emerald-300 font-mono">INDEX</code> and caching sub-expressions with <code className="text-purple-300 font-mono">LET</code>, workbooks recalculate in milliseconds.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-purple-400 text-base">✓</span>
-              <span><strong>Error Immunity:</strong> AGGREGATE Option 6 ignores #N/A and #DIV/0!</span>
+              <span><strong>Volatile Elimination:</strong> Replace OFFSET with non-volatile INDEX</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-indigo-400 text-base">✓</span>
-              <span><strong>Multi-Condition Masking:</strong> SUMPRODUCT(--(Cond1) * --(Cond2))</span>
+              <span><strong>LET Caching:</strong> Evaluate sub-expressions once: LET(val, SUM(A1:A5), val * val)</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Modular Architecture:</strong> Deconstructs complex logic cleanly</span>
+              <span><strong>Bounded Ranges:</strong> Avoid whole-column A:A array evaluations</span>
             </div>
           </div>
         </header>
@@ -104,21 +104,22 @@ export default function Topic26() {
         >
           <div className="flex items-center justify-between flex-wrap gap-2 pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-purple-400">⚡</span> Enterprise Design Blueprint
+              <span className="text-purple-400">⚡</span> Optimization Blueprint: LET Variable Caching
             </h2>
             <span className="text-xs font-mono text-slate-400 bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
-              Multi-Layer Blueprint
+              LET Optimization Signature
             </span>
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs sm:text-sm text-purple-300 space-y-3">
-            <div className="text-slate-500">// Enterprise Multi-Condition Weighted Average Blueprint</div>
+            <div className="text-slate-500">// Optimized Variable Caching with LET</div>
             <div className="text-white font-bold">
-              =SUMPRODUCT(--(<span className="text-teal-300">Region="North"</span>) * --(<span className="text-sky-300">Units&gt;50</span>), <span className="text-amber-300">Revenue</span>) / AGGREGATE(<span className="text-emerald-300">9, 6, Units</span>)
+              =LET(<span className="text-teal-300">revenue</span>, SUMPRODUCT((Region="North")*Sales), <span className="text-sky-300">cost</span>, SUMPRODUCT((Region="North")*Expense), <span className="text-emerald-300">(revenue - cost) / revenue</span>)
             </div>
             <div className="text-slate-400 text-xs font-sans pt-1">
-              • <strong>SUMPRODUCT:</strong> Computes filtered multi-condition weighted totals.<br />
-              • <strong>AGGREGATE(9, 6):</strong> Computes fault-tolerant denominator ignoring #N/A errors.
+              • <strong>revenue:</strong> Calculated once and cached in memory.<br />
+              • <strong>cost:</strong> Calculated once and cached in memory.<br />
+              • <strong>Final Expression:</strong> Reuses cached variables without duplicate range scans.
             </div>
           </div>
         </section>
@@ -131,17 +132,18 @@ export default function Topic26() {
           className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-            <span className="text-emerald-400">🔬</span> Architectural Mechanics: 3-Pillar Aggregation Architecture
+            <span className="text-emerald-400">🔬</span> Performance Mechanics: Non-Volatile Tree & CPU Profiling
           </h2>
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>
-              Enterprise financial modeling relies on three core design pillars:
+              Excel uses a dependency tree to determine recalculation sequences:
             </p>
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs sm:text-sm text-amber-300 space-y-2">
-              <div>Pillar 1: Error Insulation (AGGREGATE Option 6 / 7)</div>
-              <div>Pillar 2: Dynamic Multi-Condition Masking (SUMPRODUCT Boolean Vectors)</div>
-              <div>Pillar 3: Modular Intermediate Helper Storage (LET / Structured Tables)</div>
+              <div>Volatile Trap: OFFSET / INDIRECT force full workbook recalculation on every edit</div>
+              <div>Non-Volatile Solution: INDEX(A:A, MATCH(...)) recalculates ONLY when precedent cells change</div>
+              <div className="text-slate-400 text-xs font-sans">Performance Comparison:</div>
+              <div className="text-emerald-400">OFFSET: 1,000,000 evaluations per edit | INDEX: 0 evaluations unless inputs change</div>
             </div>
           </div>
         </section>
@@ -154,136 +156,136 @@ export default function Topic26() {
           className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 space-y-4"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-            <span className="text-indigo-400">📐</span> Visual Enterprise Model Architecture
+            <span className="text-indigo-400">📐</span> Visual Calculation Speed Comparison
           </h2>
 
           <div className="bg-slate-950 p-4 sm:p-6 rounded-2xl border border-slate-800 flex justify-center">
             <svg viewBox="0 0 720 200" className="w-full max-w-3xl h-auto font-sans">
               <g transform="translate(30, 40)">
-                <rect width="180" height="120" rx="12" fill="#0F172A" stroke="#38BDF8" strokeWidth="2" />
-                <text x="90" y="32" textAnchor="middle" fill="#38BDF8" className="text-xs font-bold font-mono">Raw Input Grid</text>
-                <text x="90" y="65" textAnchor="middle" fill="#F8FAFC" className="text-sm font-mono">Mixed Data & Errors</text>
-                <text x="90" y="90" textAnchor="middle" fill="#94A3B8" className="text-xs">Contains #N/A & Hidden Rows</text>
+                <rect width="180" height="120" rx="12" fill="#0F172A" stroke="#F87171" strokeWidth="2" />
+                <text x="90" y="32" textAnchor="middle" fill="#F87171" className="text-xs font-bold font-mono">Unoptimized Model</text>
+                <text x="90" y="65" textAnchor="middle" fill="#F8FAFC" className="text-sm font-mono">OFFSET + Whole Columns</text>
+                <text x="90" y="90" textAnchor="middle" fill="#94A3B8" className="text-xs">Latency: 4.8 Seconds</text>
               </g>
 
               <path d="M 220 100 L 270 100" stroke="#34D399" strokeWidth="3" markerEnd="url(#arrow)" />
 
               <g transform="translate(285, 40)">
                 <rect width="180" height="120" rx="12" fill="#064E3B" stroke="#34D399" strokeWidth="2" />
-                <text x="90" y="32" textAnchor="middle" fill="#34D399" className="text-xs font-bold font-mono">AGGREGATE + SUMPRODUCT</text>
-                <text x="90" y="68" textAnchor="middle" fill="#FFFFFF" className="text-xl font-extrabold font-mono">Clean Output</text>
-                <text x="90" y="92" textAnchor="middle" fill="#A7F3D0" className="text-xs">100% Error-Immune Metric</text>
+                <text x="90" y="32" textAnchor="middle" fill="#34D399" className="text-xs font-bold font-mono">Optimized Model</text>
+                <text x="90" y="68" textAnchor="middle" fill="#FFFFFF" className="text-2xl font-extrabold font-mono">12 ms</text>
+                <text x="90" y="92" textAnchor="middle" fill="#A7F3D0" className="text-xs">INDEX + LET Caching</text>
               </g>
             </svg>
           </div>
         </section>
 
         {/* =========================================================================
-            SECTION 3.5: DEEP DIVE — ADVANCED AGGREGATION PATTERNS & FAULT-TOLERANT EXAMPLES
+            SECTION 3.5: DEEP DIVE — OPTIMIZATION STRATEGIES & BENCHMARK EXAMPLES
         ========================================================================= */}
         <section
           ref={(el) => (sectionsRef.current[sectionsRef.current.length] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/80 border border-emerald-900/40 space-y-6 shadow-2xl"
+          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/80 border border-purple-900/40 space-y-6 shadow-2xl"
         >
           <div className="flex items-center justify-between flex-wrap gap-2 pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">🚀</span> Deep Dive: Enterprise Aggregation Patterns & Real-World Examples
+              <span className="text-purple-400">🚀</span> Deep Dive: Optimization Strategies & Real-World Examples
             </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/80 px-3 py-1 rounded-lg border border-emerald-800/60">
-              Architecture Blueprint
+            <span className="text-xs font-mono text-purple-300 bg-purple-950/80 px-3 py-1 rounded-lg border border-purple-800/60">
+              Benchmark Suite
             </span>
           </div>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Building enterprise financial workbooks requires aggregation design that withstands dirty data, calculation errors, filtered tables, and multi-condition criteria. Below are 4 core enterprise aggregation patterns with concrete formula comparisons:
+            In enterprise financial models containing hundreds of thousands of rows, poorly designed formulas lead to workbook freezes, high RAM usage, and calculation lag. Below are the 4 core optimization patterns with concrete formula comparisons:
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Pattern 1: Error Insulation */}
+            {/* Strategy 1: Volatiles */}
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-rose-400">Pattern 1: Error Insulation</span>
-                <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 text-xs font-mono">100% Fault-Tolerant</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-rose-400">Strategy 1: Volatility Control</span>
+                <span className="px-2 py-0.5 rounded bg-rose-950 text-rose-300 text-xs font-mono">100x Faster</span>
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">Insulating Aggregations from #N/A Errors</h3>
+              <h3 className="text-sm sm:text-base font-bold text-white">Eliminating Volatile Functions</h3>
               <div className="space-y-2 font-mono text-xs">
                 <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ FRAGILE (Fails with #N/A if any cell has error):</div>
-                  =SUM(A1:A100) or =SUBTOTAL(9, A1:A100)
+                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ UNOPTIMIZED (Volatile - Recalculates on every edit):</div>
+                  =OFFSET(A1, MATCH(D3, A1:A10000, 0), 1)
                 </div>
                 <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ FAULT-TOLERANT (Ignores errors &amp; hidden rows):</div>
-                  =AGGREGATE(9, 7, A1:A100)
+                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ OPTIMIZED (Non-Volatile - Calculates on input change only):</div>
+                  =INDEX(B1:B10000, MATCH(D3, A1:A10000, 0))
                 </div>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Option 7 in <code className="text-emerald-300 font-mono">AGGREGATE</code> instructs Excel to bypass both manually hidden rows and calculation errors like <code className="text-rose-300 font-mono">#N/A</code> or <code className="text-rose-300 font-mono">#DIV/0!</code>.
+                <code className="text-rose-300 font-mono">OFFSET</code> marks the entire workbook as dirty on every cell edit across any open sheet. <code className="text-emerald-300 font-mono">INDEX</code> recalculates strictly when its specific precedents change.
               </p>
             </div>
 
-            {/* Pattern 2: Volume-Weighted Averages */}
+            {/* Strategy 2: LET Caching */}
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Pattern 2: Volume Weighting</span>
-                <span className="px-2 py-0.5 rounded bg-purple-950 text-purple-300 text-xs font-mono">Multi-Condition</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Strategy 2: Memory Caching</span>
+                <span className="px-2 py-0.5 rounded bg-purple-950 text-purple-300 text-xs font-mono">3x CPU Speedup</span>
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">Volume-Weighted Average Price</h3>
+              <h3 className="text-sm sm:text-base font-bold text-white">Sub-Expression Caching with LET</h3>
               <div className="space-y-2 font-mono text-xs">
                 <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ INACCURATE (Simple arithmetic average ignores volume):</div>
-                  =AVERAGEIFS(Price, Region, "North")
+                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ UNOPTIMIZED (Evaluates SUMPRODUCT 3 times):</div>
+                  =(SUMPRODUCT((Reg="North")*Sales) - SUMPRODUCT((Reg="North")*Cost)) / SUMPRODUCT((Reg="North")*Sales)
                 </div>
                 <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ ACCURATE (Weighted by sales unit volume):</div>
-                  =LET(m, (Region="North")*(Units&gt;50), SUMPRODUCT(m, Units, Price) / SUMPRODUCT(m, Units))
+                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ OPTIMIZED (Caches variables ONCE in RAM):</div>
+                  =LET(rev, SUMPRODUCT((Reg="North")*Sales), cost, SUMPRODUCT((Reg="North")*Cost), (rev - cost) / rev)
                 </div>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Standard <code className="text-rose-300 font-mono">AVERAGEIFS</code> treats 1-unit sales and 1,000-unit sales equally. Boolean mask weighting returns true volume-weighted unit price.
+                Evaluating <code className="text-purple-300 font-mono">SUMPRODUCT</code> once and reusing the named variable <code className="text-teal-300 font-mono">rev</code> prevents duplicate range scans.
               </p>
             </div>
 
-            {/* Pattern 3: Nested-IF Elimination */}
+            {/* Strategy 3: Range Bounding */}
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Pattern 3: Logic Vectorization</span>
-                <span className="px-2 py-0.5 rounded bg-sky-950 text-sky-300 text-xs font-mono">Clean Architecture</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Strategy 3: Range Bounding</span>
+                <span className="px-2 py-0.5 rounded bg-sky-950 text-sky-300 text-xs font-mono">400x RAM Reduction</span>
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">Replacing Nested IFs with Boolean Multiplication</h3>
+              <h3 className="text-sm sm:text-base font-bold text-white">Structured Table Range Bounding</h3>
               <div className="space-y-2 font-mono text-xs">
                 <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ UNMAINTAINABLE (Complex nested IF logic):</div>
-                  =IF(Region="North", IF(Sales&gt;50k, IF(Status="Active", Sales*0.1, 0), 0), 0)
+                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ UNOPTIMIZED (Scans 3.14 Million Cells):</div>
+                  =SUMPRODUCT((A:A="North")*(B:B&gt;100)*(C:C))
                 </div>
                 <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ VECTORIZED (Clean algebraic matrix product):</div>
-                  =SUMPRODUCT((Region="North")*(Sales&gt;50k)*(Status="Active")*Sales*0.1)
+                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ OPTIMIZED (Constrained to Active Table Rows):</div>
+                  =SUMPRODUCT((Table1[Region]="North")*(Table1[Sales]&gt;100)*(Table1[Revenue]))
                 </div>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Multiplying boolean condition vectors creates an implicit logical AND gate across arrays without confusing nested parenthesis.
+                Whole-column references force Excel to process 1,048,576 rows per array. Table references bound calculation strictly to active rows.
               </p>
             </div>
 
-            {/* Pattern 4: Dynamic Filter Aggregation */}
+            {/* Strategy 4: Binary Search */}
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Pattern 4: Dynamic Array Filter</span>
-                <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 text-xs font-mono">Excel 365 Dynamic</span>
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Strategy 4: Lookup Complexity</span>
+                <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 text-xs font-mono">O(log N) Speed</span>
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">FILTER-Based Robust Summaries</h3>
+              <h3 className="text-sm sm:text-base font-bold text-white">Binary Search vs Linear Scan</h3>
               <div className="space-y-2 font-mono text-xs">
                 <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ OUTDATED (Legacy CSE Array Formula):</div>
-                  {"{=SUM(IF(Region=\"North\", Sales, 0))}"}
+                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ UNOPTIMIZED (Linear Scan across 500,000 rows):</div>
+                  =VLOOKUP(Target, LedgerTable, 5, FALSE)
                 </div>
                 <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ MODERN (Dynamic Spilling + Error Cleansing):</div>
-                  =SUM(FILTER(Table1[Sales], (Table1[Region]="North") * ISNUMBER(Table1[Sales])))
+                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ OPTIMIZED (Binary Search on Sorted Data):</div>
+                  =XLOOKUP(Target, SortedLedger[ID], SortedLedger[Amount], , 2)
                 </div>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Combining <code className="text-sky-300 font-mono">FILTER</code> with <code className="text-emerald-300 font-mono">ISNUMBER</code> dynamically extracts valid numeric subsets for instant aggregation.
+                Binary search (<code className="text-amber-300 font-mono">search_mode = 2</code>) cuts search space in half repeatedly. For 500,000 rows, it takes max 19 comparisons vs 500,000 linear checks!
               </p>
             </div>
           </div>
@@ -302,7 +304,7 @@ export default function Topic26() {
                 <span className="text-emerald-400">📥</span> Interactive Practice Sheet
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore Advanced Aggregation Design live in the master workbook grid.
+                Explore Mathematical Formula Optimization live in the master workbook grid.
               </p>
             </div>
             <button
@@ -319,8 +321,8 @@ export default function Topic26() {
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic26"
-            title="Topic 26: Advanced Aggregation Design Practice Grid"
+            sheetName="Topic27"
+            title="Topic 27: Mathematical Formula Optimization Practice Grid"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -339,24 +341,24 @@ export default function Topic26() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <span className="px-2.5 py-1 rounded bg-sky-950 text-sky-300 text-xs font-bold">Scenario 1: Filtered Table Aggregation</span>
-              <h3 className="text-base font-bold text-white">Naihati Multi-Branch Revenue Aggregation</h3>
+              <span className="px-2.5 py-1 rounded bg-sky-950 text-sky-300 text-xs font-bold">Scenario 1: 500,000 Row Ledger Optimization</span>
+              <h3 className="text-base font-bold text-white">Naihati Wholesale 500k Row Ledger Search</h3>
               <p className="text-xs sm:text-sm text-slate-300">
-                Sum revenue in D3:D10 ignoring manually hidden rows and #N/A errors.
+                Replace linear VLOOKUP with binary search XLOOKUP/INDEX-MATCH on sorted ledgers for 1,000x faster lookups.
               </p>
               <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs text-purple-300">
-                =AGGREGATE(9, 7, D3:D10)
+                =XLOOKUP(Target, ID_Range, Data_Range, , 2)
               </div>
             </div>
 
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <span className="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 text-xs font-bold">Scenario 2: Multi-Criteria Weighted Average</span>
-              <h3 className="text-base font-bold text-white">Barrackpore Corporate Commission Model</h3>
+              <span className="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 text-xs font-bold">Scenario 2: Dynamic Margin Caching</span>
+              <h3 className="text-base font-bold text-white">Barrackpore Enterprise Financial Model</h3>
               <p className="text-xs sm:text-sm text-slate-300">
-                Calculate weighted unit price for North region sales exceeding ₹50,000.
+                Cache sub-totals using LET to prevent repeating SUMPRODUCT evaluations across 12 sheets.
               </p>
               <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs text-purple-300">
-                =SUMPRODUCT((Region="North")*(Sales&gt;50k)*Units, Price)/SUMPRODUCT((Region="North")*(Sales&gt;50k)*Units)
+                =LET(tot, SUM(D3:D1000), (tot - E1) / tot)
               </div>
             </div>
           </div>
@@ -375,16 +377,16 @@ export default function Topic26() {
 
           <div className="space-y-4 text-xs sm:text-sm text-slate-300">
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-              <span className="text-sky-400 font-bold">Step 1: Identify Filter & Error Requirements</span>
-              <p>Determine whether formula must ignore hidden rows, errors, or both.</p>
+              <span className="text-sky-400 font-bold">Step 1: Audit Volatile Functions</span>
+              <p>Identify and eliminate OFFSET, INDIRECT, and TODAY from core model formulas.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-              <span className="text-emerald-400 font-bold">Step 2: Select AGGREGATE Function & Option Code</span>
-              <p>Choose Function 9 (SUM) with Option 6 (Ignore Errors) or Option 7 (Ignore Hidden & Errors).</p>
+              <span className="text-emerald-400 font-bold">Step 2: Wrap Repeated Expressions in LET</span>
+              <p>Assign repeated calculations to named variables inside LET(var, expr, final).</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-              <span className="text-indigo-400 font-bold">Step 3: Integrate SUMPRODUCT Boolean Masks</span>
-              <p>Combine with SUMPRODUCT for multi-condition weighted totals.</p>
+              <span className="text-indigo-400 font-bold">Step 3: Constrain Array Boundaries</span>
+              <p>Replace whole-column A:A references with structured table names or bounded ranges.</p>
             </div>
           </div>
         </section>
@@ -411,9 +413,9 @@ export default function Topic26() {
               </thead>
               <tbody className="divide-y divide-slate-800/60 font-mono text-xs sm:text-sm">
                 <tr>
-                  <td className="py-3 pr-4 text-rose-400 font-bold">Whole-Column Performance Lag</td>
-                  <td className="py-3 px-4 font-sans">Using full-column references like A:A across multiple SUMPRODUCT arrays.</td>
-                  <td className="py-3 pl-4 font-sans text-slate-300">Use structured table references (Table1[Sales]) or bounded ranges (A1:A1000).</td>
+                  <td className="py-3 pr-4 text-rose-400 font-bold">Volatile Recalculation Lag</td>
+                  <td className="py-3 px-4 font-sans">Using OFFSET or INDIRECT forces full workbook recalculation on every edit.</td>
+                  <td className="py-3 pl-4 font-sans text-slate-300">Replace OFFSET with INDEX: <code className="text-sky-300 font-mono">INDEX(A:A, 1):INDEX(A:A, 100)</code>.</td>
                 </tr>
               </tbody>
             </table>
@@ -433,12 +435,12 @@ export default function Topic26() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-              <span className="text-sky-400 font-bold">Structured Table References</span>
-              <p className="text-slate-300">Always use Excel Tables (Ctrl + T) so dynamic ranges expand automatically without manual formula editing.</p>
+              <span className="text-sky-400 font-bold">Full Recalculate Shortcut</span>
+              <p className="text-slate-300">Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-slate-200">Ctrl + Alt + F9</kbd> to force full dependency tree recalculation.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-              <span className="text-emerald-400 font-bold">Evaluate Formula Audit Shortcut</span>
-              <p className="text-slate-300">Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-slate-200">Alt + M + V</kbd> to inspect array evaluations step-by-step.</p>
+              <span className="text-emerald-400 font-bold">Active Sheet Recalculate</span>
+              <p className="text-slate-300">Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-slate-200">Shift + F9</kbd> to recalculate only the active worksheet.</p>
             </div>
           </div>
         </section>
@@ -455,8 +457,8 @@ export default function Topic26() {
           </h2>
 
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 text-xs sm:text-sm text-slate-300">
-            <p>• <strong>Think about:</strong> Why is <code className="text-purple-300 font-mono font-bold">AGGREGATE(9, 6, range)</code> superior to <code className="text-sky-300 font-mono font-bold">SUBTOTAL(9, range)</code> when datasets contain calculation errors?</p>
-            <p>• <strong>Observe carefully:</strong> How does structured table referencing eliminate hardcoded row limits in dynamic dashboard formulas?</p>
+            <p>• <strong>Think about:</strong> Why does <code className="text-purple-300 font-mono font-bold">=LET(val, SUM(A1:A1000), val * val)</code> execute twice as fast as <code className="text-sky-300 font-mono font-bold">=SUM(A1:A1000) * SUM(A1:A1000)</code>?</p>
+            <p>• <strong>Observe carefully:</strong> Why does replacing OFFSET with INDEX prevent UI freeze during data entry?</p>
           </div>
         </section>
 
@@ -465,7 +467,7 @@ export default function Topic26() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Topic 26: Advanced Aggregation Design — Frequently Asked Questions"
+            title="Topic 27: Mathematical Formula Optimization — Frequently Asked Questions"
             questions={questions}
           />
         </div>
@@ -475,9 +477,9 @@ export default function Topic26() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            topicName="Advanced Aggregation Design"
+            topicName="Mathematical Formula Optimization"
             noteTitle="Sukanta Hui's Master Mentor Advice"
-            mentorAdvice={"Advanced aggregation design combines AGGREGATE Option 6/7 and SUMPRODUCT boolean masks. Build fault-tolerant, dynamic formulas that survive hidden rows and calculation errors!"}
+            mentorAdvice={"Eliminate volatile functions (OFFSET/INDIRECT), cache intermediate sub-expressions with LET, and constrain array ranges to bounded active rows. Sub-second performance is the mark of a true Excel master!"}
           />
         </div>
       </div>

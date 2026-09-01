@@ -5,10 +5,10 @@ import clsx from "clsx";
 import ExcelFileLoader from "../../../../../common/ExcelFileLoader";
 import sampleWorkbookUrl from "./excel_files/009_001_advanced_mathematical_arithmetic_and_aggregation_functions_master.xlsx?url";
 import FAQTemplate from "../../../../../common/FAQTemplate";
-import questions from "./topic26_files/topic26_questions";
+import questions from "./topic29_files/topic29_questions";
 import Teacher from "../../../../../common/TeacherSukantaHui";
 
-export default function Topic26() {
+export default function Topic29() {
   const sectionsRef = useRef([]);
 
   useEffect(() => {
@@ -61,36 +61,36 @@ export default function Topic26() {
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="px-3.5 py-1 rounded-full bg-purple-950/80 border border-purple-700/60 text-purple-300 text-xs font-bold uppercase tracking-wider shadow-inner">
-              🏗️ Model Architecture · Topic 26
+              👑 Master Capstone Project · Topic 29
             </span>
             <span className="px-3.5 py-1 rounded-full bg-sky-950/80 border border-sky-700/60 text-sky-300 text-xs font-semibold">
-              Fault-Tolerant Enterprise Calculation Design
+              Comprehensive Financial & Engineering Synthesis
             </span>
             <span className="px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold">
-              Bloom's Level 5: Synthesize
+              Bloom's Level 6: Create
             </span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-indigo-300 to-sky-400 bg-clip-text text-transparent leading-snug">
-            Advanced Aggregation Design — Enterprise Formulas & Error-Immune Frameworks
+            Advanced Mathematical Functions Project — Enterprise Model Synthesis
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg mt-4 leading-relaxed max-w-4xl">
-            Advanced Aggregation Design combines <code className="text-purple-300 font-mono">AGGREGATE</code>, <code className="text-sky-300 font-mono">SUMPRODUCT</code>, dynamic boolean masking, and error-immune option codes to build fault-tolerant enterprise calculation engines capable of ignoring hidden rows, missing data, and calculation errors.
+            This Master Capstone Project synthesizes all 30 topics in the <code className="text-purple-300 font-mono">009_001_advanced-mathematical-arithmetic-and-aggregation-functions</code> curriculum into an integrated, production-grade financial and engineering calculation engine.
           </p>
 
           <div className="mt-8 pt-6 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs sm:text-sm">
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-purple-400 text-base">✓</span>
-              <span><strong>Error Immunity:</strong> AGGREGATE Option 6 ignores #N/A and #DIV/0!</span>
+              <span><strong>30 Functions Integrated:</strong> Full coverage of SUMPRODUCT to SUMXMY2</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-indigo-400 text-base">✓</span>
-              <span><strong>Multi-Condition Masking:</strong> SUMPRODUCT(--(Cond1) * --(Cond2))</span>
+              <span><strong>Fault-Tolerant Engine:</strong> AGGREGATE Option 6/7 error insulation</span>
             </div>
             <div className="flex items-center gap-2.5 text-slate-300">
               <span className="text-sky-400 text-base">✓</span>
-              <span><strong>Modular Architecture:</strong> Deconstructs complex logic cleanly</span>
+              <span><strong>Sub-Second Recalculation:</strong> LET variable caching + non-volatile INDEX</span>
             </div>
           </div>
         </header>
@@ -104,21 +104,22 @@ export default function Topic26() {
         >
           <div className="flex items-center justify-between flex-wrap gap-2 pb-4 border-b border-slate-800">
             <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-purple-400">⚡</span> Enterprise Design Blueprint
+              <span className="text-purple-400">⚡</span> Master Model Architecture
             </h2>
             <span className="text-xs font-mono text-slate-400 bg-slate-950 px-3 py-1 rounded-lg border border-slate-800">
-              Multi-Layer Blueprint
+              Capstone Synthesis Signature
             </span>
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs sm:text-sm text-purple-300 space-y-3">
-            <div className="text-slate-500">// Enterprise Multi-Condition Weighted Average Blueprint</div>
+            <div className="text-slate-500">// Capstone Multi-Tier Synthesis Formula</div>
             <div className="text-white font-bold">
-              =SUMPRODUCT(--(<span className="text-teal-300">Region="North"</span>) * --(<span className="text-sky-300">Units&gt;50</span>), <span className="text-amber-300">Revenue</span>) / AGGREGATE(<span className="text-emerald-300">9, 6, Units</span>)
+              =LET(<span className="text-teal-300">weighted_rev</span>, SUMPRODUCT((Region="North")*Sales), <span className="text-sky-300">clean_cost</span>, AGGREGATE(9, 6, Cost_Range), <span className="text-amber-300">variance</span>, SQRT(SUMXMY2(Sales, Forecast)), <span className="text-emerald-300">(weighted_rev - clean_cost) / variance</span>)
             </div>
             <div className="text-slate-400 text-xs font-sans pt-1">
-              • <strong>SUMPRODUCT:</strong> Computes filtered multi-condition weighted totals.<br />
-              • <strong>AGGREGATE(9, 6):</strong> Computes fault-tolerant denominator ignoring #N/A errors.
+              • <strong>SUMPRODUCT:</strong> Multi-condition matrix weighted revenue.<br />
+              • <strong>AGGREGATE(9, 6):</strong> Error-insulated cost denominator.<br />
+              • <strong>SUMXMY2 + SQRT:</strong> Euclidean forecast variance normalization factor.
             </div>
           </div>
         </section>
@@ -131,17 +132,18 @@ export default function Topic26() {
           className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 space-y-6"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-            <span className="text-emerald-400">🔬</span> Architectural Mechanics: 3-Pillar Aggregation Architecture
+            <span className="text-emerald-400">🔬</span> Mathematical Mechanics: 4-Tier Capstone Integration
           </h2>
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>
-              Enterprise financial modeling relies on three core design pillars:
+              The Capstone model integrates four specialized calculation layers:
             </p>
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 font-mono text-xs sm:text-sm text-amber-300 space-y-2">
-              <div>Pillar 1: Error Insulation (AGGREGATE Option 6 / 7)</div>
-              <div>Pillar 2: Dynamic Multi-Condition Masking (SUMPRODUCT Boolean Vectors)</div>
-              <div>Pillar 3: Modular Intermediate Helper Storage (LET / Structured Tables)</div>
+              <div>Layer 1: Aggregation & Weighted Arithmetic (SUMPRODUCT, AGGREGATE, PRODUCT)</div>
+              <div>Layer 2: Precision Rounding & Modular Arithmetic (MROUND, CEILING.MATH, MOD, QUOTIENT)</div>
+              <div>Layer 3: Combinatorial & Sequence Probability (COMBIN, PERMUT, MULTINOMIAL, FACT)</div>
+              <div>Layer 4: Array Difference & Power Expansion (SUMX2MY2, SUMX2PY2, SUMXMY2, SERIESSUM)</div>
             </div>
           </div>
         </section>
@@ -154,138 +156,27 @@ export default function Topic26() {
           className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/70 border border-slate-800 space-y-4"
         >
           <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-            <span className="text-indigo-400">📐</span> Visual Enterprise Model Architecture
+            <span className="text-indigo-400">📐</span> Visual Master Capstone Pipeline
           </h2>
 
           <div className="bg-slate-950 p-4 sm:p-6 rounded-2xl border border-slate-800 flex justify-center">
             <svg viewBox="0 0 720 200" className="w-full max-w-3xl h-auto font-sans">
               <g transform="translate(30, 40)">
                 <rect width="180" height="120" rx="12" fill="#0F172A" stroke="#38BDF8" strokeWidth="2" />
-                <text x="90" y="32" textAnchor="middle" fill="#38BDF8" className="text-xs font-bold font-mono">Raw Input Grid</text>
-                <text x="90" y="65" textAnchor="middle" fill="#F8FAFC" className="text-sm font-mono">Mixed Data & Errors</text>
-                <text x="90" y="90" textAnchor="middle" fill="#94A3B8" className="text-xs">Contains #N/A & Hidden Rows</text>
+                <text x="90" y="32" textAnchor="middle" fill="#38BDF8" className="text-xs font-bold font-mono">29 Individual Modules</text>
+                <text x="90" y="65" textAnchor="middle" fill="#F8FAFC" className="text-sm font-mono">Topics 0 to 28</text>
+                <text x="90" y="90" textAnchor="middle" fill="#94A3B8" className="text-xs">Individual Math Tools</text>
               </g>
 
               <path d="M 220 100 L 270 100" stroke="#34D399" strokeWidth="3" markerEnd="url(#arrow)" />
 
               <g transform="translate(285, 40)">
                 <rect width="180" height="120" rx="12" fill="#064E3B" stroke="#34D399" strokeWidth="2" />
-                <text x="90" y="32" textAnchor="middle" fill="#34D399" className="text-xs font-bold font-mono">AGGREGATE + SUMPRODUCT</text>
-                <text x="90" y="68" textAnchor="middle" fill="#FFFFFF" className="text-xl font-extrabold font-mono">Clean Output</text>
-                <text x="90" y="92" textAnchor="middle" fill="#A7F3D0" className="text-xs">100% Error-Immune Metric</text>
+                <text x="90" y="32" textAnchor="middle" fill="#34D399" className="text-xs font-bold font-mono">Topic 29 Capstone Engine</text>
+                <text x="90" y="68" textAnchor="middle" fill="#FFFFFF" className="text-xl font-extrabold font-mono">Enterprise Dashboard</text>
+                <text x="90" y="92" textAnchor="middle" fill="#A7F3D0" className="text-xs">Unified Corporate Model</text>
               </g>
             </svg>
-          </div>
-        </section>
-
-        {/* =========================================================================
-            SECTION 3.5: DEEP DIVE — ADVANCED AGGREGATION PATTERNS & FAULT-TOLERANT EXAMPLES
-        ========================================================================= */}
-        <section
-          ref={(el) => (sectionsRef.current[sectionsRef.current.length] = el)}
-          className="reveal-section rounded-3xl p-6 sm:p-8 bg-slate-900/80 border border-emerald-900/40 space-y-6 shadow-2xl"
-        >
-          <div className="flex items-center justify-between flex-wrap gap-2 pb-4 border-b border-slate-800">
-            <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-              <span className="text-emerald-400">🚀</span> Deep Dive: Enterprise Aggregation Patterns & Real-World Examples
-            </h2>
-            <span className="text-xs font-mono text-emerald-300 bg-emerald-950/80 px-3 py-1 rounded-lg border border-emerald-800/60">
-              Architecture Blueprint
-            </span>
-          </div>
-
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Building enterprise financial workbooks requires aggregation design that withstands dirty data, calculation errors, filtered tables, and multi-condition criteria. Below are 4 core enterprise aggregation patterns with concrete formula comparisons:
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Pattern 1: Error Insulation */}
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-rose-400">Pattern 1: Error Insulation</span>
-                <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 text-xs font-mono">100% Fault-Tolerant</span>
-              </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">Insulating Aggregations from #N/A Errors</h3>
-              <div className="space-y-2 font-mono text-xs">
-                <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ FRAGILE (Fails with #N/A if any cell has error):</div>
-                  =SUM(A1:A100) or =SUBTOTAL(9, A1:A100)
-                </div>
-                <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ FAULT-TOLERANT (Ignores errors &amp; hidden rows):</div>
-                  =AGGREGATE(9, 7, A1:A100)
-                </div>
-              </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Option 7 in <code className="text-emerald-300 font-mono">AGGREGATE</code> instructs Excel to bypass both manually hidden rows and calculation errors like <code className="text-rose-300 font-mono">#N/A</code> or <code className="text-rose-300 font-mono">#DIV/0!</code>.
-              </p>
-            </div>
-
-            {/* Pattern 2: Volume-Weighted Averages */}
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-purple-400">Pattern 2: Volume Weighting</span>
-                <span className="px-2 py-0.5 rounded bg-purple-950 text-purple-300 text-xs font-mono">Multi-Condition</span>
-              </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">Volume-Weighted Average Price</h3>
-              <div className="space-y-2 font-mono text-xs">
-                <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ INACCURATE (Simple arithmetic average ignores volume):</div>
-                  =AVERAGEIFS(Price, Region, "North")
-                </div>
-                <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ ACCURATE (Weighted by sales unit volume):</div>
-                  =LET(m, (Region="North")*(Units&gt;50), SUMPRODUCT(m, Units, Price) / SUMPRODUCT(m, Units))
-                </div>
-              </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Standard <code className="text-rose-300 font-mono">AVERAGEIFS</code> treats 1-unit sales and 1,000-unit sales equally. Boolean mask weighting returns true volume-weighted unit price.
-              </p>
-            </div>
-
-            {/* Pattern 3: Nested-IF Elimination */}
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-sky-400">Pattern 3: Logic Vectorization</span>
-                <span className="px-2 py-0.5 rounded bg-sky-950 text-sky-300 text-xs font-mono">Clean Architecture</span>
-              </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">Replacing Nested IFs with Boolean Multiplication</h3>
-              <div className="space-y-2 font-mono text-xs">
-                <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ UNMAINTAINABLE (Complex nested IF logic):</div>
-                  =IF(Region="North", IF(Sales&gt;50k, IF(Status="Active", Sales*0.1, 0), 0), 0)
-                </div>
-                <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ VECTORIZED (Clean algebraic matrix product):</div>
-                  =SUMPRODUCT((Region="North")*(Sales&gt;50k)*(Status="Active")*Sales*0.1)
-                </div>
-              </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Multiplying boolean condition vectors creates an implicit logical AND gate across arrays without confusing nested parenthesis.
-              </p>
-            </div>
-
-            {/* Pattern 4: Dynamic Filter Aggregation */}
-            <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">Pattern 4: Dynamic Array Filter</span>
-                <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 text-xs font-mono">Excel 365 Dynamic</span>
-              </div>
-              <h3 className="text-sm sm:text-base font-bold text-white">FILTER-Based Robust Summaries</h3>
-              <div className="space-y-2 font-mono text-xs">
-                <div className="p-2.5 rounded bg-rose-950/40 border border-rose-900/50 text-rose-300">
-                  <div className="text-[10px] text-rose-400 font-sans font-semibold mb-1">❌ OUTDATED (Legacy CSE Array Formula):</div>
-                  {"{=SUM(IF(Region=\"North\", Sales, 0))}"}
-                </div>
-                <div className="p-2.5 rounded bg-emerald-950/40 border border-emerald-900/50 text-emerald-300">
-                  <div className="text-[10px] text-emerald-400 font-sans font-semibold mb-1">✅ MODERN (Dynamic Spilling + Error Cleansing):</div>
-                  =SUM(FILTER(Table1[Sales], (Table1[Region]="North") * ISNUMBER(Table1[Sales])))
-                </div>
-              </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Combining <code className="text-sky-300 font-mono">FILTER</code> with <code className="text-emerald-300 font-mono">ISNUMBER</code> dynamically extracts valid numeric subsets for instant aggregation.
-              </p>
-            </div>
           </div>
         </section>
 
@@ -299,10 +190,10 @@ export default function Topic26() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2.5">
-                <span className="text-emerald-400">📥</span> Interactive Practice Sheet
+                <span className="text-emerald-400">📥</span> Interactive Master Capstone Workbook
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1">
-                Explore Advanced Aggregation Design live in the master workbook grid.
+                Explore the complete 30-sheet master workbook live in the Excel reader.
               </p>
             </div>
             <button
@@ -313,14 +204,14 @@ export default function Topic26() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
-              <span>Download Workbook (.xlsx)</span>
+              <span>Download Master Workbook (.xlsx)</span>
             </button>
           </div>
 
           <ExcelFileLoader
             fileModule={sampleWorkbookUrl}
-            sheetName="Topic26"
-            title="Topic 26: Advanced Aggregation Design Practice Grid"
+            sheetName="Topic29"
+            title="Topic 29: Master Capstone Project Practice Grid"
             rowsPerPage={25}
             showSheetSelector={true}
           />
@@ -339,24 +230,24 @@ export default function Topic26() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <span className="px-2.5 py-1 rounded bg-sky-950 text-sky-300 text-xs font-bold">Scenario 1: Filtered Table Aggregation</span>
-              <h3 className="text-base font-bold text-white">Naihati Multi-Branch Revenue Aggregation</h3>
+              <span className="px-2.5 py-1 rounded bg-sky-950 text-sky-300 text-xs font-bold">Scenario 1: Corporate Executive Dashboard</span>
+              <h3 className="text-base font-bold text-white">Naihati Enterprise Master Financial Model</h3>
               <p className="text-xs sm:text-sm text-slate-300">
-                Sum revenue in D3:D10 ignoring manually hidden rows and #N/A errors.
+                Synthesizes weighted revenue, error-immune costs, container packaging, and risk combinations in cell D3.
               </p>
               <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs text-purple-300">
-                =AGGREGATE(9, 7, D3:D10)
+                =LET(r, SUMPRODUCT(Sales, Price), c, AGGREGATE(9, 6, Costs), (r - c) / r)
               </div>
             </div>
 
             <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
-              <span className="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 text-xs font-bold">Scenario 2: Multi-Criteria Weighted Average</span>
-              <h3 className="text-base font-bold text-white">Barrackpore Corporate Commission Model</h3>
+              <span className="px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 text-xs font-bold">Scenario 2: Advanced Engineering Optimization</span>
+              <h3 className="text-base font-bold text-white">Barrackpore Industrial Power & Logistics Engine</h3>
               <p className="text-xs sm:text-sm text-slate-300">
-                Calculate weighted unit price for North region sales exceeding ₹50,000.
+                Combines MOD shift scheduling, CEILING.MATH batching, and SUMX2MY2 power variance in cell D3.
               </p>
               <div className="p-3 rounded-lg bg-slate-900 font-mono text-xs text-purple-300">
-                =SUMPRODUCT((Region="North")*(Sales&gt;50k)*Units, Price)/SUMPRODUCT((Region="North")*(Sales&gt;50k)*Units)
+                =SQRT(SUMX2MY2(Power_Base, Power_Actual)) + CEILING.MATH(Units, 100)
               </div>
             </div>
           </div>
@@ -375,16 +266,16 @@ export default function Topic26() {
 
           <div className="space-y-4 text-xs sm:text-sm text-slate-300">
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-              <span className="text-sky-400 font-bold">Step 1: Identify Filter & Error Requirements</span>
-              <p>Determine whether formula must ignore hidden rows, errors, or both.</p>
+              <span className="text-sky-400 font-bold">Step 1: Open Overview Sheet</span>
+              <p>Navigate to Overview sheet in the master workbook to review all 30 worksheet references.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-              <span className="text-emerald-400 font-bold">Step 2: Select AGGREGATE Function & Option Code</span>
-              <p>Choose Function 9 (SUM) with Option 6 (Ignore Errors) or Option 7 (Ignore Hidden & Errors).</p>
+              <span className="text-emerald-400 font-bold">Step 2: Inspect Topic 29 Capstone Grid</span>
+              <p>Review combined master formulas integrating SUMPRODUCT, AGGREGATE, and SUMXMY2.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-              <span className="text-indigo-400 font-bold">Step 3: Integrate SUMPRODUCT Boolean Masks</span>
-              <p>Combine with SUMPRODUCT for multi-condition weighted totals.</p>
+              <span className="text-indigo-400 font-bold">Step 3: Test Dynamic Recalculation</span>
+              <p>Change input parameters in D3:D10 and observe instant sub-second model updates.</p>
             </div>
           </div>
         </section>
@@ -411,9 +302,9 @@ export default function Topic26() {
               </thead>
               <tbody className="divide-y divide-slate-800/60 font-mono text-xs sm:text-sm">
                 <tr>
-                  <td className="py-3 pr-4 text-rose-400 font-bold">Whole-Column Performance Lag</td>
-                  <td className="py-3 px-4 font-sans">Using full-column references like A:A across multiple SUMPRODUCT arrays.</td>
-                  <td className="py-3 pl-4 font-sans text-slate-300">Use structured table references (Table1[Sales]) or bounded ranges (A1:A1000).</td>
+                  <td className="py-3 pr-4 text-rose-400 font-bold">Cascading Model Errors</td>
+                  <td className="py-3 px-4 font-sans">Single unhandled #N/A error in upstream range propagating to executive dashboard.</td>
+                  <td className="py-3 pl-4 font-sans text-slate-300">Wrap upstream aggregations with AGGREGATE Option 6 or IFERROR.</td>
                 </tr>
               </tbody>
             </table>
@@ -433,12 +324,12 @@ export default function Topic26() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm">
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-              <span className="text-sky-400 font-bold">Structured Table References</span>
-              <p className="text-slate-300">Always use Excel Tables (Ctrl + T) so dynamic ranges expand automatically without manual formula editing.</p>
+              <span className="text-sky-400 font-bold">Master Sheet Navigation</span>
+              <p className="text-slate-300">Right-click the sheet navigation arrows in lower-left Excel corner to quickly jump between all 30 topic sheets.</p>
             </div>
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
-              <span className="text-emerald-400 font-bold">Evaluate Formula Audit Shortcut</span>
-              <p className="text-slate-300">Press <kbd className="px-1.5 py-0.5 rounded bg-slate-800 font-mono text-slate-200">Alt + M + V</kbd> to inspect array evaluations step-by-step.</p>
+              <span className="text-emerald-400 font-bold">Full Curriculum Graduation</span>
+              <p className="text-slate-300">Completing Topic 29 certifies full mastery over all advanced mathematical functions in Excel!</p>
             </div>
           </div>
         </section>
@@ -455,8 +346,8 @@ export default function Topic26() {
           </h2>
 
           <div className="p-5 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 text-xs sm:text-sm text-slate-300">
-            <p>• <strong>Think about:</strong> Why is <code className="text-purple-300 font-mono font-bold">AGGREGATE(9, 6, range)</code> superior to <code className="text-sky-300 font-mono font-bold">SUBTOTAL(9, range)</code> when datasets contain calculation errors?</p>
-            <p>• <strong>Observe carefully:</strong> How does structured table referencing eliminate hardcoded row limits in dynamic dashboard formulas?</p>
+            <p>• <strong>Think about:</strong> How does synthesizing all 30 functions transform raw unstructured data into an executive decision support engine?</p>
+            <p>• <strong>Observe carefully:</strong> Why does modular formula design ensure your financial workbooks remain clean and auditable for years?</p>
           </div>
         </section>
 
@@ -465,7 +356,7 @@ export default function Topic26() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[10] = el)} className="reveal-section">
           <FAQTemplate
-            title="Topic 26: Advanced Aggregation Design — Frequently Asked Questions"
+            title="Topic 29: Master Capstone Project — Frequently Asked Questions"
             questions={questions}
           />
         </div>
@@ -475,9 +366,9 @@ export default function Topic26() {
         ========================================================================= */}
         <div ref={(el) => (sectionsRef.current[11] = el)} className="reveal-section">
           <Teacher
-            topicName="Advanced Aggregation Design"
+            topicName="Advanced Mathematical Functions Project"
             noteTitle="Sukanta Hui's Master Mentor Advice"
-            mentorAdvice={"Advanced aggregation design combines AGGREGATE Option 6/7 and SUMPRODUCT boolean masks. Build fault-tolerant, dynamic formulas that survive hidden rows and calculation errors!"}
+            mentorAdvice={"Congratulations! You have completed all 30 topics in Advanced Mathematical Arithmetic and Aggregation Functions. You are now fully equipped to build enterprise-grade, fault-tolerant, high-performance financial and engineering models in Excel!"}
           />
         </div>
       </div>
