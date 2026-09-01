@@ -1,0 +1,14 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 003_008: Structures, Unions, Bit-fields & typedef
+TOPIC 0: User-Defined Composite Structures & Alignment
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- Struct: Groups heterogeneous data members.
+- Pointer Access: sptr->member is equivalent to (*sptr).member.
+- Structure Padding: Compiler inserts padding bytes for word alignment.
+- Union: Shared memory overlay for all members (size = max member size).
+================================================================================

@@ -1,0 +1,13 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_004: Functions, Scope & Storage Classes
+TOPIC 0: Modular Function Architecture & Storage Classes
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- Function Prototypes: Declarations placed before main().
+- Parameter Passing: Call by Value vs Passing Pointers (&var).
+- Storage Classes: auto (default local), register (CPU register request), static (persistent state), extern (global linkage across files).
+================================================================================

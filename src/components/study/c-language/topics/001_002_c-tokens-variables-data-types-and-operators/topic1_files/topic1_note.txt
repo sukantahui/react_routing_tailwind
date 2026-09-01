@@ -1,0 +1,12 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_002: C Tokens, Data Types & Operators
+TOPIC 1: Module 001_002 Hands-on Projects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. MODULE PROJECTS SUMMARY
+--------------------------------------------------------------------------------
+- Project 1: Bill Splitter & Tax Calculator
+- Project 2: Bitwise Status Register Inspector & Masking Utility
+================================================================================

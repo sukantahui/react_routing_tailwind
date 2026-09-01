@@ -1,0 +1,70 @@
+================================================================================
+CODER & ACCOTAX - MASTER INSTRUCTIONS FOR C LANGUAGE TUTORIAL CREATION
+Repository: react_routing_tailwind
+Educator: Sukanta Hui (Barrackpore, West Bengal)
+Target Environment: React 19 + Vite + Tailwind CSS (Node.js v16 Compatible)
+================================================================================
+
+1. DIRECTORY STRUCTURE & FILE NAMING RULES
+--------------------------------------------------------------------------------
+- All topic folders must be created under:
+  `src/components/study/c-language/topics/`
+- Every folder name MUST strictly match the module slug defined in `c-language-roadmap.json`:
+  Format: `[3-digit-segment]_[3-digit-module]_[descriptive-kebab-slug]`
+  Example: `001_001_getting-started-with-c-and-compiler-architecture`
+
+For each topic index `N` (0, 1, 2, ...):
+1. Create `Topic[N].jsx` directly inside the module slug folder.
+2. Create a subfolder named `topic[N]_files/` containing:
+   - `[DescriptiveName]Demo.c` (Compilable C code)
+   - `topic[N]_questions.js` (25 to 30 structured Q&A items)
+   - `topic[N]_note.txt` (Concise printable ASCII note)
+
+
+2. MANDATORY SECTION & STRUCTURAL RULES (STRICTLY ENFORCED)
+--------------------------------------------------------------------------------
+Every topic component MUST follow this exact section structure and sequence
+(Except for dedicated Project topics and MCQ/Quiz topics):
+
+1. Header Section:
+   - Module Badge (`Module [M] · Topic N`), Category Badge, H1 Title, Summary.
+
+2. Dedicated Topic Description Section (MANDATORY):
+   - Detailed conceptual discussion explaining "What, Why & How".
+   - In-depth background theory, architectural motivations, and local classroom scenario
+     (Sukanta Hui with Swadeep, Tuhina, Abhronila, Debangshu in Barrackpore/Shyamnagar).
+
+3. Semantic Visual Diagram Section:
+   - Custom responsive `<svg>` diagram with labeled nodes and hover transitions.
+
+4. Deep Technical Breakdown Section:
+   - Method signatures, comparison tables, execution lifecycle rules.
+
+5. Dedicated Example Section (MANDATORY):
+   - Clear section title: "💻 Example Section: [Topic Name] Demonstration".
+   - Step-by-step logic breakdown explaining what the code demonstrates.
+   - Code block rendered via `<CFileLoader>` importing the `.c` file via `?raw`.
+   - Expected Output display box detailing console execution results.
+
+6. Common Pitfalls & Best Practices Section:
+   - Compiler traps, undefined behavior (UB) warnings, memory safety fixes.
+
+7. Thinking & Hints Section ("Think About This..."):
+   - Algorithmic prompts encouraging systems intuition.
+
+8. Comprehensive FAQ Section:
+   - Rendered using `<FAQTemplate>` importing `topic[N]_questions.js`.
+
+9. Plain Text Printable Note Section:
+   - Rendered using `<PlainTextPrint>` importing `topic[N]_note.txt?raw`.
+
+10. Teacher's Note Section:
+    - Rendered using `<Teacher>` importing from `TeacherSukantaHui`.
+
+
+3. PEDAGOGICAL TONE & LOCAL CONTEXT
+--------------------------------------------------------------------------------
+- Educator Persona: Sukanta Hui (Coder & AccoTax)
+- Students: Swadeep, Tuhina, Abhronila, Debangshu
+- Locations: Barrackpore, Shyamnagar, Ichapur, Naihati
+================================================================================

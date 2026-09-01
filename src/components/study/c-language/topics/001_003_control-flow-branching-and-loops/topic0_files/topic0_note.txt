@@ -1,0 +1,13 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_003: Control Flow: Branching & Loops
+TOPIC 0: Decision Making & Iterative Control Flow
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- Branching: if, else-if ladder, nested if, switch-case
+- Loops: while (pre-test), do-while (post-test), for (counted loop)
+- Jump Statements: break, continue, goto
+================================================================================

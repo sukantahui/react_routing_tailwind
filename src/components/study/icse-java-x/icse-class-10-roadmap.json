@@ -457,10 +457,11 @@
           ],
           "topics": [
             "Need and purpose of constructors",
-            "Default constructor",
-            "Parameterized constructor",
-            "Constructor overloading",
-            "Difference between constructor and method"
+            "Default vs non-parameterized constructor",
+            "Parameterized constructor and 'this' keyword",
+            "Constructor overloading and polymorphism",
+            "Difference between constructor and method",
+            "Comprehensive ICSE board program design practice"
           ],
           "learningOutcomes": [
             "Define default and parameterized constructors in Java classes",

@@ -1,0 +1,13 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_005: Arrays & Matrix Operations
+TOPIC 0: Contiguous Array Storage & Matrix Transposition
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- 1D Array: Fixed size, zero-indexed, contiguous RAM block.
+- 2D Matrix: Row-major order contiguous memory layout.
+- Matrix Transpose: Swap element matrix[i][j] into transpose[j][i].
+================================================================================

@@ -1,0 +1,15 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 003_010: File Handling & Stream I/O Operations
+TOPIC 0: Text & Binary File Streams
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- FILE* handle: Opaque stream pointer.
+- Modes: "r" (read), "w" (overwrite write), "a" (append), "rb"/"wb" (binary).
+- Text I/O: fprintf, fscanf, fgets, fputs.
+- Binary I/O: fread, fwrite.
+- File positioning: fseek, ftell, rewind.
+================================================================================

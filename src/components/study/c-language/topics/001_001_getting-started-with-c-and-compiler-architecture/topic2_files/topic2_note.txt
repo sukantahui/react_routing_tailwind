@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with C & Compiler Pipeline
+TOPIC 2: Understanding C Compilation Pipeline & GCC Toolchain
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. GCC PIPELINE STAGES & COMMANDS
+--------------------------------------------------------------------------------
+- Preprocessing (cpp) : gcc -E main.c -o main.i
+  * Expands #include directives and #define macros.
+  * Strips comments and evaluates conditional compilation (#ifdef).
+
+- Compilation   (cc1) : gcc -S main.i -o main.s
+  * Translates preprocessed C into target assembly language instructions (.s).
+  * Performs optimization passes (-O1, -O2, -O3).
+
+- Assembly      (as)  : gcc -c main.s -o main.o
+  * Assembles human-readable assembly text into binary relocatable object code (.o).
+
+- Linking       (ld)  : gcc main.o -o myprogram
+  * Resolves external symbol addresses and merges object files with C library (libc).
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always compile with warning flags: gcc -std=c11 -Wall -Wextra main.c -o main
+[✓] Inspect preprocessor output using gcc -E to trace macro expansion bugs.
+[✓] Inspect symbol tables using objdump -t or nm to diagnose linker errors.
+================================================================================

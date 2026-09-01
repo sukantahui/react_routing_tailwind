@@ -1,0 +1,12 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 004_011: Preprocessor Directives & Macro Metaprogramming
+TOPIC 1: Module 004_011 Hands-on Projects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. MODULE PROJECTS SUMMARY
+--------------------------------------------------------------------------------
+- Project 1: Cross-Platform Logging & Diagnostic Macro Suite
+- Project 2: Configurable System Diagnostics Framework
+================================================================================

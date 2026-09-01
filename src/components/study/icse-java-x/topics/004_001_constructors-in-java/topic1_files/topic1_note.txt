@@ -1,0 +1,31 @@
+================================================================================
+ICSE CLASS 10 COMPUTER APPLICATIONS: CONSTRUCTORS IN JAVA
+TOPIC 1: DEFAULT VS NON-PARAMETERIZED CONSTRUCTOR
+================================================================================
+
+1. COMPILER-PROVIDED DEFAULT CONSTRUCTOR:
+   If a class contains NO constructors at all, the Java compiler automatically
+   supplies a hidden default constructor with no arguments.
+   
+   Default Initialization Values:
+   - byte, short, int, long : 0
+   - float, double          : 0.0 / 0.0f
+   - char                   : '\u0000' (null character)
+   - boolean                : false
+   - Object references      : null
+
+2. CRITICAL ICSE EXAM TRAP:
+   If you define ANY constructor (e.g. a Parameterized Constructor), the compiler
+   WILL NOT supply the default constructor automatically!
+   
+   Example Trap:
+   class Demo {
+       Demo(int x) { ... } // Parameterized
+   }
+   
+   Demo d = new Demo(); // COMPILATION ERROR! No default constructor available.
+
+3. NON-PARAMETERIZED CONSTRUCTOR:
+   A constructor written by the programmer that accepts zero arguments but contains
+   explicit initialization logic.
+================================================================================

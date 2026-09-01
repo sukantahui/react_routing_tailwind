@@ -1,0 +1,22 @@
+================================================================================
+ICSE CLASS 10 COMPUTER APPLICATIONS: CONSTRUCTORS IN JAVA
+TOPIC 4: DIFFERENCE BETWEEN CONSTRUCTOR AND METHOD
+================================================================================
+
+COMPARISON TABLE (ICSE BOARD FAVORITE):
+
++-----------------------+-----------------------------+-----------------------------+
+| Feature               | Constructor                 | Member Method               |
++-----------------------+-----------------------------+-----------------------------+
+| 1. Name               | Must match Class Name       | Any valid Java identifier   |
+| 2. Return Type        | NO return type (not void)   | MUST have a return type     |
+| 3. Invocation         | Implicit via 'new' operator | Explicit via dot notation   |
+| 4. Purpose            | Initializes object state    | Performs specific tasks     |
+| 5. Compiler Default   | Provided if none declared   | Never provided by compiler  |
+| 6. Inheritance        | Not inherited by subclass   | Inherited by subclass       |
++-----------------------+-----------------------------+-----------------------------+
+
+ICSE EXAM WARNING:
+Adding 'void' to a constructor does NOT cause a syntax error! Instead, Java treats it
+as a standard method that must be invoked explicitly using dot notation.
+================================================================================

@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with C & Compiler Pipeline
+TOPIC 3: Structure of a Standard C Program
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. C SOURCE FILE SECTIONS
+--------------------------------------------------------------------------------
+- Preprocessor Directives : #include <stdio.h>, #define MACRO
+- Global Declarations     : Function Prototypes & Global Constants
+- Main Entry Point        : int main(void) { ... return 0; }
+- Function Definitions    : Custom implementation subroutines
+
+2. MAIN FUNCTION SIGNATURE DISSECTION
+--------------------------------------------------------------------------------
+- int  : Return data type passed back to OS shell.
+- main : Standard global symbol entry identifier required by CRT startup.
+- void : Explicit parameter list specifying zero argument input.
+
+3. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Declare function prototypes before main() to validate signatures.
+[✓] Return 0 (EXIT_SUCCESS) to signal clean execution status.
+[✓] Use int main(void) instead of non-standard void main().
+================================================================================

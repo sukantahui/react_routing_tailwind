@@ -1,0 +1,12 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with C & Compiler Pipeline
+TOPIC 5: Module 001_001 Hands-on Projects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. HANDS-ON PROJECTS SUMMARY
+--------------------------------------------------------------------------------
+- Project 1: CLI Student Report Generator (Formatted Console I/O)
+- Project 2: Interactive Temperature Converter (Celsius, Fahrenheit, Kelvin)
+================================================================================

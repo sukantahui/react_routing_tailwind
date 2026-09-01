@@ -1,0 +1,12 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_004: Functions, Scope & Storage Classes
+TOPIC 1: Module 001_004 Hands-on Projects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. MODULE PROJECTS SUMMARY
+--------------------------------------------------------------------------------
+- Project 1: Mathematical Recursion Toolkit (Fibonacci, GCD, Tower of Hanoi)
+- Project 2: Modular Scientific Calculator Engine
+================================================================================

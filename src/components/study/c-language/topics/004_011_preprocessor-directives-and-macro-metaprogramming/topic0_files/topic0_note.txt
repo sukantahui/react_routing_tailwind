@@ -1,0 +1,14 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 004_011: Preprocessor Directives & Macro Metaprogramming
+TOPIC 0: Macros, Header Guards & Conditional Compilation
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- Macros (#define): Function-like and object-like text replacement.
+- Stringizing (#): Converts macro parameter to string literal.
+- Token Concatenation (##): Merges two tokens into a single identifier.
+- Header Guards: #ifndef MYHEADER_H / #define MYHEADER_H / #endif prevents double inclusions.
+================================================================================

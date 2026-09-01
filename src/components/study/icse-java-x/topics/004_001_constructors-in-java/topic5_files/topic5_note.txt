@@ -1,0 +1,21 @@
+================================================================================
+ICSE CLASS 10 COMPUTER APPLICATIONS: CONSTRUCTORS IN JAVA
+TOPIC 5: COMPREHENSIVE BOARD EXAM PROGRAMMING PRACTICE
+================================================================================
+
+ICSE SECTION B CLASS DESIGN RUBRIC (15 MARKS):
+
+1. Instance Variables Declaration (2 Marks):
+   - Declare fields with correct access modifier (private/default) and data types.
+
+2. Constructor Definition (3 Marks):
+   - Correct constructor signature (exact class name, matching parameter list).
+   - Accurate initialization of instance fields.
+
+3. Member Methods (7 Marks):
+   - Calculation logic, loops, conditionals, or string manipulations.
+
+4. Main Method & Instantiation (3 Marks):
+   - Object instantiation using 'new' operator.
+   - Method invocation in correct order.
+================================================================================

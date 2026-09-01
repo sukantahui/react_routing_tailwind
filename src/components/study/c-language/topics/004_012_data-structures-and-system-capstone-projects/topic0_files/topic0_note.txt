@@ -1,0 +1,14 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 004_012: Data Structures & Systems Capstone Projects
+TOPIC 0: Singly Linked List Implementation in Pure C
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- Node Structure: struct Node { int data; struct Node *next; };
+- Insertion: Node **headRef double pointer parameter.
+- Traversal: Loop curr = curr->next until curr == NULL.
+- Deallocation: Free each node pointer iteratively.
+================================================================================

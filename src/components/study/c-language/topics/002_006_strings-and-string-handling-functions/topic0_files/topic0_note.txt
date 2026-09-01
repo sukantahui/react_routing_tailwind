@@ -1,0 +1,13 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_006: Strings & Character Array Handling
+TOPIC 0: Null-Terminated Strings & <string.h> Header
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- Null Terminator: '\0' (ASCII 0) marks end of char array.
+- Functions: strlen, strcpy, strcat, strcmp, strstr, fgets.
+- Never use gets(); use fgets(buffer, sizeof(buffer), stdin) instead.
+================================================================================

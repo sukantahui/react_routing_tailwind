@@ -1,0 +1,12 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_007: Pointers, Address Arithmetic & Function Pointers
+TOPIC 1: Module 002_007 Hands-on Projects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. MODULE PROJECTS SUMMARY
+--------------------------------------------------------------------------------
+- Project 1: Memory Address Inspector & In-place Array Inverter via Pointers
+- Project 2: Generic Callback Function Dispatcher
+================================================================================

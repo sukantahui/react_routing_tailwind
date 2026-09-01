@@ -1,0 +1,14 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 003_009: Dynamic Memory Allocation & Heap Management
+TOPIC 0: Heap Allocation, Reallocation & Freeing
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- malloc(bytes): Heap block allocation (uninitialized).
+- calloc(num, size): Zero-initialized heap allocation.
+- realloc(ptr, new_bytes): Resizes existing heap block.
+- free(ptr): Deallocates memory and sets ptr = NULL.
+================================================================================

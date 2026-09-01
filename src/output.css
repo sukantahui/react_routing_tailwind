@@ -1936,6 +1936,9 @@
   .min-w-\[130px\] {
     min-width: 130px;
   }
+  .min-w-\[140px\] {
+    min-width: 140px;
+  }
   .min-w-\[150px\] {
     min-width: 150px;
   }
@@ -1956,6 +1959,9 @@
   }
   .min-w-\[420px\] {
     min-width: 420px;
+  }
+  .min-w-\[600px\] {
+    min-width: 600px;
   }
   .min-w-\[650px\] {
     min-width: 650px;
@@ -21267,6 +21273,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-rose-200);
+      }
+    }
+  }
+  .hover\:bg-rose-400 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-rose-400);
       }
     }
   }

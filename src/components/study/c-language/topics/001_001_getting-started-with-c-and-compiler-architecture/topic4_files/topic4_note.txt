@@ -1,0 +1,15 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with C & Compiler Pipeline
+TOPIC 4: Formatted Console I/O: printf(), scanf() & Format Specifiers
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. FORMAT SPECIFIERS
+--------------------------------------------------------------------------------
+- %d : Signed decimal integer
+- %f : Floating-point number (%.2f for 2 decimal places)
+- %c : Character (%c with leading space skips whitespace)
+- %s : String (character array pointer)
+- %p : Hexadecimal pointer RAM address
+================================================================================

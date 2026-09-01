@@ -1,0 +1,27 @@
+================================================================================
+ICSE CLASS 10 COMPUTER APPLICATIONS: CONSTRUCTORS IN JAVA
+TOPIC 0: NEED & PURPOSE OF CONSTRUCTORS
+================================================================================
+
+1. WHAT IS A CONSTRUCTOR?
+   A constructor is a special member method of a class used to initialize the
+   instance variables of an object at the time of its creation.
+
+2. KEY CHARACTERISTICS:
+   - Same Name: The constructor MUST have the exact same name as the class.
+   - No Return Type: It has NO return type, not even void.
+   - Automatic Invocation: It is executed automatically when an object is
+     instantiated using the 'new' operator.
+
+3. MEMORY ALLOCATION & INITIALIZATION FLOW:
+   Step 1: 'new' operator allocates memory on the Heap.
+   Step 2: Default zero-initialization occurs for primitive fields.
+   Step 3: Constructor body is executed to assign user-defined initial state.
+   Step 4: Address of Heap memory is returned to the Stack reference variable.
+
+4. ICSE BOARD EXAM NOTE:
+   Never specify a return type for a constructor! If you write:
+   public void Student() { ... }
+   Java treats it as a regular method, NOT a constructor, and will not execute
+   it during 'new Student()' instantiation.
+================================================================================

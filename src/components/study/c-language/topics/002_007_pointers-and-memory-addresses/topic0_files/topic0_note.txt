@@ -1,0 +1,14 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_007: Pointers, Address Arithmetic & Function Pointers
+TOPIC 0: Pointer Mechanics & RAM Address Operations
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS
+--------------------------------------------------------------------------------
+- Address-of (&): Obtains memory address of a variable.
+- Dereference (*): Accesses value stored at memory address.
+- Pointer Arithmetic: Scaled by sizeof(type).
+- Void Pointer (void*): Generic pointer holding any memory address.
+================================================================================

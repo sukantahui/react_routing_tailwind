@@ -1,0 +1,29 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 001_001: Getting Started with C & Compiler Pipeline
+TOPIC 0: Introduction to C Language, Compilation Pipeline & First Program
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. CORE CONCEPTS & RULES
+--------------------------------------------------------------------------------
+- C is a compiled, procedural systems language created by Dennis Ritchie in 1972.
+- GCC Compilation Pipeline Phases:
+  1. Preprocessing (gcc -E): Expands #include, #define macros, strips comments. (.c -> .i)
+  2. Compilation   (gcc -S): Translates preprocessed C into assembly language. (.i -> .s)
+  3. Assembly      (gcc -c): Assembles assembly code into machine object code. (.s -> .o)
+  4. Linking       (gcc -o): Links object code with standard libraries to build executable. (.o -> binary)
+
+- Program Entry Point:
+  int main(void) {
+      printf("Hello World!\n");
+      return 0; // 0 = EXIT_SUCCESS
+  }
+
+2. ESSENTIAL CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Include <stdio.h> for standard I/O function prototypes.
+[✓] Every statement ends with a semicolon (;).
+[✓] Pass address-of (&var) to scanf for primitive inputs.
+[✓] Compile using warnings enabled: gcc -Wall -Wextra main.c -o main
+================================================================================

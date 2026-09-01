@@ -1,0 +1,23 @@
+================================================================================
+ICSE CLASS 10 COMPUTER APPLICATIONS: CONSTRUCTORS IN JAVA
+TOPIC 3: CONSTRUCTOR OVERLOADING
+================================================================================
+
+1. WHAT IS CONSTRUCTOR OVERLOADING?
+   Constructor overloading is an example of Compile-Time Polymorphism where a class
+   contains MULTIPLE constructors with the SAME NAME but DIFFERENT PARAMETER LISTS.
+
+2. RULES FOR CONSTRUCTOR OVERLOADING:
+   Constructors must differ in at least ONE of the following:
+   - Number of parameters (e.g. () vs (double) vs (double, double))
+   - Data types of parameters (e.g. (int) vs (double))
+   - Order of parameters (e.g. (int, double) vs (double, int))
+
+3. WHY OVERLOAD CONSTRUCTORS?
+   Allows objects of the same class to be initialized in multiple flexible ways
+   depending on the data available at the time of creation.
+
+4. ICSE EXAM WARNING:
+   Changing ONLY the access specifier or return type does NOT overload a constructor!
+   Constructors are matched at compile-time purely by argument signatures.
+================================================================================

@@ -1,0 +1,12 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 004_012: Data Structures & Systems Capstone Projects
+TOPIC 1: Module 004_012 Hands-on Capstone Projects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. MODULE PROJECTS SUMMARY
+--------------------------------------------------------------------------------
+- Project 1: Command-Line File Utility & Singly Linked List Data Manager
+- Project 2: Production-Grade Student Record & Inventory Capstone
+================================================================================

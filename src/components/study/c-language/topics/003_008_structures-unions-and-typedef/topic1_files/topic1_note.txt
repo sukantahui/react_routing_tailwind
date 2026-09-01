@@ -1,0 +1,12 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 003_008: Structures, Unions, Bit-fields & typedef
+TOPIC 1: Module 003_008 Hands-on Projects
+Educator: Sukanta Hui | Barrackpore, West Bengal
+================================================================================
+
+1. MODULE PROJECTS SUMMARY
+--------------------------------------------------------------------------------
+- Project 1: Student Management System with Structs
+- Project 2: Compact Network Packet Packer using Unions & Bit-fields
+================================================================================

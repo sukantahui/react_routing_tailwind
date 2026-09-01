@@ -1,0 +1,31 @@
+================================================================================
+ICSE CLASS 10 COMPUTER APPLICATIONS: CONSTRUCTORS IN JAVA
+TOPIC 2: PARAMETERIZED CONSTRUCTOR & 'this' KEYWORD
+================================================================================
+
+1. PARAMETERIZED CONSTRUCTOR:
+   A constructor that accepts parameters to initialize an object's instance
+   variables with custom data at the moment of creation.
+   
+   Syntax:
+   public Student(String name, int r) {
+       studentName = name;
+       rollNumber = r;
+   }
+
+2. THE 'this' KEYWORD:
+   - 'this' is a reference variable that refers to the CURRENT OBJECT instance.
+   - Purpose: Differentiates instance variables from constructor parameters when
+     they share the exact same parameter names (Variable Shadowing).
+
+3. VARIABLE SHADOWING EXAMPLE:
+   public Student(String name, int roll) {
+       this.name = name; // 'this.name' = instance field; 'name' = parameter
+       this.roll = roll;
+   }
+
+4. ICSE EXAM ADVICE:
+   Always use 'this' when constructor parameter names match instance variable names!
+   Writing 'name = name;' without 'this' assigns the parameter to itself, leaving
+   the instance field unchanged (zero or null)!
+================================================================================
