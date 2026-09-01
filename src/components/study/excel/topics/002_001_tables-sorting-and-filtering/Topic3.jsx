@@ -107,7 +107,7 @@ export default function Topic3() {
           </h2>
 
           <div className="bg-slate-950 p-4 rounded-xl border border-slate-800/90 font-mono text-sm sm:text-base text-sky-300 overflow-x-auto shadow-inner">
-            =FILTER(Table1, (Table1[Region]="Kolkata") * (Table1[Sales]>100000))
+            =FILTER(Table1, (Table1[Region]="Kolkata") * (Table1[Sales]&gt;100000))
           </div>
 
           <div className="overflow-x-auto">

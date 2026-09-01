@@ -557,7 +557,7 @@ export default function Topic1() {
                   <td className="py-3 px-4 font-mono font-bold text-amber-400">Greedy Wildcard Runaway</td>
                   <td className="py-3 px-4 text-slate-300">Used <code className="text-rose-300 font-mono">.*</code> which consumed the entire remaining text string across multiple tags.</td>
                   <td className="py-3 px-4 text-slate-400">Extracts from first tag to last tag.</td>
-                  <td className="py-3 px-4 text-emerald-400">Use lazy quantifier <code className="text-emerald-400 font-mono">.*?</code> or specific classes <code className="text-emerald-400 font-mono">[^>]+</code>.</td>
+                  <td className="py-3 px-4 text-emerald-400">Use lazy quantifier <code className="text-emerald-400 font-mono">.*?</code> or specific classes <code className="text-emerald-400 font-mono">[^&gt;]+</code>.</td>
                 </tr>
               </tbody>
             </table>

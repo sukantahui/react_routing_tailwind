@@ -144,7 +144,7 @@ export default function Topic13() {
                   <td className="py-3 px-4 font-bold text-sky-300">TOROW</td>
                   <td className="py-3 px-4 text-slate-300">=TOROW(array, [ignore], [scan_col])</td>
                   <td className="py-3 px-4 font-sans text-slate-400">Flattens 2D matrices into 1D horizontal rows.</td>
-                  <td className="py-3 px-4 text-rose-400 font-mono">> 16,384 cols crash</td>
+                  <td className="py-3 px-4 text-rose-400 font-mono">&gt; 16,384 cols crash</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-bold text-indigo-300">CHOOSEROWS</td>

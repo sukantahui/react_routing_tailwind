@@ -642,7 +642,7 @@ export default function Topic1() {
                 <span>Prevent Double Computation</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                When filtering TOCOL outputs, define a variable with LET to avoid flattening the array twice: <code className="text-amber-300 font-mono">=LET(v, TOCOL(Data, 1), FILTER(v, v>50000))</code>.
+                When filtering TOCOL outputs, define a variable with LET to avoid flattening the array twice: <code className="text-amber-300 font-mono">=LET(v, TOCOL(Data, 1), FILTER(v, v&gt;50000))</code>.
               </p>
             </div>
 
@@ -698,7 +698,7 @@ export default function Topic1() {
             <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-start gap-3">
               <span className="text-teal-400 font-bold text-lg leading-none">?</span>
               <p>
-                <strong>Reflect on formula blanks:</strong> If a cell in your 2D table contains <code className="text-sky-300 font-mono">=IF(A1>0, A1, "")</code>, why does <code className="text-amber-300 font-mono">TOCOL(Range, 1)</code> still return the empty text string? How does Excel distinguish a genuine empty cell from a zero-length string?
+                <strong>Reflect on formula blanks:</strong> If a cell in your 2D table contains <code className="text-sky-300 font-mono">=IF(A1&gt;0, A1, "")</code>, why does <code className="text-amber-300 font-mono">TOCOL(Range, 1)</code> still return the empty text string? How does Excel distinguish a genuine empty cell from a zero-length string?
               </p>
             </div>
 

@@ -470,7 +470,7 @@ export default function Topic8() {
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 font-mono font-bold text-rose-300">##### Error display in cell</td>
                   <td className="py-2.5 px-3">Negative time serial number resulting from subtracting later time from earlier time in 1900 system.</td>
-                  <td className="py-2.5 px-3 font-mono text-cyan-300">Use IF(End>Start, End-Start, End+1-Start) for cross-midnight shifts.</td>
+                  <td className="py-2.5 px-3 font-mono text-cyan-300">Use IF(End&gt;Start, End-Start, End+1-Start) for cross-midnight shifts.</td>
                 </tr>
               </tbody>
             </table>

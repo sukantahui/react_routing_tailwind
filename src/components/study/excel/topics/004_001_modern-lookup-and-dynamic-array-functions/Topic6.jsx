@@ -146,13 +146,13 @@ export default function Topic6() {
               <tbody className="divide-y divide-slate-800/60 font-mono text-xs sm:text-sm">
                 <tr>
                   <td className="py-3 pr-4 text-amber-300 font-bold">rows</td>
-                  <td className="py-3 px-4 text-slate-400">Integer (>= 1)</td>
+                  <td className="py-3 px-4 text-slate-400">Integer (&gt;= 1)</td>
                   <td className="py-3 px-4 text-emerald-400 font-sans font-semibold">Required</td>
                   <td className="py-3 pl-4 font-sans text-slate-300">Number of rows to generate down vertically.</td>
                 </tr>
                 <tr>
                   <td className="py-3 pr-4 text-sky-300 font-bold">[columns]</td>
-                  <td className="py-3 px-4 text-slate-400">Integer (>= 1)</td>
+                  <td className="py-3 px-4 text-slate-400">Integer (&gt;= 1)</td>
                   <td className="py-3 px-4 text-slate-500 font-sans font-semibold">Optional (Default: 1)</td>
                   <td className="py-3 pl-4 font-sans text-slate-300">Number of columns to generate across horizontally.</td>
                 </tr>
@@ -487,7 +487,7 @@ export default function Topic6() {
                 <tr>
                   <td className="py-3.5 pr-4 text-rose-300 font-bold">Negative Dimension Count</td>
                   <td className="py-3.5 px-4 text-rose-400 font-mono">#VALUE! Error</td>
-                  <td className="py-3.5 pl-4 text-emerald-400">The <code className="text-sky-300 font-mono">rows</code> and <code className="text-sky-300 font-mono">columns</code> arguments must be positive integers (>= 1).</td>
+                  <td className="py-3.5 pl-4 text-emerald-400">The <code className="text-sky-300 font-mono">rows</code> and <code className="text-sky-300 font-mono">columns</code> arguments must be positive integers (&gt;= 1).</td>
                 </tr>
                 <tr>
                   <td className="py-3.5 pr-4 text-rose-300 font-bold">Dates Appearing as Numbers (46023)</td>

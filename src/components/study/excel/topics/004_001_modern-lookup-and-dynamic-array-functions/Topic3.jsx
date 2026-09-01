@@ -127,7 +127,7 @@ export default function Topic3() {
             </div>
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
               <span className="text-slate-500">// Compound Criteria Anatomy:</span>{" "}
-              <code className="text-emerald-400">=(Range1="X") * (Range2>100)</code> (AND Logic) |{" "}
+              <code className="text-emerald-400">=(Range1="X") * (Range2&gt;100)</code> (AND Logic) |{" "}
               <code className="text-amber-300">=(Range1="A") + (Range1="B")</code> (OR Logic)
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function Topic3() {
 
           <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
             <p>
-              A common beginner mistake is writing <code className="text-rose-400 font-mono">=FILTER(A2:D20, AND(B2:B20="Barrackpore", C2:C20>50000))</code>. 
+              A common beginner mistake is writing <code className="text-rose-400 font-mono">=FILTER(A2:D20, AND(B2:B20="Barrackpore", C2:C20&gt;50000))</code>. 
               This formula fails because Excel's native <code className="text-slate-400 font-mono">AND()</code> function reduces an entire array of values into a single scalar <code className="text-slate-300 font-mono">TRUE</code> or <code className="text-slate-300 font-mono">FALSE</code>. 
               It cannot evaluate rows independently.
             </p>
@@ -235,7 +235,7 @@ export default function Topic3() {
           </div>
 
           <p className="text-sm text-slate-300">
-            Visualizing how Excel evaluates <code className="text-emerald-400 font-mono">(Branch="Barrackpore") * (Revenue >= 50000)</code> to stream matching rows.
+            Visualizing how Excel evaluates <code className="text-emerald-400 font-mono">(Branch="Barrackpore") * (Revenue &gt;= 50000)</code> to stream matching rows.
           </p>
 
           <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex justify-center items-center overflow-x-auto">
@@ -267,7 +267,7 @@ export default function Topic3() {
               <g transform="translate(200, 25)">
                 <rect x="0" y="0" width="130" height="245" rx="10" fill="#0f172a" stroke="#a855f7" strokeWidth="1.5" />
                 <rect x="8" y="8" width="114" height="26" rx="6" fill="#581c87" />
-                <text x="65" y="25" fill="#d8b4fe" fontSize="10" fontWeight="bold" textAnchor="middle">Revenue >= 50,000</text>
+                <text x="65" y="25" fill="#d8b4fe" fontSize="10" fontWeight="bold" textAnchor="middle">Revenue &gt;= 50,000</text>
 
                 <text x="65" y="65" fill="#34d399" fontSize="12" fontWeight="bold" textAnchor="middle">1 (TRUE)</text>
                 <text x="65" y="105" fill="#f87171" fontSize="12" textAnchor="middle">0 (FALSE)</text>
@@ -423,7 +423,7 @@ export default function Topic3() {
                 <strong>Abhronila Das</strong> extracts delivered invoices for (Barrackpore OR Naihati) exceeding ₹60,000:
               </p>
               <div className="p-2.5 rounded-lg bg-slate-900 font-mono text-xs text-purple-300 border border-slate-800">
-                =FILTER(A2:I21, ((C2:C21="Barrackpore")+(C2:C21="Naihati")) * (I2:I21="Delivered") * (G2:G21>=60000))
+                =FILTER(A2:I21, ((C2:C21="Barrackpore")+(C2:C21="Naihati")) * (I2:I21="Delivered") * (G2:G21&gt;=60000))
               </div>
               <p className="text-xs text-slate-400">
                 <strong>Outcome:</strong> Isolate high-value delivered corporate revenue streams with 100% precision.
@@ -576,7 +576,7 @@ export default function Topic3() {
             <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 border-l-4 border-l-teal-500">
               <h3 className="font-bold text-teal-300 text-sm">Think About Why (M1="") + Works for Search Boxes</h3>
               <p className="text-slate-300 mt-1 leading-relaxed">
-                When cell <code className="text-amber-300 font-mono">M1</code> is empty, <code className="text-emerald-400 font-mono">(M1="")</code> evaluates to <code className="text-slate-300 font-mono">TRUE (1)</code>. Because <code className="text-slate-300 font-mono">1 + anything >= 1</code>, every row evaluates to TRUE, displaying the entire table. When text is typed into M1, <code className="text-slate-300 font-mono">(M1="")</code> becomes 0, activating the search filter seamlessly!
+                When cell <code className="text-amber-300 font-mono">M1</code> is empty, <code className="text-emerald-400 font-mono">(M1="")</code> evaluates to <code className="text-slate-300 font-mono">TRUE (1)</code>. Because <code className="text-slate-300 font-mono">1 + anything &gt;= 1</code>, every row evaluates to TRUE, displaying the entire table. When text is typed into M1, <code className="text-slate-300 font-mono">(M1="")</code> becomes 0, activating the search filter seamlessly!
               </p>
             </div>
 

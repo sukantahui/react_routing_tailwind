@@ -522,7 +522,7 @@ export default function Topic12() {
                 <span>Highlight Top 3 Invoices</span>
               </div>
               <p className="text-slate-300">
-                Apply Conditional Formatting to the revenue column: <code className="text-emerald-400 font-mono">=$G6 >= LARGE($G$6#, 3)</code> to highlight top transactions dynamically!
+                Apply Conditional Formatting to the revenue column: <code className="text-emerald-400 font-mono">=$G6 &gt;= LARGE($G$6#, 3)</code> to highlight top transactions dynamically!
               </p>
             </div>
 

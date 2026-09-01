@@ -451,7 +451,7 @@ export default function Topic5() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 Tax Auditor <strong>Susmita Roy</strong> consolidates 3 branches: 
-                <code className="text-amber-300 font-mono">=LET(b1, Barrackpore!A2:D20, b2, Shyamnagar!A2:D20, b3, Naihati!A2:D20, raw, VSTACK(b1, b2, b3), FILTER(raw, CHOOSECOLS(raw, 4)>50000))</code>. 
+                <code className="text-amber-300 font-mono">=LET(b1, Barrackpore!A2:D20, b2, Shyamnagar!A2:D20, b3, Naihati!A2:D20, raw, VSTACK(b1, b2, b3), FILTER(raw, CHOOSECOLS(raw, 4)&gt;50000))</code>. 
                 Zero helper sheets required.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-fuchsia-300">

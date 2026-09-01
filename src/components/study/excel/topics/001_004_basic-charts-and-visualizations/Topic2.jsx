@@ -493,7 +493,7 @@ export default function Topic2() {
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Asansol Coal Mine Methane Gas Concentration</td>
                   <td className="py-2.5 px-3 text-sky-300">Line + Warning Zone</td>
                   <td className="py-2.5 px-3 text-emerald-400">Continuous</td>
-                  <td className="py-2.5 px-3 text-purple-300">Red shaded threshold > 1.5%</td>
+                  <td className="py-2.5 px-3 text-purple-300">Red shaded threshold &gt; 1.5%</td>
                   <td className="py-2.5 px-3 text-slate-300">Ensures underground safety ventilation compliance.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">

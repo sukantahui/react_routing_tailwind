@@ -495,7 +495,7 @@ export default function Topic1() {
                   <td className="py-2.5 px-3 text-sky-300">Horizontal Bar</td>
                   <td className="py-2.5 px-3 text-emerald-400">15 Vehicle IDs</td>
                   <td className="py-2.5 px-3 text-purple-300">45% Gap Width</td>
-                  <td className="py-2.5 px-3 text-slate-300">Green fill for >12 km/L; Red for underperforming trucks.</td>
+                  <td className="py-2.5 px-3 text-slate-300">Green fill for &gt;12 km/L; Red for underperforming trucks.</td>
                 </tr>
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-2.5 px-3 text-amber-400 font-bold">CB-109</td>

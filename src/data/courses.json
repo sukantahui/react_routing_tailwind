@@ -90,7 +90,7 @@
         "badge": "New",
         "rating": 4.7,
         "studentsEnrolled": 220,
-        "skills": ["React", "Redux", "JSX", "Hooks"],
+        "skills": ["React", "Redux Toolkit", "JSX", "Hooks", "Tailwind CSS", "React Router"],
         "fee": "₹9,500",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -100,7 +100,34 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master modern frontend web development with **React 19**, **JSX**, **Hooks**, **Tailwind CSS**, and state management with **Redux Toolkit** and **Context API**. Learn component architecture, SPA routing, API integration, and performance optimization to build lightning-fast web applications.",
+          "syllabus": [
+            "Module 1: Modern JavaScript Refresher – ES6+, Destructuring, Modules, Promises & Async/Await",
+            "Module 2: React Core Fundamentals – JSX, Virtual DOM, Components, Props & State Management",
+            "Module 3: Deep Dive into Hooks – useState, useEffect, useMemo, useCallback, useRef, and Custom Hooks",
+            "Module 4: Routing & Navigation – React Router DOM v6 (Nested routes, loaders, protected routes)",
+            "Module 5: Global State Management – Redux Toolkit, createSlice, async thunks, and Context API",
+            "Module 6: UI Styling & Animation – Tailwind CSS, Framer Motion, and Responsive Layouts",
+            "Module 7: Working with REST APIs – Axios, error handling, caching, and Optimistic UI updates",
+            "Module 8: Performance Optimization – Lazy loading, code splitting, memoization, Profiler",
+            "Module 9: Capstone Project – Production-grade streaming or dashboard web app deployed live on Vercel"
+          ],
+          "learningOutcomes": [
+            "Build scalable, responsive Single Page Applications (SPAs) with React",
+            "Implement complex client-side state management using Redux Toolkit",
+            "Consume and integrate RESTful backend APIs with clean error handling",
+            "Deploy performant React applications to Vercel and Netlify"
+          ],
+          "prerequisites": "Basic understanding of HTML, CSS, and core JavaScript fundamentals (variables, functions, arrays, objects).",
+          "projects": [
+            "Interactive Quiz & Learning Dashboard",
+            "Crypto & Stock Market Live Tracker with Charts",
+            "E-Commerce Storefront with Cart & Redux State",
+            "Full SPA Capstone: Social Media / Video Stream Platform"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized course completion certificate is awarded upon project submission."
+        }
       },
       {
         "courseID": "course019",
@@ -114,7 +141,7 @@
         "badge": "Advanced",
         "rating": 4.6,
         "studentsEnrolled": 180,
-        "skills": ["Node.js", "Express", "JWT", "MongoDB"],
+        "skills": ["Node.js", "Express", "JWT", "MongoDB", "Mongoose", "REST APIs"],
         "fee": "₹8,000",
         "instructor": "Sukanta Hui",
         "meritDiscount": {
@@ -124,7 +151,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Learn robust server-side engineering with **Node.js**, **Express.js**, **MongoDB / Mongoose**, and **JWT Authentication**. Master REST API architecture, middleware creation, file uploads, security best practices, and Dockerized deployment.",
+          "syllabus": [
+            "Module 1: Node.js Architecture – Event Loop, Non-blocking I/O, Buffer & Streams, CommonJS vs ESM",
+            "Module 2: Express.js Framework – Routing, Middleware Pipeline, Request/Response cycles, Error handling",
+            "Module 3: Database Integration – MongoDB, Mongoose schemas, validation, aggregation pipelines",
+            "Module 4: Authentication & Security – JWT tokens, bcrypt password hashing, role-based access control (RBAC), CORS, Helmet, Rate Limiting",
+            "Module 5: RESTful API Engineering – API design standards, pagination, filtering, search, sorting",
+            "Module 6: File Uploads & Cloud Storage – Multer, Cloudinary, AWS S3 integration",
+            "Module 7: Real-time Communication – WebSockets and Socket.io for live chats and notifications",
+            "Module 8: Testing & Deployment – Insomnia/Postman automated testing, Docker containers, Render/Heroku deployment"
+          ],
+          "learningOutcomes": [
+            "Architect secure, production-grade REST APIs with Express and Node.js",
+            "Model and query data efficiently using MongoDB and Mongoose",
+            "Implement robust JWT authentication and authorization pipelines",
+            "Deploy containerized backend servers to cloud platforms"
+          ],
+          "prerequisites": "Basic familiarity with JavaScript (variables, functions, asynchronous promises).",
+          "projects": [
+            "Secure Multi-Role User Authentication API",
+            "File Storage & Cloud Image Sharing Microservice",
+            "Real-Time Chat & Notification Server (Socket.io)",
+            "Full REST API Backend for E-Commerce / LMS Platform"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized course completion certificate is awarded upon final evaluation."
+        }
       },
       {
         "courseID": "course020",
@@ -138,7 +191,7 @@
         "badge": "Popular",
         "rating": 4.9,
         "studentsEnrolled": 510,
-        "skills": ["HTML5", "CSS3", "Flexbox", "Grid"],
+        "skills": ["HTML5", "CSS3", "Flexbox", "Grid", "Responsive Design", "Tailwind CSS"],
         "fee": "₹4,000",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -148,7 +201,32 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Start your web journey by mastering semantic **HTML5**, modern **CSS3**, **Flexbox**, **CSS Grid**, responsive web design, animations, and **Tailwind CSS**. Build pixel-perfect websites that look stunning across all mobile and desktop screens.",
+          "syllabus": [
+            "Module 1: HTML5 Semantics – Page structure, text formatting, forms, input types, audio & video",
+            "Module 2: CSS3 Fundamentals – Box model, typography, colors, borders, specificity, cascading rules",
+            "Module 3: Modern Layouts – Deep dive into Flexbox (alignment, direction) and CSS Grid (grid-template, auto-fit)",
+            "Module 4: Responsive Design – Mobile-first approach, media queries, breakpoints, responsive images",
+            "Module 5: CSS Transforms & Animations – Keyframes, transitions, 2D transforms, micro-interactions",
+            "Module 6: CSS Frameworks – Bootstrap 5 grid and modern utility-first Tailwind CSS",
+            "Module 7: Web Hosting & Git – Hosting on GitHub Pages and Netlify"
+          ],
+          "learningOutcomes": [
+            "Write semantic, accessible, SEO-friendly HTML5 markup",
+            "Master Flexbox and CSS Grid to craft complex responsive layouts",
+            "Build modern responsive websites without relying on heavy templates",
+            "Deploy static websites to GitHub Pages and Netlify"
+          ],
+          "prerequisites": "No prior programming experience required. Absolute beginners are welcome.",
+          "projects": [
+            "Personal Developer Portfolio & Bio Website",
+            "Responsive Restaurant / Cafe Landing Page",
+            "Multi-Page Corporate Institute Website with Forms",
+            "Pixel-Perfect SaaS Product Landing Page (Tailwind CSS)"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized course completion certificate is awarded."
+        }
       }
     ]
   },
@@ -169,7 +247,7 @@
         "badge": "Popular",
         "rating": 4.9,
         "studentsEnrolled": 620,
-        "skills": ["Python", "OOP", "NumPy", "Pandas"],
+        "skills": ["Python", "OOP", "NumPy", "Pandas", "Matplotlib", "Automation"],
         "fee": "₹8,500",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -179,7 +257,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master **Python 3** from absolute basics to intermediate data science foundations. Learn core syntax, data structures (lists, tuples, dicts, sets), Object-Oriented Programming (OOP), file I/O, error handling, and data manipulation with **NumPy** and **Pandas**.",
+          "syllabus": [
+            "Module 1: Python Fundamentals – Syntax, variables, data types, operators, dynamic typing",
+            "Module 2: Control Flow & Loops – if-elif-else, for and while loops, list comprehensions, break/continue",
+            "Module 3: Functions & Modules – Parameters, args/kwargs, lambda functions, scope, built-in modules (math, random, datetime)",
+            "Module 4: Data Structures In-Depth – Lists, Tuples, Dictionaries, Sets, string methods, slicing",
+            "Module 5: Object-Oriented Programming – Classes, objects, __init__, inheritance, polymorphism, encapsulation",
+            "Module 6: File Handling & Exceptions – Reading/writing text and CSV files, try-except-finally blocks",
+            "Module 7: Data Science Foundation – Introduction to NumPy (arrays, matrix operations) and Pandas (DataFrames, filtering)",
+            "Module 8: Data Visualization – Plotting with Matplotlib and Seaborn basics"
+          ],
+          "learningOutcomes": [
+            "Write clean, idiomatic Python code applying OOP principles",
+            "Process, clean, and manipulate datasets with NumPy and Pandas",
+            "Automate repetitive file, text, and data-cleaning workflows",
+            "Build structured Python desktop and CLI applications"
+          ],
+          "prerequisites": "No prior coding background needed. Open to school students, college students, and working professionals.",
+          "projects": [
+            "Automated Student Grade & Report Card Generator",
+            "CLI Expense Tracker with File Storage",
+            "Interactive Data Analysis & Plotting Dashboard (Pandas + Matplotlib)",
+            "Algorithmic Text Analysis & Password Security Tool"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized course completion certificate is awarded upon project submission."
+        }
       },
       {
         "courseID": "PRG1002",
@@ -193,7 +297,7 @@
         "badge": "Popular",
         "rating": 4.8,
         "studentsEnrolled": 230,
-        "skills": ["Python", "OOP", "Django", "Pandas"],
+        "skills": ["Python", "OOP", "Django", "DRF", "Pandas", "Scikit-Learn"],
         "fee": "₹18,000",
         "instructor": "Sukanta Hui",
         "meritDiscount": {
@@ -203,7 +307,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Take your Python skills to production level. Master **Django Web Framework**, advanced OOP & design patterns, asynchronous programming (`asyncio`), REST APIs with **Django REST Framework (DRF)**, web scraping, and **Machine Learning with Scikit-Learn**.",
+          "syllabus": [
+            "Module 1: Advanced Python – Decorators, Generators, Iterators, Context Managers, Metaclasses",
+            "Module 2: Concurrency & Async – Threading, Multiprocessing, Asyncio event loops",
+            "Module 3: Web Scraping & Automation – BeautifulSoup, Selenium, Requests, automated bots",
+            "Module 4: Django Framework Essentials – MVT architecture, models, migrations, forms, views, ORM queries",
+            "Module 5: Django REST Framework (DRF) – Serializers, API views, viewsets, authentication (Token/JWT)",
+            "Module 6: Database Integration – PostgreSQL with Django ORM, query optimization, indexing",
+            "Module 7: Applied Machine Learning – Scikit-learn pipelines, model training, evaluation, persistence with Pickle/Joblib",
+            "Module 8: Deployment & Cloud – Deploying Django apps with Gunicorn, Nginx, PostgreSQL on AWS/Render"
+          ],
+          "learningOutcomes": [
+            "Build enterprise web applications using Django and Django REST Framework",
+            "Apply advanced Python design patterns and concurrency models",
+            "Scrape and automate data pipelines from web sources",
+            "Train and deploy machine learning models through web APIs"
+          ],
+          "prerequisites": "Solid understanding of core Python (functions, OOP, basic data structures).",
+          "projects": [
+            "Full-Featured Blog & Content Management System (Django)",
+            "Automated Web Data Scraper & Market Intelligence Bot",
+            "E-Commerce REST API with Cart & Order Workflows (DRF)",
+            "End-to-End Predictive Analytics Web Application"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized Advanced Certification is awarded upon project defense."
+        }
       },
       {
         "courseID": "PRG1003",
@@ -227,7 +357,34 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Develop ironclad programming fundamentals with **C Language**. Master memory management, pointers, pointer arithmetic, dynamic memory allocation (`malloc`, `calloc`, `free`), structs, bitwise operations, file systems, and algorithm implementation.",
+          "syllabus": [
+            "Module 1: Computer Architecture & C Basics – Compilation lifecycle (Preprocessor, Compiler, Linker), variables, types, operators",
+            "Module 2: Control Structures – Branching (if, switch-case), looping (for, while, do-while), nested loops",
+            "Module 3: Modular Programming & Functions – Call-by-value vs Call-by-reference, recursion, header files",
+            "Module 4: Arrays & String Manipulation – 1D & 2D arrays, character arrays, string.h library vs manual algorithms",
+            "Module 5: Pointers Mastery – Address-of operator, dereferencing, pointer arithmetic, void pointers, function pointers",
+            "Module 6: Dynamic Memory Allocation – Heap management using malloc(), calloc(), realloc(), free(), preventing memory leaks",
+            "Module 7: User-Defined Types – Structures, Unions, Typedef, Enums, nested structs, array of structs",
+            "Module 8: File Handling – Sequential & random file access (fopen, fread, fwrite, fseek, ftell), binary files",
+            "Module 9: Classic Algorithms – Sorting (Bubble, Selection, Insertion) and Searching (Linear, Binary)"
+          ],
+          "learningOutcomes": [
+            "Understand low-level computer memory interaction and hardware architecture",
+            "Master pointers, pointer arithmetic, and safe heap memory management",
+            "Implement core sorting, searching, and structural algorithms from scratch",
+            "Prepare strongly for engineering, BCA/B.Tech, and technical placement tests"
+          ],
+          "prerequisites": "None. Ideal starting point for aspiring software engineers and computer science students.",
+          "projects": [
+            "Student Management & Marks Processing System",
+            "Bank Account & Transaction Ledger CLI Application",
+            "Custom String & Memory Allocation Library",
+            "File-Based Inventory & Billing Management Utility"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized course completion certificate is awarded."
+        }
       },
       {
         "courseID": "PRG1004",
@@ -241,7 +398,7 @@
         "badge": "Advanced",
         "rating": 4.9,
         "studentsEnrolled": 410,
-        "skills": ["DSA", "Recursion", "Linked List", "Trees", "Graphs"],
+        "skills": ["DSA", "Recursion", "Linked List", "Trees", "Graphs", "Dynamic Programming"],
         "fee": "₹12,000",
         "instructor": "Sukanta Hui",
         "meritDiscount": {
@@ -251,7 +408,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master **Data Structures & Algorithms (DSA)** to crack top product company interviews and competitive coding challenges. Covers asymptotic notation, arrays, linked lists, stacks, queues, trees, BSTs, heaps, hashing, graph algorithms, and dynamic programming.",
+          "syllabus": [
+            "Module 1: Complexity Analysis – Big-O, Big-Omega, Big-Theta, time and space complexity, recursion tree method",
+            "Module 2: Linear Data Structures – Dynamic arrays, singly/doubly linked lists, circular linked lists",
+            "Module 3: Stacks & Queues – Array & linked list implementation, postfix evaluation, balancing brackets, priority queues",
+            "Module 4: Sorting & Searching – Merge Sort, Quick Sort (randomized), Heap Sort, Binary Search and its variants",
+            "Module 5: Non-Linear Structures: Trees – Binary trees, traversals (Inorder, Preorder, Postorder, Level-Order), BST, AVL Trees",
+            "Module 6: Heaps & Hashing – Min/Max Heaps, HeapSort, Hash tables, collision resolution, hash maps",
+            "Module 7: Graph Algorithms – Graph representations (Adj Matrix/List), BFS, DFS, Dijkstra's shortest path, Kruskal/Prim MST",
+            "Module 8: Advanced Techniques – Recursion, Backtracking (N-Queens, Sudoku), Greedy, Dynamic Programming (0/1 Knapsack, LCS, LIS)"
+          ],
+          "learningOutcomes": [
+            "Analyze algorithm efficiency with Big-O time and space complexity",
+            "Implement all major linear and non-linear data structures from scratch",
+            "Solve complex algorithmic problems using Divide & Conquer, Backtracking, and Dynamic Programming",
+            "Ace technical coding interviews on LeetCode, HackerRank, and campus placement drives"
+          ],
+          "prerequisites": "Proficiency in at least one programming language (C, C++, Java, or Python).",
+          "projects": [
+            "Interactive Data Structure Visualizer Engine",
+            "Expression Evaluator & Syntax Validator (Stack-based)",
+            "GPS Shortest Route Finder (Graph Dijkstra Algorithm)",
+            "Memory-Efficient Search & Autocomplete Engine (Trie & BST)"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized DSA Expert Certification is awarded upon test clearing."
+        }
       },
       {
         "courseID": "PRG1005",
@@ -265,7 +448,7 @@
         "badge": "Trending",
         "rating": 4.8,
         "studentsEnrolled": 540,
-        "skills": ["C++", "OOP", "STL", "Classes", "Inheritance", "Polymorphism"],
+        "skills": ["C++", "OOP", "STL", "Classes", "Inheritance", "Polymorphism", "Templates"],
         "fee": "₹9,500",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -275,7 +458,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master Object-Oriented Programming (OOP) and high-performance coding with **Modern C++ (C++11 to C++20)**. Covers classes, inheritance, polymorphism, templates, Standard Template Library (STL: vectors, sets, maps, algorithms), exception handling, and memory management.",
+          "syllabus": [
+            "Module 1: C++ Basics & Evolution – Namespaces, references, const qualifiers, dynamic memory (new/delete)",
+            "Module 2: Object-Oriented Fundamentals – Classes, objects, access specifiers, constructors, destructors, copy constructors",
+            "Module 3: Operator Overloading & Friend Functions – Overloading unary/binary operators, streaming operators",
+            "Module 4: Inheritance & Polymorphism – Single, multiple, hierarchical inheritance, virtual functions, pure virtual functions, abstract classes",
+            "Module 5: Templates & Generic Programming – Function templates, class templates, template specialization",
+            "Module 6: Standard Template Library (STL) – Containers (vector, list, deque, set, map, unordered_map), iterators, STL algorithms (sort, find, binary_search)",
+            "Module 7: Exception Handling & File I/O – try-catch-throw, custom exceptions, fstream file operations",
+            "Module 8: Modern C++ Features – Smart pointers (unique_ptr, shared_ptr), lambda expressions, auto keyword, move semantics"
+          ],
+          "learningOutcomes": [
+            "Write robust, object-oriented applications following modern C++ best practices",
+            "Master the STL library to solve competitive coding problems efficiently",
+            "Implement custom generic classes and data structures with templates",
+            "Manage memory safely using modern smart pointers and move semantics"
+          ],
+          "prerequisites": "Basic familiarity with programming logic (C language recommended but not mandatory).",
+          "projects": [
+            "Banking & Financial Ledger Simulation System",
+            "Student Record & Exam Management System with STL",
+            "Custom Generic Container & Algorithmic Library",
+            "Multi-Level Game / Console Simulation Engine"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized course completion certificate is awarded."
+        }
       }
     ]
   },
@@ -296,7 +505,7 @@
         "badge": "Popular",
         "rating": 4.8,
         "studentsEnrolled": 560,
-        "skills": ["SQL", "MySQL", "Joins", "Subqueries", "Normalization"],
+        "skills": ["SQL", "MySQL", "Joins", "Subqueries", "Normalization", "CRUD"],
         "fee": "₹7,000",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -306,7 +515,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master relational database management systems using **MySQL**. Learn schema architecture, table creation, normalization (1NF, 2NF, 3NF), primary/foreign keys, CRUD operations, aggregation, grouping, subqueries, and multi-table **JOINs**.",
+          "syllabus": [
+            "Module 1: Database Essentials – Relational models, tables, columns, rows, primary keys, foreign keys",
+            "Module 2: DDL (Data Definition Language) – CREATE, ALTER, DROP, TRUNCATE, constraints (NOT NULL, UNIQUE, CHECK, DEFAULT)",
+            "Module 3: DML (Data Manipulation Language) – INSERT, UPDATE, DELETE, transactions (COMMIT, ROLLBACK)",
+            "Module 4: Querying Data (DQL) – SELECT, WHERE, ORDER BY, LIMIT, DISTINCT, pattern matching (LIKE, REGEXP)",
+            "Module 5: Aggregation & Grouping – COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING clause",
+            "Module 6: Multi-Table Queries (JOINs) – INNER JOIN, LEFT JOIN, RIGHT JOIN, CROSS JOIN, Self JOIN",
+            "Module 7: Subqueries & Views – Single-row, multi-row subqueries, correlated subqueries, creating views",
+            "Module 8: Database Normalization – Eliminating redundancy with 1NF, 2NF, and 3NF design principles"
+          ],
+          "learningOutcomes": [
+            "Design normalized relational schemas for business applications",
+            "Write complex SQL queries to filter, aggregate, and join multi-table datasets",
+            "Enforce data integrity with keys, foreign relations, and constraints",
+            "Integrate MySQL databases with programming languages like Python, PHP, or Node.js"
+          ],
+          "prerequisites": "Basic computer knowledge. No previous database experience required.",
+          "projects": [
+            "E-Commerce Database Schema & Query Optimization",
+            "Hospital Management Relational Database",
+            "Library Management & Book Circulation Database",
+            "Employee Payroll & Attendance Schema with Views"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized database certification is awarded."
+        }
       },
       {
         "courseID": "DB1002",
@@ -320,7 +555,7 @@
         "badge": "Advanced",
         "rating": 4.9,
         "studentsEnrolled": 320,
-        "skills": ["SQL Optimization", "Indexes", "Stored Procedures", "Triggers", "Transactions"],
+        "skills": ["SQL Optimization", "Indexes", "Stored Procedures", "Triggers", "Transactions", "Window Functions"],
         "fee": "₹9,500",
         "instructor": "Sukanta Hui",
         "meritDiscount": {
@@ -330,7 +565,32 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Take your SQL skills to senior database engineering level. Master **Stored Procedures**, **User-Defined Functions**, **Triggers**, **Views**, **Window Functions**, **Indexes & EXPLAIN Query Optimization**, and ACID transactions.",
+          "syllabus": [
+            "Module 1: Advanced SQL Functions – Date/time, string manipulation, JSON data types in MySQL",
+            "Module 2: Window Functions & Analytics – ROW_NUMBER(), RANK(), DENSE_RANK(), NTILE(), LEAD(), LAG(), running totals",
+            "Module 3: Stored Procedures & Functions – IN/OUT parameters, variables, control flow (IF, CASE, LOOP), error handling with handlers",
+            "Module 4: Database Triggers & Events – BEFORE/AFTER INSERT/UPDATE/DELETE triggers, scheduled event scheduler",
+            "Module 5: Indexing & Query Tuning – B-Tree indexes, Composite indexes, Full-Text indexes, EXPLAIN plan analysis",
+            "Module 6: Transactions & Concurrency – ACID properties, isolation levels, locking mechanisms, preventing deadlocks",
+            "Module 7: Advanced Schema Design – BCNF, partitioning strategies, sharding concepts, database backup & restore"
+          ],
+          "learningOutcomes": [
+            "Write high-performance stored procedures and automated triggers",
+            "Perform advanced analytics using SQL Window Functions and CTEs",
+            "Optimize slow queries using indexes and execution plan profiling",
+            "Manage mission-critical transactional consistency in enterprise systems"
+          ],
+          "prerequisites": "Solid knowledge of basic SQL queries (SELECT, JOIN, GROUP BY).",
+          "projects": [
+            "Banking Transaction & Audit Trail Engine with Triggers",
+            "Enterprise Sales Analytics & Reporting Engine with Window Functions",
+            "Query Performance Optimization Benchmark Suite",
+            "Automated Inventory Replenishment Stored Procedure System"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized Advanced SQL Specialist Certificate is awarded."
+        }
       },
       {
         "courseID": "DB1003",
@@ -344,7 +604,7 @@
         "badge": "New",
         "rating": 4.7,
         "studentsEnrolled": 280,
-        "skills": ["Database Design", "ER Model", "Normalization", "Schema Design"],
+        "skills": ["Database Design", "ER Model", "Normalization", "Schema Design", "Crow's Foot Notation"],
         "fee": "₹8,000",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -354,7 +614,30 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Learn to conceptualize, design, and normalize enterprise-scale relational database systems. Master **Entity-Relationship (ER) Modeling**, crow's foot notation, cardinalities, normalization up to BCNF, schema mapping, and data integrity design.",
+          "syllabus": [
+            "Module 1: System Analysis & Requirement Gathering – Identifying entities, attributes, business rules",
+            "Module 2: Conceptual ER Modeling – Strong/weak entities, composite attributes, multivalued attributes, primary keys",
+            "Module 3: Relationship Types & Cardinality – 1:1, 1:N, M:N relationships, participation constraints, associative entities",
+            "Module 4: Relational Schema Mapping – Converting ER diagrams to relational tables, foreign key placement rules",
+            "Module 5: Functional Dependencies & Normalization – Armstrong's axioms, 1NF, 2NF, 3NF, BCNF, lossless decomposition",
+            "Module 6: Physical Schema Optimization – Data types, indexes, denormalization tradeoffs for high-read applications"
+          ],
+          "learningOutcomes": [
+            "Translate complex business requirements into clear, professional ER diagrams",
+            "Map conceptual models into fully normalized, production-ready relational schemas",
+            "Eliminate update, insertion, and deletion anomalies through formal normalization",
+            "Design scalable databases for enterprise web and mobile applications"
+          ],
+          "prerequisites": "Basic understanding of computers and data concepts.",
+          "projects": [
+            "University Academic & Exam Management ER Model",
+            "Healthcare & Patient Diagnostic System Database Blueprint",
+            "Multi-Vendor Logistics & Supply Chain Schema Architecture"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized certificate is awarded upon schema defense."
+        }
       }
     ]
   },
@@ -375,7 +658,7 @@
         "badge": "Popular",
         "rating": 4.7,
         "studentsEnrolled": 260,
-        "skills": ["Basic Accounting", "Tally", "Invoicing", "Payroll"],
+        "skills": ["Basic Accounting", "TallyPrime", "Invoicing", "Payroll", "GST Invoicing", "BRS"],
         "fee": "₹9,000",
         "instructor": "Chandan Das",
         "meritDiscount": {
@@ -385,7 +668,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Become an industry-ready accountant with **TallyPrime**. Learn accounting principles, company creation, ledger & group management, voucher entries (Purchase, Sales, Payment, Receipt, Journal), inventory tracking, **GST invoicing**, and financial statements.",
+          "syllabus": [
+            "Module 1: Accounting Foundations – Golden rules of accounts, debit/credit mechanisms, journal entries, ledger posting",
+            "Module 2: TallyPrime Setup – Company creation, configuration, chart of accounts, groups and ledgers",
+            "Module 3: Voucher Entries – Payment, Receipt, Contra, Journal, Sales, Purchase vouchers",
+            "Module 4: Inventory Management – Stock groups, stock items, units of measure, godowns, purchase orders, sales orders",
+            "Module 5: GST Configuration & Invoicing – CGST, SGST, IGST tax rates, HSN/SAC codes, tax invoices, bill of supply",
+            "Module 6: Banking & Reconciliation – Cheque management, bank reconciliation statements (BRS), electronic payments",
+            "Module 7: Payroll Management – Pay heads, employee groups, salary processing, payslip generation",
+            "Module 8: Financial Reporting – Trial Balance, Profit & Loss Account, Balance Sheet, Ratio Analysis, Day Book, Cash Flow"
+          ],
+          "learningOutcomes": [
+            "Manage end-to-end corporate accounts on TallyPrime independently",
+            "Generate compliant GST sales and purchase invoices with HSN details",
+            "Perform automated Bank Reconciliation (BRS) and inventory tracking",
+            "Extract, analyze, and present Trial Balance, P&L, and Balance Sheet reports"
+          ],
+          "prerequisites": "Commerce or Non-Commerce background. Basic computer fundamentals.",
+          "projects": [
+            "Complete 1-Year Financial Accounting of a Trading Firm",
+            "Manufacturing & Multi-Godown Inventory Setup",
+            "GST-Compliant Retail Billing & Invoice Generation",
+            "Corporate Monthly Payroll & Salary Disbursal System"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized Tally Certified Professional certificate is awarded."
+        }
       },
       {
         "courseID": "ACCT1002",
@@ -399,7 +708,7 @@
         "badge": "New",
         "rating": 4.8,
         "studentsEnrolled": 140,
-        "skills": ["GSTR", "GST Audit", "Reconciliation"],
+        "skills": ["GSTR-1", "GSTR-3B", "GSTR-9", "GST Audit", "Reconciliation", "E-Way Bills"],
         "fee": "₹11,500",
         "instructor": "Chandan Das",
         "meritDiscount": {
@@ -409,7 +718,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master practical Goods & Services Tax (GST) compliance, returns filing, e-way bill generation, Input Tax Credit (ITC) reconciliation, TDS on GST, and GST audit procedures on the live **GST Portal**.",
+          "syllabus": [
+            "Module 1: GST Constitutional Framework – CGST, SGST, IGST, UTGST, registration threshold, composition scheme",
+            "Module 2: Supply & Valuation Rules – Place of supply, time of supply, value of taxable supply, reverse charge mechanism (RCM)",
+            "Module 3: Input Tax Credit (ITC) – Conditions for claiming ITC, blocked credits (Section 17(5)), ITC reversal rules",
+            "Module 4: GSTR-1 Return Filing – Outward supplies reporting, B2B, B2C, export invoices, credit/debit notes",
+            "Module 5: GSTR-3B & Tax Payment – Monthly summary return, liability computation, utilizing ITC vs cash ledger payment",
+            "Module 6: ITC Reconciliation – 2A/2B matching with purchase register, handling supplier mismatches",
+            "Module 7: E-Way Bills & E-Invoicing – Generating e-way bills on NIC portal, mandatory e-invoicing workflow",
+            "Module 8: Annual Returns & Audits – GSTR-9 annual return, GSTR-9C reconciliation, handling GST notices and assessments"
+          ],
+          "learningOutcomes": [
+            "File GSTR-1, GSTR-3B, and GSTR-9 returns accurately on the official portal",
+            "Reconcile Input Tax Credit (ITC) using GSTR-2B matching techniques",
+            "Generate E-Way bills and electronic invoices seamlessly",
+            "Represent clients and businesses in tax audits and compliance verifications"
+          ],
+          "prerequisites": "Basic understanding of financial accounting and business transactions.",
+          "projects": [
+            "Monthly GSTR-1 and GSTR-3B Filing Simulation for a Corporate Enterprise",
+            "Comprehensive 1-Year GSTR-2B vs Purchase Book Reconciliation",
+            "E-Way Bill & E-Invoice Generation Case Study",
+            "Annual Return GSTR-9 Preparation for a Manufacturing Company"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized GST Compliance Specialist Certification is awarded."
+        }
       }
     ]
   },
@@ -430,7 +765,7 @@
         "badge": "Popular",
         "rating": 4.7,
         "studentsEnrolled": 390,
-        "skills": ["Excel", "Power BI", "Dashboards", "Reports"],
+        "skills": ["Excel", "Power BI", "Power Query", "DAX", "Dashboards", "Pivot Tables"],
         "fee": "₹10,000",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -440,7 +775,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master business intelligence and data analytics using **Advanced Excel**, **Power Query**, **DAX**, and **Power BI**. Learn lookup functions (XLOOKUP, INDEX/MATCH), pivot tables, dynamic arrays, interactive KPI dashboards, and data storytelling.",
+          "syllabus": [
+            "Module 1: Advanced Excel Formulas – XLOOKUP, INDEX/MATCH, SUMIFS, COUNTIFS, conditional logic (nested IF, IFS, SWITCH)",
+            "Module 2: Dynamic Array Formulas – FILTER, UNIQUE, SORT, SORTBY, SEQUENCE, LAMBDA custom functions",
+            "Module 3: Data Cleaning with Power Query – ETL pipelines, unpivoting, merging/appending tables, M code basics",
+            "Module 4: Pivot Tables & Data Models – Slicers, timelines, calculated fields, multi-table relationships",
+            "Module 5: What-If Analysis & Financial Modeling – Goal Seek, Scenario Manager, Data Tables, Solver",
+            "Module 6: Power BI Desktop Essentials – Importing data, building star-schema data models, relationships",
+            "Module 7: DAX Calculations – Calculated columns, measures, CALCULATE, RELATED, Time Intelligence (YTD, QTD, MoM, YoY)",
+            "Module 8: Interactive Power BI Dashboards – Drill-throughs, custom visuals, bookmarks, KPI cards, publishing reports"
+          ],
+          "learningOutcomes": [
+            "Transform messy raw datasets into clean, structured data models with Power Query",
+            "Build automated financial and analytical spreadsheets using modern Excel functions",
+            "Author complex business metrics using DAX formulas in Power BI",
+            "Design executive-ready, interactive visual dashboards for business decision makers"
+          ],
+          "prerequisites": "Basic familiarity with using a computer and spreadsheets.",
+          "projects": [
+            "Automated Executive Sales Performance Dashboard in Excel",
+            "Retail Superstore Profitability & Inventory BI Dashboard (Power BI)",
+            "Financial P&L & Cash Flow Forecast Model",
+            "Customer Churn & Retention Analytics Dashboard"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized Data Analyst Certification is awarded."
+        }
       },
       {
         "courseID": "course028",
@@ -454,7 +815,7 @@
         "badge": "Advanced",
         "rating": 4.9,
         "studentsEnrolled": 210,
-        "skills": ["Regression", "Clustering", "Scikit-learn"],
+        "skills": ["Regression", "Classification", "Clustering", "Scikit-learn", "Pandas", "Model Deployment"],
         "fee": "₹14,000",
         "instructor": "Sukanta Hui",
         "meritDiscount": {
@@ -464,7 +825,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Learn machine learning fundamentals with **Python**, **Scikit-Learn**, **Pandas**, and **Matplotlib**. Master supervised learning (linear regression, logistic regression, decision trees, random forests) and unsupervised learning (K-Means, PCA), model evaluation, and deployment.",
+          "syllabus": [
+            "Module 1: ML Foundations – Supervised vs Unsupervised learning, data preprocessing, train/test split, feature scaling",
+            "Module 2: Linear Regression & Regularization – Simple & multiple linear regression, cost functions, gradient descent, Ridge & Lasso",
+            "Module 3: Classification Algorithms – Logistic regression, confusion matrix, precision, recall, F1-score, ROC-AUC curve",
+            "Module 4: Tree-Based Models – Decision trees, entropy, Gini impurity, Random Forest ensemble, hyperparameter tuning",
+            "Module 5: Support Vector Machines & KNN – Kernel tricks, decision boundaries, K-Nearest Neighbors",
+            "Module 6: Unsupervised Learning – K-Means clustering, Elbow method, Principal Component Analysis (PCA) for dimensionality reduction",
+            "Module 7: Model Pipelines & Evaluation – Scikit-learn Pipeline, GridSearchCV cross-validation, feature engineering",
+            "Module 8: Model Deployment – Exporting models with Joblib/Pickle, creating prediction web APIs with FastAPI/Flask"
+          ],
+          "learningOutcomes": [
+            "Preprocess and engineer features from real-world structured datasets",
+            "Train, evaluate, and tune machine learning regression and classification models",
+            "Understand the mathematical foundations of ML algorithms",
+            "Deploy trained machine learning models as production-ready REST APIs"
+          ],
+          "prerequisites": "Proficiency in Python programming and basic mathematics (linear algebra, statistics).",
+          "projects": [
+            "Real Estate Price Prediction Model (Linear Regression & Ridge)",
+            "Customer Credit Card Fraud Detection Classifier (Random Forest & ROC-AUC)",
+            "Customer Segmentation & Clustering Model (K-Means & PCA)",
+            "End-to-End ML Web App with FastAPI and Streamlit"
+          ],
+          "certification": "Yes, an ISO 9001:2015 recognized Machine Learning Specialist Certification is awarded."
+        }
       }
     ]
   },
@@ -485,7 +872,7 @@
         "badge": "Popular",
         "rating": 4.9,
         "studentsEnrolled": 580,
-        "skills": ["Python", "MySQL", "Java", "Algorithms"],
+        "skills": ["Python", "MySQL", "Java", "Algorithms", "Boolean Algebra", "Networking"],
         "fee": "₹12,000",
         "instructor": "Tanusree Hui",
         "meritDiscount": {
@@ -495,7 +882,33 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Complete board exam preparation and practical coding curriculum for **Class XI & XII Computer Science** (CBSE, ICSE, ISC, and WBCHSE boards). Covers **Python**, **Java (OOP)**, **C/C++**, **Data Structures**, **MySQL**, Boolean Algebra, and Computer Networks.",
+          "syllabus": [
+            "Module 1: Programming Foundations (Class XI) – Flowcharts, algorithms, syntax, control statements, functions",
+            "Module 2: Data Structures – Arrays, Strings, Stacks, Queues, Linked Lists, Trace Tables, dry runs",
+            "Module 3: Object-Oriented Programming (ISC/ICSE Java) – Classes, objects, constructors, method overloading/overriding, inheritance, interfaces",
+            "Module 4: Python for CBSE Board – File handling (text, binary, CSV files), data structures, modules",
+            "Module 5: Database Management & SQL – Relational concepts, DDL/DML queries, table joins, aggregate functions",
+            "Module 6: Boolean Algebra & Logic Gates – Truth tables, De Morgan's laws, SOP & POS forms, Karnaugh Maps (K-Maps)",
+            "Module 7: Computer Networks & Cyber Security – Topologies, protocols (TCP/IP, HTTP, FTP, DNS), network security, cyber laws",
+            "Module 8: Board Exam Revision & Lab Project – Solving 10-year board question papers, practical lab files, and viva voce coaching"
+          ],
+          "learningOutcomes": [
+            "Score 95%+ in Class XI & XII Board Computer Science theory and practical examinations",
+            "Master object-oriented programming in Java or Python according to specific board syllabus",
+            "Complete board-mandated practical project records and coding assignments",
+            "Gain a strong programming foundation for JEE, BCA, B.Tech, and university admissions"
+          ],
+          "prerequisites": "Class IX, X, XI, or XII student following CBSE, ICSE, ISC, or WBCHSE board.",
+          "projects": [
+            "Board Practical Examination Project File & Documentation",
+            "Student Information & Marks Evaluation System (Java / Python)",
+            "Library Management System with SQL Database Backend",
+            "Interactive Quiz & Examination Simulator Application"
+          ],
+          "certification": "Yes, an ISO 9001:2015 academic achievement & course completion certificate is awarded."
+        }
       },
       {
         "courseID": "course036",
@@ -509,7 +922,7 @@
         "badge": "New",
         "rating": 4.8,
         "studentsEnrolled": 420,
-        "skills": ["Calculus", "Algebra", "Probability"],
+        "skills": ["Calculus", "Algebra", "Probability", "Vectors & 3D", "Matrices & Determinants", "LPP"],
         "fee": "₹11,000",
         "instructor": "Sukanta Hui",
         "meritDiscount": {
@@ -519,7 +932,34 @@
           "criteria": "Based on entrance test or academic performance (85%+).",
           "note": "Exact discount varies according to merit; maximum up to 25%."
         },
-        "details": {}
+        "details": {
+          "overview": "Master **Class XI & XII Mathematics** for CBSE, ISC, and WBCHSE board examinations and engineering entrance foundations. Covers Differential & Integral Calculus, Vectors, 3D Geometry, Linear Programming, Matrices & Determinants, Probability, and Algebra.",
+          "syllabus": [
+            "Module 1: Sets, Relations & Functions – Types of relations, equivalence relations, composite & inverse functions",
+            "Module 2: Matrices & Determinants – Matrix algebra, inverse of a matrix, Cramer's rule, solving systems of linear equations",
+            "Module 3: Differential Calculus – Limits, continuity, differentiability, chain rule, implicit differentiation, logarithmic differentiation",
+            "Module 4: Applications of Derivatives – Tangents & normals, rate of change, increasing/decreasing functions, Maxima & Minima",
+            "Module 5: Integral Calculus – Indefinite integrals, substitution method, integration by parts, partial fractions, definite integrals & properties",
+            "Module 6: Applications of Integrals & Differential Equations – Area under curves, order & degree, variable separable, linear differential equations",
+            "Module 7: Vectors & 3-Dimensional Geometry – Vector operations, dot & cross products, direction cosines, lines & planes in 3D space",
+            "Module 8: Linear Programming (LPP) & Probability – Graphical method of LPP, conditional probability, Bayes' theorem, binomial distribution",
+            "Module 9: Board Revision & Mock Tests – Chapter-wise previous 10-year question practice, step-marking tips, and mock tests"
+          ],
+          "learningOutcomes": [
+            "Master all mathematical concepts with rigorous conceptual understanding and step-by-step proofs",
+            "Solve complex calculus, algebra, and geometry problems quickly and accurately",
+            "Target 95%+ in Class XII Board Mathematics examinations with full confidence",
+            "Build strong analytical reasoning for JEE Main and competitive exams"
+          ],
+          "prerequisites": "Class XI or XII student preparing for CBSE, ISC, or WB board exams.",
+          "projects": [
+            "Real-world Applications of Calculus in Physics & Economics Modeling",
+            "Optimization Problems in Business using Linear Programming (LPP)",
+            "Probability & Statistical Distribution Analysis Portfolio",
+            "Complete 10-Year Board Exam Solved Solution Notebook"
+          ],
+          "certification": "Yes, an ISO 9001:2015 course completion and performance certificate is awarded."
+        }
       }
     ]
   }

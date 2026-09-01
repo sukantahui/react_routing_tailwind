@@ -3,7 +3,7 @@ import clsx from "clsx";
 import JavaFileLoader from "../../../../../common/JavaFileLoader";
 
 // Import raw Java files
-import defaultValuesRaw from "./topic3_files/DefaultValuesNumericManualLoopArrayUtility.java?raw";
+import defaultValuesRaw from "./topic3_files/DefaultValuesNumericArrays.java?raw";
 
 /**
  * Topic3: Default Values of Numeric Arrays

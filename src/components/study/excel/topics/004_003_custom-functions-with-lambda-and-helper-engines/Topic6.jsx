@@ -128,7 +128,7 @@ export default function Topic6() {
             <div className="mt-2 text-slate-400 text-xs sm:text-sm">
               <span className="text-slate-500">// Example (Attendance Days & Performance Score Evaluation):</span> <br />
               <span className="text-emerald-400 font-bold">
-                =MAP(E5:E9, F5:F9, LAMBDA(days, score, IF(AND(days>=25, score>=90), "Tier-1 Bonus", "Standard")))
+                =MAP(E5:E9, F5:F9, LAMBDA(days, score, IF(AND(days&gt;=25, score&gt;=90), "Tier-1 Bonus", "Standard")))
               </span>
             </div>
           </div>

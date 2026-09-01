@@ -67,7 +67,7 @@ const Topic17 = () => {
           </p>
           <div className="p-4 bg-slate-950/60 rounded-xl border-l-4 border-sky-500 text-slate-300">
             <p className="font-semibold text-sky-300 mb-1">Classroom Scenario:</p>
-            <p className="text-sm">In Barrackpore lab, Debangshu analyzes temperature readings over a month to count warm days (>0°C) and freezing days (<0°C).</p>
+            <p className="text-sm">In Barrackpore lab, Debangshu analyzes temperature readings over a month to count warm days (&gt;0°C) and freezing days (&lt;0°C).</p>
           </div>
         </div>
       </section>

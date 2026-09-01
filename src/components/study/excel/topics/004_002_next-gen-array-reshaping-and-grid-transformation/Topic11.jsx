@@ -190,7 +190,7 @@ export default function Topic11() {
               </h3>
               <p className="leading-relaxed">
                 An Excel worksheet contains 1,048,576 rows but only 16,384 columns (Column XFD). 
-                Attempting to transpose whole column ranges like <code className="text-rose-400 font-mono">A:A</code> or ranges with > 16,384 rows will trigger a fatal calculation overflow crash. Always use bounded ranges!
+                Attempting to transpose whole column ranges like <code className="text-rose-400 font-mono">A:A</code> or ranges with &gt; 16,384 rows will trigger a fatal calculation overflow crash. Always use bounded ranges!
               </p>
               <div className="text-xs text-slate-400 bg-slate-900 p-3 rounded-xl border border-slate-800 font-mono text-rose-300">
                 Max Allowed Rows to Transpose Horizontally: 16,384
@@ -552,7 +552,7 @@ export default function Topic11() {
               <tbody className="divide-y divide-slate-800/60 text-xs sm:text-sm">
                 <tr className="hover:bg-slate-800/30 transition-colors">
                   <td className="py-3 px-4 font-mono font-bold text-rose-400">#REF! / #NUM! (Column Limit)</td>
-                  <td className="py-3 px-4 text-slate-300">Attempted to transpose > 16,384 rows across horizontal columns.</td>
+                  <td className="py-3 px-4 text-slate-300">Attempted to transpose &gt; 16,384 rows across horizontal columns.</td>
                   <td className="py-3 px-4 text-slate-400">Check source rows count: exceeds 16,384.</td>
                   <td className="py-3 px-4 text-emerald-400">Use bounded ranges with &le; 16,384 rows. Never transpose whole columns like A:A!</td>
                 </tr>

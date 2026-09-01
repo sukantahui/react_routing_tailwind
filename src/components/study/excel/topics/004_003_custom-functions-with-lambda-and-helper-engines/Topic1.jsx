@@ -411,11 +411,11 @@ export default function Topic1() {
               </h3>
               <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
                 HR Manager <strong>Tuhina Mukherjee</strong> tests a tiered commission formula on sales achievements. 
-                Using <code className="text-amber-300 font-mono">=(LAMBDA(sales, IF(sales>500000, sales*0.08, sales*0.05)))(F5)</code>, 
+                Using <code className="text-amber-300 font-mono">=(LAMBDA(sales, IF(sales&gt;500000, sales*0.08, sales*0.05)))(F5)</code>, 
                 she tests tier transitions directly in the cell before registering the commission rule in Name Manager.
               </p>
               <div className="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-emerald-300">
-                Formula: =(LAMBDA(s, IF(s>500k, s*8%, s*5%)))(F5)
+                Formula: =(LAMBDA(s, IF(s&gt;500k, s*8%, s*5%)))(F5)
               </div>
             </div>
 

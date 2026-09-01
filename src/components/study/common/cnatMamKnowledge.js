@@ -864,25 +864,14 @@ async function fetchStudentData(studentId) {
    - **7. Application** (HTTP, DNS, FTP, SMTP) -> **6. Presentation** (SSL/TLS, ASCII) -> **5. Session** (Sockets, RPC) -> **4. Transport** (TCP, UDP) -> **3. Network** (IP, Routers) -> **2. Data Link** (Ethernet, MAC, Switches) -> **1. Physical** (Cables, Bits).
 
 2. **TCP vs UDP:**
-   - **TCP (Transmission Control Protocol):** Connection-oriented (3-Way Handshake SYN -> SYN-ACK -> ACK), reliable, ordered, error-checked (used for Web, Email, File transfer).
-   - **UDP (User Datagram Protocol):** Connectionless, lightweight, no retransmissions (used for Video Streaming, Gaming, DNS, VoIP).
+   - **TCP (Transmission Control Protocol):** Connection-oriented, reliable, ordered.
+   - **UDP (User Datagram Protocol):** Connectionless, lightweight, real-time speed.
 
 3. **Cyber Security: CIA Triad & Cryptography:**
    - **Confidentiality:** Keeping data private via encryption (**AES-256** symmetric, **RSA** asymmetric).
    - **Integrity:** Ensuring data is untampered via cryptographic hashing (**SHA-256**, digital signatures).
    - **Availability:** Ensuring continuous service uptime (mitigating DDoS with firewalls & redundancy).`
   }
-=======
-export const QUICK_PROMPT_CHIPS = [
-  { label: "💡 Explain Current Topic", query: "Can you explain the main concepts of this topic in simple terms?" },
-  { label: "📝 Lab Assignments", query: "How do I submit practical lab assignments and homework?" },
-  { label: "🎯 Viva & Exam Tips", query: "What are the key tips for practical exams and viva tests?" },
-  { label: "🛠️ Clear Doubts", query: "How do I clear my doubts during lab hours?" },
-  { label: "📞 Teacher Contact", query: "Can you provide teacher contact number and communication details?" },
-  { label: "🏢 Organisation Details", query: "Tell me about Coder & AccoTax institute, campus location and accreditation." },
-  { label: "🎓 Courses Offered", query: "What courses and modules are taught at Coder & AccoTax?" },
-  { label: "📊 Online Marksheets", query: "Where can I take online mock tests and view my performance marksheets?" },
->>>>>>> 84aa6c160f520e904c4e827af36e7e6027b7c550
 ];
 
 // ============================================================================

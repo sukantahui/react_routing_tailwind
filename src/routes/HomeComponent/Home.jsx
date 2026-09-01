@@ -25,9 +25,9 @@ export default function Home() {
     <div className="bg-[#030712] text-slate-100 min-h-screen">
       <HomeSeo />
       <Header />
+      <About />
       <Courses />
       <WhyChooseUs />
-      <About />
       <Teachers />
       <Contact />
       <Footer />

@@ -240,7 +240,7 @@ const WhyChooseUs = () => {
               onClick={() => setShowAll((prev) => !prev)}
               className="px-5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-semibold text-slate-200 hover:text-white transition flex items-center gap-1.5 cursor-pointer"
             >
-              <span>{showAll ? "Show Fewer Reviews" : "View All 10 Reviews"}</span>
+              <span>{showAll ? "Show Fewer Reviews" : `View All ${reviewsData.length} Reviews`}</span>
               <i className={`bi bi-chevron-${showAll ? "up" : "down"}`}></i>
             </button>
 

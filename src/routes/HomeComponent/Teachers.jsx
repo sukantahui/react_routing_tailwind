@@ -12,6 +12,7 @@ import teacher4 from "../../assets/teachers/teacher4.jpg";
 import teacher5 from "../../assets/teachers/teacher5.jpg";
 import teacher6 from "../../assets/teachers/teacher6.jpg";
 import teacher7 from "../../assets/teachers/teacher7.jpg";
+import teacher8 from "../../assets/teachers/teacher8.jpg";
 
 const imageMap = {
   "teacher1.jpg": teacher1,
@@ -21,6 +22,7 @@ const imageMap = {
   "teacher5.jpg": teacher5,
   "teacher6.jpg": teacher6,
   "teacher7.jpg": teacher7,
+  "teacher8.jpg": teacher8,
 };
 
 const TeacherCard = ({ teacher }) => {
@@ -99,6 +101,13 @@ const TeacherCard = ({ teacher }) => {
 };
 
 const Teachers = () => {
+  const sortedTeachers = React.useMemo(() => {
+    if (!Array.isArray(teachersData)) return [];
+    return [...teachersData].sort(
+      (a, b) => (Number(a.order ?? 999)) - (Number(b.order ?? 999))
+    );
+  }, []);
+
   return (
     <section id="teachers" className="py-16 bg-slate-950 text-slate-100 border-b border-slate-800/80">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -117,8 +126,8 @@ const Teachers = () => {
 
         {/* Mentors Grid with generous gap */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {Array.isArray(teachersData) && teachersData.length > 0 ? (
-            teachersData.map((teacher, index) => (
+          {sortedTeachers.length > 0 ? (
+            sortedTeachers.map((teacher, index) => (
               <TeacherCard key={teacher.name || index} teacher={teacher} />
             ))
           ) : (

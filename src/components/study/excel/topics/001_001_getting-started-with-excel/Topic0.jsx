@@ -342,7 +342,7 @@ export default function Topic0() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">EX-103</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Ichapur Lathe Servicing Threshold</td>
                   <td className="py-2.5 px-3 text-sky-300">Run Hours: 520, Limit: 500</td>
-                  <td className="py-2.5 px-3 text-amber-300">=IF(C2>=D2,"DUE","OK")</td>
+                  <td className="py-2.5 px-3 text-amber-300">=IF(C2&gt;=D2,"DUE","OK")</td>
                   <td className="py-2.5 px-3 text-rose-400">MAINTENANCE DUE</td>
                   <td className="py-2.5 px-3 text-slate-300">Preventative maintenance threshold alerting.</td>
                 </tr>
@@ -422,7 +422,7 @@ export default function Topic0() {
                   <td className="py-2.5 px-3 text-amber-400 font-bold">EX-113</td>
                   <td className="py-2.5 px-3 text-white font-sans font-medium">Haldia Port Customs Export Audit</td>
                   <td className="py-2.5 px-3 text-sky-300">Cargo Value: ₹ 650,000</td>
-                  <td className="py-2.5 px-3 text-amber-300">=IF(C2>500000,"DUTY_REQD","FREE")</td>
+                  <td className="py-2.5 px-3 text-amber-300">=IF(C2&gt;500000,"DUTY_REQD","FREE")</td>
                   <td className="py-2.5 px-3 text-rose-400">DUTY_REQD</td>
                   <td className="py-2.5 px-3 text-slate-300">Customs tariff compliance flagging.</td>
                 </tr>

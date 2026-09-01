@@ -255,7 +255,7 @@ export default function Topic11() {
               {/* Raw Ingestion Data (Header) */}
               <rect x="25" y="25" width="800" height="50" rx="8" fill="#1E1B4B" stroke="#6366F1" strokeWidth="1.5" />
               <text x="425" y="55" fill="#E0E7FF" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                "[2026-08-26 14:30:00] [WARN] [User: swadeep.b] [IP: 192.168.1.50] DB Latency > 500ms"
+                "[2026-08-26 14:30:00] [WARN] [User: swadeep.b] [IP: 192.168.1.50] DB Latency &gt; 500ms"
               </text>
 
               {/* Extraction Box (Left) */}

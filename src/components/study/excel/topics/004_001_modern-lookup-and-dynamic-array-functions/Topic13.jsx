@@ -377,7 +377,7 @@ export default function Topic13() {
                 =SORT(FILTER(HSTACK(A2:F11, Tiers), Tiers="Platinum VIP"), 4, -1)
               </div>
               <p className="text-xs text-slate-400">
-                <strong>Outcome:</strong> Spills top accounts (Swadeep Roy & Abhronila Das) with revenue &gt; ₹13.5L and rating > 4.9.
+                <strong>Outcome:</strong> Spills top accounts (Swadeep Roy & Abhronila Das) with revenue &gt; ₹13.5L and rating &gt; 4.9.
               </p>
             </div>
 
@@ -461,7 +461,7 @@ export default function Topic13() {
               <div>
                 <h3 className="font-bold text-white text-sm sm:text-base">Evaluate Tier Thresholds with Vectorized IFS</h3>
                 <p className="text-xs sm:text-sm text-slate-300 mt-1 leading-relaxed">
-                  Apply boolean multiplication: <code className="text-emerald-400 font-mono">(spend >= 1200000) * (rating >= 4.8)</code> for Platinum, down to <code className="text-amber-300 font-mono">TRUE, "Bronze Tier"</code>.
+                  Apply boolean multiplication: <code className="text-emerald-400 font-mono">(spend &gt;= 1200000) * (rating &gt;= 4.8)</code> for Platinum, down to <code className="text-amber-300 font-mono">TRUE, "Bronze Tier"</code>.
                 </p>
               </div>
             </div>
