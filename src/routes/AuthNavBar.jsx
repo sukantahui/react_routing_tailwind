@@ -1551,7 +1551,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           <span className="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center">
                             <i className="bi bi-tools text-xs"></i>
                           </span>
-                          <span>Tools, Visualizers & Fees</span>
+                          <span>Tools</span>
                         </span>
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-semibold text-cyan-400 bg-cyan-500/15 px-2 py-0.5 rounded-full border border-cyan-500/20">

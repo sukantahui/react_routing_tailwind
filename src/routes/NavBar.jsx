@@ -547,7 +547,7 @@ const NavBar = () => {
                   aria-expanded={activeDropdown === "tools"}
                 >
                   <i className="bi bi-tools text-cyan-400 text-sm"></i>
-                  <span>Tools & Visualizers</span>
+                  <span>Tools</span>
                   <i
                     className={`bi bi-chevron-down text-[10px] text-slate-400 transition-transform duration-200 ${
                       activeDropdown === "tools" ? "rotate-180 text-cyan-400" : ""
@@ -788,10 +788,11 @@ const NavBar = () => {
               <NavLink
                 to="/login"
                 onClick={closeAllDropdowns}
-                className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-400 hover:via-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-sky-500/20 hover:shadow-sky-500/35 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+                title="Portal Login"
+                aria-label="Portal Login"
+                className="hidden sm:inline-flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-r from-sky-500 via-indigo-600 to-purple-600 hover:from-sky-400 hover:via-indigo-500 hover:to-purple-500 text-white shadow-lg shadow-sky-500/20 hover:shadow-sky-500/35 transition-all duration-200 transform hover:scale-105 active:scale-95"
               >
-                <i className="bi bi-box-arrow-in-right text-sm"></i>
-                <span>Portal Login</span>
+                <i className="bi bi-box-arrow-in-right text-base"></i>
               </NavLink>
 
               {/* MOBILE SEARCH & HAMBURGER TOGGLE */}
@@ -807,9 +808,11 @@ const NavBar = () => {
 
                 <NavLink
                   to="/login"
-                  className="px-2.5 py-1.5 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 text-white text-xs font-semibold shadow-sm"
+                  title="Portal Login"
+                  aria-label="Portal Login"
+                  className="w-8 h-8 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 text-white shadow-sm flex items-center justify-center active:scale-95 transition"
                 >
-                  Login
+                  <i className="bi bi-box-arrow-in-right text-sm"></i>
                 </NavLink>
 
                 <button
@@ -1252,7 +1255,7 @@ const NavBar = () => {
                           <span className="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center">
                             <i className="bi bi-tools text-xs"></i>
                           </span>
-                          <span>Online Tools & Visualizers</span>
+                          <span>Tools</span>
                         </span>
                         <div className="flex items-center gap-2">
                           <span className="text-[10px] font-semibold text-cyan-400 bg-cyan-500/15 px-2 py-0.5 rounded-full border border-cyan-500/20">
