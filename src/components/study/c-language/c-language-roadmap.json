@@ -66,7 +66,8 @@
             "Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)",
             "Structure of a C program: include directives, global space, main() function, exit codes",
             "Formatted Console I/O: printf(), scanf(), format specifiers (%d, %f, %c, %s)",
-            "Hands-on C Projects & Solutions for Module 001_001"
+            "Hands-on C Projects & Solutions for Module 001_001",
+            "Self-Test Module 001_001: 200 Comprehensive MCQs on C Foundations & Compiler Architecture"
           ],
           "learningOutcomes": [
             "Explain how GCC compiles source code into native machine instructions",
@@ -104,7 +105,8 @@
             "Constants in C: #define preprocessor macros vs const keyword",
             "Operator Precedence & Associativity: Arithmetic, Relational, Logical, Bitwise (&, |, ^, ~, <<, >>), Assignment, Ternary",
             "Implicit type promotion vs explicit type casting",
-            "Hands-on C Projects & Solutions for Module 001_002"
+            "Hands-on C Projects & Solutions for Module 001_002",
+            "Self-Test Module 001_002: 200 Comprehensive MCQs on C Tokens, Data Types & Operators"
           ],
           "learningOutcomes": [
             "Choose optimal data types and modifiers based on hardware constraints",
@@ -113,7 +115,7 @@
           ],
           "prerequisites": ["001_001_getting-started-with-c-and-compiler-architecture"],
           "miniProjects": ["Bitwise Status Register Flags Inspector", "Payroll Tax & Allowance Calculator"],
-          "exercises": { "mcq": 25, "coding": 8, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 8, "projects": 1 },
           "assessment": { "type": "Bitwise & Expression Assessment", "passScore": 75 },
           "useCases": ["Hardware register programming", "Financial math routines"],
           "careerSkills": ["Bitwise manipulation", "Memory alignment awareness"],
@@ -141,7 +143,8 @@
             "Iterative loop constructs: while, do-while (post-test), for (pre-test)",
             "Loop control mechanics: break, continue, and appropriate use of goto",
             "Building nested loop algorithms: matrix indexing, prime detection, pyramid pattern printing",
-            "Hands-on C Projects & Solutions for Module 001_003"
+            "Hands-on C Projects & Solutions for Module 001_003",
+            "Self-Test Module 001_003: 200 Comprehensive MCQs on Control Flow, Branching & Loops"
           ],
           "learningOutcomes": [
             "Construct robust control flow logic for conditional business processes",
@@ -150,7 +153,7 @@
           ],
           "prerequisites": ["001_002_c-tokens-variables-data-types-and-operators"],
           "miniProjects": ["Interactive ATM Banking PIN & Menu Simulator", "Prime & Armstrong Number Verifier"],
-          "exercises": { "mcq": 25, "coding": 10, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 10, "projects": 1 },
           "assessment": { "type": "Control Flow & Pattern Lab Test", "passScore": 80 },
           "useCases": ["Interactive state machines", "Mathematical calculation engines"],
           "careerSkills": ["Algorithmic iteration", "State machine design"],
@@ -178,7 +181,8 @@
             "Variable scope & lifetime: Local/Block scope vs Global/File scope",
             "Storage Classes in C: auto, register, static (persistence across calls), extern (global linkage)",
             "Recursion fundamentals: base condition, stack frames, call stack expansion, tail recursion",
-            "Hands-on C Projects & Solutions for Module 001_004"
+            "Hands-on C Projects & Solutions for Module 001_004",
+            "Self-Test Module 001_004: 200 Comprehensive MCQs on Functions, Scope & Storage Classes"
           ],
           "learningOutcomes": [
             "Decompose complex programs into reusable, isolated function modules",
@@ -187,7 +191,7 @@
           ],
           "prerequisites": ["001_003_control-flow-branching-and-loops"],
           "miniProjects": ["Mathematical Recursion Toolkit (Fibonacci, GCD, Tower of Hanoi)", "Modular Scientific Calculator Engine"],
-          "exercises": { "mcq": 25, "coding": 8, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 8, "projects": 1 },
           "assessment": { "type": "Recursion & Modular Code Review", "passScore": 75 },
           "useCases": ["Modular software libraries", "Recursive parsing engines"],
           "careerSkills": ["Modular decomposition", "Stack frame analysis"],
@@ -211,7 +215,11 @@
           "tags": ["patterns", "output-practice", "nested-loops", "operators", "bitwise", "tokens", "precedence"],
           "topics": [
             "C Pattern Output Practice Lab: 20 Symmetrical, Pyramid, Number & Character Patterns",
-            "C Tokens, Data Types & Operators Output Practice Lab: 40 Tricky Questions & Explanations"
+            "C Tokens, Data Types & Operators Output Practice Lab: 40 Tricky Questions & Explanations",
+            "Self Test 1: Segment 1 Comprehensive C Fundamentals Review (200 MCQs)",
+            "Segment 1 Capstone Projects: 10 Comprehensive C Systems & Algorithmic Projects",
+            "Project Pattern: 30 Comprehensive C Pattern Programs & Code Solutions",
+            "Project Series: 20 Comprehensive C Mathematical & Taylor Series Projects"
           ],
           "learningOutcomes": [
             "Trace nested loop execution for 2D spatial coordinate mapping",
@@ -220,7 +228,7 @@
           ],
           "prerequisites": ["001_003_control-flow-branching-and-loops"],
           "miniProjects": ["20 Interactive C Pattern Output Practice Lab Questions"],
-          "exercises": { "mcq": 20, "coding": 20, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 70, "projects": 60 },
           "assessment": { "type": "Pattern Logic & Output Verification", "passScore": 80 },
           "useCases": ["Competitive programming", "Technical interview pattern questions"],
           "careerSkills": ["Loop tracing", "Spatial algorithmic mapping"],

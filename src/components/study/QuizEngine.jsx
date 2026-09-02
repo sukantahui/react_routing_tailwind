@@ -54,10 +54,10 @@ function prepareQuiz(questions, limit) {
   const sliceSize = limit ? Math.min(limit, shuffled.length) : shuffled.length;
   const picked = shuffled.slice(0, sliceSize);
 
-  return picked.map((q) => {
-    const wrapped = q.options.map((opt, idx) => ({
+  return picked.map((q, idx) => {
+    const wrapped = (q.options || []).map((opt, oIdx) => ({
       text: opt,
-      originalIndex: idx,
+      originalIndex: oIdx,
     }));
 
     const shuffledOptions = shuffleArray(wrapped);
@@ -67,6 +67,7 @@ function prepareQuiz(questions, limit) {
 
     return {
       ...q,
+      id: q.id || `q_${idx}_${Math.random().toString(36).substring(2, 8)}`,
       options: shuffledOptions.map((i) => i.text),
       answerIndex: newAnswerIndex,
     };

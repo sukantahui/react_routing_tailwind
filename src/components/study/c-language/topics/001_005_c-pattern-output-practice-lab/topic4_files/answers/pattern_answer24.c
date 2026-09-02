@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+void executePattern(int n) {
+    printf("=========================================================
+");
+    printf("  PATTERN PROJECT: Palindromic Character Pyramid Pattern
+");
+    printf("=========================================================
+
+");
+
+    for (int r = 1; r <= n; r++) {
+        for (int s = 1; s <= (n - r) * 2; s++) printf(" ");
+        for (int c = 0; c < r; c++) printf("%c ", 'A' + c);
+        for (int c = r - 2; c >= 0; c--) printf("%c ", 'A' + c);
+        printf("\n");
+    }
+}
+
+int main(void) {
+    int n = 5;
+    executePattern(n);
+    return 0;
+}

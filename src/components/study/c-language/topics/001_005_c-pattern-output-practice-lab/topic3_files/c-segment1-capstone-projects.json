@@ -1,0 +1,139 @@
+{
+  "projectCategory": "Segment 1 Capstone Projects: C Language Foundations & Systems Architecture",
+  "subject": "C Programming Language (ANSI C / C99 / C11)",
+  "board": "University & Industrial Systems Engineering Standards",
+  "class": "Computer Science Core / BCA / B.Tech / ICSE / Systems Programming",
+  "tools": [
+    "GCC Compiler",
+    "GDB Debugger",
+    "VS Code",
+    "Valgrind"
+  ],
+  "institute": {
+    "author": "Sukanta Hui",
+    "name": "Coder & AccoTax",
+    "location": "Barrackpore & Shyamnagar"
+  },
+  "projects": [
+    {
+      "projectId": "SEG1_PRJ01",
+      "title": "Interactive ATM Banking & PIN Verification State Machine System",
+      "difficulty": "Intermediate",
+      "description": "Design an interactive CLI ATM Banking system incorporating state tracking, security limits, menu selection, and transaction balance processing. The application maintains static account balance and security attempt counters. It restricts user PIN entry to 3 failed attempts, after which the account is locked. The menu permits checking balance, depositing funds, and withdrawing funds with overdraft protection.",
+      "learningOutcome": "State Machine Architecture, Modular Functions, Loop Control, Static Security Attempt Counters & Input Validation",
+      "exampleText": "Default PIN: 1234 | Deposit: 1500.00 | Withdraw: 2000.00",
+      "exampleOutput": "=====================================================\n   CODER & ACCOTAX ATM BANKING SYSTEM - BARRACKPORE   \n=====================================================\nEnter 4-Digit Security PIN: 1234\n\n--- ATM MAIN MENU ---\n1. Check Account Balance\n2. Deposit Funds\n3. Withdraw Funds\n4. Exit ATM Terminal\nEnter Selection (1-4): 1\n\n>>> CURRENT ACCOUNT BALANCE: INR 5000.00",
+      "logicExplanation": "1. **PIN Security**: `verifyPin()` tracks `failedAttempts` using `static` variables; locks account if `failedAttempts >= 3`.\n2. **Transactions**: `depositMoney()` and `withdrawMoney()` perform input validation and balance checks.\n3. **Loop Menu**: `do-while` loop keeps menu running until option 4 is selected.",
+      "answerFile": "./answers/answer1.c",
+      "codeExplanation": "1. `static double accountBalance`: Persists balance state across menu operations.\n2. `scanf` status checks prevent infinite loops on non-integer inputs."
+    },
+    {
+      "projectId": "SEG1_PRJ02",
+      "title": "Bitwise Hardware Register & System Telemetry Flag Inspector",
+      "difficulty": "Intermediate",
+      "description": "Embedded microcontrollers use single-byte status registers to track peripheral hardware states. In this project, you will build a Bitwise Hardware Status Register & Flags Inspector in C. Using an 8-bit unsigned integer (`uint8_t`), you will define bitmask constants for POWER_ON (bit 0), SENSOR_READY (bit 1), TX_ACTIVE (bit 2), RX_BUFFER (bit 3), ERROR_ALERT (bit 4), and OVERHEAT (bit 5). You will write functions to set, clear, test, and toggle flags, and format binary bit output.",
+      "learningOutcome": "Low-level Bitwise Manipulation (&, |, ^, ~), Bit Shift Masking, Exact-Width Types (<stdint.h>) & Binary Printing",
+      "exampleText": "Initial Register: 0x00 -> Power & Sensor ON -> TX Active -> Error Triggered -> RX Toggle",
+      "exampleOutput": "Register Value: 0x03 (0b00000011)\n  \u2022 Power ON     : YES\n  \u2022 Sensor Ready : YES\n  \u2022 TX Active    : NO\n  \u2022 RX Buffer    : NO\n  \u2022 Error Alert  : NO\n  \u2022 Overheat     : NO",
+      "logicExplanation": "1. **Bitmasks**: `#define FLAG_POWER_ON (1 << 0)`, `#define FLAG_SENSOR_READY (1 << 1)`, etc.\n2. **Set**: `*reg |= mask`.\n3. **Clear**: `*reg &= ~mask`.\n4. **Toggle**: `*reg ^= mask`.\n5. **Check**: `(*reg & mask) != 0`.",
+      "answerFile": "./answers/answer2.c",
+      "codeExplanation": "1. `printBinary8()`: Iterates from bit 7 down to 0, using `(val >> i) & 1` to output binary strings.\n2. Pass-by-reference pointers (`uint8_t *reg`) mutate caller register memory directly."
+    },
+    {
+      "projectId": "SEG1_PRJ03",
+      "title": "Employee Payroll, Tax Slab & Allowance Calculation Engine",
+      "difficulty": "Intermediate",
+      "description": "Enterprise HR applications process employee compensation, statutory deductions, and progressive income tax slab calculations. In this project, you will construct a Commercial Payroll & Tax Calculation Engine in C. Given basic monthly salary, the program computes House Rent Allowance (HRA @ 20%), Dearness Allowance (DA @ 10%), Gross Monthly Salary, Provident Fund (PF @ 12%), annual taxable income after standard deduction (INR 50,000), monthly income tax based on progressive tax slabs, and net monthly take-home salary.",
+      "learningOutcome": "Financial Floating-Point Math, Progressive Tax Slabs (if-else-if), Struct Encapsulation & Column Formatted Output",
+      "exampleText": "Employee: Subhashis Roy | Basic Pay: INR 45,000.00 / month",
+      "exampleOutput": "=============================================================\n     CODER & ACCOTAX PAYROLL & TAX CALCULATOR ENGINE         \n=============================================================\nEmployee ID      : 101\nEmployee Name    : Subhashis Roy\n-------------------------------------------------------------\nEARNINGS (MONTHLY):                        AMOUNT (INR)\n  \u2022 Basic Pay                              :     45000.00\n  \u2022 House Rent Allowance (HRA @ 20%)       :      9000.00\n  \u2022 Dearness Allowance (DA @ 10%)          :      4500.00\n  GROSS MONTHLY SALARY                     :     58500.00\n-------------------------------------------------------------\nNET MONTHLY TAKE-HOME SALARY               :     48850.00\n=============================================================",
+      "logicExplanation": "1. **Gross Salary**: `Basic + HRA (20%) + DA (10%)`.\n2. **Taxable Income**: `(Gross * 12) - (PF * 12) - StandardDeduction (50000)`.\n3. **Tax Slabs**: 0% up to 2.5L; 5% from 2.5L-5L; 20% from 5L-10L; 30% above 10L.",
+      "answerFile": "./answers/answer3.c",
+      "codeExplanation": "1. `Employee` struct encapsulates all monthly/annual compensation metrics.\n2. `%12.2f` format specifiers align financial figures cleanly."
+    },
+    {
+      "projectId": "SEG1_PRJ04",
+      "title": "Scientific Recursion & Number Theory Explorer (Fibonacci, GCD, Power, Tower of Hanoi)",
+      "difficulty": "Advanced",
+      "description": "Algorithmic math toolkits utilize mathematical recursion to solve complex divide-and-conquer problems. In this project, you will build a Scientific Recursion Explorer in C. The suite includes: 1. Factorial (both non-tail and tail-recursive with accumulator), 2. Fibonacci term calculator, 3. Euclidean GCD calculator, 4. Exponential power function (`base^exp`), and 5. Tower of Hanoi step-by-step puzzle solver.",
+      "learningOutcome": "Recursion Mechanics, Base Conditions, Call Stack Unwinding, Tail Call Optimization & Divide-and-Conquer",
+      "exampleText": "Factorial: 6 | Fibonacci: 7th | GCD: 48 & 18 | Hanoi: 3 Disks",
+      "exampleOutput": "[1] FACTORIAL COMPUTATION (n = 6):\n  \u2022 Non-Tail Recursive Result : 720\n  \u2022 Tail Recursive Result     : 720\n\n[5] TOWER OF HANOI PUZZLE (3 Disks):\n  Move Disk 1 from Rod A -> Rod C\n  Move Disk 2 from Rod A -> Rod B\n  Move Disk 1 from Rod C -> Rod B",
+      "logicExplanation": "1. **Factorial Tail**: `factorialTail(n-1, n * acc)`.\n2. **Euclidean GCD**: `gcd(b, a % b)` until `b == 0`.\n3. **Tower of Hanoi**: Move n-1 disks to aux, move disk n to dest, move n-1 disks from aux to dest.",
+      "answerFile": "./answers/answer4.c",
+      "codeExplanation": "1. Tail-recursive functions pass accumulators to enable Tail Call Optimization (TCO).\n2. Base cases (`n <= 1`, `exp == 0`, `b == 0`) guarantee recursion termination."
+    },
+    {
+      "projectId": "SEG1_PRJ05",
+      "title": "Algorithmic Number Analyzer (Prime, Armstrong, Palindrome, Perfect, Strong, Harshad)",
+      "difficulty": "Intermediate",
+      "description": "Number theory engines perform multi-faceted property checks on integers. In this project, you will develop a Comprehensive Algorithmic Number Analyzer in C. Given an input integer, the analyzer tests whether the number is: 1. Prime, 2. Armstrong (narcissistic), 3. Palindrome (reads same backwards), 4. Perfect (sum of proper divisors equals number), 5. Strong (sum of factorials of digits equals number), and 6. Harshad (divisible by sum of digits).",
+      "learningOutcome": "Digit Extraction (% 10, / 10), Modular Functions, Prime Trial Division (sqrt N) & Number Theory Algorithms",
+      "exampleText": "Test Integers: 153, 28, 145, 121",
+      "exampleOutput": "NUMERIC CHARACTERISTICS FOR: 153\n  \u2022 Prime Number     : NO\n  \u2022 Armstrong Number : YES\n  \u2022 Palindrome Number: NO\n  \u2022 Perfect Number   : NO\n  \u2022 Strong Number    : NO\n  \u2022 Harshad Number   : YES",
+      "logicExplanation": "1. **Prime**: Loop `i=2` to `i*i <= n` testing `n % i == 0`.\n2. **Armstrong**: Extract digits, compute sum of `digit^num_digits`.\n3. **Palindrome**: Build `rev = rev * 10 + (n % 10)`.\n4. **Strong**: Compute sum of `fact(digit)`.",
+      "answerFile": "./answers/answer5.c",
+      "codeExplanation": "1. Modular functions (`isPrime`, `isArmstrong`, etc.) return boolean status (`stdbool.h`).\n2. Optimizing prime testing up to `i*i <= n` runs in `O(sqrt N)` time."
+    },
+    {
+      "projectId": "SEG1_PRJ06",
+      "title": "Interactive ASCII Spatial Coordinate Pattern & Diamond Generator",
+      "difficulty": "Intermediate",
+      "description": "Computer graphics engines map 2D spatial coordinates to render procedural shapes. In this project, you will build an Interactive ASCII Pattern Generator in C. The application produces 4 procedural patterns: 1. Centered Isosceles Star Pyramid, 2. Symmetrical Diamond Pattern, 3. Floyd's Triangle of consecutive natural numbers, and 4. Pascal's Triangle of binomial coefficients.",
+      "learningOutcome": "Nested Loops, 2D Coordinate Geometry Mapping, Leading Space Algorithms & Binomial Coefficients",
+      "exampleText": "Pyramid: 5 Rows | Diamond: Radius 4 | Floyd: 5 Rows | Pascal: 6 Rows",
+      "exampleOutput": "--- [1] CENTERED ISOSCELES STAR PYRAMID (5 Rows) ---\n    *\n   ***\n  *****\n *******\n*********\n\n--- [3] FLOYD'S TRIANGLE (5 Rows) ---\n1   \n2   3   \n4   5   6   \n7   8   9   10  \n11  12  13  14  15",
+      "logicExplanation": "1. **Pyramid**: Row r has `N - r` leading spaces and `2 * r - 1` stars.\n2. **Diamond**: Combines upper pyramid with lower inverted pyramid.\n3. **Pascal**: Uses combination formula `val = val * (n - k) / (k + 1)`.",
+      "answerFile": "./answers/answer6.c",
+      "codeExplanation": "1. Nested outer row (r) and inner column (c) loops control 2D spatial coordinate printing.\n2. `printf(\"\\n\")` advances output line at outer loop completion."
+    },
+    {
+      "projectId": "SEG1_PRJ07",
+      "title": "Dynamic Function Pointer Command-Line Calculator & Math Dispatcher",
+      "difficulty": "Advanced",
+      "description": "Extensible C frameworks use function pointers to implement dynamic event callbacks and dispatch tables. In this project, you will construct a Dynamic Function Pointer Calculator & Math Dispatcher in C. You will implement standard math operations (add, subtract, multiply, divide with zero-check), declare a function pointer typedef (`typedef double (*MathFunc)(double, double)`), and build a Dispatch Table array of function pointers to execute mathematical operations dynamically via index.",
+      "learningOutcome": "Function Pointer Declaration, Typedef Aliases, Function Dispatch Tables & Dynamic Callback Invocation",
+      "exampleText": "Operands: A = 45.50, B = 12.20",
+      "exampleOutput": "=========================================================\n  DYNAMIC FUNCTION POINTER CALCULATOR & DISPATCH TABLE   \n=========================================================\nOperands: A = 45.50, B = 12.20\n\n  Operation 1: Addition (+)         -> Result:      57.70\n  Operation 2: Subtraction (-)      -> Result:      33.30\n  Operation 3: Multiplication (*)   -> Result:     555.10\n  Operation 4: Division (/)         -> Result:       3.73",
+      "logicExplanation": "1. **Typedef**: `typedef double (*MathFunc)(double, double)`.\n2. **Dispatch Table**: `MathFunc dispatchTable[] = { add, subtract, multiply, divide }`.\n3. **Invocation**: `dispatchTable[i](a, b)` executes target function dynamically.",
+      "answerFile": "./answers/answer7.c",
+      "codeExplanation": "1. Eliminates large switch-case blocks by utilizing O(1) array index dispatch.\n2. `divide()` performs input validation before dividing to prevent division-by-zero errors."
+    },
+    {
+      "projectId": "SEG1_PRJ08",
+      "title": "System Unit Converter & Storage Byte Calculator (Bytes, KB, MB, GB, TB)",
+      "difficulty": "Intermediate",
+      "description": "Operating system file managers process storage capacity conversions across binary byte prefixes (1024-based). In this project, you will build a System Unit Converter & Storage Byte Calculator in C. Given an input byte count using 64-bit unsigned integers (`uint64_t`), the program calculates and displays equivalent capacities in Bytes, Kilobytes (KB), Megabytes (MB), Gigabytes (GB), and Terabytes (TB) with high floating-point precision.",
+      "learningOutcome": "64-bit Integer Modifiers (`uint64_t`), Binary Shift Constants (1ULL << 30), High-Precision Floating-Point Conversions & Column Alignment",
+      "exampleText": "Inputs: 16 GB System RAM (17,179,869,184 Bytes), 512 GB SSD (549,755,813,888 Bytes)",
+      "exampleOutput": "--- [1] 16 GB SYSTEM RAM CAPACITY ---\nRaw Bytes: 17179869184 Bytes\n  \u2022 Kilobytes (KB) : 16777216.0000 KB\n  \u2022 Megabytes (MB) :    16384.0000 MB\n  \u2022 Gigabytes (GB) :       16.0000 GB\n  \u2022 Terabytes (TB) :        0.015625 TB",
+      "logicExplanation": "1. **Binary Constants**: `#define ONE_KB 1024ULL`, `#define ONE_MB (1024ULL * ONE_KB)`, etc.\n2. **Conversion**: `(double)bytes / ONE_GB`.\n3. **Format**: `%llu` for 64-bit integer printing, `%12.4f` for float alignments.",
+      "answerFile": "./answers/answer8.c",
+      "codeExplanation": "1. Using `1024ULL` constants prevents integer overflow during multiplication.\n2. `uint64_t` ensures compatibility with modern multi-terabyte storage volumes."
+    },
+    {
+      "projectId": "SEG1_PRJ09",
+      "title": "Modular Storage Class & State Counter Simulator (auto, static, register, extern)",
+      "difficulty": "Intermediate",
+      "description": "Understanding variable scope, lifetime, and linkage is vital for C systems programming. In this project, you will construct a Modular Storage Class & State Counter Simulator in C. The application declares variables across all 4 primary storage classes: `auto` (stack allocation), `static` (persistent state across function calls), `register` (CPU register hint), and `extern` / file-scope globals. You will execute multiple sequential function calls to demonstrate state persistence vs local automatic destruction.",
+      "learningOutcome": "Storage Class Specifiers (auto, register, static, extern), Scope & Lifetime Analysis, Stack vs Static Segment Allocation",
+      "exampleText": "Sequential Invocations: Call 1, Call 2, Call 3",
+      "exampleOutput": "FIRST FUNCTION INVOCATION:\n  Inside testStorageClasses() Call:\n    \u2022 localAuto   (Stack) : 11\n    \u2022 localStatic (Static): 2\n    \u2022 regCounter  (Reg)   : 1001\n    \u2022 globalCount (Global): 101\n\nSECOND FUNCTION INVOCATION:\n  Inside testStorageClasses() Call:\n    \u2022 localAuto   (Stack) : 11  [Re-initialized]\n    \u2022 localStatic (Static): 3  [Persisted!]\n    \u2022 regCounter  (Reg)   : 1001\n    \u2022 globalCount (Global): 102",
+      "logicExplanation": "1. **auto**: Re-allocated and re-initialized on every function call.\n2. **static**: Initialized once at program startup; retains value across calls.\n3. **global**: Visible across functions; persists for program duration.",
+      "answerFile": "./answers/answer9.c",
+      "codeExplanation": "1. Visually demonstrates the contrast between stack auto variables and static segment variables.\n2. Highlights state preservation without polluting global namespace."
+    },
+    {
+      "projectId": "SEG1_PRJ10",
+      "title": "Segment 1 Systems Capstone: Comprehensive Smart Utility Billing & Energy Tariff Engine",
+      "difficulty": "Advanced",
+      "description": "As the final Capstone Project for Segment 1, you will construct a production-grade Smart Utility Billing & Energy Tariff Engine in C. The system processes consumer electricity consumption, computes tiered energy slab charges (Slab 1: 0-100 units @ Rs 4.50; Slab 2: 101-200 units @ Rs 6.00; Slab 3: 201-400 units @ Rs 7.50; Slab 4: >400 units @ Rs 9.00), applies fixed meter charges (Rs 150.00), adds 18% GST, auto-generates sequential invoice reference numbers using static counters, and outputs a formatted commercial invoice receipt.",
+      "learningOutcome": "Complete Segment 1 Synthesis: Modular Functions, Struct Modeling, Progressive Slabs, Constants, Tax Math, Static Invoice Counters & Commercial Column Formatting",
+      "exampleText": "Consumer: Sukanta Hui | Previous Reading: 1450.0 kWh | Current Reading: 1835.0 kWh (385 units)",
+      "exampleOutput": "=============================================================\n   WEST BENGAL STATE ELECTRICITY UTILITY - BILL RECEIPT      \n   INVOICE REF NO: WBSEDCL/5001/2026                         \n=============================================================\nConsumer No      : 884102\nConsumer Name    : Sukanta Hui\nUnits Consumed   :     385.00 kWh\n-------------------------------------------------------------\nTARIFF BREAKDOWN:                          AMOUNT (INR)\n  \u2022 Energy Slab Charges                    :      2437.50\n  \u2022 Monthly Fixed Meter Charge             :       150.00\n  SUBTOTAL (Taxable Amount)                :      2587.50\n  \u2022 GST @ 18.00%                           :       465.75\n=============================================================\nTOTAL AMOUNT PAYABLE (INR)                 :      3053.25\n=============================================================",
+      "logicExplanation": "1. **Units Consumed**: `currentReading - previousReading`.\n2. **Tiered Tariff**: `calculateEnergyCharges(units)` computes cumulative slab costs.\n3. **Tax & Total**: `subtotal = energy + fixed`, `gst = subtotal * 0.18`, `total = subtotal + gst`.\n4. **Static Counter**: `invoiceCounter++` increments invoice ref number.",
+      "answerFile": "./answers/answer10.c",
+      "codeExplanation": "1. `ElectricityBill` struct stores all consumer readings, sub-costs, and final totals.\n2. `generateBill()` handles bill calculation, static invoice incrementing, and column formatting."
+    }
+  ]
+}
