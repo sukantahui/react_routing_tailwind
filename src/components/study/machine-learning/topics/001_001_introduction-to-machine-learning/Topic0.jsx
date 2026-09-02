@@ -21,6 +21,7 @@ const Topic0 = () => {
 
   // Floating Quick-Reference Modal State
   const [isSymbolModalOpen, setIsSymbolModalOpen] = useState(false);
+  const [isSymbolPillDismissed, setIsSymbolPillDismissed] = useState(false);
 
   // House Price Interactive Demo State
   const [demoSize, setDemoSize] = useState(1800);
@@ -124,23 +125,37 @@ const Topic0 = () => {
   ];
 
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-16 relative">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-16 relative">
       {/* ========================================================================= */}
-      {/* FLOATING QUICK-REFERENCE BUTTON */}
+      {/* FLOATING QUICK-REFERENCE BUTTON WITH DISMISS CLOSE BUTTON */}
       {/* ========================================================================= */}
-      <div className="fixed bottom-6 right-6 z-40">
-        <button
-          onClick={() => setIsSymbolModalOpen(true)}
-          className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold px-4 py-2.5 rounded-full shadow-2xl border border-purple-400/50 flex items-center gap-2.5 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40 group"
-          title="Open Math Symbol & Pronunciation Dictionary"
-        >
-          <span className="text-xl group-hover:rotate-12 transition-transform">🔣</span>
-          <span className="text-xs sm:text-sm font-bold tracking-wide">Math Symbol Dictionary</span>
-          <span className="bg-purple-950/80 text-[10px] font-mono px-2 py-0.5 rounded-full border border-purple-700">
-            {mathSymbolsData.length}
-          </span>
-        </button>
-      </div>
+      {!isSymbolPillDismissed && (
+        <div className="fixed bottom-24 right-5 sm:right-6 z-40 flex items-center group">
+          <div className="relative flex items-center">
+            <button
+              onClick={() => setIsSymbolModalOpen(true)}
+              className="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold pl-4 pr-11 py-2.5 rounded-full shadow-2xl border border-purple-400/50 flex items-center gap-2.5 cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-purple-500/40"
+              title="Open Math Symbol & Pronunciation Dictionary"
+            >
+              <span className="text-xl group-hover:rotate-12 transition-transform">🔣</span>
+              <span className="text-xs sm:text-sm font-bold tracking-wide">Math Symbol Dictionary</span>
+              <span className="bg-purple-950/80 text-[10px] font-mono px-2 py-0.5 rounded-full border border-purple-700">
+                {mathSymbolsData.length}
+              </span>
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsSymbolPillDismissed(true);
+              }}
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-purple-950/90 hover:bg-rose-600 text-purple-200 hover:text-white border border-purple-500/60 flex items-center justify-center text-xs font-bold transition-all cursor-pointer shadow-md"
+              title="Close Math Symbol pill button"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* ========================================================================= */}
       {/* QUICK-REFERENCE MODAL OVERLAY */}
@@ -281,8 +296,44 @@ const Topic0 = () => {
             <blockquote className="border-l-2 border-emerald-500 pl-3.5 py-1 text-sm text-slate-300 italic">
               &quot;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&quot;
             </blockquote>
-            <div className="bg-slate-900 p-2.5 rounded-lg border border-slate-800 text-xs font-mono text-emerald-300">
-              Condition: d P(T) / d E &gt; 0 (Monotonic improvement with empirical data)
+            <div className="bg-slate-900 p-3.5 rounded-xl border border-slate-800 space-y-3">
+              <div className="text-xs font-mono text-emerald-300 font-bold flex items-center justify-between border-b border-slate-800 pb-2 flex-wrap gap-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-slate-300 font-semibold">Condition:</span>
+                  <div className="inline-flex flex-col items-center text-center text-[11px] leading-none font-bold text-emerald-300 mx-1">
+                    <span className="border-b border-emerald-400/80 pb-0.5 px-1">d P(T)</span>
+                    <span className="pt-0.5 px-1">d E</span>
+                  </div>
+                  <span className="text-emerald-400 font-bold text-sm">&gt; 0</span>
+                </div>
+                <span className="text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/80 font-normal">
+                  Monotonic Empirical Learning Rate
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono text-slate-300">
+                <div className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                  <span className="text-emerald-400 font-bold block">P(T) — Performance Metric:</span>
+                  <span>Quantitative measure (Accuracy, F1-Score, RMSE) on specific task T.</span>
+                </div>
+                <div className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                  <span className="text-purple-400 font-bold block">E — Experience / Data:</span>
+                  <span>Volume of training observations, sample records, or iterations fed to the model.</span>
+                </div>
+                <div className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                  <div className="flex items-center gap-1 text-cyan-400 font-bold">
+                    <div className="inline-flex flex-col items-center text-center text-[10px] leading-none text-cyan-300">
+                      <span className="border-b border-cyan-400/80 pb-0.5 px-0.5">d P(T)</span>
+                      <span className="pt-0.5 px-0.5">d E</span>
+                    </div>
+                    <span>— Rate of Change:</span>
+                  </div>
+                  <span>Derivative (slope of learning curve) representing gain in performance per unit of added experience.</span>
+                </div>
+                <div className="bg-slate-950 p-2.5 rounded-lg border border-slate-800 space-y-1">
+                  <span className="text-amber-400 font-bold block">&gt; 0 — Positive Derivative:</span>
+                  <span>Ensures non-decreasing performance (monotonic improvement) without stagnation (=0) or degradation (&lt;0).</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -291,11 +342,15 @@ const Topic0 = () => {
         <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-3">
           <div className="flex justify-between items-center text-xs text-slate-400">
             <span className="font-semibold text-slate-300">Visual Blueprint: Tom Mitchell&apos;s Formal Learning Loop</span>
-            <span className="font-mono text-[11px] text-indigo-400">Closed-Loop Empirical Optimization</span>
+            <span className="font-mono text-[11px] text-indigo-400">Closed-Loop Empirical Optimization (E ➔ T ➔ P)</span>
           </div>
 
-          <svg viewBox="0 0 820 220" className="w-full h-auto max-h-56 bg-slate-900/80 rounded-lg p-2 border border-slate-800">
+          <svg viewBox="0 0 820 230" className="w-full h-auto max-h-60 bg-slate-900/80 rounded-lg p-2 border border-slate-800">
             <defs>
+              <linearGradient id={`${svgId1}-eGrad`} x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.1" />
+              </linearGradient>
               <linearGradient id={`${svgId1}-tGrad`} x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.25" />
                 <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.1" />
@@ -304,61 +359,57 @@ const Topic0 = () => {
                 <stop offset="0%" stopColor="#10b981" stopOpacity="0.25" />
                 <stop offset="100%" stopColor="#047857" stopOpacity="0.1" />
               </linearGradient>
-              <linearGradient id={`${svgId1}-eGrad`} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#6d28d9" stopOpacity="0.1" />
-              </linearGradient>
             </defs>
 
-            {/* Task Node */}
+            {/* 1. Experience Node (Left) */}
             <g>
-              <rect x="30" y="45" width="200" height="130" rx="10" fill={`url(#${svgId1}-tGrad)`} stroke="#3b82f6" strokeWidth="1.5" />
-              <text x="130" y="75" textAnchor="middle" fill="#60a5fa" fontSize="14" fontWeight="bold">Task (T)</text>
-              <text x="130" y="100" textAnchor="middle" fill="#cbd5e1" fontSize="11">The Concrete Problem</text>
-              <text x="130" y="125" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Exam Pass Prediction</text>
-              <text x="130" y="145" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Kolkata Flat Pricing (₹)</text>
-              <text x="130" y="165" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Retinopathy Diagnosis</text>
+              <rect x="30" y="45" width="200" height="130" rx="10" fill={`url(#${svgId1}-eGrad)`} stroke="#8b5cf6" strokeWidth="1.5" />
+              <text x="130" y="75" textAnchor="middle" fill="#c084fc" fontSize="14" fontWeight="bold">1. Experience (E)</text>
+              <text x="130" y="98" textAnchor="middle" fill="#cbd5e1" fontSize="11">Empirical Training Data</text>
+              <text x="130" y="122" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• Labeled Corpus D=(x,y)</text>
+              <text x="130" y="142" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• Historical Observations</text>
+              <text x="130" y="162" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• Sample Features Matrix X</text>
             </g>
 
-            {/* Arrow T → P */}
+            {/* Arrow 1: E → T */}
             <g>
-              <line x1="230" y1="110" x2="300" y2="110" stroke="#64748b" strokeWidth="2" strokeDasharray="4 2" />
-              <polygon points="305,110 295,105 295,115" fill="#64748b" />
-              <text x="265" y="100" textAnchor="middle" fill="#94a3b8" fontSize="9">Executes</text>
+              <line x1="230" y1="110" x2="300" y2="110" stroke="#a855f7" strokeWidth="2" />
+              <polygon points="305,110 295,105 295,115" fill="#a855f7" />
+              <text x="267" y="100" textAnchor="middle" fill="#c084fc" fontSize="9.5" fontWeight="bold">Feeds Data</text>
             </g>
 
-            {/* Performance Node */}
+            {/* 2. Task Node (Center) */}
             <g>
-              <rect x="310" y="45" width="200" height="130" rx="10" fill={`url(#${svgId1}-pGrad)`} stroke="#10b981" strokeWidth="1.5" />
-              <text x="410" y="75" textAnchor="middle" fill="#34d399" fontSize="14" fontWeight="bold">Performance (P)</text>
-              <text x="410" y="100" textAnchor="middle" fill="#cbd5e1" fontSize="11">Quantitative Metric</text>
-              <text x="410" y="125" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• Accuracy (%) / F1-Score</text>
-              <text x="410" y="145" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• Root Mean Sq Error (RMSE)</text>
-              <text x="410" y="165" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• AUC-ROC / Sensitivity</text>
+              <rect x="310" y="45" width="200" height="130" rx="10" fill={`url(#${svgId1}-tGrad)`} stroke="#3b82f6" strokeWidth="1.5" />
+              <text x="410" y="75" textAnchor="middle" fill="#60a5fa" fontSize="14" fontWeight="bold">2. Task (T)</text>
+              <text x="410" y="98" textAnchor="middle" fill="#cbd5e1" fontSize="11">Prediction Model h_θ(x)</text>
+              <text x="410" y="122" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Exam Pass Classifier</text>
+              <text x="410" y="142" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Housing Price Estimator</text>
+              <text x="410" y="162" textAnchor="middle" fill="#94a3b8" fontSize="9.5">• Medical Diagnosis Engine</text>
             </g>
 
-            {/* Arrow P → E */}
+            {/* Arrow 2: T → P */}
             <g>
-              <line x1="510" y1="110" x2="580" y2="110" stroke="#64748b" strokeWidth="2" strokeDasharray="4 2" />
-              <polygon points="585,110 575,105 575,115" fill="#64748b" />
-              <text x="545" y="100" textAnchor="middle" fill="#94a3b8" fontSize="9">Evaluates</text>
+              <line x1="510" y1="110" x2="580" y2="110" stroke="#3b82f6" strokeWidth="2" />
+              <polygon points="585,110 575,105 575,115" fill="#3b82f6" />
+              <text x="547" y="100" textAnchor="middle" fill="#60a5fa" fontSize="9.5" fontWeight="bold">Outputs ŷ</text>
             </g>
 
-            {/* Experience Node */}
+            {/* 3. Performance Node (Right) */}
             <g>
-              <rect x="590" y="45" width="200" height="130" rx="10" fill={`url(#${svgId1}-eGrad)`} stroke="#8b5cf6" strokeWidth="1.5" />
-              <text x="690" y="75" textAnchor="middle" fill="#c084fc" fontSize="14" fontWeight="bold">Experience (E)</text>
-              <text x="690" y="100" textAnchor="middle" fill="#cbd5e1" fontSize="11">Training Corpus / History</text>
-              <text x="690" y="125" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• Labeled Dataset D=(x,y)</text>
-              <text x="690" y="145" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• 50,000 Patient Scans</text>
-              <text x="690" y="165" textAnchor="middle" fill="#ddd6fe" fontSize="9.5">• 10M UPI Transaction Logs</text>
+              <rect x="590" y="45" width="200" height="130" rx="10" fill={`url(#${svgId1}-pGrad)`} stroke="#10b981" strokeWidth="1.5" />
+              <text x="690" y="75" textAnchor="middle" fill="#34d399" fontSize="14" fontWeight="bold">3. Performance (P)</text>
+              <text x="690" y="98" textAnchor="middle" fill="#cbd5e1" fontSize="11">Metric &amp; Loss Evaluation</text>
+              <text x="690" y="122" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• Accuracy (%) / F1-Score</text>
+              <text x="690" y="142" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• RMSE Loss L(θ)</text>
+              <text x="690" y="162" textAnchor="middle" fill="#a7f3d0" fontSize="9.5">• Rate: d P(T) / d E &gt; 0</text>
             </g>
 
-            {/* Feedback Loop Arc E → T */}
-            <path d="M 690 175 Q 410 225 130 175" fill="none" stroke="#a855f7" strokeWidth="2" strokeDasharray="5 3" />
-            <polygon points="125,175 137,170 135,180" fill="#a855f7" />
-            <text x="410" y="210" textAnchor="middle" fill="#e9d5ff" fontSize="10" fontWeight="bold">
-              Gradient Descent &amp; Parameter Updates (Iterative Learning)
+            {/* Feedback Arc P → E/T (Iterative Learning) */}
+            <path d="M 690 175 Q 410 225 130 175" fill="none" stroke="#10b981" strokeWidth="2" strokeDasharray="5 3" />
+            <polygon points="125,175 137,170 135,180" fill="#10b981" />
+            <text x="410" y="212" textAnchor="middle" fill="#34d399" fontSize="10" fontWeight="bold">
+              3. Loss Evaluation L(θ) &amp; Gradient Descent Parameter Updates (Closed-Loop Learning)
             </text>
           </svg>
         </div>

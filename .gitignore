@@ -35,3 +35,6 @@ bin/
 target/
 *.class
 
+# Generated CSS files
+output.css
+**/output.css

@@ -235,6 +235,11 @@ function StudyTrackRoute({
   useEffect(() => {
     let isMounted = true;
 
+    // Reset state for new subject before fetching
+    setRoadmapData(roadmapCache.get(subjectKey) || null);
+    setTopicModules(null);
+    setError(null);
+
     const fetchRoadmap = roadmapCache.has(subjectKey)
       ? Promise.resolve(roadmapCache.get(subjectKey))
       : loadRoadmap().then((module) => {
@@ -287,13 +292,14 @@ function StudyTrackRoute({
   }
 
   if (view === 'roadmap') {
-    return <StudyRoadmap roadmapData={roadmapData} subjectKey={subjectKey} />;
+    return <StudyRoadmap key={subjectKey} roadmapData={roadmapData} subjectKey={subjectKey} />;
   }
   if (view === 'module') {
-    return <StudyModuleView roadmapData={roadmapData} subjectKey={subjectKey} />;
+    return <StudyModuleView key={`${subjectKey}-module`} roadmapData={roadmapData} subjectKey={subjectKey} />;
   }
   return (
     <StudyTopicView
+      key={`${subjectKey}-topic`}
       roadmapData={roadmapData}
       subjectKey={subjectKey}
       topicModules={topicModules}

@@ -285,6 +285,41 @@ export default function StudyRoadmap({ roadmapData, subjectKey }) {
     };
   }, [roadmapData, LAST_VISITED_KEY, resolveActiveSegmentId]);
 
+  // Re-sync active and expanded segments whenever subjectKey or roadmapData changes
+  useEffect(() => {
+    setSearch("");
+    setSelectedSegment("all");
+    setDifficultyFilter("all");
+    setStatusFilter("all");
+    setExpandedTopics({});
+
+    let initId = null;
+    try {
+      const stored = localStorage.getItem(LAST_VISITED_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        setLastVisited(parsed);
+        initId = resolveActiveSegmentId(parsed);
+      } else {
+        setLastVisited(null);
+      }
+    } catch {
+      setLastVisited(null);
+    }
+
+    if (!initId) {
+      initId = roadmapData?.segments?.[0]?.segmentId || null;
+    }
+
+    setActiveSegmentId(initId);
+
+    const map = {};
+    (roadmapData?.segments || []).forEach(seg => {
+      map[seg.segmentId] = seg.segmentId === initId;
+    });
+    setExpandedSegments(map);
+  }, [storageSubject, roadmapData, LAST_VISITED_KEY, resolveActiveSegmentId]);
+
   const isLoggedIn = useCallback(() => {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
