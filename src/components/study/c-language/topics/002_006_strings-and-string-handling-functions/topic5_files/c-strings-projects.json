@@ -1,0 +1,124 @@
+{
+  "projectCategory": "Module 002_006 · Strings & Text Processing Suite",
+  "subject": "C Programming & Systems Fundamentals",
+  "board": "WBCHSE / ICSE / CBSE / BCA / B.Tech / Gate",
+  "class": "High School / Undergraduate / Systems Engineering",
+  "tools": ["GCC Compiler", "VS Code", "GDB Debugger"],
+  "institute": {
+    "name": "Coder & AccoTax",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal"
+  },
+  "projects": [
+    {
+      "projectId": "P6.1",
+      "title": "Text Anagram & Phrase Palindrome Verifier",
+      "difficulty": "Intermediate",
+      "description": "Write a C program that checks if two words are anagrams and whether a phrase with spaces and punctuation is a palindrome.",
+      "exampleText": "Words: 'Listen' vs 'Silent', Phrase: 'A man, a plan, a canal: Panama'",
+      "exampleOutput": "Anagram Check: YES (Anagrams)\nPalindrome Check: YES (Palindrome)",
+      "logicExplanation": "1. Maintain 26-element frequency count for anagram checking.\n2. Use two-pointer scan skipping non-alphanumeric characters for phrase palindrome verification.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer1.c",
+      "codeExplanation": "Demonstrates case normalization, character filtering via <ctype.h>, and symmetric two-pointer array scanning."
+    },
+    {
+      "projectId": "P6.2",
+      "title": "Custom String Library Suite",
+      "difficulty": "Intermediate",
+      "description": "Re-implement strlen, strcpy, strcat, and strcmp from scratch using pure pointer arithmetic without including <string.h>.",
+      "exampleText": "custom_strcpy(buf, 'Coder & AccoTax, '); custom_strcat(buf, 'Barrackpore');",
+      "exampleOutput": "Result Buffer: 'Coder & AccoTax, Barrackpore'\nLength: 28\nComparison: -1",
+      "logicExplanation": "1. Pointer dereferencing and incrementation until '\\0' byte.\n2. Proper return pointer mechanics and null termination.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer2.c",
+      "codeExplanation": "Implements core systems utilities using idiomatic C pointer syntax."
+    },
+    {
+      "projectId": "P6.3",
+      "title": "Word Frequency, Vowel, Consonant & Digit Analyzer",
+      "difficulty": "Intermediate",
+      "description": "Parse a paragraph string and count the number of words, vowels, consonants, digits, whitespace, and special symbols.",
+      "exampleText": "Input: 'Barrackpore Pin Code is 700120! Learning C Language in 2026.'",
+      "exampleOutput": "Words: 10, Vowels: 17, Consonants: 22, Digits: 10, Spaces: 9, Special: 2",
+      "logicExplanation": "1. Character categorization using isalpha, isdigit, isspace.\n2. State variable inWord tracking word transition boundaries.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer3.c",
+      "codeExplanation": "Demonstrates text parsing, state machines, and character classification in C."
+    },
+    {
+      "projectId": "P6.4",
+      "title": "Caesar Cipher Encryption & Decryption Engine",
+      "difficulty": "Intermediate",
+      "description": "Encrypt and decrypt confidential text messages by cyclically shifting alphabetic characters by K positions.",
+      "exampleText": "Message: 'Attack at Dawn from Barrackpore!', Shift: 3",
+      "exampleOutput": "Encrypted Cipher : 'Dwwdfn dw Gdzq iurp Eduudfnsruh!'\nDecrypted Plain  : 'Attack at Dawn from Barrackpore!'",
+      "logicExplanation": "1. Modulo 26 cyclic arithmetic for uppercase ('A' to 'Z') and lowercase ('a' to 'z').\n2. Decrypt by shifting with (26 - shift % 26).",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer4.c",
+      "codeExplanation": "Demonstrates cryptographic substitution algorithms, ASCII normalization, and wraparound modulo arithmetic."
+    },
+    {
+      "projectId": "P6.5",
+      "title": "Run-Length String Compression Engine",
+      "difficulty": "Intermediate",
+      "description": "Compress repeating sequences of characters in a string into character-count pairs (e.g. 'wwwwaaadexxxxxxywww' -> 'w4a3d1e1x6y1w3').",
+      "exampleText": "Input: 'wwwwaaadexxxxxxywww'",
+      "exampleOutput": "RLE Compressed: 'w4a3d1e1x6y1w3'",
+      "logicExplanation": "1. Count consecutive identical characters in a while loop.\n2. Format character and count into destination buffer using sprintf.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer5.c",
+      "codeExplanation": "Demonstrates lossless compression algorithms and bounded string formatting."
+    },
+    {
+      "projectId": "P6.6",
+      "title": "Substring Find and Replace Engine",
+      "difficulty": "Hard",
+      "description": "Replace all occurrences of a target substring with a replacement string in an input text paragraph.",
+      "exampleText": "Text: 'The student lives in Naihati. The student studies at Barrackpore.', Find: 'The student', Replace: 'Swadeep'",
+      "exampleOutput": "Replaced Text: 'Swadeep lives in Naihati. Swadeep studies at Barrackpore.'",
+      "logicExplanation": "1. Use strncmp to detect substring matches.\n2. Copy replacement string and advance source pointer accordingly.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer6.c",
+      "codeExplanation": "Demonstrates complex string memory copying, offset math, and pattern replacement."
+    },
+    {
+      "projectId": "P6.7",
+      "title": "Longest Word Extractor from Text Paragraph",
+      "difficulty": "Intermediate",
+      "description": "Find and extract the longest word from a sentence and report its length.",
+      "exampleText": "Paragraph: 'Mastering C systems programming and architectural memory layouts in Barrackpore.'",
+      "exampleOutput": "Longest Word: 'architectural' (Length: 13 characters)",
+      "logicExplanation": "1. Track word boundaries (start and current length) using isalnum.\n2. Update maxLen and maxStart when word exceeds previous record.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer7.c",
+      "codeExplanation": "Demonstrates word tokenization and substring extraction via strncpy."
+    },
+    {
+      "projectId": "P6.8",
+      "title": "Password Strength & Complexity Evaluator",
+      "difficulty": "Intermediate",
+      "description": "Evaluate password security based on length >= 8, uppercase letters, lowercase letters, digits, and special symbols.",
+      "exampleText": "Passwords: 'Admin123!', 'pass', 'SukantaHui@2026'",
+      "exampleOutput": "Score: 5/5 -> EXCELLENT (Strong Security)",
+      "logicExplanation": "1. Iterate characters checking boolean flags for uppercase, lowercase, digit, and special symbols.\n2. Compute score out of 5.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer8.c",
+      "codeExplanation": "Demonstrates character property evaluation for security verification."
+    },
+    {
+      "projectId": "P6.9",
+      "title": "Lexicographical Dictionary Sorter for Names",
+      "difficulty": "Intermediate",
+      "description": "Sort an array of student names in alphabetical order using strcmp and O(1) pointer swaps.",
+      "exampleText": "Names: ['Tuhina Paul', 'Swadeep Mukherjee', 'Abhronila Das', 'Debangshu Roy', 'Arindam Hui']",
+      "exampleOutput": "1. Abhronila Das, 2. Arindam Hui, 3. Debangshu Roy, 4. Swadeep Mukherjee, 5. Tuhina Paul",
+      "logicExplanation": "1. Compare names with strcmp.\n2. Swap 8-byte pointer addresses directly to avoid buffer copying.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer9.c",
+      "codeExplanation": "Demonstrates high-performance pointer sorting on string collections."
+    },
+    {
+      "projectId": "P6.10",
+      "title": "Roman Numerals to Decimal Integer Converter",
+      "difficulty": "Intermediate",
+      "description": "Convert Roman numeral strings (e.g. 'MCMXCIV') to standard decimal integers (1994).",
+      "exampleText": "Roman Numerals: 'XIV', 'MCMXCIV', 'MMXXVI'",
+      "exampleOutput": "Roman XIV = 14\nRoman MCMXCIV = 1994\nRoman MMXXVI = 2026",
+      "logicExplanation": "1. Map Roman chars to values (I=1, V=5, X=10, L=50, C=100, D=500, M=1000).\n2. If current value < next value, subtract current from next (e.g. IV = 4); else add.",
+      "answerFile": "src/components/study/c-language/topics/002_006_strings-and-string-handling-functions/topic5_files/answers/answer10.c",
+      "codeExplanation": "Demonstrates parsing subtraction rules in historical numbering systems."
+    }
+  ]
+}

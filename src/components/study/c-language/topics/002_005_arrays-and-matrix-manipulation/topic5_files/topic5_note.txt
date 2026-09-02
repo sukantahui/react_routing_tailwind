@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_005: Arrays, Matrix Operations & Searching/Sorting
+TOPIC 5: Hands-on C Projects & Solutions Suite
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. PROJECT SUITE HIGHLIGHTS
+--------------------------------------------------------------------------------
+- Project 1: Matrix Multiplication with Dimension Compatibility Validation.
+- Project 2: Student Marksheet Ranking, Selection Sort, Mean and Median.
+- Project 3: 3-Step In-Place Array Reversal and Right Rotation by K steps.
+- Project 4: Subarray with Given Sum (Sliding Window Algorithm).
+- Project 5: 4-Boundary Spiral Matrix Traversal Engine.
+- Project 6: Matrix Transpose & Triangular Symmetry Check.
+- Project 7: Second Largest and Smallest in Single Pass O(n).
+- Project 8: Array Frequency Counting and Duplicate Filtering.
+- Project 9: Minimax Saddle Point Detection in 2D Matrices.
+- Project 10: Polynomial Arithmetic & Representation in 1D Arrays.
+
+2. ENGINEERING TAKEAWAY
+--------------------------------------------------------------------------------
+[✓] Master both 1D and 2D contiguous index transformations.
+[✓] Avoid auxiliary buffers; prioritize O(1) in-place algorithms.
+[✓] Maintain matrix dimensional guards before entering nested compute loops.
+================================================================================

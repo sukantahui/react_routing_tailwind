@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 8: Advantages, Limitations & Engineering Trade-Offs
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. MAJOR ADVANTAGES OF K-MEDOIDS
+--------------------------------------------------------------------------------
+[✓] High Breakdown Point (Outlier Immunity): Resistant to up to 50% data corruption.
+[✓] Arbitrary Metric Compatibility: Works on Manhattan, Cosine, Jaccard, or graph distances.
+[✓] 100% Real Exemplar Interpretability: Medoid is an actual observed dataset row.
+[✓] Discrete / Categorical Data Friendly: No floating-point coordinate averaging required.
+[✓] Deterministic Partitions: Less prone to degenerate empty clusters than K-Means.
+
+2. MAJOR LIMITATIONS & REMEDIES
+--------------------------------------------------------------------------------
+[!] Quadratic Memory Overhead: Precomputing N x N distance matrix requires O(N^2) RAM.
+    -> Remedy: Compute distances on-the-fly or use FastPAM.
+[!] Slower Runtime on Large N: PAM evaluates O(K(N-K)^2) candidate swaps.
+    -> Remedy: Use CLARA (Sampling PAM) or CLARANS for datasets with N > 10,000.
+[!] Spherical Cluster Shape Bias: Like K-Means, struggles on arbitrary manifold shapes.
+    -> Remedy: Use DBSCAN or Spectral Clustering for arbitrary complex shapes.
+[!] Requires Pre-Specifying K: Number of clusters must be chosen beforehand.
+    -> Remedy: Use Silhouette Analysis or the Elbow Method to find optimal K.
+================================================================================

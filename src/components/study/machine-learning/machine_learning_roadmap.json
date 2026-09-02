@@ -8,7 +8,7 @@
     "author": "Sukanta Hui",
     "location": "Barrackpore, West Bengal, India",
     "trackType": "Machine Learning Tutorial",
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
   "folder": "machine-learning",
   "subject": "Introduction to Machine Learning",
@@ -735,6 +735,601 @@
           "difficulty": "Advanced"
         }
       ]
+    },
+    {
+      "segmentId": "advanced-ml-algorithms",
+      "title": "Segment 6 – Advanced Machine Learning Algorithms",
+      "level": "Intermediate-Advanced",
+      "allocatedHours": 8,
+      "modules": [
+        {
+          "moduleId": "k-medoids-clustering",
+          "slug": "006_001_k-medoids-clustering",
+          "title": "K-Medoids Clustering",
+          "estimatedHours": 1,
+          "topics": [
+            "K-Medoids clustering concept",
+            "Medoid and centroid comparison",
+            "Distance-based clustering",
+            "K-Medoids algorithm",
+            "Cluster assignment",
+            "Medoid selection and update",
+            "Iteration and convergence",
+            "K-Means vs K-Medoids",
+            "Advantages and limitations",
+            "Worked Example 1: K-Medoids with a small dataset",
+            "Numerical Exercises",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the K-Medoids clustering approach",
+            "Identify the role of a medoid",
+            "Apply the basic K-Medoids procedure",
+            "Compare K-Medoids with K-Means"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "hierarchical-clustering",
+          "slug": "006_002_hierarchical-clustering",
+          "title": "Hierarchical Clustering",
+          "estimatedHours": 1,
+          "topics": [
+            "Hierarchical clustering concept",
+            "Agglomerative clustering",
+            "Divisive clustering",
+            "Distance between observations",
+            "Linkage concept",
+            "Single linkage",
+            "Complete linkage",
+            "Average linkage",
+            "Dendrogram",
+            "Interpreting a dendrogram",
+            "Choosing clusters from a dendrogram",
+            "Worked Example 1: Agglomerative clustering",
+            "Worked Example 2: Constructing a simple dendrogram",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain hierarchical clustering",
+            "Differentiate agglomerative and divisive approaches",
+            "Interpret a dendrogram",
+            "Explain common linkage approaches"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "density-based-clustering",
+          "slug": "006_003_density-based-clustering",
+          "title": "Density-Based Clustering",
+          "estimatedHours": 1,
+          "topics": [
+            "Density-based clustering concept",
+            "DBSCAN",
+            "Epsilon (ε)",
+            "MinPts",
+            "Core point",
+            "Border point",
+            "Noise point",
+            "Cluster formation",
+            "Density-based neighborhood",
+            "DBSCAN algorithm workflow",
+            "DBSCAN vs K-Means",
+            "Advantages and limitations",
+            "Worked Example 1: Identifying core, border and noise points",
+            "Worked Example 2: Simple DBSCAN clustering",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain density-based clustering",
+            "Describe the role of ε and MinPts",
+            "Identify core, border and noise points",
+            "Compare DBSCAN with K-Means"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "perceptron",
+          "slug": "006_004_perceptron",
+          "title": "Perceptron",
+          "estimatedHours": 1,
+          "topics": [
+            "Perceptron concept",
+            "Artificial neuron",
+            "Inputs and features",
+            "Weights",
+            "Bias",
+            "Activation",
+            "Perceptron output",
+            "Perceptron learning rule",
+            "Training process",
+            "Decision boundary",
+            "Linearly separable data",
+            "Limitations of the Perceptron",
+            "Worked Example 1: Perceptron classification",
+            "Worked Example 2: Weight update",
+            "Numerical Exercises",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the structure of a perceptron",
+            "Apply the basic perceptron learning rule",
+            "Interpret weights, bias and decision boundary",
+            "Recognize the limitation of linear separability"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "polynomial-ridge-lasso-regularization",
+          "slug": "006_005-polynomial-ridge-lasso-and-regularization",
+          "title": "Polynomial Regression, Ridge, Lasso and Regularization",
+          "estimatedHours": 2,
+          "topics": [
+            "Polynomial regression",
+            "Polynomial features",
+            "Polynomial degree",
+            "Polynomial model fitting",
+            "Polynomial prediction",
+            "Model complexity",
+            "Ridge regression",
+            "L2 regularization",
+            "Lasso regression",
+            "L1 regularization",
+            "Regularization parameter",
+            "Effect of regularization on model coefficients",
+            "Feature selection using Lasso",
+            "Ridge vs Lasso",
+            "Regularization and overfitting",
+            "Worked Example 1: Polynomial regression",
+            "Worked Example 2: Ridge regression",
+            "Worked Example 3: Lasso regression",
+            "Numerical Exercises",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain polynomial regression",
+            "Explain the purpose of Ridge and Lasso regression",
+            "Differentiate L1 and L2 regularization",
+            "Interpret the effect of regularization on model complexity"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "support-vector-machine",
+          "slug": "006_006-support-vector-machine-svm",
+          "title": "Support Vector Machine (SVM)",
+          "estimatedHours": 1,
+          "topics": [
+            "Support Vector Machine concept",
+            "Hyperplane",
+            "Decision boundary",
+            "Margin",
+            "Support vectors",
+            "Maximum-margin classification",
+            "Hard-margin concept",
+            "Soft-margin concept",
+            "C parameter",
+            "Linear SVM",
+            "Nonlinear classification",
+            "Kernel concept",
+            "Linear kernel",
+            "Polynomial kernel",
+            "RBF kernel",
+            "Worked Example 1: Identifying support vectors",
+            "Worked Example 2: Linear SVM classification",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the main idea of SVM",
+            "Identify hyperplanes, margins and support vectors",
+            "Describe hard-margin and soft-margin concepts",
+            "Explain the purpose of kernels"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "relevance-vector-machine",
+          "slug": "006_007-relevance-vector-machine-rvm",
+          "title": "Relevance Vector Machine (RVM)",
+          "estimatedHours": 1,
+          "topics": [
+            "Relevance Vector Machine concept",
+            "Probabilistic learning",
+            "Sparse Bayesian learning",
+            "Relevance vectors",
+            "RVM for classification",
+            "RVM for regression",
+            "Sparsity concept",
+            "Advantages of RVM",
+            "Limitations of RVM",
+            "RVM vs SVM",
+            "Worked Example 1: Conceptual RVM classification",
+            "Comparison Exercise: RVM and SVM",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the basic idea of RVM",
+            "Describe sparse Bayesian learning in RVM",
+            "Explain relevance vectors",
+            "Compare RVM and SVM at a conceptual level"
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "deep-learning",
+      "title": "Segment 7 – Deep Learning",
+      "level": "Advanced",
+      "allocatedHours": 10,
+      "modules": [
+        {
+          "moduleId": "deep-learning-introduction",
+          "slug": "007_001-introduction-to-deep-learning",
+          "title": "Introduction to Deep Learning",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to Deep Learning",
+            "Machine Learning vs Deep Learning",
+            "Neural networks",
+            "Representation learning",
+            "Deep learning workflow",
+            "Applications of Deep Learning",
+            "Role of data and computation"
+          ],
+          "learningOutcomes": [
+            "Explain the basic concept of Deep Learning",
+            "Differentiate Machine Learning and Deep Learning",
+            "Identify common Deep Learning applications"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "bayesian-learning-decision-surfaces",
+          "slug": "007_002-bayesian-learning-and-decision-surfaces",
+          "title": "Bayesian Learning and Decision Surfaces",
+          "estimatedHours": 1,
+          "topics": [
+            "Bayesian learning concept",
+            "Prior probability",
+            "Likelihood",
+            "Posterior probability",
+            "Bayesian decision concept",
+            "Decision surfaces",
+            "Linear decision surfaces",
+            "Nonlinear decision surfaces",
+            "Classification boundaries",
+            "Worked Example 1: Bayesian decision concept",
+            "Worked Example 2: Interpreting a decision surface",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the basic idea of Bayesian learning",
+            "Differentiate prior, likelihood and posterior",
+            "Interpret simple linear and nonlinear decision surfaces"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "activation-functions",
+          "slug": "007_003-activation-functions",
+          "title": "Activation Functions",
+          "estimatedHours": 1,
+          "topics": [
+            "Need for activation functions",
+            "Step function",
+            "Sigmoid function",
+            "Tanh function",
+            "ReLU function",
+            "Softmax function",
+            "Function ranges",
+            "Activation function selection",
+            "Comparison of activation functions",
+            "Worked Example 1: Calculating activation output",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain why activation functions are used",
+            "Describe common activation functions",
+            "Compare Sigmoid, Tanh, ReLU and Softmax"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "linear-classifiers-hinge-loss",
+          "slug": "007_004-linear-classifiers-and-hinge-loss",
+          "title": "Linear Classifiers and Hinge Loss",
+          "estimatedHours": 1,
+          "topics": [
+            "Linear classifier concept",
+            "Linear decision function",
+            "Decision boundary",
+            "Margin-based classification",
+            "Hinge loss",
+            "Hinge loss intuition",
+            "Relationship between hinge loss and SVM",
+            "Worked Example 1: Hinge loss calculation",
+            "Worked Example 2: Margin interpretation",
+            "Numerical Exercises",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain linear classification",
+            "Calculate hinge loss for simple examples",
+            "Relate hinge loss to margin-based classification"
+          ],
+          "difficulty": "Medium-Advanced"
+        },
+        {
+          "moduleId": "gradient-descent-optimization",
+          "slug": "007_005-gradient-descent-and-optimization",
+          "title": "Gradient Descent and Optimization",
+          "estimatedHours": 2,
+          "topics": [
+            "Optimization concept",
+            "Loss function",
+            "Objective function",
+            "Gradient concept",
+            "Gradient descent",
+            "Learning rate",
+            "Weight update",
+            "Batch gradient descent",
+            "Stochastic gradient descent",
+            "Mini-batch gradient descent",
+            "Batch optimization",
+            "Convergence",
+            "Effect of learning rate",
+            "Worked Example 1: One gradient descent update",
+            "Worked Example 2: Learning rate comparison",
+            "Numerical Exercises",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain optimization in model training",
+            "Describe gradient descent and its variants",
+            "Perform a simple gradient descent update",
+            "Explain the role of learning rate"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "neural-networks",
+          "slug": "007_006-neural-networks",
+          "title": "Introduction to Neural Networks",
+          "estimatedHours": 1,
+          "topics": [
+            "Artificial neuron",
+            "Weights",
+            "Bias",
+            "Input layer",
+            "Hidden layer",
+            "Output layer",
+            "Neural network architecture",
+            "Forward propagation",
+            "Weighted sum",
+            "Activation",
+            "Prediction",
+            "Worked Example 1: Forward pass through a neuron",
+            "Worked Example 2: Simple neural network prediction",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Identify the components of a neural network",
+            "Explain forward propagation",
+            "Calculate the output of a simple neuron"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "multilayer-perceptron",
+          "slug": "007_007-multilayer-perceptron",
+          "title": "Multilayer Perceptron",
+          "estimatedHours": 1,
+          "topics": [
+            "Multilayer Perceptron concept",
+            "MLP architecture",
+            "Input, hidden and output layers",
+            "Multiple hidden neurons",
+            "Activation functions in MLP",
+            "Forward propagation in MLP",
+            "Loss calculation",
+            "Classification using MLP",
+            "Worked Example 1: MLP forward pass",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain MLP architecture",
+            "Describe forward propagation through multiple layers",
+            "Explain how MLP can model nonlinear relationships"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "backpropagation",
+          "slug": "007_008-backpropagation-learning",
+          "title": "Backpropagation Learning",
+          "estimatedHours": 1,
+          "topics": [
+            "Backpropagation concept",
+            "Training error",
+            "Error propagation",
+            "Chain rule concept",
+            "Gradient calculation",
+            "Weight updates",
+            "Bias updates",
+            "Backpropagation training cycle",
+            "Worked Example 1: Simple backpropagation calculation",
+            "Worked Example 2: Weight update concept",
+            "Numerical Exercises",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose of backpropagation",
+            "Describe how gradients are propagated through a network",
+            "Explain weight updates during neural network training"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "tensorflow-keras",
+          "slug": "007_009-tensorflow-and-keras",
+          "title": "TensorFlow and Keras",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to TensorFlow",
+            "Introduction to Keras",
+            "Tensor concept",
+            "Dataset preparation",
+            "Model architecture",
+            "Layers",
+            "Activation functions",
+            "Loss functions",
+            "Optimizers",
+            "Model compilation",
+            "Training",
+            "Validation",
+            "Evaluation",
+            "Basic neural network implementation",
+            "Coding Exercise 1: Build a simple Keras model",
+            "Coding Exercise 2: Train and evaluate a classifier"
+          ],
+          "learningOutcomes": [
+            "Explain the roles of TensorFlow and Keras",
+            "Build a basic neural network model",
+            "Train and evaluate a simple Deep Learning model"
+          ],
+          "difficulty": "Advanced"
+        }
+      ]
+    },
+    {
+      "segmentId": "signal-processing",
+      "title": "Segment 8 – Signal Processing and CNN",
+      "level": "Advanced",
+      "allocatedHours": 6,
+      "modules": [
+        {
+          "moduleId": "signal-processing-fundamentals",
+          "slug": "008_001-signal-processing-fundamentals",
+          "title": "Signal Processing Fundamentals",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to signal processing",
+            "Signal concept",
+            "Continuous signals",
+            "Discrete signals",
+            "Time-domain representation",
+            "Frequency-domain representation",
+            "Signal analysis in Machine Learning",
+            "Applications of signal processing"
+          ],
+          "learningOutcomes": [
+            "Explain the basic concept of a signal",
+            "Differentiate continuous and discrete signals",
+            "Distinguish time-domain and frequency-domain representations"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "fast-fourier-transform",
+          "slug": "008_002-fast-fourier-transform-fft",
+          "title": "Fast Fourier Transform (FFT)",
+          "estimatedHours": 2,
+          "topics": [
+            "Fourier Transform concept",
+            "Time-domain and frequency-domain relationship",
+            "Frequency components",
+            "Discrete Fourier Transform",
+            "Fast Fourier Transform",
+            "FFT concept and workflow",
+            "Frequency spectrum",
+            "Interpreting FFT output",
+            "Applications of FFT",
+            "Worked Example 1: Frequency components of a simple signal",
+            "Worked Example 2: FFT-based signal analysis",
+            "Numerical Exercises",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose of FFT",
+            "Identify frequency components in a signal",
+            "Interpret a basic frequency spectrum"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "convolutional-neural-networks",
+          "slug": "008_003-convolutional-neural-networks-cnns",
+          "title": "Convolutional Neural Networks (CNNs)",
+          "estimatedHours": 2,
+          "topics": [
+            "CNN concept",
+            "Image representation",
+            "Convolution operation",
+            "Kernel and filter",
+            "Feature map",
+            "Stride",
+            "Padding",
+            "Pooling",
+            "Fully connected layer",
+            "CNN architecture",
+            "Feature extraction",
+            "Image classification",
+            "CNN and signal/image processing",
+            "Worked Example 1: Basic convolution operation",
+            "Worked Example 2: Simple CNN architecture",
+            "Coding Exercise: Build a basic CNN"
+          ],
+          "learningOutcomes": [
+            "Explain the structure of a CNN",
+            "Describe convolution, filtering and pooling",
+            "Explain how CNNs extract features",
+            "Build or interpret a basic CNN model"
+          ],
+          "difficulty": "Advanced"
+        },
+        {
+          "moduleId": "impulse-and-ramp-functions",
+          "slug": "008_004-impulse-and-ramp-functions",
+          "title": "Impulse Function and Ramp Function",
+          "estimatedHours": 1,
+          "topics": [
+            "Unit impulse function",
+            "Impulse response",
+            "Properties of the impulse function",
+            "Applications of impulse functions",
+            "Ramp function",
+            "Mathematical representation of ramp function",
+            "Properties of the ramp function",
+            "Applications of ramp functions",
+            "Relationship between basic signal functions",
+            "Worked Example 1: Unit impulse representation",
+            "Worked Example 2: Ramp signal representation",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Define the impulse function",
+            "Explain impulse response",
+            "Define and represent a ramp function",
+            "Identify basic applications of impulse and ramp signals"
+          ],
+          "difficulty": "Medium"
+        }
+      ]
     }
   ],
   "courseOutcomes": [
@@ -824,7 +1419,27 @@
     "overfitting-underfitting",
     "model-comparison",
     "ml-applications",
-    "ml-mini-project"
+    "ml-mini-project",
+    "k-medoids-clustering",
+    "hierarchical-clustering",
+    "density-based-clustering",
+    "perceptron",
+    "polynomial-ridge-lasso-regularization",
+    "support-vector-machine",
+    "relevance-vector-machine",
+    "deep-learning-introduction",
+    "bayesian-learning-decision-surfaces",
+    "activation-functions",
+    "linear-classifiers-hinge-loss",
+    "gradient-descent-optimization",
+    "neural-networks",
+    "multilayer-perceptron",
+    "backpropagation",
+    "tensorflow-keras",
+    "signal-processing-fundamentals",
+    "fast-fourier-transform",
+    "convolutional-neural-networks",
+    "impulse-and-ramp-functions"
   ],
   "assessment": {
     "type": "Concepts + Numerical Problems + Coding Exercises + Module Tests + Mini Project",
@@ -847,5 +1462,64 @@
     "Applied Machine Learning Solutions with Python, Siddhanta Bhatta, BPB Publications (2022).",
     "Introduction to Machine Learning with Python: A Guide for Data Scientists, Andreas C. Müller & Sarah Guido, Shroff Publishers (2016).",
     "Data Science and Machine Learning Using Python, Reema Thareja, McGraw Hill India."
-  ]
+  ],
+  "extendedCourseOutcomes": [
+    {
+      "code": "ECO1",
+      "description": "Apply advanced clustering and classification algorithms including K-Medoids, Hierarchical Clustering, Density-Based Clustering, Perceptron, and Support Vector Machines.",
+      "mappedSegments": [
+        "advanced-ml-algorithms"
+      ],
+      "learningLevels": [
+        "K3",
+        "K4"
+      ]
+    },
+    {
+      "code": "ECO2",
+      "description": "Explain regularized and probabilistic machine learning methods including Polynomial Regression, Ridge, Lasso, SVM, and Relevance Vector Machine.",
+      "mappedSegments": [
+        "advanced-ml-algorithms"
+      ],
+      "learningLevels": [
+        "K2",
+        "K4"
+      ]
+    },
+    {
+      "code": "ECO3",
+      "description": "Explain and implement fundamental Deep Learning concepts including activation functions, gradient descent, neural networks, multilayer perceptrons, backpropagation, TensorFlow, and Keras.",
+      "mappedSegments": [
+        "deep-learning"
+      ],
+      "learningLevels": [
+        "K2",
+        "K3",
+        "K4"
+      ]
+    },
+    {
+      "code": "ECO4",
+      "description": "Apply basic signal processing and convolutional neural network concepts including FFT, CNNs, impulse functions, and ramp functions.",
+      "mappedSegments": [
+        "signal-processing"
+      ],
+      "learningLevels": [
+        "K2",
+        "K3",
+        "K4"
+      ]
+    }
+  ],
+  "roadmapExtension": {
+    "purpose": "Extend the original five segments to cover the additional topics present in the supplied university Machine Learning syllabus.",
+    "originalSegmentsPreserved": true,
+    "newSegments": [
+      "advanced-ml-algorithms",
+      "deep-learning",
+      "signal-processing"
+    ],
+    "additionalAllocatedHours": 24,
+    "note": "The original five segments and their contents are preserved. The additional 24 hours represent the newly added syllabus coverage and are an extension of the learning roadmap, not a replacement of the original 45-hour allocation."
+  }
 }

@@ -1,12 +1,43 @@
 ================================================================================
 CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
 MODULE 002_006: Strings & Character Array Handling
-TOPIC 1: Module 002_006 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
+TOPIC 1: Safe String Input/Output: fgets(), puts() & scanf Pitfalls
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
 ================================================================================
 
-1. MODULE PROJECTS SUMMARY
+1. THE DANGER OF GETS() (CWE-120: BUFFER OVERFLOW)
 --------------------------------------------------------------------------------
-- Project 1: Text Anagram & Palindrome Verifier
-- Project 2: Custom String Library Engine
+- `gets(str)` does NOT take a buffer capacity limit.
+- If a user inputs 100 characters into `char str[10]`, it overwrites stack
+  memory, causing system crashes and severe security exploits.
+- `gets()` was permanently REMOVED from the ISO C standard in C11!
+
+2. THE SAFE REPLACEMENT: FGETS()
+--------------------------------------------------------------------------------
+- Signature: `char *fgets(char *str, int num, FILE *stream);`
+- Usage for Console:
+    char name[50];
+    fgets(name, sizeof(name), stdin);
+- Note: `fgets()` captures the trailing newline `\n`.
+  Sanitize with: `name[strcspn(name, "\n")] = '\0';`
+
+3. SCANF LIMITATIONS & BOUNDED SPECIFIERS
+--------------------------------------------------------------------------------
+- `scanf("%s", str)`: Stops reading at first whitespace (cannot read full names).
+- Bounded Width Specifier: `scanf("%29s", str);` (Prevents buffer overflow).
+- Scanset Specifier: `scanf(" %49[^\n]", str);` (Reads full line with spaces).
+
+4. INPUT STREAM FLUSHING (STDIN)
+--------------------------------------------------------------------------------
+- NEVER use `fflush(stdin)` (Undefined Behavior in ISO C).
+- Standard Flush Idiom:
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
+5. SECURITY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always prefer `fgets()` over `scanf("%s")`.
+[✓] Always remove trailing `\n` after `fgets()`.
+[✓] Use `snprintf()` instead of unsafe `sprintf()`.
+[✓] Never write `printf(userInput);` (Format string exploit). Use `printf("%s", userInput);`.
 ================================================================================

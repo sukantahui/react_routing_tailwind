@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_007: Pointers & Memory Addresses
+TOPIC 5: Void Pointers (void*), Casting & const Qualifiers
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. GENERIC VOID POINTERS (void*)
+--------------------------------------------------------------------------------
+- Generic, untyped pointer holding memory addresses of ANY data type.
+- Cannot be directly dereferenced (`*pVoid` is a compile error!).
+- Must be explicitly cast before dereferencing: `*(int*)pVoid`.
+- Arithmetic on `void*` is illegal in standard ISO C.
+
+2. THE 4 CONST POINTER QUALIFIER COMBINATIONS
+--------------------------------------------------------------------------------
+1. `const int *p` (or `int const *p`):
+   • Pointee Data: READ-ONLY (Cannot modify `*p = 10;`)
+   • Pointer Address: MUTABLE (Can point to another address: `p = &b;`)
+
+2. `int * const p`:
+   • Pointee Data: MUTABLE (Can modify `*p = 10;`)
+   • Pointer Address: READ-ONLY (Cannot reassign address: `p = &b;` ERROR!)
+
+3. `const int * const p`:
+   • Pointee Data: READ-ONLY
+   • Pointer Address: READ-ONLY (Completely immutable!)
+
+4. `int *p`:
+   • Pointee Data: MUTABLE
+   • Pointer Address: MUTABLE
+
+3. MEMORY DUMPING & RAW BYTES
+--------------------------------------------------------------------------------
+- Cast any pointer to `const unsigned char*` to inspect memory byte-by-byte.
+- Always use `uintptr_t` (from `<stdint.h>`) when storing pointer addresses in integers.
+================================================================================

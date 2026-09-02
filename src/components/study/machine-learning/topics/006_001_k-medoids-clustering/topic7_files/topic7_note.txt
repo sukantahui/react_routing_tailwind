@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 7: Comprehensive Benchmark: K-Means vs. K-Medoids
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. DIRECT SIDE-BY-SIDE BENCHMARK MATRIX
+--------------------------------------------------------------------------------
+Feature                 K-MEANS                         K-MEDOIDS
+--------------------------------------------------------------------------------
+Center Representation   Virtual Centroid (Mean)         Real Medoid (Exemplar)
+Loss Metric             Squared Euclidean (L2^2)        Absolute Distance (L1/L2/Cosine)
+Outlier Robustness      Poor (Extreme leverage)         High (Median-like immunity)
+Data Modality           Continuous numeric only         Numeric, Categorical, Graphs
+Pairwise Metric Input   Cannot use arbitrary matrix     Accepts arbitrary N x N matrix
+Time Complexity         O(N \cdot K \cdot d) per iter   O(K(N-K)^2) [PAM] or O(N^2)
+Space Complexity        O(N \cdot d)                    O(N^2) for distance matrix
+Scalability             Massive big data (N > 1M)       Modest/Medium (N < 20k) or CLARA
+
+2. SELECTION HEURISTIC
+--------------------------------------------------------------------------------
+- Use K-Means when: Dataset is massive, clean, continuous, and CPU/GPU speed is critical.
+- Use K-Medoids when: Data has noise/outliers, non-Euclidean geometry, or requires real
+  exemplar interpretability (clinical records, warehouse addresses, text documents).
+================================================================================

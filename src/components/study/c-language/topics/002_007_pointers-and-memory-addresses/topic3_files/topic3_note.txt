@@ -1,0 +1,33 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_007: Pointers & Memory Addresses
+TOPIC 3: Pointer & Array Equivalence
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. THE FUNDAMENTAL EQUIVALENCE LAW
+--------------------------------------------------------------------------------
+    arr[i]  ==  *(arr + i)  ==  *(i + arr)  ==  i[arr]
+
+- Array subscripting is literally syntactic sugar for pointer dereferencing!
+- `arr` decays into a pointer to its first element: `&arr[0]`.
+
+2. ARRAY DECAY EXCEPTIONS
+--------------------------------------------------------------------------------
+Array name does NOT decay to pointer in only 2 cases:
+1. `sizeof(arr)` : Returns total allocated byte size of the entire array.
+2. `&arr`        : Yields a pointer to the ENTIRE array object `int(*)[N]`.
+
+3. ARR VS &ARR DIFFERENCE
+--------------------------------------------------------------------------------
+    int arr[5]; // Assume base address = 0x1000
+
+    Expression   Pointer Type     Step Size (+1)    New Address
+    arr          int*             +4 Bytes          0x1004
+    &arr         int(*)[5]        +20 Bytes         0x1014 (Entire array!)
+
+4. MULTIDIMENSIONAL POINTER TYPES
+--------------------------------------------------------------------------------
+- `int *arr[5]`  : Array of 5 pointers to int.
+- `int (*arr)[5]`: Pointer to an array of 5 ints (used for 2D matrix pointers).
+================================================================================

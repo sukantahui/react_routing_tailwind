@@ -1,0 +1,54 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_006: Strings & Character Array Handling
+TOPIC 3: Custom String Manipulation Algorithms (Without <string.h>)
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. CORE ALGORITHMIC IMPLEMENTATIONS
+--------------------------------------------------------------------------------
+- Custom strlen:
+    int my_strlen(const char *s) {
+        int len = 0;
+        while (*s++) len++;
+        return len;
+    }
+
+- Custom strcpy:
+    void my_strcpy(char *d, const char *s) {
+        while ((*d++ = *s++));
+    }
+
+- In-Place Reverse:
+    void my_reverse(char *s) {
+        int i = 0, j = my_strlen(s) - 1;
+        while (i < j) {
+            char t = s[i]; s[i] = s[j]; s[j] = t;
+            i++; j--;
+        }
+    }
+
+- Palindrome Check:
+    int my_is_palindrome(const char *s) {
+        int i = 0, j = my_strlen(s) - 1;
+        while (i < j) {
+            if (s[i] != s[j]) return 0;
+            i++; j--;
+        }
+        return 1;
+    }
+
+2. CASE CONVERSION & ASCII ARITHMETIC
+--------------------------------------------------------------------------------
+- Lowercase to Uppercase : `c = c - 32;`   (or `c - ('a' - 'A')`)
+- Uppercase to Lowercase : `c = c + 32;`   (or `c + ('a' - 'A')`)
+- Toggle Case Bitwise    : `c = c ^ 32;`   (or `c ^ 0x20`)
+- Char to Int Digit      : `digit = c - '0';`
+- Int to Char Digit      : `c = digit + '0';`
+
+3. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always append '\0' to the destination after any custom copying/filtering.
+[✓] In two-pointer algorithms, iterate while `i < j` to stop at midpoint.
+[✓] Use unsigned char when doing arithmetic difference calculations.
+================================================================================

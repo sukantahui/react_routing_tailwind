@@ -265,7 +265,8 @@
             "Searching Algorithms: Linear Search vs Binary Search (time complexity analysis)",
             "Sorting Algorithms in C: Bubble Sort, Selection Sort, Insertion Sort step-by-step implementation",
             "2D Arrays & Matrices: Row-major order memory layout, matrix addition, transposition, and multiplication",
-            "Hands-on C Projects & Solutions for Module 002_005"
+            "Hands-on C Projects & Solutions for Module 002_005",
+            "Self-Test Module 002_005: 200 Comprehensive MCQs on Arrays, Searching, Sorting & Matrices"
           ],
           "learningOutcomes": [
             "Manipulate 1D and 2D arrays in contiguous memory safely",
@@ -274,7 +275,7 @@
           ],
           "prerequisites": ["001_005_c-pattern-output-practice-lab"],
           "miniProjects": ["Matrix Transpose & Multiplication Suite", "Class Marksheet & Statistical Ranker"],
-          "exercises": { "mcq": 25, "coding": 10, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 10, "projects": 1 },
           "assessment": { "type": "Array & Sorting Practical Exam", "passScore": 80 },
           "useCases": ["Data table processing", "Graphics matrix transformations"],
           "careerSkills": ["Algorithm design", "Contiguous memory layout comprehension"],
@@ -283,7 +284,7 @@
           "teachingTips": ["Draw physical RAM cell boxes showing contiguous addresses for array elements."],
           "preReading": ["Basic array concepts"],
           "badge": "Array Master Badge",
-          "previousModule": "001_004_functions-and-modular-programming",
+          "previousModule": "001_005_c-pattern-output-practice-lab",
           "nextModule": "002_006_strings-and-string-handling-functions"
         },
         {
@@ -302,7 +303,8 @@
             "Standard Library Functions (<string.h>): strlen, strcpy, strncpy, strcat, strcmp, strncmp, strchr, strstr",
             "Custom String Manipulation: manual implementations of strlen, reverse, palindrome check, case conversion",
             "Array of Strings (2D char arrays vs array of char pointers)",
-            "Hands-on C Projects & Solutions for Module 002_006"
+            "Hands-on C Projects & Solutions for Module 002_006",
+            "Self-Test Module 002_006: 200 Comprehensive MCQs on Strings & Character Array Handling"
           ],
           "learningOutcomes": [
             "Process string data safely without buffer overflow vulnerabilities",
@@ -311,7 +313,7 @@
           ],
           "prerequisites": ["002_005_arrays-and-matrix-manipulation"],
           "miniProjects": ["Text Anagram & Palindrome Verifier", "Custom String Library Engine"],
-          "exercises": { "mcq": 25, "coding": 8, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 10, "projects": 1 },
           "assessment": { "type": "String Processing Lab", "passScore": 80 },
           "useCases": ["Command-line input parsing", "Text editing engines"],
           "careerSkills": ["String security", "Memory boundary checking"],
@@ -341,7 +343,8 @@
             "Pointers to Pointers (Double Pointers **): dynamic reference modification",
             "Void Pointers (void*) & Type Casting: generic memory pointers",
             "Function Pointers: declaration, assignment, callback functions, dispatch tables",
-            "Hands-on C Projects & Solutions for Module 002_007"
+            "Hands-on C Projects & Solutions for Module 002_007",
+            "Self-Test Module 002_007: 200 Comprehensive MCQs on Pointers, Address Arithmetic & Function Pointers"
           ],
           "learningOutcomes": [
             "Manipulate memory addresses directly using pointer arithmetic",
@@ -350,7 +353,7 @@
           ],
           "prerequisites": ["002_006_strings-and-string-handling-functions"],
           "miniProjects": ["Memory Address Inspector & In-place Array Inverter", "Generic Event Callback Dispatcher"],
-          "exercises": { "mcq": 30, "coding": 12, "projects": 1 },
+          "exercises": { "mcq": 200, "coding": 12, "projects": 1 },
           "assessment": { "type": "Pointer Mechanics Practical Exam", "passScore": 85 },
           "useCases": ["Hardware memory mapping", "Callback dispatchers", "In-place memory algorithms"],
           "careerSkills": ["Direct memory access", "Pointer arithmetic precision", "Function callback design"],

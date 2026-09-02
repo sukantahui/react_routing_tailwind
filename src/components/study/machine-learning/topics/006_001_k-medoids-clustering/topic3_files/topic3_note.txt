@@ -1,0 +1,35 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 3: The PAM (Partitioning Around Medoids) Algorithm
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS THE PAM ALGORITHM?
+--------------------------------------------------------------------------------
+- PAM (Partitioning Around Medoids) is the foundational, classic realization of
+  K-Medoids developed by Kaufman & Rousseeuw (1987).
+- It searches for the best K medoids through two deterministic phases:
+  1. BUILD Phase (Greedy Initial Medoid Selection)
+  2. SWAP Phase (Iterative Cost-Decreasing Medoid Replacements)
+
+2. THE TWO-PHASE LIFECYCLE
+--------------------------------------------------------------------------------
+A. BUILD Phase:
+   - Select 1st medoid: Data point minimizing total distance to all other points.
+   - Select subsequent k-1 medoids: In each step, pick non-medoid point that
+     maximizes the reduction in total clustering cost.
+
+B. SWAP Phase:
+   - For every current medoid m and every non-medoid h:
+     * Calculate \Delta C_{m \to h} = New Total Cost - Current Total Cost
+   - Find the swap with the most negative \Delta C.
+   - If min(\Delta C) < 0: Execute swap (replace m with h) and repeat.
+   - If min(\Delta C) >= 0: CONVERGENCE REACHED!
+
+3. TIME & SPACE COMPLEXITY
+--------------------------------------------------------------------------------
+- Time Complexity per iteration: O(K \cdot (N - K)^2)
+- Total Space Complexity: O(N^2) to store precomputed distance matrix.
+- Guaranteed local minimum convergence.
+================================================================================

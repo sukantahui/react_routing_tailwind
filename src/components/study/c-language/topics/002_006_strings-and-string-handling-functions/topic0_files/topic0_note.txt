@@ -1,13 +1,39 @@
 ================================================================================
 CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
 MODULE 002_006: Strings & Character Array Handling
-TOPIC 0: Null-Terminated Strings & <string.h> Header
-Educator: Sukanta Hui | Barrackpore, West Bengal
+TOPIC 0: Character Arrays vs Null-Terminated Strings ('\0')
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
 ================================================================================
 
-1. CORE CONCEPTS
+1. WHAT IS A C STRING?
 --------------------------------------------------------------------------------
-- Null Terminator: '\0' (ASCII 0) marks end of char array.
-- Functions: strlen, strcpy, strcat, strcmp, strstr, fgets.
-- Never use gets(); use fgets(buffer, sizeof(buffer), stdin) instead.
+- A C string is a contiguous 1D array of characters terminated by a NULL byte:
+    '\0' (ASCII Code: 0, Byte value: 0x00).
+- Memory Capacity Rule:
+    A string of N visible characters requires (N + 1) bytes of memory!
+    Example: "Barrackpore" (11 letters) needs 12 bytes.
+
+2. STRING LITERAL VS STACK ARRAY
+--------------------------------------------------------------------------------
+- Stack Array (Mutable):
+    char name[] = "Sukanta";
+    name[0] = 'M'; // VALID! Memory is on function stack frame.
+- String Literal Pointer (Immutable / Read-Only):
+    const char *name = "Sukanta";
+    name[0] = 'M'; // RUNTIME CRASH (Segmentation Fault)! Resides in .rodata.
+
+3. ASCII CODE CHEAT SHEET
+--------------------------------------------------------------------------------
+- Null Terminator ('\0') : 0
+- Digits ('0' to '9')     : 48 to 57
+- Uppercase ('A' to 'Z') : 65 to 90
+- Lowercase ('a' to 'z') : 97 to 122
+- Case Conversion Rule   : Lowercase = Uppercase + 32 ('A' + 32 = 'a')
+
+4. MEMORY SAFETY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always allocate (length + 1) bytes for the terminating '\0'.
+[✓] Never use `==` for string comparison; use `strcmp()`.
+[✓] Qualify string literal pointers with `const char *`.
+[✓] Printing a non-null-terminated char array with `%s` causes Undefined Behavior.
 ================================================================================

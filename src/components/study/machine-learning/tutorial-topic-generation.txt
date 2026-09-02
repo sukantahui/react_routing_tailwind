@@ -2,8 +2,10 @@ use the *roadmap.json* file to get the topics, slug is the folder name will be c
 inside each slug folder create Topic[number].jsx file.
 
 inside each folder create topic[number]_files folder and inside that folder create following files:
-    -- topic[number]_note.txt
-    -- topic[number]_content.txt
+    -- topic[number]_note.txt (plain text printable note loaded by <PlainTextPrint>)
+    -- [topic_name]_lab.py (standalone executable Python lab loaded by <PythonFileLoader>)
+    -- topic[number]_questions.js (array of 25-30 Q&A items loaded by <FAQTemplate>)
+    (Do NOT create topic[number]_content.txt)
 
 
 I am using the latest Tailwind CSS with NO tailwind.config.js file.
@@ -101,11 +103,20 @@ Apply this animation system consistently across the file.
 Content Depth (VERY IMPORTANT)
     - Each topic must include:
     - Detailed conceptual explanation and Theory in details, content should be enough 
-    - Real-world usage examples, at least 4 examples
-    - Tips & tricks used by professionals
-    - Common mistakes made by beginners
-    - Best practices
-    - Mini checklist (what students should remember)
+    - Also use the following format to describe the topic, make it long and detailed
+        -- Why it is needed
+        -- What it is
+        -- How it works
+        -- When it is used
+    - Use formula and theorem where necessary
+    - Define every terms used in the topic and explain it clearly, use examples to explain them.
+    - Add cross Reference link to other topics and pages.
+    - Add Mathematical notation and formula where necessary and explain it clearly, use examples to explain them.
+    - Add Real-world usage examples, at least 4 examples
+    - Add Tips & tricks used by professionals
+    - Add Common mistakes made by beginners
+    - Add Best practices
+    - Add Mini checklist (what students should remember)
 
 
 
@@ -141,7 +152,7 @@ Hover & Interaction Rules
     -- Smooth transition (transition-all duration-300)
     
 
-Hint Section (NEW – MANDATORY)
+Hint Section (MANDATORY)
     -- Subtle guidance without revealing answers
     -- Framed as:
         --- “Think about…”
@@ -194,14 +205,12 @@ use :
 Example Name to be used
     - While explaining concepts, naturally include examples involving:
         -- Students:
-            --- Mamata, Mahima, Abhronila, Susmita, Debangshu, etc.
+            --- Sachin, Mahima, Abhronila, Susmita, Debangshu, etc.
         -- Places:
-            --- Barrackpore, Kolkata, Ichapur, Jadavpur
+            --- Barrackpore, Kolkata, Chandan Pukur, Jadavpur
 (Use them as analogies, stories, or scenarios—not forced mentions.)
 
 Output Instructions
-    - Start by generating Topic0.jsx only if not mentioned a topic number
-    - Wait for my confirmation before proceeding to the next topic
     - Do NOT assume missing data.
 Always ask before proceeding if required assets (JSON, layout base, SVG library) are unavailable.
     - Code must be:
@@ -260,4 +269,3 @@ for FAQ i use the following:
 always use Rupee sign for currency instead of $    
 generate three files
 
-start from Topic0

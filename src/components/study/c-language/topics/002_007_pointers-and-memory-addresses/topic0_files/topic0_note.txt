@@ -1,14 +1,35 @@
 ================================================================================
 CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 002_007: Pointers, Address Arithmetic & Function Pointers
-TOPIC 0: Pointer Mechanics & RAM Address Operations
-Educator: Sukanta Hui | Barrackpore, West Bengal
+MODULE 002_007: Pointers & Memory Addresses
+TOPIC 0: Pointer Fundamentals: Addresses, Declaration, &, *, and NULL
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
 ================================================================================
 
-1. CORE CONCEPTS
+1. WHAT IS A POINTER?
 --------------------------------------------------------------------------------
-- Address-of (&): Obtains memory address of a variable.
-- Dereference (*): Accesses value stored at memory address.
-- Pointer Arithmetic: Scaled by sizeof(type).
-- Void Pointer (void*): Generic pointer holding any memory address.
+- A pointer is a variable that stores the physical/virtual RAM memory address
+  of another variable.
+- On a 64-bit OS: ALL pointers occupy exactly 8 bytes (64 bits) in memory!
+  sizeof(char*) == sizeof(int*) == sizeof(double*) == 8 Bytes.
+
+2. CORE OPERATORS
+--------------------------------------------------------------------------------
+- Address-Of Operator (&)   : `&x` extracts the hexadecimal memory address of x.
+- Dereference Operator (*)   : `*ptr` accesses or mutates the data stored AT the address.
+
+3. POINTER ANATOMY
+--------------------------------------------------------------------------------
+    int age = 22;
+    int *pAge = &age;
+
+    Variable      Stored Value        Memory Address in RAM
+    age           22                  0x7FFE0010 (4 bytes)
+    pAge          0x7FFE0010          0x7FFE0020 (8 bytes)
+
+4. POINTER SAFETY RULES
+--------------------------------------------------------------------------------
+[✓] Always initialize pointers upon declaration: `int *ptr = NULL;`
+[✓] Guard against NULL dereferences: `if (ptr != NULL) { *ptr = 10; }`
+[✓] Wild Pointers: Uninitialized pointers holding random garbage bits.
+[✓] Dangling Pointers: Pointers pointing to deallocated memory blocks.
 ================================================================================

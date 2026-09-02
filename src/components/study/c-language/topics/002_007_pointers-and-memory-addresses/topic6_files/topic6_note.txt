@@ -1,0 +1,47 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_007: Pointers & Memory Addresses
+TOPIC 6: Function Pointers: Syntax, Callbacks & Dispatch Tables
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A FUNCTION POINTER?
+--------------------------------------------------------------------------------
+- A pointer storing the entry point memory address of executable machine code
+  in the `.text` (Code) segment.
+- Declaration Syntax:
+    return_type (*pointer_name)(param_types);
+    Example: `int (*mathFunc)(int, int);`
+
+- Clean Typedef Alias:
+    typedef int (*MathFunc)(int, int);
+    MathFunc p = add; // Simple and clear!
+
+2. HIGHER-ORDER FUNCTIONS & CALLBACKS
+--------------------------------------------------------------------------------
+- Passing functions as arguments allows dynamic behavior at runtime:
+    void execute(int a, int b, MathFunc op) {
+        int res = op(a, b); // Invokes passed callback!
+    }
+
+3. DISPATCH TABLES (JUMP TABLES)
+--------------------------------------------------------------------------------
+- Array of function pointers replacing long `switch` or `if-else` trees:
+    MathFunc ops[4] = {add, subtract, multiply, divide};
+    int answer = ops[choice](x, y); // Instantaneous O(1) jump!
+
+4. QSORT COMPARATOR CONVENTION (<STDLIB.H>)
+--------------------------------------------------------------------------------
+    int cmp(const void *a, const void *b) {
+        return (*(const int*)a - *(const int*)b);
+    }
+- Returns < 0 : a comes before b (Ascending)
+- Returns == 0 : a and b are equal
+- Returns > 0 : b comes before a (Ascending)
+
+5. SAFETY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always verify `if (callback != NULL)` before calling any function pointer.
+[✓] Never perform pointer arithmetic on function pointers.
+[✓] Match exact parameter types and return types to prevent stack corruption.
+================================================================================

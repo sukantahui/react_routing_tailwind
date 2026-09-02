@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_006: Strings & Character Array Handling
+TOPIC 5: Hands-on C Projects & Solutions Suite
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. PROJECT SUITE HIGHLIGHTS
+--------------------------------------------------------------------------------
+- Project 1: Anagram Frequency Counter & Phrase Palindrome Verifier.
+- Project 2: Custom String Library Suite (strlen, strcpy, strcat, strcmp).
+- Project 3: Word, Vowel, Consonant, Digit and Special Symbol Analyzer.
+- Project 4: Caesar Cipher Substitution Encryption and Decryption.
+- Project 5: Run-Length String Compression Engine.
+- Project 6: Substring Find and Replace Engine.
+- Project 7: Longest Word Extractor from Text Paragraphs.
+- Project 8: Password Complexity & Security Strength Evaluator.
+- Project 9: Lexicographical Dictionary Sorter with O(1) Pointer Swaps.
+- Project 10: Roman Numerals to Decimal Integer Converter.
+
+2. ENGINEERING TAKEAWAYS
+--------------------------------------------------------------------------------
+[✓] Always manage and preserve the null terminator '\0'.
+[✓] In string arrays, prefer pointer arrays for O(1) sorting performance.
+[✓] Always guard input buffers with bounded formats (fgets / %29s / snprintf).
+================================================================================

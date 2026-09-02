@@ -1,0 +1,36 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_006: Strings & Character Array Handling
+TOPIC 2: Standard Library Functions (<string.h>)
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. ESSENTIAL <STRING.H> FUNCTIONS QUICK REFERENCE
+--------------------------------------------------------------------------------
+Function          Signature / Description
+--------------------------------------------------------------------------------
+strlen(s)         Returns visible character count up to '\0' (type size_t).
+strcpy(d, s)      Copies string s into d (Warning: No bounds check!).
+strncpy(d, s, n)  Copies max n chars (Warning: May NOT append '\0'!).
+strcat(d, s)      Appends string s to end of d.
+strncat(d, s, n)  Appends max n chars and ALWAYS appends '\0'.
+strcmp(s1, s2)    Lexicographical comparison (<0: s1<s2, 0: s1==s2, >0: s1>s2).
+strncmp(s1, s2, n)Compares first n characters.
+strchr(s, c)      Finds FIRST occurrence of char c; returns pointer or NULL.
+strrchr(s, c)     Finds LAST occurrence of char c; returns pointer or NULL.
+strstr(h, n)      Finds FIRST occurrence of substring n in h; returns pointer or NULL.
+strtok(s, delim)  Tokenizes string in-place (Modifies source string with '\0').
+
+2. MEMORY BYTE FUNCTIONS (<STRING.H>)
+--------------------------------------------------------------------------------
+memset(ptr, val, n) : Fills n bytes with constant value (e.g. 0).
+memcpy(d, s, n)     : Copies n raw bytes (No overlap allowed).
+memmove(d, s, n)    : Copies n raw bytes (Handles overlapping memory safely).
+memcmp(p1, p2, n)   : Binary comparison of two n-byte buffers.
+
+3. GOLDEN RULES FOR STRING SAFETY
+--------------------------------------------------------------------------------
+[✓] Always ensure destination buffer has at least (strlen(src) + 1) bytes.
+[✓] When using `strncpy()`, always write `dest[sizeof(dest) - 1] = '\0';`.
+[✓] Use `strcmp(s1, s2) == 0` for string equality, never `s1 == s2`.
+================================================================================

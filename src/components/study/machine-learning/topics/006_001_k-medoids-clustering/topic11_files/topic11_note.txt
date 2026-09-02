@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 11: Practice Problems & Independent Self-Assessment
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+PRACTICE PROBLEM REPOSITORY:
+
+[PROBLEM 1] Retail Customer Persona Discovery (K = 2)
+Five shoppers at Barrackpore Bazaar: C1(2, 5), C2(3, 8), C3(8, 2), C4(9, 3), C5(20, 20)
+1. Construct the 5x5 pairwise Manhattan distance matrix D.
+2. Identify the first medoid via row sum minimization.
+3. Compute gains to find the second medoid.
+4. Verify whether C5 is treated as an outlier or captures its own medoid.
+
+[PROBLEM 2] Symmetry & Metric Independence (K = 1)
+Given points arranged in a diamond: (0,2), (2,0), (0,-2), (-2,0).
+1. Compute the Manhattan distance matrix.
+2. Compute the Euclidean distance matrix.
+3. Prove why any of the four points can serve as an optimal medoid.
+
+[PROBLEM 3] Outlier Detection via Medoid Proximity
+Given K-Medoids cluster assignments, formulate a threshold rule based on distance
+to nearest medoid (e.g. Dist > 2.5 * Median Distance) to flag anomalous data points.
+================================================================================

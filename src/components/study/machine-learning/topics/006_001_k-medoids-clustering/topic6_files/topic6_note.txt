@@ -1,0 +1,27 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 6: Iteration and Convergence Dynamics
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS CONVERGENCE IN K-MEDOIDS?
+--------------------------------------------------------------------------------
+- Convergence is the termination state where further iterations cannot reduce
+  the total clustering dissimilarity cost.
+- Because there are a finite number of combinations of choosing K medoids from N
+  points (\binom{N}{K}), and cost strictly decreases at each step, K-Medoids is
+  GUARANTEED TO CONVERGE in a finite number of iterations!
+
+2. TERMINATION CONDITIONS
+--------------------------------------------------------------------------------
+1. Zero Medoid Shift: The set of medoids at iteration t+1 is identical to iteration t.
+2. Zero Cost Change: \Delta J = J^{(t)} - J^{(t+1)} < \epsilon (e.g. 1e-6).
+3. Max Iterations Reached: Pre-set computational cap (e.g. max_iter = 100).
+
+3. LOCAL MINIMA & RANDOM RESTARTS
+--------------------------------------------------------------------------------
+- K-Medoids converges to a LOCAL optimum, not necessarily the GLOBAL optimum.
+- Standard Best Practice: Run multiple random initializations (n_init = 10 or 20)
+  and select the final configuration with the lowest total dissimilarity.
+================================================================================

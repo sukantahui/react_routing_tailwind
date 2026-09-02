@@ -1,0 +1,39 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 0: K-Medoids Clustering Concept & Mathematical Foundations
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS K-MEDOIDS CLUSTERING?
+--------------------------------------------------------------------------------
+- K-Medoids is a classical partitional clustering algorithm that partitions a
+  dataset of N objects into K distinct clusters.
+- Unlike K-Means (which represents cluster centers as artificial average "centroids"),
+  K-Medoids mandates that each cluster center MUST BE AN ACTUAL DATA POINT from the dataset
+  known as a "MEDOID".
+
+2. THE MEDOID CONCEPT & COST FUNCTION
+--------------------------------------------------------------------------------
+- A Medoid is the most centrally located data object within a cluster whose
+  sum of dissimilarities to all other points in that cluster is minimized.
+- Objective Function (Total Absolute Dissimilarity Cost):
+    Cost = \sum_{k=1}^K \sum_{x_i \in C_k} D(x_i, m_k)
+  where D(x_i, m_k) is any arbitrary distance metric (e.g. L1 Manhattan, L2 Euclidean).
+
+3. KEY ADVANTAGES OVER K-MEANS
+--------------------------------------------------------------------------------
+[✓] Extreme Robustness to Outliers & Noise: Outliers do not distort the medoid because
+    it minimizes absolute error rather than squared Euclidean error.
+[✓] Arbitrary Distance Metric Flexibility: Works naturally with Manhattan (L1),
+    Cosine, Jaccard, or non-Euclidean pairwise distance matrices.
+[✓] Guaranteed Exemplar: The medoid is an actual patient, actual document, or actual
+    product from the dataset, giving 100% interpretability.
+
+4. REAL-WORLD REGIONAL APPLICATIONS
+--------------------------------------------------------------------------------
+- Healthcare Diagnostics (Jadavpur / Kolkata): Finding representative patient cases.
+- Academic Performance Cohorts (Barrackpore): Selecting representative student profiles.
+- Logistics Hub Location (Shyamnagar / Naihati): Placing physical distribution centers
+  at actual warehouse coordinates.
+================================================================================

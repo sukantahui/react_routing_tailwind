@@ -1,0 +1,31 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 2: Distance-Based Clustering & Metric Mathematics
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS DISTANCE-BASED CLUSTERING?
+--------------------------------------------------------------------------------
+- Distance-based clustering groups objects based on a mathematical measure of
+  proximity or dissimilarity between feature vectors.
+- Objects with smaller pairwise distances are assigned to the same cluster;
+  objects with larger distances belong to distinct clusters.
+
+2. CORE DISTANCE METRICS IN MACHINE LEARNING
+--------------------------------------------------------------------------------
+Metric                  Formula                                 Application Domain
+--------------------------------------------------------------------------------
+Euclidean (L2)          \sqrt{\sum (x_i - y_i)^2}              Geometric, continuous space
+Manhattan (L1)          \sum |x_i - y_i|                        Grid networks, outlier-robust
+Chebyshev (L_\infty)    \max |x_i - y_i|                        Chessboard, CNC routing
+Cosine Distance         1 - \frac{x \cdot y}{||x|| \cdot ||y||} Document/Text, high-D NLP
+Minkowski ($L_p$)       (\sum |x_i - y_i|^p)^{1/p}              Generalized norm family
+Jaccard Distance        1 - \frac{|A \cap B|}{|A \cup B|}       Binary sets, consumer baskets
+
+3. THE PAIRWISE DISTANCE MATRIX (N x N)
+--------------------------------------------------------------------------------
+- Symmetric N x N matrix where D[i, j] = Distance between Object i and Object j.
+- Diagonal elements D[i, i] = 0 (Reflexivity).
+- K-Medoids only requires this distance matrix, enabling clustering on non-vector data!
+================================================================================

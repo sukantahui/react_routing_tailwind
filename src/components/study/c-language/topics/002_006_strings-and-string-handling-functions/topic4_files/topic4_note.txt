@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_006: Strings & Character Array Handling
+TOPIC 4: Array of Strings: 2D Char Arrays vs Array of Char Pointers
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. 2D FIXED-WIDTH CHARACTER ARRAY (CONTIGUOUS TABLE)
+--------------------------------------------------------------------------------
+- Syntax: `char names[NUM_ROWS][MAX_LEN];`
+- Memory Layout: Single contiguous block of (NUM_ROWS * MAX_LEN) bytes in RAM.
+- Pros: Simple stack allocation, in-place mutable.
+- Cons: Internal fragmentation (wasted padding bytes for short names).
+- Sorting: Requires copying entire string buffers via `strcpy()` (O(N) data copying).
+
+2. ARRAY OF CHARACTER POINTERS (RAGGED / JAGGED ARRAY)
+--------------------------------------------------------------------------------
+- Syntax: `const char *names[NUM_ROWS];`
+- Memory Layout: Array of pointer addresses (8 bytes each on 64-bit OS),
+  pointing to variable-length strings in `.rodata` or heap.
+- Pros: Zero wasted memory padding; blazing fast O(1) pointer address swaps!
+- Cons: Pointed string literals are read-only / immutable unless heap-allocated.
+
+3. ALPHABETICAL SORTING COMPARISON
+--------------------------------------------------------------------------------
+- 2D Char Array Swap:
+    strcpy(temp, arr[j]);
+    strcpy(arr[j], arr[j+1]);
+    strcpy(arr[j+1], temp);      // Copies 50+ bytes per swap!
+
+- Pointer Array Swap:
+    const char *temp = arr[j];
+    arr[j] = arr[j+1];
+    arr[j+1] = temp;             // Swaps only 8 bytes per swap (Zero copying)!
+
+4. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] In 2D char array parameters, specify column width: `void f(char s[][30], int n)`.
+[✓] In pointer array parameters, use: `void f(const char *s[], int n)`.
+[✓] Command-line arguments `char *argv[]` are an array of string pointers!
+================================================================================

@@ -1,0 +1,43 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_005: Arrays, Matrix Operations & Searching/Sorting
+TOPIC 3: Sorting Algorithms: Bubble Sort, Selection Sort & Insertion Sort
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. BUBBLE SORT (ADJACENT SWAPPING)
+--------------------------------------------------------------------------------
+- Logic: Compares adjacent elements arr[j] and arr[j+1]; swaps if out of order.
+- Optimization: Use a 'swapped' boolean flag. If no swaps occur in a pass, break!
+- Complexities:
+    • Best Case   : O(n) (Already sorted, 1 pass)
+    • Worst Case  : O(n^2) (Reverse sorted)
+    • Space       : O(1)
+    • Stability   : Stable
+
+2. SELECTION SORT (MINIMUM EXTRACTION)
+--------------------------------------------------------------------------------
+- Logic: Finds the minimum element in unsorted portion; swaps it to index i.
+- Key Advantage: Performs at most (n - 1) swaps total (useful for slow Flash memory).
+- Complexities:
+    • Best / Worst / Average: O(n^2) (Always tests all pairs)
+    • Space       : O(1)
+    • Stability   : Unstable
+
+3. INSERTION SORT (CARD INSERTION & SHIFTING)
+--------------------------------------------------------------------------------
+- Logic: Takes key arr[i], shifts larger elements to right, inserts key.
+- Key Advantage: Extremely fast for small (n < 16) or nearly sorted datasets.
+- Complexities:
+    • Best Case   : O(n) (Already sorted)
+    • Worst Case  : O(n^2) (Reverse sorted)
+    • Space       : O(1)
+    • Stability   : Stable
+
+4. COMPARISON QUICK REFERENCE TABLE
+--------------------------------------------------------------------------------
+Algorithm       Best        Average     Worst       Swaps       Stable?
+Bubble Sort     O(n)        O(n^2)      O(n^2)      O(n^2)      Yes
+Selection Sort  O(n^2)      O(n^2)      O(n^2)      O(n)        No
+Insertion Sort  O(n)        O(n^2)      O(n^2)      O(n^2)      Yes
+================================================================================

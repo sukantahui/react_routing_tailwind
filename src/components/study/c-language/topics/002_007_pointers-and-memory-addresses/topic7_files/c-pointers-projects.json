@@ -1,0 +1,124 @@
+{
+  "projectCategory": "Module 002_007 · Pointers & Memory Architecture Suite",
+  "subject": "C Programming & Systems Fundamentals",
+  "board": "WBCHSE / ICSE / CBSE / BCA / B.Tech / Gate",
+  "class": "High School / Undergraduate / Systems Engineering",
+  "tools": ["GCC Compiler", "VS Code", "GDB Debugger"],
+  "institute": {
+    "name": "Coder & AccoTax",
+    "author": "Sukanta Hui",
+    "location": "Barrackpore, West Bengal"
+  },
+  "projects": [
+    {
+      "projectId": "P7.1",
+      "title": "Dynamic 2D Matrix Memory Allocator & Deallocator",
+      "difficulty": "Hard",
+      "description": "Implement safe dynamic allocation and complete deallocation of an R x C 2D matrix on the heap via double and triple pointers.",
+      "exampleText": "Rows: 3, Cols: 4",
+      "exampleOutput": "Dynamic 3x4 Matrix Created on Heap:\n  [ 11 12 13 14 ]\n  [ 21 22 23 24 ]\n  [ 31 32 33 34 ]\n✓ Matrix memory completely deallocated. Pointer is now: (nil)",
+      "logicExplanation": "1. Allocate array of row pointers, then allocate column elements per row.\n2. In freeMatrix, deallocate each row before freeing the master pointer array, and set caller pointer to NULL.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer1.c",
+      "codeExplanation": "Demonstrates heap memory management, double/triple pointer parameter indirection, and memory rollback on allocation failure."
+    },
+    {
+      "projectId": "P7.2",
+      "title": "Higher-Order Generic Array Filter and Map Engine",
+      "difficulty": "Intermediate",
+      "description": "Build functional programming filter and map higher-order routines in C accepting function pointer callbacks and predicate filters.",
+      "exampleText": "Array: [-5, 12, 7, -3, 8, 14, 21, -2]",
+      "exampleOutput": "1. Filter (Positive Only): [ 12 7 8 14 21 ]\n2. Filter (Even Only): [ 12 8 14 -2 ]\n3. Map (Squared Evens): [ 144 64 196 4 ]",
+      "logicExplanation": "1. Define PredicateFunc returning bool and TransformFunc returning int.\n2. Apply callbacks iteratively across array elements.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer2.c",
+      "codeExplanation": "Demonstrates functional programming paradigms, higher-order functions, and callback patterns in C."
+    },
+    {
+      "projectId": "P7.3",
+      "title": "Generic Byte-by-Byte Memory Hex Dump & Endianness Inspector",
+      "difficulty": "Intermediate",
+      "description": "Inspect raw hexadecimal byte representation of any variable in RAM and detect CPU architecture byte ordering (Little vs Big Endian).",
+      "exampleText": "Inspect int32_t 0x12345678, float 3.14159, and string 'Coder'",
+      "exampleOutput": "CPU: LITTLE-ENDIAN\nint32_t (4 B @ 0x...): 78 56 34 12",
+      "logicExplanation": "1. Test least significant byte of 0x0001 to detect Little-Endian.\n2. Cast generic void* to const uint8_t* to iterate memory bytes.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer3.c",
+      "codeExplanation": "Demonstrates hardware-level memory architecture analysis, bit layouts, and low-level byte casting."
+    },
+    {
+      "projectId": "P7.4",
+      "title": "Pointer-based String Tokenizer & In-Place Parser",
+      "difficulty": "Hard",
+      "description": "Re-implement thread-safe custom_strtok_r using double pointers to maintain state across calls without global static memory.",
+      "exampleText": "Input: '2026-09-02;INFO;Barrackpore Center;Student Admissions Opened'",
+      "exampleOutput": "Field 1: '2026-09-02'\nField 2: 'INFO'\nField 3: 'Barrackpore Center'\nField 4: 'Student Admissions Opened'",
+      "logicExplanation": "1. Use double pointer saveptr to save current string index.\n2. Overwrite delimiter with '\\0' in-place and advance saveptr.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer4.c",
+      "codeExplanation": "Demonstrates thread-safe tokenization and double pointer context state management."
+    },
+    {
+      "projectId": "P7.5",
+      "title": "Dynamic Array Stack with Auto-Resizing via realloc",
+      "difficulty": "Intermediate",
+      "description": "Implement a dynamic LIFO stack structure that doubles its capacity automatically on the heap using realloc.",
+      "exampleText": "Push 10, 20, 30, 40, 50 into initial capacity 2 stack",
+      "exampleOutput": "[Auto-Resize] Stack capacity doubled to 4...\nPopped: 50, 40, 30, 20, 10",
+      "logicExplanation": "1. Check top >= capacity.\n2. Reallocate buffer using realloc with doubled capacity and update pointer.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer5.c",
+      "codeExplanation": "Demonstrates dynamic data structures, realloc memory growth, and LIFO stack mechanics."
+    },
+    {
+      "projectId": "P7.6",
+      "title": "Polymorphic Generic Sort Comparator Engine",
+      "difficulty": "Hard",
+      "description": "Build a universal sorting function that sorts arrays of ANY data type using void* buffers and (const void*, const void*) comparators.",
+      "exampleText": "Sort integer array [78, 12, 95, 34, 56] and double array [99.99, 12.50, 45.00, 5.25]",
+      "exampleOutput": "Sorted Integers: [ 12 34 56 78 95 ]\nSorted Doubles: [ 5.25 12.50 45.00 99.99 ]",
+      "logicExplanation": "1. Offset addresses using byte arithmetic: (char*)base + index * elemSize.\n2. Swap bytes using temp buffer via memcpy.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer6.c",
+      "codeExplanation": "Demonstrates generic polymorphic algorithms using void pointers and memcpy byte swapping."
+    },
+    {
+      "projectId": "P7.7",
+      "title": "In-Place Array Cyclic Rotator using Pure Pointer Arithmetic",
+      "difficulty": "Intermediate",
+      "description": "Rotate an array to the right by K positions using pointer ranges without using bracket indexing.",
+      "exampleText": "Array: [10, 20, 30, 40, 50, 60, 70], k = 3",
+      "exampleOutput": "Rotated Right by 3: [ 50 60 70 10 20 30 40 ]",
+      "logicExplanation": "1. Reverse range using two pointers start and end.\n2. Apply 3-step reversal on array pointer boundaries.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer7.c",
+      "codeExplanation": "Demonstrates pure pointer arithmetic, range boundaries, and O(1) space rotation."
+    },
+    {
+      "projectId": "P7.8",
+      "title": "Function Pointer Event Dispatcher & State Machine Engine",
+      "difficulty": "Intermediate",
+      "description": "Implement a finite state machine (FSM) using an array of function pointer state handlers.",
+      "exampleText": "States: IDLE -> RUNNING -> PAUSED -> RUNNING -> STOPPED",
+      "exampleOutput": "Step 1 -> State: [IDLE]\nStep 2 -> State: [RUNNING]...\nStep 5 -> State: [STOPPED]",
+      "logicExplanation": "1. Define State enum and array of function pointers.\n2. Invoke stateHandlers[state]() directly in O(1) time.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer8.c",
+      "codeExplanation": "Demonstrates finite state machines and event dispatch tables in embedded C."
+    },
+    {
+      "projectId": "P7.9",
+      "title": "Linked List Head Insertion & Deletion Engine via Double Pointers",
+      "difficulty": "Hard",
+      "description": "Implement singly linked list head insertion and deletion routines that mutate the caller's head pointer using Node**.",
+      "exampleText": "Insert 10, 20, 30 at head, then delete head",
+      "exampleOutput": "List: [ 30 -> 20 -> 10 -> NULL ]\nAfter deleteHead: [ 20 -> 10 -> NULL ]",
+      "logicExplanation": "1. Pass &head (type Node**) to update caller's head pointer directly.\n2. Free memory safely and update links.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer9.c",
+      "codeExplanation": "Demonstrates linked data structures, heap node allocation, and pointer-to-pointer head mutations."
+    },
+    {
+      "projectId": "P7.10",
+      "title": "Arithmetic Expression Evaluator using Operator Dispatch Table",
+      "difficulty": "Intermediate",
+      "description": "Evaluate binary math expressions dynamically using a function pointer dispatch table mapped by operator symbol.",
+      "exampleText": "Expressions: 15 + 25, 50 - 18, 12 * 12, 100 / 4, 29 % 5",
+      "exampleOutput": "15 + 25 = 40\n50 - 18 = 32\n12 * 12 = 144\n100 / 4 = 25\n29 % 5 = 4",
+      "logicExplanation": "1. Map operator char symbol to binary function pointer in a dispatch table.\n2. Look up symbol and execute handler.",
+      "answerFile": "src/components/study/c-language/topics/002_007_pointers-and-memory-addresses/topic7_files/answers/answer10.c",
+      "codeExplanation": "Demonstrates table-driven parsing and dispatch architectures."
+    }
+  ]
+}

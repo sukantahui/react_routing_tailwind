@@ -1,0 +1,45 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_005: Arrays, Matrix Operations & Searching/Sorting
+TOPIC 4: 2D Arrays & Matrices: Row-Major Memory Layout & Matrix Math
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. ROW-MAJOR MEMORY MAPPING
+--------------------------------------------------------------------------------
+- C stores multi-dimensional arrays in ROW-MAJOR ORDER in contiguous physical RAM.
+- All elements of Row 0 are stored first, followed by Row 1, Row 2, etc.
+- Offset Formula:
+    Address(&arr[i][j]) = BaseAddress + ((i * COLS) + j) * sizeof(Type)
+- Pointer Dereference Equivalence:
+    arr[i][j]  ==  *(*(arr + i) + j)
+
+2. PASSING 2D ARRAYS TO FUNCTIONS
+--------------------------------------------------------------------------------
+- RULE: You MUST declare the column dimension in function parameters!
+    void process(int matrix[][COLS], int rows); // VALID
+    void process(int matrix[ROWS][COLS]);       // VALID
+    void process(int matrix[][]);               // COMPILE ERROR!
+
+3. CORE MATRIX ALGORITHMS
+--------------------------------------------------------------------------------
+- Addition: C[i][j] = A[i][j] + B[i][j] (Dimensions must match, O(R*C)).
+- Transpose: T[j][i] = A[i][j] (M x N becomes N x M, O(R*C)).
+- Multiplication (A[m x n] * B[n x p] = C[m x p]):
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < p; j++) {
+            C[i][j] = 0;
+            for (int k = 0; k < n; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    Time Complexity: O(M * N * P) -> O(N^3) for square matrices.
+
+4. MEMORY EFFICIENCY BEST PRACTICES
+--------------------------------------------------------------------------------
+[✓] Loop Ordering: Always use outer loop for rows (i) and inner loop for cols (j)
+    to achieve contiguous cache-line memory prefetching.
+[✓] Square Matrix Check: Matrix multiplication condition: Cols of A == Rows of B.
+[✓] Initialize arrays cleanly with: int matrix[R][C] = {0};
+================================================================================

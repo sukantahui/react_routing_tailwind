@@ -1,0 +1,30 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 10: Numerical Exercises & Mathematical Problem Solving
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+EXERCISE SET & DETAILED SOLUTIONS:
+
+[EXERCISE 1] 4-Point Manhattan Distance PAM (K = 2)
+Given points: P1(1, 1), P2(2, 1), P3(7, 8), P4(8, 8)
+- Distance Matrix D:
+      P1  P2  P3  P4   Row Sum
+  P1 [ 0   1  13  14 ]   28  <- Min sum (Chosen as M1)
+  P2 [ 1   0  12  13 ]   26  <- (Actually P2 has lowest sum 26!)
+  P3 [13  12   0   1 ]   26
+  P4 [14  13   1   0 ]   28
+- BUILD 1st Medoid: P2(2, 1) (Row sum = 26).
+- BUILD 2nd Medoid: Gain for P3 = max(0, 12-0) + max(0, 13-1) = 12 + 12 = 24.
+- Initial Medoids: [P2, P3] -> Total Cost: 1 + 0 + 0 + 1 = 2.
+- SWAP evaluations yield Delta C >= 0. Final Cost = 2.
+
+[EXERCISE 2] SWAP Phase Delta C Calculation
+Given distance matrix D for 4 points.
+Current Medoids: [P1, P4] with Cost = 0 + 3 + 2 + 0 = 5.
+Proposed Swap: Replace P1 with P2 -> Medoids: [P2, P4].
+New Cost: min(3,9) + min(0,8) + min(7,2) + min(8,0) = 3 + 0 + 2 + 0 = 5.
+Delta C = 5 - 5 = 0.
+Decision: REJECT SWAP (Delta C must be strictly negative to accept).
+================================================================================

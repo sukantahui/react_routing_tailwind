@@ -1,0 +1,45 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_007: Pointers & Memory Addresses
+TOPIC 4: Pointers to Pointers (Double Pointers **ptr)
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS A DOUBLE POINTER?
+--------------------------------------------------------------------------------
+- A double pointer stores the address of another pointer variable:
+    int x = 10;
+    int *p = &x;     // Stores address of x (e.g. 0x1000)
+    int **pp = &p;   // Stores address of p (e.g. 0x2000)
+
+- Indirection Levels:
+    pp   -> Address of p (0x2000)
+    *pp  -> Address of x (0x1000)
+    **pp -> Value of x   (10)
+
+2. WHY USE DOUBLE POINTERS IN FUNCTIONS?
+--------------------------------------------------------------------------------
+- To modify an `int` variable in caller: Pass `int*`
+- To modify a `pointer` variable in caller: Pass `int**`
+- Example (Dynamic Memory Allocation):
+    void allocate(int **p, int n) {
+        *p = malloc(n * sizeof(int)); // Modifies caller's pointer!
+    }
+
+3. DYNAMIC 2D JAGGED MATRICES ON HEAP
+--------------------------------------------------------------------------------
+    int **matrix = malloc(ROWS * sizeof(int*));
+    for (int i = 0; i < ROWS; i++) {
+        matrix[i] = malloc(COLS * sizeof(int));
+    }
+
+    // Always free inner rows first, then outer pointer array:
+    for (int i = 0; i < ROWS; i++) free(matrix[i]);
+    free(matrix);
+
+4. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] All pointer types (single, double, triple) occupy 8 bytes on 64-bit OS.
+[✓] Command-line arguments `char *argv[]` are `char **argv`!
+[✓] Linked list head modifications always require `Node **head`.
+================================================================================

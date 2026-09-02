@@ -1,12 +1,42 @@
 ================================================================================
 CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 002_007: Pointers, Address Arithmetic & Function Pointers
-TOPIC 1: Module 002_007 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
+MODULE 002_007: Pointers & Memory Addresses
+TOPIC 1: Dereferencing & Pass-by-Reference Simulation
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
 ================================================================================
 
-1. MODULE PROJECTS SUMMARY
+1. PASS-BY-VALUE VS PASS-BY-REFERENCE SIMULATION
 --------------------------------------------------------------------------------
-- Project 1: Memory Address Inspector & In-place Array Inverter via Pointers
-- Project 2: Generic Callback Function Dispatcher
+- C is strictly a Pass-by-Value language:
+    swap(a, b) copies integer values into callee stack frame (Caller unchanged!).
+- Pass-by-Reference is SIMULATED by passing memory addresses:
+    swap(&a, &b) passes address values into pointer parameters (Caller mutated!).
+
+2. THE CLASSIC SWAP ALGORITHM
+--------------------------------------------------------------------------------
+    void swap(int *pA, int *pB) {
+        int temp = *pA; // Read value from address pA
+        *pA = *pB;      // Write value from pB into address pA
+        *pB = temp;     // Write temp into address pB
+    }
+
+3. MULTIPLE RETURN VALUES (OUT-PARAMETERS)
+--------------------------------------------------------------------------------
+    void getStats(const int arr[], int n, int *min, int *max, double *avg) {
+        *min = ...;
+        *max = ...;
+        *avg = ...;
+    }
+
+4. PRECEDENCE TRAP: (*p)++ VS *p++
+--------------------------------------------------------------------------------
+- `(*p)++` : Increments the integer value stored at address p.
+- `*p++`   : Dereferences current value, then increments the POINTER ADDRESS itself!
+
+5. SECURITY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Always guard out-parameters against NULL before dereferencing:
+    `if (outPtr != NULL) *outPtr = result;`
+[✓] Never return a pointer to a local automatic stack variable!
+[✓] Qualify read-only input pointers with `const`.
 ================================================================================

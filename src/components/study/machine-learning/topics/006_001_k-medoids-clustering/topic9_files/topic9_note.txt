@@ -1,0 +1,37 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 9: Worked Numerical Example: K-Medoids Step-by-Step
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. WORKED DATASET & PAIRWISE DISTANCE MATRIX
+--------------------------------------------------------------------------------
+Points: A(1, 2), B(2, 3), C(3, 2), D(8, 7), E(9, 8)  (K = 2)
+
+Pairwise Manhattan Distance Matrix:
+      A   B   C   D   E    Row Sum
+  A [ 0   2   2  12  14 ]    30
+  B [ 2   0   2   10 12 ]    26  <- MINIMUM SUM (Chosen as M1)
+  C [ 2   2   0   10 12 ]    26
+  D [12  10  10   0   2 ]    34
+  E [14  12  12   2   0 ]    40
+
+2. BUILD PHASE CALCULATIONS
+--------------------------------------------------------------------------------
+- Step 1: M1 = B(2, 3) (Row sum = 26).
+- Step 2: Evaluate Gains for 2nd Medoid:
+  * If candidate is A: Gain = max(0, 2-0)+max(0, 0-2)+max(0, 2-2)+max(0, 10-12)+max(0, 12-14) = 2
+  * If candidate is C: Gain = max(0, 2-2)+max(0, 0-2)+max(0, 2-0)+max(0, 10-10)+max(0, 12-12) = 2
+  * If candidate is D: Gain = max(0, 10-0)+max(0, 12-2) = 10 + 10 = 20
+  * If candidate is E: Gain = max(0, 10-2)+max(0, 12-0) = 8 + 12 = 20 (Tie broken -> E chosen)
+- Initial Medoids: M1 = B(2, 3), M2 = E(9, 8). Initial Total Cost = 2 + 0 + 2 + 2 + 0 = 6.
+
+3. SWAP PHASE & CONVERGENCE
+--------------------------------------------------------------------------------
+- Testing swaps with remaining points yields \Delta C \ge 0.
+- Final Clusters:
+  * Cluster 1 (Medoid B): {A(1,2), B(2,3), C(3,2)}
+  * Cluster 2 (Medoid E): {D(8,7), E(9,8)}
+- Final Total Dissimilarity Cost: J = 6.00
+================================================================================

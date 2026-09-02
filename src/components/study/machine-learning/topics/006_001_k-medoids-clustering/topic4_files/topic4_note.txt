@@ -1,0 +1,26 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 4: Cluster Assignment & Voronoi Partitioning
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+1. WHAT IS CLUSTER ASSIGNMENT IN K-MEDOIDS?
+--------------------------------------------------------------------------------
+- Given a fixed set of K medoids {m_1, m_2, ..., m_K}, cluster assignment assigns
+  every non-medoid object x_i in the dataset to its nearest medoid:
+    Cluster(x_i) = \arg\min_{k \in \{1..K\}} D(x_i, m_k)
+
+2. GEOMETRIC INTERPRETATION (VORONOI CELLS)
+--------------------------------------------------------------------------------
+- The assignment rule decomposes feature space into K Voronoi cells.
+- Any point located inside cell k is closer to medoid m_k than to any other medoid.
+- The decision boundary between two medoids m_a and m_b is the perpendicular
+  hyperplane (for Euclidean) or piecewise linear boundary (for Manhattan).
+
+3. TIE-BREAKING & EDGE CASES
+--------------------------------------------------------------------------------
+[✓] If point x is equidistant to m_1 and m_2, ties are broken deterministically
+    (e.g. assigning to the cluster with the lower index).
+[✓] Medoids always have distance 0 to themselves, guaranteeing non-empty clusters.
+================================================================================

@@ -1,12 +1,40 @@
 ================================================================================
 CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 002_005: Arrays & Matrix Operations
-TOPIC 1: Module 002_005 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
+MODULE 002_005: Arrays, Matrix Operations & Searching/Sorting
+TOPIC 1: Passing Arrays to Functions & Array-to-Pointer Decay
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
 ================================================================================
 
-1. MODULE PROJECTS SUMMARY
+1. CORE CONCEPT: ARRAY DECAY
 --------------------------------------------------------------------------------
-- Project 1: Matrix Transpose & Multiplication Suite
-- Project 2: Class Marksheet & Statistical Ranker
+- In C, arrays are NEVER passed by value to functions.
+- When an array is passed as an argument, it automatically DECAYS into a pointer
+  to its first element (&arr[0]).
+- Function parameter signatures:
+    void print(int arr[], int n);   <-- EXACTLY EQUIVALENT TO -->
+    void print(int *arr, int n);
+
+2. WHY SIZEOF FAILS INSIDE FUNCTIONS
+--------------------------------------------------------------------------------
+- Inside caller (main):
+    int arr[5];
+    sizeof(arr) = 20 bytes (5 elements * 4 bytes).
+- Inside receiving function:
+    sizeof(arr) = 8 bytes (on 64-bit OS: size of pointer variable 'int*').
+- RULE: Always pass the array length 'size' as a separate explicit parameter!
+
+3. MUTABILITY & THE 'CONST' SAFETY GUARD
+--------------------------------------------------------------------------------
+- In-Place Mutation: Modifying arr[i] inside a function modifies the caller's
+  original array directly (pass-by-reference simulation).
+- Read-Only Protection:
+    void display(const int arr[], int size);
+    (Using 'const' triggers a compile error if the function tries to write to arr).
+
+4. SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Pass array size explicitly in function signatures.
+[✓] Use 'const' qualifiers for read-only array parameters.
+[✓] Never return a pointer to a local stack array from a function!
+[✓] In 2D arrays, specify column dimensions: void f(int matrix[][COLS], int rows);
 ================================================================================

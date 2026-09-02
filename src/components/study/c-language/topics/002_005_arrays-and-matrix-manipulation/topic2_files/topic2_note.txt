@@ -1,0 +1,43 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_005: Arrays, Matrix Operations & Searching/Sorting
+TOPIC 2: Searching Algorithms: Linear Search vs Binary Search
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. LINEAR SEARCH (SEQUENTIAL SEARCH)
+--------------------------------------------------------------------------------
+- Concept: Iterates from index 0 to n-1, comparing arr[i] with target.
+- Prerequisite: Works on ANY array (unsorted or sorted).
+- Time Complexity:
+    • Best Case   : O(1) (Target is at index 0)
+    • Worst Case  : O(n) (Target is at last index or absent)
+    • Average Case: O(n)
+- Space Complexity: O(1) auxiliary space.
+
+2. BINARY SEARCH (DIVIDE & CONQUER)
+--------------------------------------------------------------------------------
+- Concept: Repeatedly divides the search range in half.
+- MANDATORY Prerequisite: Array MUST be sorted in ascending/descending order.
+- Safe Midpoint Formula:
+    int mid = low + (high - low) / 2;  // Avoids (low + high) integer overflow!
+- Time Complexity:
+    • Best Case   : O(1) (Target is at middle index)
+    • Worst Case  : O(log2 n)
+    • Average Case: O(log2 n)
+- Space Complexity:
+    • Iterative: O(1)
+    • Recursive: O(log n) call stack frames.
+
+3. COMPARISON BENCHMARK (ARRAY OF 1,000,000 ELEMENTS)
+--------------------------------------------------------------------------------
+- Linear Search: Up to 1,000,000 comparisons.
+- Binary Search: Maximum 20 comparisons! (log2(1000000) ≈ 19.93)
+
+4. BEST PRACTICES & SUMMARY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Use Linear Search for small (n < 15) or one-off searches on unsorted data.
+[✓] Use Binary Search when frequent lookups are performed on sorted datasets.
+[✓] Always calculate mid with `low + (high - low) / 2`.
+[✓] Return -1 as sentinel value when target is missing.
+================================================================================

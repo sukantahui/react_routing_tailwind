@@ -1,0 +1,34 @@
+================================================================================
+CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
+MODULE 006_001: K-Medoids Clustering
+TOPIC 12: Comprehensive Short Questions & Rapid Concept Review
+Educator: Sukanta Hui | Location: Barrackpore, West Bengal
+================================================================================
+
+ESSENTIAL SHORT QUESTIONS & REVISION SUMMARY:
+
+Q1. Define a Medoid.
+A1. An actual, existing observation in a cluster whose average dissimilarity to all
+    other points in that cluster is minimal.
+
+Q2. State the primary objective function of K-Medoids.
+A2. J = \sum_{i=1}^N D(x_i, m_{y_i}) where m_{y_i} is the medoid assigned to x_i.
+
+Q3. Why is K-Medoids more robust than K-Means?
+A3. Because it minimizes absolute distance (L1/arbitrary) rather than squared Euclidean
+    distance (L2^2), providing a 50% breakdown point against extreme outliers.
+
+Q4. What is the PAM algorithm?
+A4. Partitioning Around Medoids, introduced by Kaufman & Rousseeuw (1987), using
+    BUILD and SWAP phases to find optimal medoids.
+
+Q5. What is the time complexity of PAM?
+A5. O(K(N - K)^2) per iteration.
+
+Q6. How does CLARA scale K-Medoids?
+A6. By applying PAM to multiple small random subsamples and picking the best overall medoids.
+
+Q7. What is FastPAM?
+A7. An exact optimization of PAM that caches nearest and second-nearest medoid
+    distances to achieve an O(N) speedup (complexity O(K(N-K))).
+================================================================================

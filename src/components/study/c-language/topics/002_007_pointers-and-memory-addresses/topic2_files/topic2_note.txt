@@ -1,0 +1,41 @@
+================================================================================
+CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
+MODULE 002_007: Pointers & Memory Addresses
+TOPIC 2: Pointer Arithmetic & Automatic Type Scaling
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
+================================================================================
+
+1. THE POINTER SCALING PRINCIPLE
+--------------------------------------------------------------------------------
+- When you add integer N to pointer `ptr` of type `T*`:
+    Physical Address = Current Address + (N * sizeof(T))
+
+- Step Sizes across Data Types:
+    char*   : +1 byte  per step
+    short*  : +2 bytes per step
+    int*    : +4 bytes per step
+    double* : +8 bytes per step
+
+2. LEGAL VS ILLEGAL POINTER ARITHMETIC
+--------------------------------------------------------------------------------
+[✓] Pointer + Integer        : ptr + 3 (jumps 3 elements forward)
+[✓] Pointer - Integer        : ptr - 2 (jumps 2 elements backward)
+[✓] Pointer - Pointer        : p2 - p1 (returns element count as `ptrdiff_t`)
+[✓] Pointer Relational Tests : p1 < p2 (valid within same array)
+[✗] Pointer + Pointer        : ILLEGAL (Compile Error!)
+[✗] Pointer * Number         : ILLEGAL (Compile Error!)
+[✗] Pointer / Number         : ILLEGAL (Compile Error!)
+
+3. UNARY PRECEDENCE RULES
+--------------------------------------------------------------------------------
+- `*p++`   : Evaluates *p first, then increments pointer address!
+- `*++p`   : Increments pointer address first, then evaluates new *p!
+- `(*p)++` : Evaluates *p, then increments the data value in memory!
+- `++*p`   : Increments data value in memory first, then yields result!
+
+4. PTRDIFF_T AND DISTANCES
+--------------------------------------------------------------------------------
+- Header : `<stddef.h>`
+- Type   : `ptrdiff_t` (Signed integer)
+- Format : `%td` in printf
+================================================================================

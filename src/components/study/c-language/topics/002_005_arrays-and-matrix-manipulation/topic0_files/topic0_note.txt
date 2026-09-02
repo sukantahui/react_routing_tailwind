@@ -1,13 +1,39 @@
 ================================================================================
 CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 002_005: Arrays & Matrix Operations
-TOPIC 0: Contiguous Array Storage & Matrix Transposition
-Educator: Sukanta Hui | Barrackpore, West Bengal
+MODULE 002_005: Arrays, Matrix Operations & Searching/Sorting
+TOPIC 0: 1D Array Declaration, Memory Addresses & Indexing Mechanics
+Educator: Sukanta Hui | Center: Barrackpore, West Bengal
 ================================================================================
 
-1. CORE CONCEPTS
+1. CORE DEFINITIONS & PRINCIPLES
 --------------------------------------------------------------------------------
-- 1D Array: Fixed size, zero-indexed, contiguous RAM block.
-- 2D Matrix: Row-major order contiguous memory layout.
-- Matrix Transpose: Swap element matrix[i][j] into transpose[j][i].
+- Array: A collection of elements of identical data type stored contiguously in RAM.
+- Contiguous Allocation: Every element is placed immediately after the previous one.
+- Zero-Based Indexing: Index 'i' represents the element offset multiplier from the base address.
+- Formula for element address:
+    Address(&arr[i]) = Base Address + (i * sizeof(Element_Type))
+- Pointer Equivalence:
+    arr[i]  ==  *(arr + i)  ==  *(i + arr)  ==  i[arr]
+
+2. DECLARATION & INITIALIZATION PATTERNS
+--------------------------------------------------------------------------------
+- Standard Declaration     : int scores[5];                 // Contains stack garbage!
+- Complete Initialization  : int scores[5] = {85, 92, 78, 96, 88};
+- Partial Initialization   : int scores[5] = {10, 20};      // scores[2..4] are 0!
+- Zero-All Initialization  : int scores[5] = {0};           // All 5 elements are 0!
+- Inferred Size            : int scores[] = {1, 2, 3};      // Compiler sets size = 3
+- Designated Initializer   : int flags[10] = {[0]=1, [9]=99}; // C99 feature
+
+3. LENGTH CALCULATION RULE
+--------------------------------------------------------------------------------
+    int totalElements = sizeof(arr) / sizeof(arr[0]);
+    (Note: This works only in the scope where the array is statically declared).
+
+4. COMMON PITFALLS & MEMORY SAFETY CHECKLIST
+--------------------------------------------------------------------------------
+[✓] Out-of-Bounds Access: C does NOT perform runtime boundary checking.
+    Accessing arr[5] on an array of size 5 leads to Undefined Behavior (UB)!
+[✓] No Direct Assignment: arr1 = arr2 is illegal in C. Use memcpy or loops.
+[✓] Stack Allocation Limit: Avoid huge arrays (e.g. int arr[1000000]) on the stack.
+    Use static storage or heap dynamic allocation (malloc).
 ================================================================================
