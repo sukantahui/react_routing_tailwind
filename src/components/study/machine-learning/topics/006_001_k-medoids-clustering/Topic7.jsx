@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -19,8 +20,16 @@ export default function Topic7() {
   const kmeansCentroidX = (8 + 9 + 8 + 10 + outlierMagnitude) / 5;
   const kmedoidsMedoidX = 9; // Fixed real central point
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -51,7 +60,7 @@ export default function Topic7() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -91,10 +100,10 @@ export default function Topic7() {
               🚆 The High-Speed Train vs The Armored Jeep
             </h3>
             <p className="text-xs md:text-sm text-slate-300">
-              <strong>K-Means</strong> is a high-speed bullet train: it glides over millions of clean continuous data points in seconds ($O(N \cdot K \cdot d)$), but if there is an obstacle (outlier) on the track, it derails!
+              <strong>K-Means</strong> is a high-speed bullet train: it glides over millions of clean continuous data points in seconds (<InlineMath math="O(N \\cdot K \\cdot d)" />), but if there is an obstacle (outlier) on the track, it derails!
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              <strong>K-Medoids</strong> is an armored 4x4 off-roader: it travels over rough rocky terrain, handles broken paths (outliers, non-Euclidean metrics), and always delivers you safely, but moves at a measured speed ($O(N^2)$).
+              <strong>K-Medoids</strong> is an armored 4x4 off-roader: it travels over rough rocky terrain, handles broken paths (outliers, non-Euclidean metrics), and always delivers you safely, but moves at a measured speed (<InlineMath math="O(N^2)" />).
             </p>
           </div>
         </div>
@@ -117,13 +126,13 @@ export default function Topic7() {
               <text x="185" y="25" textAnchor="middle" fill="#fbbf24" className="font-bold text-xs font-mono">K-MEANS (Speed Champion)</text>
 
               <rect x="20" y="40" width="330" height="30" rx="4" fill="#0f172a" />
-              <text x="35" y="60" fill="#cbd5e1" className="text-[11px] font-mono">Time Complexity: <strong className="text-emerald-400">$O(N \cdot K \cdot d)$ (Linear!)</strong></text>
+              <text x="35" y="60" fill="#cbd5e1" className="text-[11px] font-mono">Time Complexity: <tspan fill="#34d399">O(N · K · d) (Linear!)</tspan></text>
 
               <rect x="20" y="75" width="330" height="30" rx="4" fill="#0f172a" />
-              <text x="35" y="95" fill="#cbd5e1" className="text-[11px] font-mono">Outlier Resistance: <strong className="text-rose-400">Poor ($0\%$ Breakdown)</strong></text>
+              <text x="35" y="95" fill="#cbd5e1" className="text-[11px] font-mono">Outlier Resistance: <tspan fill="#f43f5e">Poor (0% Breakdown)</tspan></text>
 
               <rect x="20" y="110" width="330" height="30" rx="4" fill="#0f172a" />
-              <text x="35" y="130" fill="#cbd5e1" className="text-[11px] font-mono">Metric: <strong className="text-amber-300">Euclidean Only</strong></text>
+              <text x="35" y="130" fill="#cbd5e1" className="text-[11px] font-mono">Metric: <tspan fill="#fcd34d">Euclidean Only</tspan></text>
 
               <text x="185" y="165" textAnchor="middle" fill="#94a3b8" className="text-[10px]">Best for: Massive clean numerical big data</text>
             </g>
@@ -134,10 +143,10 @@ export default function Topic7() {
               <text x="185" y="25" textAnchor="middle" fill="#34d399" className="font-bold text-xs font-mono">K-MEDOIDS (Robustness Champion)</text>
 
               <rect x="20" y="40" width="330" height="30" rx="4" fill="#0f172a" />
-              <text x="35" y="60" fill="#cbd5e1" className="text-[11px] font-mono">Time Complexity: <strong className="text-amber-400">$O(N^2)$ or $O(K(N-K)^2)$</strong></text>
+              <text x="35" y="60" fill="#cbd5e1" className="text-[11px] font-mono">Time Complexity: <tspan fill="#fbbf24">O(N²) or O(K(N-K)²)</tspan></text>
 
               <rect x="20" y="75" width="330" height="30" rx="4" fill="#0f172a" />
-              <text x="35" y="95" fill="#cbd5e1" className="text-[11px] font-mono">Outlier Resistance: <strong className="text-emerald-400">Extreme ($50\%$ Breakdown)</strong></text>
+              <text x="35" y="95" fill="#cbd5e1" className="text-[11px] font-mono">Outlier Resistance: <tspan fill="#34d399">Extreme (50% Breakdown)</tspan></text>
 
               <rect x="20" y="110" width="330" height="30" rx="4" fill="#0f172a" />
               <text x="35" y="130" fill="#cbd5e1" className="text-[11px] font-mono">Metric: <strong className="text-emerald-400">Any Arbitrary Distance</strong></text>
@@ -155,7 +164,7 @@ export default function Topic7() {
       </section>
 
       {/* 4. Deep Technical Breakdown Section: Benchmark Matrix */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
@@ -187,8 +196,8 @@ export default function Topic7() {
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Mathematical Loss</td>
-                <td className="p-3.5">Sum of Squared Errors ($\text{SSE} = \sum \|x - \mu\|^2$)</td>
-                <td className="p-3.5">Total Absolute Dissimilarity ($J = \sum D(x, m)$)</td>
+                <td className="p-3.5">Sum of Squared Errors (<InlineMath math="\\text{SSE} = \\sum \|x - \\mu\|^2" />)</td>
+                <td className="p-3.5">Total Absolute Dissimilarity (<InlineMath math="J = \sum D(x, m)" />)</td>
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Outlier Breakdown Point</td>
@@ -203,17 +212,17 @@ export default function Topic7() {
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Distance Matrix Support</td>
                 <td className="p-3.5 text-rose-400">Cannot use precomputed matrices</td>
-                <td className="p-3.5 text-emerald-300">Accepts arbitrary $N \times N$ matrix</td>
+                <td className="p-3.5 text-emerald-300">Accepts arbitrary <InlineMath math="N \\times N" /> matrix</td>
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Time Complexity</td>
-                <td className="p-3.5 text-emerald-400 font-mono">$O(N \cdot K \cdot d)$ (Linear speed)</td>
-                <td className="p-3.5 text-amber-400 font-mono">$O(K(N-K)^2)$ or $O(N^2)$</td>
+                <td className="p-3.5 text-emerald-400 font-mono"><InlineMath math="O(N \\cdot K \\cdot d)" /> (Linear speed)</td>
+                <td className="p-3.5 text-amber-400 font-mono"><InlineMath math="O(K(N-K)^2)" /> or <InlineMath math="O(N^2)" /></td>
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Memory Complexity</td>
-                <td className="p-3.5 text-emerald-400 font-mono">$O(N \cdot d)$ (Minimal)</td>
-                <td className="p-3.5 font-mono text-slate-300">$O(N^2)$ (Distance Matrix)</td>
+                <td className="p-3.5 text-emerald-400 font-mono"><InlineMath math="O(N \\cdot d)" /> (Minimal)</td>
+                <td className="p-3.5 font-mono text-slate-300"><InlineMath math="O(N^2)" /> (Distance Matrix)</td>
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Primary Python Tool</td>
@@ -226,7 +235,7 @@ export default function Topic7() {
       </section>
 
       {/* 5. Live Interactive Outlier Leverage Studio */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -243,7 +252,7 @@ export default function Topic7() {
 
         <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
           <div className="flex justify-between items-center text-xs font-mono">
-            <span className="text-slate-300">Outlier Point Position ($P_{\text{outlier}}$):</span>
+            <span className="text-slate-300">Outlier Point Position (<InlineMath math="P_{\text{outlier}}" />):</span>
             <span className="text-cyan-400 font-bold">[{outlierMagnitude}, {outlierMagnitude}]</span>
           </div>
 
@@ -281,7 +290,7 @@ export default function Topic7() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -301,7 +310,7 @@ export default function Topic7() {
             <span className="text-xs font-mono font-bold text-amber-400 uppercase">K-Means Deployment • Kolkata FinTech</span>
             <h3 className="text-base font-bold text-white">High-Throughput Card Anomaly Detection</h3>
             <p className="text-xs sm:text-sm text-slate-300">
-              Debangshu deployed K-Means on 5,000,000 continuous transaction vectors per hour in Salt Lake Sector V, taking advantage of linear $O(N \cdot K \cdot d)$ GPU acceleration for sub-millisecond response.
+              Debangshu deployed K-Means on 5,000,000 continuous transaction vectors per hour in Salt Lake Sector V, taking advantage of linear <InlineMath math="O(N \\cdot K \\cdot d)" /> GPU acceleration for sub-millisecond response.
             </p>
           </div>
 
@@ -332,7 +341,7 @@ export default function Topic7() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04
@@ -354,7 +363,7 @@ export default function Topic7() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
               <li>Using K-Means on categorical or mixed data where arithmetic means are meaningless.</li>
-              <li>Attempting raw PAM K-Medoids on $N &gt; 50,000$ points (causes memory exhaustion).</li>
+              <li>Attempting raw PAM K-Medoids on <InlineMath math="N &gt; 50,000" /> points (causes memory exhaustion).</li>
               <li>Assuming K-Means and K-Medoids will produce identical cluster boundaries on clean data.</li>
             </ul>
           </div>
@@ -365,7 +374,7 @@ export default function Topic7() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
               <li>Profile dataset size and noise levels before choosing your clustering engine.</li>
-              <li>Use K-Means when $N &gt; 100,000$ and data is clean continuous numerical vectors.</li>
+              <li>Use K-Means when <InlineMath math="N &gt; 100,000" /> and data is clean continuous numerical vectors.</li>
               <li>Use K-Medoids when stakeholders require authentic real-world exemplar instances.</li>
             </ul>
           </div>

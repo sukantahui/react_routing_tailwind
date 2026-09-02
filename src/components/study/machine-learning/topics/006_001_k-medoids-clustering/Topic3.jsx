@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -24,8 +25,16 @@ export default function Topic3() {
 
   const currentPam = pamSteps[pamStep - 1];
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -43,8 +52,8 @@ export default function Topic3() {
             The PAM (Partitioning Around Medoids) Algorithm
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-4xl">
-            Explore the complete mathematical mechanics of the PAM algorithm (Kaufman &amp; Rousseeuw, 1987). Master the greedy BUILD phase initialization, pairwise SWAP evaluations, total cost change ($\Delta C$) optimization, and local convergence criteria.
+          <p className="text-base sm:text-lg text-slate-300 max-w-4xl leading-relaxed">
+            Explore the complete mathematical mechanics of the PAM algorithm (Kaufman &amp; Rousseeuw, 1987). Master the greedy BUILD phase initialization, pairwise SWAP evaluations, total cost change (<InlineMath math="\Delta C" />) optimization, and the local convergence condition (<InlineMath math="\min_{m, h} \Delta C_{m \to h} \ge 0" />).
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -56,7 +65,7 @@ export default function Topic3() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -79,28 +88,125 @@ export default function Topic3() {
           </span>
           <div>
             <h2 className="text-2xl font-black text-indigo-200 tracking-tight">
-              Teacher's Corner: The Boardroom Seat Exchange Analogy
+              Teacher's Corner: The Boardroom Seat Exchange &amp; Monotonic Optimization
             </h2>
             <p className="text-xs text-indigo-300/80">
-              Classroom discussion by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
+              Classroom lesson &amp; storytelling by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
             </p>
           </div>
         </div>
 
-        <div className="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
+        <div className="space-y-5 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            In our lab, <strong>Debangshu</strong> asked: <em>"How does PAM systematically find the best medoids without checking all $\binom{N}{K}$ combinations?"</em>
+            Hello students! Today, let's unlock the exact step-by-step engine behind <strong>PAM (Partitioning Around Medoids)</strong>. Finding the global best combination of <InlineMath math="K" /> medoids out of <InlineMath math="N" /> data points would require checking <InlineMath math="\binom{N}{K}" /> combinations—which becomes trillions of calculations! Let's discover how PAM cleverly avoids this brute-force nightmare.
           </p>
-          <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2">
-            <h3 className="font-bold text-amber-300 text-sm md:text-base">
-              🪑 The Boardroom Seat Exchange
+
+          {/* Interactive Classroom Narrative */}
+          <div className="p-4 bg-indigo-950/30 rounded-2xl border border-indigo-800/40 space-y-2">
+            <h3 className="font-bold text-indigo-200 text-sm md:text-base flex items-center gap-2">
+              <span>💬</span> Classroom Discussion at Barrackpore ML Lab
             </h3>
             <p className="text-xs md:text-sm text-slate-300">
-              Imagine $K$ committee chairs seated at the center table (BUILD phase). In the <strong>SWAP phase</strong>, a chair steps down and invites a person from the audience to take their place.
+              <strong>Debangshu:</strong> "Sir, if we have 1,000 retail locations in West Bengal and want 5 medoids, <InlineMath math="\binom{1000}{5}" /> is over 8 billion combinations! How does PAM find the solution so quickly?"
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              If the audience as a whole is happier (total distance $\Delta C &lt; 0$), the swap is kept permanently! The process repeats until no further seat exchange can improve total satisfaction.
+              <strong>Sukanta Hui:</strong> "Great question, Debangshu! Imagine a committee room where <InlineMath math="K" /> members are seated at the center table (the BUILD phase). Then, in the SWAP phase, one seated member steps down and invites an audience member to test their seat."
             </p>
+            <p className="text-xs md:text-sm text-slate-300">
+              <strong>Mahima:</strong> "So we only keep the seat exchange if the total distance cost for everyone decreases (<InlineMath math="\Delta C < 0" />)?"
+            </p>
+            <p className="text-xs md:text-sm text-slate-300">
+              <strong>Sukanta Hui:</strong> "Precisely! And when no possible seat exchange can reduce the cost further—meaning <InlineMath math="\min_{m, h} \Delta C_{m \to h} \ge 0" />—the algorithm stops. We have reached our optimal local convergence state!"
+            </p>
+          </div>
+
+          {/* 4 Real-Life Teacher Stories Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Story 1 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-indigo-800/60 space-y-2">
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider block">
+                🏛️ Phase 1 • BUILD Initialization
+              </span>
+              <h3 className="font-bold text-white text-sm">Selecting Initial Anchors</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                PAM starts greedily: 1st medoid is the point minimizing sum of distances to all other points. Next <InlineMath math="K-1" /> medoids are chosen sequentially to maximize cumulative cost reduction.
+              </p>
+            </div>
+
+            {/* Story 2 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-amber-800/60 space-y-2">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                🔄 Phase 2 • SWAP Auditions
+              </span>
+              <h3 className="font-bold text-white text-sm">Testing Candidates (<InlineMath math="\Delta C" />)</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Every medoid <InlineMath math="m \in M" /> is hypothetically swapped with every non-medoid candidate <InlineMath math="h \notin M" />. PAM calculates the net dissimilarity impact <InlineMath math="\Delta C_{m \to h}" /> across all points.
+              </p>
+            </div>
+
+            {/* Story 3 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-emerald-800/60 space-y-2">
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block">
+                📉 Phase 3 • Monotonic Descent
+              </span>
+              <h3 className="font-bold text-white text-sm">Strict Cost Reduction</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                If the best swap yields <InlineMath math="\Delta C_{\text{best}} < 0" />, PAM executes the swap permanently: <InlineMath math="M \leftarrow (M \setminus \{m^*\}) \cup \{h^*\}" />, strictly reducing overall cost.
+              </p>
+            </div>
+
+            {/* Story 4 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-rose-800/60 space-y-2">
+              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider block">
+                🛑 Phase 4 • Convergence State
+              </span>
+              <h3 className="font-bold text-white text-sm">Stopping Rule (<InlineMath math="\min \Delta C \ge 0" />)</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                When the minimum cost change among all possible candidate swaps is non-negative (<InlineMath math="\min_{m, h} \Delta C_{m \to h} \ge 0" />), no swap can improve the clustering. PAM stops!
+              </p>
+            </div>
+          </div>
+
+          {/* 4-Step Friendly Teacher CNAT Breakdown (What, Why, How, When) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="bg-slate-950 p-4 rounded-xl border border-indigo-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">❓ WHAT is PAM?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                The classic Partitioning Around Medoids algorithm (Kaufman &amp; Rousseeuw, 1987) that searches for optimal exemplar medoids using a 2-phase (BUILD &amp; SWAP) iterative process.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-cyan-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">💡 WHY use Cost Delta ($\Delta C$)?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Calculating incremental cost change <InlineMath math="\Delta C_{m \to h}" /> per point is far faster than re-clustering the entire dataset from scratch on every candidate swap test.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-amber-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">⚙️ HOW is Convergence Defined?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Convergence occurs when <InlineMath math="\Delta C_{\text{best}} = \min_{m, h} \Delta C_{m \to h} \ge 0" />, meaning every single candidate swap would either increase or maintain the current total dissimilarity cost.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-emerald-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">⏰ WHEN to Use PAM?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Use standard PAM for small-to-medium datasets (<InlineMath math="N \le 3,000" />) where high clustering quality and custom dissimilarity metrics are paramount.
+              </p>
+            </div>
+          </div>
+
+          {/* Teacher's Golden Rule */}
+          <div className="p-4 bg-amber-950/30 rounded-2xl border border-amber-800/50 flex items-start gap-3">
+            <span className="text-2xl">💡</span>
+            <div>
+              <h4 className="font-bold text-amber-200 text-sm">Teacher's Golden Rule of Convergence</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                "A swap is accepted if and only if <InlineMath math="\Delta C < 0" /> (cost strictly decreases). When <InlineMath math="\min_{m, h} \Delta C_{m \to h} \ge 0" />, no further improvement is mathematically possible through single medoid replacement. That is your stopping signal!" — Sukanta Hui
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -113,7 +219,7 @@ export default function Topic3() {
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
           <svg viewBox="0 0 920 280" className="w-full min-w-[750px] font-sans">
             <text x="460" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-sm">
-              The PAM Algorithm Execution Lifecycle: BUILD Phase $\to$ SWAP Iterations $\to$ Convergence
+              The PAM Algorithm Execution Lifecycle: BUILD Phase → SWAP Iterations → Convergence
             </text>
 
             {/* Stage 1: BUILD */}
@@ -135,7 +241,7 @@ export default function Topic3() {
               <rect x="0" y="0" width="260" height="180" rx="8" fill="#1e293b" stroke="#f59e0b" strokeWidth="1.5" />
               <text x="130" y="25" textAnchor="middle" fill="#f59e0b" className="font-bold text-xs font-mono">2. SWAP Phase (Optimization)</text>
               <rect x="15" y="40" width="230" height="45" rx="4" fill="#0f172a" />
-              <text x="25" y="62" fill="#cbd5e1" className="text-[11px] font-mono">Test all pairs (m, h):</text>
+              <text x="25" y="62" fill="#cbd5e1" className="text-[11px] font-mono">Test pairs (m ∈ M, h ∉ M):</text>
               <text x="25" y="78" fill="#fcd34d" className="text-[10px] font-mono">ΔC = Cost(new) - Cost(curr)</text>
               <rect x="15" y="95" width="230" height="45" rx="4" fill="#0f172a" />
               <text x="25" y="117" fill="#cbd5e1" className="text-[11px] font-mono">If min(ΔC) &lt; 0:</text>
@@ -150,8 +256,8 @@ export default function Topic3() {
               <rect x="0" y="0" width="220" height="180" rx="8" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
               <text x="110" y="25" textAnchor="middle" fill="#10b981" className="font-bold text-xs font-mono">3. Convergence State</text>
               <rect x="15" y="45" width="190" height="55" rx="4" fill="#0f172a" />
-              <text x="105" y="70" textAnchor="middle" fill="#f43f5e" className="font-bold text-xs font-mono">min(ΔC) $\ge$ 0</text>
-              <text x="105" y="90" textAnchor="middle" fill="#94a3b8" className="text-[10px]">No swap can reduce cost</text>
+              <text x="95" y="70" textAnchor="middle" fill="#f43f5e" className="font-bold text-xs font-mono">min(ΔC) ≥ 0</text>
+              <text x="95" y="90" textAnchor="middle" fill="#94a3b8" className="text-[10px]">No swap can reduce cost</text>
               <text x="110" y="145" textAnchor="middle" fill="#34d399" className="text-xs font-mono font-bold">
                 ✓ Local Optimum Found!
               </text>
@@ -160,56 +266,85 @@ export default function Topic3() {
             {/* Explanatory footer */}
             <rect x="40" y="240" width="840" height="35" rx="6" fill="#0f172a" stroke="#334155" />
             <text x="460" y="262" textAnchor="middle" fill="#38bdf8" className="text-xs font-mono">
-              • Complexity per iteration: $O(K \cdot (N - K)^2)$ | Precomputed Distance Matrix: $O(N^2)$
+              • Complexity per iteration: O(K · (N - K)²) | Precomputed Distance Matrix: O(N²)
             </text>
           </svg>
         </div>
       </section>
 
       {/* 4. Deep Technical Breakdown Section */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
           </div>
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-white">
-              The Mathematical Cost Difference Formulation ($\Delta C_{m \to h}$)
+              The Mathematical Cost Difference Formulation (<InlineMath math="\Delta C_{m \to h}" />)
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Evaluating the exact total dissimilarity impact of replacing medoid $m$ with non-medoid $h$
+              Evaluating the exact total dissimilarity impact of replacing medoid <InlineMath math="m" /> with non-medoid <InlineMath math="h" />
             </p>
+          </div>
+        </div>
+
+        {/* Dedicated Rigorous Definition Box for min(ΔC) >= 0 */}
+        <div className="bg-slate-950 p-6 rounded-2xl border border-indigo-800/50 space-y-4">
+          <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">
+            📐 Formal Definition of the Stopping Criterion: <InlineMath math="\min_{m \in M, h \notin M} \Delta C_{m \to h} \ge 0" />
+          </span>
+          <div className="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p>
+              In PAM, for a current set of <InlineMath math="K" /> medoids <InlineMath math="M" />, every candidate pair <InlineMath math="(m, h)" /> (where <InlineMath math="m \in M" /> and <InlineMath math="h \notin M" />) has a net cost delta:
+            </p>
+            <div className="p-3 bg-slate-900 text-center font-mono text-xs sm:text-sm text-indigo-300 rounded-xl border border-slate-800">
+              <BlockMath math="\Delta C_{m \to h} = \text{TotalCost}(M \setminus \{m\} \cup \{h\}) - \text{TotalCost}(M) = \sum_{j=1}^N C_{jmh}" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <div className="p-3 bg-emerald-950/40 rounded-xl border border-emerald-800/50 space-y-1">
+                <span className="text-xs font-bold text-emerald-300 block">Condition 1: <InlineMath math="\Delta C_{\text{best}} < 0" /></span>
+                <p className="text-xs text-slate-300">
+                  There exists at least one candidate pair <InlineMath math="(m^*, h^*)" /> that decreases total dissimilarity. PAM accepts the swap and updates <InlineMath math="M \leftarrow (M \setminus \{m^*\}) \cup \{h^*\}" />.
+                </p>
+              </div>
+              <div className="p-3 bg-rose-950/40 rounded-xl border border-rose-800/50 space-y-1">
+                <span className="text-xs font-bold text-rose-300 block">Condition 2: <InlineMath math="\min_{m, h} \Delta C_{m \to h} \ge 0" /></span>
+                <p className="text-xs text-slate-300">
+                  Every possible candidate swap results in an increase or zero change in total cost. No single replacement can improve the clustering. <strong>The algorithm terminates at local optimum.</strong>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
-            <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Total Cost Change $\Delta C$</span>
+            <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Total Cost Change <InlineMath math="\Delta C" /></span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              When swapping medoid $m$ with non-medoid $h$, the change in total clustering cost is the sum of point-wise dissimilarity changes over all $N$ data objects:
+              When swapping medoid <InlineMath math="m" /> with non-medoid <InlineMath math="h" />, the change in total clustering cost is the sum of point-wise dissimilarity changes over all <InlineMath math="N" /> data objects:
             </p>
-            <div className="text-[12px] font-mono text-indigo-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              \Delta C_{m \to h} = \sum_{j=1}^N C_{jmh}
+            <div className="text-sm md:text-base font-mono text-indigo-300 bg-indigo-950/40 p-4 rounded-xl border border-indigo-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-3">
+              <BlockMath math="\Delta C_{m \to h} = \sum_{j=1}^N C_{jmh}" />
             </div>
             <p className="text-xs text-slate-400">
-              Where $C_{jmh}$ is the change in distance for point $j$ resulting from the swap.
+              Where <InlineMath math="C_{jmh}" /> is the change in distance for point <InlineMath math="j" /> resulting from the swap.
             </p>
           </div>
 
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-emerald-400 uppercase">The 4 Transition Cases</span>
             <ul className="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-              <li><strong>Case 1:</strong> Point $j$ was in $m$'s cluster and is closer to $h \implies C_{jmh} = d(j, h) - d(j, m)$.</li>
-              <li><strong>Case 2:</strong> Point $j$ was in $m$'s cluster but closer to 2nd-best medoid $m_2 \implies C_{jmh} = d(j, m_2) - d(j, m)$.</li>
-              <li><strong>Case 3:</strong> Point $j$ was in another cluster but now closer to $h \implies C_{jmh} = d(j, h) - d(j, m_j)$.</li>
-              <li><strong>Case 4:</strong> Point $j$ remains in its original other cluster $\implies C_{jmh} = 0$.</li>
+              <li><strong>Case 1:</strong> Point <InlineMath math="j" /> was in <InlineMath math="m" />'s cluster and is closer to <InlineMath math="h \implies C_{jmh} = d(j, h) - d(j, m)" />.</li>
+              <li><strong>Case 2:</strong> Point <InlineMath math="j" /> was in <InlineMath math="m" />'s cluster but closer to 2nd-best medoid <InlineMath math="m_2 \implies C_{jmh} = d(j, m_2) - d(j, m)" />.</li>
+              <li><strong>Case 3:</strong> Point <InlineMath math="j" /> was in another cluster but now closer to <InlineMath math="h \implies C_{jmh} = d(j, h) - d(j, m_j)" />.</li>
+              <li><strong>Case 4:</strong> Point <InlineMath math="j" /> remains in its original other cluster <InlineMath math="\implies C_{jmh} = 0" />.</li>
             </ul>
           </div>
         </div>
       </section>
 
       {/* 5. Live Interactive SWAP Stepper Studio */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -261,7 +396,7 @@ export default function Topic3() {
             </div>
 
             <div className="bg-slate-900 p-4 rounded-lg border border-emerald-900/50 space-y-1">
-              <span className="text-[11px] font-bold text-emerald-400 uppercase">Cost Delta ($\Delta C$)</span>
+              <span className="text-[11px] font-bold text-emerald-400 uppercase">Cost Delta (<InlineMath math="\Delta C" />)</span>
               <div className="text-sm font-bold font-mono text-emerald-300">{currentPam.delta}</div>
             </div>
           </div>
@@ -269,7 +404,7 @@ export default function Topic3() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -320,7 +455,7 @@ export default function Topic3() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04

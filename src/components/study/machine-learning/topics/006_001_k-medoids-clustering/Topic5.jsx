@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -25,8 +26,16 @@ export default function Topic5() {
 
   const selectedCandidate = clusterMembers[candidateIndex];
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -57,7 +66,7 @@ export default function Topic5() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -114,13 +123,13 @@ export default function Topic5() {
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
           <svg viewBox="0 0 920 280" className="w-full min-w-[750px] font-sans">
             <text x="460" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-sm">
-              Evaluating Candidates within Cluster $C_k$: Finding $m_k^* = \arg\min \sum D(x, y)$
+              Evaluating Candidates within Cluster C_k: Finding m_k* = argmin Σ D(x, y)
             </text>
 
             {/* Candidate Evaluation Grid */}
             <g transform="translate(60, 50)">
               <rect x="0" y="0" width="400" height="180" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
-              <text x="200" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-xs font-mono">Cluster $C_k$ Member Space (5 Points)</text>
+              <text x="200" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-xs font-mono">Cluster C_k Member Space (5 Points)</text>
 
               {/* Point P0 */}
               <circle cx="60" cy="80" r="6" fill="#94a3b8" />
@@ -180,7 +189,7 @@ export default function Topic5() {
       </section>
 
       {/* 4. Deep Technical Breakdown Section */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
@@ -199,13 +208,13 @@ export default function Topic5() {
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Intra-Cluster Argmin</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              For each cluster $C_k$ containing $N_k$ observations, the updated medoid $m_k^*$ is the element that minimizes the sum of distances to all other points within $C_k$:
+              For each cluster <InlineMath math="C_k" /> containing <InlineMath math="N_k" /> observations, the updated medoid <InlineMath math="m_k^*" /> is the element that minimizes the sum of distances to all other points within <InlineMath math="C_k" />:
             </p>
-            <div className="text-[12px] font-mono text-indigo-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              m_k^* = \arg\min_{y \in C_k} \sum_{x \in C_k} D(x, y)
+            <div className="text-sm md:text-base font-mono text-indigo-300 bg-indigo-950/40 p-4 rounded-xl border border-indigo-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-3">
+              <BlockMath math="m_k^* = \arg\min_{y \in C_k} \sum_{x \in C_k} D(x, y)" />
             </div>
             <p className="text-xs text-slate-400">
-              Computational complexity per cluster is $O(N_k^2 \cdot d)$.
+              Computational complexity per cluster is <InlineMath math="O(N_k^2 \cdot d)" />.
             </p>
           </div>
 
@@ -214,8 +223,8 @@ export default function Topic5() {
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Since the update step explicitly selects the minimum over all current cluster members, the new intra-cluster cost is guaranteed to be less than or equal to the previous cost:
             </p>
-            <div className="text-[12px] font-mono text-emerald-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              \sum_{x \in C_k} D(x, m_k^*) \le \sum_{x \in C_k} D(x, m_k^{\text{old}})
+            <div className="text-sm md:text-base font-mono text-emerald-300 bg-emerald-950/40 p-4 rounded-xl border border-emerald-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-3">
+              <BlockMath math="\\sum_{x \\in C_k} D(x, m_k^*) \\le \\sum_{x \\in C_k} D(x, m_k^{\\text{old}})" />
             </div>
             <p className="text-xs text-slate-400">
               Guarantees that total clustering cost never degrades during medoid updates.
@@ -225,7 +234,7 @@ export default function Topic5() {
       </section>
 
       {/* 5. Live Interactive Candidate Search Studio */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -290,7 +299,7 @@ export default function Topic5() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -341,7 +350,7 @@ export default function Topic5() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04
@@ -374,7 +383,7 @@ export default function Topic5() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
               <li>Extract distance submatrices using NumPy indexing `D[np.ix_(members, members)]`.</li>
-              <li>Parallelize cluster medoid updates across $K$ processes for rapid multicore execution.</li>
+              <li>Parallelize cluster medoid updates across <InlineMath math="K" /> processes for rapid multicore execution.</li>
               <li>Track medoid index convergence to terminate iterations early when centers stabilize.</li>
             </ul>
           </div>
@@ -387,7 +396,7 @@ export default function Topic5() {
           <span>🤔</span> Think About This...
         </h2>
         <p className="text-slate-300 text-sm leading-relaxed">
-          Why does the medoid update step scale quadratically ($O(N_k^2)$) with cluster size $N_k$, while K-Means centroid update scales linearly ($O(N_k)$)? How does this trade-off explain why K-Medoids is slightly slower but far more robust?
+          Why does the medoid update step scale quadratically (<InlineMath math="O(N_k^2)" />) with cluster size <InlineMath math="N_k" />, while K-Means centroid update scales linearly (<InlineMath math="O(N_k)" />)? How does this trade-off explain why K-Medoids is slightly slower but far more robust?
         </p>
       </section>
 

@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -43,8 +44,16 @@ export default function Topic10() {
 
   const currentExercise = exercises[selectedEx - 1];
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -75,7 +84,7 @@ export default function Topic10() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -115,13 +124,13 @@ export default function Topic10() {
               🎯 The 3-Step Exam Strategy
             </h3>
             <p className="text-xs md:text-sm text-slate-300">
-              1. <strong>Step 1:</strong> Always write the full $N \times N$ distance matrix first (put $0$ on the diagonal).
+              1. <strong>Step 1:</strong> Always write the full <InlineMath math="N \times N" /> distance matrix first (put $0$ on the diagonal).
             </p>
             <p className="text-xs md:text-sm text-slate-300">
               2. <strong>Step 2:</strong> Sum the rows to instantly identify the 1st Medoid (minimum row sum).
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              3. <strong>Step 3:</strong> Compute the gain for candidate medoids using $\sum \max(0, D_{\text{curr}} - D_{\text{cand}})$.
+              3. <strong>Step 3:</strong> Compute the gain for candidate medoids using <InlineMath math="\\sum \\max(0, D_{\\text{curr}} - D_{\\text{cand}})" />.
             </p>
           </div>
         </div>
@@ -135,7 +144,7 @@ export default function Topic10() {
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
           <svg viewBox="0 0 920 280" className="w-full min-w-[750px] font-sans">
             <text x="460" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-sm">
-              Standard Numerical Exam Problem Flow: Coordinates $\to$ Distance Matrix $\to$ BUILD $\to$ SWAP
+              Standard Numerical Exam Problem Flow: Coordinates → Distance Matrix → BUILD → SWAP
             </text>
 
             {/* Step 1 */}
@@ -197,7 +206,7 @@ export default function Topic10() {
       </section>
 
       {/* 4. Deep Technical Breakdown Section: 3 Problem Walkthroughs */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
@@ -228,7 +237,7 @@ export default function Topic10() {
       </section>
 
       {/* 5. Live Interactive Problem Solver Studio */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -281,7 +290,7 @@ export default function Topic10() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -332,7 +341,7 @@ export default function Topic10() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04
@@ -353,9 +362,8 @@ export default function Topic10() {
               <span>⚠️</span> Common Mistakes
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
-              <li>Mixing Euclidean distance formulas with Manhattan distance problem requirements.</li>
-              <li>Forgetting that gain cannot be negative: always use $\max(0, D_{\text{curr}} - D_{\text{cand}})$.</li>
-              <li>Calculating SWAP cost deltas only on medoids instead of summing across all $N$ data points.</li>
+              <li>Forgetting that gain cannot be negative: always use <InlineMath math="\\max(0, D_{\\text{curr}} - D_{\\text{cand}})" />.</li>
+              <li>Calculating SWAP cost deltas only on medoids instead of summing across all <InlineMath math="N" /> data points.</li>
             </ul>
           </div>
 
@@ -378,7 +386,7 @@ export default function Topic10() {
           <span>🤔</span> Think About This...
         </h2>
         <p className="text-slate-300 text-sm leading-relaxed">
-          In Exercise 2, when testing the swap of Medoid $P_1$ with $P_2$, $\Delta C$ was $0$. Why does PAM strictly reject swaps with $\Delta C = 0$? What would happen to the algorithm if it accepted $\Delta C = 0$ swaps?
+          In Exercise 2, when testing the swap of Medoid <InlineMath math="P_1" /> with <InlineMath math="P_2" />, <InlineMath math="\Delta C" /> was <InlineMath math="0" />. Why does PAM strictly reject swaps with <InlineMath math="\Delta C = 0" />? What would happen to the algorithm if it accepted <InlineMath math="\Delta C = 0" /> swaps?
         </p>
       </section>
 

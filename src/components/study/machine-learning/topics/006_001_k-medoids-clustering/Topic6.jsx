@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -25,8 +26,16 @@ export default function Topic6() {
 
   const activeLog = iterationLogs[currentIter - 1];
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -57,7 +66,7 @@ export default function Topic6() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -100,7 +109,7 @@ export default function Topic6() {
               Like a pendulum swinging in friction, each iteration strictly reduces the total distance cost.
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              Because there are only a finite number of combinations of choosing $K$ medoids from $N$ points, the algorithm <strong>cannot loop infinitely</strong> and is mathematically guaranteed to come to a complete rest at a local minimum!
+              Because there are only a finite number of combinations of choosing <InlineMath math="K" /> medoids from <InlineMath math="N" /> points, the algorithm <strong>cannot loop infinitely</strong> and is mathematically guaranteed to come to a complete rest at a local minimum!
             </p>
           </div>
         </div>
@@ -114,7 +123,7 @@ export default function Topic6() {
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
           <svg viewBox="0 0 920 280" className="w-full min-w-[750px] font-sans">
             <text x="460" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-sm">
-              Total Clustering Cost Monotonic Decay: Rapid Early Drop $\to$ Asymptotic Plateau $\to$ Convergence
+              Total Clustering Cost Monotonic Decay: Rapid Early Drop → Asymptotic Plateau → Convergence
             </text>
 
             {/* Axes */}
@@ -162,14 +171,14 @@ export default function Topic6() {
             {/* Explanatory footer */}
             <rect x="60" y="240" width="800" height="35" rx="6" fill="#0f172a" stroke="#334155" />
             <text x="460" y="262" textAnchor="middle" fill="#38bdf8" className="text-xs font-mono">
-              • Convergence Guarantee: Total cost is strictly non-increasing ($J^{(t+1)} \le J^{(t)}$) across all steps!
+              • Convergence Guarantee: Total cost is strictly non-increasing (J<sup>(t+1)</sup> &le; J<sup>(t)</sup>) across all steps!
             </text>
           </svg>
         </div>
       </section>
 
       {/* 4. Deep Technical Breakdown Section */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
@@ -188,19 +197,19 @@ export default function Topic6() {
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Termination Thresholds</span>
             <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
-              <li><strong>Medoid Set Equality:</strong> $M^{(t+1)} = M^{(t)}$ (No medoid moved).</li>
-              <li><strong>Absolute Cost Tolerance:</strong> $|J^{(t)} - J^{(t+1)}| &lt; \text{tol}$ (e.g. $10^{-6}$).</li>
-              <li><strong>Maximum Iteration Limit:</strong> $t \ge \text{max\_iter}$ (Prevents runaway execution).</li>
+              <li><strong>Medoid Set Equality:</strong> <InlineMath math="M^{(t+1)} = M^{(t)}" /> (No medoid moved).</li>
+              <li><strong>Absolute Cost Tolerance:</strong> <InlineMath math="|J^{(t)} - J^{(t+1)}| < \\text{tol}" /> (e.g. <InlineMath math="10^{-6}" />).</li>
+              <li><strong>Maximum Iteration Limit:</strong> <InlineMath math="t \\ge \\text{max\\_iter}" /> (Prevents runaway execution).</li>
             </ul>
           </div>
 
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Multi-Restart Strategy (`n_init`)</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Because K-Medoids converges to a local minimum, standard practice runs $R$ independent initializations:
+              Because K-Medoids converges to a local minimum, standard practice runs <InlineMath math="R" /> independent initializations:
             </p>
-            <div className="text-[12px] font-mono text-emerald-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              M^* = \arg\min_{r \in \{1 \dots R\}} J(M_r^{\text{converged}})
+            <div className="text-sm md:text-base font-mono text-emerald-300 bg-emerald-950/40 p-4 rounded-xl border border-emerald-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-3">
+              <BlockMath math="M^* = \\arg\\min_{r \\in \\{1 \\dots R\\}} J(M_r^{\\text{converged}})" />
             </div>
             <p className="text-xs text-slate-400">
               Running `n_init=10` ensures an optimal local minimum close to the global optimum.
@@ -210,7 +219,7 @@ export default function Topic6() {
       </section>
 
       {/* 5. Live Interactive Trajectory Simulator */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -275,7 +284,7 @@ export default function Topic6() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -326,7 +335,7 @@ export default function Topic6() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04
@@ -358,7 +367,7 @@ export default function Topic6() {
               <span>✔</span> Best Practices
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
-              <li>Always set `n_init >= 10` for production clustering pipelines.</li>
+              <li>Always set <code>n_init &gt;= 10</code> for production clustering pipelines.</li>
               <li>Inspect `kmedoids.n_iter_` to verify whether the algorithm stopped via convergence or `max_iter`.</li>
               <li>Use K-Medoids++ distance-weighted probabilistic initialization for faster convergence.</li>
             </ul>
@@ -372,7 +381,7 @@ export default function Topic6() {
           <span>🤔</span> Think About This...
         </h2>
         <p className="text-slate-300 text-sm leading-relaxed">
-          Why does K-Medoids with K-Medoids++ initialization converge nearly $2\times$ faster than uniform random initialization? How does seeding initial medoids far apart from each other accelerate convergence?
+          Why does K-Medoids with K-Medoids++ initialization converge nearly <InlineMath math="2\\times" /> faster than uniform random initialization? How does seeding initial medoids far apart from each other accelerate convergence?
         </p>
       </section>
 

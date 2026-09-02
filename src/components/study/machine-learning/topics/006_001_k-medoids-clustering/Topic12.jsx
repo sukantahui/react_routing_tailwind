@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -40,8 +41,16 @@ export default function Topic12() {
 
   const currentQuizItem = rapidQuiz[quizIndex];
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -72,7 +81,7 @@ export default function Topic12() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -187,7 +196,7 @@ export default function Topic12() {
       </section>
 
       {/* 4. Deep Technical Breakdown Section: Core Summary Cards */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
@@ -205,24 +214,24 @@ export default function Topic12() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
             <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Loss Formulation</span>
-            <div className="text-[11px] font-mono text-cyan-300 bg-slate-900 p-2 rounded border border-slate-800">
-              J = \sum_{i=1}^N D(x_i, m_{y_i})
+            <div className="text-sm font-mono text-cyan-300 bg-cyan-950/40 p-3 rounded-xl border border-cyan-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-2">
+              <BlockMath math="J = \sum_{i=1}^N D(x_i, m_{y_i})" />
             </div>
             <p className="text-xs text-slate-400">Minimizes absolute pairwise dissimilarity.</p>
           </div>
 
           <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
             <span className="text-xs font-mono font-bold text-amber-400 uppercase">PAM Swap Condition</span>
-            <div className="text-[11px] font-mono text-amber-300 bg-slate-900 p-2 rounded border border-slate-800">
-              \Delta C = C_{\text{new}} - C_{\text{curr}} &lt; 0
+            <div className="text-sm font-mono text-amber-300 bg-amber-950/40 p-3 rounded-xl border border-amber-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-2">
+              <BlockMath math="\\Delta C = C_{\\text{new}} - C_{\\text{curr}} < 0" />
             </div>
             <p className="text-xs text-slate-400">Monotonically decreases total cost.</p>
           </div>
 
           <div className="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
             <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Silhouette Score</span>
-            <div className="text-[11px] font-mono text-emerald-300 bg-slate-900 p-2 rounded border border-slate-800">
-              s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}
+            <div className="text-sm font-mono text-emerald-300 bg-emerald-950/40 p-3 rounded-xl border border-emerald-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-2">
+              <BlockMath math="s(i) = \frac{b(i) - a(i)}{\max(a(i), b(i))}" />
             </div>
             <p className="text-xs text-slate-400">Values &gt; 0.5 indicate strong cohesion.</p>
           </div>
@@ -230,7 +239,7 @@ export default function Topic12() {
       </section>
 
       {/* 5. Live Interactive Flashcard Studio */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -292,7 +301,7 @@ export default function Topic12() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -343,7 +352,7 @@ export default function Topic12() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04

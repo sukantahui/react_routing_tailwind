@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -27,8 +28,16 @@ export default function Topic1() {
   const centroidY = (basePoints.reduce((acc, p) => acc + p.y, 0) + outlierY) / 6;
   const medoidPt = { x: 74, y: 121 }; // Robust actual central patient point
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -46,8 +55,8 @@ export default function Topic1() {
             Medoid and Centroid Comprehensive Comparison
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-4xl">
-            Compare arithmetic average centroids with discrete exemplar medoids. Discover how mathematical loss formulation, metric flexibility, and noise resilience dictate the choice between K-Means and K-Medoids in mission-critical applications.
+          <p className="text-base sm:text-lg text-slate-300 max-w-4xl leading-relaxed">
+            Welcome back! Today, let's explore the fundamental difference between a <strong>Centroid</strong> and a <strong>Medoid</strong> through friendly teacher stories and real-world examples. Discover why picking a calculated average (Centroid) can give impossible answers in real life, while picking an actual dataset item (Medoid) keeps your machine learning models grounded in physical reality!
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -59,7 +68,7 @@ export default function Topic1() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -82,28 +91,111 @@ export default function Topic1() {
           </span>
           <div>
             <h2 className="text-2xl font-black text-indigo-200 tracking-tight">
-              Teacher's Corner: The 'Average Person' Fallacy vs The Real Exemplar
+              Teacher's Corner: Calculated Imaginary Averages vs. Real Physical Exemplars
             </h2>
             <p className="text-xs text-indigo-300/80">
-              Classroom discussion by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
+              Classroom lesson &amp; storytelling by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
             </p>
           </div>
         </div>
 
-        <div className="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
+        <div className="space-y-5 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            In our Barrackpore lab, <strong>Abhronila</strong> noted: <em>"In demographics, the 'average family' has 2.4 children and 1.3 cars. But no family in Kolkata has 0.4 of a child or 0.3 of a car!"</em>
+            Welcome back! Today, let's explore the fundamental difference between a <strong>Centroid</strong> and a <strong>Medoid</strong> through friendly teacher stories and real-world examples. In statistics and machine learning, taking a simple calculated "average" doesn't always make sense. Discover why picking a calculated average (Centroid) can give impossible answers in real life, while picking an actual dataset item (Medoid) keeps your machine learning models grounded in physical reality!
           </p>
-          <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2">
-            <h3 className="font-bold text-amber-300 text-sm md:text-base">
-              🔍 The Fundamental Insight: Synthetic Average vs Real Exemplar
+
+          {/* Interactive Classroom Narrative */}
+          <div className="p-4 bg-indigo-950/30 rounded-2xl border border-indigo-800/40 space-y-2">
+            <h3 className="font-bold text-indigo-200 text-sm md:text-base flex items-center gap-2">
+              <span>💬</span> Classroom Discussion at Barrackpore ML Lab
             </h3>
             <p className="text-xs md:text-sm text-slate-300">
-              A <strong>Centroid</strong> is a synthesized mathematical coordinate that may violate physical reality (like fractional children or non-existent medical diagnoses).
+              <strong>Sukanta Hui:</strong> "Suppose <strong>Sachin</strong>, <strong>Mahima</strong>, and <strong>Swadeep</strong> are analyzing family sizes in Barrackpore. If the mathematical average turns out to be 2.4 children, can we construct a representative family with 0.4 of a child?"
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              A <strong>Medoid</strong> is always an actual, complete, physically valid record selected from the original dataset. It preserves discrete attributes, categorical values, and domain validity automatically!
+              <strong>Mahima:</strong> "Of course not, Sir! A real family can only have 2 or 3 children."
             </p>
+            <p className="text-xs md:text-sm text-slate-300">
+              <strong>Sukanta Hui:</strong> "Spot on! That is exactly why K-Means (Centroid) fails when physical reality requires a real instance, and why K-Medoids (Medoid) steps in to pick an actual existing family from our survey!"
+            </p>
+          </div>
+
+          {/* 3 Real-Life Teacher Stories Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Story 1 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-indigo-800/60 space-y-2">
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider block">
+                👨‍👩‍👧‍👦 Story 1 • The Demographics Fallacy
+              </span>
+              <h3 className="font-bold text-white text-sm">Fractional Children</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                In demographic surveys, the calculated <strong>Centroid (Mean)</strong> of a neighborhood says the average family has <strong>2.4 children and 1.3 cars</strong>. But no real family in Kolkata has 0.4 of a child! A <strong>Medoid</strong> selects an actual real family (e.g. 2 children, 1 car) as the cluster representative.
+              </p>
+            </div>
+
+            {/* Story 2 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-rose-800/60 space-y-2">
+              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider block">
+                🏥 Story 2 • Hospital ICU Patient Vitals
+              </span>
+              <h3 className="font-bold text-white text-sm">Ghost Patient Charts</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                If you average patient vital signs, a <strong>Centroid</strong> creates a synthetic patient profile (e.g. BP 136.6/90). Doctors can't treat a ghost average! A <strong>Medoid</strong> selects an actual living patient's medical file from the database so physicians can review a real case history.
+              </p>
+            </div>
+
+            {/* Story 3 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-emerald-800/60 space-y-2">
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block">
+                📦 Story 3 • Warehouse Location
+              </span>
+              <h3 className="font-bold text-white text-sm">Warehouse in a River!</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                When picking a warehouse location for Naihati deliveries, a <strong>Centroid</strong> averages GPS coordinates and places the hub <strong>right in the middle of the Hooghly River</strong>! A <strong>Medoid</strong> restricts choices to real property listings on land.
+              </p>
+            </div>
+          </div>
+
+          {/* 4-Step Friendly Teacher CNAT Breakdown (What, Why, How, When) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="bg-slate-950 p-4 rounded-xl border border-indigo-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">❓ WHAT is the Difference?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                A <strong>Centroid</strong> is an artificial mathematical mean vector <InlineMath math="\mu" />. A <strong>Medoid</strong> is a 100% real, physically existing data point <InlineMath math="m \in \mathcal{D}" /> chosen directly from your dataset.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-cyan-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">💡 WHY Pick a Medoid?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Medoids prevent impossible "ghost averages", resist extreme outliers, and work with non-Euclidean metrics like Manhattan distance, travel times, DNA sequences, and text similarity.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-amber-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">⚙️ HOW is Each Calculated?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Centroid computes arithmetic averages: <InlineMath math="\mu = \frac{1}{|C_k|}\sum x_i" />. Medoid searches for the point that minimizes total pairwise dissimilarity: <InlineMath math="m_k = \arg\min_{y \in C_k} \sum d(x, y)" />.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-emerald-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">⏰ WHEN to Use Which?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Use <strong>Centroids</strong> for fast, large, clean continuous numeric data. Use <strong>Medoids</strong> when domain rules demand real physical entities, categorical features, or outlier robustness.
+              </p>
+            </div>
+          </div>
+
+          {/* Teacher's Golden Rule */}
+          <div className="p-4 bg-amber-950/30 rounded-2xl border border-amber-800/50 flex items-start gap-3">
+            <span className="text-2xl">💡</span>
+            <div>
+              <h4 className="font-bold text-amber-200 text-sm">Teacher's Golden Takeaway</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                "A <strong>Centroid</strong> asks: <em>'Where is the theoretical center in space?'</em> A <strong>Medoid</strong> asks: <em>'Which actual member of our group is the best candidate to represent all of us?'</em> In business, law, and medicine, stakeholders trust real exemplars over calculated ghosts every single time!" — Sukanta Hui
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -111,7 +203,7 @@ export default function Topic1() {
       {/* 3. Semantic Visual SVG Diagram */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-sky-300 flex items-center gap-2">
-          <span>⚙️</span> Semantic Visual Diagram: Centroid (Virtual Mean) vs Medoid (Actual Exemplar)
+          <span>⚙️</span> Visual Diagram: Centroid (Virtual Mean) vs Medoid (Actual Real Exemplar)
         </h2>
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
           <svg viewBox="0 0 920 280" className="w-full min-w-[750px] font-sans">
@@ -131,12 +223,12 @@ export default function Topic1() {
               <text x="120" y="160" textAnchor="middle" fill="#94a3b8" className="text-[10px] font-mono">P2(4, 5)</text>
 
               <circle cx="280" cy="60" r="6" fill="#38bdf8" />
-              <text x="280" y="80" textAnchor="middle" fill="#94a3b8" className="text-[10px] font-mono">P3(9, 8)</text>
+              <text x="280" y="80" textAnchor="middle" fill="#94a3b8" className="text-[10px] font-mono">P3(9, 7)</text>
 
               {/* Centroid Point */}
               <polygon points="160,85 170,105 150,105" fill="#f59e0b" />
               <text x="160" y="125" textAnchor="middle" fill="#fcd34d" className="text-[11px] font-mono font-bold">
-                Centroid: μ = (5.0, 5.33)
+                Centroid: μ = (5.0, 5.0)
               </text>
               <text x="160" y="145" textAnchor="middle" fill="#fda4af" className="text-[10px] italic">
                 (Synthetic point: Not in dataset!)
@@ -158,7 +250,7 @@ export default function Topic1() {
               </text>
 
               <circle cx="280" cy="60" r="6" fill="#38bdf8" />
-              <text x="280" y="80" textAnchor="middle" fill="#94a3b8" className="text-[10px] font-mono">P3(9, 8)</text>
+              <text x="280" y="80" textAnchor="middle" fill="#94a3b8" className="text-[10px] font-mono">P3(9, 7)</text>
 
               <text x="180" y="165" textAnchor="middle" fill="#a7f3d0" className="text-[10px] font-bold">
                 ✓ 100% Real Observed Data Instance!
@@ -174,23 +266,64 @@ export default function Topic1() {
         </div>
       </section>
 
-      {/* 4. Deep Technical Breakdown Section: Comparison Matrix */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      {/* 4. Deep Technical Breakdown Section: Comparison Matrix & Hand Calculation */}
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
           </div>
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-white">
-              Comparative Technical Matrix: Centroid vs. Medoid
+              Hand-Calculated 2D Dataset Example: Centroid vs. Medoid
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Architectural, statistical, and operational dimension comparisons
+              Step-by-step arithmetic proof showing how Centroids create synthetic points while Medoids pick real points
             </p>
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Hand-Calculated Walkthrough Box */}
+        <div className="bg-slate-950 p-6 rounded-2xl border border-indigo-800/50 space-y-4">
+          <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">
+            📍 Given 2D Dataset (3 Points): P1(2, 3), P2(4, 5), P3(9, 7)
+          </span>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Centroid Step */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-rose-900/50 space-y-2">
+              <span className="text-xs font-bold text-rose-400 block">1️⃣ K-Means Centroid Calculation</span>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Take the arithmetic mean of X coordinates and Y coordinates:
+              </p>
+              <div className="p-2.5 bg-slate-950 text-center font-mono text-xs text-rose-300 rounded border border-slate-800">
+                <InlineMath math="\mu_x = \frac{2+4+9}{3} = 5.0, \quad \mu_y = \frac{3+5+7}{3} = 5.0" />
+                <div className="pt-1 font-bold">Centroid = (5.0, 5.0)</div>
+              </div>
+              <p className="text-[11px] text-rose-300/80">
+                ❌ Point (5.0, 5.0) is an imaginary coordinate. It does not exist in our dataset!
+              </p>
+            </div>
+
+            {/* Medoid Step */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-emerald-900/50 space-y-2">
+              <span className="text-xs font-bold text-emerald-400 block">2️⃣ K-Medoids Selection (Manhattan Distance)</span>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Calculate total Manhattan distance <InlineMath math="d(A, B) = |A_x - B_x| + |A_y - B_y|" /> for each point:
+              </p>
+              <ul className="space-y-1 text-[11px] font-mono text-slate-300 list-disc list-inside">
+                <li>For P1(2,3): 0 + (|2-4|+|3-5|) + (|2-9|+|3-7|) = 0 + 4 + 11 = <strong>15</strong></li>
+                <li className="text-emerald-300 font-bold">For P2(4,5): 4 + 0 + (|4-9|+|5-7|) = 4 + 0 + 7 = <strong>11 (MINIMUM!)</strong></li>
+                <li>For P3(9,7): 11 + 7 + 0 = <strong>18</strong></li>
+              </ul>
+              <p className="text-[11px] text-emerald-300 font-bold pt-1">
+                ✅ Winner: Medoid = P2(4, 5). Point P2 is a 100% real data point!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Feature Table */}
+        <div className="overflow-x-auto pt-2">
           <table className="w-full text-xs sm:text-sm text-left border border-slate-800 rounded-xl overflow-hidden">
             <thead className="bg-slate-950 text-slate-300 font-mono text-xs uppercase border-b border-slate-800">
               <tr>
@@ -212,8 +345,8 @@ export default function Topic1() {
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Loss Function</td>
-                <td className="p-3.5">Sum of Squared Errors (SSE / $L_2^2$)</td>
-                <td className="p-3.5">Total Absolute Dissimilarity ($L_1$ / General $D$)</td>
+                <td className="p-3.5">Sum of Squared Errors (SSE / <InlineMath math="L_2^2" />)</td>
+                <td className="p-3.5">Total Absolute Dissimilarity (<InlineMath math="L_1" /> / General <InlineMath math="D" />)</td>
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Outlier Robustness</td>
@@ -227,8 +360,8 @@ export default function Topic1() {
               </tr>
               <tr className="hover:bg-slate-800/40">
                 <td className="p-3.5 font-bold text-white">Update Complexity</td>
-                <td className="p-3.5 font-mono text-cyan-400">$O(N_k \cdot d)$ (Linear mean)</td>
-                <td className="p-3.5 font-mono text-indigo-400">$O(N_k^2 \cdot d)$ (Pairwise matrix)</td>
+                <td className="p-3.5 font-mono text-cyan-400"><InlineMath math="O(N_k \cdot d)" /> (Linear mean)</td>
+                <td className="p-3.5 font-mono text-indigo-400"><InlineMath math="O(N_k^2 \cdot d)" /> (Pairwise matrix)</td>
               </tr>
             </tbody>
           </table>
@@ -236,7 +369,7 @@ export default function Topic1() {
       </section>
 
       {/* 5. Interactive Studio */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -291,7 +424,7 @@ export default function Topic1() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -342,7 +475,7 @@ export default function Topic1() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04

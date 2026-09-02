@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -22,8 +23,16 @@ export default function Topic4() {
   const assignedCluster = distM1 <= distM2 ? 0 : 1;
   const boundaryMidpoint = (m1 + m2) / 2; // 8.5
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -41,8 +50,8 @@ export default function Topic4() {
             Cluster Assignment &amp; Voronoi Partitioning
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-4xl">
-            Understand the mechanics of cluster membership. Learn how non-medoid observations evaluate proximity, how Voronoi cells divide multi-dimensional feature space, and how deterministic tie-breaking ensures cluster stability.
+          <p className="text-base sm:text-lg text-slate-300 max-w-4xl leading-relaxed">
+            Understand the mechanics of cluster membership. Learn how non-medoid observations evaluate proximity via <InlineMath math="y_i = \arg\min_k D(x_i, m_k)" />, how Voronoi cells divide multi-dimensional feature space into convex polyhedra, and how deterministic tie-breaking ensures cluster stability.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -54,7 +63,7 @@ export default function Topic4() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -77,28 +86,125 @@ export default function Topic4() {
           </span>
           <div>
             <h2 className="text-2xl font-black text-indigo-200 tracking-tight">
-              Teacher's Corner: The Polling Station Territory Analogy
+              Teacher's Corner: Polling Booth Territories &amp; Deterministic Boundaries
             </h2>
             <p className="text-xs text-indigo-300/80">
-              Classroom discussion by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
+              Classroom lesson &amp; storytelling by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
             </p>
           </div>
         </div>
 
-        <div className="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
+        <div className="space-y-5 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            In our lab, <strong>Sachin</strong> asked: <em>"Once medoids are chosen, how does every point decide which team it belongs to?"</em>
+            Hello students! Once medoids are chosen, how does every other data point in the dataset decide which cluster team it belongs to? Let's explore <strong>Voronoi Partitioning</strong> and see how space is cleanly carved into non-overlapping territories.
           </p>
-          <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2">
-            <h3 className="font-bold text-amber-300 text-sm md:text-base">
-              🗳️ The Polling Booth Territory
+
+          {/* Interactive Classroom Narrative */}
+          <div className="p-4 bg-indigo-950/30 rounded-2xl border border-indigo-800/40 space-y-2">
+            <h3 className="font-bold text-indigo-200 text-sm md:text-base flex items-center gap-2">
+              <span>💬</span> Classroom Discussion at Barrackpore ML Lab
             </h3>
             <p className="text-xs md:text-sm text-slate-300">
-              Imagine two polling booths in Barrackpore: Booth A at the Railway Station and Booth B at Anandapuri.
+              <strong>Sukanta Hui:</strong> "Suppose Anandapuri has Polling Booth A (Medoid 1) and Barrackpore Station has Polling Booth B (Medoid 2). How does <strong>Sachin</strong> decide where to cast his vote?"
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              Every citizen simply walks to the booth that is physically closest to their home. The line where the distance to Booth A equals the distance to Booth B is the <strong>Decision Boundary (Voronoi cell border)</strong>!
+              <strong>Sachin:</strong> "I measure the travel distance from my house to both booths and walk to whichever booth is closer!"
             </p>
+            <p className="text-xs md:text-sm text-slate-300">
+              <strong>Sukanta Hui:</strong> "Spot on! And what if <strong>Swadeep</strong> lives at a house located EXACTLY halfway between both booths, where distance to Booth A equals distance to Booth B?"
+            </p>
+            <p className="text-xs md:text-sm text-slate-300">
+              <strong>Swadeep:</strong> "If I flip a coin every election, my voting booth changes randomly! We need a deterministic rule—like picking Booth A (the lower booth index)—so my assignment stays 100% stable every time!"
+            </p>
+          </div>
+
+          {/* 4 Real-Life Teacher Stories Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Story 1 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-indigo-800/60 space-y-2">
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider block">
+                🗳️ Story 1 • Polling Booth Boundaries
+              </span>
+              <h3 className="font-bold text-white text-sm">Voronoi Partitioning</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Space is divided into non-overlapping Voronoi cells <InlineMath math="V(m_k)" /> where every point belongs to its physically nearest medoid anchor.
+              </p>
+            </div>
+
+            {/* Story 2 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-amber-800/60 space-y-2">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                📡 Story 2 • Mobile Tower Handover
+              </span>
+              <h3 className="font-bold text-white text-sm">Cellular Nearest Anchor</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                A mobile phone connects to the cell tower medoid with strongest signal. Crossing the Voronoi boundary triggers an instant network handover.
+              </p>
+            </div>
+
+            {/* Story 3 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-emerald-800/60 space-y-2">
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block">
+                📐 Story 3 • Decision Hyperplanes
+              </span>
+              <h3 className="font-bold text-white text-sm">Perpendicular Bisectors</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Cell borders are perpendicular bisectors where <InlineMath math="D(x, m_A) = D(x, m_B)" />. In 2D space, they form straight lines; in 3D, flat planes.
+              </p>
+            </div>
+
+            {/* Story 4 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-rose-800/60 space-y-2">
+              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider block">
+                ⚖️ Story 4 • Tie-Breaking Stability
+              </span>
+              <h3 className="font-bold text-white text-sm">Deterministic Assignment</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                When distances to two medoids are identical, a deterministic rule (e.g. <InlineMath math="\min k" />) breaks ties to prevent label bouncing.
+              </p>
+            </div>
+          </div>
+
+          {/* 4-Step Friendly Teacher CNAT Breakdown (What, Why, How, When) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="bg-slate-950 p-4 rounded-xl border border-indigo-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">❓ WHAT is Voronoi Partitioning?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                A mathematical decomposition of feature space into convex cells where every point <InlineMath math="x" /> is assigned to its nearest medoid: <InlineMath math="y_i = \arg\min_k D(x_i, m_k)" />.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-cyan-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">💡 WHY Deterministic Tie-Breaking?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Random tie-breaking causes boundary points to flip clusters between iterations, breaking convergence guarantees. Deterministic rules ensure 100% stability.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-amber-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">⚙️ HOW is a Point Assigned?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Compute distance vector <InlineMath math="[D(x_i, m_1), \dots, D(x_i, m_K)]" />, find the minimum distance <InlineMath math="d_{\min}" />, and select index <InlineMath math="\min \{k \mid d_k = d_{\min}\}" />.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-emerald-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">⏰ WHEN to Predict Assignments?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                After medoids are fixed during training, assigning any new test observation takes fast <InlineMath math="O(K)" /> distance evaluations without model retraining!
+              </p>
+            </div>
+          </div>
+
+          {/* Teacher's Golden Rule */}
+          <div className="p-4 bg-amber-950/30 rounded-2xl border border-amber-800/50 flex items-start gap-3">
+            <span className="text-2xl">💡</span>
+            <div>
+              <h4 className="font-bold text-amber-200 text-sm">Teacher's Golden Rule of Partitioning</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                "Medoids act as territorial capitals. Voronoi boundaries define the exact borders of their domains. With deterministic tie-breaking, every observation finds its permanent home without ambiguity!" — Sukanta Hui
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -117,11 +223,11 @@ export default function Topic4() {
             {/* Left Cluster Cell 0 */}
             <g transform="translate(60, 50)">
               <rect x="0" y="0" width="380" height="180" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
-              <text x="190" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-xs font-mono">Cluster 0 Voronoi Cell (Anchor: Medoid P1)</text>
+              <text x="190" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-xs font-mono">Cluster 0 Voronoi Cell (Anchor: Medoid M1)</text>
 
-              {/* Medoid P1 */}
+              {/* Medoid M1 */}
               <circle cx="120" cy="100" r="10" fill="#38bdf8" stroke="#fff" strokeWidth="2" />
-              <text x="120" y="80" textAnchor="middle" fill="#7dd3fc" className="text-xs font-bold font-mono">Medoid P1(3, 4)</text>
+              <text x="120" y="80" textAnchor="middle" fill="#7dd3fc" className="text-xs font-bold font-mono">Medoid M1(3, 4)</text>
 
               {/* Cluster 0 Points */}
               <circle cx="60" cy="80" r="6" fill="#38bdf8" />
@@ -139,16 +245,16 @@ export default function Topic4() {
 
             {/* Decision Boundary Line */}
             <line x1="450" y1="50" x2="450" y2="230" stroke="#f43f5e" strokeWidth="3" strokeDasharray="6,4" />
-            <text x="450" y="40" textAnchor="middle" fill="#f43f5e" className="font-mono text-xs font-bold">Decision Boundary</text>
+            <text x="450" y="40" textAnchor="middle" fill="#f43f5e" className="font-mono text-xs font-bold">Decision Boundary: D(x, M1) = D(x, M2)</text>
 
             {/* Right Cluster Cell 1 */}
             <g transform="translate(460, 50)">
               <rect x="0" y="0" width="380" height="180" rx="8" fill="#1e293b" stroke="#10b981" strokeWidth="1.5" />
-              <text x="190" y="25" textAnchor="middle" fill="#34d399" className="font-bold text-xs font-mono">Cluster 1 Voronoi Cell (Anchor: Medoid P5)</text>
+              <text x="190" y="25" textAnchor="middle" fill="#34d399" className="font-bold text-xs font-mono">Cluster 1 Voronoi Cell (Anchor: Medoid M2)</text>
 
-              {/* Medoid P5 */}
+              {/* Medoid M2 */}
               <circle cx="240" cy="100" r="10" fill="#10b981" stroke="#fff" strokeWidth="2" />
-              <text x="240" y="80" textAnchor="middle" fill="#6ee7b7" className="text-xs font-bold font-mono">Medoid P5(14, 15)</text>
+              <text x="240" y="80" textAnchor="middle" fill="#6ee7b7" className="text-xs font-bold font-mono">Medoid M2(14, 15)</text>
 
               {/* Cluster 1 Points */}
               <circle cx="170" cy="70" r="6" fill="#10b981" />
@@ -167,59 +273,104 @@ export default function Topic4() {
             {/* Explanatory footer */}
             <rect x="60" y="240" width="800" height="35" rx="6" fill="#0f172a" stroke="#334155" />
             <text x="460" y="262" textAnchor="middle" fill="#38bdf8" className="text-xs font-mono">
-              • Assignment Rule: Point x assigned to Cluster k if $D(x, m_k) \le D(x, m_j)$ for all $j \ne k$
+              • Assignment Rule: Point x assigned to Cluster k if D(x, m_k) ≤ D(x, m_j) for all j ≠ k
             </text>
           </svg>
         </div>
       </section>
 
       {/* 4. Deep Technical Breakdown Section */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
           </div>
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-white">
-              Cluster Assignment Mathematical Formalism
+              Hand-Calculated 2D Example &amp; Deterministic Tie-Breaking
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Formulation, distance lookup mechanics, and tie-breaking algorithms
+              Step-by-step arithmetic proof for assigning points A(5, 6), B(12, 13), and boundary tie C(8.5, 9.5) between Medoids M1(3, 4) and M2(14, 15)
             </p>
+          </div>
+        </div>
+
+        {/* Hand-Calculated Step-by-Step Box */}
+        <div className="bg-slate-950 p-6 rounded-2xl border border-indigo-800/50 space-y-4">
+          <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">
+            📍 Given 2D Medoids: Medoid 1 = M1(3, 4), Medoid 2 = M2(14, 15)
+          </span>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Point A */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-sky-900/50 space-y-2">
+              <span className="text-xs font-bold text-sky-400 block">1️⃣ Point A(5, 6)</span>
+              <p className="text-xs text-slate-300">Euclidean distance evaluations:</p>
+              <div className="p-2 bg-slate-950 font-mono text-xs text-sky-300 rounded border border-slate-800 space-y-1">
+                <div><InlineMath math="d(A, M_1) = \sqrt{(5-3)^2 + (6-4)^2} = \sqrt{8} \approx 2.83" /></div>
+                <div><InlineMath math="d(A, M_2) = \sqrt{(5-14)^2 + (6-15)^2} = \sqrt{162} \approx 12.73" /></div>
+              </div>
+              <p className="text-[11px] text-sky-300 font-bold">
+                ✅ <InlineMath math="2.83 < 12.73 \implies" /> Assigned to Cluster 0 (<InlineMath math="M_1" />)
+              </p>
+            </div>
+
+            {/* Point B */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-emerald-900/50 space-y-2">
+              <span className="text-xs font-bold text-emerald-400 block">2️⃣ Point B(12, 13)</span>
+              <p className="text-xs text-slate-300">Euclidean distance evaluations:</p>
+              <div className="p-2 bg-slate-950 font-mono text-xs text-emerald-300 rounded border border-slate-800 space-y-1">
+                <div><InlineMath math="d(B, M_1) = \sqrt{(12-3)^2 + (13-4)^2} = \sqrt{162} \approx 12.73" /></div>
+                <div><InlineMath math="d(B, M_2) = \sqrt{(12-14)^2 + (13-15)^2} = \sqrt{8} \approx 2.83" /></div>
+              </div>
+              <p className="text-[11px] text-emerald-300 font-bold">
+                ✅ <InlineMath math="2.83 < 12.73 \implies" /> Assigned to Cluster 1 (<InlineMath math="M_2" />)
+              </p>
+            </div>
+
+            {/* Point C Tie */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-rose-900/50 space-y-2">
+              <span className="text-xs font-bold text-rose-400 block">3️⃣ Point C(8.5, 9.5) [Boundary Tie]</span>
+              <p className="text-xs text-slate-300">Euclidean distance evaluations:</p>
+              <div className="p-2 bg-slate-950 font-mono text-xs text-rose-300 rounded border border-slate-800 space-y-1">
+                <div><InlineMath math="d(C, M_1) = \sqrt{(5.5)^2 + (5.5)^2} = \sqrt{60.5} \approx 7.78" /></div>
+                <div><InlineMath math="d(C, M_2) = \sqrt{(-5.5)^2 + (-5.5)^2} = \sqrt{60.5} \approx 7.78" /></div>
+              </div>
+              <p className="text-[11px] text-rose-300 font-bold">
+                ⚠️ <InlineMath math="7.78 = 7.78 \implies" /> Exact Tie! Deterministic rule (<InlineMath math="\min \text{index}" />) assigns to Cluster 0 (<InlineMath math="M_1" />).
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
-            <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Assignment Objective Function</span>
+            <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Voronoi Partition Definition</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              For a fixed set of medoid indices $\{m_1, m_2, \dots, m_K\}$, each point $x_i$ receives cluster label $y_i$:
+              For a fixed set of medoid indices <InlineMath math="\{m_1, m_2, \dots, m_K\}" />, each point <InlineMath math="x_i" /> receives cluster label <InlineMath math="y_i" />:
             </p>
-            <div className="text-[12px] font-mono text-indigo-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              y_i = \arg\min_{k \in \{1 \dots K\}} D(x_i, m_k)
+            <div className="text-sm md:text-base font-mono text-indigo-300 bg-indigo-950/40 p-4 rounded-xl border border-indigo-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-3">
+              <BlockMath math="y_i = \arg\min_{k \in \{1 \dots K\}} D(x_i, m_k)" />
             </div>
             <p className="text-xs text-slate-400">
-              Computational complexity is $O(N \cdot K \cdot d)$ using coordinates or $O(N \cdot K)$ using a precomputed distance matrix.
+              Points equidistant from two medoids lie exactly on the Voronoi decision hyperplane boundary.
             </p>
           </div>
 
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
-            <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Non-Empty Guarantee</span>
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Because each medoid point $m_k$ is an element of the dataset, its distance to itself is zero:
-            </p>
-            <div className="text-[12px] font-mono text-emerald-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              D(m_k, m_k) = 0 \le D(m_k, m_j) \quad \forall j
-            </div>
-            <p className="text-xs text-slate-400">
-              Thus, every cluster is mathematically guaranteed to contain at least its own medoid point.
-            </p>
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Key Geometric Properties</span>
+            <ul className="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li><strong>Convex Cell Convexity:</strong> Under Euclidean metrics, Voronoi cells are convex polyhedra.</li>
+              <li><strong>Hyperplane Boundaries:</strong> Equidistant hyperplanes bisect the segment connecting neighboring medoids.</li>
+              <li><strong>Outlier Containment:</strong> Outliers are trapped within their nearest medoid's cell without distorting cell centers.</li>
+              <li><strong>Arbitrary Metric Shapes:</strong> Under Manhattan metric (<InlineMath math="L_1" />), cell boundaries form diamond/rhombus patterns.</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* 5. Live Interactive Decision Boundary Studio */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      {/* 5. Live Interactive Voronoi Stepper Studio */}
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -229,14 +380,14 @@ export default function Topic4() {
               Live Query Point Cluster Assignment Simulator
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Slide the Query Point $X$ across the 1D axis ($M_1 = 3$ and $M_2 = 14$) to observe the exact decision boundary flip point ($X = 8.5$)
+              Slide the Query Point <InlineMath math="X" /> across the 1D axis (<InlineMath math="M_1 = 3" /> and <InlineMath math="M_2 = 14" />) to observe the exact decision boundary flip point (<InlineMath math="X = 8.5" />)
             </p>
           </div>
         </div>
 
         <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
           <div className="flex justify-between items-center text-xs font-mono">
-            <span className="text-slate-300">Query Point Coordinate ($X$):</span>
+            <span className="text-slate-300">Query Point Coordinate (<InlineMath math="X" />):</span>
             <span className="text-cyan-400 font-bold">X = {queryX}</span>
           </div>
 
@@ -279,7 +430,7 @@ export default function Topic4() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -330,7 +481,7 @@ export default function Topic4() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04
@@ -376,7 +527,7 @@ export default function Topic4() {
           <span>🤔</span> Think About This...
         </h2>
         <p className="text-slate-300 text-sm leading-relaxed">
-          If a new patient walks into a hospital, why can you classify them in $O(K)$ time simply by measuring their distance to the $K$ fitted medoids, without retraining the clustering model?
+          If a new patient walks into a hospital, why can you classify them in <InlineMath math="O(K)" /> time simply by measuring their distance to the <InlineMath math="K" /> fitted medoids, without retraining the clustering model?
         </p>
       </section>
 

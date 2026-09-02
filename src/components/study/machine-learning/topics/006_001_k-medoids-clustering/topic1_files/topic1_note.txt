@@ -1,11 +1,38 @@
 ================================================================================
 CODER & ACCOTAX - MACHINE LEARNING & DATA SCIENCE ROADMAP
 MODULE 006_001: K-Medoids Clustering
-TOPIC 1: Medoid and Centroid Comparison
+TOPIC 1: Medoid and Centroid Comprehensive Comparison
 Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. CORE DEFINITIONAL COMPARISON
+1. TEACHER'S LESSON: THE 3 REAL-LIFE STORIES
+--------------------------------------------------------------------------------
+- Story 1 (Demographics Fallacy): The average family in a survey has 2.4 children
+  and 1.3 cars (Centroid / Mean). But no real family in Kolkata has 0.4 of a child!
+  A Medoid selects an actual real family (e.g. 2 children, 1 car) as the representative.
+- Story 2 (Hospital ICU Patient Vitals): Averaging patient vitals produces a
+  synthetic patient chart (e.g. BP 136.6/90). Doctors cannot treat a ghost average!
+  A Medoid selects an actual living patient's medical file from the database.
+- Story 3 (Warehouse Location): Averaging delivery addresses (Centroid) places a
+  warehouse locker right in the middle of the Hooghly River! A Medoid restricts
+  choices to real property listings on land.
+
+2. HAND-CALCULATED 2D DATASET EXAMPLE
+--------------------------------------------------------------------------------
+Given 3 points in 2D space: P1(2, 3), P2(4, 5), P3(9, 7)
+
+[A] K-Means Centroid Calculation (Arithmetic Mean):
+    \mu_x = (2 + 4 + 9) / 3 = 5.0
+    \mu_y = (3 + 5 + 7) / 3 = 5.0
+    Centroid = (5.0, 5.0)  --> SYNTHETIC POINT (Does NOT exist in dataset!)
+
+[B] K-Medoids Selection (Manhattan Distance Sum):
+    - For P1(2,3): 0 + (|2-4|+|3-5|) + (|2-9|+|3-7|) = 0 + 4 + 11 = 15
+    - For P2(4,5): 4 + 0 + (|4-9|+|5-7|) = 4 + 0 + 7 = 11  <-- MINIMUM!
+    - For P3(9,7): 11 + 7 + 0 = 18
+    Winner: Medoid = P2(4, 5)  --> 100% REAL OBSERVED DATA POINT!
+
+3. CORE TECHNICAL COMPARISON TABLE
 --------------------------------------------------------------------------------
 Feature                 CENTROID (K-Means)              MEDOID (K-Medoids)
 --------------------------------------------------------------------------------
@@ -15,14 +42,10 @@ Outlier Sensitivity     Extreme (pulled quadratically)  Minimal / Immune
 Optimization Metric     Sum of Squared Errors (L2^2)    Total Absolute Distance (L1/L2)
 Data Types Allowed      Continuous numerical only       Numerical, Categorical, Graphs
 Pairwise Metric Needed  Must be Euclidean distance      Any arbitrary dissimilarity
+Update Complexity       O(N_k * d) Linear mean          O(N_k^2 * d) Pairwise matrix
 
-2. MATHEMATICAL FORMULAS
+4. FORMAL MATHEMATICAL FORMULAS
 --------------------------------------------------------------------------------
-- Centroid \mu_k = \frac{1}{|C_k|} \sum_{x \in C_k} x
-- Medoid   m_k   = \arg\min_{y \in C_k} \sum_{x \in C_k} D(x, y)
-
-3. CLINICAL & INDUSTRIAL SIGNIFICANCE
---------------------------------------------------------------------------------
-- In healthcare (Jadavpur / Kolkata), a centroid creates impossible fractional vitals.
-- A medoid provides an exact, real patient record as the representative case.
+- Centroid: \mu_k = \frac{1}{|C_k|} \sum_{x \in C_k} x
+- Medoid:   m_k   = \arg\min_{y \in C_k} \sum_{x \in C_k} D(x, y)
 ================================================================================

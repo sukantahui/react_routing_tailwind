@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -20,8 +21,16 @@ export default function Topic2() {
   const l1_manhattan = Math.abs(deltaX) + Math.abs(deltaY);
   const l_chebyshev = Math.max(Math.abs(deltaX), Math.abs(deltaY));
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -31,7 +40,7 @@ export default function Topic2() {
               BCAC701B • Advanced ML • Module 006_001 • Topic 2
             </span>
             <span className="px-3 py-1 text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full">
-              Metric Space &amp; Geometry
+              Metric Space &amp; Proximity Geometry
             </span>
           </div>
 
@@ -39,8 +48,8 @@ export default function Topic2() {
             Distance-Based Clustering &amp; Metric Topology
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-4xl">
-            Master the mathematics of proximity. Understand Euclidean ($L_2$), Manhattan ($L_1$), Chebyshev ($L_\infty$), and Cosine distances, construct $N \times N$ pairwise dissimilarity matrices, and discover how distance choices shape cluster boundaries in K-Medoids.
+          <p className="text-base sm:text-lg text-slate-300 max-w-4xl leading-relaxed">
+            Welcome! Today, let's explore the beautiful geometry of closeness. Master the mathematics of proximity across <strong>Euclidean (<InlineMath math="L_2" />)</strong>, <strong>Manhattan (<InlineMath math="L_1" />)</strong>, <strong>Chebyshev (<InlineMath math="L_\infty" />)</strong>, and <strong>Cosine</strong> distances, learn how to construct <InlineMath math="N \times N" /> dissimilarity matrices, and discover how distance choices shape cluster boundaries in K-Medoids.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -52,7 +61,7 @@ export default function Topic2() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -75,28 +84,122 @@ export default function Topic2() {
           </span>
           <div>
             <h2 className="text-2xl font-black text-indigo-200 tracking-tight">
-              Teacher's Corner: Flying Like a Crow vs Walking Through Barrackpore Bazaar
+              Teacher's Corner: Crow Flights, City Streets &amp; Chessboard Kings
             </h2>
             <p className="text-xs text-indigo-300/80">
-              Classroom discussion by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
+              Classroom lesson &amp; storytelling by Sukanta Hui (Coder &amp; AccoTax, Barrackpore)
             </p>
           </div>
         </div>
 
-        <div className="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
+        <div className="space-y-5 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            When <strong>Swadeep</strong> and <strong>Tuhina</strong> calculated delivery distances in Barrackpore, <strong>Sukanta Hui</strong> asked: <em>"If you want to go from Barrackpore Railway Station to Chandan Pukur, can you walk in a straight diagonal line through houses?"</em>
+            Hello students! Measuring distance seems simple when using a ruler on paper, but in machine learning, distance depends entirely on the world your data lives in! Let's explore how different distance metrics reshape physical and mathematical reality.
           </p>
-          <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2">
-            <h3 className="font-bold text-amber-300 text-sm md:text-base">
-              🏙️ The Geometric Reality of Distances
+
+          {/* Interactive Classroom Narrative */}
+          <div className="p-4 bg-indigo-950/30 rounded-2xl border border-indigo-800/40 space-y-2">
+            <h3 className="font-bold text-indigo-200 text-sm md:text-base flex items-center gap-2">
+              <span>💬</span> Classroom Discussion at Barrackpore ML Lab
             </h3>
             <p className="text-xs md:text-sm text-slate-300">
-              <strong>Euclidean Distance ($L_2$)</strong> is "as the crow flies"—straight through walls.
+              <strong>Sukanta Hui:</strong> "Imagine <strong>Swadeep</strong> wants to walk from Barrackpore Railway Station to Anandapuri Market. Can he fly in a straight diagonal line through buildings and trees?"
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              <strong>Manhattan Distance ($L_1$)</strong> follows the street grid ($\Delta x + \Delta y$), making it the true metric for city routing, delivery clustering, and outlier-resistant machine learning!
+              <strong>Tuhina:</strong> "No, Sir! Unless Swadeep is a crow, he must walk along the rectangular streets of Barrackpore Bazaar!"
             </p>
+            <p className="text-xs md:text-sm text-slate-300">
+              <strong>Sukanta Hui:</strong> "Exactly! That straight-line crow path is <strong>Euclidean Distance (<InlineMath math="L_2" />)</strong>, while the street grid walk is <strong>Manhattan Distance (<InlineMath math="L_1" />)</strong>. And if <strong>Debangshu</strong> is playing chess, the King moves 1 step diagonally just as easily as 1 step forward—that is <strong>Chebyshev Distance (<InlineMath math="L_\infty" />)</strong>!"
+            </p>
+          </div>
+
+          {/* 4 Real-Life Teacher Stories Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Story 1 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-indigo-800/60 space-y-2">
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-wider block">
+                🐦 Story 1 • Crow vs. Commuter
+              </span>
+              <h3 className="font-bold text-white text-sm">Euclidean (<InlineMath math="L_2" />) vs. Manhattan (<InlineMath math="L_1" />)</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Euclidean measures straight-line hypotenuse distance <InlineMath math="\sqrt{\Delta x^2 + \Delta y^2}" />. Manhattan measures grid steps <InlineMath math="|\Delta x| + |\Delta y|" />, making it ideal for city logistics and outlier-robust clustering.
+              </p>
+            </div>
+
+            {/* Story 2 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-amber-800/60 space-y-2">
+              <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block">
+                👑 Story 2 • The Chessboard King
+              </span>
+              <h3 className="font-bold text-white text-sm">Chebyshev Distance (<InlineMath math="L_\infty" />)</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                In chess, a King takes 1 turn to move from (0,0) to (1,1). The metric is defined by the maximum single coordinate shift <InlineMath math="\max(|\Delta x|, |\Delta y|)" />, crucial for warehouse crane &amp; 8-way movement routing.
+              </p>
+            </div>
+
+            {/* Story 3 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-emerald-800/60 space-y-2">
+              <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block">
+                📚 Story 3 • The Document Storyteller
+              </span>
+              <h3 className="font-bold text-white text-sm">Cosine Angle Distance</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                When <strong>Sachin</strong> clusters legal contracts, document length varies wildy. Cosine distance measures the <em>angle between word frequency vectors</em>, ignoring length so a 5-page summary clusters with a 500-page book on the same topic!
+              </p>
+            </div>
+
+            {/* Story 4 */}
+            <div className="p-4 bg-slate-950/90 rounded-2xl border border-rose-800/60 space-y-2">
+              <span className="text-xs font-bold text-rose-400 uppercase tracking-wider block">
+                🧬 Story 4 • DNA &amp; Shopping Baskets
+              </span>
+              <h3 className="font-bold text-white text-sm">Non-Euclidean Dissimilarities</h3>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                When <strong>Susmita</strong> compares gene sequences or retail customer baskets, there are no Cartesian coordinates. K-Medoids accepts arbitrary edit (Levenshtein) or Jaccard distances via an <InlineMath math="N \times N" /> matrix!
+              </p>
+            </div>
+          </div>
+
+          {/* 4-Step Friendly Teacher CNAT Breakdown (What, Why, How, When) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="bg-slate-950 p-4 rounded-xl border border-indigo-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-indigo-400 uppercase tracking-wider">❓ WHAT is a Metric Space?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                A formal mathematical rule <InlineMath math="D(x, y)" /> satisfying 4 axioms: Non-negativity (<InlineMath math="D \ge 0" />), Identity (<InlineMath math="D(x,y)=0 \iff x=y" />), Symmetry (<InlineMath math="D(x,y)=D(y,x)" />), and Triangle Inequality (<InlineMath math="D(x,z) \le D(x,y)+D(y,z)" />).
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-cyan-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-cyan-400 uppercase tracking-wider">💡 WHY Does Choice Matter?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                The distance metric defines the <strong>geometry of cluster borders</strong>! Euclidean creates circles, Manhattan forms diamonds, Chebyshev creates squares, and Cosine creates angular cone slices.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-amber-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">⚙️ HOW Are They Formulated?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Minkowski family <InlineMath math="D_p = (\sum |x_i - y_i|^p)^{1/p}" /> unifies <InlineMath math="p=1" /> (Manhattan), <InlineMath math="p=2" /> (Euclidean), and <InlineMath math="p \to \infty" /> (Chebyshev). Cosine uses dot product <InlineMath math="1 - \frac{x \cdot y}{\|x\| \|y\|}" />.
+              </p>
+            </div>
+
+            <div className="bg-slate-950 p-4 rounded-xl border border-emerald-800/50 space-y-1.5">
+              <div className="text-xs font-bold text-emerald-400 uppercase tracking-wider">⏰ WHEN to Use Which?</div>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                Use <strong>Euclidean</strong> for continuous physical space; <strong>Manhattan</strong> for street/grid networks and noisy data; <strong>Cosine</strong> for text/NLP; <strong>Jaccard/Edit</strong> for discrete sets and sequences.
+              </p>
+            </div>
+          </div>
+
+          {/* Teacher's Golden Rule */}
+          <div className="p-4 bg-amber-950/30 rounded-2xl border border-amber-800/50 flex items-start gap-3">
+            <span className="text-2xl">💡</span>
+            <div>
+              <h4 className="font-bold text-amber-200 text-sm">Teacher's Soothing Takeaway</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">
+                "Class, remember: there is no single 'universally superior' distance metric. The best distance metric is the one that faithfully represents the physical, economic, or semantic geometry of your specific real-world domain!" — Sukanta Hui
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -104,16 +207,16 @@ export default function Topic2() {
       {/* 3. Semantic Visual SVG Diagram */}
       <section className="space-y-4">
         <h2 className="text-xl font-bold text-sky-300 flex items-center gap-2">
-          <span>⚙️</span> Semantic Visual Diagram: Geometric Geometry of $L_1$, $L_2$, and $L_\infty$ Distance Norms
+          <span>⚙️</span> Visual Topology Diagram: Geometry of <InlineMath math="L_1" />, <InlineMath math="L_2" />, <InlineMath math="L_\infty" /> &amp; Cosine Metric Spaces
         </h2>
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
-          <svg viewBox="0 0 920 280" className="w-full min-w-[750px] font-sans">
+          <svg viewBox="0 0 920 300" className="w-full min-w-[750px] font-sans">
             <text x="460" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-sm">
-              Geometric Paths from Point A(0, 0) to Point B(4, 3) across Metric Spaces
+              Geometric Path Comparison from Origin A(0, 0) to Target B(4, 3) across Metric Norms
             </text>
 
-            {/* Coordinate Grid */}
-            <g transform="translate(100, 50)">
+            {/* Left Grid Section */}
+            <g transform="translate(80, 50)">
               {/* Grid lines */}
               {[0, 1, 2, 3, 4].map((i) => (
                 <line key={`v${i}`} x1={i * 60} y1="0" x2={i * 60} y2="180" stroke="#334155" strokeWidth="1" strokeDasharray="3,3" />
@@ -132,93 +235,152 @@ export default function Topic2() {
 
               {/* L2 Euclidean Straight Line */}
               <line x1="0" y1="180" x2="240" y2="0" stroke="#f59e0b" strokeWidth="3" />
-              <text x="100" y="80" fill="#fcd34d" className="font-mono text-xs font-bold bg-slate-900">
+              <text x="90" y="80" fill="#fcd34d" className="font-mono text-xs font-bold">
                 L2 (Euclidean) = 5.00
               </text>
 
               {/* L1 Manhattan Stepped Grid Path */}
               <path d="M 0 180 L 240 180 L 240 0" stroke="#f43f5e" strokeWidth="2.5" fill="none" strokeDasharray="4,4" />
-              <text x="130" y="200" fill="#f43f5e" className="font-mono text-xs font-bold">
+              <text x="110" y="200" fill="#f43f5e" className="font-mono text-xs font-bold">
                 L1 (Manhattan) = 4 + 3 = 7.00
               </text>
+
+              {/* L_infinity Chebyshev Maximum Box */}
+              <rect x="0" y="0" width="240" height="180" fill="none" stroke="#34d399" strokeWidth="1.5" strokeDasharray="2,2" />
+              <text x="5" y="15" fill="#34d399" className="font-mono text-[10px]">
+                L∞ (Chebyshev) = max(4,3) = 4.00
+              </text>
+
+              {/* Cosine Angle Arc */}
+              <path d="M 40 180 A 40 40 0 0 0 32 156" fill="none" stroke="#38bdf8" strokeWidth="2" />
+              <text x="45" y="165" fill="#7dd3fc" className="font-mono text-[10px] font-bold">θ = 36.87°</text>
             </g>
 
-            {/* Right Metric Overview Box */}
+            {/* Right Metric Overview Cards */}
             <g transform="translate(480, 50)">
-              <rect x="0" y="0" width="380" height="180" rx="10" fill="#1e293b" stroke="#818cf8" strokeWidth="1.5" />
-              <text x="190" y="25" textAnchor="middle" fill="#a5b4fc" className="font-bold text-xs font-mono">Distance Metric Comparison Summary</text>
+              <rect x="0" y="0" width="380" height="200" rx="10" fill="#1e293b" stroke="#818cf8" strokeWidth="1.5" />
+              <text x="190" y="25" textAnchor="middle" fill="#a5b4fc" className="font-bold text-xs font-mono">Distance Metric Calculation Summary</text>
 
-              <rect x="20" y="40" width="340" height="36" rx="6" fill="#0f172a" />
-              <text x="35" y="63" fill="#fbbf24" className="font-mono text-xs font-bold">Euclidean ($L_2$):</text>
-              <text x="170" y="63" fill="#cbd5e1" className="font-mono text-xs">$\sqrt{4^2 + 3^2} = 5.00$</text>
+              <rect x="20" y="38" width="340" height="34" rx="6" fill="#0f172a" />
+              <text x="30" y="60" fill="#fbbf24" className="font-mono text-xs font-bold">Euclidean (L2):</text>
+              <text x="170" y="60" fill="#cbd5e1" className="font-mono text-xs">√(4² + 3²) = 5.00</text>
 
-              <rect x="20" y="85" width="340" height="36" rx="6" fill="#0f172a" />
-              <text x="35" y="108" fill="#f43f5e" className="font-mono text-xs font-bold">Manhattan ($L_1$):</text>
-              <text x="170" y="108" fill="#cbd5e1" className="font-mono text-xs">$|4| + |3| = 7.00$</text>
+              <rect x="20" y="78" width="340" height="34" rx="6" fill="#0f172a" />
+              <text x="30" y="100" fill="#f43f5e" className="font-mono text-xs font-bold">Manhattan (L1):</text>
+              <text x="170" y="100" fill="#cbd5e1" className="font-mono text-xs">|4| + |3| = 7.00</text>
 
-              <rect x="20" y="130" width="340" height="36" rx="6" fill="#0f172a" />
-              <text x="35" y="153" fill="#34d399" className="font-mono text-xs font-bold">Chebyshev ($L_\infty$):</text>
-              <text x="170" y="153" fill="#cbd5e1" className="font-mono text-xs">$\max(|4|, |3|) = 4.00$</text>
+              <rect x="20" y="118" width="340" height="34" rx="6" fill="#0f172a" />
+              <text x="30" y="140" fill="#34d399" className="font-mono text-xs font-bold">Chebyshev (L∞):</text>
+              <text x="170" y="140" fill="#cbd5e1" className="font-mono text-xs">max(|4|, |3|) = 4.00</text>
+
+              <rect x="20" y="158" width="340" height="34" rx="6" fill="#0f172a" />
+              <text x="30" y="180" fill="#38bdf8" className="font-mono text-xs font-bold">Cosine Dist:</text>
+              <text x="170" y="180" fill="#cbd5e1" className="font-mono text-xs">1 - cos(36.87°) = 0.20</text>
             </g>
 
             {/* Explanatory footer */}
-            <rect x="60" y="240" width="800" height="35" rx="6" fill="#0f172a" stroke="#334155" />
-            <text x="460" y="262" textAnchor="middle" fill="#38bdf8" className="text-xs font-mono">
-              • In K-Medoids: You can supply ANY metric as an N x N matrix without computing coordinate averages!
+            <rect x="60" y="260" width="800" height="32" rx="6" fill="#0f172a" stroke="#334155" />
+            <text x="460" y="281" textAnchor="middle" fill="#38bdf8" className="text-xs font-mono">
+              • In K-Medoids: Supply ANY metric via an N x N matrix without calculating synthetic coordinate averages!
             </text>
           </svg>
         </div>
       </section>
 
       {/* 4. Deep Technical Breakdown Section */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
           </div>
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-white">
-              Mathematical Distance Formulations
+              Mathematical Formulations &amp; Pairwise Dissimilarity Matrix
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Metric formulas, properties, and applications in K-Medoids clustering
+              Rigorous metric definitions, distance formulas, and structural properties of the <InlineMath math="N \times N" /> dissimilarity matrix
             </p>
+          </div>
+        </div>
+
+        {/* Hand-Calculated Step-by-Step Box */}
+        <div className="bg-slate-950 p-6 rounded-2xl border border-indigo-800/50 space-y-4">
+          <span className="text-xs font-bold text-amber-300 uppercase tracking-wider block">
+            📍 Hand-Calculation Example: Distance from A(0, 0) to B(4, 3) across 4 Metrics
+          </span>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Euclidean */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-amber-900/50 space-y-1.5">
+              <span className="text-xs font-bold text-amber-400 block">1️⃣ Euclidean (<InlineMath math="L_2" />)</span>
+              <div className="p-2 bg-slate-950 text-center font-mono text-xs text-amber-300 rounded border border-slate-800">
+                <InlineMath math="D_2 = \sqrt{4^2 + 3^2} = \sqrt{25} = 5.0" />
+              </div>
+              <p className="text-[11px] text-slate-400">Straight diagonal line as the crow flies.</p>
+            </div>
+
+            {/* Manhattan */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-rose-900/50 space-y-1.5">
+              <span className="text-xs font-bold text-rose-400 block">2️⃣ Manhattan (<InlineMath math="L_1" />)</span>
+              <div className="p-2 bg-slate-950 text-center font-mono text-xs text-rose-300 rounded border border-slate-800">
+                <InlineMath math="D_1 = |4-0| + |3-0| = 7.0" />
+              </div>
+              <p className="text-[11px] text-slate-400">Grid street step walking distance.</p>
+            </div>
+
+            {/* Chebyshev */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-emerald-900/50 space-y-1.5">
+              <span className="text-xs font-bold text-emerald-400 block">3️⃣ Chebyshev (<InlineMath math="L_\infty" />)</span>
+              <div className="p-2 bg-slate-950 text-center font-mono text-xs text-emerald-300 rounded border border-slate-800">
+                <InlineMath math="D_\infty = \max(|4|, |3|) = 4.0" />
+              </div>
+              <p className="text-[11px] text-slate-400">Maximum coordinate difference.</p>
+            </div>
+
+            {/* Cosine */}
+            <div className="p-4 bg-slate-900 rounded-xl border border-cyan-900/50 space-y-1.5">
+              <span className="text-xs font-bold text-cyan-400 block">4️⃣ Cosine Distance</span>
+              <div className="p-2 bg-slate-950 text-center font-mono text-xs text-cyan-300 rounded border border-slate-800">
+                <InlineMath math="1 - \frac{4(1) + 3(0)}{5 \times 1} = 0.20" />
+              </div>
+              <p className="text-[11px] text-slate-400">Angular discrepancy between vectors.</p>
+            </div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
-            <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Minkowski ($L_p$) Family</span>
+            <span className="text-xs font-mono font-bold text-cyan-400 uppercase">Minkowski (<InlineMath math="L_p" />) Metric Family</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Generalized distance parameterized by order $p$:
+              Generalized vector distance parameterized by order <InlineMath math="p \ge 1" />:
             </p>
-            <div className="text-[12px] font-mono text-indigo-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              D_p(x, y) = \left( \sum_{i=1}^d |x_i - y_i|^p \right)^{1/p}
+            <div className="text-sm md:text-base font-mono text-indigo-300 bg-indigo-950/40 p-4 rounded-xl border border-indigo-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-3">
+              <BlockMath math="D_p(x, y) = \left( \sum_{i=1}^d |x_i - y_i|^p \right)^{1/p}" />
             </div>
             <ul className="text-xs text-slate-400 space-y-1 list-disc list-inside">
-              <li>$p = 1$: Manhattan (City-block) Distance</li>
-              <li>$p = 2$: Euclidean Straight-line Distance</li>
-              <li>$p \to \infty$: Chebyshev Maximum Coordinate Distance</li>
+              <li><InlineMath math="p = 1" />: Manhattan (City-block) Distance</li>
+              <li><InlineMath math="p = 2" />: Euclidean Straight-line Distance</li>
+              <li><InlineMath math="p \to \infty" />: Chebyshev Maximum Coordinate Distance</li>
             </ul>
           </div>
 
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
-            <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Cosine &amp; Jaccard Metrics</span>
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase">Pairwise Dissimilarity Matrix (<InlineMath math="N \times N" />)</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Non-Euclidean distances for text and discrete sets:
+              K-Medoids requires only an <InlineMath math="N \times N" /> distance matrix <InlineMath math="\mathbf{D}" /> where <InlineMath math="D_{ij} = D(x_i, x_j)" />:
             </p>
-            <div className="text-[12px] font-mono text-emerald-300 bg-slate-900 p-3 rounded-lg border border-slate-800">
-              D_{\text{Cosine}}(x, y) = 1 - \frac{x \cdot y}{\|x\| \|y\|}
+            <div className="text-sm md:text-base font-mono text-emerald-300 bg-emerald-950/40 p-4 rounded-xl border border-emerald-800/60 shadow-inner flex justify-center items-center overflow-x-auto py-3">
+              <BlockMath math="\mathbf{D} = \begin{bmatrix} 0 & d_{12} & \dots & d_{1N} \\ d_{21} & 0 & \dots & d_{2N} \\ \vdots & \vdots & \ddots & \vdots \\ d_{N1} & d_{N2} & \dots & 0 \end{bmatrix}" />
             </div>
             <p className="text-xs text-slate-400">
-              Cosine distance measures angular alignment independent of magnitude, making it ideal for text document clustering.
+              Properties: Symmetric (<InlineMath math="d_{ij} = d_{ji}" />), Zero Diagonal (<InlineMath math="d_{ii} = 0" />). Allows clustering on graphs, DNA sequences, and non-vector objects!
             </p>
           </div>
         </div>
       </section>
 
       {/* 5. Live Interactive Metric Simulator */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -228,7 +390,7 @@ export default function Topic2() {
               Live Coordinate Difference Metric Simulator
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Adjust $\Delta x$ and $\Delta y$ offsets and compare the response of all major distance metrics in real-time
+              Adjust <InlineMath math="\Delta x" /> and <InlineMath math="\Delta y" /> offsets and compare the response of all major distance metrics in real-time
             </p>
           </div>
         </div>
@@ -237,7 +399,7 @@ export default function Topic2() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1">
               <div className="flex justify-between text-xs font-mono">
-                <span className="text-slate-300">Horizontal Offset ($\Delta x$):</span>
+                <span className="text-slate-300">Horizontal Offset (<InlineMath math="\Delta x" />):</span>
                 <span className="text-cyan-400 font-bold">{deltaX} units</span>
               </div>
               <input
@@ -252,7 +414,7 @@ export default function Topic2() {
 
             <div className="space-y-1">
               <div className="flex justify-between text-xs font-mono">
-                <span className="text-slate-300">Vertical Offset ($\Delta y$):</span>
+                <span className="text-slate-300">Vertical Offset (<InlineMath math="\Delta y" />):</span>
                 <span className="text-cyan-400 font-bold">{deltaY} units</span>
               </div>
               <input
@@ -266,30 +428,38 @@ export default function Topic2() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-            <div className="bg-slate-900 p-4 rounded-lg border border-amber-900/50 space-y-1">
-              <span className="text-[11px] font-bold text-amber-400 uppercase">Euclidean ($L_2$)</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="bg-slate-900 p-4 rounded-xl border border-amber-900/50 space-y-1">
+              <span className="text-[11px] font-bold text-amber-400 uppercase">Euclidean (<InlineMath math="L_2" />)</span>
               <div className="text-2xl font-bold font-mono text-amber-300">{l2_euclidean.toFixed(2)}</div>
-              <p className="text-[10px] text-slate-400">Direct diagonal straight line.</p>
+              <p className="text-[10px] text-slate-400">Direct diagonal straight line distance.</p>
             </div>
 
-            <div className="bg-slate-900 p-4 rounded-lg border border-rose-900/50 space-y-1">
-              <span className="text-[11px] font-bold text-rose-400 uppercase">Manhattan ($L_1$)</span>
+            <div className="bg-slate-900 p-4 rounded-xl border border-rose-900/50 space-y-1">
+              <span className="text-[11px] font-bold text-rose-400 uppercase">Manhattan (<InlineMath math="L_1" />)</span>
               <div className="text-2xl font-bold font-mono text-rose-300">{l1_manhattan.toFixed(2)}</div>
-              <p className="text-[10px] text-slate-400">Orthogonal grid step distance.</p>
+              <p className="text-[10px] text-slate-400">Orthogonal street grid step distance.</p>
             </div>
 
-            <div className="bg-slate-900 p-4 rounded-lg border border-emerald-900/50 space-y-1">
-              <span className="text-[11px] font-bold text-emerald-400 uppercase">Chebyshev ($L_\infty$)</span>
+            <div className="bg-slate-900 p-4 rounded-xl border border-emerald-900/50 space-y-1">
+              <span className="text-[11px] font-bold text-emerald-400 uppercase">Chebyshev (<InlineMath math="L_\infty" />)</span>
               <div className="text-2xl font-bold font-mono text-emerald-300">{l_chebyshev.toFixed(2)}</div>
-              <p className="text-[10px] text-slate-400">Maximum coordinate difference.</p>
+              <p className="text-[10px] text-slate-400">Maximum single coordinate diff.</p>
+            </div>
+
+            <div className="bg-slate-900 p-4 rounded-xl border border-cyan-900/50 space-y-1">
+              <span className="text-[11px] font-bold text-cyan-400 uppercase">Cosine Distance</span>
+              <div className="text-2xl font-bold font-mono text-cyan-300">
+                {(l2_euclidean === 0 ? 0 : 1 - deltaX / l2_euclidean).toFixed(2)}
+              </div>
+              <p className="text-[10px] text-slate-400">Angular distance from horizontal axis.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -340,7 +510,7 @@ export default function Topic2() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04

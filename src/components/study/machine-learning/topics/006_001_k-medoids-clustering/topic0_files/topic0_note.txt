@@ -5,21 +5,28 @@ TOPIC 0: K-Medoids Clustering Concept & Mathematical Foundations
 Educator: Sukanta Hui | Location: Barrackpore, West Bengal
 ================================================================================
 
-1. WHAT IS K-MEDOIDS CLUSTERING?
+1. WHAT IS A MEDOID? (FORMAL DEFINITION & ETYMOLOGY)
+--------------------------------------------------------------------------------
+- Etymology: "Medoid" comes from Median + -oid ("resembling a median" / "median-like object").
+- Definition: In cluster analysis, a MEDOID is a representative data point selected from
+  a dataset (or cluster) whose average dissimilarity to all other data points in that
+  cluster is minimal.
+- Mathematical Formula:
+    m_k = argmin_{y \in C_k} \sum_{x \in C_k} D(x, y)
+- Strict Property: m_k \in X (A Medoid MUST be an actual, existing member of the dataset X,
+  never an interpolated or artificial mathematical average like a K-Means Centroid \mu_k \notin X).
+- Multidimensional Generalization: While a 1D median is the middle value in a 1D sorted list,
+  a Medoid is the generalization of a median to multidimensional feature spaces and arbitrary
+  pairwise distance metrics.
+
+2. K-MEDOIDS CLUSTERING & COST FUNCTION
 --------------------------------------------------------------------------------
 - K-Medoids is a classical partitional clustering algorithm that partitions a
-  dataset of N objects into K distinct clusters.
-- Unlike K-Means (which represents cluster centers as artificial average "centroids"),
-  K-Medoids mandates that each cluster center MUST BE AN ACTUAL DATA POINT from the dataset
-  known as a "MEDOID".
-
-2. THE MEDOID CONCEPT & COST FUNCTION
---------------------------------------------------------------------------------
-- A Medoid is the most centrally located data object within a cluster whose
-  sum of dissimilarities to all other points in that cluster is minimized.
+  dataset of N objects into K distinct clusters using medoids as cluster centers.
 - Objective Function (Total Absolute Dissimilarity Cost):
-    Cost = \sum_{k=1}^K \sum_{x_i \in C_k} D(x_i, m_k)
-  where D(x_i, m_k) is any arbitrary distance metric (e.g. L1 Manhattan, L2 Euclidean).
+    Cost J = \sum_{k=1}^K \sum_{x_i \in C_k} D(x_i, m_k)
+  where D(x_i, m_k) is any arbitrary distance or dissimilarity metric (e.g. L1 Manhattan,
+  L2 Euclidean, Cosine, Jaccard, or a precomputed dissimilarity matrix).
 
 3. KEY ADVANTAGES OVER K-MEANS
 --------------------------------------------------------------------------------

@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -24,8 +25,16 @@ export default function Topic9() {
 
   const currentSwap = swapOptions[testedSwap];
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -44,7 +53,7 @@ export default function Topic9() {
           </h1>
 
           <p className="text-base sm:text-lg text-slate-300 max-w-4xl">
-            Step through a comprehensive pen-and-paper numerical walkthrough of K-Medoids ($K=2$). Construct pairwise distance matrices, compute BUILD phase initial medoids, evaluate SWAP phase cost deltas ($\Delta C$), and verify convergence.
+            Step through a comprehensive pen-and-paper numerical walkthrough of K-Medoids (<InlineMath math="K=2" />). Construct pairwise distance matrices, compute BUILD phase initial medoids, evaluate SWAP phase cost deltas (<InlineMath math="\Delta C" />), and verify convergence.
           </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
@@ -56,7 +65,7 @@ export default function Topic9() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -89,14 +98,14 @@ export default function Topic9() {
 
         <div className="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            In our lab, <strong>Abhronila</strong> and <strong>Swadeep</strong> sat down with pen and paper to manually calculate a 5-point dataset: $A(1,2), B(2,3), C(3,2), D(8,7), E(9,8)$ for $K=2$.
+            In our lab, <strong>Abhronila</strong> and <strong>Swadeep</strong> sat down with pen and paper to manually calculate a 5-point dataset: <InlineMath math="A(1,2), B(2,3), C(3,2), D(8,7), E(9,8)" /> for <InlineMath math="K=2" />.
           </p>
           <div className="p-4 bg-slate-950/80 rounded-2xl border border-slate-800 space-y-2">
             <h3 className="font-bold text-amber-300 text-sm md:text-base">
               📝 Why Solve It by Hand First?
             </h3>
             <p className="text-xs md:text-sm text-slate-300">
-              When you compute the $5 \times 5$ distance matrix, sum the rows to find the first medoid $B(2,3)$, and calculate the cost reduction gain for $E(9,8)$, the entire abstract algorithm becomes crystal clear!
+              When you compute the <InlineMath math="5 \\times 5" /> distance matrix, sum the rows to find the first medoid <InlineMath math="B(2,3)" />, and calculate the cost reduction gain for <InlineMath math="E(9,8)" />, the entire abstract algorithm becomes crystal clear!
             </p>
           </div>
         </div>
@@ -171,7 +180,7 @@ export default function Topic9() {
       </section>
 
       {/* 4. Deep Technical Breakdown Section: Step-by-Step Derivation */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
@@ -190,13 +199,13 @@ export default function Topic9() {
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-cyan-400 uppercase">1. BUILD Phase Step 2 (Gain Calculation)</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              With $M_1 = B(2, 3)$, we evaluate the distance savings if candidate $h$ is added as $M_2$:
+              With <InlineMath math="M_1 = B(2, 3)" />, we evaluate the distance savings if candidate <InlineMath math="h" /> is added as <InlineMath math="M_2" />:
             </p>
             <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside">
-              <li>Candidate A: Gain = $2$</li>
-              <li>Candidate C: Gain = $2$</li>
-              <li>Candidate D: Gain = $\max(0, 10-0) + \max(0, 12-2) = 20$</li>
-              <li>Candidate E: Gain = $\max(0, 10-2) + \max(0, 12-0) = 20$</li>
+              <li>Candidate A: Gain = <InlineMath math="2" /></li>
+              <li>Candidate C: Gain = <InlineMath math="2" /></li>
+              <li>Candidate D: Gain = <InlineMath math="\max(0, 10-0) + \max(0, 12-2) = 20" /></li>
+              <li>Candidate E: Gain = <InlineMath math="\max(0, 10-2) + \max(0, 12-0) = 20" /></li>
             </ul>
             <p className="text-xs text-emerald-400 font-bold">
               Candidate E achieves maximum gain (20) and is chosen as Medoid 2!
@@ -204,24 +213,24 @@ export default function Topic9() {
           </div>
 
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
-            <span className="text-xs font-mono font-bold text-emerald-400 uppercase">2. SWAP Phase Evaluation ($\Delta C$)</span>
+            <span className="text-xs font-mono font-bold text-emerald-400 uppercase">2. SWAP Phase Evaluation (<InlineMath math="\Delta C" />)</span>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Base Medoids: $[B, E]$ with Total Cost $J = 6.00$.
+              Base Medoids: <InlineMath math="[B, E]" /> with Total Cost <InlineMath math="J = 6.00" />.
             </p>
             <ul className="text-xs text-slate-300 space-y-1 list-disc list-inside">
-              <li>Swap $B \to A$: New Cost = $8 \implies \Delta C = +2$ (Rejected)</li>
-              <li>Swap $B \to C$: New Cost = $6 \implies \Delta C = 0$ (No gain)</li>
-              <li>Swap $E \to D$: New Cost = $6 \implies \Delta C = 0$ (No gain)</li>
+              <li>Swap <InlineMath math="B \to A" />: New Cost = <InlineMath math="8 \implies \Delta C = +2" /> (Rejected)</li>
+              <li>Swap <InlineMath math="B \to C" />: New Cost = <InlineMath math="6 \implies \Delta C = 0" /> (No gain)</li>
+              <li>Swap <InlineMath math="E \to D" />: New Cost = <InlineMath math="6 \implies \Delta C = 0" /> (No gain)</li>
             </ul>
             <p className="text-xs text-emerald-400 font-bold">
-              No swap yields $\Delta C &lt; 0$. Initial configuration $[B, E]$ is converged!
+              No swap yields <InlineMath math="\Delta C < 0" />. Initial configuration <InlineMath math="[B, E]" /> is converged!
             </p>
           </div>
         </div>
       </section>
 
       {/* 5. Live Interactive SWAP Evaluation Lab */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -285,7 +294,7 @@ export default function Topic9() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -336,7 +345,7 @@ export default function Topic9() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04
@@ -358,8 +367,8 @@ export default function Topic9() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
               <li>Summing columns instead of rows (though symmetric, helps avoid off-by-one index bugs).</li>
-              <li>Forgetting that distance from a point to itself is zero ($D[i, i] = 0$).</li>
-              <li>Accepting a swap when $\Delta C = 0$ (causes infinite swap oscillations).</li>
+              <li>Forgetting that distance from a point to itself is zero (<InlineMath math="D[i, i] = 0" />).</li>
+              <li>Accepting a swap when <InlineMath math="\Delta C = 0" /> (causes infinite swap oscillations).</li>
             </ul>
           </div>
 
@@ -369,7 +378,7 @@ export default function Topic9() {
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
               <li>Always execute a manual calculation on a 5-point dummy dataset before writing production code.</li>
-              <li>Require strictly negative $\Delta C &lt; -10^{-6}$ before accepting a candidate swap.</li>
+              <li>Require strictly negative <InlineMath math="\Delta C < -10^{-6}" /> before accepting a candidate swap.</li>
               <li>Use NumPy matrix operations to verify manual matrix derivations in automated test suites.</li>
             </ul>
           </div>
@@ -382,7 +391,7 @@ export default function Topic9() {
           <span>🤔</span> Think About This...
         </h2>
         <p className="text-slate-300 text-sm leading-relaxed">
-          In this worked example, Points $B(2,3)$ and $C(3,2)$ had identical row sums ($26$). If $C$ was chosen as Medoid 1 instead of $B$, why would the total clustering cost and final cluster assignments remain identical?
+          In this worked example, Points <InlineMath math="B(2,3)" /> and <InlineMath math="C(3,2)" /> had identical row sums (26). If <InlineMath math="C" /> was chosen as Medoid 1 instead of <InlineMath math="B" />, why would the total clustering cost and final cluster assignments remain identical?
         </p>
       </section>
 

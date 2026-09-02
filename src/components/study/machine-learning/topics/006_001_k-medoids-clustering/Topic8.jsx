@@ -1,5 +1,6 @@
 import React, { useState, useId } from "react";
 import clsx from "clsx";
+import { InlineMath, BlockMath } from "react-katex";
 import PythonFileLoader from "../../../../../common/PythonFileLoader";
 import FAQTemplate from "../../../../../common/FAQTemplate";
 import PlainTextPrint from "../../../../../common/PlainTextPrint";
@@ -18,8 +19,16 @@ export default function Topic8() {
   const distanceMatrixRamMB = (datasetSizeN * datasetSizeN * 8) / (1024 * 1024);
   const estimatedPamOpsMillion = (2 * (datasetSizeN - 2) * (datasetSizeN - 2)) / 1000000;
 
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+    const element = document.getElementById(tabId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pb-12">
+    <div className="space-y-8 text-slate-200 leading-relaxed max-w-6xl mx-auto pt-6 pb-12">
       {/* 1. Header Section */}
       <header className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-8 rounded-2xl border border-indigo-800/40 shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -50,7 +59,7 @@ export default function Topic8() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
+                onClick={() => handleTabClick(tab.id)}
                 className={clsx(
                   "px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all duration-300 cursor-pointer",
                   activeTab === tab.id
@@ -93,7 +102,7 @@ export default function Topic8() {
               K-Medoids wears heavy armor: it computes all pairwise distances to ensure 100% immunity to noise and guarantee real exemplars.
             </p>
             <p className="text-xs md:text-sm text-slate-300">
-              That armor is heavy ($O(N^2)$ memory). For modest datasets ($N &lt; 10,000$), modern RAM handles it effortlessly. For massive big data, we use <strong>CLARA</strong> (sampling scouts) to keep the armor light!
+              That armor is heavy (<InlineMath math="O(N^2)" /> memory). For modest datasets (<InlineMath math="N &lt; 10,000" />), modern RAM handles it effortlessly. For massive big data, we use <strong>CLARA</strong> (sampling scouts) to keep the armor light!
             </p>
           </div>
         </div>
@@ -134,29 +143,29 @@ export default function Topic8() {
               <text x="185" y="25" textAnchor="middle" fill="#f43f5e" className="font-bold text-xs font-mono">CORE LIMITATIONS (Bottlenecks)</text>
 
               <rect x="15" y="40" width="340" height="30" rx="4" fill="#4c0519" />
-              <text x="25" y="60" fill="#fecdd3" className="text-[11px] font-mono font-bold">⚠ Quadratic Memory Overhead $O(N^2)$</text>
+              <text x="25" y="60" fill="#fecdd3" className="text-[11px] font-mono font-bold">⚠ Quadratic Memory Overhead O(N²)</text>
 
               <rect x="15" y="75" width="340" height="30" rx="4" fill="#4c0519" />
-              <text x="25" y="95" fill="#fecdd3" className="text-[11px] font-mono font-bold">⚠ Slower Runtime on Large $N$ ($O(K(N-K)^2)$)</text>
+              <text x="25" y="95" fill="#fecdd3" className="text-[11px] font-mono font-bold">⚠ Slower Runtime on Large N (O(K(N-K)²))</text>
 
               <rect x="15" y="110" width="340" height="30" rx="4" fill="#4c0519" />
               <text x="25" y="130" fill="#fecdd3" className="text-[11px] font-mono font-bold">⚠ Struggles on Complex Non-Convex Manifolds</text>
 
               <rect x="15" y="145" width="340" height="25" rx="4" fill="#0f172a" />
-              <text x="25" y="162" fill="#fda4af" className="text-[10px] font-mono">⚠ Requires Pre-Specifying Number of Clusters $K$</text>
+              <text x="25" y="162" fill="#fda4af" className="text-[10px] font-mono">⚠ Requires Pre-Specifying Number of Clusters K</text>
             </g>
 
             {/* Explanatory footer */}
             <rect x="60" y="240" width="800" height="35" rx="6" fill="#0f172a" stroke="#334155" />
             <text x="460" y="262" textAnchor="middle" fill="#38bdf8" className="text-xs font-mono">
-              • Scalability Solution: Use CLARA (Sampling PAM) when dataset size $N &gt; 10,000$ observations!
+              • Scalability Solution: Use CLARA (Sampling PAM) when dataset size N &gt; 10,000 observations!
             </text>
           </svg>
         </div>
       </section>
 
       {/* 4. Deep Technical Breakdown Section */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="theory" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 font-bold text-lg">
             01
@@ -177,21 +186,21 @@ export default function Topic8() {
             <p className="text-xs text-slate-300 leading-relaxed">
               Exhaustive exact pairwise search.
             </p>
-            <div className="text-[11px] font-mono text-amber-300 bg-slate-900 p-2 rounded border border-slate-800">
-              Time: $O(K \cdot (N - K)^2)$<br />
-              Space: $O(N^2)$ RAM
+            <div className="text-[11px] font-mono text-amber-300 bg-slate-900 p-2 rounded border border-slate-800 space-y-1">
+              <div>Time: <InlineMath math="O(K \cdot (N - K)^2)" /></div>
+              <div>Space: <InlineMath math="O(N^2)" /> RAM</div>
             </div>
-            <p className="text-[11px] text-slate-400">Optimal for $N &lt; 5,000$.</p>
+            <p className="text-[11px] text-slate-400">Optimal for <InlineMath math="N < 5,000" />.</p>
           </div>
 
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-cyan-400 uppercase">FastPAM</span>
             <p className="text-xs text-slate-300 leading-relaxed">
-              Caches 2nd-closest medoids for $O(N)$ speedup.
+              Caches 2nd-closest medoids for <InlineMath math="O(N)" /> speedup.
             </p>
-            <div className="text-[11px] font-mono text-cyan-300 bg-slate-900 p-2 rounded border border-slate-800">
-              Time: $O(K \cdot (N - K))$<br />
-              Space: $O(N^2)$ RAM
+            <div className="text-[11px] font-mono text-cyan-300 bg-slate-900 p-2 rounded border border-slate-800 space-y-1">
+              <div>Time: <InlineMath math="O(K \cdot (N - K))" /></div>
+              <div>Space: <InlineMath math="O(N^2)" /> RAM</div>
             </div>
             <p className="text-[11px] text-slate-400">Exact mathematical output.</p>
           </div>
@@ -199,19 +208,19 @@ export default function Topic8() {
           <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-3">
             <span className="text-xs font-mono font-bold text-emerald-400 uppercase">CLARA (Sampling)</span>
             <p className="text-xs text-slate-300 leading-relaxed">
-              Multiple random subsamples of size $s$.
+              Multiple random subsamples of size <InlineMath math="s" />.
             </p>
-            <div className="text-[11px] font-mono text-emerald-300 bg-slate-900 p-2 rounded border border-slate-800">
-              Time: $O(K \cdot s^2 + K \cdot N)$<br />
-              Space: $O(s^2)$ RAM
+            <div className="text-[11px] font-mono text-emerald-300 bg-slate-900 p-2 rounded border border-slate-800 space-y-1">
+              <div>Time: <InlineMath math="O(K \cdot s^2 + K \cdot N)" /></div>
+              <div>Space: <InlineMath math="O(s^2)" /> RAM</div>
             </div>
-            <p className="text-[11px] text-slate-400">Scales to $N &gt; 1,000,000$.</p>
+            <p className="text-[11px] text-slate-400">Scales to <InlineMath math="N > 1,000,000" />.</p>
           </div>
         </div>
       </section>
 
       {/* 5. Live Interactive Scalability Profiler */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="interactive" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-500/40 text-cyan-400 font-bold text-lg">
             02
@@ -221,14 +230,14 @@ export default function Topic8() {
               Live K-Medoids Computational Resource Estimator
             </h2>
             <p className="text-xs sm:text-sm text-slate-400">
-              Adjust dataset size $N$ to evaluate distance matrix RAM requirements and PAM swap operations in real-time
+              Adjust dataset size <InlineMath math="N" /> to evaluate distance matrix RAM requirements and PAM swap operations in real-time
             </p>
           </div>
         </div>
 
         <div className="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
           <div className="flex justify-between items-center text-xs font-mono">
-            <span className="text-slate-300">Dataset Size ($N$ observations):</span>
+            <span className="text-slate-300">Dataset Size (<InlineMath math="N" /> observations):</span>
             <span className="text-cyan-400 font-bold">N = {datasetSizeN.toLocaleString()} records</span>
           </div>
 
@@ -248,7 +257,7 @@ export default function Topic8() {
               <div className="text-2xl font-bold font-mono text-cyan-300">
                 {distanceMatrixRamMB.toFixed(2)} MB
               </div>
-              <p className="text-[10px] text-slate-400">Float64 storage ($N \times N \times 8$ B)</p>
+              <p className="text-[10px] text-slate-400">Float64 storage (<InlineMath math="N \\times N \\times 8" /> B)</p>
             </div>
 
             <div className="bg-slate-900 p-4 rounded-lg border border-slate-800 space-y-1">
@@ -256,7 +265,7 @@ export default function Topic8() {
               <div className="text-2xl font-bold font-mono text-amber-300">
                 {estimatedPamOpsMillion.toFixed(2)} Million
               </div>
-              <p className="text-[10px] text-slate-400">For $K=2$ clusters</p>
+              <p className="text-[10px] text-slate-400">For <InlineMath math="K=2" /> clusters</p>
             </div>
 
             <div className={clsx(
@@ -275,7 +284,7 @@ export default function Topic8() {
       </section>
 
       {/* 6. Regional Industrial Case Studies */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="caseStudies" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-bold text-lg">
             03
@@ -326,7 +335,7 @@ export default function Topic8() {
       </section>
 
       {/* 7. Common Pitfalls & Best Practices */}
-      <section className="bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+      <section id="bestPractices" className="scroll-mt-6 bg-slate-900/90 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 font-bold text-lg">
             04
@@ -347,7 +356,7 @@ export default function Topic8() {
               <span>⚠️</span> Common Mistakes
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
-              <li>Running full PAM on massive datasets ($N &gt; 20,000$), triggering out-of-memory errors.</li>
+              <li>Running full PAM on massive datasets (<InlineMath math="N &gt; 20,000" />), triggering out-of-memory errors.</li>
               <li>Assuming K-Medoids can detect concentric ring clusters (use DBSCAN or Spectral clustering).</li>
               <li>Failing to standardize continuous attributes before calculating pairwise distance matrices.</li>
             </ul>
@@ -358,8 +367,8 @@ export default function Topic8() {
               <span>✔</span> Best Practices
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300 list-disc list-inside">
-              <li>Use standard PAM for $N &lt; 5,000$ and switch to CLARA when $N$ expands.</li>
-              <li>Verify cluster quality using Silhouette Analysis ($s &gt; 0.5$).</li>
+              <li>Use standard PAM for <InlineMath math="N &lt; 5,000" /> and switch to CLARA when <InlineMath math="N" /> expands.</li>
+              <li>Verify cluster quality using Silhouette Analysis (<InlineMath math="s &gt; 0.5" />).</li>
               <li>Present `medoid_indices_` as real, transparent exemplars to business stakeholders.</li>
             </ul>
           </div>
