@@ -288,6 +288,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-qr-code-scan",
           tag: "Utility",
         },
+        {
+          to: "/menstrual-calendar",
+          label: "Menstrual Cycle Calendar",
+          desc: "Track cycles, ovulation & fertile windows",
+          icon: "bi-calendar-heart-fill",
+          tag: "Health Tool",
+        },
 
         {
           to: "/icons",

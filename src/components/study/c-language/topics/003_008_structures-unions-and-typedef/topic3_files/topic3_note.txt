@@ -1,0 +1,23 @@
+===============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTE
+Subject: C Programming & Systems Fundamentals
+Module 003_008: Structures, Unions, Bit-fields & typedef
+Topic 3: Memory Alignment, Structure Padding & #pragma pack
+Educator: Sukanta Hui (Barrackpore, West Bengal)
+===============================================================================
+
+1. CONCEPT SUMMARY
+-------------------------------------------------------------------------------
+Demystify hardware memory alignment rules. Discover why sizeof(struct) is often larger than the sum of its members, CPU word boundary alignment, and #pragma pack(1) byte packing.
+
+2. KEY ARCHITECTURAL PRINCIPLES
+-------------------------------------------------------------------------------
+CPUs fetch data faster when multi-byte data types are aligned at address multiples matching their size. Compilers insert padding bytes to enforce alignment.
+
+3. CLASSROOM SCENARIO (BARRACKPORE LAB)
+-------------------------------------------------------------------------------
+Abhronila calculated the sum of struct member sizes as 5 bytes (char + int), but sizeof returned 8 bytes! Sukanta Hui explained CPU 4-byte memory alignment padding rules.
+
+"Mastering C structures and memory layouts unlocks direct hardware and operating
+system level programming capabilities!" — Sukanta Hui
+===============================================================================

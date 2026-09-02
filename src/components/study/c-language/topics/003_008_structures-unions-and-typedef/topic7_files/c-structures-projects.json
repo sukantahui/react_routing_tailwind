@@ -1,0 +1,266 @@
+{
+  "moduleTitle": "Module 003_008 Capstone Projects: Structures, Unions & typedef",
+  "description": "20 Industry-Standard Hands-On C Projects covering structs, pointers, unions, bit-fields, and typedef.",
+  "projects": [
+    {
+      "id": 1,
+      "title": "Capstone Project 1: Advanced Struct & Union System Solution 1",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 1.",
+      "answerFile": "answer1.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 2,
+      "title": "Capstone Project 2: Advanced Struct & Union System Solution 2",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 2.",
+      "answerFile": "answer2.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 3,
+      "title": "Capstone Project 3: Advanced Struct & Union System Solution 3",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 3.",
+      "answerFile": "answer3.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 4,
+      "title": "Capstone Project 4: Advanced Struct & Union System Solution 4",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 4.",
+      "answerFile": "answer4.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 5,
+      "title": "Capstone Project 5: Advanced Struct & Union System Solution 5",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 5.",
+      "answerFile": "answer5.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 6,
+      "title": "Capstone Project 6: Advanced Struct & Union System Solution 6",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 6.",
+      "answerFile": "answer6.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 7,
+      "title": "Capstone Project 7: Advanced Struct & Union System Solution 7",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 7.",
+      "answerFile": "answer7.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 8,
+      "title": "Capstone Project 8: Advanced Struct & Union System Solution 8",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 8.",
+      "answerFile": "answer8.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 9,
+      "title": "Capstone Project 9: Advanced Struct & Union System Solution 9",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 9.",
+      "answerFile": "answer9.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 10,
+      "title": "Capstone Project 10: Advanced Struct & Union System Solution 10",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 10.",
+      "answerFile": "answer10.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Intermediate"
+    },
+    {
+      "id": 11,
+      "title": "Capstone Project 11: Advanced Struct & Union System Solution 11",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 11.",
+      "answerFile": "answer11.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 12,
+      "title": "Capstone Project 12: Advanced Struct & Union System Solution 12",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 12.",
+      "answerFile": "answer12.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 13,
+      "title": "Capstone Project 13: Advanced Struct & Union System Solution 13",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 13.",
+      "answerFile": "answer13.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 14,
+      "title": "Capstone Project 14: Advanced Struct & Union System Solution 14",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 14.",
+      "answerFile": "answer14.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 15,
+      "title": "Capstone Project 15: Advanced Struct & Union System Solution 15",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 15.",
+      "answerFile": "answer15.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 16,
+      "title": "Capstone Project 16: Advanced Struct & Union System Solution 16",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 16.",
+      "answerFile": "answer16.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 17,
+      "title": "Capstone Project 17: Advanced Struct & Union System Solution 17",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 17.",
+      "answerFile": "answer17.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 18,
+      "title": "Capstone Project 18: Advanced Struct & Union System Solution 18",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 18.",
+      "answerFile": "answer18.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 19,
+      "title": "Capstone Project 19: Advanced Struct & Union System Solution 19",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 19.",
+      "answerFile": "answer19.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    },
+    {
+      "id": 20,
+      "title": "Capstone Project 20: Advanced Struct & Union System Solution 20",
+      "problemStatement": "Design and implement a C program using structures and memory pointers to solve real-world system problem 20.",
+      "answerFile": "answer20.c",
+      "tags": [
+        "struct",
+        "pointers",
+        "unions",
+        "typedef"
+      ],
+      "difficulty": "Advanced"
+    }
+  ]
+}

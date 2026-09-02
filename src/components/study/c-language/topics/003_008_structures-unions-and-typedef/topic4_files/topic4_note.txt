@@ -1,0 +1,23 @@
+===============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTE
+Subject: C Programming & Systems Fundamentals
+Module 003_008: Structures, Unions, Bit-fields & typedef
+Topic 4: Unions: Shared Memory Overlays & Type Punning
+Educator: Sukanta Hui (Barrackpore, West Bengal)
+===============================================================================
+
+1. CONCEPT SUMMARY
+-------------------------------------------------------------------------------
+Master C unions where all member variables share the exact same starting memory address. Learn memory savings, variant data structures, and hardware type punning.
+
+2. KEY ARCHITECTURAL PRINCIPLES
+-------------------------------------------------------------------------------
+A Union allocates memory equal to its single largest member. All members start at offset 0, holding one active field at a time.
+
+3. CLASSROOM SCENARIO (BARRACKPORE LAB)
+-------------------------------------------------------------------------------
+Swadeep created a sensor payload union holding either an integer temperature or a float pressure. Sukanta Hui showed how unions reduce memory footprint to the largest member size.
+
+"Mastering C structures and memory layouts unlocks direct hardware and operating
+system level programming capabilities!" — Sukanta Hui
+===============================================================================

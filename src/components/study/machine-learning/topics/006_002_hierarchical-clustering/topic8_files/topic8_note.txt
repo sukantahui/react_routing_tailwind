@@ -1,0 +1,42 @@
+===============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTE
+Subject: Introduction to Machine Learning (BCAC701B)
+Module 006_002: Hierarchical Clustering
+Topic 8: The Dendrogram Architecture & Tree Representation
+Educator: Sukanta Hui (Barrackpore, West Bengal)
+===============================================================================
+
+1. OVERVIEW & CONCEPT DEFINITION
+-------------------------------------------------------------------------------
+Deconstruct the visual architecture of dendrograms. Learn how leaf nodes, inverted U-shaped merge bars, branch heights, and root nodes represent hierarchical relationships.
+
+Concept Name: Dendrogram Tree Architecture
+
+2. KEY THEORETICAL PRINCIPLES
+-------------------------------------------------------------------------------
+- Hierarchical structure represented via binary tree (Dendrogram).
+- Does not require pre-specifying cluster count K prior to training.
+- Monotonicity: Height values increase monotonically up the tree without inversions.
+- Distance Metrics: Supports Euclidean, Manhattan, Cosine, and Mahalanobis distances.
+- Linkage Rules: Single (Min), Complete (Max), Average (UPGMA), and Ward's Minimum Variance.
+
+3. ALGORITHMIC LIFECYCLE
+-------------------------------------------------------------------------------
+Step 1: Construct initial N x N pairwise dissimilarity matrix D.
+Step 2: Find smallest inter-cluster distance entry min D(C_A, C_B).
+Step 3: Merge clusters C_A and C_B into a new combined cluster C_AB.
+Step 4: Update distance matrix using Lance-Williams recurrence relation.
+Step 5: Repeat until a single root cluster containing all N objects remains.
+
+4. PRACTICAL INDUSTRIAL APPLICATIONS (WEST BENGAL CASE STUDIES)
+-------------------------------------------------------------------------------
+1. Metro Transit Zoning (Kolkata)
+2. Document & Tax Taxonomy (Barrackpore Tax Office)
+3. Genomic Subtype Discovery (Jadavpur Health Center)
+4. E-Commerce Product Cataloging (Naihati Retail Hub)
+
+5. SUMMARY & GOLDEN RULE
+-------------------------------------------------------------------------------
+"Hierarchical clustering gives you an entire map of multi-scale data partitions.
+Cut the dendrogram high for macro trends, or low for micro details!" — Sukanta Hui
+===============================================================================

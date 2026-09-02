@@ -1,0 +1,23 @@
+===============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTE
+Subject: C Programming & Systems Fundamentals
+Module 003_008: Structures, Unions, Bit-fields & typedef
+Topic 5: Bit-Fields: Bit-Level Structure Members for Hardware Flags
+Educator: Sukanta Hui (Barrackpore, West Bengal)
+===============================================================================
+
+1. CONCEPT SUMMARY
+-------------------------------------------------------------------------------
+Learn bit-field declarations for hardware register packing, network protocol header encoding (IP/TCP), and tight memory optimization in embedded C.
+
+2. KEY ARCHITECTURAL PRINCIPLES
+-------------------------------------------------------------------------------
+Bit-fields allow structure members to be declared with explicit bit widths (e.g. unsigned int flag : 1;), packing multiple fields into integer word boundaries.
+
+3. CLASSROOM SCENARIO (BARRACKPORE LAB)
+-------------------------------------------------------------------------------
+Debangshu packed 8 boolean system flags into a single unsigned char byte using C bit-fields, optimizing microcontroller RAM at Barrackpore IoT lab.
+
+"Mastering C structures and memory layouts unlocks direct hardware and operating
+system level programming capabilities!" — Sukanta Hui
+===============================================================================

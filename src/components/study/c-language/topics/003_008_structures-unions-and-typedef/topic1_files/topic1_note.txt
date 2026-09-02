@@ -1,12 +1,23 @@
-================================================================================
-CODER & ACCOTAX - C LANGUAGE COMPLETE ROADMAP
-MODULE 003_008: Structures, Unions, Bit-fields & typedef
-TOPIC 1: Module 003_008 Hands-on Projects
-Educator: Sukanta Hui | Barrackpore, West Bengal
-================================================================================
+===============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTE
+Subject: C Programming & Systems Fundamentals
+Module 003_008: Structures, Unions, Bit-fields & typedef
+Topic 1: Pointers to Structures & Arrow (->) Operator
+Educator: Sukanta Hui (Barrackpore, West Bengal)
+===============================================================================
 
-1. MODULE PROJECTS SUMMARY
---------------------------------------------------------------------------------
-- Project 1: Student Management System with Structs
-- Project 2: Compact Network Packet Packer using Unions & Bit-fields
-================================================================================
+1. CONCEPT SUMMARY
+-------------------------------------------------------------------------------
+Master passing structures to functions efficiently by reference. Understand pointer-to-struct dereferencing, arrow (->) operator syntax, and memory overhead reduction.
+
+2. KEY ARCHITECTURAL PRINCIPLES
+-------------------------------------------------------------------------------
+The arrow operator (ptr->member) is syntactic sugar for (*ptr).member, allowing direct access to structure fields through memory pointers.
+
+3. CLASSROOM SCENARIO (BARRACKPORE LAB)
+-------------------------------------------------------------------------------
+Tuhina noticed that passing a 500-byte structure by value copies all 500 bytes to the call stack. Sukanta Hui demonstrated how passing an 8-byte pointer with the arrow (->) operator runs 60x faster!
+
+"Mastering C structures and memory layouts unlocks direct hardware and operating
+system level programming capabilities!" — Sukanta Hui
+===============================================================================

@@ -21,6 +21,7 @@ const TypingLearn = lazy(() => import('../components/typing-app/TypingLearn'));
 const SortingVisualizer = lazy(() => import('../components/SortingVisualizer'));
 const BigOCalculator = lazy(() => import('../components/BigOCalculator'));
 const JsonFormatter = lazy(() => import('../components/JsonFormatter'));
+const MenstrualCalendarApp = lazy(() => import('../components/menstrual-calendar/MenstrualCalendarApp'));
 
 // Data structure visualizers
 const LinkedListVisualizer = lazy(() => import('../common/LinkedListVisualizer'));
@@ -75,6 +76,7 @@ const ROUTES = {
   HOME: '/',
   LOGIN: '/login',
   DASHBOARD: '/dashboard',
+  MENSTRUAL_CALENDAR: '/menstrual-calendar',
   CERTIFICATE_VIEW: '/certificates/:certificateId',
   ADMIN: '/admin',
   BIJOYA: '/bijoya',
@@ -675,6 +677,15 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper>
               <StudentFeeReceiptPart4 />
+            </ProtectedRouteWrapper>
+          }
+        />
+
+        <Route
+          path={ROUTES.MENSTRUAL_CALENDAR}
+          element={
+            <ProtectedRouteWrapper>
+              <MenstrualCalendarApp />
             </ProtectedRouteWrapper>
           }
         />

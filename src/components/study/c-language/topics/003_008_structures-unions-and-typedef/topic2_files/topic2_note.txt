@@ -1,0 +1,23 @@
+===============================================================================
+CODER & ACCOTAX ACADEMIC STUDY NOTE
+Subject: C Programming & Systems Fundamentals
+Module 003_008: Structures, Unions, Bit-fields & typedef
+Topic 2: Array of Structures: Managing Multi-Record Datasets
+Educator: Sukanta Hui (Barrackpore, West Bengal)
+===============================================================================
+
+1. CONCEPT SUMMARY
+-------------------------------------------------------------------------------
+Learn how to manage tabular datasets in C. Build arrays of structures for record processing, database indexing, sorting, and search algorithms.
+
+2. KEY ARCHITECTURAL PRINCIPLES
+-------------------------------------------------------------------------------
+An Array of Structures stores multiple struct instances in contiguous memory, indexed from 0 to N-1 like a spreadsheet table.
+
+3. CLASSROOM SCENARIO (BARRACKPORE LAB)
+-------------------------------------------------------------------------------
+Debangshu built a student database for Shyamnagar high school using an array of 50 student structures, enabling linear search and sorting by marks.
+
+"Mastering C structures and memory layouts unlocks direct hardware and operating
+system level programming capabilities!" — Sukanta Hui
+===============================================================================
