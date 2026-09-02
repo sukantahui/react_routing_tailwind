@@ -377,7 +377,11 @@ export default function Topic13() {
                 =SORT(FILTER(HSTACK(A2:F11, Tiers), Tiers="Platinum VIP"), 4, -1)
               </div>
               <p className="text-xs text-slate-400">
+<<<<<<< HEAD
                 <strong>Outcome:</strong> Spills top accounts (Swadeep Roy &amp; Abhronila Das) with revenue &gt; ₹13.5L and rating &gt; 4.9.
+=======
+                <strong>Outcome:</strong> Spills top accounts (Swadeep Roy & Abhronila Das) with revenue &gt; ₹13.5L and rating &gt; 4.9.
+>>>>>>> fe95e164f508c73cab984473c4388391d2fd66de
               </p>
             </div>
 
