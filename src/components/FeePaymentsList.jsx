@@ -15,6 +15,7 @@ import {
   IndianRupee,
   Receipt,
   User,
+  Users,
   BookOpen,
   Filter,
   CheckCircle2,
@@ -49,6 +50,7 @@ export default function FeePaymentsList() {
   const [typeFilter, setTypeFilter] = useState("ALL");
   const [sortField, setSortField] = useState("date"); // 'date' | 'amount'
   const [sortOrder, setSortOrder] = useState("desc"); // 'desc' | 'asc'
+  const [activeTab, setActiveTab] = useState("ALL"); // 'ALL' | 'MONTHLY' | 'NON_MONTHLY' | 'CASH' | 'UPI' | 'TODAY'
   const [selectedReceipt, setSelectedReceipt] = useState(null);
   const [copyFeedback, setCopyFeedback] = useState(null);
 
@@ -78,6 +80,15 @@ export default function FeePaymentsList() {
   const [showLedgerModal, setShowLedgerModal] = useState(false);
   const [showLedgerSelectorModal, setShowLedgerSelectorModal] = useState(false);
   const [ledgerSearchTerm, setLedgerSearchTerm] = useState("");
+
+  // Student & Course-wise Due List States
+  const [showDueListModal, setShowDueListModal] = useState(false);
+  const [loadingDues, setLoadingDues] = useState(false);
+  const [duesData, setDuesData] = useState({ summary: {}, students: [], enrollments: [] });
+  const [duesViewMode, setDuesViewMode] = useState("STUDENT"); // 'STUDENT' | 'COURSE'
+  const [duesFilter, setDuesFilter] = useState("DUES_ONLY"); // 'DUES_ONLY' | 'ALL' | 'MULTI_COURSE' | 'MONTHLY' | 'LUMPSUM' | 'CLEARED'
+  const [duesSearchTerm, setDuesSearchTerm] = useState("");
+  const [expandedStudents, setExpandedStudents] = useState({});
 
   // Live Comprehensive Filter for Student Ledger Modal (Admission ID, Admission No, Reg No, Student Name, Phone, Course)
   const filteredAdmissions = useMemo(() => {
@@ -191,17 +202,47 @@ export default function FeePaymentsList() {
   const filteredReceipts = useMemo(() => {
     return receipts
       .filter((r) => {
-        // Search text matching
-        const q = searchTerm.toLowerCase().trim();
-        const matchesSearch =
-          !q ||
-          (r.receiptNo || r.receipt_no || "").toLowerCase().includes(q) ||
-          (r.studentName || r.student_name || "").toLowerCase().includes(q) ||
-          (r.registrationNumber || r.registration_number || "").toLowerCase().includes(q) ||
-          (r.courseName || r.course_name || "").toLowerCase().includes(q) ||
-          (r.paymentMode || r.payment_mode || "").toLowerCase().includes(q);
+        // Quick Active Tab Filter
+        if (activeTab === "MONTHLY") {
+          const type = (r.feeType || r.fee_type || "").toLowerCase();
+          if (type !== "monthly") return false;
+        } else if (activeTab === "NON_MONTHLY") {
+          const type = (r.feeType || r.fee_type || "").toLowerCase();
+          if (type === "monthly") return false;
+        } else if (activeTab === "CASH") {
+          const mode = (r.paymentMode || r.payment_mode || "").toLowerCase();
+          if (mode !== "cash") return false;
+        } else if (activeTab === "UPI") {
+          const mode = (r.paymentMode || r.payment_mode || "").toLowerCase();
+          if (!mode.includes("upi") && !mode.includes("online")) return false;
+        } else if (activeTab === "TODAY") {
+          const todayStr = new Date().toISOString().split("T")[0];
+          const pDate = (r.paymentDate || r.payment_date || r.createdAt || "").split("T")[0];
+          if (pDate !== todayStr) return false;
+        }
 
-        if (!matchesSearch) return false;
+        // Search text matching across all student and receipt attributes
+        const q = searchTerm.toLowerCase().trim();
+        if (q) {
+          const rNo = (r.receiptNo || r.receipt_no || "").toLowerCase();
+          const sName = (r.studentName || r.student_name || r.student?.student_name || "").toLowerCase();
+          const sReg = (r.registrationNumber || r.registration_number || r.student?.registration_number || "").toLowerCase();
+          const phone = (r.studentPhone || r.phone || r.student?.whatsapp || r.student?.phone || "").toLowerCase();
+          const cName = (r.courseName || r.course_name || r.course?.course_name || "").toLowerCase();
+          const mode = (r.paymentMode || r.payment_mode || "").toLowerCase();
+          const period = (r.coveragePeriodText || "").toLowerCase();
+
+          const matches =
+            rNo.includes(q) ||
+            sName.includes(q) ||
+            sReg.includes(q) ||
+            phone.includes(q) ||
+            cName.includes(q) ||
+            mode.includes(q) ||
+            period.includes(q);
+
+          if (!matches) return false;
+        }
 
         // Payment Mode Filter
         if (modeFilter !== "ALL") {
@@ -228,41 +269,81 @@ export default function FeePaymentsList() {
         const dateB = new Date(b.paymentDate || b.payment_date || b.createdAt || b.created_at).getTime();
         return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
       });
-  }, [receipts, searchTerm, modeFilter, typeFilter, sortField, sortOrder]);
+  }, [receipts, activeTab, searchTerm, modeFilter, typeFilter, sortField, sortOrder]);
 
   // Overall Financial Statistics
   const stats = useMemo(() => {
     let totalAmount = 0;
     let cashAmount = 0;
+    let cashCount = 0;
     let upiAmount = 0;
+    let upiCount = 0;
     let bankAmount = 0;
     let monthlyTotal = 0;
+    let monthlyCount = 0;
     let lumpSumTotal = 0;
+    let lumpSumCount = 0;
+    let todayCount = 0;
+    let todayAmount = 0;
+
+    const todayStr = new Date().toISOString().split("T")[0];
 
     receipts.forEach((r) => {
       const amt = Number(r.amountPaid || r.amount_paid || 0);
       const mode = (r.paymentMode || r.payment_mode || "").toLowerCase();
       const type = (r.feeType || r.fee_type || "").toLowerCase();
+      const pDate = (r.paymentDate || r.payment_date || r.createdAt || "").split("T")[0];
 
       totalAmount += amt;
-      if (mode === "cash") cashAmount += amt;
-      else if (mode === "upi" || mode.includes("upi") || mode.includes("online")) upiAmount += amt;
-      else bankAmount += amt;
 
-      if (type === "monthly") monthlyTotal += amt;
-      else lumpSumTotal += amt;
+      if (mode === "cash") {
+        cashAmount += amt;
+        cashCount++;
+      } else if (mode.includes("upi") || mode.includes("online")) {
+        upiAmount += amt;
+        upiCount++;
+      } else {
+        bankAmount += amt;
+      }
+
+      if (type === "monthly") {
+        monthlyTotal += amt;
+        monthlyCount++;
+      } else {
+        lumpSumTotal += amt;
+        lumpSumCount++;
+      }
+
+      if (pDate === todayStr) {
+        todayCount++;
+        todayAmount += amt;
+      }
     });
 
     return {
       totalCount: receipts.length,
       totalAmount,
       cashAmount,
+      cashCount,
       upiAmount,
+      upiCount,
       bankAmount,
       monthlyTotal,
+      monthlyCount,
       lumpSumTotal,
+      lumpSumCount,
+      todayCount,
+      todayAmount,
     };
   }, [receipts]);
+
+  // Filtered total for currently visible subset
+  const filteredTotalAmount = useMemo(() => {
+    return filteredReceipts.reduce(
+      (sum, r) => sum + Number(r.amountPaid || r.amount_paid || 0),
+      0
+    );
+  }, [filteredReceipts]);
 
   // Copy receipt number to clipboard
   const handleCopyReceipt = (receiptNo) => {
@@ -1223,6 +1304,492 @@ export default function FeePaymentsList() {
     printWindow.document.open();
     printWindow.document.write(html);
     printWindow.document.close();
+  };
+
+  // Fetch Student & Course-wise Due List from Backend
+  const fetchDuesList = async () => {
+    setLoadingDues(true);
+    try {
+      const res = await api.get("/admissions/dues");
+      const data = res.data?.data || { summary: {}, students: [], enrollments: [] };
+      setDuesData(data);
+      // Auto-expand all students with dues or multiple courses
+      const initialExpanded = {};
+      (data.students || []).forEach((s) => {
+        if (s.hasMultipleCourses || s.totalDue > 0) {
+          initialExpanded[s.studentId] = true;
+        }
+      });
+      setExpandedStudents(initialExpanded);
+    } catch (err) {
+      console.error("Error fetching dues list:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Failed to Load Dues List",
+        text: err.response?.data?.message || "Could not retrieve student dues statement.",
+        background: "#0f172a",
+        color: "#f8fafc",
+      });
+    } finally {
+      setLoadingDues(false);
+    }
+  };
+
+  const toggleStudentExpand = (studentId) => {
+    setExpandedStudents((prev) => ({
+      ...prev,
+      [studentId]: !prev[studentId],
+    }));
+  };
+
+  // Filtered Students for Due List Modal
+  const filteredDuesStudents = useMemo(() => {
+    if (!duesData.students) return [];
+    let list = [...duesData.students];
+
+    if (duesFilter === "DUES_ONLY") {
+      list = list.filter((s) => s.totalDue > 0);
+    } else if (duesFilter === "MULTI_COURSE") {
+      list = list.filter((s) => s.hasMultipleCourses);
+    } else if (duesFilter === "CLEARED") {
+      list = list.filter((s) => s.totalDue <= 0);
+    } else if (duesFilter === "MONTHLY") {
+      list = list.filter((s) => s.courses.some((c) => c.isMonthly && c.balanceDue > 0));
+    } else if (duesFilter === "LUMPSUM") {
+      list = list.filter((s) => s.courses.some((c) => !c.isMonthly && c.balanceDue > 0));
+    }
+
+    if (duesSearchTerm.trim()) {
+      const q = duesSearchTerm.trim().toLowerCase();
+      list = list.filter((s) => {
+        const nameMatch = (s.studentName || "").toLowerCase().includes(q);
+        const regMatch = (s.studentRegNo || "").toLowerCase().includes(q);
+        const phoneMatch = (s.studentPhone || "").toLowerCase().includes(q);
+        const courseMatch = s.courses.some(
+          (c) =>
+            (c.courseName || "").toLowerCase().includes(q) ||
+            (c.courseCode || "").toLowerCase().includes(q)
+        );
+        return nameMatch || regMatch || phoneMatch || courseMatch;
+      });
+    }
+
+    return list;
+  }, [duesData.students, duesFilter, duesSearchTerm]);
+
+  // Filtered Course Enrollments for Flat Table View in Due List Modal
+  const filteredDuesEnrollments = useMemo(() => {
+    if (!duesData.enrollments) return [];
+    let list = [...duesData.enrollments];
+
+    if (duesFilter === "DUES_ONLY") {
+      list = list.filter((e) => e.balanceDue > 0);
+    } else if (duesFilter === "CLEARED") {
+      list = list.filter((e) => e.balanceDue <= 0);
+    } else if (duesFilter === "MONTHLY") {
+      list = list.filter((e) => e.isMonthly);
+    } else if (duesFilter === "LUMPSUM") {
+      list = list.filter((e) => !e.isMonthly);
+    }
+
+    if (duesSearchTerm.trim()) {
+      const q = duesSearchTerm.trim().toLowerCase();
+      list = list.filter((e) => {
+        return (
+          (e.studentName || "").toLowerCase().includes(q) ||
+          (e.studentRegNo || "").toLowerCase().includes(q) ||
+          (e.studentPhone || "").toLowerCase().includes(q) ||
+          (e.courseName || "").toLowerCase().includes(q) ||
+          (e.courseCode || "").toLowerCase().includes(q)
+        );
+      });
+    }
+
+    return list;
+  }, [duesData.enrollments, duesFilter, duesSearchTerm]);
+
+  // Send WhatsApp Due Reminder for a Student (Handles Multi-Course Itemization)
+  const handleSendDueReminderWhatsApp = (student) => {
+    const cleanPhone = (student.studentPhone || "").replace(/\D/g, "");
+    if (!cleanPhone) {
+      Swal.fire({
+        icon: "warning",
+        title: "No WhatsApp Number",
+        text: `No phone number recorded for ${student.studentName}.`,
+        background: "#0f172a",
+        color: "#f8fafc",
+      });
+      return;
+    }
+
+    const phoneToSend = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
+
+    let msg =
+      `🔔 *Fee Due Reminder - Coder & AccoTax* 🔔\n\n` +
+      `Dear *${student.studentName}* (${student.studentRegNo || "Student"}),\n` +
+      `Greetings from Coder & AccoTax!\n\n` +
+      `This is a friendly reminder regarding your outstanding tuition fees for the current academic session:\n\n`;
+
+    student.courses.forEach((c, idx) => {
+      msg += `📚 *${idx + 1}. ${c.courseName}* [${c.feeMode}]\n`;
+      if (c.isMonthly) {
+        msg += `   • Monthly Rate: ₹${Number(c.monthlyRate || 0).toLocaleString("en-IN")}/-\n`;
+        msg += `   • Status: ${c.status}\n`;
+        if (c.balanceDue > 0) {
+          msg += `   • Outstanding Due: *₹${Number(c.balanceDue).toLocaleString("en-IN")}/-*\n`;
+        } else {
+          msg += `   • Status: Dues Cleared ✓\n`;
+        }
+      } else {
+        msg += `   • Course Fee: ₹${Number(c.totalCourseFee || 0).toLocaleString("en-IN")}/-\n`;
+        msg += `   • Paid to Date: ₹${Number(c.totalPaid || 0).toLocaleString("en-IN")}/-\n`;
+        if (c.balanceDue > 0) {
+          msg += `   • Outstanding Balance: *₹${Number(c.balanceDue).toLocaleString("en-IN")}/-*\n`;
+        } else {
+          msg += `   • Status: Paid in Full ✓\n`;
+        }
+      }
+      msg += `\n`;
+    });
+
+    msg +=
+      `━━━━━━━━━━━━━━━━━━━━\n` +
+      `💰 *TOTAL OUTSTANDING DUE: ₹${Number(student.totalDue).toLocaleString("en-IN")}/-*\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `📱 *Instant Payment via UPI / QR:*\n` +
+      `UPI ID: *codernaccotax@okhdfcbank*\n` +
+      `Pay via Google Pay / PhonePe / Paytm / BHIM\n\n` +
+      `Kindly clear the pending dues at your earliest convenience. If already paid, please ignore or share the transaction screenshot.\n\n` +
+      `For queries: +91 70037 56860\n` +
+      `Coder & AccoTax (Barrackpore)`;
+
+    const encoded = encodeURIComponent(msg);
+    window.open(`https://api.whatsapp.com/send?phone=${phoneToSend}&text=${encoded}`, "_blank");
+  };
+
+  // Send WhatsApp Due Reminder for a Single Course Enrollment
+  const handleSendSingleCourseReminderWhatsApp = (enrollment) => {
+    const cleanPhone = (enrollment.studentPhone || "").replace(/\D/g, "");
+    if (!cleanPhone) {
+      Swal.fire({
+        icon: "warning",
+        title: "No WhatsApp Number",
+        text: `No phone number recorded for ${enrollment.studentName}.`,
+        background: "#0f172a",
+        color: "#f8fafc",
+      });
+      return;
+    }
+
+    const phoneToSend = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
+
+    let msg =
+      `🔔 *Fee Due Reminder - Coder & AccoTax* 🔔\n\n` +
+      `Dear *${enrollment.studentName}* (${enrollment.studentRegNo || "Student"}),\n` +
+      `Greetings from Coder & AccoTax!\n\n` +
+      `Course: *${enrollment.courseName}* [${enrollment.feeMode}]\n`;
+
+    if (enrollment.isMonthly) {
+      msg +=
+        `Monthly Rate: ₹${Number(enrollment.monthlyRate || 0).toLocaleString("en-IN")}/-\n` +
+        `Current Status: ${enrollment.status}\n` +
+        `Outstanding Due: *₹${Number(enrollment.balanceDue).toLocaleString("en-IN")}/-*\n\n`;
+    } else {
+      msg +=
+        `Total Course Fee: ₹${Number(enrollment.totalCourseFee || 0).toLocaleString("en-IN")}/-\n` +
+        `Paid to Date: ₹${Number(enrollment.totalPaid || 0).toLocaleString("en-IN")}/-\n` +
+        `Outstanding Balance: *₹${Number(enrollment.balanceDue).toLocaleString("en-IN")}/-*\n\n`;
+    }
+
+    msg +=
+      `📱 *Instant Payment via UPI / QR:*\n` +
+      `UPI ID: *codernaccotax@okhdfcbank*\n\n` +
+      `Please clear the dues at your earliest convenience.\n` +
+      `Coder & AccoTax (Barrackpore) | +91 70037 56860`;
+
+    const encoded = encodeURIComponent(msg);
+    window.open(`https://api.whatsapp.com/send?phone=${phoneToSend}&text=${encoded}`, "_blank");
+  };
+
+  // Pay Due for an Enrollment (Pre-fills and opens Payment Modal)
+  const handlePayDue = (enrollment) => {
+    setShowDueListModal(false);
+    const adm = admissionsList.find(
+      (a) => a.id === enrollment.admissionId || a.admissionId === enrollment.admissionId
+    );
+    if (adm) {
+      setSelectedAdmission(adm);
+      setPaymentAmount(String(enrollment.balanceDue > 0 ? enrollment.balanceDue : enrollment.monthlyRate || ""));
+      setShowNewPaymentModal(true);
+    } else {
+      setLoadingAdmissions(true);
+      api
+        .get("/admissions")
+        .then((res) => {
+          const list = res?.data?.data || res?.data || [];
+          const fullList = Array.isArray(list) ? list.filter((a) => a.student) : [];
+          setAdmissionsList(fullList);
+          const found = fullList.find(
+            (a) => a.id === enrollment.admissionId || a.admissionId === enrollment.admissionId
+          );
+          if (found) {
+            setSelectedAdmission(found);
+            setPaymentAmount(String(enrollment.balanceDue > 0 ? enrollment.balanceDue : enrollment.monthlyRate || ""));
+          }
+          setShowNewPaymentModal(true);
+        })
+        .catch((e) => console.error(e))
+        .finally(() => setLoadingAdmissions(false));
+    }
+  };
+
+  // Open Ledger for an Enrollment
+  const handleViewLedgerForDue = (enrollment) => {
+    setShowDueListModal(false);
+    handleOpenLedgerForAdmission(enrollment.admissionId);
+  };
+
+  // Print Official A4 Due Report
+  const handlePrintDueReport = () => {
+    const printWindow = window.open("", "_blank");
+    if (!printWindow) {
+      Swal.fire({
+        icon: "warning",
+        title: "Pop-up Blocked",
+        text: "Please allow pop-ups to print the official Dues Statement.",
+        background: "#0f172a",
+        color: "#f8fafc",
+      });
+      return;
+    }
+
+    const nowFormatted = new Date().toLocaleString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    const students = filteredDuesStudents;
+    const totalDue = students.reduce((sum, s) => sum + Number(s.totalDue || 0), 0);
+
+    const html = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CNAT - Outstanding Student Dues Statement</title>
+  <style>
+    @page { size: A4 portrait; margin: 12mm 15mm; }
+    body { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #1e293b; margin: 0; padding: 0; line-height: 1.35; }
+    .header { text-align: center; border-bottom: 2px solid #0f766e; padding-bottom: 8px; margin-bottom: 12px; }
+    .inst-name { font-size: 18px; font-weight: 900; color: #0f766e; letter-spacing: 0.5px; margin: 0; }
+    .inst-sub { font-size: 10px; color: #475569; margin: 2px 0 6px; }
+    .report-title { font-size: 13px; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 1px; margin: 4px 0 2px; }
+    .meta-bar { display: flex; justify-content: space-between; font-size: 9px; color: #64748b; margin-top: 4px; }
+    
+    .kpi-row { display: flex; gap: 8px; margin-bottom: 12px; }
+    .kpi-card { flex: 1; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px 10px; background: #f8fafc; }
+    .kpi-label { font-size: 9px; color: #64748b; text-transform: uppercase; font-weight: bold; }
+    .kpi-val { font-size: 14px; font-weight: 900; color: #0f172a; margin-top: 2px; }
+    .kpi-val.due { color: #dc2626; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 10px; }
+    th { background: #0f766e; color: #ffffff; font-weight: bold; text-align: left; padding: 6px 8px; border: 1px solid #0f766e; font-size: 9px; text-transform: uppercase; }
+    td { padding: 5px 8px; border: 1px solid #cbd5e1; vertical-align: top; }
+    tr:nth-child(even) td { background: #f8fafc; }
+    .center { text-align: center; }
+    .right { text-align: right; }
+    .bold { font-weight: bold; }
+    .mono { font-family: monospace; }
+    .badge { display: inline-block; padding: 2px 5px; border-radius: 4px; font-size: 8px; font-weight: bold; }
+    .badge-monthly { background: #e0f2fe; color: #0369a1; }
+    .badge-lumpsum { background: #fef3c7; color: #92400e; }
+    .badge-multi { background: #f3e8ff; color: #7e22ce; margin-left: 4px; }
+    .due-amount { color: #dc2626; font-weight: bold; }
+
+    .course-subtable { width: 100%; border-collapse: collapse; margin-top: 3px; font-size: 9px; }
+    .course-subtable td { border: none; padding: 2px 4px; background: transparent !important; }
+    .course-subtable tr:hover td { background: transparent; }
+
+    .footer { margin-top: 20px; display: flex; justify-content: space-between; align-items: flex-end; page-break-inside: avoid; }
+    .signature-box { text-align: center; width: 160px; }
+    .sig-line { border-top: 1px solid #94a3b8; margin-top: 35px; padding-top: 4px; font-size: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="inst-name">CODER &amp; ACCOTAX</div>
+    <div class="inst-sub">Computer Training &amp; Academic Coaching Institute • Barasat Road, Barrackpore, Kolkata - 700120 • Ph: +91 70037 56860</div>
+    <div class="report-title">Student &amp; Course-wise Outstanding Dues Statement</div>
+    <div class="meta-bar">
+      <span>Academic Session: 2026–2027</span>
+      <span>UPI Payment ID: codernaccotax@okhdfcbank</span>
+      <span>Statement As Of: ${nowFormatted}</span>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <div class="kpi-label">Total Outstanding Dues</div>
+      <div class="kpi-val due">₹ ${totalDue.toLocaleString("en-IN")}/-</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Students with Pending Dues</div>
+      <div class="kpi-val">${students.filter((s) => s.totalDue > 0).length} Students</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Multi-Course Students</div>
+      <div class="kpi-val">${students.filter((s) => s.hasMultipleCourses).length} Students</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Total Listed Enrollments</div>
+      <div class="kpi-val">${students.reduce((sum, s) => sum + s.courses.length, 0)} Courses</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 24px;" class="center">#</th>
+        <th style="width: 140px;">Student Information</th>
+        <th>Enrolled Courses &amp; Due Breakdown</th>
+        <th style="width: 80px;" class="right">Total Paid (₹)</th>
+        <th style="width: 90px;" class="right">Total Due (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${students
+        .map(
+          (s, idx) => `
+        <tr>
+          <td class="center bold">${idx + 1}</td>
+          <td>
+            <div class="bold" style="color: #0f172a; font-size: 11px;">${s.studentName}</div>
+            <div class="mono" style="color: #64748b; font-size: 9px;">${s.studentRegNo || "—"}</div>
+            <div style="color: #0f766e; font-size: 9px;">📞 ${s.studentPhone || "N/A"}</div>
+            ${s.hasMultipleCourses ? `<span class="badge badge-multi">${s.totalCoursesCount} Courses</span>` : ""}
+          </td>
+          <td>
+            <table class="course-subtable">
+              ${s.courses
+                .map(
+                  (c) => `
+                <tr style="border-bottom: 1px dashed #e2e8f0;">
+                  <td class="bold" style="color: #1e293b;">• ${c.courseName}</td>
+                  <td>
+                    <span class="badge ${c.isMonthly ? "badge-monthly" : "badge-lumpsum"}">
+                      ${c.isMonthly ? "Monthly (₹" + c.monthlyRate + "/mo)" : "Lump sum (₹" + (c.totalCourseFee || 0) + ")"}
+                    </span>
+                  </td>
+                  <td style="color: #475569;">
+                    ${c.isMonthly ? c.status : "Paid ₹" + c.totalPaid + " of ₹" + (c.totalCourseFee || 0)}
+                  </td>
+                  <td class="right ${c.balanceDue > 0 ? "due-amount" : "bold"}" style="width: 70px;">
+                    ${c.balanceDue > 0 ? "₹ " + Number(c.balanceDue).toLocaleString("en-IN") + "/-" : '<span style="color: #16a34a;">Cleared ✓</span>'}
+                  </td>
+                </tr>
+              `
+                )
+                .join("")}
+            </table>
+          </td>
+          <td class="right bold" style="color: #0f766e;">
+            ₹ ${Number(s.totalPaid || 0).toLocaleString("en-IN")}/-
+          </td>
+          <td class="right bold ${s.totalDue > 0 ? "due-amount" : ""}">
+            ${s.totalDue > 0 ? "₹ " + Number(s.totalDue).toLocaleString("en-IN") + "/-" : '<span style="color: #16a34a;">₹0 (Cleared)</span>'}
+          </td>
+        </tr>
+      `
+        )
+        .join("")}
+    </tbody>
+    <tfoot>
+      <tr style="background: #0f172a; color: #ffffff; font-weight: bold; font-size: 11px;">
+        <td colspan="4" class="right" style="padding: 8px; border: 1px solid #0f172a; color: white;">
+          GRAND TOTAL OUTSTANDING DUES:
+        </td>
+        <td class="right" style="padding: 8px; border: 1px solid #0f172a; color: #f87171; font-size: 12px;">
+          ₹ ${totalDue.toLocaleString("en-IN")}/-
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="footer">
+    <div style="font-size: 9px; color: #64748b; max-width: 380px;">
+      * Computer generated institutional fee report. All figures are verified from system ledger.<br>
+      Students with pending dues can pay via official UPI ID <strong>codernaccotax@okhdfcbank</strong>.
+    </div>
+    <div class="signature-box">
+      <div class="sig-line">Accounts Department / Admin</div>
+      <div style="font-size: 8px; color: #64748b;">Coder &amp; AccoTax</div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      setTimeout(function() {
+        window.print();
+      }, 500);
+    };
+  </script>
+</body>
+</html>`;
+
+    printWindow.document.open();
+    printWindow.document.write(html);
+    printWindow.document.close();
+  };
+
+  // Export Due List to Excel (Both Student Summary & Course-wise Dues)
+  const handleExportDuesExcel = () => {
+    if (!duesData.students || duesData.students.length === 0) {
+      Swal.fire({
+        icon: "info",
+        title: "No Data to Export",
+        text: "There is no dues data to export.",
+        background: "#0f172a",
+        color: "#f8fafc",
+      });
+      return;
+    }
+
+    const studentRows = filteredDuesStudents.map((s, idx) => ({
+      "Sl No": idx + 1,
+      "Student Name": s.studentName,
+      "Registration No": s.studentRegNo || "—",
+      "Phone / WhatsApp": s.studentPhone || "—",
+      "Total Courses Enrolled": s.totalCoursesCount,
+      "Total Fees Paid (₹)": s.totalPaid,
+      "Total Due Amount (₹)": s.totalDue,
+      "Enrolled Courses": s.courses.map((c) => `${c.courseName} (${c.feeMode}: Due ₹${c.balanceDue})`).join("; "),
+    }));
+
+    const courseRows = filteredDuesEnrollments.map((e, idx) => ({
+      "Sl No": idx + 1,
+      "Student Name": e.studentName,
+      "Registration No": e.studentRegNo || "—",
+      "Phone": e.studentPhone || "—",
+      "Course Name": e.courseName,
+      "Course Code": e.courseCode || "—",
+      "Fee Mode": e.feeMode,
+      "Agreed Fee / Rate (₹)": e.agreedFee,
+      "Total Paid (₹)": e.totalPaid,
+      "Cleared / Status": e.status,
+      "Next Due Month": e.nextDueMonth || "—",
+      "Outstanding Due (₹)": e.balanceDue,
+    }));
+
+    const workbook = XLSX.utils.book_new();
+    const wsStudents = XLSX.utils.json_to_sheet(studentRows);
+    const wsCourses = XLSX.utils.json_to_sheet(courseRows);
+
+    XLSX.utils.book_append_sheet(workbook, wsStudents, "Student Summary Dues");
+    XLSX.utils.book_append_sheet(workbook, wsCourses, "Course-wise Dues");
+
+    XLSX.writeFile(workbook, `CNAT_Student_Course_Dues_${new Date().toISOString().split("T")[0]}.xlsx`);
   };
 
   // Ledger & Dues Calculator considering Admission Date & Previous Payments (Both Monthly & Non-Monthly)
@@ -2308,66 +2875,46 @@ export default function FeePaymentsList() {
       <div className="fixed w-[500px] h-[500px] bg-sky-600/10 rounded-full blur-[150px] top-1/2 -right-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto space-y-6 relative z-10">
-        {/* Navigation Breadcrumb & Header */}
-        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-6 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        {/* Navigation Breadcrumb & Executive Command Center */}
+        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-5 sm:p-6 shadow-2xl flex flex-col xl:flex-row items-start xl:items-center justify-between gap-5">
           <div>
-            <div className="flex items-center gap-2 text-xs text-slate-400 mb-2">
+            <div className="flex items-center gap-2 text-xs text-slate-400 mb-1.5">
               <Link to="/dashboard" className="hover:text-white transition">Dashboard</Link>
               <span>/</span>
               <span className="text-slate-400">Finance &amp; Accounts</span>
               <span>/</span>
-              <span className="text-emerald-400 font-semibold">Fee Payments &amp; Receipts</span>
+              <span className="text-emerald-400 font-semibold">Fees Management</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-              <Receipt className="w-7 h-7 text-emerald-400" />
-              Fee Payments &amp; Collections Directory
-            </h1>
-            <p className="text-slate-400 text-xs sm:text-sm mt-1">
-              Live audit of student tuition fee receipts, collection modes, dates, and elapsed coverage.
-            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 shrink-0">
+                <Receipt className="w-5 h-5" />
+              </div>
+              <div>
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-2">
+                  Fees &amp; Collections Desk
+                </h1>
+                <p className="text-slate-400 text-xs sm:text-sm mt-0.5">
+                  Record tuition payments, generate branded vouchers, query student fee ledgers, and audit collections.
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Header Action Buttons */}
-          <div className="flex items-center gap-2.5 flex-wrap">
-            <button
-              onClick={fetchReceipts}
-              disabled={loading}
-              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 transition flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
-              title="Refresh Receipts"
-            >
-              <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin text-sky-400" : ""}`} />
-              <span>Refresh</span>
-            </button>
-
-            <button
-              onClick={handleExportExcel}
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 transition flex items-center gap-1.5 cursor-pointer shadow-sm"
-              title="Export filtered records to Excel"
-            >
-              <Download className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Export Excel</span>
-            </button>
-
-            <button
-              onClick={handlePrintTable}
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-sky-600/20 hover:bg-sky-600/30 text-sky-300 border border-sky-500/30 transition flex items-center gap-1.5 cursor-pointer shadow-sm"
-              title="Print View"
-            >
-              <Printer className="w-3.5 h-3.5 text-sky-400" />
-              <span>Print</span>
-            </button>
-
+          {/* Primary Operations & Utilities Hub */}
+          <div className="flex flex-wrap items-center gap-2.5 w-full xl:w-auto">
+            {/* Primary Action 1: Record Fee Payment */}
             <button
               type="button"
               onClick={handleOpenNewPaymentModal}
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white transition flex items-center gap-1.5 shadow-lg shadow-emerald-500/25 cursor-pointer"
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
               title="Record a fresh fee receipt for an already admitted student"
             >
-              <Plus className="w-3.5 h-3.5" />
+              <Plus className="w-4 h-4 stroke-[2.5]" />
               <span>Record Fee Payment</span>
             </button>
 
+            {/* Primary Action 2: Student Fee Ledger */}
             <button
               type="button"
               onClick={() => {
@@ -2384,133 +2931,330 @@ export default function FeePaymentsList() {
                     .finally(() => setLoadingAdmissions(false));
                 }
               }}
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 transition flex items-center gap-1.5 cursor-pointer shadow-sm"
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-400 hover:to-blue-500 text-white transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
               title="View & Print Student Fee Ledger by Admission ID"
             >
-              <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
+              <BookOpen className="w-4 h-4 stroke-[2]" />
               <span>Student Ledger</span>
             </button>
 
-            <Link
-              to="/students/student-admission"
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex items-center gap-1.5 shadow-sm"
+            {/* Primary Action 3: Student & Course-wise Due List */}
+            <button
+              type="button"
+              onClick={() => {
+                setShowDueListModal(true);
+                fetchDuesList();
+              }}
+              className="flex-1 sm:flex-none px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white transition flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              title="Audit Student & Course-wise Outstanding Dues (Handles multi-course students)"
             >
-              <span>+ New Admission</span>
-            </Link>
+              <AlertCircle className="w-4 h-4 stroke-[2.5]" />
+              <span>Outstanding Due List</span>
+            </button>
+
+            {/* Secondary Utilities: + Admission, Export, Print, Refresh */}
+            <div className="flex items-center gap-1.5 border-l border-slate-800 pl-2">
+              <Link
+                to="/students/student-admission"
+                className="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-slate-200 border border-slate-700/80 transition flex items-center gap-1 shadow-sm"
+                title="Register and admit a new student"
+              >
+                <span>+ Admission</span>
+              </Link>
+
+              <button
+                onClick={handleExportExcel}
+                className="p-2 rounded-xl text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-emerald-400 border border-slate-700/80 transition flex items-center gap-1 cursor-pointer"
+                title="Export filtered records to Excel"
+              >
+                <Download className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={handlePrintTable}
+                className="p-2 rounded-xl text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-sky-400 border border-slate-700/80 transition flex items-center gap-1 cursor-pointer"
+                title="Print Current Table View"
+              >
+                <Printer className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={fetchReceipts}
+                disabled={loading}
+                className="p-2 rounded-xl text-xs font-semibold bg-slate-800/90 hover:bg-slate-700 text-slate-300 border border-slate-700/80 transition flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                title="Refresh Receipts"
+              >
+                <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-sky-400" : ""}`} />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* TOP METRICS / FINANCIAL STATS CARDS */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* INTERACTIVE KPI FINANCIAL STATS DECK (CLICK TO FILTER) */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
           {/* Total Collections */}
-          <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-5 shadow-xl relative overflow-hidden">
-            <div className="absolute -right-2 -bottom-2 w-20 h-20 bg-emerald-500/10 rounded-full blur-xl pointer-events-none" />
+          <div
+            onClick={() => { setActiveTab("ALL"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+            className={`rounded-2xl p-4 sm:p-5 backdrop-blur-xl transition cursor-pointer relative overflow-hidden group ${
+              activeTab === "ALL" && modeFilter === "ALL" && typeFilter === "ALL"
+                ? "bg-slate-900/90 border-2 border-emerald-500/60 shadow-lg shadow-emerald-500/10"
+                : "bg-slate-900/60 border border-slate-800/80 hover:border-slate-700"
+            }`}
+          >
+            <div className="absolute -right-2 -bottom-2 w-20 h-20 bg-emerald-500/10 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition" />
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-slate-400">Total Collections</span>
-              <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">
                 ₹
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-black text-emerald-400">
+            <div className="text-2xl sm:text-3xl font-black text-emerald-400 tracking-tight">
               ₹{stats.totalAmount.toLocaleString()}
             </div>
-            <div className="text-[11px] text-slate-400 mt-1">
-              Across <strong className="text-white">{stats.totalCount}</strong> issued receipts
+            <div className="text-[11px] text-slate-400 mt-1 flex items-center justify-between">
+              <span>Across <strong className="text-white">{stats.totalCount}</strong> receipts</span>
+              <span className="text-[10px] text-emerald-400 font-semibold opacity-0 group-hover:opacity-100 transition">View All →</span>
             </div>
           </div>
 
           {/* Cash Collections */}
-          <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-5 shadow-xl relative overflow-hidden">
-            <div className="absolute -right-2 -bottom-2 w-20 h-20 bg-emerald-600/10 rounded-full blur-xl pointer-events-none" />
+          <div
+            onClick={() => { setActiveTab("CASH"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+            className={`rounded-2xl p-4 sm:p-5 backdrop-blur-xl transition cursor-pointer relative overflow-hidden group ${
+              activeTab === "CASH"
+                ? "bg-slate-900/90 border-2 border-emerald-500/60 shadow-lg shadow-emerald-500/10"
+                : "bg-slate-900/60 border border-slate-800/80 hover:border-slate-700"
+            }`}
+          >
+            <div className="absolute -right-2 -bottom-2 w-20 h-20 bg-emerald-600/10 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition" />
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-semibold text-slate-400">Cash Collections</span>
               <div className="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center">
                 <Wallet className="w-4 h-4" />
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-black text-white">
+            <div className="text-2xl sm:text-3xl font-black text-white tracking-tight">
               ₹{stats.cashAmount.toLocaleString()}
             </div>
-            <div className="text-[11px] text-slate-400 mt-1">
-              Physical cash received at desk
+            <div className="text-[11px] text-slate-400 mt-1 flex items-center justify-between">
+              <span>{stats.cashCount} cash payments</span>
+              <span className="text-[10px] text-emerald-400 font-semibold opacity-0 group-hover:opacity-100 transition">Filter Cash →</span>
             </div>
           </div>
 
           {/* UPI & Online */}
-          <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-5 shadow-xl relative overflow-hidden">
-            <div className="absolute -right-2 -bottom-2 w-20 h-20 bg-sky-500/10 rounded-full blur-xl pointer-events-none" />
+          <div
+            onClick={() => { setActiveTab("UPI"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+            className={`rounded-2xl p-4 sm:p-5 backdrop-blur-xl transition cursor-pointer relative overflow-hidden group ${
+              activeTab === "UPI"
+                ? "bg-slate-900/90 border-2 border-sky-500/60 shadow-lg shadow-sky-500/10"
+                : "bg-slate-900/60 border border-slate-800/80 hover:border-slate-700"
+            }`}
+          >
+            <div className="absolute -right-2 -bottom-2 w-20 h-20 bg-sky-500/10 rounded-full blur-xl pointer-events-none group-hover:scale-125 transition" />
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-slate-400">UPI / QR Collections</span>
+              <span className="text-xs font-semibold text-slate-400">UPI / QR Digital</span>
               <div className="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-300 flex items-center justify-center">
                 <CreditCard className="w-4 h-4" />
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-black text-sky-400">
+            <div className="text-2xl sm:text-3xl font-black text-sky-400 tracking-tight">
               ₹{stats.upiAmount.toLocaleString()}
             </div>
-            <div className="text-[11px] text-slate-400 mt-1">
-              Instant digital payments
+            <div className="text-[11px] text-slate-400 mt-1 flex items-center justify-between">
+              <span>{stats.upiCount} digital payments</span>
+              <span className="text-[10px] text-sky-400 font-semibold opacity-0 group-hover:opacity-100 transition">Filter UPI →</span>
             </div>
           </div>
 
-          {/* Monthly vs Lump sum breakdown */}
-          <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-5 shadow-xl relative overflow-hidden">
+          {/* Plan Collections Breakdown */}
+          <div
+            className={`rounded-2xl p-4 sm:p-5 backdrop-blur-xl transition relative overflow-hidden ${
+              activeTab === "MONTHLY" || activeTab === "NON_MONTHLY"
+                ? "bg-slate-900/90 border-2 border-purple-500/60 shadow-lg shadow-purple-500/10"
+                : "bg-slate-900/60 border border-slate-800/80"
+            }`}
+          >
             <div className="absolute -right-2 -bottom-2 w-20 h-20 bg-purple-500/10 rounded-full blur-xl pointer-events-none" />
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-slate-400">Plan Breakdown</span>
+              <span className="text-xs font-semibold text-slate-400">Plan Collections</span>
               <div className="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center">
                 <FileText className="w-4 h-4" />
               </div>
             </div>
-            <div className="space-y-1">
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400">Monthly Plans:</span>
-                <span className="text-emerald-300 font-bold">₹{stats.monthlyTotal.toLocaleString()}</span>
-              </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-400">Course Fees:</span>
-                <span className="text-purple-300 font-bold">₹{stats.lumpSumTotal.toLocaleString()}</span>
-              </div>
+            <div className="space-y-1.5">
+              <button
+                type="button"
+                onClick={() => { setActiveTab("MONTHLY"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+                className={`w-full flex items-center justify-between text-xs p-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "MONTHLY" ? "bg-purple-500/30 text-white font-bold border border-purple-500/40" : "hover:bg-slate-800/60 text-slate-300"
+                }`}
+              >
+                <span className="text-slate-400">Monthly ({stats.monthlyCount}):</span>
+                <span className="text-emerald-300 font-bold font-mono">₹{stats.monthlyTotal.toLocaleString()}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => { setActiveTab("NON_MONTHLY"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+                className={`w-full flex items-center justify-between text-xs p-1.5 rounded-lg transition cursor-pointer ${
+                  activeTab === "NON_MONTHLY" ? "bg-amber-500/30 text-white font-bold border border-amber-500/40" : "hover:bg-slate-800/60 text-slate-300"
+                }`}
+              >
+                <span className="text-slate-400">Course Fee ({stats.lumpSumCount}):</span>
+                <span className="text-amber-300 font-bold font-mono">₹{stats.lumpSumTotal.toLocaleString()}</span>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* SEARCH, FILTERS & CONTROLS BAR */}
-        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
-          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+        {/* WORKSPACE COMMAND BAR: FAST TABS + SEARCH & SORT */}
+        <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-xl space-y-3.5">
+          {/* 1. Fast Category Navigation Tabs */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+            <button
+              type="button"
+              onClick={() => { setActiveTab("ALL"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                activeTab === "ALL" && modeFilter === "ALL" && typeFilter === "ALL"
+                  ? "bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/20"
+                  : "bg-slate-950/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
+              }`}
+            >
+              <span>All Receipts</span>
+              <span className="text-[10px] px-1.5 py-0.5 bg-black/20 rounded-full font-mono">
+                {receipts.length}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setActiveTab("MONTHLY"); setTypeFilter("ALL"); setModeFilter("ALL"); }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                activeTab === "MONTHLY"
+                  ? "bg-purple-500 text-white shadow-md shadow-purple-500/20"
+                  : "bg-slate-950/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
+              }`}
+            >
+              <span>Monthly Plans</span>
+              <span className="text-[10px] px-1.5 py-0.5 bg-black/20 rounded-full font-mono">
+                {stats.monthlyCount}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setActiveTab("NON_MONTHLY"); setTypeFilter("ALL"); setModeFilter("ALL"); }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                activeTab === "NON_MONTHLY"
+                  ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
+                  : "bg-slate-950/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
+              }`}
+            >
+              <span>Course Fee (Lump sum)</span>
+              <span className="text-[10px] px-1.5 py-0.5 bg-black/20 rounded-full font-mono">
+                {stats.lumpSumCount}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setActiveTab("CASH"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                activeTab === "CASH"
+                  ? "bg-emerald-600 text-white shadow-md shadow-emerald-600/20"
+                  : "bg-slate-950/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
+              }`}
+            >
+              <Wallet className="w-3.5 h-3.5" />
+              <span>Cash Desk</span>
+              <span className="text-[10px] px-1.5 py-0.5 bg-black/20 rounded-full font-mono">
+                {stats.cashCount}
+              </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => { setActiveTab("UPI"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                activeTab === "UPI"
+                  ? "bg-sky-500 text-white shadow-md shadow-sky-500/20"
+                  : "bg-slate-950/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
+              }`}
+            >
+              <CreditCard className="w-3.5 h-3.5" />
+              <span>UPI / QR</span>
+              <span className="text-[10px] px-1.5 py-0.5 bg-black/20 rounded-full font-mono">
+                {stats.upiCount}
+              </span>
+            </button>
+
+            {stats.todayCount > 0 && (
+              <button
+                type="button"
+                onClick={() => { setActiveTab("TODAY"); setModeFilter("ALL"); setTypeFilter("ALL"); }}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
+                  activeTab === "TODAY"
+                    ? "bg-teal-500 text-white shadow-md shadow-teal-500/20"
+                    : "bg-slate-950/80 text-teal-400 hover:text-white hover:bg-slate-800 border border-teal-500/30"
+                }`}
+              >
+                <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+                <span>Today's Receipts</span>
+                <span className="text-[10px] px-1.5 py-0.5 bg-black/20 rounded-full font-mono">
+                  {stats.todayCount}
+                </span>
+              </button>
+            )}
+
+            <button
+              type="button"
+              onClick={() => {
+                setShowDueListModal(true);
+                fetchDuesList();
+              }}
+              className="ml-auto px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer whitespace-nowrap bg-gradient-to-r from-amber-500/20 to-rose-500/20 text-amber-300 hover:from-amber-500/30 hover:to-rose-500/30 border border-amber-500/40 shadow-sm"
+              title="Open Student & Course-wise Due List Desk"
+            >
+              <AlertCircle className="w-3.5 h-3.5 text-amber-400" />
+              <span>Outstanding Due Desk</span>
+            </button>
+          </div>
+
+          {/* 2. Unified Search Bar & Dropdown Selectors */}
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 pt-1">
             {/* Search Input */}
             <div className="relative flex-1">
               <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
                 type="text"
-                placeholder="Search by student name, registration #, receipt # (e.g. REC-10002), course, or mode..."
+                placeholder="Search by student name, registration #, receipt # (e.g. REC-10004), phone, or course..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-700/80 rounded-xl pl-10 pr-9 py-2.5 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                className="w-full bg-slate-950 border border-slate-700/80 rounded-xl pl-10 pr-9 py-2 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"
               />
               {searchTerm && (
                 <button
                   type="button"
                   onClick={() => setSearchTerm("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
               )}
             </div>
 
-            {/* Filter Controls */}
-            <div className="flex items-center gap-2.5 flex-wrap">
-              {/* Payment Mode Filter */}
+            {/* Filter Dropdowns & Sort */}
+            <div className="flex items-center gap-2 flex-wrap">
+              {/* Payment Mode */}
               <div className="flex items-center gap-1 text-xs">
-                <span className="text-slate-400 hidden sm:inline">Mode:</span>
                 <select
                   value={modeFilter}
                   onChange={(e) => setModeFilter(e.target.value)}
-                  className="bg-slate-950 border border-slate-700 text-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 cursor-pointer"
+                  className="bg-slate-950 border border-slate-700 text-slate-200 rounded-xl px-2.5 py-2 text-xs focus:outline-none focus:border-emerald-500 cursor-pointer"
+                  title="Filter by payment mode"
                 >
                   <option value="ALL">All Modes</option>
-                  <option value="Cash">Cash</option>
+                  <option value="Cash">Cash Only</option>
                   <option value="UPI">UPI / Online</option>
                   <option value="Bank Transfer">Bank Transfer</option>
                   <option value="Cheque">Cheque</option>
@@ -2518,124 +3262,102 @@ export default function FeePaymentsList() {
                 </select>
               </div>
 
-              {/* Fee Type Filter */}
+              {/* Fee Plan Type */}
               <div className="flex items-center gap-1 text-xs">
-                <span className="text-slate-400 hidden sm:inline">Type:</span>
                 <select
                   value={typeFilter}
                   onChange={(e) => setTypeFilter(e.target.value)}
-                  className="bg-slate-950 border border-slate-700 text-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-emerald-500 cursor-pointer"
+                  className="bg-slate-950 border border-slate-700 text-slate-200 rounded-xl px-2.5 py-2 text-xs focus:outline-none focus:border-emerald-500 cursor-pointer"
+                  title="Filter by fee plan type"
                 >
-                  <option value="ALL">All Fee Types</option>
+                  <option value="ALL">All Plan Types</option>
                   <option value="monthly">Monthly Plans</option>
                   <option value="non_monthly">Course Fees (Lump sum)</option>
                 </select>
               </div>
 
-              {/* Sort Order */}
+              {/* Sort Order Selector */}
               <div className="flex items-center gap-1 text-xs">
-                <button
-                  onClick={() => {
-                    if (sortField === "date") {
-                      setSortOrder((prev) => (prev === "desc" ? "asc" : "desc"));
-                    } else {
-                      setSortField("date");
-                      setSortOrder("desc");
-                    }
+                <select
+                  value={`${sortField}_${sortOrder}`}
+                  onChange={(e) => {
+                    const [field, order] = e.target.value.split("_");
+                    setSortField(field);
+                    setSortOrder(order);
                   }}
-                  className={`px-3 py-2 rounded-xl border text-xs font-semibold flex items-center gap-1 transition cursor-pointer ${
-                    sortField === "date"
-                      ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                      : "bg-slate-950 text-slate-400 border-slate-700 hover:text-white"
-                  }`}
-                  title="Sort by Date"
+                  className="bg-slate-950 border border-slate-700 text-slate-200 rounded-xl px-2.5 py-2 text-xs focus:outline-none focus:border-emerald-500 cursor-pointer font-medium"
+                  title="Sort order"
                 >
-                  <span>Date</span>
-                  <ArrowUpDown className="w-3 h-3" />
-                </button>
-
-                <button
-                  onClick={() => {
-                    if (sortField === "amount") {
-                      setSortOrder((prev) => (prev === "desc" ? "asc" : "desc"));
-                    } else {
-                      setSortField("amount");
-                      setSortOrder("desc");
-                    }
-                  }}
-                  className={`px-3 py-2 rounded-xl border text-xs font-semibold flex items-center gap-1 transition cursor-pointer ${
-                    sortField === "amount"
-                      ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
-                      : "bg-slate-950 text-slate-400 border-slate-700 hover:text-white"
-                  }`}
-                  title="Sort by Amount"
-                >
-                  <span>Amount</span>
-                  <ArrowUpDown className="w-3 h-3" />
-                </button>
+                  <option value="date_desc">Date: Newest First</option>
+                  <option value="date_asc">Date: Oldest First</option>
+                  <option value="amount_desc">Amount: Highest First</option>
+                  <option value="amount_asc">Amount: Lowest First</option>
+                </select>
               </div>
             </div>
           </div>
 
-          {/* Active Filter Indicators & Total Count */}
+          {/* 3. Status summary bar */}
           <div className="flex items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 pt-2.5">
-            <div>
-              Showing <strong className="text-white">{filteredReceipts.length}</strong> of <strong className="text-slate-300">{receipts.length}</strong> payment receipts
+            <div className="flex items-center gap-2">
+              <span>Showing <strong className="text-white">{filteredReceipts.length}</strong> of <strong className="text-slate-300">{receipts.length}</strong> receipts</span>
+              <span className="text-slate-600">•</span>
+              <span className="text-emerald-400 font-bold">Filtered Total: ₹{filteredTotalAmount.toLocaleString()}/-</span>
             </div>
 
-            {(searchTerm || modeFilter !== "ALL" || typeFilter !== "ALL") && (
+            {(searchTerm || modeFilter !== "ALL" || typeFilter !== "ALL" || activeTab !== "ALL") && (
               <button
                 type="button"
                 onClick={() => {
                   setSearchTerm("");
                   setModeFilter("ALL");
                   setTypeFilter("ALL");
+                  setActiveTab("ALL");
                 }}
-                className="text-xs text-emerald-400 hover:underline font-semibold"
+                className="text-xs text-emerald-400 hover:underline font-semibold cursor-pointer"
               >
-                Clear All Filters
+                Reset All Filters
               </button>
             )}
           </div>
         </div>
 
-        {/* PAYMENTS DATA TABLE */}
+        {/* RECEIPTS DATA TABLE */}
         <div className="bg-slate-900/60 border border-slate-800/80 backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-xs sm:text-sm">
               <thead>
-                <tr className="border-b border-slate-800 bg-slate-950/70 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
+                <tr className="border-b border-slate-800 bg-slate-950/80 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
                   <th className="p-3.5">Receipt #</th>
                   <th className="p-3.5">Payment Date</th>
-                  <th className="p-3.5">Student</th>
+                  <th className="p-3.5">Student &amp; Contact</th>
                   <th className="p-3.5">Course Program</th>
                   <th className="p-3.5">Mode</th>
-                  <th className="p-3.5">Fee Type</th>
-                  <th className="p-3.5">Period / Coverage</th>
-                  <th className="p-3.5 text-right">Amount (₹)</th>
-                  <th className="p-3.5 text-center">Action</th>
+                  <th className="p-3.5">Coverage / Status</th>
+                  <th className="p-3.5 text-right">Amount Paid</th>
+                  <th className="p-3.5 text-center">Quick Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-800/60">
                 {loading ? (
                   <tr>
-                    <td colSpan={9} className="text-center py-16 text-slate-400">
+                    <td colSpan={8} className="text-center py-16 text-slate-400">
                       <div className="flex flex-col items-center justify-center gap-3">
                         <div className="animate-spin rounded-full h-8 w-8 border-2 border-emerald-500 border-t-transparent" />
-                        <span className="text-xs">Loading fee payments and receipts...</span>
+                        <span className="text-xs">Loading fee receipts...</span>
                       </div>
                     </td>
                   </tr>
                 ) : filteredReceipts.length === 0 ? (
                   <tr>
-                    <td colSpan={9} className="text-center py-16 text-slate-400">
+                    <td colSpan={8} className="text-center py-16 text-slate-400">
                       <div className="flex flex-col items-center justify-center gap-2">
                         <Receipt className="w-10 h-10 text-slate-600 stroke-[1.5]" />
                         <p className="text-sm font-semibold text-slate-300">No payment receipts found</p>
                         <p className="text-xs text-slate-500 max-w-sm">
                           {searchTerm
                             ? `No records match your search "${searchTerm}".`
-                            : "No student fee payments have been recorded yet."}
+                            : "No student fee payments have been recorded for the selected filter."}
                         </p>
                       </div>
                     </td>
@@ -2643,13 +3365,21 @@ export default function FeePaymentsList() {
                 ) : (
                   filteredReceipts.map((r) => {
                     const receiptNo = r.receiptNo || r.receipt_no;
-                    const studentName = r.studentName || r.student_name || "Student";
-                    const regNo = r.registrationNumber || r.registration_number;
-                    const courseName = r.courseName || r.course_name || "Academic Course";
+                    const studentName = r.studentName || r.student_name || r.student?.student_name || "Student";
+                    const regNo = r.registrationNumber || r.registration_number || r.student?.registration_number;
+                    const studentPhone = r.studentPhone || r.phone || r.student?.whatsapp || r.student?.phone;
+                    const courseName = r.courseName || r.course_name || r.course?.course_name || "Course";
                     const mode = r.paymentMode || r.payment_mode || "Cash";
                     const feeType = (r.feeType || r.fee_type || "").toLowerCase();
                     const amt = Number(r.amountPaid || r.amount_paid || 0);
-                    const payDate = r.paymentDate ? new Date(r.paymentDate).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) : "N/A";
+                    const rawDate = r.paymentDate || r.payment_date || r.createdAt || r.created_at;
+                    const payDateFormatted = rawDate
+                      ? new Date(rawDate).toLocaleDateString("en-IN", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })
+                      : "N/A";
 
                     return (
                       <tr
@@ -2659,7 +3389,9 @@ export default function FeePaymentsList() {
                         {/* Receipt No with copy trigger */}
                         <td className="p-3.5 font-mono text-xs font-bold text-sky-400 whitespace-nowrap">
                           <div className="flex items-center gap-1.5">
-                            <span>{receiptNo}</span>
+                            <span className="bg-sky-950/60 border border-sky-800/60 px-2 py-0.5 rounded-lg">
+                              {receiptNo}
+                            </span>
                             <button
                               onClick={() => handleCopyReceipt(receiptNo)}
                               className="opacity-0 group-hover:opacity-100 transition text-slate-500 hover:text-white p-0.5 rounded cursor-pointer"
@@ -2675,50 +3407,66 @@ export default function FeePaymentsList() {
 
                         {/* Payment Date */}
                         <td className="p-3.5 text-slate-300 whitespace-nowrap text-xs">
-                          {payDate}
+                          {payDateFormatted}
                         </td>
 
-                        {/* Student Details */}
-                        <td className="p-3.5 min-w-[180px]">
+                        {/* Student Details with Avatar & WhatsApp */}
+                        <td className="p-3.5 min-w-[200px]">
                           <div className="flex items-center gap-2.5">
-                            <div className="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-300 font-bold text-xs flex items-center justify-center shrink-0 font-mono">
+                            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-slate-800 to-slate-700 border border-slate-700 text-emerald-400 font-bold text-xs flex items-center justify-center shrink-0 font-mono shadow-sm">
                               {studentName.substring(0, 2).toUpperCase()}
                             </div>
                             <div className="min-w-0">
-                              <p className="font-semibold text-white truncate text-xs sm:text-sm">
-                                {studentName}
+                              <p className="font-semibold text-white truncate text-xs sm:text-sm flex items-center gap-1.5">
+                                <span>{studentName}</span>
                               </p>
-                              {regNo && (
-                                <p className="text-[10px] text-slate-400 font-mono">
-                                  {regNo}
-                                </p>
-                              )}
+                              <div className="flex items-center gap-2 text-[10px] text-slate-400 font-mono mt-0.5">
+                                {regNo && <span className="text-slate-300">{regNo}</span>}
+                                {studentPhone && (
+                                  <>
+                                    <span className="text-slate-600">•</span>
+                                    <a
+                                      href={`https://api.whatsapp.com/send?phone=91${studentPhone.replace(/\D/g, "")}`}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="text-emerald-400 hover:underline flex items-center gap-0.5"
+                                      title="Open WhatsApp Chat"
+                                    >
+                                      <MessageCircle className="w-2.5 h-2.5" />
+                                      <span>{studentPhone}</span>
+                                    </a>
+                                  </>
+                                )}
+                              </div>
                             </div>
                           </div>
                         </td>
 
-                        {/* Course */}
+                        {/* Course & Plan Badge */}
                         <td className="p-3.5 min-w-[180px]">
-                          <p className="text-xs sm:text-sm font-medium text-slate-200 truncate">
+                          <p className="text-xs font-semibold text-slate-200 truncate">
                             {courseName}
                           </p>
+                          <span
+                            className={`inline-block mt-0.5 px-2 py-0.2 rounded text-[9px] font-semibold ${
+                              feeType === "monthly"
+                                ? "bg-purple-500/15 text-purple-300 border border-purple-500/30"
+                                : "bg-amber-500/15 text-amber-300 border border-amber-500/30"
+                            }`}
+                          >
+                            {feeType === "monthly" ? "Monthly Plan" : "Course Fee Plan"}
+                          </span>
                         </td>
 
                         {/* Payment Mode Badge */}
                         <td className="p-3.5 whitespace-nowrap">
-                          <span className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border ${getModeBadge(mode)}`}>
-                            {mode}
-                          </span>
-                        </td>
-
-                        {/* Fee Type Badge */}
-                        <td className="p-3.5 whitespace-nowrap">
-                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
-                            feeType === "monthly"
-                              ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                              : "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30"
-                          }`}>
-                            {feeType === "monthly" ? "Monthly Plan" : "Course Fees"}
+                          <span className={`px-2.5 py-1 rounded-lg text-[11px] font-bold border flex items-center gap-1 w-fit ${getModeBadge(mode)}`}>
+                            {mode.toLowerCase() === "cash" ? (
+                              <Wallet className="w-3 h-3" />
+                            ) : (
+                              <CreditCard className="w-3 h-3" />
+                            )}
+                            <span>{mode}</span>
                           </span>
                         </td>
 
@@ -2728,21 +3476,21 @@ export default function FeePaymentsList() {
                             const cov = formatPeriodCoverage(r);
                             if (cov === "Part Payment") {
                               return (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/15 text-amber-300 border border-amber-500/30">
                                   Part Payment
                                 </span>
                               );
                             }
                             if (cov === "Final Payment") {
                               return (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-teal-500/15 text-teal-300 border border-teal-500/30">
+                                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-teal-500/15 text-teal-300 border border-teal-500/30">
                                   Final Payment
                                 </span>
                               );
                             }
                             if (cov === "Paid in Full") {
                               return (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
                                   Paid in Full
                                 </span>
                               );
@@ -2756,29 +3504,46 @@ export default function FeePaymentsList() {
 
                         {/* Amount */}
                         <td className="p-3.5 text-right whitespace-nowrap">
-                          <span className="font-extrabold text-emerald-400 text-sm sm:text-base">
+                          <span className="font-extrabold text-emerald-400 text-sm sm:text-base font-mono">
                             ₹{amt.toLocaleString()}
                           </span>
                         </td>
 
-                        {/* Action: View Voucher Modal & Print */}
+                        {/* Action Dock: 4 Quick Actions */}
                         <td className="p-3.5 text-center whitespace-nowrap">
                           <div className="flex items-center justify-center gap-1.5">
+                            {/* 1. Official Voucher Modal */}
                             <button
+                              type="button"
                               onClick={() => setSelectedReceipt(r)}
-                              className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition cursor-pointer flex items-center gap-1"
+                              className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition cursor-pointer flex items-center gap-1"
                               title="View Official Receipt Voucher"
                             >
                               <FileText className="w-3.5 h-3.5 text-sky-400" />
                               <span>Voucher</span>
                             </button>
+
+                            {/* 2. Direct Print Official Voucher */}
                             <button
+                              type="button"
                               onClick={() => handlePrintOfficialVoucher(r)}
                               className="p-1.5 rounded-lg text-xs font-semibold bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 transition cursor-pointer"
                               title="Direct Print Official Voucher"
                             >
                               <Printer className="w-3.5 h-3.5" />
                             </button>
+
+                            {/* 3. Send WhatsApp Voucher */}
+                            <button
+                              type="button"
+                              onClick={() => handleSendWhatsApp(r)}
+                              className="p-1.5 rounded-lg text-xs font-semibold bg-emerald-600/15 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 transition cursor-pointer"
+                              title="Share Fee Voucher via WhatsApp"
+                            >
+                              <MessageCircle className="w-3.5 h-3.5" />
+                            </button>
+
+                            {/* 4. Student Fee Ledger */}
                             <button
                               type="button"
                               onClick={() => handleOpenLedgerForReceipt(r)}
@@ -4015,6 +4780,579 @@ export default function FeePaymentsList() {
                     <span>Print Official A4 Ledger</span>
                   </button>
                 </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* 4. STUDENT & COURSE-WISE OUTSTANDING DUE LIST MODAL */}
+        {/* ========================================================= */}
+        {showDueListModal && (
+          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
+              className="bg-slate-900 border border-slate-700/80 rounded-2xl w-full max-w-6xl shadow-2xl p-4 sm:p-6 flex flex-col max-h-[92vh] overflow-hidden"
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between pb-3 border-b border-slate-800 shrink-0">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 via-orange-500/20 to-rose-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-inner">
+                    <AlertCircle className="w-5 h-5 stroke-[2.5]" />
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-black text-white flex items-center gap-2">
+                      <span>Student & Course-wise Outstanding Due List</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-mono">
+                        Session 2026–2027
+                      </span>
+                    </h3>
+                    <p className="text-xs text-slate-400">
+                      Audit pending monthly installments & course fee balances across all enrollments • Multi-course support
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={fetchDuesList}
+                    disabled={loadingDues}
+                    className="p-2 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition cursor-pointer"
+                    title="Reload fresh dues data"
+                  >
+                    <RefreshCw className={`w-4 h-4 ${loadingDues ? "animate-spin text-amber-400" : ""}`} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowDueListModal(false)}
+                    className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Top Financial KPI Metrics Deck */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 my-3 shrink-0">
+                <div className="p-3 rounded-xl bg-slate-950/60 border border-rose-500/30">
+                  <div className="text-[10px] font-bold text-rose-400 uppercase tracking-wider">Total Outstanding Due</div>
+                  <div className="text-xl font-black font-mono text-rose-300 mt-0.5">
+                    ₹{Number(duesData.summary?.totalOutstandingDue || 0).toLocaleString("en-IN")}/-
+                  </div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Across all students & courses</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-950/60 border border-amber-500/30">
+                  <div className="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Students with Dues</div>
+                  <div className="text-xl font-black font-mono text-amber-300 mt-0.5">
+                    {duesData.summary?.studentsWithDuesCount ?? 0}
+                    <span className="text-xs font-normal text-slate-400 ml-1">/ {duesData.summary?.totalStudents ?? 0} admitted</span>
+                  </div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Students with balance pending</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-950/60 border border-purple-500/30">
+                  <div className="text-[10px] font-bold text-purple-400 uppercase tracking-wider">Multi-Course Students</div>
+                  <div className="text-xl font-black font-mono text-purple-300 mt-0.5">
+                    {duesData.summary?.multiCourseStudentsCount ?? 0}
+                    <span className="text-xs font-normal text-slate-400 ml-1">students</span>
+                  </div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Enrolled in 2 or more courses</div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-slate-950/60 border border-teal-500/30">
+                  <div className="text-[10px] font-bold text-teal-400 uppercase tracking-wider">Total Enrollments</div>
+                  <div className="text-xl font-black font-mono text-teal-300 mt-0.5">
+                    {duesData.summary?.totalEnrollments ?? 0}
+                    <span className="text-xs font-normal text-slate-400 ml-1">active courses</span>
+                  </div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">As of {duesData.summary?.asOfDate || "Today"}</div>
+                </div>
+              </div>
+
+              {/* View Toggle + Filter Chips + Search + Print / Export Toolbar */}
+              <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3 mb-3 space-y-2.5 shrink-0">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  {/* View Mode Switcher (Group by Student vs Course-wise) */}
+                  <div className="flex items-center p-0.5 bg-slate-900 border border-slate-700/80 rounded-xl">
+                    <button
+                      type="button"
+                      onClick={() => setDuesViewMode("STUDENT")}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                        duesViewMode === "STUDENT"
+                          ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      <Users className="w-3.5 h-3.5" />
+                      <span>Group by Student (Consolidated)</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setDuesViewMode("COURSE")}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                        duesViewMode === "COURSE"
+                          ? "bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20"
+                          : "text-slate-400 hover:text-white"
+                      }`}
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>Course-wise Detailed List</span>
+                    </button>
+                  </div>
+
+                  {/* Print & Export Actions */}
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={handleExportDuesExcel}
+                      className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700 transition flex items-center gap-1.5 cursor-pointer"
+                      title="Export Dues List to Excel (Student & Course sheets)"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      <span>Export Excel</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handlePrintDueReport}
+                      className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white transition flex items-center gap-1.5 shadow-md shadow-amber-500/20 cursor-pointer"
+                      title="Print Official A4 Due Report"
+                    >
+                      <Printer className="w-3.5 h-3.5" />
+                      <span>Print A4 Statement</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Filter Chips & Universal Search */}
+                <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5 pt-1 border-t border-slate-800/80">
+                  <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar">
+                    <button
+                      type="button"
+                      onClick={() => setDuesFilter("DUES_ONLY")}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer whitespace-nowrap ${
+                        duesFilter === "DUES_ONLY"
+                          ? "bg-rose-500/25 text-rose-300 border border-rose-500/50 font-bold"
+                          : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      Has Dues Only
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setDuesFilter("MULTI_COURSE")}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer whitespace-nowrap ${
+                        duesFilter === "MULTI_COURSE"
+                          ? "bg-purple-500/25 text-purple-300 border border-purple-500/50 font-bold"
+                          : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      Multi-Course (2+)
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setDuesFilter("MONTHLY")}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer whitespace-nowrap ${
+                        duesFilter === "MONTHLY"
+                          ? "bg-sky-500/25 text-sky-300 border border-sky-500/50 font-bold"
+                          : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      Monthly Dues
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setDuesFilter("LUMPSUM")}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer whitespace-nowrap ${
+                        duesFilter === "LUMPSUM"
+                          ? "bg-amber-500/25 text-amber-300 border border-amber-500/50 font-bold"
+                          : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      Course Fee Dues
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setDuesFilter("CLEARED")}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer whitespace-nowrap ${
+                        duesFilter === "CLEARED"
+                          ? "bg-emerald-500/25 text-emerald-300 border border-emerald-500/50 font-bold"
+                          : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      Fully Cleared
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setDuesFilter("ALL")}
+                      className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer whitespace-nowrap ${
+                        duesFilter === "ALL"
+                          ? "bg-slate-700 text-white border border-slate-600 font-bold"
+                          : "bg-slate-900 text-slate-400 hover:text-white border border-slate-800"
+                      }`}
+                    >
+                      All
+                    </button>
+                  </div>
+
+                  <div className="relative min-w-[240px]">
+                    <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input
+                      type="text"
+                      value={duesSearchTerm}
+                      onChange={(e) => setDuesSearchTerm(e.target.value)}
+                      placeholder="Search student, reg #, phone, course..."
+                      className="w-full pl-8 pr-7 py-1 text-xs bg-slate-900 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
+                    />
+                    {duesSearchTerm && (
+                      <button
+                        type="button"
+                        onClick={() => setDuesSearchTerm("")}
+                        className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white cursor-pointer"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* DUES CONTENT AREA (SCROLLABLE) */}
+              <div className="flex-1 overflow-y-auto pr-1 space-y-3">
+                {loadingDues ? (
+                  <div className="flex flex-col items-center justify-center p-12 text-slate-400">
+                    <RefreshCw className="w-8 h-8 animate-spin text-amber-400 mb-3" />
+                    <p className="text-sm font-semibold">Calculating student and course-wise dues...</p>
+                  </div>
+                ) : duesViewMode === "STUDENT" ? (
+                  /* VIEW 1: STUDENT GROUPED (CONSOLIDATED) */
+                  filteredDuesStudents.length === 0 ? (
+                    <div className="p-12 text-center text-slate-500 bg-slate-950/40 rounded-xl border border-slate-800">
+                      <AlertCircle className="w-8 h-8 mx-auto text-slate-600 mb-2" />
+                      <p className="text-sm">No students match the current dues filter or search criteria.</p>
+                    </div>
+                  ) : (
+                    filteredDuesStudents.map((s) => {
+                      const isExpanded = expandedStudents[s.studentId];
+                      return (
+                        <div
+                          key={s.studentId}
+                          className="bg-slate-950/60 border border-slate-800 hover:border-slate-700/90 rounded-xl overflow-hidden transition"
+                        >
+                          {/* Student Header Bar */}
+                          <div className="p-3.5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 bg-slate-900/40">
+                            {/* Student Identity */}
+                            <div className="flex items-center gap-3">
+                              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-300 font-bold text-sm shrink-0">
+                                {s.studentName ? s.studentName.charAt(0).toUpperCase() : "S"}
+                              </div>
+                              <div>
+                                <div className="flex items-center gap-2">
+                                  <span className="text-sm font-bold text-white">{s.studentName}</span>
+                                  {s.hasMultipleCourses && (
+                                    <span className="text-[10px] px-2 py-0.5 rounded-md bg-purple-500/20 text-purple-300 border border-purple-500/40 font-semibold flex items-center gap-1">
+                                      <span>📚</span> {s.totalCoursesCount} Courses
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mt-0.5">
+                                  <span className="font-mono text-slate-300 bg-slate-800/80 px-1.5 py-0.5 rounded text-[10px]">
+                                    {s.studentRegNo || "—"}
+                                  </span>
+                                  <span>•</span>
+                                  <span>{s.studentCity || "Barrackpore"}</span>
+                                  {s.studentPhone && (
+                                    <>
+                                      <span>•</span>
+                                      <a
+                                        href={`https://wa.me/${s.studentPhone.replace(/\D/g, "").length === 10 ? `91${s.studentPhone.replace(/\D/g, "")}` : s.studentPhone.replace(/\D/g, "")}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-emerald-400 hover:text-emerald-300 flex items-center gap-1"
+                                      >
+                                        <MessageCircle className="w-3 h-3" />
+                                        <span>{s.studentPhone}</span>
+                                      </a>
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* Dues Financial Summary & Action Dock */}
+                            <div className="flex items-center gap-4 self-end md:self-center">
+                              <div className="text-right">
+                                <div className="text-[10px] text-slate-400 uppercase font-semibold">Total Dues</div>
+                                <div
+                                  className={`text-base font-black font-mono ${
+                                    s.totalDue > 0 ? "text-rose-400" : "text-emerald-400"
+                                  }`}
+                                >
+                                  {s.totalDue > 0 ? `₹${Number(s.totalDue).toLocaleString("en-IN")}/-` : "₹0 (Cleared)"}
+                                </div>
+                                <div className="text-[10px] text-slate-500">
+                                  Paid: ₹{Number(s.totalPaid || 0).toLocaleString("en-IN")}
+                                </div>
+                              </div>
+
+                              <div className="flex items-center gap-1.5">
+                                <button
+                                  type="button"
+                                  onClick={() => handleSendDueReminderWhatsApp(s)}
+                                  className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600/90 hover:bg-emerald-500 text-white transition flex items-center gap-1 shadow-sm cursor-pointer"
+                                  title="Send WhatsApp reminder for all courses"
+                                >
+                                  <MessageCircle className="w-3.5 h-3.5" />
+                                  <span className="hidden sm:inline">WhatsApp</span>
+                                </button>
+
+                                <button
+                                  type="button"
+                                  onClick={() => toggleStudentExpand(s.studentId)}
+                                  className="p-1.5 rounded-lg text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-700 transition cursor-pointer"
+                                  title={isExpanded ? "Collapse course details" : "Expand course details"}
+                                >
+                                  {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Expanded Course Breakdown Drawer */}
+                          {isExpanded && (
+                            <div className="p-3 border-t border-slate-800/80 bg-slate-950/40">
+                              <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                                <span>Enrolled Courses Breakdown ({s.courses.length})</span>
+                                <span className="text-[10px] text-slate-500 font-normal">
+                                  Click 'Pay Fee' to record payment for specific course
+                                </span>
+                              </div>
+
+                              <div className="space-y-2">
+                                {s.courses.map((c, cIdx) => (
+                                  <div
+                                    key={cIdx}
+                                    className="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 text-xs"
+                                  >
+                                    {/* Course Information */}
+                                    <div className="flex items-start gap-2.5">
+                                      <span className="w-5 h-5 rounded-md bg-slate-800 text-slate-300 font-mono font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                                        {cIdx + 1}
+                                      </span>
+                                      <div>
+                                        <div className="font-bold text-white flex items-center gap-1.5">
+                                          <span>{c.courseName}</span>
+                                          {c.courseCode && (
+                                            <span className="font-mono text-[10px] text-slate-400">
+                                              ({c.courseCode})
+                                            </span>
+                                          )}
+                                        </div>
+                                        <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-400 mt-0.5">
+                                          <span
+                                            className={`px-1.5 py-0.2 rounded text-[10px] font-semibold ${
+                                              c.isMonthly
+                                                ? "bg-sky-500/15 text-sky-300 border border-sky-500/30"
+                                                : "bg-amber-500/15 text-amber-300 border border-amber-500/30"
+                                            }`}
+                                          >
+                                            {c.isMonthly ? `Monthly (₹${c.monthlyRate}/mo)` : `Lump sum Fee (₹${c.totalCourseFee || 0})`}
+                                          </span>
+                                          <span>•</span>
+                                          <span>Total Paid: ₹{Number(c.totalPaid || 0).toLocaleString("en-IN")}</span>
+                                          <span>•</span>
+                                          <span className="text-slate-300 font-medium">{c.status}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Dues and Quick Actions */}
+                                    <div className="flex items-center gap-3 self-end sm:self-center">
+                                      <div className="text-right">
+                                        <span className="text-[10px] text-slate-400 block">Due Amount</span>
+                                        <span
+                                          className={`font-mono font-bold text-sm ${
+                                            c.balanceDue > 0 ? "text-rose-400" : "text-emerald-400"
+                                          }`}
+                                        >
+                                          {c.balanceDue > 0
+                                            ? `₹${Number(c.balanceDue).toLocaleString("en-IN")}/-`
+                                            : "Cleared ✓"}
+                                        </span>
+                                      </div>
+
+                                      <div className="flex items-center gap-1.5">
+                                        <button
+                                          type="button"
+                                          onClick={() => handleSendSingleCourseReminderWhatsApp(c)}
+                                          className="p-1.5 rounded-lg text-emerald-400 hover:bg-emerald-500/20 transition cursor-pointer"
+                                          title={`Send WhatsApp reminder for ${c.courseName}`}
+                                        >
+                                          <MessageCircle className="w-3.5 h-3.5" />
+                                        </button>
+
+                                        <button
+                                          type="button"
+                                          onClick={() => handleViewLedgerForDue(c)}
+                                          className="p-1.5 rounded-lg text-indigo-400 hover:bg-indigo-500/20 transition cursor-pointer"
+                                          title="View complete ledger for this course"
+                                        >
+                                          <BookOpen className="w-3.5 h-3.5" />
+                                        </button>
+
+                                        <button
+                                          type="button"
+                                          onClick={() => handlePayDue(c)}
+                                          className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1 shadow-sm cursor-pointer"
+                                          title="Record fee payment for this course"
+                                        >
+                                          <Plus className="w-3 h-3" />
+                                          <span>Pay Fee</span>
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })
+                  )
+                ) : (
+                  /* VIEW 2: COURSE-WISE DETAILED FLAT TABLE */
+                  filteredDuesEnrollments.length === 0 ? (
+                    <div className="p-12 text-center text-slate-500 bg-slate-950/40 rounded-xl border border-slate-800">
+                      <AlertCircle className="w-8 h-8 mx-auto text-slate-600 mb-2" />
+                      <p className="text-sm">No course enrollments match the current criteria.</p>
+                    </div>
+                  ) : (
+                    <div className="overflow-x-auto rounded-xl border border-slate-800">
+                      <table className="w-full text-left text-xs text-slate-300">
+                        <thead className="bg-slate-950 text-slate-400 uppercase text-[10px] font-bold border-b border-slate-800">
+                          <tr>
+                            <th className="p-2.5 text-center">#</th>
+                            <th className="p-2.5">Student</th>
+                            <th className="p-2.5">Course & Code</th>
+                            <th className="p-2.5">Plan Type</th>
+                            <th className="p-2.5 text-right">Agreed / Rate</th>
+                            <th className="p-2.5 text-right">Paid to Date</th>
+                            <th className="p-2.5">Clearance / Due Status</th>
+                            <th className="p-2.5 text-right">Outstanding Due</th>
+                            <th className="p-2.5 text-center">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-800/60">
+                          {filteredDuesEnrollments.map((e, idx) => (
+                            <tr key={idx} className="hover:bg-slate-800/30 transition">
+                              <td className="p-2.5 text-center text-slate-500 font-mono">{idx + 1}</td>
+                              <td className="p-2.5">
+                                <div className="font-bold text-white">{e.studentName}</div>
+                                <div className="font-mono text-[10px] text-slate-400">{e.studentRegNo || "—"}</div>
+                              </td>
+                              <td className="p-2.5">
+                                <div className="font-semibold text-slate-200">{e.courseName}</div>
+                                {e.courseCode && (
+                                  <div className="font-mono text-[10px] text-slate-500">{e.courseCode}</div>
+                                )}
+                              </td>
+                              <td className="p-2.5">
+                                <span
+                                  className={`px-2 py-0.5 rounded text-[10px] font-semibold ${
+                                    e.isMonthly
+                                      ? "bg-sky-500/20 text-sky-300 border border-sky-500/30"
+                                      : "bg-amber-500/20 text-amber-300 border border-amber-500/30"
+                                  }`}
+                                >
+                                  {e.feeMode}
+                                </span>
+                              </td>
+                              <td className="p-2.5 text-right font-mono font-semibold text-slate-300">
+                                ₹{Number(e.agreedFee || 0).toLocaleString("en-IN")}/-
+                              </td>
+                              <td className="p-2.5 text-right font-mono font-semibold text-emerald-400">
+                                ₹{Number(e.totalPaid || 0).toLocaleString("en-IN")}/-
+                              </td>
+                              <td className="p-2.5">
+                                <span className="text-[11px] text-slate-300">{e.status}</span>
+                              </td>
+                              <td className="p-2.5 text-right font-mono font-bold">
+                                <span className={e.balanceDue > 0 ? "text-rose-400" : "text-emerald-400"}>
+                                  {e.balanceDue > 0 ? `₹${Number(e.balanceDue).toLocaleString("en-IN")}/-` : "₹0 (Cleared)"}
+                                </span>
+                              </td>
+                              <td className="p-2.5">
+                                <div className="flex items-center justify-center gap-1">
+                                  <button
+                                    type="button"
+                                    onClick={() => handleSendSingleCourseReminderWhatsApp(e)}
+                                    className="p-1 rounded-lg text-emerald-400 hover:bg-emerald-500/20 transition cursor-pointer"
+                                    title="WhatsApp Reminder"
+                                  >
+                                    <MessageCircle className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleViewLedgerForDue(e)}
+                                    className="p-1 rounded-lg text-indigo-400 hover:bg-indigo-500/20 transition cursor-pointer"
+                                    title="View Ledger"
+                                  >
+                                    <BookOpen className="w-3.5 h-3.5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handlePayDue(e)}
+                                    className="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition cursor-pointer"
+                                    title="Record Fee Payment"
+                                  >
+                                    Pay
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )
+                )}
+              </div>
+
+              {/* Modal Footer Summary */}
+              <div className="border-t border-slate-800 pt-3 mt-3 flex items-center justify-between shrink-0 text-xs text-slate-400">
+                <div>
+                  Showing{" "}
+                  <span className="text-white font-bold">
+                    {duesViewMode === "STUDENT" ? filteredDuesStudents.length : filteredDuesEnrollments.length}
+                  </span>{" "}
+                  records • Filtered Dues:{" "}
+                  <span className="text-rose-400 font-mono font-bold">
+                    ₹
+                    {(duesViewMode === "STUDENT"
+                      ? filteredDuesStudents.reduce((acc, s) => acc + Number(s.totalDue || 0), 0)
+                      : filteredDuesEnrollments.reduce((acc, e) => acc + Number(e.balanceDue || 0), 0)
+                    ).toLocaleString("en-IN")}
+                    /-
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setShowDueListModal(false)}
+                  className="px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold transition cursor-pointer"
+                >
+                  Close
+                </button>
               </div>
             </motion.div>
           </div>
