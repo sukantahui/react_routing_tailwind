@@ -37,9 +37,9 @@ import {
 import api from "../api/api";
 import { loginService } from "../services/loginService";
 import { studentService } from "../services/studentService";
-import CNATLogo from "../../public/assets/cnat.png";
+import CNATLogo from "../assets/cnat.png";
 import paidStamp from "../assets/images/paid-stamp.png";
-import CNATQR from "../../public/assets/CNAT_QR.jpeg";
+import CNATQR from "../assets/images/CNAT_QR.jpeg";
 import QRCode from "qrcode";
 
 export default function FeePaymentsList() {
