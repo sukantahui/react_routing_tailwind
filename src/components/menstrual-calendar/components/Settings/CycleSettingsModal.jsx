@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Settings, Check, HelpCircle, Sparkles, Sliders, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, Settings, Check, HelpCircle, Sparkles, Sliders, ChevronLeft, ChevronRight, User, Heart, Activity } from 'lucide-react';
 import { DEFAULT_SETTINGS } from '../../constants/cycleConstants';
 
 // Days available to select: 20 to 45
@@ -13,8 +13,10 @@ const COMMON_PRESETS = [
   { days: 35, label: 'Long' },
 ];
 
-export default function CycleSettingsModal({ isOpen, onClose, settings, onUpdateSettings }) {
+export default function CycleSettingsModal({ isOpen, onClose, settings, onUpdateSettings, apiProfile, onUpdateHealthProfile, isApiMode }) {
   if (!isOpen) return null;
+
+  const [activeTab, setActiveTab] = useState('cycle'); // 'cycle' | 'health'
 
   const [periodDuration, setPeriodDuration] = useState(
     settings.periodDuration || DEFAULT_SETTINGS.periodDuration
@@ -43,15 +45,36 @@ export default function CycleSettingsModal({ isOpen, onClose, settings, onUpdate
     setUseCustomAverageCycle(true);
   };
 
-  const handleSave = (e) => {
+  // ── Health profile state ──────────────────────────────────────────────
+  const [goal, setGoal]               = useState(apiProfile?.goal || 'general');
+  const [dateOfBirth, setDateOfBirth] = useState(apiProfile?.date_of_birth || '');
+  const [weightKg, setWeightKg]       = useState(apiProfile?.weight_kg || '');
+  const [heightCm, setHeightCm]       = useState(apiProfile?.height_cm || '');
+  const [bloodGroup, setBloodGroup]   = useState(apiProfile?.blood_group || '');
+  const [medicalNotes, setMedicalNotes] = useState(apiProfile?.medical_notes || '');
+
+  const handleSave = async (e) => {
     e.preventDefault();
-    onUpdateSettings({
-      periodDuration: parseInt(periodDuration, 10),
-      averageCycleLength: parseInt(averageCycleLength, 10),
-      useCustomAverageCycle: Boolean(useCustomAverageCycle),
-      lutealPhaseLength: parseInt(lutealPhaseLength, 10),
-      predictionMonths: parseInt(predictionMonths, 10),
-    });
+    if (activeTab === 'cycle') {
+      onUpdateSettings({
+        periodDuration: parseInt(periodDuration, 10),
+        averageCycleLength: parseInt(averageCycleLength, 10),
+        useCustomAverageCycle: Boolean(useCustomAverageCycle),
+        lutealPhaseLength: parseInt(lutealPhaseLength, 10),
+        predictionMonths: parseInt(predictionMonths, 10),
+      });
+    } else {
+      if (onUpdateHealthProfile) {
+        await onUpdateHealthProfile({
+          goal,
+          date_of_birth: dateOfBirth || null,
+          weight_kg: weightKg ? parseFloat(weightKg) : null,
+          height_cm: heightCm ? parseFloat(heightCm) : null,
+          blood_group: bloodGroup || null,
+          medical_notes: medicalNotes || null,
+        });
+      }
+    }
     onClose();
   };
 
@@ -78,19 +101,166 @@ export default function CycleSettingsModal({ isOpen, onClose, settings, onUpdate
           </div>
           <div>
             <h3 className="text-xl font-extrabold text-white tracking-tight">
-              Cycle Settings
+              Settings
             </h3>
             <p className="text-xs text-slate-400">
-              Set your average cycle length, bleeding duration, and prediction parameters.
+              Manage your cycle parameters and health profile.
             </p>
           </div>
+        </div>
+
+        {/* Tab Bar */}
+        <div className="flex border-b border-slate-800 shrink-0 px-2 pt-2">
+          <button
+            type="button"
+            onClick={() => setActiveTab('cycle')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-t-xl transition-all duration-200 ${
+              activeTab === 'cycle'
+                ? 'text-indigo-400 border-b-2 border-indigo-400 bg-indigo-500/5'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Sliders className="w-4 h-4" /> Cycle Settings
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('health')}
+            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-t-xl transition-all duration-200 ${
+              activeTab === 'health'
+                ? 'text-rose-400 border-b-2 border-rose-400 bg-rose-500/5'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
+          >
+            <Heart className="w-4 h-4" /> Health Profile
+            {!isApiMode && <span className="text-[10px] text-amber-400 font-normal">(login required)</span>}
+          </button>
         </div>
 
         {/* Scrollable Form Body */}
         <div className="overflow-y-auto flex-1 px-6 py-5 space-y-6">
           <form id="cycle-settings-form" onSubmit={handleSave} className="space-y-6 text-xs">
 
-            {/* ── Section 1: Average Cycle Length ──────────────────────── */}
+            {/* ═══════════════════════════ HEALTH PROFILE TAB ═══════════════════════════ */}
+            {activeTab === 'health' && (
+              <div className="space-y-4">
+
+                {!isApiMode && (
+                  <div className="flex items-center gap-3 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20">
+                    <Activity className="w-5 h-5 text-amber-400 shrink-0" />
+                    <p className="text-amber-300 text-xs leading-relaxed">
+                      Health profile is saved to your account. You are currently in local mode — data will be saved once you log in.
+                    </p>
+                  </div>
+                )}
+
+                {/* Goal */}
+                <div className="space-y-2 bg-slate-950/80 p-4 rounded-2xl border border-slate-800">
+                  <label className="font-bold text-slate-200 text-sm flex items-center gap-2">
+                    <Heart className="w-4 h-4 text-rose-400" /> Goal
+                  </label>
+                  <p className="text-slate-500 mb-3">What are you primarily tracking for?</p>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { value: 'general',     label: '📊 General',   desc: 'Awareness' },
+                      { value: 'pregnancy',   label: '🤰 Pregnancy', desc: 'Planning' },
+                      { value: 'safe_period', label: '🛡️ Safe',      desc: 'Safe period' },
+                    ].map((opt) => (
+                      <button
+                        key={opt.value}
+                        type="button"
+                        onClick={() => setGoal(opt.value)}
+                        className={`flex flex-col items-center p-3 rounded-xl border text-center transition-all ${
+                          goal === opt.value
+                            ? 'bg-rose-500/20 border-rose-500/50 text-rose-300'
+                            : 'bg-slate-900 border-slate-700 text-slate-400 hover:border-slate-500'
+                        }`}
+                      >
+                        <span className="text-base">{opt.label}</span>
+                        <span className="text-[10px] mt-0.5 opacity-70">{opt.desc}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* DOB + Weight + Height */}
+                <div className="space-y-3 bg-slate-950/80 p-4 rounded-2xl border border-slate-800">
+                  <label className="font-bold text-slate-200 text-sm flex items-center gap-2">
+                    <User className="w-4 h-4 text-indigo-400" /> Body Metrics
+                  </label>
+                  <p className="text-slate-500 mb-2">Optional — helps calculate BMI and age-based parameters.</p>
+
+                  <div>
+                    <label className="text-slate-400 mb-1 block">Date of Birth</label>
+                    <input
+                      type="date"
+                      value={dateOfBirth}
+                      onChange={(e) => setDateOfBirth(e.target.value)}
+                      max={new Date().toISOString().slice(0, 10)}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-indigo-500 text-sm"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-slate-400 mb-1 block">Weight (kg)</label>
+                      <input
+                        type="number"
+                        min="20" max="300" step="0.1"
+                        value={weightKg}
+                        onChange={(e) => setWeightKg(e.target.value)}
+                        placeholder="e.g. 58.5"
+                        className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-indigo-500 text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-slate-400 mb-1 block">Height (cm)</label>
+                      <input
+                        type="number"
+                        min="50" max="250" step="0.1"
+                        value={heightCm}
+                        onChange={(e) => setHeightCm(e.target.value)}
+                        placeholder="e.g. 162"
+                        className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-indigo-500 text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-slate-400 mb-1 block">Blood Group</label>
+                    <select
+                      value={bloodGroup}
+                      onChange={(e) => setBloodGroup(e.target.value)}
+                      className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-indigo-500 text-sm"
+                    >
+                      <option value="">Select blood group</option>
+                      {['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map((bg) => (
+                        <option key={bg} value={bg}>{bg}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Medical Notes */}
+                <div className="space-y-2 bg-slate-950/80 p-4 rounded-2xl border border-slate-800">
+                  <label className="font-bold text-slate-200 text-sm">Medical Notes</label>
+                  <p className="text-slate-500 mb-2">Relevant conditions: PCOS, endometriosis, thyroid, etc.</p>
+                  <textarea
+                    value={medicalNotes}
+                    onChange={(e) => setMedicalNotes(e.target.value)}
+                    rows={3}
+                    maxLength={255}
+                    placeholder="e.g. PCOS diagnosed, irregular cycles..."
+                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 text-slate-200 focus:outline-none focus:border-rose-500 text-sm resize-none"
+                  />
+                  <p className="text-right text-slate-600 text-[10px]">{medicalNotes.length}/255</p>
+                </div>
+              </div>
+            )}
+
+            {/* ═══════════════════════════ CYCLE SETTINGS TAB ═══════════════════════════ */}
+            {activeTab === 'cycle' && (<>
+
+
             <div className="space-y-4 bg-slate-950/80 p-4 rounded-2xl border border-slate-800">
 
               {/* Mode Toggle */}
@@ -323,6 +493,8 @@ export default function CycleSettingsModal({ isOpen, onClose, settings, onUpdate
                 Purple highlighted (14) is the clinical default. Your selection is shown in bold purple.
               </p>
             </div>
+
+            </>)}
 
           </form>
         </div>

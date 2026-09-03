@@ -14,8 +14,11 @@ import { X, CheckCircle2, AlertTriangle, Info } from 'lucide-react';
 export default function MenstrualCalendarApp() {
   const {
     isLoaded,
+    isApiMode,
+    isSyncing,
     periodStarts,
     settings,
+    apiProfile,
     cycleStats,
     predictedCycles,
     dateStatusMap,
@@ -26,6 +29,8 @@ export default function MenstrualCalendarApp() {
     clearHistory,
     loadSampleData,
     updateSettings,
+    updateHealthProfile,
+    syncToCloud,
     exportData,
     importData,
     dismissNotification,
@@ -85,6 +90,9 @@ export default function MenstrualCalendarApp() {
         onOpenPrivacy={() => setIsPrivacyOpen(true)}
         onRunTests={() => setIsTestsOpen(true)}
         hasData={periodStarts.length > 0}
+        isApiMode={isApiMode}
+        isSyncing={isSyncing}
+        onSyncToCloud={syncToCloud}
       />
 
       {/* 2. Medical & Privacy Disclaimer Banner */}
@@ -122,6 +130,9 @@ export default function MenstrualCalendarApp() {
         onClose={() => setIsSettingsOpen(false)}
         settings={settings}
         onUpdateSettings={updateSettings}
+        apiProfile={apiProfile}
+        onUpdateHealthProfile={updateHealthProfile}
+        isApiMode={isApiMode}
       />
 
       <PrivacySection
