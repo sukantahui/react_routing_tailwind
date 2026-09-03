@@ -201,8 +201,8 @@ const StudentFeeReceiptPart3 = () => {
       return currentUser.employee.designation.name;
     }
 
-    if (currentUser.userType && currentUser.userType.userTypeName) {
-      return currentUser.userType.userTypeName;
+    if (currentUser.role || (currentUser.userType && currentUser.userType.userTypeName)) {
+      return currentUser.role || currentUser.userType.userTypeName;
     }
 
     return 'Accounts Department';

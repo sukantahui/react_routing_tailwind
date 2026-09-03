@@ -65,7 +65,6 @@ const StudentFeeReceiptPart2 = lazy(() => import('../components/StudentFeeReceip
 const StudentFeeReceiptPart3 = lazy(() => import('../components/StudentFeeReceiptPart3'));
 const StudentFeeReceiptPart4 = lazy(() => import('../components/StudentFeeReceiptPart4'));
 const StudentWithAdmission = lazy(() => import('../components/students/StudentWithAdmission'));
-const FeePaymentsList = lazy(() => import('../components/FeePaymentsList'));
 
 // Master Study View Engines
 const StudyRoadmap = lazy(() => import('../components/study/StudyRoadmap'));
@@ -122,10 +121,7 @@ const ROUTES = {
   ICONS: '/icons',
   VSCODE: '/vscode',
   WHITEBOARD: '/whiteBoard',
-  STUDENT_WITH_ADMISSION: '/students/student-admission',
-  FEE_PAYMENTS_LIST: '/payments',
-  FEE_RECEIPTS_LIST: '/fees-receipts',
-  REGISTER_STUDENT_ADMISSION: '/students/register-admission',
+  STUDENT_WITH_ADMISSION: 'students/student-admission',
   NOT_FOUND: '*',
 
   // Technology routes – pattern: /{tech}/roadmap, /{tech}/module/:slug, /{tech}/topic/:moduleSlug/:topicIndex
@@ -598,22 +594,6 @@ export default function AppRoutes() {
           }
         />
 
-        <Route
-          path={ROUTES.FEE_PAYMENTS_LIST}
-          element={
-            <ProtectedRouteWrapper>
-              <FeePaymentsList />
-            </ProtectedRouteWrapper>
-          }
-        />
-        <Route
-          path={ROUTES.FEE_RECEIPTS_LIST}
-          element={
-            <ProtectedRouteWrapper>
-              <FeePaymentsList />
-            </ProtectedRouteWrapper>
-          }
-        />
         <Route
           path={ROUTES.STUDENT_WITH_ADMISSION}
           element={

@@ -11,6 +11,17 @@ export const studentService = {
       throw error;
     }
   },
+
+  getById: async (studentId) => {
+    try {
+      const response = await api.get(`/students/${studentId}`);
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching student:", error);
+      throw error;
+    }
+  },
+
   getWithoutAdmission: async () => {
     try {
       const response = await api.get("/students/without-admission");
@@ -20,16 +31,17 @@ export const studentService = {
       throw error;
     }
   },
+
   create: async (data) => {
     try {
-      const response = await api.post("/students",data);
+      const response = await api.post("/students", data);
       return response.data;
     } catch (error) {
       console.error("Error saving student:", error);
       throw error;
     }
-
   },
+
   createBasic: async (data) => {
     try {
       const response = await api.post("/students/basic", data);
@@ -39,6 +51,7 @@ export const studentService = {
       throw error;
     }
   },
+
   createWithAdmission: async (data) => {
     try {
       const response = await api.post("/admissions/admissionWithStudent", data);
@@ -47,5 +60,15 @@ export const studentService = {
       console.error("Error saving student with admission:", error);
       throw error;
     }
-  }
-};
+  },
+
+  update: async (studentId, data) => {
+    try {
+      const response = await api.put(`/students/${studentId}`, data);
+      return response.data;
+    } catch (error) {
+      console.error("Error updating student:", error);
+      throw error;
+    }
+  },
+};

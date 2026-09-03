@@ -58,7 +58,6 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
 
   const isDev = Boolean(import.meta.env?.DEV);
   const isAdmin = useMemo(() => ['admin', 'developer', 'owner'].includes((user?.role || '').toLowerCase()), [user]);
-  const isManagerOrAdmin = useMemo(() => ['admin', 'developer', 'owner', 'manager'].some((r) => (user?.role || '').toLowerCase().includes(r)), [user]);
 
   // Get user initials for avatar
   const userInitials = useMemo(() => {
@@ -92,24 +91,12 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           icon: "bi-person-plus-fill",
           badge: "Active",
         },
-        ...(isManagerOrAdmin
-          ? [
-              {
-                to: "/students/student-admission",
-                label: "Student Admission & Fees",
-                desc: "Enroll student, assign course & set fees",
-                icon: "bi-person-badge-fill",
-                badge: "Admin",
-              },
-              {
-                to: "/payments",
-                label: "Fee Payments & Receipts",
-                desc: "View all payment entries, receipts & collections",
-                icon: "bi-receipt-cutoff",
-                badge: "Finance",
-              },
-            ]
-          : []),
+        {
+          to: "/students/student-admission",
+          label: "Student with Admission",
+          desc: "Integrated student & admission view",
+          icon: "bi-person-badge-fill",
+        },
       ],
     },
     {
@@ -188,7 +175,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           : []),
       ],
     },
-  ], [isAdmin, isManagerOrAdmin]);
+  ], [isAdmin]);
 
   // Tools Items Grouped
   const toolsGroups = useMemo(() => [

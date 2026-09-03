@@ -6,7 +6,6 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, Search, ChevronDown, CheckCircle2, XCircle, Sparkles, Calendar, IndianRupee } from "lucide-react";
 import api from "../../api/api";
 import { courseService } from "../../services/courseService";
 
@@ -14,7 +13,7 @@ export default function StudentWithAdmission() {
   const navigate = useNavigate();
 
   // Authentication & Authorization
-  const [, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
   const [isAuthorized, setIsAuthorized] = useState(true);
 
   // External data lists
@@ -25,8 +24,6 @@ export default function StudentWithAdmission() {
 
   // Accordion toggle for secondary details
   const [showOptionalDetails, setShowOptionalDetails] = useState(false);
-
-
 
   // Student Form State (Minimal required: studentName, whatsapp)
   const [studentForm, setStudentForm] = useState({
@@ -59,15 +56,6 @@ export default function StudentWithAdmission() {
     courseFees: "",
     admissionDate: new Date().toISOString().split("T")[0],
     completionDate: "",
-  });
-
-  // Initial Fee Payment Received State
-  const [feePayment, setFeePayment] = useState({
-    collectFeeNow: false,
-    amountPaid: "",
-    paymentMode: "Cash",
-    paymentDate: new Date().toISOString().split("T")[0],
-    remarks: "",
   });
 
   // Check role authorization on mount
@@ -156,11 +144,6 @@ export default function StudentWithAdmission() {
           const catalogFee = selected.courseFees || selected.course_fees || 0;
           if (catalogFee > 0) {
             updated.courseFees = Number(catalogFee);
-            // Auto-sync amount received to the new agreed course fees
-            setFeePayment((prevFee) => ({
-              ...prevFee,
-              amountPaid: Number(catalogFee),
-            }));
           }
           // Strictly adopt course's assigned fee mode!
           const mode = selected.feeModesId || selected.fee_modes_id || 1;
@@ -176,114 +159,15 @@ export default function StudentWithAdmission() {
 
       return updated;
     });
-
-    // When agreed course fees changes directly in input, auto-update amount received
-    if (name === "courseFees") {
-      setFeePayment((prevFee) => ({
-        ...prevFee,
-        amountPaid: value,
-      }));
-    }
   };
 
   const selectedCourseObj = useMemo(() => {
     return courses.find((c) => String(c.id || c.courseId) === String(admissionForm.courseId));
   }, [courses, admissionForm.courseId]);
 
-  // Grouped courses for clean, lightweight optgroup dropdown
-  const groupedCourses = useMemo(() => {
-    const groups = {
-      "💻 Software & Web Development": [],
-      "📊 Accounting, Finance & Office": [],
-      "🎓 School & Board Curriculum (ICSE / ISC / CBSE / WBCHSE)": [],
-      "🤖 Advanced Technologies & Other": [],
-    };
-
-    courses.forEach((c) => {
-      const code = (c.course_code || c.courseCode || "").toUpperCase();
-      const name = (c.course_name || c.courseName || "").toLowerCase();
-
-      if (
-        code.includes("ICSE") ||
-        code.includes("ISC") ||
-        code.includes("CBSE") ||
-        code.includes("WBCHSE") ||
-        code.includes("SCHOOL")
-      ) {
-        groups["🎓 School & Board Curriculum (ICSE / ISC / CBSE / WBCHSE)"].push(c);
-      } else if (
-        code.includes("TALLY") ||
-        code.includes("EXCEL") ||
-        code.includes("GST") ||
-        code.includes("DFA") ||
-        code.includes("DCA") ||
-        code.includes("OP") ||
-        name.includes("office") ||
-        name.includes("accounting")
-      ) {
-        groups["📊 Accounting, Finance & Office"].push(c);
-      } else if (
-        code.includes("AI") ||
-        code.includes("ROBOT") ||
-        name.includes("ai") ||
-        name.includes("robotics")
-      ) {
-        groups["🤖 Advanced Technologies & Other"].push(c);
-      } else {
-        groups["💻 Software & Web Development"].push(c);
-      }
-    });
-
-    return groups;
-  }, [courses]);
-
   const selectedFeeModeObj = useMemo(() => {
     return feeModes.find((f) => String(f.id) === String(admissionForm.feeModesId));
   }, [feeModes, admissionForm.feeModesId]);
-
-  // Real-time Due Calculation for both Monthly and Lump-sum fee modes
-  const dueCalculation = useMemo(() => {
-    const feeMode = Number(admissionForm.feeModesId || 1); // 1 = Monthly, 2 = Course Fees
-    const agreedFee = Number(admissionForm.courseFees) || 0;
-    const amountPaid = feePayment.collectFeeNow ? (Number(feePayment.amountPaid) || 0) : 0;
-
-    if (feeMode === 2) {
-      // Course Fees / Lump Sum Mode
-      const due = Math.max(0, agreedFee - amountPaid);
-      return {
-        mode: "lump_sum",
-        totalPayable: agreedFee,
-        amountPaid,
-        dueAmount: due,
-      };
-    }
-
-    // Monthly Mode: Calculate elapsed calendar months between admissionDate and paymentDate (or today)
-    const admDateStr = admissionForm.admissionDate || new Date().toISOString().split("T")[0];
-    const payDateStr = (feePayment.collectFeeNow && feePayment.paymentDate) ? feePayment.paymentDate : new Date().toISOString().split("T")[0];
-
-    const admD = new Date(admDateStr);
-    const payD = new Date(payDateStr);
-
-    let elapsedMonths = (payD.getFullYear() - admD.getFullYear()) * 12 + (payD.getMonth() - admD.getMonth()) + 1;
-    if (elapsedMonths < 1) elapsedMonths = 1;
-
-    const totalAccruedFee = elapsedMonths * agreedFee;
-    const due = Math.max(0, totalAccruedFee - amountPaid);
-    const monthsPaid = agreedFee > 0 ? (amountPaid / agreedFee).toFixed(1).replace(/\.0$/, "") : "0";
-    const monthsDue = agreedFee > 0 ? Math.max(0, (due / agreedFee)).toFixed(1).replace(/\.0$/, "") : "0";
-
-    return {
-      mode: "monthly",
-      elapsedMonths,
-      monthlyRate: agreedFee,
-      totalAccruedFee,
-      amountPaid,
-      dueAmount: due,
-      monthsPaid,
-      monthsDue,
-    };
-  }, [admissionForm.feeModesId, admissionForm.courseFees, admissionForm.admissionDate, feePayment.collectFeeNow, feePayment.paymentDate, feePayment.amountPaid]);
 
   // Monthly estimate calculator
   const monthlyBreakdown = useMemo(() => {
@@ -366,57 +250,38 @@ export default function StudentWithAdmission() {
       return;
     }
 
-    // Build clean student payload
-    const studentData = {
-      student_name: studentForm.studentName.trim(),
-      whatsapp: studentForm.whatsapp.trim(),
-      district_id: Number(studentForm.districtId) || 2,
-      gender_id: Number(studentForm.genderId) || 1,
-    };
-
-    if (studentForm.nickname?.trim()) studentData.nickname = studentForm.nickname.trim();
-    if (studentForm.email?.trim()) studentData.email = studentForm.email.trim();
-    if (studentForm.dob) studentData.dob = studentForm.dob;
-    if (studentForm.bloodGroup) studentData.blood_group = studentForm.bloodGroup;
-    if (studentForm.fatherName?.trim()) studentData.father_name = studentForm.fatherName.trim();
-    if (studentForm.motherName?.trim()) studentData.mother_name = studentForm.motherName.trim();
-    if (studentForm.guardianName?.trim()) studentData.guardian_name = studentForm.guardianName.trim();
-    if (studentForm.guardianRelation?.trim()) studentData.guardian_relation = studentForm.guardianRelation.trim();
-    if (studentForm.guardianPhone?.trim()) studentData.guardian_phone = studentForm.guardianPhone.trim();
-    if (studentForm.phone1?.trim()) studentData.phone1 = studentForm.phone1.trim();
-    if (studentForm.phone2?.trim()) studentData.phone2 = studentForm.phone2.trim();
-    if (studentForm.address?.trim()) studentData.address = studentForm.address.trim();
-    if (studentForm.city?.trim()) studentData.city = studentForm.city.trim();
-    if (studentForm.pin?.trim()) {
-      const p = studentForm.pin.trim();
-      if (p.length === 6) studentData.pin = p;
-    }
-
     const payload = {
-      student: studentData,
+      student: {
+        student_name: studentForm.studentName.trim(),
+        studentName: studentForm.studentName.trim(),
+        whatsapp: studentForm.whatsapp.trim(),
+        // Optional secondary fields
+        nickname: studentForm.nickname?.trim() || null,
+        email: studentForm.email?.trim() || null,
+        dob: studentForm.dob || null,
+        blood_group: studentForm.bloodGroup || null,
+        father_name: studentForm.fatherName?.trim() || null,
+        mother_name: studentForm.motherName?.trim() || null,
+        guardian_name: studentForm.guardianName?.trim() || null,
+        guardian_relation: studentForm.guardianRelation || null,
+        guardian_phone: studentForm.guardianPhone?.trim() || null,
+        phone1: studentForm.phone1?.trim() || null,
+        phone2: studentForm.phone2?.trim() || null,
+        address: studentForm.address?.trim() || null,
+        district_id: Number(studentForm.districtId) || 2,
+        city: studentForm.city?.trim() || "Kolkata",
+        pin: studentForm.pin?.trim() || "700000",
+        gender_id: Number(studentForm.genderId) || 1,
+      },
       admission: {
         course_id: Number(admissionForm.courseId),
         fee_modes_id: Number(admissionForm.feeModesId) || 1,
         course_status_id: Number(admissionForm.courseStatusId) || 1,
-        course_fees: Math.round(Number(admissionForm.courseFees)),
+        course_fees: Number(admissionForm.courseFees),
         admission_date: admissionForm.admissionDate,
+        completion_date: admissionForm.completionDate || null,
       },
     };
-
-    if (admissionForm.completionDate) {
-      payload.admission.completion_date = admissionForm.completionDate;
-    }
-
-    if (feePayment.collectFeeNow && Number(feePayment.amountPaid) > 0) {
-      payload.initial_fee = {
-        amount_paid: Number(feePayment.amountPaid),
-        payment_mode: feePayment.paymentMode,
-        payment_date: feePayment.paymentDate,
-      };
-      if (feePayment.remarks?.trim()) {
-        payload.initial_fee.remarks = feePayment.remarks.trim();
-      }
-    }
 
     const confirmResult = await Swal.fire({
       title: "Confirm Student Enrollment?",
@@ -427,13 +292,6 @@ export default function StudentWithAdmission() {
           <p><b class="text-slate-400">Assigned Course:</b> <span class="text-sky-400 font-semibold">${selectedCourseObj?.course_name || selectedCourseObj?.courseName || "Course"}</span></p>
           <p><b class="text-slate-400">Agreed Course Fee:</b> <span class="text-emerald-400 font-extrabold">₹${Number(admissionForm.courseFees).toLocaleString()}</span></p>
           <p><b class="text-slate-400">Payment Schedule:</b> <span class="text-purple-300 font-semibold">${selectedFeeModeObj?.fee_modes_name || (Number(admissionForm.feeModesId) === 2 ? "Course Fees (Lump sum)" : "Monthly")}</span></p>
-          ${feePayment.collectFeeNow && Number(feePayment.amountPaid) > 0 ? `
-            <div class="p-2 rounded-lg bg-slate-950 border border-sky-500/30 text-[11px] space-y-1">
-              <p><b class="text-sky-300">Initial Fee Received:</b> <span class="text-emerald-400 font-bold">₹${Number(feePayment.amountPaid).toLocaleString()}</span> via <span class="text-white font-semibold">${feePayment.paymentMode}</span></p>
-              <p><b class="text-slate-400">Date:</b> ${feePayment.paymentDate}</p>
-              <p><b class="text-amber-300">Remaining Balance:</b> ₹${Math.max(0, Number(admissionForm.courseFees) - Number(feePayment.amountPaid)).toLocaleString()}</p>
-            </div>
-          ` : `<p class="text-[11px] text-slate-400">Initial Payment: <span class="text-slate-400 italic">None at admission (pay later)</span></p>`}
           <p class="text-[11px] text-slate-400 pt-2 border-t border-slate-700/80">
             Do you want to confirm and save this registration and course admission record?
           </p>
@@ -459,8 +317,7 @@ export default function StudentWithAdmission() {
       const res = await api.post("/admissions/admissionWithStudent", payload);
 
       if (res?.data?.status) {
-        const admData = res.data?.data?.admission || res.data?.data || {};
-        const receiptData = res.data?.data?.receipt || null;
+        const admData = res.data.data;
 
         Swal.fire({
           icon: "success",
@@ -473,7 +330,6 @@ export default function StudentWithAdmission() {
               <p><b>Agreed Course Fee:</b> <span class="text-emerald-400 font-bold">₹${Number(admissionForm.courseFees).toLocaleString()}</span></p>
               <p><b>Payment Schedule:</b> <span class="text-purple-300">${selectedFeeModeObj?.fee_modes_name || "Monthly"}</span></p>
               ${admData?.admissionNumber ? `<p><b>Admission Number:</b> <span class="font-mono text-amber-300">${admData.admissionNumber}</span></p>` : ""}
-              ${receiptData?.receiptNo ? `<p><b>Receipt Generated:</b> <span class="font-mono text-emerald-400 font-bold">${receiptData.receiptNo}</span></p>` : ""}
               <div class="mt-2 pt-2 border-t border-slate-700 text-slate-400 text-[11px]">
                 💡 You can complete full parent, address, or document details anytime from the Dashboard!
               </div>
@@ -527,21 +383,14 @@ export default function StudentWithAdmission() {
       console.error("Admission error:", err);
       let errorMsg = err.response?.data?.message || "Could not complete student registration and admission.";
 
-      const valErrors = err.response?.data?.data || err.response?.data?.errors;
-      if (valErrors && typeof valErrors === "object") {
-        errorMsg = Object.entries(valErrors)
-          .map(([field, msgs]) => {
-            const label = field.replace(/^student\.|^admission\.|^initial_fee\./, "").replace(/_/g, " ");
-            const msgList = Array.isArray(msgs) ? msgs.join(", ") : String(msgs);
-            return `<div class="p-2 rounded-lg bg-rose-950/60 border border-rose-800/60 mb-1.5"><b class="text-rose-200 capitalize">${label}:</b> <span class="text-rose-300">${msgList}</span></div>`;
-          })
-          .join("");
+      if (err.response?.data?.errors) {
+        errorMsg = Object.values(err.response.data.errors).flat().join("<br>");
       }
 
       Swal.fire({
         icon: "error",
         title: "Registration Failed",
-        html: `<div class="text-left text-xs text-rose-300 mt-2">${errorMsg}</div>`,
+        html: `<div class="text-left text-xs text-rose-300">${errorMsg}</div>`,
         background: "#0f172a",
         color: "#f8fafc",
         confirmButtonColor: "#ef4444",
@@ -679,78 +528,31 @@ export default function StudentWithAdmission() {
                     </span>
                   </div>
 
-                  {/* GROUPED CLEAN ACADEMIC COURSE DROPDOWN */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-                        <BookOpen className="w-4 h-4 text-emerald-400" />
-                        <span>Select Academic Course</span>
-                        <span className="text-rose-400">*</span>
-                      </label>
-                      <span className="text-[11px] text-slate-400">
-                        {courses.length} courses across 4 categories
-                      </span>
-                    </div>
-
+                  {/* Course Dropdown */}
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-200 mb-1.5">
+                      Select Academic Course <span className="text-rose-400">*</span>
+                    </label>
                     <select
                       name="courseId"
                       value={admissionForm.courseId}
                       onChange={handleAdmissionChange}
                       required
                       disabled={!isAuthorized}
-                      className="w-full bg-slate-950 border border-slate-700/90 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 cursor-pointer shadow-inner"
+                      className="w-full bg-slate-950 border border-slate-700/80 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-white focus:outline-none focus:border-emerald-500 cursor-pointer"
                     >
-                      <option value="" className="text-slate-500 bg-slate-900">
-                        -- Select Academic Course Program --
-                      </option>
-                      {Object.entries(groupedCourses).map(([groupTitle, courseList]) =>
-                        courseList.length > 0 ? (
-                          <optgroup
-                            key={groupTitle}
-                            label={groupTitle}
-                            className="bg-slate-900 font-bold text-emerald-400 text-xs py-1"
-                          >
-                            {courseList.map((c) => {
-                              const fee = Number(c.courseFees || c.course_fees || 0);
-                              const code = c.course_code || c.courseCode;
-                              const name = c.course_name || c.courseName;
-                              return (
-                                <option
-                                  key={c.id || c.courseId}
-                                  value={c.id || c.courseId}
-                                  className="bg-slate-950 text-slate-100 font-normal py-1.5 pl-2 text-xs"
-                                >
-                                  {name} ({code}) — ₹{fee.toLocaleString()}
-                                </option>
-                              );
-                            })}
-                          </optgroup>
-                        ) : null
-                      )}
+                      <option value="">-- Choose Academic Course ({courses.length} courses) --</option>
+                      {courses.map((c) => {
+                        const fee = c.courseFees || c.course_fees || 0;
+                        return (
+                          <option key={c.id || c.courseId} value={c.id || c.courseId}>
+                            {c.course_name || c.courseName} [{c.course_code || c.courseCode}]{fee > 0 ? ` — ₹${Number(fee).toLocaleString()}` : ""}
+                          </option>
+                        );
+                      })}
                     </select>
-
-                    {/* Selected Course Quick Summary Banner */}
-                    {selectedCourseObj && (
-                      <div className="p-3 rounded-xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-indigo-950/30 border border-emerald-500/30 flex items-center justify-between gap-3 text-xs animate-fadeIn">
-                        <div className="flex items-center gap-2.5">
-                          <span className="px-2 py-0.5 rounded-md font-mono font-bold text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                            {selectedCourseObj.course_code || selectedCourseObj.courseCode}
-                          </span>
-                          <span className="font-bold text-white">
-                            {selectedCourseObj.course_name || selectedCourseObj.courseName}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                            {Number(selectedCourseObj.feeModesId || selectedCourseObj.fee_modes_id) === 2 ? "Course Fees" : "Monthly Plan"}
-                          </span>
-                          <span className="font-extrabold text-emerald-400">
-                            ₹{Number(selectedCourseObj.courseFees || selectedCourseObj.course_fees || 0).toLocaleString()}
-                          </span>
-                        </div>
-                      </div>
-                    )}
                   </div>
+
                   {/* Agreed Course Fee & Payment Mode */}
                   <div className="p-4 rounded-xl bg-slate-950/80 border border-emerald-500/30 space-y-3">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -798,155 +600,21 @@ export default function StudentWithAdmission() {
                       </div>
                     </div>
 
-                    {/* Admission Date Field with Interactive Picker & Shortcuts */}
-                    <div className="pt-3 border-t border-slate-800">
-                      <DatePicker
-                        label="Admission Date"
-                        name="admissionDate"
-                        value={admissionForm.admissionDate}
-                        onChange={handleAdmissionChange}
-                        required
-                      />
+                    {/* Quick Presets */}
+                    <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-800/60">
+                      <span className="text-[10px] uppercase font-semibold text-slate-500">Quick Fee Presets:</span>
+                      {[8000, 12000, 15000, 18000, 25000, 35000, 45000].map((amount) => (
+                        <button
+                          key={amount}
+                          type="button"
+                          onClick={() => setAdmissionForm((prev) => ({ ...prev, courseFees: amount }))}
+                          disabled={!isAuthorized}
+                          className="px-2 py-0.5 rounded-lg text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60 transition cursor-pointer"
+                        >
+                          ₹{amount.toLocaleString()}
+                        </button>
+                      ))}
                     </div>
-
-
-                  </div>
-
-                  {/* INITIAL FEES RECEIVED ENTRIES (WITH DATE AND MODE) */}
-                  <div className="p-4 rounded-xl bg-slate-950/90 border border-sky-500/30 space-y-3">
-                    <div className="flex items-center justify-between border-b border-slate-800 pb-2">
-                      <label className="flex items-center gap-2 cursor-pointer">
-                        <input
-                          type="checkbox"
-                          checked={feePayment.collectFeeNow}
-                          onChange={(e) => {
-                            const checked = e.target.checked;
-                            setFeePayment((prev) => ({
-                              ...prev,
-                              collectFeeNow: checked,
-                              amountPaid: checked && !prev.amountPaid ? (admissionForm.courseFees || "") : prev.amountPaid,
-                            }));
-                          }}
-                          className="w-4 h-4 rounded text-sky-500 bg-slate-900 border-slate-700 focus:ring-sky-500 cursor-pointer"
-                        />
-                        <span className="text-xs font-bold text-sky-400 flex items-center gap-1.5">
-                          <span>💳 Initial Fees Received at Admission</span>
-                        </span>
-                      </label>
-                      <span className="text-[10px] text-slate-400 font-semibold">
-                        {feePayment.collectFeeNow ? "Active (Receipt will generate)" : "Optional"}
-                      </span>
-                    </div>
-
-                    {feePayment.collectFeeNow && (
-                      <div className="space-y-3 pt-1 animate-fadeIn">
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                          {/* Amount Paid */}
-                          <div>
-                            <label className="block text-xs font-semibold text-slate-300 mb-1">
-                              Amount Received (₹) <span className="text-rose-400">*</span>
-                            </label>
-                            <div className="relative">
-                              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-emerald-400 font-bold text-sm">₹</span>
-                              <input
-                                type="number"
-                                min="0"
-                                
-                                placeholder="e.g. 3000"
-                                value={feePayment.amountPaid}
-                                onChange={(e) => setFeePayment((prev) => ({ ...prev, amountPaid: e.target.value }))}
-                                className="w-full bg-slate-900 border border-sky-500/40 rounded-xl pl-7 pr-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-sky-400"
-                              />
-                            </div>
-                          </div>
-
-                          {/* Payment Date */}
-                          <div>
-                            <label className="block text-xs font-semibold text-slate-300 mb-1">
-                              Payment Date <span className="text-rose-400">*</span>
-                            </label>
-                            <input
-                              type="date"
-                              value={feePayment.paymentDate}
-                              onChange={(e) => setFeePayment((prev) => ({ ...prev, paymentDate: e.target.value }))}
-                              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-sky-400 cursor-pointer [&::-webkit-calendar-picker-indicator]:invert"
-                            />
-                          </div>
-
-                          {/* Payment Mode */}
-                          <div>
-                            <label className="block text-xs font-semibold text-slate-300 mb-1">
-                              Payment Mode <span className="text-rose-400">*</span>
-                            </label>
-                            <select
-                              value={feePayment.paymentMode}
-                              onChange={(e) => setFeePayment((prev) => ({ ...prev, paymentMode: e.target.value }))}
-                              className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-sky-400 cursor-pointer"
-                            >
-                              <option value="Cash">Cash</option>
-                              <option value="UPI">UPI (GPay / PhonePe / QR)</option>
-                              <option value="Bank Transfer">Bank Transfer (NEFT / IMPS)</option>
-                              <option value="Cheque">Cheque</option>
-                              <option value="Card">Card / POS</option>
-                            </select>
-                          </div>
-                        </div>
-
-
-
-                        {/* Live Real-time Due & Payment Summary */}
-                        <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2.5 text-xs text-slate-300">
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                            <div>
-                              <span>Fees Paid Now: </span>
-                              <strong className="text-emerald-400 font-bold text-sm">
-                                ₹{Number(feePayment.amountPaid || 0).toLocaleString()}
-                              </strong>
-                              <span className="text-slate-400 ml-1.5">via {feePayment.paymentMode}</span>
-                            </div>
-
-                            <div>
-                              <span>{dueCalculation.mode === "monthly" ? "Accrued Fees (Elapsed): " : "Agreed Total Fees: "}</span>
-                              <strong className="text-white font-semibold">
-                                ₹{(dueCalculation.mode === "monthly" ? dueCalculation.totalAccruedFee : dueCalculation.totalPayable).toLocaleString()}
-                              </strong>
-                              {dueCalculation.mode === "monthly" && (
-                                <span className="text-slate-400 text-[11px] ml-1">
-                                  ({dueCalculation.elapsedMonths} mo @ ₹{dueCalculation.monthlyRate.toLocaleString()}/mo)
-                                </span>
-                              )}
-                            </div>
-                          </div>
-
-                          <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
-                            <div className="flex items-center gap-1.5">
-                              <span className="text-slate-400">Payment Status:</span>
-                              {dueCalculation.dueAmount === 0 ? (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                                  ✓ Cleared (No Due)
-                                </span>
-                              ) : (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                                  ⚠ Pending Due
-                                </span>
-                              )}
-                            </div>
-
-                            <div>
-                              <span className="text-slate-400">Due Amount: </span>
-                              <strong className={`text-sm font-extrabold ${dueCalculation.dueAmount > 0 ? "text-rose-400" : "text-emerald-400"}`}>
-                                ₹{dueCalculation.dueAmount.toLocaleString()}
-                              </strong>
-                              {dueCalculation.mode === "monthly" && dueCalculation.dueAmount > 0 && (
-                                <span className="text-rose-400/80 text-[11px] ml-1">
-                                  ({dueCalculation.monthsDue} mo pending)
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
 
@@ -1248,98 +916,6 @@ export default function StudentWithAdmission() {
             </div>
           </div>
         )}
-      </div>
-    </div>
-  );
-}
-// Interactive DatePicker Helper Component with Selection Button & Shortcuts
-function DatePicker({ label, name, value, onChange, required = false }) {
-  const inputRef = React.useRef(null);
-
-  const openCalendar = () => {
-    if (inputRef.current) {
-      if (typeof inputRef.current.showPicker === "function") {
-        inputRef.current.showPicker();
-      } else {
-        inputRef.current.focus();
-      }
-    }
-  };
-
-  const setPreset = (preset) => {
-    const d = new Date();
-    if (preset === "today") {
-      // today
-    } else if (preset === "yesterday") {
-      d.setDate(d.getDate() - 1);
-    } else if (preset === "startOfMonth") {
-      d.setDate(1);
-    }
-    const iso = d.toISOString().split("T")[0];
-    onChange({ target: { name, value: iso } });
-  };
-
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-between mb-1.5">
-        <label className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
-          <Calendar className="w-3.5 h-3.5 text-sky-400" />
-          <span>{label}</span> {required && <span className="text-rose-400">*</span>}
-        </label>
-        {value && (
-          <span className="text-[11px] font-mono text-sky-400 font-semibold bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
-            {new Date(value).toLocaleDateString("en-US", { weekday: "short", year: "numeric", month: "short", day: "numeric" })}
-          </span>
-        )}
-      </div>
-
-      <div className="relative flex items-center group">
-        <input
-          ref={inputRef}
-          type="date"
-          name={name}
-          value={value}
-          onChange={onChange}
-          required={required}
-          onClick={openCalendar}
-          className="w-full bg-slate-900 text-gray-100 border border-slate-700 hover:border-slate-600 focus:border-sky-500 rounded-xl pl-4 pr-36 py-2.5 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer [&::-webkit-calendar-picker-indicator]:invert [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-80 hover:[&::-webkit-calendar-picker-indicator]:opacity-100 transition shadow-inner"
-        />
-
-        <button
-          type="button"
-          onClick={openCalendar}
-          className="absolute right-2 px-3 py-1.5 rounded-lg text-xs font-bold bg-sky-500 hover:bg-sky-400 text-white transition cursor-pointer flex items-center gap-1.5 shadow-md shadow-sky-500/20 active:scale-95"
-          title="Click to open calendar"
-        >
-          <Calendar className="w-3.5 h-3.5 text-white" />
-          <span>Select Date</span>
-        </button>
-      </div>
-
-      {/* Quick Date Presets */}
-      <div className="flex items-center gap-2 mt-2">
-        <span className="text-[10px] uppercase font-bold text-slate-500">Shortcuts:</span>
-        <button
-          type="button"
-          onClick={() => setPreset("today")}
-          className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-900 hover:bg-slate-800 text-sky-300 hover:text-white border border-slate-800 transition cursor-pointer"
-        >
-          Today
-        </button>
-        <button
-          type="button"
-          onClick={() => setPreset("yesterday")}
-          className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition cursor-pointer"
-        >
-          Yesterday
-        </button>
-        <button
-          type="button"
-          onClick={() => setPreset("startOfMonth")}
-          className="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition cursor-pointer"
-        >
-          1st of Month
-        </button>
       </div>
     </div>
   );

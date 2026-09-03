@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CNATLogo from "../../public/assets/cnat.png";
 import paidStamp from "../assets/images/paid-stamp.png";
-import CNATQR from "../../public/assets/CNAT_QR.jpeg";
 import * as htmlToImage from 'html-to-image';
 import { studentService } from '../services/studentService';
 import { courseService } from '../services/courseService';
@@ -86,7 +85,6 @@ const StudentFeeReceiptPart4 = () => {
   // Convert imported images to data URLs for print
   const [logoDataUrl, setLogoDataUrl] = useState('');
   const [paidStampDataUrl, setPaidStampDataUrl] = useState('');
-  const [qrCodeDataUrl, setQrCodeDataUrl] = useState('');
 
   // Check if in development mode
   const isDevelopment = process.env.NODE_ENV === 'development';
@@ -198,8 +196,8 @@ const StudentFeeReceiptPart4 = () => {
       return currentUser.employee.designation.name;
     }
 
-    if (currentUser.role || (currentUser.userType && currentUser.userType.userTypeName)) {
-      return currentUser.role || currentUser.userType.userTypeName;
+    if (currentUser.userType && currentUser.userType.userTypeName) {
+      return currentUser.userType.userTypeName;
     }
 
     return 'Accounts Department';
@@ -364,14 +362,6 @@ const StudentFeeReceiptPart4 = () => {
           setPaidStampDataUrl(stampDataUrlReader.result);
         };
         stampDataUrlReader.readAsDataURL(stampBlob);
-
-        const qrResponse = await fetch(CNATQR);
-        const qrBlob = await qrResponse.blob();
-        const qrDataUrlReader = new FileReader();
-        qrDataUrlReader.onloadend = () => {
-          setQrCodeDataUrl(qrDataUrlReader.result);
-        };
-        qrDataUrlReader.readAsDataURL(qrBlob);
       } catch (error) {
         console.error('Error loading images:', error);
       }
@@ -728,8 +718,6 @@ const StudentFeeReceiptPart4 = () => {
       },
       skipAutoScale: false,
       preferDimensions: true,
-      skipFonts: true,
-      fontEmbedCSS: '',
     };
 
     let dataUrl;
@@ -1450,12 +1438,12 @@ const StudentFeeReceiptPart4 = () => {
               <div class="qr-section">
                 <div class="qr-info">
                   <div class="qr-title">📱 Pay Online via UPI</div>
-                  <div class="qr-text">Scan official QR to make payment</div>
+                  <div class="qr-text">Scan QR code to make payment</div>
                   <div class="qr-text">Any UPI App (Google Pay, PhonePe, Paytm)</div>
-                  <div class="upi-id">UPI ID: codernaccotax@okhdfcbank</div>
+                  <div class="upi-id">UPI ID: 9432456083@upi</div>
                 </div>
-                <div class="qr-code" style="width: 78px; height: 96px; display: flex; align-items: center; justify-content: center;">
-                  <img src="${qrCodeDataUrl || CNATQR || '/assets/CNAT_QR.jpeg'}" alt="CNAT Payment QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; border: 1px solid #e9d5ff;" />
+                <div class="qr-code">
+                  <img src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR&am=${parseFloat(receiptData.feesPaid)}" alt="UPI QR Code" style="width: 70px; height: 70px;" />
                 </div>
               </div>
 
@@ -2114,12 +2102,12 @@ const StudentFeeReceiptPart4 = () => {
                       <p className="text-[7px] text-gray-400 mt-1">25(10/A) Shibtala Road, Barrackpore, Kol-122</p>
                       <div className="mt-2 pt-2 flex justify-center">
                         <img
-                          src={qrCodeDataUrl || CNATQR || "/assets/CNAT_QR.jpeg"}
-                          alt="CNAT Official Payment QR"
-                          className="w-20 h-24 object-contain mx-auto rounded border border-purple-200"
+                          src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR"
+                          alt="UPI QR Code"
+                          className="w-16 h-16 mx-auto"
                         />
                       </div>
-                      <div className="text-[8px] font-mono font-bold text-gray-600 mt-1">UPI ID: codernaccotax@okhdfcbank</div>
+                      <div className="text-[6px] text-gray-400 mt-1">UPI ID: 9432456083@upi</div>
                       <div className="mt-2 pt-1 border-t border-gray-100">
                         <p className="text-[7px] text-gray-500">📞 For any query: <span className="font-semibold text-gray-700">7003756860</span></p>
                         <p className="text-[7px] text-gray-500 mt-0.5">🌐 Visit us: <span className="font-semibold text-blue-600">www.codernaccotax.co.in</span></p>

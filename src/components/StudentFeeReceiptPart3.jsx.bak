@@ -2,14 +2,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CNATLogo from "../../public/assets/cnat.png";
 import paidStamp from "../assets/images/paid-stamp.png";
-import CNATQR from "../../public/assets/CNAT_QR.jpeg";
 import * as htmlToImage from 'html-to-image';
 import { studentService } from '../services/studentService';
 import { courseService } from '../services/courseService';
 import { loginService } from '../services/loginService';
 import { simpleFeesReceiptService } from '../services/simpleFeesReceiptService';
 
-const StudentFeeReceiptPart4 = () => {
+const StudentFeeReceiptPart3 = () => {
   // Get current date in YYYY-MM-DD format for default value
   const getCurrentDate = () => {
     const today = new Date();
@@ -86,7 +85,6 @@ const StudentFeeReceiptPart4 = () => {
   // Convert imported images to data URLs for print
   const [logoDataUrl, setLogoDataUrl] = useState('');
   const [paidStampDataUrl, setPaidStampDataUrl] = useState('');
-  const [qrCodeDataUrl, setQrCodeDataUrl] = useState('');
 
   // Check if in development mode
   const isDevelopment = process.env.NODE_ENV === 'development';
@@ -129,6 +127,11 @@ const StudentFeeReceiptPart4 = () => {
         studentsArray = response.data.data;
       }
 
+      // Debug: Log the first student to see available fields
+      if (studentsArray.length > 0) {
+        console.log('Student data structure:', studentsArray[0]);
+        console.log('Available fields:', Object.keys(studentsArray[0]));
+      }
 
       setStudents(studentsArray);
 
@@ -177,7 +180,7 @@ const StudentFeeReceiptPart4 = () => {
 
   // Helper function to get collector name
   const getCollectorName = () => {
-    if (!currentUser) return 'System'
+    if (!currentUser) return 'System';
 
     if (currentUser.employee && currentUser.employee.employeeName) {
       return currentUser.employee.employeeName;
@@ -198,8 +201,8 @@ const StudentFeeReceiptPart4 = () => {
       return currentUser.employee.designation.name;
     }
 
-    if (currentUser.role || (currentUser.userType && currentUser.userType.userTypeName)) {
-      return currentUser.role || currentUser.userType.userTypeName;
+    if (currentUser.userType && currentUser.userType.userTypeName) {
+      return currentUser.userType.userTypeName;
     }
 
     return 'Accounts Department';
@@ -364,14 +367,6 @@ const StudentFeeReceiptPart4 = () => {
           setPaidStampDataUrl(stampDataUrlReader.result);
         };
         stampDataUrlReader.readAsDataURL(stampBlob);
-
-        const qrResponse = await fetch(CNATQR);
-        const qrBlob = await qrResponse.blob();
-        const qrDataUrlReader = new FileReader();
-        qrDataUrlReader.onloadend = () => {
-          setQrCodeDataUrl(qrDataUrlReader.result);
-        };
-        qrDataUrlReader.readAsDataURL(qrBlob);
       } catch (error) {
         console.error('Error loading images:', error);
       }
@@ -728,8 +723,6 @@ const StudentFeeReceiptPart4 = () => {
       },
       skipAutoScale: false,
       preferDimensions: true,
-      skipFonts: true,
-      fontEmbedCSS: '',
     };
 
     let dataUrl;
@@ -1450,12 +1443,12 @@ const StudentFeeReceiptPart4 = () => {
               <div class="qr-section">
                 <div class="qr-info">
                   <div class="qr-title">📱 Pay Online via UPI</div>
-                  <div class="qr-text">Scan official QR to make payment</div>
+                  <div class="qr-text">Scan QR code to make payment</div>
                   <div class="qr-text">Any UPI App (Google Pay, PhonePe, Paytm)</div>
-                  <div class="upi-id">UPI ID: codernaccotax@okhdfcbank</div>
+                  <div class="upi-id">UPI ID: 9432456083@upi</div>
                 </div>
-                <div class="qr-code" style="width: 78px; height: 96px; display: flex; align-items: center; justify-content: center;">
-                  <img src="${qrCodeDataUrl || CNATQR || '/assets/CNAT_QR.jpeg'}" alt="CNAT Payment QR Code" style="width: 100%; height: 100%; object-fit: contain; border-radius: 4px; border: 1px solid #e9d5ff;" />
+                <div class="qr-code">
+                  <img src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR&am=${parseFloat(receiptData.feesPaid)}" alt="UPI QR Code" style="width: 70px; height: 70px;" />
                 </div>
               </div>
 
@@ -1559,106 +1552,6 @@ const StudentFeeReceiptPart4 = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="p-5 space-y-4">
-              {/* Course Selection Dropdown with Add New Course */}
-              <div>
-                <div className="flex justify-between items-center mb-1">
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
-                    Course Name (Required for saving) *
-                  </label>
-                  <button
-                    type="button"
-                    onClick={() => setShowNewCourseForm(!showNewCourseForm)}
-                    className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold"
-                  >
-                    {showNewCourseForm ? '− Cancel' : '+ Add New Course'}
-                  </button>
-                </div>
-                <select
-                  name="course"
-                  value={selectedCourseId}
-                  onChange={handleCourseSelect}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition cursor-pointer"
-                  required
-                  disabled={loadingCourses}
-                >
-                  <option value="">Select a course</option>
-                  {courses.map((course) => (
-                    <option key={course.id} value={course.id}>
-                      {course.courseCode} - {course.courseName}
-                    </option>
-                  ))}
-                </select>
-                {loadingCourses && (
-                  <p className="text-xs text-gray-500 mt-1">Loading courses...</p>
-                )}
-                {coursesError && (
-                  <p className="text-xs text-red-600 mt-1">{coursesError}</p>
-                )}
-                {courses.length === 0 && !loadingCourses && !coursesError && (
-                  <p className="text-xs text-yellow-600 mt-1">No courses found in database</p>
-                )}
-              </div>
-
-              {/* New Course Form */}
-              {showNewCourseForm && (
-                <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg p-4 bg-purple-50 dark:bg-purple-900/20">
-                  <h3 className="text-sm font-bold text-purple-700 dark:text-purple-300 mb-3">Add New Course</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                        Course Code *
-                      </label>
-                      <input
-                        type="text"
-                        name="courseCode"
-                        value={newCourseData.courseCode}
-                        onChange={handleNewCourseChange}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
-                        placeholder="e.g., REACT01, PYTHON01"
-                      />
-                      <p className="text-xs text-gray-500 mt-1">Unique course identifier (will be converted to uppercase)</p>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
-                        Course Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="courseName"
-                        value={newCourseData.courseName}
-                        onChange={handleNewCourseChange}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
-                        placeholder="e.g., React Development, Python Programming"
-                      />
-                    </div>
-                    {createCourseError && (
-                      <p className="text-xs text-red-600 mt-1">{createCourseError}</p>
-                    )}
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={handleCreateCourse}
-                        disabled={isCreatingCourse}
-                        className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                      >
-                        {isCreatingCourse ? 'Creating...' : 'Create Course'}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setShowNewCourseForm(false);
-                          setNewCourseData({ courseCode: '', courseName: '' });
-                          setCreateCourseError(null);
-                        }}
-                        className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-400 transition text-sm"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-
               {/* Student Selection Dropdown */}
               <div>
                 <div className="flex justify-between items-center mb-1">
@@ -1815,7 +1708,105 @@ const StudentFeeReceiptPart4 = () => {
                 />
               </div>
 
-              
+              {/* Course Selection Dropdown with Add New Course */}
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">
+                    Course Name (Required for saving) *
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setShowNewCourseForm(!showNewCourseForm)}
+                    className="text-xs text-blue-600 dark:text-blue-400 hover:text-blue-700 font-semibold"
+                  >
+                    {showNewCourseForm ? '− Cancel' : '+ Add New Course'}
+                  </button>
+                </div>
+                <select
+                  name="course"
+                  value={selectedCourseId}
+                  onChange={handleCourseSelect}
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition cursor-pointer"
+                  required
+                  disabled={loadingCourses}
+                >
+                  <option value="">Select a course</option>
+                  {courses.map((course) => (
+                    <option key={course.id} value={course.id}>
+                      {course.courseCode} - {course.courseName}
+                    </option>
+                  ))}
+                </select>
+                {loadingCourses && (
+                  <p className="text-xs text-gray-500 mt-1">Loading courses...</p>
+                )}
+                {coursesError && (
+                  <p className="text-xs text-red-600 mt-1">{coursesError}</p>
+                )}
+                {courses.length === 0 && !loadingCourses && !coursesError && (
+                  <p className="text-xs text-yellow-600 mt-1">No courses found in database</p>
+                )}
+              </div>
+
+              {/* New Course Form */}
+              {showNewCourseForm && (
+                <div className="border-2 border-purple-200 dark:border-purple-800 rounded-lg p-4 bg-purple-50 dark:bg-purple-900/20">
+                  <h3 className="text-sm font-bold text-purple-700 dark:text-purple-300 mb-3">Add New Course</h3>
+                  <div className="space-y-3">
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                        Course Code *
+                      </label>
+                      <input
+                        type="text"
+                        name="courseCode"
+                        value={newCourseData.courseCode}
+                        onChange={handleNewCourseChange}
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                        placeholder="e.g., REACT01, PYTHON01"
+                      />
+                      <p className="text-xs text-gray-500 mt-1">Unique course identifier (will be converted to uppercase)</p>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-gray-700 dark:text-gray-300 mb-1">
+                        Course Name *
+                      </label>
+                      <input
+                        type="text"
+                        name="courseName"
+                        value={newCourseData.courseName}
+                        onChange={handleNewCourseChange}
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition text-sm"
+                        placeholder="e.g., React Development, Python Programming"
+                      />
+                    </div>
+                    {createCourseError && (
+                      <p className="text-xs text-red-600 mt-1">{createCourseError}</p>
+                    )}
+                    <div className="flex gap-2">
+                      <button
+                        type="button"
+                        onClick={handleCreateCourse}
+                        disabled={isCreatingCourse}
+                        className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                      >
+                        {isCreatingCourse ? 'Creating...' : 'Create Course'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShowNewCourseForm(false);
+                          setNewCourseData({ courseCode: '', courseName: '' });
+                          setCreateCourseError(null);
+                        }}
+                        className="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-400 transition text-sm"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <div>
                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
@@ -2114,12 +2105,12 @@ const StudentFeeReceiptPart4 = () => {
                       <p className="text-[7px] text-gray-400 mt-1">25(10/A) Shibtala Road, Barrackpore, Kol-122</p>
                       <div className="mt-2 pt-2 flex justify-center">
                         <img
-                          src={qrCodeDataUrl || CNATQR || "/assets/CNAT_QR.jpeg"}
-                          alt="CNAT Official Payment QR"
-                          className="w-20 h-24 object-contain mx-auto rounded border border-purple-200"
+                          src="https://quickchart.io/qr?text=upi://pay?pa=9432456083@upi&pn=Coder%20%26%20AccoTax&cu=INR"
+                          alt="UPI QR Code"
+                          className="w-16 h-16 mx-auto"
                         />
                       </div>
-                      <div className="text-[8px] font-mono font-bold text-gray-600 mt-1">UPI ID: codernaccotax@okhdfcbank</div>
+                      <div className="text-[6px] text-gray-400 mt-1">UPI ID: 9432456083@upi</div>
                       <div className="mt-2 pt-1 border-t border-gray-100">
                         <p className="text-[7px] text-gray-500">📞 For any query: <span className="font-semibold text-gray-700">7003756860</span></p>
                         <p className="text-[7px] text-gray-500 mt-0.5">🌐 Visit us: <span className="font-semibold text-blue-600">www.codernaccotax.co.in</span></p>
@@ -2209,4 +2200,4 @@ const StudentFeeReceiptPart4 = () => {
   );
 };
 
-export default StudentFeeReceiptPart4;
+export default StudentFeeReceiptPart3;

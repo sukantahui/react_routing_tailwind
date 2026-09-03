@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useRef } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import * as XLSX from "xlsx";
@@ -37,7 +37,6 @@ const StudentAdmission = () => {
   ]);
   const [admissions, setAdmissions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
   const [sortConfig, setSortConfig] = useState({
     key: "admissionDate",
     direction: "desc",
@@ -153,14 +152,7 @@ const StudentAdmission = () => {
         const sel = courses.find((c) => String(c.id || c.courseId) === String(value));
         if (sel) {
           const fee = sel.courseFees || sel.course_fees;
-          if (fee) {
-            updated.courseFees = fee;
-            // Auto-sync amount received to the new agreed course fees
-            setFeePayment((prevFee) => ({
-              ...prevFee,
-              amountPaid: fee,
-            }));
-          }
+          if (fee) updated.courseFees = fee;
           // Strictly adopt course's assigned fee mode!
           const mode = sel.feeModesId || sel.fee_modes_id || 1;
           updated.feeModesId = Number(mode);
@@ -168,14 +160,6 @@ const StudentAdmission = () => {
       }
       return updated;
     });
-
-    // When agreed course fees changes directly in input, auto-update amount received
-    if (name === "courseFees") {
-      setFeePayment((prevFee) => ({
-        ...prevFee,
-        amountPaid: value,
-      }));
-    }
   };
 
   const handleSubmit = async (e) => {
@@ -334,53 +318,6 @@ const StudentAdmission = () => {
     if (!formData.courseId) return null;
     return courses.find((c) => String(c.id || c.courseId) === String(formData.courseId));
   }, [courses, formData.courseId]);
-
-  // Grouped courses for clean, lightweight optgroup dropdown
-  const groupedCourses = useMemo(() => {
-    const groups = {
-      "💻 Software & Web Development": [],
-      "📊 Accounting, Finance & Office": [],
-      "🎓 School & Board Curriculum (ICSE / ISC / CBSE / WBCHSE)": [],
-      "🤖 Advanced Technologies & Other": [],
-    };
-
-    courses.forEach((c) => {
-      const code = (c.course_code || c.courseCode || "").toUpperCase();
-      const name = (c.course_name || c.courseName || "").toLowerCase();
-
-      if (
-        code.includes("ICSE") ||
-        code.includes("ISC") ||
-        code.includes("CBSE") ||
-        code.includes("WBCHSE") ||
-        code.includes("SCHOOL")
-      ) {
-        groups["🎓 School & Board Curriculum (ICSE / ISC / CBSE / WBCHSE)"].push(c);
-      } else if (
-        code.includes("TALLY") ||
-        code.includes("EXCEL") ||
-        code.includes("GST") ||
-        code.includes("DFA") ||
-        code.includes("DCA") ||
-        code.includes("OP") ||
-        name.includes("office") ||
-        name.includes("accounting")
-      ) {
-        groups["📊 Accounting, Finance & Office"].push(c);
-      } else if (
-        code.includes("AI") ||
-        code.includes("ROBOT") ||
-        name.includes("ai") ||
-        name.includes("robotics")
-      ) {
-        groups["🤖 Advanced Technologies & Other"].push(c);
-      } else {
-        groups["💻 Software & Web Development"].push(c);
-      }
-    });
-
-    return groups;
-  }, [courses]);
 
   // Excel Export
   const exportToExcel = () => {
@@ -565,78 +502,24 @@ const StudentAdmission = () => {
               loading={loading.students}
             />
 
-            {/* GROUPED CLEAN ACADEMIC COURSE DROPDOWN */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-gray-200 flex items-center gap-1.5">
-                  <BookOpen className="w-4 h-4 text-sky-400" />
-                  <span>Select Academic Course</span>
-                  <span className="text-rose-400">*</span>
-                </label>
-                <span className="text-[11px] text-slate-400">
-                  {courses.length} courses across 4 categories
-                </span>
-              </div>
+            {/* Course Select */}
+            <Select
+              label="Course"
+              name="courseId"
+              value={String(formData.courseId || "")}
+              onChange={handleChange}
+              required
+              disabled={loading.courses}
+              options={courses.map((c) => {
+                const fee = c.courseFees || c.course_fees;
+                return {
+                  value: String(c.id || c.courseId),
+                  label: `${c.course_code || c.courseCode} | ${c.course_name || c.courseName}${fee ? ` — ₹${Number(fee).toLocaleString()}` : ""}`,
+                };
+              })}
+              loading={loading.courses}
+            />
 
-              <select
-                name="courseId"
-                value={formData.courseId || ""}
-                onChange={handleChange}
-                required
-                disabled={loading.courses}
-                className="w-full bg-gray-950 border border-gray-700 rounded-xl px-4 py-3 text-xs sm:text-sm font-medium text-white focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 cursor-pointer shadow-inner"
-              >
-                <option value="" className="text-slate-500 bg-gray-900">
-                  -- Select Academic Course Program --
-                </option>
-                {Object.entries(groupedCourses).map(([groupTitle, courseList]) =>
-                  courseList.length > 0 ? (
-                    <optgroup
-                      key={groupTitle}
-                      label={groupTitle}
-                      className="bg-gray-900 font-bold text-sky-400 text-xs py-1"
-                    >
-                      {courseList.map((c) => {
-                        const fee = Number(c.courseFees || c.course_fees || 0);
-                        const code = c.course_code || c.courseCode;
-                        const name = c.course_name || c.courseName;
-                        return (
-                          <option
-                            key={c.id || c.courseId}
-                            value={c.id || c.courseId}
-                            className="bg-gray-950 text-slate-100 font-normal py-1.5 pl-2 text-xs"
-                          >
-                            {name} ({code}) — ₹{fee.toLocaleString()}
-                          </option>
-                        );
-                      })}
-                    </optgroup>
-                  ) : null
-                )}
-              </select>
-
-              {/* Selected Course Quick Summary Banner */}
-              {selectedCourseObj && (
-                <div className="p-3 rounded-xl bg-gradient-to-r from-sky-950/40 via-gray-900 to-indigo-950/30 border border-sky-500/30 flex items-center justify-between gap-3 text-xs animate-fadeIn">
-                  <div className="flex items-center gap-2.5">
-                    <span className="px-2 py-0.5 rounded-md font-mono font-bold text-xs bg-sky-500/20 text-sky-300 border border-sky-500/30">
-                      {selectedCourseObj.course_code || selectedCourseObj.courseCode}
-                    </span>
-                    <span className="font-bold text-white">
-                      {selectedCourseObj.course_name || selectedCourseObj.courseName}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                      {Number(selectedCourseObj.feeModesId || selectedCourseObj.fee_modes_id) === 2 ? "Course Fees" : "Monthly Plan"}
-                    </span>
-                    <span className="font-extrabold text-emerald-400">
-                      ₹{Number(selectedCourseObj.courseFees || selectedCourseObj.course_fees || 0).toLocaleString()}
-                    </span>
-                  </div>
-                </div>
-              )}
-            </div>
             {/* Payment Schedule / Fee Mode & Course Fees */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Select
@@ -664,7 +547,20 @@ const StudentAdmission = () => {
               />
             </div>
 
-
+            {/* Quick Fee Presets */}
+            <div className="flex flex-wrap items-center gap-2 pt-1 pb-1">
+              <span className="text-[10px] uppercase font-semibold text-slate-400">Quick Fee Presets:</span>
+              {[8000, 12000, 15000, 18000, 25000, 35000, 45000].map((amt) => (
+                <button
+                  key={amt}
+                  type="button"
+                  onClick={() => setFormData((prev) => ({ ...prev, courseFees: amt }))}
+                  className="px-2.5 py-0.5 rounded-lg text-xs font-semibold bg-slate-950 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60 transition cursor-pointer"
+                >
+                  ₹{amt.toLocaleString()}
+                </button>
+              ))}
+            </div>
 
             {/* LIVE COURSE & PAYMENT MODE CARD (Displayed on selection of course) */}
             {selectedCourseObj && (
@@ -705,149 +601,13 @@ const StudentAdmission = () => {
               </div>
             )}
 
-            {/* INITIAL FEES RECEIVED ENTRIES (WITH DATE AND MODE) */}
-            <div className="p-4 rounded-2xl bg-gray-950 border border-sky-500/30 space-y-3">
-              <div className="flex items-center justify-between border-b border-gray-800 pb-2">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={feePayment.collectFeeNow}
-                    onChange={(e) => {
-                      const checked = e.target.checked;
-                      setFeePayment((prev) => ({
-                        ...prev,
-                        collectFeeNow: checked,
-                        amountPaid: checked && !prev.amountPaid ? (formData.courseFees || "") : prev.amountPaid,
-                      }));
-                    }}
-                    className="w-4 h-4 rounded text-sky-500 bg-gray-900 border-gray-700 focus:ring-sky-500 cursor-pointer"
-                  />
-                  <span className="text-xs font-bold text-sky-400 flex items-center gap-1.5">
-                    <span>💳 Collect Initial Fees Received Now (Issue Receipt)</span>
-                  </span>
-                </label>
-                <span className="text-[10px] text-slate-400 font-semibold">
-                  {feePayment.collectFeeNow ? "Active (Receipt will generate)" : "Optional"}
-                </span>
-              </div>
-
-              {feePayment.collectFeeNow && (
-                <div className="space-y-3 pt-1 animate-fadeIn">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {/* Amount Paid */}
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">
-                        Amount Received (₹) <span className="text-rose-400">*</span>
-                      </label>
-                      <div className="relative">
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-emerald-400 font-bold text-sm">₹</span>
-                        <input
-                          type="number"
-                          min="0"
-                          
-                          placeholder="e.g. 3000"
-                          value={feePayment.amountPaid}
-                          onChange={(e) => setFeePayment((prev) => ({ ...prev, amountPaid: e.target.value }))}
-                          className="w-full bg-gray-900 border border-sky-500/40 rounded-xl pl-7 pr-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-sky-400"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Payment Date */}
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">
-                        Payment Date <span className="text-rose-400">*</span>
-                      </label>
-                      <input
-                        type="date"
-                        value={feePayment.paymentDate}
-                        onChange={(e) => setFeePayment((prev) => ({ ...prev, paymentDate: e.target.value }))}
-                        className="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-sky-400 cursor-pointer [&::-webkit-calendar-picker-indicator]:invert"
-                      />
-                    </div>
-
-                    {/* Payment Mode */}
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 mb-1">
-                        Payment Mode <span className="text-rose-400">*</span>
-                      </label>
-                      <select
-                        value={feePayment.paymentMode}
-                        onChange={(e) => setFeePayment((prev) => ({ ...prev, paymentMode: e.target.value }))}
-                        className="w-full bg-gray-900 border border-gray-700 rounded-xl px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-sky-400 cursor-pointer"
-                      >
-                        <option value="Cash">Cash</option>
-                        <option value="UPI">UPI (GPay / PhonePe / QR)</option>
-                        <option value="Bank Transfer">Bank Transfer (NEFT / IMPS)</option>
-                        <option value="Cheque">Cheque</option>
-                        <option value="Card">Card / POS</option>
-                      </select>
-                    </div>
-                  </div>
-
-
-
-                  {/* Live Real-time Due & Payment Summary */}
-                  <div className="p-3 rounded-xl bg-gray-900/90 border border-gray-800 space-y-2.5 text-xs text-slate-300">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                      <div>
-                        <span>Fees Paid Now: </span>
-                        <strong className="text-emerald-400 font-bold text-sm">
-                          ₹{Number(feePayment.amountPaid || 0).toLocaleString()}
-                        </strong>
-                        <span className="text-slate-400 ml-1.5">via {feePayment.paymentMode}</span>
-                      </div>
-
-                      <div>
-                        <span>{dueCalculation.mode === "monthly" ? "Accrued Fees (Elapsed): " : "Agreed Total Fees: "}</span>
-                        <strong className="text-white font-semibold">
-                          ₹{(dueCalculation.mode === "monthly" ? dueCalculation.totalAccruedFee : dueCalculation.totalPayable).toLocaleString()}
-                        </strong>
-                        {dueCalculation.mode === "monthly" && (
-                          <span className="text-slate-400 text-[11px] ml-1">
-                            ({dueCalculation.elapsedMonths} mo @ ₹{dueCalculation.monthlyRate.toLocaleString()}/mo)
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="pt-2 border-t border-gray-800 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-slate-400">Payment Status:</span>
-                        {dueCalculation.dueAmount === 0 ? (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                            ✓ Cleared (No Due)
-                          </span>
-                        ) : (
-                          <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                            ⚠ Pending Due
-                          </span>
-                        )}
-                      </div>
-
-                      <div>
-                        <span className="text-slate-400">Due Amount: </span>
-                        <strong className={`text-sm font-extrabold ${dueCalculation.dueAmount > 0 ? "text-rose-400" : "text-emerald-400"}`}>
-                          ₹{dueCalculation.dueAmount.toLocaleString()}
-                        </strong>
-                        {dueCalculation.mode === "monthly" && dueCalculation.dueAmount > 0 && (
-                          <span className="text-rose-400/80 text-[11px] ml-1">
-                            ({dueCalculation.monthsDue} mo pending)
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Admission Date with Interactive Selection Button & Presets */}
-            <DatePicker
+            {/* Admission Date */}
+            <Input
               label="Admission Date"
               name="admissionDate"
               value={formData.admissionDate}
               onChange={handleChange}
+              type="date"
               required
             />
 
@@ -1019,98 +779,6 @@ function Select({ label, name, value, onChange, options = [], required = false, 
           </option>
         ))}
       </select>
-    </div>
-  );
-}
-
-function DatePicker({ label, name, value, onChange, required = false }) {
-  const inputRef = React.useRef(null);
-
-  const openCalendar = () => {
-    if (inputRef.current) {
-      if (typeof inputRef.current.showPicker === "function") {
-        inputRef.current.showPicker();
-      } else {
-        inputRef.current.focus();
-      }
-    }
-  };
-
-  const setPreset = (preset) => {
-    const d = new Date();
-    if (preset === "today") {
-      // today
-    } else if (preset === "yesterday") {
-      d.setDate(d.getDate() - 1);
-    } else if (preset === "startOfMonth") {
-      d.setDate(1);
-    }
-    const iso = d.toISOString().split("T")[0];
-    onChange({ target: { name, value: iso } });
-  };
-
-  return (
-    <div className="flex flex-col">
-      <div className="flex items-center justify-between mb-1.5">
-        <label className="text-xs font-semibold text-gray-300 flex items-center gap-1.5">
-          <Calendar className="w-3.5 h-3.5 text-sky-400" />
-          <span>{label}</span> {required && <span className="text-rose-400">*</span>}
-        </label>
-        {value && (
-          <span className="text-[11px] font-mono text-sky-400 font-semibold bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
-            {new Date(value).toLocaleDateString("en-US", { weekday: "short", year: "numeric", month: "short", day: "numeric" })}
-          </span>
-        )}
-      </div>
-
-      <div className="relative flex items-center group">
-        <input
-          ref={inputRef}
-          type="date"
-          name={name}
-          value={value}
-          onChange={onChange}
-          required={required}
-          onClick={openCalendar}
-          className="w-full bg-gray-950 text-gray-100 border border-gray-700 hover:border-gray-600 focus:border-sky-500 rounded-xl pl-4 pr-36 py-3 text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sky-500 cursor-pointer [&::-webkit-calendar-picker-indicator]:invert [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-80 hover:[&::-webkit-calendar-picker-indicator]:opacity-100 transition shadow-inner"
-        />
-
-        <button
-          type="button"
-          onClick={openCalendar}
-          className="absolute right-2 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-sky-500 hover:bg-sky-400 text-white transition cursor-pointer flex items-center gap-1.5 shadow-md shadow-sky-500/20 active:scale-95"
-          title="Click to open calendar"
-        >
-          <Calendar className="w-4 h-4 text-white" />
-          <span>Select Date</span>
-        </button>
-      </div>
-
-      {/* Quick Date Presets */}
-      <div className="flex items-center gap-2 mt-2">
-        <span className="text-[10px] uppercase font-bold text-slate-500">Quick Shortcuts:</span>
-        <button
-          type="button"
-          onClick={() => setPreset("today")}
-          className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-900 hover:bg-gray-800 text-sky-300 hover:text-white border border-gray-800 transition cursor-pointer"
-        >
-          Today
-        </button>
-        <button
-          type="button"
-          onClick={() => setPreset("yesterday")}
-          className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-900 hover:bg-gray-800 text-slate-300 hover:text-white border border-gray-800 transition cursor-pointer"
-        >
-          Yesterday
-        </button>
-        <button
-          type="button"
-          onClick={() => setPreset("startOfMonth")}
-          className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-gray-900 hover:bg-gray-800 text-slate-300 hover:text-white border border-gray-800 transition cursor-pointer"
-        >
-          1st of Month
-        </button>
-      </div>
     </div>
   );
 }
