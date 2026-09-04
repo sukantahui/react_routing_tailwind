@@ -42,6 +42,7 @@ export default function Bijoya() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formData, setFormData] = useState({
     guestName: "",
+    age: "",
     mobile: "",
     wpNumber: "",
     address: "",
@@ -110,6 +111,7 @@ export default function Bijoya() {
 
   // Validation rules
   const isNameValid = formData.guestName.trim().length >= 2;
+  const isAgeValid = /^\d+$/.test(formData.age) && Number(formData.age) >= 1 && Number(formData.age) <= 120;
   const isMobileValid = /^\d{10,}$/.test(formData.mobile.replace(/\D/g, ""));
   const isWpValid = /^\d{10,}$/.test(formData.wpNumber.replace(/\D/g, ""));
   const isPinValid = /^\d{4}$/.test(formData.pin);
@@ -120,6 +122,7 @@ export default function Bijoya() {
   const isValid = () => {
     return (
       isNameValid &&
+      isAgeValid &&
       isMobileValid &&
       isWpValid &&
       isGenderValid &&
@@ -346,23 +349,6 @@ export default function Bijoya() {
 
   // WhatsApp Invite / Message Sender
   const sendWhatsApp = (guest) => {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      Swal.fire({
-        title: "Login Required 🔒",
-        text: "Sending WhatsApp invitations is only available for logged-in organizers.",
-        icon: "info",
-        showCancelButton: true,
-        confirmButtonText: "Log In Now",
-        confirmButtonColor: "#8b5cf6",
-        cancelButtonText: "Cancel",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          window.location.href = "/login";
-        }
-      });
-      return;
-    }
 
     const phone = (guest.wpNumber || guest.mobile || "").replace(/\D/g, "");
     const formattedPhone = phone.startsWith("91") && phone.length > 10 ? phone : `91${phone}`;
@@ -639,6 +625,39 @@ export default function Bijoya() {
                       placeholder="e.g. Subhankar Roy"
                       required
                       className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition text-sm sm:text-base"
+                    />
+                  </div>
+
+                  {/* Age Field */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="age" className="flex items-center justify-between text-sm font-medium text-slate-200">
+                      <span className="flex items-center gap-2">
+                        <CalendarCheck className="w-4 h-4 text-amber-400" />
+                        <span>Age <span className="text-rose-400">*</span></span>
+                      </span>
+                      {formData.age && (
+                        <span
+                          className={`text-xs px-2 py-0.5 rounded ${
+                            isAgeValid
+                              ? "bg-emerald-500/20 text-emerald-400"
+                              : "bg-rose-500/20 text-rose-400"
+                          }`}
+                        >
+                          {isAgeValid ? "Valid" : "1–120"}
+                        </span>
+                      )}
+                    </label>
+                    <input
+                      type="number"
+                      id="age"
+                      name="age"
+                      min={1}
+                      max={120}
+                      value={formData.age}
+                      onChange={handleChange}
+                      placeholder="e.g. 35"
+                      required
+                      className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition text-sm sm:text-base"
                     />
                   </div>
 
@@ -920,6 +939,9 @@ export default function Bijoya() {
                         <span className={isNameValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
                           {isNameValid ? "✓" : "✗"} Full Name (min 2 chars)
                         </span>
+                        <span className={isAgeValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
+                          {isAgeValid ? "✓" : "✗"} Age (1–120)
+                        </span>
                         <span className={isMobileValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
                           {isMobileValid ? "✓" : "✗"} 10-Digit Mobile Number
                         </span>
@@ -1058,19 +1080,11 @@ export default function Bijoya() {
                     {(savedGuests.wpNumber || savedGuests.mobile) && (
                       <button
                         onClick={() => sendWhatsApp(savedGuests)}
-                        title={isLoggedIn ? "Send confirmation via WhatsApp" : "Login required to send WhatsApp"}
-                        className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border transition cursor-pointer ${
-                          isLoggedIn
-                            ? "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
-                            : "bg-slate-800 text-slate-400 hover:text-amber-300 border-slate-700"
-                        }`}
+                        title="Send confirmation via WhatsApp"
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border transition cursor-pointer bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
                       >
-                        {isLoggedIn ? (
-                          <Share2 className="w-3.5 h-3.5 text-emerald-400" />
-                        ) : (
-                          <Lock className="w-3.5 h-3.5 text-amber-400" />
-                        )}
-                        <span>{isLoggedIn ? "Send to WhatsApp" : "WhatsApp (Login Required)"}</span>
+                        <Share2 className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Send to WhatsApp</span>
                       </button>
                     )}
                   </div>
@@ -1313,7 +1327,7 @@ export default function Bijoya() {
                     <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
                       <button
                         onClick={() => sendWhatsApp(guest)}
-                        title={isLoggedIn ? "Send WhatsApp invitation" : "Login required to send WhatsApp"}
+                        title="Send WhatsApp invitation"
                         className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition cursor-pointer ${
                           isLoggedIn
                             ? "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
@@ -1415,7 +1429,7 @@ export default function Bijoya() {
                           <div className="inline-flex items-center gap-2">
                             <button
                               onClick={() => sendWhatsApp(guest)}
-                              title={isLoggedIn ? "Send WhatsApp Invite" : "Login required to send WhatsApp"}
+                              title="Send WhatsApp Invite"
                               className={`p-1.5 rounded-lg border transition cursor-pointer ${
                                 isLoggedIn
                                   ? "bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border-emerald-500/20"
