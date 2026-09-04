@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
+import * as htmlToImage from "html-to-image";
 import {
   User,
   Phone,
@@ -32,9 +33,40 @@ import {
   Award,
   ExternalLink,
   Share2,
+  Star,
+  Printer,
+  Ticket,
+  Clock,
+  Camera,
 } from "lucide-react";
 import { authService } from "../api/auth.service";
 import qr from "../assets/google_review_QR.png";
+import maitriLogo from "../assets/maitri-mahotsav-27.png";
+
+// Dedicated vector logos for Man (Male) and Woman (Female)
+const ManLogo = ({ className = "w-4 h-4" }) => (
+  <svg
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM6 6.75v8.5a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v2.75a.75.75 0 0 0 1.5 0v-2.5a.25.25 0 0 1 .5 0Z" />
+  </svg>
+);
+
+const WomanLogo = ({ className = "w-4 h-4" }) => (
+  <svg
+    viewBox="0 0 16 16"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+    aria-hidden="true"
+  >
+    <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm-.5 12.25V12h1v3.25a.75.75 0 0 0 1.5 0V12h1l-1-5v-.215a.285.285 0 0 1 .56-.078l.793 2.777a.711.711 0 1 0 1.364-.405l-1.065-3.461A3 3 0 0 0 8.784 3.5H7.216a3 3 0 0 0-2.868 2.118L3.283 9.079a.711.711 0 1 0 1.365.405l.793-2.777a.285.285 0 0 1 .56.078V7l-1 5h1v3.25a.75.75 0 0 0 1.5 0Z" />
+  </svg>
+);
 
 export default function Bijoya() {
   const [guests, setGuests] = useState([]);
@@ -67,8 +99,10 @@ export default function Bijoya() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copiedToken, setCopiedToken] = useState(false);
+  const [isSavingJpeg, setIsSavingJpeg] = useState(false);
 
   const formRef = useRef(null);
+  const ticketRef = useRef(null);
 
   // Check login status on mount & listen to storage
   useEffect(() => {
@@ -153,6 +187,45 @@ export default function Bijoya() {
     );
   };
 
+  // Helper to format token as #CNAT-1002-2026 (#CNAT-{num}-year)
+  const formatToken = (guestOrToken, defaultYear = "2026") => {
+    if (!guestOrToken) return `#CNAT-1001-${defaultYear}`;
+
+    let rawVal = "";
+    let eventYear = defaultYear;
+
+    if (typeof guestOrToken === "object") {
+      rawVal = guestOrToken.token || "";
+      if (guestOrToken.year) eventYear = String(guestOrToken.year);
+      if (!rawVal && (guestOrToken.guestId || guestOrToken.id)) {
+        rawVal = `CNAT-${1000 + Number(guestOrToken.guestId || guestOrToken.id)}`;
+      }
+    } else {
+      rawVal = String(guestOrToken);
+    }
+
+    rawVal = String(rawVal).trim().replace(/^#/, "");
+    if (!rawVal) return `#CNAT-1001-${eventYear}`;
+
+    // If it already ends with a 4-digit year e.g. CNAT-1002-2026
+    if (/^CNAT-.*-\d{4}$/i.test(rawVal)) {
+      return `#${rawVal.toUpperCase()}`;
+    }
+
+    // If it starts with CNAT- e.g. "CNAT-1002"
+    if (/^CNAT-/i.test(rawVal)) {
+      return `#${rawVal.toUpperCase()}-${eventYear}`;
+    }
+
+    // If it's a numeric string e.g. "1002"
+    if (/^\d+$/.test(rawVal)) {
+      return `#CNAT-${rawVal}-${eventYear}`;
+    }
+
+    // Default fallback
+    return `#CNAT-${rawVal}-${eventYear}`;
+  };
+
   // Fetch all guests
   const getAllGuest = async () => {
     setIsLoading(true);
@@ -196,10 +269,14 @@ export default function Bijoya() {
       const successData = await authService.saveGuest(payload);
       if (successData.status) {
         setIsSaved(true);
-        setSavedGuests(successData.data || {});
+        // Merge payload to preserve all attendee details on the digital pass
+        setSavedGuests({
+          ...payload,
+          ...(successData.data || {}),
+        });
         Swal.fire({
           title: "Registration Confirmed! 🎉",
-          text: "Welcome to Bijoya Sammilani. Your digital token has been generated.",
+          text: "Welcome to ২৭ তম মৈত্রী মহোৎসব ২০২৬ (1st Nov, 2026, 7:30 PM onwards at Coder & AccoTax). Your digital token has been generated.",
           icon: "success",
           confirmButtonColor: "#10b981",
         });
@@ -352,19 +429,25 @@ export default function Bijoya() {
 
     const phone = (guest.wpNumber || guest.mobile || "").replace(/\D/g, "");
     const formattedPhone = phone.startsWith("91") && phone.length > 10 ? phone : `91${phone}`;
-    const tokenDisplay = guest.token ? `#${guest.token}` : `CNAT-${guest.guestId || guest.id || "VIP"}`;
+    const tokenDisplay = formatToken(guest);
 
     const isVeg = checkIsVeg(guest);
     const foodText = isVeg ? "🌱 Vegetarian (নিরামিষ)" : "🍗 Non-Vegetarian (আমিষ)";
     const isAtt = checkIsAttending(guest);
 
-    const message = `🌸 *শুভ বিজয়ার প্রীতি ও শুভেচ্ছা* 🌸
+    const message = `🌸 *২৭ তম মৈত্রী মহোৎসব ২০২৬ (27th Maitri Mahotsav)* 🌸
 ━━━━━━━━━━━━━━━━━━
 শ্রদ্ধেয়/শ্রদ্ধেয়া *${guest.guestName}*,
 
-বিজয়ার পুণ্য লগ্নে, আপনাকে ও আপনার পরিবারের সকলকে জানাই Coder & AccoTax পরিবারের পক্ষ থেকে আন্তরিক প্রীতি, শুভেচ্ছা ও অভিনন্দন! 🎉
+✨ *“আপনি অতিথিও, আবার আতিথেয়তাকারীও”*
+_“Aap mehmaan bhi hain aur mezbaan bhi”_
+_“You are the guest, yet you are the host too.”_
+
+আপনাকে ও আপনার পরিবারের সকলকে জানাই Coder & AccoTax পরিবারের পক্ষ থেকে আন্তরিক প্রীতি, শুভেচ্ছা ও অভিনন্দন! 🎉
 
 🎫 *Entry Token:* \`${tokenDisplay}\`
+📅 *Date:* 1st November, 2026 (Sunday)
+⏰ *Time:* 7:30 PM onwards (সন্ধ্যা ৭:৩০ থেকে)
 📍 *Venue:* Coder & AccoTax, Barrackpore
 🍽️ *Food Preference:* ${foodText}
 ✨ *Status:* ${isAtt ? "✅ Confirmed (উপস্থিত থাকবেন)" : "Invited"}
@@ -373,6 +456,10 @@ export default function Bijoya() {
 ⭐ *আমাদের সম্পর্কে আপনার মূল্যবান মতামত দিন:*
 অনুগ্রহ করে নিচের লিঙ্কে ক্লিক করে একটি ৫-স্টার রিভিউ দিন:
 👉 https://g.page/r/CTBkwqHJ6mZ2EBM/review
+
+📸 *অনুষ্ঠানের ছবি ও লাইভ আপডেটের জন্য আমাদের সোশ্যাল মিডিয়া ফলো করুন:*
+Facebook: https://www.facebook.com/profile.php?id=61561702110617
+Instagram: https://www.instagram.com/codernaccotax
 
 আপনার উপস্থিতি আমাদের অনুষ্ঠানকে আরও সমৃদ্ধ করবে।
 
@@ -405,7 +492,7 @@ export default function Bijoya() {
 
     const rows = filteredGuests.map((guest, idx) => [
       idx + 1,
-      guest.token || "N/A",
+      formatToken(guest),
       guest.guestName || "",
       guest.mobile || "",
       guest.wpNumber || "",
@@ -429,7 +516,7 @@ export default function Bijoya() {
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", `Bijoya_Guests_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute("download", `Maitri_Mahotsav_2026_Guests_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -442,7 +529,9 @@ export default function Bijoya() {
       const q = searchQuery.toLowerCase().trim();
       const nameMatch = guest.guestName?.toLowerCase().includes(q);
       const mobileMatch = guest.mobile?.includes(q) || guest.wpNumber?.includes(q);
-      const tokenMatch = String(guest.token || "").toLowerCase().includes(q);
+      const tokenMatch =
+        String(guest.token || "").toLowerCase().includes(q) ||
+        formatToken(guest).toLowerCase().includes(q);
       const matchesSearch = !q || nameMatch || mobileMatch || tokenMatch;
 
       if (!matchesSearch) return false;
@@ -472,10 +561,65 @@ export default function Bijoya() {
   }, [guests]);
 
   const handleCopyToken = () => {
-    const tokenVal = savedGuests.token || "BIJOYA-TOKEN";
+    const tokenVal = formatToken(savedGuests);
     navigator.clipboard.writeText(String(tokenVal));
     setCopiedToken(true);
     setTimeout(() => setCopiedToken(false), 2000);
+  };
+
+  // Save Event Ticket Pass as High-Quality JPEG
+  const handleSaveJpeg = async () => {
+    if (!ticketRef.current) return;
+    setIsSavingJpeg(true);
+    try {
+      const dataUrl = await htmlToImage.toJpeg(ticketRef.current, {
+        quality: 0.96,
+        backgroundColor: "#020617",
+        pixelRatio: 2,
+        skipFonts: true,
+        fontEmbedCSS: "",
+        filter: (node) => {
+          // Exclude buttons or elements with ticket-export-hide class
+          if (node.classList && node.classList.contains("ticket-export-hide")) {
+            return false;
+          }
+          return true;
+        },
+      });
+
+      const tokenFormatted = formatToken(savedGuests).replace(/[^a-zA-Z0-9_-]/g, "");
+      const gName = (savedGuests.guestName || "Guest").trim().replace(/[^a-zA-Z0-9_-]/g, "_");
+      const filename = `Maitri_Mahotsav_Pass_${tokenFormatted}_${gName}.jpeg`;
+
+      const link = document.createElement("a");
+      link.download = filename;
+      link.href = dataUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "success",
+        title: "Pass saved as JPEG! 📸",
+        showConfirmButton: false,
+        timer: 2500,
+        background: "#0f172a",
+        color: "#f8fafc",
+      });
+    } catch (err) {
+      console.error("Failed to generate ticket JPEG:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Image Export Failed",
+        text: "Could not generate JPEG. You can also use the 'Print Pass' button to save as PDF.",
+        background: "#0f172a",
+        color: "#f8fafc",
+      });
+    } finally {
+      setIsSavingJpeg(false);
+    }
   };
 
   return (
@@ -497,20 +641,46 @@ export default function Bijoya() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-amber-500/5">
             <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
-            <span>শুভ বিজয়া ও বিজয়া সম্মিলনী</span>
+            <span>🌸 ২৭ তম মৈত্রী মহোৎসব ২০২৬</span>
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-            <span className="text-slate-300">Barrackpore</span>
+            <span className="text-amber-200">1st November, 2026 • 7:30 PM onwards</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span className="text-slate-300">Coder & AccoTax</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-rose-300 to-purple-400">
-              Bijoya Sammilani Guest Portal
-            </span>
-          </h1>
+          <div className="py-2 sm:py-4">
+            <div className="relative inline-block w-full max-w-sm sm:max-w-xl md:max-w-2xl mx-auto group">
+              <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-amber-500/30 via-rose-500/25 to-purple-500/30 rounded-3xl blur-2xl opacity-80 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-amber-500/40 shadow-2xl shadow-amber-500/15">
+                <img
+                  src={maitriLogo}
+                  alt="২৭ তম মৈত্রী মহোৎসব"
+                  className="w-full h-auto object-cover sm:object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+                />
+              </div>
+            </div>
+            <h1 className="mt-4 text-center">
+              <span className="block text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-rose-300 to-purple-400 font-mono">
+                MAITRI MAHOTSAV 2026
+              </span>
+            </h1>
+          </div>
+
+          {/* Welcoming Theme Quote Banner */}
+          <div className="inline-block px-4 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 border border-amber-500/25 backdrop-blur-md shadow-lg shadow-amber-500/5 max-w-xl mx-auto space-y-0.5">
+            <p className="text-sm sm:text-base font-bold text-amber-200 tracking-wide font-serif">
+              “আপনি অতিথিও, আবার আতিথেয়তাকারীও”
+            </p>
+            <p className="text-xs sm:text-sm font-medium text-rose-200/90 italic">
+              “Aap mehmaan bhi hain aur mezbaan bhi”
+            </p>
+            <p className="text-xs sm:text-sm text-slate-300/90 italic">
+              “You are the guest, yet you are the host too.”
+            </p>
+          </div>
 
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
-            Welcome to the official guest registration and attendance hub. Register your presence,
-            customize food preferences, and receive your celebratory digital pass.
+            Welcome to the official guest registration and attendance portal for <strong>Maitri Mahotsav 2026</strong>. Join us on <strong>1st November, 2026 at 7:30 PM onwards</strong> at <strong>Coder & AccoTax</strong>.
           </p>
 
           {/* Quick Stats Ribbon */}
@@ -829,24 +999,59 @@ export default function Bijoya() {
                         Gender <span className="text-rose-400">*</span>
                       </label>
                       <div className="grid grid-cols-2 gap-2">
-                        {[
-                          { id: "1", label: "Male" },
-                          { id: "2", label: "Female" },
-                        ].map((g) => (
-                          <button
-                            key={g.id}
-                            type="button"
-                            onClick={() => setFormData((prev) => ({ ...prev, genderId: g.id }))}
-                            className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 cursor-pointer ${
-                              formData.genderId === g.id
-                                ? "bg-purple-600/20 border-purple-500 text-purple-200 shadow-md shadow-purple-500/10"
-                                : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
-                            }`}
-                          >
-                            {formData.genderId === g.id && <CheckCircle2 className="w-4 h-4 text-purple-400" />}
-                            <span>{g.label}</span>
-                          </button>
-                        ))}
+                        {/* Male Button */}
+                        <button
+                          type="button"
+                          onClick={() => setFormData((prev) => ({ ...prev, genderId: "1" }))}
+                          className={`py-2 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-between gap-2 cursor-pointer ${
+                            formData.genderId === "1"
+                              ? "bg-gradient-to-r from-sky-950/70 via-slate-900 to-sky-950/40 border-sky-500 text-white shadow-lg shadow-sky-950/50 ring-1 ring-sky-500/30"
+                              : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900/60"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition ${
+                                formData.genderId === "1"
+                                  ? "bg-sky-500 text-slate-950 shadow-sm"
+                                  : "bg-sky-500/15 text-sky-400 border border-sky-500/30"
+                              }`}
+                            >
+                              <ManLogo className="w-4 h-4" />
+                            </div>
+                            <span className="font-semibold text-sm truncate">Male</span>
+                          </div>
+                          {formData.genderId === "1" && (
+                            <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 ml-auto" />
+                          )}
+                        </button>
+
+                        {/* Female Button */}
+                        <button
+                          type="button"
+                          onClick={() => setFormData((prev) => ({ ...prev, genderId: "2" }))}
+                          className={`py-2 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-between gap-2 cursor-pointer ${
+                            formData.genderId === "2"
+                              ? "bg-gradient-to-r from-pink-950/70 via-slate-900 to-pink-950/40 border-pink-500 text-white shadow-lg shadow-pink-950/50 ring-1 ring-pink-500/30"
+                              : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900/60"
+                          }`}
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition ${
+                                formData.genderId === "2"
+                                  ? "bg-pink-500 text-slate-950 shadow-sm"
+                                  : "bg-pink-500/15 text-pink-400 border border-pink-500/30"
+                              }`}
+                            >
+                              <WomanLogo className="w-4 h-4" />
+                            </div>
+                            <span className="font-semibold text-sm truncate">Female</span>
+                          </div>
+                          {formData.genderId === "2" && (
+                            <CheckCircle2 className="w-4 h-4 text-pink-400 shrink-0 ml-auto" />
+                          )}
+                        </button>
                       </div>
                     </div>
 
@@ -856,27 +1061,58 @@ export default function Bijoya() {
                         Food Preference <span className="text-rose-400">*</span>
                       </label>
                       <div className="grid grid-cols-2 gap-2">
+                        {/* Non-Veg Button */}
                         <button
                           type="button"
                           onClick={() => setFormData((prev) => ({ ...prev, foodPreferenceId: "2" }))}
-                          className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 cursor-pointer ${
+                          className={`py-2 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-between gap-2 cursor-pointer ${
                             formData.foodPreferenceId === "2"
-                              ? "bg-rose-500/20 border-rose-500 text-rose-200 shadow-md shadow-rose-500/10"
-                              : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
+                              ? "bg-gradient-to-r from-rose-950/70 via-slate-900 to-rose-950/40 border-rose-500 text-white shadow-lg shadow-rose-950/50 ring-1 ring-rose-500/30"
+                              : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900/60"
                           }`}
                         >
-                          <span>🍗 Non-Veg</span>
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition ${
+                                formData.foodPreferenceId === "2"
+                                  ? "bg-rose-500 text-white shadow-sm"
+                                  : "bg-rose-500/15 text-rose-300 border border-rose-500/30"
+                              }`}
+                            >
+                              <span className="text-sm leading-none">🍗</span>
+                            </div>
+                            <span className="font-semibold text-sm truncate">Non-Veg</span>
+                          </div>
+                          {formData.foodPreferenceId === "2" && (
+                            <CheckCircle2 className="w-4 h-4 text-rose-400 shrink-0 ml-auto" />
+                          )}
                         </button>
+
+                        {/* Veg Button */}
                         <button
                           type="button"
                           onClick={() => setFormData((prev) => ({ ...prev, foodPreferenceId: "1" }))}
-                          className={`py-2.5 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-center gap-2 cursor-pointer ${
+                          className={`py-2 px-3 rounded-xl border text-sm font-medium transition flex items-center justify-between gap-2 cursor-pointer ${
                             formData.foodPreferenceId === "1"
-                              ? "bg-emerald-500/20 border-emerald-500 text-emerald-200 shadow-md shadow-emerald-500/10"
-                              : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
+                              ? "bg-gradient-to-r from-emerald-950/70 via-slate-900 to-emerald-950/40 border-emerald-500 text-white shadow-lg shadow-emerald-950/50 ring-1 ring-emerald-500/30"
+                              : "bg-slate-950/60 border-slate-800 text-slate-300 hover:border-slate-700 hover:bg-slate-900/60"
                           }`}
                         >
-                          <span>🌱 Veg</span>
+                          <div className="flex items-center gap-2 min-w-0">
+                            <div
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition ${
+                                formData.foodPreferenceId === "1"
+                                  ? "bg-emerald-500 text-slate-950 shadow-sm"
+                                  : "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
+                              }`}
+                            >
+                              <span className="text-sm leading-none">🌱</span>
+                            </div>
+                            <span className="font-semibold text-sm truncate">Veg</span>
+                          </div>
+                          {formData.foodPreferenceId === "1" && (
+                            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 ml-auto" />
+                          )}
                         </button>
                       </div>
                     </div>
@@ -926,8 +1162,8 @@ export default function Bijoya() {
                       className="w-5 h-5 rounded border-slate-700 bg-slate-900 text-purple-600 focus:ring-purple-500"
                     />
                     <div className="text-sm">
-                      <span className="font-semibold text-slate-100">I will attend the Bijoya Sammilani celebration</span>
-                      <p className="text-xs text-slate-400">Help us arrange feast catering accurately.</p>
+                      <span className="font-semibold text-slate-100">I will attend ২৭ তম মৈত্রী মহোৎসব ২০২৬ (1st Nov, 2026 • 7:30 PM onwards)</span>
+                      <p className="text-xs text-slate-400">Help us arrange feast catering accurately at Coder & AccoTax.</p>
                     </div>
                   </label>
 
@@ -1018,55 +1254,155 @@ export default function Bijoya() {
               </motion.div>
             ) : (
               /* ============================================================== */
-              /* SUCCESS SCREEN / DIGITAL EVENT PASS                           */
+              /* SUCCESS SCREEN / DIGITAL VIP EVENT PASS                       */
               /* ============================================================== */
               <motion.div
                 key="pass-container"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-                className="relative rounded-3xl bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-950 border border-amber-500/40 p-6 sm:p-8 text-center shadow-2xl backdrop-blur-2xl space-y-6"
+                initial={{ opacity: 0, scale: 0.94, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.94, y: -15 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="relative rounded-3xl bg-slate-900/90 border border-amber-500/30 p-4 sm:p-7 shadow-2xl backdrop-blur-2xl space-y-6 overflow-hidden"
               >
-                {/* Radiant celebration accent */}
-                <div className="inline-flex p-3 rounded-2xl bg-gradient-to-br from-amber-400/20 to-rose-500/20 border border-amber-400/30 text-amber-300 mb-2">
-                  <Award className="w-8 h-8" />
-                </div>
+                {/* Print styling for direct pass printing */}
+                <style>{`
+                  @media print {
+                    body * {
+                      visibility: hidden !important;
+                    }
+                    #bijoya-event-ticket, #bijoya-event-ticket * {
+                      visibility: visible !important;
+                    }
+                    #bijoya-event-ticket {
+                      position: fixed !important;
+                      left: 50% !important;
+                      top: 20px !important;
+                      transform: translateX(-50%) !important;
+                      width: 100% !important;
+                      max-width: 560px !important;
+                      background: #ffffff !important;
+                      color: #0f172a !important;
+                      border: 2px solid #cbd5e1 !important;
+                      box-shadow: none !important;
+                      padding: 24px !important;
+                    }
+                    #bijoya-event-ticket .print-hide {
+                      display: none !important;
+                    }
+                    #bijoya-event-ticket .text-white {
+                      color: #0f172a !important;
+                    }
+                    #bijoya-event-ticket .text-slate-200,
+                    #bijoya-event-ticket .text-slate-300,
+                    #bijoya-event-ticket .text-slate-400 {
+                      color: #475569 !important;
+                    }
+                    #bijoya-event-ticket .bg-slate-950\\/80,
+                    #bijoya-event-ticket .bg-slate-900\\/60 {
+                      background: #f8fafc !important;
+                      border-color: #e2e8f0 !important;
+                    }
+                  }
+                `}</style>
 
-                <div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                {/* Ambient Top Glow */}
+                <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 sm:w-96 h-28 bg-gradient-to-r from-amber-500/20 via-rose-500/25 to-purple-500/20 blur-3xl pointer-events-none rounded-full" />
+
+                {/* Celebratory Header */}
+                <div className="text-center space-y-3 relative z-10">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-rose-500/20 to-purple-500/20 border border-amber-400/40 text-amber-300 text-xs font-semibold shadow-lg shadow-amber-500/10">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
+                    <span>🌸 ২৭ তম মৈত্রী মহোৎসব ২০২৬ • 27th MAITRI MAHOTSAV 🌸</span>
+                  </div>
+
+                  <div className="flex justify-center my-1">
+                    <div className="overflow-hidden rounded-2xl border border-amber-500/40 shadow-xl max-w-xs sm:max-w-md">
+                      <img
+                        src={maitriLogo}
+                        alt="২৭ তম মৈত্রী মহোৎসব"
+                        className="w-full h-auto object-contain mx-auto"
+                      />
+                    </div>
+                  </div>
+
+                  <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
                     Registration Confirmed! 🎉
                   </h2>
-                  <p className="text-sm text-slate-300 mt-1">
-                    Thank you for registering for Bijoya Sammilani. Here is your official pass.
+                  <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+                    Welcome to <strong>২৭ তম মৈত্রী মহোৎসব ২০২৬</strong> (Maitri Mahotsav 2026) on <strong>1st November, 2026 at 7:30 PM onwards</strong> at <strong>Coder & AccoTax</strong>. Your digital invitation pass is ready!
+                  </p>
+                  <p className="text-xs sm:text-sm text-amber-200/90 font-medium italic mt-1 font-serif">
+                    “আপনি অতিথিও, আবার আতিথেয়তাকারীও” • “Aap mehmaan bhi hain aur mezbaan bhi” • “You are the guest, yet you are the host too.”
                   </p>
                 </div>
 
-                {/* Event Pass Card */}
-                <div className="p-6 rounded-2xl bg-slate-950/80 border border-slate-800 relative overflow-hidden space-y-4">
-                  <div className="absolute top-0 right-0 px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-bl-xl border-l border-b border-amber-500/30">
-                    VIP INVITATION
+                {/* ============================================================== */}
+                {/* THE VIP PERFORATED EVENT TICKET                                */}
+                {/* ============================================================== */}
+                <div
+                  ref={ticketRef}
+                  id="bijoya-event-ticket"
+                  className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border border-amber-500/40 shadow-2xl p-4 sm:p-6 space-y-4 overflow-hidden"
+                >
+                  {/* Top Golden Accent Line */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-rose-500 to-purple-500" />
+
+                  {/* Ticket Header & Branding */}
+                  <div className="flex items-center justify-between gap-2 pt-1 border-b border-slate-800/80 pb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                        <Ticket className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-amber-400 uppercase">
+                          Coder & AccoTax Presents
+                        </div>
+                        <div className="text-xs sm:text-sm font-extrabold text-white flex items-center gap-1.5 flex-wrap">
+                          <span className="text-amber-300">২৭ তম মৈত্রী মহোৎসব</span>
+                          <span className="text-slate-500">•</span>
+                          <span>2026</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col items-end">
+                      <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/40 text-[10px] sm:text-xs font-bold tracking-wide shadow-sm">
+                        <Award className="w-3 h-3 text-amber-400" />
+                        <span>VIP PASS</span>
+                      </div>
+                      <span className="text-[10px] text-amber-300/80 font-mono font-semibold mt-0.5">1st Nov • 7:30 PM</span>
+                    </div>
                   </div>
 
-                  <div className="text-xs text-slate-400 uppercase tracking-wider">Your Digital Entry Token</div>
-                  <div className="text-4xl sm:text-5xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-rose-300 to-purple-300">
-                    {savedGuests.token ? `#${savedGuests.token}` : "#MM-BIJOYA"}
+                  {/* Official Festive Calligraphy Emblem on Ticket */}
+                  <div className="overflow-hidden rounded-2xl border border-amber-500/40 shadow-md">
+                    <img
+                      src={maitriLogo}
+                      alt="২৭ তম মৈত্রী মহোৎসব"
+                      className="w-full h-auto max-h-28 object-cover sm:object-contain mx-auto"
+                    />
                   </div>
 
-                  <div className="text-sm text-slate-300">
-                    <strong className="text-white">{savedGuests.guestName || "Guest"}</strong> •{" "}
-                    <span>{savedGuests.mobileMasked || savedGuests.mobile || ""}</span>
-                  </div>
+                  {/* Entry Token Hero Card */}
+                  <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-950/80 border border-slate-800/90 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-left">
+                    <div>
+                      <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-slate-400 block mb-0.5">
+                        Digital Entry Token
+                      </span>
+                      <div className="text-2xl sm:text-3xl md:text-4xl font-black font-mono tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-rose-300 to-purple-300 select-all">
+                        {formatToken(savedGuests)}
+                      </div>
+                    </div>
 
-                  <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
                     <button
+                      type="button"
                       onClick={handleCopyToken}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition cursor-pointer"
+                      className="print-hide self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-slate-800/90 hover:bg-slate-700 active:scale-95 text-slate-200 text-xs font-semibold border border-slate-700 transition cursor-pointer shadow-sm"
                     >
                       {copiedToken ? (
                         <>
                           <Check className="w-3.5 h-3.5 text-emerald-400" />
-                          <span className="text-emerald-400">Token Copied!</span>
+                          <span className="text-emerald-400 font-bold">Copied!</span>
                         </>
                       ) : (
                         <>
@@ -1075,59 +1411,237 @@ export default function Bijoya() {
                         </>
                       )}
                     </button>
-
-                    {/* WhatsApp share action on pass */}
-                    {(savedGuests.wpNumber || savedGuests.mobile) && (
-                      <button
-                        onClick={() => sendWhatsApp(savedGuests)}
-                        title="Send confirmation via WhatsApp"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border transition cursor-pointer bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
-                      >
-                        <Share2 className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Send to WhatsApp</span>
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Google Review QR Section */}
-                <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col items-center space-y-4">
-                  <div className="p-3 bg-white rounded-2xl shadow-xl">
-                    <img src={qr} alt="Google Review QR" className="w-36 h-36 object-contain" />
                   </div>
 
-                  <div className="space-y-1">
-                    <h3 className="text-base font-bold text-slate-100">Leave Us a Google Review ⭐</h3>
-                    <p className="text-xs text-slate-400 max-w-sm">
-                      Scan the QR code above or tap below to share your experience with Coder & AccoTax.
+                  {/* Perforated Cutout Notches & Tear Line */}
+                  <div className="relative py-1">
+                    {/* Left Cutout */}
+                    <div className="absolute -left-7 sm:-left-9 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-900 border border-amber-500/40" />
+                    {/* Dashed Tear Line */}
+                    <div className="border-t-2 border-dashed border-slate-700/80 mx-2 sm:mx-3" />
+                    {/* Right Cutout */}
+                    <div className="absolute -right-7 sm:-right-9 top-1/2 -translate-y-1/2 w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-900 border border-amber-500/40" />
+                  </div>
+
+                  {/* Attendee Details Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 text-left">
+                    {/* Guest Name */}
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 col-span-2 sm:col-span-1">
+                      <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block">Guest Name</span>
+                      <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                        <span className="text-sm sm:text-base font-bold text-white truncate">
+                          {savedGuests.guestName || "Guest Attendee"}
+                        </span>
+                        {savedGuests.genderId === "2" || savedGuests.genderName === "Female" ? (
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-pink-500/15 border border-pink-500/30 text-pink-300 shrink-0">
+                            <WomanLogo className="w-3 h-3" /> Female
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-sky-500/15 border border-sky-500/30 text-sky-300 shrink-0">
+                            <ManLogo className="w-3 h-3" /> Male
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Mobile Number */}
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                      <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block">Contact</span>
+                      <span className="text-xs sm:text-sm font-mono font-semibold text-slate-200 block truncate mt-0.5">
+                        {savedGuests.mobileMasked || savedGuests.mobile || "—"}
+                      </span>
+                    </div>
+
+                    {/* Food Preference */}
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                      <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block mb-1">Feast Diet</span>
+                      {checkIsVeg(savedGuests) ? (
+                        <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
+                          <Leaf className="w-3 h-3 text-emerald-400" />
+                          <span>🌱 Veg</span>
+                        </span>
+                      ) : (
+                        <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-rose-500/15 border border-rose-500/30 text-rose-300">
+                          <Utensils className="w-3 h-3 text-rose-400" />
+                          <span>🍗 Non-Veg</span>
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Event Date & Time */}
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                      <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block">Date & Time</span>
+                      <div className="text-xs sm:text-sm font-bold text-amber-300 flex flex-col gap-0.5 mt-0.5">
+                        <span className="flex items-center gap-1">
+                          <CalendarCheck className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                          <span>1st Nov, 2026</span>
+                        </span>
+                        <span className="flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-amber-200/90">
+                          <Clock className="w-3 h-3 shrink-0 text-amber-400" />
+                          <span>7:30 PM onwards</span>
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Venue */}
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                      <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block">Venue</span>
+                      <span className="text-xs sm:text-sm font-semibold text-white flex items-center gap-1.5 mt-0.5">
+                        <MapPin className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                        <span className="truncate">Coder & AccoTax</span>
+                      </span>
+                    </div>
+
+                    {/* Attendance Status */}
+                    <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
+                      <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block mb-1">Status</span>
+                      <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold px-2 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300">
+                        <CheckCircle2 className="w-3 h-3" />
+                        <span>Confirmed</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Theme Quote on Ticket (Saved in JPEG) */}
+                  <div className="py-2.5 px-3 rounded-xl bg-slate-950/70 border border-amber-500/20 text-center space-y-0.5 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+                    <p className="text-xs sm:text-sm font-bold text-amber-200 tracking-wide font-serif">
+                      “আপনি অতিথিও, আবার আতিথেয়তাকারীও”
+                    </p>
+                    <p className="text-[11px] sm:text-xs font-semibold text-rose-200/90 italic">
+                      “Aap mehmaan bhi hain aur mezbaan bhi”
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-slate-400 italic">
+                      “You are the guest, yet you are the host too.”
                     </p>
                   </div>
 
-                  <a
-                    href="https://www.google.com/search?q=Coder+%26+AccoTax+Reviews"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm shadow-lg shadow-amber-500/20 transition active:scale-95"
-                  >
-                    <span>Write Google Review</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
+                  {/* Direct Pass Action Buttons (WhatsApp, Save JPEG & Print) */}
+                  <div className="ticket-export-hide print-hide pt-2 flex flex-col sm:flex-row gap-2 sm:gap-2.5">
+                    {(savedGuests.wpNumber || savedGuests.mobile) && (
+                      <button
+                        type="button"
+                        onClick={() => sendWhatsApp(savedGuests)}
+                        className="w-full sm:flex-1 py-3 px-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:scale-98 text-white font-bold text-xs sm:text-sm shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-1.5 transition cursor-pointer"
+                      >
+                        <MessageCircle className="w-4 h-4 fill-current shrink-0" />
+                        <span className="truncate">Send to WhatsApp</span>
+                      </button>
+                    )}
+
+                    <button
+                      type="button"
+                      onClick={handleSaveJpeg}
+                      disabled={isSavingJpeg}
+                      className="w-full sm:flex-1 py-3 px-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:from-amber-400 hover:to-purple-500 active:scale-98 text-white font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/20 flex items-center justify-center gap-1.5 transition cursor-pointer disabled:opacity-50"
+                    >
+                      {isSavingJpeg ? (
+                        <>
+                          <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin shrink-0" />
+                          <span>Saving JPEG...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Camera className="w-4 h-4 shrink-0" />
+                          <span>Save as JPEG</span>
+                        </>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => window.print()}
+                      className="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-98 text-slate-200 font-semibold text-xs border border-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer"
+                    >
+                      <Printer className="w-4 h-4 text-slate-300 shrink-0" />
+                      <span>Print Pass</span>
+                    </button>
+                  </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                {/* ============================================================== */}
+                {/* COMPACT GOOGLE REVIEW & FEEDBACK CARD                          */}
+                {/* ============================================================== */}
+                <div className="rounded-2xl bg-gradient-to-br from-slate-950/80 via-slate-900/60 to-slate-950/80 border border-amber-500/20 backdrop-blur-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left shadow-lg">
+                  {/* Compact QR Code */}
+                  <div className="p-2 bg-white rounded-xl shadow-md shrink-0 border border-slate-200">
+                    <img src={qr} alt="Google Review QR" className="w-20 h-20 sm:w-22 sm:h-22 object-contain" />
+                    <span className="text-[9px] font-bold text-slate-800 block text-center mt-1 uppercase tracking-tight">
+                      Scan to Review
+                    </span>
+                  </div>
+
+                  <div className="flex-1 space-y-1.5">
+                    <div className="flex items-center justify-center sm:justify-start gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                      <span className="text-xs font-bold text-amber-300 ml-1">5-Star Review</span>
+                    </div>
+
+                    <h3 className="text-sm sm:text-base font-bold text-white">
+                      Share Your Experience on Google ⭐
+                    </h3>
+                    <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
+                      Your valuable feedback helps Coder & AccoTax grow. Scan the QR code or tap the button below.
+                    </p>
+
+                    <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                      <a
+                        href="https://g.page/r/CTBkwqHJ6mZ2EBM/review"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 active:scale-95 text-slate-950 font-bold text-xs shadow-md shadow-amber-500/20 transition"
+                      >
+                        <span>Write Google Review</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href="https://www.facebook.com/profile.php?id=61561702110617"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-bold text-xs shadow-md shadow-blue-600/20 transition"
+                      >
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        <span>Follow on Facebook</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/codernaccotax"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 hover:opacity-90 active:scale-95 text-white font-bold text-xs shadow-md shadow-pink-600/20 transition"
+                      >
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Follow on Instagram</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ============================================================== */}
+                {/* BOTTOM NAVIGATION ACTIONS                                      */}
+                {/* ============================================================== */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-1">
                   <button
+                    type="button"
                     onClick={() => {
                       setIsSaved(false);
                       resetForm();
                     }}
-                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg transition flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-rose-600 to-amber-600 hover:from-purple-500 hover:to-amber-500 active:scale-98 text-white font-bold text-sm shadow-lg shadow-purple-600/20 transition flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <PlusCircle className="w-4 h-4" />
                     <span>Register Another Guest</span>
                   </button>
 
                   <button
+                    type="button"
                     onClick={() => {
                       setIsSaved(false);
                       const directoryElement = document.getElementById("guest-directory");
@@ -1135,9 +1649,10 @@ export default function Bijoya() {
                         directoryElement.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="py-3 px-5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition cursor-pointer"
+                    className="w-full sm:w-auto py-3 px-5 rounded-xl bg-slate-800/90 hover:bg-slate-700 active:scale-98 text-slate-200 font-semibold text-sm border border-slate-700 transition cursor-pointer flex items-center justify-center gap-2"
                   >
-                    View Guest Directory
+                    <Users className="w-4 h-4 text-slate-400" />
+                    <span>View Guest Directory</span>
                   </button>
                 </div>
               </motion.div>
@@ -1276,7 +1791,7 @@ export default function Bijoya() {
                       {/* Top Tag & Token */}
                       <div className="flex items-center justify-between gap-2">
                         <span className="font-mono text-xs font-bold text-amber-400 px-2.5 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20">
-                          {guest.token ? `#${guest.token}` : `#${idx + 1}`}
+                          {formatToken(guest)}
                         </span>
 
                         <span className="text-[11px] text-slate-500">
@@ -1304,8 +1819,18 @@ export default function Bijoya() {
                           {isVeg ? "🌱 Veg" : "🍗 Non-Veg"}
                         </span>
 
-                        <span className="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
-                          {guest.genderName || (guest.genderId === "1" ? "Male" : "Female")}
+                        <span className="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 inline-flex items-center gap-1">
+                          {(guest.genderId === "2" || guest.genderName === "Female") ? (
+                            <>
+                              <WomanLogo className="w-3.5 h-3.5 text-pink-400" />
+                              <span>Female</span>
+                            </>
+                          ) : (
+                            <>
+                              <ManLogo className="w-3.5 h-3.5 text-sky-400" />
+                              <span>Male</span>
+                            </>
+                          )}
                         </span>
 
                         {isAtt && (
@@ -1389,7 +1914,7 @@ export default function Bijoya() {
                       <tr key={guest.guestId || guest.id || idx} className="hover:bg-slate-800/40 transition">
                         <td className="px-4 py-3 text-xs text-slate-500">{idx + 1}</td>
                         <td className="px-4 py-3 font-mono font-bold text-amber-400 text-xs">
-                          {guest.token ? `#${guest.token}` : "-"}
+                          {formatToken(guest)}
                         </td>
                         <td className="px-4 py-3 font-semibold text-white">
                           <div>{guest.guestName}</div>
@@ -1412,7 +1937,19 @@ export default function Bijoya() {
                           </span>
                         </td>
                         <td className="px-4 py-3 text-xs text-slate-300">
-                          {guest.genderName || (guest.genderId === "1" ? "Male" : "Female")}
+                          <span className="inline-flex items-center gap-1.5">
+                            {(guest.genderId === "2" || guest.genderName === "Female") ? (
+                              <>
+                                <WomanLogo className="w-3.5 h-3.5 text-pink-400" />
+                                <span>Female</span>
+                              </>
+                            ) : (
+                              <>
+                                <ManLogo className="w-3.5 h-3.5 text-sky-400" />
+                                <span>Male</span>
+                              </>
+                            )}
+                          </span>
                         </td>
                         <td className="px-4 py-3">
                           <span

@@ -52,6 +52,32 @@ const Footer = () => {
               <i className="bi bi-shield-check text-emerald-400"></i>
               <span>28+ Years of Academic Trust</span>
             </div>
+
+            {/* Social Connect */}
+            <div className="pt-2 flex flex-wrap items-center gap-2">
+              <a
+                href="https://www.facebook.com/profile.php?id=61561702110617"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-blue-600/20 text-slate-400 hover:text-blue-400 border border-slate-800 hover:border-blue-500/40 text-xs font-medium transition"
+                aria-label="Official Facebook Page"
+                title="Follow Coder & AccoTax on Facebook"
+              >
+                <i className="bi bi-facebook text-blue-400 text-sm"></i>
+                <span>Facebook</span>
+              </a>
+              <a
+                href="https://www.instagram.com/codernaccotax"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-pink-600/20 text-slate-400 hover:text-pink-400 border border-slate-800 hover:border-pink-500/40 text-xs font-medium transition"
+                aria-label="Official Instagram Page"
+                title="Follow Coder & AccoTax on Instagram"
+              >
+                <i className="bi bi-instagram text-pink-400 text-sm"></i>
+                <span>Instagram</span>
+              </a>
+            </div>
           </div>
 
           {/* Column 2: Quick Links */}
