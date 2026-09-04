@@ -67,6 +67,8 @@ export default function StudentWithAdmission() {
     amountPaid: "",
     paymentMode: "Cash",
     paymentDate: new Date().toISOString().split("T")[0],
+    periodFrom: "",
+    periodTo: "",
     remarks: "",
   });
 
@@ -258,30 +260,83 @@ export default function StudentWithAdmission() {
       };
     }
 
-    // Monthly Mode: Calculate elapsed calendar months between admissionDate and paymentDate (or today)
+    // Monthly Mode:
     const admDateStr = admissionForm.admissionDate || new Date().toISOString().split("T")[0];
     const payDateStr = (feePayment.collectFeeNow && feePayment.paymentDate) ? feePayment.paymentDate : new Date().toISOString().split("T")[0];
 
     const admD = new Date(admDateStr);
     const payD = new Date(payDateStr);
+    const todayD = new Date();
 
-    let elapsedMonths = (payD.getFullYear() - admD.getFullYear()) * 12 + (payD.getMonth() - admD.getMonth()) + 1;
-    if (elapsedMonths < 1) elapsedMonths = 1;
+    // Months elapsed from admission up to CURRENT PERIOD (Today, e.g. September 2026)
+    let currentElapsedMonths = (todayD.getFullYear() - admD.getFullYear()) * 12 + (todayD.getMonth() - admD.getMonth()) + 1;
+    if (currentElapsedMonths < 1) currentElapsedMonths = 1;
 
-    const totalAccruedFee = elapsedMonths * agreedFee;
-    const due = Math.max(0, totalAccruedFee - amountPaid);
+    // Months elapsed from admission up to Payment Date (e.g. June 2026)
+    let paymentElapsedMonths = (payD.getFullYear() - admD.getFullYear()) * 12 + (payD.getMonth() - admD.getMonth()) + 1;
+    if (paymentElapsedMonths < 1) paymentElapsedMonths = 1;
+
+    // Accrued fees up to current period (e.g. 4 months * 600 = 2,400)
+    const totalAccruedFee = currentElapsedMonths * agreedFee;
+    const dueAmount = Math.max(0, totalAccruedFee - amountPaid);
+    const monthsDue = agreedFee > 0 ? Math.max(0, (dueAmount / agreedFee)).toFixed(1).replace(/\.0$/, "") : "0";
+
+    // Number of full months covered by this payment
+    const fullMonthsCovered = agreedFee > 0 ? Math.floor(amountPaid / agreedFee) : 0;
     const monthsPaid = agreedFee > 0 ? (amountPaid / agreedFee).toFixed(1).replace(/\.0$/, "") : "0";
-    const monthsDue = agreedFee > 0 ? Math.max(0, (due / agreedFee)).toFixed(1).replace(/\.0$/, "") : "0";
+
+    // Period Range covered by this payment
+    let periodFromStr = "";
+    let periodToStr = "";
+    let periodLabel = "";
+    if (amountPaid > 0 && agreedFee > 0) {
+      const pStart = new Date(admD.getFullYear(), admD.getMonth(), 1);
+      const pEnd = new Date(admD.getFullYear(), admD.getMonth() + Math.max(1, fullMonthsCovered), 0);
+      const startYear = pStart.getFullYear();
+      const startMonth = String(pStart.getMonth() + 1).padStart(2, "0");
+      const endYear = pEnd.getFullYear();
+      const endMonth = String(pEnd.getMonth() + 1).padStart(2, "0");
+      const endDay = String(pEnd.getDate()).padStart(2, "0");
+
+      periodFromStr = `${startYear}-${startMonth}-01`;
+      periodToStr = `${endYear}-${endMonth}-${endDay}`;
+
+      const startMonthLabel = pStart.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+      const endMonthLabel = pEnd.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+      periodLabel = startMonthLabel === endMonthLabel ? startMonthLabel : `${startMonthLabel} – ${endMonthLabel}`;
+    }
+
+    const admissionMonthName = admD.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+    const currentMonthName = todayD.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+    const paymentDateFormatted = payD.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+
+    // Pending months names (e.g. ["Jul 2026", "Aug 2026", "Sep 2026"])
+    const pendingMonthsList = [];
+    if (agreedFee > 0 && fullMonthsCovered < currentElapsedMonths) {
+      for (let i = fullMonthsCovered; i < currentElapsedMonths; i++) {
+        const m = new Date(admD.getFullYear(), admD.getMonth() + i, 1);
+        pendingMonthsList.push(m.toLocaleDateString("en-US", { month: "short", year: "numeric" }));
+      }
+    }
 
     return {
       mode: "monthly",
-      elapsedMonths,
+      elapsedMonths: currentElapsedMonths,
+      paymentElapsedMonths,
       monthlyRate: agreedFee,
       totalAccruedFee,
       amountPaid,
-      dueAmount: due,
+      dueAmount,
       monthsPaid,
       monthsDue,
+      fullMonthsCovered,
+      admissionMonthName,
+      currentMonthName,
+      paymentDateFormatted,
+      periodFromStr,
+      periodToStr,
+      periodLabel,
+      pendingMonthsList,
     };
   }, [admissionForm.feeModesId, admissionForm.courseFees, admissionForm.admissionDate, feePayment.collectFeeNow, feePayment.paymentDate, feePayment.amountPaid]);
 
@@ -413,8 +468,16 @@ export default function StudentWithAdmission() {
         payment_mode: feePayment.paymentMode,
         payment_date: feePayment.paymentDate,
       };
+      if (feePayment.periodFrom || dueCalculation.periodFromStr) {
+        payload.initial_fee.period_from = feePayment.periodFrom || dueCalculation.periodFromStr;
+      }
+      if (feePayment.periodTo || dueCalculation.periodToStr) {
+        payload.initial_fee.period_to = feePayment.periodTo || dueCalculation.periodToStr;
+      }
       if (feePayment.remarks?.trim()) {
         payload.initial_fee.remarks = feePayment.remarks.trim();
+      } else if (dueCalculation.periodLabel) {
+        payload.initial_fee.remarks = `Admission Fee payment for ${dueCalculation.periodLabel}`;
       }
     }
 
@@ -428,10 +491,16 @@ export default function StudentWithAdmission() {
           <p><b class="text-slate-400">Agreed Course Fee:</b> <span class="text-emerald-400 font-extrabold">₹${Number(admissionForm.courseFees).toLocaleString()}</span></p>
           <p><b class="text-slate-400">Payment Schedule:</b> <span class="text-purple-300 font-semibold">${selectedFeeModeObj?.fee_modes_name || (Number(admissionForm.feeModesId) === 2 ? "Course Fees (Lump sum)" : "Monthly")}</span></p>
           ${feePayment.collectFeeNow && Number(feePayment.amountPaid) > 0 ? `
-            <div class="p-2 rounded-lg bg-slate-950 border border-sky-500/30 text-[11px] space-y-1">
+            <div class="p-2.5 rounded-lg bg-slate-950 border border-sky-500/30 text-[11px] space-y-1">
               <p><b class="text-sky-300">Initial Fee Received:</b> <span class="text-emerald-400 font-bold">₹${Number(feePayment.amountPaid).toLocaleString()}</span> via <span class="text-white font-semibold">${feePayment.paymentMode}</span></p>
-              <p><b class="text-slate-400">Date:</b> ${feePayment.paymentDate}</p>
-              <p><b class="text-amber-300">Remaining Balance:</b> ₹${Math.max(0, Number(admissionForm.courseFees) - Number(feePayment.amountPaid)).toLocaleString()}</p>
+              <p><b class="text-slate-400">Payment Date:</b> ${feePayment.paymentDate}</p>
+              ${dueCalculation.mode === "monthly" ? `
+                <p><b class="text-sky-300">Fee Period Covered:</b> <span class="text-white font-bold">${dueCalculation.periodLabel || "Admission Month"}</span></p>
+                <p><b class="text-slate-400">Current Period (${dueCalculation.currentMonthName}):</b> <span class="text-slate-200">${dueCalculation.elapsedMonths} months accrued (₹${dueCalculation.totalAccruedFee.toLocaleString()})</span></p>
+                <p><b class="${dueCalculation.dueAmount > 0 ? "text-rose-400" : "text-emerald-400"}">Current Due Balance (${dueCalculation.currentMonthName}):</b> ₹${dueCalculation.dueAmount.toLocaleString()}${dueCalculation.dueAmount > 0 ? ` (${dueCalculation.monthsDue} mo pending: ${dueCalculation.pendingMonthsList?.join(", ")})` : " (Cleared)"}</p>
+              ` : `
+                <p><b class="text-amber-300">Remaining Balance:</b> ₹${Math.max(0, Number(admissionForm.courseFees) - Number(feePayment.amountPaid)).toLocaleString()}</p>
+              `}
             </div>
           ` : `<p class="text-[11px] text-slate-400">Initial Payment: <span class="text-slate-400 italic">None at admission (pay later)</span></p>`}
           <p class="text-[11px] text-slate-400 pt-2 border-t border-slate-700/80">
@@ -517,6 +586,15 @@ export default function StudentWithAdmission() {
               courseFees: "",
               completionDate: "",
             }));
+            setFeePayment({
+              collectFeeNow: true,
+              amountPaid: "",
+              paymentMode: "UPI",
+              paymentDate: new Date().toISOString().split("T")[0],
+              periodFrom: "",
+              periodTo: "",
+              remarks: "",
+            });
             setShowOptionalDetails(false);
           }
         });
@@ -851,8 +929,7 @@ export default function StudentWithAdmission() {
                               <input
                                 type="number"
                                 min="0"
-                                
-                                placeholder="e.g. 3000"
+                                placeholder="e.g. 600"
                                 value={feePayment.amountPaid}
                                 onChange={(e) => setFeePayment((prev) => ({ ...prev, amountPaid: e.target.value }))}
                                 className="w-full bg-slate-900 border border-sky-500/40 rounded-xl pl-7 pr-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-sky-400"
@@ -892,10 +969,57 @@ export default function StudentWithAdmission() {
                           </div>
                         </div>
 
+                        {/* Quick Pay Amount Shortcuts for Monthly Course */}
+                        {dueCalculation.mode === "monthly" && dueCalculation.monthlyRate > 0 && (
+                          <div className="flex flex-wrap items-center gap-2 pt-0.5">
+                            <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Quick Select:</span>
+                            <button
+                              type="button"
+                              onClick={() => setFeePayment((prev) => ({ ...prev, amountPaid: dueCalculation.monthlyRate }))}
+                              className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                                Number(feePayment.amountPaid) === dueCalculation.monthlyRate
+                                  ? "bg-sky-500 text-white font-bold shadow-md shadow-sky-500/20"
+                                  : "bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700"
+                              }`}
+                            >
+                              Pay 1 Month ({dueCalculation.admissionMonthName || "June"}: ₹{dueCalculation.monthlyRate.toLocaleString()})
+                            </button>
 
+                            {dueCalculation.elapsedMonths > 1 && (
+                              <button
+                                type="button"
+                                onClick={() => setFeePayment((prev) => ({ ...prev, amountPaid: dueCalculation.totalAccruedFee }))}
+                                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition cursor-pointer ${
+                                  Number(feePayment.amountPaid) === dueCalculation.totalAccruedFee
+                                    ? "bg-emerald-500 text-white font-bold shadow-md shadow-emerald-500/20"
+                                    : "bg-slate-800 hover:bg-slate-700 text-emerald-300 border border-slate-700"
+                                }`}
+                              >
+                                Pay All Up to Current ({dueCalculation.currentMonthName || "Sep"}, {dueCalculation.elapsedMonths} mos: ₹{dueCalculation.totalAccruedFee.toLocaleString()})
+                              </button>
+                            )}
+                          </div>
+                        )}
+
+                        {/* Payment Coverage Period Indicator */}
+                        {dueCalculation.mode === "monthly" && dueCalculation.periodLabel && (
+                          <div className="p-2.5 rounded-xl bg-sky-950/40 border border-sky-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+                            <div className="flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
+                              <span className="text-slate-300 font-medium">Receipt Covers Period:</span>
+                              <strong className="text-sky-300 font-bold bg-sky-500/10 px-2 py-0.5 rounded border border-sky-500/20">
+                                {dueCalculation.periodLabel} ({dueCalculation.fullMonthsCovered || 1} month{(dueCalculation.fullMonthsCovered > 1 ? "s" : "")})
+                              </strong>
+                            </div>
+                            <span className="text-[11px] text-slate-400">
+                              Admission: <strong className="text-slate-200">{dueCalculation.admissionMonthName}</strong> • Current Billing: <strong className="text-amber-300">{dueCalculation.currentMonthName}</strong>
+                            </span>
+                          </div>
+                        )}
 
                         {/* Live Real-time Due & Payment Summary */}
-                        <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2.5 text-xs text-slate-300">
+                        <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2.5 text-xs text-slate-300">
+                          {/* Row 1: Paid Now & Accrued to Current Period */}
                           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                             <div>
                               <span>Fees Paid Now: </span>
@@ -903,10 +1027,19 @@ export default function StudentWithAdmission() {
                                 ₹{Number(feePayment.amountPaid || 0).toLocaleString()}
                               </strong>
                               <span className="text-slate-400 ml-1.5">via {feePayment.paymentMode}</span>
+                              {dueCalculation.mode === "monthly" && dueCalculation.periodLabel && (
+                                <span className="ml-1.5 text-[11px] text-sky-300 bg-sky-500/10 px-1.5 py-0.5 rounded border border-sky-500/20 font-semibold">
+                                  for {dueCalculation.periodLabel}
+                                </span>
+                              )}
                             </div>
 
                             <div>
-                              <span>{dueCalculation.mode === "monthly" ? "Accrued Fees (Elapsed): " : "Agreed Total Fees: "}</span>
+                              <span>
+                                {dueCalculation.mode === "monthly"
+                                  ? `Accrued to Date (${dueCalculation.currentMonthName}): `
+                                  : "Agreed Total Fees: "}
+                              </span>
                               <strong className="text-white font-semibold">
                                 ₹{(dueCalculation.mode === "monthly" ? dueCalculation.totalAccruedFee : dueCalculation.totalPayable).toLocaleString()}
                               </strong>
@@ -918,16 +1051,17 @@ export default function StudentWithAdmission() {
                             </div>
                           </div>
 
-                          <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
-                            <div className="flex items-center gap-1.5">
-                              <span className="text-slate-400">Payment Status:</span>
+                          {/* Row 2: Status & Due Breakdown */}
+                          <div className="pt-2 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <span className="text-slate-400">Current Status ({dueCalculation.currentMonthName}):</span>
                               {dueCalculation.dueAmount === 0 ? (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                                  ✓ Cleared (No Due)
+                                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                                  ✓ Cleared up to {dueCalculation.currentMonthName} (No Due)
                                 </span>
                               ) : (
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
-                                  ⚠ Pending Due
+                                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+                                  ⚠ {dueCalculation.monthsDue} Month{Number(dueCalculation.monthsDue) > 1 ? "s" : ""} Pending Due
                                 </span>
                               )}
                             </div>
@@ -938,12 +1072,22 @@ export default function StudentWithAdmission() {
                                 ₹{dueCalculation.dueAmount.toLocaleString()}
                               </strong>
                               {dueCalculation.mode === "monthly" && dueCalculation.dueAmount > 0 && (
-                                <span className="text-rose-400/80 text-[11px] ml-1">
-                                  ({dueCalculation.monthsDue} mo pending)
+                                <span className="text-rose-400/90 text-[11px] ml-1 font-semibold">
+                                  ({dueCalculation.pendingMonthsList?.join(", ") || `${dueCalculation.monthsDue} mo`})
                                 </span>
                               )}
                             </div>
                           </div>
+
+                          {/* Admission Date vs Current Date Context Explanation Note */}
+                          {dueCalculation.mode === "monthly" && dueCalculation.elapsedMonths > 1 && (
+                            <div className="pt-2 text-[11px] text-slate-400 border-t border-slate-800/60 flex items-start gap-2 bg-slate-950/40 p-2 rounded-lg">
+                              <span className="text-amber-400 text-xs shrink-0 mt-0.5">ℹ️</span>
+                              <span className="leading-relaxed">
+                                Student enrolled in <strong className="text-slate-200">{dueCalculation.admissionMonthName}</strong> and paid for <strong className="text-emerald-300">{dueCalculation.periodLabel || "June"}</strong>. Because current billing period is <strong className="text-sky-300">{dueCalculation.currentMonthName}</strong>, <strong>{dueCalculation.monthsDue} month(s) ({dueCalculation.pendingMonthsList?.join(", ")})</strong> have accrued to date and remain payable.
+                              </span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     )}

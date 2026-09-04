@@ -21,6 +21,18 @@ body {
   box-sizing: border-box;
 }
 
+/* Text gradient clip utility fallback */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Authentic Hindi Devanagari Typography */
+.font-hindi {
+  font-family: 'Noto Serif Devanagari', 'Mangal', 'Nirmala UI', 'Utsaah', serif;
+}
+
+
 /* Glassmorphism & Glow Utilities */
 .glass-panel {
   background: rgba(15, 23, 42, 0.65);
@@ -73,3 +85,34 @@ body {
   background-color: rgba(56, 189, 248, 0.3);
   color: #38bdf8;
 }
+
+/* Soothing Dark Theme for SweetAlert2 */
+.swal2-container {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  background-color: rgba(3, 7, 18, 0.75) !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+  background: #0b1220 !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  border-radius: 1.5rem !important;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(245, 158, 11, 0.2) !important;
+}
+
+div:where(.swal2-container) .swal2-title {
+  color: #ffffff !important;
+}
+
+div:where(.swal2-container) .swal2-html-container {
+  color: #cbd5e1 !important;
+}
+
+div:where(.swal2-container) .swal2-close {
+  color: #94a3b8 !important;
+}
+
+div:where(.swal2-container) .swal2-close:hover {
+  color: #ffffff !important;
+}

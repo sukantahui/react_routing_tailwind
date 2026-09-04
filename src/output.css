@@ -535,6 +535,9 @@
   .-inset-1 {
     inset: calc(var(--spacing) * -1);
   }
+  .-inset-1\.5 {
+    inset: calc(var(--spacing) * -1.5);
+  }
   .-inset-2 {
     inset: calc(var(--spacing) * -2);
   }
@@ -1877,8 +1880,14 @@
   .max-w-\[240px\] {
     max-width: 240px;
   }
+  .max-w-\[260px\] {
+    max-width: 260px;
+  }
   .max-w-\[280px\] {
     max-width: 280px;
+  }
+  .max-w-\[300px\] {
+    max-width: 300px;
   }
   .max-w-\[400px\] {
     max-width: 400px;
@@ -3940,6 +3949,12 @@
     border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 30%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       border-color: color-mix(in oklab, var(--color-amber-500) 30%, transparent);
+    }
+  }
+  .border-amber-500\/35 {
+    border-color: color-mix(in srgb, oklch(76.9% 0.188 70.08) 35%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-amber-500) 35%, transparent);
     }
   }
   .border-amber-500\/40 {
@@ -11447,6 +11462,14 @@
     --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
+  .via-emerald-500\/20 {
+    --tw-gradient-via: color-mix(in srgb, oklch(69.6% 0.17 162.48) 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      --tw-gradient-via: color-mix(in oklab, var(--color-emerald-500) 20%, transparent);
+    }
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
   .via-emerald-600 {
     --tw-gradient-via: var(--color-emerald-600);
     --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
@@ -14254,6 +14277,12 @@
       color: color-mix(in oklab, var(--color-amber-200) 90%, transparent);
     }
   }
+  .text-amber-200\/95 {
+    color: color-mix(in srgb, oklch(92.4% 0.12 95.746) 95%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-amber-200) 95%, transparent);
+    }
+  }
   .text-amber-300 {
     color: var(--color-amber-300);
   }
@@ -14791,6 +14820,12 @@
       color: color-mix(in oklab, var(--color-rose-200) 90%, transparent);
     }
   }
+  .text-rose-200\/95 {
+    color: color-mix(in srgb, oklch(89.2% 0.058 10.001) 95%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-rose-200) 95%, transparent);
+    }
+  }
   .text-rose-300 {
     color: var(--color-rose-300);
   }
@@ -14813,6 +14848,12 @@
     color: color-mix(in srgb, oklch(71.2% 0.194 13.428) 80%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
       color: color-mix(in oklab, var(--color-rose-400) 80%, transparent);
+    }
+  }
+  .text-rose-400\/90 {
+    color: color-mix(in srgb, oklch(71.2% 0.194 13.428) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-rose-400) 90%, transparent);
     }
   }
   .text-rose-500 {
@@ -14883,6 +14924,12 @@
   }
   .text-slate-300 {
     color: var(--color-slate-300);
+  }
+  .text-slate-300\/80 {
+    color: color-mix(in srgb, oklch(86.9% 0.022 252.894) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-slate-300) 80%, transparent);
+    }
   }
   .text-slate-300\/90 {
     color: color-mix(in srgb, oklch(86.9% 0.022 252.894) 90%, transparent);
@@ -16517,6 +16564,10 @@
     --tw-blur: blur(160px);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
+  .blur-lg {
+    --tw-blur: blur(var(--blur-lg));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
   .blur-xl {
     --tw-blur: blur(var(--blur-xl));
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -17814,6 +17865,13 @@
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         opacity: 80%;
+      }
+    }
+  }
+  .group-hover\:opacity-95 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        opacity: 95%;
       }
     }
   }
@@ -22982,6 +23040,14 @@
       }
     }
   }
+  .hover\:to-amber-700 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-gradient-to: var(--color-amber-700);
+        --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+      }
+    }
+  }
   .hover\:to-blue-50 {
     &:hover {
       @media (hover: hover) {
@@ -27570,6 +27636,11 @@
       max-width: 210px;
     }
   }
+  .sm\:max-w-\[280px\] {
+    @media (width >= 40rem) {
+      max-width: 280px;
+    }
+  }
   .sm\:max-w-md {
     @media (width >= 40rem) {
       max-width: var(--container-md);
@@ -27730,6 +27801,15 @@
       gap: calc(var(--spacing) * 8);
     }
   }
+  .sm\:space-y-3 {
+    @media (width >= 40rem) {
+      :where(& > :not(:last-child)) {
+        --tw-space-y-reverse: 0;
+        margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
+        margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+      }
+    }
+  }
   .sm\:space-y-5 {
     @media (width >= 40rem) {
       :where(& > :not(:last-child)) {
@@ -27756,6 +27836,11 @@
   .sm\:self-center {
     @media (width >= 40rem) {
       align-self: center;
+    }
+  }
+  .sm\:rounded-2xl {
+    @media (width >= 40rem) {
+      border-radius: var(--radius-2xl);
     }
   }
   .sm\:rounded-3xl {
@@ -28211,6 +28296,11 @@
   .md\:max-w-3xl {
     @media (width >= 48rem) {
       max-width: var(--container-3xl);
+    }
+  }
+  .md\:max-w-lg {
+    @media (width >= 48rem) {
+      max-width: var(--container-lg);
     }
   }
   .md\:max-w-md {

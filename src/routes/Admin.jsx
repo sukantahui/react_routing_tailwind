@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { authService } from "../api/auth.service";
+import { toProperCase } from "./Bijoya";
 
 export default function Admin() {
     const [guests, setGuests] = useState([]);
@@ -44,7 +45,7 @@ export default function Admin() {
         const rows = filteredGuests.map((guest, index) => [
             index + 1,
             guest.guestId,
-            guest.guestName,
+            toProperCase(guest.guestName),
             guest.mobile,
             guest.wpNumber,
             guest.genderName,
@@ -74,7 +75,7 @@ export default function Admin() {
         const qrLink = `${window.location.origin}/assets/google_review_QR.png`;
 
         const message =
-            `Hello ${guest.guestName} [${guest.token}]!
+            `Hello ${toProperCase(guest.guestName)} [${guest.token}]!
 
 We’re super excited to welcome you to our celebration — *মৈত্রী মহোৎসব* 🎉  
 📅 Date: 19th October 2025  
@@ -159,7 +160,7 @@ ${qrLink}
                                     className="hover:bg-gray-100 transition-colors"
                                 >
                                     <td className="px-4 py-2 border border-gray-300">{index + 1}</td>
-                                    <td className="px-4 py-2 border border-gray-300">{guest.guestName}</td>
+                                    <td className="px-4 py-2 border border-gray-300">{toProperCase(guest.guestName)}</td>
                                     <td className="px-4 py-2 border border-gray-300">{guest.wpNumber}</td>
                                     <td className="px-4 py-2 border border-gray-300">{guest.genderName}</td>
                                     <td className="px-4 py-2 border border-gray-300">{guest.foodPreferenceName}</td>

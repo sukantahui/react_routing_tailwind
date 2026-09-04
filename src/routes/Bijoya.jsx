@@ -68,6 +68,30 @@ const WomanLogo = ({ className = "w-4 h-4" }) => (
   </svg>
 );
 
+// Proper Case (Title Case) helper for names
+export const toProperCase = (str) => {
+  if (!str || typeof str !== "string") return "";
+  return str.replace(/\b\w+/g, (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  });
+};
+
+// Phone masking helper for privacy
+export const maskPhone = (phone) => {
+  if (!phone) return "-";
+  const str = String(phone).trim();
+  const digits = str.replace(/\D/g, "");
+  if (digits.length >= 10) {
+    const last4 = digits.slice(-4);
+    const first2 = digits.slice(0, 2);
+    return `${first2}******${last4}`;
+  }
+  if (str.length > 4) {
+    return str.slice(0, 2) + "****" + str.slice(-2);
+  }
+  return str;
+};
+
 export default function Bijoya() {
   const [guests, setGuests] = useState([]);
   const [savedGuests, setSavedGuests] = useState({});
@@ -93,6 +117,7 @@ export default function Bijoya() {
   const [isSaved, setIsSaved] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
   const [editGuestId, setEditGuestId] = useState(null);
+  const [storedPin, setStoredPin] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("all"); // 'all' | 'veg' | 'non-veg' | 'present'
   const [viewMode, setViewMode] = useState("grid"); // 'grid' | 'table'
@@ -103,6 +128,64 @@ export default function Bijoya() {
 
   const formRef = useRef(null);
   const ticketRef = useRef(null);
+
+  // Soothing Obsidian-Gold Glassmorphic Theme for SweetAlerts in Bijoya
+  const getBijoyaSwalTheme = (options = {}) => ({
+    background: "linear-gradient(145deg, #0b1120 0%, #0f172a 60%, #1a122c 100%)",
+    color: "#f8fafc",
+    confirmButtonColor: "#f59e0b",
+    cancelButtonColor: "#334155",
+    didOpen: (popup) => {
+      popup.style.borderRadius = "1.5rem";
+      popup.style.border = "1px solid rgba(245, 158, 11, 0.35)";
+      popup.style.boxShadow = "0 25px 60px -15px rgba(0, 0, 0, 0.95), 0 0 40px -10px rgba(245, 158, 11, 0.25)";
+      popup.style.backdropFilter = "blur(18px)";
+      popup.style.padding = "1.75rem 1.5rem";
+
+      const title = popup.querySelector(".swal2-title");
+      if (title) {
+        title.style.color = "#ffffff";
+        title.style.fontSize = "1.35rem";
+        title.style.fontWeight = "800";
+      }
+
+      const content = popup.querySelector(".swal2-html-container");
+      if (content) {
+        content.style.color = "#cbd5e1";
+      }
+
+      const confirmBtn = popup.querySelector(".swal2-confirm");
+      if (confirmBtn) {
+        confirmBtn.style.background = "linear-gradient(135deg, #f59e0b, #e11d48, #9333ea)";
+        confirmBtn.style.boxShadow = "0 8px 22px -4px rgba(245, 158, 11, 0.4)";
+        confirmBtn.style.borderRadius = "0.75rem";
+        confirmBtn.style.fontWeight = "700";
+        confirmBtn.style.fontSize = "0.875rem";
+        confirmBtn.style.padding = "0.65rem 1.6rem";
+        confirmBtn.style.border = "none";
+        confirmBtn.style.cursor = "pointer";
+      }
+
+      const cancelBtn = popup.querySelector(".swal2-cancel");
+      if (cancelBtn) {
+        cancelBtn.style.borderRadius = "0.75rem";
+        cancelBtn.style.fontWeight = "600";
+        cancelBtn.style.fontSize = "0.875rem";
+        cancelBtn.style.padding = "0.65rem 1.35rem";
+        cancelBtn.style.border = "1px solid rgba(148, 163, 184, 0.2)";
+        cancelBtn.style.background = "#1e293b";
+        cancelBtn.style.color = "#cbd5e1";
+        cancelBtn.style.cursor = "pointer";
+      }
+
+      const closeBtn = popup.querySelector(".swal2-close");
+      if (closeBtn) {
+        closeBtn.style.color = "#94a3b8";
+      }
+    },
+    ...options,
+  });
+
 
   // Check login status on mount & listen to storage
   useEffect(() => {
@@ -129,7 +212,12 @@ export default function Bijoya() {
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
 
-    if (name === "mobile" && sameAsMobile) {
+    if (name === "guestName") {
+      setFormData((prev) => ({
+        ...prev,
+        guestName: toProperCase(value),
+      }));
+    } else if (name === "mobile" && sameAsMobile) {
       setFormData((prev) => ({
         ...prev,
         mobile: value,
@@ -145,11 +233,13 @@ export default function Bijoya() {
 
   // Validation rules
   const isNameValid = formData.guestName.trim().length >= 2;
-  const isAgeValid = /^\d+$/.test(formData.age) && Number(formData.age) >= 1 && Number(formData.age) <= 120;
+  const isAgeValid = /^\d+$/.test(formData.age) && Number(formData.age) >= 3 && Number(formData.age) <= 85;
   const isMobileValid = /^\d{10,}$/.test(formData.mobile.replace(/\D/g, ""));
   const isWpValid = /^\d{10,}$/.test(formData.wpNumber.replace(/\D/g, ""));
   const isPinValid = /^\d{4}$/.test(formData.pin);
-  const isPinMatched = formData.pin === formData.confirmPin && isPinValid;
+  const isPinMatched = isEdit
+    ? isPinValid && (!storedPin || formData.pin === storedPin)
+    : isPinValid && formData.pin === formData.confirmPin;
   const isGenderValid = Boolean(formData.genderId);
   const isFoodValid = Boolean(formData.foodPreferenceId);
 
@@ -246,23 +336,114 @@ export default function Bijoya() {
     }
   };
 
+  // Detect if entered guest name already exists in registered guests
+  const existingGuest = useMemo(() => {
+    if (isEdit) return null;
+    const name = formData.guestName?.trim().toLowerCase();
+    if (!name || name.length < 2) return null;
+    return (
+      guests.find(
+        (g) => g.guestName && g.guestName.trim().toLowerCase() === name
+      ) || null
+    );
+  }, [guests, formData.guestName, isEdit]);
+
+  // View Existing Guest Pass
+  const handleViewExistingPass = (guest) => {
+    setSavedGuests(guest);
+    setIsSaved(true);
+    setTimeout(() => {
+      if (ticketRef.current) {
+        ticketRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 150);
+  };
+
   // Form Submit (Create)
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isValid()) {
       Swal.fire({
+        ...getBijoyaSwalTheme(),
         title: "Incomplete Form",
         text: "Please verify all required fields highlighted in the form.",
         icon: "warning",
-        confirmButtonColor: "#8b5cf6",
       });
       return;
+    }
+
+    const formattedGuestName = toProperCase(formData.guestName.trim());
+
+    // Check if this guest name is already registered
+    const existing = guests.find(
+      (g) => g.guestName && g.guestName.trim().toLowerCase() === formattedGuestName.toLowerCase()
+    );
+
+    if (existing) {
+      const guestToken = formatToken(existing);
+      const isVeg = checkIsVeg(existing);
+      const isAtt = checkIsAttending(existing);
+
+      const result = await Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "Guest Already Registered!",
+        html: `
+          <div class="text-left space-y-3 pt-1 text-xs sm:text-sm">
+            <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200">
+              An attendee named <strong class="text-white">${toProperCase(existing.guestName)}</strong> is already registered for 27th Maitri Mahotsav.
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2 font-mono">
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Digital Token:</span>
+                <span class="text-amber-300 font-bold">${guestToken}</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Registered Phone:</span>
+                <span class="text-slate-200">${existing.mobileMasked || maskPhone(existing.mobile || existing.wpNumber)}</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Meal Preference:</span>
+                <span class="text-slate-200">${isVeg ? "🌱 Vegetarian" : "🍗 Non-Vegetarian"}</span>
+              </div>
+              <div class="flex justify-between items-center text-xs">
+                <span class="text-slate-400">Attendance:</span>
+                <span class="text-emerald-400 font-bold">${isAtt ? "✅ Confirmed Attending" : "Invited"}</span>
+              </div>
+            </div>
+
+            <p class="text-slate-300 text-center text-xs">
+              Would you like to view your digital event pass or update your registration details?
+            </p>
+          </div>
+        `,
+        icon: "info",
+        showCancelButton: true,
+        showDenyButton: true,
+        confirmButtonText: "View Event Pass 🎫",
+        denyButtonText: "Edit Details ✏️",
+        cancelButtonText: "Register Anyway",
+        confirmButtonColor: "#f59e0b",
+        denyButtonColor: "#8b5cf6",
+        cancelButtonColor: "#475569",
+      });
+
+      if (result.isConfirmed) {
+        handleViewExistingPass(existing);
+        return;
+      } else if (result.isDenied) {
+        handleEdit(existing);
+        return;
+      } else if (!result.isDismissed || result.dismiss !== Swal.DismissReason.cancel) {
+        return;
+      }
     }
 
     setIsSubmitting(true);
     try {
       const payload = {
         ...formData,
+        guestName: formattedGuestName,
         is_attending: formData.is_present,
       };
 
@@ -270,18 +451,90 @@ export default function Bijoya() {
       if (successData.status) {
         setIsSaved(true);
         // Merge payload to preserve all attendee details on the digital pass
-        setSavedGuests({
+        const mergedGuest = {
           ...payload,
           ...(successData.data || {}),
+        };
+        setSavedGuests(mergedGuest);
+
+        const guestToken = formatToken(mergedGuest);
+
+        await Swal.fire({
+          ...getBijoyaSwalTheme(),
+          html: `
+            <div class="text-center space-y-3 pt-1">
+              <!-- Soothing Glowing Celebration Emblem -->
+              <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-tr from-amber-500/20 via-emerald-500/20 to-purple-500/20 border border-amber-400/40 flex items-center justify-center text-3xl shadow-lg shadow-amber-500/15 animate-bounce" style="animation-duration: 2.5s;">
+                🌸
+              </div>
+
+              <!-- Festive Badge -->
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold">
+                <span>✨ ২৭ তম মৈত্রী মহোৎসব ২০২৬</span>
+              </div>
+
+              <!-- Title -->
+              <h3 class="text-xl sm:text-2xl font-black tracking-tight text-white">
+                Registration Confirmed! 🎉
+              </h3>
+
+              <!-- Soothing Warm Greeting -->
+              <div class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm mx-auto">
+                Welcome, <strong class="text-amber-300 font-bold">${payload.guestName || "Dear Guest"}</strong>!
+                <p class="mt-1 text-slate-300">
+                  Your VIP invitation pass and digital entry token have been generated for:
+                </p>
+                <div class="mt-1.5 py-1 px-3 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-200 text-xs font-medium inline-block">
+                  📅 <strong>1st November, 2026</strong> • ⏰ <strong class="text-amber-300">7:30 PM onwards</strong>
+                </div>
+              </div>
+
+              <!-- Entry Token Card -->
+              <div class="my-3 p-3.5 rounded-xl bg-slate-950 border border-amber-500/30 flex items-center justify-between text-left shadow-inner">
+                <div>
+                  <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">Digital Entry Token</span>
+                  <span class="text-base sm:text-lg font-mono font-black text-amber-300 tracking-wider">
+                    ${guestToken}
+                  </span>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">Event Pass</span>
+                  <span class="inline-flex items-center gap-1 text-xs font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded border border-emerald-500/30">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    VIP Confirmed
+                  </span>
+                </div>
+              </div>
+
+              <!-- Welcoming Theme Quote -->
+              <div class="pt-2 border-t border-slate-800/80 space-y-0.5">
+                <p class="text-xs font-bold text-amber-200/95 font-serif">
+                  “আপনি অতিথিও, আবার আতিথেয়তাকারীও”
+                </p>
+                <p class="text-xs font-semibold text-rose-200/95 font-hindi tracking-wide">
+                  “आप मेहमान भी हैं और मेज़बान भी”
+                </p>
+                <p class="text-[10px] text-slate-400 italic">
+                  “You are the guest, yet you are the host too.”
+                </p>
+              </div>
+            </div>
+          `,
+          confirmButtonText: "View My Digital Pass ✨",
+          showCloseButton: true,
+          timer: 8000,
+          timerProgressBar: true,
         });
-        Swal.fire({
-          title: "Registration Confirmed! 🎉",
-          text: "Welcome to ২৭ তম মৈত্রী মহোৎসব ২০২৬ (1st Nov, 2026, 7:30 PM onwards at Coder & AccoTax). Your digital token has been generated.",
-          icon: "success",
-          confirmButtonColor: "#10b981",
-        });
+
         getAllGuest();
         resetForm();
+
+        // Smoothly scroll down to the generated VIP pass
+        setTimeout(() => {
+          if (ticketRef.current) {
+            ticketRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }, 150);
       }
     } catch (error) {
       const errorMessage =
@@ -290,10 +543,10 @@ export default function Bijoya() {
         error?.message ||
         "Failed to save registration. Please try again.";
       Swal.fire({
+        ...getBijoyaSwalTheme(),
         title: "Registration Error",
         text: errorMessage,
         icon: "error",
-        confirmButtonColor: "#ef4444",
       });
     } finally {
       setIsSubmitting(false);
@@ -304,16 +557,19 @@ export default function Bijoya() {
   const handleEdit = (guestData) => {
     setIsEdit(true);
     setEditGuestId(guestData.guestId || guestData.id);
+    const guestPin = guestData.pin !== undefined && guestData.pin !== null ? String(guestData.pin).trim() : "";
+    setStoredPin(guestPin);
     const isAtt = checkIsAttending(guestData);
 
     setFormData({
-      guestName: guestData.guestName || "",
+      guestName: toProperCase(guestData.guestName || ""),
+      age: guestData.age !== undefined && guestData.age !== null ? String(guestData.age) : "",
       mobile: guestData.mobile || "",
       wpNumber: guestData.wpNumber || guestData.mobile || "",
       address: guestData.address || "",
       email: guestData.email || "",
-      pin: guestData.pin || "",
-      confirmPin: guestData.pin || "",
+      pin: "", // 4-digit PIN should NOT be auto-filled on update
+      confirmPin: "", // 4-digit PIN should NOT be auto-filled on update
       genderId: String(guestData.genderId || "1"),
       foodPreferenceId: String(guestData.foodPreferenceId || "2"),
       is_present: isAtt,
@@ -332,35 +588,50 @@ export default function Bijoya() {
   const cancelEdit = () => {
     setIsEdit(false);
     setEditGuestId(null);
+    setStoredPin(null);
     resetForm();
   };
 
   // Update Guest API Call
   const updateDetails = async () => {
+    if (storedPin && formData.pin !== storedPin) {
+      Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "Incorrect Security PIN",
+        text: "The 4-digit PIN does not match the stored PIN for this attendee. Please enter the correct PIN to authorize changes.",
+        icon: "error",
+      });
+      return;
+    }
+
     if (!isValid()) {
       Swal.fire({
+        ...getBijoyaSwalTheme(),
         title: "Incomplete Details",
-        text: "Please ensure all mandatory fields and the 4-digit PIN are valid.",
+        text: "Please ensure all mandatory fields and the 4-digit PIN are valid and match.",
         icon: "warning",
-        confirmButtonColor: "#8b5cf6",
       });
       return;
     }
 
     setIsSubmitting(true);
     try {
+      const formattedGuestName = toProperCase(formData.guestName.trim());
       const payload = {
         ...formData,
+        guestName: formattedGuestName,
         is_attending: formData.is_present,
       };
 
       const successData = await authService.updateGuest(editGuestId, payload);
       if (successData.status) {
         Swal.fire({
+          ...getBijoyaSwalTheme(),
           title: "Updated Successfully! ✨",
           text: "Guest details have been updated in the portal.",
           icon: "success",
-          confirmButtonColor: "#10b981",
+          timer: 2500,
+          showConfirmButton: false,
         });
         getAllGuest();
         cancelEdit();
@@ -372,10 +643,10 @@ export default function Bijoya() {
         error?.message ||
         "Failed to update details. Please verify your 4-digit PIN.";
       Swal.fire({
+        ...getBijoyaSwalTheme(),
         title: "Update Failed",
         text: errorMessage,
         icon: "error",
-        confirmButtonColor: "#ef4444",
       });
     } finally {
       setIsSubmitting(false);
@@ -386,23 +657,35 @@ export default function Bijoya() {
   const handleDelete = async (guest) => {
     const id = guest.guestId || guest.id;
     const result = await Swal.fire({
+      ...getBijoyaSwalTheme(),
       title: "Delete Guest?",
-      text: `Are you sure you want to remove ${guest.guestName}?`,
+      text: `Are you sure you want to remove ${toProperCase(guest.guestName)}?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonText: "Yes, Delete",
       confirmButtonColor: "#ef4444",
       cancelButtonText: "Cancel",
-      cancelButtonColor: "#64748b",
     });
 
     if (result.isConfirmed) {
       try {
         await authService.deleteGuest(id);
-        Swal.fire("Deleted!", "Guest record has been removed.", "success");
+        Swal.fire({
+          ...getBijoyaSwalTheme(),
+          title: "Deleted!",
+          text: "Guest record has been removed.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        });
         getAllGuest();
       } catch (error) {
-        Swal.fire("Error", "Failed to delete guest record.", "error");
+        Swal.fire({
+          ...getBijoyaSwalTheme(),
+          title: "Error",
+          text: "Failed to delete guest record.",
+          icon: "error",
+        });
       }
     }
   };
@@ -410,6 +693,7 @@ export default function Bijoya() {
   const resetForm = () => {
     setFormData({
       guestName: "",
+      age: "",
       mobile: "",
       wpNumber: "",
       address: "",
@@ -437,10 +721,10 @@ export default function Bijoya() {
 
     const message = `🌸 *২৭ তম মৈত্রী মহোৎসব ২০২৬ (27th Maitri Mahotsav)* 🌸
 ━━━━━━━━━━━━━━━━━━
-শ্রদ্ধেয়/শ্রদ্ধেয়া *${guest.guestName}*,
+শ্রদ্ধেয়/শ্রদ্ধেয়া *${toProperCase(guest.guestName)}*,
 
 ✨ *“আপনি অতিথিও, আবার আতিথেয়তাকারীও”*
-_“Aap mehmaan bhi hain aur mezbaan bhi”_
+_“आप मेहमान भी हैं और मेज़बान भी”_
 _“You are the guest, yet you are the host too.”_
 
 আপনাকে ও আপনার পরিবারের সকলকে জানাই Coder & AccoTax পরিবারের পক্ষ থেকে আন্তরিক প্রীতি, শুভেচ্ছা ও অভিনন্দন! 🎉
@@ -473,7 +757,14 @@ Instagram: https://www.instagram.com/codernaccotax
   // Export to CSV
   const exportToCSV = () => {
     if (!guests.length) {
-      Swal.fire("No Data", "No guests found to export.", "info");
+      Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "No Data",
+        text: "No guests found to export.",
+        icon: "info",
+        timer: 2500,
+        showConfirmButton: false,
+      });
       return;
     }
 
@@ -637,7 +928,7 @@ Instagram: https://www.instagram.com/codernaccotax
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center space-y-4"
+          className="text-center space-y-2.5 sm:space-y-3"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-amber-500/5">
             <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
@@ -648,33 +939,32 @@ Instagram: https://www.instagram.com/codernaccotax
             <span className="text-slate-300">Coder & AccoTax</span>
           </div>
 
-          <div className="py-2 sm:py-4">
-            <div className="relative inline-block w-full max-w-sm sm:max-w-xl md:max-w-2xl mx-auto group">
-              <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-r from-amber-500/30 via-rose-500/25 to-purple-500/30 rounded-3xl blur-2xl opacity-80 group-hover:opacity-100 transition duration-500 pointer-events-none" />
-              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-amber-500/40 shadow-2xl shadow-amber-500/15">
+          {/* Accessible H1 for SEO & screen readers */}
+          <h1 className="sr-only">২৭ তম মৈত্রী মহোৎসব ২০২৬ • Maitri Mahotsav 2026</h1>
+
+          {/* Hero Banner Image Card */}
+          <div className="my-0.5">
+            <div className="relative inline-block w-full max-w-[260px] sm:max-w-sm md:max-w-md mx-auto group">
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-amber-500/30 via-rose-500/25 to-purple-500/30 rounded-2xl blur-lg opacity-70 group-hover:opacity-95 transition duration-500 pointer-events-none" />
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-amber-500/40 shadow-xl shadow-amber-500/10">
                 <img
                   src={maitriLogo}
                   alt="২৭ তম মৈত্রী মহোৎসব"
-                  className="w-full h-auto object-cover sm:object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="w-full h-auto object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                 />
               </div>
             </div>
-            <h1 className="mt-4 text-center">
-              <span className="block text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-rose-300 to-purple-400 font-mono">
-                MAITRI MAHOTSAV 2026
-              </span>
-            </h1>
           </div>
 
           {/* Welcoming Theme Quote Banner */}
-          <div className="inline-block px-4 py-2.5 sm:px-6 sm:py-3 rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 border border-amber-500/25 backdrop-blur-md shadow-lg shadow-amber-500/5 max-w-xl mx-auto space-y-0.5">
+          <div className="inline-block px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 border border-amber-500/25 backdrop-blur-md shadow-lg shadow-amber-500/5 max-w-lg mx-auto space-y-0.5">
             <p className="text-sm sm:text-base font-bold text-amber-200 tracking-wide font-serif">
               “আপনি অতিথিও, আবার আতিথেয়তাকারীও”
             </p>
-            <p className="text-xs sm:text-sm font-medium text-rose-200/90 italic">
-              “Aap mehmaan bhi hain aur mezbaan bhi”
+            <p className="text-xs sm:text-sm font-semibold text-rose-200/95 font-hindi tracking-wide">
+              “आप मेहमान भी हैं और मेज़बान भी”
             </p>
-            <p className="text-xs sm:text-sm text-slate-300/90 italic">
+            <p className="text-[11px] sm:text-xs text-slate-300/90 italic">
               “You are the guest, yet you are the host too.”
             </p>
           </div>
@@ -754,7 +1044,7 @@ Instagram: https://www.instagram.com/codernaccotax
                     <div className="flex items-center gap-2 text-amber-300 text-sm font-medium">
                       <Edit3 className="w-4 h-4" />
                       <span>
-                        Editing details for <strong className="text-white">{formData.guestName}</strong>
+                        Editing details for <strong className="text-white">{toProperCase(formData.guestName)}</strong>
                       </span>
                     </div>
                     <button
@@ -768,11 +1058,25 @@ Instagram: https://www.instagram.com/codernaccotax
                 )}
 
                 {/* Form Header */}
-                <div className="text-center mb-8">
+                <div className="text-center mb-8 space-y-2.5">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-center gap-2">
                     {isEdit ? "Update Guest Information" : "Guest Registration"}
                   </h2>
-                  <p className="text-xs sm:text-sm text-slate-400 mt-1">
+
+                  {/* Welcoming Theme Quote Banner */}
+                  <div className="inline-block px-4 py-2 sm:px-5 sm:py-2 rounded-xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-purple-500/10 border border-amber-500/25 backdrop-blur-md shadow-sm space-y-0.5 max-w-md mx-auto">
+                    <p className="text-xs sm:text-sm font-bold text-amber-200 tracking-wide font-serif">
+                      “আপনি অতিথিও, আবার আতিথেয়তাকারীও”
+                    </p>
+                    <p className="text-xs sm:text-sm font-semibold text-rose-200/95 font-hindi tracking-wide">
+                      “आप मेहमान भी हैं और मेज़बान भी”
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-slate-300/80 italic">
+                      “You are the guest, yet you are the host too.”
+                    </p>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-400">
                     {isEdit
                       ? "Make changes below and submit using your 4-digit PIN."
                       : "Please fill in your details to receive your event pass."}
@@ -792,10 +1096,114 @@ Instagram: https://www.instagram.com/codernaccotax
                       name="guestName"
                       value={formData.guestName}
                       onChange={handleChange}
+                      onBlur={() => {
+                        setFormData((prev) => ({
+                          ...prev,
+                          guestName: toProperCase(prev.guestName.trim()),
+                        }));
+                      }}
+                      autoCapitalize="words"
+                      autoComplete="name"
                       placeholder="e.g. Subhankar Roy"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition text-sm sm:text-base"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition text-sm sm:text-base capitalize"
                     />
+
+                    {/* Already Registered Guest Details Card */}
+                    <AnimatePresence>
+                      {existingGuest && !isEdit && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -6, height: 0 }}
+                          animate={{ opacity: 1, y: 0, height: "auto" }}
+                          exit={{ opacity: 0, y: -6, height: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden pt-2"
+                        >
+                          <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/35 text-slate-200 space-y-3 shadow-xl shadow-amber-500/5 backdrop-blur-md">
+                            {/* Alert Title & Token */}
+                            <div className="flex items-center justify-between gap-2 flex-wrap">
+                              <div className="flex items-center gap-2 text-amber-300 font-bold text-xs sm:text-sm">
+                                <AlertCircle className="w-4 h-4 shrink-0 text-amber-400 animate-pulse" />
+                                <span>Guest Already Registered!</span>
+                              </div>
+                              <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/40 tracking-wider">
+                                {formatToken(existingGuest)}
+                              </span>
+                            </div>
+
+                            <p className="text-xs text-slate-300 leading-relaxed">
+                              An attendee under the name <strong className="text-white font-semibold">{toProperCase(existingGuest.guestName)}</strong> is already registered. Here are the existing details:
+                            </p>
+
+                            {/* Details Grid */}
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                              <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Entry Token</span>
+                                <span className="font-mono font-bold text-amber-300 text-xs sm:text-sm">{formatToken(existingGuest)}</span>
+                              </div>
+                              <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Registered Phone</span>
+                                <span className="font-mono text-slate-200 text-xs sm:text-sm">
+                                  {existingGuest.mobileMasked || maskPhone(existingGuest.mobile || existingGuest.wpNumber)}
+                                </span>
+                              </div>
+                              <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Feast Diet</span>
+                                <span className="text-slate-200 text-xs sm:text-sm font-medium">
+                                  {checkIsVeg(existingGuest) ? "🌱 Vegetarian" : "🍗 Non-Veg"}
+                                </span>
+                              </div>
+                              <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Age</span>
+                                <span className="text-slate-200 text-xs sm:text-sm">{existingGuest.age || "N/A"} yrs</span>
+                              </div>
+                              <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Gender</span>
+                                <span className="text-slate-200 text-xs sm:text-sm">
+                                  {existingGuest.genderName || (existingGuest.genderId === "2" ? "Female" : "Male")}
+                                </span>
+                              </div>
+                              <div className="p-2.5 rounded-xl bg-slate-950/80 border border-slate-800/90">
+                                <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-semibold">Attendance</span>
+                                <span className={checkIsAttending(existingGuest) ? "text-emerald-400 font-bold text-xs" : "text-amber-400 font-bold text-xs"}>
+                                  {checkIsAttending(existingGuest) ? "✅ Confirmed" : "Invited"}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* Action Buttons */}
+                            <div className="flex flex-wrap items-center gap-2 pt-1 border-t border-amber-500/20">
+                              <button
+                                type="button"
+                                onClick={() => handleViewExistingPass(existingGuest)}
+                                className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition shadow-md shadow-amber-500/20 cursor-pointer active:scale-95"
+                              >
+                                <Ticket className="w-3.5 h-3.5" />
+                                <span>View Event Pass</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => handleEdit(existingGuest)}
+                                className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs flex items-center gap-1.5 transition cursor-pointer active:scale-95"
+                              >
+                                <Edit3 className="w-3.5 h-3.5 text-purple-400" />
+                                <span>Update / Edit</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => sendWhatsApp(existingGuest)}
+                                className="px-3 py-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 text-xs flex items-center gap-1.5 transition cursor-pointer active:scale-95"
+                              >
+                                <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                                <span>Share on WhatsApp</span>
+                              </button>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* Age Field */}
@@ -813,7 +1221,7 @@ Instagram: https://www.instagram.com/codernaccotax
                               : "bg-rose-500/20 text-rose-400"
                           }`}
                         >
-                          {isAgeValid ? "Valid" : "1–120"}
+                          {isAgeValid ? "Valid" : "3–85"}
                         </span>
                       )}
                     </label>
@@ -821,8 +1229,8 @@ Instagram: https://www.instagram.com/codernaccotax
                       type="number"
                       id="age"
                       name="age"
-                      min={1}
-                      max={120}
+                      min={3}
+                      max={85}
                       value={formData.age}
                       onChange={handleChange}
                       placeholder="e.g. 35"
@@ -919,75 +1327,139 @@ Instagram: https://www.instagram.com/codernaccotax
                     />
                   </div>
 
-                  {/* Security PINs Group */}
+                  {/* PIN Section */}
                   <div className="p-4 rounded-2xl bg-slate-950/40 border border-slate-800 space-y-4">
                     <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-amber-400">
                       <ShieldCheck className="w-4 h-4" />
-                      <span>Security PIN for Self-Service & Verification</span>
+                      <span>{isEdit ? "Security Authorization PIN" : "Security PIN for Self-Service & Verification"}</span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* 4 Digit PIN */}
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
-                          <span>Enter 4-Digit PIN <span className="text-rose-400">*</span></span>
-                          {formData.pin && (
-                            <span className={isPinValid ? "text-emerald-400 text-xs" : "text-rose-400 text-xs"}>
-                              {formData.pin.length}/4
+                      {isEdit ? (
+                        <div className="space-y-1.5 col-span-1 sm:col-span-2">
+                          <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
+                            <span className="flex items-center gap-1.5">
+                              <span>Enter Stored 4-Digit PIN <span className="text-rose-400">*</span></span>
                             </span>
-                          )}
-                        </label>
-                        <div className="relative">
-                          <input
-                            type={showPin ? "text" : "password"}
-                            name="pin"
-                            maxLength={4}
-                            value={formData.pin}
-                            onChange={handleChange}
-                            placeholder="e.g. 1234"
-                            required
-                            className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => setShowPin(!showPin)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
-                          >
-                            {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                          </button>
+                            {formData.pin && (
+                              <span
+                                className={`text-xs font-semibold px-2 py-0.5 rounded ${
+                                  formData.pin === storedPin
+                                    ? "bg-emerald-500/20 text-emerald-400"
+                                    : formData.pin.length === 4
+                                    ? "bg-rose-500/20 text-rose-400"
+                                    : "text-slate-400"
+                                }`}
+                              >
+                                {formData.pin === storedPin
+                                  ? "✓ PIN Matched"
+                                  : formData.pin.length === 4
+                                  ? "✗ PIN Mismatch"
+                                  : `${formData.pin.length}/4 digits`}
+                              </span>
+                            )}
+                          </label>
+                          <div className="relative">
+                            <input
+                              type={showPin ? "text" : "password"}
+                              name="pin"
+                              maxLength={4}
+                              value={formData.pin}
+                              onChange={(e) => {
+                                const val = e.target.value.replace(/\D/g, "");
+                                setFormData((prev) => ({
+                                  ...prev,
+                                  pin: val,
+                                  confirmPin: val,
+                                }));
+                              }}
+                              placeholder="Enter the 4-digit PIN set during registration"
+                              required
+                              className={`w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border text-white placeholder-slate-500 focus:outline-none focus:ring-2 text-sm tracking-widest ${
+                                formData.pin.length === 4
+                                  ? formData.pin === storedPin
+                                    ? "border-emerald-500/60 focus:ring-emerald-500"
+                                    : "border-rose-500/60 focus:ring-rose-500"
+                                  : "border-slate-700 focus:ring-amber-500"
+                              }`}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => setShowPin(!showPin)}
+                              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                            >
+                              {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                            </button>
+                          </div>
+                          <p className="text-[11px] text-slate-400">
+                            🔒 For security, you must enter the original 4-digit PIN matching this record to save updates.
+                          </p>
                         </div>
-                      </div>
+                      ) : (
+                        <>
+                          {/* 4 Digit PIN */}
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
+                              <span>Enter 4-Digit PIN <span className="text-rose-400">*</span></span>
+                              {formData.pin && (
+                                <span className={isPinValid ? "text-emerald-400 text-xs" : "text-rose-400 text-xs"}>
+                                  {formData.pin.length}/4
+                                </span>
+                              )}
+                            </label>
+                            <div className="relative">
+                              <input
+                                type={showPin ? "text" : "password"}
+                                name="pin"
+                                maxLength={4}
+                                value={formData.pin}
+                                onChange={handleChange}
+                                placeholder="e.g. 1234"
+                                required
+                                className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => setShowPin(!showPin)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                              >
+                                {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                              </button>
+                            </div>
+                          </div>
 
-                      {/* Confirm PIN */}
-                      <div className="space-y-1.5">
-                        <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
-                          <span>Confirm 4-Digit PIN <span className="text-rose-400">*</span></span>
-                          {formData.confirmPin && (
-                            <span className={isPinMatched ? "text-emerald-400 text-xs flex items-center gap-1" : "text-rose-400 text-xs"}>
-                              {isPinMatched ? "✓ Matched" : "Mismatch"}
-                            </span>
-                          )}
-                        </label>
-                        <div className="relative">
-                          <input
-                            type={showConfirmPin ? "text" : "password"}
-                            name="confirmPin"
-                            maxLength={4}
-                            value={formData.confirmPin}
-                            onChange={handleChange}
-                            placeholder="Re-enter 4-Digit PIN"
-                            required
-                            className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => setShowConfirmPin(!showConfirmPin)}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
-                          >
-                            {showConfirmPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                          </button>
-                        </div>
-                      </div>
+                          {/* Confirm PIN */}
+                          <div className="space-y-1.5">
+                            <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
+                              <span>Confirm 4-Digit PIN <span className="text-rose-400">*</span></span>
+                              {formData.confirmPin && (
+                                <span className={isPinMatched ? "text-emerald-400 text-xs flex items-center gap-1" : "text-rose-400 text-xs"}>
+                                  {isPinMatched ? "✓ Matched" : "Mismatch"}
+                                </span>
+                              )}
+                            </label>
+                            <div className="relative">
+                              <input
+                                type={showConfirmPin ? "text" : "password"}
+                                name="confirmPin"
+                                maxLength={4}
+                                value={formData.confirmPin}
+                                onChange={handleChange}
+                                placeholder="Re-enter 4-Digit PIN"
+                                required
+                                className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm tracking-widest"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => setShowConfirmPin(!showConfirmPin)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                              >
+                                {showConfirmPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                              </button>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
 
@@ -1176,7 +1648,7 @@ Instagram: https://www.instagram.com/codernaccotax
                           {isNameValid ? "✓" : "✗"} Full Name (min 2 chars)
                         </span>
                         <span className={isAgeValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
-                          {isAgeValid ? "✓" : "✗"} Age (1–120)
+                          {isAgeValid ? "✓" : "✗"} Age (3–85)
                         </span>
                         <span className={isMobileValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
                           {isMobileValid ? "✓" : "✗"} 10-Digit Mobile Number
@@ -1185,7 +1657,7 @@ Instagram: https://www.instagram.com/codernaccotax
                           {isWpValid ? "✓" : "✗"} 10-Digit WhatsApp No.
                         </span>
                         <span className={isPinMatched ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
-                          {isPinMatched ? "✓" : "✗"} Matching 4-Digit PIN
+                          {isPinMatched ? "✓" : "✗"} {isEdit ? "Matching Stored PIN" : "Matching 4-Digit PIN"}
                         </span>
                       </div>
                     </div>
@@ -1316,7 +1788,7 @@ Instagram: https://www.instagram.com/codernaccotax
                   </div>
 
                   <div className="flex justify-center my-1">
-                    <div className="overflow-hidden rounded-2xl border border-amber-500/40 shadow-xl max-w-xs sm:max-w-md">
+                    <div className="overflow-hidden rounded-2xl border border-amber-500/40 shadow-xl max-w-[240px] sm:max-w-[280px]">
                       <img
                         src={maitriLogo}
                         alt="২৭ তম মৈত্রী মহোৎসব"
@@ -1332,7 +1804,7 @@ Instagram: https://www.instagram.com/codernaccotax
                     Welcome to <strong>২৭ তম মৈত্রী মহোৎসব ২০২৬</strong> (Maitri Mahotsav 2026) on <strong>1st November, 2026 at 7:30 PM onwards</strong> at <strong>Coder & AccoTax</strong>. Your digital invitation pass is ready!
                   </p>
                   <p className="text-xs sm:text-sm text-amber-200/90 font-medium italic mt-1 font-serif">
-                    “আপনি অতিথিও, আবার আতিথেয়তাকারীও” • “Aap mehmaan bhi hain aur mezbaan bhi” • “You are the guest, yet you are the host too.”
+                    “আপনি অতিথিও, আবার আতিথেয়তাকারীও” • <span className="font-hindi not-italic font-semibold text-rose-200">“आप मेहमान भी हैं और मेज़बान भी”</span> • “You are the guest, yet you are the host too.”
                   </p>
                 </div>
 
@@ -1430,7 +1902,7 @@ Instagram: https://www.instagram.com/codernaccotax
                       <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block">Guest Name</span>
                       <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
                         <span className="text-sm sm:text-base font-bold text-white truncate">
-                          {savedGuests.guestName || "Guest Attendee"}
+                          {toProperCase(savedGuests.guestName) || "Guest Attendee"}
                         </span>
                         {savedGuests.genderId === "2" || savedGuests.genderName === "Female" ? (
                           <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-pink-500/15 border border-pink-500/30 text-pink-300 shrink-0">
@@ -1508,8 +1980,8 @@ Instagram: https://www.instagram.com/codernaccotax
                     <p className="text-xs sm:text-sm font-bold text-amber-200 tracking-wide font-serif">
                       “আপনি অতিথিও, আবার আতিথেয়তাকারীও”
                     </p>
-                    <p className="text-[11px] sm:text-xs font-semibold text-rose-200/90 italic">
-                      “Aap mehmaan bhi hain aur mezbaan bhi”
+                    <p className="text-xs sm:text-sm font-semibold text-rose-200/95 font-hindi tracking-wide">
+                      “आप मेहमान भी हैं और मेज़बान भी”
                     </p>
                     <p className="text-[10px] sm:text-xs text-slate-400 italic">
                       “You are the guest, yet you are the host too.”
@@ -1801,7 +2273,7 @@ Instagram: https://www.instagram.com/codernaccotax
 
                       {/* Guest Name & Phone */}
                       <div className="mt-3">
-                        <h3 className="text-base font-bold text-white truncate">{guest.guestName}</h3>
+                        <h3 className="text-base font-bold text-white truncate">{toProperCase(guest.guestName)}</h3>
                         <p className="text-xs font-mono text-slate-400 mt-0.5">
                           {guest.mobileMasked || guest.mobile || "No Mobile"}
                         </p>
@@ -1917,7 +2389,7 @@ Instagram: https://www.instagram.com/codernaccotax
                           {formatToken(guest)}
                         </td>
                         <td className="px-4 py-3 font-semibold text-white">
-                          <div>{guest.guestName}</div>
+                          <div>{toProperCase(guest.guestName)}</div>
                           {guest.address && (
                             <div className="text-xs text-slate-400 font-normal">{guest.address}</div>
                           )}
