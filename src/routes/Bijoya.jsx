@@ -25,6 +25,7 @@ import {
   Copy,
   Check,
   Edit3,
+  Trash2,
   PlusCircle,
   AlertCircle,
   Users,
@@ -128,6 +129,27 @@ export default function Bijoya() {
     );
   };
 
+  // Helper functions for attendance and diet
+  const checkIsAttending = (g) => {
+    return (
+      g.is_present === true ||
+      g.isAttending === true ||
+      g.is_attending === true ||
+      g.is_present === 1 ||
+      g.isAttending === 1 ||
+      g.is_attending === 1
+    );
+  };
+
+  const checkIsVeg = (g) => {
+    return (
+      g.foodPreferenceId === "1" ||
+      g.foodPreferenceId === 1 ||
+      (String(g.foodPreferenceName || "").toLowerCase().includes("veg") &&
+        !String(g.foodPreferenceName || "").toLowerCase().includes("non"))
+    );
+  };
+
   // Fetch all guests
   const getAllGuest = async () => {
     setIsLoading(true);
@@ -135,9 +157,14 @@ export default function Bijoya() {
       const guestData = await authService.getAllGuest();
       if (guestData?.status && Array.isArray(guestData.data)) {
         setGuests(guestData.data);
+      } else if (Array.isArray(guestData)) {
+        setGuests(guestData);
+      } else {
+        setGuests([]);
       }
     } catch (error) {
       console.error("Failed to load guests:", error);
+      setGuests([]);
     } finally {
       setIsLoading(false);
     }
@@ -158,7 +185,12 @@ export default function Bijoya() {
 
     setIsSubmitting(true);
     try {
-      const successData = await authService.saveGuest(formData);
+      const payload = {
+        ...formData,
+        is_attending: formData.is_present,
+      };
+
+      const successData = await authService.saveGuest(payload);
       if (successData.status) {
         setIsSaved(true);
         setSavedGuests(successData.data || {});
@@ -174,6 +206,7 @@ export default function Bijoya() {
     } catch (error) {
       const errorMessage =
         error?.response?.data?.message ||
+        (error?.response?.data?.data ? Object.values(error.response.data.data).flat().join(", ") : null) ||
         error?.message ||
         "Failed to save registration. Please try again.";
       Swal.fire({
@@ -191,6 +224,8 @@ export default function Bijoya() {
   const handleEdit = (guestData) => {
     setIsEdit(true);
     setEditGuestId(guestData.guestId || guestData.id);
+    const isAtt = checkIsAttending(guestData);
+
     setFormData({
       guestName: guestData.guestName || "",
       mobile: guestData.mobile || "",
@@ -201,7 +236,7 @@ export default function Bijoya() {
       confirmPin: guestData.pin || "",
       genderId: String(guestData.genderId || "1"),
       foodPreferenceId: String(guestData.foodPreferenceId || "2"),
-      is_present: guestData.is_present ?? true,
+      is_present: isAtt,
       comment: guestData.comment || "",
     });
     setSameAsMobile(false);
@@ -234,10 +269,15 @@ export default function Bijoya() {
 
     setIsSubmitting(true);
     try {
-      const successData = await authService.updateGuest(editGuestId, formData);
+      const payload = {
+        ...formData,
+        is_attending: formData.is_present,
+      };
+
+      const successData = await authService.updateGuest(editGuestId, payload);
       if (successData.status) {
         Swal.fire({
-          title: "Updated Successfully! ✅",
+          title: "Updated Successfully! ✨",
           text: "Guest details have been updated in the portal.",
           icon: "success",
           confirmButtonColor: "#10b981",
@@ -248,6 +288,7 @@ export default function Bijoya() {
     } catch (error) {
       const errorMessage =
         error?.response?.data?.message ||
+        (error?.response?.data?.data ? Object.values(error.response.data.data).flat().join(", ") : null) ||
         error?.message ||
         "Failed to update details. Please verify your 4-digit PIN.";
       Swal.fire({
@@ -258,6 +299,31 @@ export default function Bijoya() {
       });
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  // Delete Guest
+  const handleDelete = async (guest) => {
+    const id = guest.guestId || guest.id;
+    const result = await Swal.fire({
+      title: "Delete Guest?",
+      text: `Are you sure you want to remove ${guest.guestName}?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Delete",
+      confirmButtonColor: "#ef4444",
+      cancelButtonText: "Cancel",
+      cancelButtonColor: "#64748b",
+    });
+
+    if (result.isConfirmed) {
+      try {
+        await authService.deleteGuest(id);
+        Swal.fire("Deleted!", "Guest record has been removed.", "success");
+        getAllGuest();
+      } catch (error) {
+        Swal.fire("Error", "Failed to delete guest record.", "error");
+      }
     }
   };
 
@@ -278,7 +344,7 @@ export default function Bijoya() {
     setSameAsMobile(false);
   };
 
-  // WhatsApp Invite / Message Sender (Protected by Login)
+  // WhatsApp Invite / Message Sender
   const sendWhatsApp = (guest) => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -300,34 +366,31 @@ export default function Bijoya() {
 
     const phone = (guest.wpNumber || guest.mobile || "").replace(/\D/g, "");
     const formattedPhone = phone.startsWith("91") && phone.length > 10 ? phone : `91${phone}`;
-    const tokenDisplay = guest.token ? `#${guest.token}` : `CNAT-${guest.guestId || "VIP"}`;
+    const tokenDisplay = guest.token ? `#${guest.token}` : `CNAT-${guest.guestId || guest.id || "VIP"}`;
 
-    const isVeg =
-      guest.foodPreferenceId === "1" ||
-      guest.foodPreferenceId === 1 ||
-      (guest.foodPreferenceName?.toLowerCase().includes("veg") &&
-        !guest.foodPreferenceName?.toLowerCase().includes("non"));
-    const foodText = isVeg ? "🥬 Vegetarian (নিরামিষ)" : "🍗 Non-Vegetarian (আমিষ)";
+    const isVeg = checkIsVeg(guest);
+    const foodText = isVeg ? "🌱 Vegetarian (নিরামিষ)" : "🍗 Non-Vegetarian (আমিষ)";
+    const isAtt = checkIsAttending(guest);
 
-    const message = `🌸 *শুভ বিজয়া সম্মিলনী ও মৈত্রী মহোৎসব* 🌸
+    const message = `🌸 *শুভ বিজয়ার প্রীতি ও শুভেচ্ছা* 🌸
 ━━━━━━━━━━━━━━━━━━
-নমস্কার *${guest.guestName}*,
+শ্রদ্ধেয়/শ্রদ্ধেয়া *${guest.guestName}*,
 
-বিজয়ার প্রীতি, শুভেচ্ছা ও আন্তরিক ভালোবাসা জানাই। Coder & AccoTax পরিবারের পক্ষ থেকে আমাদের বিশেষ বিজয়া প্রীতি সম্মেলন ও আনন্দ সম্মিলনে আপনাকে সপরিবারে আন্তরিক সাদর আমন্ত্রণ! 🎉
+বিজয়ার পুণ্য লগ্নে, আপনাকে ও আপনার পরিবারের সকলকে জানাই Coder & AccoTax পরিবারের পক্ষ থেকে আন্তরিক প্রীতি, শুভেচ্ছা ও অভিনন্দন! 🎉
 
-🎟️ *Entry Token:* \`${tokenDisplay}\`
+🎫 *Entry Token:* \`${tokenDisplay}\`
 📍 *Venue:* Coder & AccoTax, Barrackpore
 🍽️ *Food Preference:* ${foodText}
-✨ *Status:* ${guest.is_present ? "✅ Confirmed (উপস্থিত থাকবেন)" : "Invited"}
+✨ *Status:* ${isAtt ? "✅ Confirmed (উপস্থিত থাকবেন)" : "Invited"}
 
 ━━━━━━━━━━━━━━━━━━
-⭐ *আপনার মূল্যবান মতামত আমাদের জন্য অত্যন্ত মূল্যবান:*
-অনুগ্রহ করে নিচের লিঙ্কে ক্লিক করে আমাদের একটি গুগল রিভিউ দিয়ে অনুপ্রাণিত করুন:
+⭐ *আমাদের সম্পর্কে আপনার মূল্যবান মতামত দিন:*
+অনুগ্রহ করে নিচের লিঙ্কে ক্লিক করে একটি ৫-স্টার রিভিউ দিন:
 👉 https://g.page/r/CTBkwqHJ6mZ2EBM/review
 
-আপনাকে আমাদের মাঝে পেয়ে আমরা আনন্দিত হব।
+আপনার উপস্থিতি আমাদের অনুষ্ঠানকে আরও সমৃদ্ধ করবে।
 
-আন্তরিক শুভেচ্ছাসহ,
+সাদর আমন্ত্রণান্তে,
 *Team Coder & AccoTax* 💐
 ━━━━━━━━━━━━━━━━━━`;
 
@@ -362,7 +425,7 @@ export default function Bijoya() {
       guest.wpNumber || "",
       guest.genderName || (guest.genderId === "1" ? "Male" : "Female"),
       guest.foodPreferenceName || (guest.foodPreferenceId === "1" ? "Vegetarian" : "Non-Vegetarian"),
-      guest.is_present ? "Yes" : "No",
+      checkIsAttending(guest) ? "Yes" : "No",
       guest.address || "",
       guest.comment || "",
     ]);
@@ -399,22 +462,13 @@ export default function Bijoya() {
       if (!matchesSearch) return false;
 
       if (activeFilter === "veg") {
-        return (
-          guest.foodPreferenceId === "1" ||
-          guest.foodPreferenceId === 1 ||
-          (guest.foodPreferenceName?.toLowerCase().includes("veg") &&
-            !guest.foodPreferenceName?.toLowerCase().includes("non"))
-        );
+        return checkIsVeg(guest);
       }
       if (activeFilter === "non-veg") {
-        return (
-          guest.foodPreferenceId === "2" ||
-          guest.foodPreferenceId === 2 ||
-          guest.foodPreferenceName?.toLowerCase().includes("non")
-        );
+        return !checkIsVeg(guest);
       }
       if (activeFilter === "present") {
-        return guest.is_present === true || guest.is_present === 1 || guest.is_present === "true";
+        return checkIsAttending(guest);
       }
 
       return true;
@@ -424,22 +478,9 @@ export default function Bijoya() {
   // Dynamic Statistics
   const stats = useMemo(() => {
     const total = guests.length;
-    const veg = guests.filter(
-      (g) =>
-        g.foodPreferenceId === "1" ||
-        g.foodPreferenceId === 1 ||
-        (g.foodPreferenceName?.toLowerCase().includes("veg") &&
-          !g.foodPreferenceName?.toLowerCase().includes("non"))
-    ).length;
-    const nonVeg = guests.filter(
-      (g) =>
-        g.foodPreferenceId === "2" ||
-        g.foodPreferenceId === 2 ||
-        g.foodPreferenceName?.toLowerCase().includes("non")
-    ).length;
-    const present = guests.filter(
-      (g) => g.is_present === true || g.is_present === 1 || g.is_present === "true"
-    ).length;
+    const veg = guests.filter((g) => checkIsVeg(g)).length;
+    const nonVeg = guests.filter((g) => !checkIsVeg(g)).length;
+    const present = guests.filter((g) => checkIsAttending(g)).length;
 
     return { total, veg, nonVeg, present };
   }, [guests]);
@@ -448,17 +489,17 @@ export default function Bijoya() {
     const tokenVal = savedGuests.token || "BIJOYA-TOKEN";
     navigator.clipboard.writeText(String(tokenVal));
     setCopiedToken(true);
-    setTimeout(() => setCopiedToken(false), 2500);
+    setTimeout(() => setCopiedToken(false), 2000);
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 py-10 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Radiant Background Aura */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" />
-      <div className="absolute top-1/3 right-10 w-[30rem] h-[30rem] bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+    <div className="min-h-screen bg-slate-950 text-slate-100 py-8 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background Ambience / Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-1/3 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto space-y-10">
+      <div className="max-w-7xl mx-auto space-y-12 relative z-10">
         {/* ============================================================== */}
         {/* HERO HEADER                                                   */}
         {/* ============================================================== */}
@@ -470,7 +511,7 @@ export default function Bijoya() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-amber-500/5">
             <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
-            <span>মৈত্রী মহোৎসব ও বিজয়া সম্মিলনী</span>
+            <span>শুভ বিজয়া ও বিজয়া সম্মিলনী</span>
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
             <span className="text-slate-300">Barrackpore</span>
           </div>
@@ -518,7 +559,7 @@ export default function Bijoya() {
                 <Leaf className="w-5 h-5" />
               </div>
               <span className="text-2xl sm:text-3xl font-extrabold text-emerald-300">{stats.veg}</span>
-              <span className="text-xs text-slate-400 font-medium">🥬 Vegetarian</span>
+              <span className="text-xs text-slate-400 font-medium">🌱 Vegetarian</span>
             </motion.div>
 
             <motion.div
@@ -601,14 +642,14 @@ export default function Bijoya() {
                     />
                   </div>
 
-                  {/* Contact Group: Mobile & WhatsApp */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {/* Contact Numbers Group */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Mobile Number */}
                     <div className="space-y-1.5">
                       <label htmlFor="mobile" className="flex items-center justify-between text-sm font-medium text-slate-200">
                         <span className="flex items-center gap-2">
                           <Phone className="w-4 h-4 text-cyan-400" />
-                          <span>Mobile Number <span className="text-rose-400">*</span></span>
+                          <span>Mobile No. <span className="text-rose-400">*</span></span>
                         </span>
                         {formData.mobile && (
                           <span
@@ -761,9 +802,9 @@ export default function Bijoya() {
                     </div>
                   </div>
 
-                  {/* Gender & Food Preference Selectors */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    {/* Gender Selector */}
+                  {/* Gender & Food Preferences Grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Gender Selection */}
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-slate-200 block">
                         Gender <span className="text-rose-400">*</span>
@@ -816,7 +857,7 @@ export default function Bijoya() {
                               : "bg-slate-950/60 border-slate-800 text-slate-400 hover:border-slate-700"
                           }`}
                         >
-                          <span>🥬 Veg</span>
+                          <span>🌱 Veg</span>
                         </button>
                       </div>
                     </div>
@@ -877,16 +918,16 @@ export default function Bijoya() {
                       <span className="font-semibold text-slate-300 block mb-1">To proceed, please ensure:</span>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
                         <span className={isNameValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
-                          {isNameValid ? "✓" : "○"} Full Name (min 2 chars)
+                          {isNameValid ? "✓" : "✗"} Full Name (min 2 chars)
                         </span>
                         <span className={isMobileValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
-                          {isMobileValid ? "✓" : "○"} 10-Digit Mobile Number
+                          {isMobileValid ? "✓" : "✗"} 10-Digit Mobile Number
                         </span>
                         <span className={isWpValid ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
-                          {isWpValid ? "✓" : "○"} 10-Digit WhatsApp No.
+                          {isWpValid ? "✓" : "✗"} 10-Digit WhatsApp No.
                         </span>
                         <span className={isPinMatched ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
-                          {isPinMatched ? "✓" : "○"} Matching 4-Digit PIN
+                          {isPinMatched ? "✓" : "✗"} Matching 4-Digit PIN
                         </span>
                       </div>
                     </div>
@@ -990,6 +1031,11 @@ export default function Bijoya() {
                     {savedGuests.token ? `#${savedGuests.token}` : "#MM-BIJOYA"}
                   </div>
 
+                  <div className="text-sm text-slate-300">
+                    <strong className="text-white">{savedGuests.guestName || "Guest"}</strong> •{" "}
+                    <span>{savedGuests.mobileMasked || savedGuests.mobile || ""}</span>
+                  </div>
+
                   <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
                     <button
                       onClick={handleCopyToken}
@@ -1008,7 +1054,7 @@ export default function Bijoya() {
                       )}
                     </button>
 
-                    {/* WhatsApp share action on pass (Login-protected) */}
+                    {/* WhatsApp share action on pass */}
                     {(savedGuests.wpNumber || savedGuests.mobile) && (
                       <button
                         onClick={() => sendWhatsApp(savedGuests)}
@@ -1102,166 +1148,153 @@ export default function Bijoya() {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2.5">
+            {/* Controls Ribbon */}
+            <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={getAllGuest}
                 disabled={isLoading}
-                title="Refresh guest list"
-                className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white transition cursor-pointer"
+                title="Refresh List"
+                className="p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-white transition cursor-pointer disabled:opacity-50"
               >
-                <RefreshCw className={`w-4 h-4 ${isLoading ? "animate-spin text-purple-400" : ""}`} />
+                <RefreshCw className={`w-4 h-4 ${isLoading ? "animate-spin" : ""}`} />
               </button>
 
               <button
                 onClick={exportToCSV}
-                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-200 text-xs sm:text-sm font-semibold transition cursor-pointer"
+                title="Export CSV"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white text-xs font-semibold transition cursor-pointer"
               >
-                <Download className="w-4 h-4 text-emerald-400" />
+                <Download className="w-3.5 h-3.5" />
                 <span>Export CSV</span>
               </button>
 
               {/* View Toggle */}
-              <div className="p-1 rounded-xl bg-slate-900 border border-slate-800 flex items-center">
+              <div className="p-1 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-1">
                 <button
                   onClick={() => setViewMode("grid")}
-                  className={`p-1.5 rounded-lg transition cursor-pointer ${
-                    viewMode === "grid" ? "bg-purple-600 text-white" : "text-slate-400 hover:text-slate-200"
+                  className={`p-1.5 rounded-lg text-xs transition cursor-pointer ${
+                    viewMode === "grid"
+                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
+                      : "text-slate-400 hover:text-white"
                   }`}
                   title="Grid View"
                 >
-                  <LayoutGrid className="w-4 h-4" />
+                  <LayoutGrid className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => setViewMode("table")}
-                  className={`p-1.5 rounded-lg transition cursor-pointer ${
-                    viewMode === "table" ? "bg-purple-600 text-white" : "text-slate-400 hover:text-slate-200"
+                  className={`p-1.5 rounded-lg text-xs transition cursor-pointer ${
+                    viewMode === "table"
+                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
+                      : "text-slate-400 hover:text-white"
                   }`}
                   title="Table View"
                 >
-                  <List className="w-4 h-4" />
+                  <List className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Search Bar & Category Filter Pills */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-            {/* Search Input */}
-            <div className="md:col-span-6 relative">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+          {/* Filters & Search Toolbar */}
+          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
+            {/* Search Box */}
+            <div className="sm:col-span-6 relative">
+              <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Search by name, mobile, or token..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                placeholder="Search by name, mobile, or #token..."
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
               />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-white cursor-pointer"
-                >
-                  ✕
-                </button>
-              )}
             </div>
 
-            {/* Filter Tabs */}
-            <div className="md:col-span-6 flex flex-wrap items-center gap-1.5">
+            {/* Filter Pills */}
+            <div className="sm:col-span-6 flex flex-wrap items-center gap-1.5">
               {[
-                { id: "all", label: `All (${guests.length})` },
-                { id: "non-veg", label: `🍗 Non-Veg (${stats.nonVeg})` },
-                { id: "veg", label: `🥬 Veg (${stats.veg})` },
+                { id: "all", label: `All (${stats.total})` },
                 { id: "present", label: `Attending (${stats.present})` },
-              ].map((tab) => (
+                { id: "veg", label: `Veg (${stats.veg})` },
+                { id: "non-veg", label: `Non-Veg (${stats.nonVeg})` },
+              ].map((filter) => (
                 <button
-                  key={tab.id}
-                  onClick={() => setActiveFilter(tab.id)}
-                  className={`px-3 py-2 rounded-xl text-xs font-semibold transition cursor-pointer ${
-                    activeFilter === tab.id
-                      ? "bg-purple-600 text-white shadow-md shadow-purple-600/20"
-                      : "bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200"
+                  key={filter.id}
+                  onClick={() => setActiveFilter(filter.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer ${
+                    activeFilter === filter.id
+                      ? "bg-purple-500/20 border-purple-500/40 text-purple-200"
+                      : "bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200"
                   }`}
                 >
-                  {tab.label}
+                  {filter.label}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* ============================================================== */}
-          {/* GUEST DISPLAY (GRID OR TABLE VIEW)                            */}
-          {/* ============================================================== */}
-          {isLoading ? (
-            <div className="py-16 text-center">
-              <div className="w-10 h-10 border-2 border-purple-500 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-              <p className="text-sm text-slate-400">Loading guest directory...</p>
-            </div>
-          ) : filteredGuests.length === 0 ? (
-            <div className="py-16 text-center rounded-2xl bg-slate-900/40 border border-slate-800/80 p-8">
-              <AlertCircle className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-              <h3 className="text-lg font-bold text-slate-200">No Guests Found</h3>
-              <p className="text-sm text-slate-400 mt-1">
+          {/* Directory Content */}
+          {filteredGuests.length === 0 ? (
+            <div className="p-12 text-center rounded-3xl bg-slate-900/40 border border-slate-800 space-y-3">
+              <Users className="w-10 h-10 text-slate-600 mx-auto" />
+              <div className="text-base font-bold text-slate-300">No guests found</div>
+              <p className="text-xs text-slate-500 max-w-sm mx-auto">
                 {searchQuery
-                  ? `No matches found for "${searchQuery}". Try a different keyword.`
-                  : "No registrations in this category yet."}
+                  ? "No results matched your search criteria. Try modifying your query."
+                  : "No guests have registered yet. Fill out the form above to register the first attendee!"}
               </p>
             </div>
           ) : viewMode === "grid" ? (
             /* --- GRID VIEW --- */
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {filteredGuests.map((guest, idx) => {
-                const isVeg =
-                  guest.foodPreferenceId === "1" ||
-                  guest.foodPreferenceId === 1 ||
-                  (guest.foodPreferenceName?.toLowerCase().includes("veg") &&
-                    !guest.foodPreferenceName?.toLowerCase().includes("non"));
+                const isVeg = checkIsVeg(guest);
+                const isAtt = checkIsAttending(guest);
 
                 return (
                   <motion.div
                     key={guest.guestId || guest.id || idx}
-                    whileHover={{ y: -3 }}
-                    className="rounded-2xl bg-slate-900/70 border border-slate-800 hover:border-slate-700/90 p-5 shadow-xl backdrop-blur-xl flex flex-col justify-between space-y-4 transition"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700/80 backdrop-blur-xl transition space-y-4 shadow-lg flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="space-y-1">
-                          <h4 className="font-bold text-white text-base leading-snug">
-                            {guest.guestName}
-                          </h4>
-                          <span className="text-xs text-slate-400 font-mono block">
-                            {guest.mobileMasked || guest.mobile}
-                          </span>
-                        </div>
+                      {/* Top Tag & Token */}
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-mono text-xs font-bold text-amber-400 px-2.5 py-0.5 rounded-md bg-amber-500/10 border border-amber-500/20">
+                          {guest.token ? `#${guest.token}` : `#${idx + 1}`}
+                        </span>
 
-                        {guest.token ? (
-                          <span className="px-2 py-0.5 rounded-lg bg-amber-500/15 border border-amber-500/30 text-amber-300 font-bold text-xs">
-                            #{guest.token}
-                          </span>
-                        ) : (
-                          <span className="px-2 py-0.5 rounded-lg bg-slate-800 text-slate-400 text-xs">
-                            #{idx + 1}
-                          </span>
-                        )}
+                        <span className="text-[11px] text-slate-500">
+                          {guest.createdAt ? new Date(guest.createdAt).toLocaleDateString() : ""}
+                        </span>
                       </div>
 
-                      {/* Badges */}
+                      {/* Guest Name & Phone */}
+                      <div className="mt-3">
+                        <h3 className="text-base font-bold text-white truncate">{guest.guestName}</h3>
+                        <p className="text-xs font-mono text-slate-400 mt-0.5">
+                          {guest.mobileMasked || guest.mobile || "No Mobile"}
+                        </p>
+                      </div>
+
+                      {/* Badges Ribbon */}
                       <div className="flex flex-wrap items-center gap-1.5 mt-3">
                         <span
-                          className={`text-xs px-2.5 py-0.5 rounded-full font-semibold ${
+                          className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${
                             isVeg
                               ? "bg-emerald-500/15 border border-emerald-500/30 text-emerald-300"
                               : "bg-rose-500/15 border border-rose-500/30 text-rose-300"
                           }`}
                         >
-                          {isVeg ? "🥬 Veg" : "🍗 Non-Veg"}
+                          {isVeg ? "🌱 Veg" : "🍗 Non-Veg"}
                         </span>
 
                         <span className="text-xs px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
                           {guest.genderName || (guest.genderId === "1" ? "Male" : "Female")}
                         </span>
 
-                        {guest.is_present && (
+                        {isAtt && (
                           <span className="text-xs px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/20">
                             Attending
                           </span>
@@ -1292,16 +1325,26 @@ export default function Bijoya() {
                         ) : (
                           <Lock className="w-3.5 h-3.5 text-amber-400" />
                         )}
-                        <span>{isLoggedIn ? "WhatsApp" : "WhatsApp (Login)"}</span>
+                        <span>{isLoggedIn ? "WhatsApp" : "WhatsApp"}</span>
                       </button>
 
-                      <button
-                        onClick={() => handleEdit(guest)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 text-xs font-semibold border border-purple-500/30 transition cursor-pointer"
-                      >
-                        <Edit3 className="w-3.5 h-3.5" />
-                        <span>Edit</span>
-                      </button>
+                      <div className="inline-flex items-center gap-1.5">
+                        <button
+                          onClick={() => handleEdit(guest)}
+                          title="Edit Details"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 text-xs font-semibold border border-purple-500/30 transition cursor-pointer"
+                        >
+                          <Edit3 className="w-3.5 h-3.5" />
+                          <span>Edit</span>
+                        </button>
+                        <button
+                          onClick={() => handleDelete(guest)}
+                          title="Delete Guest"
+                          className="p-1.5 rounded-lg bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 text-xs font-semibold border border-rose-500/20 transition cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
                   </motion.div>
                 );
@@ -1319,16 +1362,14 @@ export default function Bijoya() {
                     <th className="px-4 py-3.5 font-semibold">Mobile</th>
                     <th className="px-4 py-3.5 font-semibold">Food</th>
                     <th className="px-4 py-3.5 font-semibold">Gender</th>
+                    <th className="px-4 py-3.5 font-semibold">Attendance</th>
                     <th className="px-4 py-3.5 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-800/60">
                   {filteredGuests.map((guest, idx) => {
-                    const isVeg =
-                      guest.foodPreferenceId === "1" ||
-                      guest.foodPreferenceId === 1 ||
-                      (guest.foodPreferenceName?.toLowerCase().includes("veg") &&
-                        !guest.foodPreferenceName?.toLowerCase().includes("non"));
+                    const isVeg = checkIsVeg(guest);
+                    const isAtt = checkIsAttending(guest);
 
                     return (
                       <tr key={guest.guestId || guest.id || idx} className="hover:bg-slate-800/40 transition">
@@ -1353,11 +1394,22 @@ export default function Bijoya() {
                                 : "bg-rose-500/15 text-rose-300 border border-rose-500/30"
                             }`}
                           >
-                            {isVeg ? "🥬 Veg" : "🍗 Non-Veg"}
+                            {isVeg ? "🌱 Veg" : "🍗 Non-Veg"}
                           </span>
                         </td>
                         <td className="px-4 py-3 text-xs text-slate-300">
                           {guest.genderName || (guest.genderId === "1" ? "Male" : "Female")}
+                        </td>
+                        <td className="px-4 py-3">
+                          <span
+                            className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${
+                              isAtt
+                                ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/20"
+                                : "bg-slate-800 text-slate-400"
+                            }`}
+                          >
+                            {isAtt ? "Attending" : "Invited"}
+                          </span>
                         </td>
                         <td className="px-4 py-3 text-right">
                           <div className="inline-flex items-center gap-2">
@@ -1382,6 +1434,13 @@ export default function Bijoya() {
                               className="p-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/20 transition cursor-pointer"
                             >
                               <Edit3 className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(guest)}
+                              title="Delete Guest"
+                              className="p-1.5 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 transition cursor-pointer"
+                            >
+                              <Trash2 className="w-4 h-4" />
                             </button>
                           </div>
                         </td>
