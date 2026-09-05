@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { authService } from "../api/auth.service";
 import { toProperCase } from "./Bijoya";
 
@@ -127,6 +128,14 @@ ${qrLink}
                 >
                     Download CSV
                 </button>
+
+                <Link
+                    to="/admin/backups"
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md inline-flex items-center justify-center gap-1.5 shadow-sm transition font-medium"
+                >
+                    <i className="bi bi-database-fill-down"></i>
+                    <span>Database Backups</span>
+                </Link>
 
                 <input
                     type="text"

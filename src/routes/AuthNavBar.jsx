@@ -184,6 +184,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 desc: "View and manage registered accounts",
                 icon: "bi-people-fill",
               },
+              {
+                to: "/admin/backups",
+                label: "Database Backups",
+                desc: "Create, download & manage MySQL dumps",
+                icon: "bi-database-fill-down",
+                badge: "DBA",
+              },
             ]
           : []),
       ],
@@ -550,7 +557,7 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
 
   // Helper to check if current route starts with or matches group paths
   const isMasterActive = useMemo(() => {
-    const paths = ["/students", "/admission", "/courses", "/subjects", "/teachers", "/results", "/certificates", "/certificate", "/admin"];
+    const paths = ["/students", "/admission", "/courses", "/subjects", "/teachers", "/results", "/certificates", "/certificate", "/admin", "/backups"];
     return paths.some((p) => location.pathname.startsWith(p));
   }, [location.pathname]);
 
@@ -1089,6 +1096,16 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           <i className="bi bi-shield-lock text-amber-400 text-sm"></i>
                           <span>Admin Control Panel</span>
                         </NavLink>
+                        {isAdmin && (
+                          <NavLink
+                            to="/admin/backups"
+                            onClick={closeAllDropdowns}
+                            className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition"
+                          >
+                            <i className="bi bi-database-fill-down text-emerald-400 text-sm"></i>
+                            <span>Database Backups</span>
+                          </NavLink>
+                        )}
                       </div>
 
                       {/* Divider */}

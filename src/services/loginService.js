@@ -4,9 +4,22 @@ import api from "../api/api";
 export const loginService = {
   login: async (credentials) => {
     try {
-        console.log("🧭 Base URL:", import.meta.env.VITE_API_BASE_URL);
-      const response = await api.post("/login", credentials);
-      return response.data; // returns { status, message, data: { user, token } }
+      const sanitizedPayload = {
+        email: credentials.email ? String(credentials.email).trim() : "",
+        password: credentials.password ? String(credentials.password) : "",
+      };
+      const response = await api.post("/login", sanitizedPayload);
+
+      let data = response.data;
+      if (typeof data === "string") {
+        try {
+          data = JSON.parse(data.replace(/^\uFEFF/, "").trim());
+        } catch (e) {
+          console.warn("Could not parse response data:", e);
+        }
+      }
+
+      return data; // returns { status, message, data: { user, token } }
     } catch (error) {
       console.error("Login failed:", error);
       throw error;
@@ -47,6 +60,7 @@ export const loginService = {
         }
       */
     } catch (error) {
+      console.error("Failed to fetch current user:", error);
       throw error;
     }
   },

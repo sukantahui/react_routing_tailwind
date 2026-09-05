@@ -69,6 +69,7 @@ const WomanLogo = ({ className = "w-4 h-4" }) => (
 );
 
 // Proper Case (Title Case) helper for names
+// eslint-disable-next-line react-refresh/only-export-components
 export const toProperCase = (str) => {
   if (!str || typeof str !== "string") return "";
   return str.replace(/\b\w+/g, (word) => {
@@ -77,6 +78,7 @@ export const toProperCase = (str) => {
 };
 
 // Phone masking helper for privacy
+// eslint-disable-next-line react-refresh/only-export-components
 export const maskPhone = (phone) => {
   if (!phone) return "-";
   const str = String(phone).trim();
@@ -339,17 +341,43 @@ export default function Bijoya() {
     }
   };
 
-  // Detect if entered guest name already exists in registered guests
+  // Detect if entered guest name or phone already exists in registered guests
   const existingGuest = useMemo(() => {
     if (isEdit) return null;
     const name = formData.guestName?.trim().toLowerCase();
-    if (!name || name.length < 2) return null;
-    return (
-      guests.find(
+    const cleanWp = formData.wpNumber ? formData.wpNumber.replace(/\D/g, "") : "";
+    const cleanMob = formData.mobile ? formData.mobile.replace(/\D/g, "") : "";
+
+    // 1. First priority: Exact match by Name
+    if (name && name.length >= 2) {
+      const matchByName = guests.find(
         (g) => g.guestName && g.guestName.trim().toLowerCase() === name
-      ) || null
-    );
-  }, [guests, formData.guestName, isEdit]);
+      );
+      if (matchByName) return matchByName;
+    }
+
+    // 2. Second priority: Match by WhatsApp number
+    if (cleanWp && cleanWp.length >= 10) {
+      const matchByWp = guests.find(
+        (g) =>
+          (g.wpNumber && g.wpNumber.replace(/\D/g, "") === cleanWp) ||
+          (g.mobile && g.mobile.replace(/\D/g, "") === cleanWp)
+      );
+      if (matchByWp) return matchByWp;
+    }
+
+    // 3. Third priority: Match by Mobile number
+    if (cleanMob && cleanMob.length >= 10) {
+      const matchByMob = guests.find(
+        (g) =>
+          (g.mobile && g.mobile.replace(/\D/g, "") === cleanMob) ||
+          (g.wpNumber && g.wpNumber.replace(/\D/g, "") === cleanMob)
+      );
+      if (matchByMob) return matchByMob;
+    }
+
+    return null;
+  }, [guests, formData.guestName, formData.wpNumber, formData.mobile, isEdit]);
 
   // View Existing Guest Pass
   const handleViewExistingPass = (guest) => {
@@ -376,24 +404,66 @@ export default function Bijoya() {
     }
 
     const formattedGuestName = toProperCase(formData.guestName.trim());
+    const cleanWp = formData.wpNumber
+      ? formData.wpNumber.replace(/\D/g, "")
+      : (formData.mobile ? formData.mobile.replace(/\D/g, "") : "");
+    const cleanMobile = formData.mobile ? formData.mobile.replace(/\D/g, "") : "";
 
-    // Check if this guest name is already registered
-    const existing = guests.find(
-      (g) => g.guestName && g.guestName.trim().toLowerCase() === formattedGuestName.toLowerCase()
-    );
+    // 1. Check for exact duplicate (Same Name AND Same Phone / WhatsApp)
+    const exactExisting = guests.find((g) => {
+      const nameMatch = g.guestName && g.guestName.trim().toLowerCase() === formattedGuestName.toLowerCase();
+      const gWp = (g.wpNumber || g.mobile || "").replace(/\D/g, "");
+      const phoneMatch = cleanWp && gWp && gWp === cleanWp;
+      return nameMatch && phoneMatch;
+    });
+
+    // 2. Check for same attendee name (different phone)
+    const nameExisting = !exactExisting
+      ? guests.find((g) => g.guestName && g.guestName.trim().toLowerCase() === formattedGuestName.toLowerCase())
+      : null;
+
+    // 3. Check for same WhatsApp / phone (different name, e.g. family member)
+    const phoneExisting = !exactExisting && !nameExisting && cleanWp
+      ? guests.find((g) => {
+          const gWp = (g.wpNumber || g.mobile || "").replace(/\D/g, "");
+          const gMob = (g.mobile || "").replace(/\D/g, "");
+          return (cleanWp && (gWp === cleanWp || gMob === cleanWp)) ||
+                 (cleanMobile && (gWp === cleanMobile || gMob === cleanMobile));
+        })
+      : null;
+
+    const existing = exactExisting || nameExisting || phoneExisting;
 
     if (existing) {
       const guestToken = formatToken(existing);
       const isVeg = checkIsVeg(existing);
       const isAtt = checkIsAttending(existing);
 
+      let modalTitle = "Guest Already Registered!";
+      let modalNotice = "";
+      let cancelBtnText = "Cancel";
+
+      if (exactExisting) {
+        modalTitle = "Guest Already Registered!";
+        modalNotice = `An attendee named <strong class="text-white">${toProperCase(exactExisting.guestName)}</strong> with phone <strong class="text-amber-300">${exactExisting.wpNumberMasked || maskPhone(cleanWp)}</strong> is already registered. You can view the pass or update details.`;
+        cancelBtnText = "Cancel";
+      } else if (nameExisting) {
+        modalTitle = "Name Already Registered";
+        modalNotice = `An attendee named <strong class="text-white">${toProperCase(nameExisting.guestName)}</strong> is already registered with phone <strong class="text-slate-200">${nameExisting.mobileMasked || maskPhone(nameExisting.mobile || nameExisting.wpNumber)}</strong>. If you are a different person with this name, click "Register as New Person".`;
+        cancelBtnText = "Register as New Person";
+      } else if (phoneExisting) {
+        modalTitle = "Phone Already Used";
+        modalNotice = `The WhatsApp/phone number <strong class="text-amber-300">${phoneExisting.mobileMasked || maskPhone(cleanWp)}</strong> is registered under <strong class="text-white">${toProperCase(phoneExisting.guestName)}</strong>. If you are registering another family member with this number, click "Register Family Member".`;
+        cancelBtnText = "Register Family Member";
+      }
+
       const result = await Swal.fire({
         ...getBijoyaSwalTheme(),
-        title: "Guest Already Registered!",
+        title: modalTitle,
         html: `
           <div class="text-left space-y-3 pt-1 text-xs sm:text-sm">
             <div class="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200">
-              An attendee named <strong class="text-white">${toProperCase(existing.guestName)}</strong> is already registered for 27th Maitri Mahotsav.
+              ${modalNotice}
             </div>
 
             <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2 font-mono">
@@ -416,7 +486,7 @@ export default function Bijoya() {
             </div>
 
             <p class="text-slate-300 text-center text-xs">
-              Would you like to view your digital event pass or update your registration details?
+              Would you like to view the digital event pass or update registration details?
             </p>
           </div>
         `,
@@ -425,7 +495,7 @@ export default function Bijoya() {
         showDenyButton: true,
         confirmButtonText: "View Event Pass 🎫",
         denyButtonText: "Edit Details ✏️",
-        cancelButtonText: "Register Anyway",
+        cancelButtonText: cancelBtnText,
         confirmButtonColor: "#f59e0b",
         denyButtonColor: "#8b5cf6",
         cancelButtonColor: "#475569",
@@ -437,7 +507,7 @@ export default function Bijoya() {
       } else if (result.isDenied) {
         handleEdit(existing);
         return;
-      } else if (!result.isDismissed || result.dismiss !== Swal.DismissReason.cancel) {
+      } else if (exactExisting || !result.isDismissed || result.dismiss !== Swal.DismissReason.cancel) {
         return;
       }
     }
@@ -552,16 +622,26 @@ export default function Bijoya() {
         }, 150);
       }
     } catch (error) {
+      let validationDetails = null;
+      const errorData = error?.response?.data?.data || error?.response?.data?.errors;
+      if (errorData && typeof errorData === "object") {
+        const errorList = Object.values(errorData).flat().filter(Boolean);
+        if (errorList.length > 0) {
+          validationDetails = errorList.join(" • ");
+        }
+      }
+
       const errorMessage =
+        validationDetails ||
         error?.response?.data?.message ||
-        (error?.response?.data?.data ? Object.values(error.response.data.data).flat().join(", ") : null) ||
         error?.message ||
         "Failed to save registration. Please try again.";
+
       Swal.fire({
         ...getBijoyaSwalTheme(),
-        title: "Registration Error",
+        title: error?.response?.status === 422 ? "Registration Notice" : "Registration Error",
         text: errorMessage,
-        icon: "error",
+        icon: error?.response?.status === 422 ? "warning" : "error",
       });
     } finally {
       setIsSubmitting(false);
@@ -663,16 +743,26 @@ export default function Bijoya() {
         cancelEdit();
       }
     } catch (error) {
+      let validationDetails = null;
+      const errorData = error?.response?.data?.data || error?.response?.data?.errors;
+      if (errorData && typeof errorData === "object") {
+        const errorList = Object.values(errorData).flat().filter(Boolean);
+        if (errorList.length > 0) {
+          validationDetails = errorList.join(" • ");
+        }
+      }
+
       const errorMessage =
+        validationDetails ||
         error?.response?.data?.message ||
-        (error?.response?.data?.data ? Object.values(error.response.data.data).flat().join(", ") : null) ||
         error?.message ||
         "Failed to update details. Please verify your 4-digit PIN.";
+
       Swal.fire({
         ...getBijoyaSwalTheme(),
-        title: "Update Failed",
+        title: error?.response?.status === 422 ? "Validation Notice" : "Update Failed",
         text: errorMessage,
-        icon: "error",
+        icon: error?.response?.status === 422 ? "warning" : "error",
       });
     } finally {
       setIsSubmitting(false);
@@ -706,6 +796,7 @@ export default function Bijoya() {
         });
         getAllGuest();
       } catch (error) {
+        console.error("Failed to delete guest:", error);
         Swal.fire({
           ...getBijoyaSwalTheme(),
           title: "Error",

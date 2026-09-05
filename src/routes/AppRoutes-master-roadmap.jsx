@@ -52,6 +52,7 @@ const IntroductionToJava = lazy(() => import('../components/GeneralSubjects/java
 const Admin = lazy(() => import('./Admin'));
 const UserManagement = lazy(() => import('../components/UserManagement'));
 const AddUser = lazy(() => import('../components/AddUser'));
+const DatabaseBackup = lazy(() => import('../components/DatabaseBackup'));
 const Bijoya = lazy(() => import('./Bijoya'));
 const Dashboard = lazy(() => import('../components/Dashboard'));
 const AddStudent = lazy(() => import('../components/AddStudent'));
@@ -85,6 +86,7 @@ const ROUTES = {
   USER_MANAGEMENT: '/admin/users',
   ADD_USER: '/users/add',
   REGISTER_USER: '/admin/register-user',
+  DATABASE_BACKUP: '/admin/backups',
   BIJOYA: '/bijoya',
   QRCODE: '/qrcode',
   LINKED_LIST: '/LinkedListVisualizer',
@@ -652,6 +654,22 @@ export default function AppRoutes() {
           element={
             <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
               <AddUser />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path={ROUTES.DATABASE_BACKUP}
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
+              <DatabaseBackup />
+            </ProtectedRouteWrapper>
+          }
+        />
+        <Route
+          path="/backups"
+          element={
+            <ProtectedRouteWrapper allowedRoles={['Admin', 'Developer', 'Owner']}>
+              <DatabaseBackup />
             </ProtectedRouteWrapper>
           }
         />

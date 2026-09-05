@@ -17,12 +17,16 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const handleStorageChange = () => {
+    const handleAuthChange = () => {
       const token = localStorage.getItem("token");
       setIsLoggedIn(!!token);
     };
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
+    window.addEventListener("storage", handleAuthChange);
+    window.addEventListener("authChanged", handleAuthChange);
+    return () => {
+      window.removeEventListener("storage", handleAuthChange);
+      window.removeEventListener("authChanged", handleAuthChange);
+    };
   }, []);
 
   return (

@@ -26,7 +26,11 @@ const Login = () => {
     e.preventDefault();
     setError("");
 
-    if (!formData.email.trim() || !formData.password) {
+    const formElement = e.currentTarget;
+    const emailVal = (formData.email || formElement.elements?.email?.value || "").trim();
+    const passwordVal = formData.password || formElement.elements?.password?.value || "";
+
+    if (!emailVal || !passwordVal) {
       setError("Please enter both email and password.");
       return;
     }
@@ -34,14 +38,28 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await loginService.login(formData);
+      let res = await loginService.login({ email: emailVal, password: passwordVal });
+
+      // Resilience against stringified JSON or UTF-8 BOM
+      if (typeof res === "string") {
+        try {
+          res = JSON.parse(res.replace(/^\uFEFF/, "").trim());
+        } catch (parseErr) {
+          console.warn("Could not parse response string in Login:", parseErr);
+        }
+      }
 
       if (res?.status && res?.data?.token) {
         const { token, user } = res.data;
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(user));
-        window.dispatchEvent(new Event("storage"));
-        window.dispatchEvent(new Event("authChanged"));
+
+        try {
+          window.dispatchEvent(new Event("storage"));
+          window.dispatchEvent(new Event("authChanged"));
+        } catch (eventErr) {
+          console.warn("Event dispatch notice:", eventErr);
+        }
 
         const userName = user?.name || user?.userName || "User";
 
@@ -53,24 +71,33 @@ const Login = () => {
           background: "#0f172a",
           color: "#f8fafc",
           iconColor: "#38bdf8",
-          timer: 1800,
+          timer: 1400,
           timerProgressBar: true,
           showConfirmButton: false,
           customClass: {
             popup: "border border-slate-800 rounded-2xl shadow-2xl shadow-sky-950",
           },
-        }).then(() => {
-          navigate("/dashboard");
+        }).finally(() => {
+          navigate("/dashboard", { replace: true });
         });
       } else {
         setError(res?.message || "Invalid login credentials. Please try again.");
       }
     } catch (err) {
-      setError(
-        err.response?.data?.message ||
-        err.message ||
-        "Incorrect email or password. Please verify credentials."
-      );
+      console.error("Login process error:", err);
+      if (err.response?.status === 404) {
+        setError("API endpoint not found (404). Please ensure WAMP is running and API URL is http://127.0.0.1/cnat_api/public/api.");
+      } else if (err.response?.status === 401) {
+        setError("Invalid email or password. Please verify your credentials.");
+      } else if (err.code === "ERR_NETWORK" || !err.response) {
+        setError("Unable to connect to API server. Please check your network and WAMP server.");
+      } else {
+        setError(
+          err.response?.data?.message ||
+          err.message ||
+          "Incorrect email or password. Please verify credentials."
+        );
+      }
     } finally {
       setLoading(false);
     }
