@@ -1,0 +1,608 @@
+- generic [ref=f2e3]:
+  - banner [ref=f2e5]:
+    - generic [ref=f2e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001:2015 Premier Coding & IT Training Institute" [ref=f2e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=f2e12]
+        - generic [ref=f2e13]:
+          - generic [ref=f2e14]:
+            - generic [ref=f2e15]: Coder&AccoTax
+            - generic [ref=f2e16]: ISO 9001:2015
+          - generic [ref=f2e18]: Premier Coding & IT Training Institute
+      - navigation [ref=f2e19]:
+        - link " Home" [ref=f2e20] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f2e21]: 
+          - generic [ref=f2e22]: Home
+        - button " Tools " [ref=f2e24] [cursor=pointer]:
+          - generic [ref=f2e25]: 
+          - generic [ref=f2e26]: Tools
+          - generic [ref=f2e27]: 
+        - button " Tutorials " [ref=f2e29] [cursor=pointer]:
+          - generic [ref=f2e30]: 
+          - generic [ref=f2e31]: Tutorials
+          - generic [ref=f2e32]: 
+      - generic [ref=f2e33]:
+        - button " Quick Jump... ⌘K" [ref=f2e34] [cursor=pointer]:
+          - generic [ref=f2e35]: 
+          - generic [ref=f2e36]: Quick Jump...
+          - generic [ref=f2e37]: ⌘K
+        - link "Portal Login" [ref=f2e38] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=f2e39]: 
+        - text:   
+    - text:     
+  - main [ref=f2e40]:
+    - generic [ref=f2e41]:
+      - generic [ref=f2e43]:
+        - generic [ref=f2e44]:
+          - link "Overview" [ref=f2e45] [cursor=pointer]:
+            - /url: /c-language/module/001_001_getting-started-with-c-and-compiler-architecture
+          - generic [ref=f2e50]: Getting Started with C & Compiler Pipeline
+          - link "Next Module" [ref=f2e56] [cursor=pointer]:
+            - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/0
+        - generic [ref=f2e60]:
+          - generic [ref=f2e61]:
+            - generic [ref=f2e64]: 2/7
+            - generic [ref=f2e67]: 14%
+          - button "Hide Topics" [ref=f2e68]
+          - button "Workspace" [ref=f2e71]
+          - button "Annotate" [ref=f2e75]
+          - button "Math" [ref=f2e82]
+          - button "Focus Mode (Hide sidebars & clutter)" [ref=f2e86]
+          - button "A+" [ref=f2e92]
+          - button "Bookmark topic" [ref=f2e93]
+          - button "Copy topic link" [ref=f2e96]
+          - button "Done" [ref=f2e100]
+          - generic [ref=f2e105]:
+            - link "Prev" [ref=f2e106] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/0
+            - link "Next" [ref=f2e110] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/2
+      - generic [ref=f2e115]:
+        - complementary [ref=f2e116]:
+          - generic [ref=f2e117]:
+            - generic [ref=f2e118]:
+              - generic [ref=f2e119]: Module Progress
+              - generic [ref=f2e120]: 1/7 (14%)
+            - generic [ref=f2e123]:
+              - generic [ref=f2e124]: 4 hrs
+              - generic [ref=f2e125]: Easy
+          - textbox "Filter topics..." [ref=f2e130]
+          - generic [ref=f2e131]:
+            - link "01.History and significance of C Language in modern systems programming" [ref=f2e132] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/0
+              - generic [ref=f2e134]:
+                - generic [ref=f2e135]: "01."
+                - text: History and significance of C Language in modern systems programming
+            - 'link "02.C standards evolution: K&R, ANSI C (C89/C90), C99, C11, C17, C23" [ref=f2e136] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/1
+              - generic [ref=f2e140]:
+                - generic [ref=f2e141]: "02."
+                - text: "C standards evolution: K&R, ANSI C (C89/C90), C99, C11, C17, C23"
+            - 'link "03.Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)" [ref=f2e142] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/2
+              - generic [ref=f2e144]:
+                - generic [ref=f2e145]: "03."
+                - text: "Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)"
+            - 'link "04.Structure of a C program: include directives, global space, main() function, exit codes" [ref=f2e146] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/3
+              - generic [ref=f2e148]:
+                - generic [ref=f2e149]: "04."
+                - text: "Structure of a C program: include directives, global space, main() function, exit codes"
+            - 'link "05.Formatted Console I/O: printf(), scanf(), format specifiers (%d, %f, %c, %s)" [ref=f2e150] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/4
+              - generic [ref=f2e152]:
+                - generic [ref=f2e153]: "05."
+                - text: "Formatted Console I/O: printf(), scanf(), format specifiers (%d, %f, %c, %s)"
+            - link "06.Hands-on C Projects & Solutions for Module 001_001" [ref=f2e154] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/5
+              - generic [ref=f2e156]:
+                - generic [ref=f2e157]: "06."
+                - text: Hands-on C Projects & Solutions for Module 001_001
+            - 'link "07.Self-Test Module 001_001: 200 Comprehensive MCQs on C Foundations & Compiler Architecture" [ref=f2e158] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/6
+              - generic [ref=f2e160]:
+                - generic [ref=f2e161]: "07."
+                - text: "Self-Test Module 001_001: 200 Comprehensive MCQs on C Foundations & Compiler Architecture"
+          - generic [ref=f2e162]:
+            - link "Next Module C Tokens, Data Types & Operator Mechanics" [ref=f2e163] [cursor=pointer]:
+              - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/0
+              - generic [ref=f2e164]: Next Module
+              - generic [ref=f2e168]: C Tokens, Data Types & Operator Mechanics
+            - link "← Module Overview" [ref=f2e169] [cursor=pointer]:
+              - /url: /c-language/module/001_001_getting-started-with-c-and-compiler-architecture
+            - link "📍 Course Roadmap" [ref=f2e170] [cursor=pointer]:
+              - /url: /c-language/roadmap
+        - main [ref=f2e171]:
+          - generic [ref=f2e172]:
+            - generic [ref=f2e174]:
+              - generic [ref=f2e175]:
+                - generic [ref=f2e176]:
+                  - generic [ref=f2e177]: Module 001_001 · Topic 1
+                  - generic [ref=f2e178]: History & Standards Evolution
+                - 'heading "History & Evolution of C: From K&R to Modern C23" [level=1] [ref=f2e179]'
+                - paragraph [ref=f2e180]: Trace the 50-year evolutionary journey of C—from Dennis Ritchie's PDP-11 laboratory in 1972 through K&R C, ANSI C89/C90, C99, C11, C17, and modern C23 standards.
+              - generic [ref=f2e181]:
+                - 'heading "📖 Topic Description: The 50-Year Journey of C Programming" [level=2] [ref=f2e182]':
+                  - generic [ref=f2e183]: 📖
+                  - text: "Topic Description: The 50-Year Journey of C Programming"
+                - generic [ref=f2e184]:
+                  - paragraph [ref=f2e185]:
+                    - text: In 1972 at AT&T Bell Laboratories in Murray Hill, New Jersey,
+                    - strong [ref=f2e186]: Dennis Ritchie
+                    - text: and
+                    - strong [ref=f2e187]: Ken Thompson
+                    - text: were rewriting the Unix operating system kernel. The previous programming language,
+                    - emphasis [ref=f2e188]: B
+                    - text: (developed by Thompson from BCPL), was a typeless language that operated purely on raw machine memory words.
+                  - paragraph [ref=f2e189]:
+                    - text: Ritchie enhanced B by introducing structured primitive data types (such as
+                    - code [ref=f2e190]: char
+                    - text: ","
+                    - code [ref=f2e191]: int
+                    - text: ", and typed pointers), creating"
+                    - strong [ref=f2e192]: C
+                    - text: . C allowed over 95% of the Unix operating system kernel to be written in portable, high-level structured code instead of non-portable assembly language instructions.
+                  - paragraph [ref=f2e193]: "As C rapidly gained popularity across minicomputers and Unix workstations, different computer vendors implemented custom extensions, creating fragmentation. To unify the language, formal standards were established:"
+                  - list [ref=f2e194]:
+                    - listitem [ref=f2e195]:
+                      - strong [ref=f2e196]: "K&R C (1978):"
+                      - text: Published in Brian Kernighan & Dennis Ritchie's landmark book
+                      - emphasis [ref=f2e197]: "\"The C Programming Language\""
+                      - text: ", serving as the de facto informal specification."
+                    - listitem [ref=f2e198]:
+                      - strong [ref=f2e199]: "ANSI C89 / ISO C90:"
+                      - text: The first formal international standard, introducing function prototypes (compiler parameter checking), the
+                      - code [ref=f2e200]: void*
+                      - text: generic pointer, and
+                      - code [ref=f2e201]: const
+                      - text: /
+                      - code [ref=f2e202]: volatile
+                      - text: qualifiers.
+                    - listitem [ref=f2e203]:
+                      - strong [ref=f2e204]: "ISO C99:"
+                      - text: Modernized C with single-line comments (
+                      - code [ref=f2e205]: //
+                      - text: ), variable declarations anywhere inside code blocks, fixed-width integer types in
+                      - code [ref=f2e206]: <stdint.h>
+                      - text: ","
+                      - code [ref=f2e207]: <stdbool.h>
+                      - text: ", and"
+                      - code [ref=f2e208]: inline
+                      - text: functions.
+                    - listitem [ref=f2e209]:
+                      - strong [ref=f2e210]: "ISO C11 & C17:"
+                      - text: Added native multi-core threading (
+                      - code [ref=f2e211]: <threads.h>
+                      - text: ), compile-time
+                      - code [ref=f2e212]: _Static_assert
+                      - text: ", and static memory alignment controls."
+                    - listitem [ref=f2e213]:
+                      - strong [ref=f2e214]: "ISO C23:"
+                      - text: The latest standard introducing binary literals (
+                      - code [ref=f2e215]: "0b1010"
+                      - text: ),
+                      - code [ref=f2e216]: constexpr
+                      - text: ","
+                      - code [ref=f2e217]: typeof
+                      - text: operator,
+                      - code [ref=f2e218]: auto
+                      - text: type inference, and
+                      - code [ref=f2e219]: nullptr
+                      - text: .
+                  - generic [ref=f2e220]:
+                    - paragraph [ref=f2e221]: "🏫 Classroom Scenario at Coder & AccoTax (Barrackpore & Shyamnagar):"
+                    - paragraph [ref=f2e222]:
+                      - text: During a systems lab at our Barrackpore academy, Swadeep and Tuhina asked why Java and Python don't need explicit compiler flags like
+                      - code [ref=f2e223]: "-std=c11"
+                      - text: . Sukanta Hui explained how C compilers maintain strict backward compatibility across 50 years of standards, allowing 1989 C code to compile alongside modern C23 microservices!
+              - generic [ref=f2e224]:
+                - heading "📅 Visual Evolution Timeline (1972 → 2023)" [level=2] [ref=f2e225]:
+                  - generic [ref=f2e226]: 📅
+                  - text: Visual Evolution Timeline (1972 → 2023)
+                - img "C Standards Timeline" [ref=f2e228]:
+                  - generic [ref=f2e229]:
+                    - generic [ref=f2e232]: 1972 · Birth of C
+                    - generic [ref=f2e233]: Dennis Ritchie
+                    - generic [ref=f2e234]: Bell Labs / Unix
+                  - generic [ref=f2e235]:
+                    - generic [ref=f2e238]: 1978 · K&R C
+                    - generic [ref=f2e239]: Informal Spec Book
+                    - generic [ref=f2e240]: De Facto Standard
+                  - generic [ref=f2e241]:
+                    - generic [ref=f2e244]: 1989 · ANSI C89
+                    - generic [ref=f2e245]: Function Prototypes
+                    - generic [ref=f2e246]: void* & const
+                  - generic [ref=f2e247]:
+                    - generic [ref=f2e250]: 1999 · ISO C99
+                    - generic [ref=f2e251]: // Comments & inline
+                    - generic [ref=f2e252]: <stdint.h> & <stdbool.h>
+                  - generic [ref=f2e253]:
+                    - generic [ref=f2e256]: 2011 · ISO C11
+                    - generic [ref=f2e257]: Multi-threading
+                    - generic [ref=f2e258]: _Static_assert
+                  - generic [ref=f2e259]:
+                    - generic [ref=f2e262]: 2023 · ISO C23
+                    - generic [ref=f2e263]: Binary literals (0b)
+                    - generic [ref=f2e264]: constexpr & typeof
+              - generic [ref=f2e265]:
+                - 'heading "⚙️ Technical Breakdown: Comparison of C Standards" [level=2] [ref=f2e266]'
+                - table [ref=f2e268]:
+                  - rowgroup [ref=f2e269]:
+                    - row [ref=f2e270]:
+                      - columnheader "C Standard" [ref=f2e271]
+                      - columnheader "Release Year" [ref=f2e272]
+                      - columnheader "Key Features Introduced" [ref=f2e273]
+                      - columnheader "GCC Compiler Flag" [ref=f2e274]
+                  - rowgroup [ref=f2e275]:
+                    - row [ref=f2e276]:
+                      - cell "K&R C" [ref=f2e277]
+                      - cell "1978" [ref=f2e278]
+                      - cell "First published book standard; un-prototyped function headers." [ref=f2e279]
+                      - cell "N/A (Historical)" [ref=f2e280]
+                    - row [ref=f2e281]:
+                      - cell "ANSI C89 / ISO C90" [ref=f2e282]
+                      - cell "1989 / 1990" [ref=f2e283]
+                      - cell [ref=f2e284]:
+                        - text: Function prototypes,
+                        - code [ref=f2e285]: void*
+                        - text: ","
+                        - code [ref=f2e286]: const
+                        - text: ","
+                        - code [ref=f2e287]: volatile
+                        - text: ", standard library headers."
+                      - cell "-std=c89" [ref=f2e288]
+                    - row [ref=f2e289]:
+                      - cell "ISO C99" [ref=f2e290]
+                      - cell "1999" [ref=f2e291]
+                      - cell [ref=f2e292]:
+                        - code [ref=f2e293]: //
+                        - text: comments, inline functions,
+                        - code [ref=f2e294]: <stdint.h>
+                        - text: ","
+                        - code [ref=f2e295]: <stdbool.h>
+                        - text: ", for-loop declarations."
+                      - cell "-std=c99" [ref=f2e296]
+                    - row [ref=f2e297]:
+                      - cell "ISO C11" [ref=f2e298]
+                      - cell "2011" [ref=f2e299]
+                      - cell [ref=f2e300]:
+                        - text: Multi-threading (
+                        - code [ref=f2e301]: <threads.h>
+                        - text: ),
+                        - code [ref=f2e302]: _Static_assert
+                        - text: ", anonymous structs/unions."
+                      - cell "-std=c11" [ref=f2e303]
+                    - row [ref=f2e304]:
+                      - cell "ISO C17" [ref=f2e305]
+                      - cell "2017 / 2018" [ref=f2e306]
+                      - cell "Maintenance defect fixes and clarifications (no new syntax)." [ref=f2e307]
+                      - cell "-std=c17" [ref=f2e308]
+                    - row [ref=f2e309]:
+                      - cell "ISO C23" [ref=f2e310]
+                      - cell "2023" [ref=f2e311]
+                      - cell [ref=f2e312]:
+                        - text: Binary literals (
+                        - code [ref=f2e313]: "0b1010"
+                        - text: ),
+                        - code [ref=f2e314]: constexpr
+                        - text: ","
+                        - code [ref=f2e315]: typeof
+                        - text: ","
+                        - code [ref=f2e316]: auto
+                        - text: ","
+                        - code [ref=f2e317]: nullptr
+                        - text: .
+                      - cell "-std=c23" [ref=f2e318]
+              - generic [ref=f2e319]:
+                - 'heading "💻 Example Section: C Standards & Syntax Demonstration" [level=2] [ref=f2e320]':
+                  - generic [ref=f2e321]: 💻
+                  - text: "Example Section: C Standards & Syntax Demonstration"
+                - paragraph [ref=f2e323]:
+                  - text: The program below (
+                  - code [ref=f2e324]: VersionEvolutionDemo.c
+                  - text: ) demonstrates features across C standards. Notice how modern C99+ allows declaring variables anywhere in the code block, uses
+                  - code [ref=f2e325]: uint32_t
+                  - text: fixed-width types from
+                  - code [ref=f2e326]: <stdint.h>
+                  - text: ", and uses"
+                  - code [ref=f2e327]: bool
+                  - text: from
+                  - code [ref=f2e328]: <stdbool.h>
+                  - text: .
+                - generic [ref=f2e329]:
+                  - generic [ref=f2e330]:
+                    - generic [ref=f2e331]:
+                      - generic [ref=f2e337]: VersionEvolutionDemo.c
+                      - generic [ref=f2e338]: C
+                    - generic [ref=f2e339]:
+                      - button [ref=f2e340]
+                      - button [ref=f2e347]
+                      - button [ref=f2e351]
+                  - code [ref=f2e356]:
+                    - generic [ref=f2e357]: "#include <stdio.h>"
+                    - generic [ref=f2e358]: "#include <stdbool.h>"
+                    - generic [ref=f2e359]: "#include <stdint.h>"
+                    - text: "/** * VersionEvolutionDemo.c * Demonstrates C syntax evolution across standards: * - K&R C (1978) vs ANSI C89 vs ISO C99 vs Modern C11/C17/C23 * Educator: Sukanta Hui (Coder & AccoTax) */ // C99: Fixed-width integer type definition from <stdint.h> typedef uint32_t Year; int main(void) { // C99 feature: Variable declaration anywhere in code (not just top of block) Year startYear = 1972; printf(\"====================================================\\n\"); printf(\" Evolution of C Standards: From K&R to C23\\n\"); printf(\" Educator: Sukanta Hui | Coder & AccoTax\\n\"); printf(\"====================================================\\n\\n\"); printf(\"1. 1972 - Birth of C at Bell Labs by Dennis Ritchie\\n\"); printf(\" Initial release on PDP-11 for Unix kernel development.\\n\\n\"); printf(\"2. 1978 - K&R C (Kernighan & Ritchie)\\n\"); printf(\" First informal specification published.\\n\\n\"); printf(\"3. 1989/1990 - ANSI C89 / ISO C90 (C89)\\n\"); printf(\" Function prototypes introduced, void* pointer type added.\\n\\n\"); // C99 feature: bool type from <stdbool.h> and // single-line comments bool isModernC = true; printf(\"4. 1999 - ISO C99 (C99)\\n\"); printf(\" Single-line comments (//), <stdint.h>, <stdbool.h> added.\\n\"); printf(\" Is modern C enabled? %s\\n\\n\", isModernC ? \"YES (C99+ Standard Active)\" : \"NO\"); printf(\"5. 2011 - ISO C11 (C11)\\n\"); printf(\" Multi-threading support (<threads.h>), _Static_assert introduced.\\n\\n\"); printf(\"6. 2023 - ISO C23 (C23)\\n\"); printf(\" Binary literals (0b), typeof operator, constexpr introduced.\\n\"); return 0; }"
+                - generic [ref=f2e360]:
+                  - generic [ref=f2e361]:
+                    - generic [ref=f2e362]: 🖥️
+                    - text: "Expected Console Execution Output:"
+                  - generic [ref=f2e363]: "==================================================== Evolution of C Standards: From K&R to C23 Educator: Sukanta Hui | Coder & AccoTax ==================================================== 1. 1972 - Birth of C at Bell Labs by Dennis Ritchie Initial release on PDP-11 for Unix kernel development. 2. 1978 - K&R C (Kernighan & Ritchie) First informal specification published. 3. 1989/1990 - ANSI C89 / ISO C90 (C89) Function prototypes introduced, void* pointer type added. 4. 1999 - ISO C99 (C99) Single-line comments (//), <stdint.h>, <stdbool.h> added. Is modern C enabled? YES (C99+ Standard Active) 5. 2011 - ISO C11 (C11) Multi-threading support (<threads.h>), _Static_assert introduced. 6. 2023 - ISO C23 (C23) Binary literals (0b), typeof operator, constexpr introduced."
+              - generic [ref=f2e364]:
+                - heading "⚠️ Common Pitfalls & Best Practices" [level=2] [ref=f2e365]
+                - list [ref=f2e366]:
+                  - listitem [ref=f2e367]:
+                    - text: "Relying on Non-Standard GCC Extensions: Compiling with non-portable GCC extensions (like statement expressions) without passing"
+                    - code [ref=f2e368]: "-std=c99"
+                    - text: can cause build failures when compiling on Windows MSVC.
+                  - listitem [ref=f2e369]:
+                    - text: "Using Deprecated gets() Function:"
+                    - code [ref=f2e370]: gets()
+                    - text: was officially deprecated in C99 and removed in C11 due to security buffer overflow vulnerabilities. Always use
+                    - code [ref=f2e371]: fgets()
+                    - text: instead!
+                  - listitem [ref=f2e372]:
+                    - text: "Forgetting Compiler Flags: Always specify explicit standard flags when building C applications:"
+                    - code [ref=f2e373]: gcc -std=c11 -Wall -Wextra main.c -o main
+                    - text: .
+              - generic [ref=f2e374]:
+                - heading "🤔 Think About This..." [level=2] [ref=f2e375]
+                - paragraph [ref=f2e376]:
+                  - text: Why did C99 introduce exact-width integer types in
+                  - code [ref=f2e377]: <stdint.h>
+                  - text: like
+                  - code [ref=f2e378]: uint8_t
+                  - text: and
+                  - code [ref=f2e379]: int32_t
+                  - text: instead of relying on standard
+                  - code [ref=f2e380]: int
+                  - text: or
+                  - code [ref=f2e381]: long
+                  - text: "? How does this guarantee cross-platform memory portability when transmitting packets across 32-bit and 64-bit CPU architectures?"
+              - generic [ref=f2e383]:
+                - generic [ref=f2e384]:
+                  - generic [ref=f2e385]:
+                    - generic [ref=f2e386]:
+                      - heading "❓ Module 001_001 Topic 1 FAQs" [level=2] [ref=f2e387]:
+                        - generic [ref=f2e388]: ❓
+                        - text: Module 001_001 Topic 1 FAQs
+                      - paragraph [ref=f2e389]: Test your understanding with these domain mastery questions
+                      - generic [ref=f2e390]:
+                        - generic [ref=f2e391]: 📝 25 Questions
+                        - generic [ref=f2e392]: ✅ 0 Answered
+                    - generic [ref=f2e393]:
+                      - button "🖨️ Print" [ref=f2e394]
+                      - button "📖 Expand All" [ref=f2e395]
+                      - button "📝 Collapse All" [ref=f2e396]
+                  - generic [ref=f2e398]:
+                    - generic [ref=f2e399]: Mastery Progress
+                    - generic [ref=f2e400]: 0% (0/25)
+                - generic [ref=f2e402]:
+                  - generic [ref=f2e403]:
+                    - generic: 🔍
+                    - textbox "Filter questions by keyword or formula..." [ref=f2e404]
+                  - generic [ref=f2e405]:
+                    - generic [ref=f2e406]: "Shortcuts:"
+                    - generic [ref=f2e407]: Ctrl+E
+                    - generic [ref=f2e408]: Ctrl+C
+                    - generic [ref=f2e409]: Ctrl+P
+                - generic [ref=f2e411]:
+                  - button "Q01. When and where was the C programming language created, and by whom? basic ▼" [ref=f2e413]:
+                    - generic [ref=f2e414]:
+                      - generic [ref=f2e415]: Q01.
+                      - generic [ref=f2e416]: When and where was the C programming language created, and by whom?
+                    - generic [ref=f2e417]:
+                      - generic [ref=f2e418]: basic
+                      - generic [ref=f2e419]: ▼
+                  - button "Q02. What language preceded C, and how did C evolve from it? basic ▼" [ref=f2e421]:
+                    - generic [ref=f2e422]:
+                      - generic [ref=f2e423]: Q02.
+                      - generic [ref=f2e424]: What language preceded C, and how did C evolve from it?
+                    - generic [ref=f2e425]:
+                      - generic [ref=f2e426]: basic
+                      - generic [ref=f2e427]: ▼
+                  - button "Q03. What is K&R C, and what publication defined it? basic ▼" [ref=f2e429]:
+                    - generic [ref=f2e430]:
+                      - generic [ref=f2e431]: Q03.
+                      - generic [ref=f2e432]: What is K&R C, and what publication defined it?
+                    - generic [ref=f2e433]:
+                      - generic [ref=f2e434]: basic
+                      - generic [ref=f2e435]: ▼
+                  - button "Q04. What major additions were introduced in ANSI C89 / ISO C90? intermediate ▼" [ref=f2e437]:
+                    - generic [ref=f2e438]:
+                      - generic [ref=f2e439]: Q04.
+                      - generic [ref=f2e440]: What major additions were introduced in ANSI C89 / ISO C90?
+                    - generic [ref=f2e441]:
+                      - generic [ref=f2e442]: intermediate
+                      - generic [ref=f2e443]: ▼
+                  - button "Q05. What major syntax features were introduced in ISO C99? intermediate ▼" [ref=f2e445]:
+                    - generic [ref=f2e446]:
+                      - generic [ref=f2e447]: Q05.
+                      - generic [ref=f2e448]: What major syntax features were introduced in ISO C99?
+                    - generic [ref=f2e449]:
+                      - generic [ref=f2e450]: intermediate
+                      - generic [ref=f2e451]: ▼
+                  - button "Q06. What key features were added in ISO C11? advanced ▼" [ref=f2e453]:
+                    - generic [ref=f2e454]:
+                      - generic [ref=f2e455]: Q06.
+                      - generic [ref=f2e456]: What key features were added in ISO C11?
+                    - generic [ref=f2e457]:
+                      - generic [ref=f2e458]: advanced
+                      - generic [ref=f2e459]: ▼
+                  - button "Q07. What is ISO C17 / C18, and what did it focus on? intermediate ▼" [ref=f2e461]:
+                    - generic [ref=f2e462]:
+                      - generic [ref=f2e463]: Q07.
+                      - generic [ref=f2e464]: What is ISO C17 / C18, and what did it focus on?
+                    - generic [ref=f2e465]:
+                      - generic [ref=f2e466]: intermediate
+                      - generic [ref=f2e467]: ▼
+                  - button "Q08. What modern innovations were added in ISO C23? advanced ▼" [ref=f2e469]:
+                    - generic [ref=f2e470]:
+                      - generic [ref=f2e471]: Q08.
+                      - generic [ref=f2e472]: What modern innovations were added in ISO C23?
+                    - generic [ref=f2e473]:
+                      - generic [ref=f2e474]: advanced
+                      - generic [ref=f2e475]: ▼
+                  - button "Q09. Why was C chosen to write the Unix operating system? intermediate ▼" [ref=f2e477]:
+                    - generic [ref=f2e478]:
+                      - generic [ref=f2e479]: Q09.
+                      - generic [ref=f2e480]: Why was C chosen to write the Unix operating system?
+                    - generic [ref=f2e481]:
+                      - generic [ref=f2e482]: intermediate
+                      - generic [ref=f2e483]: ▼
+                  - button "Q10. How do you specify a target C standard version in GCC? basic ▼" [ref=f2e485]:
+                    - generic [ref=f2e486]:
+                      - generic [ref=f2e487]: Q10.
+                      - generic [ref=f2e488]: How do you specify a target C standard version in GCC?
+                    - generic [ref=f2e489]:
+                      - generic [ref=f2e490]: basic
+                      - generic [ref=f2e491]: ▼
+                  - button "Q11. What was the main drawback of K&R function parameter declarations? intermediate ▼" [ref=f2e493]:
+                    - generic [ref=f2e494]:
+                      - generic [ref=f2e495]: Q11.
+                      - generic [ref=f2e496]: What was the main drawback of K&R function parameter declarations?
+                    - generic [ref=f2e497]:
+                      - generic [ref=f2e498]: intermediate
+                      - generic [ref=f2e499]: ▼
+                  - button "Q12. What is the role of ISO/IEC JTC1/SC22/WG14? advanced ▼" [ref=f2e501]:
+                    - generic [ref=f2e502]:
+                      - generic [ref=f2e503]: Q12.
+                      - generic [ref=f2e504]: What is the role of ISO/IEC JTC1/SC22/WG14?
+                    - generic [ref=f2e505]:
+                      - generic [ref=f2e506]: advanced
+                      - generic [ref=f2e507]: ▼
+                  - button "Q13. Why did C99 introduce fixed-width integer types in <stdint.h>? intermediate ▼" [ref=f2e509]:
+                    - generic [ref=f2e510]:
+                      - generic [ref=f2e511]: Q13.
+                      - generic [ref=f2e512]: Why did C99 introduce fixed-width integer types in <stdint.h>?
+                    - generic [ref=f2e513]:
+                      - generic [ref=f2e514]: intermediate
+                      - generic [ref=f2e515]: ▼
+                  - button "Q14. What is POSIX and how does it relate to standard C? advanced ▼" [ref=f2e517]:
+                    - generic [ref=f2e518]:
+                      - generic [ref=f2e519]: Q14.
+                      - generic [ref=f2e520]: What is POSIX and how does it relate to standard C?
+                    - generic [ref=f2e521]:
+                      - generic [ref=f2e522]: advanced
+                      - generic [ref=f2e523]: ▼
+                  - button "Q15. What is the difference between standard C and GNU C (gnu99 / gnu11)? intermediate ▼" [ref=f2e525]:
+                    - generic [ref=f2e526]:
+                      - generic [ref=f2e527]: Q15.
+                      - generic [ref=f2e528]: What is the difference between standard C and GNU C (gnu99 / gnu11)?
+                    - generic [ref=f2e529]:
+                      - generic [ref=f2e530]: intermediate
+                      - generic [ref=f2e531]: ▼
+                  - button "Q16. Why was the 'gets()' function deprecated in C99 and removed in C11? basic ▼" [ref=f2e533]:
+                    - generic [ref=f2e534]:
+                      - generic [ref=f2e535]: Q16.
+                      - generic [ref=f2e536]: Why was the 'gets()' function deprecated in C99 and removed in C11?
+                    - generic [ref=f2e537]:
+                      - generic [ref=f2e538]: basic
+                      - generic [ref=f2e539]: ▼
+                  - button "Q17. What are Variable Length Arrays (VLAs) in C99, and why were they made optional in C11? advanced ▼" [ref=f2e541]:
+                    - generic [ref=f2e542]:
+                      - generic [ref=f2e543]: Q17.
+                      - generic [ref=f2e544]: What are Variable Length Arrays (VLAs) in C99, and why were they made optional in C11?
+                    - generic [ref=f2e545]:
+                      - generic [ref=f2e546]: advanced
+                      - generic [ref=f2e547]: ▼
+                  - button "Q18. What is the difference between C and C++ in terms of language evolution? basic ▼" [ref=f2e549]:
+                    - generic [ref=f2e550]:
+                      - generic [ref=f2e551]: Q18.
+                      - generic [ref=f2e552]: What is the difference between C and C++ in terms of language evolution?
+                    - generic [ref=f2e553]:
+                      - generic [ref=f2e554]: basic
+                      - generic [ref=f2e555]: ▼
+                  - button "Q19. What is the significance of the PDP-11 computer in C history? intermediate ▼" [ref=f2e557]:
+                    - generic [ref=f2e558]:
+                      - generic [ref=f2e559]: Q19.
+                      - generic [ref=f2e560]: What is the significance of the PDP-11 computer in C history?
+                    - generic [ref=f2e561]:
+                      - generic [ref=f2e562]: intermediate
+                      - generic [ref=f2e563]: ▼
+                  - button "Q20. What is _Static_assert in C11? advanced ▼" [ref=f2e565]:
+                    - generic [ref=f2e566]:
+                      - generic [ref=f2e567]: Q20.
+                      - generic [ref=f2e568]: What is _Static_assert in C11?
+                    - generic [ref=f2e569]:
+                      - generic [ref=f2e570]: advanced
+                      - generic [ref=f2e571]: ▼
+                  - button "Q21. What does the 'inline' keyword introduced in C99 do? intermediate ▼" [ref=f2e573]:
+                    - generic [ref=f2e574]:
+                      - generic [ref=f2e575]: Q21.
+                      - generic [ref=f2e576]: What does the 'inline' keyword introduced in C99 do?
+                    - generic [ref=f2e577]:
+                      - generic [ref=f2e578]: intermediate
+                      - generic [ref=f2e579]: ▼
+                  - button "Q22. Why is C still dominant in Linux kernel and microcontroller development today? basic ▼" [ref=f2e581]:
+                    - generic [ref=f2e582]:
+                      - generic [ref=f2e583]: Q22.
+                      - generic [ref=f2e584]: Why is C still dominant in Linux kernel and microcontroller development today?
+                    - generic [ref=f2e585]:
+                      - generic [ref=f2e586]: basic
+                      - generic [ref=f2e587]: ▼
+                  - button "Q23. What is the purpose of the <stdbool.h> header introduced in C99? basic ▼" [ref=f2e589]:
+                    - generic [ref=f2e590]:
+                      - generic [ref=f2e591]: Q23.
+                      - generic [ref=f2e592]: What is the purpose of the <stdbool.h> header introduced in C99?
+                    - generic [ref=f2e593]:
+                      - generic [ref=f2e594]: basic
+                      - generic [ref=f2e595]: ▼
+                  - button "Q24. What is strict aliasing in C standards? expert ▼" [ref=f2e597]:
+                    - generic [ref=f2e598]:
+                      - generic [ref=f2e599]: Q24.
+                      - generic [ref=f2e600]: What is strict aliasing in C standards?
+                    - generic [ref=f2e601]:
+                      - generic [ref=f2e602]: expert
+                      - generic [ref=f2e603]: ▼
+                  - button "Q25. What is the future direction of C in modern systems programming? intermediate ▼" [ref=f2e605]:
+                    - generic [ref=f2e606]:
+                      - generic [ref=f2e607]: Q25.
+                      - generic [ref=f2e608]: What is the future direction of C in modern systems programming?
+                    - generic [ref=f2e609]:
+                      - generic [ref=f2e610]: intermediate
+                      - generic [ref=f2e611]: ▼
+              - generic [ref=f2e613]:
+                - button "Print Note" [ref=f2e614]
+                - button "Download Printable Note" [ref=f2e617]
+              - generic [ref=f2e621]:
+                - generic [ref=f2e622]:
+                  - generic [ref=f2e623]:
+                    - generic [ref=f2e624]: 👨‍🏫
+                    - generic [ref=f2e625]: "Instructor Note:"
+                  - generic [ref=f2e626]: Understanding C standard revisions is crucial for writing cross-platform industrial code. Always build with -std=c11 -Wall -Wextra to catch standards compliance issues during compilation! — Sukanta Hui
+                - img "Sukanta Hui" [ref=f2e628]
+                - heading "Sukanta Hui" [level=2] [ref=f2e629]
+                - link "github.com/sukantahui" [ref=f2e634] [cursor=pointer]:
+                  - /url: https://github.com/sukantahui
+                - generic [ref=f2e635]: "Corporate & Academic Experience: 28+ Years"
+                - paragraph [ref=f2e636]: Senior Lead Software Architect & Corporate Instructor with 28+ years of industry experience across enterprise architecture, advanced analytics, financial modeling, and engineering systems.
+            - generic [ref=f2e637]:
+              - heading "Have a Question About This Topic?" [level=3] [ref=f2e641]
+              - paragraph [ref=f2e642]: Ask your calculation, formulation, or theorem doubt directly to instructor Sukanta Hui.
+              - textbox "Type your question or problem statement here..." [ref=f2e643]
+              - button "Send Query via WhatsApp" [ref=f2e644]
+            - generic [ref=f2e648]:
+              - generic [ref=f2e655]:
+                - generic [ref=f2e656]: "Same Segment: Segment 1 – C Language Fundamentals & Logic Building (Beginner)"
+                - generic [ref=f2e657]: C Tokens, Data Types & Operator Mechanics
+              - link "Go to Next Module" [ref=f2e658] [cursor=pointer]:
+                - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/0
+            - navigation [ref=f2e662]:
+              - link "Previous Topic History and significance of C Language in modern systems programming" [ref=f2e663] [cursor=pointer]:
+                - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/0
+                - generic [ref=f2e666]:
+                  - generic [ref=f2e667]: Previous Topic
+                  - generic [ref=f2e668]: History and significance of C Language in modern systems programming
+              - 'link "Next Topic Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)" [ref=f2e669] [cursor=pointer]':
+                - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/2
+                - generic [ref=f2e670]:
+                  - generic [ref=f2e671]: Next Topic
+                  - generic [ref=f2e672]: "Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)"
+      - button "CNAT Mam Ask CNAT Mam AI Mentor" [ref=f2e676] [cursor=pointer]:
+        - generic [ref=f2e680]:
+          - img "CNAT Mam" [ref=f2e682]
+          - generic [ref=f2e683]: Ask CNAT Mam
+        - generic [ref=f2e684]: AI Mentor

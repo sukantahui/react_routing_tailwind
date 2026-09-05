@@ -12,7 +12,7 @@ export const CNAT_MAM_PROFILE = {
   name: "CNAT Mam",
   title: "Senior AI Academic Mentor & Student Counselor",
   organization: "Coder & AccoTax Centre of Excellence",
-  avatar: "/teachers/cnat.jpg",
+  avatar: "/teachers/cnat_mam.jpg",
   greeting: "Hello dear student! I am CNAT Mam, your academic mentor. How can I help you master your current topic or guide you with institute address, teachers details, and courses today?",
 };
 

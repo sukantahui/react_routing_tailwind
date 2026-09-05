@@ -582,6 +582,7 @@ export default function AppRoutes() {
         <Route path={ROUTES.SORTING_VISUALIZER} element={<SortingVisualizer />} />
         <Route path={ROUTES.BIG_O_CALCULATOR} element={<BigOCalculator />} />
         <Route path={ROUTES.JSON_FORMATTER} element={<JsonFormatter />} />
+        <Route path={ROUTES.MENSTRUAL_CALENDAR} element={<MenstrualCalendarApp />} />
 
 
         {/* Data structure visualizers */}
@@ -748,14 +749,6 @@ export default function AppRoutes() {
           }
         />
 
-        <Route
-          path={ROUTES.MENSTRUAL_CALENDAR}
-          element={
-            <ProtectedRouteWrapper>
-              <MenstrualCalendarApp />
-            </ProtectedRouteWrapper>
-          }
-        />
 
         <Route path={ROUTES.ADD_STUDENT} element={<AddStudent />} />
         <Route path={ROUTES.SUBJECTS} element={<Subject />} />

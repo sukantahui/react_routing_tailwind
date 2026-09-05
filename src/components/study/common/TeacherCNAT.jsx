@@ -8,7 +8,7 @@ const cnatTeacherData = {
   designation: "Lead Educator & Corporate Financial Modeling Trainer",
   organization: "CNAT Academy",
   location: "Barrackpore, West Bengal, India",
-  photo: "/teachers/cnat.jpg",
+  photo: "/teachers/mr_cnat.jpg",
   bio: "Lead Financial Modeling & TallyPrime Specialist with extensive training expertise in Commercial Accounting, Double-Entry Bookkeeping, GST, TDS/TCS Compliance, Inventory Control, and Corporate Financial Reporting.",
   social: {
     linkedin: "https://www.linkedin.com/in/cnat-academy/",

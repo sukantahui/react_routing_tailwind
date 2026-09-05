@@ -100,13 +100,27 @@ export function useCycleData() {
     writeLocalStorage(starts, merged);
   }, []);
 
-  // ── 1. Mount: load from API, fall back to localStorage ─────────────────
+  // ── 1. Mount & Auth Sync: load from API, fall back to localStorage ────
 
   useEffect(() => {
     let cancelled = false;
 
     async function loadData() {
-      // Try the API first (user must be logged in)
+      const token = localStorage.getItem('token');
+      if (!token) {
+        // Unauthenticated guest mode
+        const cached = readLocalStorage();
+        if (cached) {
+          const starts = [...(cached.periodStarts || [])].sort(compareISODates);
+          setPeriodStarts(starts);
+          setSettings({ ...DEFAULT_SETTINGS, ...(cached.settings || {}) });
+        }
+        setIsApiMode(false);
+        setIsLoaded(true);
+        return;
+      }
+
+      // Try the API with the authenticated token
       try {
         const res = await cycleApi.getMe();
         if (cancelled) return;
@@ -116,15 +130,14 @@ export function useCycleData() {
           setIsApiMode(true);
 
           // If this is a new profile AND localStorage has existing data,
-          // offer to sync it up automatically.
+          // sync local dates to the new DB profile automatically.
           const cached = readLocalStorage();
           if (res.data.data.is_new_profile && cached?.periodStarts?.length > 0) {
-            // Sync localStorage data to the new DB profile silently
             try {
               const syncRes = await cycleApi.syncPeriodDates(cached.periodStarts);
               if (!cancelled && syncRes.data?.status) {
                 applyApiData(syncRes.data.data);
-                notify('Your previous local data has been synced to your account.', 'success');
+                notify('Your previous local dates have been saved to cnat_api database.', 'success');
               }
             } catch {
               // ignore sync failure — data already in state
@@ -133,7 +146,6 @@ export function useCycleData() {
         }
       } catch (err) {
         if (cancelled) return;
-        // API failed (network issue / not logged in) — fall back to localStorage
         console.warn('Cycle API unavailable, using localStorage:', err.message);
         const cached = readLocalStorage();
         if (cached) {
@@ -148,8 +160,20 @@ export function useCycleData() {
     }
 
     loadData();
-    return () => { cancelled = true; };
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    const handleAuthChange = () => {
+      loadData();
+    };
+
+    window.addEventListener('storage', handleAuthChange);
+    window.addEventListener('authChanged', handleAuthChange);
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener('storage', handleAuthChange);
+      window.removeEventListener('authChanged', handleAuthChange);
+    };
+  }, [applyApiData, notify]);
 
   // ── 2. localStorage persistence (always keep in sync) ───────────────────
 
@@ -434,25 +458,47 @@ export function useCycleData() {
     [isApiMode, notify, applyApiData]
   );
 
-  // ── 10. Sync localStorage → DB ───────────────────────────────────────────
+  // ── 10. Sync localStorage → cnat_api Database ───────────────────────────
 
   const syncToCloud = useCallback(async () => {
-    if (!isApiMode) { notify('Not connected to server.', 'warning'); return; }
-    if (periodStarts.length === 0) { notify('No data to sync.', 'info'); return; }
+    const token = localStorage.getItem('token');
+    if (!token) {
+      notify('Please sign in to save your dates to the cnat_api database. Redirecting to login...', 'info');
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 1200);
+      return;
+    }
+
+    if (periodStarts.length === 0) {
+      notify('No period dates to sync.', 'info');
+      return;
+    }
 
     setIsSyncing(true);
     try {
+      // Verify/load profile first
+      await cycleApi.getMe();
       const res = await cycleApi.syncPeriodDates(periodStarts);
       if (res.data?.status) {
         applyApiData(res.data.data);
-        notify('Data synced to your account!', 'success');
+        setIsApiMode(true);
+        notify('All period dates saved to cnat_api database successfully!', 'success');
+      } else {
+        notify(res.data?.message || 'Sync failed.', 'error');
       }
-    } catch {
-      notify('Sync failed. Please try again.', 'error');
+    } catch (err) {
+      console.error('Cloud sync error:', err);
+      if (err.response?.status === 401) {
+        notify('Session expired. Please sign in again to sync to database.', 'warning');
+        setTimeout(() => { window.location.href = '/login'; }, 1500);
+      } else {
+        notify(err.response?.data?.message || 'Sync failed. Please check network/WAMP connection.', 'error');
+      }
     } finally {
       setIsSyncing(false);
     }
-  }, [isApiMode, periodStarts, notify, applyApiData]);
+  }, [periodStarts, notify, applyApiData]);
 
   // ── 11. Export / Import ──────────────────────────────────────────────────
 

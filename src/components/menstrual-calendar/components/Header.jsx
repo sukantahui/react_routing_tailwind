@@ -25,19 +25,24 @@ export default function Header({
             <span className="bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs font-semibold px-2.5 py-0.5 rounded-full">
               v1.0 Pro
             </span>
-            {/* Cloud / Local badge */}
+            {/* Cloud / Local database badge */}
             {isApiMode ? (
-              <span className="flex items-center gap-1 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold px-2 py-0.5 rounded-full">
-                <Cloud className="w-3 h-3" /> Cloud Sync
+              <span className="flex items-center gap-1.5 bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-sm shadow-emerald-500/10">
+                <Cloud className="w-3 h-3 text-emerald-400" /> cnat_api Database Sync
               </span>
             ) : (
-              <span className="flex items-center gap-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px] font-bold px-2 py-0.5 rounded-full">
-                <CloudOff className="w-3 h-3" /> Local Only
-              </span>
+              <button
+                onClick={onSyncToCloud}
+                className="flex items-center gap-1.5 bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full transition-all cursor-pointer shadow-sm shadow-amber-500/10 group"
+                title="Your dates are currently in local memory. Click to sign in and save to cnat_api database!"
+              >
+                <CloudOff className="w-3 h-3 text-amber-400 group-hover:scale-110 transition-transform" />
+                <span>Local Only — Click to Save to Database</span>
+              </button>
             )}
           </div>
           <p className="text-xs md:text-sm text-slate-400 mt-0.5">
-            Track your historical cycles &amp; view estimated upcoming period &amp; fertile dates.
+            Track historical cycle dates, monitor fertile windows &amp; sync securely with cnat_api.
           </p>
         </div>
       </div>
@@ -54,16 +59,29 @@ export default function Header({
           </button>
         )}
 
-        {/* Sync button — shown in API mode when there is data */}
+        {/* Save to Database button (when in local mode with data) */}
+        {!isApiMode && hasData && (
+          <button
+            onClick={onSyncToCloud}
+            disabled={isSyncing}
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-amber-500/20 to-orange-500/20 hover:from-amber-500/30 hover:to-orange-500/30 text-amber-200 border border-amber-500/40 transition-all duration-200 shadow-lg shadow-amber-500/10 cursor-pointer disabled:opacity-50"
+            title="Sign in to save and sync your cycle dates to cnat_api database"
+          >
+            <Cloud className="w-3.5 h-3.5 text-amber-300" />
+            <span>Save to Database</span>
+          </button>
+        )}
+
+        {/* Sync button — shown in API mode when connected to cnat_api */}
         {isApiMode && hasData && (
           <button
             onClick={onSyncToCloud}
             disabled={isSyncing}
             className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/20 border border-emerald-500/30 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            title="Sync all period dates to your account"
+            title="Sync all period dates to cnat_api database"
           >
             <RefreshCw className={`w-3.5 h-3.5 text-emerald-400 ${isSyncing ? 'animate-spin' : ''}`} />
-            <span>{isSyncing ? 'Syncing…' : 'Sync'}</span>
+            <span>{isSyncing ? 'Syncing…' : 'Sync to DB'}</span>
           </button>
         )}
 

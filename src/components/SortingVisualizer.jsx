@@ -986,9 +986,10 @@ export default function SortingVisualizer() {
             </div>
 
             {/* Visualization Canvas */}
-            <div className="bg-slate-900/90 border border-slate-800 p-6 rounded-b-2xl shadow-inner min-h-[380px] flex items-end justify-center gap-1.5 md:gap-2">
+            <div className="bg-slate-900/90 border border-slate-800 p-6 pt-8 rounded-b-2xl shadow-inner min-h-[400px] flex items-end justify-center gap-1.5 md:gap-2">
               {currentStep.array.map((val, idx) => {
-                let bgColor = "#0284c7"; // sky-600 (default)
+                const isStarting = idx === 0;
+                let bgColor = "#0284c7"; // sky-600 (default unsorted)
                 let borderColor = "#38bdf8";
                 let shadowColor = "rgba(2, 132, 199, 0.4)";
 
@@ -1004,6 +1005,10 @@ export default function SortingVisualizer() {
                   bgColor = "#f59e0b"; // amber-500
                   borderColor = "#fde047";
                   shadowColor = "rgba(245, 158, 11, 0.8)";
+                } else if (isStarting) {
+                  bgColor = "#8b5cf6"; // violet-500 (starting value)
+                  borderColor = "#c084fc"; // violet-300
+                  shadowColor = "rgba(139, 92, 246, 0.6)";
                 }
 
                 return (
@@ -1013,6 +1018,16 @@ export default function SortingVisualizer() {
                     transition={{ duration: 0.12 }}
                     className="flex-1 flex flex-col items-center gap-1 group relative justify-end"
                   >
+                    {/* Value at the TOP of the bar */}
+                    <span
+                      style={{ color: borderColor }}
+                      className="text-[9px] sm:text-[11px] md:text-xs font-mono font-bold leading-none select-none transition-colors duration-150 drop-shadow mb-0.5"
+                      title={`Value: ${val}${isStarting ? ' (Starting Element)' : ''}`}
+                    >
+                      {val}
+                    </span>
+
+                    {/* The Bar */}
                     <div
                       style={{
                         height: `${val}px`,
@@ -1024,9 +1039,13 @@ export default function SortingVisualizer() {
                       }}
                       className="transition-all duration-150"
                     ></div>
+
+                    {/* Bottom Index Label */}
                     {arraySize <= 30 && (
-                      <span className="text-[10px] font-mono text-slate-400 hidden md:block">
-                        {val}
+                      <span className={`text-[9px] sm:text-[10px] font-mono hidden md:block transition-colors ${
+                        isStarting ? "text-violet-400 font-bold" : "text-slate-500"
+                      }`}>
+                        [{idx}]
                       </span>
                     )}
                   </motion.div>
@@ -1035,7 +1054,11 @@ export default function SortingVisualizer() {
             </div>
 
             {/* Legend */}
-            <div className="flex items-center justify-center gap-6 text-xs text-slate-400 flex-wrap pt-2">
+            <div className="flex items-center justify-center gap-5 text-xs text-slate-400 flex-wrap pt-2">
+              <div className="flex items-center gap-2">
+                <span className="w-3.5 h-3.5 rounded" style={{ backgroundColor: "#8b5cf6", border: "1px solid #c084fc" }}></span>
+                <span className="text-violet-300 font-semibold">Starting Value (Idx 0)</span>
+              </div>
               <div className="flex items-center gap-2">
                 <span className="w-3.5 h-3.5 rounded" style={{ backgroundColor: "#0284c7", border: "1px solid #38bdf8" }}></span>
                 <span>Unsorted</span>

@@ -1,0 +1,437 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001:2015 Premier Coding & IT Training Institute" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: Coder&AccoTax
+            - generic [ref=e16]: ISO 9001:2015
+          - generic [ref=e18]: Premier Coding & IT Training Institute
+      - navigation [ref=e19]:
+        - link " Home" [ref=e982] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e983]: 
+          - generic [ref=e984]: Home
+        - button " Tools " [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]: 
+          - generic [ref=e35]: Tools
+          - generic [ref=e36]: 
+        - button " Tutorials " [ref=e38] [cursor=pointer]:
+          - generic [ref=e39]: 
+          - generic [ref=e40]: Tutorials
+          - generic [ref=e41]: 
+      - generic [ref=e42]:
+        - button " Quick Jump... ⌘K" [ref=e43] [cursor=pointer]:
+          - generic [ref=e44]: 
+          - generic [ref=e45]: Quick Jump...
+          - generic [ref=e46]: ⌘K
+        - link "Portal Login" [ref=e47] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=e48]: 
+        - text:   
+    - text:     
+  - main [ref=e49]:
+    - generic [ref=e986]:
+      - generic [ref=e987]:
+        - generic [ref=e988]:
+          - generic [ref=e989]: LLM104 · Master of Law
+          - generic [ref=e993]: Semester-I · 2026
+          - generic [ref=e997]: 4 Credits (60 Total Hours)
+        - heading "Mastering C Programming & Systems Fundamentals" [level=1] [ref=e1001]
+        - paragraph [ref=e1002]: A comprehensive, industry-standard C Language learning roadmap from absolute beginner to systems architecture & low-level memory mastery level. Thoroughly covers C syntax, compiler pipeline, memory addresses, pointer arithmetic, structures, unions, dynamic memory allocation (malloc/free), file stream I/O, macro metaprogramming, bitwise operations, linked lists, stacks, queues, and capstone systems engineering projects.
+        - generic [ref=e1003]:
+          - button "Course Outcomes (CO1–CO4)" [ref=e1004]
+          - button "Textbooks & References" [ref=e1010]
+          - button "Prerequisites & Assessment" [ref=e1015]
+      - generic [ref=e1022]:
+        - generic [ref=e1023]:
+          - generic [ref=e1024]:
+            - generic [ref=e1025]: Your Course Progress
+            - generic [ref=e1029]: 0%
+          - generic [ref=e1031]:
+            - generic [ref=e1032]: 0 of 13 Modules Completed
+            - generic [ref=e1033]: 0 / 99 hrs
+        - generic [ref=e1034]:
+          - generic [ref=e1035]:
+            - generic [ref=e1036]: "13"
+            - generic [ref=e1037]: Total Modules
+          - generic [ref=e1038]:
+            - generic [ref=e1039]: "4"
+            - generic [ref=e1040]: Segments
+          - generic [ref=e1041]:
+            - generic [ref=e1042]: 94+
+            - generic [ref=e1043]: Topics
+        - link "Start First Module Getting Started with C & Compiler Pipeline" [ref=e1045] [cursor=pointer]:
+          - /url: /c-language/module/001_001_getting-started-with-c-and-compiler-architecture
+          - generic [ref=e1046]:
+            - generic [ref=e1047]: Start First Module
+            - generic [ref=e1050]: Getting Started with C & Compiler Pipeline
+      - generic [ref=e1053]:
+        - generic [ref=e1054]:
+          - textbox "Search modules and topics..." [ref=e1059]
+          - generic [ref=e1060]:
+            - generic [ref=e1061]:
+              - text: Showing
+              - strong [ref=e1062]: "13"
+              - text: of 13
+            - generic [ref=e1063]:
+              - button "Grid" [ref=e1064]
+              - button "Timeline" [ref=e1071]
+        - generic [ref=e1076]:
+          - generic [ref=e1077]: "Segments:"
+          - button "All Segments (4)" [ref=e1082]
+          - button "Segment 1 (5)" [ref=e1083]
+          - button "Segment 2 (3)" [ref=e1086]
+          - button "Segment 3 (3)" [ref=e1089]
+          - button "Segment 4 (2)" [ref=e1092]
+        - generic [ref=e1095]:
+          - generic [ref=e1096]: "Filter:"
+          - generic [ref=e1097]:
+            - button "All Levels" [ref=e1098]
+            - button "easy" [ref=e1099]
+            - button "medium" [ref=e1100]
+            - button "advanced" [ref=e1101]
+          - generic [ref=e1102]:
+            - button "All Status" [ref=e1103]
+            - button "Unfinished (13)" [ref=e1104]
+            - button "Completed (0)" [ref=e1107]
+            - button "Bookmarked (0)" [ref=e1111]
+      - generic [ref=e1114]:
+        - generic [ref=e1115]: Browsing public roadmap modules. Sign in to unlock complete tracking and premium exercises.
+        - link "Sign In" [ref=e1120] [cursor=pointer]:
+          - /url: /login
+      - generic [ref=e1121]:
+        - generic [ref=e1122]:
+          - generic [ref=e1123]:
+            - generic [ref=e1124]: Curriculum Segments
+            - generic [ref=e1129]: (4 total)
+          - generic [ref=e1130]:
+            - button "Expand All" [ref=e1131]
+            - button "Focus Current" [ref=e1135]
+            - button "Collapse All" [ref=e1140]
+        - generic [ref=e1144]:
+          - generic [ref=e1145] [cursor=pointer]:
+            - generic [ref=e1146]:
+              - generic [ref=e1147]:
+                - generic [ref=e1148]: Beginner
+                - generic [ref=e1149]: 30 Hours
+                - generic [ref=e1153]: 5 Modules
+                - generic [ref=e1158]: Current Segment
+              - heading "Segment 1 – C Language Fundamentals & Logic Building (Beginner)" [level=2] [ref=e1162]
+              - paragraph [ref=e1168]: "Build a rock-solid C foundation: compiler compilation pipeline, tokens, primitive data types, operators, control flow branching, loops, functions, and call stack mechanics."
+            - generic [ref=e1169]:
+              - generic [ref=e1170]:
+                - generic [ref=e1171]:
+                  - generic [ref=e1172]: Progress
+                  - generic [ref=e1173]: 0 / 5 Done
+                - generic [ref=e1174]: 0%
+              - button "Minimize" [ref=e1175]
+          - generic [ref=e1181]:
+            - generic [ref=e1182]:
+              - generic [ref=e1183]:
+                - generic [ref=e1184]:
+                  - generic [ref=e1185]:
+                    - generic [ref=e1186]: "#1"
+                    - generic [ref=e1187]: getting-started-with-c-and-compiler-architecture
+                  - generic [ref=e1188]:
+                    - button "Copy direct module link" [ref=e1189] [cursor=pointer]
+                    - button "Bookmark module" [ref=e1193] [cursor=pointer]
+                - link [ref=e1196] [cursor=pointer]:
+                  - /url: /c-language/module/001_001_getting-started-with-c-and-compiler-architecture
+                  - heading "Getting Started with C & Compiler Pipeline" [level=3] [ref=e1197]
+                - paragraph [ref=e1203]: Understand the origin of C, standards (K&R, C99, C11, C17), GCC compilation phases (Preprocessing, Compilation, Assembly, Linking), main function return codes, printf/scanf basics, and setting up the GCC environment.
+                - generic [ref=e1204]:
+                  - generic [ref=e1205]:
+                    - generic [ref=e1206]: "Topics & Interactive Studios:"
+                    - generic [ref=e1207]: Click to open
+                  - generic [ref=e1208]:
+                    - link "T0 History and significance of C Language in modern systems programming" [ref=e1209] [cursor=pointer]:
+                      - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/0
+                      - generic [ref=e1210]: T0
+                      - generic [ref=e1211]: History and significance of C Language in modern systems programming
+                    - 'link "T1 C standards evolution: K&R, ANSI C (C89/C90), C99, C11, C17, C23" [ref=e1214] [cursor=pointer]':
+                      - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/1
+                      - generic [ref=e1215]: T1
+                      - generic [ref=e1216]: "C standards evolution: K&R, ANSI C (C89/C90), C99, C11, C17, C23"
+                    - 'link "T2 Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)" [ref=e1219] [cursor=pointer]':
+                      - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/2
+                      - generic [ref=e1220]: T2
+                      - generic [ref=e1221]: "Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)"
+                  - button "+4 more clickable topics & worked examples" [ref=e1224] [cursor=pointer]
+              - generic [ref=e1227]:
+                - generic [ref=e1228]:
+                  - generic [ref=e1229]:
+                    - generic [ref=e1230]: Easy
+                    - generic [ref=e1232]: 4 hrs
+                  - generic [ref=e1236]: 7 topics
+                - generic [ref=e1237]:
+                  - link "Explore Module" [ref=e1238] [cursor=pointer]:
+                    - /url: /c-language/module/001_001_getting-started-with-c-and-compiler-architecture
+                  - button "Mark completed" [ref=e1242]
+            - generic [ref=e1245]:
+              - generic [ref=e1246]:
+                - generic [ref=e1247]:
+                  - generic [ref=e1248]:
+                    - generic [ref=e1249]: "#2"
+                    - generic [ref=e1250]: c-tokens-variables-data-types-and-operators
+                  - generic [ref=e1251]:
+                    - button "Copy direct module link" [ref=e1252] [cursor=pointer]
+                    - button "Bookmark module" [ref=e1256] [cursor=pointer]
+                - link [ref=e1259] [cursor=pointer]:
+                  - /url: /c-language/module/001_002_c-tokens-variables-data-types-and-operators
+                  - heading "C Tokens, Data Types & Operator Mechanics" [level=3] [ref=e1260]
+                - paragraph [ref=e1266]: Master C tokens, identifier rules, keywords, primitive data types (int, float, double, char, void), type modifiers (signed, unsigned, short, long), constants, bitwise operators, and sizeof operator mechanics.
+                - generic [ref=e1267]:
+                  - generic [ref=e1268]:
+                    - generic [ref=e1269]: "Topics & Interactive Studios:"
+                    - generic [ref=e1270]: Click to open
+                  - generic [ref=e1271]:
+                    - 'link "T0 C Tokens breakdown: Keywords, Identifiers, Constants, Strings, Special Symbols, Operators" [ref=e1272] [cursor=pointer]':
+                      - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/0
+                      - generic [ref=e1273]: T0
+                      - generic [ref=e1274]: "C Tokens breakdown: Keywords, Identifiers, Constants, Strings, Special Symbols, Operators"
+                    - link "T1 Fundamental data types & memory footprints across 32-bit and 64-bit architecture" [ref=e1277] [cursor=pointer]:
+                      - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/1
+                      - generic [ref=e1278]: T1
+                      - generic [ref=e1279]: Fundamental data types & memory footprints across 32-bit and 64-bit architecture
+                    - 'link "T2 Type Modifiers: short, long, signed, unsigned, and exact-width integer types (<stdint.h>)" [ref=e1282] [cursor=pointer]':
+                      - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/2
+                      - generic [ref=e1283]: T2
+                      - generic [ref=e1284]: "Type Modifiers: short, long, signed, unsigned, and exact-width integer types (<stdint.h>)"
+                  - button "+5 more clickable topics & worked examples" [ref=e1287] [cursor=pointer]
+              - generic [ref=e1290]:
+                - generic [ref=e1291]:
+                  - generic [ref=e1292]:
+                    - generic [ref=e1293]: Easy
+                    - generic [ref=e1295]: 5 hrs
+                  - generic [ref=e1299]: 8 topics
+                - generic [ref=e1300]:
+                  - link "Explore Module" [ref=e1301] [cursor=pointer]:
+                    - /url: /c-language/module/001_002_c-tokens-variables-data-types-and-operators
+                  - button "Mark completed" [ref=e1305]
+            - generic [ref=e1308]:
+              - generic [ref=e1309]:
+                - generic [ref=e1310]:
+                  - generic [ref=e1311]:
+                    - generic [ref=e1312]: "#3"
+                    - generic [ref=e1313]: control-flow-branching-and-loops
+                  - generic [ref=e1314]:
+                    - button "Copy direct module link" [ref=e1315] [cursor=pointer]
+                    - button "Bookmark module" [ref=e1319] [cursor=pointer]
+                - link [ref=e1322] [cursor=pointer]:
+                  - /url: /c-language/module/001_003_control-flow-branching-and-loops
+                  - 'heading "Control Flow: Branching, Decision Making & Loops" [level=3] [ref=e1323]'
+                - paragraph [ref=e1329]: Master conditional decision-making (if, if-else, nested if, switch-case), loop constructs (while, do-while, for), jump statements (break, continue, goto), and complex algorithmic pattern logic.
+                - generic [ref=e1330]:
+                  - generic [ref=e1331]:
+                    - generic [ref=e1332]: "Topics & Interactive Studios:"
+                    - generic [ref=e1333]: Click to open
+                  - generic [ref=e1334]:
+                    - link "T0 Conditional branching with if, else-if ladder, and nested decision trees" [ref=e1335] [cursor=pointer]:
+                      - /url: /c-language/topic/001_003_control-flow-branching-and-loops/0
+                      - generic [ref=e1336]: T0
+                      - generic [ref=e1337]: Conditional branching with if, else-if ladder, and nested decision trees
+                    - 'link "T1 The switch-case statement: jump table optimization, fall-through behavior, break statement" [ref=e1340] [cursor=pointer]':
+                      - /url: /c-language/topic/001_003_control-flow-branching-and-loops/1
+                      - generic [ref=e1341]: T1
+                      - generic [ref=e1342]: "The switch-case statement: jump table optimization, fall-through behavior, break statement"
+                    - 'link "T2 Iterative loop constructs: while, do-while (post-test), for (pre-test)" [ref=e1345] [cursor=pointer]':
+                      - /url: /c-language/topic/001_003_control-flow-branching-and-loops/2
+                      - generic [ref=e1346]: T2
+                      - generic [ref=e1347]: "Iterative loop constructs: while, do-while (post-test), for (pre-test)"
+                  - button "+4 more clickable topics & worked examples" [ref=e1350] [cursor=pointer]
+              - generic [ref=e1353]:
+                - generic [ref=e1354]:
+                  - generic [ref=e1355]:
+                    - generic [ref=e1356]: Medium
+                    - generic [ref=e1358]: 6 hrs
+                  - generic [ref=e1362]: 7 topics
+                - generic [ref=e1363]:
+                  - link "Explore Module" [ref=e1364] [cursor=pointer]:
+                    - /url: /c-language/module/001_003_control-flow-branching-and-loops
+                  - button "Mark completed" [ref=e1368]
+            - generic [ref=e1371]:
+              - generic [ref=e1372]:
+                - generic [ref=e1373]:
+                  - generic [ref=e1374]:
+                    - generic [ref=e1375]: "#4"
+                    - generic [ref=e1376]: functions-and-modular-programming
+                  - generic [ref=e1377]:
+                    - button "Copy direct module link" [ref=e1378] [cursor=pointer]
+                    - button "Bookmark module" [ref=e1382] [cursor=pointer]
+                - link [ref=e1385] [cursor=pointer]:
+                  - /url: /c-language/module/001_004_functions-and-modular-programming
+                  - heading "Functions, Scope & Storage Classes" [level=3] [ref=e1386]
+                - paragraph [ref=e1392]: Build modular C programs using function prototypes, parameters, call-by-value vs call-by-reference mechanics, variable scope rules, storage classes (auto, register, static, extern), and recursion call stack analysis.
+                - generic [ref=e1393]:
+                  - generic [ref=e1394]:
+                    - generic [ref=e1395]: "Topics & Interactive Studios:"
+                    - generic [ref=e1396]: Click to open
+                  - generic [ref=e1397]:
+                    - 'link "T0 Modular design: Function declarations (prototypes), definitions, and invocation" [ref=e1398] [cursor=pointer]':
+                      - /url: /c-language/topic/001_004_functions-and-modular-programming/0
+                      - generic [ref=e1399]: T0
+                      - generic [ref=e1400]: "Modular design: Function declarations (prototypes), definitions, and invocation"
+                    - 'link "T1 Parameter passing mechanisms: Call by Value vs Passing Pointers for Call by Reference" [ref=e1403] [cursor=pointer]':
+                      - /url: /c-language/topic/001_004_functions-and-modular-programming/1
+                      - generic [ref=e1404]: T1
+                      - generic [ref=e1405]: "Parameter passing mechanisms: Call by Value vs Passing Pointers for Call by Reference"
+                    - 'link "T2 Variable scope & lifetime: Local/Block scope vs Global/File scope" [ref=e1408] [cursor=pointer]':
+                      - /url: /c-language/topic/001_004_functions-and-modular-programming/2
+                      - generic [ref=e1409]: T2
+                      - generic [ref=e1410]: "Variable scope & lifetime: Local/Block scope vs Global/File scope"
+                  - button "+4 more clickable topics & worked examples" [ref=e1413] [cursor=pointer]
+              - generic [ref=e1416]:
+                - generic [ref=e1417]:
+                  - generic [ref=e1418]:
+                    - generic [ref=e1419]: Medium
+                    - generic [ref=e1421]: 6 hrs
+                  - generic [ref=e1425]: 7 topics
+                - generic [ref=e1426]:
+                  - link "Explore Module" [ref=e1427] [cursor=pointer]:
+                    - /url: /c-language/module/001_004_functions-and-modular-programming
+                  - button "Mark completed" [ref=e1431]
+            - generic [ref=e1434]:
+              - generic [ref=e1435]:
+                - generic [ref=e1436]:
+                  - generic [ref=e1437]:
+                    - generic [ref=e1438]: "#5"
+                    - generic [ref=e1439]: c-pattern-output-practice-lab
+                  - generic [ref=e1440]:
+                    - button "Copy direct module link" [ref=e1441] [cursor=pointer]
+                    - button "Bookmark module" [ref=e1445] [cursor=pointer]
+                - link [ref=e1448] [cursor=pointer]:
+                  - /url: /c-language/module/001_005_c-pattern-output-practice-lab
+                  - heading "C Pattern & Output Practice Lab" [level=3] [ref=e1449]
+                - paragraph [ref=e1455]: Master nested loops, coordinate geometry, C tokens, data types, operator precedence, bitwise logic, and evaluation rules with 60 hands-on C output practice questions.
+                - generic [ref=e1456]:
+                  - generic [ref=e1457]:
+                    - generic [ref=e1458]: "Topics & Interactive Studios:"
+                    - generic [ref=e1459]: Click to open
+                  - generic [ref=e1460]:
+                    - 'link "T0 C Pattern Output Practice Lab: 20 Symmetrical, Pyramid, Number & Character Patterns" [ref=e1461] [cursor=pointer]':
+                      - /url: /c-language/topic/001_005_c-pattern-output-practice-lab/0
+                      - generic [ref=e1462]: T0
+                      - generic [ref=e1463]: "C Pattern Output Practice Lab: 20 Symmetrical, Pyramid, Number & Character Patterns"
+                    - 'link "T1 C Tokens, Data Types & Operators Output Practice Lab: 40 Tricky Questions & Explanations" [ref=e1466] [cursor=pointer]':
+                      - /url: /c-language/topic/001_005_c-pattern-output-practice-lab/1
+                      - generic [ref=e1467]: T1
+                      - generic [ref=e1468]: "C Tokens, Data Types & Operators Output Practice Lab: 40 Tricky Questions & Explanations"
+                    - 'link "T2 Self Test 1: Segment 1 Comprehensive C Fundamentals Review (200 MCQs)" [ref=e1471] [cursor=pointer]':
+                      - /url: /c-language/topic/001_005_c-pattern-output-practice-lab/2
+                      - generic [ref=e1472]: T2
+                      - generic [ref=e1473]: "Self Test 1: Segment 1 Comprehensive C Fundamentals Review (200 MCQs)"
+                  - button "+3 more clickable topics & worked examples" [ref=e1476] [cursor=pointer]
+              - generic [ref=e1479]:
+                - generic [ref=e1480]:
+                  - generic [ref=e1481]:
+                    - generic [ref=e1482]: Medium
+                    - generic [ref=e1484]: 6 hrs
+                  - generic [ref=e1488]: 6 topics
+                - generic [ref=e1489]:
+                  - link "Explore Module" [ref=e1490] [cursor=pointer]:
+                    - /url: /c-language/module/001_005_c-pattern-output-practice-lab
+                  - button "Mark completed" [ref=e1494]
+        - generic [ref=e1497]:
+          - generic [ref=e1498] [cursor=pointer]:
+            - generic [ref=e1499]:
+              - generic [ref=e1500]:
+                - generic [ref=e1501]: Intermediate
+                - generic [ref=e1502]: 35 Hours
+                - generic [ref=e1506]: 3 Modules
+              - heading "Segment 2 – Arrays, Strings, Pointers & Memory Fundamentals (Intermediate)" [level=2] [ref=e1511]
+              - paragraph [ref=e1517]: Master contiguous memory allocation with 1D/2D arrays, null-terminated strings, string manipulation algorithms, memory addresses, pointer arithmetic, and function pointers.
+            - generic [ref=e1518]:
+              - generic [ref=e1519]:
+                - generic [ref=e1520]:
+                  - generic [ref=e1521]: Progress
+                  - generic [ref=e1522]: 0 / 3 Done
+                - generic [ref=e1523]: 0%
+              - button "Expand" [ref=e1524]
+          - generic [ref=e1528] [cursor=pointer]:
+            - generic [ref=e1529]: 3 modules hidden
+            - generic [ref=e1532]: View Modules
+        - generic [ref=e1535]:
+          - generic [ref=e1536] [cursor=pointer]:
+            - generic [ref=e1537]:
+              - generic [ref=e1538]:
+                - generic [ref=e1539]: Advanced
+                - generic [ref=e1540]: 35 Hours
+                - generic [ref=e1544]: 3 Modules
+              - heading "Segment 3 – Derived Types, Dynamic Memory & File Handling (Advanced)" [level=2] [ref=e1549]
+              - paragraph [ref=e1555]: Master user-defined data structures with structs, unions, typedefs, memory alignment, dynamic memory allocation (malloc, calloc, realloc, free), and stream file I/O operations.
+            - generic [ref=e1556]:
+              - generic [ref=e1557]:
+                - generic [ref=e1558]:
+                  - generic [ref=e1559]: Progress
+                  - generic [ref=e1560]: 0 / 3 Done
+                - generic [ref=e1561]: 0%
+              - button "Expand" [ref=e1562]
+          - generic [ref=e1566] [cursor=pointer]:
+            - generic [ref=e1567]: 3 modules hidden
+            - generic [ref=e1570]: View Modules
+        - generic [ref=e1573]:
+          - generic [ref=e1574] [cursor=pointer]:
+            - generic [ref=e1575]:
+              - generic [ref=e1576]:
+                - generic [ref=e1577]: Expert
+                - generic [ref=e1578]: 40 Hours
+                - generic [ref=e1582]: 2 Modules
+              - heading "Segment 4 – Preprocessor, Advanced C & Low-Level Systems Programming (Expert)" [level=2] [ref=e1587]
+              - paragraph [ref=e1593]: Master preprocessor macro metaprogramming, conditional compilation, multi-file build architectures, low-level data structures (Linked Lists, Stacks, Queues), command-line arguments, and production systems capstones.
+            - generic [ref=e1594]:
+              - generic [ref=e1595]:
+                - generic [ref=e1596]:
+                  - generic [ref=e1597]: Progress
+                  - generic [ref=e1598]: 0 / 2 Done
+                - generic [ref=e1599]: 0%
+              - button "Expand" [ref=e1600]
+          - generic [ref=e1604] [cursor=pointer]:
+            - generic [ref=e1605]: 2 modules hidden
+            - generic [ref=e1608]: View Modules
+      - generic [ref=e1612]:
+        - generic [ref=e1613]:
+          - img "Sukanta Hui" [ref=e1615]
+          - generic [ref=e1616]: Verified Lead
+        - generic [ref=e1622]:
+          - generic [ref=e1623]:
+            - generic [ref=e1624]:
+              - heading "Sukanta Hui" [level=3] [ref=e1625]
+              - paragraph [ref=e1630]: Educator · Software Trainer · Systems Specialist
+            - generic [ref=e1631]: Founder, Coder & AccoTax · Barrackpore, West Bengal
+          - generic [ref=e1632]:
+            - generic [ref=e1633]:
+              - generic [ref=e1634]: 28+ Years
+              - generic [ref=e1635]: Teaching Experience
+            - generic [ref=e1636]:
+              - generic [ref=e1637]: 6,000+
+              - generic [ref=e1638]: Alumni & Learners
+            - generic [ref=e1639]:
+              - generic [ref=e1640]: 100%
+              - generic [ref=e1641]: Hands-on Practice
+            - generic [ref=e1642]:
+              - generic [ref=e1643]: Direct
+              - generic [ref=e1644]: Doubt Support
+          - paragraph [ref=e1645]: Delivering deep systems intuition, pointer mastery, low-level memory efficiency, and industrial C programming fundamentals with clarity and hands-on lab rigor.
+          - generic [ref=e1646]:
+            - generic [ref=e1647]:
+              - link "WhatsApp Query" [ref=e1648] [cursor=pointer]:
+                - /url: https://wa.me/917003756860
+              - link "Email" [ref=e1652] [cursor=pointer]:
+                - /url: mailto:contact@codernaccotax.co.in
+            - generic [ref=e1657]:
+              - link "LinkedIn Profile" [ref=e1658] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/sukantahui/
+              - link "GitHub Repository" [ref=e1663] [cursor=pointer]:
+                - /url: https://github.com/sukantahui
+              - link "Official Website" [ref=e1667] [cursor=pointer]:
+                - /url: https://www.codernaccotax.co.in
+              - link "Twitter / X" [ref=e1671] [cursor=pointer]:
+                - /url: https://twitter.com/sukantahui
+              - link "Direct Phone" [ref=e1674] [cursor=pointer]:
+                - /url: tel:+917003756860
+      - generic [ref=e1677]:
+        - paragraph [ref=e1678]: © 2026 Coder & AccoTax · Mastering C Programming & Systems Fundamentals (LLM104)
+        - paragraph [ref=e1679]: Learning Curriculum · Mastering C Programming & Systems Fundamentals

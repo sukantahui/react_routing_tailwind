@@ -80,7 +80,7 @@ I can guide you through **"${topicTitle}"**, explain formulas and code, provide 
 
     // Clean markdown characters for natural speech
     const cleanSpeechText = text
-      .replace(/[*#`_~\[\]()>-]/g, " ")
+      .replace(/[*#`_~[\]()>-]/g, " ")
       .replace(/\|/g, " ")
       .replace(/\s+/g, " ")
       .trim();
@@ -185,7 +185,7 @@ I can guide you through **"${topicTitle}"**, explain formulas and code, provide 
           <div className="flex items-center gap-2.5">
             <div className="w-7 h-7 rounded-full overflow-hidden border border-sky-300/40 p-0.5 shadow-sm bg-slate-900">
               <img
-                src="/teachers/cnat.jpg"
+                src="/teachers/cnat_mam.jpg"
                 alt="CNAT Mam"
                 className="w-full h-full rounded-full object-cover"
                 onError={(e) => {
@@ -217,7 +217,7 @@ I can guide you through **"${topicTitle}"**, explain formulas and code, provide 
               <div className="relative">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-400 via-sky-400 to-teal-400 p-0.5 shadow-md overflow-hidden">
                   <img
-                    src="/teachers/cnat.jpg"
+                    src="/teachers/cnat_mam.jpg"
                     alt="CNAT Mam Profile"
                     className="w-full h-full rounded-full object-cover"
                     onError={(e) => {
@@ -306,7 +306,7 @@ I can guide you through **"${topicTitle}"**, explain formulas and code, provide 
               >
                 {msg.sender === "bot" && (
                   <img
-                    src="/teachers/cnat.jpg"
+                    src="/teachers/cnat_mam.jpg"
                     alt="CNAT Mam"
                     className="w-7 h-7 rounded-full object-cover border border-sky-600/60 shrink-0 mt-0.5 shadow-sm"
                     onError={(e) => {

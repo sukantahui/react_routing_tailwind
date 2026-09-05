@@ -30,7 +30,7 @@ export const defaultTeacher = {
   designation: "Senior Technology Educator & Corporate Financial Modeling Trainer",
   organization: "Lead Educator, CNAT Academy",
   location: "Barrackpore, West Bengal, India",
-  photo: "/teachers/sukantahui.jpg",
+  photo: "/teachers/mr_cnat.jpg",
   bio: `Over ${getTeachingExpYears()}+ years of practical training expertise in Enterprise Software Development, Financial Accounting, Advanced Excel Analytics, Database Systems, and Automated Business Systems.`,
   social: {
     linkedin: "https://www.linkedin.com/in/sukantahui/",
@@ -71,12 +71,11 @@ export default function TeacherProfileCard({
         <div className="shrink-0 relative">
           <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border border-slate-800/80 p-0.5 bg-slate-950 shadow-md">
             <img
-              src={currentTeacher.photo || "/teachers/sukantahui.jpg"}
+              src={currentTeacher.photo || "/teachers/mr_cnat.jpg"}
               alt={currentTeacher.name}
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src =
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&auto=format&fit=crop&q=80";
+                e.target.src = "/teachers/mr_cnat.jpg";
               }}
               className="w-full h-full rounded-xl object-cover"
             />

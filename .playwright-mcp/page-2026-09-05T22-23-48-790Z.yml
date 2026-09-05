@@ -1,0 +1,36 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001:2015 Premier Coding & IT Training Institute" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: Coder&AccoTax
+            - generic [ref=e16]: ISO 9001:2015
+          - generic [ref=e18]: Premier Coding & IT Training Institute
+      - navigation [ref=e19]:
+        - link " Home" [ref=e20] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e21]: 
+          - generic [ref=e22]: Home
+        - button " Tools " [ref=e24] [cursor=pointer]:
+          - generic [ref=e25]: 
+          - generic [ref=e26]: Tools
+          - generic [ref=e27]: 
+        - button " Tutorials " [ref=e29] [cursor=pointer]:
+          - generic [ref=e30]: 
+          - generic [ref=e31]: Tutorials
+          - generic [ref=e32]: 
+      - generic [ref=e33]:
+        - button " Quick Jump... ⌘K" [ref=e34] [cursor=pointer]:
+          - generic [ref=e35]: 
+          - generic [ref=e36]: Quick Jump...
+          - generic [ref=e37]: ⌘K
+        - link "Portal Login" [ref=e38] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=e39]: 
+        - text:   
+    - text:     
+  - main [ref=e40]:
+    - paragraph [ref=e44]: Loading page...

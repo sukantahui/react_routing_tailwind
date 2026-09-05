@@ -1,0 +1,146 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001:2015 Premier Coding & IT Training Institute" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: Coder&AccoTax
+            - generic [ref=e16]: ISO 9001:2015
+          - generic [ref=e18]: Premier Coding & IT Training Institute
+      - navigation [ref=e19]:
+        - link " Home" [ref=e982] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e983]: 
+          - generic [ref=e984]: Home
+        - button " Tools " [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]: 
+          - generic [ref=e35]: Tools
+          - generic [ref=e36]: 
+        - button " Tutorials " [ref=e38] [cursor=pointer]:
+          - generic [ref=e39]: 
+          - generic [ref=e40]: Tutorials
+          - generic [ref=e41]: 
+      - generic [ref=e42]:
+        - button " Quick Jump... ⌘K" [ref=e43] [cursor=pointer]:
+          - generic [ref=e44]: 
+          - generic [ref=e45]: Quick Jump...
+          - generic [ref=e46]: ⌘K
+        - link "Portal Login" [ref=e47] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=e48]: 
+        - text:   
+    - text:     
+  - main [ref=e49]:
+    - generic [ref=e1680]:
+      - generic [ref=e1682]:
+        - generic [ref=e1683]:
+          - link "Overview" [ref=e1684] [cursor=pointer]:
+            - /url: /c-language/module/001_001_getting-started-with-c-and-compiler-architecture
+          - generic [ref=e1689]: Getting Started with C & Compiler Pipeline
+          - link "Next Module" [ref=e1695] [cursor=pointer]:
+            - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/0
+        - generic [ref=e1699]:
+          - generic [ref=e1700]:
+            - generic [ref=e1703]: 2/7
+            - generic [ref=e1706]: 14%
+          - button "Hide Topics" [ref=e1707]
+          - button "Workspace" [ref=e1710]
+          - button "Annotate" [ref=e1714]
+          - button "Math" [ref=e1721]
+          - button "Focus Mode (Hide sidebars & clutter)" [ref=e1725]
+          - button "A+" [ref=e1731]
+          - button "Bookmark topic" [ref=e1732]
+          - button "Copy topic link" [ref=e1735]
+          - button "Done" [ref=e1739]
+          - generic [ref=e1744]:
+            - link "Prev" [ref=e1745] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/0
+            - link "Next" [ref=e1749] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/2
+      - generic [ref=e1754]:
+        - complementary [ref=e1755]:
+          - generic [ref=e1756]:
+            - generic [ref=e1757]:
+              - generic [ref=e1758]: Module Progress
+              - generic [ref=e1759]: 1/7 (14%)
+            - generic [ref=e1762]:
+              - generic [ref=e1763]: 4 hrs
+              - generic [ref=e1764]: Easy
+          - textbox "Filter topics..." [ref=e1769]
+          - generic [ref=e1770]:
+            - link "01.History and significance of C Language in modern systems programming" [ref=e1771] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/0
+              - generic [ref=e1773]:
+                - generic [ref=e1774]: "01."
+                - text: History and significance of C Language in modern systems programming
+            - 'link "02.C standards evolution: K&R, ANSI C (C89/C90), C99, C11, C17, C23" [ref=e1775] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/1
+              - generic [ref=e1779]:
+                - generic [ref=e1780]: "02."
+                - text: "C standards evolution: K&R, ANSI C (C89/C90), C99, C11, C17, C23"
+            - 'link "03.Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)" [ref=e1781] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/2
+              - generic [ref=e1783]:
+                - generic [ref=e1784]: "03."
+                - text: "Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)"
+            - 'link "04.Structure of a C program: include directives, global space, main() function, exit codes" [ref=e1785] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/3
+              - generic [ref=e1787]:
+                - generic [ref=e1788]: "04."
+                - text: "Structure of a C program: include directives, global space, main() function, exit codes"
+            - 'link "05.Formatted Console I/O: printf(), scanf(), format specifiers (%d, %f, %c, %s)" [ref=e1789] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/4
+              - generic [ref=e1791]:
+                - generic [ref=e1792]: "05."
+                - text: "Formatted Console I/O: printf(), scanf(), format specifiers (%d, %f, %c, %s)"
+            - link "06.Hands-on C Projects & Solutions for Module 001_001" [ref=e1793] [cursor=pointer]:
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/5
+              - generic [ref=e1795]:
+                - generic [ref=e1796]: "06."
+                - text: Hands-on C Projects & Solutions for Module 001_001
+            - 'link "07.Self-Test Module 001_001: 200 Comprehensive MCQs on C Foundations & Compiler Architecture" [ref=e1797] [cursor=pointer]':
+              - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/6
+              - generic [ref=e1799]:
+                - generic [ref=e1800]: "07."
+                - text: "Self-Test Module 001_001: 200 Comprehensive MCQs on C Foundations & Compiler Architecture"
+          - generic [ref=e1801]:
+            - link "Next Module C Tokens, Data Types & Operator Mechanics" [ref=e1802] [cursor=pointer]:
+              - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/0
+              - generic [ref=e1803]: Next Module
+              - generic [ref=e1807]: C Tokens, Data Types & Operator Mechanics
+            - link "← Module Overview" [ref=e1808] [cursor=pointer]:
+              - /url: /c-language/module/001_001_getting-started-with-c-and-compiler-architecture
+            - link "📍 Course Roadmap" [ref=e1809] [cursor=pointer]:
+              - /url: /c-language/roadmap
+        - main [ref=e1810]:
+          - generic [ref=e1811]:
+            - paragraph [ref=e1815]: Loading topic formulation & calculations…
+            - generic [ref=e1816]:
+              - heading "Have a Question About This Topic?" [level=3] [ref=e1820]
+              - paragraph [ref=e1821]: Ask your calculation, formulation, or theorem doubt directly to instructor Sukanta Hui.
+              - textbox "Type your question or problem statement here..." [ref=e1822]
+              - button "Send Query via WhatsApp" [ref=e1823]
+            - generic [ref=e1827]:
+              - generic [ref=e1834]:
+                - generic [ref=e1835]: "Same Segment: Segment 1 – C Language Fundamentals & Logic Building (Beginner)"
+                - generic [ref=e1836]: C Tokens, Data Types & Operator Mechanics
+              - link "Go to Next Module" [ref=e1837] [cursor=pointer]:
+                - /url: /c-language/topic/001_002_c-tokens-variables-data-types-and-operators/0
+            - navigation [ref=e1841]:
+              - link "Previous Topic History and significance of C Language in modern systems programming" [ref=e1842] [cursor=pointer]:
+                - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/0
+                - generic [ref=e1845]:
+                  - generic [ref=e1846]: Previous Topic
+                  - generic [ref=e1847]: History and significance of C Language in modern systems programming
+              - 'link "Next Topic Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)" [ref=e1848] [cursor=pointer]':
+                - /url: /c-language/topic/001_001_getting-started-with-c-and-compiler-architecture/2
+                - generic [ref=e1849]:
+                  - generic [ref=e1850]: Next Topic
+                  - generic [ref=e1851]: "Anatomy of GCC compilation pipeline: Source Code (.c) -> Preprocessor (.i) -> Compiler (.s) -> Assembler (.o) -> Linker (Executable)"
+      - button "CNAT Mam Ask CNAT Mam AI Mentor" [ref=e1855] [cursor=pointer]:
+        - generic [ref=e1859]:
+          - img "CNAT Mam" [ref=e1861]
+          - generic [ref=e1862]: Ask CNAT Mam
+        - generic [ref=e1863]: AI Mentor

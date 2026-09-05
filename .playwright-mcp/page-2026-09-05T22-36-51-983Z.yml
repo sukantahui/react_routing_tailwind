@@ -1,0 +1,998 @@
+- generic [ref=e3]:
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "Coder & AccoTax Coder&AccoTax ISO 9001:2015 Premier Coding & IT Training Institute" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "Coder & AccoTax" [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: Coder&AccoTax
+            - generic [ref=e16]: ISO 9001:2015
+          - generic [ref=e18]: Premier Coding & IT Training Institute
+      - navigation [ref=e19]:
+        - link " About" [ref=e20] [cursor=pointer]:
+          - /url: /#about
+          - generic [ref=e21]: 
+          - generic [ref=e22]: About
+        - link " Courses" [ref=e23] [cursor=pointer]:
+          - /url: /#courses
+          - generic [ref=e24]: 
+          - generic [ref=e25]: Courses
+        - link " Teachers" [ref=e26] [cursor=pointer]:
+          - /url: /#teachers
+          - generic [ref=e27]: 
+          - generic [ref=e28]: Teachers
+        - link " Contact" [ref=e29] [cursor=pointer]:
+          - /url: /#contact
+          - generic [ref=e30]: 
+          - generic [ref=e31]: Contact
+        - button " Tools " [ref=e33] [cursor=pointer]:
+          - generic [ref=e34]: 
+          - generic [ref=e35]: Tools
+          - generic [ref=e36]: 
+        - generic [ref=e37]:
+          - button " Tutorials " [expanded] [active] [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]: 
+            - generic [ref=e40]: Tutorials
+            - generic [ref=e41]: 
+          - generic [ref=e824]:
+            - generic [ref=e825]:
+              - generic [ref=e826]:
+                - button " All Roadmaps" [ref=e827] [cursor=pointer]:
+                  - generic [ref=e828]: 
+                  - generic [ref=e829]: All Roadmaps
+                - button " Programming" [ref=e830] [cursor=pointer]:
+                  - generic [ref=e831]: 
+                  - generic [ref=e832]: Programming
+                - button " Web & Systems" [ref=e833] [cursor=pointer]:
+                  - generic [ref=e834]: 
+                  - generic [ref=e835]: Web & Systems
+                - button " School Boards" [ref=e836] [cursor=pointer]:
+                  - generic [ref=e837]: 
+                  - generic [ref=e838]: School Boards
+                - button " Accounts & Data" [ref=e839] [cursor=pointer]:
+                  - generic [ref=e840]: 
+                  - generic [ref=e841]: Accounts & Data
+              - generic [ref=e842]:
+                - generic [ref=e843]: 
+                - textbox "Filter roadmaps..." [ref=e844]
+            - generic [ref=e845]:
+              - link " JavaScript Roadmap Hot" [ref=e846] [cursor=pointer]:
+                - /url: /javascript/roadmap
+                - generic [ref=e847]:
+                  - generic [ref=e848]: 
+                  - generic [ref=e850]: JavaScript Roadmap
+                - generic [ref=e851]: Hot
+              - link " Python Roadmap Popular" [ref=e852] [cursor=pointer]:
+                - /url: /python/roadmap
+                - generic [ref=e853]:
+                  - generic [ref=e854]: 
+                  - generic [ref=e856]: Python Roadmap
+                - generic [ref=e857]: Popular
+              - link " Machine Learning AI / ML" [ref=e858] [cursor=pointer]:
+                - /url: /machine-learning/roadmap
+                - generic [ref=e859]:
+                  - generic [ref=e860]: 
+                  - generic [ref=e862]: Machine Learning
+                - generic [ref=e863]: AI / ML
+              - link "C Programming" [ref=e864] [cursor=pointer]:
+                - /url: /c-language/roadmap
+              - link " Data Structures & Algorithms (C) New / DSA" [ref=e868] [cursor=pointer]:
+                - /url: /dsa/roadmap
+                - generic [ref=e869]:
+                  - generic [ref=e870]: 
+                  - generic [ref=e872]: Data Structures & Algorithms (C)
+                - generic [ref=e873]: New / DSA
+              - link " Core Java Roadmap Essential" [ref=e874] [cursor=pointer]:
+                - /url: /java-core/roadmap
+                - generic [ref=e875]:
+                  - generic [ref=e876]: 
+                  - generic [ref=e878]: Core Java Roadmap
+                - generic [ref=e879]: Essential
+              - link " UNIX & Shell" [ref=e880] [cursor=pointer]:
+                - /url: /unix/roadmap
+                - generic [ref=e881]:
+                  - generic [ref=e882]: 
+                  - generic [ref=e884]: UNIX & Shell
+              - link " Computer Architecture" [ref=e885] [cursor=pointer]:
+                - /url: /computer-architecture/roadmap
+                - generic [ref=e886]:
+                  - generic [ref=e887]: 
+                  - generic [ref=e889]: Computer Architecture
+              - link " React Roadmap Frontend" [ref=e890] [cursor=pointer]:
+                - /url: /react/roadmap
+                - generic [ref=e891]:
+                  - generic [ref=e892]: 
+                  - generic [ref=e894]: React Roadmap
+                - generic [ref=e895]: Frontend
+              - link " Modern CSS & Tailwind" [ref=e896] [cursor=pointer]:
+                - /url: /css/roadmap
+                - generic [ref=e897]:
+                  - generic [ref=e898]: 
+                  - generic [ref=e900]: Modern CSS & Tailwind
+              - link " Java Web & Servlets" [ref=e901] [cursor=pointer]:
+                - /url: /java-web/roadmap
+                - generic [ref=e902]:
+                  - generic [ref=e903]: 
+                  - generic [ref=e905]: Java Web & Servlets
+              - link " RDBMS MySQL" [ref=e906] [cursor=pointer]:
+                - /url: /rdbms-mysql/roadmap
+                - generic [ref=e907]:
+                  - generic [ref=e908]: 
+                  - generic [ref=e910]: RDBMS MySQL
+              - link " Computer Networks" [ref=e911] [cursor=pointer]:
+                - /url: /network/roadmap
+                - generic [ref=e912]:
+                  - generic [ref=e913]: 
+                  - generic [ref=e915]: Computer Networks
+              - link " Cyber Security" [ref=e916] [cursor=pointer]:
+                - /url: /cyber-security/roadmap
+                - generic [ref=e917]:
+                  - generic [ref=e918]: 
+                  - generic [ref=e920]: Cyber Security
+              - link " Quantitative Analysis" [ref=e921] [cursor=pointer]:
+                - /url: /quantitative-analysis/roadmap
+                - generic [ref=e922]:
+                  - generic [ref=e923]: 
+                  - generic [ref=e925]: Quantitative Analysis
+              - link " Node.js Roadmap Dev" [ref=e926] [cursor=pointer]:
+                - /url: /node/roadmap
+                - generic [ref=e927]:
+                  - generic [ref=e928]: 
+                  - generic [ref=e930]: Node.js Roadmap
+                - generic [ref=e931]: Dev
+              - link " ICSE Class 9 Java Class IX" [ref=e932] [cursor=pointer]:
+                - /url: /icse-java-ix/roadmap
+                - generic [ref=e933]:
+                  - generic [ref=e934]: 
+                  - generic [ref=e936]: ICSE Class 9 Java
+                - generic [ref=e937]: Class IX
+              - link " ICSE Class 10 Java Class X" [ref=e938] [cursor=pointer]:
+                - /url: /icse-java-x/roadmap
+                - generic [ref=e939]:
+                  - generic [ref=e940]: 
+                  - generic [ref=e942]: ICSE Class 10 Java
+                - generic [ref=e943]: Class X
+              - link " ISC 11 Computer Sc. Class 11" [ref=e944] [cursor=pointer]:
+                - /url: /isc-11/roadmap
+                - generic [ref=e945]:
+                  - generic [ref=e946]: 
+                  - generic [ref=e948]: ISC 11 Computer Sc.
+                - generic [ref=e949]: Class 11
+              - link " ISC 12 Computer Sc. Class 12" [ref=e950] [cursor=pointer]:
+                - /url: /isc-12/roadmap
+                - generic [ref=e951]:
+                  - generic [ref=e952]: 
+                  - generic [ref=e954]: ISC 12 Computer Sc.
+                - generic [ref=e955]: Class 12
+              - link " General Computing" [ref=e956] [cursor=pointer]:
+                - /url: /general/roadmap
+                - generic [ref=e957]:
+                  - generic [ref=e958]: 
+                  - generic [ref=e960]: General Computing
+              - link " Tally Prime & GST Accounting" [ref=e961] [cursor=pointer]:
+                - /url: /tally/roadmap
+                - generic [ref=e962]:
+                  - generic [ref=e963]: 
+                  - generic [ref=e965]: Tally Prime & GST
+                - generic [ref=e966]: Accounting
+              - link " Advanced Excel Analytics" [ref=e967] [cursor=pointer]:
+                - /url: /excel/roadmap
+                - generic [ref=e968]:
+                  - generic [ref=e969]: 
+                  - generic [ref=e971]: Advanced Excel
+                - generic [ref=e972]: Analytics
+              - link " Git & Version Control" [ref=e973] [cursor=pointer]:
+                - /url: /git/roadmap
+                - generic [ref=e974]:
+                  - generic [ref=e975]: 
+                  - generic [ref=e977]: Git & Version Control
+            - generic [ref=e978]:
+              - generic [ref=e979]:
+                - generic [ref=e980]: 
+                - text: Free Step-by-Step Curriculum & Interactive Roadmaps
+              - generic [ref=e981]: Showing 24 Roadmaps
+      - generic [ref=e42]:
+        - button " Quick Jump... ⌘K" [ref=e43] [cursor=pointer]:
+          - generic [ref=e44]: 
+          - generic [ref=e45]: Quick Jump...
+          - generic [ref=e46]: ⌘K
+        - link "Portal Login" [ref=e47] [cursor=pointer]:
+          - /url: /login
+          - generic [ref=e48]: 
+        - text:   
+    - text:     
+  - main [ref=e49]:
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - heading "Coder & AccoTax - Best Coding & Accounting Training Institute in Barrackpore" [level=1] [ref=e57]
+        - generic [ref=e58]:
+          - generic [ref=e59]: ISO 9001:2015 Certified Institute
+          - heading "Coder & AccoTax" [level=2] [ref=e62]
+          - paragraph [ref=e63]: Shaping Futures with Code & Compliance.
+          - generic [ref=e64]:
+            - link "Explore Courses " [ref=e65] [cursor=pointer]:
+              - /url: /#courses
+              - generic [ref=e66]: Explore Courses
+              - generic [ref=e67]: 
+            - link "Contact Us" [ref=e68] [cursor=pointer]:
+              - /url: /#contact
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: 
+              - generic [ref=e76]: TODAY'S OCCASION
+            - generic [ref=e77]: Sunday, 6 September 2026
+          - button " Upcoming Days " [ref=e80] [cursor=pointer]:
+            - generic [ref=e81]: 
+            - generic [ref=e82]: Upcoming Days
+            - generic [ref=e83]: 
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - generic [ref=e87]: 
+            - generic [ref=e88]: Daily Academic Inspiration
+          - heading "Every Day is an Opportunity to Learn & Code" [level=3] [ref=e89]
+          - paragraph [ref=e90]: "\"Continuous learning is the minimum requirement for success in technology and life.\""
+          - generic [ref=e92]:
+            - generic [ref=e93]: 📚
+            - generic [ref=e94]: "Next celebration:"
+            - strong [ref=e95]: International Literacy Day
+            - generic [ref=e96]: (8 September)
+            - generic [ref=e97]: in 2 days
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - text: About Coder & AccoTax
+          - heading "Pioneering IT & Accounting Education Since 1998" [level=2] [ref=e101]
+          - paragraph [ref=e102]: For over 28 years, Coder & AccoTax has been the premier training institute in Barrackpore, bridging the gap between traditional academics and real-world industry demands with rigorous hands-on practice.
+        - generic [ref=e103]:
+          - generic [ref=e104]:
+            - generic [ref=e105]: 28+
+            - generic [ref=e106]: Years Legacy
+            - generic [ref=e107]: Since 1998 in Barrackpore
+          - generic [ref=e108]:
+            - generic [ref=e109]: 5,000+
+            - generic [ref=e110]: Students Trained
+            - generic [ref=e111]: Alumni across IT & Finance
+          - generic [ref=e112]:
+            - generic [ref=e113]: 18+
+            - generic [ref=e114]: Specialized Courses
+            - generic [ref=e115]: Coding, Accounts & Academics
+          - generic [ref=e116]:
+            - generic [ref=e117]: 4.9 ★
+            - generic [ref=e118]: Google Rating
+            - generic [ref=e119]: 170+ Verified Reviews
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]: Our Mission & Legacy
+              - heading "Empowering Students to Visualise Code & Master Financial Compliance" [level=3] [ref=e126]
+              - generic [ref=e127]:
+                - paragraph [ref=e128]:
+                  - text: Founded by
+                  - strong [ref=e129]: Mr. Sukanta Hui
+                  - text: and
+                  - strong [ref=e130]: Ms. Tanusree Hui
+                  - text: ", Coder & AccoTax started with a singular vision: to make high-end programming logic and financial compliance accessible, intuitive, and deeply practical for every learner."
+                - paragraph [ref=e131]:
+                  - text: Whether you are a school student preparing for
+                  - strong [ref=e132]: ICSE/ISC Board Exams (Java/Python)
+                  - text: ", a college graduate aspiring to become a"
+                  - strong [ref=e133]: Full Stack Developer
+                  - text: ", or a commerce professional mastering"
+                  - strong [ref=e134]: TallyPrime, GST & TDS Return Filing
+                  - text: ", we provide complete personalized mentorship tailored to your learning pace."
+            - generic [ref=e135]:
+              - generic [ref=e136]:
+                - generic [ref=e137]:
+                  - generic [ref=e138]: 
+                  - generic [ref=e139]: Barrackpore, Kolkata
+                - generic [ref=e140]:
+                  - generic [ref=e141]: 
+                  - generic [ref=e142]: Offline & Online Batches
+              - link " Explore Student GitHub Repos " [ref=e143] [cursor=pointer]:
+                - /url: https://github.com/codernaccotax
+                - generic [ref=e144]: 
+                - generic [ref=e145]: Explore Student GitHub Repos
+                - generic [ref=e146]: 
+          - generic [ref=e147]:
+            - generic [ref=e148]:
+              - generic [ref=e149]: 🏅
+              - text: Accreditation
+              - heading "ISO 9001:2015 Certified" [level=3] [ref=e150]
+              - paragraph [ref=e151]: Our curriculum and training methodologies adhere to international quality standards for technical education.
+              - generic [ref=e152]:
+                - generic [ref=e153]:
+                  - generic [ref=e154]: 
+                  - generic [ref=e155]: Standardized Syllabus Modules
+                - generic [ref=e156]:
+                  - generic [ref=e157]: 
+                  - generic [ref=e158]: Structured Lab Evaluations
+                - generic [ref=e159]:
+                  - generic [ref=e160]: 
+                  - generic [ref=e161]: Verified Completion Certificates
+            - generic [ref=e162]:
+              - link " Download ISO Certificate" [ref=e163] [cursor=pointer]:
+                - /url: /docs/iso-certificate.pdf
+                - generic [ref=e164]: 
+                - generic [ref=e165]: Download ISO Certificate
+              - link "Visit Our Campus " [ref=e166] [cursor=pointer]:
+                - /url: /#contact
+                - generic [ref=e167]: Visit Our Campus
+                - generic [ref=e168]: 
+        - generic [ref=e169]:
+          - generic [ref=e171]:
+            - generic [ref=e172]: 
+            - heading "Real-World Practical Learning" [level=4] [ref=e174]
+            - paragraph [ref=e175]: Zero rote learning. Every student builds live web applications, designs relational databases, or files authentic GST & TDS returns with real company ledgers.
+          - generic [ref=e177]:
+            - generic [ref=e178]: 
+            - heading "Dedicated 1-on-1 Mentorship" [level=4] [ref=e180]
+            - paragraph [ref=e181]: Small focused batches with individualized attention, step-by-step lab guidance, code reviews, and lifetime post-course support from experienced mentors.
+          - generic [ref=e183]:
+            - generic [ref=e184]: 
+            - heading "ISO 9001:2015 Certified Quality" [level=4] [ref=e186]
+            - paragraph [ref=e187]: Internationally certified training standard and curriculum aligned with modern industry hiring trends and CBSE/ICSE/ISC board exam excellence.
+          - generic [ref=e189]:
+            - generic [ref=e190]: 
+            - heading "Career & Placement Assistance" [level=4] [ref=e192]
+            - paragraph [ref=e193]: Portfolio development on GitHub, mock technical interviews, resume building, and direct guidance to help freshers and professionals transition smoothly.
+      - generic [ref=e195]:
+        - generic [ref=e196]:
+          - text: Course Catalog
+          - heading "Explore Our Courses & Programs" [level=2] [ref=e197]
+          - paragraph [ref=e198]: Hands-on training designed for beginners, high-school students, and job seekers.
+        - generic [ref=e199]:
+          - generic [ref=e200]:
+            - generic [ref=e201]: 
+            - textbox "Search courses" [ref=e202]:
+              - /placeholder: Search by course name, topic, or technology (e.g. React, Python, Tally, Java)...
+          - generic [ref=e203]:
+            - button "All" [ref=e204]
+            - button "Programming" [ref=e205]
+            - button "Web Development" [ref=e206]
+            - button "Accounting & Tax" [ref=e207]
+            - button "School & College" [ref=e208]
+            - button "Data & AI" [ref=e209]
+        - generic [ref=e210]:
+          - generic [ref=e212] [cursor=pointer]:
+            - generic [ref=e213]:
+              - generic [ref=e214]:
+                - img "Web Development icon" [ref=e216]
+                - generic [ref=e217]:
+                  - heading "Web Development 4 courses" [level=3] [ref=e218]:
+                    - generic [ref=e219]: Web Development
+                    - generic [ref=e220]: 4 courses
+                  - paragraph [ref=e221]: Web Designing is the art and science of creating visually appealing and user-friendly websites. It involves crafting layouts, selecting color schemes, designing graphics, and organizing content to deliver a smooth and engaging user experience. It uses tools like HTML, CSS, JavaScript, Bootstrap, and Figma to bring ideas to life on the web.
+              - generic [ref=e222]: 
+            - generic [ref=e224]:
+              - generic [ref=e225]: Click to view 4 courses
+              - generic [ref=e226]: 
+          - generic [ref=e228] [cursor=pointer]:
+            - generic [ref=e229]:
+              - generic [ref=e230]:
+                - img "Programming Languages icon" [ref=e232]
+                - generic [ref=e233]:
+                  - heading "Programming Languages 5 courses" [level=3] [ref=e234]:
+                    - generic [ref=e235]: Programming Languages
+                    - generic [ref=e236]: 5 courses
+                  - paragraph [ref=e237]: Programming is the foundation of software development, enabling you to instruct computers to perform tasks efficiently and intelligently. Learn core logic, algorithms, and object-oriented programming in multiple languages.
+              - generic [ref=e238]: 
+            - generic [ref=e240]:
+              - generic [ref=e241]: Click to view 5 courses
+              - generic [ref=e242]: 
+          - generic [ref=e244] [cursor=pointer]:
+            - generic [ref=e245]:
+              - generic [ref=e246]:
+                - img "RDBMS & SQL icon" [ref=e248]
+                - generic [ref=e249]:
+                  - heading "RDBMS & SQL 3 courses" [level=3] [ref=e250]:
+                    - generic [ref=e251]: RDBMS & SQL
+                    - generic [ref=e252]: 3 courses
+                  - paragraph [ref=e253]: Master relational database concepts, SQL queries, and data management techniques for real-world applications.
+              - generic [ref=e254]: 
+            - generic [ref=e256]:
+              - generic [ref=e257]: Click to view 3 courses
+              - generic [ref=e258]: 
+          - generic [ref=e260] [cursor=pointer]:
+            - generic [ref=e261]:
+              - generic [ref=e262]:
+                - img "Accounts & Taxation icon" [ref=e264]
+                - generic [ref=e265]:
+                  - heading "Accounts & Taxation 2 courses" [level=3] [ref=e266]:
+                    - generic [ref=e267]: Accounts & Taxation
+                    - generic [ref=e268]: 2 courses
+                  - paragraph [ref=e269]: Equip yourself with practical knowledge of financial accounting, GST, TDS, and Income Tax filing.
+              - generic [ref=e270]: 
+            - generic [ref=e272]:
+              - generic [ref=e273]: Click to view 2 courses
+              - generic [ref=e274]: 
+          - generic [ref=e276] [cursor=pointer]:
+            - generic [ref=e277]:
+              - generic [ref=e278]:
+                - img "Data Analysis icon" [ref=e280]
+                - generic [ref=e281]:
+                  - heading "Data Analysis 2 courses" [level=3] [ref=e282]:
+                    - generic [ref=e283]: Data Analysis
+                    - generic [ref=e284]: 2 courses
+                  - paragraph [ref=e285]: The Data Analysis group focuses on turning raw data into meaningful insights. Learn Excel, Power BI, SQL, Python, and Tableau.
+              - generic [ref=e286]: 
+            - generic [ref=e288]:
+              - generic [ref=e289]: Click to view 2 courses
+              - generic [ref=e290]: 
+          - generic [ref=e292] [cursor=pointer]:
+            - generic [ref=e293]:
+              - generic [ref=e294]:
+                - img "School Courses (CBSE/ICSE/WBCHSE) icon" [ref=e296]
+                - generic [ref=e297]:
+                  - heading "School Courses (CBSE/ICSE/WBCHSE) 2 courses" [level=3] [ref=e298]:
+                    - generic [ref=e299]: School Courses (CBSE/ICSE/WBCHSE)
+                    - generic [ref=e300]: 2 courses
+                  - paragraph [ref=e301]: Courses designed for Class V–XII students following CBSE, ICSE, and WB boards. Strong conceptual clarity and exam guidance.
+              - generic [ref=e302]: 
+            - generic [ref=e304]:
+              - generic [ref=e305]: Click to view 2 courses
+              - generic [ref=e306]: 
+      - generic [ref=e308]:
+        - generic [ref=e309]:
+          - text: Why Students Trust Us
+          - heading "Key Advantages & Google Reviews" [level=2] [ref=e310]
+          - paragraph [ref=e311]: Over 28+ years of teaching excellence in Barrackpore. Verified feedback from students and alumni who are now professors, software developers, and tax professionals.
+        - generic [ref=e312]:
+          - generic [ref=e313]:
+            - generic [ref=e314]: 🙋‍♂️
+            - heading "1-on-1 Mentorship" [level=3] [ref=e315]
+            - paragraph [ref=e316]: Personalized doubt clearing & career direction
+          - generic [ref=e317]:
+            - generic [ref=e318]: 📅
+            - heading "Flexible Batches" [level=3] [ref=e319]
+            - paragraph [ref=e320]: Weekday, weekend & evening slots
+          - generic [ref=e321]:
+            - generic [ref=e322]: 💼
+            - heading "Project-Based Learning" [level=3] [ref=e323]
+            - paragraph [ref=e324]: Real-world apps, GST filings & live code
+          - generic [ref=e325]:
+            - generic [ref=e326]: 📚
+            - heading "Lifetime Access" [level=3] [ref=e327]
+            - paragraph [ref=e328]: Free source code, lecture notes & repositories
+        - generic [ref=e329]:
+          - generic [ref=e330]:
+            - heading "Google Verified Reviews  4.9 / 5.0 (100+ Reviews)" [level=3] [ref=e331]:
+              - generic [ref=e332]: Google Verified Reviews
+              - generic [ref=e333]:
+                - generic [ref=e334]: 
+                - generic [ref=e335]: 4.9 / 5.0 (100+ Reviews)
+            - paragraph [ref=e336]: Featuring profile pictures, student designations, course tags, and contact details.
+          - generic [ref=e337]:
+            - button "All" [ref=e338] [cursor=pointer]
+            - button "Software" [ref=e339] [cursor=pointer]
+            - button "Academic" [ref=e340] [cursor=pointer]
+            - button "Accounting" [ref=e341] [cursor=pointer]
+        - generic [ref=e342]:
+          - generic [ref=e343]:
+            - generic [ref=e344]:
+              - generic [ref=e345]:
+                - generic [ref=e346]:
+                  - generic [ref=e347]: ★★★★★
+                  - generic [ref=e348]: "5.0"
+                - generic [ref=e349]:
+                  - generic [ref=e350]: 
+                  - generic [ref=e351]: Full Stack & Java
+              - paragraph [ref=e352]: "\"My coding journey began under his guidance, and today, as I complete 5+ years in my IT career, I can confidently say that the strongest foundation of my career was laid by Sukanta Sir. He makes you visualise code running inside your mind.\""
+            - generic [ref=e353]:
+              - generic [ref=e354]:
+                - img "Abhirupa Das" [ref=e355]
+                - generic [ref=e356]:
+                  - heading "Abhirupa Das " [level=4] [ref=e357]:
+                    - generic [ref=e358]: Abhirupa Das
+                    - generic "Verified Google Reviewer" [ref=e359]: 
+                  - paragraph [ref=e360]: Software Engineer
+                  - paragraph [ref=e361]: IT Consultant (5+ yrs)
+              - generic [ref=e362]:
+                - link " abhirupa.das@alumni.codernaccotax.co.in" [ref=e363] [cursor=pointer]:
+                  - /url: mailto:abhirupa.das@alumni.codernaccotax.co.in
+                  - generic [ref=e364]: 
+                  - generic [ref=e365]: abhirupa.das@alumni.codernaccotax.co.in
+                - button "Copy email for Abhirupa Das" [ref=e366]:
+                  - generic [ref=e367]: 
+          - generic [ref=e368]:
+            - generic [ref=e369]:
+              - generic [ref=e370]:
+                - generic [ref=e371]:
+                  - generic [ref=e372]: ★★★★★
+                  - generic [ref=e373]: "5.0"
+                - generic [ref=e374]:
+                  - generic [ref=e375]: 
+                  - generic [ref=e376]: CS & Advanced Algorithms
+              - paragraph [ref=e377]: "\"I am now an Assistant Professor at Swami Vivekananda University, and all the credit goes to my Guru, Sukanta Hui. Without his mentorship, I wouldn't have reached my goals. Truly one of the best computer training centres in Barrackpore.\""
+            - generic [ref=e378]:
+              - generic [ref=e379]:
+                - img "N. G. Sutradhar" [ref=e380]
+                - generic [ref=e381]:
+                  - heading "N. G. Sutradhar " [level=4] [ref=e382]:
+                    - generic [ref=e383]: N. G. Sutradhar
+                    - generic "Verified Google Reviewer" [ref=e384]: 
+                  - paragraph [ref=e385]: Assistant Professor
+                  - paragraph [ref=e386]: Swami Vivekananda University
+              - generic [ref=e387]:
+                - link " ng.sutradhar@alumni.codernaccotax.co.in" [ref=e388] [cursor=pointer]:
+                  - /url: mailto:ng.sutradhar@alumni.codernaccotax.co.in
+                  - generic [ref=e389]: 
+                  - generic [ref=e390]: ng.sutradhar@alumni.codernaccotax.co.in
+                - button "Copy email for N. G. Sutradhar" [ref=e391]:
+                  - generic [ref=e392]: 
+          - generic [ref=e393]:
+            - generic [ref=e394]:
+              - generic [ref=e395]:
+                - generic [ref=e396]:
+                  - generic [ref=e397]: ★★★★★
+                  - generic [ref=e398]: "5.0"
+                - generic [ref=e399]:
+                  - generic [ref=e400]: 
+                  - generic [ref=e401]: C, C++ & Data Structures
+              - paragraph [ref=e402]: "\"I learnt programming from Sukanta Sir from school through Class 12. What I learned here gave me a massive edge during my Computer Science degree at Jadavpur University and my current corporate career.\""
+            - generic [ref=e403]:
+              - generic [ref=e404]:
+                - img "Arnab Mitra" [ref=e405]
+                - generic [ref=e406]:
+                  - heading "Arnab Mitra " [level=4] [ref=e407]:
+                    - generic [ref=e408]: Arnab Mitra
+                    - generic "Verified Google Reviewer" [ref=e409]: 
+                  - paragraph [ref=e410]: Software Engineer
+                  - paragraph [ref=e411]: Samsung
+              - generic [ref=e412]:
+                - link " arnab.mitra@alumni.codernaccotax.co.in" [ref=e413] [cursor=pointer]:
+                  - /url: mailto:arnab.mitra@alumni.codernaccotax.co.in
+                  - generic [ref=e414]: 
+                  - generic [ref=e415]: arnab.mitra@alumni.codernaccotax.co.in
+                - button "Copy email for Arnab Mitra" [ref=e416]:
+                  - generic [ref=e417]: 
+          - generic [ref=e418]:
+            - generic [ref=e419]:
+              - generic [ref=e420]:
+                - generic [ref=e421]:
+                  - generic [ref=e422]: ★★★★★
+                  - generic [ref=e423]: "5.0"
+                - generic [ref=e424]:
+                  - generic [ref=e425]: 
+                  - generic [ref=e426]: Python & Database Labs
+              - paragraph [ref=e427]: "\"Overall experience is outstanding. I recommend Coder & AccoTax to all my students and juniors. Sukanta Sir and Madam understand students deeply and provide unmatched academic and practical project guidance.\""
+            - generic [ref=e428]:
+              - generic [ref=e429]:
+                - img "Bhaswati Mukhopadhyay" [ref=e430]
+                - generic [ref=e431]:
+                  - heading "Bhaswati Mukhopadhyay " [level=4] [ref=e432]:
+                    - generic [ref=e433]: Bhaswati Mukhopadhyay
+                    - generic "Verified Google Reviewer" [ref=e434]: 
+                  - paragraph [ref=e435]: Professor & Academician
+                  - paragraph [ref=e436]: Higher Education
+              - generic [ref=e437]:
+                - link " bhaswati.m@alumni.codernaccotax.co.in" [ref=e438] [cursor=pointer]:
+                  - /url: mailto:bhaswati.m@alumni.codernaccotax.co.in
+                  - generic [ref=e439]: 
+                  - generic [ref=e440]: bhaswati.m@alumni.codernaccotax.co.in
+                - button "Copy email for Bhaswati Mukhopadhyay" [ref=e441]:
+                  - generic [ref=e442]: 
+          - generic [ref=e443]:
+            - generic [ref=e444]:
+              - generic [ref=e445]:
+                - generic [ref=e446]:
+                  - generic [ref=e447]: ★★★★★
+                  - generic [ref=e448]: "5.0"
+                - generic [ref=e449]:
+                  - generic [ref=e450]: 
+                  - generic [ref=e451]: MERN Stack Web Dev
+              - paragraph [ref=e452]: "\"The best institute I've ever attended! And as sir always says, 'once a student, always a student!' Whatever web development and coding logic I've mastered is purely because of the hands-on guidance here.\""
+            - generic [ref=e453]:
+              - generic [ref=e454]:
+                - generic [ref=e455]: TD
+                - generic [ref=e456]:
+                  - heading "Tamoshree Dey " [level=4] [ref=e457]:
+                    - generic [ref=e458]: Tamoshree Dey
+                    - generic "Verified Google Reviewer" [ref=e459]: 
+                  - paragraph [ref=e460]: Frontend Developer
+                  - paragraph [ref=e461]: Web Solutions
+              - generic [ref=e462]:
+                - link " tamoshree.dey@alumni.codernaccotax.co.in" [ref=e463] [cursor=pointer]:
+                  - /url: mailto:tamoshree.dey@alumni.codernaccotax.co.in
+                  - generic [ref=e464]: 
+                  - generic [ref=e465]: tamoshree.dey@alumni.codernaccotax.co.in
+                - button "Copy email for Tamoshree Dey" [ref=e466]:
+                  - generic [ref=e467]: 
+          - generic [ref=e468]:
+            - generic [ref=e469]:
+              - generic [ref=e470]:
+                - generic [ref=e471]:
+                  - generic [ref=e472]: ★★★★★
+                  - generic [ref=e473]: "5.0"
+                - generic [ref=e474]:
+                  - generic [ref=e475]: 
+                  - generic [ref=e476]: Tally Prime & GST Filing
+              - paragraph [ref=e477]: "\"The practical Tally Prime sessions with real GST return filing and TDS calculations made all the difference. Their interview prep and mock sessions helped me crack my accounting job within weeks.\""
+            - generic [ref=e478]:
+              - generic [ref=e479]:
+                - generic [ref=e480]: SG
+                - generic [ref=e481]:
+                  - heading "Sourav Ghosh " [level=4] [ref=e482]:
+                    - generic [ref=e483]: Sourav Ghosh
+                    - generic "Verified Google Reviewer" [ref=e484]: 
+                  - paragraph [ref=e485]: Tax & Accounts Executive
+                  - paragraph [ref=e486]: Taxation Consultancy
+              - generic [ref=e487]:
+                - link " sourav.ghosh@alumni.codernaccotax.co.in" [ref=e488] [cursor=pointer]:
+                  - /url: mailto:sourav.ghosh@alumni.codernaccotax.co.in
+                  - generic [ref=e489]: 
+                  - generic [ref=e490]: sourav.ghosh@alumni.codernaccotax.co.in
+                - button "Copy email for Sourav Ghosh" [ref=e491]:
+                  - generic [ref=e492]: 
+        - generic [ref=e493]:
+          - button "View All 18 Reviews " [ref=e494] [cursor=pointer]:
+            - generic [ref=e495]: View All 18 Reviews
+            - generic [ref=e496]: 
+          - link " Read 100+ Live Google Reviews (4.9 ★) " [ref=e497] [cursor=pointer]:
+            - /url: https://www.google.com/search?q=Coder+%26+AccoTax+Reviews#lrd=0x39f89b8eb3168ac5:0x7666eac9a1c26430,1,,,
+            - generic [ref=e498]: 
+            - generic [ref=e499]: Read 100+ Live Google Reviews (4.9 ★)
+            - generic [ref=e500]: 
+      - generic [ref=e502]:
+        - generic [ref=e503]:
+          - text: Faculty
+          - heading "Meet Our Mentors" [level=2] [ref=e504]
+          - paragraph [ref=e505]: Industry professionals offering personalized 1-on-1 mentorship and practical guidance.
+        - generic [ref=e506]:
+          - generic [ref=e507]:
+            - generic [ref=e508]:
+              - img "Mr. Sukanta Hui" [ref=e510]
+              - heading "Mr. Sukanta Hui" [level=3] [ref=e511]
+              - paragraph [ref=e512]: Head of Software Training & Mentorship
+              - generic [ref=e513]:
+                - paragraph [ref=e514]: Mr. Sukanta Hui is a seasoned full-stack developer and programming expert with over 20 years of experience guiding learners from beginner to professional level. With deep expertise in modern programming languages and software development, he has mentored engineers from diverse organizations and guided countless B.Tech and M.Tech students throughout their academic and professional journeys. Beyond technical mastery, Mr. Sukanta is a passionate educator with vast insight into the education system, a dedicated career guide, and a motivational speaker who inspires future technologists to achieve excellence. A true problem solver at heart, he continues to shape the next generation of software engineers through his mentorship and leadership.
+                - button "Read Full Bio →" [ref=e515]
+            - generic [ref=e516]:
+              - link " Email" [ref=e517] [cursor=pointer]:
+                - /url: mailto:sukantahui@codernaccotax.co.in
+                - generic [ref=e518]: 
+                - generic [ref=e519]: Email
+              - link " GitHub" [ref=e520] [cursor=pointer]:
+                - /url: https://github.com/sukantahui
+                - generic [ref=e521]: 
+                - generic [ref=e522]: GitHub
+          - generic [ref=e523]:
+            - generic [ref=e524]:
+              - img "Ms. Tanusree Hui" [ref=e526]
+              - heading "Ms. Tanusree Hui" [level=3] [ref=e527]
+              - paragraph [ref=e528]: Data Structures & Algorithms Mentor
+              - generic [ref=e529]:
+                - paragraph [ref=e530]: Ms. Tanusree Hui is an accomplished educator and programming instructor with over 18 years of experience teaching a wide range of programming languages and mathematical concepts. With a strong command over complex algorithms and a deep understanding of how students learn, she excels at guiding learners from the fundamentals to advanced problem-solving. As a dedicated high school computer teacher and co-founder of Coder & AccoTax, Ms. Tanusree has developed a unique approach that bridges academic knowledge with real-world application. Her expertise in both mathematics and computer science, combined with her insights into modern education systems, makes her a highly respected mentor who empowers students to build confidence and achieve excellence in technology and learning.
+                - button "Read Full Bio →" [ref=e531]
+            - generic [ref=e532]:
+              - link " Email" [ref=e533] [cursor=pointer]:
+                - /url: mailto:tanusreehui@codernaccotax.co.in
+                - generic [ref=e534]: 
+                - generic [ref=e535]: Email
+              - link " GitHub" [ref=e536] [cursor=pointer]:
+                - /url: https://github.com/tanusreehui
+                - generic [ref=e537]: 
+                - generic [ref=e538]: GitHub
+          - generic [ref=e539]:
+            - generic [ref=e540]:
+              - img "Mr. Chandan Das" [ref=e542]
+              - heading "Mr. Chandan Das" [level=3] [ref=e543]
+              - paragraph [ref=e544]: Data Analytics and Taxation Expert
+              - paragraph [ref=e546]: Mr. Chandan Das has 15+ years of experience in taxation and data analytics for small and large businesses.
+            - link " Email" [ref=e548] [cursor=pointer]:
+              - /url: mailto:chandandas@codernaccotax.co.in
+              - generic [ref=e549]: 
+              - generic [ref=e550]: Email
+          - generic [ref=e551]:
+            - generic [ref=e552]:
+              - img "CA Keshav Mishra" [ref=e554]
+              - heading "CA Keshav Mishra" [level=3] [ref=e555]
+              - paragraph [ref=e556]: Chartered Accountant
+              - generic [ref=e557]:
+                - paragraph [ref=e558]: CA Keshav Mishra is a highly experienced professional and educator in advanced corporate accounting, auditing, and taxation.
+                - button "Read Full Bio →" [ref=e559]
+            - link " Email" [ref=e561] [cursor=pointer]:
+              - /url: mailto:keshavmishra@codernaccotax.co.in
+              - generic [ref=e562]: 
+              - generic [ref=e563]: Email
+          - generic [ref=e564]:
+            - generic [ref=e565]:
+              - img "Ms. Sreeparna Das" [ref=e567]
+              - heading "Ms. Sreeparna Das" [level=3] [ref=e568]
+              - paragraph [ref=e569]: Data Structures and Algorithms
+              - paragraph [ref=e571]: Ms. Sreeparna Das simplifies complex DSA topics and focuses on logic building with hands-on coding sessions.
+            - generic [ref=e572]:
+              - link " Email" [ref=e573] [cursor=pointer]:
+                - /url: mailto:sreeparnadas@codernaccotax.co.in
+                - generic [ref=e574]: 
+                - generic [ref=e575]: Email
+              - link " GitHub" [ref=e576] [cursor=pointer]:
+                - /url: https://github.com/sreeparnadas
+                - generic [ref=e577]: 
+                - generic [ref=e578]: GitHub
+          - generic [ref=e579]:
+            - generic [ref=e580]:
+              - img "Ms. Mounita Bhandari" [ref=e582]
+              - heading "Ms. Mounita Bhandari" [level=3] [ref=e583]
+              - paragraph [ref=e584]: Lab Instructor
+              - paragraph [ref=e586]: Ms. Mounita Bhandari ensures practical knowledge through lab-based learning, supporting students step-by-step.
+            - generic [ref=e587]:
+              - link " Email" [ref=e588] [cursor=pointer]:
+                - /url: mailto:mounitabhandari@codernaccotax.co.in
+                - generic [ref=e589]: 
+                - generic [ref=e590]: Email
+              - link " GitHub" [ref=e591] [cursor=pointer]:
+                - /url: https://github.com/mounitbhandari
+                - generic [ref=e592]: 
+                - generic [ref=e593]: GitHub
+          - generic [ref=e594]:
+            - generic [ref=e595]:
+              - img "Ms. Ritaja Ghosh" [ref=e597]
+              - heading "Ms. Ritaja Ghosh" [level=3] [ref=e598]
+              - paragraph [ref=e599]: Lab Instructor
+              - generic [ref=e600]:
+                - paragraph [ref=e601]: Ms. Ritaja Ghosh guides students in lab sessions with patience and precision, helping them gain real-world skills. She encourages hands-on practice and ensures every student is confident with the tools.
+                - button "Read Full Bio →" [ref=e602]
+            - generic [ref=e603]:
+              - link " Email" [ref=e604] [cursor=pointer]:
+                - /url: mailto:ritajaghosh@codernaccotax.co.in
+                - generic [ref=e605]: 
+                - generic [ref=e606]: Email
+              - link " GitHub" [ref=e607] [cursor=pointer]:
+                - /url: https://github.com/ritajaghosh
+                - generic [ref=e608]: 
+                - generic [ref=e609]: GitHub
+          - generic [ref=e610]:
+            - generic [ref=e611]:
+              - img "Mr. Sourav Bhattachariya" [ref=e613]
+              - heading "Mr. Sourav Bhattachariya" [level=3] [ref=e614]
+              - paragraph [ref=e615]: Accounts & Tally
+              - generic [ref=e616]:
+                - paragraph [ref=e617]: Mr. Sourav Bhattachariya is an Accounts and Tally professional with over 3 years of experience in taxation and data analytics. He has worked with both small and large businesses, providing practical insights and efficient financial solutions. His expertise lies in managing accounts, optimizing tax processes, and leveraging data analytics to support informed business decisions.
+                - button "Read Full Bio →" [ref=e618]
+            - link " Email" [ref=e620] [cursor=pointer]:
+              - /url: mailto:bhattacharjeesourav12@gmail.com
+              - generic [ref=e621]: 
+              - generic [ref=e622]: Email
+      - generic [ref=e624]:
+        - generic [ref=e625]:
+          - text: Get in Touch
+          - heading "Contact & Center Location" [level=2] [ref=e626]
+          - paragraph [ref=e627]: Have questions regarding syllabus, batch schedules, fees, or certifications? Chat with us on WhatsApp, call our helplines, or submit an inquiry.
+        - generic [ref=e628]:
+          - generic [ref=e629]:
+            - link " Instant WhatsApp Chat +91 94324 56083 Fastest response for admissions & fees " [ref=e630] [cursor=pointer]:
+              - /url: https://wa.me/919432456083?text=Hi%20Coder%20%26%20AccoTax!%20I'd%20like%20to%20inquire%20about%20course%20syllabus%2C%20admissions%2C%20and%20batch%20timings.
+              - generic [ref=e631]:
+                - generic [ref=e632]: 
+                - generic [ref=e637]:
+                  - heading "Instant WhatsApp Chat" [level=4] [ref=e638]
+                  - paragraph [ref=e639]: +91 94324 56083
+                  - text: Fastest response for admissions & fees
+              - generic [ref=e640]: 
+            - generic [ref=e642]:
+              - generic [ref=e643]:
+                - generic [ref=e644]:
+                  - generic [ref=e645]: 
+                  - generic [ref=e647]: Phone Helplines
+                - generic [ref=e648]: "Mon - Sat: 10 AM – 7 PM"
+              - generic [ref=e649]:
+                - generic [ref=e650]:
+                  - generic [ref=e651]:
+                    - link "+91 94324 56083" [ref=e652] [cursor=pointer]:
+                      - /url: tel:9432456083
+                    - generic [ref=e653]: Primary / WhatsApp
+                  - generic [ref=e654]:
+                    - link "Call +91 94324 56083" [ref=e655] [cursor=pointer]:
+                      - /url: tel:9432456083
+                      - generic [ref=e656]: 
+                    - button "Copy phone +91 94324 56083" [ref=e657]:
+                      - generic [ref=e658]: 
+                - generic [ref=e659]:
+                  - generic [ref=e660]:
+                    - link "+91 70037 56860" [ref=e661] [cursor=pointer]:
+                      - /url: tel:7003756860
+                    - generic [ref=e662]: Admissions Helpline
+                  - generic [ref=e663]:
+                    - link "Call +91 70037 56860" [ref=e664] [cursor=pointer]:
+                      - /url: tel:7003756860
+                      - generic [ref=e665]: 
+                    - button "Copy phone +91 70037 56860" [ref=e666]:
+                      - generic [ref=e667]: 
+                - generic [ref=e668]:
+                  - generic [ref=e669]:
+                    - link "+91 82404 06079" [ref=e670] [cursor=pointer]:
+                      - /url: tel:8240406079
+                    - generic [ref=e671]: Academic Inquiry
+                  - generic [ref=e672]:
+                    - link "Call +91 82404 06079" [ref=e673] [cursor=pointer]:
+                      - /url: tel:8240406079
+                      - generic [ref=e674]: 
+                    - button "Copy phone +91 82404 06079" [ref=e675]:
+                      - generic [ref=e676]: 
+                - generic [ref=e677]:
+                  - generic [ref=e678]:
+                    - link "+91 98312 65392" [ref=e679] [cursor=pointer]:
+                      - /url: tel:9831265392
+                    - generic [ref=e680]: Accounts & GST
+                  - generic [ref=e681]:
+                    - link "Call +91 98312 65392" [ref=e682] [cursor=pointer]:
+                      - /url: tel:9831265392
+                      - generic [ref=e683]: 
+                    - button "Copy phone +91 98312 65392" [ref=e684]:
+                      - generic [ref=e685]: 
+              - generic [ref=e686]:
+                - generic [ref=e687]:
+                  - generic [ref=e688]: 
+                  - generic [ref=e689]: Email Support
+                - generic [ref=e690]:
+                  - generic [ref=e691]:
+                    - link "info.codenaccotax@co.in" [ref=e692] [cursor=pointer]:
+                      - /url: mailto:info.codenaccotax@co.in
+                    - button "Copy email info.codenaccotax@co.in" [ref=e693]:
+                      - generic [ref=e694]: 
+                  - generic [ref=e695]:
+                    - link "codenaccotax@gmail.com" [ref=e696] [cursor=pointer]:
+                      - /url: mailto:codenaccotax@gmail.com
+                    - button "Copy email codenaccotax@gmail.com" [ref=e697]:
+                      - generic [ref=e698]: 
+            - generic [ref=e699]:
+              - generic [ref=e700]:
+                - generic [ref=e701]:
+                  - generic [ref=e702]: 
+                  - generic [ref=e704]:
+                    - heading "Institute Address" [level=4] [ref=e705]
+                    - paragraph [ref=e706]: 25(10/A) Shibtala Road, Nona Chandan Pukur,Barrackpore, Kolkata – 700122 (Near Station)
+                - link "Google Maps " [ref=e707] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/?api=1&query=Coder+%26+AccoTax,+25(10/A)+Shibtala+Road,+Nona+Chandan+Pukur,+Barrackpore,+Kolkata+700122
+                  - generic [ref=e708]: Google Maps
+                  - generic [ref=e709]: 
+              - iframe [ref=e711]
+          - generic [ref=e713]:
+            - generic [ref=e714]:
+              - generic [ref=e715]:
+                - generic [ref=e716]: ⚡ Quick Response
+                - heading "Send an Inquiry" [level=3] [ref=e718]
+                - paragraph [ref=e719]: Submit your query below and our team will get back to you within 24 hours.
+              - generic [ref=e720]: 
+            - generic [ref=e722]:
+              - generic [ref=e723]:
+                - generic [ref=e724]: Full Name *
+                - generic [ref=e725]:
+                  - generic: 
+                  - textbox "Full Name *" [ref=e726]:
+                    - /placeholder: e.g. Rahul Sharma
+              - generic [ref=e727]:
+                - generic [ref=e728]:
+                  - generic [ref=e729]: Email Address (Optional)
+                  - generic [ref=e730]:
+                    - generic: 
+                    - textbox "Email Address (Optional)" [ref=e731]:
+                      - /placeholder: name@example.com
+                - generic [ref=e732]:
+                  - generic [ref=e733]: Phone / WhatsApp (Optional)
+                  - generic [ref=e734]:
+                    - generic: 
+                    - textbox "Phone / WhatsApp (Optional)" [ref=e735]:
+                      - /placeholder: e.g. +91 98765 43210
+              - generic [ref=e736]:
+                - generic [ref=e737]: Course of Interest *
+                - generic [ref=e738]:
+                  - generic: 
+                  - combobox "Course of Interest *" [ref=e739] [cursor=pointer]:
+                    - option "-- Choose a Course / Domain * --" [selected]
+                    - option "Full Stack Web Development (MERN / React)"
+                    - option "Python Programming & AI / Data Science"
+                    - option "C / C++ Programming & DSA"
+                    - option "Frontend Web Design (HTML, CSS, JS, Tailwind)"
+                    - option "Tally Prime with GST & e-Filing"
+                    - option "Professional Accounting & Taxation (Income Tax, TDS)"
+                    - option "Advanced Excel & Office Financial Analytics"
+                    - option "ICSE / ISC Java & Computer Applications"
+                    - option "CBSE / State Board Computer Science (Class 9 - 12)"
+                    - option "BCA / B.Tech / MCA Academic Coaching & Projects"
+                    - option "SQL, MySQL & Database Administration"
+                    - option "Other Certification / General Inquiry"
+                  - generic: 
+              - generic [ref=e740]:
+                - generic [ref=e741]:
+                  - generic [ref=e742]: Message / Specific Questions (Optional)
+                  - generic [ref=e743]: 0 / 2000
+                - generic [ref=e744]:
+                  - generic: 
+                  - textbox "Message / Specific Questions (Optional)" [ref=e745]:
+                    - /placeholder: Tell us about your learning goals, current background, preferred batch timing, or any questions...
+              - button " Submit Course Inquiry" [ref=e746] [cursor=pointer]:
+                - generic [ref=e747]: 
+                - generic [ref=e748]: Submit Course Inquiry
+              - paragraph [ref=e749]:
+                - generic [ref=e750]: 
+                - generic [ref=e751]: We respect your privacy. No spam or unsolicited calls.
+      - generic [ref=e752]:
+        - generic [ref=e754]:
+          - generic [ref=e755]:
+            - generic [ref=e756]:
+              - img "Coder & AccoTax" [ref=e757]
+              - generic [ref=e758]:
+                - text: Coder & AccoTax
+                - paragraph [ref=e759]: ISO 9001:2015 Certified
+            - paragraph [ref=e760]: Barrackpore's trusted center of excellence for full stack development, Python, practical accounting, taxation, and board curriculum since 1998.
+            - generic [ref=e761]:
+              - generic [ref=e762]: 
+              - generic [ref=e763]: 28+ Years of Academic Trust
+            - generic [ref=e764]:
+              - link "Official Facebook Page" [ref=e765] [cursor=pointer]:
+                - /url: https://www.facebook.com/profile.php?id=61561702110617
+                - generic [ref=e766]: 
+                - generic [ref=e767]: Facebook
+              - link "Official Instagram Page" [ref=e768] [cursor=pointer]:
+                - /url: https://www.instagram.com/codernaccotax
+                - generic [ref=e769]: 
+                - generic [ref=e770]: Instagram
+          - generic [ref=e771]:
+            - heading " Explore Links" [level=4] [ref=e772]:
+              - generic [ref=e773]: 
+              - generic [ref=e774]: Explore Links
+            - list [ref=e775]:
+              - listitem [ref=e776]:
+                - link "Home" [ref=e777] [cursor=pointer]:
+                  - /url: /#top
+              - listitem [ref=e778]:
+                - link "About Us" [ref=e779] [cursor=pointer]:
+                  - /url: /#about
+              - listitem [ref=e780]:
+                - link "All Courses & Programs" [ref=e781] [cursor=pointer]:
+                  - /url: /#courses
+              - listitem [ref=e782]:
+                - link "Instructors & Faculty" [ref=e783] [cursor=pointer]:
+                  - /url: /#teachers
+              - listitem [ref=e784]:
+                - link "Corporate Services" [ref=e785] [cursor=pointer]:
+                  - /url: /#services
+              - listitem [ref=e786]:
+                - link "Admissions & Contact" [ref=e787] [cursor=pointer]:
+                  - /url: /#contact
+          - generic [ref=e788]:
+            - heading " Popular Tracks" [level=4] [ref=e789]:
+              - generic [ref=e790]: 
+              - generic [ref=e791]: Popular Tracks
+            - list [ref=e792]:
+              - listitem [ref=e793]:
+                - link "Full Stack Web (React + Node)" [ref=e794] [cursor=pointer]:
+                  - /url: /#courses
+              - listitem [ref=e795]:
+                - link "Python & Data Analytics" [ref=e796] [cursor=pointer]:
+                  - /url: /#courses
+              - listitem [ref=e797]:
+                - link "Tally Prime & GST Taxation" [ref=e798] [cursor=pointer]:
+                  - /url: /#courses
+              - listitem [ref=e799]:
+                - link "ICSE / ISC Class 9-12 Java" [ref=e800] [cursor=pointer]:
+                  - /url: /#courses
+              - listitem [ref=e801]:
+                - link "C / C++ & Data Structures (DSA)" [ref=e802] [cursor=pointer]:
+                  - /url: /#courses
+              - listitem [ref=e803]:
+                - link "Free Speed Typing Test Tool" [ref=e804] [cursor=pointer]:
+                  - /url: /tools/type-test
+          - generic [ref=e805]:
+            - heading " Institute Hub" [level=4] [ref=e806]:
+              - generic [ref=e807]: 
+              - generic [ref=e808]: Institute Hub
+            - generic [ref=e809]:
+              - paragraph [ref=e810]: Ground Floor, 25(10/A) Shibtala Road, Nona Chandan Pukur, Barrackpore, Kolkata - 700122
+              - paragraph [ref=e811]:
+                - strong [ref=e812]: "Phone Support:"
+                - link "+91 94324 56083" [ref=e813] [cursor=pointer]:
+                  - /url: tel:9432456083
+              - paragraph [ref=e814]:
+                - strong [ref=e815]: "Email Inquiries:"
+                - link "info.codenaccotax@co.in" [ref=e816] [cursor=pointer]:
+                  - /url: mailto:info.codenaccotax@co.in
+        - generic [ref=e818]:
+          - paragraph [ref=e819]: © 2026 Coder & AccoTax. All rights reserved.
+          - link "Back to top" [ref=e821] [cursor=pointer]:
+            - /url: /#top
+            - generic [ref=e822]: Back to Top
+            - generic [ref=e823]: 

@@ -179,6 +179,13 @@ const NavBar = () => {
           icon: "bi-grid-1x2-fill",
           tag: "Assets",
         },
+        {
+          to: "/menstrual-calendar",
+          label: "Menstrual Cycle Calendar",
+          desc: "Track cycle dates, predictions & database sync",
+          icon: "bi-calendar-heart-fill",
+          tag: "Health",
+        },
       ],
     },
 
