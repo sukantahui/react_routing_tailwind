@@ -10,6 +10,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import HomeSeo from "../../seo/HomeSeo";
 import Header from "./Header";
+import EventToday from "./EventToday";
 import Courses from "./Courses";
 import WhyChooseUs from "./WhyChooseUs";
 import About from "./About";
@@ -25,6 +26,7 @@ export default function Home() {
     <div className="bg-[#030712] text-slate-100 min-h-screen">
       <HomeSeo />
       <Header />
+      <EventToday />
       <About />
       <Courses />
       <WhyChooseUs />
