@@ -48,9 +48,11 @@ export default function PrivacySection({ isOpen, onClose, onClearAllData }) {
           <div className="p-3.5 bg-slate-950 border border-slate-800 rounded-2xl flex items-start gap-3">
             <HardDrive className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
             <div className="space-y-0.5">
-              <p className="font-bold text-slate-200">Local Browser Storage Only</p>
+              <p className="font-bold text-slate-200">Hybrid Storage — Local + Secure Cloud</p>
               <p className="text-slate-400 leading-relaxed">
-                All historical period dates, settings, and cycle statistics are stored exclusively inside your web browser's <code>localStorage</code>.
+                When you are <span className="text-emerald-300 font-semibold">logged in</span>, your cycle data is securely
+                stored in our private MySQL database via the cnat_api (Laravel + Sanctum).
+                When not logged in, data stays in your browser's <code>localStorage</code> only.
               </p>
             </div>
           </div>
@@ -58,9 +60,11 @@ export default function PrivacySection({ isOpen, onClose, onClearAllData }) {
           <div className="p-3.5 bg-slate-950 border border-slate-800 rounded-2xl flex items-start gap-3">
             <Lock className="w-5 h-5 text-sky-400 shrink-0 mt-0.5" />
             <div className="space-y-0.5">
-              <p className="font-bold text-slate-200">No External Server Transmission</p>
+              <p className="font-bold text-slate-200">Token-Secured — No Third-Party Sharing</p>
               <p className="text-slate-400 leading-relaxed">
-                This application does NOT send or upload your menstrual data to any third-party cloud servers or analytics tools.
+                All API requests are authenticated with a Bearer token. Your menstrual data is
+                <span className="text-sky-300 font-semibold"> never shared</span> with any third-party
+                analytics, advertising, or external cloud providers. Only you can access your records.
               </p>
             </div>
           </div>

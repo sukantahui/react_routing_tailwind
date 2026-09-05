@@ -66,13 +66,14 @@ function apiSettingsToReact(apiSettings) {
 // ─── Hook ───────────────────────────────────────────────────────────────────
 
 export function useCycleData() {
-  const [periodStarts, setPeriodStarts] = useState([]);
-  const [settings, setSettings]         = useState(DEFAULT_SETTINGS);
-  const [isLoaded, setIsLoaded]         = useState(false);
-  const [isApiMode, setIsApiMode]       = useState(false);   // true = DB is source of truth
-  const [isSyncing, setIsSyncing]       = useState(false);   // API call in-flight
-  const [notification, setNotification] = useState(null);
-  const [apiProfile, setApiProfile]     = useState(null);    // raw profile from API (goal, DOB, etc.)
+  const [periodStarts, setPeriodStarts]   = useState([]);
+  const [periodEntries, setPeriodEntries] = useState([]);   // full DB entry objects: { id, period_start_date, notes }
+  const [settings, setSettings]           = useState(DEFAULT_SETTINGS);
+  const [isLoaded, setIsLoaded]           = useState(false);
+  const [isApiMode, setIsApiMode]         = useState(false);   // true = DB is source of truth
+  const [isSyncing, setIsSyncing]         = useState(false);   // API call in-flight
+  const [notification, setNotification]   = useState(null);
+  const [apiProfile, setApiProfile]       = useState(null);    // raw profile from API (goal, DOB, etc.)
 
   // ── Notification helper ──────────────────────────────────────────────────
 
@@ -87,9 +88,13 @@ export function useCycleData() {
 
   const applyApiData = useCallback((data) => {
     const starts   = (data.period_starts || []).sort(compareISODates);
+    const entries  = (data.period_entries || []).sort((a, b) =>
+      compareISODates(a.period_start_date, b.period_start_date)
+    );
     const merged   = { ...DEFAULT_SETTINGS, ...apiSettingsToReact(data.settings) };
 
     setPeriodStarts(starts);
+    setPeriodEntries(entries);
     setSettings(merged);
     setApiProfile(data);
     writeLocalStorage(starts, merged);
@@ -156,14 +161,14 @@ export function useCycleData() {
   // ── 3. Add Period Start Date ─────────────────────────────────────────────
 
   const addPeriodStart = useCallback(
-    async (dateStr) => {
+    async (dateStr, notes = null) => {
       const val = validatePeriodStartDate(dateStr, periodStarts);
       if (!val.isValid) { notify(val.error, 'error'); return false; }
 
       if (isApiMode) {
         setIsSyncing(true);
         try {
-          const res = await cycleApi.addPeriodDate(dateStr);
+          const res = await cycleApi.addPeriodDate(dateStr, notes);
           if (res.data?.status) {
             applyApiData(res.data.data);
             notify(val.warning || `Period date ${dateStr} added.`, val.warning ? 'warning' : 'success');
@@ -183,6 +188,11 @@ export function useCycleData() {
       // localStorage-only mode
       const updated = [...periodStarts, dateStr].sort(compareISODates);
       setPeriodStarts(updated);
+      // Also track entry locally (no id, no server round-trip)
+      setPeriodEntries((prev) => [
+        ...prev,
+        { id: null, period_start_date: dateStr, notes: notes || null },
+      ].sort((a, b) => compareISODates(a.period_start_date, b.period_start_date)));
       notify(val.warning || `Period date ${dateStr} added.`, val.warning ? 'warning' : 'success');
       return true;
     },
@@ -275,6 +285,72 @@ export function useCycleData() {
     setPeriodStarts([]);
     notify('All period history cleared.', 'info');
   }, [isApiMode, notify, applyApiData]);
+
+  // ── 6b. Bulk Add Period Dates ────────────────────────────────────────────
+  // Accepts an array of 'YYYY-MM-DD' strings (new dates to add).
+  // Merges with existing dates, deduplicates, then syncs in one API call.
+  // Returns { added: number, skipped: number } so the modal can report results.
+
+  const bulkAddPeriodDates = useCallback(
+    async (newDates) => {
+      if (!newDates || newDates.length === 0) return { added: 0, skipped: 0 };
+
+      // Deduplicate and identify which are truly new
+      const uniqueNew  = [...new Set(newDates.filter(Boolean))];
+      const newOnly    = uniqueNew.filter((d) => !periodStarts.includes(d));
+      const skipped    = uniqueNew.length - newOnly.length;
+
+      if (newOnly.length === 0) {
+        notify(`All ${skipped} date(s) already exist — nothing added.`, 'info');
+        return { added: 0, skipped };
+      }
+
+      // Merged sorted list
+      const merged = [...periodStarts, ...newOnly].sort(compareISODates);
+
+      if (isApiMode) {
+        setIsSyncing(true);
+        try {
+          const res = await cycleApi.syncPeriodDates(merged);
+          if (res.data?.status) {
+            applyApiData(res.data.data);
+            notify(
+              `${newOnly.length} date(s) added${skipped > 0 ? `, ${skipped} skipped (duplicates)` : ''}.`,
+              'success'
+            );
+            return { added: newOnly.length, skipped };
+          }
+          notify(res.data?.message || 'Bulk save failed.', 'error');
+          return { added: 0, skipped };
+        } catch (err) {
+          notify(err.response?.data?.message || 'Network error during bulk save.', 'error');
+          return { added: 0, skipped };
+        } finally {
+          setIsSyncing(false);
+        }
+      }
+
+      // localStorage-only mode
+      setPeriodStarts(merged);
+      setPeriodEntries((prev) => {
+        const existing = new Set(prev.map((e) => e.period_start_date));
+        const newEntries = newOnly
+          .filter((d) => !existing.has(d))
+          .map((d) => ({ id: null, period_start_date: d, notes: null }));
+        return [...prev, ...newEntries].sort((a, b) =>
+          compareISODates(a.period_start_date, b.period_start_date)
+        );
+      });
+      notify(
+        `${newOnly.length} date(s) added${skipped > 0 ? `, ${skipped} skipped (duplicates)` : ''}.`,
+        'success'
+      );
+      return { added: newOnly.length, skipped };
+    },
+    [periodStarts, isApiMode, notify, applyApiData]
+  );
+
+
 
   // ── 7. Load Sample Data ──────────────────────────────────────────────────
 
@@ -460,6 +536,7 @@ export function useCycleData() {
     isApiMode,
     isSyncing,
     periodStarts,
+    periodEntries,    // full DB entry objects: [{ id, period_start_date, notes }]
     settings,
     apiProfile,       // raw profile from server: goal, date_of_birth, weight_kg, etc.
     cycleStats,
@@ -467,6 +544,7 @@ export function useCycleData() {
     dateStatusMap,
     notification,
     addPeriodStart,
+    bulkAddPeriodDates,
     editPeriodStart,
     deletePeriodStart,
     clearHistory,

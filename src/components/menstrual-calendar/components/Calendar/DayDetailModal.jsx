@@ -1,12 +1,38 @@
-import React from 'react';
-import { X, Calendar, Sparkles, Heart, Activity, Info, ShieldCheck } from 'lucide-react';
+/**
+ * DayDetailModal.jsx
+ *
+ * Shows details for a clicked calendar day.
+ * Includes a one-click "Mark as Period Start" / "Remove Period Start"
+ * action so users don't have to leave the calendar to log a date.
+ */
+
+import React, { useState } from 'react';
+import {
+  X,
+  Calendar,
+  Sparkles,
+  Heart,
+  Activity,
+  Info,
+  ShieldCheck,
+  PlusCircle,
+  MinusCircle,
+  Loader2,
+} from 'lucide-react';
 import { formatDateDisplay } from '../../utils/dateUtils';
 import { DAY_TYPES } from '../../constants/cycleConstants';
 
-export default function DayDetailModal({ isOpen, onClose, selectedDateInfo }) {
+export default function DayDetailModal({
+  isOpen,
+  onClose,
+  selectedDateInfo,
+  onMarkPeriodStart,    // async fn(dateStr) → boolean
+}) {
+  const [isMarking, setIsMarking] = useState(false);
+
   if (!isOpen || !selectedDateInfo) return null;
 
-  const { dateStr, statusInfo, cycleDayInfo, cycleStats } = selectedDateInfo;
+  const { dateStr, statusInfo, cycleDayInfo, cycleStats, isPeriodStart } = selectedDateInfo;
 
   const formattedDate = formatDateDisplay(dateStr, {
     weekday: 'long',
@@ -16,6 +42,21 @@ export default function DayDetailModal({ isOpen, onClose, selectedDateInfo }) {
   });
 
   const statusType = statusInfo?.type || DAY_TYPES.NORMAL;
+
+  // Prevent marking future dates as period starts (soft check — API validates too)
+  const today = new Date().toISOString().slice(0, 10);
+  const isFuture = dateStr > today;
+
+  const handleMarkPeriodStart = async () => {
+    if (!onMarkPeriodStart || isMarking) return;
+    setIsMarking(true);
+    try {
+      await onMarkPeriodStart(dateStr);
+      onClose();
+    } finally {
+      setIsMarking(false);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
@@ -42,6 +83,47 @@ export default function DayDetailModal({ isOpen, onClose, selectedDateInfo }) {
             {formattedDate}
           </h3>
         </div>
+
+        {/* ── Quick Action: Mark / Unmark Period Start ─────────────────── */}
+        {onMarkPeriodStart && (
+          <div className={`rounded-2xl border p-4 space-y-2 ${
+            isPeriodStart
+              ? 'bg-rose-950/40 border-rose-700/50'
+              : 'bg-slate-950/60 border-slate-700'
+          }`}>
+            <div className="flex items-center gap-2 text-xs">
+              <Calendar className={`w-4 h-4 ${isPeriodStart ? 'text-rose-400' : 'text-slate-400'}`} />
+              <span className={`font-bold ${isPeriodStart ? 'text-rose-300' : 'text-slate-300'}`}>
+                {isPeriodStart ? 'Recorded as Period Start' : 'Period Start Date'}
+              </span>
+            </div>
+
+            {isPeriodStart ? (
+              <p className="text-[11px] text-rose-200/70 leading-relaxed">
+                This date is already in your period history. Use the history table below if you need to remove it.
+              </p>
+            ) : (
+              <>
+                <p className="text-[11px] text-slate-400 leading-relaxed">
+                  Was this the first day of your period? Mark it to improve cycle prediction accuracy.
+                </p>
+                <button
+                  onClick={handleMarkPeriodStart}
+                  disabled={isMarking || isFuture}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs shadow-lg shadow-rose-500/20 transition-all duration-200"
+                  title={isFuture ? 'Cannot mark a future date as period start' : 'Mark this date as a period start'}
+                >
+                  {isMarking ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <PlusCircle className="w-4 h-4" />
+                  )}
+                  {isMarking ? 'Saving…' : isFuture ? 'Future date — cannot mark' : 'Mark as Period Start'}
+                </button>
+              </>
+            )}
+          </div>
+        )}
 
         {/* Primary Status Card */}
         <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-3">
@@ -100,7 +182,7 @@ export default function DayDetailModal({ isOpen, onClose, selectedDateInfo }) {
             </div>
           )}
 
-          {statusType === DAY_TYPES.NORMAL && (
+          {statusType === DAY_TYPES.NORMAL && !isPeriodStart && (
             <div className="p-3 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 flex items-start gap-2.5">
               <Info className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
               <div>
@@ -124,12 +206,12 @@ export default function DayDetailModal({ isOpen, onClose, selectedDateInfo }) {
           </span>
         </div>
 
-        {/* Close Button Action */}
+        {/* Close Button */}
         <button
           onClick={onClose}
-          className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 text-white font-bold text-sm shadow-lg shadow-rose-500/20 transition-all duration-200"
+          className="w-full py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-sm transition-all duration-200"
         >
-          Got it
+          Close
         </button>
       </div>
     </div>

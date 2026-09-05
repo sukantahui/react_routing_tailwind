@@ -17,6 +17,7 @@ export default function MenstrualCalendarApp() {
     isApiMode,
     isSyncing,
     periodStarts,
+    periodEntries,
     settings,
     apiProfile,
     cycleStats,
@@ -24,6 +25,7 @@ export default function MenstrualCalendarApp() {
     dateStatusMap,
     notification,
     addPeriodStart,
+    bulkAddPeriodDates,
     editPeriodStart,
     deletePeriodStart,
     clearHistory,
@@ -107,18 +109,22 @@ export default function MenstrualCalendarApp() {
         dateStatusMap={dateStatusMap}
         cycleStats={cycleStats}
         settings={settings}
+        onMarkPeriodStart={addPeriodStart}
       />
 
       {/* 5. Period History Section */}
       <PeriodHistorySection
         periodStarts={periodStarts}
+        periodEntries={periodEntries}
         settings={settings}
         onAddPeriodStart={addPeriodStart}
+        onBulkAddPeriodDates={bulkAddPeriodDates}
         onEditPeriodStart={editPeriodStart}
         onDeletePeriodStart={deletePeriodStart}
         onClearHistory={clearHistory}
         onExportData={exportData}
         onImportData={importData}
+        isSyncing={isSyncing}
       />
 
       {/* 6. Statistical Insights & Bar Chart */}

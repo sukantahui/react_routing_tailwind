@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
-import { Trash2, Edit2, Check, X, Calendar, AlertTriangle } from 'lucide-react';
+import { Trash2, Edit2, Check, X, Calendar, AlertTriangle, FileText } from 'lucide-react';
 import { formatDateDisplay, differenceInCalendarDays } from '../../utils/dateUtils';
 
 export default function PeriodHistoryTable({
   periodStarts,
+  periodEntries,
   settings,
   onEditPeriodStart,
   onDeletePeriodStart,
 }) {
-  const [editingDate, setEditingDate] = useState(null);
+  const [editingDate, setEditingDate]       = useState(null);
   const [editInputValue, setEditInputValue] = useState('');
+  const [isSavingEdit, setIsSavingEdit]     = useState(false);
 
   if (!periodStarts || periodStarts.length === 0) {
     return (
       <div className="p-8 text-center bg-slate-900/60 border border-slate-800 rounded-2xl text-slate-400 text-xs space-y-2">
         <Calendar className="w-8 h-8 mx-auto text-slate-600 mb-2" />
         <p className="font-semibold text-slate-300">No period start dates recorded yet.</p>
-        <p>Use the input form above or click "Load Sample Data" to get started.</p>
+        <p>Use the input form above or click &quot;Load Sample Data&quot; to get started.</p>
       </div>
     );
+  }
+
+  // Build a quick lookup: dateStr → entry (for notes)
+  const entryByDate = {};
+  if (Array.isArray(periodEntries)) {
+    periodEntries.forEach((e) => {
+      entryByDate[e.period_start_date] = e;
+    });
   }
 
   const startEdit = (dateStr) => {
@@ -31,11 +41,23 @@ export default function PeriodHistoryTable({
     setEditInputValue('');
   };
 
-  const saveEdit = (oldDateStr) => {
-    if (onEditPeriodStart(oldDateStr, editInputValue)) {
-      setEditingDate(null);
+  // Fixed: properly await the async callback and only reset on success
+  const saveEdit = async (oldDateStr) => {
+    if (isSavingEdit) return;
+    setIsSavingEdit(true);
+    try {
+      const success = await onEditPeriodStart(oldDateStr, editInputValue);
+      if (success) {
+        setEditingDate(null);
+        setEditInputValue('');
+      }
+    } finally {
+      setIsSavingEdit(false);
     }
   };
+
+  // Show the notes column only if any entry has notes
+  const hasNotes = (periodEntries || []).some((e) => e.notes);
 
   return (
     <div className="bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
@@ -46,6 +68,14 @@ export default function PeriodHistoryTable({
               <th className="py-3.5 px-4">Period Start</th>
               <th className="py-3.5 px-4">Cycle Length</th>
               <th className="py-3.5 px-4">Period Duration</th>
+              {hasNotes && (
+                <th className="py-3.5 px-4">
+                  <span className="flex items-center gap-1">
+                    <FileText className="w-3.5 h-3.5 text-slate-500" />
+                    Notes
+                  </span>
+                </th>
+              )}
               <th className="py-3.5 px-4 text-right">Actions</th>
             </tr>
           </thead>
@@ -64,6 +94,8 @@ export default function PeriodHistoryTable({
               }
 
               const isEditing = editingDate === startStr;
+              const entry     = entryByDate[startStr];
+              const notes     = entry?.notes || null;
 
               return (
                 <tr key={startStr} className="hover:bg-slate-800/40 transition-colors">
@@ -101,19 +133,37 @@ export default function PeriodHistoryTable({
                     {settings.periodDuration || 5} days
                   </td>
 
+                  {hasNotes && (
+                    <td className="py-3 px-4 text-slate-400 max-w-[200px]">
+                      {notes ? (
+                        <span className="italic text-slate-300 line-clamp-2" title={notes}>
+                          {notes}
+                        </span>
+                      ) : (
+                        <span className="text-slate-600">—</span>
+                      )}
+                    </td>
+                  )}
+
                   <td className="py-3 px-4 text-right">
                     {isEditing ? (
                       <div className="flex items-center justify-end gap-1">
                         <button
                           onClick={() => saveEdit(startStr)}
-                          className="p-1.5 text-emerald-400 hover:bg-emerald-500/20 rounded-lg transition-colors"
+                          disabled={isSavingEdit}
+                          className="p-1.5 text-emerald-400 hover:bg-emerald-500/20 rounded-lg transition-colors disabled:opacity-50"
                           title="Save"
                         >
-                          <Check className="w-4 h-4" />
+                          {isSavingEdit ? (
+                            <span className="w-4 h-4 border-2 border-emerald-400 border-t-transparent rounded-full animate-spin block" />
+                          ) : (
+                            <Check className="w-4 h-4" />
+                          )}
                         </button>
                         <button
                           onClick={cancelEdit}
-                          className="p-1.5 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors"
+                          disabled={isSavingEdit}
+                          className="p-1.5 text-slate-400 hover:bg-slate-800 rounded-lg transition-colors disabled:opacity-50"
                           title="Cancel"
                         >
                           <X className="w-4 h-4" />

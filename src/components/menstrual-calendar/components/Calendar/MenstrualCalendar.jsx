@@ -6,7 +6,7 @@ import DayDetailModal from './DayDetailModal';
 import { getCalendarGrid } from '../../utils/dateUtils';
 import { getCycleDayInfo } from '../../utils/cycleCalculations';
 
-export default function MenstrualCalendar({ periodStarts, dateStatusMap, cycleStats, settings }) {
+export default function MenstrualCalendar({ periodStarts, dateStatusMap, cycleStats, settings, onMarkPeriodStart }) {
   const today = new Date();
   const [currentYear, setCurrentYear] = useState(today.getFullYear());
   const [currentMonth, setCurrentMonth] = useState(today.getMonth()); // 0-indexed
@@ -46,6 +46,7 @@ export default function MenstrualCalendar({ periodStarts, dateStatusMap, cycleSt
       statusInfo,
       cycleDayInfo,
       cycleStats,
+      isPeriodStart: periodStarts.includes(dateStr),
     });
     setIsModalOpen(true);
   };
@@ -104,6 +105,8 @@ export default function MenstrualCalendar({ periodStarts, dateStatusMap, cycleSt
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         selectedDateInfo={selectedDateInfo}
+        onMarkPeriodStart={onMarkPeriodStart}
+        onUnmarkPeriodStart={null}
       />
     </div>
   );

@@ -1,18 +1,24 @@
-import React from 'react';
-import { History, Trash2, Download, Upload } from 'lucide-react';
+import React, { useState } from 'react';
+import { History, Trash2, Download, Upload, CalendarDays } from 'lucide-react';
 import PeriodDateForm from './PeriodDateForm';
 import PeriodHistoryTable from './PeriodHistoryTable';
+import BulkDateEntryModal from './BulkDateEntryModal';
 
 export default function PeriodHistorySection({
   periodStarts,
+  periodEntries,
   settings,
   onAddPeriodStart,
+  onBulkAddPeriodDates,
   onEditPeriodStart,
   onDeletePeriodStart,
   onClearHistory,
   onExportData,
   onImportData,
+  isSyncing,
 }) {
+  const [isBulkOpen, setIsBulkOpen] = useState(false);
+
   const handleFileImport = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -45,7 +51,17 @@ export default function PeriodHistorySection({
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
+          {/* Bulk Entry button — always visible */}
+          <button
+            onClick={() => setIsBulkOpen(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-violet-500/10 text-violet-300 hover:bg-violet-500/20 border border-violet-500/30 transition-colors"
+            title="Add multiple past period dates at once for better pattern analysis"
+          >
+            <CalendarDays className="w-3.5 h-3.5 text-violet-400" />
+            <span>Bulk Entry</span>
+          </button>
+
           {periodStarts.length > 0 && (
             <button
               onClick={onExportData}
@@ -81,15 +97,28 @@ export default function PeriodHistorySection({
         </div>
       </div>
 
-      {/* Input Form */}
-      <PeriodDateForm onAddPeriodStart={onAddPeriodStart} />
+      {/* Single-date Input Form */}
+      <PeriodDateForm
+        onAddPeriodStart={onAddPeriodStart}
+        periodStarts={periodStarts}
+      />
 
       {/* History Table */}
       <PeriodHistoryTable
         periodStarts={periodStarts}
+        periodEntries={periodEntries}
         settings={settings}
         onEditPeriodStart={onEditPeriodStart}
         onDeletePeriodStart={onDeletePeriodStart}
+      />
+
+      {/* Bulk Date Entry Modal */}
+      <BulkDateEntryModal
+        isOpen={isBulkOpen}
+        onClose={() => setIsBulkOpen(false)}
+        periodStarts={periodStarts}
+        onBulkAddPeriodDates={onBulkAddPeriodDates}
+        isSyncing={isSyncing}
       />
     </section>
   );
