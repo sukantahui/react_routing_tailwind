@@ -32,6 +32,28 @@ export const authService = {
     }
   },
 
+  getPaginatedGuests: async (page = 1, perPage = 20) => {
+    try {
+      const response = await api.get('/guests/pagination', {
+        params: { page, per_page: perPage },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error loading paginated guests:', error);
+      throw error;
+    }
+  },
+
+  searchGuests: async (params = {}) => {
+    try {
+      const response = await api.get('/guests/search/any', { params });
+      return response.data;
+    } catch (error) {
+      console.error('Error searching guests:', error);
+      throw error;
+    }
+  },
+
   deleteGuest: async (id) => {
     try {
       const response = await api.delete(`/dev/guests/${id}`);

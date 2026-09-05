@@ -233,8 +233,11 @@ export default function Bijoya() {
 
   // Validation rules
   const isNameValid = formData.guestName.trim().length >= 2;
-  const isAgeValid = /^\d+$/.test(formData.age) && Number(formData.age) >= 3 && Number(formData.age) <= 85;
-  const isMobileValid = /^\d{10,}$/.test(formData.mobile.replace(/\D/g, ""));
+  const isAgeValid =
+    !formData.age ||
+    (/^\d+$/.test(formData.age) && Number(formData.age) >= 1 && Number(formData.age) <= 120);
+  const isMobileValid =
+    !formData.mobile || /^\d{10,}$/.test(formData.mobile.replace(/\D/g, ""));
   const isWpValid = /^\d{10,}$/.test(formData.wpNumber.replace(/\D/g, ""));
   const isPinValid = /^\d{4}$/.test(formData.pin);
   const isPinMatched = isEdit
@@ -442,9 +445,21 @@ export default function Bijoya() {
     setIsSubmitting(true);
     try {
       const payload = {
-        ...formData,
         guestName: formattedGuestName,
-        is_attending: formData.is_present,
+        age: formData.age ? Number(formData.age) : null,
+        mobile: formData.mobile ? formData.mobile.replace(/\D/g, "") : null,
+        wpNumber: formData.wpNumber
+          ? formData.wpNumber.replace(/\D/g, "")
+          : (formData.mobile ? formData.mobile.replace(/\D/g, "") : null),
+        address: formData.address?.trim() || null,
+        email: formData.email?.trim() || null,
+        pin: formData.pin?.trim(),
+        genderId: Number(formData.genderId),
+        foodPreferenceId: Number(formData.foodPreferenceId),
+        is_attending: Boolean(formData.is_present),
+        is_present: Boolean(formData.is_present),
+        comment: formData.comment?.trim() || null,
+        year: new Date().getFullYear(),
       };
 
       const successData = await authService.saveGuest(payload);
@@ -618,9 +633,20 @@ export default function Bijoya() {
     try {
       const formattedGuestName = toProperCase(formData.guestName.trim());
       const payload = {
-        ...formData,
         guestName: formattedGuestName,
-        is_attending: formData.is_present,
+        age: formData.age ? Number(formData.age) : null,
+        mobile: formData.mobile ? formData.mobile.replace(/\D/g, "") : null,
+        wpNumber: formData.wpNumber
+          ? formData.wpNumber.replace(/\D/g, "")
+          : (formData.mobile ? formData.mobile.replace(/\D/g, "") : null),
+        address: formData.address?.trim() || null,
+        email: formData.email?.trim() || null,
+        pin: formData.pin?.trim(),
+        genderId: Number(formData.genderId),
+        foodPreferenceId: Number(formData.foodPreferenceId),
+        is_attending: Boolean(formData.is_present),
+        is_present: Boolean(formData.is_present),
+        comment: formData.comment?.trim() || null,
       };
 
       const successData = await authService.updateGuest(editGuestId, payload);
@@ -1211,7 +1237,7 @@ Instagram: https://www.instagram.com/codernaccotax
                     <label htmlFor="age" className="flex items-center justify-between text-sm font-medium text-slate-200">
                       <span className="flex items-center gap-2">
                         <CalendarCheck className="w-4 h-4 text-amber-400" />
-                        <span>Age <span className="text-rose-400">*</span></span>
+                        <span>Age <span className="text-slate-400 font-normal text-xs">(Optional)</span></span>
                       </span>
                       {formData.age && (
                         <span
@@ -1221,7 +1247,7 @@ Instagram: https://www.instagram.com/codernaccotax
                               : "bg-rose-500/20 text-rose-400"
                           }`}
                         >
-                          {isAgeValid ? "Valid" : "3–85"}
+                          {isAgeValid ? "Valid" : "1–120"}
                         </span>
                       )}
                     </label>
@@ -1229,12 +1255,11 @@ Instagram: https://www.instagram.com/codernaccotax
                       type="number"
                       id="age"
                       name="age"
-                      min={3}
-                      max={85}
+                      min={1}
+                      max={120}
                       value={formData.age}
                       onChange={handleChange}
-                      placeholder="e.g. 35"
-                      required
+                      placeholder="e.g. 35 (optional)"
                       className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition text-sm sm:text-base"
                     />
                   </div>
@@ -1246,7 +1271,7 @@ Instagram: https://www.instagram.com/codernaccotax
                       <label htmlFor="mobile" className="flex items-center justify-between text-sm font-medium text-slate-200">
                         <span className="flex items-center gap-2">
                           <Phone className="w-4 h-4 text-cyan-400" />
-                          <span>Mobile No. <span className="text-rose-400">*</span></span>
+                          <span>Mobile No. <span className="text-slate-400 font-normal text-xs">(Optional)</span></span>
                         </span>
                         {formData.mobile && (
                           <span
@@ -1266,8 +1291,7 @@ Instagram: https://www.instagram.com/codernaccotax
                         name="mobile"
                         value={formData.mobile}
                         onChange={handleChange}
-                        placeholder="10-digit mobile number"
-                        required
+                        placeholder="10-digit mobile number (optional)"
                         className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition text-sm sm:text-base"
                       />
                     </div>
@@ -1303,7 +1327,7 @@ Instagram: https://www.instagram.com/codernaccotax
                         name="wpNumber"
                         value={formData.wpNumber}
                         onChange={handleChange}
-                        placeholder="10-digit WhatsApp number"
+                        placeholder="10-digit WhatsApp number (required)"
                         required
                         className="w-full px-4 py-3 rounded-xl bg-slate-950/70 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition text-sm sm:text-base"
                       />
@@ -2275,7 +2299,7 @@ Instagram: https://www.instagram.com/codernaccotax
                       <div className="mt-3">
                         <h3 className="text-base font-bold text-white truncate">{toProperCase(guest.guestName)}</h3>
                         <p className="text-xs font-mono text-slate-400 mt-0.5">
-                          {guest.mobileMasked || guest.mobile || "No Mobile"}
+                          {guest.mobileMasked || guest.mobile || guest.wpNumberMasked || guest.wpNumber || "No Phone"}
                         </p>
                       </div>
 
@@ -2395,7 +2419,7 @@ Instagram: https://www.instagram.com/codernaccotax
                           )}
                         </td>
                         <td className="px-4 py-3 font-mono text-xs text-slate-300">
-                          {guest.mobileMasked || guest.mobile}
+                          {guest.mobileMasked || guest.mobile || guest.wpNumberMasked || guest.wpNumber || "-"}
                         </td>
                         <td className="px-4 py-3">
                           <span
