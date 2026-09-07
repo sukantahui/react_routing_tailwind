@@ -23,7 +23,7 @@ const About = () => {
       icon: "bi-laptop",
       color: "from-sky-500/20 to-blue-500/10 border-sky-500/30 text-sky-400",
       title: "Real-World Practical Learning",
-      desc: "Zero rote learning. Every student builds live web applications, designs relational databases, or files authentic GST & TDS returns with real company ledgers.",
+      desc: "Zero rote learning. Every student builds live web applications, designs relational databases, or files authentic GST, TDS & Income Tax returns with real company ledgers in TallyPrime.",
     },
     {
       icon: "bi-person-check",
@@ -109,7 +109,8 @@ const About = () => {
                 <p>
                   Whether you are a school student preparing for <strong className="text-sky-300">ICSE/ISC Board Exams (Java/Python)</strong>, 
                   a college graduate aspiring to become a <strong className="text-sky-300">Full Stack Developer</strong>, 
-                  or a commerce professional mastering <strong className="text-emerald-300">TallyPrime, GST & TDS Return Filing</strong>, 
+                  a commerce professional mastering <strong className="text-emerald-300">TallyPrime, GST Filing & TDS Returns</strong>,
+                  or a working individual filing <strong className="text-amber-300">Income Tax Returns (ITR-1, ITR-4)</strong>, 
                   we provide complete personalized mentorship tailored to your learning pace.
                 </p>
               </div>
@@ -119,11 +120,7 @@ const About = () => {
               <div className="flex items-center gap-4 text-slate-400">
                 <span className="flex items-center gap-1.5">
                   <i className="bi bi-geo-alt text-sky-400"></i>
-                  <span>Barrackpore, Kolkata</span>
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <i className="bi bi-people text-purple-400"></i>
-                  <span>Offline & Online Batches</span>
+                  <span>Barrackpore · Sodepore · Ichapore · Barasat · Sreerampore — Pin 700122</span>
                 </span>
               </div>
 

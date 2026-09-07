@@ -23,6 +23,13 @@ const BigOCalculator = lazy(() => import('../components/BigOCalculator'));
 const JsonFormatter = lazy(() => import('../components/JsonFormatter'));
 const MenstrualCalendarApp = lazy(() => import('../components/menstrual-calendar/MenstrualCalendarApp'));
 
+// Dedicated SEO Course Landing Pages
+const GSTFilingPage = lazy(() => import('./CoursePages/GSTFilingPage'));
+const TDSIncomeTaxPage = lazy(() => import('./CoursePages/TDSIncomeTaxPage'));
+const TallyAccountingPage = lazy(() => import('./CoursePages/TallyAccountingPage'));
+const PythonProgrammingPage = lazy(() => import('./CoursePages/PythonProgrammingPage'));
+const WebDevelopmentPage = lazy(() => import('./CoursePages/WebDevelopmentPage'));
+
 // Data structure visualizers
 const LinkedListVisualizer = lazy(() => import('../common/LinkedListVisualizer'));
 const DoublyLinkedListVisualizer = lazy(() => import('../common/DoublyLinkedListVisualizer'));
@@ -129,6 +136,13 @@ const ROUTES = {
   FEE_RECEIPTS_LIST: '/fees-receipts',
   REGISTER_STUDENT_ADMISSION: '/students/register-admission',
   NOT_FOUND: '*',
+
+  // Dedicated Course Landing Pages (SEO)
+  COURSE_GST: '/courses/gst-filing',
+  COURSE_TDS: '/courses/tds-income-tax',
+  COURSE_TALLY: '/courses/tally-accounting',
+  COURSE_PYTHON: '/courses/python-programming',
+  COURSE_WEBDEV: '/courses/web-development',
 
   // Technology routes – pattern: /{tech}/roadmap, /{tech}/module/:slug, /{tech}/topic/:moduleSlug/:topicIndex
   JAVASCRIPT_ROADMAP: '/javascript/roadmap',
@@ -584,6 +598,12 @@ export default function AppRoutes() {
         <Route path={ROUTES.JSON_FORMATTER} element={<JsonFormatter />} />
         <Route path={ROUTES.MENSTRUAL_CALENDAR} element={<MenstrualCalendarApp />} />
 
+        {/* ---------- Dedicated SEO Course Landing Pages ---------- */}
+        <Route path={ROUTES.COURSE_GST} element={<GSTFilingPage />} />
+        <Route path={ROUTES.COURSE_TDS} element={<TDSIncomeTaxPage />} />
+        <Route path={ROUTES.COURSE_TALLY} element={<TallyAccountingPage />} />
+        <Route path={ROUTES.COURSE_PYTHON} element={<PythonProgrammingPage />} />
+        <Route path={ROUTES.COURSE_WEBDEV} element={<WebDevelopmentPage />} />
 
         {/* Data structure visualizers */}
         <Route path={ROUTES.LINKED_LIST} element={<LinkedListVisualizer />} />

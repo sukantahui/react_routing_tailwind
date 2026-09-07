@@ -26,9 +26,9 @@ const Header = () => {
       {/* Balanced Cinematic Dark Vignette for Text Contrast */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#030712]/65 via-[#030712]/40 to-[#030712]/85 pointer-events-none" />
 
-      {/* Invisible SEO Primary H1 */}
+      {/* SEO Primary H1 — screen-reader accessible, carries full keyword signal */}
       <h1 className="sr-only">
-        Coder & AccoTax - Best Coding & Accounting Training Institute in Barrackpore
+        Coder &amp; AccoTax — Best GST, TDS, Income Tax, Tally &amp; Accounting Training Institute near Barrackpore, Sodepore, Ichapore, Barasat, Sreerampore | Coding &amp; Programming Classes | Pin 700122
       </h1>
 
       {/* Hero Center Content */}

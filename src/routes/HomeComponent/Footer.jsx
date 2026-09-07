@@ -128,34 +128,34 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <HashLink smooth to="/#courses" className="hover:text-purple-300 transition-colors">
-                  Full Stack Web (React + Node)
-                </HashLink>
-              </li>
-              <li>
-                <HashLink smooth to="/#courses" className="hover:text-purple-300 transition-colors">
-                  Python & Data Analytics
-                </HashLink>
-              </li>
-              <li>
-                <HashLink smooth to="/#courses" className="hover:text-purple-300 transition-colors">
-                  Tally Prime & GST Taxation
-                </HashLink>
-              </li>
-              <li>
-                <HashLink smooth to="/#courses" className="hover:text-purple-300 transition-colors">
-                  ICSE / ISC Class 9-12 Java
-                </HashLink>
-              </li>
-              <li>
-                <HashLink smooth to="/#courses" className="hover:text-purple-300 transition-colors">
-                  C / C++ & Data Structures (DSA)
-                </HashLink>
-              </li>
-              <li>
-                <NavLink to="/tools/type-test" className="hover:text-purple-300 transition-colors">
-                  Free Speed Typing Test Tool
+                <NavLink to="/courses/web-development" className="hover:text-purple-300 transition-colors">
+                  Full Stack Web Dev (React + Node)
                 </NavLink>
+              </li>
+              <li>
+                <NavLink to="/courses/python-programming" className="hover:text-purple-300 transition-colors">
+                  Python &amp; Data Analytics
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/courses/gst-filing" className="hover:text-purple-300 transition-colors">
+                  GST Return Filing &amp; Compliance
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/courses/tds-income-tax" className="hover:text-purple-300 transition-colors">
+                  TDS &amp; Income Tax Returns
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/courses/tally-accounting" className="hover:text-purple-300 transition-colors">
+                  TallyPrime &amp; Practical Accounting
+                </NavLink>
+              </li>
+              <li>
+                <HashLink smooth to="/#courses" className="hover:text-purple-300 transition-colors">
+                  All Courses &amp; Programs →
+                </HashLink>
               </li>
             </ul>
           </div>

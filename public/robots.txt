@@ -1,6 +1,26 @@
+# Coder & AccoTax — robots.txt
+# https://codernaccotax.co.in/
+
 User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /login
+
+# Block crawling of backup and draft files
+Disallow: /*.bak$
+Disallow: /scratch/
+
+# Specific Googlebot directives
+User-agent: Googlebot
 Allow: /
 Disallow: /admin
 Disallow: /auth/
 
+# Allow Google Images to crawl all images
+User-agent: Googlebot-Image
+Allow: /
+
+# Sitemap location
 Sitemap: https://codernaccotax.co.in/sitemap.xml
