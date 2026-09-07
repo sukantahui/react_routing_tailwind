@@ -175,6 +175,10 @@ const Footer = () => {
                 <a href="tel:9432456083" className="text-sky-400 hover:text-sky-300 transition">
                   +91 94324 56083
                 </a>
+                <span className="text-slate-500 mx-1.5">/</span>
+                <a href="tel:7003756860" className="text-sky-400 hover:text-sky-300 transition">
+                  +91 70037 56860
+                </a>
               </p>
               <p>
                 <strong className="text-slate-300 block">Email Inquiries:</strong>

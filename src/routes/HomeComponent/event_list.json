@@ -4,6 +4,7 @@
   "lastUpdated": "2026-09-05",
   "dateFormat": "DD-MM-YYYY",
   "yearSpecificRule": "If yearSpecific is false, year is null and the event recurs every year on the given day and month. If yearSpecific is true, the event applies only to the specified year.",
+  "dynamicRuleInfo": "Events can declare a dynamicRule object to compute variable calendar dates across years (e.g., { type: 'dayOfYear', dayOfYear: 256 } or { type: 'leapYearOverride', leapDay: 12, nonLeapDay: 13, month: 9 } or { type: 'nthWeekdayOfMonth', month: 5, nth: 2, weekday: 0 }).",
   "notes": [
     "Dates of Islamic festivals can vary by moon sighting.",
     "Dates of lunar Hindu festivals can vary by regional calendar and observance.",
@@ -153,6 +154,30 @@
       "mood": "Abundant Harvest & Gratitude",
       "icon": "bi-flower2",
       "moodEmoji": "🌾"
+    },
+    {
+      "day": 14,
+      "month": 1,
+      "year": null,
+      "yearSpecific": false,
+      "event": "World Logic Day",
+      "category": "Education & Technology",
+      "description": "UNESCO international day highlighting the role of logic, algorithmic reasoning, and mathematical thinking in computer science and AI.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Logic is the foundation of computation, algorithmic thinking, and rational discovery.",
+      "mood": "Algorithmic Rigor & Logical Clarity",
+      "icon": "bi-cpu",
+      "moodEmoji": "🧠",
+      "colorUsed": {
+        "background": "#EDE7F6",
+        "text": "#311B92",
+        "border": "#7E57C2",
+        "accent": "#512DA8",
+        "glow": "rgba(81, 45, 168, 0.35)",
+        "darkBg": "rgba(81, 45, 168, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(81, 45, 168, 0.18), rgba(126, 87, 194, 0.08), transparent)"
+      }
     },
     {
       "day": 15,
@@ -347,6 +372,30 @@
       "moodEmoji": "🎗️"
     },
     {
+      "day": 11,
+      "month": 2,
+      "year": null,
+      "yearSpecific": false,
+      "event": "International Day of Women and Girls in Science",
+      "category": "Education & STEM",
+      "description": "United Nations observance celebrating women and girls leading innovation in STEM, computer science, and technology.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Empowering women in STEM unlocks limitless potential for innovation and scientific discovery.",
+      "mood": "Inspiration & Gender Equality in STEM",
+      "icon": "bi-person-workspace",
+      "moodEmoji": "👩‍🔬",
+      "colorUsed": {
+        "background": "#FCE4EC",
+        "text": "#880E4F",
+        "border": "#EC407A",
+        "accent": "#D81B60",
+        "glow": "rgba(216, 27, 96, 0.35)",
+        "darkBg": "rgba(216, 27, 96, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(216, 27, 96, 0.18), rgba(236, 64, 122, 0.08), transparent)"
+      }
+    },
+    {
       "day": 14,
       "month": 2,
       "year": null,
@@ -491,6 +540,30 @@
       "moodEmoji": "🎨"
     },
     {
+      "day": 4,
+      "month": 3,
+      "year": null,
+      "yearSpecific": false,
+      "event": "World Engineering Day",
+      "category": "Technology & Engineering",
+      "description": "UNESCO day celebrating engineers and software architects turning scientific principles into transformative solutions for humanity.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Engineers turn ideas into reality, building the digital and physical foundations of our future.",
+      "mood": "Inventive Engineering & Problem Solving",
+      "icon": "bi-gear-wide-connected",
+      "moodEmoji": "⚙️",
+      "colorUsed": {
+        "background": "#E8EAF6",
+        "text": "#1A237E",
+        "border": "#3F51B5",
+        "accent": "#283593",
+        "glow": "rgba(40, 53, 147, 0.35)",
+        "darkBg": "rgba(40, 53, 147, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(40, 53, 147, 0.18), rgba(63, 81, 181, 0.08), transparent)"
+      }
+    },
+    {
       "day": 8,
       "month": 3,
       "year": null,
@@ -536,6 +609,30 @@
         "glow": "rgba(0, 230, 118, 0.35)",
         "darkBg": "rgba(0, 230, 118, 0.08)",
         "gradient": "linear-gradient(135deg, rgba(0, 230, 118, 0.18), rgba(126, 87, 194, 0.08), transparent)"
+      }
+    },
+    {
+      "day": 14,
+      "month": 3,
+      "year": null,
+      "yearSpecific": false,
+      "event": "International Day of Mathematics (Pi Day)",
+      "category": "Education & Science",
+      "description": "UNESCO observance celebrating mathematics and π (3.14159...) as the universal language of algorithms, data structures, and computing.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Mathematics is the language with which the universe, computers, and algorithms are written.",
+      "mood": "Mathematical Wonder & Geometric Beauty",
+      "icon": "bi-pie-chart-fill",
+      "moodEmoji": "π",
+      "colorUsed": {
+        "background": "#FFF3E0",
+        "text": "#E65100",
+        "border": "#FB8C00",
+        "accent": "#FF6F00",
+        "glow": "rgba(255, 111, 0, 0.35)",
+        "darkBg": "rgba(255, 111, 0, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(255, 111, 0, 0.18), rgba(251, 140, 0, 0.08), transparent)"
       }
     },
     {
@@ -683,6 +780,30 @@
       "moodEmoji": "🪷"
     },
     {
+      "day": 31,
+      "month": 3,
+      "year": null,
+      "yearSpecific": false,
+      "event": "World Backup Day",
+      "category": "Technology & Computing",
+      "description": "Industry observance promoting cybersecurity, data backup habits, and protection against data loss for developers and businesses.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Don't be an April Fool—backup your code, databases, ledgers, and precious data today!",
+      "mood": "Data Protection & Digital Preparedness",
+      "icon": "bi-hdd-network-fill",
+      "moodEmoji": "💾",
+      "colorUsed": {
+        "background": "#E0F2F1",
+        "text": "#004D40",
+        "border": "#26A69A",
+        "accent": "#00897B",
+        "glow": "rgba(0, 137, 123, 0.35)",
+        "darkBg": "rgba(0, 137, 123, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(0, 137, 123, 0.18), rgba(38, 166, 154, 0.08), transparent)"
+      }
+    },
+    {
       "day": 7,
       "month": 4,
       "year": null,
@@ -779,6 +900,30 @@
       }
     },
     {
+      "day": 21,
+      "month": 4,
+      "year": null,
+      "yearSpecific": false,
+      "event": "World Creativity and Innovation Day",
+      "category": "Innovation & Technology",
+      "description": "United Nations observance encouraging creative problem solving, technology innovation, and entrepreneurial thinking.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Creativity is seeing what others see and thinking what no one else has thought.",
+      "mood": "Creative Sparks & Innovative Breakthroughs",
+      "icon": "bi-lightbulb-fill",
+      "moodEmoji": "💡",
+      "colorUsed": {
+        "background": "#FFFDE7",
+        "text": "#F57F17",
+        "border": "#FBC02D",
+        "accent": "#F57F17",
+        "glow": "rgba(245, 127, 23, 0.35)",
+        "darkBg": "rgba(245, 127, 23, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(245, 127, 23, 0.18), rgba(251, 192, 45, 0.08), transparent)"
+      }
+    },
+    {
       "day": 22,
       "month": 4,
       "year": null,
@@ -824,6 +969,36 @@
         "glow": "rgba(255, 112, 67, 0.35)",
         "darkBg": "rgba(255, 112, 67, 0.08)",
         "gradient": "linear-gradient(135deg, rgba(255, 112, 67, 0.18), rgba(171, 71, 188, 0.08), transparent)"
+      }
+    },
+    {
+      "day": 23,
+      "month": 4,
+      "year": null,
+      "yearSpecific": false,
+      "dynamicRule": {
+        "type": "nthWeekdayOfMonth",
+        "month": 4,
+        "nth": 4,
+        "weekday": 4
+      },
+      "event": "International Girls in ICT Day",
+      "category": "Education & Technology",
+      "description": "ITU/UN global initiative encouraging girls and young women to pursue tech careers, coding, and digital innovation. Celebrated on the 4th Thursday of April.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Digital literacy and coding skills empower young women to lead the technology landscape.",
+      "mood": "Digital Empowerment & Tech Inclusion",
+      "icon": "bi-laptop-fill",
+      "moodEmoji": "👩‍💻",
+      "colorUsed": {
+        "background": "#F3E5F5",
+        "text": "#4A148C",
+        "border": "#AB47BC",
+        "accent": "#8E24AA",
+        "glow": "rgba(142, 36, 170, 0.35)",
+        "darkBg": "rgba(142, 36, 170, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(142, 36, 170, 0.18), rgba(171, 71, 188, 0.08), transparent)"
       }
     },
     {
@@ -1259,6 +1434,35 @@
       }
     },
     {
+      "day": 31,
+      "month": 7,
+      "year": null,
+      "yearSpecific": false,
+      "dynamicRule": {
+        "type": "lastWeekdayOfMonth",
+        "month": 7,
+        "weekday": 5
+      },
+      "event": "System Administrator Appreciation Day",
+      "category": "Technology & Infrastructure",
+      "description": "Annual international salute to the sysadmins, DevOps engineers, and network administrators who keep servers, clouds, and code running smoothly. Celebrated on the last Friday of July.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Behind every reliable server and smooth application stands a dedicated System Administrator.",
+      "mood": "Gratitude & Infrastructure Mastery",
+      "icon": "bi-hdd-stack-fill",
+      "moodEmoji": "🖥️",
+      "colorUsed": {
+        "background": "#ECEFF1",
+        "text": "#263238",
+        "border": "#607D8B",
+        "accent": "#455A64",
+        "glow": "rgba(69, 90, 100, 0.35)",
+        "darkBg": "rgba(69, 90, 100, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(69, 90, 100, 0.18), rgba(96, 125, 139, 0.08), transparent)"
+      }
+    },
+    {
       "day": 9,
       "month": 8,
       "year": null,
@@ -1451,6 +1655,30 @@
       "moodEmoji": "🎓"
     },
     {
+      "day": 7,
+      "month": 9,
+      "year": null,
+      "yearSpecific": false,
+      "event": "International Day of Clean Air for Blue Skies",
+      "category": "International",
+      "description": "United Nations observance emphasizing the importance of clean air for human health, sustainable ecosystems, and climate change mitigation.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Clean air is a fundamental human right and the essence of all living vitality.",
+      "colorUsed": {
+        "background": "#E1F5FE",
+        "text": "#01579B",
+        "border": "#0288D1",
+        "accent": "#00BCD4",
+        "glow": "rgba(2, 136, 209, 0.35)",
+        "darkBg": "rgba(2, 136, 209, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(2, 136, 209, 0.18), rgba(0, 188, 212, 0.08), transparent)"
+      },
+      "mood": "Fresh Horizons & Environmental Stewardship",
+      "icon": "bi-wind",
+      "moodEmoji": "🌤️"
+    },
+    {
       "day": 8,
       "month": 9,
       "year": null,
@@ -1475,13 +1703,17 @@
       "moodEmoji": "📚"
     },
     {
-      "day": 12,
+      "day": 13,
       "month": 9,
       "year": null,
       "yearSpecific": false,
+      "dynamicRule": {
+        "type": "dayOfYear",
+        "dayOfYear": 256
+      },
       "event": "International Programmers' Day",
       "category": "Education & Technology",
-      "description": "Celebrated on the 256th day of the year (2^8 — the number of distinct values in an 8-bit byte), honoring software developers who build our digital world.",
+      "description": "Celebrated on the 256th day of the year (2^8 — the number of distinct values in an 8-bit byte), honoring software developers who build our digital world. Falls on September 13 in standard years and September 12 in leap years.",
       "priority": 1,
       "isVisible": true,
       "quote": "There are 10 types of people in the world: those who understand binary, and those who don't. Happy coding!",
@@ -1592,6 +1824,60 @@
         "glow": "rgba(38, 166, 154, 0.35)",
         "darkBg": "rgba(38, 166, 154, 0.08)",
         "gradient": "linear-gradient(135deg, rgba(38, 166, 154, 0.18), rgba(3, 155, 229, 0.08), transparent)"
+      }
+    },
+    {
+      "day": 16,
+      "month": 9,
+      "year": null,
+      "yearSpecific": false,
+      "event": "International Day of Science, Technology and Innovation for the South",
+      "category": "Science & Technology",
+      "description": "United Nations observance focusing on equitable access to scientific knowledge, technical education, and digital innovation.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Harnessing science and digital technology drives inclusive growth and opportunity for all.",
+      "mood": "Inclusive Innovation & Tech Progress",
+      "icon": "bi-rocket-takeoff-fill",
+      "moodEmoji": "🚀",
+      "colorUsed": {
+        "background": "#E1F5FE",
+        "text": "#01579B",
+        "border": "#0288D1",
+        "accent": "#0097A7",
+        "glow": "rgba(2, 136, 209, 0.35)",
+        "darkBg": "rgba(2, 136, 209, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(2, 136, 209, 0.18), rgba(0, 151, 167, 0.08), transparent)"
+      }
+    },
+    {
+      "day": 19,
+      "month": 9,
+      "year": null,
+      "yearSpecific": false,
+      "dynamicRule": {
+        "type": "nthWeekdayOfMonth",
+        "month": 9,
+        "nth": 3,
+        "weekday": 6
+      },
+      "event": "Software Freedom Day",
+      "category": "Open Source & Technology",
+      "description": "Worldwide celebration of Free and Open Source Software (FOSS), promoting transparent, accessible, and community-driven technology. Celebrated on the 3rd Saturday of September.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Free software is about liberty, community collaboration, and empowering developers everywhere.",
+      "mood": "Open Source Freedom & Community Power",
+      "icon": "bi-code-slash",
+      "moodEmoji": "🐧",
+      "colorUsed": {
+        "background": "#E8F5E9",
+        "text": "#1B5E20",
+        "border": "#4CAF50",
+        "accent": "#2E7D32",
+        "glow": "rgba(46, 125, 50, 0.35)",
+        "darkBg": "rgba(46, 125, 50, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(46, 125, 50, 0.18), rgba(76, 175, 80, 0.08), transparent)"
       }
     },
     {
@@ -1713,6 +1999,60 @@
       "mood": "Divine Energy & Shakti",
       "icon": "bi-sparkles",
       "moodEmoji": "🪔"
+    },
+    {
+      "day": 13,
+      "month": 10,
+      "year": null,
+      "yearSpecific": false,
+      "dynamicRule": {
+        "type": "nthWeekdayOfMonth",
+        "month": 10,
+        "nth": 2,
+        "weekday": 2
+      },
+      "event": "Ada Lovelace Day",
+      "category": "Education & History of Computing",
+      "description": "International celebration of women in STEM, honoring Ada Lovelace, the world's first computer programmer. Celebrated on the 2nd Tuesday of October.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "That brain of mine is something more than merely mortal; as time will show. — Ada Lovelace",
+      "mood": "Pioneering Spirit & Computing Heritage",
+      "icon": "bi-cpu-fill",
+      "moodEmoji": "👩‍💻",
+      "colorUsed": {
+        "background": "#F3E5F5",
+        "text": "#4A148C",
+        "border": "#9C27B0",
+        "accent": "#7B1FA2",
+        "glow": "rgba(123, 31, 162, 0.35)",
+        "darkBg": "rgba(123, 31, 162, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(123, 31, 162, 0.18), rgba(156, 39, 176, 0.08), transparent)"
+      }
+    },
+    {
+      "day": 14,
+      "month": 10,
+      "year": null,
+      "yearSpecific": false,
+      "event": "World Standards Day",
+      "category": "Technology & Quality",
+      "description": "International day honoring technical experts who develop standards ensuring software quality, cybersecurity, and interoperability.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Standards are the silent language that enables technology, software, and global trade to work together seamlessly.",
+      "mood": "Precision, Quality & Interoperability",
+      "icon": "bi-rulers",
+      "moodEmoji": "📐",
+      "colorUsed": {
+        "background": "#E8EAF6",
+        "text": "#1A237E",
+        "border": "#3949AB",
+        "accent": "#283593",
+        "glow": "rgba(40, 53, 147, 0.35)",
+        "darkBg": "rgba(40, 53, 147, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(40, 53, 147, 0.18), rgba(57, 73, 171, 0.08), transparent)"
+      }
     },
     {
       "day": 15,
@@ -1931,6 +2271,30 @@
       "moodEmoji": "🌿"
     },
     {
+      "day": 10,
+      "month": 11,
+      "year": null,
+      "yearSpecific": false,
+      "event": "World Science Day for Peace and Development",
+      "category": "Science & Education",
+      "description": "UNESCO day emphasizing the role of scientific knowledge and tech innovation in building a sustainable and peaceful world.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Science is the beacon that illuminates human curiosity and drives sustainable progress.",
+      "mood": "Scientific Enlightenment & Discovery",
+      "icon": "bi-radioactive",
+      "moodEmoji": "🔬",
+      "colorUsed": {
+        "background": "#E0F7FA",
+        "text": "#006064",
+        "border": "#00BCD4",
+        "accent": "#00838F",
+        "glow": "rgba(0, 131, 143, 0.35)",
+        "darkBg": "rgba(0, 131, 143, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(0, 131, 143, 0.18), rgba(0, 188, 212, 0.08), transparent)"
+      }
+    },
+    {
       "day": 11,
       "month": 11,
       "year": 2026,
@@ -2099,6 +2463,30 @@
       }
     },
     {
+      "day": 30,
+      "month": 11,
+      "year": null,
+      "yearSpecific": false,
+      "event": "Computer Security Day",
+      "category": "Cybersecurity & Computing",
+      "description": "Annual observance raising awareness about protecting computers, devices, data, and networks from cyber threats.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Cybersecurity is not just a feature; it is an everyday practice of vigilance, encryption, and digital resilience.",
+      "mood": "Cyber Defense & Data Fortification",
+      "icon": "bi-shield-lock-fill",
+      "moodEmoji": "🛡️",
+      "colorUsed": {
+        "background": "#ECEFF1",
+        "text": "#263238",
+        "border": "#37474F",
+        "accent": "#00ACC1",
+        "glow": "rgba(0, 172, 193, 0.35)",
+        "darkBg": "rgba(0, 172, 193, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(0, 172, 193, 0.18), rgba(55, 71, 79, 0.08), transparent)"
+      }
+    },
+    {
       "day": 2,
       "month": 12,
       "year": null,
@@ -2144,6 +2532,54 @@
         "glow": "rgba(255, 214, 0, 0.35)",
         "darkBg": "rgba(255, 214, 0, 0.08)",
         "gradient": "linear-gradient(135deg, rgba(255, 214, 0, 0.18), rgba(13, 71, 161, 0.08), transparent)"
+      }
+    },
+    {
+      "day": 5,
+      "month": 12,
+      "year": null,
+      "yearSpecific": false,
+      "event": "International Volunteer Day",
+      "category": "Community & Open Source",
+      "description": "United Nations observance celebrating volunteers worldwide, including developers contributing to open source software and tech education.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "Volunteering code and mentorship strengthens the foundation of global technology and human solidarity.",
+      "mood": "Community Solidarity & Generosity",
+      "icon": "bi-heart-fill",
+      "moodEmoji": "🤝",
+      "colorUsed": {
+        "background": "#FBE9E7",
+        "text": "#BF360C",
+        "border": "#FF5722",
+        "accent": "#D84315",
+        "glow": "rgba(216, 67, 21, 0.35)",
+        "darkBg": "rgba(216, 67, 21, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(216, 67, 21, 0.18), rgba(255, 87, 34, 0.08), transparent)"
+      }
+    },
+    {
+      "day": 9,
+      "month": 12,
+      "year": null,
+      "yearSpecific": false,
+      "event": "Computer Science Education Week",
+      "category": "Education & Technology",
+      "description": "Annual educational celebration dedicated to inspiring students to learn computer science, coding, and problem solving, honoring computing pioneer Grace Hopper.",
+      "priority": 1,
+      "isVisible": true,
+      "quote": "The most dangerous phrase in the language is, 'We've always done it this way.' — Grace Hopper. Learn to code!",
+      "mood": "Coding Inspiration & Future Innovators",
+      "icon": "bi-terminal-split",
+      "moodEmoji": "🖥️",
+      "colorUsed": {
+        "background": "#E8F0FE",
+        "text": "#1A237E",
+        "border": "#4285F4",
+        "accent": "#00C853",
+        "glow": "rgba(66, 133, 244, 0.35)",
+        "darkBg": "rgba(66, 133, 244, 0.08)",
+        "gradient": "linear-gradient(135deg, rgba(66, 133, 244, 0.18), rgba(0, 200, 83, 0.08), transparent)"
       }
     },
     {

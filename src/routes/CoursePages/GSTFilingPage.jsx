@@ -1,6 +1,6 @@
 // ============================================================================
 // GSTFilingPage.jsx — Dedicated SEO landing page for GST Filing course
-// Target: "GST course near Barrackpore", "GST filing training Sodepore/Barasat"
+// Target: "GST course near me", "Tally and GST course near Barrackpore / 700121"
 // ============================================================================
 import React from "react";
 import CoursePage from "./CoursePage";
@@ -9,9 +9,9 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "GST Filing & Compliance Training — Barrackpore",
+    name: "GST Filing & Tally Compliance Training — near Barrackpore & 700121",
     description:
-      "Practical GST return filing course near Barrackpore, Sodepore, Ichapore, Barasat and Sreerampore. Learn GSTR-1, GSTR-3B, ITC reconciliation, e-way bill and GST audit in TallyPrime with real company data.",
+      "Practical GST return filing course near Barrackpore, Titagarh, Sodepore, Ichapore, Barasat, and Sreerampore (Pin 700122 & 700121). Learn GSTR-1, GSTR-3B, ITC reconciliation, e-way bill, and GST audit in TallyPrime with real company data.",
     provider: {
       "@type": "EducationalOrganization",
       name: "Coder & AccoTax",
@@ -36,6 +36,14 @@ const schema = [
     mainEntity: [
       {
         "@type": "Question",
+        name: "Which is the best GST and Tally course near me?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Coder & AccoTax in Barrackpore (Pin 700122, serving Pin 700121, Titagarh, Sodepore, Barasat) is the top choice for practical GST return filing (GSTR-1, GSTR-3B), e-way bills, and ITC reconciliation bundled with TallyPrime bookkeeping.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "What is covered in the GST filing course at Coder & AccoTax?",
         acceptedAnswer: {
           "@type": "Answer",
@@ -44,10 +52,10 @@ const schema = [
       },
       {
         "@type": "Question",
-        name: "Is this GST course available near Sodepore and Barasat?",
+        name: "Is this GST course available near Pin 700121, Titagarh, and Sodepore?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Coder & AccoTax is located at Barrackpore (Pin 700122), conveniently accessible from Sodepore, Ichapore, Barasat, Sreerampore, Titagarh, Naihati and surrounding areas. Online batches are also available.",
+          text: "Yes. Coder & AccoTax is located at Barrackpore (Pin 700122), conveniently accessible from Pin 700121, Titagarh, Sodepore, Ichapore, Barasat, Sreerampore, Naihati, and surrounding areas. Online batches are also available.",
         },
       },
       {
@@ -65,29 +73,29 @@ const schema = [
 export default function GSTFilingPage() {
   return (
     <CoursePage
-      title="GST Filing & Compliance Course near Barrackpore, Sodepore, Barasat | Coder & AccoTax"
-      metaDescription="Join Coder & AccoTax for practical GST filing training near Barrackpore, Sodepore, Ichapore, Barasat & Sreerampore (Pin 700122). Learn GSTR-1, GSTR-3B, ITC reconciliation, e-way bill & GST audit. ISO 9001:2015 certified. Call +91-9432456083."
-      metaKeywords="GST filing course near Barrackpore, GST training Sodepore, GST return filing Barasat, GSTR-1 GSTR-3B course Ichapore, GST compliance training Sreerampore, GST institute 700122, practical GST tally training, GST filing class near me"
+      title="Practical GST & Tally Course near me | Barrackpore, 700121, Sodepore | Coder & AccoTax"
+      metaDescription="Looking for a GST and Tally course near me? Join Coder & AccoTax for practical GST filing training near Barrackpore, Titagarh, Sodepore, Barasat (Pin 700121/700122). Learn GSTR-1, GSTR-3B, ITC & e-way bill. Call +91-9432456083."
+      metaKeywords="tally and gst course near me, GST filing course near Barrackpore, GST training Sodepore, GST return filing Barasat, GSTR-1 GSTR-3B course Ichapore, GST compliance training Sreerampore, GST institute 700122, GST course 700121, practical GST tally training, GST filing class near me"
       canonical="https://codernaccotax.co.in/courses/gst-filing"
       ogImage="https://codernaccotax.co.in/og-courses.png"
       schema={schema}
       heroIcon="🧾"
-      heroBadge="Accounting & Tax"
+      heroBadge="GST & Tally Training"
       heroColor="from-emerald-500 to-teal-500"
       heroTitle={
         <>
           Practical{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">
-            GST Filing
+            GST Filing &amp; Tally
           </span>{" "}
-          & Compliance Training
+          Training
           <br />
           <span className="text-2xl sm:text-3xl font-semibold text-slate-300">
-            near Barrackpore, Sodepore &amp; Barasat
+            near Barrackpore, Titagarh &amp; 700121
           </span>
         </>
       }
-      heroSubtitle="Master GSTR-1, GSTR-3B, ITC reconciliation, e-way bill, and GST audit with real company data in TallyPrime. Available near Barrackpore, Sodepore, Ichapore, Barasat & Sreerampore — Pin 700122."
+      heroSubtitle="Master GSTR-1, GSTR-3B, ITC reconciliation, e-way bill, and GST audit with real company data in TallyPrime. Available near Barrackpore, Titagarh, Sodepore, Ichapore, Barasat & Sreerampore — Pin 700122 & 700121."
       highlights={[
         { icon: "📋", label: "Returns Covered", value: "GSTR-1, 3B" },
         { icon: "✅", label: "Mode", value: "Offline + Online" },

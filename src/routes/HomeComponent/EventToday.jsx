@@ -8,6 +8,49 @@ import eventData from "./event_list.json";
 
 const ALL_EVENTS = eventData?.events || [];
 
+// Generic dynamic rule resolver: computes exact day & month for any year based on JSON dynamicRule
+const getResolvedEventDate = (eventItem, targetYear) => {
+  const rule = eventItem.dynamicRule;
+  if (!rule) {
+    return { day: eventItem.day, month: eventItem.month };
+  }
+
+  // 1. Day of Year calculation (e.g. 256th day for Programmers' Day)
+  if (rule.type === "dayOfYear" && typeof rule.dayOfYear === "number") {
+    const calculated = new Date(targetYear, 0, rule.dayOfYear);
+    return {
+      day: calculated.getDate(),
+      month: calculated.getMonth() + 1,
+    };
+  }
+
+  // 2. Leap year day override (e.g. leapDay: 12, nonLeapDay: 13)
+  if (rule.type === "leapYearOverride") {
+    const isLeap = (targetYear % 4 === 0 && targetYear % 100 !== 0) || targetYear % 400 === 0;
+    return {
+      day: isLeap ? rule.leapDay : rule.nonLeapDay,
+      month: rule.month || eventItem.month,
+    };
+  }
+
+  // 3. Nth weekday of month (e.g. 2nd Sunday of May: month: 5, nth: 2, weekday: 0)
+  if (rule.type === "nthWeekdayOfMonth") {
+    const firstDay = new Date(targetYear, rule.month - 1, 1).getDay();
+    const day = 1 + ((rule.weekday - firstDay + 7) % 7) + (rule.nth - 1) * 7;
+    return { day, month: rule.month };
+  }
+
+  // 4. Last weekday of month (e.g. Last Friday of July: month: 7, weekday: 5)
+  if (rule.type === "lastWeekdayOfMonth") {
+    const lastDayOfMonth = new Date(targetYear, rule.month, 0).getDate();
+    const lastDayWeekday = new Date(targetYear, rule.month - 1, lastDayOfMonth).getDay();
+    const day = lastDayOfMonth - ((lastDayWeekday - rule.weekday + 7) % 7);
+    return { day, month: rule.month };
+  }
+
+  return { day: eventItem.day, month: eventItem.month };
+};
+
 export default function EventToday() {
   // Calendar data
   const events = ALL_EVENTS;
@@ -48,18 +91,24 @@ export default function EventToday() {
 
   // Events matching the selected date
   const currentEvents = useMemo(() => {
-    return events.filter((e) => {
-      if (e.isVisible === false) return false;
-      if (e.day !== selectedDay || e.month !== selectedMonth) return false;
-      if (e.yearSpecific && e.year !== selectedYear) return false;
-      return true;
-    });
+    return events
+      .filter((e) => {
+        if (e.isVisible === false) return false;
+        const resolved = getResolvedEventDate(e, selectedYear);
+        if (resolved.day !== selectedDay || resolved.month !== selectedMonth) return false;
+        if (e.yearSpecific && e.year !== selectedYear) return false;
+        return true;
+      })
+      .map((e) => {
+        const resolved = getResolvedEventDate(e, selectedYear);
+        return { ...e, day: resolved.day, month: resolved.month };
+      });
   }, [events, selectedDay, selectedMonth, selectedYear]);
 
   // Primary active event for the date
   const activeEvent = currentEvents[activeEventIndex] || currentEvents[0] || null;
 
-  // Upcoming upcoming events (next 4 upcoming events from today)
+  // Upcoming events (next 4 upcoming events from today)
   const upcomingEvents = useMemo(() => {
     const sorted = [...events].filter((e) => e.isVisible !== false);
 
@@ -68,17 +117,19 @@ export default function EventToday() {
       let targetYear = realYear;
       if (e.yearSpecific && e.year) targetYear = e.year;
 
-      let eventDate = new Date(targetYear, e.month - 1, e.day);
+      const resolved = getResolvedEventDate(e, targetYear);
+      let eventDate = new Date(targetYear, resolved.month - 1, resolved.day);
       const todayDate = new Date(realYear, realMonth - 1, realDay);
 
       // If already passed this year and not year-specific, check next year
       if (eventDate < todayDate && !e.yearSpecific) {
-        eventDate = new Date(targetYear + 1, e.month - 1, e.day);
+        const nextResolved = getResolvedEventDate(e, targetYear + 1);
+        eventDate = new Date(targetYear + 1, nextResolved.month - 1, nextResolved.day);
       }
 
       const diffTime = eventDate - todayDate;
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      return { ...e, diffDays, targetDate: eventDate };
+      return { ...e, day: resolved.day, month: resolved.month, diffDays, targetDate: eventDate };
     });
 
     return withDays

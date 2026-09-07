@@ -267,5 +267,5 @@ for FAQ i use the following:
     show all the files with folder separately  
 
 always use Rupee sign for currency instead of $    
-generate three files
+
 

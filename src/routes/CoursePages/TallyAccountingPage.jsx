@@ -1,6 +1,6 @@
 // ============================================================================
 // TallyAccountingPage.jsx — Dedicated SEO landing page for Tally & Accounting
-// Target: "Tally institute near Barrackpore", "Tally Prime classes Sodepore/Ichapore"
+// Target: "Tally and GST course near me", "Tally institute near Barrackpore / 700121"
 // ============================================================================
 import React from "react";
 import CoursePage from "./CoursePage";
@@ -9,9 +9,9 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "TallyPrime & Practical Accounting Course — near Barrackpore",
+    name: "Tally and GST Course | TallyPrime & Practical Accounting — near Barrackpore, 700121",
     description:
-      "Practical TallyPrime & accounting course near Barrackpore, Sodepore, Ichapore, Barasat and Sreerampore (Pin 700122). Learn corporate bookkeeping, inventory, payroll, GST in Tally, TDS entries, and final accounts preparation.",
+      "Comprehensive Tally and GST Course with practical accounting near Barrackpore, Titagarh, Sodepore, Ichapore, Barasat, and Sreerampore (Pin 700122 & 700121). Learn corporate bookkeeping, inventory, payroll, GST in Tally, TDS entries, and final accounts preparation.",
     provider: {
       "@type": "EducationalOrganization",
       name: "Coder & AccoTax",
@@ -36,6 +36,14 @@ const schema = [
     mainEntity: [
       {
         "@type": "Question",
+        name: "Which is the best Tally and GST course near me?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Coder & AccoTax in Barrackpore (Pin 700122, serving Pin 700121, Titagarh, Sodepore, Barasat) is top-rated with a 4.9/5 rating, providing 100% practical training on TallyPrime bundled with live GST return filing (GSTR-1, GSTR-3B) and TDS entries.",
+        },
+      },
+      {
+        "@type": "Question",
         name: "Which version of Tally is taught — TallyPrime or Tally ERP 9?",
         acceptedAnswer: {
           "@type": "Answer",
@@ -44,10 +52,10 @@ const schema = [
       },
       {
         "@type": "Question",
-        name: "Is the Tally accounting course available near Ichapore and Barasat?",
+        name: "Is the Tally and GST course available near Pin 700121, Titagarh, Ichapore, and Barasat?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. Coder & AccoTax at Barrackpore (Pin 700122) is easily reachable from Ichapore, Barasat, Sodepore, Sreerampore, Titagarh and Naihati. We also offer online Tally batches.",
+          text: "Yes. Coder & AccoTax at Barrackpore (Pin 700122) is easily reachable from Pin 700121, Titagarh, Ichapore, Barasat, Sodepore, Sreerampore, and Naihati. We also offer interactive online Tally batches.",
         },
       },
     ],
@@ -57,32 +65,32 @@ const schema = [
 export default function TallyAccountingPage() {
   return (
     <CoursePage
-      title="TallyPrime & Practical Accounting Course near Barrackpore, Ichapore, Barasat | Coder & AccoTax"
-      metaDescription="Learn TallyPrime & practical accounting near Barrackpore, Sodepore, Ichapore, Barasat & Sreerampore (Pin 700122). Covers bookkeeping, inventory, payroll, GST in Tally, TDS entries & final accounts. ISO 9001:2015 certified. Call +91-9432456083."
-      metaKeywords="Tally institute near Barrackpore, TallyPrime classes Sodepore, Tally accounting course Ichapore, Tally GST training Barasat, accounting institute Sreerampore, Tally Prime class 700122, practical accounting training near me, Tally bookkeeping Barrackpore"
+      title="Best Tally and GST Course near me | TallyPrime Classes Barrackpore, 700121 | Coder & AccoTax"
+      metaDescription="Looking for the best Tally and GST course near me? Learn TallyPrime & practical accounting near Barrackpore, Titagarh, Sodepore, Barasat (Pin 700121/700122). Covers bookkeeping, inventory, payroll, GST in Tally, TDS & final accounts. Call +91-9432456083."
+      metaKeywords="tally and gst course near me, tally gst course 700121, best tally and gst training institute near me, Tally institute near Barrackpore, TallyPrime classes Sodepore, Tally accounting course Ichapore, Tally GST training Barasat, accounting institute Sreerampore, Tally Prime class 700122, practical accounting training near me, Tally bookkeeping Barrackpore"
       canonical="https://codernaccotax.co.in/courses/tally-accounting"
       ogImage="https://codernaccotax.co.in/og-courses.png"
       schema={schema}
       heroIcon="🧮"
-      heroBadge="Accounting & Tally"
+      heroBadge="Tally & GST Course"
       heroColor="from-purple-500 to-pink-500"
       heroTitle={
         <>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-            TallyPrime
+            Tally &amp; GST
           </span>{" "}
-          &amp; Practical{" "}
+          Course &amp;{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">
             Accounting
           </span>{" "}
-          Course
+          Training
           <br />
           <span className="text-2xl sm:text-3xl font-semibold text-slate-300">
-            near Barrackpore, Ichapore &amp; Barasat
+            near Barrackpore, Titagarh &amp; 700121
           </span>
         </>
       }
-      heroSubtitle="Master TallyPrime bookkeeping, inventory management, payroll, GST return filing from Tally, TDS entries, and final accounts preparation with real company ledgers. Serving Barrackpore, Sodepore, Ichapore, Barasat & Sreerampore — Pin 700122."
+      heroSubtitle="Master TallyPrime bookkeeping, inventory management, payroll, live GST return filing (GSTR-1, GSTR-3B) from Tally, TDS entries, and final accounts preparation with real company ledgers. Serving Barrackpore, Titagarh, Sodepore, Barasat & Pin 700121 / 700122."
       highlights={[
         { icon: "📊", label: "Software", value: "TallyPrime" },
         { icon: "🏢", label: "Real Company", value: "Live Data" },
