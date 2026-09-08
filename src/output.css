@@ -15310,6 +15310,12 @@
       color: color-mix(in oklab, var(--color-amber-400) 80%, transparent);
     }
   }
+  .text-amber-400\/90 {
+    color: color-mix(in srgb, oklch(82.8% 0.189 84.429) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-amber-400) 90%, transparent);
+    }
+  }
   .text-amber-500 {
     color: var(--color-amber-500);
   }
@@ -15478,6 +15484,12 @@
       color: color-mix(in oklab, var(--color-emerald-500) 80%, transparent);
     }
   }
+  .text-emerald-500\/90 {
+    color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-emerald-500) 90%, transparent);
+    }
+  }
   .text-emerald-600 {
     color: var(--color-emerald-600);
   }
@@ -15513,6 +15525,12 @@
   }
   .text-fuchsia-400 {
     color: var(--color-fuchsia-400);
+  }
+  .text-fuchsia-400\/90 {
+    color: color-mix(in srgb, oklch(74% 0.238 322.16) 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-fuchsia-400) 90%, transparent);
+    }
   }
   .text-fuchsia-500 {
     color: var(--color-fuchsia-500);

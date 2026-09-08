@@ -1,0 +1,29 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 2 - SCIPY VS NUMPY
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. CORE ARCHITECTURAL ROLES:
+--------------------------------------------------------------------------------
+| Feature                | NumPy                                | SciPy                                   |
+|------------------------|--------------------------------------|-----------------------------------------|
+| Primary Data Structure | `np.ndarray`                         | Uses NumPy `ndarray`                    |
+| Functional Scope       | Fundamental array ops, indexing,    | High-level scientific algorithms,       |
+|                        | basic math, simple linear algebra   | distributions, spatial metrics, solvers |
+| Linear Algebra         | `numpy.linalg` (subset)              | `scipy.linalg` (full LAPACK/BLAS suite) |
+| Statistical Tools      | `mean`, `std`, `var`, `median`       | `zscore`, `skew`, `kurtosis`, `ttest`   |
+| Sparse Matrices        | No native support                    | `scipy.sparse` (CSR, CSC, COO, DOK)     |
+| Optimization Routines  | None                                 | `scipy.optimize` (BFGS, Nelder-Mead)    |
+
+2. WHEN TO USE NUMPY VS SCIPY:
+--------------------------------------------------------------------------------
+- Use NumPy when:
+  * Creating, indexing, reshaping, slicing, or broadcasting multi-dimensional arrays.
+  * Performing basic vector/matrix arithmetic (+, -, *, dot product).
+- Use SciPy when:
+  * Performing hypothesis testing, calculating p-values or z-scores (`scipy.stats`).
+  * Computing pairwise distances (Euclidean, Manhattan, Cosine) for ML (`scipy.spatial`).
+  * Solving systems of linear equations, LU/QR decomposition (`scipy.linalg`).
+  * Minimizing cost/loss functions or performing curve fitting (`scipy.optimize`).
+  * Handling high-dimensional sparse feature matrices in NLP / recommendation systems.

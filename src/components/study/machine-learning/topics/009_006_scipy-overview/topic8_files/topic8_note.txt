@@ -1,0 +1,38 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 8 - SCIPY.SPATIAL: DISTANCE METRICS
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS SCIPY.SPATIAL?
+--------------------------------------------------------------------------------
+- `scipy.spatial` and `scipy.spatial.distance` provide optimized algorithms
+  for computing spatial geometric relationships, distances, and spatial index trees.
+
+2. CORE DISTANCE FORMULAS:
+--------------------------------------------------------------------------------
+1. Euclidean Distance (L2 norm):
+   d(u, v) = \sqrt{\sum_{i=1}^n (u_i - v_i)^2}
+   Function: `distance.euclidean(u, v)`
+
+2. Manhattan / Cityblock Distance (L1 norm):
+   d(u, v) = \sum_{i=1}^n |u_i - v_i|
+   Function: `distance.cityblock(u, v)` (preferred for high-dimensional or grid data).
+
+3. Chebyshev Distance (L_\infty norm):
+   d(u, v) = \max_i |u_i - v_i| (chessboard king moves).
+   Function: `distance.chebyshev(u, v)`
+
+4. Cosine Distance:
+   d(u, v) = 1 - \frac{u \cdot v}{||u||_2 ||v||_2}
+   Function: `distance.cosine(u, v)` (essential for text embeddings & TF-IDF vectors).
+
+5. Minkowski Distance (L_p generalized norm):
+   d(u, v) = \left( \sum_{i=1}^n |u_i - v_i|^p \right)^{1/p}
+   Function: `distance.minkowski(u, v, p=p)`
+
+3. BATCH MATRIX TOOLS:
+--------------------------------------------------------------------------------
+- `cdist(XA, XB, metric='euclidean')`: Computes distance between each pair of the two collections.
+- `pdist(X, metric='cityblock')`      : Computes pairwise distances between observations in n-D space.
+- `KDTree(data)`                      : Spatial binary partitioning tree for $O(\log N)$ nearest-neighbor queries.

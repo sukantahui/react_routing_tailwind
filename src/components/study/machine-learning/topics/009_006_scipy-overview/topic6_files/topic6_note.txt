@@ -1,0 +1,36 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 6 - HYPOTHESIS TESTING BASICS
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS STATISTICAL HYPOTHESIS TESTING?
+--------------------------------------------------------------------------------
+- A formal mathematical method to decide whether experimental evidence in sample data
+  is genuinely real or simply due to random chance.
+
+2. CORE CONCEPTS:
+--------------------------------------------------------------------------------
+- Null Hypothesis (H0)        : Statement of no effect, no difference, or status quo.
+- Alternative Hypothesis (H1) : Statement that an effect or significant difference exists.
+- Significance Level (\alpha) : Probability of committing Type I Error (standard = 0.05 or 5%).
+- p-Value                     : Probability of obtaining test results at least as extreme
+                                as observed, assuming H0 is true.
+
+3. THE DECISION RULE:
+--------------------------------------------------------------------------------
+- If p-value < \alpha (e.g. 0.05) : Reject H0 (Result is statistically significant).
+- If p-value \ge \alpha           : Fail to reject H0 (Insufficient evidence).
+
+4. ERROR TAXONOMY (RELATION TO ML):
+--------------------------------------------------------------------------------
+- Type I Error (\alpha) : False Positive (Rejecting a true H0 - claiming a feature is
+                          useful when it is actually random noise).
+- Type II Error (\beta) : False Negative (Failing to reject a false H0 - missing a true signal).
+- Statistical Power (1-\beta): Probability of correctly detecting an actual effect.
+
+5. HYPOTHESIS TESTING IN MACHINE LEARNING:
+--------------------------------------------------------------------------------
+- Feature Selection: ANOVA / F-tests to select features correlated with targets.
+- A/B Testing: Evaluating if model update v2 significantly outperforms model v1.
+- Algorithm Comparison: Paired t-tests on cross-validation folds.

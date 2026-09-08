@@ -1,0 +1,37 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 5 - NORMAL DISTRIBUTION AND Z-SCORES
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS A Z-SCORE?
+--------------------------------------------------------------------------------
+- The standard score (Z-score) measures how many standard deviations ($\sigma$) an 
+  individual data point ($x$) lies above or below the population mean ($\mu$).
+- Formula:
+        Z = (x - \mu) / \sigma
+- In SciPy:
+        from scipy import stats
+        z_array = stats.zscore(data)
+
+2. PROPERTIES OF Z-SCORE TRANSFORMED DATA:
+--------------------------------------------------------------------------------
+- Mean of Z-scores is ALWAYS 0.
+- Standard deviation and variance of Z-scores is ALWAYS 1.
+- Unitless: Allows fair comparison of variables on completely different units
+  (e.g., comparing annual salary in ₹ Lakhs with age in years).
+
+3. THE EMPIRICAL RULE (68 - 95 - 99.7):
+--------------------------------------------------------------------------------
+- In any true Gaussian normal distribution:
+  * 68.27% of observations fall within $\mu \pm 1\sigma$ ($|Z| \le 1$).
+  * 95.45% of observations fall within $\mu \pm 2\sigma$ ($|Z| \le 2$).
+  * 99.73% of observations fall within $\mu \pm 3\sigma$ ($|Z| \le 3$).
+- Values with $|Z| > 3.0$ are statistically rare ($< 0.27\%$) and typically 
+  classified as anomalies or data entry errors.
+
+4. DIFFERENCE WITH SCIKIT-LEARN STANDARDSCALER:
+--------------------------------------------------------------------------------
+- `stats.zscore(X)` computes z-scores directly on the given dataset array.
+- `sklearn.preprocessing.StandardScaler` is an estimator that stores `mean_` and `var_`
+  to apply the exact same transformation later on unseen test/production data.

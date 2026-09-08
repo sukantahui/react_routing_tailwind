@@ -1,0 +1,34 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 4 - SCIPY.STATS: PROBABILITY DISTRIBUTIONS
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. CONTINUOUS VS DISCRETE DISTRIBUTIONS:
+--------------------------------------------------------------------------------
+- Continuous (infinite measurable values):
+  * `stats.norm(loc, scale)`     : Gaussian/Normal (weights, errors, heights).
+  * `stats.uniform(loc, scale)`  : Flat rectangular distribution.
+  * `stats.expon(scale)`         : Exponential waiting times / survival.
+  * `stats.t(df, loc, scale)`    : Student's t distribution (small samples).
+  * `stats.chi2(df)`             : Chi-square goodness-of-fit.
+- Discrete (countable occurrences):
+  * `stats.binom(n, p)`          : Number of successes in n Bernoulli trials.
+  * `stats.poisson(mu)`          : Count of independent events in interval.
+  * `stats.bernoulli(p)`         : Single binary outcome (0 or 1).
+
+2. THE UNIVERSAL 6-METHOD API:
+--------------------------------------------------------------------------------
+1. `dist.pdf(x)` / `dist.pmf(k)` : Height of density or exact probability mass.
+2. `dist.cdf(x)`                 : Cumulative probability $P(X \le x)$.
+3. `dist.sf(x)`                  : Survival function $P(X > x) = 1 - CDF(x)$.
+4. `dist.ppf(q)`                 : Percent Point Function / Quantiles (Inverse CDF).
+5. `dist.rvs(size)`              : Generate random pseudo-sample numbers.
+6. `dist.fit(data)`              : Fits distribution parameters to empirical data.
+
+3. ROLE IN MACHINE LEARNING:
+--------------------------------------------------------------------------------
+- Generative Classifiers: Naive Bayes estimates Gaussian feature probabilities.
+- Hyperparameter Tuning: `scipy.stats.uniform` and `loguniform` define search spaces
+  in RandomizedSearchCV.
+- Anomaly Detection: Fitting distribution and evaluating PDF thresholds.

@@ -1,0 +1,32 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 3 - SCIPY.STATS: DESCRIPTIVE STATISTICS
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS SCIPY.STATS DESCRIPTIVE SUITE?
+--------------------------------------------------------------------------------
+- Goes far beyond standard mean/median by computing higher-order statistical moments,
+  robust central tendencies, and shape characteristics of ML features.
+
+2. CORE DESCRIPTIVE FUNCTIONS:
+--------------------------------------------------------------------------------
+- `stats.describe(a)`     : Computes sample size, minmax range, mean, variance,
+                            skewness, and kurtosis in a single optimized pass.
+- `stats.trim_mean(a, p)` : Robust mean after trimming `p` proportion of extremes
+                            from both tails (e.g., handles salary/price outliers).
+- `stats.gmean(a)`        : Geometric mean (multiplicative datasets, ratios, growth).
+- `stats.hmean(a)`        : Harmonic mean (rates, speeds, F1-score formula foundation).
+- `stats.mode(a)`         : Returns the most frequent value and its count.
+- `stats.iqr(a)`          : Interquartile Range (Q3 - Q1), basis of box plots.
+- `stats.skew(a)`         : 3rd standardized moment. Measure of distribution asymmetry:
+                            * Skew > 0: Right (positive) tail is longer.
+                            * Skew < 0: Left (negative) tail is longer.
+- `stats.kurtosis(a)`     : 4th standardized moment (Fisher's definition by default,
+                            where Normal = 0.0). Measure of tail weight and outlier propensity.
+
+3. WHY THIS MATTERS FOR MACHINE LEARNING:
+--------------------------------------------------------------------------------
+- Linear and Logistic Regression assume normality of residuals and low collinearity/skew.
+- Detecting high positive skewness (`skew > 0.75`) signals the data engineer to apply
+  Box-Cox, Yeo-Johnson, or Logarithmic transformation before model fitting.

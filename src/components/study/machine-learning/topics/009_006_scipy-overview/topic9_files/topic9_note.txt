@@ -1,0 +1,35 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 9 - SCIPY.LINALG: BASIC LINEAR ALGEBRA
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS SCIPY.LINALG?
+--------------------------------------------------------------------------------
+- Contains the full suite of LAPACK (Linear Algebra Package) and BLAS (Basic Linear
+  Algebra Subprograms) routines compiled in Fortran and C.
+- Always preferred over `numpy.linalg` in scientific and ML workflows.
+
+2. CORE MATRIX ROUTINES:
+--------------------------------------------------------------------------------
+1. `linalg.solve(A, b)`:
+   - Solves $A x = b$ in $O(N^3/3)$ using LU factorization.
+   - Numerically superior and ~2x faster than calculating `linalg.inv(A) @ b`.
+
+2. `linalg.inv(A)`:
+   - Computes explicit inverse $A^{-1}$ such that $A A^{-1} = I$.
+   - Matrix must be square and non-singular ($\det(A) \ne 0$).
+
+3. `linalg.det(A)`:
+   - Determinant of square matrix $A$.
+
+4. `linalg.eig(A)`:
+   - Computes eigenvalues $\lambda$ and eigenvectors $v$ such that $A v = \lambda v$.
+   - Foundation for Principal Component Analysis (PCA) and Spectral Clustering.
+
+5. `linalg.svd(A)`:
+   - Singular Value Decomposition: factorizes any matrix into $A = U \Sigma V^T$.
+   - Backbone of dimensionality reduction, recommender systems, and pseudoinverse.
+
+6. `linalg.lu(A)`:
+   - LU Decomposition $P L U = A$ (Lower and Upper triangular matrices).

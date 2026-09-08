@@ -1,0 +1,22 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 13 - PRACTICE PROBLEMS
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. PRACTICE EXERCISE SUMMARY:
+--------------------------------------------------------------------------------
+- Problem 1 (Statistics & Testing): Calculate descriptive statistics, skewness,
+  and perform independent two-sample Welch's t-tests.
+- Problem 2 (Spatial & Nearest Facility): Use `scipy.spatial.distance.cdist` to
+  solve facility location and nearest-neighbor dispatch routing.
+- Problem 3 (Linear Algebra & Optimization): Solve simultaneous linear equation systems
+  with `scipy.linalg.solve` and minimize multi-parameter convex losses using `scipy.optimize.minimize`.
+
+2. EXAM & INTERVIEW CHECKLIST:
+--------------------------------------------------------------------------------
+- Always verify matrix determinant is non-zero before attempting matrix inversion.
+- Check p-value threshold against $\alpha=0.05$ for hypothesis decisions.
+- Use `scipy.spatial.distance.cdist` for batch matrix distance operations.
+- Prefer `scipy.linalg.solve(A, b)` over `inv(A) @ b` for numerical stability.
+================================================================================

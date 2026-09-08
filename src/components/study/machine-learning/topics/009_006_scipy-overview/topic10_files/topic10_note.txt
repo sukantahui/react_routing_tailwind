@@ -1,0 +1,33 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 10 - SCIPY.OPTIMIZE: MINIMIZATION CONCEPT
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS SCIPY.OPTIMIZE?
+--------------------------------------------------------------------------------
+- Provides algorithms for finding the minima (or roots) of objective functions,
+  crucial for training machine learning algorithms (e.g. minimizing loss/cost functions).
+
+2. CORE OPTIMIZATION ROUTINES:
+--------------------------------------------------------------------------------
+1. `optimize.minimize_scalar(fun)`:
+   - Finds minimum of a 1D scalar function $f(x)$ using Golden Section or Brent's method.
+
+2. `optimize.minimize(fun, x0, method=...)`:
+   - Universal solver for multi-variable loss functions.
+   - Algorithms:
+     * `'BFGS'` / `'L-BFGS-B'`: Quasi-Newton method using approximate Hessian (used in
+       Scikit-learn's LogisticRegression solver).
+     * `'Nelder-Mead'`: Gradient-free simplex algorithm for non-differentiable losses.
+     * `'SLSQP'`: Sequential Least SQuares Programming for constrained optimization.
+
+3. `optimize.curve_fit(func, xdata, ydata, p0=...)`:
+   - Uses Levenberg-Marquardt or Trust Region Reflective non-linear least squares to
+     estimate optimal parameters for arbitrary non-linear mathematical equations.
+
+3. HOW MACHINE LEARNING RELIES ON OPTIMIZATION:
+--------------------------------------------------------------------------------
+- Linear Regression minimizes Ordinary Least Squares (MSE).
+- Logistic Regression minimizes Log-Loss (Binary Cross-Entropy) using L-BFGS.
+- Neural Networks use Gradient Descent variants (SGD, Adam) based on first-order derivatives.

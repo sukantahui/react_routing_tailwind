@@ -1,0 +1,39 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 0 - INTRODUCTION TO SCIPY
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS SCIPY?
+--------------------------------------------------------------------------------
+- SciPy (pronounced "Sigh Pie") is the fundamental open-source Python library
+  for scientific computing, advanced mathematics, signal processing, and machine
+  learning foundations.
+- Created by Travis Oliphant, Pearu Peterson, and Eric Jones (2001).
+- Built on top of NumPy, utilizing optimized compiled libraries (LAPACK, BLAS,
+  ARPACK, FFTPACK) written in C/Fortran for maximum execution speed.
+
+2. CORE SCIPY SUBPACKAGES & ROLES IN MACHINE LEARNING:
+--------------------------------------------------------------------------------
+1. scipy.stats    : Descriptive statistics, continuous/discrete distributions,
+                    hypothesis testing (t-test, ANOVA, chi-square), z-scores.
+2. scipy.spatial  : Distance metrics (Euclidean, Manhattan, Cosine, Minkowski),
+                    KD-trees, Voronoi diagrams, Delaunay triangulation.
+3. scipy.linalg   : Advanced matrix operations, LU/QR/SVD decomposition, eigenvalue
+                    problems, matrix inverses, and system of linear equations.
+4. scipy.optimize : Function minimization, loss curve optimization (BFGS, Nelder-Mead),
+                    curve fitting (`curve_fit`), root finding.
+5. scipy.integrate: Numerical calculus, definite integrals, ordinary differential
+                    equations (ODEs).
+6. scipy.signal   : Signal filtering, Fourier analysis, convolution, spectrograms.
+7. scipy.ndimage  : Multidimensional image filters, morphology, segmentation.
+8. scipy.special  : Mathematical special functions (Gamma, Beta, Bessel, Error).
+
+3. SCIPY VS NUMPY RELATIONSHIP:
+--------------------------------------------------------------------------------
+- NumPy provides the basic N-dimensional array object (`ndarray`) and basic element-wise
+  arithmetic operations.
+- SciPy provides high-level scientific and mathematical algorithms that operate on
+  those NumPy ndarrays.
+- Machine learning libraries like Scikit-Learn rely internally on SciPy for distance
+  computations, sparse matrix operations (`scipy.sparse`), and numerical optimization.

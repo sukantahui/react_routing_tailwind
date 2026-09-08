@@ -1,0 +1,29 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 14 - SHORT QUESTIONS & VIVA GUIDE
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. HIGH-FREQUENCY TECHNICAL VIVA QUESTIONS:
+--------------------------------------------------------------------------------
+Q1: What is SciPy and how does it relate to NumPy?
+A1: SciPy is a scientific computing library built on top of NumPy. While NumPy
+    provides the fundamental `ndarray` object and basic math, SciPy implements
+    advanced compiled scientific algorithms (stats, spatial, linalg, optimize).
+
+Q2: What is the difference between `scipy.spatial.distance.cdist` and `pdist`?
+A2: `cdist(XA, XB)` computes cross-distances between two separate matrix collections.
+    `pdist(X)` computes pairwise distances between observations within a single matrix.
+
+Q3: What is the difference between PDF and CDF in `scipy.stats`?
+A3: `pdf(x)` gives the relative likelihood/density at point x.
+    `cdf(x)` gives the cumulative probability $P(X \le x)$ up to point x.
+
+Q4: What is a Z-score and why is it useful in Machine Learning?
+A4: $Z = (X - \mu) / \sigma$. It standardizes feature scales to mean=0 and std=1,
+    preventing scale bias in distance-based models (KNN, K-Means, SVM).
+
+Q5: Why is `scipy.linalg.solve(A, b)` preferred over `inv(A) @ b`?
+A5: Direct LU solving is ~2x faster and avoids numerical instability/truncation errors
+    inherent to explicit matrix inversion.
+================================================================================

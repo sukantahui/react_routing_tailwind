@@ -1,0 +1,22 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 11 - WORKED EXAMPLE 1: COMPUTING Z-SCORES WITH SCIPY
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. STEP-BY-STEP OUTLIER FILTERING WORKFLOW:
+--------------------------------------------------------------------------------
+1. Collect raw numerical training feature matrix $X$.
+2. Compute column-wise or feature-wise z-scores using `scipy.stats.zscore(X, axis=0)`.
+3. Establish a standard statistical threshold:
+   - $|Z| > 2.0$ : Aggressive cleaning (filters top ~5% of distribution).
+   - $|Z| > 2.5$ : Moderate balanced threshold (filters top ~1.2%).
+   - $|Z| > 3.0$ : Conservative 3-sigma standard rule (filters top ~0.27%).
+4. Construct boolean mask: `outliers = np.abs(z_scores) > threshold`.
+5. Remove corrupted entries: `clean_X = X[~outliers]`.
+
+2. REAL-WORLD DATA ENGINEERING BENEFITS:
+--------------------------------------------------------------------------------
+- Prevents gradient explosions in Deep Learning.
+- Eliminates severe leverage points in Ordinary Least Squares (OLS) Linear Regression.
+- Stabilizes K-Means centroid positions (which are sensitive to distant outliers).

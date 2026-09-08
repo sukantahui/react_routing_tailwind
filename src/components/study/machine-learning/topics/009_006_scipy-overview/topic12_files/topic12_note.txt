@@ -1,0 +1,27 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 12 - WORKED EXAMPLE 2: EUCLIDEAN DISTANCE WITH SCIPY.SPATIAL
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. THE ROLE OF EUCLIDEAN DISTANCE IN MACHINE LEARNING:
+--------------------------------------------------------------------------------
+- K-Nearest Neighbors (KNN): Classifies an unknown sample by finding the $K$ closest
+  training points in feature space.
+- K-Means Clustering: Assigns data points to the nearest centroid using
+  $\arg\min_k ||x - \mu_k||_2$.
+- Recommender Systems: Computes feature vector similarity between products/movies.
+
+2. WHY USE SCIPY.SPATIAL OVER MANUAL LOOPS?
+--------------------------------------------------------------------------------
+- Writing nested Python loops to compute pairwise distances between $M$ test samples
+  and $N$ training samples scales at $O(M \times N \times D)$ and is painfully slow in pure Python.
+- `scipy.spatial.distance.cdist(X_test, X_train, metric='euclidean')` compiles this
+  matrix computation directly into vectorized C routines with hardware SIMD instructions.
+
+3. BEST PRACTICE NOTE:
+--------------------------------------------------------------------------------
+- Always standardize features with `scipy.stats.zscore` before computing Euclidean distance,
+  otherwise features with large numerical ranges (e.g. Salary ₹50,000) will completely
+  dominate features with smaller ranges (e.g. Age 25).
+================================================================================

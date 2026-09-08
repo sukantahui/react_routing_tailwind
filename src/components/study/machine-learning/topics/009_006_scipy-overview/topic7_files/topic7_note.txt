@@ -1,0 +1,29 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 7 - SCIPY.STATS.TTEST_IND AND TTEST_1SAMP
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. THE THREE STUDENT'S T-TEST VARIANTS IN SCIPY:
+--------------------------------------------------------------------------------
+1. `stats.ttest_1samp(a, popmean)`:
+   - Compares the sample mean of vector `a` against a known benchmark scalar `popmean`.
+   - Null Hypothesis $H_0: \mu = \mu_0$.
+
+2. `stats.ttest_ind(a, b, equal_var=False)`:
+   - Compares means between two independent, unrelated groups `a` and `b`.
+   - Setting `equal_var=False` performs Welch's t-test (which does not assume equal
+     population variances - standard industry recommendation).
+   - Null Hypothesis $H_0: \mu_A = \mu_B$.
+
+3. `stats.ttest_rel(a, b)`:
+   - Compares two paired, dependent measurements on the exact same subjects or folds
+     (e.g., comparing Model A vs Model B on the exact same 10 CV test folds).
+
+2. PRACTICAL MACHINE LEARNING USE CASES:
+--------------------------------------------------------------------------------
+- Model Benchmark Validation: Determining if accuracy gain (+1.8%) from hyperparameter
+  tuning is statistically real or a random fluke.
+- A/B Testing Web Deployments: Testing conversion rate changes between UI designs.
+- Feature Target Independence: Assessing whether binary classification target labels
+  exhibit significantly different feature means.

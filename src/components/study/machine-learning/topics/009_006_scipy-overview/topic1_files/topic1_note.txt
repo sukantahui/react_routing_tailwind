@@ -1,0 +1,34 @@
+================================================================================
+SCIPY OVERVIEW: TOPIC 1 - INSTALLING AND IMPORTING SCIPY
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. INSTALLATION METHODS:
+--------------------------------------------------------------------------------
+- Standard Pip:
+    pip install -U scipy
+- Anaconda / Conda Forge:
+    conda install -c conda-forge scipy
+- Poetry / Pipenv:
+    poetry add scipy
+
+2. THE EXPLICIT IMPORT RULE (CRITICAL GOTCHA):
+--------------------------------------------------------------------------------
+- In Python, running `import scipy` does NOT automatically populate submodules into
+  the namespace.
+- Doing `scipy.stats.norm` after just `import scipy` will raise an AttributeError!
+- Always import subpackages explicitly:
+    from scipy import stats
+    from scipy import spatial
+    from scipy import linalg
+    from scipy import optimize
+
+3. HARDWARE ACCELERATION & BACKENDS:
+--------------------------------------------------------------------------------
+- SciPy automatically links against OpenBLAS, MKL, or Apple Accelerate.
+- Inspect version info:
+    import scipy
+    print(scipy.__version__)
+- Inspecting configurations:
+    scipy.show_config()
