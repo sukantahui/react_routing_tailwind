@@ -169,6 +169,13 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           desc: "System configuration & logs",
           icon: "bi-shield-lock-fill",
         },
+        {
+          to: "/bijoya",
+          label: "Manage Guests (Bijoya 2026)",
+          desc: "Maitri Mahotsav guests, digital passes, edit, delete & WhatsApp",
+          icon: "bi-person-lines-fill",
+          badge: "Event",
+        },
         ...(isAdmin
           ? [
               {
@@ -972,6 +979,45 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                 </AnimatePresence>
               </div>
 
+              {/* SPECIAL FESTIVE LINK: BIJOYA 2026 GUEST MANAGEMENT */}
+              <NavLink
+                to="/bijoya"
+                onClick={closeAllDropdowns}
+                className={({ isActive }) =>
+                  `relative group inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-medium transition-all duration-300 overflow-hidden ${
+                    isActive
+                      ? "text-amber-200 bg-gradient-to-r from-amber-500/25 via-rose-500/25 to-purple-500/25 border border-amber-400/60 shadow-lg shadow-amber-500/20 font-semibold"
+                      : "text-amber-300 hover:text-amber-100 bg-gradient-to-r from-amber-500/15 via-rose-500/10 to-purple-500/15 hover:from-amber-500/25 hover:via-rose-500/20 hover:to-purple-500/25 border border-amber-500/35 hover:border-amber-400/70 shadow-sm shadow-amber-500/10 hover:shadow-md hover:shadow-amber-500/20 hover:scale-[1.02] active:scale-95"
+                  }`
+                }
+                title="Maitri Mahotsav 2026 - Manage Guests, Passes & WhatsApp Invites"
+              >
+                {/* Animated Shimmer beam */}
+                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none" />
+
+                {/* Pulsing Live Dot */}
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.9)]"></span>
+                </span>
+
+                {/* Celebration Icon */}
+                <span className="text-sm select-none group-hover:scale-110 group-hover:rotate-12 transition-transform duration-200">
+                  🌸
+                </span>
+
+                {/* Text Label */}
+                <span className="font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-rose-200 to-amber-100 whitespace-nowrap">
+                  Bijoya 2026
+                </span>
+
+                {/* Guest Pass Chip */}
+                <span className="hidden xl:inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-[9px] font-extrabold uppercase tracking-wider bg-gradient-to-r from-amber-500/30 to-rose-500/30 text-amber-300 border border-amber-400/40">
+                  <i className="bi bi-people-fill text-[9px] text-amber-400"></i>
+                  Guests
+                </span>
+              </NavLink>
+
             </nav>
 
             {/* 3. RIGHT CONTROLS: SEARCH SPOTLIGHT, USER PROFILE & LOGOUT */}
@@ -1096,6 +1142,14 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                           <i className="bi bi-shield-lock text-amber-400 text-sm"></i>
                           <span>Admin Control Panel</span>
                         </NavLink>
+                        <NavLink
+                          to="/bijoya"
+                          onClick={closeAllDropdowns}
+                          className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-amber-300 hover:text-amber-100 hover:bg-amber-500/10 border border-transparent hover:border-amber-500/20 transition"
+                        >
+                          <i className="bi bi-person-lines-fill text-amber-400 text-sm"></i>
+                          <span>Manage Guests (Bijoya 2026)</span>
+                        </NavLink>
                         {isAdmin && (
                           <NavLink
                             to="/admin/backups"
@@ -1179,6 +1233,24 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
           >
             <i className="bi bi-speedometer2 text-sky-400"></i>
             <span>Dashboard</span>
+          </NavLink>
+
+          {/* Special Festive Bijoya Link on Mobile */}
+          <NavLink
+            to="/bijoya"
+            className={({ isActive }) =>
+              `flex items-center gap-1.5 px-2.5 py-1 rounded-lg whitespace-nowrap transition font-semibold text-[11px] ${
+                isActive
+                  ? "bg-gradient-to-r from-amber-500/30 to-rose-500/30 text-amber-200 border border-amber-400/50 shadow-sm"
+                  : "bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 text-amber-300 hover:text-white border border-amber-500/35"
+              }`
+            }
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400"></span>
+            </span>
+            <span>🌸 Bijoya Guests</span>
           </NavLink>
 
           <button
@@ -1518,6 +1590,37 @@ const AuthNavBar = ({ setIsLoggedIn }) => {
                         </div>
                       </div>
                       <i className="bi bi-chevron-right text-slate-500 text-xs"></i>
+                    </NavLink>
+                  )}
+
+                  {/* SPECIAL BIJOYA 2026 GUEST MANAGEMENT TILE */}
+                  {(mobileTab === "all" || mobileTab === "master") && (
+                    <NavLink
+                      to="/bijoya"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={({ isActive }) =>
+                        `flex items-center justify-between p-3 rounded-2xl border transition-all duration-150 ${
+                          isActive
+                            ? "bg-amber-500/20 text-amber-200 border-amber-500/40 shadow-sm"
+                            : "bg-gradient-to-r from-amber-500/15 via-rose-500/10 to-purple-500/15 text-slate-300 hover:text-white border-amber-500/30"
+                        }`
+                      }
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center text-base">
+                          <span>🌸</span>
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <p className="text-xs font-bold text-amber-300">Bijoya 2026 Guests</p>
+                            <span className="text-[9px] px-1.5 py-0.2 rounded-full font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                              Admin
+                            </span>
+                          </div>
+                          <p className="text-[10px] text-slate-400">Manage guests, passes, edit, delete & WhatsApp</p>
+                        </div>
+                      </div>
+                      <i className="bi bi-chevron-right text-amber-400 text-xs"></i>
                     </NavLink>
                   )}
 

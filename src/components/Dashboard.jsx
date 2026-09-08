@@ -208,6 +208,43 @@ export default function Dashboard() {
           </p>
         </motion.div>
 
+        {/* Event Quick Access Banner: Bijoya 2026 Guest Management */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-600/20 border border-amber-500/30 p-4 sm:p-5 shadow-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+        >
+          <div className="flex items-start sm:items-center gap-3.5">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-rose-500 flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 flex-shrink-0">
+              🌸
+            </div>
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <h3 className="text-base sm:text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-rose-200 to-amber-100">
+                  Maitri Mahotsav 2026 • Bijoya Guest Portal
+                </h3>
+                <span className="px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wider rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">
+                  Admin Active
+                </span>
+              </div>
+              <p className="text-xs text-slate-300 mt-0.5">
+                Manage attendee passes, perform admin edits, delete registrations, and broadcast WhatsApp invitation & custom messages.
+              </p>
+            </div>
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => navigate("/bijoya")}
+            className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 hover:from-amber-400 hover:to-purple-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 transition cursor-pointer whitespace-nowrap"
+          >
+            <i className="bi bi-people-fill"></i>
+            <span>Manage Guests & Passes</span>
+            <i className="bi bi-arrow-right"></i>
+          </motion.button>
+        </motion.div>
+
         {/* Stats Cards */}
         <motion.div
           initial={{ opacity: 0 }}

@@ -38,8 +38,14 @@ import {
   Ticket,
   Clock,
   Camera,
+  Send,
+  X,
+  LogIn,
+  LogOut,
+  Shield,
 } from "lucide-react";
 import { authService } from "../api/auth.service";
+import { loginService } from "../services/loginService";
 import qr from "../assets/google_review_QR.png";
 import maitriLogo from "../assets/maitri-mahotsav-27.png";
 
@@ -128,6 +134,26 @@ export default function Bijoya() {
   const [copiedToken, setCopiedToken] = useState(false);
   const [isSavingJpeg, setIsSavingJpeg] = useState(false);
 
+  // Admin and Authentication State
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [showAdminLoginModal, setShowAdminLoginModal] = useState(false);
+  const [adminLoginForm, setAdminLoginForm] = useState({
+    email: "",
+    password: "",
+    error: "",
+    loading: false,
+    showPassword: false,
+  });
+
+  // WhatsApp Messaging Modal State
+  const [isMessageModalOpen, setIsMessageModalOpen] = useState(false);
+  const [messageRecipient, setMessageRecipient] = useState(null);
+  const [selectedTemplate, setSelectedTemplate] = useState("invitation"); // 'invitation' | 'reminder' | 'confirmation' | 'feedback' | 'custom'
+  const [customMessageText, setCustomMessageText] = useState("");
+  const [selectedPhoneType, setSelectedPhoneType] = useState("wp"); // 'wp' | 'mobile'
+  const [copiedCustomMessage, setCopiedCustomMessage] = useState(false);
+
   const formRef = useRef(null);
   const ticketRef = useRef(null);
 
@@ -190,14 +216,136 @@ export default function Bijoya() {
 
 
   // Check login status on mount & listen to storage
+  const checkAuth = () => {
+    const token = localStorage.getItem("token");
+    const rawUser = localStorage.getItem("user");
+    let parsedUser = null;
+    try {
+      parsedUser = rawUser ? JSON.parse(rawUser) : null;
+    } catch {
+      parsedUser = null;
+    }
+
+    const loggedIn = Boolean(token);
+    setIsLoggedIn(loggedIn);
+    setCurrentUser(parsedUser);
+
+    const role = (
+      parsedUser?.userType?.userTypeName ||
+      parsedUser?.role ||
+      parsedUser?.roleName ||
+      parsedUser?.user_type ||
+      ""
+    ).toLowerCase();
+
+    // Any logged in user with a token is granted admin powers on the Bijoya portal
+    const hasAdminRole =
+      loggedIn &&
+      (!role ||
+        ["admin", "developer", "owner", "manager", "superadmin", "faculty", "staff"].some((r) =>
+          role.includes(r)
+        ));
+    setIsAdmin(hasAdminRole);
+  };
+
   useEffect(() => {
-    const checkAuth = () => {
-      setIsLoggedIn(Boolean(localStorage.getItem("token")));
-    };
     checkAuth();
     window.addEventListener("storage", checkAuth);
-    return () => window.removeEventListener("storage", checkAuth);
+    window.addEventListener("authChanged", checkAuth);
+    return () => {
+      window.removeEventListener("storage", checkAuth);
+      window.removeEventListener("authChanged", checkAuth);
+    };
   }, []);
+
+  // Admin Login Handler
+  const handleAdminLogin = async (e) => {
+    e.preventDefault();
+    setAdminLoginForm((prev) => ({ ...prev, error: "", loading: true }));
+
+    try {
+      const res = await loginService.login({
+        email: adminLoginForm.email.trim(),
+        password: adminLoginForm.password,
+      });
+
+      let responseData = res;
+      if (typeof responseData === "string") {
+        try {
+          responseData = JSON.parse(responseData.replace(/^\uFEFF/, "").trim());
+        } catch {
+          // ignore
+        }
+      }
+
+      if (responseData?.status && responseData?.data?.token) {
+        const { token, user } = responseData.data;
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        try {
+          window.dispatchEvent(new Event("storage"));
+          window.dispatchEvent(new Event("authChanged"));
+        } catch {
+          // ignore
+        }
+
+        checkAuth();
+        setShowAdminLoginModal(false);
+        setAdminLoginForm({ email: "", password: "", error: "", loading: false, showPassword: false });
+
+        Swal.fire({
+          ...getBijoyaSwalTheme(),
+          title: "Admin Access Granted! 🛡️",
+          text: `Welcome, ${user?.userName || user?.name || "Administrator"}. You now have full admin powers.`,
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+      } else {
+        setAdminLoginForm((prev) => ({
+          ...prev,
+          loading: false,
+          error: responseData?.message || "Invalid credentials. Please try again.",
+        }));
+      }
+    } catch (err) {
+      console.error("Admin login failed:", err);
+      const errMsg =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Login failed. Please check your credentials.";
+      setAdminLoginForm((prev) => ({
+        ...prev,
+        loading: false,
+        error: errMsg,
+      }));
+    }
+  };
+
+  // Admin Logout Handler
+  const handleAdminLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    try {
+      window.dispatchEvent(new Event("storage"));
+      window.dispatchEvent(new Event("authChanged"));
+    } catch {
+      // ignore
+    }
+    checkAuth();
+    if (isEdit) {
+      cancelEdit();
+    }
+    Swal.fire({
+      ...getBijoyaSwalTheme(),
+      title: "Logged Out",
+      text: "Admin mode exited.",
+      icon: "info",
+      timer: 1800,
+      showConfirmButton: false,
+    });
+  };
 
   // Fetch all guests on mount
   useEffect(() => {
@@ -243,12 +391,23 @@ export default function Bijoya() {
   const isWpValid = /^\d{10,}$/.test(formData.wpNumber.replace(/\D/g, ""));
   const isPinValid = /^\d{4}$/.test(formData.pin);
   const isPinMatched = isEdit
-    ? isPinValid && (!storedPin || formData.pin === storedPin)
+    ? (isAdmin || (isPinValid && (!storedPin || formData.pin === storedPin)))
     : isPinValid && formData.pin === formData.confirmPin;
   const isGenderValid = Boolean(formData.genderId);
   const isFoodValid = Boolean(formData.foodPreferenceId);
 
   const isValid = () => {
+    if (isEdit && isAdmin) {
+      return (
+        isNameValid &&
+        isAgeValid &&
+        isMobileValid &&
+        isWpValid &&
+        isGenderValid &&
+        isFoodValid &&
+        (!formData.pin || /^\d{4}$/.test(formData.pin))
+      );
+    }
     return (
       isNameValid &&
       isAgeValid &&
@@ -689,7 +848,8 @@ export default function Bijoya() {
 
   // Update Guest API Call
   const updateDetails = async () => {
-    if (storedPin && formData.pin !== storedPin) {
+    // Regular guests must provide matching PIN; Admin bypasses
+    if (!isAdmin && storedPin && formData.pin !== storedPin) {
       Swal.fire({
         ...getBijoyaSwalTheme(),
         title: "Incorrect Security PIN",
@@ -703,7 +863,7 @@ export default function Bijoya() {
       Swal.fire({
         ...getBijoyaSwalTheme(),
         title: "Incomplete Details",
-        text: "Please ensure all mandatory fields and the 4-digit PIN are valid and match.",
+        text: "Please ensure all mandatory fields are valid.",
         icon: "warning",
       });
       return;
@@ -721,7 +881,7 @@ export default function Bijoya() {
           : (formData.mobile ? formData.mobile.replace(/\D/g, "") : null),
         address: formData.address?.trim() || null,
         email: formData.email?.trim() || null,
-        pin: formData.pin?.trim(),
+        pin: formData.pin?.trim() || storedPin || null,
         genderId: Number(formData.genderId),
         foodPreferenceId: Number(formData.foodPreferenceId),
         is_attending: Boolean(formData.is_present),
@@ -734,7 +894,9 @@ export default function Bijoya() {
         Swal.fire({
           ...getBijoyaSwalTheme(),
           title: "Updated Successfully! ✨",
-          text: "Guest details have been updated in the portal.",
+          text: isAdmin
+            ? `Admin update: ${formattedGuestName}'s details have been saved.`
+            : "Guest details have been updated in the portal.",
           icon: "success",
           timer: 2500,
           showConfirmButton: false,
@@ -756,7 +918,7 @@ export default function Bijoya() {
         validationDetails ||
         error?.response?.data?.message ||
         error?.message ||
-        "Failed to update details. Please verify your 4-digit PIN.";
+        "Failed to update details. Please verify your entries.";
 
       Swal.fire({
         ...getBijoyaSwalTheme(),
@@ -772,13 +934,49 @@ export default function Bijoya() {
   // Delete Guest
   const handleDelete = async (guest) => {
     const id = guest.guestId || guest.id;
+    const guestName = toProperCase(guest.guestName || "Guest");
+    const guestToken = formatToken(guest);
+
+    if (!isAdmin) {
+      const authPrompt = await Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "Admin Privileges Required 🛡️",
+        html: `
+          <div class="text-left space-y-2 text-xs sm:text-sm text-slate-300">
+            <p>Only authorized administrators can delete attendee records.</p>
+            <p class="text-slate-400">Please sign in with your administrative credentials to continue.</p>
+          </div>
+        `,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sign In as Admin 🔐",
+        cancelButtonText: "Cancel",
+      });
+
+      if (authPrompt.isConfirmed) {
+        setShowAdminLoginModal(true);
+      }
+      return;
+    }
+
     const result = await Swal.fire({
       ...getBijoyaSwalTheme(),
-      title: "Delete Guest?",
-      text: `Are you sure you want to remove ${toProperCase(guest.guestName)}?`,
+      title: "Delete Guest Record?",
+      html: `
+        <div class="text-left space-y-3 pt-1 text-xs sm:text-sm">
+          <div class="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-200">
+            ⚠️ <strong>Warning:</strong> You are about to permanently remove this guest registration. This cannot be undone.
+          </div>
+          <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-2 font-mono text-xs">
+            <div class="flex justify-between items-center"><span class="text-slate-400">Name:</span> <strong class="text-white">${guestName}</strong></div>
+            <div class="flex justify-between items-center"><span class="text-slate-400">Token:</span> <strong class="text-amber-300">${guestToken}</strong></div>
+            <div class="flex justify-between items-center"><span class="text-slate-400">Phone:</span> <span class="text-slate-200">${guest.wpNumber || guest.mobile || "—"}</span></div>
+          </div>
+        </div>
+      `,
       icon: "warning",
       showCancelButton: true,
-      confirmButtonText: "Yes, Delete",
+      confirmButtonText: "Yes, Delete Record",
       confirmButtonColor: "#ef4444",
       cancelButtonText: "Cancel",
     });
@@ -788,8 +986,8 @@ export default function Bijoya() {
         await authService.deleteGuest(id);
         Swal.fire({
           ...getBijoyaSwalTheme(),
-          title: "Deleted!",
-          text: "Guest record has been removed.",
+          title: "Guest Deleted! 🗑️",
+          text: `${guestName} (${guestToken}) has been removed.`,
           icon: "success",
           timer: 2000,
           showConfirmButton: false,
@@ -800,7 +998,7 @@ export default function Bijoya() {
         Swal.fire({
           ...getBijoyaSwalTheme(),
           title: "Error",
-          text: "Failed to delete guest record.",
+          text: error?.response?.data?.message || "Failed to delete guest record.",
           icon: "error",
         });
       }
@@ -825,20 +1023,19 @@ export default function Bijoya() {
     setSameAsMobile(false);
   };
 
-  // WhatsApp Invite / Message Sender
-  const sendWhatsApp = (guest) => {
-
-    const phone = (guest.wpNumber || guest.mobile || "").replace(/\D/g, "");
-    const formattedPhone = phone.startsWith("91") && phone.length > 10 ? phone : `91${phone}`;
+  // ============================================================================
+  // WHATSAPP MESSAGE TEMPLATES & CUSTOM MESSAGING ENGINE
+  // ============================================================================
+  const getInvitationMessage = (guest) => {
     const tokenDisplay = formatToken(guest);
-
     const isVeg = checkIsVeg(guest);
     const foodText = isVeg ? "🌱 Vegetarian (নিরামিষ)" : "🍗 Non-Vegetarian (আমিষ)";
     const isAtt = checkIsAttending(guest);
+    const name = toProperCase(guest?.guestName || "Guest");
 
-    const message = `🌸 *২৭ তম মৈত্রী মহোৎসব ২০২৬ (27th Maitri Mahotsav)* 🌸
+    return `🌸 *২৭ তম মৈত্রী মহোৎসব ২০২৬ (27th Maitri Mahotsav)* 🌸
 ━━━━━━━━━━━━━━━━━━
-শ্রদ্ধেয়/শ্রদ্ধেয়া *${toProperCase(guest.guestName)}*,
+শ্রদ্ধেয়/শ্রদ্ধেয়া *${name}*,
 
 ✨ *“আপনি অতিথিও, আবার আতিথেয়তাকারীও”*
 _“आप मेहमान भी हैं और मेज़बान भी”_
@@ -867,6 +1064,169 @@ Instagram: https://www.instagram.com/codernaccotax
 সাদর আমন্ত্রণান্তে,
 *Team Coder & AccoTax* 💐
 ━━━━━━━━━━━━━━━━━━`;
+  };
+
+  const getReminderMessage = (guest) => {
+    const tokenDisplay = formatToken(guest);
+    const name = toProperCase(guest?.guestName || "Guest");
+    return `🌸 *২৭ তম মৈত্রী মহোৎসব ২০২৬ • Reminder* 🌸
+━━━━━━━━━━━━━━━━━━
+নমস্কার *${name}*,
+মৈত্রী মহোৎসব ২০২৬ সমাগত! আগামী *১লা নভেম্বর, ২০২৬ (রবিবার), সন্ধ্যা ৭:৩০ ঘটিকায়* Coder & AccoTax প্রাঙ্গণে আপনার উপস্থিতি একান্ত কাম্য।
+
+🎫 *Entry Token:* \`${tokenDisplay}\`
+📅 *Date:* 1st November, 2026
+⏰ *Time:* 7:30 PM onwards
+📍 *Venue:* Coder & AccoTax, Barrackpore
+
+অনুষ্ঠানে আপনার উপস্থিতি আমাদের আনন্দিত করবে! ✨
+সাদর আমন্ত্রণান্তে,
+*Team Coder & AccoTax* 💐
+━━━━━━━━━━━━━━━━━━`;
+  };
+
+  const getConfirmationMessage = (guest) => {
+    const isVeg = checkIsVeg(guest);
+    const foodText = isVeg ? "🌱 Vegetarian (নিরামিষ)" : "🍗 Non-Vegetarian (আমিষ)";
+    const name = toProperCase(guest?.guestName || "Guest");
+    const tokenDisplay = formatToken(guest);
+
+    return `🌸 *মৈত্রী মহোৎসব ২০২৬ • Feast & Catering Confirmation* 🌸
+━━━━━━━━━━━━━━━━━━
+নমস্কার *${name}*,
+আমরা মহা সমারোহে ২৭ তম মৈত্রী মহোৎসবের ভোজের আয়োজন করছি।
+আপনার ডিজিটাল টোকেন: \`${tokenDisplay}\`
+আমাদের রেকর্ডে আপনার আহারের পছন্দ: *${foodText}*।
+
+এতে কোনো পরিবর্তন বা বিশেষ অনুরোধ থাকলে অনুগ্রহ করে আমাদের জানান।
+ধন্যবাদ ও শুভেচ্ছা!
+— Team Coder & AccoTax 💐`;
+  };
+
+  const getFeedbackMessage = (guest) => {
+    const name = toProperCase(guest?.guestName || "Guest");
+    return `🌸 *Coder & AccoTax • Greetings & Feedback* 🌸
+━━━━━━━━━━━━━━━━━━
+শ্রদ্ধেয়/শ্রদ্ধেয়া *${name}*,
+Coder & AccoTax পরিবারের সঙ্গে থাকার জন্য আপনাকে আন্তরিক ধন্যবাদ! ✨
+
+আমাদের সেবা ও উদ্যোগ সম্পর্কে আপনার মূল্যবান মতামত জানাতে অনুগ্রহ করে গুগলে একটি ৫-স্টার রিভিউ দিন:
+👉 https://g.page/r/CTBkwqHJ6mZ2EBM/review
+
+আপনার আশীর্বাদ ও সমর্থন আমাদের পথচলার প্রেরণা।
+ধন্যবাদ ও শুভকামনা! 💐
+— Coder & AccoTax Team`;
+  };
+
+  // Helper to interpolate placeholders
+  const resolveMessagePlaceholders = (text, guest) => {
+    if (!text || !guest) return text || "";
+    const tokenDisplay = formatToken(guest);
+    const isVeg = checkIsVeg(guest);
+    const foodText = isVeg ? "Vegetarian (নিরামিষ)" : "Non-Vegetarian (আমিষ)";
+    const name = toProperCase(guest.guestName || "Guest");
+    const phone = guest.wpNumber || guest.mobile || "";
+
+    return text
+      .replace(/\{name\}/gi, name)
+      .replace(/\{token\}/gi, tokenDisplay)
+      .replace(/\{food\}/gi, foodText)
+      .replace(/\{date\}/gi, "1st November, 2026")
+      .replace(/\{time\}/gi, "7:30 PM onwards")
+      .replace(/\{venue\}/gi, "Coder & AccoTax, Barrackpore")
+      .replace(/\{phone\}/gi, phone)
+      .replace(/\{review_link\}/gi, "https://g.page/r/CTBkwqHJ6mZ2EBM/review");
+  };
+
+  // Open Message Composer Modal
+  const openMessageModal = (guest, templateType = "invitation") => {
+    setMessageRecipient(guest);
+    setSelectedTemplate(templateType);
+    setSelectedPhoneType(guest.wpNumber ? "wp" : "mobile");
+
+    let initialText = "";
+    if (templateType === "invitation") {
+      initialText = getInvitationMessage(guest);
+    } else if (templateType === "reminder") {
+      initialText = getReminderMessage(guest);
+    } else if (templateType === "confirmation") {
+      initialText = getConfirmationMessage(guest);
+    } else if (templateType === "feedback") {
+      initialText = getFeedbackMessage(guest);
+    } else {
+      initialText = `Hello ${toProperCase(guest.guestName || "Guest")},\n\n`;
+    }
+
+    setCustomMessageText(initialText);
+    setCopiedCustomMessage(false);
+    setIsMessageModalOpen(true);
+  };
+
+  // Switch Template inside Modal
+  const handleTemplateChange = (template) => {
+    setSelectedTemplate(template);
+    if (!messageRecipient) return;
+
+    if (template === "invitation") {
+      setCustomMessageText(getInvitationMessage(messageRecipient));
+    } else if (template === "reminder") {
+      setCustomMessageText(getReminderMessage(messageRecipient));
+    } else if (template === "confirmation") {
+      setCustomMessageText(getConfirmationMessage(messageRecipient));
+    } else if (template === "feedback") {
+      setCustomMessageText(getFeedbackMessage(messageRecipient));
+    } else if (template === "custom") {
+      setCustomMessageText(`Hello ${toProperCase(messageRecipient.guestName || "Guest")},\n\n`);
+    }
+  };
+
+  // Send WhatsApp from Modal
+  const handleSendFromModal = () => {
+    if (!messageRecipient) return;
+
+    const rawPhone = selectedPhoneType === "mobile"
+      ? (messageRecipient.mobile || messageRecipient.wpNumber || "")
+      : (messageRecipient.wpNumber || messageRecipient.mobile || "");
+
+    const cleanPhone = rawPhone.replace(/\D/g, "");
+    if (!cleanPhone || cleanPhone.length < 10) {
+      Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "Missing Phone Number",
+        text: "This attendee does not have a valid WhatsApp or mobile number registered.",
+        icon: "warning",
+      });
+      return;
+    }
+
+    const formattedPhone = cleanPhone.startsWith("91") && cleanPhone.length > 10 ? cleanPhone : `91${cleanPhone}`;
+    const resolvedText = resolveMessagePlaceholders(customMessageText, messageRecipient);
+
+    window.open(`https://wa.me/${formattedPhone}?text=${encodeURIComponent(resolvedText)}`, "_blank");
+  };
+
+  // Copy Custom Message to Clipboard
+  const handleCopyCustomMessage = () => {
+    const resolvedText = resolveMessagePlaceholders(customMessageText, messageRecipient);
+    navigator.clipboard.writeText(resolvedText);
+    setCopiedCustomMessage(true);
+    setTimeout(() => setCopiedCustomMessage(false), 2000);
+  };
+
+  // Quick 1-Click WhatsApp Invitation Sender
+  const sendWhatsApp = (guest) => {
+    const rawPhone = (guest.wpNumber || guest.mobile || "").replace(/\D/g, "");
+    if (!rawPhone || rawPhone.length < 10) {
+      Swal.fire({
+        ...getBijoyaSwalTheme(),
+        title: "No Contact Number",
+        text: "Please add a valid WhatsApp number to send the invitation.",
+        icon: "warning",
+      });
+      return;
+    }
+    const formattedPhone = rawPhone.startsWith("91") && rawPhone.length > 10 ? rawPhone : `91${rawPhone}`;
+    const message = getInvitationMessage(guest);
 
     window.open(`https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`, "_blank");
   };
@@ -1047,13 +1407,39 @@ Instagram: https://www.instagram.com/codernaccotax
           transition={{ duration: 0.6 }}
           className="text-center space-y-2.5 sm:space-y-3"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-amber-500/5">
-            <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
-            <span>🌸 ২৭ তম মৈত্রী মহোৎসব ২০২৬</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-            <span className="text-amber-200">1st November, 2026 • 7:30 PM onwards</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-            <span className="text-slate-300">Coder & AccoTax</span>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/15 via-rose-500/15 to-purple-500/15 border border-amber-500/30 text-amber-300 text-xs sm:text-sm font-semibold tracking-wide shadow-lg shadow-amber-500/5">
+              <Sparkles className="w-4 h-4 text-amber-400 animate-spin" style={{ animationDuration: "6s" }} />
+              <span>🌸 ২৭ তম মৈত্রী মহোৎসব ২০২৬</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+              <span className="text-amber-200">1st November, 2026 • 7:30 PM onwards</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+              <span className="text-slate-300">Coder & AccoTax</span>
+            </div>
+
+            {isAdmin ? (
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600/20 via-slate-900 to-indigo-600/20 border border-purple-500/40 text-purple-300 text-xs font-semibold shadow-md">
+                <ShieldCheck className="w-4 h-4 text-purple-400 shrink-0" />
+                <span>Admin: <strong className="text-white">{currentUser?.employee?.employeeName || currentUser?.name || currentUser?.userName || "Authorized"}</strong></span>
+                <button
+                  type="button"
+                  onClick={handleAdminLogout}
+                  title="Sign out of Admin Mode"
+                  className="ml-1 p-0.5 rounded hover:bg-slate-800 text-slate-400 hover:text-rose-400 transition cursor-pointer"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setShowAdminLoginModal(true)}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 hover:border-amber-500/50 text-slate-300 hover:text-amber-300 text-xs font-semibold transition cursor-pointer shadow-sm"
+              >
+                <Lock className="w-3.5 h-3.5 text-amber-400" />
+                <span>Admin Access</span>
+              </button>
+            )}
           </div>
 
           {/* Accessible H1 for SEO & screen readers */}
@@ -1157,17 +1543,35 @@ Instagram: https://www.instagram.com/codernaccotax
 
                 {/* Edit Mode Banner */}
                 {isEdit && (
-                  <div className="mb-6 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-amber-300 text-sm font-medium">
-                      <Edit3 className="w-4 h-4" />
-                      <span>
-                        Editing details for <strong className="text-white">{toProperCase(formData.guestName)}</strong>
-                      </span>
+                  <div
+                    className={`mb-6 p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                      isAdmin
+                        ? "bg-gradient-to-r from-purple-950/60 via-slate-900 to-amber-950/40 border-purple-500/40 shadow-lg shadow-purple-950/40"
+                        : "bg-amber-500/10 border-amber-500/30"
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5 text-sm font-medium">
+                      {isAdmin ? (
+                        <ShieldCheck className="w-5 h-5 text-purple-400 shrink-0" />
+                      ) : (
+                        <Edit3 className="w-4 h-4 text-amber-300 shrink-0" />
+                      )}
+                      <div>
+                        <span className={isAdmin ? "text-purple-200 font-semibold" : "text-amber-300"}>
+                          {isAdmin ? "Admin Edit Mode: " : "Editing details for "}
+                          <strong className="text-white">{toProperCase(formData.guestName)}</strong>
+                        </span>
+                        {isAdmin && (
+                          <p className="text-xs text-slate-400 font-normal mt-0.5">
+                            Admin override active. You can update any detail without needing the attendee's PIN.
+                          </p>
+                        )}
+                      </div>
                     </div>
                     <button
                       type="button"
                       onClick={cancelEdit}
-                      className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 transition cursor-pointer"
+                      className="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 transition cursor-pointer self-start sm:self-auto"
                     >
                       Cancel Edit
                     </button>
@@ -1452,63 +1856,107 @@ Instagram: https://www.instagram.com/codernaccotax
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {isEdit ? (
                         <div className="space-y-1.5 col-span-1 sm:col-span-2">
-                          <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
-                            <span className="flex items-center gap-1.5">
-                              <span>Enter Stored 4-Digit PIN <span className="text-rose-400">*</span></span>
-                            </span>
-                            {formData.pin && (
-                              <span
-                                className={`text-xs font-semibold px-2 py-0.5 rounded ${
-                                  formData.pin === storedPin
-                                    ? "bg-emerald-500/20 text-emerald-400"
-                                    : formData.pin.length === 4
-                                    ? "bg-rose-500/20 text-rose-400"
-                                    : "text-slate-400"
-                                }`}
-                              >
-                                {formData.pin === storedPin
-                                  ? "✓ PIN Matched"
-                                  : formData.pin.length === 4
-                                  ? "✗ PIN Mismatch"
-                                  : `${formData.pin.length}/4 digits`}
-                              </span>
-                            )}
-                          </label>
-                          <div className="relative">
-                            <input
-                              type={showPin ? "text" : "password"}
-                              name="pin"
-                              maxLength={4}
-                              value={formData.pin}
-                              onChange={(e) => {
-                                const val = e.target.value.replace(/\D/g, "");
-                                setFormData((prev) => ({
-                                  ...prev,
-                                  pin: val,
-                                  confirmPin: val,
-                                }));
-                              }}
-                              placeholder="Enter the 4-digit PIN set during registration"
-                              required
-                              className={`w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border text-white placeholder-slate-500 focus:outline-none focus:ring-2 text-sm tracking-widest ${
-                                formData.pin.length === 4
-                                  ? formData.pin === storedPin
-                                    ? "border-emerald-500/60 focus:ring-emerald-500"
-                                    : "border-rose-500/60 focus:ring-rose-500"
-                                  : "border-slate-700 focus:ring-amber-500"
-                              }`}
-                            />
-                            <button
-                              type="button"
-                              onClick={() => setShowPin(!showPin)}
-                              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
-                            >
-                              {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
-                            </button>
-                          </div>
-                          <p className="text-[11px] text-slate-400">
-                            🔒 For security, you must enter the original 4-digit PIN matching this record to save updates.
-                          </p>
+                          {isAdmin ? (
+                            <div className="p-3.5 rounded-xl bg-purple-500/10 border border-purple-500/30 space-y-2">
+                              <div className="flex items-center justify-between">
+                                <span className="text-xs font-semibold text-purple-200 flex items-center gap-1.5">
+                                  <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
+                                  <span>Admin Security PIN Override (Optional)</span>
+                                </span>
+                                <span className="text-[11px] text-purple-300 font-mono">
+                                  {storedPin ? "PIN is set on record" : "No PIN set"}
+                                </span>
+                              </div>
+                              <div className="relative">
+                                <input
+                                  type={showPin ? "text" : "password"}
+                                  name="pin"
+                                  maxLength={4}
+                                  value={formData.pin}
+                                  onChange={(e) => {
+                                    const val = e.target.value.replace(/\D/g, "");
+                                    setFormData((prev) => ({
+                                      ...prev,
+                                      pin: val,
+                                      confirmPin: val,
+                                    }));
+                                  }}
+                                  placeholder="Leave blank to preserve current PIN, or type 4 digits to reset"
+                                  className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border border-purple-500/30 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm tracking-widest"
+                                />
+                                <button
+                                  type="button"
+                                  onClick={() => setShowPin(!showPin)}
+                                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                                >
+                                  {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                              </div>
+                              <p className="text-[11px] text-slate-400">
+                                🛡️ As an admin, you can save updates directly without knowing the guest's PIN. Entering 4 digits here will reset the guest's PIN.
+                              </p>
+                            </div>
+                          ) : (
+                            <>
+                              <label className="text-xs font-medium text-slate-300 flex items-center justify-between">
+                                <span className="flex items-center gap-1.5">
+                                  <span>Enter Stored 4-Digit PIN <span className="text-rose-400">*</span></span>
+                                </span>
+                                {formData.pin && (
+                                  <span
+                                    className={`text-xs font-semibold px-2 py-0.5 rounded ${
+                                      formData.pin === storedPin
+                                        ? "bg-emerald-500/20 text-emerald-400"
+                                        : formData.pin.length === 4
+                                        ? "bg-rose-500/20 text-rose-400"
+                                        : "text-slate-400"
+                                    }`}
+                                  >
+                                    {formData.pin === storedPin
+                                      ? "✓ PIN Matched"
+                                      : formData.pin.length === 4
+                                      ? "✗ PIN Mismatch"
+                                      : `${formData.pin.length}/4 digits`}
+                                  </span>
+                                )}
+                              </label>
+                              <div className="relative">
+                                <input
+                                  type={showPin ? "text" : "password"}
+                                  name="pin"
+                                  maxLength={4}
+                                  value={formData.pin}
+                                  onChange={(e) => {
+                                    const val = e.target.value.replace(/\D/g, "");
+                                    setFormData((prev) => ({
+                                      ...prev,
+                                      pin: val,
+                                      confirmPin: val,
+                                    }));
+                                  }}
+                                  placeholder="Enter the 4-digit PIN set during registration"
+                                  required
+                                  className={`w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-900 border text-white placeholder-slate-500 focus:outline-none focus:ring-2 text-sm tracking-widest ${
+                                    formData.pin.length === 4
+                                      ? formData.pin === storedPin
+                                        ? "border-emerald-500/60 focus:ring-emerald-500"
+                                        : "border-rose-500/60 focus:ring-rose-500"
+                                      : "border-slate-700 focus:ring-amber-500"
+                                  }`}
+                                />
+                                <button
+                                  type="button"
+                                  onClick={() => setShowPin(!showPin)}
+                                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 cursor-pointer"
+                                >
+                                  {showPin ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                </button>
+                              </div>
+                              <p className="text-[11px] text-slate-400">
+                                🔒 For security, you must enter the original 4-digit PIN matching this record to save updates.
+                              </p>
+                            </>
+                          )}
                         </div>
                       ) : (
                         <>
@@ -1772,7 +2220,7 @@ Instagram: https://www.instagram.com/codernaccotax
                           {isWpValid ? "✓" : "✗"} 10-Digit WhatsApp No.
                         </span>
                         <span className={isPinMatched ? "text-emerald-400 flex items-center gap-1" : "text-slate-500 flex items-center gap-1"}>
-                          {isPinMatched ? "✓" : "✗"} {isEdit ? "Matching Stored PIN" : "Matching 4-Digit PIN"}
+                          {isPinMatched ? "✓" : "✗"} {isEdit && isAdmin ? "Admin Authorized" : isEdit ? "Matching Stored PIN" : "Matching 4-Digit PIN"}
                         </span>
                       </div>
                     </div>
@@ -2266,6 +2714,22 @@ Instagram: https://www.instagram.com/codernaccotax
 
             {/* Controls Ribbon */}
             <div className="flex flex-wrap items-center gap-2">
+              {isAdmin ? (
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-500/15 border border-purple-500/30 text-purple-300 text-xs font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-purple-400" />
+                  <span>Admin Active</span>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setShowAdminLoginModal(true)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 text-slate-300 hover:text-amber-300 text-xs font-semibold transition cursor-pointer"
+                >
+                  <Lock className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Admin Sign In</span>
+                </button>
+              )}
+
               <button
                 onClick={getAllGuest}
                 disabled={isLoading}
@@ -2436,40 +2900,59 @@ Instagram: https://www.instagram.com/codernaccotax
                     </div>
 
                     {/* Actions Bar */}
-                    <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between gap-2">
-                      <button
-                        onClick={() => sendWhatsApp(guest)}
-                        title="Send WhatsApp invitation"
-                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition cursor-pointer ${
-                          isLoggedIn
-                            ? "bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border-emerald-500/30"
-                            : "bg-slate-800/80 hover:bg-slate-700/80 text-slate-400 hover:text-amber-300 border-slate-700/60"
-                        }`}
-                      >
-                        {isLoggedIn ? (
-                          <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
-                        ) : (
-                          <Lock className="w-3.5 h-3.5 text-amber-400" />
-                        )}
-                        <span>{isLoggedIn ? "WhatsApp" : "WhatsApp"}</span>
-                      </button>
+                    <div className="pt-3 border-t border-slate-800/80 space-y-2">
+                      {/* Primary WhatsApp Action Buttons */}
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => sendWhatsApp(guest)}
+                          title="Quick 1-Click Official Invitation"
+                          className="inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 text-xs font-semibold transition cursor-pointer"
+                        >
+                          <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                          <span className="truncate">Send Invite</span>
+                        </button>
 
-                      <div className="inline-flex items-center gap-1.5">
                         <button
-                          onClick={() => handleEdit(guest)}
-                          title="Edit Details"
-                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 text-xs font-semibold border border-purple-500/30 transition cursor-pointer"
+                          type="button"
+                          onClick={() => openMessageModal(guest, "custom")}
+                          title="Compose Custom WhatsApp Message"
+                          className="inline-flex items-center justify-center gap-1.5 py-1.5 px-2.5 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 text-xs font-semibold transition cursor-pointer"
                         >
-                          <Edit3 className="w-3.5 h-3.5" />
-                          <span>Edit</span>
+                          <Send className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                          <span className="truncate">Custom Msg</span>
                         </button>
-                        <button
-                          onClick={() => handleDelete(guest)}
-                          title="Delete Guest"
-                          className="p-1.5 rounded-lg bg-rose-600/10 hover:bg-rose-600/20 text-rose-400 text-xs font-semibold border border-rose-500/20 transition cursor-pointer"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
+                      </div>
+
+                      {/* Admin Governance Actions: Edit & Delete */}
+                      <div className="flex items-center justify-between gap-2 pt-1 border-t border-slate-800/60">
+                        <span className="text-[10px] text-slate-500 font-mono">
+                          {isAdmin ? "Admin Controls:" : "Attendee Actions:"}
+                        </span>
+
+                        <div className="inline-flex items-center gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() => handleEdit(guest)}
+                            title={isAdmin ? "Edit Details (Admin Override)" : "Edit Details (Requires PIN)"}
+                            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-purple-600/20 hover:bg-purple-600/30 text-purple-300 text-xs font-semibold border border-purple-500/30 transition cursor-pointer"
+                          >
+                            <Edit3 className="w-3.5 h-3.5" />
+                            <span>Edit</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => handleDelete(guest)}
+                            title={isAdmin ? "Delete Guest (Admin)" : "Delete Guest (Admin Required)"}
+                            className={`p-1.5 rounded-lg text-xs font-semibold border transition cursor-pointer ${
+                              isAdmin
+                                ? "bg-rose-600/15 hover:bg-rose-600/30 text-rose-300 border-rose-500/30"
+                                : "bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-rose-400 border-slate-700"
+                            }`}
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -2550,33 +3033,47 @@ Instagram: https://www.instagram.com/codernaccotax
                           </span>
                         </td>
                         <td className="px-4 py-3 text-right">
-                          <div className="inline-flex items-center gap-2">
+                          <div className="inline-flex items-center gap-1.5">
+                            {/* Quick Send Invite */}
                             <button
+                              type="button"
                               onClick={() => sendWhatsApp(guest)}
-                              title="Send WhatsApp Invite"
-                              className={`p-1.5 rounded-lg border transition cursor-pointer ${
-                                isLoggedIn
-                                  ? "bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border-emerald-500/20"
-                                  : "bg-slate-800 text-slate-400 hover:text-amber-300 border-slate-700"
-                              }`}
+                              title="Quick 1-Click Official Invitation"
+                              className="p-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 transition cursor-pointer"
                             >
-                              {isLoggedIn ? (
-                                <MessageCircle className="w-4 h-4" />
-                              ) : (
-                                <Lock className="w-4 h-4 text-amber-400/80" />
-                              )}
+                              <MessageCircle className="w-4 h-4 text-emerald-400" />
                             </button>
+
+                            {/* Custom Message Modal */}
                             <button
+                              type="button"
+                              onClick={() => openMessageModal(guest, "custom")}
+                              title="Compose Custom Message"
+                              className="p-1.5 rounded-lg bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-300 border border-indigo-500/30 transition cursor-pointer"
+                            >
+                              <Send className="w-4 h-4 text-indigo-400" />
+                            </button>
+
+                            {/* Edit */}
+                            <button
+                              type="button"
                               onClick={() => handleEdit(guest)}
-                              title="Edit Details"
-                              className="p-1.5 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-400 border border-purple-500/20 transition cursor-pointer"
+                              title={isAdmin ? "Edit Details (Admin Override)" : "Edit Details (Requires PIN)"}
+                              className="p-1.5 rounded-lg bg-purple-500/15 hover:bg-purple-500/25 text-purple-300 border border-purple-500/30 transition cursor-pointer"
                             >
-                              <Edit3 className="w-4 h-4" />
+                              <Edit3 className="w-4 h-4 text-purple-400" />
                             </button>
+
+                            {/* Delete */}
                             <button
+                              type="button"
                               onClick={() => handleDelete(guest)}
-                              title="Delete Guest"
-                              className="p-1.5 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 transition cursor-pointer"
+                              title={isAdmin ? "Delete Guest (Admin)" : "Delete Guest (Admin Required)"}
+                              className={`p-1.5 rounded-lg border transition cursor-pointer ${
+                                isAdmin
+                                  ? "bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border-rose-500/30"
+                                  : "bg-slate-800 text-slate-400 hover:text-rose-400 border-slate-700"
+                              }`}
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
@@ -2591,6 +3088,353 @@ Instagram: https://www.instagram.com/codernaccotax
           )}
         </div>
       </div>
+
+      {/* ============================================================== */}
+      {/* WHATSAPP MESSAGE COMPOSER MODAL (OFFICIAL & CUSTOM)           */}
+      {/* ============================================================== */}
+      <AnimatePresence>
+        {isMessageModalOpen && messageRecipient && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-2xl rounded-3xl bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden my-8"
+            >
+              {/* Top Accent Gradient */}
+              <div className="h-1.5 bg-gradient-to-r from-emerald-400 via-teal-500 to-indigo-500" />
+
+              {/* Modal Header */}
+              <div className="p-5 sm:p-6 border-b border-slate-800 flex items-start justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
+                      <span>WhatsApp Message Composer</span>
+                    </h3>
+                    <p className="text-xs text-slate-400">
+                      Send official invitations or compose customized messages to attendees.
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsMessageModalOpen(false)}
+                  className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="p-5 sm:p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+                {/* Recipient Information Card */}
+                <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-white text-base">
+                        {toProperCase(messageRecipient.guestName)}
+                      </span>
+                      <span className="font-mono text-xs font-bold text-amber-400 px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
+                        {formatToken(messageRecipient)}
+                      </span>
+                    </div>
+                    <div className="text-xs text-slate-400 mt-1 flex flex-wrap items-center gap-2">
+                      <span>Meal: <strong className="text-slate-200">{checkIsVeg(messageRecipient) ? "🌱 Veg" : "🍗 Non-Veg"}</strong></span>
+                      <span>•</span>
+                      <span>Status: <strong className="text-cyan-300">{checkIsAttending(messageRecipient) ? "Attending" : "Invited"}</strong></span>
+                    </div>
+                  </div>
+
+                  {/* Target Phone Selector */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-slate-400 font-medium">Send to:</span>
+                    <div className="inline-flex rounded-xl bg-slate-900 border border-slate-700/80 p-1 text-xs">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedPhoneType("wp")}
+                        className={`px-2.5 py-1 rounded-lg font-medium transition cursor-pointer ${
+                          selectedPhoneType === "wp"
+                            ? "bg-emerald-600 text-white shadow-sm"
+                            : "text-slate-400 hover:text-white"
+                        }`}
+                      >
+                        WhatsApp ({messageRecipient.wpNumber || messageRecipient.mobile || "—"})
+                      </button>
+                      {messageRecipient.mobile && messageRecipient.mobile !== messageRecipient.wpNumber && (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedPhoneType("mobile")}
+                          className={`px-2.5 py-1 rounded-lg font-medium transition cursor-pointer ${
+                            selectedPhoneType === "mobile"
+                              ? "bg-emerald-600 text-white shadow-sm"
+                              : "text-slate-400 hover:text-white"
+                          }`}
+                        >
+                          Mobile ({messageRecipient.mobile})
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Template Selection Pills */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider block">
+                    Message Template
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      { id: "invitation", label: "🌸 Official Invitation" },
+                      { id: "reminder", label: "⏰ Event Reminder" },
+                      { id: "confirmation", label: "🍽️ Feast & Catering" },
+                      { id: "feedback", label: "⭐ Google Review" },
+                      { id: "custom", label: "✍️ Custom Message" },
+                    ].map((tpl) => (
+                      <button
+                        key={tpl.id}
+                        type="button"
+                        onClick={() => handleTemplateChange(tpl.id)}
+                        className={`px-3 py-1.5 rounded-xl text-xs font-semibold border transition cursor-pointer ${
+                          selectedTemplate === tpl.id
+                            ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-200 shadow-sm"
+                            : "bg-slate-950/60 border-slate-800 text-slate-400 hover:text-slate-200"
+                        }`}
+                      >
+                        {tpl.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Dynamic Placeholder Insertion Chips */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-semibold text-slate-300">Quick Insert Variables:</span>
+                    <span className="text-[11px] text-slate-500">Click to insert tag at end</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      { label: "{name}", desc: "Guest Name" },
+                      { label: "{token}", desc: "Token No." },
+                      { label: "{food}", desc: "Veg/Non-Veg" },
+                      { label: "{date}", desc: "1st Nov 2026" },
+                      { label: "{time}", desc: "7:30 PM" },
+                      { label: "{venue}", desc: "Coder & AccoTax" },
+                      { label: "{review_link}", desc: "Google Review URL" },
+                    ].map((chip) => (
+                      <button
+                        key={chip.label}
+                        type="button"
+                        onClick={() => setCustomMessageText((prev) => prev + " " + chip.label)}
+                        className="px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-700/80 hover:border-emerald-500/50 text-slate-300 hover:text-emerald-300 text-[11px] font-mono transition cursor-pointer flex items-center gap-1"
+                        title={chip.desc}
+                      >
+                        <span className="text-emerald-400 font-bold">+</span>
+                        <span>{chip.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Message Textarea */}
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                      Message Content
+                    </label>
+                    <span className="text-[11px] text-slate-400 font-mono">
+                      {customMessageText.length} chars • {customMessageText.trim().split(/\s+/).filter(Boolean).length} words
+                    </span>
+                  </div>
+                  <textarea
+                    rows={8}
+                    value={customMessageText}
+                    onChange={(e) => setCustomMessageText(e.target.value)}
+                    placeholder="Type your message here. You can use WhatsApp markdown like *bold*, _italics_, and emojis..."
+                    className="w-full p-4 rounded-2xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500 resize-y leading-relaxed"
+                  />
+                </div>
+
+                {/* Live Preview Card (WhatsApp Bubble Style) */}
+                <div className="space-y-1.5">
+                  <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider block">
+                    Live Preview (As Recipient Sees on WhatsApp)
+                  </span>
+                  <div className="p-4 rounded-2xl bg-[#0b141a] border border-slate-800 relative overflow-hidden">
+                    <div className="flex items-center justify-between text-[11px] text-emerald-400/90 pb-2 mb-2 border-b border-slate-800 font-sans">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        Chat with {toProperCase(messageRecipient.guestName)}
+                      </span>
+                      <span className="text-slate-500 text-[10px]">Preview</span>
+                    </div>
+                    <div className="max-w-[90%] p-3.5 rounded-2xl rounded-tl-sm bg-[#005c4b] text-white text-xs sm:text-sm whitespace-pre-wrap leading-relaxed shadow-md">
+                      {resolveMessagePlaceholders(customMessageText, messageRecipient)}
+                      <div className="text-right text-[10px] text-emerald-200/60 mt-1 flex items-center justify-end gap-1">
+                        <span>Just now</span>
+                        <Check className="w-3 h-3 text-emerald-300 inline" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer Actions */}
+              <div className="p-4 sm:p-6 border-t border-slate-800 bg-slate-950/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <button
+                  type="button"
+                  onClick={handleCopyCustomMessage}
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  {copiedCustomMessage ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="text-emerald-400 font-bold">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 text-slate-400" />
+                      <span>Copy Message</span>
+                    </>
+                  )}
+                </button>
+
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                  <button
+                    type="button"
+                    onClick={() => setIsMessageModalOpen(false)}
+                    className="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 transition cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleSendFromModal}
+                    className="flex-1 sm:flex-initial px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-500 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 transition cursor-pointer"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>Send via WhatsApp</span>
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* ============================================================== */}
+      {/* ADMIN LOGIN MODAL                                              */}
+      {/* ============================================================== */}
+      <AnimatePresence>
+        {showAdminLoginModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="relative w-full max-w-md rounded-3xl bg-slate-900 border border-purple-500/40 shadow-2xl overflow-hidden p-6 sm:p-7 space-y-5"
+            >
+              <div className="h-1.5 bg-gradient-to-r from-purple-500 via-rose-500 to-amber-500 -mx-7 -mt-7 mb-5" />
+
+              <div className="flex items-start justify-between">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-10 h-10 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-white">Administrator Access</h3>
+                    <p className="text-xs text-slate-400">Sign in to manage attendee records & communication</p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowAdminLoginModal(false)}
+                  className="p-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {adminLoginForm.error && (
+                <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{adminLoginForm.error}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleAdminLogin} className="space-y-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-300">Admin Email</label>
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type="email"
+                      required
+                      value={adminLoginForm.email}
+                      onChange={(e) => setAdminLoginForm((prev) => ({ ...prev, email: e.target.value, error: "" }))}
+                      placeholder="admin@example.com"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-300">Password</label>
+                  <div className="relative">
+                    <Lock className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      type={adminLoginForm.showPassword ? "text" : "password"}
+                      required
+                      value={adminLoginForm.password}
+                      onChange={(e) => setAdminLoginForm((prev) => ({ ...prev, password: e.target.value, error: "" }))}
+                      placeholder="••••••••"
+                      className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setAdminLoginForm((prev) => ({ ...prev, showPassword: !prev.showPassword }))}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white cursor-pointer"
+                    >
+                      {adminLoginForm.showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="pt-2 flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setShowAdminLoginModal(false)}
+                    className="flex-1 py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold border border-slate-700 transition cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={adminLoginForm.loading}
+                    className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-purple-600 via-rose-600 to-amber-600 hover:from-purple-500 hover:to-amber-500 text-white text-sm font-bold shadow-lg shadow-purple-600/30 transition flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    {adminLoginForm.loading ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        <span>Verifying...</span>
+                      </>
+                    ) : (
+                      <>
+                        <LogIn className="w-4 h-4" />
+                        <span>Sign In</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
