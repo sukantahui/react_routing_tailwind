@@ -1,0 +1,42 @@
+========================================================================
+TOPIC 19 NOTE: WORKED EXAMPLE 3 - NORMALIZING A DATASET MANUALLY
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. MIN-MAX FEATURE SCALING (Normalization)
+------------------------------------------
+- Formula:
+  X_scaled = (X - X_min) / (X_max - X_min)
+- Target Range:
+  Default is [0, 1]. Can be scaled to [a, b] via: X_scaled * (b - a) + a.
+- Column-wise reductions:
+  x_min = np.min(X, axis=0)
+  x_max = np.max(X, axis=0)
+- Best Used For:
+  Algorithms requiring bounded ranges (e.g., Image pixel brightness [0, 1], K-Nearest Neighbors, Neural Networks). Sensitive to extreme outliers.
+
+2. Z-SCORE STANDARDIZATION (StandardScaler)
+-------------------------------------------
+- Formula:
+  Z = (X - mu) / sigma
+- Properties:
+  Produces transformed distribution with Mean = 0.0 and Standard Deviation = 1.0.
+- Numerical Stability:
+  Add epsilon: (X - mu) / (sigma + 1e-8) to avoid DivisionByZero for constant features.
+- Best Used For:
+  Linear Regression, Logistic Regression, Support Vector Machines (SVM), Principal Component Analysis (PCA). Robust to moderate outliers.
+
+3. L2 SAMPLE VECTOR NORMALIZATION (Unit Norm)
+---------------------------------------------
+- Formula:
+  x_unit = x / ||x||_2 = x / sqrt(sum(x_i^2))
+- Row-wise reduction:
+  norms = np.linalg.norm(X, ord=2, axis=1, keepdims=True)
+- Best Used For:
+  Text embeddings, TF-IDF vectors, Information Retrieval, and Cosine Similarity computations.
+
+4. ML BEST PRACTICES: AVOIDING DATA LEAKAGE
+-------------------------------------------
+- NEVER fit scalers on the entire dataset (Train + Test combined)!
+- ALWAYS calculate mu, sigma, min, and max strictly on the TRAINING set.
+- Apply those exact stored training constants to transform both Validation and Test sets.

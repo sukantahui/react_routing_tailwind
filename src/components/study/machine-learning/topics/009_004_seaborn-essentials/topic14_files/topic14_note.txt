@@ -1,0 +1,26 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 14 - PRACTICE PROBLEMS
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. PRACTICE PROBLEM SPECIFICATIONS:
+--------------------------------------------------------------------------------
+Problem 1: Bimodal Density Exploration
+- Goal: Capture 2 distinct student performance clusters without over-smoothing.
+- Key Functions: `sns.histplot(kde=True, kde_kws={'bw_adjust': 0.8})`
+
+Problem 2: Advanced Categorical Styling & Outlier Highlighting
+- Goal: Create a notched boxplot with custom marker symbols for outlier fliers.
+- Key Functions: `sns.boxplot(..., notch=True, flierprops={'marker': 'D', 'markerfacecolor': 'red'})`
+
+Problem 3: Feature Correlation with Lower-Triangle Masking
+- Goal: Build a production report eliminating diagonal & upper redundancy.
+- Key Functions: `mask = np.triu(np.ones_like(corr, dtype=bool))`, `sns.heatmap(..., mask=mask)`
+
+2. CHEAT SHEET FOR EXAMS & ASSIGNMENTS:
+--------------------------------------------------------------------------------
+- Use `sns.set_theme(style="whitegrid", palette="muted")` for standard reports.
+- Always use `numeric_only=True` in `df.corr()`.
+- Use `sns.despine()` after plotting to clean top and right borders.
+- Check outliers using IQR bounds: [Q1 - 1.5*IQR, Q3 + 1.5*IQR].

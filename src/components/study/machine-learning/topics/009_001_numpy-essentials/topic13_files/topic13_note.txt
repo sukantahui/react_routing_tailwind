@@ -1,0 +1,48 @@
+================================================================================
+NUMPY ESSENTIALS: STATISTICAL AGGREGATIONS & AXIS REDUCTIONS (TOPIC 13)
+Instructor: Sukanta Hui | Coder & AccoTax, Barrackpore
+================================================================================
+
+1. CORE AGGREGATION FUNCTIONS:
+--------------------------------------------------------------------------------
+- np.sum(a, axis=None, keepdims=False)  : Sum of array elements
+- np.mean(a, axis=None, keepdims=False) : Arithmetic average
+- np.std(a, axis=None, ddof=0)          : Standard deviation (ddof=0 pop, ddof=1 sample)
+- np.var(a, axis=None, ddof=0)          : Variance (sigma^2)
+- np.min(a, axis=None) / np.max(a)      : Minimum / Maximum values
+- np.argmin(a, axis=None) / np.argmax(a): Indices of minimum / maximum values
+- np.median(a, axis=None)               : 50th percentile robust median
+
+2. UNDERSTANDING AXIS DIRECTIONS IN 2D MATRICES:
+--------------------------------------------------------------------------------
+       Axis 1 (Columns: Across Features ➔)
+           Col 0    Col 1    Col 2
+Row 0   [ [ 85,      90,      88 ],   ➔ np.mean(axis=1) = Row / Sample Average
+Row 1     [ 92,      95,      91 ],   ➔ (Collapses columns; keeps samples)
+Row 2     [ 65,      70,      72 ],
+Row 3     [ 88,      85,      94 ] ]
+             ⬇        ⬇        ⬇
+     np.mean(axis=0) = Column / Feature Average
+     (Collapses rows; keeps features)
+
+3. THE POWER OF keepdims=True:
+--------------------------------------------------------------------------------
+- Default reduction on (4, 3) with axis=0 produces (3,).
+- With keepdims=True, result has shape (1, 3).
+- Default reduction on (4, 3) with axis=1 produces (4,).
+- With keepdims=True, result has shape (4, 1).
+- keepdims=True guarantees seamless 2D broadcasting without ValueError or shape mismatch bugs!
+
+4. MACHINE LEARNING APPLICATIONS:
+--------------------------------------------------------------------------------
+- Z-score Feature Normalization:
+    mu = np.mean(X, axis=0, keepdims=True)
+    sigma = np.std(X, axis=0, keepdims=True)
+    X_standardized = (X - mu) / sigma
+- Multi-Class Neural Network Classification:
+    y_pred_classes = np.argmax(softmax_probs, axis=1)
+- Root Mean Squared Error (RMSE) Evaluation:
+    rmse = np.sqrt(np.mean((y_pred - y_true)**2))
+- Handling Missing Values:
+    np.nansum(), np.nanmean(), np.nanstd(), np.nanmin(), np.nanmax() ignore NaNs!
+================================================================================

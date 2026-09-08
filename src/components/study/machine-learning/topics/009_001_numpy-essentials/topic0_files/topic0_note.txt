@@ -1,0 +1,87 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 0: INTRODUCTION TO NUMPY
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9
+========================================================
+
+WHAT IS NUMPY?
+--------------
+NumPy (Numerical Python) is the foundational scientific computing
+library for Python. It was created by Travis Oliphant in 2005 and
+is the backbone of almost every data science and ML library today,
+including Pandas, Scikit-learn, TensorFlow, and SciPy.
+
+NumPy provides:
+  - A powerful N-dimensional array object (ndarray)
+  - Mathematical functions that operate on entire arrays
+  - Broadcasting for operations on differently-shaped arrays
+  - Linear algebra, Fourier transforms, and random number tools
+  - A C-language backend for near-hardware speed
+
+WHY DO WE NEED NUMPY?
+---------------------
+Python lists are flexible but SLOW for numerical computation:
+  - Python list: stores objects, has overhead per element
+  - NumPy ndarray: stores typed data in contiguous C memory
+  - Speedup: NumPy is typically 10x to 100x faster than Python loops
+
+Example of speed difference:
+  Pure Python: for i in range(1_000_000): x[i] * 2   → ~200ms
+  NumPy:       arr * 2                                 → ~2ms
+
+WHERE IS NUMPY USED IN ML?
+--------------------------
+1. Feature matrices (X) are NumPy arrays
+2. Target vectors (y) are NumPy arrays
+3. Model weights and gradients are stored as NumPy arrays
+4. All Scikit-learn models accept NumPy arrays as input
+5. Pandas DataFrames are built on NumPy arrays internally
+
+NUMPY IN THE ML PIPELINE:
+  Raw Data → Pandas DataFrame → .values → NumPy ndarray → Model
+
+CORE NUMPY MODULES:
+  numpy           → main namespace (np.array, np.zeros, etc.)
+  numpy.linalg    → linear algebra (matrix operations)
+  numpy.random    → random number generation
+  numpy.fft       → Fast Fourier Transform
+  numpy.ma        → masked arrays for missing data
+
+REAL-WORLD APPLICATIONS:
+  - Image data: a 28×28 grayscale image is a (28,28) NumPy array
+  - Audio data: sound samples stored as 1D NumPy arrays
+  - Sensor data: temperature readings as time-series NumPy arrays
+  - NLP: word embeddings stored as (vocab_size, embedding_dim) arrays
+  - Finance: stock price history as 1D or 2D NumPy arrays
+
+HISTORICAL NOTE:
+  - 1995: Numeric (predecessor) created by Jim Hugunin
+  - 2001: SciPy built on Numeric
+  - 2005: NumPy created as unified successor by Travis Oliphant
+  - 2006: NumPy 1.0 released
+  - Today: NumPy is used by NASA, CERN, Google, and academic labs
+
+KEY VOCABULARY:
+  ndarray   → N-dimensional array (the core object)
+  axis      → a dimension of the array
+  shape     → tuple describing the size of each axis
+  dtype     → data type of elements (int32, float64, etc.)
+  vectorize → performing operations on entire arrays at once
+
+TEACHER'S NOTE (Sukanta Hui, Barrackpore):
+  "Think of NumPy as the language that computers speak when doing
+   mathematics. Python gives us the convenience; NumPy gives us the
+   speed. You cannot build serious ML models without understanding
+   how NumPy arrays work."
+
+QUICK REVISION POINTS:
+  □ NumPy = Numerical Python, created 2005
+  □ Core object: ndarray (N-dimensional array)
+  □ 10–100× faster than Python lists for math
+  □ Backbone of Pandas, Scikit-learn, TensorFlow
+  □ ML features (X) and targets (y) are NumPy arrays
+  □ import numpy as np  (standard alias)
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

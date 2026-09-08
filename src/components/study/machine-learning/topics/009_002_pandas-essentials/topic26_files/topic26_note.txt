@@ -1,0 +1,34 @@
+==============================================================================
+TOPIC 26 NOTE: SHORT QUESTIONS & CONCEPTUAL MASTERY IN PANDAS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+MASTER PANDAS INTERVIEW CHEATSHEET:
+
+1. Indexing & Slicing:
+   - `loc[]`: Label-based indexing (inclusive of end label).
+   - `iloc[]`: Integer positional indexing (0 to N-1, exclusive of end index).
+   - `at[]` / `iat[]`: Lightning-fast single scalar access.
+
+2. Cleaning & Missing Data:
+   - `isna()` / `isnull()`: Identical boolean masks.
+   - `dropna()`: Deletes rows/columns containing NaNs.
+   - `fillna()`: Imputes missing values with constants or statistics.
+   - `ffill()` / `bfill()`: Forward / backward carry-over for sequential time-series.
+
+3. GroupBy & Transformations:
+   - `.agg()`: Collapses rows down to summary metrics (N -> G).
+   - `.transform()`: Broadcasts cohort statistic across all original rows (N -> N).
+   - `.filter()`: Discards entire cohorts based on a group-level boolean predicate.
+
+4. Joins & Reshaping:
+   - `pd.merge()`: SQL relational joins with `inner`, `left`, `right`, `outer`, and `indicator=True`.
+   - `pd.concat()`: Stacks DataFrames along axis 0 (rows) or axis 1 (columns).
+   - `pd.pivot_table()`: Reshapes transactional tables into 2D analytical grids with `margins=True`.
+
+5. Performance Rules:
+   - Prefer vectorized operations & `np.where` over `apply(axis=1)`.
+   - Avoid `inplace=True` in modern Pandas 2.x/3.x.
+   - Convert repetitive string columns to `category` to reduce memory by up to 90%.
+   - Always export with `df.to_csv(index=False)` to prevent `Unnamed: 0` junk columns.

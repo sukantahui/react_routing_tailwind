@@ -1,0 +1,28 @@
+================================================================================
+SCIKIT-LEARN OVERVIEW: TOPIC 0 - INTRODUCTION TO SCIKIT-LEARN
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS SCIKIT-LEARN?
+--------------------------------------------------------------------------------
+- Scikit-learn (imported as `sklearn`) is the premier Python library for classical 
+  Machine Learning, data preprocessing, model selection, and evaluation.
+- Built on top of NumPy, SciPy, and Matplotlib.
+- Focuses on structured/tabular data with efficient implementations written in Cython & C.
+
+2. THE 6 MAJOR FUNCTIONAL DOMAINS:
+--------------------------------------------------------------------------------
+1. Classification: Predicting discrete categorical labels (Spam vs Ham, Disease status).
+2. Regression: Predicting continuous numerical values (House price, Salary, Temperature).
+3. Clustering: Unsupervised grouping of similar data points (Customer segmentation).
+4. Dimensionality Reduction: Reducing feature space while retaining variance (PCA, t-SNE).
+5. Model Selection: Hyperparameter tuning and validation (GridSearchCV, Cross-validation).
+6. Preprocessing: Feature extraction, scaling, encoding, and imputation.
+
+3. THE CORE API PHILOSOPHY:
+--------------------------------------------------------------------------------
+- Consistency: All algorithms share a common interface (`fit`, `predict`, `transform`, `score`).
+- Inspection: Parameters learned during training end with a trailing underscore (e.g. `coef_`, `intercept_`, `classes_`).
+- Non-proliferation of classes: Standard NumPy arrays and Pandas DataFrames are used directly.
+- Sensible Defaults: Provides robust baseline default hyperparameters.

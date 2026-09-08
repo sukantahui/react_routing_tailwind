@@ -22,26 +22,26 @@ export default function Topic1() {
           </span>
         </div>
         <h1 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-          Pointers to Structures & Arrow (->) Operator
+          Pointers to Structures &amp; Arrow (-&gt;) Operator
         </h1>
         <p className="text-slate-400 text-base max-w-4xl leading-relaxed">
-          Master passing structures to functions efficiently by reference. Understand pointer-to-struct dereferencing, arrow (->) operator syntax, and memory overhead reduction.
+          Master passing structures to functions efficiently by reference. Understand pointer-to-struct dereferencing, arrow (-&gt;) operator syntax, and memory overhead reduction.
         </p>
       </header>
 
       {/* 2. Dedicated Topic Description Section (MANDATORY) */}
       <section className="space-y-4 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
         <h2 className="text-2xl font-bold text-sky-300 flex items-center gap-2">
-          <span>📖</span> Topic Description: Pointers to Structures & Arrow (->) Operator
+          <span>📖</span> Topic Description: Pointers to Structures &amp; Arrow (-&gt;) Operator
         </h2>
         <div className="space-y-3 text-slate-300 text-sm md:text-base leading-relaxed">
           <p>
-            The arrow operator (ptr->member) is syntactic sugar for (*ptr).member, allowing direct access to structure fields through memory pointers.
+            The arrow operator (ptr-&gt;member) is syntactic sugar for (*ptr).member, allowing direct access to structure fields through memory pointers.
           </p>
           <div className="bg-slate-900/60 p-4 rounded-xl border-l-4 border-amber-500 text-xs md:text-sm text-slate-300 space-y-2">
             <p className="font-semibold text-amber-300">🏫 Classroom Story at Coder &amp; AccoTax (Barrackpore):</p>
             <p>
-              Tuhina noticed that passing a 500-byte structure by value copies all 500 bytes to the call stack. Sukanta Hui demonstrated how passing an 8-byte pointer with the arrow (->) operator runs 60x faster!
+              Tuhina noticed that passing a 500-byte structure by value copies all 500 bytes to the call stack. Sukanta Hui demonstrated how passing an 8-byte pointer with the arrow (-&gt;) operator runs 60x faster!
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function Topic1() {
           <svg viewBox="0 0 900 200" className="w-full min-w-[700px] font-sans">
             <rect x="20" y="50" width="860" height="100" rx="12" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
             <text x="450" y="90" textAnchor="middle" fill="#38bdf8" className="font-bold text-base">
-              Memory Layout Architecture: Pointers to Structures & Arrow (->) Operator
+              Memory Layout Architecture: Pointers to Structures &amp; Arrow (-&gt;) Operator
             </text>
             <text x="450" y="120" textAnchor="middle" fill="#94a3b8" className="text-xs">
               Contiguous byte alignment in C memory space (Module 003_008 • Topic 1)
@@ -73,7 +73,7 @@ export default function Topic1() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-750 space-y-2">
             <h3 className="font-bold text-indigo-300">Rule 1: Memory Contiguity &amp; Access</h3>
-            <p className="text-slate-300">The arrow operator (ptr->member) is syntactic sugar for (*ptr).member, allowing direct access to structure fields through memory pointers.</p>
+            <p className="text-slate-300">The arrow operator (ptr-&gt;member) is syntactic sugar for (*ptr).member, allowing direct access to structure fields through memory pointers.</p>
           </div>
           <div className="bg-slate-800/40 p-4 rounded-xl border border-slate-750 space-y-2">
             <h3 className="font-bold text-indigo-300">Rule 2: Performance &amp; Hardware Alignment</h3>
@@ -85,10 +85,10 @@ export default function Topic1() {
       {/* 5. Dedicated Example Section (MANDATORY) */}
       <section className="space-y-5 bg-slate-800/40 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-lg">
         <h2 className="text-2xl font-bold text-emerald-400 flex items-center gap-2">
-          <span>💻</span> Example Section: Pointers to Structures & Arrow (->) Operator Demonstration
+          <span>💻</span> Example Section: Pointers to Structures &amp; Arrow (-&gt;) Operator Demonstration
         </h2>
         <p className="text-slate-300 text-sm leading-relaxed">
-          The program below (<code>StructPointerDemo.c</code>) demonstrates a complete standalone C console application for Pointers to Structures & Arrow (->) Operator.
+          The program below (<code>StructPointerDemo.c</code>) demonstrates a complete standalone C console application for Pointers to Structures &amp; Arrow (-&gt;) Operator.
         </p>
 
         <CFileLoader fileModule={cCode} title="StructPointerDemo.c" editable={false} />

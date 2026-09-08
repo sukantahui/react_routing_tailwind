@@ -201,12 +201,12 @@ export default function Topic11() {
       {/* 3. Semantic Visual SVG Diagram */}
       <section id="diagram" className="scroll-mt-6 space-y-4">
         <h2 className="text-xl font-bold text-sky-300 flex items-center gap-2">
-          <span>⚙️</span> Semantic Visual Diagram: Step-by-Step Distance Matrix Reduction (Step 1 -> Step 4)
+          <span>⚙️</span> Semantic Visual Diagram: Step-by-Step Distance Matrix Reduction (Step 1 -&gt; Step 4)
         </h2>
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
           <svg viewBox="0 0 920 300" className="w-full min-w-[750px] font-sans">
             <text x="460" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-sm">
-              Step-by-Step Distance Matrix Reduction (Step 1 -> Step 4)
+              Step-by-Step Distance Matrix Reduction (Step 1 -&gt; Step 4)
             </text>
 
             {/* Dendrogram Tree Visualization */}

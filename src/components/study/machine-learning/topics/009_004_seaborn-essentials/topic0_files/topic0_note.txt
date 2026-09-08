@@ -1,0 +1,40 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 0 - INTRODUCTION TO SEABORN
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS SEABORN?
+--------------------------------------------------------------------------------
+- Seaborn is a Python data visualization library based on Matplotlib.
+- It provides a high-level, declarative interface for drawing attractive and 
+  informative statistical graphics.
+- While Matplotlib gives low-level imperative control over every pixel and tick,
+  Seaborn is designed specifically for exploring and understanding complex 
+  statistical datasets.
+
+2. CORE ADVANTAGES OVER RAW MATPLOTLIB:
+--------------------------------------------------------------------------------
+a) DataFrame-Centric Syntax:
+   - Pass DataFrames directly (data=df) and specify column names as strings 
+     (x="age", y="salary", hue="gender").
+b) Built-in Statistical Aggregation:
+   - Automatically computes means, medians, confidence intervals (95% bootstrap CI),
+     and kernel density estimations (KDE).
+c) Multi-dimensional Visual Encoding:
+   - Enables instant grouping using color ('hue'), marker symbols ('style'), 
+     and point sizes ('size') without complex loops.
+d) Publication-Quality Defaults:
+   - Includes modern palettes, subtle grids, and aesthetic typography out-of-the-box.
+
+3. ARCHITECTURAL HIERARCHY:
+--------------------------------------------------------------------------------
+- Top Level: Figure-level functions (sns.relplot, sns.catplot, sns.displot, sns.pairplot)
+  -> Manage their own Multi-Facet Figure (FacetGrid / PairGrid).
+- Lower Level: Axes-level functions (sns.scatterplot, sns.boxplot, sns.histplot, sns.heatmap)
+  -> Draw directly onto a specific Matplotlib `ax` (compatible with plt.subplots).
+
+4. BARRACKPORE BATCH MEMORY TIP:
+--------------------------------------------------------------------------------
+"Matplotlib builds the engine and chassis; Seaborn adds the luxury interior, 
+GPS navigation, and automatic transmission for statistical data scientists!"

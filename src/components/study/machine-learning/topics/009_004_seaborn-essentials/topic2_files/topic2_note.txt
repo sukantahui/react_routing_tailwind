@@ -1,0 +1,41 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 2 - SEABORN VS MATPLOTLIB
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. FEATURE COMPARISON MATRIX:
+--------------------------------------------------------------------------------
+Feature               | Matplotlib                       | Seaborn
+----------------------|----------------------------------|------------------------------
+Paradigm              | Imperative (How to draw)         | Declarative (What to show)
+DataFrame Integration | Manual (df['col'] slicing)       | Direct (data=df, x='col')
+Multi-group Coloring  | Manual loops + dictionary maps   | Built-in (hue='category')
+Statistical Computations| Manual (mean, std, error bars)  | Automatic (CIs, KDEs, Medians)
+Default Themes        | Basic, high-contrast, stark     | Modern, muted, publication-ready
+Multi-plot Faceting   | Manual nested subplot loops      | Automated (FacetGrid, PairGrid)
+Customization Granularity| Infinite pixel-level control   | High-level with Matplotlib access
+
+2. WHEN TO USE WHICH?
+--------------------------------------------------------------------------------
+- Use Seaborn when:
+  * Performing Exploratory Data Analysis (EDA).
+  * Comparing statistical distributions across categories.
+  * Visualizing correlation matrices (heatmaps) or pairwise relations (pairplots).
+  * Grouping points by multiple categorical dimensions (hue, style, size).
+
+- Use Raw Matplotlib when:
+  * Creating highly custom scientific layouts, custom canvas geometries, or CAD diagrams.
+  * Drawing arbitrary geometric primitives (patches, custom arrows, bespoke polygons).
+  * Plotting domain-specific non-statistical diagrams (e.g. circuit schematics, physics models).
+
+3. THE BEST OF BOTH WORLDS: THE HYBRID PATTERN
+--------------------------------------------------------------------------------
+Never think of them as competitors; Seaborn uses Matplotlib under the hood!
+Pattern:
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    sns.scatterplot(data=df, x='age', y='salary', hue='dept', ax=axes[0])
+    sns.kdeplot(data=df, x='salary', hue='dept', fill=True, ax=axes[1])
+    # Fine-tune with Matplotlib methods:
+    axes[0].set_ylim(0, 100000)
+    plt.tight_layout()

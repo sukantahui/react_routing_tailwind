@@ -1,0 +1,39 @@
+==============================================================================
+TOPIC 13 NOTE: SORTING VALUES AND INDEX IN PANDAS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. VALUES SORTING WITH sort_values():
+   --------------------------------------------------------------------------
+   - Single Column:
+     `df.sort_values(by='Score', ascending=False)`
+   - Multi-Column with mixed direction vectors:
+     `df.sort_values(by=['Locality', 'Score'], ascending=[True, False])`
+     (Sorts Locality A->Z, and within each locality sorts Score high->low).
+   - Missing Values Placement (na_position):
+     * `na_position='last'` (Default): All NaNs placed at the end.
+     * `na_position='first'`: All NaNs placed at the very top.
+   - Preserving index vs resetting:
+     Sorting keeps original index row labels. Call `.reset_index(drop=True)` to produce clean 0..N ranks.
+
+2. INDEX SORTING WITH sort_index():
+   --------------------------------------------------------------------------
+   - Sort Row Index: `df.sort_index(ascending=True)`
+   - Sort Column Headers Alphabetically: `df.sort_index(axis=1, ascending=True)`
+   - MultiIndex levels: `df.sort_index(level='City')`
+
+3. HIGH-PERFORMANCE TOP-K & BOTTOM-K (nlargest / nsmallest):
+   --------------------------------------------------------------------------
+   - `df.nlargest(n=5, columns='TotalMarks')`
+   - `df.nsmallest(n=3, columns='Price')`
+   - Algorithmic Advantage:
+     * Full sort (`sort_values().head(k)`) takes O(N log N) time and requires allocating memory for entire sorted array.
+     * `nlargest(k)` uses an internal Min-Heap data structure with O(N log K) time complexity, which is vastly faster when extracting top 10 from 10,000,000 rows.
+   - Note: Only works on numeric columns.
+
+4. MACHINE LEARNING & TIME-SERIES IMPORTANCE:
+   --------------------------------------------------------------------------
+   - Time-series datasets MUST be sorted chronologically before rolling windows, lag features, or cumulative sums:
+     `df = df.sort_values(by='timestamp').reset_index(drop=True)`
+   - Cross-validation split (TimeSeriesSplit) assumes strictly chronological ordering.

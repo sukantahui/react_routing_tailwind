@@ -1,0 +1,34 @@
+========================================================================
+TOPIC 8 NOTE: SELECTING ROWS WITH loc[] AND iloc[]
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. THE FUNDAMENTAL DIFFERENCE: loc VS iloc
+------------------------------------------
+- `df.loc[row_indexer, column_indexer]`:
+  * LABEL-BASED access.
+  * Searches by explicit index label strings or integers (e.g. `'BP_101'`, `10`, `'Name'`).
+  * Endpoint Inclusivity: Slices `loc['A':'C']` INCLUDE the stop label `'C'`!
+  * Accepts Boolean condition series: `df.loc[df['Age'] > 18, ['Name', 'Score']]`.
+
+- `df.iloc[row_indexer, column_indexer]`:
+  * INTEGER POSITIONAL access (0-based array coordinates).
+  * Searches strictly by numeric position in memory (0, 1, 2, ..., N-1).
+  * Endpoint Inclusivity: Slices `iloc[0:3]` are EXCLUSIVE of stop index 3 (only returns rows 0, 1, 2).
+  * Supports Python negative indexing: `df.iloc[-1, -1]`.
+
+2. SUMMARY CHEAT SHEET
+-----------------------
+| Feature | `df.loc[]` | `df.iloc[]` |
+| :--- | :--- | :--- |
+| Access Mechanism | Index Labels & Column Names | Integer Positional Coordinates (0..N-1) |
+| Slice Stop Endpoint | **INCLUSIVE** of endpoint | **EXCLUSIVE** of endpoint (standard Python) |
+| Boolean Masking | Supported (`df.loc[mask, :]`) | Requires boolean array/list matching shape |
+| Negative Integers | Treated as literal index label `-1` | Refers to last row/column |
+
+3. PREVENTING SettingWithCopyWarning
+-------------------------------------
+- Anti-Pattern (Chained Indexing):
+  `df[df['Score'] > 80]['Passed'] = True`  # Raises SettingWithCopyWarning, may fail silently!
+- Best Practice Pattern:
+  `df.loc[df['Score'] > 80, 'Passed'] = True`  # Safe, explicit, in-place modification.

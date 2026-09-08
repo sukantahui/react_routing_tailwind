@@ -1331,6 +1331,224 @@
           "difficulty": "Medium"
         }
       ]
+    },
+    {
+      "segmentId": "python-libraries-for-ml",
+      "title": "Segment 9 – Python Libraries for Machine Learning",
+      "level": "Beginner",
+      "allocatedHours": 10,
+      "modules": [
+        {
+          "moduleId": "numpy-essentials",
+          "slug": "009_001_numpy-essentials",
+          "title": "NumPy Essentials",
+          "estimatedHours": 2,
+          "topics": [
+            "Introduction to NumPy",
+            "Installing and importing NumPy",
+            "ndarray concept",
+            "Creating arrays with np.array()",
+            "np.zeros(), np.ones(), np.arange(), np.linspace()",
+            "Array shape, size and dimensions",
+            "Reshaping arrays",
+            "Indexing and slicing arrays",
+            "Boolean indexing",
+            "Fancy indexing",
+            "Array arithmetic operations",
+            "Broadcasting concept",
+            "Universal functions (ufuncs)",
+            "np.sum(), np.mean(), np.std(), np.min(), np.max()",
+            "Matrix multiplication with np.dot()",
+            "Stacking and splitting arrays",
+            "np.random module basics",
+            "Worked Example 1: Creating and reshaping arrays",
+            "Worked Example 2: Broadcasting addition",
+            "Worked Example 3: Normalizing a dataset manually",
+            "Worked Example 4: Random dataset generation",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Create and manipulate NumPy arrays",
+            "Apply broadcasting and ufuncs",
+            "Perform basic linear algebra operations with NumPy",
+            "Use NumPy for numerical data preparation"
+          ],
+          "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "pandas-essentials",
+          "slug": "009_002_pandas-essentials",
+          "title": "Pandas Essentials",
+          "estimatedHours": 3,
+          "topics": [
+            "Introduction to Pandas",
+            "Installing and importing Pandas",
+            "Series and DataFrame concepts",
+            "Creating a DataFrame from a dictionary",
+            "Reading CSV files with pd.read_csv()",
+            "Reading Excel files with pd.read_excel()",
+            "Viewing data: head(), tail(), info(), describe()",
+            "Selecting columns",
+            "Selecting rows with loc[] and iloc[]",
+            "Boolean filtering",
+            "Adding and dropping columns",
+            "Handling missing values: isnull(), fillna(), dropna()",
+            "Renaming columns",
+            "Sorting values",
+            "Grouping data with groupby()",
+            "Aggregation functions: sum, mean, count",
+            "Merging and joining DataFrames",
+            "Applying functions with apply()",
+            "Value counts and unique values",
+            "Exporting data to CSV",
+            "Worked Example 1: Loading and exploring a student dataset",
+            "Worked Example 2: Handling missing salary values",
+            "Worked Example 3: Grouping sales by region",
+            "Worked Example 4: Merging two DataFrames on a key column",
+            "Worked Example 5: Filtering and exporting cleaned data",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Load, inspect, and filter tabular data using Pandas",
+            "Handle missing values and perform basic data cleaning",
+            "Group, merge, and aggregate data",
+            "Prepare a dataset for Machine Learning using Pandas"
+          ],
+          "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "matplotlib-essentials",
+          "slug": "009_003_matplotlib-essentials",
+          "title": "Matplotlib Essentials",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to Matplotlib",
+            "Installing and importing Matplotlib",
+            "Figure and Axes concept",
+            "Line plot with plt.plot()",
+            "Bar chart with plt.bar()",
+            "Histogram with plt.hist()",
+            "Scatter plot with plt.scatter()",
+            "Pie chart with plt.pie()",
+            "Adding titles, labels and legends",
+            "Setting axis limits",
+            "Saving figures with plt.savefig()",
+            "Subplots with plt.subplot()",
+            "Worked Example 1: Plotting student marks",
+            "Worked Example 2: Histogram of salary distribution",
+            "Worked Example 3: Scatter plot of features",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Create basic plots using Matplotlib",
+            "Customize plots with titles, labels and legends",
+            "Use subplots for multiple visualizations",
+            "Save and export visualizations"
+          ],
+          "difficulty": "Easy"
+        },
+        {
+          "moduleId": "seaborn-essentials",
+          "slug": "009_004_seaborn-essentials",
+          "title": "Seaborn Essentials",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to Seaborn",
+            "Installing and importing Seaborn",
+            "Seaborn vs Matplotlib",
+            "Distribution plot: sns.histplot(), sns.kdeplot()",
+            "Categorical plots: sns.barplot(), sns.boxplot(), sns.violinplot()",
+            "Relationship plots: sns.scatterplot(), sns.lineplot()",
+            "Heatmap with sns.heatmap()",
+            "Correlation matrix visualization",
+            "Pair plot with sns.pairplot()",
+            "Using hue for grouping",
+            "Seaborn themes and styles",
+            "Worked Example 1: Box plot of marks by gender",
+            "Worked Example 2: Heatmap of feature correlations",
+            "Worked Example 3: Pair plot for a small dataset",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Create statistical visualizations using Seaborn",
+            "Plot correlations, distributions and categorical comparisons",
+            "Use heatmaps and pair plots for exploratory analysis",
+            "Choose appropriate Seaborn plots for data insights"
+          ],
+          "difficulty": "Easy-Medium"
+        },
+        {
+          "moduleId": "scikit-learn-overview",
+          "slug": "009_005_scikit-learn-overview",
+          "title": "Scikit-learn Overview",
+          "estimatedHours": 2,
+          "topics": [
+            "Introduction to Scikit-learn",
+            "Installing and importing Scikit-learn",
+            "Scikit-learn API pattern (fit, predict, score)",
+            "Estimator concept",
+            "Preprocessing with sklearn.preprocessing",
+            "StandardScaler and MinMaxScaler",
+            "LabelEncoder and OneHotEncoder",
+            "train_test_split()",
+            "Linear models: LinearRegression, LogisticRegression",
+            "Neighbours: KNeighborsClassifier",
+            "Tree models: DecisionTreeClassifier",
+            "Naive Bayes: GaussianNB",
+            "Clustering: KMeans",
+            "Model evaluation: accuracy_score, confusion_matrix, classification_report",
+            "Regression metrics: mean_absolute_error, mean_squared_error, r2_score",
+            "Cross-validation: cross_val_score()",
+            "Pipeline concept (basic overview)",
+            "Worked Example 1: End-to-end classification with Scikit-learn",
+            "Worked Example 2: End-to-end regression with Scikit-learn",
+            "Worked Example 3: K-Means clustering with Scikit-learn",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Describe the Scikit-learn estimator API",
+            "Use Scikit-learn for preprocessing, modelling and evaluation",
+            "Apply train-test split and cross-validation",
+            "Implement common ML workflows end-to-end using Scikit-learn"
+          ],
+          "difficulty": "Medium"
+        },
+        {
+          "moduleId": "scipy-overview",
+          "slug": "009_006_scipy-overview",
+          "title": "SciPy Overview",
+          "estimatedHours": 1,
+          "topics": [
+            "Introduction to SciPy",
+            "Installing and importing SciPy",
+            "SciPy vs NumPy",
+            "scipy.stats: descriptive statistics",
+            "scipy.stats: probability distributions",
+            "Normal distribution and z-scores",
+            "Hypothesis testing basics",
+            "scipy.stats.ttest_ind and ttest_1samp",
+            "scipy.spatial: distance metrics (Euclidean, Manhattan)",
+            "scipy.linalg: basic linear algebra",
+            "scipy.optimize: minimization concept",
+            "Worked Example 1: Computing z-scores with SciPy",
+            "Worked Example 2: Euclidean distance with scipy.spatial",
+            "Practice Problems",
+            "Short Questions"
+          ],
+          "learningOutcomes": [
+            "Explain the purpose of SciPy in ML workflows",
+            "Use scipy.stats for basic statistical computations",
+            "Compute distance metrics with scipy.spatial",
+            "Relate SciPy tools to Machine Learning tasks"
+          ],
+          "difficulty": "Easy-Medium"
+        }
+      ]
     }
   ],
   "courseOutcomes": [
@@ -1440,7 +1658,13 @@
     "signal-processing-fundamentals",
     "fast-fourier-transform",
     "convolutional-neural-networks",
-    "impulse-and-ramp-functions"
+    "impulse-and-ramp-functions",
+    "numpy-essentials",
+    "pandas-essentials",
+    "matplotlib-essentials",
+    "seaborn-essentials",
+    "scikit-learn-overview",
+    "scipy-overview"
   ],
   "assessment": {
     "type": "Concepts + Numerical Problems + Coding Exercises + Module Tests + Mini Project",
@@ -1518,9 +1742,10 @@
     "newSegments": [
       "advanced-ml-algorithms",
       "deep-learning",
-      "signal-processing"
+      "signal-processing",
+      "python-libraries-for-ml"
     ],
-    "additionalAllocatedHours": 24,
-    "note": "The original five segments and their contents are preserved. The additional 24 hours represent the newly added syllabus coverage and are an extension of the learning roadmap, not a replacement of the original 45-hour allocation."
+    "additionalAllocatedHours": 34,
+    "note": "The original five segments and their contents are preserved. Segment 9 (Python Libraries for ML – 10 hours) was added as the final segment covering NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, and SciPy. The remaining 24 hours represent the advanced syllabus coverage (Segments 6–8). None of these additions replace the original 45-hour allocation."
   }
 }

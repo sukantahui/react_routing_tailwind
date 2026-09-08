@@ -1,0 +1,33 @@
+========================================================================
+TOPIC 17 NOTE: WORKED EXAMPLE 1 - CREATING & RESHAPING ARRAYS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. CASE STUDY 1: MULTI-CHANNEL IOT SENSOR STREAM
+-------------------------------------------------
+- Context:
+  Barrackpore environmental monitor collects 3 real-time metrics (Temperature °C, Relative Humidity %, AQI) every hour for 7 days.
+- Data Volume:
+  7 Days * 24 Hours/Day * 3 Features = 504 contiguous telemetry readings.
+- Tensor Structuring:
+  `stream = np.linspace(10, 95, 504)`
+  `tensor_3d = stream.reshape((7, 24, 3))`
+  `ml_batch_2d = tensor_3d.reshape(-1, 3)` (168 hourly time steps, 3 features).
+
+2. CASE STUDY 2: COMPUTER VISION BATCH RESHAPING
+-------------------------------------------------
+- Grayscale MNIST pipeline:
+  (N * 28 * 28) flat array -> `(N, 28, 28, 1)` for 2D ConvNet -> `(N, 784)` for Softmax Dense Classifier.
+- Dimension transposition:
+  TensorFlow / Keras standard: `(Batch, Height, Width, Channels)` (NHWC)
+  PyTorch standard: `(Batch, Channels, Height, Width)` (NCHW)
+  Convert with: `np.transpose(img_batch, (0, 3, 1, 2))`.
+
+3. MEMORY CONSTRAINTS & ORDERING
+---------------------------------
+- Total element count MUST match:
+  Product of new dimensions (d_1 * d_2 * ... * d_k) MUST EQUAL total size N.
+- Using `-1` wildcard:
+  NumPy infers the unspecified dimension automatically: `arr.reshape(7, -1)` divides total size by 7.
+- Memory Views vs Copies:
+  Reshaping an array returns a zero-copy view with modified shape metadata and strides whenever data is contiguous.

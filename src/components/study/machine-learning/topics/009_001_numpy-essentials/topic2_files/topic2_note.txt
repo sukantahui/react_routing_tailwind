@@ -1,0 +1,80 @@
+﻿========================================================
+NUMPY ESSENTIALS — TOPIC 2: ndarray CONCEPT
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9
+========================================================
+
+WHAT IS AN ndarray?
+-------------------
+ndarray = N-dimensional array
+  - The core data structure of NumPy
+  - An N-dimensional grid of values, all of the SAME type
+  - N can be 1 (vector), 2 (matrix), 3 (tensor), or higher
+
+Think of it as:
+  1D ndarray → a single row of numbers (vector)
+  2D ndarray → a table of numbers (matrix)
+  3D ndarray → a stack of tables (like a video = frames × H × W)
+  4D ndarray → a batch of 3D arrays (batch × frames × H × W)
+
+STRUCTURE OF AN ndarray:
+------------------------
+Every ndarray has the following attributes:
+
+  arr.shape    → Tuple of dimension sizes, e.g., (3, 4)
+  arr.ndim     → Number of dimensions (axes), e.g., 2
+  arr.size     → Total number of elements, e.g., 12
+  arr.dtype    → Data type of elements, e.g., float64
+  arr.itemsize → Bytes per element, e.g., 8
+  arr.nbytes   → Total bytes = itemsize × size, e.g., 96
+  arr.data     → Memory buffer (raw C pointer)
+  arr.strides  → Bytes to step along each axis
+
+AXES IN NumPy:
+--------------
+An axis is a dimension of the array.
+  - A 1D array has 1 axis (axis=0)
+  - A 2D array has 2 axes (axis=0=rows, axis=1=columns)
+  - A 3D array has 3 axes (depth, rows, columns)
+
+Operations like np.sum(arr, axis=0) reduce along that axis.
+
+MEMORY LAYOUT:
+--------------
+NumPy stores data in contiguous C-order (row-major) by default.
+  - arr.flags['C_CONTIGUOUS'] = True → row-major
+  - arr.flags['F_CONTIGUOUS'] = True → column-major (Fortran)
+
+Strides:
+  strides = (bytes_per_row, bytes_per_element)
+  For shape (3,4) float64: strides = (32, 8)
+  Moving down one row = skip 32 bytes
+  Moving right one col = skip 8 bytes
+
+VIEWS vs COPIES:
+----------------
+  view  → slice of the same memory (no data copied)
+  copy  → independent array with its own memory
+
+  view = arr[0:3]      → same memory as arr
+  copy = arr[0:3].copy() → new independent array
+
+HOW ndarray DIFFERS FROM Python list:
+--------------------------------------
+  Python list: stores references to Python objects
+  ndarray:     stores raw numeric values in C memory
+  Python list: can mix types ([1, "hello", 3.5])
+  ndarray:     all elements MUST be the same dtype
+
+QUICK REVISION POINTS:
+  □ ndarray = N-dimensional array, NumPy's core object
+  □ All elements share the same dtype
+  □ Key attributes: shape, ndim, size, dtype, nbytes
+  □ axis = one dimension of the array
+  □ C-order (row-major) memory layout by default
+  □ Slices are views (no copy) — modifying view modifies original
+  □ Use .copy() for an independent copy
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

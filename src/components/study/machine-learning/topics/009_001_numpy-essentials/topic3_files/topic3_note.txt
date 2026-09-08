@@ -1,0 +1,45 @@
+﻿========================================================
+NUMPY ESSENTIALS — TOPIC 3: CREATING ARRAYS WITH np.array()
+Coder & AccoTax | Sukanta Hui | Barrackpore
+========================================================
+
+np.array() is the primary constructor for ndarrays.
+It converts Python lists, tuples, or other sequences into ndarrays.
+
+SYNTAX:
+  np.array(object, dtype=None, copy=True, order='K', ndmin=0)
+
+  object : Input data (list, tuple, nested list, another array)
+  dtype  : Optional. Desired data type. Inferred if not given.
+  copy   : If True (default), always copy the data.
+  ndmin  : Minimum number of dimensions for the result.
+
+CREATING 1D, 2D, 3D ARRAYS:
+  arr1d = np.array([1, 2, 3, 4, 5])
+  arr2d = np.array([[1, 2, 3], [4, 5, 6]])
+  arr3d = np.array([[[1,2],[3,4]], [[5,6],[7,8]]])
+
+EXPLICIT DTYPE:
+  np.array([1, 2, 3], dtype=np.float32)   # forces float32
+  np.array([1.1, 2.2], dtype=np.int32)    # truncates to int
+
+TYPE INFERENCE:
+  np.array([1, 2, 3])     → dtype=int64
+  np.array([1.0, 2.0])    → dtype=float64
+  np.array([True, False]) → dtype=bool
+  np.array([1, 'two'])    → dtype=object  (mixed! avoid)
+
+NESTED LISTS → 2D ARRAYS:
+  marks = np.array([[72, 85, 61], [90, 45, 78]])
+  # shape (2, 3) — 2 rows, 3 columns
+
+COMMON MISTAKES:
+  np.array(1, 2, 3)       → TypeError (pass a list!)
+  np.array([1, 2, "3"])   → dtype=object (mixed types)
+
+QUICK REVISION:
+  □ np.array([...]) is the primary array constructor
+  □ Always pass a list (or list-of-lists), not separate arguments
+  □ Specify dtype= explicitly for large ML arrays
+  □ Mixed types → dtype=object → slow!
+  □ Nested lists → 2D array; nested further → 3D array

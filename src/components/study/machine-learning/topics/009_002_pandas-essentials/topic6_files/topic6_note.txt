@@ -1,0 +1,33 @@
+========================================================================
+TOPIC 6 NOTE: VIEWING DATA: head(), tail(), info(), describe()
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. FIRST-LOOK BOUNDARY INSPECTION: head(), tail(), sample()
+------------------------------------------------------------
+- `df.head(n=5)`: Displays top n rows (default 5). Quick check of column names and values.
+- `df.tail(n=5)`: Displays bottom n rows. Essential for verifying whether footer metadata or summary totals were accidentally ingested.
+- `df.sample(n=5, random_state=42)`: Extracts unbiased random rows. Essential for detecting hidden patterns in sorted datasets.
+
+2. METADATA & DATA INTEGRITY: df.info()
+----------------------------------------
+- Provides concise summary of the DataFrame:
+  * Total entries and Index range.
+  * Total number of columns.
+  * Column name, Non-Null Count, and Data Type (`dtype`).
+  * Total memory footprint (`memory_usage='deep'`).
+- Critical for spotting missing values: If total entries = 100 and column X has 80 non-null, exactly 20 values are missing!
+
+3. STATISTICAL DISTRIBUTION SUMMARIES: df.describe()
+-----------------------------------------------------
+- Numerical Columns (Default):
+  * `count`: Number of non-null values.
+  * `mean` & `std`: Central tendency and spread.
+  * 5-Number Summary: `min`, `25%` (Q1), `50%` (Median), `75%` (Q3), `max`.
+  * Helps detect extreme outliers (e.g. if `max` is 1000x greater than `75%`).
+- Categorical Columns (`include=['object', 'category']`):
+  * `count`: Non-null entries.
+  * `unique`: Number of distinct classes/categories.
+  * `top`: Most frequently occurring category (Mode).
+  * `freq`: Frequency count of the top category.
+- All Columns: `df.describe(include='all')`.

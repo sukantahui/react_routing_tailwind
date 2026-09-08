@@ -1,0 +1,32 @@
+MATPLOTLIB ESSENTIALS: TOPIC 4 NOTE
+=============================================================================
+TOPIC: Bar Charts (plt.bar, plt.barh, Grouped, Stacked, Error Bars)
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. BAR CHART VARIANTS:
+   - Vertical Bars: `ax.bar(x, height, width=0.8, bottom=None, align='center', **kwargs)`
+   - Horizontal Bars: `ax.barh(y, width, height=0.8, left=None, align='center', **kwargs)`
+   - When to use Horizontal: When category labels are lengthy (e.g. feature names, long class names) to avoid overlapping text.
+
+2. GROUPED (CLUSTERED) BARS:
+   - Calculate numeric baseline positions: `x = np.arange(len(categories))`
+   - Offset series by half bar width:
+     `ax.bar(x - width/2, series1, width=width, label='Series 1')`
+     `ax.bar(x + width/2, series2, width=width, label='Series 2')`
+   - Set tick positions and labels explicitly:
+     `ax.set_xticks(x)`
+     `ax.set_xticklabels(categories)`
+
+3. STACKED BARS:
+   - Use the `bottom` argument in vertical bars:
+     `ax.bar(categories, part1, label='Part 1')`
+     `ax.bar(categories, part2, bottom=part1, label='Part 2')`
+   - Use the `left` argument in horizontal bars:
+     `ax.barh(categories, part2, left=part1)`
+
+4. ERROR BARS & ANNOTATIONS:
+   - Error bars: `yerr=std_values` (vertical) or `xerr=std_values` (horizontal) with `capsize=4`.
+   - Direct Bar Labeling (Matplotlib 3.4+):
+     `bars = ax.bar(...)`
+     `ax.bar_label(bars, fmt='%.2f', padding=3)`

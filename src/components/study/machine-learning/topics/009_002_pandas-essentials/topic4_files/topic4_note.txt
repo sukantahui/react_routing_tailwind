@@ -1,0 +1,29 @@
+========================================================================
+TOPIC 4 NOTE: READING CSV FILES WITH pd.read_csv()
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. CORE PARAMETERS OF pd.read_csv()
+-----------------------------------
+- `filepath_or_buffer`: Local file path string, URL (e.g. GitHub raw URL), or `io.StringIO` buffer.
+- `sep` / `delimiter`: Character separating fields (default is `,`). Use `\t` for TSV, `;` for European data, `\s+` for whitespace.
+- `header`: Row number to use as column names (default `0`). If file has no header, set `header=None` and supply `names=[...]`.
+- `index_col`: Column name or integer index to use as the row labels of the DataFrame.
+- `usecols`: List of column names or integer indices to load. Crucial for memory optimization when working with wide datasets.
+
+2. ADVANCED DATA CLEANING AT INGESTION TIME
+-------------------------------------------
+- `parse_dates`: Converts date string columns into native `datetime64[ns]` timestamps during reading: `parse_dates=['Date']`.
+- `na_values`: Additional custom strings to recognize as NaN (e.g. `na_values=['?', 'MISSING', 'N/A', -999]`).
+- `dtype`: Explicitly specify column data types: `dtype={'PostalCode': str, 'Amount': float}` to avoid leading zero loss in zip codes.
+- `skiprows` / `nrows`: Skip metadata comment lines (`skiprows=5`) or read a quick preview (`nrows=100`).
+
+3. MEMORY OPTIMIZATION & OUT-OF-CORE CHUNKING
+----------------------------------------------
+- Problem: Loading a 10 GB CSV into 8 GB RAM causes an `OutOfMemoryError`.
+- Solution: Use `chunksize`:
+  ```python
+  for chunk in pd.read_csv('huge_dataset.csv', chunksize=50000):
+      process_batch(chunk)
+  ```
+- Returns a `TextFileReader` iterator that streams batches without overloading RAM.

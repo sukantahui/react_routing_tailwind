@@ -1,0 +1,37 @@
+==============================================================================
+TOPIC 22 NOTE: WORKED EXAMPLE 3 - GROUPING SALES BY REGION
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. REGIONAL SALES AGGREGATION PATTERNS:
+   --------------------------------------------------------------------------
+   - Multi-Metric Regional Summary:
+     `df.groupby('Region', as_index=False).agg(`
+     `    Total_Orders=('OrderID', 'count'),`
+     `    Total_Units=('Units_Sold', 'sum'),`
+     `    Total_Revenue=('Revenue_INR', 'sum'),`
+     `    Avg_Order_Value=('Revenue_INR', 'mean')`
+     `).sort_values(by='Total_Revenue', ascending=False)`
+
+2. PIVOT TABLES (pd.pivot_table) VS GROUPBY:
+   --------------------------------------------------------------------------
+   - While `df.groupby(['Region', 'Category'])` creates long stacked rows, `pd.pivot_table()` reshapes data into a clean 2D business matrix:
+     `pd.pivot_table(`
+     `    df,`
+     `    values='Revenue_INR',`
+     `    index='Region',`
+     `    columns='Category',`
+     `    aggfunc='sum',`
+     `    fill_value=0,`
+     `    margins=True,`
+     `    margins_name='Grand_Total'`
+     `)`
+   - `margins=True` automatically computes subtotals and grand totals across both rows and columns.
+
+3. CALCULATING REGIONAL MARKET SHARE (%):
+   --------------------------------------------------------------------------
+   - Step 1: Compute grand total revenue `tot = df['Revenue_INR'].sum()`.
+   - Step 2: Group by Region and divide:
+     `df.groupby('Region')['Revenue_INR'].sum().apply(lambda v: (v / tot) * 100).round(2)`
+   - Allows business stakeholders to pinpoint top revenue-generating territories immediately.

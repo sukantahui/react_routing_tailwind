@@ -1,0 +1,37 @@
+========================================================================
+TOPIC 1 NOTE: INSTALLING AND IMPORTING PANDAS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. INSTALLATION METHODS
+-----------------------
+- Standard pip installer:
+  `pip install pandas`
+- Conda package manager (Anaconda / Miniconda):
+  `conda install -c conda-forge pandas`
+- Bundle with recommended acceleration and I/O engines:
+  `pip install "pandas[performance,excel,parquet]"`
+  (Includes openpyxl for Excel, pyarrow/fastparquet for Parquet, numba for JIT compiling custom apply functions).
+
+2. IMPORT CONVENTION & BEST PRACTICES
+-------------------------------------
+- Standard PEP 8 Alias:
+  `import pandas as pd`
+- Why alias as `pd`?
+  It is the globally recognized convention across GitHub, Kaggle, and production machine learning teams.
+- Anti-Pattern:
+  `from pandas import *` -> Pollutes the global namespace and causes name collisions with Python built-ins like `Series`, `concat`, etc.
+
+3. PANDAS RUNTIME CONFIGURATION (pd.set_option)
+-----------------------------------------------
+- Useful display options during Exploratory Data Analysis (EDA):
+  * `pd.set_option('display.max_columns', None)`: Never truncate columns with '...'.
+  * `pd.set_option('display.max_rows', 50)`: Sets max rows before truncation.
+  * `pd.set_option('display.precision', 2)`: Controls floating-point print decimals.
+  * `pd.set_option('display.float_format', '{:.2f}'.format)`: Formats all floats without scientific notation.
+  * `pd.reset_option('all')`: Restores default terminal settings.
+
+4. PANDAS 2.0+ PYARROW BACKEND
+------------------------------
+- Starting from Pandas 2.0, you can use PyArrow as an underlying data type backend (`dtype_backend='pyarrow'`).
+- Benefits: Up to 10x faster string operations, true nullable data types (e.g. integer columns with nulls without casting to float64), and zero-copy interoperability with Apache Arrow ecosystems.

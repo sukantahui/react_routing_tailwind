@@ -1,0 +1,44 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 13 - CLASSIFICATION MODEL EVALUATION
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. THE 2x2 CONFUSION MATRIX
+--------------------------------------------------------------------------------
+A contingency table summarizing the alignment between ground truth and predicted labels:
+
+                      PREDICTED NEGATIVE (0)    PREDICTED POSITIVE (1)
+ACTUAL NEGATIVE (0):  True Negative (TN)        False Positive (FP - Type I Error)
+ACTUAL POSITIVE (1):  False Negative (FN - Type II) True Positive (TP)
+
+2. CORE CLASSIFICATION METRICS & FORMULAS
+--------------------------------------------------------------------------------
+A. Accuracy:
+   $\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}$
+   - Misleading in imbalanced datasets! (e.g. 99% accuracy by predicting all negative on rare disease).
+
+B. Precision (Positive Predictive Value):
+   $\text{Precision} = \frac{TP}{TP + FP}$
+   - Question answered: "Out of all instances predicted as Positive, how many were actually Positive?"
+   - High Precision priority: Spam detection (don't mark important emails as spam).
+
+C. Recall / Sensitivity (True Positive Rate):
+   $\text{Recall} = \frac{TP}{TP + FN}$
+   - Question answered: "Out of all actual Positive instances, how many did the model catch?"
+   - High Recall priority: Cancer detection / Fraud detection (don't miss any diseased patients!).
+
+D. F1-Score:
+   $F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}} = \frac{2 \cdot TP}{2 \cdot TP + FP + FN}$
+   - Harmonic mean balancing Precision and Recall.
+
+3. MACRO VS WEIGHTED AVERAGING IN MULTI-CLASS REPORTS
+--------------------------------------------------------------------------------
+- `macro avg`: Computes the metric for each class independently and takes the simple arithmetic average. Gives EQUAL weight to rare classes!
+- `weighted avg`: Computes the metric for each class and weights each score by its `support` (number of true instances). Majority classes dominate.
+
+4. BARRACKPORE CLASSROOM RULES (Sukanta Hui)
+--------------------------------------------------------------------------------
+- Never evaluate imbalanced medical or fraud models on `accuracy_score` alone!
+- Always inspect `confusion_matrix(y_true, y_pred)` and `classification_report(y_true, y_pred)`.
+================================================================================

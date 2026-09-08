@@ -1,0 +1,26 @@
+==============================================================================
+TOPIC 23 NOTE: WORKED EXAMPLE 4 - MERGING ON A KEY COLUMN
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. RELATIONAL MERGE WORKFLOW IN PRODUCTION ETL:
+   --------------------------------------------------------------------------
+   Step 1: Inspect Key Formats on Both Tables:
+           - Check `df1['Key'].dtype` vs `df2['Key'].dtype` (string vs int mismatch is #1 merge bug!).
+           - Strip whitespace: `df1['Key'] = df1['Key'].str.strip()`.
+
+   Step 2: Choose Join Strategy Based on Business Logic:
+           - `how='inner'`: Strict intersection (only candidates with both registration & exam score).
+           - `how='left'`: Primary cohort audit (all registered candidates, showing NaNs for absentees).
+           - `how='outer'`: Complete reconciliation audit to find orphan records in either system.
+
+   Step 3: Disambiguate Overlapping Feature Names:
+           - Pass `suffixes=('_admissions', '_exam')` so duplicate headers (like `Date`, `Batch`) don't collide.
+
+   Step 4: Enforce Cardinality Validation:
+           - Pass `validate='1:1'`, `'1:m'`, or `'m:1'` inside `pd.merge()`.
+           - Prevents accidental Cartesian multiplication caused by duplicated customer keys.
+
+   Step 5: Audit Data Lineage with indicator=True:
+           - `outer_df['_merge'].value_counts()` reveals exact counts for `both`, `left_only`, and `right_only`.

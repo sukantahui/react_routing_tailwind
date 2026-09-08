@@ -1,0 +1,47 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 7 - TRAIN_TEST_SPLIT()
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. WHY DATA SPLITTING IS MANDATORY
+--------------------------------------------------------------------------------
+Evaluating a model on the same data it trained on yields "optimism bias" (overfitting).
+A model might achieve 100% training accuracy through rote memorization, yet fail completely on unseen production queries.
+The solution: Partition the dataset into disjoint subsets:
+- Training Set: Used by `.fit()` to optimize weights/coefficients.
+- Validation Set: Used to tune hyperparameters and prevent overfitting.
+- Test Set: Held out as an unbiased final benchmark of generalization error.
+
+2. KEY PARAMETERS OF `train_test_split(*arrays, ...)`
+--------------------------------------------------------------------------------
+A. `test_size` and `train_size`:
+   - Float (e.g., 0.2): Represents proportion (20%).
+   - Int (e.g., 200): Represents exact count of rows.
+   - If both are omitted, `test_size` defaults to 0.25 (25%).
+
+B. `random_state`:
+   - An integer seed (e.g., `random_state=42`) that initializes the pseudo-random number generator.
+   - Ensures exact reproducibility across different machines, colleagues, and re-runs.
+
+C. `shuffle=True` (Default):
+   - Shuffles the dataset before partitioning.
+   - Set `shuffle=False` for time-series / sequential data where temporal order must be preserved.
+
+D. `stratify=y`:
+   - Ensures the train and test subsets contain the EXACT same proportion of class labels as the original dataset.
+   - Crucial for imbalanced classification tasks (e.g. Fraud detection, Medical diagnoses).
+
+3. SPLIT RATIO GUIDELINES
+--------------------------------------------------------------------------------
+- Small Datasets (< 1,000 rows): 70/30 or 80/20 train/test split.
+- Medium Datasets (10,000 to 100,000 rows): 80/10/10 train/val/test split.
+- Big Data (> 1,000,000 rows): 98/1/1 split (1% test set still has 10,000 samples for statistically confident evaluation).
+
+4. COMMON PITFALLS (BARRACKPORE CLASSROOM INSIGHTS)
+--------------------------------------------------------------------------------
+- Pitfall: Preprocessing (StandardScaler / Imputer) BEFORE calling `train_test_split()`.
+  * Solution: ALWAYS split first! Fit the scaler on `X_train` only, then transform `X_test`.
+- Pitfall: Forgetting `stratify=y` on rare diseases or fraud detection.
+  * Without stratification, a test fold may end up with 0 positive fraud cases by chance!
+================================================================================

@@ -1,0 +1,28 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 11 - WORKED EXAMPLE 1 (BOX PLOT BY GENDER)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. PROBLEM FORMULATION:
+--------------------------------------------------------------------------------
+We wish to compare the Machine Learning assessment test scores between Male 
+and Female students across cohorts in Barrackpore.
+- Goal: Assess central tendency, spread (IQR), skewness, and extreme outlier marks.
+
+2. STEP-BY-STEP IMPLEMENTATION:
+--------------------------------------------------------------------------------
+Step 1: Ingest tabular DataFrame with columns: ['Gender', 'ML_Marks', 'Track'].
+Step 2: Configure high-level theme: `sns.set_theme(style="whitegrid")`.
+Step 3: Call `sns.boxplot(data=df, x="Gender", y="ML_Marks", palette={"Male": "#38bdf8", "Female": "#f472b6"})`.
+Step 4: (Optional Pro Tip) Overlay individual observations using `sns.stripplot(..., jitter=0.2, alpha=0.6)`.
+Step 5: Set titles, axis labels, and remove unnecessary spines via `sns.despine()`.
+
+3. READING THE 5-POINT SUMMARY:
+--------------------------------------------------------------------------------
+- Upper Whisker : Q3 + 1.5 * IQR (or maximum non-outlier score)
+- Q3 (75th percentile) : Upper edge of box (75% of cohort scored below this)
+- Median (50th percentile) : Solid horizontal line inside the box
+- Q1 (25th percentile) : Lower edge of box (25% of cohort scored below this)
+- Lower Whisker : Q1 - 1.5 * IQR
+- Outliers (Fliers) : Isolated points beyond whiskers.

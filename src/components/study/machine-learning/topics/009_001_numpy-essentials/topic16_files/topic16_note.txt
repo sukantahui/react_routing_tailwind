@@ -1,0 +1,44 @@
+========================================================================
+TOPIC 16 NOTE: NUMPY RANDOM MODULE BASICS (np.random & default_rng)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. CORE RANDOM SAMPLING FUNCTIONS
+----------------------------------
+- Continuous Uniform:
+  * np.random.rand(d0, d1, ...): Uniform in interval [0.0, 1.0).
+  * np.random.uniform(low, high, size): Custom uniform interval [low, high).
+
+- Standard Normal (Gaussian):
+  * np.random.randn(d0, d1, ...): Gaussian with mean=0, std=1.
+  * np.random.normal(loc, scale, size): Gaussian with specified mean (loc) and standard deviation (scale).
+
+- Discrete Integers:
+  * np.random.randint(low, high, size): Discrete random integers in range [low, high) (inclusive low, exclusive high).
+
+- Discrete Sampling:
+  * np.random.choice(a, size, replace=True/False, p=probabilities): Samples elements with or without replacement and custom weighting.
+  * np.random.permutation(x): Returns a newly shuffled copy.
+  * np.random.shuffle(x): In-place in-memory shuffle of array x.
+
+2. REPRODUCIBILITY & THE MODERN GENERATOR API
+----------------------------------------------
+- Legacy API: `np.random.seed(42)`
+  Sets a single global state in C. Not thread-safe, uses older Mersenne Twister algorithm (MT19937).
+- Modern API (NumPy 1.17+): `rng = np.random.default_rng(seed=42)`
+  Creates an isolated `Generator` instance powered by PCG64 (Permuted Congruential Generator).
+  Faster, thread-safe, and provides cleaner method names (e.g. `rng.integers`, `rng.random`, `rng.normal`).
+
+3. MACHINE LEARNING APPLICATIONS
+---------------------------------
+- Synthetic Data Generation:
+  Creating controlled feature distributions with known ground truth equations plus additive Gaussian noise (epsilon ~ N(0, sigma^2)) to test regression and classification algorithms.
+
+- Neural Network Weight Initialization:
+  * Too small weights -> Vanishing gradients.
+  * Too large weights -> Exploding gradients and saturated activations.
+  * Xavier/Glorot Initialization: std = sqrt(2 / (d_in + d_out)).
+  * He/Kaiming Initialization: std = sqrt(2 / d_in) for ReLU activation functions.
+
+- Mini-batch Stochastic Gradient Descent (SGD):
+  Shuffling training indices across epochs: `rng.permutation(len(X_train))`.

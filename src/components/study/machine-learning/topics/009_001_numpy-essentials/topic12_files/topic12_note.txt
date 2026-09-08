@@ -1,0 +1,73 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 12: UNIVERSAL FUNCTIONS (UFUNCS)
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9 • Module 1
+========================================================
+
+1. WHAT IS A UFUNC?
+-------------------
+A Universal Function (ufunc) is a C-implemented function that operates
+element-by-element on ndarrays, supporting vectorized broadcasting,
+type coercion, and custom reduction methods.
+
+2. UNARY VS BINARY UFUNCS:
+---------------------------
+Unary ufuncs (Single array input):
+  - Math:     np.sqrt(), np.exp(), np.log(), np.abs(), np.negative()
+  - Trig:     np.sin(), np.cos(), np.tan()
+  - Rounding: np.round(), np.floor(), np.ceil(), np.trunc()
+
+Binary ufuncs (Two array inputs):
+  - Arithmetic: np.add(), np.subtract(), np.multiply(), np.divide()
+  - Extrema:    np.maximum(), np.minimum(), np.fmax(), np.fmin()
+  - Powers:     np.power(), np.remainder(), np.copysign()
+
+3. ADVANCED UFUNC METHODS (ON EVERY BINARY UFUNC):
+---------------------------------------------------
+1. .reduce(arr, axis):
+   Collapses an axis by repeated application:
+   np.add.reduce(arr) ➔ Same as np.sum(arr)
+   np.multiply.reduce(arr) ➔ Same as np.prod(arr)
+
+2. .accumulate(arr, axis):
+   Running cumulative accumulation:
+   np.add.accumulate([1, 2, 3, 4]) ➔ [1, 3, 6, 10] (cumsum)
+
+3. .outer(a, b):
+   Computes outer table for all element pairs:
+   np.multiply.outer([1, 2, 3], [10, 20]) ➔ 3x2 matrix
+
+4. .at(arr, indices, val):
+   Unbuffered in-place modification at repeated indices:
+   np.add.at(arr, [0, 0], 1) ➔ Adds 2 to arr[0]
+
+5. The 'out' Parameter (Zero-Memory Overhead):
+   np.sqrt(X, out=X) ➔ Writes result directly into X buffer in-place!
+
+4. UFUNCS IN MACHINE LEARNING & DEEP LEARNING:
+----------------------------------------------
+1. Sigmoid Activation:
+   sigmoid = 1.0 / (1.0 + np.exp(-z))
+
+2. Softmax Activation (with Max Subtraction):
+   exp_shifted = np.exp(z - np.max(z, axis=-1, keepdims=True))
+   softmax = exp_shifted / np.sum(exp_shifted, axis=-1, keepdims=True)
+
+3. Binary Cross-Entropy Loss:
+   loss = -np.mean(y * np.log(p + 1e-15) + (1 - y) * np.log(1 - p + 1e-15))
+
+4. ReLU Activation:
+   relu = np.maximum(0, x)
+
+5. QUICK REVISION CHECKLIST:
+-----------------------------
+  □ ufuncs run compiled C loops with hardware SIMD vectorization
+  □ Unary ufuncs take 1 input; binary ufuncs take 2 inputs
+  □ Use 'out=...' to avoid temporary memory allocations in loops
+  □ Binary ufuncs provide .reduce(), .accumulate(), .outer(), and .at()
+  □ Activation functions (Sigmoid, Softmax, ReLU) rely on ufuncs (np.exp, np.maximum)
+  □ Always add small epsilon (1e-15) inside np.log() to prevent log(0) = -inf
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

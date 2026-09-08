@@ -1,0 +1,33 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 18 - WORKED EXAMPLE 2 (REGRESSION)
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. END-TO-END REGRESSION BLUEPRINT
+--------------------------------------------------------------------------------
+1. Problem Framing:
+   - Identify continuous numerical target variable $y$ (e.g. Salary in ₹ Lakhs, House Price).
+2. Data Preprocessing:
+   - Numeric columns: Impute missing entries -> Apply `StandardScaler`.
+   - Categorical columns: Apply `OneHotEncoder(drop='first', handle_unknown='ignore')`.
+3. Candidate Model Exploration:
+   - Evaluate Linear Regression, Regularized Ridge ($L_2$), Lasso ($L_1$), and Non-linear Ensembles (Random Forest / Gradient Boosting).
+4. Performance Metrics:
+   - Evaluate with `neg_root_mean_squared_error` and `r2` across 5-Fold Cross-Validation.
+5. Residual Diagnostics:
+   - Plot Residuals ($y - \hat{y}$) against predicted values.
+   - Good models exhibit randomly scattered residuals centered around 0 with uniform spread (homoscedasticity).
+
+2. PRACTICAL REGRESSION GOTCHAS
+--------------------------------------------------------------------------------
+- Scoring Parameter Sign Convention:
+  In Scikit-learn, cross-validation metrics follow the "higher is better" rule. Therefore, error functions are negated:
+  `scoring='neg_mean_squared_error'` or `scoring='neg_root_mean_squared_error'`. Remember to negate the output to obtain positive errors!
+- Multicollinearity:
+  When using Linear Regression with one-hot encoded columns, always pass `drop='first'` to prevent linear dependency traps.
+
+3. CLASSROOM ADVICE (Sukanta Hui)
+--------------------------------------------------------------------------------
+"Never deliver a regression project without displaying the Mean Absolute Error (MAE) in real rupee terms. Business managers need to know: 'On average, our prediction is off by ₹25,000.'"
+================================================================================

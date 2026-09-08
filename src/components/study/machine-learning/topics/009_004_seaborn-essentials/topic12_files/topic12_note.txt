@@ -1,0 +1,40 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 12 - WORKED EXAMPLE 2 (FEATURE CORRELATION HEATMAP)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. COMPLETE WORKED EXAMPLE RECIPE:
+--------------------------------------------------------------------------------
+Task: Prepare a feature correlation heatmap for a housing price prediction dataset.
+
+Recipe:
+1. Load dataset: `df = pd.read_csv(...)`
+2. Compute Pearson matrix: `corr = df.corr(numeric_only=True)`
+3. Create upper mask: `mask = np.triu(np.ones_like(corr, dtype=bool))`
+4. Setup canvas: `plt.figure(figsize=(8, 6))`
+5. Render heatmap:
+   sns.heatmap(
+       corr,
+       mask=mask,
+       annot=True,
+       fmt=".2f",
+       cmap="coolwarm",
+       vmin=-1,
+       vmax=1,
+       center=0,
+       square=True,
+       linewidths=1.0,
+       cbar_kws={"label": "Pearson r"}
+   )
+6. Add title and labels: `plt.title("Housing Dataset: Feature Correlations")`
+
+2. INTERPRETING MACHINE LEARNING CORRELATIONS:
+--------------------------------------------------------------------------------
+- Positive Correlations with Target (r > +0.6):
+  Features like `Area_SqFt` and `Rooms` have high predictive value. Keep them!
+- Negative Correlations with Target (r < -0.4):
+  Features like `Metro_Dist_KM` and `Property_Age` naturally decrease price. Keep them!
+- Multicollinear Independent Pairs (r(X1, X2) > 0.85):
+  If `Area_SqFt` and `Rooms` correlate at r = 0.92, they provide duplicate variance.
+  Consider dropping one or applying PCA to prevent unstable regression beta coefficients.

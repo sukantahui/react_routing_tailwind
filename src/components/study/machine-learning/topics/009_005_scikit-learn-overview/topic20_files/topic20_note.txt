@@ -1,0 +1,27 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 20 - PRACTICE PROBLEMS & SOLUTIONS
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+PRACTICE PROBLEM SUMMARY & KEY LEARNING OBJECTIVES:
+
+Problem 1: Leak-Free Preprocessing & Partitioning
+- Goal: Prevent test data contamination when standardizing feature matrices.
+- Key Rule: Call `scaler.fit_transform(X_train)` on train data, and `scaler.transform(X_test)` on test data.
+- Never call `.fit()` or `.fit_transform()` on test data!
+
+Problem 2: Fair Multi-Model Benchmarking
+- Goal: Compare 4 distinct algorithm families (Logistic Regression, KNN, Decision Tree, Gaussian Naive Bayes).
+- Key Rule: Benchmark on identical 5-Fold Stratified Cross-Validation folds; report both mean accuracy and standard deviation.
+
+Problem 3: Leak-Free Pipeline Hyperparameter Tuning
+- Goal: Tune SVC hyperparameters (`C`, `kernel`, `gamma`) with `StandardScaler` inside `GridSearchCV`.
+- Key Rule: Use double underscore parameter syntax: `'svc__C'`, `'svc__kernel'`.
+
+Problem 4: Imbalanced Fraud Classification Metrics
+- Goal: Move beyond accuracy to evaluate Precision, Recall, and Confusion Matrix on 99:1 skewed data.
+
+Problem 5: Unsupervised Customer Segmentation with K-Means
+- Goal: Scale features, identify the optimal elbow K, and invert centroids to real business dollar metrics.
+================================================================================

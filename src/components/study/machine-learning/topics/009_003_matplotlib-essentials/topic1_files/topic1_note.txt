@@ -1,0 +1,39 @@
+MATPLOTLIB ESSENTIALS: TOPIC 1 NOTE
+=============================================================================
+TOPIC: Installing, Importing, and Configuring Matplotlib
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. INSTALLATION ECOSYSTEM:
+   - Command: `pip install matplotlib` or `conda install matplotlib`
+   - Dependencies: Automatically brings NumPy, pillow, cycler, fonttools, kiwisolver, pyparsing, packaging, python-dateutil.
+
+2. IMPORT CONVENTIONS:
+   - Standard Pyplot interface: `import matplotlib.pyplot as plt`
+   - Root package: `import matplotlib`
+   - Setting headless backend:
+     `import matplotlib`
+     `matplotlib.use('Agg')`  # MUST occur BEFORE importing matplotlib.pyplot
+
+3. RCPARAMS CONFIGURATION SYSTEM:
+   - `matplotlib.rcParams` is a runtime dictionary containing all global default visual aesthetics.
+   - Common keys:
+     * `figure.figsize`: Tuple (width, height) in inches (e.g. (8, 5))
+     * `figure.dpi`: Dots per inch (resolution, e.g. 100 for screen, 300 for print)
+     * `font.size`: Base font size (default ~10)
+     * `axes.grid`: Boolean (True/False)
+     * `lines.linewidth`: Default line width in points
+     * `savefig.bbox`: 'tight' prevents cutting off axis labels during export
+   - Updating parameters: `plt.rcParams.update({'font.size': 12, 'figure.dpi': 120})`
+   - Resetting to defaults: `plt.rcdefaults()`
+
+4. STYLE SHEETS & CONTEXT MANAGERS:
+   - Inspect styles: `plt.style.available`
+   - Global application: `plt.style.use('seaborn-v0_8-whitegrid')`, `plt.style.use('dark_background')`, `plt.style.use('ggplot')`
+   - Scoped application (Context Manager):
+     ```python
+     with plt.style.context('fivethirtyeight'):
+         fig, ax = plt.subplots()
+         ax.plot(x, y)
+     ```
+     This prevents changing global styles across subsequent figures in your notebook or script.

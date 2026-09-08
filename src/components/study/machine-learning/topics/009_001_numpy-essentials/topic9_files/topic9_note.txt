@@ -1,0 +1,76 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 9: FANCY INDEXING (INTEGER ARRAYS)
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9 • Module 1
+========================================================
+
+1. WHAT IS FANCY INDEXING?
+---------------------------
+Fancy indexing means passing an array or list of integer indices to
+access or modify multiple non-sequential elements simultaneously.
+
+2. 1D FANCY INDEXING:
+----------------------
+  arr = np.array([10, 20, 30, 40, 50, 60])
+  indices = [1, 4, 2]
+  selected = arr[indices]  # array([20, 50, 30])
+  *Rule: The output array inherits the shape of the index array!
+  arr[np.array([[0, 1], [2, 3]])] -> returns a (2, 2) array!
+
+3. 2D FANCY INDEXING & COORDINATE PAIRING:
+-------------------------------------------
+1. Selecting Specific Rows:
+   mat[[0, 2, 3]]       -> Extracts rows 0, 2, and 3
+
+2. Element-Wise Coordinate Pairing:
+   mat[[0, 2], [1, 3]]  -> Extracts elements at (0, 1) and (2, 3)
+   *It does NOT return a 2x2 grid!
+
+3. Rectangular Subgrid Selection (np.ix_):
+   mat[np.ix_([0, 2], [1, 3])] -> Returns a 2x2 submatrix
+
+4. Feature Column Selection:
+   X[:, [0, 2, 4]]      -> All rows, but only features 0, 2, and 4
+
+4. CRITICAL RULE: FANCY INDEXING ALWAYS RETURNS A COPY!
+--------------------------------------------------------
+  - Slicing (arr[1:4])       -> Zero-copy VIEW (shares RAM)
+  - Fancy Indexing (arr[[1, 3]]) -> ALWAYS allocates a new COPY in RAM!
+  - Check: arr[[0, 1]].base is None (Owns its own memory buffer)
+
+5. IN-PLACE ASSIGNMENT & REPEATED INDEX TRAP:
+----------------------------------------------
+  arr[[1, 3]] = 999     # Updates elements 1 and 3 in-place
+  arr[[0, 0]] += 1      # ⚠️ TRAP: Only increments once!
+  # To accumulate repeated indices correctly, use:
+  np.add.at(arr, [0, 0], 1)  # Increments arr[0] twice!
+
+6. MACHINE LEARNING APPLICATIONS:
+----------------------------------
+1. Mini-Batch Sampling for SGD:
+   batch_idx = np.random.choice(len(X), size=32, replace=False)
+   X_batch, y_batch = X[batch_idx], y[batch_idx]
+
+2. Dataset Shuffling:
+   perm = np.random.permutation(len(X))
+   X_shuffled, y_shuffled = X[perm], y[perm]
+
+3. Extracting True Class Logits (Cross-Entropy Loss):
+   loss_probs = probs[np.arange(batch_size), true_labels]
+
+4. Selecting Important Features:
+   X_filtered = X[:, top_k_feature_indices]
+
+7. QUICK REVISION CHECKLIST:
+-----------------------------
+  □ Pass lists/arrays of integers to index non-contiguous items
+  □ Result shape matches the index array's shape
+  □ Paired indices arr[[r1, r2], [c1, c2]] extract coordinates (r1,c1), (r2,c2)
+  □ Use np.ix_() or [rows][:, cols] to extract 2D cross-product grids
+  □ Fancy indexing creates a COPY (modifying it won't affect original)
+  □ In-place assignment arr[idx] = val mutates original array
+  □ Essential for ML mini-batches, shuffling, and feature subsets
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

@@ -1,0 +1,31 @@
+MATPLOTLIB ESSENTIALS: TOPIC 11 NOTE
+=============================================================================
+TOPIC: Subplots (plt.subplot, GridSpec, Inset Zoom Axes)
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. SUBPLOT SYNTAX PARADIGMS:
+   - Procedural 1-indexed: `plt.subplot(nrows, ncols, index)` where index ranges from `1` to `nrows * ncols`.
+   - 3-digit shortcut: `plt.subplot(221)` (only valid when nrows, ncols, index are single digits < 10).
+   - Object-Oriented multi-axes: `fig, axs = plt.subplots(nrows, ncols)` (returns 0-indexed ndarray).
+
+2. ADVANCED ASYMMETRIC GRIDSPEC:
+   - `import matplotlib.gridspec as gridspec` or `gs = fig.add_gridspec(nrows, ncols, width_ratios=[...], height_ratios=[...])`
+   - Slicing multi-cell spans:
+     * `ax_hero = fig.add_subplot(gs[0, :])` (spans full top row)
+     * `ax_b1   = fig.add_subplot(gs[1, 0])` (bottom left)
+     * `ax_b2   = fig.add_subplot(gs[1, 1])` (bottom right)
+   - Spacing control: `wspace=0.2, hspace=0.3`
+
+3. INSET ZOOM REGIONS:
+   - Embedding a zoomed microscope view inside a main plot:
+     ```python
+     axins = ax.inset_axes([x0, y0, width, height]) # Relative units [0.0 to 1.0]
+     axins.plot(x, y)
+     axins.set_xlim(zoom_xmin, zoom_xmax)
+     axins.set_ylim(zoom_ymin, zoom_ymax)
+     ax.indicate_inset_zoom(axins, edgecolor='red') # Draws indicator lines
+     ```
+
+4. SYNCHRONIZING AXES:
+   - `sharex=ax_ref`, `sharey=ax_ref` links panning and zooming across multiple subplots.

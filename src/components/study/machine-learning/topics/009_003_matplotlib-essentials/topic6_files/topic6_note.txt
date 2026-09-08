@@ -1,0 +1,28 @@
+MATPLOTLIB ESSENTIALS: TOPIC 6 NOTE
+=============================================================================
+TOPIC: Scatter Plots (plt.scatter / ax.scatter) & High-Dimensional Mapping
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. CORE FUNCTION SIGNATURE:
+   - `ax.scatter(x, y, s=None, c=None, marker=None, cmap=None, norm=None, vmin=None, vmax=None, alpha=None, linewidths=None, edgecolors=None, **kwargs)`
+   - Parameters:
+     * `s`: Marker area in points squared (`pt^2`). Can be scalar or array for 3rd continuous feature.
+     * `c`: Marker color. Can be a single color or array of values for 4th feature mapped through `cmap`.
+     * `cmap`: Colormap name (`'viridis'`, `'plasma'`, `'inferno'`, `'coolwarm'`).
+     * `edgecolors`: Border color around markers (e.g., `'black'`, `'none'`).
+
+2. ADDING COLORBARS:
+   - `scatter = ax.scatter(x, y, c=z, cmap='viridis')`
+   - `cbar = fig.colorbar(scatter, ax=ax)`
+   - `cbar.set_label("Feature Z Label", rotation=270, labelpad=15)`
+
+3. FITTING REGRESSION TRENDLINES:
+   - Calculate polynomial slope & intercept: `slope, intercept = np.polyfit(x, y, deg=1)`
+   - Generate points: `x_line = np.linspace(x.min(), x.max(), 100)`
+   - Plot overlay: `ax.plot(x_line, slope * x_line + intercept, 'r--')`
+
+4. OVERPLOTTING MITIGATION STRATEGIES:
+   - Alpha transparency: Reduce `alpha` to `0.1` - `0.3` to reveal cluster density.
+   - Jittering: Add small Gaussian noise `np.random.normal(0, 0.05, len(x))` to discrete categorical points.
+   - Hexagonal 2D Binning: `ax.hexbin(x, y, gridsize=30, cmap='inferno')` aggregates dense data points into 2D hexagonal frequency bins.

@@ -1,0 +1,42 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 15 - CROSS-VALIDATION (CROSS_VAL_SCORE)
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. WHY CROSS-VALIDATION IS SUPERIOR TO A SINGLE TRAIN/TEST SPLIT
+--------------------------------------------------------------------------------
+A single `train_test_split()` suffers from "split variance":
+Depending on random seed luck, your test set might happen to include all easy or all hard samples.
+Cross-Validation solves this by ensuring EVERY single sample is used for testing exactly once.
+
+K-FOLD WORKFLOW:
+1. Divide dataset into $K$ equal-sized chunks ("folds").
+2. Train model on $K-1$ folds; test on the held-out $1$ fold.
+3. Repeat $K$ times (each fold serves as test set once).
+4. Compute mean and standard deviation: $\mu \pm \sigma$.
+
+2. `cross_val_score()` VS `cross_validate()` VS `cross_val_predict()`
+--------------------------------------------------------------------------------
+A. `cross_val_score(estimator, X, y, cv=5, scoring='accuracy')`:
+   - Returns a 1D NumPy array of scores across the $K$ folds.
+   - Quickest, standard evaluation tool.
+
+B. `cross_validate(estimator, X, y, cv=5, scoring=['accuracy', 'f1'], return_train_score=True)`:
+   - Returns a Python dictionary containing fit times, score times, and multiple evaluation metrics for both train and test splits.
+
+C. `cross_val_predict(estimator, X, y, cv=5)`:
+   - Returns predicted target values $\hat{y}$ for every sample, generated cleanly out-of-fold.
+   - Ideal for computing global confusion matrices and out-of-fold error analysis.
+
+3. SPECIALIZED SPLITTERS IN `sklearn.model_selection`
+--------------------------------------------------------------------------------
+- `KFold(n_splits=5, shuffle=True, random_state=42)`: Standard K-Fold for regression.
+- `StratifiedKFold(...)`: Guarantees equal class balance in every fold (automatically used by `cross_val_score` for classifiers).
+- `TimeSeriesSplit(n_splits=5)`: Rolling forward-chaining splits for time series data.
+
+4. BARRACKPORE LAB RULES (Sukanta Hui)
+--------------------------------------------------------------------------------
+- Never report accuracy as a single naked number (e.g. "88%"); always report mean and standard deviation: "88.4% ± 2.1% across 5 folds".
+- When using Pipelines, cross-validation automatically re-fits the scaler on the $K-1$ training folds during every fold iteration, completely eliminating data leakage!
+================================================================================

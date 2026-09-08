@@ -1,0 +1,25 @@
+MATPLOTLIB ESSENTIALS: TOPIC 13 NOTE
+=============================================================================
+TOPIC: Worked Example 2 - Salary Distribution, Skewness & Log Transforms
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. REAL-WORLD DATA CHALLENGE:
+   - Compensation and economic variables (income, sales volume, web traffic) almost always exhibit heavy positive (right) skewness.
+   - A minority of extreme outliers (CXO packages of ₹50L - ₹80L) pulls the Mean substantially higher than the Median.
+
+2. STATISTICAL DIAGNOSTICS WITH MATPLOTLIB:
+   - Overlaying vertical reference lines:
+     `ax.axvline(np.median(salaries), color='green', label='Median')`
+     `ax.axvline(np.mean(salaries), color='red', linestyle='--', label='Mean')`
+   - When Mean > Median: Positive (right) skew.
+   - When Mean < Median: Negative (left) skew.
+
+3. HYBRID BOXPLOT + HISTOGRAM ARCHITECTURE:
+   - Synchronized dual-panel layout using `gs = fig.add_gridspec(2, 1, height_ratios=[1, 3], hspace=0)`:
+     * Top horizontal boxplot (`vert=False`) isolates isolated flier points beyond `1.5 * IQR`.
+     * Bottom histogram shows full density envelope sharing the exact same X-axis.
+
+4. PREPROCESSING PIPELINES FOR ML:
+   - Linear Regression, Lasso/Ridge, Neural Networks assume normally distributed features/residuals.
+   - Applying `np.log1p(salaries)` compresses the long right tail and converts log-normal distributions into symmetric Gaussians.

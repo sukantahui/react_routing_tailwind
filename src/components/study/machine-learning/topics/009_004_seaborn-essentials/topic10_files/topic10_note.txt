@@ -1,0 +1,38 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 10 - SEABORN THEMES AND STYLES
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. THE UNIFIED THEMING API: SNS.SET_THEME()
+--------------------------------------------------------------------------------
+In modern Seaborn (>= 0.11), themes are set using:
+    sns.set_theme(
+        context="notebook",  # 'paper', 'notebook', 'talk', 'poster'
+        style="darkgrid",    # 'darkgrid', 'whitegrid', 'dark', 'white', 'ticks'
+        palette="deep",      # 'deep', 'muted', 'pastel', 'bright', 'dark', 'colorblind'
+        font="sans-serif",
+        font_scale=1.0,
+        rc=None              # Matplotlib rcParams dictionary override
+    )
+
+2. THE 5 CORE STYLES:
+--------------------------------------------------------------------------------
+1. 'darkgrid' (default): Subtle grey background with white gridlines.
+2. 'whitegrid': Clean white background with faint grey gridlines (best for dense plots).
+3. 'dark': Solid grey background without grid lines.
+4. 'white': Pure white background without grid lines.
+5. 'ticks': White background with explicit tick marks on the axes.
+
+3. THE 4 PLOTTING CONTEXTS:
+--------------------------------------------------------------------------------
+Context scales font size, line thickness, and marker points:
+- 'paper'   : Smallest scale (0.8x), optimized for multi-column printed papers.
+- 'notebook': Standard 1.0x scale for laptop screens and Jupyter notebooks.
+- 'talk'    : Enlarged 1.3x scale for presentation slide projectors.
+- 'poster'  : Maximum 1.6x scale for large-format academic conference posters.
+
+4. REMOVING AXIS SPINES WITH SNS.DESPINE():
+--------------------------------------------------------------------------------
+`sns.despine()` removes the top and right spines from the figure:
+    sns.despine(top=True, right=True, left=False, bottom=False, offset=10)

@@ -1,0 +1,74 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 3 - THE ESTIMATOR CONCEPT IN SCIKIT-LEARN
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS AN ESTIMATOR?
+--------------------------------------------------------------------------------
+In Scikit-learn, an "Estimator" is any object that learns from data.
+It can be:
+- A Supervised Learning model (e.g., LinearRegression, DecisionTreeClassifier)
+- An Unsupervised Learning model (e.g., KMeans, PCA)
+- A Transformer/Preprocessor (e.g., StandardScaler, SimpleImputer)
+
+CORE PRINCIPLES OF THE ESTIMATOR DESIGN:
+1. Consistency: All objects share a simple, uniform interface.
+2. Inspection: All internal parameter values and learned states are directly accessible as public attributes.
+3. Non-proliferation of classes: Learning algorithms operate directly on NumPy arrays or Pandas DataFrames, without inventing custom dataset wrapper objects.
+4. Sensible Defaults: Scikit-learn algorithms come preconfigured with sensible default hyperparameter values.
+
+2. ESTIMATOR LIFE CYCLE & CONVENTIONS
+--------------------------------------------------------------------------------
+A. Initialization / Instantiation:
+   - Hyperparameters are passed directly to the constructor:
+     `model = LinearRegression(fit_intercept=True)`
+   - NO data learning happens during __init__().
+
+B. Fitting (The .fit() method):
+   - `.fit(X, y)` for supervised estimators
+   - `.fit(X)` for unsupervised estimators / transformers
+   - Returns `self` so method chaining is supported: `clf.fit(X, y).predict(X_new)`
+
+C. Learned Attributes (Trailing Underscore Convention):
+   - Parameters estimated directly from data during .fit() are appended with a single trailing underscore `_`.
+   - Examples:
+     * `model.coef_` (coefficients / weights)
+     * `model.intercept_` (bias / intercept)
+     * `model.feature_names_in_` (input column names if trained on a DataFrame)
+     * `scaler.mean_` and `scaler.scale_` (mean and std dev in StandardScaler)
+   - Hyperparameters (configured before fitting) do NOT have a trailing underscore (e.g., `model.fit_intercept`).
+
+3. TYPES OF ESTIMATORS & INTERFACE FAMILIES
+--------------------------------------------------------------------------------
+A. Predictor / Classifier / Regressor:
+   - Must implement `.fit(X, y)`
+   - Must implement `.predict(X_test)`
+   - Usually implements `.score(X_test, y_test)`
+   - Probabilistic classifiers implement `.predict_proba(X_test)`
+
+B. Transformer:
+   - Must implement `.fit(X, [y])`
+   - Must implement `.transform(X)`
+   - Conveniently implements `.fit_transform(X, [y])`
+
+C. Clusterer:
+   - Must implement `.fit(X)`
+   - Provides `labels_` attribute containing cluster assignments
+   - May implement `.predict(X_test)` to assign unseen points to nearest centroids
+
+4. ESTIMATOR UTILITIES (BaseEstimator & ClassifierMixin)
+--------------------------------------------------------------------------------
+When building custom estimators adhering to Scikit-learn standards:
+- Inherit from `sklearn.base.BaseEstimator`:
+  * Provides `.get_params()` and `.set_params()` automatically without `*args` or `**kwargs`.
+  * Enables integration with GridSearchCV, RandomizedSearchCV, and Pipeline.
+- Inherit from `sklearn.base.ClassifierMixin`, `RegressorMixin`, or `TransformerMixin`:
+  * Provides automatic `.score()` method calculation (Mean Accuracy for classifiers, R2 score for regressors).
+
+5. COMMON PITFALLS & CLASSROOM TIPS
+--------------------------------------------------------------------------------
+- Pitfall: Accessing `model.coef_` before calling `.fit()`. Raises `NotFittedError`.
+- Pitfall: Passing positional arguments `*args` to custom `__init__`. Scikit-learn requires explicit keyword parameters with default values.
+- Student Insight (Debangshu's query): Why trailing underscore? Because it instantly distinguishes what YOU supplied (hyperparameters) from what the ALGORITHM figured out (learned parameters).
+================================================================================

@@ -1,0 +1,30 @@
+MATPLOTLIB ESSENTIALS: TOPIC 5 NOTE
+=============================================================================
+TOPIC: Histograms (plt.hist / ax.hist) & Probability Distributions
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. CORE FUNCTION SIGNATURE:
+   - `n, bins, patches = ax.hist(x, bins=None, range=None, density=False, cumulative=False, histtype='bar', orientation='vertical', **kwargs)`
+   - Returns:
+     * `n`: Array of bin counts (or densities if `density=True`).
+     * `bins`: Array of bin edges (length = `len(n) + 1`).
+     * `patches`: List of Matplotlib Rectangle artists.
+
+2. BINNING STRATEGIES:
+   - Fixed Integer: `bins=20` divides `[min(x), max(x)]` into 20 equal width intervals.
+   - Array of Edges: `bins=[0, 18, 35, 50, 65, 100]` for non-uniform demographic intervals.
+   - Automatic Rules:
+     * `'auto'`: Maximum of Sturges and Freedman-Diaconis estimators.
+     * `'fd'` (Freedman-Diaconis): `Bin Width = 2 * IQR / (N^(1/3))`. Highly robust against outliers.
+     * `'scott'`: `Bin Width = 3.5 * sigma / (N^(1/3))`.
+
+3. NORMALIZATION & CDF:
+   - `density=True`: Normalizes the histogram so that the total area (integral) under the bins equals 1.0 (Probability Density Function).
+   - `cumulative=True`: Computes the running sum of counts/densities (Empirical Cumulative Distribution Function, CDF).
+
+4. MULTI-SERIES & HISTTYPES:
+   - `histtype='bar'` (default)
+   - `histtype='barstacked'`: Stacks classes vertically.
+   - `histtype='step'`: Generates an unfilled line polygon (efficient for comparing 5+ distributions).
+   - `histtype='stepfilled'`: Filled transparent polygon.

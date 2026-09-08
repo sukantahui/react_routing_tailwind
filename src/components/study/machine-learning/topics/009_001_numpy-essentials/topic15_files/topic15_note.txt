@@ -1,0 +1,45 @@
+========================================================================
+TOPIC 15 NOTE: STACKING AND SPLITTING ARRAYS (vstack, hstack, concatenate, split)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. STACKING FUNCTIONS & AXIS MECHANICS
+---------------------------------------
+- np.vstack (Vertical Stack):
+  * Joins arrays along Axis 0 (row-wise).
+  * 1D arrays are treated as row vectors of shape (1, N) and stacked vertically into a 2D matrix of shape (2, N).
+  * Equivalent to np.concatenate(..., axis=0) for 2D arrays.
+
+- np.hstack (Horizontal Stack):
+  * Joins arrays along Axis 1 (column-wise) for 2D arrays.
+  * For 1D arrays, it concatenates them along the single existing axis into one longer 1D array.
+  * Equivalent to np.concatenate(..., axis=1) for 2D arrays.
+
+- np.dstack (Depth Stack):
+  * Stacks along the 3rd axis (Axis 2 / Depth).
+  * Crucial for Computer Vision (e.g., combining R, G, B 2D matrix channels into (Height, Width, 3)).
+
+- np.stack vs np.concatenate:
+  * np.concatenate joins arrays along an EXISTING dimension. Input shapes must match on all other axes. Output has SAME number of dimensions.
+  * np.stack joins arrays along a NEW dimension. All input arrays must have the EXACT SAME shape. Output has ndim = input.ndim + 1.
+
+2. SPLITTING FUNCTIONS
+-----------------------
+- np.vsplit(arr, sections):
+  * Splits array vertically (along Axis 0 / rows) into sub-arrays. Requires number of rows to be divisible by sections.
+
+- np.hsplit(arr, sections):
+  * Splits array horizontally (along Axis 1 / columns) into sub-arrays. Used to isolate target labels: X, y = np.hsplit(dataset, [3]).
+
+- np.array_split(arr, sections):
+  * Like np.split, but handles non-equal splits without raising ValueError. Essential for K-Fold Cross-Validation splits when dataset size is not divisible by K.
+
+3. MACHINE LEARNING APPLICATIONS
+---------------------------------
+- Appending Bias Column:
+  Augmenting feature matrix X with a column of 1s:
+  X_aug = np.hstack((np.ones((len(X), 1)), X))
+  This allows Linear Regression to absorb the intercept term into weight vector θ: y = X_aug @ θ.
+
+- Feature Fusion:
+  Concatenating text embeddings and tabular features horizontally: np.hstack((emb_features, tab_features)).

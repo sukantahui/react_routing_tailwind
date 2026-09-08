@@ -1,0 +1,43 @@
+========================================================================
+TOPIC 14 NOTE: MATRIX MULTIPLICATION & DOT PRODUCT (np.dot, @, np.matmul)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. KEY CONCEPTS & DEFINITIONS
+------------------------------
+- Vector Dot Product (1D):
+  u . v = sum(u_i * v_i) for i in [0..N-1]
+  Geometrically: u . v = ||u|| * ||v|| * cos(theta).
+  Used for calculating vector similarity, cosine distances, and projection.
+
+- 2D Matrix Multiplication (Row-by-Column):
+  Given Matrix A of shape (M, K) and Matrix B of shape (K, N), the product
+  C = A @ B has shape (M, N).
+  Each element C[i, j] = sum_k (A[i, k] * B[k, j]).
+  Inner dimensions MUST MATCH: A.shape[1] == B.shape[0] == K.
+
+- Operator Comparison in NumPy:
+  * A * B        : Element-wise (Hadamard) product. Requires identical shapes or broadcasting.
+  * np.dot(A, B) : Matrix product for 2D. (For N-D arrays, performs sum reduction over last axis of A and second-to-last of B).
+  * np.matmul(A,B) or A @ B : Standard matrix multiplication operator (PEP 465). Supports batch matrix multiplication on higher dimensions.
+
+2. MACHINE LEARNING APPLICATIONS
+---------------------------------
+- Fully Connected / Dense Layer Forward Pass:
+  Z = X @ W + b
+  where X is (N_samples, D_in), W is (D_in, D_out), b is (D_out,), producing logits Z of shape (N_samples, D_out).
+
+- Linear Regression Normal Equation (Closed-form OLS):
+  theta = (X^T @ X)^(-1) @ X^T @ y
+
+- Covariance and Gram Matrices:
+  * Sample Similarity (Gram Matrix) : S = X @ X.T (N x N)
+  * Feature Covariance Structure   : C = (X.T @ X) / N (D x D)
+
+3. COMMON PITFALLS & BARRACKPORE LAB RULES
+------------------------------------------
+- Pitfall 1: Confusing A * B with A @ B.
+  If A and B are (3, 3), A * B multiplies element-by-element, while A @ B calculates dot products across rows and columns.
+- Pitfall 2: Inner dimension mismatch: Trying to multiply (4, 3) @ (5, 3).
+  Solution: Transpose the second matrix with .T -> (4, 3) @ (3, 5) => (4, 5).
+- Pitfall 3: 1D vector orientation. In NumPy, a 1D array has shape (N,), which automatically adapts to (1, N) as a row vector on the left or (N, 1) as a column vector on the right when multiplied by a 2D matrix.

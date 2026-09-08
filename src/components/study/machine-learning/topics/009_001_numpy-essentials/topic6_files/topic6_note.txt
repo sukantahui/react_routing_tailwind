@@ -1,0 +1,59 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 6: RESHAPING ARRAYS
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9
+========================================================
+
+WHAT IS RESHAPING?
+------------------
+Reshaping changes the dimensions (number of rows, columns, depths)
+of an ndarray WITHOUT modifying or copying its underlying numeric data.
+
+THE SIZE INVARIANCE RULE:
+-------------------------
+The product of the new dimensions MUST exactly equal the array's total size.
+  arr.size == new_rows × new_cols × ...
+  12 elements → can reshape to (3,4), (4,3), (2,6), (6,2), (1,12), (2,2,3)
+  12 elements → CANNOT reshape to (3,5) or (2,5) → throws ValueError!
+
+THE -1 WILDCARD (AUTOMATIC DIMENSION INFERENCE):
+------------------------------------------------
+You can pass -1 for EXACTLY ONE dimension in reshape().
+NumPy calculates the missing dimension automatically:
+  arr = np.arange(12)
+  arr.reshape(-1, 1)  → shape (12, 1) [2D column vector for Scikit-learn]
+  arr.reshape(1, -1)  → shape (1, 12) [2D row vector]
+  arr.reshape(3, -1)  → shape (3, 4)  [12 / 3 = 4 columns]
+  arr.reshape(-1, 6)  → shape (2, 6)  [12 / 6 = 2 rows]
+
+FLATTENING: ravel() vs flatten():
+---------------------------------
+To convert an N-dimensional array into a 1D vector:
+  arr.ravel()   → Returns a zero-copy VIEW whenever possible (fast, RAM-safe)
+  arr.flatten() → ALWAYS allocates a brand new COPY in RAM
+
+TRANSPOSE: arr.T:
+-----------------
+Swaps the axes of an array:
+  mat = np.zeros((3, 4))
+  mat.T → shape (4, 3)
+  Transposition is an instantaneous O(1) metadata view (swaps strides).
+
+RESHAPING IN MACHINE LEARNING:
+------------------------------
+1. Flattening MNIST Images: (Batch, 28, 28) → (Batch, 784) for Dense Layers
+2. Single-Feature Regression: (N,) → (N, 1) via .reshape(-1, 1)
+3. Reconstructing Images from Flat Vectors: (784,) → (28, 28)
+4. CNN Channel Transposition: (Batch, H, W, C) → (Batch, C, H, W) via np.transpose
+
+QUICK REVISION CHECKLIST:
+  □ .reshape() changes shape without copying data when contiguous
+  □ Product of new shape MUST equal arr.size
+  □ -1 tells NumPy to infer that dimension size automatically
+  □ .ravel() returns view; .flatten() returns copy
+  □ arr.T transposes matrix instantly by swapping strides
+  □ Always reshape single features to (N, 1) before model.fit()
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

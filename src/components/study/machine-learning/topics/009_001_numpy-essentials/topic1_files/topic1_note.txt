@@ -1,0 +1,88 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 1: INSTALLING AND IMPORTING NUMPY
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9
+========================================================
+
+INSTALLATION
+------------
+NumPy is installed via pip (Python Package Installer) or conda.
+
+Using pip (recommended for most students):
+  pip install numpy
+
+Using conda (Anaconda/Miniconda users):
+  conda install numpy
+
+Verify installation:
+  python -c "import numpy as np; print(np.__version__)"
+
+Common installation environments:
+  - Local Python (pip install numpy)
+  - Google Colab (pre-installed, just import)
+  - Jupyter Notebook (pip install numpy from a cell: !pip install numpy)
+  - Anaconda Navigator (comes pre-installed)
+  - VS Code with Python extension
+
+STANDARD IMPORT
+---------------
+The universal convention for importing NumPy is:
+
+  import numpy as np
+
+Why "np"?
+  - Used by every tutorial, textbook, and documentation worldwide
+  - Saves typing (np.array vs numpy.array)
+  - Expected by the Python data science community
+  - Pandas, Scikit-learn, Matplotlib all use "np" in examples
+
+YOU SHOULD NEVER:
+  import numpy            # too verbose
+  from numpy import *     # pollutes namespace, causes conflicts
+  import numpy as num     # non-standard, confuses readers
+
+VERIFYING YOUR INSTALLATION
+----------------------------
+After installing, always verify:
+
+  import numpy as np
+  print(np.__version__)   # e.g., 1.26.4
+  print(np.__file__)      # path to NumPy on your system
+
+CHECKING FOR GPU-OPTIMIZED NumPy
+---------------------------------
+Standard NumPy runs on CPU only. For GPU-accelerated computation:
+  - CuPy: GPU NumPy replacement (requires NVIDIA GPU)
+  - JAX: Google's accelerated NumPy
+
+For BCA studies, standard NumPy (CPU) is sufficient.
+
+NAMESPACE EXPLORATION
+---------------------
+After import, you can explore the NumPy namespace:
+  dir(np)          → list all attributes and functions
+  np.lookfor("sort") → search documentation for "sort"
+  help(np.array)   → read full docstring
+
+COMMON IMPORT ERRORS
+---------------------
+Error: ModuleNotFoundError: No module named 'numpy'
+Fix:   Run: pip install numpy
+
+Error: ImportError: numpy.core.multiarray failed to import
+Fix:   Reinstall: pip install --upgrade numpy
+
+Error: AttributeError: module 'numpy' has no attribute 'bool'
+Fix:   Use np.bool_ (underscore) — np.bool was removed in NumPy 1.24
+
+QUICK REVISION POINTS:
+  □ pip install numpy  (one-time installation)
+  □ import numpy as np  (every script, every time)
+  □ np is the universal alias — never deviate
+  □ Verify: print(np.__version__)
+  □ Google Colab: NumPy is pre-installed
+  □ Never use: from numpy import *
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

@@ -1,0 +1,26 @@
+==============================================================================
+TOPIC 21 NOTE: WORKED EXAMPLE 2 - HANDLING MISSING SALARY VALUES
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. WHY SALARY IMPUTATION IS DECEPTIVELY TRICKY:
+   --------------------------------------------------------------------------
+   - Salaries are heavily right-skewed and cluster strongly around role / department cohorts.
+   - Global Mean Imputation is dangerous: High executive or engineering salaries pull the overall mean upwards, distorting junior or non-technical role estimates.
+   - Global Median is better, but still ignores distinct pay scales between departments (e.g., Engineering vs Sales vs HR).
+   - Group-Specific Median (`df.groupby('Department')['Salary'].transform('median')`) is the industrial gold standard.
+
+2. THE MISSING INDICATOR BEST PRACTICE (MissingIndicator):
+   --------------------------------------------------------------------------
+   - In machine learning, the FACT that a salary value was missing often contains strong predictive signal (e.g. consultants might withhold salary data, or junior interns might have unrecorded compensation).
+   - Always create a binary flag:
+     `df['Salary_Was_Missing'] = df['Salary'].isna().astype(int)`
+   - This allows ML models to learn separate weight vectors for imputed records vs organic records.
+
+3. PREVENTING DATA LEAKAGE IN TRAIN/TEST SPLITS:
+   --------------------------------------------------------------------------
+   - Golden Rule: Never compute medians across the combined whole dataset before splitting!
+   - Step 1: Split into `X_train` and `X_test`.
+   - Step 2: Compute group medians SOLELY on `X_train`.
+   - Step 3: Impute both `X_train` and `X_test` using the learned `X_train` lookup dictionary.

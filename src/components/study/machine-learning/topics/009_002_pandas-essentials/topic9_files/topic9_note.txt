@@ -1,0 +1,34 @@
+========================================================================
+TOPIC 9 NOTE: BOOLEAN FILTERING IN PANDAS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. BITWISE OPERATORS VS PYTHON KEYWORDS
+---------------------------------------
+- In Pandas, you MUST use bitwise operators instead of Python logical keywords:
+  * Bitwise AND: `&` (NOT `and`)
+  * Bitwise OR : `|` (NOT `or`)
+  * Bitwise NOT: `~` (NOT `not`)
+- Why?
+  Python's `and`/`or` evaluate truthiness of the whole object (raising `ValueError: The truth value of a Series is ambiguous`), whereas `&`/`|` perform element-by-element boolean vector operations across the Series.
+
+2. THE PARENTHESES RULE (Operator Precedence)
+----------------------------------------------
+- Bitwise `&` and `|` have higher operator precedence than comparison operators like `>=`, `<=`, `==`.
+- WRONG: `df[df['A'] > 5 & df['B'] < 10]` evaluates as `5 & df['B']` first!
+- CORRECT: `df[(df['A'] > 5) & (df['B'] < 10)]`. Always wrap each condition in parentheses!
+
+3. CONVENIENCE FILTERING METHODS
+---------------------------------
+- Membership: `df[df['Category'].isin(['A', 'B', 'C'])]`
+- Range/Interval: `df[df['Age'].between(18, 65)]` (inclusive bounds by default).
+- String Matching: `df[df['Name'].str.contains('Roy', case=False, na=False)]`.
+- Null Filtering: `df[df['Income'].isna()]` or `df[df['Income'].notna()]`.
+
+4. SQL-STYLE FILTERING WITH df.query()
+--------------------------------------
+- Syntax: `df.query('Age >= 18 and City in @approved_cities')`
+- Advantages:
+  1. Cleaner, highly readable code (avoids typing `df[...]` repeatedly).
+  2. Uses `NumExpr` engine under the hood for faster evaluation on large datasets without intermediate memory allocations.
+  3. Uses `@variable_name` to refer to Python variables inside query strings.

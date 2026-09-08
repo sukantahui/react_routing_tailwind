@@ -1,0 +1,38 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 21 - SHORT QUESTIONS & VIVA VOCE
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+TOP 10 SCIKIT-LEARN VIVA QUESTIONS & EXPERT MODEL ANSWERS:
+
+Q1: What is the significance of the trailing underscore in attribute names?
+Answer: Scikit-learn appends a single trailing underscore to parameters learned from data during `.fit()` (e.g. `coef_`, `intercept_`, `mean_`, `classes_`), explicitly separating them from user-passed hyperparameters.
+
+Q2: What is the fundamental difference between `fit_transform()` and `transform()`?
+Answer: `fit_transform()` learns statistical parameters from the data AND applies the transformation (used strictly on training data). `transform()` only applies previously learned parameters (used on testing/production data).
+
+Q3: Why should `LabelEncoder` never be used on input feature matrix X?
+Answer: `LabelEncoder` is strictly designed for 1-dimensional target arrays `y`. Applying it to multi-column nominal features introduces artificial mathematical ordering and magnitude distortion. Use `OneHotEncoder` or `OrdinalEncoder` instead.
+
+Q4: What is Data Leakage and how do Pipelines prevent it?
+Answer: Data leakage occurs when test set knowledge contaminates model training (e.g. standardizing the entire dataset before cross-validation). A `Pipeline` isolates preprocessing to the training folds of cross-validation, guaranteeing zero leakage.
+
+Q5: When can R-squared ($R^2$) be negative?
+Answer: When a model performs worse than a horizontal line predicting the mean of the target dataset ($SS_{res} > SS_{tot}$).
+
+Q6: Why is K-Nearest Neighbors (KNN) called a Lazy Learner?
+Answer: It performs no generalization during `.fit()`; all distance calculations and majority voting occur at inference time.
+
+Q7: What is the role of `stratify=y` in `train_test_split()`?
+Answer: It forces train and test partitions to maintain identical class proportions as the original dataset, preventing minority class starvation.
+
+Q8: What is Inertia in K-Means clustering?
+Answer: The Within-Cluster Sum of Squares (WCSS)—the sum of squared distances from every point to its assigned centroid.
+
+Q9: How do you choose between Precision and Recall?
+Answer: Maximize Precision when False Positives are catastrophic (e.g. Spam filters, Youtube video copyright strikes). Maximize Recall when False Negatives are catastrophic (e.g. Cancer detection, Fraud prevention).
+
+Q10: What is the difference between `Pipeline` and `make_pipeline`?
+Answer: `Pipeline` requires explicit `(name, object)` tuple pairs. `make_pipeline` automatically names each step using the lowercased class name.
+================================================================================

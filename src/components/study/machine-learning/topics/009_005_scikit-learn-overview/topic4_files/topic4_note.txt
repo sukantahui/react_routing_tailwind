@@ -1,0 +1,51 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 4 - PREPROCESSING WITH SKLEARN.PREPROCESSING
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. WHY PREPROCESSING IS CRUCIAL IN MACHINE LEARNING
+--------------------------------------------------------------------------------
+Raw real-world data is almost never directly consumable by mathematical ML models.
+Issues in raw data:
+- Features on vastly different numerical scales (e.g. Income ₹50,000 vs. Age 24).
+- Skewed, non-Gaussian probability distributions.
+- Categorical text attributes (e.g. City: "Barrackpore", "Kolkata").
+- Presence of extreme outliers.
+- Linear algorithms unable to model non-linear boundaries without polynomial interaction terms.
+
+2. TAXONOMY OF SKLEARN.PREPROCESSING
+--------------------------------------------------------------------------------
+A. Feature Scaling & Centering:
+   - `StandardScaler`: Scales features to 0 mean and unit variance (Gaussian standard normal).
+   - `MinMaxScaler`: Scales features to a bounded range, typically [0, 1].
+   - `MaxAbsScaler`: Scales by dividing by the maximum absolute value; preserves zero-entries in sparse matrices.
+   - `RobustScaler`: Centers using median and scales using Interquartile Range (IQR = Q3 - Q1); immune to massive outliers.
+
+B. Distribution Transformations:
+   - `PowerTransformer`: Box-Cox (strictly positive data) or Yeo-Johnson (supports negative/zero values) to stabilize variance and achieve normal distribution.
+   - `QuantileTransformer`: Maps data non-linearly to a uniform or normal distribution via empirical quantiles.
+
+C. Feature Engineering & Discretization:
+   - `PolynomialFeatures`: Creates interaction pairs ($x_1 \cdot x_2$) and exponential powers ($x_1^2, x_2^2$) to enrich linear models.
+   - `Binarizer`: Maps continuous numbers into binary flags (0 or 1) according to a threshold.
+   - `KBinsDiscretizer`: Partitions continuous continuous features into discrete ordinal bins.
+
+D. Custom Transformations:
+   - `FunctionTransformer`: Wraps an arbitrary Python function (like `np.log1p` or `np.sqrt`) into a Scikit-learn transformer interface.
+
+3. GOLDEN RULE OF PREPROCESSING: AVOIDING DATA LEAKAGE
+--------------------------------------------------------------------------------
+Always follow this strict sequencing:
+1. Split data into `X_train` and `X_test` FIRST!
+2. Call `scaler.fit_transform(X_train)` on training data ONLY.
+3. Call `scaler.transform(X_test)` on testing data WITHOUT re-fitting.
+   * NEVER call `.fit()` or `.fit_transform()` on test/validation data! Doing so leaks the mean/variance of the test set into the model pipeline.
+
+4. CLASSROOM Q&A (Sukanta Hui with Students)
+--------------------------------------------------------------------------------
+- Question (Susmita): "When should we use RobustScaler instead of StandardScaler?"
+  Answer: When the dataset has prominent extreme outliers (e.g., house prices with a few ultra-luxury mansions). StandardScaler's mean and variance will be heavily distorted by outliers, whereas RobustScaler relies on median and IQR.
+- Question (Sachin): "Does MaxAbsScaler shift the mean to zero?"
+  Answer: No! MaxAbsScaler does not center the data; it only divides by the absolute max. This is why it works efficiently on sparse scipy matrices without destroying zero values.
+================================================================================

@@ -1,0 +1,49 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 9 - KNEIGHBORSCLASSIFIER
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS K-NEAREST NEIGHBORS (KNN)?
+--------------------------------------------------------------------------------
+KNN is an instance-based, non-parametric, "lazy learning" algorithm:
+- "Lazy" because it performs NO heavy computation during `.fit(X, y)` — it simply memorizes the training data points in memory (or creates a BallTree / KDTree).
+- During `.predict(X_new)`, it computes the distance between $X_{new}$ and every stored training sample, identifies the $K$ closest points, and performs majority voting.
+
+2. DISTANCE METRICS (THE GEOMETRIC HEART OF KNN)
+--------------------------------------------------------------------------------
+A. Euclidean Distance ($p=2$, default):
+   $d(p, q) = \sqrt{\sum (p_i - q_i)^2}$
+   - Straight-line geometric distance.
+
+B. Manhattan Distance ($p=1$):
+   $d(p, q) = \sum |p_i - q_i|$
+   - Grid / city-block distance.
+
+C. Minkowski Distance (Generalization):
+   $d(p, q) = (\sum |p_i - q_i|^p)^{1/p}$
+   - Parameter `p=1` -> Manhattan, `p=2` -> Euclidean.
+
+3. KEY HYPERPARAMETERS
+--------------------------------------------------------------------------------
+- `n_neighbors` ($K$):
+  * Small $K$ (e.g., $K=1$): Highly complex, irregular decision boundary; sensitive to noise and prone to overfitting.
+  * Large $K$ (e.g., $K=50$): Very smooth boundary; risk of underfitting.
+  * Rule of thumb: Choose an ODD number for binary classification to prevent voting ties.
+- `weights`:
+  * `'uniform'`: All $K$ neighbors cast equal votes.
+  * `'distance'`: Closer neighbors get higher weight ($w_i = 1 / d_i$).
+- `metric`: `'minkowski'`, `'euclidean'`, `'manhattan'`, or `'cosine'`.
+- `algorithm`: `'auto'`, `'ball_tree'`, `'kd_tree'`, `'brute'`.
+
+4. WHY FEATURE SCALING (StandardScaler) IS ABSOLUTELY ESSENTIAL
+--------------------------------------------------------------------------------
+Because KNN relies on Euclidean distance $\sqrt{\Delta x_1^2 + \Delta x_2^2}$:
+If Feature 1 is Age (range 20 to 60) and Feature 2 is Salary (range 20,000 to 200,000):
+A difference of ₹5,000 in salary creates $5000^2 = 25,000,000$ in squared distance, completely drowning out any Age difference ($40^2 = 1,600$).
+ALWAYS standardize features before running KNN!
+
+5. BARRACKPORE LAB SUMMARY (Sukanta Hui)
+--------------------------------------------------------------------------------
+"KNN has zero training time, but high query prediction time and large RAM consumption for millions of rows. It is intuitive, powerful, and requires careful feature scaling."
+================================================================================

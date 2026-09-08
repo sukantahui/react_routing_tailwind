@@ -1,0 +1,35 @@
+========================================================================
+TOPIC 3 NOTE: CREATING A DATAFRAME FROM A DICTIONARY
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. PATTERN 1: DICTIONARY OF LISTS / ARRAYS (Columnar Format)
+------------------------------------------------------------
+- Structure:
+  `data = {'Column1': [val1, val2], 'Column2': [val3, val4]}`
+- Core Rule:
+  All lists MUST have the EXACT SAME LENGTH, otherwise Pandas raises `ValueError: All arrays must be of the same length`.
+- Row Index:
+  Defaults to `RangeIndex(0, 1, 2...)`. Can be overridden via `pd.DataFrame(data, index=['row1', 'row2'])`.
+
+2. PATTERN 2: LIST OF DICTIONARIES (Record / JSON Format)
+---------------------------------------------------------
+- Structure:
+  `records = [{'col1': 10, 'col2': 20}, {'col1': 30, 'col3': 40}]`
+- Advantages:
+  Matches standard REST API JSON responses and MongoDB document queries.
+  Automatically unions all unique keys across records. Missing keys in any dictionary are seamlessly populated with `NaN`.
+
+3. PATTERN 3: DICTIONARY OF PANDAS SERIES
+-----------------------------------------
+- Structure:
+  `data = {'ColA': pd.Series(...), 'ColB': pd.Series(...)}`
+- Advantage:
+  Series DO NOT need to be equal in length or have the same index order. Pandas performs an automatic outer join on their respective index labels.
+
+4. PATTERN 4: NESTED DICTIONARIES & `orient` PARAMETER
+-------------------------------------------------------
+- `pd.DataFrame.from_dict(nested_dict, orient='columns')`:
+  Outer keys -> Column Headers, Inner keys -> Row Index.
+- `pd.DataFrame.from_dict(nested_dict, orient='index')`:
+  Outer keys -> Row Index, Inner keys -> Column Headers.

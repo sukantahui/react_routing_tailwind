@@ -1,0 +1,36 @@
+================================================================================
+SCIKIT-LEARN OVERVIEW: TOPIC 2 - THE SCIKIT-LEARN API PATTERN
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. THE CANONICAL 4-STAGE ESTIMATOR PATTERN:
+--------------------------------------------------------------------------------
+Stage 1: Instantiate Estimator
+    model = RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)
+Stage 2: Fit Model (Supervised learning needs X & y; Unsupervised needs only X)
+    model.fit(X_train, y_train)
+Stage 3: Predict / Infer
+    y_pred = model.predict(X_test)
+Stage 4: Evaluate / Score
+    accuracy = model.score(X_test, y_test)
+
+2. TRANSFORMER VS ESTIMATOR API MATRIX:
+--------------------------------------------------------------------------------
+Type        | Primary Methods         | Purpose
+------------|-------------------------|-----------------------------------------
+Estimator   | .fit(X, y)              | Learns internal model state / parameters
+Transformer | .fit(X), .transform(X)  | Preprocesses features (Scaling, One-hot)
+Predictor   | .predict(X), .score(X,y)| Outputs class labels or continuous values
+
+3. CRITICAL DATA SHAPE CONVENTION:
+--------------------------------------------------------------------------------
+- Feature Matrix X : MUST be a 2-Dimensional array of shape `(n_samples, n_features)`.
+  If you have a single 1D feature array, you must reshape it using `X.reshape(-1, 1)`.
+- Target Vector y  : 1-Dimensional array of shape `(n_samples,)`.
+
+4. PREVENTING DATA LEAKAGE:
+--------------------------------------------------------------------------------
+- On Training set : Use `transformer.fit_transform(X_train)`.
+- On Test set     : Use ONLY `transformer.transform(X_test)`.
+- NEVER call `.fit()` or `.fit_transform()` on the test dataset!

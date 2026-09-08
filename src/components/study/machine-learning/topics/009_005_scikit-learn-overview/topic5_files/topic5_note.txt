@@ -1,0 +1,70 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 5 - STANDARDSCALER VS MINMAXSCALER
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. MATHEMATICAL COMPARISON
+--------------------------------------------------------------------------------
+A. StandardScaler (Standardization / Z-score Normalization):
+   Formula:
+     z = (x - μ) / σ
+   Where:
+     - μ = mean of feature = (1/N) * Σ x_i
+     - σ = standard deviation = sqrt((1/N) * Σ (x_i - μ)^2)
+   Result:
+     - Output centered at Mean = 0.
+     - Output scaled to Standard Deviation = 1.
+     - Output is NOT bounded to [0, 1]; unbounded in theory (-∞ to +∞).
+
+B. MinMaxScaler (Min-Max Normalization / Rescaling):
+   Formula:
+     x_scaled = (x - min) / (max - min) * (max_bound - min_bound) + min_bound
+   Default (feature_range=(0, 1)):
+     x_scaled = (x - min) / (max - min)
+   Result:
+     - Compresses all training data strictly between [0, 1] (or custom min/max).
+     - Does NOT force mean to 0 or std dev to 1.
+
+2. LEARNED ATTRIBUTES COMPARISON
+--------------------------------------------------------------------------------
+StandardScaler:
+- `mean_`: Array of shape (n_features,) representing feature means.
+- `var_`: Array of shape (n_features,) representing feature variances.
+- `scale_`: Array of shape (n_features,) representing standard deviations.
+- `n_samples_seen_`: Total number of samples processed during fitting.
+
+MinMaxScaler:
+- `data_min_`: Minimum value observed per column in training data.
+- `data_max_`: Maximum value observed per column in training data.
+- `data_range_`: (data_max_ - data_min_) per column.
+- `scale_`: Scale factor (max_bound - min_bound) / data_range_.
+- `min_`: Per-feature adjustment for minimum bound.
+
+3. WHEN TO USE WHICH? DECISION MATRIX
+--------------------------------------------------------------------------------
+| Scenario / Requirement | Recommended Scaler | Reason |
+|---|---|---|
+| Gradient Descent (Linear/Logistic Regression, Neural Nets) | StandardScaler | Unbiased gradient steps; zero-centered inputs speed up convergence. |
+| Distance-based (KNN, K-Means, SVM with RBF kernel) | StandardScaler / MinMaxScaler | Prevents features with huge units from dominating distance metrics. |
+| Image Processing / Pixel intensities (0 - 255) | MinMaxScaler(0, 1) | Preserves zero pixels and maps bounded brightness to [0, 1]. |
+| Neural Network with Tanh Activation | MinMaxScaler(-1, 1) | Matches tanh activation range [-1, 1]. |
+| Severe Outliers present | RobustScaler (preferred) | Neither StandardScaler nor MinMaxScaler is robust to outliers. |
+
+4. INVERSE TRANSFORMATION (`inverse_transform()`)
+--------------------------------------------------------------------------------
+When you scale the target variable `y` before training a regression model:
+- The model outputs predictions in the scaled space (e.g., `y_pred_scaled = 0.45`).
+- To present real rupee/dollar amounts or exam marks to end users, call:
+  `real_predictions = scaler.inverse_transform(y_pred_scaled)`
+
+5. CLASSROOM PRACTICAL RULES (Barrackpore Lab)
+--------------------------------------------------------------------------------
+- Never call `.fit()` on test data!
+  * CORRECT:
+    `scaler.fit(X_train)`
+    `X_train_scaled = scaler.transform(X_train)`
+    `X_test_scaled = scaler.transform(X_test)`
+  * INCORRECT (Data Leakage):
+    `X_test_scaled = scaler.fit_transform(X_test)`  <-- FORBIDDEN!
+================================================================================

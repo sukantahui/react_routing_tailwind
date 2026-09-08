@@ -1,0 +1,48 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 6 - LABELENCODER VS ONEHOTENCODER
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. THE FUNDAMENTAL DISTINCTION: TARGET (y) VS FEATURES (X)
+--------------------------------------------------------------------------------
+A common mistake among beginner ML practitioners is using LabelEncoder across input feature columns `X`.
+Scikit-learn documentation is unequivocal:
+- `LabelEncoder`: STRICTLY designed for encoding 1D target vector `y` (e.g. ['Cat', 'Dog', 'Bird'] -> [0, 1, 2]).
+- `OrdinalEncoder`: Designed for 2D ordinal feature columns `X` where an inherent ranking exists (e.g. ['Low', 'Medium', 'High']).
+- `OneHotEncoder`: Designed for 2D nominal feature columns `X` where NO mathematical order exists (e.g. ['Barrackpore', 'Kolkata', 'Delhi']).
+
+2. ONE-HOT ENCODING (DUMMY ENCODING)
+--------------------------------------------------------------------------------
+For a nominal category with $K$ unique levels, OneHotEncoder creates $K$ binary binary (0 or 1) indicator columns.
+- Why NOT use integer encoding for nominal features?
+  * If "Barrackpore"=0, "Kolkata"=1, "Delhi"=2, linear models will incorrectly assume:
+    "Delhi" (2) = 2 * "Kolkata" (1), imposing an artificial arithmetic magnitude.
+  * Distance calculations (KNN / Euclidean) will be severely distorted.
+
+Key Hyperparameters of `OneHotEncoder`:
+- `sparse_output=False` (or `sparse=False` in older sklearn): Returns a dense numpy array instead of a scipy csr_matrix.
+- `drop='first'`: Drops the first category column per feature to prevent multicollinearity (Dummy Variable Trap in Linear Regression).
+- `handle_unknown='ignore'`: In inference time, if an unseen category appears in test data, it outputs all zeros instead of raising a ValueError.
+- `min_frequency`: Groups infrequent categories into an 'infrequent_sklearn' bin.
+
+3. ORDINAL ENCODING
+--------------------------------------------------------------------------------
+- When categories possess a natural human hierarchy:
+  * Education: ['High School', 'Bachelors', 'Masters', 'PhD'] -> [0, 1, 2, 3]
+  * Customer Tier: ['Bronze', 'Silver', 'Gold', 'Platinum'] -> [0, 1, 2, 3]
+- Always supply `categories=[['Bronze', 'Silver', 'Gold', 'Platinum']]` explicitly to preserve the true semantic hierarchy, otherwise sklearn sorts them alphabetically!
+
+4. ENCODER COMPARISON CHEAT SHEET
+--------------------------------------------------------------------------------
+| Encoder | Target vs Features | Input Shape | Preserves Order? | Number of New Columns |
+|---|---|---|---|---|
+| LabelEncoder | 1D Target (`y`) | (n_samples,) | Alphabetical (arbitrary) | 0 (Replaces in place) |
+| OrdinalEncoder | 2D Features (`X`) | (n_samples, n_features) | Custom / Specified list | 0 (Replaces in place) |
+| OneHotEncoder | 2D Features (`X`) | (n_samples, n_features) | None (Independent flags) | +K columns per feature |
+
+5. CLASSROOM TIP (Sukanta Hui to Barrackpore Batch)
+--------------------------------------------------------------------------------
+"Never feed `LabelEncoder` into `ColumnTransformer` or use it on input features `X`.
+If you want to preprocess input columns, always choose `OneHotEncoder` or `OrdinalEncoder`."
+================================================================================

@@ -1,0 +1,29 @@
+MATPLOTLIB ESSENTIALS: TOPIC 8 NOTE
+=============================================================================
+TOPIC: Titles, Axis Labels, LaTeX Math & Advanced Legend Placement
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. TITLES & AXIS LABELS:
+   - Super Title (Figure-wide): `fig.suptitle("Overall System Dashboard", fontsize=14, y=0.98)`
+   - Subplot Title: `ax.set_title("Subplot Specific", fontsize=11, pad=12, loc='left'|'center'|'right')`
+   - Axis Labels: `ax.set_xlabel("Epochs", labelpad=8, fontsize=10)`
+   - LaTeX Expressions: Wrap LaTeX syntax in raw strings with dollar signs (e.g. `r'$\mathcal{L}_{BCE} = -y \log(\hat{y})$'`).
+
+2. LEGEND CONFIGURATION (ax.legend):
+   - Location String Codes: `'best'`, `'upper right'`, `'upper left'`, `'lower left'`, `'lower right'`, `'right'`, `'center left'`, `'center right'`, `'lower center'`, `'upper center'`, `'center'`.
+   - Multi-Column Layout: `ncol=2` or `ncols=3` formats legend entries side-by-side horizontally.
+   - Framing & Shadow: `frameon=True`, `framealpha=0.85`, `facecolor='#1e293b'`, `edgecolor='#475569'`, `shadow=True`.
+
+3. PLACING LEGENDS OUTSIDE THE PLOT (bbox_to_anchor):
+   - `ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', borderaxespad=0)`
+   - When saving with external legends: Always use `plt.savefig(..., bbox_inches='tight')` so the external box is not cropped out.
+
+4. MULTIPLE LEGENDS ON A SINGLE AXES:
+   - By default, calling `ax.legend()` a second time replaces/removes the first legend.
+   - To keep both:
+     ```python
+     leg1 = ax.legend(handles=[l1, l2], loc='upper left')
+     ax.add_artist(leg1)  # Pins the first legend artist to canvas
+     ax.legend(handles=[l3, l4], loc='lower right')
+     ```

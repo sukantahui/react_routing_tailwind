@@ -1,0 +1,33 @@
+MATPLOTLIB ESSENTIALS: TOPIC 10 NOTE
+=============================================================================
+TOPIC: Saving Figures (plt.savefig, Raster vs Vector, DPI, In-Memory Streams)
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. CORE FUNCTION SIGNATURE:
+   - `plt.savefig(fname, dpi=None, facecolor='w', edgecolor='w', orientation='portrait', papertype=None, format=None, transparent=False, bbox_inches=None, pad_inches=0.1, **kwargs)`
+
+2. CRITICAL PARAMETERS:
+   - `dpi` (Dots Per Inch):
+     * Screen / Web preview: `dpi=100` to `150`
+     * High-res print / Publication papers: `dpi=300` to `600`
+   - `bbox_inches='tight'`: Automatically computes the bounding box around all Artists (including external titles and legends) and crops excess whitespace. MANDATORY for clean exports.
+   - `transparent=True`: Renders the figure and axes backgrounds transparent (useful for dark mode web pages & keynotes).
+   - `format`: Force specific format extension (`'png'`, `'pdf'`, `'svg'`, `'jpg'`, `'eps'`).
+
+3. RASTER VS VECTOR FORMATS:
+   - Raster (Pixel-based: PNG, JPG): Fixed pixel grid; zooming in causes pixelation. Ideal for complex scatter plots with 1,000,000 dots where vectors would become huge files.
+   - Vector (Math/Path-based: SVG, PDF, EPS): Scalable to infinite resolutions without quality loss; text remains selectable. Ideal for line plots, bar charts, and LaTeX papers.
+
+4. SERVERLESS & IN-MEMORY EXPORTS:
+   - Avoid slow disk I/O on web backends (FastAPI, Flask, Django):
+     ```python
+     buf = io.BytesIO()
+     fig.savefig(buf, format='png', bbox_inches='tight')
+     buf.seek(0)
+     # Send directly in HTTP response
+     ```
+
+5. MULTI-PAGE PDF CREATION:
+   - `from matplotlib.backends.backend_pdf import PdfPages`
+   - `with PdfPages('report.pdf') as pdf: pdf.savefig(fig1); pdf.savefig(fig2)`

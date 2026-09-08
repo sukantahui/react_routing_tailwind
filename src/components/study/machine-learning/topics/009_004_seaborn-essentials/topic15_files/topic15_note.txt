@@ -1,0 +1,46 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 15 - SHORT QUESTIONS & VIVA VOCE FLASHCARDS
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+TOP 10 INTERVIEW & VIVA VOCE QUESTIONS ON SEABORN:
+--------------------------------------------------------------------------------
+
+Q1: What is Seaborn and how is it related to Matplotlib?
+A1: Seaborn is a high-level statistical visualization library built on Matplotlib.
+    It provides declarative DataFrame syntax, automatic statistical aggregations,
+    and publication-ready themes.
+
+Q2: Why was sns.distplot() deprecated and what should be used instead?
+A2: `sns.distplot()` combined too many distinct tasks. Modern Seaborn uses:
+    `sns.histplot()` for histograms, `sns.kdeplot()` for density, and `sns.displot()` for figure-level grids.
+
+Q3: Explain the 'hue' parameter and its automatic behavior with different data types.
+A3: If the column is categorical (strings), Seaborn assigns discrete qualitative palette colors.
+    If the column is numeric (floats/integers), Seaborn applies a smooth sequential color gradient.
+
+Q4: What is the difference between an Axes-level and a Figure-level function?
+A4: Axes-level functions (scatterplot, boxplot, heatmap) draw directly onto a single Matplotlib `ax`.
+    Figure-level functions (relplot, catplot, displot, pairplot) create and manage multi-facet grids (FacetGrid).
+
+Q5: What is the 5-point summary in a boxplot?
+A5: Minimum (Q1 - 1.5*IQR), Q1 (25th percentile), Median (50th percentile),
+    Q3 (75th percentile), and Maximum (Q3 + 1.5*IQR). Outliers are drawn as fliers.
+
+Q6: Why use a diverging colormap with center=0 for correlation heatmaps?
+A6: Pearson r ranges from -1 to +1. Centering at 0 ensures neutral values (no correlation) 
+    are light/grey, negative correlations are blue, and positive correlations are red.
+
+Q7: How do you mask the upper triangle of a correlation matrix?
+A7: Using `mask = np.triu(np.ones_like(corr, dtype=bool))` and passing `mask=mask` to `sns.heatmap()`.
+
+Q8: What does 'split=True' do in sns.violinplot()?
+A8: When conditioned on a binary hue, it draws one category on the left half and 
+    the other on the right half of the exact same violin body for compact comparison.
+
+Q9: How do you control KDE smoothing in Seaborn?
+A9: Using the `bw_adjust` parameter. Values < 1.0 make it sharper/noisy; values > 1.0 make it smoother.
+
+Q10: What is the function to remove top and right axis spines?
+A10: `sns.despine()` removes the redundant top and right border spines.

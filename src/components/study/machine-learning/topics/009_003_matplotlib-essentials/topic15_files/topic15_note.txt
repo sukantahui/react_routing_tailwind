@@ -1,0 +1,19 @@
+MATPLOTLIB ESSENTIALS: TOPIC 15 NOTE
+=============================================================================
+TOPIC: Practice Problems - Comprehensive Synthesis & ML Visual Projects
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. SUMMARY OF PRACTICAL EXERCISES:
+   - Problem 1: Dual-Axis Learning Curve with Early Stopping Detection
+     * Skills: `ax.twinx()`, `np.argmin()`, `ax.axvline()`, `ax.annotate()` with arrowprops, unified multi-line legend handles.
+   - Problem 2: 4D Used Automobile Performance Bubble Chart
+     * Skills: Continuous 4D scatter (`x`, `y`, `s=price*15`, `c=age`, `cmap='plasma_r'`), `fig.colorbar()`, OLS regression trendline fit with `np.polyfit()`.
+   - Problem 3: Production Model Telemetry Multi-Panel Dashboard
+     * Skills: `GridSpec(2, 2, height_ratios=[1.3, 1])`, spanning hero row `gs[0, :]`, error bar benchmarks with `ax.bar(..., yerr=std)`, and confusion matrix heatmap using `ax.imshow()`.
+
+2. BEST PRACTICES CHECKLIST:
+   - Always close memory buffers: `plt.close(fig)`
+   - Always save figures with tight bounds: `bbox_inches='tight'`
+   - Use high resolution for exports: `dpi=300`
+   - Use raw strings for math: `r'$\alpha$'`

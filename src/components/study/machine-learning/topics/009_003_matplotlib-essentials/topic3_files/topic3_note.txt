@@ -1,0 +1,26 @@
+MATPLOTLIB ESSENTIALS: TOPIC 3 NOTE
+=============================================================================
+TOPIC: Line Plots (plt.plot / ax.plot) & Advanced Curve Customization
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. CORE SIGNATURE:
+   - `ax.plot(x, y, [fmt], **kwargs)`
+   - Format String shortcut: `fmt = '[marker][line][color]'` (e.g. `'r--o'`, `'b:'`, `'g-s'`).
+   - If only 1 array is passed (`ax.plot(y)`), x defaults to `range(len(y))`.
+
+2. KEY KEYWORD ARGUMENTS:
+   - `color`: Hex strings (`'#0284c7'`), named colors (`'crimson'`), or RGB/RGBA tuples.
+   - `linestyle` (`ls`): `'-'` (solid), `'--'` (dashed), `':'` (dotted), `'-.'` (dash-dot).
+   - `linewidth` (`lw`): Float width in points (e.g. `2.5`).
+   - `alpha`: Float opacity between 0.0 (transparent) and 1.0 (opaque).
+   - `marker`: `'o'` (circle), `'s'` (square), `'^'` (triangle up), `'d'` (diamond), `'x'`, `'+'`, `'*'`, `'v'`.
+   - `markersize` (`ms`): Marker diameter in points.
+   - `markerfacecolor` (`mfc`): Fill color inside marker.
+   - `markeredgecolor` (`mec`): Outer rim stroke color.
+
+3. ADVANCED LINE TECHNIQUES IN MACHINE LEARNING:
+   - Confidence intervals: `ax.fill_between(x, y_lower, y_upper, alpha=0.2, color='...')`
+   - Step plots (e.g., learning rate schedules): `ax.step(x, y, where='mid')`
+   - Logarithmic scales: `ax.set_xscale('log')` or `ax.set_yscale('log')` (essential for loss decay, learning rates).
+   - Dual Y-Axes: `ax2 = ax.twinx()` allows plotting loss and learning rate on separate scales over identical epochs.

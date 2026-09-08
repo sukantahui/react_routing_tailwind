@@ -1,0 +1,34 @@
+========================================================================
+TOPIC 20 NOTE: WORKED EXAMPLE 4 - RANDOM DATASET GENERATION
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. GAUSSIAN CLUSTERING WITH MULTIVARIATE NORMAL
+-----------------------------------------------
+- Concept:
+  Generating 2D/3D feature vectors from multi-dimensional bell curves with specific mean vectors (centers) and covariance matrices (spread & orientation).
+- Function:
+  `rng.multivariate_normal(mean=[mu_x, mu_y], cov=[[var_x, cov_xy], [cov_yx, var_y]], size=N)`
+- Use Cases:
+  * Evaluating K-Means, DBSCAN, and Gaussian Mixture Models (GMMs).
+  * Testing linear vs non-linear classification boundaries (SVM kernels, Decision Trees).
+
+2. NON-LINEAR POLYNOMIAL REGRESSION SYNTHESIS
+----------------------------------------------
+- Mathematical Equation:
+  y = a0 + a1*x + a2*x^2 + ... + ak*x^k + epsilon
+  where epsilon ~ N(0, sigma^2).
+- Manual Polynomial Feature Expansion:
+  `X_poly = np.hstack((np.ones_like(x), x, x**2))`
+- Diagnostic Benefit:
+  Allows measuring model Underfitting (Degree 1 line) vs Perfect Fit (Degree 2 parabola) vs Overfitting (Degree 15 polynomial).
+
+3. SYNTHETIC TABULAR DATASET (CHURN MODELING)
+---------------------------------------------
+- Combining Diverse Distributions:
+  * Discrete Integers (Tenure months): `rng.integers(1, 73)`
+  * Gaussian Continuous (Monthly fees): `rng.normal(800, 200)`
+  * Poisson Counts (Support calls): `rng.poisson(lam=2.0)`
+  * Categorical Probabilities (Tier): `rng.choice([0,1,2], p=[0.5, 0.35, 0.15])`
+- Logistic Probability Mapping:
+  z = w^T x + b -> p = 1 / (1 + exp(-z)) -> y = (uniform(0,1) < p).astype(int)

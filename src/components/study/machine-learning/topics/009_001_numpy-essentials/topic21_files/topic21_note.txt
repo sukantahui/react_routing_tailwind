@@ -1,0 +1,34 @@
+========================================================================
+TOPIC 21 NOTE: PRACTICE PROBLEMS & ADVANCED NUMPY PATTERNS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. PROBLEM 1: VECTORIZED ONE-HOT ENCODING
+------------------------------------------
+- One-liner Pattern:
+  `one_hot = np.eye(num_classes)[labels]`
+- How it works:
+  `np.eye(C)` generates an identity matrix of size (C, C).
+  Indexing it with an integer array of class labels `labels` triggers NumPy Fancy Indexing, extracting row `labels[i]` for each sample in $O(1)$ memory mapping time!
+
+2. PROBLEM 2: PAIRWISE EUCLIDEAN DISTANCES WITHOUT LOOPS
+---------------------------------------------------------
+- 3D Broadcasting Approach:
+  `D = np.sqrt(np.sum((A[:, np.newaxis, :] - B[np.newaxis, :, :]) ** 2, axis=2))`
+- Algebraic GEMM Expansion (Speed-optimized for huge matrices):
+  `||a - b||^2 = ||a||^2 + ||b||^2 - 2(a @ b^T)`
+  `D_sq = np.sum(A**2, axis=1, keepdims=True) + np.sum(B**2, axis=1, keepdims=True).T - 2*(A @ B.T)`
+  Runs at maximum BLAS level 3 performance!
+
+3. PROBLEM 3: 1D TIME-SERIES MOVING AVERAGE
+--------------------------------------------
+- np.convolve Pattern:
+  `kernel = np.ones(w) / w`
+  `ma = np.convolve(series, kernel, mode='valid')`
+- Output length is `N - w + 1`.
+
+4. PROBLEM 4: SYNCHRONOUS MINI-BATCH SGD GENERATOR
+---------------------------------------------------
+- Synchronous Shuffle Rule:
+  NEVER shuffle X and y independently!
+  Always generate a single index permutation: `idx = rng.permutation(N)`, then slice `X[idx]` and `y[idx]`.

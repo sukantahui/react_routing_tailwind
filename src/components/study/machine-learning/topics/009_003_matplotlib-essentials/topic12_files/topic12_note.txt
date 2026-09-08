@@ -1,0 +1,29 @@
+MATPLOTLIB ESSENTIALS: TOPIC 12 NOTE
+=============================================================================
+TOPIC: Worked Example 1 - Academic Performance & Student Marks Analysis
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. PEDAGOGICAL CONTEXT:
+   - Case study tracking students at Coder & AccoTax Barrackpore: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila.
+   - Core visual objectives:
+     * Cross-subject comparison across cohorts (Grouped Bars).
+     * Score growth trajectory over multiple mock exams (Multi-series line plot).
+     * Multi-skill competency profiling (Polar Spider/Radar plot).
+
+2. GROUPED MULTI-SUBJECT ARCHITECTURE:
+   - Calculate numeric centers: `x = np.arange(len(students))`
+   - Symmetric offsets: `x - width`, `x`, `x + width`
+   - Explicit axis tick binding: `ax.set_xticks(x); ax.set_xticklabels(students)`
+   - Annotation with `ax.bar_label(rects, padding=2)`
+
+3. RADAR / SPIDER PLOT IMPLEMENTATION:
+   - Uses polar projection: `fig, ax = plt.subplots(subplot_kw=dict(polar=True))`
+   - Angles generation: `angles = [n / N * 2 * np.pi for n in range(N)]`
+   - Closing the loop: Append `angles[:1]` and `scores[:1]` so the line polygon connects back to the start.
+   - Fill polygon: `ax.fill(angles, scores, alpha=0.25)`
+
+4. DECISION INSIGHTS FOR INSTRUCTORS:
+   - Grouped bars identify subjects needing remedial sessions.
+   - Line plots identify high velocity vs plateauing students.
+   - Radar charts provide holistic student diagnostic profiles.

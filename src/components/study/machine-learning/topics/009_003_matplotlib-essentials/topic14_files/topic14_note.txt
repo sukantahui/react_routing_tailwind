@@ -1,0 +1,22 @@
+MATPLOTLIB ESSENTIALS: TOPIC 14 NOTE
+=============================================================================
+TOPIC: Worked Example 3 - Machine Learning Feature Space & Decision Boundaries
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. FEATURE EXPLORATION (EDA):
+   - 2D scatter plots reveal pairwise linear vs non-linear relationships.
+   - Iris dataset classic insight: Petal Length vs Petal Width linearly separates Iris Setosa completely from Versicolor and Virginica.
+
+2. DECISION BOUNDARY VISUALIZATION:
+   - Recipe for plotting classifier decision surfaces in Matplotlib:
+     1. Create 2D grid: `xx, yy = np.meshgrid(np.linspace(x_min, x_max, 200), np.linspace(y_min, y_max, 200))`
+     2. Predict labels on grid: `zz = model.predict(np.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape)`
+     3. Draw background filled region: `ax.contourf(xx, yy, zz, alpha=0.3, cmap='coolwarm')`
+     4. Draw separator boundary: `ax.contour(xx, yy, zz, levels=[0.5], colors='red', linewidths=2)`
+     5. Overlay training samples: `ax.scatter(X[:,0], X[:,1], c=y, cmap='coolwarm', edgecolors='k')`
+
+3. PCA PROJECTIONS & DISTANCES:
+   - High-dimensional datasets (e.g. 30 features in Breast Cancer) cannot be plotted directly.
+   - PCA reduces features to PC1 and PC2.
+   - Always set `ax.set_aspect('equal')` so that visual clustering distances match real mathematical orthogonal variance.

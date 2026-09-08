@@ -1,0 +1,48 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 14 - REGRESSION METRICS
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. MEAN ABSOLUTE ERROR (MAE)
+--------------------------------------------------------------------------------
+Formula:
+    $\text{MAE} = \frac{1}{N} \sum_{i=1}^N |y_i - \hat{y}_i|$
+- Represents the average magnitude of absolute error residuals.
+- Same physical unit as target variable $y$ (e.g. ₹ Rupees, °C Temperature).
+- Robust to outliers (linear penalty).
+
+2. MEAN SQUARED ERROR (MSE) & ROOT MEAN SQUARED ERROR (RMSE)
+--------------------------------------------------------------------------------
+A. MSE:
+    $\text{MSE} = \frac{1}{N} \sum_{i=1}^N (y_i - \hat{y}_i)^2$
+- Heavily penalizes large errors because residuals are squared ($e_i^2$).
+- Unit is squared (e.g. $\text{INR}^2$), which is non-intuitive for non-technical stakeholders.
+
+B. RMSE:
+    $\text{RMSE} = \sqrt{\text{MSE}}$
+- Brings unit back to the original physical target scale while preserving the heavy quadratic penalty on large outliers.
+
+3. R-SQUARED ($R^2$ - COEFFICIENT OF DETERMINATION)
+--------------------------------------------------------------------------------
+Formula:
+    $R^2 = 1 - \frac{\text{SS}_{\text{res}}}{\text{SS}_{\text{tot}}} = 1 - \frac{\sum (y_i - \hat{y}_i)^2}{\sum (y_i - \bar{y})^2}$
+
+Interpretation:
+- $R^2 = 1.0$: Perfect predictions; model explains 100% of target variance.
+- $R^2 = 0.0$: The model performs exactly as well as predicting the constant mean $\bar{y}$.
+- $R^2 < 0.0$ (Negative): The model performs WORSE than a constant horizontal mean baseline! (Common with severe overfitting on test data).
+
+4. METRICS COMPARISON CHEAT SHEET
+--------------------------------------------------------------------------------
+| Metric | Formula | Units | Outlier Penalty | Target Use Case |
+|---|---|---|---|---|
+| `mean_absolute_error` | $(1/N)\sum \|y-\hat{y}\|$ | Original ($y$) | Linear (Robust) | Business KPI reporting, noisy data |
+| `mean_squared_error` | $(1/N)\sum (y-\hat{y})^2$ | Squared ($y^2$) | Quadratic (Severe) | Mathematical optimization, loss functions |
+| `root_mean_squared_error` | $\sqrt{\text{MSE}}$ | Original ($y$) | Quadratic (Severe) | Scientific & engineering accuracy |
+| `r2_score` | $1 - SS_{res}/SS_{tot}$ | Dimensionless | Proportional | Model comparison across different scales |
+
+5. BARRACKPORE LAB INSIGHT (Sukanta Hui)
+--------------------------------------------------------------------------------
+"If you want to know how many marks/rupees you are off on average, look at MAE. If large errors are dangerous (like rocket trajectory or medicine dosages), optimize RMSE!"
+================================================================================

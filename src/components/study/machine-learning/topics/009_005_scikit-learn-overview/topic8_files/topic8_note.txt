@@ -1,0 +1,47 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 8 - LINEAR MODELS (LINEAR & LOGISTIC)
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. LINEAR REGRESSION (CONTINUOUS TARGETS)
+--------------------------------------------------------------------------------
+- Objective: Fits a linear equation minimizing the Residual Sum of Squares (RSS / Ordinary Least Squares):
+    y_pred = w_1*x_1 + w_2*x_2 + ... + w_n*x_n + b
+- Key Learned Attributes:
+  * `model.coef_`: Slopes / feature weights ($w_i$).
+  * `model.intercept_`: Y-axis bias ($b$).
+- Evaluation Metrics:
+  * Mean Squared Error ($MSE = (1/N) \sum (y_i - \hat{y}_i)^2$)
+  * R-squared ($R^2$): Proportion of variance explained by the model (1.0 is perfect).
+
+2. LOGISTIC REGRESSION (CATEGORICAL TARGETS)
+--------------------------------------------------------------------------------
+- Despite its name, LogisticRegression is a CLASSIFIER, not a regressor.
+- Objective: Passes linear combination $z = w^T x + b$ through the Sigmoid activation function:
+    P(y=1|x) = \sigma(z) = 1 / (1 + e^(-z))
+- Key Methods:
+  * `predict(X)`: Returns hard binary class label (0 or 1, default threshold 0.5).
+  * `predict_proba(X)`: Returns probability matrix of shape (n_samples, n_classes).
+  * `decision_function(X)`: Returns signed distance $z$ to the decision boundary hyperplane.
+- Key Hyperparameters:
+  * `C`: Inverse of regularization strength ($C = 1/\lambda$). Smaller C -> stronger regularization.
+  * `penalty`: 'l2' (default), 'l1', 'elasticnet', or None.
+  * `solver`: 'lbfgs' (default), 'liblinear' (small datasets), 'saga' (large datasets / elasticnet).
+
+3. REGULARIZED LINEAR MODELS: RIDGE VS LASSO
+--------------------------------------------------------------------------------
+A. Ridge Regression ($L_2$ Regularization):
+   - Loss = OLS Loss + $\alpha \sum w_j^2$
+   - Shrinks weights toward zero; prevents overfitting when features are correlated.
+   - Does NOT zero out weights completely.
+
+B. Lasso Regression ($L_1$ Regularization):
+   - Loss = OLS Loss + $\alpha \sum |w_j|$
+   - Performs automatic feature selection by forcing non-essential weights strictly to 0.
+
+4. BARRACKPORE CLASSROOM RULES
+--------------------------------------------------------------------------------
+- Standardize features (`StandardScaler`) BEFORE running Logistic Regression with regularization or Ridge/Lasso!
+  Without scaling, features with large units face disproportionate penalty damping.
+================================================================================

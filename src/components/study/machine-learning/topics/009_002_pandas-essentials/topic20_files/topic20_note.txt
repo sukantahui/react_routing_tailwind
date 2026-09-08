@@ -1,0 +1,35 @@
+==============================================================================
+TOPIC 20 NOTE: WORKED EXAMPLE 1 - LOADING & EXPLORING A DATASET
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. SYSTEMATIC 6-STEP EXPLORATORY DATA ANALYSIS (EDA) CHECKLIST:
+   --------------------------------------------------------------------------
+   Step 1: First Impressions & Structure:
+           - Call `df.head(5)` and `df.tail(5)`.
+           - Inspect `df.shape` (N rows, M columns).
+   
+   Step 2: Schema & Memory Footprint:
+           - Call `df.info()` to verify column dtypes and memory usage.
+           - Confirm integer IDs are not mistakenly cast as floats or objects.
+   
+   Step 3: Missing Value Audit:
+           - Calculate `df.isna().sum()` and `df.isna().mean() * 100`.
+   
+   Step 4: Cardinality & Uniqueness:
+           - Call `df.nunique()` to identify constant features (nunique=1) or high-cardinality IDs.
+   
+   Step 5: Statistical Distribution:
+           - Numerical: `df.describe()` (mean, std, min, 25%, 50%, 75%, max).
+           - Categorical: `df.describe(include=['object', 'category'])` (count, unique, top, freq).
+           - Calculate skewness (`df.skew()`) to spot asymmetric tails.
+   
+   Step 6: Relationship & Correlation Mapping:
+           - `df.corr(numeric_only=True)` to assess linear collinearity.
+           - `pd.crosstab(df['CategoryA'], df['CategoryB'])` to inspect multi-factor distributions.
+
+2. CRITICAL TAKEAWAYS FOR MACHINE LEARNING READINESS:
+   --------------------------------------------------------------------------
+   - Never feed raw uninspected datasets into ML estimators!
+   - EDA reveals corrupted columns, unencoded text, missing entries, and outlier anomalies before model training begins.

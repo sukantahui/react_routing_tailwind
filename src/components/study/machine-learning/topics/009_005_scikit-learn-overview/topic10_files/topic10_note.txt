@@ -1,0 +1,50 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 10 - DECISIONTREECLASSIFIER
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. HOW DECISION TREES WORK (RECURSIVE BINARY SPLITTING)
+--------------------------------------------------------------------------------
+A Decision Tree builds a flowchart-like binary tree structure by recursively partitioning the feature space into axis-aligned rectangular boxes.
+At each node, the algorithm searches across ALL features and ALL possible threshold split values to find the split that maximizes Impurity Reduction (Information Gain).
+
+2. SPLITTING CRITERIA (GINI VS ENTROPY)
+--------------------------------------------------------------------------------
+A. Gini Impurity (Default):
+   $Gini = 1 - \sum_{k=1}^K p_k^2$
+   - Measures the probability of misclassifying a randomly chosen element.
+   - Faster computationally (no logarithms). Range: [0, 0.5] for binary classes.
+
+B. Entropy / Information Gain:
+   $Entropy = - \sum_{k=1}^K p_k \log_2(p_k)$
+   - Measures disorder / uncertainty in bits. Range: [0, 1.0] for binary classes.
+   - Information Gain = Entropy(Parent) - Weighted_Average(Entropy(Children)).
+
+3. ESSENTIAL REGULARIZATION HYPERPARAMETERS (CONTROLLING OVERFITTING)
+--------------------------------------------------------------------------------
+Without constraints, a tree will grow until every single training leaf is 100% pure ($Gini=0$), leading to severe overfitting.
+Key pruning controls:
+- `max_depth`: Limits maximum tree depth (e.g. `max_depth=3` or `4`).
+- `min_samples_split`: Minimum number of samples required to split an internal node (e.g. `min_samples_split=10`).
+- `min_samples_leaf`: Minimum number of samples required to be at a leaf node (e.g. `min_samples_leaf=5`).
+- `max_features`: Maximum number of features to evaluate per split.
+- `ccp_alpha`: Cost-complexity pruning parameter for minimal cost-complexity pruning.
+
+4. FEATURE IMPORTANCE (`tree.feature_importances_`)
+--------------------------------------------------------------------------------
+- Represents the total normalized reduction of the criterion (Gini or Entropy) brought by each feature.
+- All feature importances sum to 1.0.
+- Values near 0 indicate uninformative features that were rarely or never chosen for splits.
+
+5. ADVANTAGES & LIMITATIONS
+--------------------------------------------------------------------------------
+Advantages:
+- White-box interpretability (human understandable rules).
+- Completely scale invariant! No need for `StandardScaler` or `MinMaxScaler`.
+- Handles both numerical and categorical variables seamlessly.
+
+Limitations:
+- High variance (small changes in data can yield completely different tree structures).
+- Susceptible to overfitting (mitigated by pruning or Random Forests).
+================================================================================

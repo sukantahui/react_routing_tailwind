@@ -1,0 +1,29 @@
+MATPLOTLIB ESSENTIALS: TOPIC 9 NOTE
+=============================================================================
+TOPIC: Axis Limits, Margins, Inversion & Aspect Ratio Control
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. EXPLICIT AXIS LIMITS:
+   - `ax.set_xlim(left, right)` or `plt.xlim(xmin, xmax)`
+   - `ax.set_ylim(bottom, top)` or `plt.ylim(ymin, ymax)`
+   - Get current limits: `xmin, xmax = ax.get_xlim()`
+   - Setting limits automatically clamps zoom region and prevents misleading autoscaling.
+
+2. MARGINS & TIGHT AUTOSCALING:
+   - `ax.margins(x=0.0, y=0.05)`: Controls whitespace padding percentage around the data envelope.
+   - `ax.autoscale(enable=True, axis='both', tight=True)`: Removes all whitespace padding up to data extrema.
+
+3. INVERTING AXIS DIRECTIONS:
+   - `ax.invert_yaxis()` or `ax.set_ylim(top, bottom)` (reversed bounds)
+   - `ax.invert_xaxis()`
+   - Typical use cases: Matrix indices (row 0 at top), geological depth plots, leaderboard ranking tables.
+
+4. ASPECT RATIO NORMALIZATION:
+   - `ax.set_aspect('equal')`: Ensures 1 unit along the X-axis is physically equal in pixels to 1 unit along the Y-axis.
+   - Essential for: PCA projections, K-Means clustering, SVM margins, geographical coordinates where Euclidean distance distortion ruins interpretation.
+
+5. NON-LINEAR SCALES:
+   - `ax.set_xscale('log')` / `ax.set_yscale('log')`: Logarithmic base-10 scale (strictly positive values).
+   - `ax.set_yscale('symlog', linthresh=0.01)`: Symmetrical log allowing zero and negative numbers with a linear threshold near zero.
+   - `ax.set_yscale('logit')`: Scales probabilities in (0, 1) to logits.

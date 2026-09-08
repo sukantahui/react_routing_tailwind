@@ -1,0 +1,78 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 11: BROADCASTING CONCEPT
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9 • Module 1
+========================================================
+
+1. WHAT IS BROADCASTING?
+-------------------------
+Broadcasting describes how NumPy treats arrays with different shapes
+during arithmetic operations. The smaller array is "broadcast" (stretched)
+across the larger array without making unneeded copies in RAM.
+
+2. THE 3 GENERAL BROADCASTING RULES:
+------------------------------------
+Comparing shape tuples element-by-element STARTING FROM THE RIGHT (trailing dimensions):
+
+  RULE 1 (Prepend 1s to Shape):
+    If arrays differ in ndim, pad the shape of the smaller array with 1s
+    on the LEFT side until both shapes have equal length.
+    Example: (3, 4) and (4,)  ➔  (4,) becomes (1, 4)
+
+  RULE 2 (Compatibility Check):
+    Two dimensions are compatible if:
+      a) They are equal, OR
+      b) One of them is 1.
+    Example: (3, 4) vs (1, 4)  ➔  3 vs 1 (OK), 4 vs 4 (OK)
+
+  RULE 3 (Stretch to Match):
+    If a dimension is 1, it behaves as if it were copied along that axis
+    to match the larger dimension.
+    Resulting Shape = (max(d1_1, d2_1), max(d1_2, d2_2), ...)
+
+3. BROADCASTING COMPATIBILITY EXAMPLES:
+----------------------------------------
+  Array A        Array B        Broadcast Result Shape
+  -------------  -------------  ----------------------
+  (3, 4)         scalar (1,)    (3, 4)
+  (3, 4)         (4,) -> (1, 4) (3, 4)   [Adds row to all rows]
+  (3, 4)         (3, 1)         (3, 4)   [Adds col to all cols]
+  (3, 1)         (1, 4)         (3, 4)   [Outer sum / 2D Grid]
+  (8, 1, 6, 1)   (7, 1, 5)      (8, 7, 6, 5)
+  (3, 4)         (3,)           ❌ ValueError! (4 vs 3 mismatch)
+
+4. MEMORY EFFICIENCY (ZERO-COPY STRIDE TRICK):
+-----------------------------------------------
+Broadcasting does NOT duplicate array elements in memory!
+NumPy sets the stride multiplier for the broadcasted axis to 0 bytes,
+re-reading the exact same RAM buffer across iterations in O(1) memory.
+
+5. ESSENTIAL MACHINE LEARNING BROADCASTING PATTERNS:
+-----------------------------------------------------
+1. Column-wise Mean Centering:
+   X_centered = X - np.mean(X, axis=0)
+   Shapes: (N_samples, D_features) - (D_features,)
+
+2. Neural Network Bias Addition:
+   activations = (X @ W) + bias
+   Shapes: (Batch_Size, Out_Nodes) + (Out_Nodes,)
+
+3. Image Color Channel Normalization:
+   normalized_img = (img_batch - channel_means) / channel_stds
+   Shapes: (Batch, Height, Width, 3) - (3,)
+
+4. Pairwise Distance Matrix (K-Means & KNN):
+   diffs = X[:, np.newaxis, :] - Y[np.newaxis, :, :]  # (N, M, D)
+
+6. QUICK REVISION CHECKLIST:
+-----------------------------
+  □ Align shapes from right to left (trailing dimensions)
+  □ Dimensions match if equal or if one is 1
+  □ Shape (4,) aligns as (1, 4), NOT (4, 1)
+  □ To broadcast across columns, reshape (N,) to (N, 1)
+  □ Broadcasting operates at C-speed with zero memory duplication
+  □ Used constantly for feature centering, scaling, and NN bias addition
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

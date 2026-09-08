@@ -1,0 +1,49 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 11 - GAUSSIANNAIVEBAYES (GAUSSIANNB)
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. THEORETICAL FOUNDATION: BAYES' THEOREM
+--------------------------------------------------------------------------------
+Bayes' Rule calculates the posterior probability of class $C_k$ given feature vector $X = (x_1, x_2, ..., x_n)$:
+    $P(C_k | X) = \frac{P(X | C_k) \cdot P(C_k)}{P(X)}$
+
+Where:
+- $P(C_k | X)$: Posterior Probability (what we want to predict).
+- $P(C_k)$: Prior Probability of class $C_k$ (prevalence in training data).
+- $P(X | C_k)$: Likelihood of observing features $X$ given class $C_k$.
+- $P(X)$: Marginal Evidence (normalization constant).
+
+2. THE "NAIVE" CONDITIONAL INDEPENDENCE ASSUMPTION
+--------------------------------------------------------------------------------
+The algorithm is called "naive" because it assumes that all features $x_1, x_2, ..., x_n$ are mutually conditionally independent given the class:
+    $P(X | C_k) = P(x_1 | C_k) \cdot P(x_2 | C_k) \cdots P(x_n | C_k) = \prod_{i=1}^n P(x_i | C_k)$
+
+Even though this independence assumption is rarely 100% true in real life, Naive Bayes performs remarkably well in practice, especially for high-dimensional text classification and spam filtering.
+
+3. GAUSSIAN NAIVE BAYES (GAUSSIANNB)
+--------------------------------------------------------------------------------
+For continuous numeric features, GaussianNB assumes feature values for class $C_k$ follow a 1D Normal (Gaussian) distribution:
+    $P(x_i | C_k) = \frac{1}{\sqrt{2\pi \sigma_{ki}^2}} \exp\left( -\frac{(x_i - \mu_{ki})^2}{2\sigma_{ki}^2} \right)$
+
+Learned Attributes:
+- `gnb.theta_`: Array of shape (n_classes, n_features) holding class-conditional means ($\mu_{ki}$).
+- `gnb.var_`: Array of shape (n_classes, n_features) holding class-conditional variances ($\sigma_{ki}^2$).
+- `gnb.class_prior_`: Array of shape (n_classes,) holding probability priors $P(C_k)$.
+
+4. NAIVE BAYES VARIANTS FAMILY
+--------------------------------------------------------------------------------
+| Model Variant | Input Feature Type | Primary Real-World Application |
+|---|---|---|
+| `GaussianNB` | Continuous real numbers (Float) | Sensor data, physical measurements, medical stats |
+| `MultinomialNB` | Discrete integer word counts | Text classification, TF-IDF / Bag-of-Words |
+| `BernoulliNB` | Binary flags (0 or 1, Yes/No) | Short document classification, presence/absence |
+| `CategoricalNB` | Categorical integer codes | Tabular survey data with nominal columns |
+
+5. KEY ADVANTAGES
+--------------------------------------------------------------------------------
+- Ultra-fast training ($O(N \cdot D)$) and prediction.
+- Requires very little training data compared to deep neural nets.
+- Supports incremental batch updates via `.partial_fit()`, making it ideal for streaming and out-of-core pipelines.
+================================================================================

@@ -1,0 +1,33 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 4 - CATEGORICAL PLOTS (BARPLOT, BOXPLOT, VIOLINPLOT)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. CATEGORICAL PLOT SPECTRUM:
+--------------------------------------------------------------------------------
+Seaborn provides specialized functions to visualize numerical distributions 
+conditioned on categorical variables:
+
+a) sns.barplot():
+   - Represents central tendency (mean by default) with error bars (95% bootstrap CI).
+   - Custom estimators: estimator=np.median, estimator=np.sum.
+   - Error bars: errorbar="ci", errorbar="sd", errorbar="se", errorbar=None.
+
+b) sns.boxplot():
+   - Visualizes 5-number summary: Min (whisker), Q1 (25%), Median (50%), Q3 (75%), Max (whisker).
+   - Points beyond Q1 - 1.5*IQR or Q3 + 1.5*IQR are plotted as individual outlier markers (fliers).
+   - Essential in ML data preprocessing for spotting rogue anomalies.
+
+c) sns.violinplot():
+   - Combines a box plot with a rotated Kernel Density Estimation (KDE) on each side.
+   - Shows multimodal features (e.g. multiple peaks) that boxplots hide!
+   - Special feature: `split=True` with binary hue allows comparing 2 groups 
+     on the exact same violin body (left vs right half).
+
+2. KEY PARAMETERS SUMMARY:
+--------------------------------------------------------------------------------
+- order: specifies the exact categorical order on the axis (e.g. order=['DL', 'DS', 'Web'])
+- hue_order: specifies legend and coloring order
+- palette: "Set2", "coolwarm", "viridis", "pastel", etc.
+- inner (in violinplot): "box", "quartile", "point", "stick", None

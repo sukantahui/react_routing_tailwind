@@ -1,0 +1,37 @@
+==============================================================================
+TOPIC 12 NOTE: RENAMING COLUMNS IN PANDAS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. THE THREE CORE STRATEGIES FOR RENAMING COLUMNS:
+   --------------------------------------------------------------------------
+   a) Selective Mapping with df.rename(columns={...}):
+      - Syntax: `df.rename(columns={'old_col': 'new_col', ...})`
+      - Selective: Only modifies keys explicitly present in the dictionary.
+      - Safe: Ignores missing dictionary keys without crashing (errors='ignore' by default).
+      - Pure: Returns a new DataFrame copy.
+
+   b) Full Overwrite via df.columns = [...]:
+      - Syntax: `df.columns = ['ColA', 'ColB', 'ColC']`
+      - Strict requirement: Length of the new list must EXACTLY equal `len(df.columns)`.
+      - Useful for fast, complete re-labeling of simple DataFrames.
+
+   c) Vectorized String Cleaning (df.columns.str):
+      - `df.columns = df.columns.str.strip()` -> eliminates leading/trailing whitespace.
+      - `df.columns = df.columns.str.lower()` -> uniform lowercase.
+      - `df.columns = df.columns.str.replace(' ', '_')` -> snake_case conversion.
+      - Essential for standardizing untrusted incoming CSV headers.
+
+2. CONVENIENCE & PIPELINE METHODS:
+   --------------------------------------------------------------------------
+   - `df.add_prefix('Sales_')`: Prefixes all columns, crucial before multi-table joins to avoid column collisions.
+   - `df.add_suffix('_2026')`: Appends suffixes to all columns.
+   - `df.set_axis(new_names, axis=1)`: Method-chaining friendly alternative to `df.columns = ...`.
+   - Passing functions to rename: `df.rename(columns=str.upper)` or `df.rename(columns=lambda c: c.strip().lower())`.
+
+3. BEST PRACTICES FOR MACHINE LEARNING & DATA ENGINEERING:
+   --------------------------------------------------------------------------
+   - Always standardize columns to `snake_case` (all lowercase, words separated by underscores, no special characters like $, %, slashes, or whitespace).
+   - Enables dot notation column access (`df.total_marks` instead of `df['Total Marks (%)']`).
+   - Prevents SQL and PySpark query errors when exporting DataFrames downstream.

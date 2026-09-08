@@ -1,0 +1,34 @@
+========================================================================
+TOPIC 0 NOTE: INTRODUCTION TO PANDAS (Data Science & ML Foundations)
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. WHAT IS PANDAS?
+------------------
+- Pandas (Python Data Analysis Library) is the premier open-source data manipulation and analysis library for Python.
+- Built on top of NumPy, Pandas introduces intuitive, labeled 1D (Series) and 2D (DataFrame) data structures designed specifically for real-world heterogeneous tabular datasets.
+
+2. CORE DATA STRUCTURES
+------------------------
+- 1. Series (1D Labeled Homogeneous Array):
+  A 1-dimensional array capable of holding any data type (integers, strings, floating point numbers, Python objects) with an explicit labeled index.
+- 2. DataFrame (2D Heterogeneous Labeled Tabular Matrix):
+  A 2-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). It is essentially a dictionary of Series sharing a common index.
+
+3. PANDAS VS NUMPY: KEY DIFFERENCES
+------------------------------------
+| Feature | NumPy ndarray | Pandas DataFrame |
+| :--- | :--- | :--- |
+| Primary Use | Raw numeric matrix math, linear algebra, tensors | Tabular data manipulation, cleaning, ETL, EDA |
+| Data Types | Strictly Homogeneous (single dtype per array) | Heterogeneous (different dtype per column) |
+| Indexing | Integer coordinate offsets (0, 1, 2) | Explicit custom row labels & column names |
+| Missing Data | Limited NaN handling | Built-in methods (isna, fillna, dropna) |
+| SQL Capabilities | None | groupby, merge, join, concat, pivot |
+
+4. PANDAS IN THE MACHINE LEARNING PIPELINE
+------------------------------------------
+1. Ingestion: Loading raw datasets from CSV, Excel, SQL databases, JSON, Parquet.
+2. Exploration: Inspecting shapes, column data types, missing rates, and descriptive statistics (head, info, describe).
+3. Data Cleaning: Handling nulls, removing duplicates, typecasting, string processing.
+4. Feature Engineering: Creating new derived columns, one-hot encoding, date-time parsing, aggregation.
+5. Export to Model: Extracting pure NumPy matrices X (features) and y (target) for Scikit-Learn, PyTorch, and XGBoost.

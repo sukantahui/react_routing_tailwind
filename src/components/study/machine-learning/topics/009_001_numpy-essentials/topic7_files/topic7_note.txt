@@ -1,0 +1,64 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 7: INDEXING AND SLICING ARRAYS
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9 • Module 1
+========================================================
+
+1. 1D ARRAY INDEXING & SLICING:
+--------------------------------
+Syntax: arr[start : stop : step]
+  - start: Inclusive starting index (default 0)
+  - stop:  Exclusive stopping index (default len(arr))
+  - step:  Stride distance between elements (default 1)
+  - Negative indexing: arr[-1] is the last element.
+  - Reverse slicing: arr[::-1] reverses elements in O(1) time.
+
+2. 2D & MULTIDIMENSIONAL SLICING:
+----------------------------------
+NumPy uses comma-separated indices per axis:
+  mat[row_index, col_index]
+  mat[row_slice, col_slice]
+
+Common 2D Extraction Patterns:
+  - Entire row:    mat[r, :]     -> Returns 1D array of row r
+  - Entire column: mat[:, c]     -> Returns 1D array of column c
+  - Submatrix:     mat[0:2, 1:3] -> 2x2 sub-block
+  - Preserving 2D: mat[0:1, :]   -> Shape (1, cols) instead of (cols,)
+
+3. CRITICAL NUMPY RULE: SLICES ARE VIEWS (NOT COPIES!):
+--------------------------------------------------------
+In standard Python lists, slicing creates a new copy:
+  py_list[1:3] -> brand new list
+
+In NumPy, slicing creates a zero-copy VIEW pointing to the same RAM buffer:
+  sub_arr = arr[0:2, 0:2]
+  sub_arr[0, 0] = 999  # MODIFIES THE ORIGINAL ARRAY!
+
+To create an independent copy:
+  sub_copy = arr[0:2, 0:2].copy()
+
+4. ESSENTIAL MACHINE LEARNING PATTERNS:
+----------------------------------------
+1. Feature/Target Separation (X and y):
+   X = dataset[:, :-1]   # All rows, all columns except last -> Features (2D)
+   y = dataset[:, -1]    # All rows, only last column -> Target vector (1D)
+
+2. Bounding Box Image Cropping:
+   crop = image[ymin:ymax, xmin:xmax, :]  # Crop region of interest
+
+3. Train/Test Slicing:
+   X_train = X[:800, :]  # First 800 samples for training
+   X_test  = X[800:, :]  # Remaining 200 samples for evaluation
+
+5. QUICK REVISION CHECKLIST:
+-----------------------------
+  □ Slices use start:stop:step (stop is exclusive)
+  □ Multi-axis indexing uses commas: arr[row, col]
+  □ Indexing with an integer reduces dimension (ndim drops by 1)
+  □ Slicing with ranges preserves dimension (ndim remains same)
+  □ Array slices are zero-copy VIEWS; use .copy() for safety
+  □ dataset[:, :-1] and dataset[:, -1] is the standard ML split
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

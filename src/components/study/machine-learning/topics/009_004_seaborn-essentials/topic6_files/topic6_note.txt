@@ -1,0 +1,41 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 6 - HEATMAP (SNS.HEATMAP)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS A HEATMAP?
+--------------------------------------------------------------------------------
+A heatmap is a 2D grid representation of data where individual values are 
+contained in a matrix and represented as colors.
+
+2. REQUIREMENTS FOR SNS.HEATMAP():
+--------------------------------------------------------------------------------
+- Input data MUST be a 2D rectangular array, Pandas 2D DataFrame, or pivot table.
+- All cell entries must be numeric.
+
+3. ESSENTIAL CONFIGURATION PARAMETERS:
+--------------------------------------------------------------------------------
+- annot (bool or 2D array):
+  If True, writes the numeric data value in each cell.
+- fmt (str):
+  String formatting code for annotations:
+  * "d" -> integer (e.g. 85)
+  * ".2f" -> float with 2 decimals (e.g. 0.85)
+  * ".1%" -> percentage
+- cmap (str / colormap):
+  * Sequential: "viridis", "plasma", "YlGnBu", "rocket", "mako"
+  * Diverging: "coolwarm", "vlag", "icefire", "Spectral"
+- center (float):
+  Value at which the colormap is centered (essential for correlation matrices centered at 0.0).
+- linewidths (float):
+  Adds separating grid lines between heatmap tiles (e.g. linewidths=1).
+- linecolor (color):
+  Color of the grid separating borders.
+- cbar (bool):
+  Whether to draw the colorbar legend on the right side.
+
+4. SNS.CLUSTERMAP():
+--------------------------------------------------------------------------------
+Hierarchical clustering extension that computes linkage distances and re-orders
+rows and columns alongside tree dendrograms.

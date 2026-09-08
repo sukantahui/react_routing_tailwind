@@ -1,0 +1,78 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 8: BOOLEAN INDEXING (MASKING)
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9 • Module 1
+========================================================
+
+1. WHAT IS BOOLEAN INDEXING?
+-----------------------------
+Boolean indexing (masking) selects elements from an ndarray based on
+a boolean condition (True/False mask) evaluated element-by-element.
+
+2. CREATING A BOOLEAN MASK:
+----------------------------
+Vectorized relational operators return a boolean array of identical shape:
+  scores = np.array([75, 42, 88, 35, 90])
+  mask = scores >= 50
+  # mask is: array([True, False, True, False, True])
+
+3. FILTERING WITH A MASK:
+--------------------------
+Passing the boolean mask inside square brackets extracts only True items:
+  passed = scores[scores >= 50]
+  # passed is: array([75, 88, 90])
+  *NOTE: Filtering a 2D/3D array with a boolean mask always returns a 1D vector!
+
+4. COMBINING MULTIPLE CONDITIONS:
+----------------------------------
+Use bitwise operators:
+  &  -> Element-wise AND
+  |  -> Element-wise OR
+  ~  -> Element-wise NOT / Invert
+
+⚠️ PARENTHESES RULE (MANDATORY):
+  You MUST enclose each condition in parentheses:
+  valid = scores[(scores >= 40) & (scores <= 90)]
+  *Using Python 'and' or 'or' raises: ValueError (ambiguous truth value).
+
+5. CONDITIONAL ASSIGNMENT & np.where():
+----------------------------------------
+1. Direct Mask Assignment (In-Place Mutation):
+   # ReLU Activation function implementation
+   arr[arr < 0] = 0  # Replaces all negative values with 0
+
+2. np.where(condition, x_if_true, y_if_false):
+   # Ternary operator preserving original array shape
+   labels = np.where(scores >= 50, "PASS", "FAIL")
+
+6. BOOLEAN AGGREGATIONS & UTILITIES:
+-------------------------------------
+  - Count matching items: np.sum(scores >= 50) or np.count_nonzero(scores >= 50)
+  - Check if any match:   np.any(scores < 40)  -> True/False
+  - Check if all match:   np.all(scores >= 40) -> True/False
+  - Find matching indices: np.nonzero(scores >= 50) or np.where(scores >= 50)
+
+7. MACHINE LEARNING APPLICATIONS:
+----------------------------------
+1. Subsetting Positive Class Samples:
+   X_positive = X[y == 1]
+2. Outlier Removal / Capping:
+   clean_X = X[np.abs(X - mean) <= 3 * std]
+3. Missing Data / NaN Filtering:
+   clean_data = data[~np.isnan(data)]
+4. Thresholding Probabilities:
+   predictions = (probabilities >= 0.5).astype(int)
+
+8. QUICK REVISION CHECKLIST:
+-----------------------------
+  □ Vectorized conditions produce boolean masks
+  □ arr[mask] extracts True elements as a 1D vector
+  □ Use &, |, ~ with parentheses for compound conditions
+  □ Never use Python 'and' / 'or' with ndarrays
+  □ arr[mask] = val updates matching elements in-place
+  □ np.where(cond, x, y) applies if-else without flattening
+  □ np.sum(mask) counts the number of True occurrences
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

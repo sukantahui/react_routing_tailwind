@@ -1,0 +1,39 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 13 - WORKED EXAMPLE 3 (PAIR PLOT SMALL DATASET)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. PRACTICAL ML CASE STUDY OVERVIEW:
+--------------------------------------------------------------------------------
+Dataset: Small student performance tracking table with 3 features:
+- Study_Hours (weekly hours)
+- Coding_Projects (number of mini-projects completed)
+- Final_Exam (score out of 100)
+- Track (DL / DS / Web)
+
+2. FULL RECIPE TO RENDER PAIRPLOT:
+--------------------------------------------------------------------------------
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.set_theme(style="ticks", palette="Set1")
+
+g = sns.pairplot(
+    data=df,
+    hue="Track",
+    diag_kind="kde",
+    diag_kws={"fill": True, "alpha": 0.4},
+    plot_kws={"s": 70, "alpha": 0.85, "edgecolor": "white"}
+)
+
+# Adjust title position for Figure-level objects
+g.fig.subplots_adjust(top=0.92)
+g.fig.suptitle("Barrackpore Batch: Multivariable Feature Exploration", fontsize=12)
+
+3. WHAT TO LOOK FOR DURING EDA?
+--------------------------------------------------------------------------------
+a) Linear Trends: Do Coding_Projects and Final_Exam show strong upward slope?
+b) Cluster Separability: Are 'DL', 'DS', and 'Web' students distinctly clustered?
+c) Skewness in Diagonals: Are study hours normally distributed or skewed?
+d) Outliers: Are there students with high hours but low scores?

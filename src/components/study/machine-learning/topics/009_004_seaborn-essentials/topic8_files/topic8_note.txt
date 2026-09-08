@@ -1,0 +1,37 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 8 - PAIR PLOT (SNS.PAIRPLOT)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. PURPOSE OF PAIRPLOT IN MACHINE LEARNING:
+--------------------------------------------------------------------------------
+- Pairplot (`sns.pairplot()`) creates an N x N matrix of subplots for all N numerical 
+  features in a dataset.
+- Off-Diagonal Subplots: Bivariate scatter plots showing linear/non-linear relationships, 
+  clusters, and separability between features.
+- Diagonal Subplots: Univariate distribution for a single feature (either 'kde' or 'hist').
+
+2. ESSENTIAL PARAMETERS:
+--------------------------------------------------------------------------------
+- data: pandas DataFrame
+- hue: categorical target column (colors dots by class to check class separability!)
+- diag_kind: "kde" (smooth density) or "hist" (binned histogram)
+- corner: True/False (if True, drops the redundant upper-triangular subplots)
+- vars: list of specific columns to include (e.g. vars=['hours', 'score'])
+- palette: "bright", "Set1", "viridis", "coolwarm", etc.
+- kind: "scatter" or "reg" (overlays linear regression fit line!)
+
+3. UNDERLYING ENGINE: SNS.PAIRGRID
+--------------------------------------------------------------------------------
+PairGrid allows mapping custom plotting functions to different regions:
+    g = sns.PairGrid(df, hue="class")
+    g.map_upper(sns.scatterplot)
+    g.map_diag(sns.histplot)
+    g.map_lower(sns.kdeplot)
+
+4. ML INSIGHT:
+--------------------------------------------------------------------------------
+If pairplot scatter clouds show distinct separation along two features,
+linear algorithms (like Logistic Regression or Linear SVM) will achieve 
+high classification accuracy!

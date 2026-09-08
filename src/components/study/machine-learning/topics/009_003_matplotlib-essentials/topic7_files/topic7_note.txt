@@ -1,0 +1,29 @@
+MATPLOTLIB ESSENTIALS: TOPIC 7 NOTE
+=============================================================================
+TOPIC: Pie & Donut Charts (plt.pie, explode, autopct, nested rings)
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. CORE FUNCTION SIGNATURE:
+   - `patches, texts, autotexts = ax.pie(x, explode=None, labels=None, colors=None, autopct=None, pctdistance=0.6, shadow=False, labeldistance=1.1, startangle=0, wedgeprops=None, **kwargs)`
+   - Parameters:
+     * `autopct`: String formatting template (e.g. `'%1.1f%%'`) or a callable function to render percentages.
+     * `explode`: Tuple of fractions specifying radial distance offsets for highlighting target slices (e.g. `(0, 0.1, 0)`).
+     * `startangle`: Angle (in degrees counter-clockwise from the +X axis) at which the first slice starts (commonly 90 or 140).
+     * `pctdistance`: Radial distance (0.0 to 1.0) where `autopct` percentage text is placed.
+
+2. CREATING DONUT CHARTS:
+   - Modern Technique: Set `wedgeprops=dict(width=0.35, edgecolor='w')` to carve out the center directly.
+   - Classic Patch Technique: Draw a circular patch at the origin:
+     ```python
+     centre_circle = plt.Circle((0,0), 0.70, fc='white')
+     ax.add_artist(centre_circle)
+     ```
+   - Center KPI Text: `ax.text(0, 0, "KPI", ha='center', va='center')`
+
+3. NESTED / CONCENTRIC DONUT CHARTS:
+   - Combine two `ax.pie()` calls with different `radius` parameters (e.g., Outer `radius=1.0`, Inner `radius=0.7`).
+
+4. BEST PRACTICE GUIDELINES IN MACHINE LEARNING:
+   - Use pie/donut charts strictly for 2 to 5 distinct categories summing to 100% (e.g. Class Balance, Platform Market Share).
+   - If there are > 6 categories or subtle fractional differences, always prefer a horizontal bar chart (`plt.barh()`) for precise human angle comparison.

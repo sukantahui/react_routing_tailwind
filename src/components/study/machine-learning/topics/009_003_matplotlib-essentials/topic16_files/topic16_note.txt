@@ -1,0 +1,25 @@
+MATPLOTLIB ESSENTIALS: TOPIC 16 NOTE
+=============================================================================
+TOPIC: Short Questions & Technical Interview Preparation
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. CORE ARCHITECTURE & DESIGN:
+   - What are the three layers in Matplotlib? Backend, Artist, Scripting (pyplot).
+   - Figure vs Axes: Figure is the window/container; Axes is the plotting region with coordinates.
+   - Stateful vs OO: Stateful implicitly alters global state (good for quick 1-liners); OO binds explicit handles (good for production code, subplots, and web servers).
+
+2. PLOT SELECTION MATRIX FOR MACHINE LEARNING:
+   - Line Plot (`ax.plot`): Training/Validation Loss convergence over epochs, time series.
+   - Bar Chart (`ax.bar` / `ax.barh`): Model F1-score comparisons, feature importance rankings.
+   - Histogram (`ax.hist`): Feature distribution skewness, probability densities (`density=True`).
+   - Scatter Plot (`ax.scatter`): 2D/4D feature space exploration, clustering, regression trendlines.
+   - Pie / Donut (`ax.pie`): Class balance breakdown for 2-4 classes.
+
+3. ADVANCED PARAMETERS & FORMATTING:
+   - LaTeX Math: Raw strings with dollar signs (e.g., `r'$\sigma(z)$'`).
+   - Outside Legend: `ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left')`.
+   - Bounding Crop: `plt.savefig(..., bbox_inches='tight')`.
+   - Dual Axes: `ax2 = ax.twinx()`.
+   - Zero-Disk API Streaming: `buf = io.BytesIO(); fig.savefig(buf, format='png')`.
+   - Headless Docker backend: `matplotlib.use('Agg')` before importing pyplot.

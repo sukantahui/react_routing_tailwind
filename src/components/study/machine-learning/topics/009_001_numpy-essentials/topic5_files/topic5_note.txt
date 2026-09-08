@@ -1,0 +1,39 @@
+﻿========================================================
+NUMPY ESSENTIALS — TOPIC 5: SHAPE, SIZE AND DIMENSIONS
+========================================================
+
+SHAPE:
+  arr.shape → tuple of sizes along each axis
+  1D: (n,)
+  2D: (rows, cols)
+  3D: (depth, rows, cols)
+
+NDIM:
+  arr.ndim → number of axes (dimensions)
+  1D ndarray: ndim=1
+  2D ndarray: ndim=2
+
+SIZE:
+  arr.size → product of all shape values
+  shape (3,4) → size=12
+
+NBYTES:
+  arr.nbytes = arr.size × arr.itemsize
+  shape (3,4) float64 → nbytes = 12 × 8 = 96
+
+CHECKING BEFORE FEEDING TO ML MODEL:
+  print(X.shape)   # (n_samples, n_features)
+  print(y.shape)   # (n_samples,)
+  print(X.dtype)   # float64
+
+RESHAPING TO FIX SHAPES:
+  arr = np.array([1,2,3,4,5,6])
+  arr.reshape(2,3) → shape (2,3)
+  arr.reshape(-1,1) → shape (6,1)  [-1 = infer]
+
+QUICK REVISION:
+  □ .shape returns a tuple
+  □ .ndim counts dimensions
+  □ .size is total element count
+  □ .nbytes = size × itemsize
+  □ Always check X.shape before training a model

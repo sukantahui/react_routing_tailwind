@@ -1,0 +1,69 @@
+========================================================
+NUMPY ESSENTIALS — TOPIC 10: ARRAY ARITHMETIC OPERATIONS
+Coder & AccoTax | Sukanta Hui | Barrackpore, West Bengal
+Subject: Machine Learning (BCAC701B) | Segment 9 • Module 1
+========================================================
+
+1. WHAT ARE ELEMENT-WISE ARITHMETIC OPERATIONS?
+------------------------------------------------
+In NumPy, standard arithmetic operators (+, -, *, /, //, %, **)
+are applied element-by-element across matching positions in arrays.
+
+Python List vs NumPy Array:
+  list1 + list2  -> Concatenates lists: [1, 2] + [3, 4] = [1, 2, 3, 4]
+  arr1 + arr2    -> Element-wise sum:   [1, 2] + [3, 4] = [4, 6]
+
+2. OPERATORS & EQUIVALENT UFUNCS:
+----------------------------------
+  Operation          Operator    Equivalent ufunc
+  -----------------  ---------   ------------------
+  Addition           a + b       np.add(a, b)
+  Subtraction        a - b       np.subtract(a, b)
+  Multiplication     a * b       np.multiply(a, b)  [Hadamard product]
+  Division           a / b       np.divide(a, b)    [True float division]
+  Floor Division     a // b      np.floor_divide(a, b)
+  Modulus / Remainder a % b      np.remainder(a, b)
+  Exponentiation     a ** b      np.power(a, b)
+
+3. ELEMENT-WISE MULTIPLICATION (*) vs MATRIX MULTIPLICATION (@):
+-----------------------------------------------------------------
+  - a * b : Multiplies matching elements at (i, j). Shapes must match.
+  - a @ b : Linear algebra matrix product (dot product of rows x cols).
+
+4. IN-PLACE ARITHMETIC (+=, -=, *=, /=):
+-----------------------------------------
+  arr += 5   # Modifies original memory buffer in-place without new allocation
+  ⚠️ DTYPE TRAP:
+  int_arr = np.array([1, 2, 3])
+  int_arr += 2.5  # Raises TypeError (cannot cast float64 into int32 in-place)
+
+5. ARITHMETIC IN MACHINE LEARNING PIPELINES:
+---------------------------------------------
+1. Image Normalization:
+   normalized_img = img / 255.0   # Scale [0, 255] -> [0.0, 1.0]
+
+2. Min-Max Feature Scaling:
+   X_scaled = (X - X.min()) / (X.max() - X.min())
+
+3. Z-Score Feature Standardization:
+   X_std = (X - X.mean()) / X.std()
+
+4. Mean Squared Error (MSE) Loss:
+   residuals = y_pred - y_true
+   mse = np.mean(residuals ** 2)
+
+5. Linear Model Hypothesis:
+   y_hat = X * weight + bias
+
+6. QUICK REVISION CHECKLIST:
+-----------------------------
+  □ All standard math operators execute element-by-element
+  □ * is Hadamard product; @ is matrix multiplication
+  □ Division by zero in NumPy produces 'inf' or 'nan' with a warning (not a crash)
+  □ In-place operators (+=, *=) save RAM by avoiding new allocations
+  □ Watch out for typecasting errors with in-place float additions
+  □ Feature scaling (Z-score, Min-Max) relies on vectorized arithmetic
+
+========================================================
+Coder & AccoTax | www.codernaccotax.co.in
+========================================================

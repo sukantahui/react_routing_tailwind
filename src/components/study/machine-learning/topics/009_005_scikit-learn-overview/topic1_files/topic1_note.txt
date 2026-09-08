@@ -1,0 +1,33 @@
+================================================================================
+SCIKIT-LEARN OVERVIEW: TOPIC 1 - INSTALLING AND IMPORTING SCIKIT-LEARN
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. INSTALLATION DETAILS:
+--------------------------------------------------------------------------------
+- Official PyPI package name: `scikit-learn` (with a hyphen).
+  Command: $ pip install -U scikit-learn
+- Conda Forge: $ conda install -c conda-forge scikit-learn
+- Python import module name: `sklearn` (without hyphen).
+
+2. DEPENDENCY ECOSYSTEM:
+--------------------------------------------------------------------------------
+- NumPy: Core C array manipulation
+- SciPy: Optimized numerical solvers, matrix decompositions, and distributions
+- Joblib: Multiprocessing engine for CPU-parallel `n_jobs=-1` tasks
+- Threadpoolctl: Thread controller for BLAS/LAPACK backends
+
+3. SUBMODULE TAXONOMY:
+--------------------------------------------------------------------------------
+Submodule               | Description & Main Classes
+------------------------|-------------------------------------------------------
+sklearn.preprocessing   | StandardScaler, MinMaxScaler, OneHotEncoder, RobustScaler
+sklearn.model_selection | train_test_split, cross_val_score, KFold, GridSearchCV
+sklearn.linear_model    | LinearRegression, LogisticRegression, Ridge, Lasso
+sklearn.neighbors       | KNeighborsClassifier, NearestNeighbors
+sklearn.tree            | DecisionTreeClassifier, DecisionTreeRegressor
+sklearn.ensemble        | RandomForestClassifier, GradientBoostingClassifier
+sklearn.cluster         | KMeans, DBSCAN, AgglomerativeClustering
+sklearn.metrics         | accuracy_score, precision_score, r2_score, confusion_matrix
+sklearn.pipeline        | Pipeline, make_pipeline

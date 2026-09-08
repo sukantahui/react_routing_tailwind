@@ -1,0 +1,32 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 9 - USING HUE FOR GROUPING
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS 'HUE' IN SEABORN?
+--------------------------------------------------------------------------------
+- 'hue' is Seaborn's color-encoding parameter for conditioning graphics on 
+  a third variable.
+- It automatically creates legends, resolves color palettes, and segments statistics.
+
+2. CATEGORICAL VS NUMERIC HUE:
+--------------------------------------------------------------------------------
+a) Categorical Hue (Strings / Categories):
+   - Example: hue="Gender", hue="Track", hue="Department"
+   - Maps distinct, qualitative colors (e.g. Set1, muted, bright).
+   - Generates discrete legend entries.
+   - In bar/box plots, causes automatic dodging (side-by-side splitting).
+
+b) Continuous / Numeric Hue (Floats / Integers):
+   - Example: hue="Age", hue="Salary", hue="ExamScore"
+   - Automatically maps a continuous sequential colormap gradient (e.g. viridis, flare).
+   - Generates a gradient scale legend instead of discrete swatches.
+
+3. FINE-TUNING HUE BEHAVIORS:
+--------------------------------------------------------------------------------
+- palette: Custom color dictionary, e.g. palette={'M': '#3b82f6', 'F': '#ec4899'}
+- hue_order: Controls the order of categories in both plot and legend.
+- dodge (in categorical plots):
+  * dodge=True (default): bars/boxes appear side by side.
+  * dodge=False: bars/boxes overlay on top of each other.

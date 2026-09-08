@@ -1,0 +1,49 @@
+==============================================================================
+TOPIC 10 NOTE: ADDING AND DROPPING COLUMNS IN PANDAS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. THE FOUR MODES OF ADDING COLUMNS:
+   --------------------------------------------------------------------------
+   a) Direct Bracket Assignment (df['NewCol'] = ...):
+      - Scalar broadcasting: df['City'] = 'Barrackpore' assigns value to every row.
+      - Vectorized computation: df['Total'] = df['Math'] + df['Science'].
+      - Conditionals: df['Grade'] = np.where(df['Total'] >= 180, 'A+', 'B').
+      - Always places the new column as the LAST column.
+
+   b) Positional Insertion (df.insert(loc, column, value)):
+      - Inserts column at exact integer index `loc` (0-indexed).
+      - Modifies DataFrame in place.
+      - Example: df.insert(1, 'RollNumber', roll_list)
+
+   c) Functional Method Chaining (df.assign(**kwargs)):
+      - Returns a brand new DataFrame copy.
+      - Allows chained pipeline workflows.
+      - Can reference previously defined columns in the same assign call using lambdas:
+        df.assign(Total=lambda x: x['A'] + x['B'], Pct=lambda x: x['Total']/200)
+
+   d) Column Extraction and Removal (df.pop(col)):
+      - Removes column in-place and returns it as a pd.Series.
+
+2. DROPPING COLUMNS AND ROWS:
+   --------------------------------------------------------------------------
+   a) Dropping Columns via columns parameter:
+      df_clean = df.drop(columns=['TempNotes', 'InternalCode'])
+      (Clear, readable, unambiguous).
+
+   b) Dropping via axis parameter:
+      df.drop(['Col1', 'Col2'], axis=1)  # axis=1 or axis='columns'
+      df.drop([0, 1, 4], axis=0)         # axis=0 or axis='index' (drops rows)
+
+   c) The inplace=True Debate:
+      - Historical use: df.drop(columns=['Col'], inplace=True)
+      - Modern Pandas 2.x/3.x direction: Deprecating inplace=True in favor of Copy-on-Write (CoW).
+      - Best Practice: Explicit reassignment (df = df.drop(...)) maintains clean data lineage and chaining.
+
+3. COMMON PITFALLS & PERFORMANCE TIPS:
+   --------------------------------------------------------------------------
+   - SettingWithCopyWarning: Occurs when adding a column to a DataFrame slice without .copy().
+   - Avoid iterating rows with for loops to compute new columns—always use vectorized column operations or np.where.
+   - Dropping non-existent columns raises KeyError unless errors='ignore' is supplied:
+     df.drop(columns=['UnknownCol'], errors='ignore')

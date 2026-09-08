@@ -1,0 +1,27 @@
+==============================================================================
+TOPIC 25 NOTE: PRACTICE PROBLEMS IN PANDAS ESSENTIALS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+PRACTICE PROBLEM CURRICULUM OVERVIEW:
+
+Problem 1: Vectorized Arithmetic & Query Filtering:
+  - Concepts: Vectorized Series addition, .query(), sort_values(), 1-based index ranks.
+  - Requirement: Filter students with Average >= 85 and Attendance >= 90%.
+
+Problem 2: Group-Specific Median Imputation:
+  - Concepts: .isna().astype(int) indicator flag, groupby().transform('median'), .fillna().
+  - Requirement: Impute missing salary records without global skew distortion.
+
+Problem 3: Multi-Dimensional Pivot Matrix:
+  - Concepts: pd.pivot_table(values, index, columns, aggfunc, fill_value, margins).
+  - Requirement: Construct clean 2D sales matrices with marginal subtotals.
+
+Problem 4: Relational Discrepancy & Lineage Audit:
+  - Concepts: pd.merge(how='outer', indicator=True), querying _merge == 'left_only' / 'right_only'.
+  - Requirement: Reconcile admissions rosters with test portal submissions.
+
+Problem 5: Production Pipeline & Heap Top-K Extraction:
+  - Concepts: Encapsulating ETL in pure functions, df.nlargest(top_k), .to_csv(index=False).
+  - Requirement: Transform raw dictionaries into ranked leaderboards in O(N log K) time.

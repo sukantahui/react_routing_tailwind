@@ -201,12 +201,12 @@ export default function Topic2() {
       {/* 3. Semantic Visual SVG Diagram */}
       <section id="diagram" className="scroll-mt-6 space-y-4">
         <h2 className="text-xl font-bold text-sky-300 flex items-center gap-2">
-          <span>⚙️</span> Semantic Visual Diagram: Divisive Top-Down Splitting Lifecycle (1 -> N)
+          <span>⚙️</span> Semantic Visual Diagram: Divisive Top-Down Splitting Lifecycle (1 -&gt; N)
         </h2>
         <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 overflow-x-auto shadow-inner">
           <svg viewBox="0 0 920 300" className="w-full min-w-[750px] font-sans">
             <text x="460" y="25" textAnchor="middle" fill="#38bdf8" className="font-bold text-sm">
-              Divisive Top-Down Splitting Lifecycle (1 -> N)
+              Divisive Top-Down Splitting Lifecycle (1 -&gt; N)
             </text>
 
             {/* Dendrogram Tree Visualization */}

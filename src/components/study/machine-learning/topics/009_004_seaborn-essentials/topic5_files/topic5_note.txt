@@ -1,0 +1,36 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 5 - RELATIONSHIP PLOTS (SCATTERPLOT & LINEPLOT)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. RELATIONSHIP PLOTTING PARADIGM:
+--------------------------------------------------------------------------------
+Relationship plots visualize how two continuous variables relate to each other,
+while conditioning on additional categorical or continuous dimensions.
+
+a) sns.scatterplot():
+   - Used for bivariate continuous data pairs (e.g. Study Hours vs ML Score).
+   - Visual encoding arguments:
+     * hue: maps color (categorical or continuous colormap gradient)
+     * size: scales marker area proportional to variable magnitude
+     * sizes: tuple of (min_size, max_size) in points
+     * style: maps different glyph markers (circles, crosses, squares)
+     * alpha: controls opacity for dense overplotted clouds
+
+b) sns.lineplot():
+   - Used for time series, ordered sequences, or repeated trial measurements.
+   - Crucial automatic behavior: When multiple Y-values exist for each X-value,
+     Seaborn calculates the mean line and automatically renders a shaded 
+     95% bootstrap confidence interval band!
+   - Set errorbar=None to suppress the uncertainty shading.
+
+c) Figure-Level wrapper: sns.relplot()
+   - Combines scatter and line into a unified interface:
+     kind="scatter" (default) or kind="line"
+   - Supports subgrid faceting across variables via `col="var1"` and `row="var2"`.
+
+2. BARRACKPORE BATCH MEMORY MANTRA:
+--------------------------------------------------------------------------------
+- "Axes-level functions (sns.scatterplot, sns.lineplot) go inside plt.subplots()."
+- "Figure-level functions (sns.relplot) create their own multi-window grid automatically!"

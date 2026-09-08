@@ -1,0 +1,39 @@
+==============================================================================
+TOPIC 15 NOTE: AGGREGATION FUNCTIONS IN PANDAS (sum, mean, count, agg)
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. BUILT-IN STATISTICAL REDUCTIONS:
+   --------------------------------------------------------------------------
+   - `sum()`: Computes total arithmetic sum.
+   - `mean()`: Computes arithmetic average.
+   - `median()`: 50th percentile (resistant to extreme outliers).
+   - `std()` / `var()`: Sample standard deviation and variance (N-1 degrees of freedom).
+   - `min()` / `max()`: Minimum and maximum values.
+   - `count()`: Number of non-null observations.
+   - `sem()`: Standard error of the mean.
+   - `quantile(q)`: Arbitrary percentiles (e.g. q=0.25, 0.75, 0.99).
+
+2. MULTI-METRIC AGGREGATION WITH .agg():
+   --------------------------------------------------------------------------
+   a) List of functions on a single column:
+      `df.groupby('Dept')['Math'].agg(['count', 'mean', 'std', 'max'])`
+
+   b) Dictionary mapping per column:
+      `df.groupby('Dept').agg({'Math': ['mean', 'min'], 'Science': 'max'})`
+      * Produces a MultiIndex column structure.
+
+   c) Modern Named Aggregation (Pandas 0.25+ Best Practice):
+      `df.groupby('Dept', as_index=False).agg(`
+      `    Avg_Math=('Math', 'mean'),`
+      `    Top_Score=('Math', 'max'),`
+      `    Student_Count=('StudentID', 'count')`
+      `)`
+      * Eliminates clumsy MultiIndex headers immediately!
+      * Yields clean, single-level column names ready for dashboards & SQL exports.
+
+3. PERFORMANCE & PANDAS 2.0+ CONSIDERATIONS:
+   --------------------------------------------------------------------------
+   - `numeric_only=True`: When applying `.mean()` or `.sum()` globally on a DataFrame with text columns, pass `numeric_only=True` to avoid TypeError.
+   - Built-in string function names ('mean', 'sum', 'std') utilize optimized Cython implementations, executing orders of magnitude faster than Python lambda expressions.

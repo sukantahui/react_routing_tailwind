@@ -1,0 +1,36 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 17 - WORKED EXAMPLE 1 (CLASSIFICATION)
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. THE STANDARD 7-STEP CLASSIFICATION WORKFLOW
+--------------------------------------------------------------------------------
+1. Data Understanding & Target Definition:
+   - Identify continuous features ($X_{num}$) and categorical features ($X_{cat}$).
+   - Set binary target $y \in \{0, 1\}$.
+2. Train-Test Split:
+   - Always use `stratify=y` to preserve label ratios.
+3. Preprocessing Architecture:
+   - Build sub-pipelines using `ColumnTransformer`.
+   - Numeric: `SimpleImputer(strategy='median')` -> `StandardScaler()`.
+   - Categorical: `SimpleImputer(strategy='most_frequent')` -> `OneHotEncoder(handle_unknown='ignore')`.
+4. Model Selection & Pipeline Assembly:
+   - Combine preprocessor + classifier into `Pipeline`.
+5. Cross-Validation & Baseline Benchmarking:
+   - Evaluate model using `cross_val_score(cv=5, scoring='f1')`.
+6. Final Model Fit & Test Evaluation:
+   - Fit on full training set, predict on test set, inspect `confusion_matrix` and `classification_report`.
+7. Production Deployment:
+   - Wrap in `joblib.dump(pipeline, 'model.pkl')` for REST API inference.
+
+2. AVOIDING COMMON ERRORS IN WORKED EXAMPLES
+--------------------------------------------------------------------------------
+- Never preprocess $X$ before `train_test_split()`.
+- Always set `handle_unknown='ignore'` in `OneHotEncoder` to avoid crashes on novel production inputs.
+- Report metrics in context: For balanced problems, accuracy is fine; for imbalanced problems, report F1 and Confusion Matrix.
+
+3. CLASSROOM CHECKLIST (Sukanta Hui to Barrackpore Batch)
+--------------------------------------------------------------------------------
+"An end-to-end ML project is not just training a model with 3 lines of code. It is building an automated, leak-free pipeline from raw dirty data to reliable inference probabilities."
+================================================================================

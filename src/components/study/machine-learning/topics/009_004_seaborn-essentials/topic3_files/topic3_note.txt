@@ -1,0 +1,36 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 3 - DISTRIBUTION PLOTS (HISTPLOT & KDEPLOT)
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. HISTOGRAMS VS KERNEL DENSITY ESTIMATIONS:
+--------------------------------------------------------------------------------
+a) sns.histplot():
+   - Divides continuous data into discrete intervals (bins).
+   - Counts observations in each bin or calculates density/probability.
+   - Key parameters:
+     * bins: number of bins or bin width (e.g., bins=20 or binwidth=5)
+     * kde: True/False (overlays a smooth continuous KDE curve)
+     * stat: "count", "frequency", "probability", "percent", "density"
+     * multiple: "layer", "dodge", "stack", "fill" (for multi-group comparisons)
+
+b) sns.kdeplot():
+   - Computes a non-parametric Kernel Density Estimation (KDE) curve.
+   - Places a Gaussian kernel over each data point and sums their curves.
+   - Key parameters:
+     * fill: True (shades the area under the probability density curve)
+     * bw_adjust: bandwidth multiplier (< 1.0 = sharp/noisy, > 1.0 = super smooth)
+     * hue: splits curves by category
+     * common_norm: whether multiple category densities sum to 1.0 collectively
+
+2. DEPRECATION WARNING:
+--------------------------------------------------------------------------------
+`sns.distplot()` was deprecated in Seaborn 0.11.0. 
+Always use `sns.histplot()` or `sns.displot()` or `sns.kdeplot()` in modern code.
+
+3. 2D BIVARIATE DISTRIBUTIONS:
+--------------------------------------------------------------------------------
+By passing both `x` and `y`, Seaborn creates 2D joint density maps:
+    sns.kdeplot(x=df['age'], y=df['salary'], fill=True, cmap="mako")
+This creates topological contour lines showing high-density clustering zones!

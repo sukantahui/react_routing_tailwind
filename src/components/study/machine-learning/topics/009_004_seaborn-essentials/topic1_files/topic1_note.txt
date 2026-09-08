@@ -1,0 +1,43 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 1 - INSTALLING AND IMPORTING SEABORN
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. INSTALLATION METHODS:
+--------------------------------------------------------------------------------
+- Standard Pip Installation:
+    $ pip install seaborn
+- Anaconda / Miniconda Installation:
+    $ conda install seaborn -c conda-forge
+- Installing in Jupyter Notebook cell directly:
+    !pip install seaborn
+
+2. DEPENDENCY ECOSYSTEM:
+--------------------------------------------------------------------------------
+Seaborn depends on four foundational numerical/scientific packages:
+1. NumPy (>= 1.17) - Multi-dimensional array calculations
+2. SciPy (>= 1.3) - Kernel density estimations & statistical fits
+3. Pandas (>= 0.25) - DataFrame manipulation and index handling
+4. Matplotlib (>= 3.1) - The low-level rendering canvas and graphics backend
+
+3. IMPORT CONVENTIONS:
+--------------------------------------------------------------------------------
+In standard data science pipelines:
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+Why 'sns'?
+Named as an easter egg after Samuel Norman Seaborn (a character in 'The West Wing').
+
+4. MODERN CONFIGURATION (Seaborn >= 0.11):
+--------------------------------------------------------------------------------
+Use `sns.set_theme()` instead of the older deprecated `sns.set()`:
+    sns.set_theme(
+        context="notebook",  # 'paper', 'notebook', 'talk', 'poster'
+        style="darkgrid",    # 'darkgrid', 'whitegrid', 'dark', 'white', 'ticks'
+        palette="deep",      # 'deep', 'muted', 'pastel', 'bright', 'dark', 'colorblind'
+        font="sans-serif"
+    )

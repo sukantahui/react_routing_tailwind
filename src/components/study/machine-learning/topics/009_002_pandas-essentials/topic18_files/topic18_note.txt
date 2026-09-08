@@ -1,0 +1,29 @@
+==============================================================================
+TOPIC 18 NOTE: VALUE COUNTS AND UNIQUE VALUES IN PANDAS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. Series.value_counts() ESSENTIAL PARAMETERS:
+   --------------------------------------------------------------------------
+   - `normalize=True`: Computes relative proportions / percentages (sums to 1.0).
+   - `dropna=False`: Includes NaN counts in frequency tally (critical for missing data audits).
+   - `sort=True, ascending=False`: Sorts from most frequent to least frequent.
+   - `bins=N`: Discretizes continuous numeric data into N equal-width interval bins.
+
+2. unique() VS nunique():
+   --------------------------------------------------------------------------
+   - `Series.unique()`: Returns a NumPy array of unique values in order of appearance (includes NaN).
+   - `Series.nunique()`: Returns the scalar integer count of distinct values (excludes NaN by default, set `dropna=False` to count NaN).
+   - `DataFrame.nunique()`: Returns a Series showing distinct count per column across the whole table.
+
+3. MACHINE LEARNING DATA AUDITING BEST PRACTICES:
+   --------------------------------------------------------------------------
+   a) Target Class Imbalance Detection:
+      - Calling `y.value_counts(normalize=True)` tells you if your classification problem is balanced (50/50) or severely imbalanced (98/2), dictating whether SMOTE, class weights, or PR-AUC metrics are necessary.
+
+   b) Zero-Variance / Constant Feature Removal:
+      - Features with `df[col].nunique() == 1` provide zero predictive signal and should be dropped immediately.
+
+   c) High-Cardinality Feature Identification:
+      - If a categorical column has thousands of unique strings (e.g. `df['UserZipCode'].nunique() > 5000`), one-hot encoding will explode feature dimensions; target encoding or embeddings should be used instead.

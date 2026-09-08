@@ -1,0 +1,36 @@
+MATPLOTLIB ESSENTIALS: TOPIC 0 NOTE
+=============================================================================
+TOPIC: Introduction to Matplotlib & Data Visualization Foundations
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. CORE PURPOSE & HISTORY:
+   - Matplotlib is the bedrock 2D plotting library in the Python Scientific Stack.
+   - Conceived by John D. Hunter (2003) to replicate MATLAB's visual workflows in Python.
+   - Built on top of NumPy arrays; serves as the underlying visual engine for Seaborn, Pandas plotting, and scikit-plot.
+
+2. THREE-LAYER HIERARCHICAL ARCHITECTURE:
+   a) Backend Layer:
+      - Interacts with output devices, OS windowing systems, and file formats.
+      - User Interface Backends (Interactive): TkAgg, PyQt6/Qt5Agg, WXAgg, WebAgg.
+      - Hardcopy Backends (Non-interactive): Anti-Grain Geometry (Agg - PNG), PDF, SVG, PS.
+   b) Artist Layer:
+      - Contains every visual primitive drawn on screen.
+      - Two categories of Artists:
+        * Primitive: Line2D, Rectangle, Circle, Polygon, Text, AxesImage.
+        * Composite: Figure, Axes, Axis, Tick.
+   c) Scripting Layer (matplotlib.pyplot):
+      - Procedural interface that maintains internal state of active figure and axes.
+
+3. STATEFUL VS OBJECT-ORIENTED (OO) INTERFACE:
+   - Stateful (plt.plot): Implicitly tracks current figure (plt.gcf()) and axes (plt.gca()). Best for quick interactive 1-liner exploration.
+   - Object-Oriented (fig, ax = plt.subplots()): Explicitly binds figure and axes handles. Mandatory for multi-axis subplots, custom layouts, and clean production ML dashboards.
+
+4. MEMORY & RESOURCE MANAGEMENT:
+   - Every figure created resides in memory until explicitly closed.
+   - In loops or servers, failure to run `plt.close(fig)` or `plt.close('all')` leads to severe memory leaks (Matplotlib warning: More than 20 figures open).
+
+5. DATA INPUT CAPABILITIES:
+   - Native Python lists/tuples.
+   - NumPy 1D, 2D, and masked ndarrays.
+   - Pandas Series and DataFrames (directly or via `data=df` argument).

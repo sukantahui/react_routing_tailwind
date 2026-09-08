@@ -1,0 +1,37 @@
+==============================================================================
+TOPIC 14 NOTE: GROUPING DATA WITH groupby() IN PANDAS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. THE SPLIT-APPLY-COMBINE PARADIGM:
+   --------------------------------------------------------------------------
+   - Coined by Hadley Wickham; foundational to Pandas group analytics:
+     1. SPLIT: Break DataFrame into discrete subsets based on one or more keys.
+     2. APPLY: Compute summary aggregation, broadcast transform, or filter condition.
+     3. COMBINE: Merge results back into a unified DataFrame or Series.
+
+2. THE THREE MODES OF GROUP OPERATIONS:
+   --------------------------------------------------------------------------
+   a) Aggregation (Reduces dimension to 1 value per group):
+      `df.groupby('Department')['Salary'].mean()`
+      - Reduces N rows down to G rows (where G is number of unique groups).
+
+   b) Transformation (Preserves original DataFrame shape N -> N):
+      `df['Dept_Avg'] = df.groupby('Department')['Salary'].transform('mean')`
+      - Crucial for ML feature engineering: compute group standard deviations, z-scores per cohort, percentage share within department without manual joins!
+
+   c) Filtration (Retains or discards entire groups based on boolean test):
+      `df.groupby('Store').filter(lambda x: x['Sales'].sum() > 100000)`
+      - Keeps only records belonging to groups satisfying the predicate.
+
+3. KEY CONFIGURATION PARAMETERS:
+   --------------------------------------------------------------------------
+   - `as_index=False`:
+     * By default, grouping columns become row index labels (creating a MultiIndex if multiple keys).
+     * `as_index=False` produces standard flat tabular DataFrames (identical to SQL GROUP BY).
+   - `.get_group(key)`:
+     * Fast retrieval of all rows matching a specific group key.
+   - `.size()` vs `.count()`:
+     * `.size()`: Returns total row count per group (including NaNs).
+     * `.count()`: Returns count of non-null values per column within each group.

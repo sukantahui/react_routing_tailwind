@@ -1,0 +1,27 @@
+==============================================================================
+TOPIC 19 NOTE: EXPORTING DATA TO CSV IN PANDAS (df.to_csv)
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. THE GOLDEN RULE OF to_csv():
+   --------------------------------------------------------------------------
+   - Always specify `index=False` unless your row index has specific business meaning.
+   - Forgetting `index=False` causes Pandas to write the 0, 1, 2... index into the first column, which later gets read back as the notorious `Unnamed: 0` junk column!
+
+2. ESSENTIAL PARAMETERS FOR df.to_csv():
+   --------------------------------------------------------------------------
+   - `path_or_buf`: Target filepath string or buffer object.
+   - `index=False`: Prevents writing row index labels.
+   - `columns=['ColA', 'ColB']`: Exports only specified subset of columns.
+   - `sep=','`: Delimiter character (e.g. `\t` for TSV, `|` for pipe-delimited).
+   - `na_rep='NA'`: String representation for missing values (default is empty string `""`).
+   - `float_format='%.2f'`: Controls floating-point decimal precision.
+   - `encoding='utf-8'`: Character encoding (use `'utf-8-sig'` for Microsoft Excel on Windows).
+   - `compression='gzip'`: Saves compressed archive directly (.csv.gz), cutting file sizes by 70-90%.
+   - `mode='a'`: Append mode; when combined with `header=False`, allows streaming new batch rows into existing files.
+
+3. CSV VS MODERN BINARY FORMATS (PARQUET / FEATHER) IN ML:
+   --------------------------------------------------------------------------
+   - CSV is human-readable and universal, but slow to parse and stores no data type metadata.
+   - In production machine learning pipelines, store large tabular datasets as Apache Parquet (`df.to_parquet()`) or Feather (`df.to_feather()`) for 10x faster I/O and lossless schema preservation.

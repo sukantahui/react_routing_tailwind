@@ -1,0 +1,41 @@
+==============================================================================
+TOPIC 11 NOTE: HANDLING MISSING VALUES IN PANDAS (isna, dropna, fillna)
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. UNDERSTANDING MISSING DATA IN PANDAS:
+   --------------------------------------------------------------------------
+   - Representations: `np.nan` (floating-point IEEE NaN), `None` (Python object), `pd.NA` (nullable types in Pandas 1.0+).
+   - Detection methods:
+     * `df.isna()` or `df.isnull()`: Exact aliases, return boolean masks.
+     * `df.notna()` or `df.notnull()`: Inverse masks (True for valid data).
+     * `df.isna().sum()`: Count of missing entries per column.
+     * `(df.isna().mean() * 100)`: Percentage of missing values per column.
+
+2. REMOVING MISSING VALUES WITH dropna():
+   --------------------------------------------------------------------------
+   - `df.dropna()`: Default drops any row with >= 1 missing value (axis=0, how='any').
+   - `how='all'`: Only drops row/column if ALL values are NaN.
+   - `subset=['ColA', 'ColB']`: Constrains dropping to specific critical columns.
+   - `thresh=N`: Keeps rows/columns with at least N non-null observations.
+   - `axis=1` or `axis='columns'`: Drops columns containing NaNs.
+
+3. IMPUTING MISSING VALUES WITH fillna():
+   --------------------------------------------------------------------------
+   - Constant imputation: `df['City'].fillna('Unknown')`
+   - Zero imputation: `df['Discount'].fillna(0)`
+   - Central tendency imputation:
+     * Mean (for normally distributed numeric data): `df['Age'].fillna(df['Age'].mean())`
+     * Median (for skewed numeric data or data with outliers): `df['Salary'].fillna(df['Salary'].median())`
+     * Mode (for categorical data): `df['Department'].fillna(df['Department'].mode()[0])`
+   - Sequential imputation:
+     * `df.ffill()`: Forward fill (carries last known valid value forward).
+     * `df.bfill()`: Backward fill (carries next known valid value backward).
+   - Dictionary imputation for multiple columns at once:
+     `df.fillna({'Age': 25, 'Salary': 50000, 'City': 'Barrackpore'})`
+
+4. MACHINE LEARNING BEST PRACTICES:
+   --------------------------------------------------------------------------
+   - Never impute test data using test set statistics! Always compute mean/median on the TRAINING set and apply that value to both train and test sets to prevent Data Leakage.
+   - If a feature has > 60-70% missing values, evaluate whether dropping the entire feature or creating a boolean indicator (is_missing) is superior to imputation.

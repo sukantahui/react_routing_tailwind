@@ -1,0 +1,49 @@
+================================================================================
+CLASSROOM REVISION NOTES: TOPIC 12 - K-MEANS CLUSTERING
+Course: Python Machine Learning & AI | Instructor: Sukanta Hui
+Institute: Coder & AccoTax, Barrackpore, Kolkata
+================================================================================
+
+1. WHAT IS K-MEANS CLUSTERING?
+--------------------------------------------------------------------------------
+K-Means is an unsupervised clustering algorithm that partitions $N$ unlabeled samples into $K$ distinct, non-overlapping subgroups (clusters).
+Each cluster is defined by its geometric centroid (mean of points in that cluster).
+
+THE 4-STEP CONVERGENCE LOOP:
+1. Initialization: Choose $K$ initial centroid positions.
+2. Assignment Step: Assign each sample $x_i$ to its nearest centroid based on squared Euclidean distance.
+3. Update Step: Recompute centroid coordinates as the arithmetic mean of all points assigned to that cluster.
+4. Repeat Steps 2 & 3 until centroids stabilize (no changes) or `max_iter` is reached.
+
+2. INERTIA / WITHIN-CLUSTER SUM OF SQUARES (WCSS)
+--------------------------------------------------------------------------------
+Formula:
+    $\text{Inertia} = \sum_{j=1}^K \sum_{x_i \in C_j} ||x_i - \mu_j||^2$
+- Inertia measures the tightness / compactness of clusters (lower is tighter).
+- Accessible via the learned attribute: `kmeans.inertia_`.
+- As $K$ increases, Inertia always decreases (if $K=N$, Inertia = 0).
+
+3. THE ELBOW METHOD (FINDING OPTIMAL K)
+--------------------------------------------------------------------------------
+Plot Inertia vs. $K$ ($K=1, 2, 3, ..., 10$).
+- Look for the sharp "elbow bend" where the rate of decrease abruptly flattens.
+- The elbow point represents the optimal trade-off between compactness and model complexity.
+
+4. KEY HYPERPARAMETERS & ATTRIBUTES
+--------------------------------------------------------------------------------
+Hyperparameters:
+- `n_clusters`: Number of clusters $K$ (e.g. 3, 5).
+- `init='k-means++'` (Default): Smart initialization algorithm that spaces out starting centroids far apart to avoid sub-optimal local minima.
+- `n_init=10`: Number of independent runs with different centroid seeds; returns the best run with the lowest Inertia.
+- `max_iter=300`: Maximum iterations per run.
+
+Learned Attributes:
+- `cluster_centers_`: Array of shape (n_clusters, n_features) holding final centroid coordinates.
+- `labels_`: Integer cluster assignments (0 to K-1) for each training sample.
+- `inertia_`: Final sum of squared distances to closest centroids.
+- `n_iter_`: Number of iterations taken to converge.
+
+5. BARRACKPORE LAB WARNING (Sukanta Hui)
+--------------------------------------------------------------------------------
+"K-Means is distance-based! Always run `StandardScaler` first. Without scaling, a feature with values in thousands (like Salary) will completely overpower features with smaller ranges (like Age)!"
+================================================================================

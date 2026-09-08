@@ -1,0 +1,29 @@
+================================================================================
+SEABORN ESSENTIALS: TOPIC 7 - CORRELATION MATRIX VISUALIZATION
+Classroom Notes | Coder & AccoTax (Barrackpore)
+Instructor: Sukanta Hui
+================================================================================
+
+1. WHAT IS A CORRELATION MATRIX?
+--------------------------------------------------------------------------------
+A correlation matrix displays Pearson correlation coefficients (r) between all 
+pairs of numerical features in a dataset.
+- Value range: [-1.0, +1.0]
+  * +1.0: Perfect positive linear relationship (as X rises, Y rises).
+  * 0.0: No linear relationship.
+  * -1.0: Perfect negative linear relationship (as X rises, Y falls).
+
+2. BEST PRACTICES FOR CORRELATION HEATMAPS:
+--------------------------------------------------------------------------------
+a) Always use a diverging colormap (e.g., cmap="coolwarm", "vlag", or "RdBu_r").
+b) Set center=0, vmin=-1, vmax=1 so 0 is neutral and extremes are balanced.
+c) Set annot=True and fmt=".2f" to show numeric coefficients.
+d) Set square=True to keep cells square for visual balance.
+e) Mask the redundant upper triangle using `mask = np.triu(np.ones_like(corr, dtype=bool))`.
+
+3. MACHINE LEARNING APPLICATIONS:
+--------------------------------------------------------------------------------
+- Multicollinearity Detection: If two independent features have r > 0.85 (e.g. sqft and num_rooms),
+  one of them may need to be dropped to prevent instability in Linear/Logistic Regression.
+- Feature Selection: Correlating all features against the target variable (y)
+  ranks which features hold the strongest predictive signal.

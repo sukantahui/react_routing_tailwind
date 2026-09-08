@@ -1,0 +1,29 @@
+MATPLOTLIB ESSENTIALS: TOPIC 2 NOTE
+=============================================================================
+TOPIC: Figure, Axes, Axis, Spines & Coordinate Transforms
+MENTOR: Sukanta Hui | Coder & AccoTax (Barrackpore)
+=============================================================================
+
+1. THE CORE HIERARCHY:
+   - Figure (Top container): The entire window or page canvas holding one or more Axes. Created with `plt.figure()` or `plt.subplots()`.
+   - Axes (The Plot region): The coordinate bounding box where data is actually plotted. Contains methods like `.plot()`, `.scatter()`, `.set_title()`, `.set_xlabel()`.
+   - Axis (X and Y Number Lines): Objects (`ax.xaxis`, `ax.yaxis`) managing ticks, tick locators, grid lines, and data scaling (linear/log).
+   - Spines (Bounding Borders): The 4 boundary lines of the data area (`ax.spines['top']`, `'bottom'`, `'left'`, `'right'`).
+
+2. MULTI-AXES SUBPLOT LAYOUTS:
+   - `fig, ax = plt.subplots(nrows, ncols)`
+   - When nrows=1, ncols=1: returns scalar `ax`
+   - When nrows=1, ncols>1 or nrows>1, ncols=1: returns 1D array `axs[0]`, `axs[1]`
+   - When nrows>1, ncols>1: returns 2D ndarray `axs[row, col]`
+   - Flattening 2D arrays: `for ax in axs.flatten():` or `axs.ravel()` makes looping clean regardless of grid dimensions.
+   - `sharex=True, sharey=True`: Synchronizes axis limits and zoom across all subplots.
+
+3. COORDINATE SYSTEMS & TRANSFORMS:
+   - `ax.transData`: Uses raw data values (e.g., x=10.5, y=250.0). Ideal for marking outlier data points.
+   - `ax.transAxes`: Relative coordinates within the current Axes (0.0 to 1.0, where (0,0)=bottom-left, (1,1)=top-right). Ideal for metric boxes, legends, and corner text.
+   - `fig.transFigure`: Relative coordinates across the whole canvas. Ideal for overall super-titles and watermarks.
+
+4. ARTIST CUSTOMIZATION TIPS:
+   - Hiding spines: `ax.spines['top'].set_visible(False)`
+   - Super title for figure: `fig.suptitle("Main Title", fontsize=16)`
+   - Automatic layout spacing: `plt.tight_layout()` or `plt.subplots(..., constrained_layout=True)`

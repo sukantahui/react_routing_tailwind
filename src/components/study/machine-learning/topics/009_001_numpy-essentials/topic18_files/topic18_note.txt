@@ -1,0 +1,31 @@
+========================================================================
+TOPIC 18 NOTE: WORKED EXAMPLE 2 - BROADCASTING ADDITION & ARITHMETIC
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. CASE STUDY 1: FEATURE CENTERING & COLUMNAR BROADCASTING
+----------------------------------------------------------
+- Goal:
+  Transform raw feature matrix X (shape: N x D) into zero-centered matrix X_centered.
+- Mathematical Definition:
+  X_centered[i, j] = X[i, j] - mu_j  where mu_j = (1/N) * sum_i (X[i, j]).
+- NumPy Broadcasting Alignment:
+  * X has shape:        (N, D)
+  * mu has shape:          (D,)
+  * Trailing dimensions match (D == D). NumPy implicitly pads mu to (1, D) and replicates it across all N rows without physical memory copy.
+
+2. CASE STUDY 2: ROW-WISE BROADCASTING & DIMENSIONAL TRAPS
+----------------------------------------------------------
+- The (N,) Trap:
+  Subtracting a row-wise metric (e.g. per-student minimum) of shape (N,) from (N, D):
+  * (N, D) vs ( , N) -> D != N -> Fails with `ValueError: operands could not be broadcast together`.
+- Solution:
+  Add singleton column dimension: `row_stat[:, np.newaxis]` or `keepdims=True`, producing shape `(N, 1)`.
+  * (N, D) vs (N, 1) -> 1 expands to D -> Success!
+
+3. CASE STUDY 3: HIGH-DIMENSIONAL COMPUTER VISION BROADCASTING
+--------------------------------------------------------------
+- Input: Image Batch tensor of shape (N, H, W, C) = (8, 224, 224, 3).
+- Subtracting ImageNet Channel Means:
+  Array of shape (3,) automatically aligns with trailing axis C=3.
+  NumPy scales across (8, 224, 224) dimensions with zero memory overhead and maximum C-level SIMD vectorization speed.

@@ -1,0 +1,35 @@
+========================================================================
+TOPIC 5 NOTE: READING EXCEL FILES WITH pd.read_excel()
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. ESSENTIAL REQUIREMENTS & ENGINES
+-----------------------------------
+- Installation:
+  `pip install openpyxl` (Required for modern `.xlsx` XML spreadsheets)
+  `pip install xlrd` (Required for legacy `.xls` binary 97-2003 spreadsheets)
+  `pip install calamine` (High-performance Rust-based Excel parser)
+
+2. CONTROLLING SHEETS (sheet_name)
+----------------------------------
+- `sheet_name=0`: Reads the first sheet (default).
+- `sheet_name='SheetName'`: Reads specific sheet by exact string name.
+- `sheet_name=['Sheet1', 'Sheet2']`: Reads specified sheets as a dictionary of DataFrames.
+- `sheet_name=None`: Ingests ALL sheets in the workbook into a single dictionary `{ 'Sheet1': df1, 'Sheet2': df2 }`.
+
+3. ADVANCED SPREADSHEET PARSING PARAMETERS
+------------------------------------------
+- `skiprows=N`: Skips metadata header banners, company logos, and title text.
+- `header=N`: Explicitly sets which row contains column names (0-indexed).
+- `usecols='A:E'`: Reads Excel column letter ranges directly without loading entire sheet into RAM.
+- `dtype`: Prevents leading zeros from being dropped from tax IDs or student phone numbers.
+
+4. MULTI-SHEET CONSOLIDATION PATTERN
+------------------------------------
+```python
+all_sheets = pd.read_excel('sales_2026.xlsx', sheet_name=None)
+df_master = pd.concat([
+    df.assign(Region=sheet) for sheet, df in all_sheets.items()
+], ignore_index=True)
+```
+This merges multi-tab monthly or regional workbooks into a clean tabular master DataFrame for downstream Machine Learning models.

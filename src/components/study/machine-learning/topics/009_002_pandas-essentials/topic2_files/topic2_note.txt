@@ -1,0 +1,38 @@
+========================================================================
+TOPIC 2 NOTE: SERIES AND DATAFRAME CONCEPTS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. PANDAS SERIES DEEP DIVE
+--------------------------
+- Definition:
+  A 1-dimensional labeled homogeneous array capable of holding any data type.
+- Key Components:
+  * `s.values`: Returns the underlying 1D NumPy array buffer.
+  * `s.index`: An `Index` object containing row labels (can be RangeIndex, Int64Index, DatetimeIndex, Index of strings).
+  * `s.name`: An optional string label for the series (which becomes column name when converted to DataFrame).
+
+2. AUTOMATIC LABEL-BASED INDEX ALIGNMENT
+-----------------------------------------
+- The defining superpower of Pandas:
+  When performing arithmetic operations (e.g. `s1 + s2` or `s1 * s2`), elements are matched by their INDEX LABELS, NOT their coordinate positions.
+- Missing labels:
+  If a label exists in `s1` but not in `s2`, the union (Outer Join) result for that key becomes `NaN` (Not a Number).
+- Safe addition:
+  Use `s1.add(s2, fill_value=0)` to treat missing keys as 0 instead of propagating NaNs.
+
+3. PANDAS DATAFRAME ARCHITECTURE
+---------------------------------
+- A 2D labeled tabular data structure where:
+  * Rows represent observations/samples (Axis 0).
+  * Columns represent variables/features (Axis 1).
+- Single Bracket vs Double Bracket Indexing:
+  * `df['col']`: Returns a 1D `pd.Series`.
+  * `df[['col']]`: Returns a 2D `pd.DataFrame` containing a single column.
+  * `df[['col1', 'col2']]`: Returns a 2D `pd.DataFrame` subset.
+
+4. MEMORY MANAGEMENT
+---------------------
+- To inspect true RAM consumption in bytes:
+  `df.memory_usage(deep=True)`
+- High cardinality string `object` columns store pointers; converting to `category` dtype can reduce memory consumption by 80-90% on large datasets.

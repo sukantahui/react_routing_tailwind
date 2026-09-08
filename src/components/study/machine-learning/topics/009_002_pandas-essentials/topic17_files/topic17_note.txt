@@ -1,0 +1,42 @@
+==============================================================================
+TOPIC 17 NOTE: APPLYING FUNCTIONS WITH apply() IN PANDAS
+Instructor: Sukanta Hui | Institution: Coder & AccoTax, Barrackpore
+Students: Debangshu, Susmita, Swadeep, Tuhina, Sachin, Mahima, Abhronila
+==============================================================================
+
+1. THE THREE APPLICATION SCOPES:
+   --------------------------------------------------------------------------
+   a) Series.apply(callable, args=(), **kwargs):
+      - Operates on each scalar value within a single Series.
+      - Ideal for text parsing, regular expressions, complex scalar math.
+      - Example: `df['Email'].apply(lambda x: x.split('@')[1])`
+
+   b) Series.map(dict_or_callable):
+      - Replaces values via dictionary lookup or applies a 1-to-1 function.
+      - Fast and concise for categorical encoding.
+      - Example: `df['Status'].map({'Y': 1, 'N': 0})`
+
+   c) DataFrame.apply(callable, axis=0 or 1):
+      - `axis=0` (Default, Column-wise): Passes each entire column as a Series.
+      - `axis=1` (Row-wise): Passes each row as a Series (access `row['ColA']`, `row['ColB']`).
+
+   d) DataFrame.map() (formerly applymap in legacy Pandas):
+      - Element-wise transformation on every cell across the entire DataFrame.
+      - Example: `df.map(lambda x: f"{x:.2f}")`
+
+2. THE PERFORMANCE HIERARCHY (CRITICAL FOR MACHINE LEARNING):
+   --------------------------------------------------------------------------
+   Why is `df.apply(axis=1)` considered a last resort?
+   - Level 1 (Fastest, C/SIMD Vectorization):
+     `df['Total'] = df['A'] + df['B']` or `np.where(df['A'] > 50, 'Yes', 'No')`
+     -> 100x to 500x faster than loops!
+   - Level 2 (Moderate, Cythonized / Numba):
+     `np.vectorize(custom_py_func)`
+   - Level 3 (Slowest, Pure Python Loop):
+     `df.apply(lambda r: ..., axis=1)`
+     -> Constructs a Python Series object for EVERY single row, creating immense memory and GC overhead.
+
+3. GOLDEN RULES:
+   --------------------------------------------------------------------------
+   - Rule 1: Always check if built-in vectorized arithmetic, `df.str`, or `np.where` can solve your problem before using `apply()`.
+   - Rule 2: Use `apply(axis=1)` ONLY when business logic requires complex Python conditionals, try/except blocks, or third-party non-vectorized library calls (e.g. Geocoding API, NLTK, spaCy).

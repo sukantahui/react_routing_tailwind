@@ -1,0 +1,32 @@
+========================================================================
+TOPIC 7 NOTE: SELECTING COLUMNS IN PANDAS
+Instructor: Sukanta Hui (Coder & AccoTax, Barrackpore)
+========================================================================
+
+1. SINGLE VS MULTI-COLUMN EXTRACTION
+------------------------------------
+- Single Bracket `df['Column']`:
+  Returns a 1D `pd.Series`. Use when extracting a single target vector $y$ for machine learning.
+- Double Bracket `df[['Column']]`:
+  Returns a 2D `pd.DataFrame` containing a single column.
+- Multiple Columns `df[['Col1', 'Col2', 'Col3']]`:
+  Returns a 2D `pd.DataFrame` containing the specified subset of columns in the exact order requested. Use when preparing feature matrix $X$.
+
+2. DOT NOTATION VS BRACKET NOTATION
+------------------------------------
+- Dot Notation (`df.column_name`):
+  * Allowed only when column names are valid Python identifiers (no spaces, no symbols).
+  * Dangerous Traps:
+    1. Method Name Collisions: If a column is named `count`, `shape`, `min`, `max`, or `index`, `df.count` accesses the DataFrame method, NOT the column data!
+    2. Dynamic Access: Cannot access columns stored in Python variables (`df.var_name` searches for a literal column named 'var_name').
+    3. Creating New Columns: `df.new_col = ...` fails to create a new column on the DataFrame.
+- Golden Rule: Always use Bracket Notation (`df['column_name']`) in production code.
+
+3. PROGRAMMATIC COLUMN FILTERING
+---------------------------------
+- By Data Type (`df.select_dtypes`):
+  * `df.select_dtypes(include='number')`: Selects `int64`, `float64`, etc.
+  * `df.select_dtypes(include=['object', 'category'])`: Selects text and categorical features for encoding.
+- By Name Patterns (`df.filter`):
+  * Substring match: `df.filter(like='Price')`.
+  * Regular Expression: `df.filter(regex=r'^Sales_2026')`.
